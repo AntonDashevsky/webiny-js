@@ -1,14 +1,17 @@
 const { DEFAULTS } = require("./defaults");
 
+// We don't need tokens that end with `-a{one or two numbers}` because they are used for
+// alpha colors. We don't need these because we can use the /alpha function in Tailwind CSS.
+const isColorWithAlpha = (variantName) => {
+    return variantName.match(/^.*-a\d{1,2}$/);
+};
+
 const createTailwindConfigTheme = normalizedFigmaExport => {
     return {
         backgroundColor: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "backgroundColor") {
-                    // We don't need tokens that end with `-a{one or two numbers}` because they are used for
-                    // alpha colors. We don't need these because we can use the /alpha function in Tailwind CSS.
-                    const isColorWithAlpha = variantName.match(/^.*-a\d{1,2}$/);
-                    if (isColorWithAlpha) {
+                    if (isColorWithAlpha(variantName)) {
                         return acc;
                     }
 
@@ -169,7 +172,8 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
         textColor: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "textColor") {
-                    const [color, variant] = variantName.split("-");
+                    const [color, ...variantParts] = variantName.split("-");
+                    const variant = variantParts.join("-");
                     if (!acc[color]) {
                         acc[color] = {
                             DEFAULT: `hsl(var(--text-${color}-default))`

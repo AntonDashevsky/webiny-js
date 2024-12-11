@@ -117,11 +117,11 @@ module.exports = {
         },
         neutral: {
             DEFAULT: "hsl(var(--fill-neutral))",
-            base: "hsl(var(--fill-neutral-base))",
+            base: "hsl(var(--fill-neutral-base-a50))",
             dark: "hsl(var(--fill-neutral-dark))",
             disabled: "hsl(var(--fill-neutral-disabled))",
             strong: "hsl(var(--fill-neutral-strong))",
-            xstrong: "hsl(var(--fill-neutral-xstrong))"
+            xstrong: "hsl(var(--fill-neutral-xstrong-a30))"
         },
         success: {
             DEFAULT: "hsl(var(--fill-success))",
@@ -326,6 +326,7 @@ module.exports = {
             DEFAULT: "hsl(var(--text-neutral-default))",
             dimmed: "hsl(var(--text-neutral-dimmed))",
             disabled: "hsl(var(--text-neutral-disabled))",
+            "disabled-negative": "hsl(var(--text-neutral-disabled-negative))",
             light: "hsl(var(--text-neutral-light))",
             muted: "hsl(var(--text-neutral-muted))",
             primary: "hsl(var(--text-neutral-primary))",
