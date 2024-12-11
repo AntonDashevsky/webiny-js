@@ -117,11 +117,11 @@ module.exports = {
         },
         neutral: {
             DEFAULT: "hsl(var(--fill-neutral))",
-            base: "hsl(var(--fill-neutral-base-a50))",
+            base: "hsl(var(--fill-neutral-base))",
             dark: "hsl(var(--fill-neutral-dark))",
             disabled: "hsl(var(--fill-neutral-disabled))",
             strong: "hsl(var(--fill-neutral-strong))",
-            xstrong: "hsl(var(--fill-neutral-xstrong-a30))"
+            xstrong: "hsl(var(--fill-neutral-xstrong))"
         },
         success: {
             DEFAULT: "hsl(var(--fill-success))",

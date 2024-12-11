@@ -60,6 +60,9 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
         fill: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "fill") {
+                    if (isColorWithAlpha(variantName)) {
+                        return acc;
+                    }
                     const [color, variant] = variantName.split("-");
                     if (!acc[color]) {
                         acc[color] = {
@@ -138,6 +141,10 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
         ringColor: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "ringColor") {
+                    if (isColorWithAlpha(variantName)) {
+                        return acc;
+                    }
+
                     const [color, variant] = variantName.split("-");
                     if (!acc[color]) {
                         acc[color] = {
@@ -172,6 +179,10 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
         textColor: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "textColor") {
+                    if (isColorWithAlpha(variantName)) {
+                        return acc;
+                    }
+
                     const [color, ...variantParts] = variantName.split("-");
                     const variant = variantParts.join("-");
                     if (!acc[color]) {
