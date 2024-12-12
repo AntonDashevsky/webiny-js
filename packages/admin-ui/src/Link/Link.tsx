@@ -17,19 +17,19 @@ const linkVariants = cva("font-sans rounded-xs", {
         variant: {
             primary: [
                 "text-accent-primary",
-                "focus-visible:outline-none focus-visible:ring-lg focus-visible:ring-primary-dimmed"
+                "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-primary-dimmed"
             ],
             secondary: [
                 "text-neutral-primary",
-                "focus-visible:outline-none focus-visible:ring-lg focus-visible:ring-primary-dimmed"
+                "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-primary-dimmed"
             ],
             "primary-negative": [
                 "text-accent-primary",
-                "focus-visible:outline-none focus-visible:ring-lg focus-visible:ring-accent-primary"
+                "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-primary-strong"
             ],
             "secondary-negative": [
                 "text-neutral-light",
-                "focus-visible:outline-none focus-visible:ring-lg focus-visible:ring-accent-primary"
+                "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-primary-strong"
             ]
         },
         underline: {
