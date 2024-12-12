@@ -2,7 +2,7 @@ const { DEFAULTS } = require("./defaults");
 
 // We don't need tokens that end with `-a{one or two numbers}` because they are used for
 // alpha colors. We don't need these because we can use the /alpha function in Tailwind CSS.
-const isColorWithAlpha = (variantName) => {
+const isColorWithAlpha = variantName => {
     return variantName.match(/^.*-a\d{1,2}$/);
 };
 
