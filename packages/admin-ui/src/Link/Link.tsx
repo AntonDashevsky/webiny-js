@@ -6,7 +6,7 @@ import {
     type LinkProps as WebinyReactRouterLinkProps
 } from "@webiny/react-router";
 
-const linkVariants = cva("font-sans", {
+const linkVariants = cva("font-sans rounded-xs", {
     variants: {
         size: {
             sm: "text-sm",
@@ -15,41 +15,28 @@ const linkVariants = cva("font-sans", {
             xl: "text-xl"
         },
         variant: {
-            primary: "text-accent-primary",
-            secondary: "text-neutral-primary",
-            "primary-negative": "text-accent-primary",
-            "secondary-negative": "text-neutral-light"
+            primary: [
+                "text-accent-primary",
+                "focus-visible:outline-none focus-visible:ring-lg focus-visible:ring-primary-dimmed"
+            ],
+            secondary: [
+                "text-neutral-primary",
+                "focus-visible:outline-none focus-visible:ring-lg focus-visible:ring-primary-dimmed"
+            ],
+            "primary-negative": [
+                "text-accent-primary",
+                "focus-visible:outline-none focus-visible:ring-lg focus-visible:ring-accent-primary"
+            ],
+            "secondary-negative": [
+                "text-neutral-light",
+                "focus-visible:outline-none focus-visible:ring-lg focus-visible:ring-accent-primary"
+            ]
         },
         underline: {
             true: "underline hover:no-underline",
             false: "hover:underline"
-        },
-        disabled: {
-            true: "pointer-events-none"
         }
     },
-    compoundVariants: [
-        {
-            variant: "primary",
-            disabled: true,
-            className: "text-neutral-disabled"
-        },
-        {
-            variant: "secondary",
-            disabled: true,
-            className: "text-neutral-disabled"
-        },
-        {
-            variant: "primary-negative",
-            disabled: true,
-            className: "!text-neutral-disabled-negative/50"
-        },
-        {
-            variant: "secondary-negative",
-            disabled: true,
-            className: "!text-neutral-disabled-negative/50"
-        }
-    ],
     defaultVariants: {
         size: "md",
         variant: "primary",
@@ -61,19 +48,11 @@ interface LinkProps extends WebinyReactRouterLinkProps, VariantProps<typeof link
     disabled?: boolean;
 }
 
-const LinkBase = ({
-    size,
-    variant,
-    underline,
-    className,
-    disabled,
-    children,
-    ...rest
-}: LinkProps) => {
+const LinkBase = ({ size, variant, underline, className, children, ...rest }: LinkProps) => {
     return (
         <WebinyReactRouterLink
             {...rest}
-            className={linkVariants({ size, variant, underline, disabled, className })}
+            className={linkVariants({ size, variant, underline, className })}
         >
             {children}
         </WebinyReactRouterLink>
