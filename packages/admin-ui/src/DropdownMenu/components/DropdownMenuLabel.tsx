@@ -2,7 +2,8 @@ import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn, makeDecoratable } from "~/utils";
 
-export interface DropdownMenuLabelProps extends Omit<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label>, "content"> {
+export interface DropdownMenuLabelProps
+    extends Omit<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label>, "content"> {
     content: React.ReactNode;
 }
 
@@ -17,7 +18,9 @@ const DropdownMenuLabelBase = React.forwardRef<
             className
         )}
         {...props}
-    >{content}</DropdownMenuPrimitive.Label>
+    >
+        {content}
+    </DropdownMenuPrimitive.Label>
 ));
 DropdownMenuLabelBase.displayName = DropdownMenuPrimitive.Label.displayName;
 
