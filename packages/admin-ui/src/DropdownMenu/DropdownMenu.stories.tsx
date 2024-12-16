@@ -154,7 +154,7 @@ export const WithCheckboxItems: Story = {
         children: (
             <>
                 {TARGET_LEVELS.map(level => (
-                    <DropdownMenu.CheckboxItem
+                    <CheckboxItem
                         key={level.id}
                         // checked={currentLevel.id === level.id}
                         checked={level.id === "viewer"}
