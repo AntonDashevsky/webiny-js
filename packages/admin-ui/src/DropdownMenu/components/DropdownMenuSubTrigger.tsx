@@ -5,7 +5,7 @@ import { ReactComponent as ChevronRight } from "@material-design-icons/svg/fille
 
 const DropdownMenuSubTriggerBase = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
-    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {}
+    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger>
 >(({ className, children, ...props }, ref) => (
     <DropdownMenuPrimitive.SubTrigger
         ref={ref}
