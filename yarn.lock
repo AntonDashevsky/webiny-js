@@ -16396,6 +16396,7 @@ __metadata:
     "@material-symbols/svg-400": ^0.4.1
     "@minoru/react-dnd-treeview": 3.2.1
     "@types/react": 18.2.79
+    "@webiny/admin-ui": 0.0.0
     "@webiny/app": 0.0.0
     "@webiny/app-admin": 0.0.0
     "@webiny/app-headless-cms-common": 0.0.0
