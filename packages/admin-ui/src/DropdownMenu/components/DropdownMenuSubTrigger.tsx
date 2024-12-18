@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { cn, makeDecoratable } from "~/utils";
+import { cn } from "~/utils";
 import { ReactComponent as ChevronRight } from "@material-design-icons/svg/filled/chevron_right.svg";
 
-const DropdownMenuSubTriggerBase = React.forwardRef<
+const DropdownMenuSubTrigger = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger>
 >(({ className, children, ...props }, ref) => (
@@ -26,9 +26,7 @@ const DropdownMenuSubTriggerBase = React.forwardRef<
         </div>
     </DropdownMenuPrimitive.SubTrigger>
 ));
-DropdownMenuSubTriggerBase.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
 
-export const DropdownMenuSubTrigger = makeDecoratable(
-    "DropdownMenuSubTrigger",
-    DropdownMenuSubTriggerBase
-);
+DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
+
+export { DropdownMenuSubTrigger };

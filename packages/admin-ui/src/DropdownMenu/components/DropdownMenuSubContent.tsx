@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { cn, makeDecoratable } from "~/utils";
+import { cn } from "~/utils";
 
-const DropdownMenuSubContentBase = React.forwardRef<
+const DropdownMenuSubContent = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
 >(({ className, ...props }, ref) => (
@@ -19,9 +19,7 @@ const DropdownMenuSubContentBase = React.forwardRef<
         {...props}
     />
 ));
-DropdownMenuSubContentBase.displayName = DropdownMenuPrimitive.SubContent.displayName;
 
-export const DropdownMenuSubContent = makeDecoratable(
-    "DropdownMenuSubContent",
-    DropdownMenuSubContentBase
-);
+DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
+
+export { DropdownMenuSubContent };
