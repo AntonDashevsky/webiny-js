@@ -18,6 +18,7 @@ export * from "./Separator";
 export * from "./Slider";
 export * from "./Switch";
 export * from "./Tabs";
+export * from "./Tag";
 export * from "./Text";
 export * from "./Textarea";
 export * from "./Toast";
