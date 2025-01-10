@@ -43,12 +43,12 @@ interface ListItemMetaProps {
 }
 
 export const ListItemMeta = ({
-                                 permission,
-                                 target,
-                                 targetsList,
-                                 onRemoveAccess,
-                                 onUpdatePermission
-                             }: ListItemMetaProps) => {
+    permission,
+    target,
+    targetsList,
+    onRemoveAccess,
+    onUpdatePermission
+}: ListItemMetaProps) => {
     const { identity } = useSecurity();
 
     const currentLevel = useMemo(() => {
@@ -97,7 +97,7 @@ export const ListItemMeta = ({
                 <DropdownMenu
                     trigger={handle}
                     // This is needed because the z-index value is set in `packages/app-admin/src/components/Dialogs/styled.tsx`
-                    portalZIndex={101}
+                    // portalZIndex={101}
                 >
                     {TARGET_LEVELS.map(level => (
                         <DropdownMenu.CheckboxItem
