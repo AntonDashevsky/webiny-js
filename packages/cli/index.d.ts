@@ -1,3 +1,5 @@
 import { CliContext } from "./types";
 
-export declare const cli: CliContext;
+export declare const getCli: () => CliContext;
+
+export declare function initializeProject(): Promise<void>;

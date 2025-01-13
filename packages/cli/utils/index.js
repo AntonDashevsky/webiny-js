@@ -16,6 +16,7 @@ const noop = () => {
 module.exports = {
     createProjectApplicationWorkspace,
     getProject,
+    initializeProject: getProject.initializeProject,
     getProjectApplication,
     importModule,
     localStorage,

@@ -6,12 +6,13 @@ const glob = require("fast-glob");
 
 const appConfigs = ["webiny.application.js", "webiny.application.ts"];
 
-module.exports = args => {
+// TODO: move most of this logic into `Project.init`
+module.exports = ({ cwd }) => {
     // Using "Pulumi.yaml" for the backwards compatibility.
-    const applicationRootFile = findUp.sync(appConfigs.concat("Pulumi.yaml"), { cwd: args.cwd });
+    const applicationRootFile = findUp.sync(appConfigs.concat("Pulumi.yaml"), { cwd });
 
     if (!applicationRootFile) {
-        throw new Error(`Could not detect project application in given directory (${args.cwd}).`);
+        throw new Error(`Could not detect project application in given directory (${cwd}).`);
     }
 
     const rootFile = applicationRootFile.replace(/\\/g, "/");
@@ -33,7 +34,7 @@ module.exports = args => {
         id = name;
     }
 
-    const project = getProject(args);
+    const project = getProject();
 
     const projectAppRelativePath = relative(project.root, projectAppRootPath);
     const projectAppWorkspacePath = join(

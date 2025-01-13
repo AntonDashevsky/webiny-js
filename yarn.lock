@@ -15613,6 +15613,7 @@ __metadata:
     typescript: "npm:4.9.5"
     uniqid: "npm:^5.4.0"
     yargs: "npm:^17.7.2"
+    yargs-parser: "npm:^21.1.1"
   bin:
     webiny: ./bin.js
   languageName: unknown

@@ -1,3 +1,7 @@
-const context = require("./context");
+const { getContext, createContext } = require("./context");
 
-module.exports.cli = context;
+const initializeProject = async () => {
+    return await createContext();
+};
+
+module.exports = { initializeProject, getCli: getContext };
