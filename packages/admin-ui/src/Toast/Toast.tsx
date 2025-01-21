@@ -152,7 +152,7 @@ const DecoratableToastTitle = React.forwardRef<
         {...props}
         asChild
         className={cn(
-            "wby-group-[.default-variant]:text-neutral-light wby-group-[.subtle-variant]:text-neutral-primary wby-font-normal wby-group-[.has-description]:font-semibold",
+            "group-[.wby-default-variant]:wby-text-neutral-light group-[.wby-subtle-variant]:wby-text-neutral-primary wby-font-normal group-[.wby-has-description]:wby-font-semibold",
             className
         )}
     >
@@ -179,7 +179,7 @@ const DecoratableToastDescription = React.forwardRef<
         {...props}
         asChild
         className={cn(
-            "wby-mt-xs-plus wby-group-[.default-variant]:text-neutral-dimmed wby-group-[.subtle-variant]:text-neutral-strong",
+            "wby-mt-xs-plus group-[.wby-default-variant]:wby-text-neutral-dimmed group-[.wby-subtle-variant]:wby-text-neutral-strong",
             className
         )}
     >
