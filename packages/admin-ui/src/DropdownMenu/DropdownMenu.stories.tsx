@@ -156,7 +156,6 @@ export const WithCheckboxItems: Story = {
                 {TARGET_LEVELS.map(level => (
                     <CheckboxItem
                         key={level.id}
-                        // checked={currentLevel.id === level.id}
                         checked={level.id === "viewer"}
                         content={
                             <div>
@@ -165,7 +164,7 @@ export const WithCheckboxItems: Story = {
                                     as={"div"}
                                     text={level.description}
                                     size={"sm"}
-                                    className={"text-neutral-strong"}
+                                    className={"wby-text-neutral-strong"}
                                 />
                             </div>
                         }

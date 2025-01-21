@@ -34,17 +34,17 @@ const DropdownMenuItemBase = React.forwardRef<
         <DropdownMenuPrimitive.Item
             ref={ref}
             className={cn(
-                "group relative cursor-default select-none items-center rounded-sm px-xs-plus outline-none transition-colors",
-                "[&_svg]:fill-neutral-xstrong [&_svg]:pointer-events-none [&_svg]:size-md [&_svg]:shrink-0",
-                "data-[disabled]:pointer-events-none data-[disabled]:text-neutral-disabled",
+                "group wby-relative wby-cursor-default wby-select-none wby-items-center wby-rounded-sm wby-px-xs-plus wby-outline-none wby-transition-colors",
+                "[&_svg]:wby-fill-neutral-xstrong [&_svg]:wby-pointer-events-none [&_svg]:wby-size-md [&_svg]:wby-shrink-0",
+                "data-[disabled]:wby-pointer-events-none data-[disabled]:wby-text-neutral-disabled",
                 className
             )}
             {...props}
         >
             <div
                 className={cn(
-                    "flex px-sm py-xs-plus gap-sm-extra items-center text-md rounded-sm group-focus:bg-neutral-dimmed transition-colors",
-                    { "[&_svg]:fill-neutral-disabled": props.disabled }
+                    "wby-flex wby-px-sm wby-py-xs-plus wby-gap-sm-extra wby-items-center wby-text-md wby-rounded-sm group-focus:wby-bg-neutral-dimmed wby-transition-colors",
+                    { "[&_svg]:wby-fill-neutral-disabled": props.disabled }
                 )}
             >
                 {icon}
