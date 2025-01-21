@@ -43,7 +43,7 @@ export const Info: Story = {
         type: "info",
         children: (
             <>
-                This type of notification is suitable for general usage where there's no need for
+                This type of notification is suitable for general usage where there’s no need for
                 accent. And <a href={"#"}>this thing here</a> is a short link.
             </>
         )
