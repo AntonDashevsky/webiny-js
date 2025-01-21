@@ -8,10 +8,10 @@ type TextTags = "span" | "div";
 const textVariants = cva("font-sans", {
     variants: {
         size: {
-            xl: "text-xl",
-            lg: "text-lg",
-            md: "text-md",
-            sm: "text-sm"
+            xl: "wby-text-xl",
+            lg: "wby-text-lg",
+            md: "wby-text-md",
+            sm: "wby-text-sm"
         }
     },
     defaultVariants: {
