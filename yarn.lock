@@ -3846,7 +3846,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/polyfill@npm:^7.10.1, @babel/polyfill@npm:^7.4.4":
+"@babel/polyfill@npm:^7.10.1":
   version: 7.12.1
   resolution: "@babel/polyfill@npm:7.12.1"
   dependencies:
@@ -4889,13 +4889,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@editorjs/editorjs@npm:^2.24.3":
-  version: 2.30.7
-  resolution: "@editorjs/editorjs@npm:2.30.7"
-  checksum: 10/1e2c76d4adbe45806483b313ca5ed84ba98bdbc398ba21b2f8a9d9e725a6bb42c9ded31ff2f951f23b75399eefed282c044ab284fc1722b59f75865a998c06fa
-  languageName: node
-  linkType: hard
-
 "@editorjs/helpers@npm:^0.0.4":
   version: 0.0.4
   resolution: "@editorjs/helpers@npm:0.0.4"
@@ -4944,7 +4937,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin@npm:^11.10.6, @emotion/babel-plugin@npm:^11.13.5":
+"@emotion/babel-plugin@npm:^11.10.6":
   version: 11.13.5
   resolution: "@emotion/babel-plugin@npm:11.13.5"
   dependencies:
@@ -5076,7 +5069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^1.2.0, @emotion/is-prop-valid@npm:^1.3.0":
+"@emotion/is-prop-valid@npm:^1.2.0":
   version: 1.3.1
   resolution: "@emotion/is-prop-valid@npm:1.3.1"
   dependencies:
@@ -5220,26 +5213,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.10.6":
-  version: 11.14.0
-  resolution: "@emotion/styled@npm:11.14.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.18.3"
-    "@emotion/babel-plugin": "npm:^11.13.5"
-    "@emotion/is-prop-valid": "npm:^1.3.0"
-    "@emotion/serialize": "npm:^1.3.3"
-    "@emotion/use-insertion-effect-with-fallbacks": "npm:^1.2.0"
-    "@emotion/utils": "npm:^1.4.2"
-  peerDependencies:
-    "@emotion/react": ^11.0.0-rc.0
-    react: ">=16.8.0"
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 10/64bb3fd8c5d3042ba803eb2052fddf8e057b927682677f8fc41ecfe2b1abcc0da03944fde79fac8f2f55a56383d5c9547b93d4641bb51452cf59415c02dd9b10
-  languageName: node
-  linkType: hard
-
 "@emotion/stylis@npm:0.8.5":
   version: 0.8.5
   resolution: "@emotion/stylis@npm:0.8.5"
@@ -5281,15 +5254,6 @@ __metadata:
   peerDependencies:
     react: ">=16.8.0"
   checksum: 10/839251cc9c46eee1477eb71bb50c26e8c171fdc95295d7df87432a3be9e454ecf886c2e05cafe4128ab6023184bf2840acf25c3f3308123348f6756376f9c4ba
-  languageName: node
-  linkType: hard
-
-"@emotion/use-insertion-effect-with-fallbacks@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@emotion/use-insertion-effect-with-fallbacks@npm:1.2.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10/2374999db8d53ef661d61ed1026c42a849632e4f03826f7eba0314c1d92ae342161d737f5045453aa46dd4008e13ccefeba68d3165b667dfad8e5784fcb0c643
   languageName: node
   linkType: hard
 
@@ -6713,7 +6677,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-design-icons/svg@npm:^0.14.13, @material-design-icons/svg@npm:^0.14.3":
+"@material-design-icons/svg@npm:^0.14.13":
   version: 0.14.13
   resolution: "@material-design-icons/svg@npm:0.14.13"
   checksum: 10/e8d65e68a474b4ff57cd899faa6de2b0f4102ea98346ffcb75de3cacbef6e72faa6c51a3e73dfd06b913a7fca5d66efc1d5b4330d936a69d70cf38e5af4e660b
@@ -14979,7 +14943,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/admin-ui@workspace:packages/admin-ui"
   dependencies:
-    "@material-design-icons/svg": "npm:^0.14.3"
+    "@material-design-icons/svg": "npm:^0.14.13"
     "@radix-ui/react-accessible-icon": "npm:^1.1.0"
     "@radix-ui/react-avatar": "npm:^1.1.0"
     "@radix-ui/react-checkbox": "npm:^1.1.2"
@@ -15009,7 +14973,7 @@ __metadata:
     "@webiny/react-router": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     ace-builds: "npm:^1.37.1"
-    chalk: "npm:^4.1.0"
+    chalk: "npm:^4.1.2"
     class-variance-authority: "npm:^0.7.0"
     clsx: "npm:^2.1.1"
     cmdk: "npm:^1.0.4"
@@ -15017,17 +14981,16 @@ __metadata:
     file-loader: "npm:6.2.0"
     mobx: "npm:^6.9.0"
     postcss-loader: "npm:^6.2.1"
-    prettier: "npm:^2.8.3"
+    prettier: "npm:^2.8.8"
     react: "npm:18.2.0"
     react-ace: "npm:^13.0.0"
-    rimraf: "npm:^5.0.5"
+    rimraf: "npm:^6.0.1"
     sass: "npm:1.44.0"
     storybook: "npm:7.6.20"
     tailwind-merge: "npm:^2.4.0"
     tailwindcss: "npm:^3.4.6"
     tailwindcss-animate: "npm:^1.0.7"
-    ttypescript: "npm:^1.5.12"
-    typescript: "npm:4.9.5"
+    typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft
 
@@ -16942,7 +16905,6 @@ __metadata:
     react-dom: "npm:18.2.0"
     rimraf: "npm:^6.0.1"
     slugify: "npm:^1.6.6"
-    ttypescript: "npm:^1.5.15"
     typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft
@@ -18764,7 +18726,7 @@ __metadata:
     "@webiny/global-config": "npm:0.0.0"
     "@webiny/telemetry": "npm:0.0.0"
     assert-browserify: "npm:^2.0.0"
-    babel-loader: "npm:^9.2.1"
+    babel-loader: "npm:9.2.1"
     buffer: "npm:^6.0.3"
     camelcase: "npm:^6.3.0"
     case-sensitive-paths-webpack-plugin: "npm:2.4.0"
@@ -19140,11 +19102,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/ui-old@workspace:packages/ui-old"
   dependencies:
-    "@editorjs/editorjs": "npm:^2.24.3"
+    "@editorjs/editorjs": "npm:2.26.5"
     "@emotion/babel-plugin": "npm:^11.11.0"
-    "@emotion/react": "npm:^11.10.6"
-    "@emotion/styled": "npm:^11.10.6"
-    "@material-design-icons/svg": "npm:^0.14.3"
+    "@emotion/react": "npm:11.10.8"
+    "@emotion/styled": "npm:11.10.6"
+    "@material-design-icons/svg": "npm:^0.14.13"
     "@rmwc/button": "npm:^14.2.2"
     "@rmwc/checkbox": "npm:^14.2.2"
     "@rmwc/chip": "npm:^14.2.2"
@@ -19180,14 +19142,14 @@ __metadata:
     "@webiny/form": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
-    babel-loader: "npm:9.1.2"
+    babel-loader: "npm:9.2.1"
     brace: "npm:^0.11.1"
-    classnames: "npm:^2.2.6"
+    classnames: "npm:^2.5.1"
     cropperjs: "npm:^1.4.3"
-    dot-prop-immutable: "npm:^2.1.0"
+    dot-prop-immutable: "npm:^2.1.1"
     downshift: "npm:^2.1.5"
     emotion: "npm:10.0.27"
-    execa: "npm:^5.0.0"
+    execa: "npm:^5.1.1"
     jest-dom: "npm:^3.0.0"
     keycode: "npm:^2.2.0"
     load-script: "npm:^1.0.0"
@@ -19196,23 +19158,22 @@ __metadata:
     ncp: "npm:^2.0.0"
     nprogress: "npm:^0.2.0"
     nuka-carousel: "npm:4.7.1"
-    raw-loader: "npm:^0.5.1"
+    raw-loader: "npm:^4.0.2"
     rc-tooltip: "npm:^5.3.1"
-    react-ace: "npm:^6.1.4"
-    react-butterfiles: "npm:^1.3.0"
+    react-ace: "npm:^13.0.0"
+    react-butterfiles: "npm:^1.3.3"
     react-color: "npm:^2.19.3"
-    react-columned: "npm:^1.0.0"
+    react-columned: "npm:^1.1.3"
     react-custom-scrollbars: "npm:^4.2.1"
     react-loading-skeleton: "npm:^3.1.0"
     react-spinner-material: "npm:1.1.4"
-    react-transition-group: "npm:^4.3.0"
-    rimraf: "npm:^5.0.5"
+    react-transition-group: "npm:^4.4.5"
+    rimraf: "npm:^6.0.1"
     shortid: "npm:^2.2.16"
     timeago-react: "npm:^3.0.6"
-    ttypescript: "npm:^1.5.13"
-    typescript: "npm:4.9.5"
+    typescript: "npm:5.3.3"
   peerDependencies:
-    minimatch: ^5.1.0
+    minimatch: ^5.1.6
     react: 18.2.0
     react-dom: 18.2.0
   languageName: unknown
@@ -19226,7 +19187,7 @@ __metadata:
     "@emotion/babel-plugin": "npm:^11.11.0"
     "@emotion/react": "npm:11.10.8"
     "@emotion/styled": "npm:11.10.6"
-    "@material-design-icons/svg": "npm:^0.14.3"
+    "@material-design-icons/svg": "npm:^0.14.13"
     "@rmwc/data-table": "npm:^14.2.2"
     "@rmwc/drawer": "npm:^14.2.2"
     "@rmwc/grid": "npm:^14.2.2"
@@ -19248,7 +19209,7 @@ __metadata:
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     "@webiny/validation": "npm:0.0.0"
-    babel-loader: "npm:^9.2.1"
+    babel-loader: "npm:9.2.1"
     brace: "npm:^0.11.1"
     classnames: "npm:^2.5.1"
     cropperjs: "npm:^1.4.3"
@@ -19265,7 +19226,7 @@ __metadata:
     nuka-carousel: "npm:4.7.1"
     raw-loader: "npm:^4.0.2"
     rc-tooltip: "npm:^5.3.1"
-    react-ace: "npm:^6.1.4"
+    react-ace: "npm:^13.0.0"
     react-butterfiles: "npm:^1.3.3"
     react-color: "npm:^2.19.3"
     react-columned: "npm:^1.1.3"
@@ -21124,20 +21085,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-loader@npm:9.1.2":
-  version: 9.1.2
-  resolution: "babel-loader@npm:9.1.2"
-  dependencies:
-    find-cache-dir: "npm:^3.3.2"
-    schema-utils: "npm:^4.0.0"
-  peerDependencies:
-    "@babel/core": ^7.12.0
-    webpack: ">=5"
-  checksum: 10/18d089fd37c71b4ecabee0f5191a4018854a7197bc76e4271388801fd2577d561b054bf94d5fbbecbc25f2b51149fd346d4641c95eed1ebc37e04a9f861a60dc
-  languageName: node
-  linkType: hard
-
-"babel-loader@npm:^9.0.0, babel-loader@npm:^9.2.1":
+"babel-loader@npm:9.2.1, babel-loader@npm:^9.0.0":
   version: 9.2.1
   resolution: "babel-loader@npm:9.2.1"
   dependencies:
@@ -25047,7 +24995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff-match-patch@npm:^1.0.4, diff-match-patch@npm:^1.0.5":
+"diff-match-patch@npm:^1.0.5":
   version: 1.0.5
   resolution: "diff-match-patch@npm:1.0.5"
   checksum: 10/fd1ab417eba9559bda752a4dfc9a8ac73fa2ca8b146d29d153964b437168e301c09d8a688fae0cd81d32dc6508a4918a94614213c85df760793f44e245173bb6
@@ -25373,7 +25321,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dot-prop-immutable@npm:^2.1.0, dot-prop-immutable@npm:^2.1.1":
+"dot-prop-immutable@npm:^2.1.1":
   version: 2.1.1
   resolution: "dot-prop-immutable@npm:2.1.1"
   checksum: 10/edf95f62435497e1437bb6931abf4964bb9cbd8d44b3d67fbe6d964b064a86170a4c23286b3fdbef9dcab57ccd4905aa911c4d502f572eb243546d8a9e1d742e
@@ -27501,7 +27449,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-cache-dir@npm:^3.0.0, find-cache-dir@npm:^3.3.1, find-cache-dir@npm:^3.3.2":
+"find-cache-dir@npm:^3.0.0, find-cache-dir@npm:^3.3.1":
   version: 3.3.2
   resolution: "find-cache-dir@npm:3.3.2"
   dependencies:
@@ -28486,22 +28434,6 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10/9e8186abc22dc824b5dd86cefd8e6b5621a72d1be7f68bacc0fd681e8c162ec5546660a6ec0553d6a74757a585e655956c7f8f1a6d24570e8d865c307323d178
-  languageName: node
-  linkType: hard
-
-"glob@npm:^10.3.7":
-  version: 10.4.5
-  resolution: "glob@npm:10.4.5"
-  dependencies:
-    foreground-child: "npm:^3.1.0"
-    jackspeak: "npm:^3.1.2"
-    minimatch: "npm:^9.0.4"
-    minipass: "npm:^7.1.2"
-    package-json-from-dist: "npm:^1.0.0"
-    path-scurry: "npm:^1.11.1"
-  bin:
-    glob: dist/esm/bin.mjs
-  checksum: 10/698dfe11828b7efd0514cd11e573eaed26b2dff611f0400907281ce3eab0c1e56143ef9b35adc7c77ecc71fba74717b510c7c223d34ca8a98ec81777b293d4ac
   languageName: node
   linkType: hard
 
@@ -30929,19 +30861,6 @@ __metadata:
     "@pkgjs/parseargs":
       optional: true
   checksum: 10/6e6490d676af8c94a7b5b29b8fd5629f21346911ebe2e32931c2a54210134408171c24cee1a109df2ec19894ad04a429402a8438cbf5cc2794585d35428ace76
-  languageName: node
-  linkType: hard
-
-"jackspeak@npm:^3.1.2":
-  version: 3.4.3
-  resolution: "jackspeak@npm:3.4.3"
-  dependencies:
-    "@isaacs/cliui": "npm:^8.0.2"
-    "@pkgjs/parseargs": "npm:^0.11.0"
-  dependenciesMeta:
-    "@pkgjs/parseargs":
-      optional: true
-  checksum: 10/96f8786eaab98e4bf5b2a5d6d9588ea46c4d06bbc4f2eb861fdd7b6b182b16f71d8a70e79820f335d52653b16d4843b29dd9cdcf38ae80406756db9199497cf3
   languageName: node
   linkType: hard
 
@@ -35930,16 +35849,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-scurry@npm:^1.11.1":
-  version: 1.11.1
-  resolution: "path-scurry@npm:1.11.1"
-  dependencies:
-    lru-cache: "npm:^10.2.0"
-    minipass: "npm:^5.0.0 || ^6.0.2 || ^7.0.0"
-  checksum: 10/5e8845c159261adda6f09814d7725683257fcc85a18f329880ab4d7cc1d12830967eae5d5894e453f341710d5484b8fdbbd4d75181b4d6e1eb2f4dc7aeadc434
-  languageName: node
-  linkType: hard
-
 "path-scurry@npm:^2.0.0":
   version: 2.0.0
   resolution: "path-scurry@npm:2.0.0"
@@ -37521,7 +37430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.0, prettier@npm:^2.8.3, prettier@npm:^2.8.8":
+"prettier@npm:^2.8.0, prettier@npm:^2.8.8":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:
@@ -38126,13 +38035,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"raw-loader@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "raw-loader@npm:0.5.1"
-  checksum: 10/6cad08ce5359c9ae3fff802be1dd9591a159a397b3df3712fca58ff8a948a9d4660d2f9cd6aeb831ded813b13b667c705f8ba93ec6e4a92d176c0a0ad2327b1b
-  languageName: node
-  linkType: hard
-
 "raw-loader@npm:^4.0.2":
   version: 4.0.2
   resolution: "raw-loader@npm:4.0.2"
@@ -38264,23 +38166,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-ace@npm:^6.1.4":
-  version: 6.6.0
-  resolution: "react-ace@npm:6.6.0"
-  dependencies:
-    "@babel/polyfill": "npm:^7.4.4"
-    brace: "npm:^0.11.1"
-    diff-match-patch: "npm:^1.0.4"
-    lodash.get: "npm:^4.4.2"
-    lodash.isequal: "npm:^4.5.0"
-    prop-types: "npm:^15.7.2"
-  peerDependencies:
-    react: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0
-    react-dom: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0
-  checksum: 10/9d9af86149384c345a77da5f47a83bb726bcf329e54cc684c71d74a90b66b7f99bf5bb6edb20b2daa319d90879abd5b5a0e4dd61ab486d7882247514573e5d61
-  languageName: node
-  linkType: hard
-
 "react-async-script@npm:^1.0.0":
   version: 1.2.0
   resolution: "react-async-script@npm:1.2.0"
@@ -38293,7 +38178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-butterfiles@npm:^1.3.0, react-butterfiles@npm:^1.3.3":
+"react-butterfiles@npm:^1.3.3":
   version: 1.3.3
   resolution: "react-butterfiles@npm:1.3.3"
   dependencies:
@@ -38332,7 +38217,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-columned@npm:^1.0.0, react-columned@npm:^1.1.3":
+"react-columned@npm:^1.1.3":
   version: 1.1.3
   resolution: "react-columned@npm:1.1.3"
   dependencies:
@@ -38881,7 +38766,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-transition-group@npm:^4.3.0, react-transition-group@npm:^4.4.5":
+"react-transition-group@npm:^4.4.5":
   version: 4.4.5
   resolution: "react-transition-group@npm:4.4.5"
   dependencies:
@@ -39665,19 +39550,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:>=1.9.0, resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.1":
-  version: 1.22.1
-  resolution: "resolve@npm:1.22.1"
-  dependencies:
-    is-core-module: "npm:^2.9.0"
-    path-parse: "npm:^1.0.7"
-    supports-preserve-symlinks-flag: "npm:^1.0.0"
-  bin:
-    resolve: bin/resolve
-  checksum: 10/4adcfac33f0baf6fc46d6c3a11acfad5c9345eab8bb7280d65672dc40a9694ddab6d18be2feebccf6cfc581bedd7ebfa792f6bc86db1903a41d328c23161bd23
-  languageName: node
-  linkType: hard
-
 "resolve@npm:^1.1.7, resolve@npm:^1.22.2, resolve@npm:^1.22.4":
   version: 1.22.10
   resolution: "resolve@npm:1.22.10"
@@ -39688,6 +39560,19 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: 10/0a398b44da5c05e6e421d70108822c327675febb880eebe905587628de401854c61d5df02866ff34fc4cb1173a51c9f0e84a94702738df3611a62e2acdc68181
+  languageName: node
+  linkType: hard
+
+"resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.1":
+  version: 1.22.1
+  resolution: "resolve@npm:1.22.1"
+  dependencies:
+    is-core-module: "npm:^2.9.0"
+    path-parse: "npm:^1.0.7"
+    supports-preserve-symlinks-flag: "npm:^1.0.0"
+  bin:
+    resolve: bin/resolve
+  checksum: 10/4adcfac33f0baf6fc46d6c3a11acfad5c9345eab8bb7280d65672dc40a9694ddab6d18be2feebccf6cfc581bedd7ebfa792f6bc86db1903a41d328c23161bd23
   languageName: node
   linkType: hard
 
@@ -39717,19 +39602,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A>=1.9.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.12.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>":
-  version: 1.22.1
-  resolution: "resolve@patch:resolve@npm%3A1.22.1#optional!builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
-  dependencies:
-    is-core-module: "npm:^2.9.0"
-    path-parse: "npm:^1.0.7"
-    supports-preserve-symlinks-flag: "npm:^1.0.0"
-  bin:
-    resolve: bin/resolve
-  checksum: 10/551dd500765cce767c583747f5f21ceb51d437f539b01aee96d6ec39eb2c68a8ff5d646b083d690fe428a81329856bc1bbdb094379b8df4b3f10e7e1f6aa3839
-  languageName: node
-  linkType: hard
-
 "resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#optional!builtin<compat/resolve>":
   version: 1.22.10
   resolution: "resolve@patch:resolve@npm%3A1.22.10#optional!builtin<compat/resolve>::version=1.22.10&hash=c3c19d"
@@ -39740,6 +39612,19 @@ __metadata:
   bin:
     resolve: bin/resolve
   checksum: 10/d4d878bfe3702d215ea23e75e0e9caf99468e3db76f5ca100d27ebdc527366fee3877e54bce7d47cc72ca8952fc2782a070d238bfa79a550eeb0082384c3b81a
+  languageName: node
+  linkType: hard
+
+"resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.12.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>":
+  version: 1.22.1
+  resolution: "resolve@patch:resolve@npm%3A1.22.1#optional!builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
+  dependencies:
+    is-core-module: "npm:^2.9.0"
+    path-parse: "npm:^1.0.7"
+    supports-preserve-symlinks-flag: "npm:^1.0.0"
+  bin:
+    resolve: bin/resolve
+  checksum: 10/551dd500765cce767c583747f5f21ceb51d437f539b01aee96d6ec39eb2c68a8ff5d646b083d690fe428a81329856bc1bbdb094379b8df4b3f10e7e1f6aa3839
   languageName: node
   linkType: hard
 
@@ -39883,17 +39768,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^5.0.5":
-  version: 5.0.10
-  resolution: "rimraf@npm:5.0.10"
-  dependencies:
-    glob: "npm:^10.3.7"
-  bin:
-    rimraf: dist/esm/bin.mjs
-  checksum: 10/f3b8ce81eecbde4628b07bdf9e2fa8b684e0caea4999acb1e3b0402c695cd41f28cd075609a808e61ce2672f528ca079f675ab1d8e8d5f86d56643a03e0b8d2e
-  languageName: node
-  linkType: hard
-
 "rimraf@npm:^6.0.1":
   version: 6.0.1
   resolution: "rimraf@npm:6.0.1"
@@ -39968,7 +39842,7 @@ __metadata:
     adio: "npm:^1.0.1"
     axios: "npm:^1.7.9"
     babel-jest: "npm:29.7.0"
-    babel-loader: "npm:^9.2.1"
+    babel-loader: "npm:9.2.1"
     babel-plugin-dynamic-import-node: "npm:2.3.3"
     babel-plugin-macros: "npm:3.1.0"
     babel-plugin-module-resolver: "npm:^5.0.2"
@@ -43045,21 +42919,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ttypescript@npm:^1.5.12, ttypescript@npm:^1.5.13, ttypescript@npm:^1.5.15":
-  version: 1.5.15
-  resolution: "ttypescript@npm:1.5.15"
-  dependencies:
-    resolve: "npm:>=1.9.0"
-  peerDependencies:
-    ts-node: ">=8.0.2"
-    typescript: ">=3.2.2"
-  bin:
-    ttsc: bin/tsc
-    ttsserver: bin/tsserver
-  checksum: 10/b49e6eb79bc800bafb7a97232d0dde6b65442f968f8f7c08431bd11b4f157842f058d51718bbf678df93e62e1f65a967630d9989c76c4da5cbd19815341636dd
-  languageName: node
-  linkType: hard
-
 "tuf-js@npm:^1.1.7":
   version: 1.1.7
   resolution: "tuf-js@npm:1.1.7"
@@ -43315,16 +43174,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.9.5":
-  version: 4.9.5
-  resolution: "typescript@npm:4.9.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10/458f7220ab11e0fc191514cc41be1707645ec9a8c2d609448a448e18c522cef9646f58728f6811185a4c35613dacdf6c98cf8965c88b3541d0288c47291e4300
-  languageName: node
-  linkType: hard
-
 "typescript@npm:5.3.3":
   version: 5.3.3
   resolution: "typescript@npm:5.3.3"
@@ -43342,16 +43191,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10/6a7e556de91db3d34dc51cd2600e8e91f4c312acd8e52792f243c7818dfadb27bae677175fad6947f9c81efb6c57eb6b2d0c736f196a6ee2f1f7d57b74fc92fa
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>":
-  version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10/5659316360b5cc2d6f5931b346401fa534107b68b60179cf14970e27978f0936c1d5c46f4b5b8175f8cba0430f522b3ce355b4b724c0ea36ce6c0347fab25afd
   languageName: node
   linkType: hard
 
