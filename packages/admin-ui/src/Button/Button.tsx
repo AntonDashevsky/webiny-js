@@ -85,12 +85,14 @@ const buttonVariants = cva(
             {
                 size: "sm",
                 contentLayout: "text-icon-start",
-                className: "wby-pl-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>svg]:wby-mr-xs"
+                className:
+                    "wby-pl-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>svg]:wby-mr-xs"
             },
             {
                 size: "sm",
                 contentLayout: "text-icon-end",
-                className: "wby-pr-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>svg]:wby-ml-xs"
+                className:
+                    "wby-pr-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>svg]:wby-ml-xs"
             },
             {
                 size: "md",
@@ -100,12 +102,14 @@ const buttonVariants = cva(
             {
                 size: "md",
                 contentLayout: "text-icon-start",
-                className: "wby-pl-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] [&>svg]:wby-mr-xs"
+                className:
+                    "wby-pl-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] [&>svg]:wby-mr-xs"
             },
             {
                 size: "md",
                 contentLayout: "text-icon-end",
-                className: "wby-pr-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] [&>svg]:wby-ml-xs"
+                className:
+                    "wby-pr-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] [&>svg]:wby-ml-xs"
             },
             {
                 size: "lg",
@@ -115,12 +119,14 @@ const buttonVariants = cva(
             {
                 size: "lg",
                 contentLayout: "text-icon-start",
-                className: "wby-pl-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))] [&>svg]:wby-mr-xs-plus"
+                className:
+                    "wby-pl-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))] [&>svg]:wby-mr-xs-plus"
             },
             {
                 size: "lg",
                 contentLayout: "text-icon-end",
-                className: "wby-pr-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))] [&>svg]:wby-ml-xs-plus"
+                className:
+                    "wby-pr-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))] [&>svg]:wby-ml-xs-plus"
             },
             {
                 size: "xl",
@@ -130,12 +136,14 @@ const buttonVariants = cva(
             {
                 size: "xl",
                 contentLayout: "text-icon-start",
-                className: "wby-pl-[calc(theme(padding.sm-extra)-theme(borderWidth.md))] [&>svg]:wby-mr-sm"
+                className:
+                    "wby-pl-[calc(theme(padding.sm-extra)-theme(borderWidth.md))] [&>svg]:wby-mr-sm"
             },
             {
                 size: "xl",
                 contentLayout: "text-icon-end",
-                className: "wby-pr-[calc(theme(padding.sm-extra)-theme(borderWidth.md))] [&>svg]:wby-ml-sm"
+                className:
+                    "wby-pr-[calc(theme(padding.sm-extra)-theme(borderWidth.md))] [&>svg]:wby-ml-sm"
             }
         ],
         defaultVariants: {

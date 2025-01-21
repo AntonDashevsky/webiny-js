@@ -12,7 +12,10 @@ export const DialogFooter = ({ actions, info, className, ...props }: DialogFoote
     }
 
     return (
-        <div {...props} className={cn("wby-flex wby-justify-between wby-p-lg wby-pt-md-extra", className)}>
+        <div
+            {...props}
+            className={cn("wby-flex wby-justify-between wby-p-lg wby-pt-md-extra", className)}
+        >
             {info && (
                 <div className={"wby-text-sm wby-flex wby-items-center"}>
                     <div>{info}</div>
