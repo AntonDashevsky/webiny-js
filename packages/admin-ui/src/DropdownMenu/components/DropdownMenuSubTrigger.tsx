@@ -10,7 +10,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     <DropdownMenuPrimitive.SubTrigger
         ref={ref}
         className={cn(
-            "wby-group wby-flex wby-cursor-default wby-select-none wby-items-center wby-rounded-sm wby-px-xs-plus wby-text-md wby-outline-none",
+            "group wby-flex wby-cursor-default wby-select-none wby-items-center wby-rounded-sm wby-px-xs-plus wby-text-md wby-outline-none",
             className
         )}
         {...props}

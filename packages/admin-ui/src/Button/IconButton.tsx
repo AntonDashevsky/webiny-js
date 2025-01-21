@@ -4,7 +4,7 @@ import { cn, cva, VariantProps, makeDecoratable } from "~/utils";
 
 const iconButtonVariants = cva(
     [
-        "wby-border-transparent wby-rounded wby-flex wby-items-center wby-justify-center wby-ring-offset-background wby-cursor-pointer wby-transition-colors [&_svg]wby-pointer-events-none [&_svg]:wby-shrink-0",
+        "wby-border-transparent wby-rounded wby-flex wby-items-center wby-justify-center wby-ring-offset-background wby-cursor-pointer wby-transition-colors [&_svg]:wby-pointer-events-none [&_svg]:wby-shrink-0",
         "aria-disabled:wby-pointer-events-none",
         "focus-visible:wby-outline-none focus-visible:wby-border-accent-default"
     ],
@@ -42,7 +42,7 @@ const iconButtonVariants = cva(
                     "wby-fill-neutral-base",
                     "hover:wby-bg-neutral-base/20",
                     "active:wby-bg-neutral-base/30",
-                    "focus-visible:wby-!border-neutral-base",
+                    "focus-visible:!wby-border-neutral-base",
                     "aria-disabled:wby-fill-neutral-base aria-disabled:wby-opacity-50 hover:aria-disabled:wby-bg-transparent active:aria-disabled:wby-bg-transparent"
                 ]
             },
@@ -52,7 +52,7 @@ const iconButtonVariants = cva(
                 sm: "wby-border-sm wby-rounded-sm",
                 md: "wby-border-sm wby-rounded-md",
                 lg: "wby-border-sm wby-rounded-md",
-                xl: "wby-border-md wby-rounded-lg wby-p-[calc(theme(wby-padding.md)-theme(wby-borderWidth.md))] [&_svg]:wby-size-lg"
+                xl: "wby-border-md wby-rounded-lg wby-p-[calc(theme(padding.md)-theme(borderWidth.md))] [&_svg]:wby-size-lg"
             },
             iconSize: {
                 default: "",
@@ -69,37 +69,37 @@ const iconButtonVariants = cva(
                 size: "sm",
                 iconSize: "default",
                 className:
-                    "wby-p-[calc(theme(wby-padding.xs)-theme(wby-borderWidth.sm))] [&_svg]:wby-size-md"
+                    "wby-p-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&_svg]:wby-size-md"
             },
             {
                 size: "sm",
                 iconSize: "lg",
                 className:
-                    "wby-p-[calc(theme(wby-padding.xxs)-theme(wby-borderWidth.sm))] [&_svg]:wby-size-md-plus"
+                    "wby-p-[calc(theme(padding.xxs)-theme(borderWidth.sm))] [&_svg]:wby-size-md-plus"
             },
             {
                 size: "md",
                 iconSize: "default",
                 className:
-                    "wby-p-[calc(theme(wby-padding.sm)-theme(wby-borderWidth.sm))] [&_svg]:wby-size-md"
+                    "wby-p-[calc(theme(padding.sm)-theme(borderWidth.sm))] [&_svg]:wby-size-md"
             },
             {
                 size: "md",
                 iconSize: "lg",
                 className:
-                    "wby-p-[calc(theme(wby-padding.xs)-theme(wby-borderWidth.sm))] [&_svg]:wby-size-lg"
+                    "wby-p-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&_svg]:wby-size-lg"
             },
             {
                 size: "lg",
                 iconSize: "default",
                 className:
-                    "wby-p-[calc(theme(wby-padding.sm-plus)-theme(wby-borderWidth.sm))] [&_svg]:wby-size-md-plus"
+                    "wby-p-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))] [&_svg]:wby-size-md-plus"
             },
             {
                 size: "lg",
                 iconSize: "lg",
                 className:
-                    "wby-p-[calc(theme(wby-padding.sm)-theme(wby-borderWidth.sm))] [&_svg]:wby-size-lg"
+                    "wby-p-[calc(theme(padding.sm)-theme(borderWidth.sm))] [&_svg]:wby-size-lg"
             }
         ],
         defaultVariants: {
