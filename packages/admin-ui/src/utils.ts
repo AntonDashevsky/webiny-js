@@ -3,11 +3,13 @@ import { clsx, type ClassValue } from "clsx";
 import { generateId as baseGenerateId } from "@webiny/utils/generateId";
 import { extendTailwindMerge } from "tailwind-merge";
 import { cva, type VariantProps } from "class-variance-authority";
-
 export { makeDecoratable } from "@webiny/react-composition";
 
 const twMerge = extendTailwindMerge({
     override: {
+        theme: {
+            borderWidth: ["sm", "md", "none"]
+        },
         classGroups: {
             "border-color": [
                 "border-transparent",
@@ -18,7 +20,9 @@ const twMerge = extendTailwindMerge({
                 "border-accent-subtle",
                 "border-destructive",
                 "border-destructive-default",
+                "border-destructive-subtle",
                 "border-neutral",
+                "border-neutral-base",
                 "border-neutral-black",
                 "border-neutral-dark",
                 "border-neutral-dimmed",
@@ -26,9 +30,9 @@ const twMerge = extendTailwindMerge({
                 "border-neutral-strong",
                 "border-neutral-subtle",
                 "border-success",
-                "border-success-default"
+                "border-success-default",
+                "border-success-subtle"
             ],
-            "border-w": ["border-sm", "border-sm", "border-none"],
             "ring-color": [
                 "ring-primary",
                 "ring-primary-dimmed",
@@ -40,6 +44,53 @@ const twMerge = extendTailwindMerge({
                 "ring-success-subtle"
             ],
             "ring-w": ["ring-sm", "ring-md", "ring-lg"]
+        }
+    },
+    extend: {
+        theme: {
+            padding: [
+                "lg",
+                "md",
+                "md-extra",
+                "none",
+                "sm",
+                "sm-extra",
+                "sm-plus",
+                "xl",
+                "xs",
+                "xs-plus",
+                "xxl",
+                "xxs"
+            ],
+            margin: [
+                "lg",
+                "md",
+                "md-plus",
+                "none",
+                "sm",
+                "sm-extra",
+                "sm-plus",
+                "xl",
+                "xs",
+                "xs-plus",
+                "xxl",
+                "xxs"
+            ],
+            spacing: [
+                "3xl",
+                "lg",
+                "md",
+                "md-plus",
+                "none",
+                "sm",
+                "sm-extra",
+                "sm-plus",
+                "xl",
+                "xs",
+                "xs-plus",
+                "xxl",
+                "xxs"
+            ]
         }
     }
 });

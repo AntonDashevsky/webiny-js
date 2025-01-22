@@ -25,5 +25,3 @@ export const DialogFooter = ({ actions, info, className, ...props }: DialogFoote
         </div>
     );
 };
-
-DialogFooter.displayName = "DialogFooter";

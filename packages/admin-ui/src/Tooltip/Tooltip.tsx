@@ -15,22 +15,23 @@ const TooltipTrigger = TooltipPrimitive.Trigger;
  */
 const tooltipContentVariants = cva(
     [
-        "wby-z-50 wby-px-sm-extra wby-py-sm wby-max-w-64 wby-rounded-md wby-text-sm wby-animate-in wby-fade-in-0 wby-zoom-in-95",
-        "data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=closed]:wby-zoom-out-95",
-        "data-[side=bottom]:wby-slide-in-from-top-2 data-[side=left]:wby-slide-in-from-right-2 data-[side=right]:wby-slide-in-from-left-2 data-[side=top]:wby-slide-in-from-bottom-2"
+        "z-50 px-sm-extra py-sm max-w-64 rounded-md text-sm font-normal animate-in fade-in-0 zoom-in-95",
+        "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+        "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2"
     ],
     {
         variants: {
             variant: {
-                accent: "wby-bg-neutral-dark wby-text-neutral-light",
-                subtle: "wby-bg-neutral-base wby-text-neutral-primary wby-shadow-md"
+                accent: "bg-neutral-dark text-neutral-light",
+                subtle: "bg-neutral-base text-neutral-primary shadow-md"
             },
+            // In case of hidden arrow, let's add some spacing from the trigger.
             hiddenArrow: {
                 true: [
-                    "data-[side=top]:wby-mb-xs-plus",
-                    "data-[side=bottom]:wby-mt-xs-plus",
-                    "data-[side=left]:wby-mr-xs-plus",
-                    "data-[side=right]:wby-ml-xs-plus"
+                    "data-[side=top]:mb-xs-plus",
+                    "data-[side=bottom]:mt-xs-plus",
+                    "data-[side=left]:mr-xs-plus",
+                    "data-[side=right]:ml-xs-plus"
                 ]
             }
         },
@@ -47,12 +48,14 @@ const DecoratableTooltipContent = React.forwardRef<
     React.ElementRef<typeof TooltipPrimitive.Content>,
     TooltipContentProps
 >(({ className, variant, hiddenArrow, ...props }, ref) => (
-    <TooltipPrimitive.Content
-        ref={ref}
-        sideOffset={4}
-        className={cn(tooltipContentVariants({ variant, hiddenArrow, className }))}
-        {...props}
-    />
+    <TooltipPrimitive.Portal>
+        <TooltipPrimitive.Content
+            ref={ref}
+            sideOffset={4}
+            className={cn(tooltipContentVariants({ variant, hiddenArrow, className }))}
+            {...props}
+        />
+    </TooltipPrimitive.Portal>
 ));
 
 DecoratableTooltipContent.displayName = TooltipPrimitive.Content.displayName;
@@ -65,8 +68,8 @@ const TooltipContent = makeDecoratable("TooltipArrow", DecoratableTooltipContent
 const tooltipArrowVariants = cva("", {
     variants: {
         variant: {
-            accent: "wby-fill-bg-neutral-dark",
-            subtle: "wby-fill-neutral-base"
+            accent: "fill-bg-neutral-dark",
+            subtle: "fill-neutral-base"
         }
     },
     defaultVariants: {
