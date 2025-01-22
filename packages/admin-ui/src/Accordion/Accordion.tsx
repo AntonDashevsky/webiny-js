@@ -2,19 +2,11 @@ import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ReactComponent as ChevronDown } from "@material-design-icons/svg/outlined/chevron_left.svg";
 
-import { cn } from "~/utils";
+import { cn, makeDecoratable, withStaticProps } from "~/utils";
 
-const Accordion = AccordionPrimitive.Root;
+const AccordionRoot = AccordionPrimitive.Root;
 
-const AccordionItem = React.forwardRef<
-    React.ElementRef<typeof AccordionPrimitive.Item>,
-    React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-    <AccordionPrimitive.Item ref={ref} className={cn("border-b", className)} {...props} />
-));
-AccordionItem.displayName = "AccordionItem";
-
-const AccordionTrigger = React.forwardRef<
+const AccordionTriggerBase = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Trigger>,
     React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
@@ -32,9 +24,11 @@ const AccordionTrigger = React.forwardRef<
         </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
 ));
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+AccordionTriggerBase.displayName = AccordionPrimitive.Trigger.displayName;
 
-const AccordionContent = React.forwardRef<
+const AccordionTrigger = makeDecoratable("AccordionTrigger", AccordionTriggerBase);
+
+const AccordionContentBase = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Content>,
     React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
@@ -47,41 +41,40 @@ const AccordionContent = React.forwardRef<
     </AccordionPrimitive.Content>
 ));
 
-AccordionContent.displayName = AccordionPrimitive.Content.displayName;
+AccordionContentBase.displayName = AccordionPrimitive.Content.displayName;
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+const AccordionContent = makeDecoratable("AccordionContent", AccordionContentBase);
 
+export interface AccordionItemProps
+    extends Omit<React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>, "title"> {
+    title: React.ReactNode;
+    description?: React.ReactNode;
+    icon?: React.ReactNode;
+    actions?: React.ReactNode;
+    children: React.ReactNode;
+}
 
-// import {
-//     Accordion,
-//     AccordionContent,
-//     AccordionItem,
-//     AccordionTrigger,
-// } from "@/components/ui/accordion"
-//
-// export function AccordionDemo() {
-//     return (
-//         <Accordion type="single" collapsible className="w-full">
-//             <AccordionItem value="item-1">
-//                 <AccordionTrigger>Is it accessible?</AccordionTrigger>
-//                 <AccordionContent>
-//                     Yes. It adheres to the WAI-ARIA design pattern.
-//                 </AccordionContent>
-//             </AccordionItem>
-//             <AccordionItem value="item-2">
-//                 <AccordionTrigger>Is it styled?</AccordionTrigger>
-//                 <AccordionContent>
-//                     Yes. It comes with default styles that matches the other
-//                     components&apos; aesthetic.
-//                 </AccordionContent>
-//             </AccordionItem>
-//             <AccordionItem value="item-3">
-//                 <AccordionTrigger>Is it animated?</AccordionTrigger>
-//                 <AccordionContent>
-//                     Yes. It&apos;s animated by default, but you can disable it if you
-//                     prefer.
-//                 </AccordionContent>
-//             </AccordionItem>
-//         </Accordion>
-//     )
-// }
+const AccordionItemBase = React.forwardRef<
+    React.ElementRef<typeof AccordionPrimitive.Item>,
+    AccordionItemProps
+>(({ className, title, ...props }, ref) => {
+    return (
+        <AccordionPrimitive.Item ref={ref} className={cn("border-b", className)} {...props}>
+            <AccordionTrigger>{title}</AccordionTrigger>
+            <AccordionContent>
+                Yes. It comes with default styles that matches the other components&apos; aesthetic.
+            </AccordionContent>
+        </AccordionPrimitive.Item>
+    );
+});
+
+AccordionItemBase.displayName = "AccordionItem";
+
+const AccordionItem = makeDecoratable("AccordionItem", AccordionItemBase);
+
+const AccordionBase = AccordionRoot;
+
+export const Accordion = withStaticProps(AccordionBase, {
+    Item: AccordionItem
+});
+
