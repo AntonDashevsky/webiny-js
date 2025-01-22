@@ -36,6 +36,10 @@ type AutoCompletePrimitiveProps = Omit<InputPrimitiveProps, "endIcon"> & {
      */
     onValueReset?: () => void;
     /**
+     * Callback triggered when a value has been searched by the user.
+     */
+    onValueSearch?: (value: string) => void;
+    /**
      * List of options for the autocomplete.
      */
     options?: AutoCompleteOption[];
@@ -54,8 +58,14 @@ type AutoCompletePrimitiveProps = Omit<InputPrimitiveProps, "endIcon"> & {
 };
 
 const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
-    const { vm, setListOpenState, setSelectedOption, searchOption, resetSelectedOption } =
-        useAutoComplete(props);
+    const {
+        vm,
+        setListOpenState,
+        setSelectedOption,
+        searchOption,
+        resetSelectedOption,
+        showSelectedOption
+    } = useAutoComplete(props);
 
     const handleKeyDown = React.useCallback(
         (event: KeyboardEvent<HTMLDivElement>) => {
@@ -63,22 +73,13 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
                 return;
             }
 
-            if (!vm.optionsListVm.isOpen) {
-                setListOpenState(true);
-            }
-
             if (event.key.toLowerCase() === "escape") {
                 setListOpenState(false);
-            }
-
-            if (event.key.toLowerCase() === "backspace") {
+            } else {
                 setListOpenState(true);
-                const inputValue = (event.target as HTMLInputElement).value;
-                setSelectedOption("");
-                searchOption(inputValue);
             }
         },
-        [props.disabled, setListOpenState, setSelectedOption]
+        [props.disabled, setListOpenState]
     );
 
     const handleSelectOption = React.useCallback(
@@ -88,6 +89,11 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
         },
         [setSelectedOption, setListOpenState]
     );
+
+    const handleOnBlur = React.useCallback(() => {
+        setListOpenState(false);
+        showSelectedOption();
+    }, [setListOpenState]);
 
     return (
         <Popover open={vm.optionsListVm.isOpen} onOpenChange={() => setListOpenState(true)}>
@@ -111,27 +117,25 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
                                     onOpenChange={() => setListOpenState(!vm.optionsListVm.isOpen)}
                                 />
                             }
-                            onBlur={() => setListOpenState(false)}
+                            onBlur={handleOnBlur}
                             onFocus={() => setListOpenState(true)}
                         />
                     </span>
                 </Popover.Trigger>
-                <Popover.Portal>
-                    <Popover.Content
-                        style={{ width: "var(--radix-popover-trigger-width)" }}
-                        onOpenAutoFocus={e => e.preventDefault()}
-                    >
-                        <AutoCompleteList
-                            options={vm.optionsListVm.options}
-                            onOptionSelect={handleSelectOption}
-                            isEmpty={vm.optionsListVm.isEmpty}
-                            isLoading={props.isLoading}
-                            loadingMessage={vm.optionsListVm.loadingMessage}
-                            emptyMessage={vm.optionsListVm.emptyMessage}
-                            optionRenderer={props.optionRenderer}
-                        />
-                    </Popover.Content>
-                </Popover.Portal>
+                <Popover.Content
+                    style={{ width: "var(--radix-popover-trigger-width)" }}
+                    onOpenAutoFocus={e => e.preventDefault()}
+                >
+                    <AutoCompleteList
+                        options={vm.optionsListVm.options}
+                        onOptionSelect={handleSelectOption}
+                        isEmpty={vm.optionsListVm.isEmpty}
+                        isLoading={props.isLoading}
+                        loadingMessage={vm.optionsListVm.loadingMessage}
+                        emptyMessage={vm.optionsListVm.emptyMessage}
+                        optionRenderer={props.optionRenderer}
+                    />
+                </Popover.Content>
             </Command>
         </Popover>
     );

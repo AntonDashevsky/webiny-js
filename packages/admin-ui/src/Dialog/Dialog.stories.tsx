@@ -4,7 +4,7 @@ import { Dialog } from "./Dialog";
 import { Button } from "~/Button";
 import { DropdownMenu } from "~/DropdownMenu";
 import { ReactComponent as DoorbellIcon } from "@material-design-icons/svg/outlined/ring_volume.svg";
-import { Tabs, TabsContent, TabsTrigger } from "~/Tabs";
+import { Tabs } from "~/Tabs";
 
 const meta: Meta<typeof Dialog> = {
     title: "Components/Dialog",
@@ -142,34 +142,29 @@ export const WithTabs: Story = {
         ...Default.args,
         bodyPadding: false,
         children: (
+            /* eslint-disable react/jsx-key */
             <>
                 <Tabs
-                    triggers={[
-                        <TabsTrigger key="account" value="account" text={"Account"} />,
-                        <TabsTrigger key="company" value="company" text={"Company"} />,
-                        <TabsTrigger key="security" value="security" text={"Security"} />,
-                        <TabsTrigger key="development" value="development" text={"development"} />
-                    ]}
-                    contents={[
-                        <TabsContent
-                            key="account"
-                            value="account"
-                            text={"Make changes to your account here."}
+                    tabs={[
+                        <Tabs.Tab
+                            value={"account"}
+                            trigger={"Account"}
+                            content={"Make changes to your account here."}
                         />,
-                        <TabsContent
-                            key="company"
-                            value="company"
-                            text={"Make changes to your company info here."}
+                        <Tabs.Tab
+                            value={"company"}
+                            trigger={"Company"}
+                            content={"Make changes to your company info here."}
                         />,
-                        <TabsContent
-                            key="security"
-                            value="security"
-                            text={"Make changes to your security settings here."}
+                        <Tabs.Tab
+                            value={"security"}
+                            trigger={"Security"}
+                            content={"Make changes to your security settings here."}
                         />,
-                        <TabsContent
-                            key="development"
-                            value="development"
-                            text={"Make changes to your development settings here."}
+                        <Tabs.Tab
+                            value={"development"}
+                            trigger={"Development"}
+                            content={"Make changes to your development settings here."}
                         />
                     ]}
                 />
