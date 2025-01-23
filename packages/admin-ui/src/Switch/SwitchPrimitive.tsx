@@ -60,16 +60,16 @@ const DecoratableSwitchRenderer = React.forwardRef<
                 id={id}
                 className={cn([
                     "wby-peer wby-inline-flex wby-h-md wby-w-[26px] wby-mt-xxs wby-shrink-0 wby-cursor-pointer wby-items-center wby-rounded-xxl wby-border-sm wby-transition-colors",
-                    "wby-border-transparent wby-data-[state=checked]:bg-secondary-default wby-data-[state=unchecked]:bg-neutral-strong",
-                    "wby-focus-visible:outline-none wby-focus-visible:border-success-default wby-focus-visible:ring-lg wby-focus-visible:ring-primary-dimmed",
-                    "wby-disabled:cursor-not-allowed wby-disabled:bg-neutral-muted wby-disabled:data-[state=checked]:bg-neutral-muted"
+                    "wby-border-transparent data-[state=checked]:bg-secondary-default data-[state=unchecked]:bg-neutral-strong",
+                    "focus-visible:outline-none focus-visible:border-success-default focus-visible:ring-lg focus-visible:ring-primary-dimmed",
+                    "disabled:cursor-not-allowed disabled:bg-neutral-muted disabled:data-[state=checked]:bg-neutral-muted"
                 ])}
                 disabled={disabled}
                 onCheckedChange={changeChecked}
             >
                 <SwitchPrimitives.Thumb
                     className={cn(
-                        "wby-pointer-events-none wby-block wby-h-sm-plus wby-w-sm-plus wby-rounded-xxl wby-bg-neutral-base wby-shadow-lg wby-ring-0 wby-transition-transform wby-data-[state=checked]:translate-x-sm-extra wby-data-[state=unchecked]:translate-x-xxs"
+                        "wby-pointer-events-none wby-block wby-h-sm-plus wby-w-sm-plus wby-rounded-xxl wby-bg-neutral-base wby-shadow-lg wby-ring-0 wby-transition-transform data-[state=checked]:translate-x-sm-extra data-[state=unchecked]:translate-x-xxs"
                     )}
                 />
             </SwitchPrimitives.Root>

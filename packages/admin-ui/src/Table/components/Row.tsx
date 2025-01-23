@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn, cva, VariantProps } from "~/utils";
 
 const rowVariants = cva(
-    "wby-border-neutral-dimmed wby-border-solid wby-border-b-sm wby-transition-colors wby-hover:bg-neutral-subtle",
+    "wby-border-neutral-dimmed wby-border-solid wby-border-b-sm wby-transition-colors hover:bg-neutral-subtle",
     {
         variants: {
             selected: {

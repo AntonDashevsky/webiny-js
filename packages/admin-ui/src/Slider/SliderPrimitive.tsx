@@ -16,7 +16,7 @@ const DecoratableSliderPrimitiveRoot = React.forwardRef<
         className={cn(
             [
                 "wby-relative wby-flex wby-w-full wby-touch-none wby-select-none wby-items-center wby-cursor-pointer",
-                "wby-data-[disabled]:cursor-not-allowed"
+                "data-[disabled]:cursor-not-allowed"
             ],
             className
         )}
@@ -34,14 +34,14 @@ const DecoratableSliderPrimitiveTrack = () => (
         className={cn(
             "wby-relative wby-h-xxs wby-w-full wby-grow wby-overflow-hidden wby-rounded-full",
             "wby-bg-neutral-strong",
-            "wby-data-[disabled]:bg-neutral-muted"
+            "data-[disabled]:bg-neutral-muted"
         )}
     >
         <SliderPrimitives.Range
             className={cn([
                 "wby-absolute wby-h-full",
                 "wby-bg-primary-default",
-                "wby-data-[disabled]:bg-primary-disabled"
+                "data-[disabled]:bg-primary-disabled"
             ])}
         />
     </SliderPrimitives.Track>
@@ -112,9 +112,9 @@ const DecoratableSliderPrimitiveThumb = ({
         className={cn(
             "wby-inline-block wby-w-md wby-h-md wby-mt-xs-plus wby-rounded-xxl wby-border-md wby-transition-colors wby-outline-none",
             "wby-bg-primary-default wby-border-white",
-            "wby-hover:bg-primary-strong",
+            "hover:bg-primary-strong",
             "wby-active:bg-primary-default",
-            "wby-data-[disabled]:pointer-events-none wby-data-[disabled]:bg-primary-disabled"
+            "data-[disabled]:pointer-events-none data-[disabled]:bg-primary-disabled"
         )}
     >
         <SliderPrimitiveTooltip

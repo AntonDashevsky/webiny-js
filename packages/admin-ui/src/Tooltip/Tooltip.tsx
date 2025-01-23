@@ -16,8 +16,8 @@ const TooltipTrigger = TooltipPrimitive.Trigger;
 const tooltipContentVariants = cva(
     [
         "wby-z-50 wby-px-sm-extra wby-py-sm wby-max-w-64 wby-rounded-md wby-text-sm wby-font-normal wby-animate-in wby-fade-in-0 wby-zoom-in-95",
-        "wby-data-[state=closed]:wby-animate-out wby-data-[state=closed]:wby-fade-out-0 wby-data-[state=closed]:wby-zoom-out-95",
-        "wby-data-[side=bottom]:wby-slide-in-from-top-2 wby-data-[side=left]:wby-slide-in-from-right-2 wby-data-[side=right]:wby-slide-in-from-left-2 wby-data-[side=top]:wby-slide-in-from-bottom-2"
+        "data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=closed]:wby-zoom-out-95",
+        "data-[side=bottom]:wby-slide-in-from-top-2 data-[side=left]:wby-slide-in-from-right-2 data-[side=right]:wby-slide-in-from-left-2 data-[side=top]:wby-slide-in-from-bottom-2"
     ],
     {
         variants: {
@@ -27,10 +27,10 @@ const tooltipContentVariants = cva(
             },
             hiddenArrow: {
                 true: [
-                    "wby-data-[side=top]:wby-mb-xs-plus",
-                    "wby-data-[side=bottom]:wby-mt-xs-plus",
-                    "wby-data-[side=left]:wby-mr-xs-plus",
-                    "wby-data-[side=right]:wby-ml-xs-plus"
+                    "data-[side=top]:wby-mb-xs-plus",
+                    "data-[side=bottom]:wby-mt-xs-plus",
+                    "data-[side=left]:wby-mr-xs-plus",
+                    "data-[side=right]:wby-ml-xs-plus"
                 ]
             }
         },

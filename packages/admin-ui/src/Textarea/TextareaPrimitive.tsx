@@ -3,7 +3,7 @@ import { cn, cva, type VariantProps } from "~/utils";
 
 const textareaVariants = cva(
     [
-        "wby-flex wby-min-h-[80px] wby-w-full wby-border-sm wby-text-md wby-focus-visible:outline-none wby-disabled:cursor-not-allowed"
+        "wby-flex wby-min-h-[80px] wby-w-full wby-border-sm wby-text-md focus-visible:outline-none disabled:cursor-not-allowed"
     ],
     {
         variants: {
@@ -12,19 +12,19 @@ const textareaVariants = cva(
                     "wby-bg-neutral-base wby-border-neutral-muted wby-text-neutral-strong wby-placeholder:text-neutral-dimmed",
                     "hover:wby-border-neutral-strong",
                     "focus:wby-border-neutral-black",
-                    "wby-disabled:wby-bg-neutral-disabled wby-disabled:wby-border-neutral-dimmed wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:text-neutral-disabled"
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:wby-placeholder:text-neutral-disabled"
                 ],
                 secondary: [
                     "wby-bg-neutral-light wby-border-neutral-subtle wby-text-neutral-strong wby-placeholder:text-neutral-dimmed",
                     "hover:wby-bg-neutral-dimmed",
                     "focus:wby-bg-neutral-base focus:wby-border-neutral-black",
-                    "wby-disabled:wby-bg-neutral-disabled wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:text-neutral-disabled"
+                    "disabled:wby-bg-neutral-disabled disabled:wby-text-neutral-disabled disabled:wby-placeholder:text-neutral-disabled"
                 ],
                 ghost: [
                     "wby-bg-transparent wby-border-transparent wby-text-neutral-strong wby-placeholder:text-neutral-dimmed",
                     "hover:wby-bg-neutral-dimmed/95",
                     "focus:wby-bg-neutral-base focus:wby-border-neutral-black",
-                    "wby-disabled:wby-bg-transparent wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:text-neutral-disabled"
+                    "disabled:wby-bg-transparent disabled:wby-text-neutral-disabled disabled:wby-placeholder:text-neutral-disabled"
                 ]
             },
             size: {

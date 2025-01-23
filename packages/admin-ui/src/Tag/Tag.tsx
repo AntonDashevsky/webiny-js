@@ -7,7 +7,7 @@ import { IconButton, iconButtonVariants } from "~/Button";
 const tagVariants = cva(
     [
         "wby-inline-flex wby-items-center wby-gap-xxs wby-rounded-sm wby-text-sm wby-text-regular wby-transition-colors wby-overflow-hidden",
-        "wby-focus:outline-none"
+        "focus:outline-none"
     ],
     {
         variants: {
@@ -25,42 +25,42 @@ const tagVariants = cva(
                 "neutral-base": [
                     "wby-border-sm wby-border-solid wby-px-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] wby-py-[calc(theme(padding.xxs)-theme(borderWidth.sm))]",
                     "wby-bg-transparent wby-border-neutral-muted wby-text-neutral-primary",
-                    "wby-hover:bg-neutral-light",
+                    "hover:bg-neutral-light",
                     "wby-aria-disabled:bg-transparent wby-aria-disabled:border-neutral-dimmed wby-aria-disabled:text-neutral-disabled"
                 ],
                 "neutral-light": [
                     "wby-bg-neutral-muted wby-text-neutral-primary",
-                    "wby-hover:bg-neutral-strong",
+                    "hover:bg-neutral-strong",
                     "wby-aria-disabled:bg-neutral-muted wby-aria-disabled:text-neutral-muted"
                 ],
                 "neutral-strong": [
                     "wby-bg-neutral-xstrong wby-text-neutral-light",
-                    "wby-hover:bg-neutral-dark",
+                    "hover:bg-neutral-dark",
                     "wby-aria-disabled:bg-neutral-strong"
                 ],
                 "neutral-dark": [
                     "wby-bg-neutral-dark wby-text-neutral-light",
-                    "wby-hover:bg-neutral-xstrong",
+                    "hover:bg-neutral-xstrong",
                     "wby-aria-disabled:bg-neutral-strong"
                 ],
                 accent: [
                     "wby-bg-primary-default wby-text-neutral-light",
-                    "wby-hover:bg-primary-strong",
+                    "hover:bg-primary-strong",
                     "wby-aria-disabled:bg-primary-disabled"
                 ],
                 success: [
                     "wby-bg-success-default wby-text-neutral-light",
-                    "wby-hover:bg-success-strong",
+                    "hover:bg-success-strong",
                     "wby-aria-disabled:bg-success-disabled"
                 ],
                 warning: [
                     "wby-bg-warning-muted wby-text-neutral-primary",
-                    "wby-hover:bg-warning-default",
+                    "hover:bg-warning-default",
                     "wby-aria-disabled:bg-warning-disabled wby-aria-disabled:text-neutral-disabled"
                 ],
                 destructive: [
                     "wby-bg-destructive-default wby-text-neutral-light",
-                    "wby-hover:bg-destructive-strong",
+                    "hover:bg-destructive-strong",
                     "wby-aria-disabled:bg-destructive-disabled"
                 ]
             }

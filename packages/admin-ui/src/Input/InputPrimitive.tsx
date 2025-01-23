@@ -88,8 +88,8 @@ const InputIcon = ({ icon, disabled, position, inputSize, className }: InputIcon
 const inputVariants = cva(
     [
         "wby-w-full wby-border-sm wby-text-md wby-peer",
-        "wby-focus-visible:wby-outline-none",
-        "wby-disabled:wby-cursor-not-allowed wby-data-[disabled=true]:wby-cursor-not-allowed",
+        "focus-visible:wby-outline-none",
+        "disabled:wby-cursor-not-allowed data-[disabled=true]:wby-cursor-not-allowed",
         "wby-file:wby-bg-transparent wby-file:wby-border-none wby-file:wby-text-sm wby-file:wby-font-semibold"
     ],
     {
@@ -111,27 +111,27 @@ const inputVariants = cva(
             variant: {
                 primary: [
                     "wby-bg-neutral-base wby-border-neutral-muted wby-text-neutral-strong wby-placeholder:wby-text-neutral-dimmed",
-                    "wby-hover:wby-border-neutral-strong",
-                    "wby-focus:wby-border-neutral-black",
-                    "wby-data-[focused=true]:wby-border-neutral-black",
-                    "wby-disabled:wby-bg-neutral-disabled wby-disabled:wby-border-neutral-dimmed wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:wby-text-neutral-disabled",
-                    "wby-data-[disabled=true]:wby-bg-neutral-disabled wby-data-[disabled=true]:wby-border-neutral-dimmed wby-data-[disabled=true]:wby-text-neutral-disabled wby-data-[disabled=true]:wby-placeholder:wby-text-neutral-disabled"
+                    "hover:wby-border-neutral-strong",
+                    "focus:wby-border-neutral-black",
+                    "data-[focused=true]:wby-border-neutral-black",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:wby-placeholder:wby-text-neutral-disabled",
+                    "data-[disabled=true]:wby-bg-neutral-disabled data-[disabled=true]:wby-border-neutral-dimmed data-[disabled=true]:wby-text-neutral-disabled data-[disabled=true]:wby-placeholder:wby-text-neutral-disabled"
                 ],
                 secondary: [
                     "wby-bg-neutral-light wby-border-neutral-subtle wby-text-neutral-strong wby-placeholder:wby-text-neutral-dimmed",
-                    "wby-hover:wby-bg-neutral-dimmed",
-                    "wby-focus:wby-bg-neutral-base wby-focus:wby-border-neutral-black",
-                    "wby-data-[focused=true]:wby-bg-neutral-base wby-data-[focused=true]:wby-border-neutral-black",
-                    "wby-disabled:wby-bg-neutral-disabled wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:wby-text-neutral-disabled",
-                    "wby-data-[disabled=true]:wby-bg-neutral-disabled wby-data-[disabled=true]:wby-text-neutral-disabled wby-data-[disabled=true]:wby-placeholder:wby-text-neutral-disabled"
+                    "hover:wby-bg-neutral-dimmed",
+                    "focus:wby-bg-neutral-base focus:wby-border-neutral-black",
+                    "data-[focused=true]:wby-bg-neutral-base data-[focused=true]:wby-border-neutral-black",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-text-neutral-disabled disabled:wby-placeholder:wby-text-neutral-disabled",
+                    "data-[disabled=true]:wby-bg-neutral-disabled data-[disabled=true]:wby-text-neutral-disabled data-[disabled=true]:wby-placeholder:wby-text-neutral-disabled"
                 ],
                 ghost: [
                     "wby-bg-transparent wby-border-transparent wby-text-neutral-strong wby-placeholder:wby-text-neutral-dimmed",
-                    "wby-hover:wby-bg-neutral-dimmed/95",
-                    "wby-focus:wby-bg-neutral-base wby-focus:wby-border-neutral-black",
-                    "wby-data-[focused=true]:wby-bg-neutral-base wby-data-[focused=true]:wby-border-neutral-black",
-                    "wby-disabled:wby-bg-transparent wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:wby-text-neutral-disabled",
-                    "wby-data-[disabled=true]:wby-bg-transparent wby-data-[disabled=true]:wby-text-neutral-disabled wby-data-[disabled=true]:wby-placeholder:wby-text-neutral-disabled"
+                    "hover:wby-bg-neutral-dimmed/95",
+                    "focus:wby-bg-neutral-base focus:wby-border-neutral-black",
+                    "data-[focused=true]:wby-bg-neutral-base data-[focused=true]:wby-border-neutral-black",
+                    "disabled:wby-bg-transparent disabled:wby-text-neutral-disabled disabled:wby-placeholder:wby-text-neutral-disabled",
+                    "data-[disabled=true]:wby-bg-transparent data-[disabled=true]:wby-text-neutral-disabled data-[disabled=true]:wby-placeholder:wby-text-neutral-disabled"
                 ]
             },
             iconPosition: {

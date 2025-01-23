@@ -6,7 +6,7 @@ const Head = ({ className, children, ...props }: React.ThHTMLAttributes<HTMLTabl
         className={cn(
             [
                 "wby-box-border wby-relative wby-px-md wby-py-sm wby-text-sm wby-text-left wby-align-middle wby-font-normal wby-text-neutral-strong wby-fill-neutral-xstrong",
-                "wby-hover:wby-bg-neutral-subtle",
+                "hover:wby-bg-neutral-subtle",
                 "wby-overflow-hidden wby-whitespace-nowrap wby-truncate",
                 "wby-[&:has([role=checkbox])]:wby-pl-lg"
             ],

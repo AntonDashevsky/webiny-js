@@ -14,7 +14,7 @@ const IndeterminateIcon = () => {
     return (
         <span
             className={
-                "wby-block wby-w-sm wby-h-xxs wby-rounded-sm wby-bg-primary-default wby-group-disabled:wby-bg-primary-disabled"
+                "wby-block wby-w-sm wby-h-xxs wby-rounded-sm wby-bg-primary-default group-disabled:wby-bg-primary-disabled"
             }
         />
     );
@@ -27,22 +27,22 @@ const checkboxVariants = cva(
     [
         "wby-group wby-peer wby-h-md wby-w-md wby-shrink-0 wby-rounded-sm wby-border-sm ",
         "wby-border-neutral-muted wby-bg-neutral-base wby-[&_svg]:!wby-fill-neutral-base wby-ring-offset-background",
-        "wby-hover:wby-border-neutral-dark",
-        "wby-focus:wby-outline-none wby-focus-visible:wby-border-accent-default wby-focus-visible:wby-ring-lg wby-focus-visible:wby-ring-primary-dimmed wby-focus-visible:wby-ring-offset-0",
-        "wby-disabled:wby-cursor-not-allowed wby-disabled:wby-border-transparent wby-disabled:wby-bg-neutral-disabled",
-        "wby-data-[state=checked]:wby-bg-primary-default wby-data-[state=checked]:wby-border-transparent",
-        "wby-data-[state=checked]:wby-hover:wby-bg-primary-strong",
-        "wby-data-[state=checked]:wby-disabled:wby-bg-neutral-disabled wby-data-[state=checked]:wby-disabled:wby-fill-neutral-strong"
+        "hover:wby-border-neutral-dark",
+        "focus:wby-outline-none focus-visible:wby-border-accent-default focus-visible:wby-ring-lg focus-visible:wby-ring-primary-dimmed focus-visible:wby-ring-offset-0",
+        "disabled:wby-cursor-not-allowed disabled:wby-border-transparent disabled:wby-bg-neutral-disabled",
+        "data-[state=checked]:wby-bg-primary-default data-[state=checked]:wby-border-transparent",
+        "data-[state=checked]:hover:wby-bg-primary-strong",
+        "data-[state=checked]:disabled:wby-bg-neutral-disabled data-[state=checked]:disabled:wby-fill-neutral-strong"
     ],
     {
         variants: {
             indeterminate: {
                 true: [
                     "wby-border-neutral-muted",
-                    "wby-data-[state=checked]:wby-bg-neutral-base wby-data-[state=checked]:wby-border-neutral-muted",
-                    "wby-data-[state=checked]:wby-hover:wby-bg-neutral-base wby-data-[state=checked]:wby-hover:wby-border-neutral-strong",
-                    "wby-data-[state=checked]:wby-focus-visible:wby-border-accent-default",
-                    "wby-data-[state=checked]:wby-disabled:wby-border-transparent"
+                    "data-[state=checked]:wby-bg-neutral-base data-[state=checked]:wby-border-neutral-muted",
+                    "data-[state=checked]:hover:wby-bg-neutral-base data-[state=checked]:hover:wby-border-neutral-strong",
+                    "data-[state=checked]:focus-visible:wby-border-accent-default",
+                    "data-[state=checked]:disabled:wby-border-transparent"
                 ]
             },
             hasLabel: {

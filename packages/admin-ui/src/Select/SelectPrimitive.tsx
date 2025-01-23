@@ -38,29 +38,29 @@ const SelectIcon = ({ icon }: SelectIconProps) => {
 const triggerVariants = cva(
     [
         "wby-w-full wby-flex wby-items-center wby-justify-between wby-gap-sm wby-border-sm wby-text-md wby-relative",
-        "wby-focus:wby-outline-none",
-        "wby-disabled:wby-pointer-events-none"
+        "focus:wby-outline-none",
+        "disabled:wby-pointer-events-none"
     ],
     {
         variants: {
             variant: {
                 primary: [
                     "wby-bg-neutral-base wby-border-neutral-muted wby-text-neutral-strong wby-placeholder:wby-text-neutral-dimmed wby-fill-neutral-xstrong",
-                    "wby-hover:wby-border-neutral-strong",
-                    "wby-focus:wby-border-neutral-black",
-                    "wby-disabled:wby-bg-neutral-disabled wby-disabled:wby-border-neutral-dimmed wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:wby-text-neutral-disabled wby-disabled:wby-fill-neutral-disabled"
+                    "hover:wby-border-neutral-strong",
+                    "focus:wby-border-neutral-black",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:wby-placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ],
                 secondary: [
                     "wby-bg-neutral-light wby-border-neutral-subtle wby-text-neutral-strong wby-placeholder:wby-text-neutral-muted wby-fill-neutral-xstrong",
-                    "wby-hover:wby-bg-neutral-dimmed",
-                    "wby-focus:wby-border-neutral-black wby-focus:wby-bg-neutral-base",
-                    "wby-disabled:wby-bg-neutral-disabled wby-disabled:wby-border-neutral-dimmed wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:wby-text-neutral-disabled wby-disabled:wby-fill-neutral-disabled"
+                    "hover:wby-bg-neutral-dimmed",
+                    "focus:wby-border-neutral-black focus:wby-bg-neutral-base",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:wby-placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ],
                 ghost: [
                     "wby-bg-neutral-base wby-border-transparent wby-text-neutral-strong wby-placeholder:wby-text-neutral-dimmed",
-                    "wby-hover:wby-bg-neutral-light",
-                    "wby-focus:wby-bg-neutral-light",
-                    "wby-disabled:wby-bg-neutral-disabled wby-disabled:wby-border-neutral-dimmed wby-disabled:wby-text-neutral-disabled wby-disabled:wby-placeholder:wby-text-neutral-disabled wby-disabled:wby-fill-neutral-disabled"
+                    "hover:wby-bg-neutral-light",
+                    "focus:wby-bg-neutral-light",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:wby-placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ]
             },
             size: {
@@ -204,8 +204,8 @@ const SelectScrollDownButton = makeDecoratable(
  */
 const selectContentVariants = cva([
     "wby-relative wby-z-50 wby-max-h-96 wby-min-w-56 wby-shadow-lg wby-py-sm wby-overflow-hidden wby-rounded-sm wby-border-sm wby-border-neutral-muted wby-bg-neutral-base wby-text-neutral-strong",
-    "wby-data-[state=open]:wby-animate-in wby-data-[state=closed]:wby-animate-out wby-data-[state=closed]:wby-fade-out-0 wby-data-[state=open]:wby-fade-in-0 wby-data-[state=closed]:wby-zoom-out-95 wby-data-[state=open]:wby-zoom-in-95 wby-data-[side=bottom]:wby-slide-in-from-top-2 wby-data-[side=left]:wby-slide-in-from-right-2 wby-data-[side=right]:wby-slide-in-from-left-2 wby-data-[side=top]:wby-slide-in-from-bottom-2",
-    "wby-data-[side=bottom]:wby-translate-y-1 wby-data-[side=left]:wby--translate-x-1 wby-data-[side=right]:wby-translate-x-1 wby-data-[side=top]:wby--translate-y-1"
+    "data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=open]:wby-fade-in-0 data-[state=closed]:wby-zoom-out-95 data-[state=open]:wby-zoom-in-95 data-[side=bottom]:wby-slide-in-from-top-2 data-[side=left]:wby-slide-in-from-right-2 data-[side=right]:wby-slide-in-from-left-2 data-[side=top]:wby-slide-in-from-bottom-2",
+    "data-[side=bottom]:wby-translate-y-1 data-[side=left]:wby--translate-x-1 data-[side=right]:wby-translate-x-1 data-[side=top]:wby--translate-y-1"
 ]);
 
 interface SelectContentProps
@@ -275,9 +275,9 @@ const DecoratableSelectItem = React.forwardRef<
             [
                 "wby-flex wby-items-center wby-justify-between wby-gap-sm-extra wby-cursor-default wby-select-none wby-rounded-sm wby-p-sm wby-mx-sm wby-text-md wby-outline-none",
                 "wby-bg-neutral-base wby-text-neutral-primary wby-fill-neutral-xstrong",
-                "wby-focus:wby-bg-neutral-dimmed",
-                "wby-data-[disabled]:wby-text-neutral-disabled wby-data-[disabled]:wby-cursor-not-allowed",
-                "wby-data-[state=checked]:wby-font-semibold"
+                "focus:wby-bg-neutral-dimmed",
+                "data-[disabled]:wby-text-neutral-disabled data-[disabled]:wby-cursor-not-allowed",
+                "data-[state=checked]:wby-font-semibold"
             ],
             className
         )}

@@ -28,7 +28,9 @@ export const AutoCompleteList = ({
                 return null;
             }
 
-            const elements = [<Command.Item key={"dummy-element"} value="-" className="hidden" />];
+            const elements = [
+                <Command.Item key={"dummy-element"} value="-" className="wby-hidden" />
+            ];
 
             return items.reduce((acc, item, currentIndex) => {
                 acc.push(
