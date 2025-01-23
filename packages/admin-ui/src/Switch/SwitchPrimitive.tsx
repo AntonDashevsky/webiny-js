@@ -69,7 +69,7 @@ const DecoratableSwitchRenderer = React.forwardRef<
             >
                 <SwitchPrimitives.Thumb
                     className={cn(
-                        "wby-pointer-events-none wby-block wby-h-sm-plus wby-w-sm-plus wby-rounded-xxl wby-bg-neutral-base wby-shadow-lg wby-ring-0 wby-transition-transform data-[state=checked]:wby-translate-x-sm-extra data-[state=unchecked]:translate-x-xxs"
+                        "wby-pointer-events-none wby-block wby-h-sm-plus wby-w-sm-plus wby-rounded-xxl wby-bg-neutral-base wby-shadow-lg wby-ring-0 wby-transition-transform data-[state=checked]:wby-translate-x-sm-extra data-[state=unchecked]:wby-translate-x-xxs"
                     )}
                 />
             </SwitchPrimitives.Root>

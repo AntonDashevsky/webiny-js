@@ -21,7 +21,7 @@ const CircularProgressBase = React.forwardRef<HTMLDivElement, CircularProgressPr
                 )}
                 {...divProps}
             >
-                <div className="wby-absolute wby-top-1/2 wby-left-1/2 wby-transform -wby-translate-x-1/2 -wby-translate-y-1/2 wby-flex wby-flex-col wby-justify-center wby-items-center">
+                <div className="wby-absolute wby-top-1/2 wby-left-1/2 wby-transform wby-translate-x-1/2 wby-translate-y-1/2 wby-flex wby-flex-col wby-justify-center wby-items-center">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={spinnerWidth}
