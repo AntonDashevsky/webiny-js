@@ -110,7 +110,7 @@ export const ListItemMeta = ({
                                         as={"div"}
                                         text={level.description}
                                         size={"sm"}
-                                        className={"text-neutral-strong"}
+                                        className={"wby-text-neutral-strong"}
                                     />
                                 </div>
                             }
