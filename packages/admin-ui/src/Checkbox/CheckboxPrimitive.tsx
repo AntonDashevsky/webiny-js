@@ -26,7 +26,7 @@ const IndeterminateIcon = () => {
 const checkboxVariants = cva(
     [
         "wby-group wby-peer wby-h-md wby-w-md wby-shrink-0 wby-rounded-sm wby-border-sm ",
-        "wby-border-neutral-muted wby-bg-neutral-base wby-[&_svg]:!wby-fill-neutral-base wby-ring-offset-background",
+        "wby-border-neutral-muted wby-bg-neutral-base [&_svg]:!wby-fill-neutral-base wby-ring-offset-background",
         "hover:wby-border-neutral-dark",
         "focus:wby-outline-none focus-visible:wby-border-accent-default focus-visible:wby-ring-lg focus-visible:wby-ring-primary-dimmed focus-visible:wby-ring-offset-0",
         "disabled:wby-cursor-not-allowed disabled:wby-border-transparent disabled:wby-bg-neutral-disabled",
