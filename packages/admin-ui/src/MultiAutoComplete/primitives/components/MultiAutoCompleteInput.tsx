@@ -4,7 +4,7 @@ import { Command, CommandOptionFormatted } from "~/Command";
 import { Tag } from "~/Tag";
 import { cn, cva, VariantProps } from "~/utils";
 
-const multiAutoCompleteInputVariants = cva("wby-relative wby-placeholder:text-neutral-dimmed", {
+const multiAutoCompleteInputVariants = cva("wby-relative placeholder:wby-text-neutral-dimmed", {
     variants: {
         disabled: {
             true: "wby-cursor-not-allowed disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
