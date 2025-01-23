@@ -31,11 +31,11 @@ export const DrawerHeader = ({
         <div
             {...props}
             className={cn(
-                "flex flex-col gap-sm px-lg py-md text-center sm:text-left text-neutral-primary",
+                "wby-flex wby-flex-col wby-gap-sm wby-px-lg wby-py-md wby-text-center sm:wby-text-left wby-text-neutral-primary",
                 className
             )}
         >
-            <DrawerTitle className={"flex justify-between"}>
+            <DrawerTitle className={"wby-flex wby-justify-between"}>
                 <div>
                     {icon}
                     {title}

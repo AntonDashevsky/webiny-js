@@ -12,19 +12,19 @@ export interface DrawerContentProps
 
 const drawerVariants = cva(
     [
-        "fixed z-50 gap-4 bg-neutral-base text-md text-neutral-strong focus-visible:outline-none shadow-lg",
-        "transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500"
+        "wby-fixed wby-z-50 wby-gap-4 wby-bg-neutral-base wby-text-md wby-text-neutral-strong wby-focus-visible:outline-none wby-shadow-lg",
+        "wby-transition wby-ease-in-out data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[state=closed]:wby-duration-300 data-[state=open]:wby-duration-500"
     ],
     {
         variants: {
             side: {
                 left: [
-                    "inset-y-0 left-0 h-full w-[400px]",
-                    "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left"
+                    "wby-inset-y-0 wby-left-0 wby-h-full wby-w-[400px]",
+                    "data-[state=closed]:wby-slide-out-to-left data-[state=open]:wby-slide-in-from-left"
                 ],
                 right: [
-                    "inset-y-0 right-0 h-full w-[400px]",
-                    "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right"
+                    "wby-inset-y-0 wby-right-0 wby-h-full wby-w-[400px]",
+                    "data-[state=closed]:wby-slide-out-to-right data-[state=open]:wby-slide-in-from-right"
                 ]
             }
         },
@@ -60,7 +60,7 @@ const DrawerContent = React.forwardRef<
             className={cn(drawerVariants({ side }), className)}
             style={{ width, ...style }}
         >
-            <div className={"flex flex-col justify-between h-full"}>{children}</div>
+            <div className={"wby-flex wby-flex-col wby-justify-between wby-h-full"}>{children}</div>
         </DrawerPrimitive.Content>
     );
 });
