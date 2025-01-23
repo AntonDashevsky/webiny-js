@@ -16,7 +16,7 @@ const DecoratableSliderPrimitiveRoot = React.forwardRef<
         className={cn(
             [
                 "wby-relative wby-flex wby-w-full wby-touch-none wby-select-none wby-items-center wby-cursor-pointer",
-                "data-[disabled]:cursor-not-allowed"
+                "data-[disabled]:wby-cursor-not-allowed"
             ],
             className
         )}
@@ -34,14 +34,14 @@ const DecoratableSliderPrimitiveTrack = () => (
         className={cn(
             "wby-relative wby-h-xxs wby-w-full wby-grow wby-overflow-hidden wby-rounded-full",
             "wby-bg-neutral-strong",
-            "data-[disabled]:bg-neutral-muted"
+            "data-[disabled]:wby-bg-neutral-muted"
         )}
     >
         <SliderPrimitives.Range
             className={cn([
                 "wby-absolute wby-h-full",
                 "wby-bg-primary-default",
-                "data-[disabled]:bg-primary-disabled"
+                "data-[disabled]:wby-bg-primary-disabled"
             ])}
         />
     </SliderPrimitives.Track>
@@ -114,7 +114,7 @@ const DecoratableSliderPrimitiveThumb = ({
             "wby-bg-primary-default wby-border-white",
             "hover:bg-primary-strong",
             "wby-active:bg-primary-default",
-            "data-[disabled]:pointer-events-none data-[disabled]:bg-primary-disabled"
+            "data-[disabled]:wby-pointer-events-none data-[disabled]:wby-bg-primary-disabled"
         )}
     >
         <SliderPrimitiveTooltip

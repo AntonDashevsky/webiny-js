@@ -37,7 +37,7 @@ const ToastViewport = makeDecoratable("ToastViewport", DecoratableToastViewport)
 const toastVariants = cva(
     [
         "wby-group wby-pointer-events-auto wby-relative wby-flex wby-w-full wby-items-center wby-justify-start wby-p-md wby-gap-sm-extra wby-self-stretch wby-overflow-hidden wby-rounded-md wby-border-sm wby-border-neutral-dimmed wby-shadow-lg wby-transition-all",
-        "data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full"
+        "data-[swipe=cancel]:wby-translate-x-0 data-[swipe=end]:wby-translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:wby-translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:wby-transition-none data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[swipe=end]:wby-animate-out data-[state=closed]:wby-fade-out-80 data-[state=closed]:wby-slide-out-to-right-full data-[state=open]:wby-slide-in-from-top-full"
     ],
     {
         variants: {
