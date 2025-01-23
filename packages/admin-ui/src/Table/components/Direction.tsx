@@ -3,7 +3,7 @@ import { ReactComponent as ArrowDown } from "@material-design-icons/svg/outlined
 import { Icon } from "~/Icon";
 import { cn, cva, VariantProps } from "~/utils";
 
-const directionVariants = cva("inline", {
+const directionVariants = cva("wby-inline", {
     variants: {
         direction: {
             asc: "wby-rotate-0",
