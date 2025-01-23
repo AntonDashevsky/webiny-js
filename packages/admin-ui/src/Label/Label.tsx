@@ -97,7 +97,7 @@ const labelVariants = cva(
     [
         "wby-inline-flex wby-items-center wby-justify-between wby-w-full wby-text-sm",
         "wby-text-neutral-primary",
-        "wby-peer-disabled:wby-text-neutral-disabled wby-peer-disabled:wby-cursor-not-allowed"
+        "peer-disabled:wby-text-neutral-disabled peer-disabled:wby-cursor-not-allowed"
     ],
     {
         variants: {
