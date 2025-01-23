@@ -12830,29 +12830,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:^8.5.22":
-  version: 8.7.9
-  resolution: "@tanstack/react-table@npm:8.7.9"
-  dependencies:
-    "@tanstack/table-core": "npm:8.7.9"
-  peerDependencies:
-    react: ">=16"
-    react-dom: ">=16"
-  checksum: 10/eaaa35b1a9037d91c5c68cbcde951817c7742e55678fefe8460472db8de5712f85d5e0860624755f077a602fc091b7224c9518d2998e28b00815857131a20426
-  languageName: node
-  linkType: hard
-
 "@tanstack/table-core@npm:8.20.5":
   version: 8.20.5
   resolution: "@tanstack/table-core@npm:8.20.5"
   checksum: 10/5408237920d5796951e925278edbbe76f71006627a4e3da248a810970256f75d973538fe7ae75a32155d4a25a95abc4fffaea337b5120f7940d7e664dc9da87f
-  languageName: node
-  linkType: hard
-
-"@tanstack/table-core@npm:8.7.9":
-  version: 8.7.9
-  resolution: "@tanstack/table-core@npm:8.7.9"
-  checksum: 10/2bc2ae77885d643ac1d4afefb6e7651247f9b3e78c7d7f67d71700b368898da154e11b98ce01e1885c5201e0707e4734200c04f94ae62236c126f8e61a9f094b
   languageName: node
   linkType: hard
 
@@ -19160,7 +19141,7 @@ __metadata:
     "@rmwc/touch-target": "npm:^14.2.2"
     "@rmwc/typography": "npm:^14.2.2"
     "@svgr/webpack": "npm:^6.1.1"
-    "@tanstack/react-table": "npm:^8.5.22"
+    "@tanstack/react-table": "npm:^8.20.6"
     "@testing-library/react": "npm:^15.0.7"
     "@types/nprogress": "npm:^0.2.0"
     "@types/react-color": "npm:^2.17.11"
