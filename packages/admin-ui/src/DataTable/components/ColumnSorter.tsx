@@ -1,10 +1,10 @@
 import React from "react";
 import { cn, cva, VariantProps } from "~/utils";
 
-const columnSorterVariants = cva("flex items-center gap-xxs cursor-auto", {
+const columnSorterVariants = cva("wby-flex wby-items-center wby-gap-xxs wby-cursor-auto", {
     variants: {
         sortable: {
-            true: "cursor-pointer"
+            true: "wby-cursor-pointer"
         }
     }
 });
