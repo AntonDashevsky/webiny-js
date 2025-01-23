@@ -26,7 +26,7 @@ type SelectIconProps = {
 
 const SelectIcon = ({ icon }: SelectIconProps) => {
     return (
-        <SelectPrimitives.Icon asChild className={"h-md w-md"}>
+        <SelectPrimitives.Icon asChild className={"wby-h-md wby-w-md"}>
             {React.cloneElement(icon)}
         </SelectPrimitives.Icon>
     );
@@ -37,44 +37,44 @@ const SelectIcon = ({ icon }: SelectIconProps) => {
  */
 const triggerVariants = cva(
     [
-        "w-full flex items-center justify-between gap-sm border-sm text-md relative",
-        "focus:outline-none",
-        "disabled:pointer-events-none"
+        "wby-w-full wby-flex wby-items-center wby-justify-between wby-gap-sm wby-border-sm wby-text-md wby-relative",
+        "focus:wby-outline-none",
+        "disabled:wby-pointer-events-none"
     ],
     {
         variants: {
             variant: {
                 primary: [
-                    "bg-neutral-base border-neutral-muted text-neutral-strong placeholder:text-neutral-dimmed fill-neutral-xstrong",
-                    "hover:border-neutral-strong",
-                    "focus:border-neutral-black",
-                    "disabled:bg-neutral-disabled disabled:border-neutral-dimmed disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled disabled:fill-neutral-disabled"
+                    "wby-bg-neutral-base wby-border-neutral-muted wby-text-neutral-strong placeholder:wby-text-neutral-dimmed wby-fill-neutral-xstrong",
+                    "hover:wby-border-neutral-strong",
+                    "focus:wby-border-neutral-black",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ],
                 secondary: [
-                    "bg-neutral-light border-neutral-subtle text-neutral-strong placeholder:text-neutral-muted fill-neutral-xstrong",
-                    "hover:bg-neutral-dimmed",
-                    "focus:border-neutral-black focus:bg-neutral-base",
-                    "disabled:bg-neutral-disabled disabled:border-neutral-dimmed disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled disabled:fill-neutral-disabled"
+                    "wby-bg-neutral-light wby-border-neutral-subtle wby-text-neutral-strong placeholder:wby-text-neutral-muted wby-fill-neutral-xstrong",
+                    "hover:wby-bg-neutral-dimmed",
+                    "focus:wby-border-neutral-black focus:wby-bg-neutral-base",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ],
                 ghost: [
-                    "bg-neutral-base border-transparent text-neutral-strong placeholder:text-neutral-dimmed",
-                    "hover:bg-neutral-light",
-                    "focus:bg-neutral-light",
-                    "disabled:bg-neutral-disabled disabled:border-neutral-dimmed disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled disabled:fill-neutral-disabled"
+                    "wby-bg-neutral-base wby-border-transparent wby-text-neutral-strong placeholder:wby-text-neutral-dimmed",
+                    "hover:wby-bg-neutral-light",
+                    "focus:wby-bg-neutral-light",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ]
             },
             size: {
                 md: [
-                    "rounded-md",
-                    "py-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
+                    "wby-rounded-md",
+                    "wby-py-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] wby-px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
                 ],
                 lg: [
-                    "rounded-md",
-                    "py-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
+                    "wby-rounded-md",
+                    "wby-py-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))] wby-px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
                 ],
                 xl: [
-                    "rounded-lg leading-6",
-                    "py-[calc(theme(padding.md)-theme(borderWidth.sm))] px-[calc(theme(padding.md)-theme(borderWidth.sm))]"
+                    "wby-rounded-lg wby-leading-6",
+                    "wby-py-[calc(theme(padding.md)-theme(borderWidth.sm))] wby-px-[calc(theme(padding.md)-theme(borderWidth.sm))]"
                 ]
             },
             invalid: {
@@ -82,21 +82,20 @@ const triggerVariants = cva(
             }
         },
         compoundVariants: [
-            // Add specific classNames in case of invalid select: note the difference between the ghost and the other variants.
             {
                 variant: "primary",
                 invalid: true,
-                class: "!border-destructive-default"
+                class: "!wby-border-destructive-default"
             },
             {
                 variant: "secondary",
                 invalid: true,
-                class: "!border-destructive-default"
+                class: "!wby-border-destructive-default"
             },
             {
                 variant: "ghost",
                 invalid: true,
-                class: "!border-destructive-subtle !bg-destructive-subtle"
+                class: "!wby-border-destructive-subtle !wby-bg-destructive-subtle"
             }
         ],
         defaultVariants: {
@@ -160,12 +159,12 @@ const DecoratableSelectScrollUpButton = React.forwardRef<
     <SelectPrimitives.ScrollUpButton
         ref={ref}
         className={cn(
-            "flex cursor-default items-center justify-center pb-sm fill-neutral-xstrong",
+            "wby-flex wby-cursor-default wby-items-center wby-justify-center wby-pb-sm wby-fill-neutral-xstrong",
             className
         )}
         {...props}
     >
-        <ChevronUp className="h-md w-md" />
+        <ChevronUp className="wby-h-md wby-w-md" />
     </SelectPrimitives.ScrollUpButton>
 ));
 DecoratableSelectScrollUpButton.displayName = SelectPrimitives.ScrollUpButton.displayName;
@@ -185,12 +184,12 @@ const DecoratableSelectScrollDownButton = React.forwardRef<
     <SelectPrimitives.ScrollDownButton
         ref={ref}
         className={cn(
-            "flex cursor-default items-center justify-center pt-sm fill-neutral-xstrong",
+            "wby-flex wby-cursor-default wby-items-center wby-justify-center wby-pt-sm wby-fill-neutral-xstrong",
             className
         )}
         {...props}
     >
-        <ChevronDown className="h-md w-md" />
+        <ChevronDown className="wby-h-md wby-w-md" />
     </SelectPrimitives.ScrollDownButton>
 ));
 DecoratableSelectScrollDownButton.displayName = SelectPrimitives.ScrollDownButton.displayName;
@@ -204,9 +203,9 @@ const SelectScrollDownButton = makeDecoratable(
  * SelectContent
  */
 const selectContentVariants = cva([
-    "relative z-50 max-h-96 min-w-56 shadow-lg py-sm overflow-hidden rounded-sm border-sm border-neutral-muted bg-neutral-base text-neutral-strong",
-    "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-    "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1"
+    "wby-relative wby-z-50 wby-max-h-96 wby-min-w-56 wby-shadow-lg wby-py-sm wby-overflow-hidden wby-rounded-sm wby-border-sm wby-border-neutral-muted wby-bg-neutral-base wby-text-neutral-strong",
+    "data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=open]:wby-fade-in-0 data-[state=closed]:wby-zoom-out-95 data-[state=open]:wby-zoom-in-95 data-[side=bottom]:wby-slide-in-from-top-2 data-[side=left]:wby-slide-in-from-right-2 data-[side=right]:wby-slide-in-from-left-2 data-[side=top]:wby-slide-in-from-bottom-2",
+    "data-[side=bottom]:wby-translate-y-1 data-[side=left]:wby--translate-x-1 data-[side=right]:wby-translate-x-1 data-[side=top]:wby--translate-y-1"
 ]);
 
 interface SelectContentProps
@@ -227,8 +226,8 @@ const DecoratableSelectContent = React.forwardRef<
             <SelectScrollUpButton />
             <SelectPrimitives.Viewport
                 className={cn([
-                    "py-xs",
-                    "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"
+                    "wby-py-xs",
+                    "wby-h-[var(--radix-select-trigger-height)] wby-w-full wby-min-w-[var(--radix-select-trigger-width)]"
                 ])}
             >
                 {children}
@@ -251,7 +250,9 @@ const DecoratableSelectLabel = React.forwardRef<
     <SelectPrimitives.Label
         ref={ref}
         className={cn(
-            ["py-sm px-md text-neutral-strong text-sm font-semibold uppercase"],
+            [
+                "wby-py-sm wby-px-md wby-text-neutral-strong wby-text-sm wby-font-semibold wby-uppercase"
+            ],
             className
         )}
         {...props}
@@ -272,11 +273,11 @@ const DecoratableSelectItem = React.forwardRef<
         ref={ref}
         className={cn(
             [
-                "flex items-center justify-between gap-sm-extra cursor-default select-none rounded-sm p-sm mx-sm text-md outline-none",
-                "bg-neutral-base text-neutral-primary fill-neutral-xstrong",
-                "focus:bg-neutral-dimmed",
-                "data-[disabled]:text-neutral-disabled data-[disabled]:cursor-not-allowed",
-                "data-[state=checked]:font-semibold"
+                "wby-flex wby-items-center wby-justify-between wby-gap-sm-extra wby-cursor-default wby-select-none wby-rounded-sm wby-p-sm wby-mx-sm wby-text-md wby-outline-none",
+                "wby-bg-neutral-base wby-text-neutral-primary wby-fill-neutral-xstrong",
+                "focus:wby-bg-neutral-dimmed",
+                "data-[disabled]:wby-text-neutral-disabled data-[disabled]:wby-cursor-not-allowed",
+                "data-[state=checked]:wby-font-semibold"
             ],
             className
         )}
@@ -284,7 +285,7 @@ const DecoratableSelectItem = React.forwardRef<
     >
         <SelectPrimitives.ItemText>{children}</SelectPrimitives.ItemText>
         <SelectPrimitives.ItemIndicator>
-            <Check className="h-md w-h-md" />
+            <Check className="wby-h-md wby-w-h-md" />
         </SelectPrimitives.ItemIndicator>
     </SelectPrimitives.Item>
 ));
@@ -301,7 +302,7 @@ const DecoratableSelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <SelectPrimitives.Separator
         ref={ref}
-        className={cn("-mx-sm my-sm h-px bg-neutral-strong", className)}
+        className={cn("wby--mx-sm wby-my-sm wby-h-px wby-bg-neutral-strong", className)}
         {...props}
     />
 ));
@@ -372,7 +373,7 @@ const DecoratableSelectTrigger = ({
             endIcon={endIcon}
             resetButton={resetButton}
         >
-            <div className={"flex-1 text-left truncate"}>
+            <div className={"wby-flex-1 wby-text-left wby-truncate"}>
                 <SelectValue {...props} />
             </div>
         </Trigger>

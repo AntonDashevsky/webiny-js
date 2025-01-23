@@ -11,8 +11,8 @@ const meta: Meta<typeof Card> = {
     tags: ["autodocs"],
     decorators: [
         Story => (
-            <div className="bg-[#f4f4f4] h-[500px] w-[700px] rounded-[5px] px-[50px] content-center">
-                <div className={"m-auto w-[300px]"}>
+            <div className="wby-bg-[#f4f4f4] wby-h-[500px] wby-w-[700px] wby-rounded-[5px] wby-px-[50px] wby-content-center">
+                <div className={"wby-m-auto wby-w-[300px]"}>
                     <Story />
                 </div>
             </div>

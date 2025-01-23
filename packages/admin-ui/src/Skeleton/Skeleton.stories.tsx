@@ -16,6 +16,6 @@ type Story = StoryObj<typeof Skeleton>;
 
 export const Default: Story = {
     args: {
-        className: "h-lg"
+        className: "wby-h-lg"
     }
 };

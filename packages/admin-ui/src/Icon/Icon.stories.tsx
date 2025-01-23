@@ -42,7 +42,7 @@ export const ColorAccent: Story = {
 export const ColorNeutral: Story = {
     decorators: [
         Story => (
-            <div className="bg-[#25292e] p-[300px] rounded-[5px]">
+            <div className="wby-bg-[#25292e] wby-p-[300px] wby-rounded-[5px]">
                 <Story />
             </div>
         )
@@ -70,7 +70,7 @@ export const ColorNeutralXStrong: Story = {
 export const ColorInherit: Story = {
     decorators: [
         Story => (
-            <div className="fill-success">
+            <div className="wby-fill-success">
                 <Story />
             </div>
         )

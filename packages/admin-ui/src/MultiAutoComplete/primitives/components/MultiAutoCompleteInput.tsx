@@ -4,10 +4,10 @@ import { Command, CommandOptionFormatted } from "~/Command";
 import { Tag } from "~/Tag";
 import { cn, cva, VariantProps } from "~/utils";
 
-const multiAutoCompleteInputVariants = cva("relative placeholder:text-neutral-dimmed", {
+const multiAutoCompleteInputVariants = cva("wby-relative placeholder:wby-text-neutral-dimmed", {
     variants: {
         disabled: {
-            true: "cursor-not-allowed disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
+            true: "wby-cursor-not-allowed disabled:text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled"
         }
     }
 });
@@ -101,10 +101,10 @@ const MultiAutoCompleteInput = ({
                     position={"start"}
                 />
             )}
-            <div className="relative flex flex-wrap gap-xs">
+            <div className="wby-relative wby-flex wby-flex-wrap wby-gap-xs">
                 {renderSelectedOptions(selectedOptions)}
                 <Command.Input
-                    className={"flex-1 bg-transparent border-none outline-none"}
+                    className={"wby-flex-1 wby-bg-transparent wby-border-none wby-outline-none"}
                     value={value}
                     onValueChange={changeValue}
                     placeholder={placeholder}

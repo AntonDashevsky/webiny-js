@@ -3,55 +3,54 @@ import { cn, cva, type VariantProps } from "~/utils";
 
 const textareaVariants = cva(
     [
-        "flex min-h-[80px] w-full border-sm text-md focus-visible:outline-none disabled:cursor-not-allowed"
+        "wby-flex wby-min-h-[80px] wby-w-full wby-border-sm wby-text-md focus-visible:wby-outline-none disabled:wby-cursor-not-allowed"
     ],
     {
         variants: {
             variant: {
                 primary: [
-                    "bg-neutral-base border-neutral-muted text-neutral-strong placeholder:text-neutral-dimmed",
-                    "hover:border-neutral-strong",
-                    "focus:border-neutral-black",
-                    "disabled:bg-neutral-disabled disabled:border-neutral-dimmed disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
+                    "wby-bg-neutral-base wby-border-neutral-muted wby-text-neutral-strong placeholder:wby-text-neutral-dimmed",
+                    "hover:wby-border-neutral-strong",
+                    "focus:wby-border-neutral-black",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled"
                 ],
                 secondary: [
-                    "bg-neutral-light border-neutral-subtle text-neutral-strong placeholder:text-neutral-dimmed",
-                    "hover:bg-neutral-dimmed",
-                    "focus:bg-neutral-base focus:border-neutral-black",
-                    "disabled:bg-neutral-disabled disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
+                    "wby-bg-neutral-light wby-border-neutral-subtle wby-text-neutral-strong placeholder:wby-text-neutral-dimmed",
+                    "hover:wby-bg-neutral-dimmed",
+                    "focus:wby-bg-neutral-base focus:wby-border-neutral-black",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled"
                 ],
                 ghost: [
-                    "bg-transparent border-transparent text-neutral-strong placeholder:text-neutral-dimmed",
-                    "hover:bg-neutral-dimmed/95",
-                    "focus:bg-neutral-base focus:border-neutral-black",
-                    "disabled:bg-transparent disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
+                    "wby-bg-transparent wby-border-transparent wby-text-neutral-strong placeholder:wby-text-neutral-dimmed",
+                    "hover:wby-bg-neutral-dimmed/95",
+                    "focus:wby-bg-neutral-base focus:wby-border-neutral-black",
+                    "disabled:wby-bg-transparent disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled"
                 ]
             },
             size: {
-                md: ["px-sm-extra py-xs-plus rounded-md"],
-                lg: ["px-sm-extra py-sm-plus rounded-md"],
-                xl: ["px-md-extra p-md rounded-lg"]
+                md: ["wby-px-sm-extra wby-py-xs-plus wby-rounded-md"],
+                lg: ["wby-px-sm-extra wby-py-sm-plus wby-rounded-md"],
+                xl: ["wby-px-md-extra wby-p-md wby-rounded-lg"]
             },
             invalid: {
                 true: ""
             }
         },
         compoundVariants: [
-            // Add specific classNames in case of invalid textarea: note the difference between the ghost and the other variants.
             {
                 variant: "primary",
                 invalid: true,
-                class: "!border-destructive-default"
+                class: "!wby-border-destructive-default"
             },
             {
                 variant: "secondary",
                 invalid: true,
-                class: "!border-destructive-default"
+                class: "!wby-border-destructive-default"
             },
             {
                 variant: "ghost",
                 invalid: true,
-                class: "!border-destructive-subtle !bg-destructive-subtle"
+                class: "!wby-border-destructive-subtle !wby-bg-destructive-subtle"
             }
         ],
         defaultVariants: {

@@ -205,7 +205,7 @@ const defineColumns = <T,>(
                     accessorKey: firstColumn.id as string,
                     header: props => {
                         return (
-                            <div className={"flex items-center gap-xl"}>
+                            <div className={"wby-flex wby-items-center wby-gap-xl"}>
                                 <CheckboxPrimitive
                                     indeterminate={props.table.getIsSomeRowsSelected()}
                                     checked={props.table.getIsAllRowsSelected()}
@@ -222,13 +222,13 @@ const defineColumns = <T,>(
                     },
                     cell: props => {
                         return (
-                            <div className={"flex items-center gap-xl"}>
+                            <div className={"wby-flex wby-items-center wby-gap-xl"}>
                                 <CheckboxPrimitive
                                     checked={props.row.getIsSelected()}
                                     onCheckedChange={value => props.row.toggleSelected(!!value)}
                                     disabled={!props.row.getCanSelect()}
                                     aria-label="Select row"
-                                    className={cn(!props.row.getCanSelect() ? "invisible" : "")}
+                                    className={cn(!props.row.getCanSelect() ? "wby-invisible" : "")}
                                 />
                                 {firstColumn.cell
                                     ? React.createElement(firstColumn.cell, props)
@@ -245,7 +245,7 @@ const defineColumns = <T,>(
             if (loading) {
                 return {
                     ...column,
-                    cell: () => <Skeleton className={"w-full h-md"} />
+                    cell: () => <Skeleton className={"wby-w-full wby-h-md"} />
                 };
             }
 
@@ -448,7 +448,7 @@ const DataTable = <T extends Record<string, any> & DataTableDefaultData>({
                                                 onClick={header.column.getToggleSortingHandler()}
                                                 sortable={header.column.getCanSort()}
                                             >
-                                                <div className="w-full overflow-hidden whitespace-nowrap truncate">
+                                                <div className="wby-w-full wby-overflow-hidden wby-whitespace-nowrap wby-truncate">
                                                     {flexRender(
                                                         header.column.columnDef.header,
                                                         header.getContext()
