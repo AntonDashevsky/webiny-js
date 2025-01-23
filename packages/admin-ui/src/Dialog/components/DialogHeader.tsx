@@ -36,7 +36,7 @@ export const DialogHeader = ({
             )}
         >
             <DialogTitle className={"wby-flex wby-justify-between"}>
-                <div>
+                <div className={"wby-flex wby-gap-xs"}>
                     {icon}
                     {title}
                 </div>
