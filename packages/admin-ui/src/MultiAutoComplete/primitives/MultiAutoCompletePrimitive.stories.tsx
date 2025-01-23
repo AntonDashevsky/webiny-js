@@ -25,9 +25,9 @@ const meta: Meta<typeof MultiAutoCompletePrimitive> = {
     render: args => {
         const [values, setValues] = useState(args.values);
         return (
-            <div className={"w-full"}>
+            <div className={"wby-w-full"}>
                 <MultiAutoCompletePrimitive {...args} values={values} onValuesChange={setValues} />
-                <div className={"mt-4 text-center"}>Current selected values: {values}</div>
+                <div className={"wby-mt-4 wby-text-center"}>Current selected values: {values}</div>
             </div>
         );
     }
@@ -377,12 +377,12 @@ export const WithCustomOptionRenderer: Story = {
         ],
         optionRenderer: item => {
             return (
-                <div className={"w-full flex justify-between align-middle"}>
+                <div className={"wby-w-full wby-flex wby-justify-between wby-align-middle"}>
                     <div>
-                        <span className={"mr-sm"}>{item.flag}</span>
+                        <span className={"wby-mr-sm"}>{item.flag}</span>
                         {item.name}
                     </div>
-                    <div className={"text-sm"}>{item.time_difference}</div>
+                    <div className={"wby-text-sm"}>{item.time_difference}</div>
                 </div>
             );
         }
@@ -409,14 +409,14 @@ export const WithCustomSelectedOptionRenderer: Story = {
             );
         };
         return (
-            <div className={"w-full"}>
+            <div className={"wby-w-full"}>
                 <MultiAutoCompletePrimitive
                     {...args}
                     values={values}
                     onValuesChange={setValues}
                     selectedOptionRenderer={selectedOptionRenderer}
                 />
-                <div className={"mt-4 text-center"}>Current selected values: {values}</div>
+                <div className={"wby-mt-4 wby-text-center"}>Current selected values: {values}</div>
             </div>
         );
     }
@@ -491,12 +491,12 @@ export const WithExternalValueControl: Story = {
     render: args => {
         const [values, setValues] = useState(args.values);
         return (
-            <div className={"w-full"}>
+            <div className={"wby-w-full"}>
                 <MultiAutoCompletePrimitive {...args} values={values} onValuesChange={setValues} />
-                <div className={"mt-4 text-center"}>
+                <div className={"wby-mt-4 wby-text-center"}>
                     <Button text={"Reset"} onClick={() => setValues(args.values)} />
                 </div>
-                <div className={"mt-4 text-center"}>Current selected values: {values}</div>
+                <div className={"wby-mt-4 wby-text-center"}>Current selected values: {values}</div>
             </div>
         );
     }
