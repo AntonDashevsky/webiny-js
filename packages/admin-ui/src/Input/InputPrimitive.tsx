@@ -90,7 +90,7 @@ const inputVariants = cva(
         "wby-w-full wby-border-sm wby-text-md wby-peer",
         "focus-visible:wby-outline-none",
         "disabled:wby-cursor-not-allowed data-[disabled=true]:wby-cursor-not-allowed",
-        "wby-file:wby-bg-transparent wby-file:wby-border-none wby-file:wby-text-sm wby-file:wby-font-semibold"
+        "file:wby-bg-transparent file:wby-border-none file:wby-text-sm file:wby-font-semibold"
     ],
     {
         variants: {
