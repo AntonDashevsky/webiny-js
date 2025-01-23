@@ -56,7 +56,7 @@ const SliderPrimitiveTrack = makeDecoratable(
  */
 const sliderTooltipVariants = cva(
     [
-        "wby-px-xs-plus wby-py-xxs wby-rounded-sm wby-absolute wby-left-1/2 wby-translate-x-1/2",
+        "wby-px-xs-plus wby-py-xxs wby-rounded-sm wby-absolute wby-left-1/2 -wby-translate-x-1/2",
         "wby-bg-neutral-muted"
     ],
     {
@@ -112,8 +112,8 @@ const DecoratableSliderPrimitiveThumb = ({
         className={cn(
             "wby-inline-block wby-w-md wby-h-md wby-mt-xs-plus wby-rounded-xxl wby-border-md wby-transition-colors wby-outline-none",
             "wby-bg-primary-default wby-border-white",
-            "hover:bg-primary-strong",
-            "wby-active:bg-primary-default",
+            "hover:wby-bg-primary-strong",
+            "active:wby-bg-primary-default",
             "data-[disabled]:wby-pointer-events-none data-[disabled]:wby-bg-primary-disabled"
         )}
     >
