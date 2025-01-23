@@ -40,17 +40,17 @@ const textareaVariants = cva(
             {
                 variant: "primary",
                 invalid: true,
-                class: "wby-!border-destructive-default"
+                class: "!wby-border-destructive-default"
             },
             {
                 variant: "secondary",
                 invalid: true,
-                class: "wby-!border-destructive-default"
+                class: "!wby-border-destructive-default"
             },
             {
                 variant: "ghost",
                 invalid: true,
-                class: "wby-!border-destructive-subtle wby-!bg-destructive-subtle"
+                class: "!wby-border-destructive-subtle !wby-bg-destructive-subtle"
             }
         ],
         defaultVariants: {
