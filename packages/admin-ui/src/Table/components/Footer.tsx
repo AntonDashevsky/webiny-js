@@ -3,7 +3,10 @@ import { cn } from "~/utils";
 
 const Footer = ({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
     <tfoot
-        className={cn("border-t bg-muted/50 font-medium [&>tr]:last:border-b-0", className)}
+        className={cn(
+            "wby-border-t wby-bg-muted/50 wby-font-medium [&>tr]:last:wby-border-b-0",
+            className
+        )}
         {...props}
     />
 );

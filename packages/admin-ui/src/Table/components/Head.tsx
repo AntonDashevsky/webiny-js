@@ -5,10 +5,10 @@ const Head = ({ className, children, ...props }: React.ThHTMLAttributes<HTMLTabl
     <th
         className={cn(
             [
-                "box-border relative px-md py-sm text-sm text-left align-middle font-normal text-neutral-strong fill-neutral-xstrong",
-                "hover:bg-neutral-subtle",
-                "overflow-hidden whitespace-nowrap truncate",
-                "[&:has([role=checkbox])]:pl-lg"
+                "wby-box-border wby-relative wby-px-md wby-py-sm wby-text-sm wby-text-left wby-align-middle wby-font-normal wby-text-neutral-strong wby-fill-neutral-xstrong",
+                "wby-hover:wby-bg-neutral-subtle",
+                "wby-overflow-hidden wby-whitespace-nowrap wby-truncate",
+                "wby-[&:has([role=checkbox])]:wby-pl-lg"
             ],
             className
         )}

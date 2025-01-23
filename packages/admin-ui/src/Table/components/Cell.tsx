@@ -5,9 +5,9 @@ const Cell = ({ className, ...props }: React.TdHTMLAttributes<HTMLTableCellEleme
     <td
         className={cn(
             [
-                "box-border px-md py-sm-extra text-md text-left align-middle text-neutral-primary",
-                "overflow-hidden whitespace-nowrap truncate",
-                "[&:has([role=checkbox])]:pl-lg"
+                "wby-box-border wby-px-md wby-py-sm-extra wby-text-md wby-text-left wby-align-middle wby-text-neutral-primary",
+                "wby-overflow-hidden wby-whitespace-nowrap wby-truncate",
+                "wby-[&:has([role=checkbox])]:wby-pl-lg"
             ],
             className
         )}
