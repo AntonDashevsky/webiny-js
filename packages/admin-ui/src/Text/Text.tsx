@@ -5,7 +5,7 @@ import { cn } from "~/utils";
 
 type TextTags = "span" | "div";
 
-const textVariants = cva("font-sans", {
+const textVariants = cva("wby-font-sans", {
     variants: {
         size: {
             xl: "wby-text-xl",

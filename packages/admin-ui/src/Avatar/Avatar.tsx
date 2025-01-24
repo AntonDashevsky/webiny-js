@@ -43,31 +43,28 @@ interface AvatarProps
     fallback?: React.ReactElement<AvatarFallbackProps>;
 }
 
-const avatarVariants = cva(
-    "wby-relative wby-flex wby-shrink-0 wby-overflow-hidden wby-border-sm wby-border-transparent",
-    {
-        variants: {
-            size: {
-                sm: "wby-text-h6 wby-rounded-sm wby-p-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>*]:wby-size-md",
-                md: "wby-text-h6 wby-rounded-md wby-p-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>*]:wby-size-lg",
-                lg: "wby-text-h6 wby-rounded-md wby-p-[calc(theme(padding.sm)-theme(borderWidth.sm))] [&>*]:wby-size-lg",
-                xl: "wby-text-h4 wby-rounded-lg wby-p-[calc(theme(padding.sm)-theme(borderWidth.sm))] [&>*]:wby-size-xl"
-            },
-            variant: {
-                strong: "wby-bg-primary wby-text-neutral-light [&_svg]:wby-fill-neutral-base",
-                subtle: "wby-bg-neutral-light wby-text-neutral-primary [&_svg]:wby-fill-neutral-xstrong",
-                light: "wby-bg-neutral-dimmed wby-text-neutral-primary [&_svg]:wby-fill-neutral-xstrong",
-                quiet: "wby-bg-transparent wby-text-neutral-primary [&_svg]:wby-fill-neutral-xstrong",
-                outlined:
-                    "wby-bg-neutral-base !wby-border-neutral-muted wby-border-sm wby-text-accent-primary [&_svg]:wby-fill-neutral-xstrong"
-            }
+const avatarVariants = cva("wby-relative wby-flex wby-shrink-0 wby-overflow-hidden", {
+    variants: {
+        size: {
+            sm: "wby-text-h6 wby-rounded-sm wby-size-[24px] [&_svg]:wby-size-[16px]",
+            md: "wby-text-h6 wby-rounded-md wby-size-[32px] [&_svg]:wby-size-[24px]",
+            lg: "wby-text-h6 wby-rounded-md wby-size-[40px] [&_svg]:wby-size-[24px]",
+            xl: "wby-text-h4 wby-rounded-lg wby-size-[48px] [&_svg]:wby-size-[24px]"
         },
-        defaultVariants: {
-            size: "md",
-            variant: "strong"
+        variant: {
+            strong: "wby-bg-primary wby-text-neutral-light [&_svg]:wby-fill-neutral-base",
+            subtle: "wby-bg-neutral-light wby-text-neutral-primary [&_svg]:wby-fill-neutral-xstrong",
+            light: "wby-bg-neutral-dimmed wby-text-neutral-primary [&_svg]:wby-fill-neutral-xstrong",
+            quiet: "wby-bg-transparent wby-text-neutral-primary [&_svg]:wby-fill-neutral-xstrong",
+            outlined:
+                "wby-bg-neutral-base !wby-border-neutral-muted wby-border-sm wby-text-accent-primary [&_svg]:wby-fill-neutral-xstrong"
         }
+    },
+    defaultVariants: {
+        size: "md",
+        variant: "strong"
     }
-);
+});
 
 const AvatarBase = React.forwardRef<React.ElementRef<typeof AvatarPrimitive.Root>, AvatarProps>(
     ({ image, fallback, className, size, variant, ...props }, ref) => {

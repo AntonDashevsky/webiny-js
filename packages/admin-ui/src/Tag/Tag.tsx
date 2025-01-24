@@ -7,7 +7,7 @@ import { IconButton, iconButtonVariants } from "~/Button";
 const tagVariants = cva(
     [
         "wby-inline-flex wby-items-center wby-gap-xxs wby-rounded-sm wby-text-sm wby-text-regular wby-transition-colors wby-overflow-hidden",
-        "wby-focus:outline-none"
+        "focus:outline-none"
     ],
     {
         variants: {
@@ -25,43 +25,43 @@ const tagVariants = cva(
                 "neutral-base": [
                     "wby-border-sm wby-border-solid wby-px-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] wby-py-[calc(theme(padding.xxs)-theme(borderWidth.sm))]",
                     "wby-bg-transparent wby-border-neutral-muted wby-text-neutral-primary",
-                    "wby-hover:bg-neutral-light",
-                    "wby-aria-disabled:bg-transparent wby-aria-disabled:border-neutral-dimmed wby-aria-disabled:text-neutral-disabled"
+                    "hover:wby-bg-neutral-light",
+                    "aria-disabled:wby-bg-transparent aria-disabled:wby-border-neutral-dimmed aria-disabled:wby-text-neutral-disabled"
                 ],
                 "neutral-light": [
                     "wby-bg-neutral-muted wby-text-neutral-primary",
-                    "wby-hover:bg-neutral-strong",
-                    "wby-aria-disabled:bg-neutral-muted wby-aria-disabled:text-neutral-muted"
+                    "hover:wby-bg-neutral-strong",
+                    "aria-disabled:wby-bg-neutral-muted aria-disabled:wby-text-neutral-muted"
                 ],
                 "neutral-strong": [
                     "wby-bg-neutral-xstrong wby-text-neutral-light",
-                    "wby-hover:bg-neutral-dark",
-                    "wby-aria-disabled:bg-neutral-strong"
+                    "hover:wby-bg-neutral-dark",
+                    "aria-disabled:wby-bg-neutral-strong"
                 ],
                 "neutral-dark": [
                     "wby-bg-neutral-dark wby-text-neutral-light",
-                    "wby-hover:bg-neutral-xstrong",
-                    "wby-aria-disabled:bg-neutral-strong"
+                    "hover:wby-bg-neutral-xstrong",
+                    "aria-disabled:wby-bg-neutral-strong"
                 ],
                 accent: [
                     "wby-bg-primary-default wby-text-neutral-light",
-                    "wby-hover:bg-primary-strong",
-                    "wby-aria-disabled:bg-primary-disabled"
+                    "hover:wby-bg-primary-strong",
+                    "aria-disabled:wby-bg-primary-disabled"
                 ],
                 success: [
                     "wby-bg-success-default wby-text-neutral-light",
-                    "wby-hover:bg-success-strong",
-                    "wby-aria-disabled:bg-success-disabled"
+                    "hover:wby-bg-success-strong",
+                    "aria-disabled:wby-bg-success-disabled"
                 ],
                 warning: [
                     "wby-bg-warning-muted wby-text-neutral-primary",
-                    "wby-hover:bg-warning-default",
-                    "wby-aria-disabled:bg-warning-disabled wby-aria-disabled:text-neutral-disabled"
+                    "hover:wby-bg-warning-default",
+                    "aria-disabled:wby-bg-warning-disabled aria-disabled:wby-text-neutral-disabled"
                 ],
                 destructive: [
                     "wby-bg-destructive-default wby-text-neutral-light",
-                    "wby-hover:bg-destructive-strong",
-                    "wby-aria-disabled:bg-destructive-disabled"
+                    "hover:wby-bg-destructive-strong",
+                    "aria-disabled:wby-bg-destructive-disabled"
                 ]
             }
         },

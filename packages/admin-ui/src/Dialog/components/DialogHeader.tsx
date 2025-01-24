@@ -6,6 +6,7 @@ import { DialogDescription } from "./DialogDescription";
 import { ReactComponent as XIcon } from "@material-design-icons/svg/filled/close.svg";
 import { IconButton } from "~/Button";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { useMemo } from "react";
 
 export type DialogHeaderProps = Omit<React.HTMLAttributes<HTMLDivElement>, "title"> &
     Pick<DialogProps, "title" | "icon" | "description" | "showCloseButton">;
@@ -18,7 +19,11 @@ export const DialogHeader = ({
     className,
     ...props
 }: DialogHeaderProps) => {
-    if (!title && !description) {
+    const nothingToRender = useMemo(() => {
+        return !title && !description && !icon && !showCloseButton;
+    }, [title, description, icon, showCloseButton]);
+
+    if (nothingToRender) {
         return null;
     }
 
@@ -26,21 +31,22 @@ export const DialogHeader = ({
         <div
             {...props}
             className={cn(
-                "wby-flex wby-flex-col wby-gap-sm wby-px-lg wby-py-md wby-text-center sm:wby-text-left wby-text-neutral-primary",
+                "wby-flex wby-flex-col wby-gap-sm wby-px-lg wby-py-md wby-text-center wby-sm:text-left wby-text-neutral-primary",
                 className
             )}
         >
-            <div className={"wby-relative"}>
+            <DialogTitle className={"wby-flex wby-justify-between"}>
+                <div className={"wby-flex wby-gap-xs"}>
+                    {icon}
+                    {title}
+                </div>
+
                 {showCloseButton !== false && (
-                    <DialogPrimitive.Close asChild className="wby-absolute wby-right-0 wby-top-0">
+                    <DialogPrimitive.Close asChild>
                         <IconButton size="md" iconSize="lg" variant={"ghost"} icon={<XIcon />} />
                     </DialogPrimitive.Close>
                 )}
-                <DialogTitle>
-                    {icon}
-                    {title}
-                </DialogTitle>
-            </div>
+            </DialogTitle>
             <DialogDescription>{description}</DialogDescription>
         </div>
     );

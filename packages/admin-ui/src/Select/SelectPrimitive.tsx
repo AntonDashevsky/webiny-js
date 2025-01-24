@@ -38,29 +38,29 @@ const SelectIcon = ({ icon }: SelectIconProps) => {
 const triggerVariants = cva(
     [
         "wby-w-full wby-flex wby-items-center wby-justify-between wby-gap-sm wby-border-sm wby-text-md wby-relative",
-        "wby-focus:outline-none",
-        "wby-disabled:pointer-events-none"
+        "focus:wby-outline-none",
+        "disabled:wby-pointer-events-none"
     ],
     {
         variants: {
             variant: {
                 primary: [
-                    "wby-bg-neutral-base wby-border-neutral-muted wby-text-neutral-strong wby-placeholder:text-neutral-dimmed wby-fill-neutral-xstrong",
-                    "wby-hover:border-neutral-strong",
-                    "wby-focus:border-neutral-black",
-                    "wby-disabled:bg-neutral-disabled wby-disabled:border-neutral-dimmed wby-disabled:text-neutral-disabled wby-disabled:placeholder:text-neutral-disabled wby-disabled:fill-neutral-disabled"
+                    "wby-bg-neutral-base wby-border-neutral-muted wby-text-neutral-strong placeholder:wby-text-neutral-dimmed wby-fill-neutral-xstrong",
+                    "hover:wby-border-neutral-strong",
+                    "focus:wby-border-neutral-black",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ],
                 secondary: [
-                    "wby-bg-neutral-light wby-border-neutral-subtle wby-text-neutral-strong wby-placeholder:text-neutral-muted wby-fill-neutral-xstrong",
-                    "wby-hover:bg-neutral-dimmed",
-                    "wby-focus:border-neutral-black wby-focus:bg-neutral-base",
-                    "wby-disabled:bg-neutral-disabled wby-disabled:border-neutral-dimmed wby-disabled:text-neutral-disabled wby-disabled:placeholder:text-neutral-disabled wby-disabled:fill-neutral-disabled"
+                    "wby-bg-neutral-light wby-border-neutral-subtle wby-text-neutral-strong placeholder:wby-text-neutral-muted wby-fill-neutral-xstrong",
+                    "hover:wby-bg-neutral-dimmed",
+                    "focus:wby-border-neutral-black focus:wby-bg-neutral-base",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ],
                 ghost: [
-                    "wby-bg-neutral-base wby-border-transparent wby-text-neutral-strong wby-placeholder:text-neutral-dimmed",
-                    "wby-hover:bg-neutral-light",
-                    "wby-focus:bg-neutral-light",
-                    "wby-disabled:bg-neutral-disabled wby-disabled:border-neutral-dimmed wby-disabled:text-neutral-disabled wby-disabled:placeholder:text-neutral-disabled wby-disabled:fill-neutral-disabled"
+                    "wby-bg-neutral-base wby-border-transparent wby-text-neutral-strong placeholder:wby-text-neutral-dimmed",
+                    "hover:wby-bg-neutral-light",
+                    "focus:wby-bg-neutral-light",
+                    "disabled:wby-bg-neutral-disabled disabled:wby-border-neutral-dimmed disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled disabled:wby-fill-neutral-disabled"
                 ]
             },
             size: {
@@ -78,35 +78,24 @@ const triggerVariants = cva(
                 ]
             },
             invalid: {
-                true: [
-                    "wby-border-destructive-default",
-                    "wby-hover:border-destructive-default",
-                    "wby-focus:border-destructive-default",
-                    "wby-disabled:border-destructive-default"
-                ]
+                true: ""
             }
         },
         compoundVariants: [
-            // Add specific classNames in case of invalid variant.
+            {
+                variant: "primary",
+                invalid: true,
+                class: "!wby-border-destructive-default"
+            },
             {
                 variant: "secondary",
                 invalid: true,
-                class: [
-                    "wby-bg-neutral-base wby-border-destructive-default",
-                    "wby-hover:bg-neutral-dimmed wby-hover:border-destructive-default",
-                    "wby-focus:bg-neutral-base wby-focus:border-destructive-default",
-                    "wby-disabled:bg-neutral-disabled wby-disabled:border-destructive-default"
-                ]
+                class: "!wby-border-destructive-default"
             },
             {
                 variant: "ghost",
                 invalid: true,
-                class: [
-                    "wby-border-none wby-bg-destructive-subtle",
-                    "wby-hover:bg-destructive-subtle",
-                    "wby-focus:bg-destructive-subtle",
-                    "wby-disabled:bg-destructive-subtle"
-                ]
+                class: "!wby-border-destructive-subtle !wby-bg-destructive-subtle"
             }
         ],
         defaultVariants: {
@@ -215,8 +204,8 @@ const SelectScrollDownButton = makeDecoratable(
  */
 const selectContentVariants = cva([
     "wby-relative wby-z-50 wby-max-h-96 wby-min-w-56 wby-shadow-lg wby-py-sm wby-overflow-hidden wby-rounded-sm wby-border-sm wby-border-neutral-muted wby-bg-neutral-base wby-text-neutral-strong",
-    "wby-data-[state=open]:animate-in wby-data-[state=closed]:animate-out wby-data-[state=closed]:fade-out-0 wby-data-[state=open]:fade-in-0 wby-data-[state=closed]:zoom-out-95 wby-data-[state=open]:zoom-in-95 wby-data-[side=bottom]:slide-in-from-top-2 wby-data-[side=left]:slide-in-from-right-2 wby-data-[side=right]:slide-in-from-left-2 wby-data-[side=top]:slide-in-from-bottom-2",
-    "wby-data-[side=bottom]:translate-y-1 wby-data-[side=left]:-translate-x-1 wby-data-[side=right]:translate-x-1 wby-data-[side=top]:-translate-y-1"
+    "data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=open]:wby-fade-in-0 data-[state=closed]:wby-zoom-out-95 data-[state=open]:wby-zoom-in-95 data-[side=bottom]:wby-slide-in-from-top-2 data-[side=left]:wby-slide-in-from-right-2 data-[side=right]:wby-slide-in-from-left-2 data-[side=top]:wby-slide-in-from-bottom-2",
+    "data-[side=bottom]:wby-translate-y-1 data-[side=left]:wby--translate-x-1 data-[side=right]:wby-translate-x-1 data-[side=top]:wby--translate-y-1"
 ]);
 
 interface SelectContentProps
@@ -286,9 +275,9 @@ const DecoratableSelectItem = React.forwardRef<
             [
                 "wby-flex wby-items-center wby-justify-between wby-gap-sm-extra wby-cursor-default wby-select-none wby-rounded-sm wby-p-sm wby-mx-sm wby-text-md wby-outline-none",
                 "wby-bg-neutral-base wby-text-neutral-primary wby-fill-neutral-xstrong",
-                "wby-focus:bg-neutral-dimmed",
-                "wby-data-[disabled]:text-neutral-disabled wby-data-[disabled]:cursor-not-allowed",
-                "wby-data-[state=checked]:font-semibold"
+                "focus:wby-bg-neutral-dimmed",
+                "data-[disabled]:wby-text-neutral-disabled data-[disabled]:wby-cursor-not-allowed",
+                "data-[state=checked]:wby-font-semibold"
             ],
             className
         )}
@@ -313,7 +302,7 @@ const DecoratableSelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <SelectPrimitives.Separator
         ref={ref}
-        className={cn("-wby-mx-sm wby-my-sm wby-h-px wby-bg-neutral-strong", className)}
+        className={cn("wby--mx-sm wby-my-sm wby-h-px wby-bg-neutral-strong", className)}
         {...props}
     />
 ));

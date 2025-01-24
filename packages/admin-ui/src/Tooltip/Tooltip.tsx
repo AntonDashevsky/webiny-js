@@ -15,7 +15,7 @@ const TooltipTrigger = TooltipPrimitive.Trigger;
  */
 const tooltipContentVariants = cva(
     [
-        "wby-z-50 wby-px-sm-extra wby-py-sm wby-max-w-64 wby-rounded-md wby-text-sm wby-animate-in wby-fade-in-0 wby-zoom-in-95",
+        "wby-z-50 wby-px-sm-extra wby-py-sm wby-max-w-64 wby-rounded-md wby-text-sm wby-font-normal wby-animate-in wby-fade-in-0 wby-zoom-in-95",
         "data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=closed]:wby-zoom-out-95",
         "data-[side=bottom]:wby-slide-in-from-top-2 data-[side=left]:wby-slide-in-from-right-2 data-[side=right]:wby-slide-in-from-left-2 data-[side=top]:wby-slide-in-from-bottom-2"
     ],
@@ -47,12 +47,14 @@ const DecoratableTooltipContent = React.forwardRef<
     React.ElementRef<typeof TooltipPrimitive.Content>,
     TooltipContentProps
 >(({ className, variant, hiddenArrow, ...props }, ref) => (
-    <TooltipPrimitive.Content
-        ref={ref}
-        sideOffset={4}
-        className={cn(tooltipContentVariants({ variant, hiddenArrow, className }))}
-        {...props}
-    />
+    <TooltipPrimitive.Portal>
+        <TooltipPrimitive.Content
+            ref={ref}
+            sideOffset={4}
+            className={cn(tooltipContentVariants({ variant, hiddenArrow, className }))}
+            {...props}
+        />
+    </TooltipPrimitive.Portal>
 ));
 
 DecoratableTooltipContent.displayName = TooltipPrimitive.Content.displayName;

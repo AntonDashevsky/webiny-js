@@ -31,7 +31,7 @@ const DecoratableFormComponentLabel = (props: FormComponentLabelProps) => {
         return null;
     }
 
-    return <span className={"wby-py-xs wby-pr-xs"}>{renderLabel}</span>;
+    return <div className={"wby-mb-xs"}>{renderLabel}</div>;
 };
 
 const FormComponentLabel = makeDecoratable("FormComponentLabel", DecoratableFormComponentLabel);

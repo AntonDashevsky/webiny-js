@@ -7,6 +7,7 @@ import { cn } from "~/utils";
 const iconVariants = cva("", {
     variants: {
         size: {
+            xs: "wby-size-sm-extra",
             sm: "wby-size-md",
             md: "wby-size-md-plus",
             lg: "wby-size-lg"

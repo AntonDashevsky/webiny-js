@@ -24,8 +24,8 @@ const DecoratableRadio = React.forwardRef<
                     [
                         "wby-group wby-peer wby-aspect-square wby-h-md wby-w-md wby-rounded-xl wby-mt-xxs",
                         "wby-bg-neutral-base wby-border-sm wby-border-neutral-muted wby-ring-offset-background",
-                        "wby-focus:outline-none wby-focus-visible:border-accent-default wby-focus-visible:ring-lg wby-focus-visible:ring-primary-dimmed wby-focus-visible:ring-offset-0",
-                        "wby-disabled:cursor-not-allowed wby-disabled:border-neutral-muted wby-disabled:bg-neutral-disabled"
+                        "focus:wby-outline-none focus-visible:wby-border-accent-default focus-visible:wby-ring-lg focus-visible:wby-ring-primary-dimmed focus-visible:wby-ring-offset-0",
+                        "disabled:wby-cursor-not-allowed disabled:wby-border-neutral-muted disabled:wby-bg-neutral-disabled"
                     ],
                     className
                 )}
@@ -36,7 +36,7 @@ const DecoratableRadio = React.forwardRef<
                         className={cn([
                             "wby-h-sm wby-w-sm wby-rounded-xl",
                             "wby-bg-primary-default",
-                            "wby-group-disabled:bg-neutral-strong"
+                            "group-disabled:wby-bg-neutral-strong"
                         ])}
                     />
                 </RadioGroupPrimitive.Indicator>

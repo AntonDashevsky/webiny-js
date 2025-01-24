@@ -57,9 +57,9 @@ const DecoratableLabelHint = ({ content }: LabelHintProps) => (
         trigger={
             <Icon
                 icon={<InfoIcon />}
-                size="sm"
+                size="xs"
                 label={"More information"}
-                color={"neutral-strong"}
+                color={"neutral-light"}
             />
         }
     />
@@ -95,7 +95,7 @@ const LabelValue = makeDecoratable("LabelValue", DecoratableLabelValue);
 
 const labelVariants = cva(
     [
-        "wby-inline-flex wby-items-center wby-justify-between wby-w-full wby-text-sm wby-leading-none",
+        "wby-inline-flex wby-items-center wby-justify-between wby-w-full wby-text-sm",
         "wby-text-neutral-primary",
         "peer-disabled:wby-text-neutral-disabled peer-disabled:wby-cursor-not-allowed"
     ],
@@ -138,7 +138,7 @@ const LabelBase = React.forwardRef<React.ElementRef<typeof LabelPrimitive.Root>,
         return (
             <LabelPrimitive.Root
                 ref={ref}
-                className={cn(labelVariants({ weight }), className)}
+                className={cn(labelVariants({ weight, disabled }), className)}
                 htmlFor={id}
                 {...props}
             >
