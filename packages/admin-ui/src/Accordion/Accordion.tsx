@@ -10,17 +10,17 @@ const AccordionTriggerBase = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Trigger>,
     React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
-    <AccordionPrimitive.Header className="flex">
+    <AccordionPrimitive.Header className="wby-flex">
         <AccordionPrimitive.Trigger
             ref={ref}
             className={cn(
-                "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
+                "wby-flex wby-flex-1 wby-items-center wby-justify-between wby-py-4 wby-font-medium wby-transition-all wby-hover:underline wby-[&[data-state=open]>svg]:rotate-180",
                 className
             )}
             {...props}
         >
             {children}
-            <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+            <ChevronDown className="wby-h-4 wby-w-4 wby-shrink-0 wby-transition-transform wby-duration-200" />
         </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
 ));
@@ -34,10 +34,10 @@ const AccordionContentBase = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
     <AccordionPrimitive.Content
         ref={ref}
-        className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+        className="wby-overflow-hidden wby-text-sm wby-transition-all wby-data-[state=closed]:animate-accordion-up wby-data-[state=open]:animate-accordion-down"
         {...props}
     >
-        <div className={cn("pb-4 pt-0", className)}>{children}</div>
+        <div className={cn("wby-pb-4 wby-pt-0", className)}>{children}</div>
     </AccordionPrimitive.Content>
 ));
 
@@ -59,7 +59,7 @@ const AccordionItemBase = React.forwardRef<
     AccordionItemProps
 >(({ className, title, ...props }, ref) => {
     return (
-        <AccordionPrimitive.Item ref={ref} className={cn("border-b", className)} {...props}>
+        <AccordionPrimitive.Item ref={ref} className={cn("wby-border-b", className)} {...props}>
             <AccordionTrigger>{title}</AccordionTrigger>
             <AccordionContent>
                 Yes. It comes with default styles that matches the other components&apos; aesthetic.
@@ -77,4 +77,3 @@ const AccordionBase = AccordionRoot;
 export const Accordion = withStaticProps(AccordionBase, {
     Item: AccordionItem
 });
-
