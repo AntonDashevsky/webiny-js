@@ -15,7 +15,7 @@ const AccordionTriggerBase = React.forwardRef<
         <AccordionPrimitive.Trigger asChild ref={ref}>
             <div
                 className={
-                    "wby-flex wby-justify-between wby-items-center wby-px-md-extra wby-py-sm-extra wby-border-b-sm wby-border-b-neutral-dimmed wby-transition-all wby-cursor-pointer [&[data-state=open]>svg]:wby-rotate-180"
+                    "wby-flex wby-justify-between wby-items-center wby-px-md-extra wby-py-sm-extra wby-border-b-sm wby-border-b-neutral-dimmed wby-transition-all wby-cursor-pointer [&[data-state=open]>svg]:wby-rotate-180" DATA-STATE-CLOSED
                 }
             >
                 {icon && <div className={"wby-mr-md-plus"}>{icon}</div>}

@@ -3,3 +3,4 @@
 - full width
 - weird animation glitch
 - bc
+- vertical separator no visible
