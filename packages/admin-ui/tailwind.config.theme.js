@@ -1,4 +1,8 @@
 module.exports = {
+    animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out"
+    },
     backgroundColor: {
         transparent: "transparent",
         white: "white",
@@ -234,6 +238,16 @@ module.exports = {
     fontWeight: {
         regular: "var(--font-weight-regular)",
         semibold: "var(--font-weight-semibold)"
+    },
+    keyframes: {
+        "accordion-down": {
+            from: { height: "0" },
+            to: { height: "var(--radix-accordion-content-height)" }
+        },
+        "accordion-up": {
+            from: { height: "var(--radix-accordion-content-height)" },
+            to: { height: "0" }
+        }
     },
     margin: {
         lg: "var(--margin-lg)",

@@ -5,12 +5,14 @@ const webinyPackagesGlob = `${project.root}/node_modules/@webiny/app*/**/*.js`;
 const webinyAdminUiPackageGlob = `${project.root}/node_modules/@webiny/admin-ui/**/*.js`;
 const adminAppSourceGlob = `${project.root}/apps/admin`;
 const {
+    animation,
     backgroundColor,
     borderColor,
     borderRadius,
     borderWidth,
     fill,
     fontSize,
+    keyframes,
     margin,
     padding,
     ringColor,
@@ -52,6 +54,8 @@ module.exports = {
         },
 
         extend: {
+            animation,
+            keyframes,
             margin,
             padding,
             spacing

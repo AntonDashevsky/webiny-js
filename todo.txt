@@ -1,0 +1,5 @@
+- ref / makeDecoratable cleanups
+- clicking actions should not toggle accordion
+- full width
+- weird animation glitch
+- bc
