@@ -4,3 +4,5 @@
 - weird animation glitch
 - bc
 - vertical separator no visible
+- no icon
+- no description
