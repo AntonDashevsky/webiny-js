@@ -30,11 +30,13 @@ const AccordionItemActionBase = ({
     return <IconButton onClick={onClickCallback} variant={"ghost"} size={"sm"} {...props} />;
 };
 
-export const DecoratableAccordionItemAction = makeDecoratable(
+const DecoratableAccordionItemAction = makeDecoratable(
     "AccordionItemAction",
     AccordionItemActionBase
 );
 
-export const AccordionItemAction = withStaticProps(DecoratableAccordionItemAction, {
+const AccordionItemAction = withStaticProps(DecoratableAccordionItemAction, {
     Separator: AccordionItemSeparator
 });
+
+export { AccordionItemAction, type AccordionItemActionProps };
