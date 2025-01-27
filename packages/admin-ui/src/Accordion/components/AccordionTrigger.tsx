@@ -27,6 +27,7 @@ const AccordionTriggerBase = React.forwardRef<
                     {actions}
                     <AccordionItemAction.Separator />
                     <AccordionItemAction
+                        onClickStopPropagation={false}
                         data-role={"open-close-indicator"}
                         iconSize={"lg"}
                         icon={
