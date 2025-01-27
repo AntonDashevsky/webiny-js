@@ -8,7 +8,8 @@ const AccordionContentBase = React.forwardRef<
 >(({ children, ...props }, ref) => (
     <AccordionPrimitive.Content
         ref={ref}
-        className="wby-overflow-hidden wby-text-md wby-pt-sm wby-pb-lg wby-pl-md-extra wby-pr-[52px] wby-border-b-sm wby-border-b-neutral-dimmed wby-rounded-bl-lg wby-rounded-br-lg wby-transition-all data-[state=closed]:wby-animate-accordion-up data-[state=open]:wby-animate-accordion-down"
+        data-role={"content"}
+        className="wby-overflow-hidden wby-text-md wby-pt-sm wby-pb-lg wby-pl-md-extra wby-pr-[52px] wby-transition-all data-[state=closed]:wby-animate-accordion-up data-[state=open]:wby-animate-accordion-down"
         {...props}
     >
         {children}

@@ -20,7 +20,7 @@ const AccordionItemBase = React.forwardRef<
     AccordionItemProps
 >(({ children, value, ...triggerProps }, ref) => {
     return (
-        <AccordionPrimitive.Item value={value} ref={ref} className={"wby-border-b"}>
+        <AccordionPrimitive.Item value={value} ref={ref} className={"wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg "}>
             <AccordionTrigger {...triggerProps} />
             <AccordionContent>{children}</AccordionContent>
         </AccordionPrimitive.Item>

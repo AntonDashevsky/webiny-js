@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ReactComponent as ChevronDown } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
+import { ReactComponent as KeyboardArrowDownIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
 import { makeDecoratable } from "~/utils";
 import { AccordionItemProps } from "./AccordionItem";
 import { AccordionItemAction } from "./AccordionItemAction";
@@ -15,7 +15,7 @@ const AccordionTriggerBase = React.forwardRef<
         <AccordionPrimitive.Trigger asChild ref={ref}>
             <div
                 className={
-                    "wby-flex wby-justify-between wby-items-center wby-px-md-extra wby-py-sm-extra wby-border-b-sm wby-border-b-neutral-dimmed wby-transition-all wby-cursor-pointer [&[data-state=open]>svg]:wby-rotate-180" DATA-STATE-CLOSED
+                    "wby-flex wby-justify-between wby-items-center wby-px-md-extra wby-py-sm-extra wby-transition-all wby-cursor-pointer [&[data-state=open]_[data-role=open-close-indicator]_svg]:wby-rotate-180"
                 }
             >
                 {icon && <div className={"wby-mr-md-plus"}>{icon}</div>}
@@ -23,12 +23,14 @@ const AccordionTriggerBase = React.forwardRef<
                     <div className={"wby-text-md wby-font-semibold"}>{title}</div>
                     <div className={"wby-text-sm wby-text-neutral-strong"}>{description}</div>
                 </div>
-                <div className={"wby-flex wby-ml-3xl"}>
+                <div className={"wby-flex wby-ml-3xl wby-gap-xs"}>
                     {actions}
                     <AccordionItemAction.Separator />
                     <AccordionItemAction
+                        data-role={"open-close-indicator"}
+                        iconSize={"lg"}
                         icon={
-                            <ChevronDown className="wby-h-4 wby-w-4 wby-shrink-0 wby-transition-transform wby-duration-200" />
+                            <KeyboardArrowDownIcon className="wby-shrink-0 wby-transition-transform wby-duration-200" />
                         }
                     />
                 </div>

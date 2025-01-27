@@ -9,7 +9,7 @@ type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionRoot> & {
 }
 
 const AccordionBase = ({ actions, children, ...rootProps }: AccordionProps) => {
-    return <AccordionRoot {...rootProps}>{children}</AccordionRoot>;
+    return <AccordionRoot className={"w-full"} {...rootProps}>{children}</AccordionRoot>;
 };
 
 AccordionBase.displayName = "Accordion";
