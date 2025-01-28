@@ -3,7 +3,6 @@ import React, {
     createContext,
     useCallback,
     useContext,
-    useEffect,
     useMemo,
     useState
 } from "react";
@@ -66,7 +65,7 @@ interface CompositionContext {
     composeComponent(
         component: ComponentType<unknown>,
         hocs: Enumerable<ComposeWith>,
-        scope?: string[]
+        scope?: string
     ): void;
 }
 
@@ -80,52 +79,25 @@ interface CompositionProviderProps {
     children: React.ReactNode;
 }
 
-const getCacheKey = (scopes: string[]) => {
-    return scopes.join(";");
-};
-
-/**
- * Scopes are ordered in reverse, to go from child to parent. As we iterate over scopes, we try to find the latest component
- * recipe (a "recipe" is a base component + all decorators registered so far). If none exist, we return an empty recipe.
- */
-const findComponentRecipe = (
-    component: GenericComponent | GenericHook,
-    lookupScopes: string[],
-    components: ComponentScopes
-) => {
-    for (let i = lookupScopes.length; i > 0; i--) {
-        const cacheKey = getCacheKey(lookupScopes.slice(0, i));
-        const scopeMap: ComposedComponents = components.get(cacheKey) || new Map();
-        const recipe = scopeMap.get(component);
-        if (recipe) {
-            return recipe;
-        }
-    }
-
-    return { component: null, hocs: [] };
-};
-
 const composeComponents = (
     components: ComponentScopes,
     decorators: Array<[GenericComponent | GenericHook, Decorator<any>[]]>,
-    scopes: string[] = []
+    scope = "*"
 ) => {
-    const cacheKey = getCacheKey(scopes);
-    const targetComponents: ComposedComponents = components.get(cacheKey) || new Map();
-
+    const scopeMap: ComposedComponents = components.get(scope) || new Map();
     for (const [component, hocs] of decorators) {
-        const recipe = findComponentRecipe(component, scopes, components);
+        const recipe = scopeMap.get(component) || { component: null, hocs: [] };
 
         const newHocs = [...(recipe.hocs || []), ...hocs] as Decorator<
             GenericHook | GenericComponent
         >[];
 
-        targetComponents.set(component, {
+        scopeMap.set(component, {
             component: compose(...[...newHocs].reverse())(component),
             hocs: newHocs
         });
 
-        components.set(cacheKey, targetComponents);
+        components.set(scope, scopeMap);
     }
 
     return components;
@@ -137,8 +109,7 @@ export const CompositionProvider = ({ decorators = [], children }: CompositionPr
             new Map(),
             decorators.map(tuple => {
                 return [tuple[0].original, tuple[1]];
-            }),
-            ["*"]
+            })
         );
     });
 
@@ -146,20 +117,17 @@ export const CompositionProvider = ({ decorators = [], children }: CompositionPr
         (
             component: GenericComponent | GenericHook,
             hocs: HigherOrderComponent<any, any>[],
-            scopes: string[] = []
+            scope: string | undefined = "*"
         ) => {
-            const allScopes = ["*", ...scopes];
-
             setComponents(prevComponents => {
-                return composeComponents(new Map(prevComponents), [[component, hocs]], allScopes);
+                return composeComponents(new Map(prevComponents), [[component, hocs]], scope);
             });
 
             // Return a function that will remove the added HOCs.
             return () => {
-                const cacheKey = getCacheKey(allScopes);
                 setComponents(prevComponents => {
                     const components = new Map(prevComponents);
-                    const scopeMap: ComposedComponents = components.get(cacheKey) || new Map();
+                    const scopeMap: ComposedComponents = components.get(scope) || new Map();
                     const recipe = scopeMap.get(component) || {
                         component: null,
                         hocs: []
@@ -173,7 +141,7 @@ export const CompositionProvider = ({ decorators = [], children }: CompositionPr
                         hocs: newHOCs
                     });
 
-                    components.set(cacheKey, scopeMap);
+                    components.set(scope, scopeMap);
                     return components;
                 });
             };
@@ -183,10 +151,9 @@ export const CompositionProvider = ({ decorators = [], children }: CompositionPr
 
     const getComponent = useCallback<CompositionContextGetComponentCallable>(
         (Component, scope = []) => {
-            const scopes = ["*", ...scope];
-            for (let i = scopes.length; i > 0; i--) {
-                const cacheKey = getCacheKey(scopes.slice(0, i));
-                const scopeMap: ComposedComponents = components.get(cacheKey) || new Map();
+            const scopesToResolve = ["*", ...scope].reverse();
+            for (const scope of scopesToResolve) {
+                const scopeMap: ComposedComponents = components.get(scope) || new Map();
                 const composedComponent = scopeMap.get(Component);
                 if (composedComponent) {
                     return composedComponent.component;
@@ -206,15 +173,6 @@ export const CompositionProvider = ({ decorators = [], children }: CompositionPr
         }),
         [components, composeComponent]
     );
-
-    useEffect(() => {
-        if (process.env.NODE_ENV !== "production") {
-            // @ts-expect-error This is a developers-only utility.
-            window["debug_printComposedComponents"] = () => {
-                console.log(components);
-            };
-        }
-    }, [components]);
 
     return <CompositionContext.Provider value={context}>{children}</CompositionContext.Provider>;
 };
