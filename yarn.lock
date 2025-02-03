@@ -18861,6 +18861,7 @@ __metadata:
   dependencies:
     "@pulumi/aws": "npm:6.67.0"
     "@pulumi/pulumi": "npm:3.147.0"
+    "@webiny/admin-ui": "npm:0.0.0"
     "@webiny/api-aco": "npm:0.0.0"
     "@webiny/api-apw": "npm:0.0.0"
     "@webiny/api-apw-scheduler-so-ddb": "npm:0.0.0"
