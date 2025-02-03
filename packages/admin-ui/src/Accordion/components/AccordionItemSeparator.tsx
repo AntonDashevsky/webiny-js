@@ -5,7 +5,7 @@ import { Separator, type SeparatorProps } from "~/Separator";
 type AccordionItemSeparatorProps = SeparatorProps;
 
 const AccordionItemSeparatorBase = (props: AccordionItemSeparatorProps) => {
-    return <Separator variant={"dimmed"} orientation={"vertical"} className={"wby-h-lg wby-mx-xs-plus"} {...props} />;
+    return <Separator variant={"dimmed"} orientation={"vertical"} className={"wby-h-lg wby-mx-sm-plus"} {...props} />;
 };
 
 export const AccordionItemSeparator = makeDecoratable(
