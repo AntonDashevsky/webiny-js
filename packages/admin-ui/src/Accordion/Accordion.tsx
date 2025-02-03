@@ -1,7 +1,7 @@
 import * as React from "react";
 import { makeDecoratable, withStaticProps } from "~/utils";
 import { AccordionRoot } from "./components/AccordionRoot";
-import { AccordionItem } from "./components/AccordionItem";
+import { AccordionItem, AccordionItemProps } from "./components/AccordionItem";
 
 type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionRoot> & {
     children: React.ReactNode;
@@ -20,4 +20,4 @@ const Accordion = withStaticProps(DecoratableAccordion, {
     Item: AccordionItem
 });
 
-export { Accordion, type AccordionProps };
+export { Accordion, type AccordionProps, type AccordionItemProps };

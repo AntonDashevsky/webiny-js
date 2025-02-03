@@ -2,7 +2,11 @@
 - full width
 - weird animation glitch
 - bc
-- no icon check
+- handle
 - no description check
 - chevron not closing acc
+- chevron should be a regular icon
+- clickin on hole trigger should open/close content
+    - active state - feedback
 - multiple-single accs?
+- variant
