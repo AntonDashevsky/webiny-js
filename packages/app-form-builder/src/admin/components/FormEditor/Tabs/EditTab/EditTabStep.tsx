@@ -20,13 +20,7 @@ const AddStepBtn = styled.div`
     cursor: pointer;
 `;
 
-const RowContainerWrapper = styled.div`
-    & .css-1uf2zda-RowContainer {
-        &:last-child {
-            margin-bottom: 25px !important;
-        }
-    }
-`;
+const RowContainerWrapper = styled.div``;
 
 const StyledRowContainer = styled(RowContainer)<{ isDragging: boolean }>`
     opacity: ${({ isDragging }) => (isDragging ? 0.3 : 1)};

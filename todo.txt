@@ -1,8 +1,8 @@
 - ref / makeDecoratable cleanups
-- clicking actions should not toggle accordion
 - full width
 - weird animation glitch
 - bc
-- vertical separator no visible
-- no icon
-- no description
+- no icon check
+- no description check
+- chevron not closing acc
+- multiple-single accs?

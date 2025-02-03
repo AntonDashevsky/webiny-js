@@ -25,7 +25,10 @@ const AccordionTriggerBase = React.forwardRef<
                 </div>
                 <div className={"wby-flex wby-ml-3xl wby-gap-xs"}>
                     {actions}
-                    <AccordionItemAction.Separator />
+
+                    {/* No need to show the separator if there are no actions. */}
+                    {actions && <AccordionItemAction.Separator />}
+
                     <AccordionItemAction
                         onClickStopPropagation={false}
                         data-role={"open-close-indicator"}

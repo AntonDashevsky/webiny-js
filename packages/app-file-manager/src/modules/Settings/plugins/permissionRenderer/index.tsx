@@ -13,6 +13,7 @@ export default {
     render(props) {
         return (
             <AccordionItem
+                value={'asd'}
                 icon={<FileManagerIcon />}
                 title={t`File Manager`}
                 description={t`Manage File manager app access permissions.`}

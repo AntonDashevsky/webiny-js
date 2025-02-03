@@ -29,12 +29,12 @@ const iconVariants = cva("", {
 interface IconProps
     extends Omit<React.HTMLAttributes<HTMLOrSVGElement>, "color">,
         VariantProps<typeof iconVariants> {
-    label: string;
+    label?: string; // We don't want to force the label to be required.
     icon: React.ReactElement;
 }
 
 const IconBase = React.forwardRef<HTMLOrSVGElement, IconProps>((props, ref) => {
-    const { label, icon, color, size, className, ...rest } = props;
+    const { label = '', icon, color, size, className, ...rest } = props;
     return (
         <AccessibleIcon.Root label={label}>
             {React.cloneElement(icon, {
