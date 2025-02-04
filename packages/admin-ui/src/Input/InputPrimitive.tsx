@@ -126,9 +126,9 @@ const inputVariants = cva(
                 ],
                 ghost: [
                     "wby-bg-transparent wby-border-transparent wby-text-neutral-strong placeholder:wby-text-neutral-dimmed",
-                    "hover:wby-bg-neutral-dimmed/95",
-                    "focus:wby-bg-neutral-base focus:wby-border-neutral-black",
-                    "data-[focused=true]:wby-bg-neutral-base data-[focused=true]:wby-border-neutral-black",
+                    "hover:wby-bg-neutral-dark/5",
+                    "focus:wby-bg-neutral-dark/5",
+                    "data-[focused=true]:wby-bg-neutral-dark/5",
                     "disabled:wby-bg-transparent disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled",
                     "data-[disabled=true]:wby-bg-transparent data-[disabled=true]:wby-text-neutral-disabled data-[disabled=true]:placeholder:wby-text-neutral-disabled"
                 ]
@@ -214,6 +214,7 @@ interface InputPrimitiveProps
     endIcon?: React.ReactElement<typeof BaseIcon> | React.ReactElement;
     maxLength?: React.InputHTMLAttributes<HTMLInputElement>["size"];
     inputRef?: React.Ref<HTMLInputElement>;
+    onEnter?: () => any;
 }
 
 const getIconPosition = (
@@ -235,16 +236,31 @@ const getIconPosition = (
 const InputPrimitive = ({
     className,
     disabled,
-    invalid,
-    startIcon,
-    maxLength,
-    size,
     endIcon,
-    variant,
     inputRef,
+    invalid,
+    maxLength,
+    onEnter,
+    onKeyDown: originalOnKeyDown,
+    size,
+    startIcon,
+    variant,
     ...props
 }: InputPrimitiveProps) => {
     const iconPosition = getIconPosition(startIcon, endIcon);
+
+    const onKeyDown = React.useCallback(
+        (e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (typeof onEnter === "function" && e.key === "Enter") {
+                onEnter();
+            }
+
+            if (typeof originalOnKeyDown === "function") {
+                return originalOnKeyDown(e);
+            }
+        },
+        [originalOnKeyDown, onEnter]
+    );
 
     return (
         <div className={cn("wby-relative wby-flex wby-items-center wby-w-full", className)}>
@@ -261,6 +277,7 @@ const InputPrimitive = ({
                 className={cn(inputVariants({ variant, size, iconPosition, invalid }))}
                 disabled={disabled}
                 size={maxLength}
+                onKeyDown={onKeyDown}
                 {...props}
             />
             {endIcon && (
