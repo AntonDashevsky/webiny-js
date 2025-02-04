@@ -5,7 +5,6 @@ import { Input } from "~/Input";
 const meta: Meta<typeof Input> = {
     title: "Components/Form/Input",
     component: Input,
-    tags: ["autodocs"],
     argTypes: {
         onChange: { action: "onChange" },
         type: {
@@ -89,6 +88,18 @@ export const Disabled: Story = {
     args: {
         label: "Any field label",
         disabled: true
+    }
+};
+
+export const WithValidateFunction: Story = {
+    render: args => {
+        const [validation, setValidation] = useState<any>({ isValid: true, message: undefined });
+
+        const validate = async () => {
+            setValidation({ isValid: false, message: "Any custom error message." });
+        };
+
+        return <Input {...args} validate={validate} validation={validation} />;
     }
 };
 

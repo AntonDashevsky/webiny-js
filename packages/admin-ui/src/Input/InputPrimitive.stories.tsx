@@ -12,6 +12,8 @@ const meta: Meta<typeof InputPrimitive> = {
     tags: ["autodocs"],
     argTypes: {
         onChange: { action: "onChange" },
+        onEnter: { action: "onEnter" },
+        onKeyDown: { action: "onKeyDown" },
         type: {
             control: "select",
             options: [

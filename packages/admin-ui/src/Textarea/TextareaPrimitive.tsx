@@ -22,8 +22,8 @@ const textareaVariants = cva(
                 ],
                 ghost: [
                     "wby-bg-transparent wby-border-transparent wby-text-neutral-strong placeholder:wby-text-neutral-dimmed",
-                    "hover:wby-bg-neutral-dimmed/95",
-                    "focus:wby-bg-neutral-base focus:wby-border-neutral-black",
+                    "hover:wby-bg-neutral-dark/5",
+                    "focus:wby-bg-neutral-dark/5",
                     "disabled:wby-bg-transparent disabled:wby-text-neutral-disabled disabled:placeholder:wby-text-neutral-disabled"
                 ]
             },
@@ -64,20 +64,37 @@ interface TextareaPrimitiveProps
     extends React.ComponentProps<"textarea">,
         VariantProps<typeof textareaVariants> {
     textareaRef?: React.Ref<HTMLTextAreaElement>;
+    onEnter?: () => any;
 }
 
 const TextareaPrimitive = ({
     className,
     variant,
     invalid,
+    onEnter,
+    onKeyDown: originalOnKeyDown,
     size,
     textareaRef,
     ...props
 }: TextareaPrimitiveProps) => {
+    const onKeyDown = React.useCallback(
+        (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+            if (typeof onEnter === "function" && e.key === "Enter") {
+                onEnter();
+            }
+
+            if (typeof originalOnKeyDown === "function") {
+                return originalOnKeyDown(e);
+            }
+        },
+        [originalOnKeyDown, onEnter]
+    );
+
     return (
         <textarea
             ref={textareaRef}
             className={cn(textareaVariants({ variant, invalid, size }), className)}
+            onKeyDown={onKeyDown}
             {...props}
         />
     );

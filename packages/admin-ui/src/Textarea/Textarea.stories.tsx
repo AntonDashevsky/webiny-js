@@ -5,7 +5,6 @@ import { Textarea } from "~/Textarea";
 const meta: Meta<typeof Textarea> = {
     title: "Components/Form/Textarea",
     component: Textarea,
-    tags: ["autodocs"],
     argTypes: {
         onChange: { action: "onChange" }
     },
@@ -66,6 +65,18 @@ export const Disabled: Story = {
         ...Default.args,
         label: "Any field label",
         disabled: true
+    }
+};
+
+export const WithValidateFunction: Story = {
+    render: args => {
+        const [validation, setValidation] = useState<any>({ isValid: true, message: undefined });
+
+        const validate = async () => {
+            setValidation({ isValid: false, message: "Any custom error message." });
+        };
+
+        return <Textarea {...args} validate={validate} validation={validation} />;
     }
 };
 
