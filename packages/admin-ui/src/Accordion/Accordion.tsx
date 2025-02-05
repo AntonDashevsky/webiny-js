@@ -5,6 +5,8 @@ import { AccordionItem, AccordionItemProps } from "./components/AccordionItem";
 
 type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionRoot> & {
     children: React.ReactNode;
+    variant?: "underline" | "container";
+    background?: "default" | "withDescriptions";
 };
 
 const AccordionBase = ({ children, ...rootProps }: AccordionProps) => {

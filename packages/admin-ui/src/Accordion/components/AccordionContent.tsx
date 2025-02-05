@@ -10,14 +10,14 @@ const accordionContentVariants = cva(
                 true: "wby-pl-[52px]"
             },
             withHandle: {
-                true: "wby-pl-[48px]"
+                true: "wby-pl-[36px]"
             }
         },
         compoundVariants: [
             {
                 withIcon: true,
                 withHandle: true,
-                className: "wby-pl-[84px]"
+                className: "wby-pl-[72px]"
             }
         ],
         defaultVariants: {

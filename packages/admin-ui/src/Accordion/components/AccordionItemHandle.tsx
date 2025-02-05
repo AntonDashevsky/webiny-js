@@ -25,6 +25,7 @@ const AccordionItemHandleBase = ({ onClick, ...props }: AccordionItemHandleProps
         <Icon
             size={"sm"}
             color={"neutral-light"}
+            className={"wby-mx-xxs"}
             icon={<DragHandleIcon />}
             {...props}
             onClick={onClickCallback}
