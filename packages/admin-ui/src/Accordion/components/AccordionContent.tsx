@@ -3,7 +3,10 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { makeDecoratable, cva, type VariantProps, cn } from "~/utils";
 
 const accordionContentVariants = cva(
-    "wby-overflow-hidden wby-text-md wby-pt-sm wby-pb-lg wby-pl-md wby-pr-[52px] wby-transition-all data-[state=closed]:wby-animate-accordion-up data-[state=open]:wby-animate-accordion-down",
+    [
+        "wby-overflow-hidden wby-text-md",
+        "wby-transition-all data-[state=closed]:wby-animate-accordion-up data-[state=open]:wby-animate-accordion-down"
+    ],
     {
         variants: {
             withIcon: {
@@ -38,11 +41,10 @@ const AccordionContentBase = React.forwardRef<
     return (
         <AccordionPrimitive.Content
             ref={ref}
-            data-role={"content"}
             {...props}
             className={cn(accordionContentVariants({ withHandle, withIcon }), props.className)}
         >
-            {children}
+            <div className={"wby-pt-sm wby-pb-lg wby-pl-md wby-pr-[52px]"}>{children}</div>
         </AccordionPrimitive.Content>
     );
 });

@@ -4,7 +4,7 @@ import { ReactComponent as KeyboardArrowDownIcon } from "@material-design-icons/
 import { makeDecoratable } from "~/utils";
 import { type AccordionItemProps } from "./AccordionItem";
 import { AccordionItemAction } from "./AccordionItemAction";
-import { Icon } from "@webiny/admin-ui";
+import { Icon } from "~/Icon";
 
 type AccordionTriggerProps = Pick<
     AccordionItemProps,

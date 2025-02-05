@@ -1,9 +1,8 @@
 - [] ref / makeDecoratable cleanups
-- [] weird animation glitch
 - [] bc
 - [] active state - feedback
 - [] multiple-single accs?
-- [] scrollbars glitch!
 - [] background
 - [] variant
 - [] stories
+- AccordionItemProps without registering it in the scope tracker
