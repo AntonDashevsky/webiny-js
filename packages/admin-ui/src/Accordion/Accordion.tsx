@@ -5,11 +5,14 @@ import { AccordionItem, AccordionItemProps } from "./components/AccordionItem";
 
 type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionRoot> & {
     children: React.ReactNode;
-    actions?: React.ReactNode;
-}
+};
 
-const AccordionBase = ({ actions, children, ...rootProps }: AccordionProps) => {
-    return <AccordionRoot className={"w-full"} {...rootProps}>{children}</AccordionRoot>;
+const AccordionBase = ({ children, ...rootProps }: AccordionProps) => {
+    return (
+        <AccordionRoot className={"w-full"} {...rootProps}>
+            {children}
+        </AccordionRoot>
+    );
 };
 
 AccordionBase.displayName = "Accordion";

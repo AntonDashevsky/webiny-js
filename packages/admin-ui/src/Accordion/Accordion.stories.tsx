@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Accordion, AccordionItemProps } from "./Accordion";
+import { Accordion, type AccordionItemProps as BaseAccordionItemProps } from "./Accordion";
 
 import { ReactComponent as WarningIcon } from "@material-design-icons/svg/outlined/warning_amber.svg";
 import { ReactComponent as ArrowUp } from "@material-design-icons/svg/outlined/arrow_upward.svg";
@@ -19,20 +19,17 @@ export default meta;
 
 type Story = StoryObj<typeof Accordion>;
 
-const AccordionItem1 = (props: Omit<AccordionItemProps, "value" | "title" | "children">) => {
-    return (
-        <Accordion.Item value={"Accordion item 1"} title="Accordion item 1" {...props}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit sem, pretium sit amet
-            convallis nec, consequat non nulla. Nunc sit amet sagittis tellus. Etiam venenatis, odio
-            sed consectetur consectetur, quam quam blandit ante, semper maximus lorem est vel dolor.
-            Praesent ac neque rutrum, elementum turpis et, vulputate enim. In ex lorem,
-        </Accordion.Item>
-    );
-};
+interface AccordionItemProps extends Omit<BaseAccordionItemProps, "value" | "title" | "children"> {
+    index: number;
+}
 
-const AccordionItem2 = (props: Omit<AccordionItemProps, "value" | "title" | "children">) => {
+const AccordionItem = (props: AccordionItemProps) => {
     return (
-        <Accordion.Item value={"Accordion item 2"} title="Accordion item 2" {...props}>
+        <Accordion.Item
+            value={`Accordion item ${props.index}`}
+            title={`Accordion item ${props.index}`}
+            {...props}
+        >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elit sem, pretium sit amet
             convallis nec, consequat non nulla. Nunc sit amet sagittis tellus. Etiam venenatis, odio
             sed consectetur consectetur, quam quam blandit ante, semper maximus lorem est vel dolor.
@@ -42,23 +39,41 @@ const AccordionItem2 = (props: Omit<AccordionItemProps, "value" | "title" | "chi
 };
 
 export const Default: Story = {
+    decorators: [
+        Story => (
+            <div className="wby-w-[600px]">
+                <Story />
+            </div>
+        )
+    ],
     args: {
         children: (
             <>
-                <AccordionItem1 />
-                <AccordionItem2 />
+                <AccordionItem index={1} />
+                <AccordionItem index={2} />
+                <AccordionItem index={3} />
             </>
         )
-    },
-    argTypes: {}
+    }
 };
 
 export const WithDescriptions: Story = {
+    ...Default,
     args: {
         children: (
             <>
-                <AccordionItem1 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-                <AccordionItem2 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+                <AccordionItem
+                    index={1}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                />
+                <AccordionItem
+                    index={2}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                />
+                <AccordionItem
+                    index={3}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                />
             </>
         )
     },
@@ -66,27 +81,32 @@ export const WithDescriptions: Story = {
 };
 
 export const WithIcon: Story = {
+    ...Default,
     args: {
         children: (
             <>
-                <AccordionItem1
+                <AccordionItem
+                    index={1}
                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
                 />
-                <AccordionItem2
+                <AccordionItem
+                    index={2}
                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
                 />
             </>
         )
-    },
-    argTypes: {}
+    }
 };
+
 export const WithActionsIcon: Story = {
+    ...Default,
     args: {
         children: (
             <>
-                <AccordionItem1
+                <AccordionItem
+                    index={1}
                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
                     actions={
@@ -99,7 +119,8 @@ export const WithActionsIcon: Story = {
                         </>
                     }
                 />
-                <AccordionItem2
+                <AccordionItem
+                    index={2}
                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
                     actions={
@@ -114,6 +135,26 @@ export const WithActionsIcon: Story = {
                 />
             </>
         )
-    },
-    argTypes: {}
+    }
+};
+
+export const WithHandleIcon: Story = {
+    ...Default,
+    args: {
+        children: (
+            <>
+                <AccordionItem
+                    index={1}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
+                    handle={<Accordion.Item.Handle />}
+                />
+                <AccordionItem
+                    index={2}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    handle={<Accordion.Item.Handle />}
+                />
+            </>
+        )
+    }
 };

@@ -5,12 +5,14 @@ import { AccordionTrigger } from "./AccordionTrigger";
 import { AccordionContent } from "./AccordionContent";
 import { AccordionItemIcon } from "./AccordionItemIcon";
 import { AccordionItemAction } from "./AccordionItemAction";
+import { AccordionItemHandle } from "./AccordionItemHandle";
 
 interface AccordionItemProps
     extends Omit<React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>, "title"> {
     title: React.ReactNode;
     description?: React.ReactNode;
     icon?: React.ReactNode;
+    handle?: React.ReactNode;
     actions?: React.ReactNode;
     children: React.ReactNode;
 }
@@ -18,11 +20,38 @@ interface AccordionItemProps
 const AccordionItemBase = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Item>,
     AccordionItemProps
->(({ children, value, ...triggerProps }, ref) => {
+>((props, ref) => {
+    const { itemProps, triggerProps, contentProps } = React.useMemo(() => {
+        const {
+            // Item props.
+            value,
+
+            // Content props.
+            children,
+
+            // Trigger props.
+            ...triggerProps
+        } = props;
+
+        return {
+            itemProps: {
+                value
+            },
+            triggerProps,
+            contentProps: { children, withIcon: !!props.icon, withHandle: !!props.handle }
+        };
+    }, [props]);
+
     return (
-        <AccordionPrimitive.Item value={value} ref={ref} className={"wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg "}>
+        <AccordionPrimitive.Item
+            {...itemProps}
+            className={
+                "wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg "
+            }
+            ref={ref}
+        >
             <AccordionTrigger {...triggerProps} />
-            <AccordionContent>{children}</AccordionContent>
+            <AccordionContent {...contentProps} />
         </AccordionPrimitive.Item>
     );
 });
@@ -33,7 +62,8 @@ const DecoratableAccordionItem = makeDecoratable("AccordionItem", AccordionItemB
 
 const AccordionItem = withStaticProps(DecoratableAccordionItem, {
     Icon: AccordionItemIcon,
-    Action: AccordionItemAction
+    Action: AccordionItemAction,
+    Handle: AccordionItemHandle
 });
 
 export { AccordionItem, type AccordionItemProps };

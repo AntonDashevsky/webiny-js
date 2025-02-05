@@ -58,9 +58,7 @@ module.exports = {
             keyframes,
             margin,
             padding,
-            spacing,
-            keyframes,
-            animation
+            spacing
         }
     },
 
