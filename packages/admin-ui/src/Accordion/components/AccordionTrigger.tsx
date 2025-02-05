@@ -21,6 +21,7 @@ const AccordionTriggerBase = React.forwardRef<
             className={cn(
                 "wby-w-full wby-flex wby-justify-between wby-items-center wby-px-md wby-py-sm-extra wby-cursor-pointer",
                 "focus-visible:wby-outline-none focus-visible:wby-border-none focus-visible:wby-ring-sm focus-visible:wby-ring-primary-dimmed",
+                "hover:wby-bg-neutral-dimmed",
                 "[&[data-state=open]_[data-role=open-close-indicator]]:wby-rotate-180"
             )}
         >

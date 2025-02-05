@@ -2,8 +2,8 @@ MH
 - [] ref / makeDecoratable cleanups
 - [] bc
 - [...] active state - Kreso
-- hover
-- This problem is likely caused by another plugin injecting "AccordionItemProps" without registerin
+- [...] hover
+- This problem is likely caused by another plugin injecting "AccordionItemProps" without registering...
 
 NTH
 - header title - bolded / regular?
