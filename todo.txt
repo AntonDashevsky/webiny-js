@@ -3,8 +3,7 @@ MH
 - [] bc
 - [...] active state - Kreso
 - hover
+- This problem is likely caused by another plugin injecting "AccordionItemProps" without registerin
 
 NTH
 - header title - bolded / regular?
-This problem is likely caused by another plugin injecting
-"AccordionItemProps" without registerin
