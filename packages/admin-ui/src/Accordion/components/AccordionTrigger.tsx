@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ReactComponent as KeyboardArrowDownIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
-import { makeDecoratable } from "~/utils";
+import { cn, makeDecoratable } from "~/utils";
 import { type AccordionItemProps } from "./AccordionItem";
 import { AccordionItemAction } from "./AccordionItemAction";
 import { Icon } from "~/Icon";
@@ -18,9 +18,11 @@ const AccordionTriggerBase = React.forwardRef<
     const trigger = (
         <AccordionPrimitive.Trigger
             ref={ref}
-            className={
-                "wby-w-full wby-flex wby-justify-between wby-items-center wby-px-md wby-py-sm-extra wby-transition-all wby-cursor-pointer focus-visible:wby-outline-none focus-visible:wby-border-accent-default [&[data-state=open]_[data-role=open-close-indicator]]:wby-rotate-180"
-            }
+            className={cn(
+                "wby-w-full wby-flex wby-justify-between wby-items-center wby-px-md wby-py-sm-extra wby-cursor-pointer",
+                "focus-visible:wby-outline-none focus-visible:wby-border-none focus-visible:wby-ring-sm focus-visible:wby-ring-primary-dimmed",
+                "[&[data-state=open]_[data-role=open-close-indicator]]:wby-rotate-180"
+            )}
         >
             {icon && <div className={"wby-mr-md"}>{icon}</div>}
             <div className={"wby-flex wby-flex-col wby-gap-xxs wby-flex-grow wby-text-left"}>
@@ -34,7 +36,8 @@ const AccordionTriggerBase = React.forwardRef<
                 {actions && <AccordionItemAction.Separator />}
 
                 <Icon
-                    className={"wby-transition-all"}
+                    className={"wby-transition"}
+                    color={"neutral-strong"}
                     data-role={"open-close-indicator"}
                     icon={<KeyboardArrowDownIcon />}
                 />

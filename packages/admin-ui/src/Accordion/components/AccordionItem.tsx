@@ -1,11 +1,12 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { makeDecoratable, withStaticProps } from "~/utils";
+import { cn, makeDecoratable, withStaticProps } from "~/utils";
 import { AccordionTrigger } from "./AccordionTrigger";
 import { AccordionContent } from "./AccordionContent";
 import { AccordionItemIcon } from "./AccordionItemIcon";
 import { AccordionItemAction } from "./AccordionItemAction";
 import { AccordionItemHandle } from "./AccordionItemHandle";
+import { useAccordion } from "~/Accordion";
 
 interface AccordionItemProps
     extends Omit<React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>, "title"> {
@@ -21,6 +22,8 @@ const AccordionItemBase = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Item>,
     AccordionItemProps
 >((props, ref) => {
+    const { variant, background } = useAccordion();
+
     const { itemProps, triggerProps, contentProps } = React.useMemo(() => {
         const {
             // Item props.
@@ -42,12 +45,18 @@ const AccordionItemBase = React.forwardRef<
         };
     }, [props]);
 
+    console.log('bk', background)
     return (
         <AccordionPrimitive.Item
             {...itemProps}
-            className={
-                "wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg "
-            }
+            className={cn(
+                "wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg",
+                {
+                    "wby-rounded-lg": variant === "container",
+                    "wby-bg-neutral-base": background === "base",
+                    "wby-bg-neutral-light": background === "light"
+                }
+            )}
             ref={ref}
         >
             <AccordionTrigger {...triggerProps} />

@@ -1,8 +1,10 @@
+MH
 - [] ref / makeDecoratable cleanups
 - [] bc
-- [] active state - feedback
-- [] multiple-single accs?
-- [] background
-- [] variant
-- [] stories
-- AccordionItemProps without registering it in the scope tracker
+- [...] active state - Kreso
+- hover
+
+NTH
+- header title - bolded / regular?
+This problem is likely caused by another plugin injecting
+"AccordionItemProps" without registerin

@@ -2,7 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Accordion, type AccordionItemProps as BaseAccordionItemProps } from "./Accordion";
 
-import { ReactComponent as WarningIcon } from "@material-design-icons/svg/outlined/warning_amber.svg";
+import { ReactComponent as WarningIcon } from "@material-design-icons/svg/outlined/insert_chart.svg"
 import { ReactComponent as ArrowUp } from "@material-design-icons/svg/outlined/arrow_upward.svg";
 import { ReactComponent as ArrowDown } from "@material-design-icons/svg/outlined/arrow_downward.svg";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";
@@ -41,7 +41,7 @@ const AccordionItem = (props: AccordionItemProps) => {
 export const Default: Story = {
     decorators: [
         Story => (
-            <div className="wby-w-[600px]">
+            <div className="wby-w-[600px] wby-p-[50px] wby-min-h-[500px] wby-bg-[#f6f7f8]">
                 <Story />
             </div>
         )
@@ -153,6 +153,103 @@ export const WithHandleIcon: Story = {
                     index={2}
                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                     handle={<Accordion.Item.Handle />}
+                />
+            </>
+        )
+    }
+};
+
+export const WithMultipleOpenedItems: Story = {
+    ...Default,
+    args: {
+        type: "multiple",
+        children: (
+            <>
+                <AccordionItem
+                    index={1}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                />
+                <AccordionItem
+                    index={2}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                />
+            </>
+        )
+    }
+};
+
+export const ContainerVariant: Story = {
+    ...Default,
+    args: {
+        variant: "container",
+        children: (
+            <>
+                <AccordionItem
+                    index={1}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
+                />
+                <AccordionItem
+                    index={2}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
+                />
+            </>
+        )
+    }
+};
+
+export const LightBackground: Story = {
+    ...Default,
+    decorators: [
+        Story => (
+            <div className="wby-w-[600px] wby-p-[50px] wby-min-h-[500px]">
+                <Story />
+            </div>
+        )
+    ],
+    args: {
+        background: "light",
+        children: (
+            <>
+                <AccordionItem
+                    index={1}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
+                />
+                <AccordionItem
+                    index={2}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
+                />
+            </>
+        )
+    }
+};
+
+export const ContainerVariantWithLightBackground: Story = {
+    ...Default,
+    decorators: [
+        Story => (
+            <div className="wby-w-[600px] wby-p-[50px] wby-min-h-[500px]">
+                <Story />
+            </div>
+        )
+    ],
+    args: {
+        variant: "container",
+        background: "light",
+        children: (
+            <>
+                <AccordionItem
+                    index={1}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
+                />
+                <AccordionItem
+                    index={2}
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    icon={<Accordion.Item.Icon icon={<WarningIcon />} label={"Warning icon"} />}
                 />
             </>
         )
