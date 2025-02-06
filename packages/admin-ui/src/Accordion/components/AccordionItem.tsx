@@ -45,7 +45,6 @@ const AccordionItemBase = React.forwardRef<
         };
     }, [props]);
 
-    console.log('bk', background)
     return (
         <AccordionPrimitive.Item
             {...itemProps}

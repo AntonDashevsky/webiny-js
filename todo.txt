@@ -2,8 +2,8 @@ MH
 - [] ref / makeDecoratable cleanups
 - [] bc
 - [...] active state - Kreso
-- [...] hover
-- This problem is likely caused by another plugin injecting "AccordionItemProps" without registering...
+- [...] hover - Kreso
+- [] hover - border rounded dissapears (container var)
 
 NTH
 - header title - bolded / regular?

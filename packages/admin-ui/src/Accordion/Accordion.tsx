@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn, makeDecoratable, withStaticProps } from "~/utils";
 import { AccordionRoot } from "./components/AccordionRoot";
 import { AccordionContext, useAccordion } from "./components/AccordionContext";
-import { AccordionItem, AccordionItemProps } from "./components/AccordionItem";
+import { AccordionItem, type AccordionItemProps } from "./components/AccordionItem";
 
 type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionRoot> & {
     children: React.ReactNode;
