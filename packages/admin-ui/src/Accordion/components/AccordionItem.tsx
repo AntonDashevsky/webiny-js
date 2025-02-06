@@ -18,10 +18,7 @@ interface AccordionItemProps
     children: React.ReactNode;
 }
 
-const AccordionItemBase = React.forwardRef<
-    React.ElementRef<typeof AccordionPrimitive.Item>,
-    AccordionItemProps
->((props, ref) => {
+const AccordionItemBase = (props: AccordionItemProps) => {
     const { variant, background } = useAccordion();
 
     const { itemProps, triggerProps, contentProps } = React.useMemo(() => {
@@ -56,13 +53,12 @@ const AccordionItemBase = React.forwardRef<
                     "wby-bg-neutral-light": background === "light"
                 }
             )}
-            ref={ref}
         >
             <AccordionTrigger {...triggerProps} />
             <AccordionContent {...contentProps} />
         </AccordionPrimitive.Item>
     );
-});
+};
 
 AccordionItemBase.displayName = "AccordionItem";
 

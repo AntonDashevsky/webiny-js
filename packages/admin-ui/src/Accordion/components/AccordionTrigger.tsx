@@ -1,24 +1,18 @@
 import * as React from "react";
+import { useMemo } from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ReactComponent as KeyboardArrowDownIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
-import { cn, makeDecoratable } from "~/utils";
+import { cn } from "~/utils";
 import { type AccordionItemProps } from "./AccordionItem";
 import { AccordionItemAction } from "./AccordionItemAction";
 import { Icon } from "~/Icon";
-import { useMemo } from "react";
 
 type AccordionTriggerProps = Pick<
     AccordionItemProps,
     "title" | "description" | "icon" | "handle" | "actions"
 >;
 
-const AccordionTriggerBase = ({
-    title,
-    description,
-    actions,
-    icon,
-    handle
-}: AccordionTriggerProps) => {
+const AccordionTrigger = ({ title, description, actions, icon, handle }: AccordionTriggerProps) => {
     // The following three attributes are required for the trigger to act as a button.
     // We can't use the default button element here because the content of the trigger
     // can also contain one or more buttons.
@@ -79,6 +73,5 @@ const AccordionTriggerBase = ({
 
     return trigger;
 };
-AccordionTriggerBase.displayName = AccordionPrimitive.Trigger.displayName;
 
-export const AccordionTrigger = makeDecoratable("AccordionTrigger", AccordionTriggerBase);
+export { AccordionTrigger };

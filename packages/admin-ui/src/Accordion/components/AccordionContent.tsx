@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { makeDecoratable, cva, type VariantProps, cn } from "~/utils";
+import { cva, type VariantProps, cn } from "~/utils";
 
 const accordionContentVariants = cva(
     [
@@ -34,21 +34,15 @@ export interface AccordionContentProps
     extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>,
         VariantProps<typeof accordionContentVariants> {}
 
-const AccordionContentBase = React.forwardRef<
-    React.ElementRef<typeof AccordionPrimitive.Content>,
-    AccordionContentProps
->(({ children, withIcon, withHandle, ...props }, ref) => {
+const AccordionContent = ({ children, withIcon, withHandle, ...props }: AccordionContentProps) => {
     return (
         <AccordionPrimitive.Content
-            ref={ref}
             {...props}
             className={cn(accordionContentVariants({ withHandle, withIcon }), props.className)}
         >
             <div className={"wby-pt-sm wby-pb-lg wby-pl-md wby-pr-[52px]"}>{children}</div>
         </AccordionPrimitive.Content>
     );
-});
+};
 
-AccordionContentBase.displayName = AccordionPrimitive.Content.displayName;
-
-export const AccordionContent = makeDecoratable("AccordionContent", AccordionContentBase);
+export { AccordionContent };
