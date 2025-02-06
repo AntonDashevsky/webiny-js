@@ -1,9 +1,10 @@
 MH
-- [] ref / makeDecoratable cleanups
 - [] bc
-- [...] active state - Kreso
-- [...] hover - Kreso
-- [] hover - border rounded dissapears (container var)
+
+- Kreso
+  - focus-active state (overall design + rounded borders check)
+  - hover (overall design, watch out for rounded borders, icon button hover missing)
+  - with handle... border not around handle icon
 
 NTH
 - header title - bolded / regular?
