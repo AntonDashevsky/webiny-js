@@ -8,6 +8,7 @@ const accordionContentVariants = cva(
         "wby-transition-all data-[state=closed]:wby-animate-accordion-up data-[state=open]:wby-animate-accordion-down"
     ],
     {
+        // Using pixel values here because of non-existing design tokens.
         variants: {
             withIcon: {
                 true: "wby-pl-[36px]"
