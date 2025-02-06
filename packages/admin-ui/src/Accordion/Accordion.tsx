@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useMemo } from "react";
 import { cn, makeDecoratable, withStaticProps } from "~/utils";
 import { AccordionRoot } from "./components/AccordionRoot";
 import { AccordionContext, useAccordion } from "./components/AccordionContext";
@@ -14,14 +14,25 @@ const AccordionBase = ({
     children,
     variant,
     background = "base",
-    ...rootProps
+    ...baseRootProps
 }: AccordionProps) => {
+    const rootProps = useMemo(() => {
+        const rootProps = { ...baseRootProps };
+        if (rootProps.type !== "multiple") {
+            // For single accordion, make it collapsible by default.
+            rootProps.collapsible = rootProps.collapsible !== false;
+        }
+        return rootProps;
+    }, [baseRootProps]);
+
     return (
         <AccordionRoot
-            className={cn("w-full", {
-                "wby-gap-xs wby-flex wby-flex-col": variant === "container"
-            })}
             {...rootProps}
+            className={cn(
+                "w-full",
+                { "wby-gap-xs wby-flex wby-flex-col": variant === "container" },
+                rootProps.className
+            )}
         >
             <AccordionContext.Provider value={{ variant, background }}>
                 {children}
