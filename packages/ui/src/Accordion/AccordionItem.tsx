@@ -29,18 +29,10 @@ const AccordionItemBase = (props: any) => {
     }, [props.value, props.title]);
 
     const icon = useMemo(() => {
-        return props.icon ? <AdminUiAccordion.Item.Icon icon={props.icon} label={"asd"} /> : null;
+        return props.icon ? <AdminUiAccordion.Item.Icon icon={props.icon} /> : null;
     }, [props.icon]);
 
     return <AdminUiAccordion.Item {...props} value={value} icon={icon} />;
-    // const { children, elevation = 2, className, ...other } = props;
-    // return (
-    //     <Elevation z={elevation} className={classNames("webiny-ui-accordion", className)}>
-    //         <List twoLine className={listStyle} {...other}>
-    //             {children}
-    //         </List>
-    //     </Elevation>
-    // );
 };
 
 export const AccordionItem = withStaticProps(AccordionItemBase, {
