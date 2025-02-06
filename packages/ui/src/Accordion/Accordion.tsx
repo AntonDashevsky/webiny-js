@@ -1,6 +1,6 @@
 import React from "react";
 import { Accordion as AdminUiAccordion } from "@webiny/admin-ui";
-import {  ListItem } from "../List";
+import { ListItem } from "../List";
 import { type AccordionItem } from "./AccordionItem";
 
 interface AccordionProps {
@@ -24,7 +24,7 @@ interface AccordionProps {
 }
 
 const Accordion = (props: AccordionProps) => {
-    return <AdminUiAccordion type={"single"}>{props.children}</AdminUiAccordion>
+    return <AdminUiAccordion type={"single"}>{props.children}</AdminUiAccordion>;
     // const { children, elevation = 2, className, ...other } = props;
     // return (
     //     <Elevation z={elevation} className={classNames("webiny-ui-accordion", className)}>

@@ -2,7 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Accordion, type AccordionItemProps as BaseAccordionItemProps } from "./Accordion";
 
-import { ReactComponent as WarningIcon } from "@material-design-icons/svg/outlined/insert_chart.svg"
+import { ReactComponent as WarningIcon } from "@material-design-icons/svg/outlined/insert_chart.svg";
 import { ReactComponent as ArrowUp } from "@material-design-icons/svg/outlined/arrow_upward.svg";
 import { ReactComponent as ArrowDown } from "@material-design-icons/svg/outlined/arrow_downward.svg";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";

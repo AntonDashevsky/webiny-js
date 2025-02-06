@@ -19,7 +19,7 @@ const AccordionItemActionBase = ({ onClick, ...props }: AccordionItemActionProps
         [onClick]
     );
 
-    return <IconButton variant={"ghost"} size={"sm"} {...props} onClick={onClickCallback}/>;
+    return <IconButton variant={"ghost"} size={"sm"} {...props} onClick={onClickCallback} />;
 };
 
 const DecoratableAccordionItemAction = makeDecoratable(
