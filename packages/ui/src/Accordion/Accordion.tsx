@@ -25,14 +25,6 @@ interface AccordionProps {
 
 const Accordion = (props: AccordionProps) => {
     return <AdminUiAccordion type={"single"}>{props.children}</AdminUiAccordion>;
-    // const { children, elevation = 2, className, ...other } = props;
-    // return (
-    //     <Elevation z={elevation} className={classNames("webiny-ui-accordion", className)}>
-    //         <List twoLine className={listStyle} {...other}>
-    //             {children}
-    //         </List>
-    //     </Elevation>
-    // );
 };
 
 export { Accordion, type AccordionProps };
