@@ -23,6 +23,10 @@ interface AccordionProps {
     className?: string;
 }
 
+/**
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please use the `Accordion` component from the `@webiny/admin-ui` package instead.
+ */
 const Accordion = (props: AccordionProps) => {
     return <AdminUiAccordion type={"single"}>{props.children}</AdminUiAccordion>;
 };

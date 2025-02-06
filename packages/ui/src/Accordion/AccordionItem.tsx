@@ -35,6 +35,10 @@ const AccordionItemBase = (props: any) => {
     return <AdminUiAccordion.Item {...props} value={value} icon={icon} />;
 };
 
+/**
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please use the `Accordion.Item` component from the `@webiny/admin-ui` package instead.
+ */
 export const AccordionItem = withStaticProps(AccordionItemBase, {
     Divider: AdminUiAccordion.Item.Action.Separator,
     Action: AdminUiAccordion.Item.Action,
