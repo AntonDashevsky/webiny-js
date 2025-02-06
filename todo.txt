@@ -1,6 +1,5 @@
 MH
 - [] bc
-
 - Kreso
   - focus-active state (overall design + rounded borders check)
   - hover (overall design, watch out for rounded borders, icon button hover missing)
