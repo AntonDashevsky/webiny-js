@@ -36,7 +36,7 @@ export const FormStep = (props: FormStepProps) => {
             <StyledAccordionItem
                 title={title}
                 open={true}
-                icon={<AccordionItem.Icon icon={<HandleIcon />} />}
+                handle={<AccordionItem.Handle />}
                 actions={
                     <AccordionItem.Actions>
                         <AccordionItem.Action icon={<EditIcon />} onClick={onEdit} />
