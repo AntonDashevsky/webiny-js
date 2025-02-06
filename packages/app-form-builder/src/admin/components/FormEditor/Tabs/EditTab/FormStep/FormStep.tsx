@@ -5,7 +5,6 @@ import { StyledAccordion, StyledAccordionItem } from "../Styled";
 import { AccordionItem } from "@webiny/ui/Accordion";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";
-import { ReactComponent as HandleIcon } from "~/admin/components/FormEditor/icons/round-drag_indicator-24px.svg";
 import { EmptyFormStep } from "./EmptyFormStep";
 import { FormStepWithFields } from "./FormStepWithFields";
 
