@@ -10,7 +10,8 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
     return {
         animation: {
             "accordion-down": "accordion-down 0.2s ease-out",
-            "accordion-up": "accordion-up 0.2s ease-out"
+            "accordion-up": "accordion-up 0.2s ease-out",
+            skeletonPulse: "skeletonPulse 1400ms ease-in-out infinite"
         },
         backgroundColor: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
@@ -138,6 +139,10 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
             "accordion-up": {
                 from: { height: "var(--radix-accordion-content-height)" },
                 to: { height: "0" }
+            },
+            skeletonPulse: {
+                "0%, 100%": { backgroundColor: "hsl(var(--bg-neutral-dimmed))" },
+                "50%": { backgroundColor: "hsl(var(--bg-neutral-muted))" }
             }
         },
         margin: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
