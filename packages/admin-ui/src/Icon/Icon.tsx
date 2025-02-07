@@ -29,7 +29,7 @@ const iconVariants = cva("", {
 interface IconProps
     extends Omit<React.HTMLAttributes<HTMLOrSVGElement>, "color">,
         VariantProps<typeof iconVariants> {
-    label?: string; // We don't want to force the label to be required.
+    label: string; // We don't want to force the label to be required.
     icon: React.ReactElement;
 }
 

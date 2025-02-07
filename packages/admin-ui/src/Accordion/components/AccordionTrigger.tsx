@@ -55,6 +55,7 @@ const AccordionTrigger = ({ title, description, actions, icon, handle }: Accordi
                         className={"wby-transition"}
                         color={"neutral-strong"}
                         data-role={"open-close-indicator"}
+                        label={"Open/close indicator"}
                         icon={<KeyboardArrowDownIcon />}
                     />
                 </div>
