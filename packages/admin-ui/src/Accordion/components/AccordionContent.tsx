@@ -11,17 +11,17 @@ const accordionContentVariants = cva(
         // Using pixel values here because of non-existing design tokens.
         variants: {
             withIcon: {
-                true: "wby-pl-[36px]"
+                true: "wby-pl-9"
             },
             withHandle: {
-                true: "wby-pl-[20px]"
+                true: "wby-pl-5"
             }
         },
         compoundVariants: [
             {
                 withIcon: true,
                 withHandle: true,
-                className: "wby-pl-[56px]"
+                className: "wby-pl-14"
             }
         ],
         defaultVariants: {
@@ -41,7 +41,7 @@ const AccordionContent = ({ children, withIcon, withHandle, ...props }: Accordio
             {...props}
             className={cn(accordionContentVariants({ withHandle, withIcon }), props.className)}
         >
-            <div className={"wby-pt-sm wby-pb-lg wby-pl-md wby-pr-[52px]"}>{children}</div>
+            <div className={"wby-pt-sm wby-pb-lg wby-pl-md wby-pr-13"}>{children}</div>
         </AccordionPrimitive.Content>
     );
 };
