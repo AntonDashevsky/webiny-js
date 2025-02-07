@@ -76,7 +76,8 @@
     "build": "yarn webiny run build",
     "watch": "yarn webiny run watch",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook-docs": "storybook dev --docs -p 6007",
+    "build-storybook": "storybook build --docs"
   },
   "adio": {
     "ignore": {
