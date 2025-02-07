@@ -1,13 +1,11 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { makeDecoratable, withStaticProps } from "~/utils";
+import { cn, makeDecoratable, withStaticProps } from "~/utils";
 import { AccordionTrigger } from "./AccordionTrigger";
 import { AccordionContent } from "./AccordionContent";
 import { AccordionItemIcon } from "./AccordionItemIcon";
 import { AccordionItemAction } from "./AccordionItemAction";
 import { AccordionItemHandle } from "./AccordionItemHandle";
-import { useAccordion } from "~/Accordion";
-import { cva } from "class-variance-authority";
 
 interface AccordionItemProps
     extends Omit<React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>, "title"> {
@@ -19,26 +17,7 @@ interface AccordionItemProps
     children: React.ReactNode;
 }
 
-const accordionItemVariants = cva(
-    "wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg",
-    {
-        variants: {
-            variant: {
-                underline: "",
-                container: "wby-rounded-lg"
-            },
-            background: {
-                base: "wby-bg-neutral-base",
-                light: "wby-bg-neutral-light",
-                transparent: ""
-            }
-        }
-    }
-);
-
 const AccordionItemBase = (props: AccordionItemProps) => {
-    const { variant, background } = useAccordion();
-
     const { itemProps, triggerProps, contentProps } = React.useMemo(() => {
         const {
             // Item props.
@@ -65,11 +44,15 @@ const AccordionItemBase = (props: AccordionItemProps) => {
     return (
         <AccordionPrimitive.Item
             {...itemProps}
-            className={accordionItemVariants({
-                variant,
-                background,
-                className: itemProps.className
-            })}
+            className={cn(
+                [
+                    "wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg",
+                    "group-[.wby-accordion-variant-container]:wby-rounded-lg",
+                    "group-[.wby-accordion-background-base]:wby-bg-neutral-base",
+                    "group-[.wby-accordion-background-light]:wby-bg-neutral-light"
+                ],
+                itemProps.className
+            )}
         >
             <AccordionTrigger {...triggerProps} />
             <AccordionContent {...contentProps} />

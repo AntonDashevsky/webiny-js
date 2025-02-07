@@ -1,30 +1,36 @@
 import React, { useMemo } from "react";
 import { makeDecoratable, withStaticProps } from "~/utils";
 import { AccordionRoot } from "./components/AccordionRoot";
-import { AccordionContext, useAccordion } from "./components/AccordionContext";
 import { AccordionItem, type AccordionItemProps } from "./components/AccordionItem";
+import { cva, type VariantProps } from "class-variance-authority";
 
-type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionRoot> & {
-    children: React.ReactNode;
-    variant?: "underline" | "container";
-    background?: "transparent" | "base" | "light";
-};
-
-import { cva } from "class-variance-authority";
-
-const accordionVariants = cva("w-full", {
+const accordionVariants = cva("wby-group w-full", {
     variants: {
         variant: {
-            container: "wby-gap-xs wby-flex wby-flex-col",
-            underline: ""
+            container: "wby-accordion-variant-container wby-gap-xs wby-flex wby-flex-col",
+            underline: "wby-accordion-variant-underline "
+        },
+        background: {
+            base: "wby-accordion-background-base",
+            light: "wby-accordion-background-light",
+            transparent: "wby-accordion-background-transparent"
         }
+    },
+    defaultVariants: {
+        variant: "underline",
+        background: "base"
     }
 });
+
+type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionRoot> &
+    VariantProps<typeof accordionVariants> & {
+        children: React.ReactNode;
+    };
 
 const AccordionBase = ({
     children,
     variant,
-    background = "base",
+    background,
     className,
     ...baseRootProps
 }: AccordionProps) => {
@@ -38,10 +44,11 @@ const AccordionBase = ({
     }, [baseRootProps]);
 
     return (
-        <AccordionRoot {...rootProps} className={accordionVariants({ variant, className })}>
-            <AccordionContext.Provider value={{ variant, background }}>
-                {children}
-            </AccordionContext.Provider>
+        <AccordionRoot
+            {...rootProps}
+            className={accordionVariants({ variant, background, className })}
+        >
+            {children}
         </AccordionRoot>
     );
 };
@@ -52,4 +59,4 @@ const Accordion = withStaticProps(DecoratableAccordion, {
     Item: AccordionItem
 });
 
-export { Accordion, type AccordionProps, type AccordionItemProps, useAccordion };
+export { Accordion, type AccordionProps, type AccordionItemProps };
