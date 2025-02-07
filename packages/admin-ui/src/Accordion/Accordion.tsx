@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { cn, makeDecoratable, withStaticProps } from "~/utils";
+import { makeDecoratable, withStaticProps } from "~/utils";
 import { AccordionRoot } from "./components/AccordionRoot";
 import { AccordionContext, useAccordion } from "./components/AccordionContext";
 import { AccordionItem, type AccordionItemProps } from "./components/AccordionItem";
