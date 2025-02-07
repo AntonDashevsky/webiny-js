@@ -60,8 +60,6 @@ const AccordionItemBase = (props: AccordionItemProps) => {
     );
 };
 
-AccordionItemBase.displayName = "AccordionItem";
-
 const DecoratableAccordionItem = makeDecoratable("AccordionItem", AccordionItemBase);
 
 const AccordionItem = withStaticProps(DecoratableAccordionItem, {

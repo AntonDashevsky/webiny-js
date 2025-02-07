@@ -41,8 +41,6 @@ const AccordionBase = ({
     );
 };
 
-AccordionBase.displayName = "Accordion";
-
 const DecoratableAccordion = makeDecoratable("Accordion", AccordionBase);
 
 const Accordion = withStaticProps(DecoratableAccordion, {
