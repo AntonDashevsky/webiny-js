@@ -10,10 +10,22 @@ type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionRoot> & {
     background?: "transparent" | "base" | "light";
 };
 
+import { cva } from "class-variance-authority";
+
+const accordionVariants = cva("w-full", {
+    variants: {
+        variant: {
+            container: "wby-gap-xs wby-flex wby-flex-col",
+            underline: ""
+        }
+    }
+});
+
 const AccordionBase = ({
     children,
     variant,
     background = "base",
+    className,
     ...baseRootProps
 }: AccordionProps) => {
     const rootProps = useMemo(() => {
@@ -26,14 +38,7 @@ const AccordionBase = ({
     }, [baseRootProps]);
 
     return (
-        <AccordionRoot
-            {...rootProps}
-            className={cn(
-                "w-full",
-                { "wby-gap-xs wby-flex wby-flex-col": variant === "container" },
-                rootProps.className
-            )}
-        >
+        <AccordionRoot {...rootProps} className={accordionVariants({ variant, className })}>
             <AccordionContext.Provider value={{ variant, background }}>
                 {children}
             </AccordionContext.Provider>
