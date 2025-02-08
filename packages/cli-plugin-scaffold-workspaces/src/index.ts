@@ -11,14 +11,14 @@ import { replaceInPath } from "replace-in-path";
 import WebinyError from "@webiny/error";
 import validateNpmPackageName from "validate-npm-package-name";
 /**
- * TODO: rewrite cli into typescript
+ * Write types for log.
  */
 // @ts-expect-error
 import { getProject, log } from "@webiny/cli/utils";
 
 const ncp = util.promisify(ncpBase.ncp);
 
-interface Input {
+export interface Input {
     type: string;
     name: string;
     packageName: string;
