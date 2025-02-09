@@ -1,5 +1,5 @@
 const { importModule } = require("./importModule");
-const createProjectApplicationWorkspace = require("./createProjectApplicationWorkspace");
+const { createProjectApplicationWorkspace } = require("./createProjectApplicationWorkspace");
 const getProject = require("./getProject");
 const getProjectApplication = require("./getProjectApplication");
 const localStorage = require("./localStorage");

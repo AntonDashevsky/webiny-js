@@ -1,8 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const dotenv = require("dotenv");
-const findUp = require("find-up");
-const readJson = require("read-json-sync");
 const {
     initializeProject,
     importModule,
@@ -16,9 +14,6 @@ class Context {
     loadedEnvFiles = {};
 
     constructor(project, localStorage) {
-        const closestPackageJson = findUp.sync("package.json", { cwd: __dirname });
-
-        this.version = readJson(closestPackageJson).version;
         this.project = project;
 
         // Check if `projectName` was injected properly.
@@ -155,7 +150,7 @@ module.exports.getContext = () => {
 module.exports.createContext = async () => {
     if (!context) {
         const project = await initializeProject();
-        const localStorageDep = await localStorage();
+        const localStorageDep = localStorage();
 
         if (!project) {
             console.log(

@@ -2,6 +2,8 @@ const { join, dirname } = require("path");
 const glob = require("fast-glob");
 const findUp = require("find-up");
 const { importModule } = require("./importModule");
+const { PackageJson } = require("./PackageJson");
+const { ProjectApplication } = require("./ProjectApplication");
 
 const projectConfigs = ["webiny.project.js", "webiny.project.ts"];
 
@@ -37,6 +39,8 @@ async function getConfig() {
 class Project {
     root;
     config;
+    version;
+    applications;
 
     constructor(root, config) {
         this.root = root;
@@ -55,27 +59,49 @@ class Project {
         return this.root;
     }
 
-    // getApplication(applicationRoot) {
-    //     TODO: refactor `getProjectApplication(dir)` to run `getProject().getApplication(dir)`
-    // }
+    getApplication(applicationRoot) {
+        return this.applications[applicationRoot];
+    }
 
     /**
      * @private
      * @internal
      */
     async init() {
+        // Read `@webiny/cli` package version.
+        const packageJson = await PackageJson.findClosest(__dirname);
+        this.version = packageJson.getJson().version;
+
+        // Identify project applications.
         const projectApplications = await glob(
             join(this.root, "apps/**/webiny.application*.{ts,js}").replace(/\\/g, "/"),
             { onlyFiles: true, ignore: ["**/node_modules/**"] }
         );
 
-        console.log(projectApplications);
-        // TODO: instantiate project apps
+        this.applications = await projectApplications.reduce((acc, appRoot) => {
+            return acc.then(async acc => {
+                const projectApplication = await ProjectApplication.loadFromDirectory(
+                    this,
+                    appRoot
+                );
+                try {
+                    return {
+                        ...acc,
+                        [projectApplication.root]: projectApplication
+                    };
+                } catch (error) {
+                    // Usually, this error will happen in webiny-js repository, when building repo packages.
+                    // It is ok to ignore this error, because it is only related to package building, not actual project runtime.
+                    return { ...acc };
+                }
+            });
+        }, Promise.resolve({}));
     }
 
     static async load() {
         const root = await getRoot();
         const config = await getConfig();
+
         const project = new Project(root, config);
         await project.init();
         return project;
