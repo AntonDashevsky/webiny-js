@@ -37,6 +37,11 @@ export interface AccordionItemProps {
     actions?: React.ReactNode;
 
     icon?: React.ReactNode;
+
+    /**
+     * @deprecated This prop no longer has any effect.
+     */
+    iconClassName?: string;
 }
 
 const AccordionItemBase = (props: AccordionItemProps) => {
