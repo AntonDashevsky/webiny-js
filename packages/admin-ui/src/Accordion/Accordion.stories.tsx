@@ -41,7 +41,7 @@ const AccordionItem = (props: AccordionItemProps) => {
 export const Default: Story = {
     decorators: [
         Story => (
-            <div className="wby-w-[600px] wby-p-[50px] wby-min-h-[500px] wby-bg-[#f6f7f8]">
+            <div className="wby-w-[750px] wby-p-[50px] wby-min-h-[500px] wby-bg-[#f6f7f8]">
                 <Story />
             </div>
         )
@@ -203,7 +203,7 @@ export const LightBackground: Story = {
     ...Default,
     decorators: [
         Story => (
-            <div className="wby-w-[600px] wby-p-[50px] wby-min-h-[500px]">
+            <div className="wby-w-[750px] wby-p-[50px] wby-min-h-[500px]">
                 <Story />
             </div>
         )
@@ -231,7 +231,7 @@ export const ContainerVariantWithLightBackground: Story = {
     ...Default,
     decorators: [
         Story => (
-            <div className="wby-w-[600px] wby-p-[50px] wby-min-h-[500px]">
+            <div className="wby-w-[750px] wby-p-[50px] wby-min-h-[500px]">
                 <Story />
             </div>
         )
