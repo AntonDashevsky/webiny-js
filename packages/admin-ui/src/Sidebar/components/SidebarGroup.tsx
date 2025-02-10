@@ -14,3 +14,5 @@ const SidebarGroup = React.forwardRef<HTMLDivElement, React.ComponentProps<"div"
     }
 );
 SidebarGroup.displayName = "SidebarGroup";
+
+export { SidebarGroup };

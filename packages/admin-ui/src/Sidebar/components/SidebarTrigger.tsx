@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "~/Button";
 import { cn } from "~/utils";
-import { useSidebar } from "~/Sidebar";
+import { useSidebar } from "./SidebarProvider";
+import { ReactComponent as PanelLeft } from "@material-design-icons/svg/outlined/support.svg";
 
 const SidebarTrigger = React.forwardRef<
     React.ElementRef<typeof Button>,
@@ -14,17 +15,20 @@ const SidebarTrigger = React.forwardRef<
             ref={ref}
             data-sidebar="trigger"
             variant="ghost"
-            size="icon"
+            size="md"
             className={cn("h-7 w-7", className)}
             onClick={event => {
                 onClick?.(event);
                 toggleSidebar();
             }}
             {...props}
-        >
-            <PanelLeft />
-            <span className="sr-only">Toggle Sidebar</span>
-        </Button>
+            text={
+                <>
+                    <PanelLeft />
+                    <span className="sr-only">Toggle Sidebar</span>
+                </>
+            }
+        ></Button>
     );
 });
 SidebarTrigger.displayName = "SidebarTrigger";

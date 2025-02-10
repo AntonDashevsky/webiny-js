@@ -1,7 +1,9 @@
 import React from "react";
 import { cn } from "~/utils";
 
-const SidebarMenuItem = React.forwardRef<HTMLLIElement, React.ComponentProps<"li">>(
+
+// React.ComponentProps<"li">
+const SidebarMenuItem = React.forwardRef<HTMLLIElement, any>(
     ({ className, ...props }, ref) => (
         <li
             ref={ref}
@@ -12,3 +14,5 @@ const SidebarMenuItem = React.forwardRef<HTMLLIElement, React.ComponentProps<"li
     )
 );
 SidebarMenuItem.displayName = "SidebarMenuItem";
+
+export { SidebarMenuItem };

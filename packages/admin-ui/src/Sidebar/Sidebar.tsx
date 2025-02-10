@@ -4,11 +4,9 @@ import { SidebarRoot } from "./components/SidebarRoot";
 import { SidebarTrigger } from "./components/SidebarTrigger";
 import { SidebarContent } from "./components/SidebarContent";
 import { SidebarSeparator } from "./components/SidebarSeparator";
-import { SidebarItem } from "./components/SidebarItem";
-import { SidebarCheckboxItem } from "./components/SidebarCheckboxItem";
-import { SidebarLabel } from "./components/SidebarLabel";
+import { SidebarMenuItem } from "./components/SidebarMenuItem";
 import { SidebarGroup } from "./components/SidebarGroup";
-import { SidebarPortal } from "./components/SidebarPortal";
+import { SidebarProvider } from "./components/SidebarProvider";
 
 interface SidebarProps
     extends React.ComponentPropsWithoutRef<typeof SidebarRoot>,
@@ -17,51 +15,49 @@ interface SidebarProps
     children: React.ReactNode;
 }
 
-const SidebarBase = React.forwardRef<
-    React.ElementRef<typeof SidebarRoot>,
-    SidebarProps
->((props, ref) => {
-    const { rootProps, triggerProps, contentProps } = React.useMemo(() => {
-        const {
-            // Root props.
-            defaultOpen,
-            open,
-            onOpenChange,
+const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, SidebarProps>(
+    (props, ref) => {
+        const { rootProps, triggerProps, contentProps } = React.useMemo(() => {
+            const {
+                // Root props.
+                side,
+                variant,
+                collapsible,
 
-            dir,
+                // Trigger props.
+                trigger,
 
-            // Trigger props.
-            trigger,
+                // Content props.
+                ...rest
+            } = props;
 
-            // Content props.
-            ...rest
-        } = props;
+            return {
+                rootProps: {
+                    side,
+                    variant,
+                    collapsible
+                },
+                triggerProps: {
+                    // Temporary fix. We need this because `ref` doesn't get passed to components
+                    // that are decorated with `makeDecoratable`. This will be fixed in the future.
+                    children: <div className={"wby-inline-block"}>{trigger}</div>
+                },
+                contentProps: rest
+            };
+        }, [props]);
 
-        return {
-            rootProps: {
-                defaultOpen,
-                open,
-                onOpenChange,
-                dir
-            },
-            triggerProps: {
-                // Temporary fix. We need this because `ref` doesn't get passed to components
-                // that are decorated with `makeDecoratable`. This will be fixed in the future.
-                children: <div className={"wby-inline-block"}>{trigger}</div>
-            },
-            contentProps: rest
-        };
-    }, [props]);
-
-    return (
-        <SidebarRoot {...rootProps}>
-            {triggerProps.children && <SidebarTrigger {...triggerProps} asChild />}
-            <SidebarPortal>
-                <SidebarContent {...contentProps} ref={ref} />
-            </SidebarPortal>
-        </SidebarRoot>
-    );
-});
+        return (
+            <SidebarProvider>
+                <SidebarRoot {...rootProps}>
+                    {triggerProps.children && <SidebarTrigger {...triggerProps} asChild />}
+                    <SidebarContent {...contentProps} ref={ref}>
+                        {props.children}
+                    </SidebarContent>
+                </SidebarRoot>
+            </SidebarProvider>
+        );
+    }
+);
 
 SidebarBase.displayName = "Sidebar";
 
@@ -69,10 +65,31 @@ const DecoratableSidebar = makeDecoratable("Sidebar", SidebarBase);
 
 const Sidebar = withStaticProps(DecoratableSidebar, {
     Separator: SidebarSeparator,
-    Label: SidebarLabel,
     Group: SidebarGroup,
-    Item: SidebarItem,
-    CheckboxItem: SidebarCheckboxItem
+    Item: SidebarMenuItem
 });
 
 export { Sidebar };
+
+
+// <Sidebar>
+//     <SidebarContent>
+//         <SidebarGroup>
+//             <SidebarGroupLabel>Projects</SidebarGroupLabel>
+//             <SidebarGroupContent>
+//                 <SidebarMenu>
+//                     {projects.map((project) => (
+//                         <SidebarMenuItem key={project.name}>
+//                             <SidebarMenuButton asChild>
+//                                 <a href={project.url}>
+//                                     <project.icon />
+//                                     <span>{project.name}</span>
+//                                 </a>
+//                             </SidebarMenuButton>
+//                         </SidebarMenuItem>
+//                     ))}
+//                 </SidebarMenu>
+//             </SidebarGroupContent>
+//         </SidebarGroup>
+//     </SidebarContent>
+// </Sidebar>

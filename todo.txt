@@ -2,3 +2,4 @@
 - sidebar input - use existing comp?
 - ref / makeDecoratable
 - call it sidebar or nav or menu?
+- mobile version with drawer?

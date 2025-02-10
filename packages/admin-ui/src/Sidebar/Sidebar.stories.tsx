@@ -3,6 +3,11 @@ import { Sidebar } from "./Sidebar";
 import React from "react";
 import { Button } from "~/Button";
 
+import { ReactComponent as CreditCard } from "@material-design-icons/svg/outlined/credit_score.svg";
+import { ReactComponent as Settings } from "@material-design-icons/svg/outlined/settings.svg";
+import { ReactComponent as User } from "@material-design-icons/svg/outlined/person.svg";
+import { ReactComponent as Keyboard } from "@material-design-icons/svg/outlined/keyboard.svg";
+
 const meta: Meta<typeof Sidebar> = {
     title: "Components/Sidebar",
     component: Sidebar,
