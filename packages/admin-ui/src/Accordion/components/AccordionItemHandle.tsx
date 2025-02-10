@@ -4,8 +4,9 @@ import { makeDecoratable } from "~/utils";
 import { Icon, IconProps as IconProps } from "~/Icon";
 import { ReactComponent as DragHandleIcon } from "@material-design-icons/svg/filled/drag_indicator.svg";
 
-interface AccordionItemHandleProps extends Omit<IconProps, "icon"> {
+interface AccordionItemHandleProps extends Omit<IconProps, "icon" | "label"> {
     icon?: React.ReactElement;
+    label?: string;
 }
 
 const AccordionItemHandleBase = ({ onClick, ...props }: AccordionItemHandleProps) => {
@@ -23,10 +24,11 @@ const AccordionItemHandleBase = ({ onClick, ...props }: AccordionItemHandleProps
 
     return (
         <Icon
-            size={"sm"}
+            size={"md"}
             color={"neutral-light"}
-            className={"wby-mx-xxs"}
+            className={"wby-mx-xxs wby-cursor-grab"}
             icon={<DragHandleIcon />}
+            label={"Drag handle"}
             {...props}
             onClick={onClickCallback}
         />

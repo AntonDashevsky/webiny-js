@@ -6,7 +6,6 @@ import { AccordionContent } from "./AccordionContent";
 import { AccordionItemIcon } from "./AccordionItemIcon";
 import { AccordionItemAction } from "./AccordionItemAction";
 import { AccordionItemHandle } from "./AccordionItemHandle";
-import { useAccordion } from "~/Accordion";
 
 interface AccordionItemProps
     extends Omit<React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>, "title"> {
@@ -19,12 +18,11 @@ interface AccordionItemProps
 }
 
 const AccordionItemBase = (props: AccordionItemProps) => {
-    const { variant, background } = useAccordion();
-
     const { itemProps, triggerProps, contentProps } = React.useMemo(() => {
         const {
             // Item props.
             value,
+            className,
 
             // Content props.
             children,
@@ -35,7 +33,8 @@ const AccordionItemBase = (props: AccordionItemProps) => {
 
         return {
             itemProps: {
-                value
+                value,
+                className
             },
             triggerProps,
             contentProps: { children, withIcon: !!props.icon, withHandle: !!props.handle }
@@ -46,12 +45,13 @@ const AccordionItemBase = (props: AccordionItemProps) => {
         <AccordionPrimitive.Item
             {...itemProps}
             className={cn(
-                "wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg",
-                {
-                    "wby-rounded-lg": variant === "container",
-                    "wby-bg-neutral-base": background === "base",
-                    "wby-bg-neutral-light": background === "light"
-                }
+                [
+                    "wby-border-b-sm wby-border-b-neutral-dimmed data-[state=open]:wby-rounded-bl-lg data-[state=open]:wby-rounded-br-lg",
+                    "group-[.wby-accordion-variant-container]:wby-rounded-lg",
+                    "group-[.wby-accordion-background-base]:wby-bg-neutral-base",
+                    "group-[.wby-accordion-background-light]:wby-bg-neutral-light"
+                ],
+                itemProps.className
             )}
         >
             <AccordionTrigger {...triggerProps} />
@@ -59,8 +59,6 @@ const AccordionItemBase = (props: AccordionItemProps) => {
         </AccordionPrimitive.Item>
     );
 };
-
-AccordionItemBase.displayName = "AccordionItem";
 
 const DecoratableAccordionItem = makeDecoratable("AccordionItem", AccordionItemBase);
 

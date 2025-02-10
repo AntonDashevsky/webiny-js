@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import { ListItem } from "../List";
 import { Accordion as AdminUiAccordion } from "@webiny/admin-ui";
 import { withStaticProps } from "@webiny/admin-ui/utils";
 
@@ -7,12 +6,10 @@ export interface AccordionItemProps {
     /**
      * Element displayed when accordion is expanded.
      */
-    children:
-        | React.ReactElement<typeof ListItem>[]
-        | React.ReactElement<typeof AccordionItem>
-        | React.ReactElement<typeof AccordionItem>[];
+    children: React.ReactNode;
 
     /**
+     * @deprecated This prop no longer has any effect.
      * Elevation number, default set to 2
      */
     elevation?: number;
@@ -21,18 +18,51 @@ export interface AccordionItemProps {
      * Append a class name
      */
     className?: string;
+
+    value?: string;
+
+    title?: React.ReactNode;
+
+    description?: React.ReactNode;
+
+    open?: boolean;
+
+    /**
+     * @deprecated This prop no longer has any effect.
+     */
+    interactive?: boolean;
+
+    handle?: React.ReactNode;
+
+    actions?: React.ReactNode;
+
+    icon?: React.ReactNode;
+
+    /**
+     * @deprecated This prop no longer has any effect.
+     */
+    iconClassName?: string;
 }
 
-const AccordionItemBase = (props: any) => {
+const AccordionItemBase = (props: AccordionItemProps) => {
     const value = useMemo(() => {
-        return props.value || props.title;
-    }, [props.value, props.title]);
+        return props.value || new Date().toISOString();
+    }, [props.value]);
 
     const icon = useMemo(() => {
-        return props.icon ? <AdminUiAccordion.Item.Icon icon={props.icon} /> : null;
+        return props.icon ? (
+            <AdminUiAccordion.Item.Icon
+                icon={props.icon}
+                label={typeof props.title === "string" ? props.title : ""}
+            />
+        ) : null;
     }, [props.icon]);
 
-    return <AdminUiAccordion.Item {...props} value={value} icon={icon} />;
+    return (
+        <AdminUiAccordion.Item {...props} value={value} icon={icon} title={props.title || ""}>
+            {props.children as React.ReactElement}
+        </AdminUiAccordion.Item>
+    );
 };
 
 /**
