@@ -41,8 +41,8 @@ export interface AccordionItemProps {
 
 const AccordionItemBase = (props: AccordionItemProps) => {
     const value = useMemo(() => {
-        return props.value || "";
-    }, [props.value, props.title]);
+        return props.value || new Date().toISOString();
+    }, [props.value]);
 
     const icon = useMemo(() => {
         return props.icon ? (
