@@ -6,7 +6,7 @@ export interface AccordionItemProps {
     /**
      * Element displayed when accordion is expanded.
      */
-    children: React.ReactElement;
+    children: React.ReactNode;
 
     /**
      * @deprecated This prop no longer has any effect.
@@ -21,23 +21,43 @@ export interface AccordionItemProps {
 
     value?: string;
 
-    title?: string;
+    title?: React.ReactNode;
 
-    icon?: React.ReactElement;
+    description?: React.ReactNode;
+
+    open?: boolean;
+
+    /**
+     * @deprecated This prop no longer has any effect.
+     */
+    interactive?: boolean;
+
+    handle?: React.ReactNode;
+
+    actions?: React.ReactNode;
+
+    icon?: React.ReactNode;
 }
 
 const AccordionItemBase = (props: AccordionItemProps) => {
     const value = useMemo(() => {
-        return props.value || props.title || "";
+        return props.value || "";
     }, [props.value, props.title]);
 
     const icon = useMemo(() => {
         return props.icon ? (
-            <AdminUiAccordion.Item.Icon icon={props.icon} label={props.title || ""} />
+            <AdminUiAccordion.Item.Icon
+                icon={props.icon}
+                label={typeof props.title === "string" ? props.title : ""}
+            />
         ) : null;
     }, [props.icon]);
 
-    return <AdminUiAccordion.Item {...props} value={value} icon={icon} title={props.title || ""} />;
+    return (
+        <AdminUiAccordion.Item {...props} value={value} icon={icon} title={props.title || ""}>
+            {props.children as React.ReactElement}
+        </AdminUiAccordion.Item>
+    );
 };
 
 /**
