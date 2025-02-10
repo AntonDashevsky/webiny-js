@@ -32,6 +32,7 @@ export class AccordionItemElement extends UIElement<Item> {
         const isOpened = typeof open === "function" ? open(props) : open;
         return (
             <AccordionItem open={isOpened} {...rest}>
+                {/* @ts-expect-error */}
                 {super.render(props)}
             </AccordionItem>
         );
