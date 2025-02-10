@@ -63,20 +63,46 @@ const textareaVariants = cva(
 interface TextareaPrimitiveProps
     extends React.ComponentProps<"textarea">,
         VariantProps<typeof textareaVariants> {
+    /**
+     * Reference to the textarea element.
+     */
     textareaRef?: React.Ref<HTMLTextAreaElement>;
-    onEnter?: () => any;
+
+    /**
+     * If true, it will pass the native `event` to the `onChange` callback
+     */
+    forwardEventOnChange?: boolean;
+
+    /**
+     * Callback function to be called when the Enter key is pressed.
+     */
+    onEnter?: () => void;
 }
 
 const TextareaPrimitive = ({
     className,
     variant,
     invalid,
-    onEnter,
-    onKeyDown: originalOnKeyDown,
     size,
     textareaRef,
+    forwardEventOnChange,
+    onChange: originalOnChange,
+    onEnter,
+    onKeyDown: originalOnKeyDown,
     ...props
 }: TextareaPrimitiveProps) => {
+    const onChange = React.useCallback(
+        (event: React.SyntheticEvent<HTMLTextAreaElement>) => {
+            if (!originalOnChange) {
+                return;
+            }
+
+            // @ts-expect-error
+            originalOnChange(forwardEventOnChange ? event : event.target.value);
+        },
+        [forwardEventOnChange, originalOnChange]
+    );
+
     const onKeyDown = React.useCallback(
         (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
             if (typeof onEnter === "function" && e.key === "Enter") {
@@ -94,6 +120,7 @@ const TextareaPrimitive = ({
         <textarea
             ref={textareaRef}
             className={cn(textareaVariants({ variant, invalid, size }), className)}
+            onChange={onChange}
             onKeyDown={onKeyDown}
             {...props}
         />
