@@ -1,3 +1,4 @@
 - separator - use existing comp?
 - sidebar input - use existing comp?
 - ref / makeDecoratable
+- call it sidebar or nav or menu?
