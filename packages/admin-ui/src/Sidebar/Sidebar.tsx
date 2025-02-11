@@ -10,6 +10,7 @@ import { SidebarProvider } from "./components/SidebarProvider";
 
 interface SidebarProps
     extends React.ComponentPropsWithoutRef<typeof SidebarRoot>,
+        React.ComponentPropsWithoutRef<typeof SidebarProvider>,
         React.ComponentPropsWithoutRef<typeof SidebarContent> {
     trigger?: React.ReactNode;
     children: React.ReactNode;
@@ -19,6 +20,11 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
     (props, ref) => {
         const { rootProps, triggerProps, contentProps } = React.useMemo(() => {
             const {
+                // Provider props.
+                defaultOpen,
+                open,
+                onOpenChange,
+
                 // Root props.
                 side,
                 variant,
@@ -32,6 +38,11 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
             } = props;
 
             return {
+                providerProps: {
+                    defaultOpen,
+                    open,
+                    onOpenChange,
+                },
                 rootProps: {
                     side,
                     variant,

@@ -1,9 +1,6 @@
 import * as React from "react";
 import { cn } from "~/utils";
-// import { Drawer } from "~/Drawer";
 import { useSidebar } from "./SidebarProvider";
-
-// const SIDEBAR_WIDTH_MOBILE = "18rem";
 
 const SidebarRoot = React.forwardRef<
     HTMLDivElement,
@@ -30,7 +27,7 @@ const SidebarRoot = React.forwardRef<
             return (
                 <div
                     className={cn(
-                        "flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground",
+                        "wby-flex wby-h-full wby-w-[--sidebar-width] wby-flex-col wby-bg-sidebar wby-text-sidebar-foreground",
                         className
                     )}
                     ref={ref}
@@ -41,63 +38,41 @@ const SidebarRoot = React.forwardRef<
             );
         }
 
-        // if (isMobile) {
-        //     return (
-        //         <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-        //             <SheetContent
-        //                 data-sidebar="sidebar"
-        //                 data-mobile="true"
-        //                 className="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
-        //                 style={
-        //                     {
-        //                         "--sidebar-width": SIDEBAR_WIDTH_MOBILE
-        //                     } as React.CSSProperties
-        //                 }
-        //                 side={side}
-        //             >
-        //                 <div className="flex h-full w-full flex-col">{children}</div>
-        //             </SheetContent>
-        //         </Sheet>
-        //     );
-        // }
-
         return (
             <div
                 ref={ref}
-                className="group peer hidden md:block text-sidebar-foreground"
+                className="wby-group wby-peer wby-hidden md:wby-block wby-text-sidebar-foreground"
                 data-state={state}
                 data-collapsible={state === "collapsed" ? collapsible : ""}
                 data-variant={variant}
                 data-side={side}
             >
-                {/* This is what handles the sidebar gap on desktop */}
                 <div
                     className={cn(
-                        "duration-200 relative h-svh w-[--sidebar-width] bg-transparent transition-[width] ease-linear",
-                        "group-data-[collapsible=offcanvas]:w-0",
-                        "group-data-[side=right]:rotate-180",
+                        "wby-duration-200 wby-relative wby-h-svh wby-w-[--sidebar-width] wby-bg-transparent wby-transition-[width] wby-ease-linear",
+                        "group-data-[collapsible=offcanvas]:wby-w-0",
+                        "group-data-[side=right]:wby-rotate-180",
                         variant === "floating" || variant === "inset"
-                            ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]"
-                            : "group-data-[collapsible=icon]:w-[--sidebar-width-icon]"
+                            ? "group-data-[collapsible=icon]:wby-w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]"
+                            : "group-data-[collapsible=icon]:wby-w-[--sidebar-width-icon]"
                     )}
                 />
                 <div
                     className={cn(
-                        "duration-200 fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] ease-linear md:flex",
+                        "wby-duration-200 wby-fixed wby-inset-y-0 wby-z-10 wby-hidden wby-h-svh wby-w-[--sidebar-width] wby-transition-[left,right,width] wby-ease-linear md:wby-flex",
                         side === "left"
-                            ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
-                            : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
-                        // Adjust the padding for floating and inset variants.
+                            ? "wby-left-0 group-data-[collapsible=offcanvas]:wby-left-[calc(var(--sidebar-width)*-1)]"
+                            : "wby-right-0 group-data-[collapsible=offcanvas]:wby-right-[calc(var(--sidebar-width)*-1)]",
                         variant === "floating" || variant === "inset"
-                            ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
-                            : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",
+                            ? "wby-p-2 group-data-[collapsible=icon]:wby-w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
+                            : "group-data-[collapsible=icon]:wby-w-[--sidebar-width-icon] group-data-[side=left]:wby-border-r group-data-[side=right]:wby-border-l",
                         className
                     )}
                     {...props}
                 >
                     <div
                         data-sidebar="sidebar"
-                        className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow"
+                        className="wby-flex wby-h-full wby-w-full wby-flex-col wby-bg-sidebar group-data-[variant=floating]:wby-rounded-lg group-data-[variant=floating]:wby-border group-data-[variant=floating]:wby-border-sidebar-border group-data-[variant=floating]:wby-shadow"
                     >
                         {children}
                     </div>
