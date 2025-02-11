@@ -1,7 +1,7 @@
-const { log } = require("@webiny/cli/utils");
-const { request } = require("graphql-request");
-const { getWcpPat } = require("./getWcpPat");
-const { getWcpGqlApiUrl } = require("@webiny/wcp");
+import { request } from "graphql-request";
+import { log } from "@webiny/cli/utils/index.js";
+import { getWcpGqlApiUrl } from "@webiny/wcp";
+import { getWcpPat } from "./getWcpPat.js";
 
 const GET_CURRENT_USER = /* GraphQL */ `
     query GetUser {
@@ -47,7 +47,7 @@ const LIST_PROJECTS = /* GraphQL */ `
 `;
 
 let user;
-module.exports.getUser = async () => {
+export const getUser = async () => {
     if (user) {
         return user;
     }

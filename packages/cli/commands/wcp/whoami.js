@@ -1,6 +1,6 @@
-const { getUser } = require("./utils");
+import { getUser } from "./utils/index.js";
 
-module.exports.command = () => ({
+export const command = () => ({
     type: "cli-command",
     name: "cli-command-wcp-whoami",
     create({ yargs, context }) {

@@ -1,9 +1,9 @@
 import * as aws from "@pulumi/aws";
 import { createAppModule, PulumiApp } from "@webiny/pulumi";
-import { LAMBDA_RUNTIME } from "~/constants";
+import { LAMBDA_RUNTIME } from "~/constants.js";
 import * as pulumi from "@pulumi/pulumi";
 import path from "path";
-import { CoreVpc } from "~/apps";
+import { CoreVpc } from "~/apps/index.js";
 
 export interface WatchCommandParams {
     deploymentId: pulumi.Output<string>;
@@ -64,7 +64,9 @@ export const WatchCommand = createAppModule({
                 memorySize: 128,
                 description: "Authorizes 'webiny watch' command communication.",
                 code: new pulumi.asset.AssetArchive({
-                    ".": new pulumi.asset.FileArchive(path.join(__dirname, "webinyWatchCommand"))
+                    ".": new pulumi.asset.FileArchive(
+                        path.join(import.meta.dirname, "webinyWatchCommand")
+                    )
                 }),
                 environment: {
                     variables: {

@@ -1,4 +1,5 @@
-module.exports = {
+// @ts-nocheck Migration
+export default {
     type: "cli-command",
     name: "cli-command-run",
     create({ yargs, context }) {
@@ -12,12 +13,15 @@ module.exports = {
                 });
             },
             async argv => {
-                const camelCase = require("camelcase");
-                const findUp = require("find-up");
-                const path = require("path");
+                const [camelCase, findUp, path] = await Promise.all([
+                    import("camelcase").then(m => m.default ?? m),
+                    import("find-up").then(m => m.default ?? m),
+                    import("path").then(m => m.default ?? m)
+                ]);
 
-                const configFile = findUp.sync(["webiny.config.ts", "webiny.config.js"]);
-                let config = context.import(configFile);
+                const configFile = await findUp(["webiny.config.ts", "webiny.config.js"]);
+
+                let config = await import(configFile).then(m => (m.default ? m.default : m));
 
                 const command = camelCase(argv.command);
                 if (typeof config === "function") {

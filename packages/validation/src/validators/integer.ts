@@ -1,5 +1,5 @@
-import isInteger from "lodash/isInteger";
-import ValidationError from "~/validationError";
+import isInteger from "lodash/isInteger.js";
+import ValidationError from "~/validationError.js";
 
 export default (value: any) => {
     if (!value) {

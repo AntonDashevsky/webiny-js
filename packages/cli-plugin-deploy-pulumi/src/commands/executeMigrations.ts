@@ -1,13 +1,13 @@
 import { Context } from "~/types";
-import { LambdaClient } from "@webiny/aws-sdk/client-lambda";
-import { getStackOutput } from "~/utils";
+import { LambdaClient } from "@webiny/aws-sdk/client-lambda/index.js";
+import { getStackOutput } from "~/utils/index.js";
 import {
     CliMigrationRunReporter,
     InteractiveCliStatusReporter,
     LogReporter,
     MigrationRunner,
     NonInteractiveCliStatusReporter
-} from "@webiny/data-migration/cli";
+} from "@webiny/data-migration/cli/index.js";
 
 export interface IExecuteMigrationsParams {
     env: string;

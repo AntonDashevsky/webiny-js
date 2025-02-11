@@ -1,6 +1,6 @@
 import { Context } from "~/types";
-import { createPulumiCommand, runHook } from "~/utils";
-import { PackagesBuilder } from "./buildPackages/PackagesBuilder";
+import { createPulumiCommand, runHook } from "~/utils/index.js";
+import { PackagesBuilder } from "./buildPackages/PackagesBuilder.js";
 
 export interface IBuildParams {
     _: string[];

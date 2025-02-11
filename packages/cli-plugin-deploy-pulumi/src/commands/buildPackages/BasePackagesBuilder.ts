@@ -1,5 +1,5 @@
-import { Context, IUserCommandInput } from "~/types";
-import { IProjectApplicationPackage } from "@webiny/cli/types";
+import type { Context, IUserCommandInput } from "~/types";
+import type { IProjectApplicationPackage } from "@webiny/cli/types";
 
 export interface IBasePackagesBuilderParams {
     packages: IProjectApplicationPackage[];

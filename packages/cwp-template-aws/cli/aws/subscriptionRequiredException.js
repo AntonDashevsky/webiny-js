@@ -1,7 +1,9 @@
-const { blue } = require("chalk");
+import chalk from "chalk";
 const MATCH_STRING = "SubscriptionRequiredException";
 
-module.exports = {
+const { blue } = chalk;
+
+export const subscriptionRequiredException = {
     type: "cli-command-error",
     handle: ({ context, error }) => {
         const { message } = error;

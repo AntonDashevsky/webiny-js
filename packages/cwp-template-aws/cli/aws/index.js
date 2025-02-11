@@ -1,1 +1,7 @@
-module.exports = [require("./checkCredentials"), require("./subscriptionRequiredException")];
+import { checkCredentials } from "./checkCredentials.js";
+import { subscriptionRequiredException } from "./subscriptionRequiredException.js"
+
+export default [
+    checkCredentials,
+    subscriptionRequiredException
+];

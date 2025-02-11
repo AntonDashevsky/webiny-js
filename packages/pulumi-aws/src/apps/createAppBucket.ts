@@ -1,7 +1,7 @@
 import * as aws from "@pulumi/aws";
 import { PulumiApp } from "@webiny/pulumi";
-import { ApiOutput } from "~/apps/api";
-import { getEnvVariableAwsRegion } from "~/env/awsRegion";
+import { ApiOutput } from "~/apps/api/index.js";
+import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
 
 export function createPublicAppBucket(app: PulumiApp, name: string) {
     const bucket = app.addResource(aws.s3.Bucket, {

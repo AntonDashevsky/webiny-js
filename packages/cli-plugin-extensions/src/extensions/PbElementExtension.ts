@@ -1,11 +1,11 @@
-import { AbstractExtension } from "./AbstractExtension";
 import path from "path";
-import { EXTENSIONS_ROOT_FOLDER } from "~/utils/constants";
-import { JsxFragment, Node, Project } from "ts-morph";
-import { formatCode } from "@webiny/cli-plugin-scaffold/utils";
-import { updateDependencies, updateWorkspaces } from "~/utils";
 import Case from "case";
-import { ExtensionMessage } from "~/types";
+import { JsxFragment, Node, Project } from "ts-morph";
+import { AbstractExtension } from "./AbstractExtension.js";
+import { EXTENSIONS_ROOT_FOLDER } from "~/utils/constants.js";
+import { formatCode } from "@webiny/cli-plugin-scaffold/utils/index.js";
+import { updateDependencies, updateWorkspaces } from "~/utils.js";
+import type { ExtensionMessage } from "~/types";
 
 export class PbElementExtension extends AbstractExtension {
     async link() {

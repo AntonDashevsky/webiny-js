@@ -3,9 +3,9 @@ import * as pulumi from "@pulumi/pulumi";
 import {
     createCorePulumiApp as baseCreateCorePulumiApp,
     CreateCorePulumiAppParams as BaseCreateCorePulumiAppParams
-} from "~/apps/core/createCorePulumiApp";
+} from "~/apps/core/createCorePulumiApp.js";
 import { isResourceOfType, PulumiAppParam } from "@webiny/pulumi";
-import { getAwsRegion } from "~/apps/awsUtils";
+import { getAwsRegion } from "~/apps/awsUtils.js";
 
 export type CorePulumiApp = ReturnType<typeof createCorePulumiApp>;
 

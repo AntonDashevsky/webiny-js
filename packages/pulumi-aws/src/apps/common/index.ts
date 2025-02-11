@@ -1,2 +1,2 @@
-export * from "./CoreOutput";
-export * from "./VpcConfig";
+export * from "./CoreOutput.js";
+export * from "./VpcConfig.js";

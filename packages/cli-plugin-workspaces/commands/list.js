@@ -1,11 +1,11 @@
-const chalk = require("chalk");
-const { getPackages } = require("./utils");
+import chalk from "chalk";
+import { getPackages } from "./utils/index.js";
 
 const outputJSON = obj => {
     console.log(JSON.stringify(obj, null, 2));
 };
 
-module.exports = async ({ json, withPath, folder, ignoreFolder, scope, ignoreScope }) => {
+export default async ({ json, withPath, folder, ignoreFolder, scope, ignoreScope }) => {
     let folders = [],
         ignoreFolders = [],
         scopes = [],
@@ -26,7 +26,7 @@ module.exports = async ({ json, withPath, folder, ignoreFolder, scope, ignoreSco
         ignoreScopes = Array.isArray(ignoreScope) ? scope : [ignoreScope];
     }
 
-    const packages = getPackages({ scopes, ignoreScopes, folders, ignoreFolders });
+    const packages = await getPackages({ scopes, ignoreScopes, folders, ignoreFolders });
 
     const output = packages.reduce((current, item) => {
         current[item.name] = item.path;

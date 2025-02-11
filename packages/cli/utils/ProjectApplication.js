@@ -1,12 +1,11 @@
-const { dirname, basename, join, relative } = require("path");
-const findUp = require("find-up");
-const glob = require("fast-glob");
-const { importModule } = require("./importModule");
-const { PackageJson } = require("./PackageJson");
+import { dirname, basename, join, relative } from "path";
+import findUp from "find-up";
+import glob from "fast-glob";
+import { PackageJson } from "./PackageJson.js";
 
 const appConfigs = ["webiny.application.js", "webiny.application.ts"];
 
-class ProjectApplication {
+export class ProjectApplication {
     static async loadFromDirectory(project, directory) {
         const cwd = directory;
 
@@ -22,7 +21,7 @@ class ProjectApplication {
 
         let applicationConfig;
         if (appConfigs.includes(basename(rootFile))) {
-            applicationConfig = importModule(rootFile);
+            applicationConfig = await import(rootFile).then(m => m.default ?? m);
         }
 
         let id, name, description;
@@ -82,5 +81,3 @@ class ProjectApplication {
         };
     }
 }
-
-module.exports = { ProjectApplication };

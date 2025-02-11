@@ -1,8 +1,8 @@
 import readJson from "load-json-file";
-import { PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { PackageJson } from "@webiny/cli-plugin-scaffold/types";
 import writeJson from "write-json-file";
 import path from "path";
-import { getProject } from "@webiny/cli/utils";
+import { getProject } from "@webiny/cli/utils/index.js";
 
 export const updateDependencies = async (
     packageJsonPath: string,

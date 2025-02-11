@@ -1,8 +1,8 @@
-import has from "lodash/has";
-import keys from "lodash/keys";
-import isString from "lodash/isString";
-import isObject from "lodash/isObject";
-import ValidationError from "~/validationError";
+import has from "lodash/has.js";
+import keys from "lodash/keys.js";
+import isString from "lodash/isString.js";
+import isObject from "lodash/isObject.js";
+import ValidationError from "~/validationError.js";
 
 export default (value: any, params?: string[]) => {
     if (!value || !params) {

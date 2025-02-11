@@ -1,4 +1,4 @@
-import { createPulumiCommand, getStackName, processHooks } from "~/utils";
+import { createPulumiCommand, getStackName, processHooks } from "~/utils/index.js";
 import {
     createEnvConfiguration,
     withEnv,
@@ -6,7 +6,7 @@ import {
     withProjectName,
     withPulumiConfigPassphrase,
     withRegion
-} from "~/utils/env";
+} from "~/utils/env/index.js";
 
 export const destroyCommand = createPulumiCommand({
     name: "destroy",

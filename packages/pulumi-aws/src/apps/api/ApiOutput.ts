@@ -1,5 +1,5 @@
 import { createAppModule, PulumiAppModule } from "@webiny/pulumi";
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
+import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
 
 export type ApiOutput = PulumiAppModule<typeof ApiOutput>;
 

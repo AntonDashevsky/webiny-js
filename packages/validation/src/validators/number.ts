@@ -1,6 +1,6 @@
-import isNaN from "lodash/isNaN";
-import isNumber from "lodash/isNumber";
-import ValidationError from "~/validationError";
+import isNaN from "lodash/isNaN.js";
+import isNumber from "lodash/isNumber.js";
+import ValidationError from "~/validationError.js";
 
 /**
  * @function number

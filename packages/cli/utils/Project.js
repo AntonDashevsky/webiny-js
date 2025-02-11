@@ -1,9 +1,8 @@
-const { join, dirname } = require("path");
-const glob = require("fast-glob");
-const findUp = require("find-up");
-const { importModule } = require("./importModule");
-const { PackageJson } = require("./PackageJson");
-const { ProjectApplication } = require("./ProjectApplication");
+import { join, dirname } from "path";
+import glob from "fast-glob";
+import findUp from "find-up";
+import { PackageJson } from "./PackageJson.js";
+import { ProjectApplication } from "./ProjectApplication.js";
 
 const projectConfigs = ["webiny.project.js", "webiny.project.ts"];
 
@@ -25,18 +24,13 @@ async function getRoot() {
 async function getConfig() {
     let path = await findUp(projectConfigs);
     if (path) {
-        return importModule(path);
-    }
-
-    path = await findUp("webiny.root.js");
-    if (path) {
-        return require(path);
+        return await import(path).then(m => m.default ?? m);
     }
 
     throw new Error("Couldn't detect Webiny project.");
 }
 
-class Project {
+export class Project {
     root;
     config;
     version;
@@ -69,7 +63,7 @@ class Project {
      */
     async init() {
         // Read `@webiny/cli` package version.
-        const packageJson = await PackageJson.findClosest(__dirname);
+        const packageJson = await PackageJson.findClosest(import.meta.dirname);
         this.version = packageJson.getJson().version;
 
         // Identify project applications.
@@ -78,24 +72,23 @@ class Project {
             { onlyFiles: true, ignore: ["**/node_modules/**"] }
         );
 
-        this.applications = await projectApplications.reduce((acc, appRoot) => {
-            return acc.then(async acc => {
-                const projectApplication = await ProjectApplication.loadFromDirectory(
-                    this,
-                    appRoot
-                );
-                try {
+        try {
+            this.applications = await projectApplications.reduce((acc, appRoot) => {
+                return acc.then(async acc => {
+                    const projectApplication = await ProjectApplication.loadFromDirectory(
+                        this,
+                        appRoot
+                    );
                     return {
                         ...acc,
                         [projectApplication.root]: projectApplication
                     };
-                } catch (error) {
-                    // Usually, this error will happen in webiny-js repository, when building repo packages.
-                    // It is ok to ignore this error, because it is only related to package building, not actual project runtime.
-                    return { ...acc };
-                }
-            });
-        }, Promise.resolve({}));
+                });
+            }, Promise.resolve({}));
+        } catch (error) {
+            // Usually, this error will happen in webiny-js repository, when building repo packages.
+            // It is ok to ignore this error, because it is only related to package building, not actual project runtime.
+        }
     }
 
     static async load() {
@@ -107,5 +100,3 @@ class Project {
         return project;
     }
 }
-
-module.exports = { Project };

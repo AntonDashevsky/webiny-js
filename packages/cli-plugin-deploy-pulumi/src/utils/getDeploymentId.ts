@@ -1,4 +1,4 @@
-import { getStackOutput } from "./getStackOutput";
+import { getStackOutput } from "./getStackOutput.js";
 
 export interface IGetDeploymentId {
     env: string | undefined;

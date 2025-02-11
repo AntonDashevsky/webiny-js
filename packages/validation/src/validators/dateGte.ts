@@ -1,4 +1,4 @@
-import ValidationError from "~/validationError";
+import ValidationError from "~/validationError.js";
 
 /**
  * Validates that given value is a greater or equal date to a gteValue

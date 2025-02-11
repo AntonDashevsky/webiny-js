@@ -1,10 +1,11 @@
 import path from "path";
 import { Worker } from "worker_threads";
 import Listr from "listr";
-import { BasePackagesBuilder } from "./BasePackagesBuilder";
-import { gray } from "chalk";
-import { measureDuration } from "~/utils";
-import { IProjectApplicationPackage } from "@webiny/cli/types";
+import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
+import chalk from "chalk";
+import { measureDuration } from "~/utils/index.js";
+import type { IProjectApplicationPackage } from "@webiny/cli/types";
+const { gray } = chalk;
 
 export class MultiplePackagesBuilder extends BasePackagesBuilder {
     public override async build(): Promise<void> {
@@ -38,8 +39,11 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
                         package: { ...pkg.paths }
                     };
 
-                    const worker = new Worker(path.join(__dirname, "./worker.js"), {
-                        workerData,
+                    const worker = new Worker(path.join(import.meta.dirname, "./workerEntry.js"), {
+                        workerData: {
+                            ...workerData,
+                            scriptPath: path.join(import.meta.dirname, "./worker.js")
+                        },
                         stderr: true,
                         stdout: true
                     });

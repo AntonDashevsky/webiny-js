@@ -1,6 +1,6 @@
-const execa = require("execa");
+import execa from "execa";
 
-module.exports.getPulumiVersions = async () => {
+export const getPulumiVersions = async () => {
     let pulumi, pulumiAws;
 
     try {

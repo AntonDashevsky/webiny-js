@@ -1,19 +1,8 @@
-const { getUser } = require("./getUser");
-const { getProjectEnvironment } = require("./getProjectEnvironment");
-const { updateUserLastActiveOn } = require("./updateUserLastActiveOn");
-const { setProjectId } = require("./setProjectId");
-const { setWcpPat } = require("./setWcpPat");
-const { getWcpPat } = require("./getWcpPat");
-const { getWcpProjectId } = require("./getWcpProjectId");
-const { getWcpOrgProjectId } = require("./getWcpOrgProjectId");
-
-module.exports = {
-    getUser,
-    getProjectEnvironment,
-    updateUserLastActiveOn,
-    setProjectId,
-    setWcpPat,
-    getWcpPat,
-    getWcpProjectId,
-    getWcpOrgProjectId
-};
+export { getUser } from "./getUser.js";
+export { getProjectEnvironment } from "./getProjectEnvironment.js";
+export { updateUserLastActiveOn } from "./updateUserLastActiveOn.js";
+export { setProjectId } from "./setProjectId.js";
+export { setWcpPat } from "./setWcpPat.js";
+export { getWcpPat } from "./getWcpPat.js";
+export { getWcpProjectId } from "./getWcpProjectId.js";
+export { getWcpOrgProjectId } from "./getWcpOrgProjectId.js";

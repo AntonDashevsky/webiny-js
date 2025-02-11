@@ -2,15 +2,15 @@ import { Context, IUserCommandInput, ProjectApplication } from "~/types";
 import chalk from "chalk";
 import path from "path";
 import { getProject, getProjectApplication } from "@webiny/cli/utils";
-import get from "lodash/get";
-import merge from "lodash/merge";
-import { getDeploymentId, loadEnvVariables, runHook } from "~/utils";
-import { getIotEndpoint } from "./newWatch/getIotEndpoint";
-import { listLambdaFunctions } from "./newWatch/listLambdaFunctions";
-import { listPackages } from "./newWatch/listPackages";
-import { PackagesWatcher } from "./newWatch/watchers/PackagesWatcher";
-import { initInvocationForwarding } from "./newWatch/initInvocationForwarding";
-import { replaceLambdaFunctions } from "./newWatch/replaceLambdaFunctions";
+import get from "lodash/get.js";
+import merge from "lodash/merge.js";
+import { getDeploymentId, loadEnvVariables, runHook } from "~/utils/index.js";
+import { getIotEndpoint } from "./newWatch/getIotEndpoint.js";
+import { listLambdaFunctions } from "./newWatch/listLambdaFunctions.js";
+import { listPackages } from "./newWatch/listPackages.js";
+import { PackagesWatcher } from "./newWatch/watchers/PackagesWatcher.js";
+import { initInvocationForwarding } from "./newWatch/initInvocationForwarding.js";
+import { replaceLambdaFunctions } from "./newWatch/replaceLambdaFunctions.js";
 import type inspectorType from "inspector";
 
 // Do not allow watching "prod" and "production" environments. On the Pulumi CLI side, the command

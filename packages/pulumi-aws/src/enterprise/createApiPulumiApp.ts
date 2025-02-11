@@ -2,7 +2,7 @@ import * as aws from "@pulumi/aws";
 import {
     createApiPulumiApp as baseCreateApiPulumiApp,
     CreateApiPulumiAppParams as BaseCreateApiPulumiAppParams
-} from "~/apps/api/createApiPulumiApp";
+} from "~/apps/api/createApiPulumiApp.js";
 import { isResourceOfType, PulumiAppParam } from "@webiny/pulumi";
 
 export type ApiPulumiApp = ReturnType<typeof createApiPulumiApp>;

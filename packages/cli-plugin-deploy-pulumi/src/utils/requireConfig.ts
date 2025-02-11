@@ -1,4 +1,4 @@
-import { CliContext } from "@webiny/cli/types";
+import type { CliContext } from "@webiny/cli/types";
 
 export interface IRequireConfigOptions {
     env: string;
@@ -20,28 +20,23 @@ export interface IRequireConfigParams {
     [key: string]: Record<string, any>;
 }
 
-export const requireConfig = <T extends IRequireConfigResult = IRequireConfigResult>(
+export const requireConfig = async <T extends IRequireConfigResult = IRequireConfigResult>(
     input: string
-): T => {
-    const required = require(input);
-    /**
-     * There is a possibility that the config is a default export.
-     */
-    return required.default || required;
+): Promise<T> => {
+    return await import(input).then(m => m.default ?? m);
 };
 
-export const requireConfigWithExecute = <T extends IRequireConfigResult = IRequireConfigResult>(
+export const requireConfigWithExecute = async <
+    T extends IRequireConfigResult = IRequireConfigResult
+>(
     input: string,
     params: IRequireConfigParams
-): T => {
-    const required = require(input);
-    /**
-     * There is a possibility that the config is a default export.
-     */
-    const resolved = required.default || required;
+): Promise<T> => {
+    const required = await import(input).then(m => m.default ?? m);
 
-    if (typeof resolved === "function") {
-        return resolved(params);
+    if (typeof required === "function") {
+        return required(params);
     }
-    return resolved;
+
+    return required;
 };

@@ -1,9 +1,9 @@
-const util = require("util");
-const fs = require("fs-extra");
-const ncpBase = require("ncp");
+import util from "util";
+import fs from "fs-extra";
+import ncpBase from "ncp";
 const ncp = util.promisify(ncpBase.ncp);
 
-module.exports.createProjectApplicationWorkspace = async projectApplication => {
+export const createProjectApplicationWorkspace = async projectApplication => {
     if (await fs.pathExists(projectApplication.paths.workspace)) {
         await fs.remove(projectApplication.paths.workspace);
     }

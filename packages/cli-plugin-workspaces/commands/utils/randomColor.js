@@ -1,11 +1,11 @@
-const color = require("color");
+import color from "color";
 
 let ratio = 0.618033988749895;
 let hue = Math.random();
 const saturation = 0.5;
 const value = 0.95;
 
-function randomColor() {
+export function randomColor() {
     hue += ratio;
     hue %= 1;
 
@@ -15,5 +15,3 @@ function randomColor() {
         v: value * 100
     });
 }
-
-module.exports = { randomColor };

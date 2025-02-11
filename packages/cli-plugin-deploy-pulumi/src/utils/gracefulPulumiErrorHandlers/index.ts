@@ -1,9 +1,9 @@
 import {
     pendingOperationsInfo,
     IPendingOperationsInfoParamsContext
-} from "./pendingOperationsInfo";
-import { ddbPutItemConditionalCheckFailed } from "./ddbPutItemConditionalCheckFailed";
-import { missingFilesInBuild } from "./missingFilesInBuild";
+} from "./pendingOperationsInfo.js";
+import { ddbPutItemConditionalCheckFailed } from "./ddbPutItemConditionalCheckFailed.js";
+import { missingFilesInBuild } from "./missingFilesInBuild.js";
 
 export interface Context extends IPendingOperationsInfoParamsContext {}
 

@@ -1,5 +1,5 @@
-import { GracefulError } from "./GracefulError";
-import { Context, gracefulPulumiErrorHandlers } from "./gracefulPulumiErrorHandlers";
+import { GracefulError } from "./GracefulError.js";
+import { Context, gracefulPulumiErrorHandlers } from "./gracefulPulumiErrorHandlers/index.js";
 
 export class GracefulPulumiError extends GracefulError {
     static from(ex: GracefulPulumiError | Error, context: Context) {

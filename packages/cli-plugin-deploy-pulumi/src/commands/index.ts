@@ -1,7 +1,9 @@
-import { red } from "chalk";
-import { CliCommandPlugin } from "@webiny/cli/types";
-import { IUserCommandInput } from "~/types";
-import { regions } from "@webiny/cli/regions";
+import chalk from "chalk";
+import type { CliCommandPlugin } from "@webiny/cli/types.js";
+import { regions } from "@webiny/cli/regions.js";
+import type { IUserCommandInput } from "~/types";
+
+const { red } = chalk;
 
 const validateRegion = (args: Pick<IUserCommandInput, "region">): boolean => {
     const { region: input } = args;
@@ -20,7 +22,7 @@ export const commands: CliCommandPlugin[] = [
     {
         type: "cli-command",
         name: "cli-command-deployment",
-        create({ yargs, context }) {
+        async create({ yargs, context }) {
             yargs.example("$0 deploy api --env=dev", "");
             yargs.example("$0 build api --env=dev", "");
             yargs.example("$0 destroy api --env=dev", "");
@@ -126,7 +128,8 @@ export const commands: CliCommandPlugin[] = [
                         });
                 },
                 async argv => {
-                    const { deployCommand } = require("./deploy");
+                    const { deployCommand } = await import("./deploy");
+                    // @ts-expect-error Incompatible types?
                     return deployCommand(argv, context);
                 }
             );
@@ -162,7 +165,8 @@ export const commands: CliCommandPlugin[] = [
                     });
                 },
                 async argv => {
-                    const { buildCommand } = require("./build");
+                    const { buildCommand } = await import("./build");
+                    // @ts-expect-error Incompatible types?
                     return buildCommand(argv, context);
                 }
             );
@@ -172,12 +176,13 @@ export const commands: CliCommandPlugin[] = [
             // We needed to add try / catch here because, in `webiny-js` repository,
             // `@webiny/feature-flags` package is not available on first project build (`yarn build`).
             // This logic will go away anyway, once the new watch command is fully released.
-            try {
-                const { featureFlags } = require("@webiny/feature-flags");
-                useNewWatchCommand = Boolean(featureFlags.newWatchCommand);
-            } catch {
-                // Ignore.
-            }
+            // try {
+            //     const { featureFlags } = await import("@webiny/feature-flags");
+            //     useNewWatchCommand = Boolean(featureFlags.newWatchCommand);
+            // } catch (e) {
+            //     console.log(e);
+            //     // Ignore.
+            // }
 
             if (useNewWatchCommand) {
                 yargs.command(
@@ -245,7 +250,8 @@ export const commands: CliCommandPlugin[] = [
                         });
                     },
                     async argv => {
-                        const { newWatch } = require("./newWatch");
+                        const { newWatch } = await import("./newWatch");
+                        // @ts-expect-error Incompatible types?
                         return newWatch(argv, context);
                     }
                 );
@@ -328,7 +334,8 @@ export const commands: CliCommandPlugin[] = [
                         });
                     },
                     async argv => {
-                        const { watchCommand } = require("./watch");
+                        const { watchCommand } = await import("./watch");
+                        // @ts-expect-error Incompatible types?
                         return watchCommand(argv, context);
                     }
                 );
@@ -422,7 +429,8 @@ export const commands: CliCommandPlugin[] = [
                     });
                 },
                 async argv => {
-                    const { destroyCommand } = require("./destroy");
+                    const { destroyCommand } = await import("./destroy");
+                    // @ts-expect-error incompatible types?
                     return destroyCommand(argv, context);
                 }
             );
@@ -464,7 +472,9 @@ export const commands: CliCommandPlugin[] = [
                     });
                 },
                 async argv => {
-                    const { outputCommand } = require("./output");
+                    const { outputCommand } = await import("./output.js");
+
+                    // @ts-expect-error Incompatible types?
                     return outputCommand(argv, context);
                 }
             );
@@ -503,7 +513,8 @@ export const commands: CliCommandPlugin[] = [
                     });
                 },
                 async argv => {
-                    const { pulumiRunCommand } = require("./pulumiRun");
+                    const { pulumiRunCommand } = await import("./pulumiRun");
+                    // @ts-expect-error Incompatible types?
                     return pulumiRunCommand(argv, context);
                 }
             );
@@ -546,7 +557,8 @@ export const commands: CliCommandPlugin[] = [
                     });
                 },
                 async argv => {
-                    const { executeMigrationsCommand } = require("./executeMigrations");
+                    const { executeMigrationsCommand } = await import("./executeMigrations");
+                    // @ts-expect-error Incompatible types?
                     return executeMigrationsCommand(argv, context);
                 }
             );

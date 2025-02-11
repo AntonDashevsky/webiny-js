@@ -1,14 +1,14 @@
-const { getProject } = require("@webiny/cli/utils");
-const path = require("path");
-const fs = require("fs");
+import path from "path";
+import fs from "fs";
+import { getProject } from "@webiny/cli/utils/index.js";
 
-const DATABASE_SETUPS = {
+export const DATABASE_SETUPS = {
     DDB: "ddb",
     DDB_ES: "ddb-es",
     DDB_OS: "ddb-os"
 };
 
-const DATABASE_SETUPS_LABELS = {
+export const DATABASE_SETUPS_LABELS = {
     [DATABASE_SETUPS.DDB]: "Amazon DynamoDB",
     [DATABASE_SETUPS.DDB_ES]: "Amazon DynamoDB + Amazon Elasticsearch Service",
     [DATABASE_SETUPS.DDB_OS]: "Amazon DynamoDB + Amazon OpenSearch Service"
@@ -16,7 +16,7 @@ const DATABASE_SETUPS_LABELS = {
 
 // In order to get the database setup, we check for existence of `elasticSearch`
 //  or `openSearch` strings within the `apps/core/webiny.application.ts` file.
-const getDatabaseSetup = () => {
+export const getDatabaseSetup = () => {
     const project = getProject();
     const webinyAppTsPath = path.join(project.root, "apps", "core", "webiny.application.ts");
 
@@ -32,14 +32,7 @@ const getDatabaseSetup = () => {
     return "ddb";
 };
 
-const getDatabaseSetupLabel = () => {
+export const getDatabaseSetupLabel = () => {
     const setup = getDatabaseSetup();
     return DATABASE_SETUPS_LABELS[setup];
-};
-
-module.exports = {
-    getDatabaseSetup,
-    getDatabaseSetupLabel,
-    DATABASE_SETUPS,
-    DATABASE_SETUPS_LABELS
 };

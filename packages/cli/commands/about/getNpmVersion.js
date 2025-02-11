@@ -1,5 +1,5 @@
-const { SystemRequirements } = require("@webiny/system-requirements");
+import { SystemRequirements } from "@webiny/system-requirements";
 
-module.exports.getNpmVersion = async () => {
+export const getNpmVersion = async () => {
     return SystemRequirements.getNpmVersion();
 };

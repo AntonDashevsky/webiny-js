@@ -1,9 +1,9 @@
-const open = require("open");
-const { GraphQLClient } = require("graphql-request");
-const { setProjectId, setWcpPat } = require("./utils");
-const { sleep } = require("../../utils");
-const chalk = require("chalk");
-const { getWcpGqlApiUrl, getWcpAppUrl } = require("@webiny/wcp");
+import open from "open";
+import { GraphQLClient } from "graphql-request";
+import chalk from "chalk";
+import { getWcpGqlApiUrl, getWcpAppUrl } from "@webiny/wcp";
+import { setProjectId, setWcpPat } from "./utils/index.js";
+import { sleep } from "../../utils/index.js";
 
 // 120 retries * 2000ms interval = 4 minutes until the command returns an error.
 const LOGIN_RETRIES_COUNT = 30;
@@ -51,7 +51,7 @@ const CREATE_USER_PAT = /* GraphQL */ `
     }
 `;
 
-module.exports.command = () => ({
+export const command = () => ({
     type: "cli-command",
     name: "cli-command-wcp-login",
     create({ yargs, context }) {

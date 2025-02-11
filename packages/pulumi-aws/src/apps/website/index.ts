@@ -1,1 +1,1 @@
-export * from "./createWebsitePulumiApp";
+export * from "./createWebsitePulumiApp.js";

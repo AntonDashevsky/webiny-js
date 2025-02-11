@@ -11,7 +11,7 @@ export const notify = ({ message, timeout }: INotifyParams) => {
         notifier.notify({
             title: "Webiny CLI",
             message,
-            icon: join(__dirname, "logo.png"),
+            icon: join(import.meta.dirname, "logo.png"),
             sound: false,
             timeout: timeout === undefined ? 1 : timeout
         });

@@ -1,7 +1,7 @@
-const { getStackOutput } = require("@webiny/cli-plugin-deploy-pulumi/utils/getStackOutput");
-const open = require("open");
+import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/getStackOutput.js";
+import open from "open";
 
-module.exports = {
+export default {
     type: "cli-command",
     name: "cli-command-open",
     create({ yargs, context }) {

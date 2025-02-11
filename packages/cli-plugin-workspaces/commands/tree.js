@@ -1,8 +1,10 @@
-const { createGraph, getPackages } = require("./utils");
-const archy = require("archy");
-const { green } = require("chalk");
+import archy from "archy";
+import chalk from "chalk";
+import { createGraph, getPackages } from "./utils/index.js";
 
-module.exports = async ({ json, scope, folder, depth, distinct }) => {
+const { green } = chalk;
+
+export default async ({ json, scope, folder, depth, distinct }) => {
     let folders = [],
         scopes = [];
 

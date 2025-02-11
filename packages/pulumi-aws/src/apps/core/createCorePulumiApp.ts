@@ -1,23 +1,26 @@
 import * as aws from "@pulumi/aws";
 import { createPulumiApp, PulumiAppParam } from "@webiny/pulumi";
-import { CoreCognito } from "./CoreCognito";
-import { CoreDynamo } from "./CoreDynamo";
-import { ElasticSearch } from "./CoreElasticSearch";
-import { OpenSearch } from "./CoreOpenSearch";
-import { CoreEventBus } from "./CoreEventBus";
-import { CoreFileManger } from "./CoreFileManager";
-import { CoreVpc } from "./CoreVpc";
-import { WatchCommand } from "./WatchCommand";
-import { tagResources } from "~/utils";
-import { withServiceManifest } from "~/utils/withServiceManifest";
-import { addServiceManifestTableItem, TableDefinition } from "~/utils/addServiceManifestTableItem";
-import { DEFAULT_PROD_ENV_NAMES } from "~/constants";
+import { CoreCognito } from "./CoreCognito.js";
+import { CoreDynamo } from "./CoreDynamo.js";
+import { ElasticSearch } from "./CoreElasticSearch.js";
+import { OpenSearch } from "./CoreOpenSearch.js";
+import { CoreEventBus } from "./CoreEventBus.js";
+import { CoreFileManger } from "./CoreFileManager.js";
+import { CoreVpc } from "./CoreVpc.js";
+import { WatchCommand } from "./WatchCommand.js";
+import { tagResources } from "~/utils/index.js";
+import { withServiceManifest } from "~/utils/withServiceManifest.js";
+import {
+    addServiceManifestTableItem,
+    TableDefinition
+} from "~/utils/addServiceManifestTableItem.js";
+import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
 import * as random from "@pulumi/random";
 import { featureFlags } from "@webiny/feature-flags";
-import { LogDynamo } from "./LogDynamo";
-import { getEnvVariableWebinyVariant } from "~/env/variant";
-import { getEnvVariableWebinyEnv } from "~/env/env";
-import { getEnvVariableWebinyProjectName } from "~/env/projectName";
+import { LogDynamo } from "./LogDynamo.js";
+import { getEnvVariableWebinyVariant } from "~/env/variant.js";
+import { getEnvVariableWebinyEnv } from "~/env/env.js";
+import { getEnvVariableWebinyProjectName } from "~/env/projectName.js";
 
 export type CorePulumiApp = ReturnType<typeof createCorePulumiApp>;
 

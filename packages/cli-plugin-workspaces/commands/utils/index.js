@@ -1,11 +1,12 @@
-const { Graph, alg } = require("graphlib");
-const { join, resolve } = require("path");
-const multimatch = require("multimatch");
-const { allWorkspaces } = require("@webiny/project-utils/workspaces");
-const { randomColor } = require("./randomColor");
+import { PackageJson } from "@webiny/cli/utils/PackageJson.js";
+import * as graphlib from "graphlib";
+import { join, resolve } from "path";
+import multimatch from "multimatch";
+import { allWorkspaces } from "@webiny/project-utils/workspaces/index.js";
+export { randomColor } from "./randomColor.js";
 
-const createGraph = (packages, options = {}) => {
-    const graph = new Graph();
+export const createGraph = (packages, options = {}) => {
+    const graph = new graphlib.Graph();
     const packageNames = packages.map(pkg => pkg.name);
 
     packages.forEach(({ json }) => {
@@ -33,9 +34,9 @@ const createGraph = (packages, options = {}) => {
 };
 
 const validateGraph = graph => {
-    const isAcyclic = alg.isAcyclic(graph);
+    const isAcyclic = graphlib.alg.isAcyclic(graph);
     if (!isAcyclic) {
-        const cycles = alg.findCycles(graph);
+        const cycles = graphlib.alg.findCycles(graph);
         const msg = ["Your packages have circular dependencies:"];
         cycles.forEach((cycle, index) => {
             let fromAToB = cycle.join(" --> ");
@@ -49,7 +50,13 @@ const validateGraph = graph => {
     }
 };
 
-const getPackages = ({ script, folders, ignoreFolders, scopes, ignoreScopes } = {}) => {
+export const getPackages = async ({
+    script,
+    folders,
+    ignoreFolders,
+    scopes,
+    ignoreScopes
+} = {}) => {
     let packages = allWorkspaces();
 
     if (ignoreFolders && ignoreFolders.length) {
@@ -66,14 +73,17 @@ const getPackages = ({ script, folders, ignoreFolders, scopes, ignoreScopes } = 
         });
     }
 
-    packages = packages.map(folder => {
-        const json = require(join(folder, "package.json"));
-        return {
-            json,
-            name: json.name,
-            path: folder
-        };
-    });
+    packages = await Promise.all(
+        packages.map(async folder => {
+            const pkgJson = await PackageJson.fromFile(join(folder, "package.json"));
+            const json = pkgJson.getJson();
+            return {
+                json,
+                name: json.name,
+                path: folder
+            };
+        })
+    );
 
     if (script) {
         packages = packages.filter(pkg => {
@@ -100,13 +110,6 @@ const getPackages = ({ script, folders, ignoreFolders, scopes, ignoreScopes } = 
     return packages;
 };
 
-const normalizeArray = value => {
+export const normalizeArray = value => {
     return Array.isArray(value) ? value : [value].filter(Boolean);
-};
-
-module.exports = {
-    createGraph,
-    getPackages,
-    normalizeArray,
-    randomColor
 };

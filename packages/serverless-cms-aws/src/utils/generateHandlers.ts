@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { getCli } from "@webiny/cli";
-import { getHandlerPath } from "./getHandlerPath";
+import { getCli, initializeProject } from "@webiny/cli";
+import { getHandlerPath } from "./getHandlerPath.js";
 
 export type HandlerType = "common" | "ddb" | "ddb-es";
 export type App = "api" | "core" | "website";
@@ -11,6 +11,9 @@ export const generateHandlers = (type: HandlerType, app: App, paths: string[][])
         type: "hook-before-build",
         async hook({ projectApplication }: Record<string, any>) {
             const cli = getCli();
+
+            // TODO: this is needed temporarily, while there's a mix of CJS and ESM packages.
+            await initializeProject();
 
             for (let i = 0; i < paths.length; i++) {
                 const current = paths[i];

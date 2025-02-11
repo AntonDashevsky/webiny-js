@@ -1,8 +1,8 @@
 import execa from "execa";
 import fs from "fs";
 import path from "path";
-import { requireConfig } from "~/utils";
-import { IUserCommandInput } from "~/types";
+import { requireConfig } from "~/utils/index.js";
+import { IUserCommandInput } from "~/types.js";
 
 export interface IListPackagesParams {
     inputs: Pick<IUserCommandInput, "package" | "depth" | "folder" | "env">;
@@ -65,7 +65,7 @@ export const listPackages = async ({ inputs }: IListPackagesParams) => {
         commandArgs.push("--env", inputs.env);
     }
 
-    return execa("yarn", commandArgs).then(({ stdout }) => {
+    return execa("yarn", commandArgs).then(async ({ stdout }) => {
         const result = JSON.parse(stdout);
         const packages: IListPackagesPackage[] = [];
         for (const packageName in result) {
@@ -80,7 +80,7 @@ export const listPackages = async ({ inputs }: IListPackagesParams) => {
                 continue;
             }
 
-            const config = requireConfig(configPath);
+            const config = await requireConfig(configPath);
 
             packages.push({
                 name: packageName,

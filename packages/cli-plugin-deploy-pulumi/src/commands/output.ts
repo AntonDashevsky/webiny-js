@@ -1,5 +1,5 @@
-import { createPulumiCommand, getStackName } from "~/utils";
-import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env";
+import { createPulumiCommand, getStackName } from "~/utils/index.js";
+import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
 
 export const outputCommand = createPulumiCommand({
     name: "output",

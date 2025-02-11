@@ -3,11 +3,11 @@
 // For example, we are saving the path entered while creating
 // GraphQL services, so that the user doesn't have to type
 // the same paths over and over.
-const fs = require("fs");
-const path = require("path");
-const getProject = require("./getProject");
+import fs from "fs";
+import path from "path";
+import getProject from "./getProject.js";
 
-module.exports = function (filename = "cli.json") {
+export const localStorage = (filename = "cli.json") => {
     const project = getProject();
     const DOT_WEBINY = path.join(project.root, ".webiny");
     const dataFilePath = path.join(DOT_WEBINY, filename);

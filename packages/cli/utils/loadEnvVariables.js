@@ -1,15 +1,15 @@
-const path = require("path");
-const { boolean } = require("boolean");
-const dotenv = require("dotenv");
-const parser = require("yargs-parser");
-const log = require("./log");
-const getProject = require("./getProject");
+import path from "path";
+import { boolean } from "boolean";
+import dotenv from "dotenv";
+import parser from "yargs-parser";
+import { log } from "./log.js";
+import { getProject } from "./getProject.js";
 
 // Load environment variables from following sources:
 // - `webiny.project.ts` file
 // - `.env` file
 // - `.env.{PASSED_ENVIRONMENT}` file
-module.exports.loadEnvVariables = async () => {
+export const loadEnvVariables = async () => {
     const { debug, env } = parser(process.argv);
 
     const project = await getProject();

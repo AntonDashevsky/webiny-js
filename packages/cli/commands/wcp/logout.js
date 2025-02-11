@@ -1,6 +1,6 @@
-const { setWcpPat } = require("./utils");
+import { setWcpPat } from "./utils/index.js";
 
-module.exports.command = () => ({
+export const command = () => ({
     type: "cli-command",
     name: "cli-command-wcp-logout",
     create({ yargs }) {

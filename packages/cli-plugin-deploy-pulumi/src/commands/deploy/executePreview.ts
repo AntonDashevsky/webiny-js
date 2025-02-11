@@ -6,7 +6,7 @@ import {
     withProjectName,
     withPulumiConfigPassphrase,
     withRegion
-} from "~/utils/env";
+} from "~/utils/env/index.js";
 
 export interface IExecutePreviewParams {
     inputs: IUserCommandInput;

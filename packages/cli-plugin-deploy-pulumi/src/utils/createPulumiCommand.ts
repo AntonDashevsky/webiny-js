@@ -1,16 +1,15 @@
 import path from "path";
-import { getProject, getProjectApplication, sendEvent } from "@webiny/cli/utils";
 import {
     createProjectApplicationWorkspace,
     ICreateProjectApplicationWorkspaceCallable
-} from "./createProjectApplicationWorkspace";
-import { login } from "./login";
-import { loadEnvVariables } from "./loadEnvVariables";
-import { getPulumi } from "./getPulumi";
-import { measureDuration } from "./measureDuration";
-import { GracefulPulumiError } from "./GracefulPulumiError";
-import { ProjectApplication } from "@webiny/cli/types";
-import { Context, IPulumi, IUserCommandInput } from "~/types";
+} from "./createProjectApplicationWorkspace.js";
+import { login } from "./login.js";
+import { loadEnvVariables } from "./loadEnvVariables.js";
+import { getPulumi } from "./getPulumi.js";
+import { measureDuration } from "./measureDuration.js";
+import { GracefulPulumiError } from "./GracefulPulumiError.js";
+import type { ProjectApplication } from "@webiny/cli/types.js";
+import { Context, IPulumi, IUserCommandInput } from "~/types.js";
 
 export interface ICreatePulumiCommandParamsCommandParams {
     inputs: IUserCommandInput;
@@ -38,6 +37,7 @@ export const createPulumiCommand = ({
     telemetry
 }: ICreatePulumiCommandParams) => {
     return async (params: IUserCommandInput, context: Context) => {
+        const { getProject, getProjectApplication, sendEvent } = await import("@webiny/cli/utils");
         // If folder not specified, that means we want to deploy the whole project (all project applications).
         // For that, we look if there are registered plugins that perform that.
         if (!params.folder) {

@@ -1,6 +1,6 @@
-import { getProject } from "@webiny/cli/utils";
-import { mapStackOutput } from "./mapStackOutput";
 import execa from "execa";
+import { getProject } from "@webiny/cli/utils/index.js";
+import { mapStackOutput } from "./mapStackOutput.js";
 
 const cache: Record<string, any> = {};
 

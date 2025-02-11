@@ -2,9 +2,9 @@ import { readFileSync } from "fs";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { PulumiApp, PulumiAppResource } from "@webiny/pulumi";
-import { CoreOutput } from "./common";
-import { LAMBDA_RUNTIME } from "~/constants";
-import { getEnvVariableAwsRegion } from "~/env/awsRegion";
+import { CoreOutput } from "./common/index.js";
+import { LAMBDA_RUNTIME } from "~/constants.js";
+import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
 
 interface Params {
     region: string;
@@ -13,7 +13,7 @@ interface Params {
 
 function createFunctionArchive({ dynamoDbTable, region }: Params) {
     const handler = readFileSync(
-        __dirname + "/../components/tenantRouter/functions/origin/request.js",
+        import.meta.dirname + "/../components/tenantRouter/functions/origin/request.js",
         "utf-8"
     );
 

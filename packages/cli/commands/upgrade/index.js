@@ -1,4 +1,6 @@
-module.exports = [
+import chalk from "chalk";
+
+export default [
     {
         type: "cli-command",
         name: "cli-command-upgrade",
@@ -25,9 +27,7 @@ module.exports = [
                     });
                 },
                 async argv => {
-                    const { red } = require("chalk");
-                    const execa = require("execa");
-                    const semver = require("semver");
+                    const [execa, semver] = await Promise.all([import("execa"), import("semver")]);
 
                     if (!argv.skipChecks) {
                         // Before doing any upgrading, there must not be any active changes in the current branch.
@@ -39,7 +39,7 @@ module.exports = [
 
                         if (gitStatus) {
                             console.error(
-                                red(
+                                chalk.red(
                                     "This git repository has untracked files or uncommitted changes:"
                                 ) +
                                     "\n\n" +
@@ -48,7 +48,7 @@ module.exports = [
                                         .map(line => line.match(/ .*/g)[0].trim())
                                         .join("\n") +
                                     "\n\n" +
-                                    red(
+                                    chalk.red(
                                         "Remove untracked files, stash or commit any changes, and try again."
                                     )
                             );

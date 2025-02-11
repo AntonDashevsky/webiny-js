@@ -1,16 +1,21 @@
 import fs from "fs";
 import fetch from "node-fetch";
 import FormData from "form-data";
-import { S3Client, PresignedPostOptions, HeadObjectCommand } from "@webiny/aws-sdk/client-s3";
+import {
+    S3Client,
+    PresignedPostOptions,
+    HeadObjectCommand
+} from "@webiny/aws-sdk/client-s3/index.js";
 import mime from "mime";
-import chunk from "lodash/chunk";
+import chunk from "lodash/chunk.js";
 import { relative } from "path";
-import { crawlDirectory } from "./crawlDirectory";
-import { getPresignedPost } from "./getPresignedPost";
-import { getEnvVariableAwsRegion } from "~/env/awsRegion";
+import { crawlDirectory } from "./crawlDirectory.js";
+import { getPresignedPost } from "./getPresignedPost.js";
+import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
 
-function getFileChecksum(file: string): Promise<string> {
-    const crypto = require("crypto");
+async function getFileChecksum(file: string): Promise<string> {
+    // eslint-disable-next-line import/dynamic-import-chunkname
+    const crypto = await import("crypto");
     const hash = crypto.createHash("md5");
 
     return new Promise(resolve => {

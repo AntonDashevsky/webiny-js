@@ -1,12 +1,12 @@
-import { green, red } from "chalk";
+import chalk from "chalk";
 import { Pulumi } from "@webiny/pulumi-sdk";
 import ora from "ora";
-import merge from "lodash/merge";
-import { getProject } from "@webiny/cli/utils";
+import merge from "lodash/merge.js";
 import path from "path";
 import fs from "fs";
+import type { ProjectApplication } from "@webiny/cli/types";
 
-import { ProjectApplication } from "@webiny/cli/types";
+const { green, red } = chalk;
 
 export interface IGetPulumiParams {
     projectApplication?: Pick<ProjectApplication, "paths">;
@@ -18,6 +18,10 @@ export const getPulumi = async ({ projectApplication, pulumi, install }: IGetPul
     const spinner = ora();
 
     let cwd;
+
+    const { getCli } = await import("@webiny/cli");
+    const context = getCli();
+    const project = context.project;
 
     // When running the `webiny deploy` command without specifying the
     // project application, the `projectApplication` variable is empty.
@@ -38,7 +42,7 @@ export const getPulumi = async ({ projectApplication, pulumi, install }: IGetPul
     const instance = new Pulumi(
         merge(
             {
-                pulumiFolder: path.join(getProject().root, ".webiny"),
+                pulumiFolder: path.join(project.root, ".webiny"),
                 beforePulumiInstall: () => {
                     console.log(
                         `It looks like this is your first time using ${green(

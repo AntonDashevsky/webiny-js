@@ -1,6 +1,7 @@
-import { BasePackagesBuilder } from "./BasePackagesBuilder";
-import { gray } from "chalk";
-import { IRequireConfigOptions, requireConfigWithExecute } from "~/utils";
+import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
+import chalk from "chalk";
+import { IRequireConfigOptions, requireConfigWithExecute } from "~/utils/index.js";
+const { gray } = chalk;
 
 export class SinglePackageBuilder extends BasePackagesBuilder {
     public override async build() {
@@ -24,7 +25,7 @@ export class SinglePackageBuilder extends BasePackagesBuilder {
             logs: true
         };
 
-        const config = requireConfigWithExecute(pkg.paths.config, {
+        const config = await requireConfigWithExecute(pkg.paths.config, {
             options,
             context
         });

@@ -1,15 +1,15 @@
 import { QuestionCollection } from "inquirer";
-import {
+import type {
     CliContext,
     GenericRecord,
     CliCommandPlugin,
     CliCommandPluginArgs
 } from "@webiny/cli/types";
-import { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { Ora } from "ora";
 import inquirer from "inquirer";
 
-export { CliCommandPlugin, CliCommandPluginArgs };
+export type { CliCommandPlugin, CliCommandPluginArgs };
 
 /**
  * Arguments for the CliCommandScaffoldQuestionsCallable.

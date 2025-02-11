@@ -1,4 +1,4 @@
-import ValidationError from "~/validationError";
+import ValidationError from "~/validationError.js";
 /**
  * Package isnumeric does not have types so we ignore it.
  */

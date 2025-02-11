@@ -1,4 +1,4 @@
-import { IConfiguration, IConfigurationCb, IConfigurationCbParams } from "./types";
+import type { IConfiguration, IConfigurationCb, IConfigurationCbParams } from "./types.js";
 
 export interface ICreateConfigurationCallable {
     (params: IConfigurationCbParams): IConfiguration | undefined | null;

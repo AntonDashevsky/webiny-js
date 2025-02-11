@@ -1,5 +1,5 @@
-import isString from "lodash/isString";
-import chunk from "lodash/chunk";
+import isString from "lodash/isString.js";
+import chunk from "lodash/chunk.js";
 import fs from "fs";
 import {
     createS3,
@@ -10,7 +10,7 @@ import {
 } from "@webiny/aws-sdk/client-s3";
 import mime from "mime";
 import { relative } from "path";
-import { crawlDirectory } from "../crawlDirectory";
+import { crawlDirectory } from "../crawlDirectory.js";
 import crypto from "crypto";
 
 function getFileChecksum(file: string): Promise<string> {

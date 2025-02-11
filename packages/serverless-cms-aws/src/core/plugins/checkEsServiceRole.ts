@@ -1,7 +1,9 @@
 import { IAM } from "@webiny/aws-sdk/client-iam";
 import ora from "ora";
-import { green } from "chalk";
+import chalk from "chalk";
 import { CliContext } from "@webiny/cli/types";
+
+const { green } = chalk;
 
 const NO_SUCH_ENTITY_IAM_ERROR = "NoSuchEntity";
 

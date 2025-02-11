@@ -1,13 +1,14 @@
 const NO_VALUE = "-";
-const { isCI } = require("ci-info");
+import { isCI } from "ci-info";
+import chalk from "chalk";
 
 const getData = async context => {
-    const { getUser } = require("../wcp/utils");
-    const { getNpxVersion } = require("./getNpxVersion");
-    const { getNpmVersion } = require("./getNpmVersion");
-    const { getPulumiVersions } = require("./getPulumiVersions");
-    const { getYarnVersion } = require("./getYarnVersion");
-    const { getDatabaseSetupLabel } = require("./getDatabaseSetup");
+    const { getUser } = await import("../wcp/utils/index.js");
+    const { getNpxVersion } = await import("./getNpxVersion.js");
+    const { getNpmVersion } = await import("./getNpmVersion.js");
+    const { getPulumiVersions } = await import("./getPulumiVersions.js");
+    const { getYarnVersion } = await import("./getYarnVersion.js");
+    const { getDatabaseSetupLabel } = await import("./getDatabaseSetup.js");
 
     const [pulumiVersion, pulumiAwsVersion] = await getPulumiVersions();
 
@@ -57,7 +58,7 @@ const getData = async context => {
     ];
 };
 
-module.exports = {
+export default {
     type: "cli-command",
     name: "cli-command-about",
     create({ yargs, context }) {
@@ -84,8 +85,7 @@ module.exports = {
                         console.log();
                     }
 
-                    const { bold } = require("chalk");
-                    console.log(bold(sectionName));
+                    console.log(chalk.bold(sectionName));
 
                     Object.keys(data).forEach(key => {
                         console.log(key.padEnd(36), data[key] || NO_VALUE);

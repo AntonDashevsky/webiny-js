@@ -1,7 +1,7 @@
-import { ZeroPackagesWatcher } from "./ZeroPackagesWatcher";
-import { SinglePackageWatcher } from "./SinglePackageWatcher";
-import { MultiplePackagesWatcher } from "./MultiplePackagesWatcher";
-import { BasePackagesWatcher } from "./BasePackagesWatcher";
+import { ZeroPackagesWatcher } from "./ZeroPackagesWatcher.js";
+import { SinglePackageWatcher } from "./SinglePackageWatcher.js";
+import { MultiplePackagesWatcher } from "./MultiplePackagesWatcher.js";
+import { BasePackagesWatcher } from "./BasePackagesWatcher.js";
 
 export class PackagesWatcher extends BasePackagesWatcher {
     public override async watch(): Promise<void> {

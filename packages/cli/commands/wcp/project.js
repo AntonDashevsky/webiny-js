@@ -1,10 +1,10 @@
-const open = require("open");
-const inquirer = require("inquirer");
-const chalk = require("chalk");
-const { getUser, WCP_APP_URL, setProjectId } = require("./utils");
-const { sleep } = require("../../utils");
+import open from "open";
+import inquirer from "inquirer";
+import chalk from "chalk";
+import { getUser, setProjectId, /*WCP_APP_URL*/ } from "./utils/index.js";
+import { sleep } from "../../utils/index.js";
 
-module.exports.command = () => [
+export const command = () => [
     {
         type: "cli-command",
         name: "cli-command-wcp-project",
@@ -54,7 +54,7 @@ module.exports.command = () => [
     }
 ];
 
-const handler = async ({ context }) => {
+export const handler = async ({ context }) => {
     // Check login.
     const user = await getUser();
 
@@ -199,5 +199,3 @@ const handler = async ({ context }) => {
 
     console.log(`‣ deploy your project via the ${chalk.green("yarn webiny deploy")} command`);
 };
-
-module.exports.handler = handler;

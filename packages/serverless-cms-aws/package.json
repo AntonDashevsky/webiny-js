@@ -1,6 +1,7 @@
 {
   "name": "@webiny/serverless-cms-aws",
   "version": "0.0.0",
+  "main": "./index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/webiny/webiny-js.git"
@@ -8,6 +9,7 @@
   "description": "A set of project apps that together form Webiny CMS, deployed into Amazon Web Services (AWS).",
   "author": "Webiny Ltd",
   "license": "MIT",
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "directory": "dist"

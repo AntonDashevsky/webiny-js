@@ -5,7 +5,7 @@ import {
     LambdaClient,
     UpdateFunctionCodeCommand,
     UpdateFunctionConfigurationCommand
-} from "@webiny/aws-sdk/client-lambda";
+} from "@webiny/aws-sdk/client-lambda/index.js";
 
 const WATCH_MODE_NOTE_IN_DESCRIPTION = " (watch mode 💡)";
 const DEFAULT_INCREASE_TIMEOUT = 120;
@@ -37,7 +37,7 @@ export const replaceLambdaFunctions = async ({
 
         const updateFnCodeCmd = new UpdateFunctionCodeCommand({
             FunctionName: fn.name,
-            ZipFile: fs.readFileSync(__dirname + "/handler/handler.zip")
+            ZipFile: fs.readFileSync(import.meta.dirname + "/handler/handler.zip")
         });
 
         await lambdaClient.send(updateFnCodeCmd);

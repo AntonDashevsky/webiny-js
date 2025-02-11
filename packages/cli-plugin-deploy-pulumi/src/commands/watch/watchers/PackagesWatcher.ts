@@ -1,5 +1,5 @@
-import { BasePackagesWatcher } from "./BasePackagesWatcher";
-import { NoDeploymentsPackagesWatcher } from "./NoDeploymentsPackagesWatcher/NoDeploymentsPackagesWatcher";
+import { BasePackagesWatcher } from "./BasePackagesWatcher.js";
+import { NoDeploymentsPackagesWatcher } from "./NoDeploymentsPackagesWatcher/NoDeploymentsPackagesWatcher.js";
 
 export class PackagesWatcher extends BasePackagesWatcher {
     public override async watch(): Promise<void> {

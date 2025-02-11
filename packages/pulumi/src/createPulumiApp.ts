@@ -1,7 +1,7 @@
 import findUp from "find-up";
 import path from "path";
 import * as pulumi from "@pulumi/pulumi";
-import { PulumiAppModuleDefinition } from "./PulumiAppModule";
+import { PulumiAppModuleDefinition } from "./PulumiAppModule.js";
 import {
     CreatePulumiAppResourceParams,
     PulumiAppResource,
@@ -11,8 +11,8 @@ import {
     PulumiAppResourceConfigSetter,
     PulumiAppResourceConstructor,
     PulumiAppResourceType
-} from "./PulumiAppResource";
-import {
+} from "./PulumiAppResource.js";
+import type {
     CreatePulumiAppParams,
     ProgramDecorator,
     PulumiApp,
@@ -21,9 +21,9 @@ import {
     PulumiProgram,
     ResourceHandler
 } from "~/types";
-import { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource";
-import cloneDeep from "lodash/cloneDeep";
-import { DEFAULT_PROD_ENV_NAMES } from "./constants";
+import { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import { DEFAULT_PROD_ENV_NAMES } from "./constants.js";
 
 export function createPulumiApp<TResources extends Record<string, unknown>>(
     params: CreatePulumiAppParams<TResources>

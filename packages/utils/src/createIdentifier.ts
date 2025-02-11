@@ -1,5 +1,5 @@
-import { zeroPad } from "~/zeroPad";
-import { parseIdentifier } from "~/parseIdentifier";
+import { zeroPad } from "./zeroPad.js";
+import { parseIdentifier } from "./parseIdentifier.js";
 
 /**
  * Used to create the identifier that is an absolute unique for the record.

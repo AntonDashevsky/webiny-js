@@ -1,15 +1,16 @@
-const about = require("./about");
-const run = require("./run");
-const telemetry = require("./telemetry");
-const upgrade = require("./upgrade");
+import about from "./about/index.js";
+import run from "./run/index.js";
+import telemetry from "./telemetry/index.js";
+import upgrade from "./upgrade/index.js";
 
-module.exports.createCommands = async (yargs, context) => {
+export const createCommands = async (yargs, context) => {
     context.plugins.register(about, run, telemetry, upgrade);
 
     try {
-        const wcp = require("./wcp");
+        const wcp = await import("./wcp/index.js");
         context.plugins.register(wcp);
-    } catch {
+    } catch (e) {
+        console.log(e);
         // Skip WCP command
     }
 

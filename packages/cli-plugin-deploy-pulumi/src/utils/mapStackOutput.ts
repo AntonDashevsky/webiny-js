@@ -1,5 +1,7 @@
-import get from "lodash/get";
-import { yellow } from "chalk";
+import get from "lodash/get.js";
+import chalk from "chalk";
+
+const { yellow } = chalk;
 
 export const mapStackOutput = <T extends Record<string, any> = Record<string, any>>(
     output: Record<string, any>,

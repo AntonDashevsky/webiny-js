@@ -1,5 +1,5 @@
-const { localStorage } = require("@webiny/cli/utils");
+import { localStorage } from "@webiny/cli/utils/index.js";
 
-module.exports.setWcpPat = wcpPat => {
+export const setWcpPat = wcpPat => {
     localStorage().set("wcpPat", wcpPat);
 };

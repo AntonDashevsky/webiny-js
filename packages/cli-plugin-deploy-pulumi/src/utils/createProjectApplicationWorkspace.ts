@@ -2,9 +2,7 @@ import path from "path";
 import util from "util";
 import ncpBase from "ncp";
 import { replaceInPath } from "replace-in-path";
-// @ts-expect-error
-import { createProjectApplicationWorkspace as baseCreateProjectApplicationWorkspace } from "@webiny/cli/utils";
-import { IUserCommandInput, ProjectApplication } from "~/types";
+import { IUserCommandInput, ProjectApplication } from "~/types.js";
 
 const ncp = util.promisify(ncpBase.ncp);
 
@@ -19,10 +17,12 @@ export interface ICreateProjectApplicationWorkspaceCallable {
 
 export const createProjectApplicationWorkspace: ICreateProjectApplicationWorkspaceCallable =
     async ({ projectApplication, inputs }) => {
-        await baseCreateProjectApplicationWorkspace(projectApplication);
+        const utils = await import("@webiny/cli/utils/index.js");
+        // @ts-expect-error Fix types.
+        await utils.createProjectApplicationWorkspace(projectApplication);
 
         // Copy Pulumi-related files.
-        await ncp(path.join(__dirname, "workspaceTemplate"), projectApplication.paths.workspace);
+        await ncp(path.join(import.meta.dirname, "workspaceTemplate"), projectApplication.paths.workspace);
 
         // Wait a bit and make sure the files are ready to have its content replaced.
         await new Promise(resolve => setTimeout(resolve, 10));

@@ -1,5 +1,5 @@
-import { Context } from "~/types";
-import { GracefulError } from "./GracefulError";
+import type { Context } from "~/types.js";
+import { GracefulError } from "./GracefulError.js";
 
 export interface IProcessHooksParams {
     context: Context;

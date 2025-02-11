@@ -18,16 +18,14 @@ export interface PluginsContainer {
     byName<T extends Plugin>(name: T["name"]): T;
 }
 
-/**
- * A simplified plugin interface, used specifically within the Webiny CLI.
- * Not in relation with "@webiny/plugins" package.
- */
-export interface Plugin {
+export type Plugin<T = Record<string, any>> = {
     type: string;
     name?: string;
-
+    init?: () => void;
     [key: string]: any;
-}
+} & T;
+
+export type PluginCollection = (Plugin | PluginCollection)[];
 
 interface Project {
     /**

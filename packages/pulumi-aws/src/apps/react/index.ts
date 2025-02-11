@@ -1,1 +1,1 @@
-export * from "./createReactPulumiApp";
+export * from "./createReactPulumiApp.js";

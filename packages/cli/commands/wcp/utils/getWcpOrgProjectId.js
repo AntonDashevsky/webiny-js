@@ -1,6 +1,6 @@
-const { getWcpProjectId } = require("./getWcpProjectId");
+import { getWcpProjectId } from "./getWcpProjectId.js";
 
-module.exports.getWcpOrgProjectId = context => {
+export const getWcpOrgProjectId = context => {
     const id = getWcpProjectId(context);
     if (typeof id === "string") {
         return id.split("/");

@@ -1,5 +1,5 @@
 import { BasePackagesWatcher } from "./BasePackagesWatcher";
-import { requireConfigWithExecute } from "~/utils";
+import { requireConfigWithExecute } from "~/utils/index.js";
 
 export class SinglePackageWatcher extends BasePackagesWatcher {
     public override async watch(): Promise<void> {
@@ -20,7 +20,7 @@ export class SinglePackageWatcher extends BasePackagesWatcher {
             logs: true
         };
 
-        const config = requireConfigWithExecute(pkg.paths.config, {
+        const config = await requireConfigWithExecute(pkg.paths.config, {
             options,
             context
         });

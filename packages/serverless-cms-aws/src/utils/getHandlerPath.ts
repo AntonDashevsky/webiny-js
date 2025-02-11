@@ -1,5 +1,5 @@
 import path from "path";
 
 export const getHandlerPath = (...suffix: string[]) => {
-    return path.join(__dirname, "..", "handlers", ...suffix);
+    return path.join(import.meta.dirname, "..", "handlers", ...suffix);
 };

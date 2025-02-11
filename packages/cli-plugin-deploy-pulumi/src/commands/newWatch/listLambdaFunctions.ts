@@ -1,4 +1,4 @@
-import { getStackExport } from "~/utils";
+import { getStackExport } from "~/utils/index.js";
 import path from "path";
 import minimatch from "minimatch";
 

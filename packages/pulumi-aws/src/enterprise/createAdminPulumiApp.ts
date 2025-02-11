@@ -4,4 +4,4 @@ export {
     createAdminPulumiApp,
     CreateAdminPulumiAppParams,
     AdminPulumiApp
-} from "~/apps/admin/createAdminPulumiApp";
+} from "~/apps/admin/createAdminPulumiApp.js";

@@ -1,7 +1,7 @@
 import { IUserCommandInput } from "~/types";
 import execa from "execa";
-import { WebinyConfigFile } from "./WebinyConfigFile";
-import { requireConfig } from "~/utils";
+import { WebinyConfigFile } from "./WebinyConfigFile.js";
+import { requireConfig } from "~/utils/index.js";
 
 interface IListPackagesParams {
     inputs: IUserCommandInput;
@@ -41,7 +41,7 @@ export const listPackages = async ({ inputs }: IListPackagesParams) => {
         commandArgs.push("--env", inputs.env);
     }
 
-    return execa("yarn", commandArgs).then(({ stdout }: Record<string, any>) => {
+    return execa("yarn", commandArgs).then(async ({ stdout }: Record<string, any>) => {
         const result = JSON.parse(stdout) as Record<string, string>;
         const packages = [];
         for (const packageName in result) {
@@ -52,7 +52,7 @@ export const listPackages = async ({ inputs }: IListPackagesParams) => {
                 continue;
             }
 
-            const config = requireConfig(configPath);
+            const config = await requireConfig(configPath);
 
             packages.push({
                 name: packageName,

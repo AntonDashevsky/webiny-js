@@ -1,5 +1,5 @@
-import { getExtensionsFromFilesystem } from "./getExtensionsFromFilesystem";
-import { Extension } from "~/extensions/Extension";
+import { getExtensionsFromFilesystem } from "./getExtensionsFromFilesystem.js";
+import { Extension } from "~/extensions/Extension.js";
 
 export const linkAllExtensions = async () => {
     const allExtensions = getExtensionsFromFilesystem();

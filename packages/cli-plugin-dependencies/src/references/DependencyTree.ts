@@ -5,7 +5,7 @@ import {
     IDependencyTreePushParams,
     IReference,
     PackageType
-} from "../types";
+} from "../types.js";
 
 const keys = [
     PackageType.dependencies,

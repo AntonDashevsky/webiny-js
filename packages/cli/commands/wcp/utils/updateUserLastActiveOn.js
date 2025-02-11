@@ -1,6 +1,6 @@
-const { request } = require("graphql-request");
-const { localStorage, log } = require("@webiny/cli/utils");
-const { getWcpGqlApiUrl } = require("@webiny/wcp");
+import { request } from "graphql-request";
+import { localStorage, log } from "@webiny/cli/utils/index.js";
+import { getWcpGqlApiUrl } from "@webiny/wcp";
 
 const UPDATE_LAST_ACTIVE_TO_NOW = /* GraphQL */ `
     mutation UpdateLastActiveToNow {
@@ -13,7 +13,7 @@ const UPDATE_LAST_ACTIVE_TO_NOW = /* GraphQL */ `
     }
 `;
 
-module.exports.updateUserLastActiveOn = async () => {
+export const updateUserLastActiveOn = async () => {
     const pat = localStorage().get("wcpPat");
     if (!pat) {
         throw new Error(

@@ -1,4 +1,4 @@
-import { BasePackagesBuilder } from "./BasePackagesBuilder";
+import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
 
 export class ZeroPackagesBuilder extends BasePackagesBuilder {
     public override async build(): Promise<void> {

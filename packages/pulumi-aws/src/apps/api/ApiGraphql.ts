@@ -1,13 +1,13 @@
 import path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import toKebabCase from "lodash/kebabCase";
+import toKebabCase from "lodash/kebabCase.js";
 
 import { createAppModule, PulumiApp, PulumiAppModule } from "@webiny/pulumi";
-import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils";
-import { CoreOutput, VpcConfig } from "~/apps";
-import { getAwsAccountId, getAwsRegion } from "../awsUtils";
-import { LAMBDA_RUNTIME } from "~/constants";
+import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
+import { CoreOutput, VpcConfig } from "~/apps/index.js";
+import { getAwsAccountId, getAwsRegion } from "../awsUtils.js";
+import { LAMBDA_RUNTIME } from "~/constants.js";
 
 interface GraphqlParams {
     env: Record<string, any>;

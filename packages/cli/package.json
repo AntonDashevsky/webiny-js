@@ -2,6 +2,7 @@
   "name": "@webiny/cli",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "bin": {
     "webiny": "./bin.js"
   },
@@ -33,6 +34,7 @@
     "read-json-sync": "2.0.1",
     "semver": "^7.6.3",
     "ts-morph": "^11.0.0",
+    "tsx": "^4.16.2",
     "typescript": "5.3.3",
     "uniqid": "^5.4.0",
     "yargs": "^17.7.2",

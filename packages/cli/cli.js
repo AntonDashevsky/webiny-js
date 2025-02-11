@@ -1,12 +1,14 @@
-const yargs = require("yargs/yargs");
-const { hideBin } = require("yargs/helpers");
+import yargs from "yargs/yargs";
+import { hideBin } from "yargs/helpers";
 
 // Disable help processing until after plugins are imported.
-const { createCommands } = require("./commands/index.js");
+import { createCommands } from "./commands/index.js";
 
-const { blue, red, bold, bgYellow } = require("chalk");
-const { loadEnvVariables } = require("./utils/loadEnvVariables");
-const { createContext } = require("./context");
+import chalk from "chalk";
+import { loadEnvVariables } from "./utils/loadEnvVariables.js";
+import { createContext } from "./context.js";
+
+const { blue, red, bold, bgYellow } = chalk;
 
 const onFail = context => (msg, error, yargs) => {
     if (msg) {

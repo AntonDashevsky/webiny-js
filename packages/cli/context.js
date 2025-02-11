@@ -1,14 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const dotenv = require("dotenv");
-const {
-    initializeProject,
-    importModule,
-    PluginsContainer,
-    log,
-    localStorage,
-    noop
-} = require("./utils/index.js");
+import fs from "fs";
+import path from "path";
+import dotenv from "dotenv";
+import { initializeProject, PluginsContainer, log, localStorage, noop } from "./utils/index.js";
 
 class Context {
     loadedEnvFiles = {};
@@ -56,10 +49,6 @@ class Context {
         this.onExitCallbacks.push(callback);
     }
 
-    import(name) {
-        return importModule(name);
-    }
-
     async loadUserPlugins() {
         if (this.project.config.cli) {
             let plugins = this.project.config.cli.plugins || [];
@@ -67,26 +56,7 @@ class Context {
                 plugins = await plugins();
             }
 
-            const resolvedPlugins = await Promise.all(
-                plugins.map(async plugin => {
-                    if (typeof plugin === "string") {
-                        let loadedPlugin;
-                        try {
-                            // Try loading the package from the project's root
-                            // TODO: when migrating to ESM, simply convert this to `await import`.
-                            loadedPlugin = require(path.join(this.project.root, plugin));
-                        } catch {
-                            // If it fails, perhaps the user still has the package installed somewhere locally...
-                            // TODO: when migrating to ESM, simply convert this to `await import`.
-                            loadedPlugin = require(plugin);
-                        }
-                        return loadedPlugin;
-                    }
-                    return plugin;
-                })
-            );
-
-            this.plugins.register(resolvedPlugins);
+            this.plugins.register(plugins);
         }
     }
 
@@ -135,20 +105,20 @@ class Context {
     }
 }
 
-let context;
+const cache = {};
 
-module.exports.getContext = () => {
-    if (!context) {
+export const getContext = () => {
+    if (!cache.context) {
         throw Error(
             `CLI has not been initialized! Make sure you call "initializeProject" from "@webiny/cli"!`
         );
     }
 
-    return context;
+    return cache.context;
 };
 
-module.exports.createContext = async () => {
-    if (!context) {
+export const createContext = async () => {
+    if (!cache.context) {
         const project = await initializeProject();
         const localStorageDep = localStorage();
 
@@ -159,8 +129,8 @@ module.exports.createContext = async () => {
             process.exit(1);
         }
 
-        context = new Context(project, localStorageDep);
+        cache.context = new Context(project, localStorageDep);
     }
 
-    return context;
+    return cache.context;
 };

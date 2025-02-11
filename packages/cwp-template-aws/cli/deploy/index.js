@@ -1,5 +1,9 @@
-module.exports = () => ({
+export default () => ({
     type: "cli-command-deployment-deploy-all",
     name: "cli-command-deployment-deploy-all",
-    deploy: (...args) => require("./deploy")(...args)
+    deploy: async (...args) => {
+        // eslint-disable-next-line import/dynamic-import-chunkname
+        const deploy = await import("./deploy.js");
+        return deploy(...args);
+    }
 });

@@ -1,5 +1,5 @@
-const { encrypt, decrypt } = require("@webiny/wcp");
-const { getUser, getProjectEnvironment, updateUserLastActiveOn } = require("./utils");
+import { encrypt, decrypt } from "@webiny/wcp";
+import { getUser, getProjectEnvironment, updateUserLastActiveOn } from "./utils/index.js";
 
 /**
  * The two environment variables we set via these hooks are the following:
@@ -111,7 +111,7 @@ const updateLastActiveOnHookHandler = async () => {
 };
 
 // Export hooks plugins for deploy and watch commands.
-module.exports = () => [
+export default  () => [
     // Deploy hook handlers.
     {
         type: "hook-before-deploy",

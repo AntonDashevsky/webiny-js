@@ -1,4 +1,4 @@
-module.exports = (options = {}) => ({
+export default (options = {}) => ({
     type: "cli-command",
     name: "cli-command-workspaces",
     create({ yargs, context }) {
@@ -47,7 +47,8 @@ module.exports = (options = {}) => ({
                         command.example("$0 workspaces list");
                     },
                     async argv => {
-                        await require("./commands/list")({ ...argv, options }, context);
+                        const command = await import("./commands/list").then(m => m.default ?? m);
+                        await command({ ...argv, options }, context);
                         process.exit(0);
                     }
                 );
@@ -88,7 +89,8 @@ module.exports = (options = {}) => ({
                         command.example("$0 workspaces tree --scope @webiny/handler-graphql");
                     },
                     async argv => {
-                        await require("./commands/tree")({ ...argv, options }, context);
+                        const command = await import("./commands/tree.js");
+                        await command({ ...argv, options }, context);
                         process.exit(0);
                     }
                 );
@@ -128,7 +130,8 @@ module.exports = (options = {}) => ({
                         command.example("$0 workspaces run build --scope=my-package");
                     },
                     async argv => {
-                        await require("./commands/run")({ ...argv, options }, context);
+                        const command = await import("./commands/run.js");
+                        await command({ ...argv, options }, context);
                         process.exit(0);
                     }
                 );

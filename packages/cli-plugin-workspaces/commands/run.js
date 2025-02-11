@@ -1,14 +1,14 @@
-const chalk = require("chalk");
-const execa = require("execa");
-const pMap = require("p-map");
-const { createGraph, getPackages, normalizeArray, randomColor } = require("./utils");
+import chalk from "chalk";
+import execa from "execa";
+import pMap from "p-map";
+import { createGraph, getPackages, normalizeArray, randomColor } from "./utils/index.js";
 
 const logLine = prefix => data => {
     const line = data.toString().replace(/\s\s*$/gm, "");
     console.log(`${prefix}: ${line.replace("webiny: ", "")}`);
 };
 
-module.exports = async (inputs, context) => {
+export default async (inputs, context) => {
     if (inputs.script === "watch") {
         inputs.parallel = true;
     }

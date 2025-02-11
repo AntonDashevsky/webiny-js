@@ -1,14 +1,14 @@
-const { Project } = require("./Project");
+import { Project } from "./Project.js";
 
 let project;
 
-async function initializeProject() {
+export async function initializeProject() {
     project = await Project.load();
 
     return project;
 }
 
-module.exports = () => {
+export const getProject = () => {
     if (!project) {
         throw Error(
             `Project has not been initialized! Make sure you call "initializeProject" from "@webiny/cli"!`
@@ -18,4 +18,4 @@ module.exports = () => {
     return project;
 };
 
-module.exports.initializeProject = initializeProject;
+export default getProject;

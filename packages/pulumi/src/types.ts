@@ -1,11 +1,11 @@
 import * as pulumi from "@pulumi/pulumi";
-import { PulumiAppModuleDefinition } from "./PulumiAppModule";
-import {
+import type { PulumiAppModuleDefinition } from "./PulumiAppModule.js";
+import type {
     CreatePulumiAppResourceParams,
     PulumiAppResource,
     PulumiAppResourceConstructor
-} from "./PulumiAppResource";
-import { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource";
+} from "./PulumiAppResource.js";
+import type { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource.js";
 
 export interface ResourceHandler {
     (resource: PulumiAppResource<PulumiAppResourceConstructor>): void;

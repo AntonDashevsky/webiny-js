@@ -1,5 +1,5 @@
 import * as pulumi from "@pulumi/pulumi";
-import { StepFunctionDefinition, StepFunctionDefinitionStatesType } from "./types";
+import { StepFunctionDefinition, StepFunctionDefinitionStatesType } from "./types.js";
 
 export interface BackgroundTaskParams {
     lambdaName: string;

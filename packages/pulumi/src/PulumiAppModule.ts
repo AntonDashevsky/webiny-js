@@ -1,4 +1,4 @@
-import { PulumiApp } from "./types";
+import type { PulumiApp } from "./types";
 
 export interface PulumiAppModuleCallback<TModule, TConfig> {
     (this: void, app: PulumiApp, config: TConfig): TModule;

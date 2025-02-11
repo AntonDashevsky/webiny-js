@@ -3,11 +3,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { createAppModule, PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 
-import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils";
-import { CoreOutput, VpcConfig } from "../common";
-import { ApiGraphql } from "~/apps";
-import { LAMBDA_RUNTIME } from "~/constants";
-import { getEnvVariableAwsRegion } from "~/env/awsRegion";
+import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
+import { CoreOutput, VpcConfig, ApiGraphql } from "~/apps/index.js";
+import { LAMBDA_RUNTIME } from "~/constants.js";
+import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
 
 export type ApiMigration = PulumiAppModule<typeof ApiMigration>;
 

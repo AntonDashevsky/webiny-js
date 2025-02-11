@@ -1,7 +1,9 @@
-const { STS } = require("@webiny/aws-sdk/client-sts");
-const { green } = require("chalk");
+import { STS } from "@webiny/aws-sdk/client-sts/index.js";
+import chalk from "chalk";
 
-module.exports = {
+const { green } = chalk;
+
+export const checkCredentials = {
     type: "hook-before-deploy",
     name: "hook-before-deploy-aws-credentials",
     async hook(_, context) {

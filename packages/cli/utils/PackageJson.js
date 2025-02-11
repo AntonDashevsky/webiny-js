@@ -1,7 +1,7 @@
-const readJson = require("read-json-sync");
-const findUp = require("find-up");
+import readJson from "read-json-sync";
+import findUp from "find-up";
 
-class PackageJson {
+export class PackageJson {
     static async fromFile(filePath) {
         return new PackageJson(filePath, readJson(filePath));
     }
@@ -24,5 +24,3 @@ class PackageJson {
         return this.json;
     }
 }
-
-module.exports = { PackageJson };

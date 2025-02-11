@@ -1,5 +1,5 @@
-import ValidationError from "~/validationError";
-import { compareTime } from "./time";
+import ValidationError from "~/validationError.js";
+import { compareTime } from "./time/index.js";
 
 /**
  * Validates that given value is a leaser or equal to a lteValue

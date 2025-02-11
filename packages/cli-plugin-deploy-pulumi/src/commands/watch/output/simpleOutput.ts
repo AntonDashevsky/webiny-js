@@ -1,6 +1,8 @@
 import os from "os";
 import logUpdate from "log-update";
-import { bold, gray, green, red, yellow } from "chalk";
+import chalk from "chalk";
+
+const { bold, gray, green, red, yellow } = chalk;
 
 const EOL = os.EOL;
 const HL = EOL + bold(gray("—")).repeat(62) + EOL;

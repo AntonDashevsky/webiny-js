@@ -1,6 +1,6 @@
-import { IPulumi, IUserCommandInput, ProjectApplication } from "~/types";
-import { getStackName, getStackOutput, login } from "~/utils";
-import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env";
+import type { IPulumi, IUserCommandInput, ProjectApplication } from "~/types";
+import { getStackName, getStackOutput, login } from "~/utils/index.js";
+import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
 
 export interface IPulumiLoginSelectStackParams {
     inputs: Pick<IUserCommandInput, "env" | "variant" | "folder" | "region">;

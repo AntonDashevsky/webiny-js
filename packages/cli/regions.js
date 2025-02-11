@@ -1,4 +1,4 @@
-const regions = [
+export const regions = [
     { value: "us-east-1", name: "us-east-1 (US East, N. Virginia)" },
     { value: "us-east-2", name: "us-east-2 (US East, Ohio)" },
     { value: "us-west-1", name: "us-west-1 (US West, N. California)" },
@@ -24,7 +24,3 @@ const regions = [
     // { value: "me-south-1", name: "me-south-1 (Middle East, Bahrain)" },
     { value: "sa-east-1", name: "sa-east-1 (South America, São Paulo)" }
 ];
-
-module.exports = {
-    regions
-};

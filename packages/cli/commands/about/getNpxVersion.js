@@ -1,5 +1,5 @@
-const { SystemRequirements } = require("@webiny/system-requirements");
+import { SystemRequirements } from "@webiny/system-requirements";
 
-module.exports.getNpxVersion = async () => {
+export const getNpxVersion = async () => {
     return SystemRequirements.getNpxVersion();
 };

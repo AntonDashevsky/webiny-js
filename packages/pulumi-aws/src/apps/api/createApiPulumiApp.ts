@@ -13,19 +13,19 @@ import {
     CoreOutput,
     CreateCorePulumiAppParams,
     VpcConfig
-} from "~/apps";
-import { applyCustomDomain, CustomDomainParams } from "../customDomain";
+} from "~/apps/index.js";
+import { applyCustomDomain, CustomDomainParams } from "../customDomain.js";
 import {
     addDomainsUrlsOutputs,
     tagResources,
     withCommonLambdaEnvVariables,
     withServiceManifest
-} from "~/utils";
-import { DEFAULT_PROD_ENV_NAMES } from "~/constants";
-import { getEnvVariableWebinyVariant } from "~/env/variant";
-import { getEnvVariableWebinyEnv } from "~/env/env";
-import { getEnvVariableWebinyProjectName } from "~/env/projectName";
-import { getEnvVariableAwsRegion } from "~/env/awsRegion";
+} from "~/utils/index.js";
+import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
+import { getEnvVariableWebinyVariant } from "~/env/variant.js";
+import { getEnvVariableWebinyEnv } from "~/env/env.js";
+import { getEnvVariableWebinyProjectName } from "~/env/projectName.js";
+import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
 
 export type ApiPulumiApp = ReturnType<typeof createApiPulumiApp>;
 

@@ -1,12 +1,12 @@
-import { CliCommandPlugin } from "@webiny/cli-plugin-scaffold/types";
 import inquirer from "inquirer";
-import { downloadAndLinkExtension } from "~/downloadAndLinkExtension";
-import { generateExtension } from "~/generateExtension";
-import { promptQuestions } from "~/promptQuestions";
 import ora from "ora";
+import type { CliContext } from "@webiny/cli/types";
+import type { CliCommandPlugin } from "@webiny/cli-plugin-scaffold/types";
+import { downloadAndLinkExtension } from "~/downloadAndLinkExtension.js";
+import { generateExtension } from "~/generateExtension.js";
+import { promptQuestions } from "~/promptQuestions.js";
 import { ExtensionCommandGenerateParams, ExtensionsCommandParams } from "~/types";
-import { runYarnInstall } from "~/utils/runYarnInstall";
-import { CliContext } from "@webiny/cli/types";
+import { runYarnInstall } from "~/utils/runYarnInstall.js";
 
 export interface CliPluginExtensionParams {
     context: CliContext;
@@ -74,7 +74,7 @@ export default (): CliCommandPlugin[] => {
             create({ yargs }) {
                 yargs.command(["link-extensions"], `Link all project extensions.`, async () => {
                     // eslint-disable-next-line
-                    await import(__dirname + "/utils/linkAllExtensions.js").then(m =>
+                    await import(import.meta.dirname + "/utils/linkAllExtensions.js").then(m =>
                         m.linkAllExtensions()
                     );
 

@@ -1,5 +1,5 @@
 import zlib from "zlib";
-import mqtt from "./mqtt";
+import mqtt from "./mqtt.js";
 
 const webinyWatchArgs = JSON.parse(process.env["WEBINY_WATCH"] || "{}");
 

@@ -1,6 +1,6 @@
-import { ProjectApplication } from "@webiny/cli/types";
+import { ProjectApplication } from "@webiny/cli/types.js";
 import chalk from "chalk";
-import { IUserCommandInput } from "~/types";
+import { IUserCommandInput } from "~/types.js";
 
 const MATCH_STRING = "the stack is currently locked by";
 

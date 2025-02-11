@@ -1,9 +1,9 @@
-const getProject = require("./getProject");
+import { getProject } from "./getProject.js";
 
 /**
- * @deprecated
+ * @deprecated Use `context.project.getApplication(cwd)` instead.
  */
-module.exports = ({ cwd }) => {
+export default ({ cwd }) => {
     const project = getProject();
 
     return project.getApplication(cwd);

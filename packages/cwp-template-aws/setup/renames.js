@@ -1,4 +1,4 @@
-module.exports = [
+export default [
     {
         prev: "example.env",
         next: ".env"

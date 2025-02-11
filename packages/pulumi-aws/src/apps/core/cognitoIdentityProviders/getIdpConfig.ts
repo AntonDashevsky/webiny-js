@@ -1,10 +1,10 @@
 import * as pulumi from "@pulumi/pulumi";
-import { CognitoIdentityProviderConfig } from "./configure";
-import { getGoogleIdpConfig } from "./google";
-import { getFacebookIdpConfig } from "./facebook";
-import { getAppleIdpConfig } from "./apple";
-import { getAmazonIdpConfig } from "./amazon";
-import { getOidcIdpConfig } from "./oidc";
+import { CognitoIdentityProviderConfig } from "./configure.js";
+import { getGoogleIdpConfig } from "./google.js";
+import { getFacebookIdpConfig } from "./facebook.js";
+import { getAppleIdpConfig } from "./apple.js";
+import { getAmazonIdpConfig } from "./amazon.js";
+import { getOidcIdpConfig } from "./oidc.js";
 
 const idpMap = {
     google: getGoogleIdpConfig,

@@ -1,9 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("path");
+import fs from "node:fs/promises";
+import path from "path";
+import { createWatchPackage, createBuildPackage } from "@webiny/project-utils";
 
-const { createWatchPackage, createBuildPackage } = require("@webiny/project-utils");
+const __dirname = import.meta.dirname;
 
-module.exports = {
+export default {
     commands: {
         build: async (options, context) => {
             await createBuildPackage({ cwd: __dirname })(options, context);

@@ -1,5 +1,5 @@
-import { getStackOutput, GracefulError } from "@webiny/cli-plugin-deploy-pulumi/utils";
-import { BeforeDeployPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins";
+import { getStackOutput, GracefulError } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { BeforeDeployPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins/BeforeDeployPlugin.js";
 
 export const ensureCoreDeployed = new BeforeDeployPlugin(({ env, variant }, ctx) => {
     const output = getStackOutput({
@@ -7,6 +7,7 @@ export const ensureCoreDeployed = new BeforeDeployPlugin(({ env, variant }, ctx)
         env,
         variant
     });
+
     const coreDeployed = output && Object.keys(output).length > 0;
     if (coreDeployed) {
         return;

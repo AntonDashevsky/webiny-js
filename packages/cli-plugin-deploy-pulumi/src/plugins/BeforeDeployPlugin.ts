@@ -1,7 +1,7 @@
 import {
     Callable,
     PulumiCommandLifecycleEventHookPlugin
-} from "./PulumiCommandLifecycleEventHookPlugin";
+} from "./PulumiCommandLifecycleEventHookPlugin.js";
 
 export class BeforeDeployPlugin extends PulumiCommandLifecycleEventHookPlugin {
     public static override type: string = "hook-before-deploy";

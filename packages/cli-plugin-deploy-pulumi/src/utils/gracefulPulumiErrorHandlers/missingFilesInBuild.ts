@@ -1,4 +1,6 @@
-import { red } from "chalk";
+import chalk from "chalk";
+
+const { red } = chalk;
 
 const MATCH_STRING = "failed to compute archive hash for";
 

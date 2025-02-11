@@ -1,8 +1,7 @@
-const { command: login } = require("./login");
-const { command: logout } = require("./logout");
-const { command: whoami } = require("./whoami");
-const { command: project } = require("./project");
+import { command as login } from "./login.js";
+import { command as logout } from "./logout.js";
+import { command as whoami } from "./whoami.js";
+import { command as project } from "./project.js";
+import hooks from "./hooks";
 
-const hooks = require("./hooks");
-
-module.exports = [login(), logout(), whoami(), project(), hooks()];
+export default [login(), logout(), whoami(), project(), ...hooks()];

@@ -1,11 +1,11 @@
-const { sendEvent } = require("@webiny/telemetry/cli");
-const getProject = require("./getProject");
+import { sendEvent as telemetrySendEvent } from "@webiny/telemetry/cli.js";
+import getProject from "./getProject.js";
 
-module.exports = (event, properties) => {
+export const sendEvent = (event, properties) => {
     const project = getProject();
     if (project.config.cli && project.config.cli.telemetry === false) {
         return;
     }
 
-    return sendEvent({ event, properties });
+    return telemetrySendEvent({ event, properties });
 };

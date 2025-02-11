@@ -1,7 +1,7 @@
-import { BasePackagesWatcher } from "../BasePackagesWatcher";
-import { NoDeploymentsZeroPackagesWatcher } from "./NoDeploymentsZeroPackagesWatcher";
-import { NoDeploymentsSinglePackageWatcher } from "./NoDeploymentsSinglePackageWatcher";
-import { NoDeploymentsMultiplePackagesWatcher } from "./NoDeploymentsMultiplePackagesWatcher";
+import { BasePackagesWatcher } from "../BasePackagesWatcher.js";
+import { NoDeploymentsZeroPackagesWatcher } from "./NoDeploymentsZeroPackagesWatcher.js";
+import { NoDeploymentsSinglePackageWatcher } from "./NoDeploymentsSinglePackageWatcher.js";
+import { NoDeploymentsMultiplePackagesWatcher } from "./NoDeploymentsMultiplePackagesWatcher.js";
 
 export class NoDeploymentsPackagesWatcher extends BasePackagesWatcher {
     public override async watch(): Promise<void> {

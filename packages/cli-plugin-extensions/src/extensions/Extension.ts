@@ -1,13 +1,13 @@
-import { AbstractExtension, ExtensionTypeConstructorParams } from "./AbstractExtension";
-import { AdminExtension } from "./AdminExtension";
-import { ApiExtension } from "./ApiExtension";
-import { PbElementExtension } from "./PbElementExtension";
-import { WorkspaceExtension } from "./WorkspaceExtension";
+import { AbstractExtension, ExtensionTypeConstructorParams } from "./AbstractExtension.js";
+import { AdminExtension } from "./AdminExtension.js";
+import { ApiExtension } from "./ApiExtension.js";
+import { PbElementExtension } from "./PbElementExtension.js";
+import { WorkspaceExtension } from "./WorkspaceExtension.js";
 import loadJson from "load-json-file";
-import { PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { PackageJson } from "@webiny/cli-plugin-scaffold/types";
 import path from "path";
-import { WebsiteExtension } from "~/extensions/WebsiteExtension";
-import { ExtensionMessage } from "~/types";
+import { WebsiteExtension } from "~/extensions/WebsiteExtension.js";
+import type { ExtensionMessage } from "~/types";
 
 type PackageJsonPath = string;
 

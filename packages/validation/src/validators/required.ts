@@ -1,4 +1,4 @@
-import ValidationError from "~/validationError";
+import ValidationError from "~/validationError.js";
 
 const throwError = () => {
     throw new ValidationError("Value is required.");

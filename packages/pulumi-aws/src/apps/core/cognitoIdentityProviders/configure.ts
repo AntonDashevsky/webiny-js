@@ -1,10 +1,10 @@
 import * as aws from "@pulumi/aws";
-import { UserPoolDomainArgs } from "@pulumi/aws/cognito/userPoolDomain";
-import { IdentityProviderArgs } from "@pulumi/aws/cognito";
+import { UserPoolDomainArgs } from "@pulumi/aws/cognito/userPoolDomain.js";
+import { IdentityProviderArgs } from "@pulumi/aws/cognito/index.js";
 import * as pulumi from "@pulumi/pulumi";
 import { PulumiApp, PulumiAppResource, PulumiAppResourceConstructor } from "@webiny/pulumi";
-import { getIdpConfig } from "./getIdpConfig";
-import { getEnvVariableAwsRegion } from "~/env/awsRegion";
+import { getIdpConfig } from "./getIdpConfig.js";
+import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
 
 export type IdentityAttributeMapping = {
     "custom:id": string;

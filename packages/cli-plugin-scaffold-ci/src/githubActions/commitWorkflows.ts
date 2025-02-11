@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { Octokit } from "octokit";
-const { Base64 } = require("js-base64");
+import { Base64 } from "js-base64";
 
 interface Params {
     octokit: Octokit;
@@ -13,7 +13,7 @@ interface Params {
 export default async (args: Params): Promise<void> => {
     const { octokit, owner, repo, branch, author } = args;
 
-    const cwd = path.join(__dirname, "files", "workflows");
+    const cwd = path.join(import.meta.dirname, "files", "workflows");
 
     const filesPaths: string[] = [];
     readDirectory(cwd, filesPaths);

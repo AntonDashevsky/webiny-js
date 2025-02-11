@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Scaffolds essential files for creating a new plugin.",
   "main": "index.js",
+  "type": "module",
   "types": "index.d.ts",
   "repository": {
     "type": "git",

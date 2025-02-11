@@ -1,9 +1,9 @@
 import { Worker } from "worker_threads";
 import path from "path";
 import chalk from "chalk";
-import { BasePackagesWatcher } from "./BasePackagesWatcher";
-import { getRandomColorForString } from "~/utils";
-import { Context } from "~/types";
+import { BasePackagesWatcher } from "./BasePackagesWatcher.js";
+import { getRandomColorForString } from "~/utils/index.js";
+import type { Context } from "~/types";
 
 export class MultiplePackagesWatcher extends BasePackagesWatcher {
     public override async watch(): Promise<void> {
@@ -28,7 +28,7 @@ export class MultiplePackagesWatcher extends BasePackagesWatcher {
             const current = packages[i];
             promises.push(
                 new Promise(resolve => {
-                    const worker = new Worker(path.join(__dirname, "./worker.js"), {
+                    const worker = new Worker(path.join(import.meta.dirname, "./worker.js"), {
                         workerData: {
                             options: commandOptions,
                             package: { ...current.paths }

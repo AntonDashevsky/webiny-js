@@ -1,4 +1,8 @@
 name: {PROJECT_ID}
-runtime: nodejs
+runtime:
+  name: nodejs
+  options:
+    typescript: false
+    nodeargs: "--experimental-specifier-resolution=node --import tsx/esm"
 description: {PROJECT_DESCRIPTION}
-main: pulumi/
+main: pulumi/index.js

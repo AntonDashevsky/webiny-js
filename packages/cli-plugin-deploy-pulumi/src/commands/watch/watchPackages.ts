@@ -3,9 +3,9 @@ import path from "path";
 import { Worker } from "worker_threads";
 import chalk from "chalk";
 import execa from "execa";
-import { getRandomColorForString, requireConfig } from "~/utils";
-import { WebinyConfigFile } from "./WebinyConfigFile";
-import { SimpleOutput } from "./output/simpleOutput";
+import { getRandomColorForString, requireConfig } from "~/utils/index.js";
+import { WebinyConfigFile } from "./WebinyConfigFile.js";
+import { SimpleOutput } from "./output/simpleOutput.js";
 
 const parseMessage = (message: string) => {
     try {
@@ -61,7 +61,7 @@ export const watchPackages = async ({ inputs, output, context }: IWatchPackagesP
         const current = packages[i];
         promises.push(
             new Promise(resolve => {
-                const worker = new Worker(path.join(__dirname, "./worker.js"), {
+                const worker = new Worker(path.join(import.meta.dirname, "./worker.js"), {
                     workerData: {
                         options: commandOptions,
                         package: { ...current.paths }
@@ -150,7 +150,7 @@ const getPackages = async ({ inputs, context, output }: IGetPackagesParams) => {
         commandArgs.push("--env", inputs.env);
     }
 
-    return execa("yarn", commandArgs).then(({ stdout }) => {
+    return execa("yarn", commandArgs).then(async ({ stdout }) => {
         const result = JSON.parse(stdout);
         const packages = [];
         for (const packageName in result) {
@@ -162,7 +162,7 @@ const getPackages = async ({ inputs, context, output }: IGetPackagesParams) => {
             }
 
             try {
-                const config = requireConfig(configPath);
+                const config = await requireConfig(configPath);
                 packages.push({
                     name: packageName,
                     config,

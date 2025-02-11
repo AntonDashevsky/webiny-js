@@ -1,7 +1,6 @@
 import * as aws from "@pulumi/aws";
-
 import { createAppModule } from "@webiny/pulumi";
-import { CoreOutput } from "./CoreOutput";
+import { CoreOutput } from "./CoreOutput.js";
 
 export interface VpcParams {
     enabled: boolean | undefined;

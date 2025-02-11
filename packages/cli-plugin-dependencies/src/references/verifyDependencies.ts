@@ -1,8 +1,8 @@
-import { IDependencyTree } from "~/types";
-import loadJsonFile from "load-json-file";
-import { getDuplicatesFilePath, getReferencesFilePath } from "~/references/files";
 import fs from "fs";
-import { green } from "chalk";
+import chalk from "chalk";
+import loadJsonFile from "load-json-file";
+import { getDuplicatesFilePath, getReferencesFilePath } from "~/references/files.js";
+import type { IDependencyTree } from "~/types";
 
 export interface IVerifyDependenciesParams {
     tree: IDependencyTree;
@@ -57,5 +57,5 @@ export const verifyDependencies = (params: IVerifyDependenciesParams): void => {
         );
     }
 
-    console.log(green("✅  All package reference files are in sync."));
+    console.log(chalk.green("✅  All package reference files are in sync."));
 };

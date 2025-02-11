@@ -2,6 +2,7 @@
   "name": "@webiny/error",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "types": "index.d.ts",
   "repository": {
     "type": "git",

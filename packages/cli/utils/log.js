@@ -1,4 +1,4 @@
-const chalk = require("chalk");
+import chalk from "chalk";
 
 const createLogger = () => {
     const logColors = {
@@ -68,4 +68,4 @@ const createLogger = () => {
     return functions;
 };
 
-module.exports = createLogger();
+export const log = createLogger();

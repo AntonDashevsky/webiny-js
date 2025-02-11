@@ -1,3 +1,3 @@
-module.exports.getWcpProjectId = context => {
+export const getWcpProjectId = context => {
     return context?.project?.config?.id || process.env.WCP_PROJECT_ID || "";
 };

@@ -1,5 +1,5 @@
-import { createConfiguration } from "./configuration";
-import { regions } from "@webiny/cli/regions";
+import { createConfiguration } from "./configuration.js";
+import { regions } from "@webiny/cli/regions.js";
 
 export interface IWithRegionParams {
     region: string | undefined;

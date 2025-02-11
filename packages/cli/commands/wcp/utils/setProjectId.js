@@ -1,8 +1,8 @@
-const path = require("path");
-const tsMorph = require("ts-morph");
-const { log } = require("@webiny/cli/utils");
+import path from "path";
+import tsMorph from "ts-morph";
+import { log } from "@webiny/cli/utils/index.js";
 
-module.exports.setProjectId = async ({ project, orgId, projectId }) => {
+export const setProjectId = async ({ project, orgId, projectId }) => {
     // Assign the necessary IDs into root `webiny.project.ts` project file.
     const webinyProjectPath = path.join(project.root, "webiny.project.ts");
 

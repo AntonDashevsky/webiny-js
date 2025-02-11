@@ -1,7 +1,7 @@
-export * from "./core";
-export * from "./common";
-export * from "./api";
-export * from "./react";
-export * from "./admin";
-export * from "./website";
-export { CustomDomainParams } from "./customDomain";
+export * from "./core/index.js";
+export * from "./common/index.js";
+export * from "./api/index.js";
+export * from "./react/index.js";
+export * from "./admin/index.js";
+export * from "./website/index.js";
+export type { CustomDomainParams } from "./customDomain.js";

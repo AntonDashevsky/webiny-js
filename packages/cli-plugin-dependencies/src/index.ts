@@ -1,11 +1,11 @@
 import path from "path";
-import { CliCommandPlugin, CliCommandPluginArgs } from "@webiny/cli/types";
-import { createDependencyTree } from "./references";
-import { createReferenceFile } from "./references/createReferenceFile";
-import { verifyDependencies } from "./references/verifyDependencies";
+import type { CliCommandPlugin, CliCommandPluginArgs } from "@webiny/cli/types";
+import { createDependencyTree } from "./references/index.js";
+import { createReferenceFile } from "./references/createReferenceFile.js";
+import { verifyDependencies } from "./references/verifyDependencies.js";
 
 const getDirname = (): string => {
-    let name = __dirname;
+    let name = import.meta.dirname;
     if (name.endsWith("/dist")) {
         name = name.replace("/dist", "");
     }

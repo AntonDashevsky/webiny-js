@@ -1,16 +1,16 @@
-import { Context, IUserCommandInput, ProjectApplication } from "~/types";
 import os from "os";
 import fs from "fs";
 import chalk from "chalk";
 import path from "path";
-import { getProject, getProjectApplication } from "@webiny/cli/utils";
-import get from "lodash/get";
-import merge from "lodash/merge";
-import simpleOutput from "./watch/output/simpleOutput";
-import { listPackages } from "./watch/listPackages";
 import glob from "fast-glob";
-import { watchPackages } from "./watch/watchPackages";
-import { PackagesWatcher } from "./watch/watchers/PackagesWatcher";
+import get from "lodash/get.js";
+import merge from "lodash/merge.js";
+import { getProject, getProjectApplication } from "@webiny/cli/utils/index.js";
+import simpleOutput from "./watch/output/simpleOutput.js";
+import { listPackages } from "./watch/listPackages.js";
+import { watchPackages } from "./watch/watchPackages.js";
+import { PackagesWatcher } from "./watch/watchers/PackagesWatcher.js";
+import type { Context, IUserCommandInput, ProjectApplication } from "~/types";
 import {
     getPulumi,
     getRandomColorForString,
@@ -26,7 +26,7 @@ import {
     withProjectName,
     withPulumiConfigPassphrase,
     withRegion
-} from "~/utils/env";
+} from "~/utils/env/index.js";
 
 // Do not allow watching "prod" and "production" environments. On the Pulumi CLI side, the command
 // is still in preview mode, so it's definitely not wise to use it on production environments.

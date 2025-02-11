@@ -1,4 +1,4 @@
-import { CliContext } from "@webiny/cli/types";
+import type { CliContext } from "@webiny/cli/types";
 import path from "path";
 // Tries to load env files from a couple of different places, for a stack and a given environment.
 

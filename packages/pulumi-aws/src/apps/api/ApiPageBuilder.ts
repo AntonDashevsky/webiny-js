@@ -3,10 +3,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { createInstallationZip } from "@webiny/api-page-builder/installation";
 import { createAppModule, PulumiApp, PulumiAppModule } from "@webiny/pulumi";
-import { CoreOutput } from "../common";
-import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils";
-import { getAwsAccountId, getAwsRegion } from "../awsUtils";
-import { LAMBDA_RUNTIME } from "~/constants";
+import { CoreOutput } from "~/apps/index.js";
+import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
+import { getAwsAccountId, getAwsRegion } from "../awsUtils.js";
+import { LAMBDA_RUNTIME } from "~/constants.js";
 
 interface PageBuilderParams {
     env: Record<string, any>;

@@ -1,4 +1,4 @@
-import { createBuildPackage, createWatchPackage } from "@webiny/project-utils";
+import { createWatchPackage, createBuildPackage } from "@webiny/project-utils";
 
 export default {
     commands: {

@@ -1,4 +1,4 @@
-import { createConfiguration } from "./configuration";
+import { createConfiguration } from "./configuration.js";
 
 export interface IWithEnvParams {
     env: string;

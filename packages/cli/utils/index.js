@@ -1,29 +1,13 @@
-const { importModule } = require("./importModule");
-const { createProjectApplicationWorkspace } = require("./createProjectApplicationWorkspace");
-const getProject = require("./getProject");
-const getProjectApplication = require("./getProjectApplication");
-const localStorage = require("./localStorage");
-const log = require("./log");
-const sendEvent = require("./sendEvent");
-const PluginsContainer = require("./PluginsContainer");
-const sleep = require("./sleep");
-const sleepSync = require("./sleepSync");
+export { createProjectApplicationWorkspace } from "./createProjectApplicationWorkspace.js";
+export { getProject, initializeProject } from "./getProject.js";
+export { default as getProjectApplication } from "./getProjectApplication.js";
+export { localStorage } from "./localStorage.js";
+export { log } from "./log.js";
+export { sendEvent } from "./sendEvent.js";
+export { PluginsContainer } from "./PluginsContainer.js";
+export { sleep } from "./sleep.js";
+export { sleepSync } from "./sleepSync.js";
 
-const noop = () => {
+export const noop = () => {
     // Do nothing.
-};
-
-module.exports = {
-    createProjectApplicationWorkspace,
-    getProject,
-    initializeProject: getProject.initializeProject,
-    getProjectApplication,
-    importModule,
-    localStorage,
-    log,
-    noop,
-    sendEvent,
-    PluginsContainer,
-    sleep,
-    sleepSync
 };

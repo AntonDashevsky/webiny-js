@@ -1,7 +1,7 @@
 import {
     Callable,
     PulumiCommandLifecycleEventHookPlugin
-} from "./PulumiCommandLifecycleEventHookPlugin";
+} from "./PulumiCommandLifecycleEventHookPlugin.js";
 
 export class AfterBuildPlugin extends PulumiCommandLifecycleEventHookPlugin {
     public static override type: string = "hook-after-build";

@@ -1,5 +1,5 @@
-import { BasePackagesWatcher } from "./../BasePackagesWatcher";
-import { requireConfigWithExecute } from "~/utils";
+import { BasePackagesWatcher } from "./../BasePackagesWatcher.js";
+import { requireConfigWithExecute } from "~/utils/index.js";
 
 export class NoDeploymentsSinglePackageWatcher extends BasePackagesWatcher {
     public override async watch(): Promise<void> {
@@ -19,7 +19,7 @@ export class NoDeploymentsSinglePackageWatcher extends BasePackagesWatcher {
             // Not much sense in turning off logs when a single package is being built.
             logs: true
         };
-        const config = requireConfigWithExecute(pkg.paths.config, {
+        const config = await requireConfigWithExecute(pkg.paths.config, {
             options,
             context
         });

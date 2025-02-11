@@ -13,13 +13,13 @@ import { setTimeout } from "node:timers/promises";
 // @ts-expect-error
 import { getProject, log } from "@webiny/cli/utils";
 import { ExtensionCommandGenerateParams } from "./types";
-import { runYarnInstall } from "@webiny/cli-plugin-scaffold/utils";
+import { runYarnInstall } from "@webiny/cli-plugin-scaffold/utils/index.js";
 import chalk from "chalk";
-import { Extension } from "~/extensions/Extension";
-import { CliContext } from "@webiny/cli/types";
+import { Extension } from "~/extensions/Extension.js";
+import type { CliContext } from "@webiny/cli/types";
 import { Ora } from "ora";
-import { updateDependencies } from "./utils";
-import { setWebinyPackageVersions } from "~/utils/setWebinyPackageVersions";
+import { updateDependencies } from "./utils.js";
+import { setWebinyPackageVersions } from "~/utils/setWebinyPackageVersions.js";
 
 const EXTENSIONS_ROOT_FOLDER = "extensions";
 
@@ -38,7 +38,7 @@ export const generateExtension = async ({ input, ora, context }: GenerateExtensi
             throw new Error("Missing extension type.");
         }
 
-        const templatePath = path.join(__dirname, "templates", type);
+        const templatePath = path.join(import.meta.dirname, "templates", type);
         const templateExists = fs.existsSync(templatePath);
         if (!templateExists) {
             throw new Error("Unknown extension type.");

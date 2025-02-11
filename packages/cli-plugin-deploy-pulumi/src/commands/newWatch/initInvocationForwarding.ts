@@ -1,12 +1,12 @@
 import path from "path";
 import { Worker } from "worker_threads";
-import { compress, decompress } from "@webiny/utils/compression/gzip";
+import { compress, decompress } from "@webiny/utils/compression/gzip.js";
 import mqtt from "mqtt";
 
 const WEBINY_WATCH_FN_INVOCATION_EVENT = "webiny.watch.functionInvocation";
 const WEBINY_WATCH_FN_INVOCATION_RESULT_EVENT = "webiny.watch.functionInvocationResult";
 
-const WATCH_WORKER_PATH = path.join(__dirname, "localInvocationWorker.js");
+const WATCH_WORKER_PATH = path.join(import.meta.dirname, "localInvocationWorker.js");
 
 const jsonStringifyAndCompress = (input: Record<string, any>): Promise<Buffer> => {
     const jsonStringInput = JSON.stringify(input);

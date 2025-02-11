@@ -1,4 +1,4 @@
-import { VARIANT_SEPARATOR } from "./constants";
+import { VARIANT_SEPARATOR } from "./constants.js";
 
 /**
  * We want to have stack name as env-variant.

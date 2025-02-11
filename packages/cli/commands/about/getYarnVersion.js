@@ -1,5 +1,5 @@
-const { SystemRequirements } = require("@webiny/system-requirements");
+import { SystemRequirements } from "@webiny/system-requirements";
 
-module.exports.getYarnVersion = async () => {
+export const getYarnVersion = async () => {
     return SystemRequirements.getYarnVersion();
 };

@@ -1,12 +1,14 @@
-const {
+import {
     getStackOutput,
     splitStackName,
     getPulumi
-} = require("@webiny/cli-plugin-deploy-pulumi/utils");
-const path = require("path");
-const { blue } = require("chalk");
+} from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import path from "path";
+import chalk from "chalk";
 
-const getInfo = async params => {
+const { blue } = chalk;
+
+export const getInfo = async params => {
     if (typeof params !== "object" || !params.env) {
         throw new Error("Please provide an object with `env` and `variant` properties.");
     }
@@ -103,7 +105,7 @@ const getInfo = async params => {
     return output.join("\n");
 };
 
-module.exports = {
+export default {
     type: "cli-command",
     name: "cli-command-info",
     create({ yargs, context }) {
@@ -127,7 +129,8 @@ module.exports = {
 
                 if (!args.env) {
                     // Get all existing environments
-                    const glob = require("fast-glob");
+                    // eslint-disable-next-line import/dynamic-import-chunkname
+                    const glob = await import("fast-glob").then(m => m.default ?? m);
 
                     // We just get stack files for deployed Core application. That's enough
                     // to determine into which environments the user has deployed their project.
@@ -186,4 +189,3 @@ module.exports = {
     }
 };
 
-module.exports.getInfo = getInfo;

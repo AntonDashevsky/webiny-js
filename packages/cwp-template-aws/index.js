@@ -1,5 +1,5 @@
-const inquirer = require("inquirer");
-const setup = require("./setup");
+import inquirer from "inquirer";
+import setup from "./setup";
 
 const choices = {
     ddb: {
@@ -67,4 +67,4 @@ const runInquirer = async cwp => {
     });
 };
 
-module.exports = runInquirer;
+export default runInquirer;

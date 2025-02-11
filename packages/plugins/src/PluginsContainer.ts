@@ -1,4 +1,4 @@
-import { Plugin, PluginCollection } from "./types";
+import type { Plugin, PluginCollection } from "./types";
 import uniqid from "uniqid";
 
 export type WithName<T extends Plugin> = T & { name: string };

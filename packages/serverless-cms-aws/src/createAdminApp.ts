@@ -1,5 +1,5 @@
 import type { CreateAdminPulumiAppParams } from "@webiny/pulumi-aws";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 
 export interface CreateAdminAppParams extends CreateAdminPulumiAppParams {
     plugins?: PluginCollection;

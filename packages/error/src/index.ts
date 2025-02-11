@@ -1,5 +1,5 @@
-import Error, { ErrorOptions } from "./Error";
+import Error, { type ErrorOptions } from "./Error.js";
 
 export { Error as WebinyError };
 export default Error;
-export { ErrorOptions };
+export type { ErrorOptions };

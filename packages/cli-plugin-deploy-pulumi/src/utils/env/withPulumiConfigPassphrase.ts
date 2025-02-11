@@ -1,4 +1,4 @@
-import { createConfiguration } from "./configuration";
+import { createConfiguration } from "./configuration.js";
 
 export const withPulumiConfigPassphrase = () => {
     return createConfiguration(() => {

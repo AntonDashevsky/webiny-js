@@ -1,8 +1,8 @@
 import loadJson from "load-json-file";
 import writeJson from "write-json-file";
-import { PackageJson } from "@webiny/cli-plugin-scaffold/types";
-import { formatCode } from "@webiny/cli-plugin-scaffold/utils";
-import { Extension } from "~/extensions/Extension";
+import type { PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import { formatCode } from "@webiny/cli-plugin-scaffold/utils/index.js";
+import { Extension } from "~/extensions/Extension.js";
 
 const setVersions = (dependencies: Record<string, string>, version: string) => {
     for (const [name] of Object.entries(dependencies)) {

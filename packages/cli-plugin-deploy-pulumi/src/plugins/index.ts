@@ -1,7 +1,7 @@
-export * from "./AfterBuildPlugin";
-export * from "./AfterDeployPlugin";
-export * from "./BeforeBuildPlugin";
-export * from "./BeforeDeployPlugin";
+export * from "./AfterBuildPlugin.js";
+export * from "./AfterDeployPlugin.js";
+export * from "./BeforeBuildPlugin.js";
+export * from "./BeforeDeployPlugin.js";
 
 // Watch only has before-watch hook.
-export * from "./BeforeWatchPlugin";
+export * from "./BeforeWatchPlugin.js";

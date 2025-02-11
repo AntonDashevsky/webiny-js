@@ -15,10 +15,10 @@ import {
     PulumiAppRemoteResource
 } from "@webiny/pulumi";
 
-import { getAwsAccountId } from "../awsUtils";
-import { CoreVpc } from "./CoreVpc";
-import { DEFAULT_PROD_ENV_NAMES, LAMBDA_RUNTIME } from "~/constants";
-import { LogDynamo } from "~/apps/core/LogDynamo";
+import { getAwsAccountId } from "../awsUtils.js";
+import { CoreVpc } from "./CoreVpc.js";
+import { DEFAULT_PROD_ENV_NAMES, LAMBDA_RUNTIME } from "~/constants.js";
+import { LogDynamo } from "~/apps/core/LogDynamo.js";
 
 export interface OpenSearchParams {
     protect: boolean;

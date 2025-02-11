@@ -1,11 +1,11 @@
-import { AbstractExtension } from "./AbstractExtension";
+import { AbstractExtension } from "./AbstractExtension.js";
 import path from "path";
-import { EXTENSIONS_ROOT_FOLDER } from "~/utils/constants";
+import { EXTENSIONS_ROOT_FOLDER } from "~/utils/constants.js";
 import { ArrayLiteralExpression, Node, Project } from "ts-morph";
-import { formatCode } from "@webiny/cli-plugin-scaffold/utils";
-import { updateDependencies, updateWorkspaces } from "~/utils";
+import { formatCode } from "@webiny/cli-plugin-scaffold/utils/index.js";
+import { updateDependencies, updateWorkspaces } from "~/utils.js";
 import Case from "case";
-import { ExtensionMessage } from "~/types";
+import type { ExtensionMessage } from "~/types";
 
 export class ApiExtension extends AbstractExtension {
     async link() {

@@ -1,5 +1,5 @@
-import { getPulumi } from "./getPulumi";
-import trimEnd from "lodash/trimEnd";
+import { getPulumi } from "./getPulumi.js";
+import trimEnd from "lodash/trimEnd.js";
 import fs from "fs";
 import { join } from "path";
 // To use a self-managed backend, specify a storage endpoint URL as pulumi login’s <backend-url> argument:
@@ -7,7 +7,7 @@ import { join } from "path";
 // This will tell Pulumi to store state in AWS S3, Azure Blob Storage, Google Cloud Storage, or the
 // local filesystem, respectively.
 // @see https://www.pulumi.com/docs/intro/concepts/state/#logging-into-the-pulumi-service-backend
-import { ProjectApplication } from "~/types";
+import type { ProjectApplication } from "~/types";
 
 const SELF_MANAGED_BACKEND = ["s3://", "azblob://", "gs://"];
 

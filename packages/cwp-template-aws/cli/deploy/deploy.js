@@ -1,16 +1,18 @@
-const {
+import open from "open";
+import ora from "ora";
+import { isCI } from "ci-info";
+import chalk from "chalk";
+import {
     getStackOutput,
     getPulumi,
     GracefulPulumiError
-} = require("@webiny/cli-plugin-deploy-pulumi/utils");
-const { sendEvent } = require("@webiny/cli/utils");
-const { bold } = require("chalk");
-const { deployCommand } = require("@webiny/cli-plugin-deploy-pulumi/commands/deploy");
-const { getInfo } = require("../info");
-const sleep = require("../utils/sleep");
-const open = require("open");
-const ora = require("ora");
-const { isCI } = require("ci-info");
+} from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { sendEvent } from "@webiny/cli/utils/index.js";
+import { deployCommand } from "@webiny/cli-plugin-deploy-pulumi/commands/deploy.js";
+import { getInfo } from "../info/index.js";
+import sleep from "../utils/sleep.js";
+
+const { bold } = chalk;
 
 const deployApp = async ({ name, folder, inputs, context, isFirstDeployment }) => {
     context.info(`Deploying %s project application...`, name);
@@ -33,7 +35,7 @@ const deployApp = async ({ name, folder, inputs, context, isFirstDeployment }) =
     isFirstDeployment && (await sleep());
 };
 
-module.exports = async (inputs, context) => {
+export default async (inputs, context) => {
     await sendEvent("cli-project-deploy-start");
 
     try {

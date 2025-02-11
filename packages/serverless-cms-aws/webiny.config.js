@@ -1,7 +1,9 @@
-const glob = require("fast-glob");
-const path = require("path");
-const { Listr } = require("listr2");
-const { createWatchPackage, createBuildPackage } = require("@webiny/project-utils");
+import glob from "fast-glob";
+import path from "path";
+import { Listr } from "listr2";
+import { createWatchPackage, createBuildPackage } from "@webiny/project-utils";
+
+const __dirname = import.meta.dirname;
 
 async function buildHandlers(options) {
     if (process.env.WEBINY_SERVERLESS_CMS_AWS_SKIP_PREPUBLISH_ONLY === "true") {
@@ -38,7 +40,7 @@ async function buildHandlers(options) {
     await runner.run();
 }
 
-module.exports = {
+export default {
     commands: {
         build: createBuildPackage({ cwd: __dirname }),
         watch: createWatchPackage({ cwd: __dirname }),

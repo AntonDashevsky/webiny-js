@@ -1,8 +1,11 @@
-const { getContext, createContext } = require("./context");
-const regions = require("./regions");
+import "tsx";
+import { getContext, createContext } from "./context.js";
+export { regions } from "./regions.js";
 
-const initializeProject = async () => {
+export const initializeProject = async () => {
     return await createContext();
 };
 
-module.exports = { initializeProject, getCli: getContext, regions };
+export const getCli = () => {
+    return getContext();
+};
