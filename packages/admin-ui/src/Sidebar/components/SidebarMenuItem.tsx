@@ -8,9 +8,11 @@ const SidebarMenuItem = React.forwardRef<HTMLLIElement, any>(
         <li
             ref={ref}
             data-sidebar="menu-item"
-            className={cn("group/menu-item relative", className)}
+            className={cn("wby-group/menu-item wby-relative", className)}
             {...props}
-        />
+        >
+            {props.content}
+        </li>
     )
 );
 SidebarMenuItem.displayName = "SidebarMenuItem";
