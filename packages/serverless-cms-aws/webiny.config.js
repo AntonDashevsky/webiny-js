@@ -35,15 +35,26 @@ async function buildHandlers(options) {
                 }
             }
         ],
-        { concurrent: false, rendererOptions: { showTimer: true, collapse: false } }
+        { concurrent: true, rendererOptions: { showTimer: true, collapse: false } }
     );
     await runner.run();
 }
 
 export default {
     commands: {
-        build: createBuildPackage({ cwd: __dirname }),
-        watch: createWatchPackage({ cwd: __dirname }),
+        build: options => {
+            // We're skipping library checking because `@rspack/core package` had internal
+            // Typescript issues that we couldn't resolve. We'll revisit this later.
+            // More info: https://github.com/web-infra-dev/rspack/issues/9154
+            return createBuildPackage({ cwd: import.meta.dirname })({
+                ...options,
+                overrides: {
+                    ...options.overrides,
+                    tsConfig: { compilerOptions: { skipLibCheck: true } }
+                }
+            });
+        },
+        watch: createWatchPackage({ cwd: import.meta.dirname }),
         buildHandlers
     }
 };

@@ -1,5 +1,5 @@
-import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
 import chalk from "chalk";
+import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
 import { IRequireConfigOptions, requireConfigWithExecute } from "~/utils/index.js";
 const { gray } = chalk;
 
@@ -20,9 +20,7 @@ export class SinglePackageBuilder extends BasePackagesBuilder {
             variant,
             region,
             debug,
-            cwd: pkg.paths.root,
-            // Not much sense in turning off logs when a single package is being built.
-            logs: true
+            cwd: pkg.paths.root
         };
 
         const config = await requireConfigWithExecute(pkg.paths.config, {

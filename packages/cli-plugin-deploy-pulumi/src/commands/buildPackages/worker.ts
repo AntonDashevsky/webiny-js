@@ -1,47 +1,15 @@
-import { parentPort, workerData } from "worker_threads";
+import { serializeError } from "serialize-error";
+import { getCli } from "@webiny/cli";
 import { requireConfigWithExecute } from "~/utils/index.js";
 
-let processStdout = "";
-let processStderr = "";
-
-const originalStdoutWrite = process.stdout.write.bind(process.stdout);
-/**
- * TODO @adrian
- *
- * Check this out.
- */
-// @ts-expect-error
-process.stdout.write = (chunk, encoding, callback) => {
-    if (typeof chunk === "string") {
-        processStdout += chunk;
-    }
-
-    return originalStdoutWrite(chunk, encoding, callback);
-};
-
-const originalStderrWrite = process.stderr.write.bind(process.stderr);
-
-// @ts-expect-error
-process.stderr.write = (chunk, encoding, callback) => {
-    if (typeof chunk === "string") {
-        processStderr += chunk;
-    }
-
-    return originalStderrWrite(chunk, encoding, callback);
-};
-
-const { options, package: pckg } = workerData;
-
 (async () => {
-    const { getCli, initializeProject } = await import("@webiny/cli");
+    const workerData = JSON.parse(process.argv[2]);
+    const { package: pkg, env, variant, region, debug } = workerData;
 
-    await initializeProject();
+    const options = { cwd: pkg.paths.root, env, variant, region, debug };
 
-    const config = await requireConfigWithExecute(pckg.config, {
-        options: {
-            ...options,
-            cwd: pckg.root
-        },
+    const config = await requireConfigWithExecute(pkg.paths.config, {
+        options,
         context: getCli()
     });
 
@@ -50,24 +18,9 @@ const { options, package: pckg } = workerData;
         throw new Error("Build command not found.");
     }
 
-    config.commands
-        .build(options)
-        .then(() => {
-            parentPort!.postMessage(
-                JSON.stringify({ type: "success", stdout: processStdout, stderr: processStderr })
-            );
-        })
-        .catch((e: Error) => {
-            parentPort!.postMessage(
-                JSON.stringify({
-                    type: "error",
-                    stdout: processStdout,
-                    stderr: processStderr,
-                    error: {
-                        message: e.message,
-                        stack: e.stack
-                    }
-                })
-            );
-        });
+    config.commands.build(options).catch(error => {
+        // Send error message to the parent process
+        process.send!(serializeError(error));
+        process.exit(1); // Ensure the worker process exits with an error code
+    });
 })();

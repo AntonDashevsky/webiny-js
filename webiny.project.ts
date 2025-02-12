@@ -58,7 +58,8 @@ export default {
 
     featureFlags: {
         experimentalAdminOmniSearch: true,
+        experimentalDynamicPages: false,
         newWatchCommand: true,
-        experimentalDynamicPages: false
+        rspack: true
     }
 };
