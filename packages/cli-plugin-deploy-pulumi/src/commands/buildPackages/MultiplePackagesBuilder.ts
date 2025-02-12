@@ -2,12 +2,13 @@ import { fork } from "child_process";
 import { deserializeError } from "serialize-error";
 import path from "path";
 import Listr from "listr";
-import { gray } from "chalk";
+import chalk from "chalk";
+import type { IProjectApplicationPackage } from "@webiny/cli/types";
 import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
 import { measureDuration } from "~/utils/index.js";
-import type { IProjectApplicationPackage } from "@webiny/cli/types";
 
-const WORKER_PATH = path.resolve(__dirname, "worker.js");
+const { gray } = chalk;
+const WORKER_PATH = path.resolve(import.meta.dirname, "workerEntry.js");
 
 export class MultiplePackagesBuilder extends BasePackagesBuilder {
     public override async build(): Promise<void> {

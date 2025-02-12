@@ -1,5 +1,5 @@
-import type { Plugin, PluginCollection } from "../types.js";
 import uniqid from "uniqid";
+import type { Plugin, PluginCollection } from "../types.js";
 
 export type WithName<T extends Plugin> = T & { name: string };
 
