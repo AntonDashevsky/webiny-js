@@ -1,2 +1,2 @@
-module.exports.createBuildApp = require("./createBuildApp");
-module.exports.createWatchApp = require("./createWatchApp");
+export { createBuildApp } from "./createBuildApp.js";
+export { createWatchApp } from "./createWatchApp.js";

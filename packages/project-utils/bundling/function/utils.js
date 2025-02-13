@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 
 const getDefaults = ({ cwd, projectApplication }) => {
     let outputPath = path.join(cwd, "build");
@@ -16,7 +16,7 @@ const getDefaults = ({ cwd, projectApplication }) => {
     };
 };
 
-const getOutput = options => {
+export const getOutput = options => {
     let output = null;
     if (options.overrides && options.overrides.output) {
         output = options.overrides.output;
@@ -40,11 +40,7 @@ const getOutput = options => {
     return output;
 };
 
-const getEntry = ({ cwd, overrides }) => {
+export const getEntry = ({ cwd, overrides }) => {
     return overrides.entry || path.join(cwd, "src/index");
 };
 
-module.exports = {
-    getOutput,
-    getEntry
-};

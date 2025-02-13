@@ -1,4 +1,6 @@
-module.exports = ({ path, esm }) => {
+import readJsonSync from "read-json-sync";
+
+export default ({ path, esm }) => {
     return {
         presets: [
             [
@@ -26,7 +28,7 @@ module.exports = ({ path, esm }) => {
                 "@babel/plugin-transform-runtime",
                 {
                     useESModules: !!esm,
-                    version: require("@babel/runtime/package.json").version
+                    version: readJsonSync(require.resolve("@babel/runtime/package.json")).version
                 }
             ],
             [

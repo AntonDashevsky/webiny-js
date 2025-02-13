@@ -1,8 +1,8 @@
-const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
-const { BaseFunctionBundler } = require("./BaseFunctionBundler");
-const { createWebpackConfig } = require("./webpack/createWebpackConfig");
-const webpack = require("webpack");
-const { getProjectApplication } = require("@webiny/cli/utils");
+import formatWebpackMessages from "react-dev-utils/formatWebpackMessages.js";
+import { BaseFunctionBundler } from "./BaseFunctionBundler.js";
+import { createWebpackConfig } from "./webpack/createWebpackConfig.js";
+import { getProjectApplication } from "@webiny/cli/utils/index.js";
+import webpack from "webpack";
 
 class WebpackBundler extends BaseFunctionBundler {
     constructor(params) {
@@ -19,7 +19,7 @@ class WebpackBundler extends BaseFunctionBundler {
                 // No need to do anything.
             }
 
-            const webpackConfig = createWebpackConfig({
+            const webpackConfig = await createWebpackConfig({
                 ...this.params,
                 projectApplication,
                 production: true

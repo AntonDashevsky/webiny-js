@@ -1,12 +1,5 @@
-"use strict";
-
-const fs = require("fs");
-const path = require("path");
-
-const NODE_ENV = process.env.NODE_ENV;
-if (!NODE_ENV) {
-    throw new Error("The NODE_ENV environment variable is required but was not specified.");
-}
+import fs from "fs";
+import path from "path";
 
 // We support resolving modules according to `NODE_PATH`.
 // This lets you use absolute paths in imports inside large monorepos:
@@ -29,6 +22,12 @@ process.env.NODE_PATH = (process.env.NODE_PATH || "")
 const REACT_APP = /^REACT_APP_/i;
 
 function getClientEnvironment({ publicUrl, projectApplication }) {
+    const NODE_ENV = process.env.NODE_ENV;
+
+    if (!NODE_ENV) {
+        throw new Error("The NODE_ENV environment variable is required but was not specified.");
+    }
+
     const raw = Object.keys(process.env)
         .filter(key => {
             if (REACT_APP.test(key)) {
@@ -47,9 +46,9 @@ function getClientEnvironment({ publicUrl, projectApplication }) {
                 return env;
             },
             {
-                // Useful for determining whether we’re running in production mode.
+                // Useful for determining whether we're running in production mode.
                 // Most importantly, it switches React into the correct mode.
-                NODE_ENV: process.env.NODE_ENV || "development",
+                NODE_ENV: NODE_ENV || "development",
                 // Useful for resolving the correct path to static assets in `public`.
                 // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.
                 // This should only be used as an escape hatch. Normally you would put
@@ -70,4 +69,4 @@ function getClientEnvironment({ publicUrl, projectApplication }) {
     return { raw, stringified };
 }
 
-module.exports = getClientEnvironment;
+export default getClientEnvironment;

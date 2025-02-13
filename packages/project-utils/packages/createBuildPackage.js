@@ -1,7 +1,7 @@
-const buildPackage = require("./buildPackage");
-const { prepareOptions } = require("../utils");
+import buildPackage from "./buildPackage";
+import { prepareOptions } from "../utils";
 
-module.exports = config => async options => {
+export default config => async options => {
     const preparedOptions = prepareOptions({ config, options });
     return buildPackage(preparedOptions);
 };

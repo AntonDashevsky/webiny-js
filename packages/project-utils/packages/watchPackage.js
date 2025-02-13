@@ -1,12 +1,14 @@
-const path = require("path");
+import path from "path";
 
 // The watch functionality is actually not part of `@babel/core`, but
 // part of the `@babel/cli` library. That's the reason we're extracting
 // the watch functionality out of it.
-module.exports = options => {
-    const { default: parseArgv } = require("@babel/cli/lib/babel/options");
-    const { default: dir } = require("@babel/cli/lib/babel/dir");
-    const { default: file } = require("@babel/cli/lib/babel/file");
+export default async options => {
+    const [parseArgv, dir, file] = await Promise.all([
+        import("@babel/cli/lib/babel/options").then(m => m.default ?? m),
+        import("@babel/cli/lib/babel/dir").then(m => m.default ?? m),
+        import("@babel/cli/lib/babel/file".then(m => m.default ?? m))
+    ]);
 
     const parsedArgv = parseArgv([
         "_",

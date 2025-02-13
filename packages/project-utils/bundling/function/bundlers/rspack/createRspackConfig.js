@@ -1,11 +1,11 @@
-const path = require("path");
-const rspack = require("@rspack/core");
-const { version } = require("@webiny/project-utils/package.json");
-const { getOutput, getEntry } = require("../../utils");
-const { TsCheckerRspackPlugin } = require("ts-checker-rspack-plugin");
-const { createSwcConfig } = require("./createSwcConfig");
+import path from "path";
+import rspack from "@rspack/core";
+import packageJson from "@webiny/project-utils/package.json" assert { type: "json" };
+import { getOutput, getEntry } from "../../utils.js";
+import { TsCheckerRspackPlugin } from "ts-checker-rspack-plugin";
+import { createSwcConfig } from "./createSwcConfig.js";
 
-const createRspackConfig = params => {
+export const createRspackConfig = async params => {
     const output = getOutput(params);
     const entry = getEntry(params);
 
@@ -49,7 +49,9 @@ const createRspackConfig = params => {
 
             // https://rspack.dev/plugins/webpack/define-plugin
             new rspack.DefinePlugin({
-                "process.env.WEBINY_VERSION": JSON.stringify(process.env.WEBINY_VERSION || version),
+                "process.env.WEBINY_VERSION": JSON.stringify(
+                    process.env.WEBINY_VERSION || packageJson.version
+                ),
                 ...definitions
             }),
 
@@ -111,5 +113,3 @@ const createRspackConfig = params => {
 
     return rspackConfig;
 };
-
-module.exports = { createRspackConfig };

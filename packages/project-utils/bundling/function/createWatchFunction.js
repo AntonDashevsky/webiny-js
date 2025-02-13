@@ -1,8 +1,8 @@
-const { prepareOptions } = require("../../utils");
+import { prepareOptions } from "../../utils.js";
 
-module.exports = config => async options => {
+export const createWatchFunction = config => async options => {
     const preparedOptions = prepareOptions({ config, options });
-    const { FunctionBundler } = require("./bundlers/FunctionBundler");
+    const { FunctionBundler } = await import("./bundlers/FunctionBundler.js");
     const bundler = new FunctionBundler(preparedOptions);
     return bundler.watch();
 };

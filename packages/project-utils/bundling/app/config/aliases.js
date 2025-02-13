@@ -1,9 +1,11 @@
-const path = require("path");
-const fs = require("fs");
-const readJson = require("read-json-sync");
-const packages = require("get-yarn-workspaces")().map(pkg => pkg.replace(/\//g, path.sep));
+import path from "path";
+import fs from "fs";
+import readJson from "read-json-sync";
+import getWorkspaces from "get-yarn-workspaces";
 
-module.exports = packages.reduce((aliases, dir) => {
+const packages = getWorkspaces().map(pkg => pkg.replace(/\//g, path.sep));
+
+export default packages.reduce((aliases, dir) => {
     try {
         const json = readJson(path.join(dir, "package.json"));
         if (fs.existsSync(path.join(dir, "dist"))) {

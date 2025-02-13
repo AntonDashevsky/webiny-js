@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
+  "main": "src/index.js",
   "dependencies": {
     "@editorjs/delimiter": "^1.4.2",
     "@editorjs/list": "^1.10.0",

@@ -1,6 +1,7 @@
-const { applyDefaults } = require("./utils");
+import { applyDefaults } from "./utils.js";
+import createWatchConfig from "./createWatchConfig.js";
 
-module.exports = options => {
+export const watchApp = options => {
     applyDefaults();
 
     if (!("REACT_APP_DEBUG" in process.env)) {
@@ -10,5 +11,7 @@ module.exports = options => {
     process.env.NODE_ENV = "development";
     process.env.ESLINT_NO_UNUSED_VARS = "0";
 
-    return require("./createWatchConfig")(options);
+    return createWatchConfig(options);
 };
+
+export default watchApp;

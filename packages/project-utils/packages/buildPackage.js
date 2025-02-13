@@ -1,12 +1,12 @@
-const fs = require("fs");
-const rimraf = require("rimraf");
-const { join, dirname, extname, relative, parse } = require("path");
-const babel = require("@babel/core");
-const ts = require("ts-patch/compiler");
-const glob = require("glob");
-const merge = require("lodash/merge");
+import fs from "fs";
+import * as rimraf from "rimraf";
+import { join, dirname, extname, relative, parse } from "path";
+import * as babel from "@babel/core";
+import ts from "ts-patch/compiler/typescript.js";
+import glob from "glob";
+import merge from "lodash/merge.js";
 
-module.exports = async options => {
+export default async options => {
     const start = new Date();
 
     const { cwd } = options;

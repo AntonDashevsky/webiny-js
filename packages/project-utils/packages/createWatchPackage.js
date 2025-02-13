@@ -1,7 +1,7 @@
-const watchPackage = require("./watchPackage");
-const { prepareOptions } = require("../utils");
+import watchPackage from "./watchPackage";
+import { prepareOptions } from "../utils";
 
-module.exports = config => async options => {
+export default config => async options => {
     const preparedOptions = prepareOptions({ config, options });
     return watchPackage(preparedOptions);
 };

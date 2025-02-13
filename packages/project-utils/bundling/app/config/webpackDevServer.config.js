@@ -1,17 +1,6 @@
-"use strict";
+import fs from "fs";
 
-const fs = require("fs");
-
-module.exports = function ({ host, port, https, allowedHost, proxy, paths }) {
-    let server = {};
-    if (https) {
-        server = {
-            type: "https",
-            options: {
-                requestCert: false
-            }
-        };
-    }
+export default function ({ host, port, https, allowedHost, proxy, paths }) {
     return {
         host,
         port,
@@ -20,7 +9,7 @@ module.exports = function ({ host, port, https, allowedHost, proxy, paths }) {
         static: {
             // By default WebpackDevServer serves physical files from current directory
             // in addition to all the virtual build products that it serves from memory.
-            // This is confusing because those files won’t automatically be available in
+            // This is confusing because those files won't automatically be available in
             // production build folder unless we copy them. However, copying the whole
             // project directory is dangerous because we may expose sensitive files.
             // Instead, we establish a convention that only files in `public` directory
@@ -52,7 +41,7 @@ module.exports = function ({ host, port, https, allowedHost, proxy, paths }) {
             publicPath: "/"
         },
         // Enable HTTPS if the HTTPS environment variable is set to 'true'
-        ...server,
+        https,
         client: {
             overlay: true,
             // Silence WebpackDevServer's own logs since they're generally not useful.
@@ -70,11 +59,12 @@ module.exports = function ({ host, port, https, allowedHost, proxy, paths }) {
         setupMiddlewares: (middlewares, devServer) => {
             return [
                 ...middlewares,
-                () => {
+                async () => {
                     const { app } = devServer;
                     if (fs.existsSync(paths.proxySetup)) {
                         // This registers user provided middleware for proxy reasons
-                        require(paths.proxySetup)(app);
+                        const setupProxy = await import(paths.proxySetup);
+                        setupProxy.default(app);
                     }
                 }
             ];

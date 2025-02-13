@@ -1,9 +1,8 @@
-"use strict";
-
-const path = require("path");
-const fs = require("fs");
-const url = require("url");
-const { allWorkspaces } = require("../../../workspaces");
+import path from "path";
+import fs from "fs";
+import url from "url";
+import readJsonSync from "read-json-sync";
+import { allWorkspaces } from "../../../workspaces/index.js";
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
@@ -18,7 +17,7 @@ function ensureSlash(inputPath, needsSlash) {
     }
 }
 
-const getPublicUrl = appPackageJson => envPublicUrl || require(appPackageJson).homepage;
+const getPublicUrl = appPackageJson => envPublicUrl || readJsonSync(appPackageJson).homepage;
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -61,7 +60,7 @@ const resolveModule = (resolveFn, filePath) => {
 };
 
 // config after eject: we're in ./config/
-module.exports = ({ appIndexJs, cwd }) => {
+export default ({ appIndexJs, cwd }) => {
     // Make sure any symlinks in the project folder are resolved:
     // https://github.com/facebook/create-react-app/issues/637
     const appDirectory = fs.realpathSync(cwd);

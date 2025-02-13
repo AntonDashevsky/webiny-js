@@ -1,17 +1,17 @@
-const path = require("path");
-const webpack = require("webpack");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const { version } = require("@webiny/project-utils/package.json");
-const { getOutput, getEntry } = require("../../utils");
-const WebpackBar = require("webpackbar");
+import path from "path";
+import webpack from "webpack";
+import WebpackBar from "webpackbar";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import packageJson from "@webiny/project-utils/package.json" assert { type: "json" };
+import { getOutput, getEntry } from "../../utils.js";
 
-const createWebpackConfig = options => {
+export const createWebpackConfig = async options => {
     const output = getOutput(options);
     const entry = getEntry(options);
 
     const { cwd, overrides, production } = options;
 
-    let babelOptions = require("./babelrc");
+    let babelOptions = await import("./babelrc");
     // Customize Babel options.
     if (typeof overrides.babel === "function") {
         babelOptions = overrides.babel(babelOptions);
@@ -46,7 +46,7 @@ const createWebpackConfig = options => {
         },
         plugins: [
             new webpack.DefinePlugin({
-                "process.env.WEBINY_VERSION": JSON.stringify(process.env.WEBINY_VERSION || version),
+                "process.env.WEBINY_VERSION": JSON.stringify(process.env.WEBINY_VERSION || packageJson.version),
                 ...definitions
             }),
             /**
@@ -113,5 +113,3 @@ const createWebpackConfig = options => {
         }
     };
 };
-
-module.exports = { createWebpackConfig };

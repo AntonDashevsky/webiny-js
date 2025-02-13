@@ -1,7 +1,9 @@
-const buildApp = require("./buildApp");
-const { prepareOptions } = require("../../utils");
+import { buildApp } from "./buildApp.js";
+import { prepareOptions } from "../../utils.js";
 
-module.exports = config => async options => {
+export const createBuildApp = config => async options => {
     const preparedOptions = prepareOptions({ config, options });
     return buildApp(preparedOptions);
 };
+
+export default createBuildApp;

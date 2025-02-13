@@ -1,4 +1,4 @@
-const merge = require("lodash/merge");
+import merge from "lodash/merge.js";
 
 /**
  * Prepares the options object, sent to build and watch functions.
@@ -6,7 +6,7 @@ const merge = require("lodash/merge");
  * @param options
  * @returns {Promise<{overrides}|*>}
  */
-module.exports.prepareOptions = ({ config, options }) => {
+export const prepareOptions = ({ config, options }) => {
     const mergedOptions = merge({}, config, options);
 
     // If it doesn't exist, ensure `overrides` is an empty object.
@@ -25,7 +25,7 @@ module.exports.prepareOptions = ({ config, options }) => {
  * invocation and the invocation of the returned callback function.
  * @returns {function(): string}
  */
-module.exports.getDuration = () => {
+export const getDuration = () => {
     const start = new Date();
     return () => {
         return (new Date() - start) / 1000;

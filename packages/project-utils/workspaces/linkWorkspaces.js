@@ -4,10 +4,12 @@
  * - lerna.json -> command.publish.contents
  * - package root directory
  */
-const path = require("path");
-const get = require("lodash/get");
-const fs = require("fs-extra");
-const rimraf = require("rimraf");
+import path from "path";
+import get from "lodash/get.js";
+import fs from "fs-extra";
+import * as rimraf from "rimraf";
+import readJsonSync from "read-json-sync";
+import { PackageJson } from "@webiny/cli/utils/PackageJson.js"
 
 async function symlink(src, dest) {
     if (process.platform !== "win32") {
@@ -47,13 +49,14 @@ const defaults = {
     blacklist: []
 };
 
-module.exports.linkWorkspaces = async ({ whitelist, blacklist } = defaults) => {
+export const linkWorkspaces = async ({ whitelist, blacklist } = defaults) => {
     console.log(`Linking project workspaces...`);
 
     whitelist = (whitelist || []).map(p => path.resolve(p));
     blacklist = (blacklist || []).map(p => path.resolve(p));
     // Filter packages to only those in the whitelisted folders
-    const packages = require("get-yarn-workspaces")(process.cwd())
+    const getYarnWorkspaces = await import("get-yarn-workspaces").then(m => m.default ?? m);
+    const packages = getYarnWorkspaces(process.cwd())
         .map(pkg => pkg.replace(/\//g, path.sep))
         .filter(pkg => {
             const isBlacklisted = blacklist.some(b => pkg.startsWith(b));
@@ -66,7 +69,7 @@ module.exports.linkWorkspaces = async ({ whitelist, blacklist } = defaults) => {
         });
 
     const lernaJson = path.resolve("lerna.json");
-    const lerna = fs.existsSync(lernaJson) ? require(lernaJson) : null;
+    const lerna = fs.existsSync(lernaJson) ? readJsonSync(lernaJson) : null;
 
     for (let i = 0; i < packages.length; i++) {
         const packageJson = path.resolve(packages[i], "package.json");
@@ -74,7 +77,8 @@ module.exports.linkWorkspaces = async ({ whitelist, blacklist } = defaults) => {
             continue;
         }
 
-        const pkg = require(packageJson);
+        const pkgJson = await PackageJson.fromFile(packageJson);
+        const pkg = pkgJson.getJson();
 
         let targetDirectory = get(pkg, "publishConfig.directory");
         if (!targetDirectory && lerna) {

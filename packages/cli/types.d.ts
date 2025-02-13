@@ -45,6 +45,8 @@ interface Project {
      * Project version.
      */
     version: string;
+
+    getApplication(appDir: string): ProjectApplication | undefined;
 }
 
 export interface IProjectApplicationPackage {

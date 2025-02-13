@@ -1,26 +1,29 @@
-"use strict";
+import fs from "fs";
+import path from "path";
+import { resolve as importResolve } from "import-meta-resolve";
+import webpack from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
+import InlineChunkHtmlPlugin from "react-dev-utils/InlineChunkHtmlPlugin";
+import TerserPlugin from "terser-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import { WebpackManifestPlugin } from "webpack-manifest-plugin";
+import InterpolateHtmlPlugin from "react-dev-utils/InterpolateHtmlPlugin";
+import getCSSModuleLocalIdent from "react-dev-utils/getCSSModuleLocalIdent";
+import getClientEnvironment from "./env.js";
+import ESLintPlugin from "eslint-webpack-plugin";
+import ModuleNotFoundPlugin from "react-dev-utils/ModuleNotFoundPlugin";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import { getProjectApplication } from "@webiny/cli/utils";
 
-const fs = require("fs");
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
-const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
-const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
-const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
-const getClientEnvironment = require("./env");
-const ESLintPlugin = require("eslint-webpack-plugin");
-const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const WebpackBar = require("webpackbar");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const { getProjectApplication } = require("@webiny/cli/utils");
+const resolve = module => {
+    return importResolve(module, import.meta.url).replace("file://", "");
+};
 
-const materialNodeModules = require.resolve("@material/base/package.json").split("@material")[0];
+const materialNodeModules = resolve("@material/base/package.json").split("@material")[0];
+
 const sassIncludePaths = [
     path.resolve("./src"),
     path.resolve("./node_modules"),
@@ -43,7 +46,7 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 const sassLoader = {
-    loader: require.resolve("sass-loader"),
+    loader: resolve("sass-loader"),
     options: {
         sourceMap: true,
         sassOptions: {
@@ -55,15 +58,18 @@ const sassLoader = {
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
-module.exports = async function (webpackEnv, { paths, options }) {
+export default async function (webpackEnv, { paths, options }) {
+    console.log("webpackEnv", webpackEnv);
     const projectApplication = await getProjectApplication({ cwd: options.cwd });
 
     const isEnvDevelopment = webpackEnv === "development";
     const isEnvProduction = webpackEnv === "production";
 
-    const modules = require("./modules")({ paths });
+    const modulesFactory = await import("./modules.js").then(m => m.default ?? m);
 
-    const { logs, overrides } = options;
+    const modules = modulesFactory({ paths });
+
+    const { overrides } = options;
     let babelCustomizer = overrides.babel;
     if (!babelCustomizer) {
         babelCustomizer = v => v;
@@ -95,7 +101,7 @@ module.exports = async function (webpackEnv, { paths, options }) {
     const env = getClientEnvironment({ publicUrl, projectApplication });
 
     return {
-        mode: isEnvProduction ? "production" : isEnvDevelopment && "development",
+        mode: isEnvProduction ? "production" : isEnvDevelopment ? "development" : "none",
         // Stop compilation early in production
         bail: isEnvProduction,
         devtool: shouldUseSourceMap ? "source-map" : false,
@@ -215,29 +221,24 @@ module.exports = async function (webpackEnv, { paths, options }) {
                 .map(ext => `.${ext}`)
                 .filter(ext => useTypeScript || !ext.includes("ts")),
             alias: {
-                os: require.resolve("os-browserify/browser"),
-                "react/jsx-runtime": require.resolve("react/jsx-runtime"),
-                react: require.resolve("react"),
+                os: resolve("os-browserify/browser") + ".js",
                 // Allows for better profiling with ReactDevTools
                 ...(isEnvProductionProfile && {
-                    "react-dom$": require.resolve("react-dom/profiling"),
-                    "scheduler/tracing": require.resolve("scheduler/tracing-profiling")
+                    "react-dom$": resolve("react-dom/profiling"),
+                    "scheduler/tracing": resolve("scheduler/tracing-profiling")
                 }),
                 // This is a temporary fix, until we sort out the `react-butterfiles` dependency.
-                "react-butterfiles": require.resolve("@webiny/app/react-butterfiles"),
-                // Force `lexical` to use the CJS export.
-                lexical: require.resolve("lexical"),
+                "react-butterfiles": resolve("@webiny/app/react-butterfiles/index.js"),
                 ...(modules.webpackAliases || {})
             },
             fallback: {
-                assert: require.resolve("assert-browserify"),
-                buffer: require.resolve("buffer/"),
-                crypto: require.resolve("crypto-browserify"),
-                path: require.resolve("path-browserify"),
-                vm: require.resolve("vm-browserify")
+                assert: resolve("assert-browserify"),
+                buffer: resolve("buffer/"),
+                crypto: resolve("crypto-browserify"),
+                path: resolve("path-browserify"),
+                vm: resolve("vm-browserify")
             }
         },
-
         module: {
             strictExportPresence: true,
             rules: [
@@ -259,7 +260,7 @@ module.exports = async function (webpackEnv, { paths, options }) {
                             issuer: /\.[jt]sx?$/,
                             use: [
                                 {
-                                    loader: require.resolve("@svgr/webpack"),
+                                    loader: resolve("@svgr/webpack"),
                                     options: {
                                         svgoConfig: {
                                             plugins: [
@@ -292,13 +293,13 @@ module.exports = async function (webpackEnv, { paths, options }) {
                         {
                             test: /\.(js|mjs|jsx|ts|tsx)$/,
                             include: [paths.appSrc, paths.appIndexJs, ...paths.allWorkspaces],
-                            loader: require.resolve("babel-loader"),
+                            loader: resolve("babel-loader"),
                             options: babelCustomizer({
                                 sourceType: "unambiguous",
                                 presets: [
-                                    require.resolve("@babel/preset-env"),
-                                    require.resolve("@babel/preset-react"),
-                                    require.resolve("@babel/preset-typescript")
+                                    resolve("@babel/preset-env"),
+                                    resolve("@babel/preset-react"),
+                                    resolve("@babel/preset-typescript")
                                 ],
                                 plugins: [
                                     [
@@ -310,7 +311,7 @@ module.exports = async function (webpackEnv, { paths, options }) {
                                             }
                                         }
                                     ],
-                                    isEnvDevelopment && require.resolve("react-refresh/babel")
+                                    isEnvDevelopment && resolve("react-refresh/babel")
                                 ].filter(Boolean),
                                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -391,7 +392,7 @@ module.exports = async function (webpackEnv, { paths, options }) {
                         // This loader doesn't use a "test" so it will catch all modules
                         // that fall through the other loaders.
                         {
-                            loader: require.resolve("file-loader"),
+                            loader: resolve("file-loader"),
                             // Exclude `js` files to keep "css" loader working as it injects
                             // its runtime that would otherwise be processed through "file" loader.
                             // Also exclude `html` and `json` extensions so they get processed
@@ -422,7 +423,7 @@ module.exports = async function (webpackEnv, { paths, options }) {
                 Buffer: ["buffer", "Buffer"]
             }),
             new webpack.ProvidePlugin({
-                process: "process/browser"
+                process: "process/browser.js"
             }),
             // Generates an `index.html` file with the <script> injected.
             new HtmlWebpackPlugin(
@@ -512,27 +513,26 @@ module.exports = async function (webpackEnv, { paths, options }) {
 
             new ESLintPlugin({
                 extensions: ["js", "mjs", "jsx", "ts", "tsx"],
-                formatter: require.resolve("react-dev-utils/eslintFormatter"),
-                eslintPath: require.resolve("eslint"),
+                formatter: resolve("react-dev-utils/eslintFormatter"),
+                eslintPath: resolve("eslint"),
                 context: paths.appSrc,
                 // ESLint class options
                 cwd: paths.appPath,
-                resolvePluginsRelativeTo: __dirname,
+                resolvePluginsRelativeTo: import.meta.dirname,
                 baseConfig: {
-                    extends: [require.resolve("eslint-config-react-app/base")]
+                    extends: [resolve("eslint-config-react-app/base")]
                 }
             }),
 
             // TypeScript type checking
-            useTypeScript &&
-                new ForkTsCheckerWebpackPlugin({
-                    typescript: {
-                        configFile: paths.appTsConfig,
-                        typescriptPath: require.resolve("typescript")
-                    },
-                    async: isEnvDevelopment
-                }),
-            logs && new WebpackBar({ name: path.basename(paths.appPath) })
+            // useTypeScript &&
+            //     new ForkTsCheckerWebpackPlugin({
+            //         typescript: {
+            //             configFile: paths.appTsConfig,
+            //             typescriptPath: resolve("typescript")
+            //         },
+            //         async: isEnvDevelopment
+            //     }),
         ].filter(Boolean),
 
         // Turn off performance processing because we utilize
@@ -553,13 +553,13 @@ module.exports = async function (webpackEnv, { paths, options }) {
     // common function to get style loaders
     function getStyleLoaders(cssOptions, preProcessor) {
         const loaders = [
-            isEnvDevelopment && require.resolve("style-loader"),
+            isEnvDevelopment && resolve("style-loader"),
             isEnvProduction && {
                 loader: MiniCssExtractPlugin.loader,
                 options: shouldUseRelativeAssetPaths ? { publicPath: "../../" } : {}
             },
             {
-                loader: require.resolve("css-loader"),
+                loader: resolve("css-loader"),
                 options: {
                     esModule: false,
                     sourceMap: isEnvProduction && shouldUseSourceMap,
@@ -584,7 +584,7 @@ module.exports = async function (webpackEnv, { paths, options }) {
                 // Options for PostCSS as we reference these options twice
                 // Adds vendor prefixing based on your specified browser support in
                 // package.json
-                loader: require.resolve("postcss-loader"),
+                loader: resolve("postcss-loader"),
                 options: {
                     postcssOptions: {
                         // Necessary for external CSS imports to work
@@ -616,7 +616,7 @@ module.exports = async function (webpackEnv, { paths, options }) {
         if (preProcessor) {
             loaders.push(
                 {
-                    loader: require.resolve("resolve-url-loader"),
+                    loader: resolve("resolve-url-loader"),
                     options: {
                         sourceMap: isEnvProduction && shouldUseSourceMap
                     }
@@ -629,11 +629,11 @@ module.exports = async function (webpackEnv, { paths, options }) {
 
     function getUrlLoader() {
         return {
-            loader: require.resolve("url-loader"),
+            loader: resolve("url-loader"),
             options: {
                 limit: imageInlineSizeLimit,
                 name: `${STATIC_FOLDER}/media/[name].[hash:8].[ext]`
             }
         };
     }
-};
+}

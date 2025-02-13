@@ -1,7 +1,7 @@
 /**
  * A utility to recursively traverse loaders and execute the "onLoader" callback.
  */
-const traverseLoaders = (loaders, onLoader) => {
+export const traverseLoaders = (loaders, onLoader) => {
     for (const loader of loaders) {
         if (loader.oneOf) {
             traverseLoaders(loader.oneOf, onLoader);
@@ -12,5 +12,3 @@ const traverseLoaders = (loaders, onLoader) => {
         }
     }
 };
-
-module.exports = { traverseLoaders };

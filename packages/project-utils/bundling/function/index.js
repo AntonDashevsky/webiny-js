@@ -1,2 +1,2 @@
-module.exports.createBuildFunction = require("./createBuildFunction");
-module.exports.createWatchFunction = require("./createWatchFunction");
+export { createBuildFunction } from "./createBuildFunction.js";
+export { createWatchFunction } from "./createWatchFunction.js";

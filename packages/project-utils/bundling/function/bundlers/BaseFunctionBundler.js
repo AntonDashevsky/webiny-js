@@ -1,4 +1,4 @@
-class BaseFunctionBundler {
+export class BaseFunctionBundler {
     bundlerConfig = {};
 
     build() {
@@ -21,5 +21,3 @@ class BaseFunctionBundler {
         return this.bundlerConfig;
     }
 }
-
-module.exports = { BaseFunctionBundler };

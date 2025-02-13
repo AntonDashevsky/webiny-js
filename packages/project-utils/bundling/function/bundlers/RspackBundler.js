@@ -1,10 +1,10 @@
-const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
-const { BaseFunctionBundler } = require("./BaseFunctionBundler");
-const { createRspackConfig } = require("./rspack/createRspackConfig");
-const rspack = require("@rspack/core");
-const { getProjectApplication } = require("@webiny/cli/utils");
+import rspack from "@rspack/core";
+import formatWebpackMessages from "react-dev-utils/formatWebpackMessages";
+import { getProjectApplication } from "@webiny/cli/utils/index.js";
+import { BaseFunctionBundler } from "./BaseFunctionBundler.js";
+import { createRspackConfig } from "./rspack/createRspackConfig.js";
 
-class RspackBundler extends BaseFunctionBundler {
+export class RspackBundler extends BaseFunctionBundler {
     constructor(params) {
         super();
         this.params = params;
@@ -19,7 +19,7 @@ class RspackBundler extends BaseFunctionBundler {
                 // No need to do anything.
             }
 
-            const rspackConfig = createRspackConfig({
+            const rspackConfig = await createRspackConfig({
                 ...this.params,
                 projectApplication,
                 production: true
@@ -103,5 +103,3 @@ class RspackBundler extends BaseFunctionBundler {
         });
     }
 }
-
-module.exports = { RspackBundler };

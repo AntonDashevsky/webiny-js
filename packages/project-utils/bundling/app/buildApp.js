@@ -1,16 +1,88 @@
-"use strict";
-const path = require("path");
-const fs = require("fs-extra");
-const webpack = require("webpack");
-const chalk = require("react-dev-utils/chalk");
-const checkRequiredFiles = require("react-dev-utils/checkRequiredFiles");
-const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
-const FileSizeReporter = require("react-dev-utils/FileSizeReporter");
-const printBuildError = require("react-dev-utils/printBuildError");
-const { checkBrowsers } = require("react-dev-utils/browsersHelper");
-const { applyDefaults } = require("./utils");
+import path from "path";
+import fs from "fs-extra";
+import webpack from "webpack";
+import chalk from "react-dev-utils/chalk";
+import checkRequiredFiles from "react-dev-utils/checkRequiredFiles";
+import formatWebpackMessages from "react-dev-utils/formatWebpackMessages";
+import FileSizeReporter from "react-dev-utils/FileSizeReporter";
+import printBuildError from "react-dev-utils/printBuildError";
+import { checkBrowsers } from "react-dev-utils/browsersHelper";
+import { applyDefaults } from "./utils.js";
+import configFactory from "./config/webpack.config.js";
+import configPaths from "./config/paths.js";
 
-module.exports = async options => {
+// Create the production build and print the deployment instructions.
+function build({ config, previousFileSizes, log }) {
+    const compiler = webpack(config);
+
+    return new Promise((resolve, reject) => {
+        compiler.run((err, stats) => {
+            let messages;
+            if (err) {
+                if (!err.message) {
+                    return reject(err);
+                }
+
+                let errMessage = err.message;
+
+                // Add additional information for postcss errors
+                if (Object.prototype.hasOwnProperty.call(err, "postcssNode")) {
+                    errMessage +=
+                        "\nCompileError: Begins at CSS selector " + err["postcssNode"].selector;
+                }
+
+                messages = formatWebpackMessages({
+                    errors: [errMessage],
+                    warnings: []
+                });
+            } else {
+                messages = formatWebpackMessages(
+                    stats.toJson({
+                        all: false,
+                        warnings: true,
+                        errors: true
+                    })
+                );
+            }
+            if (Array.isArray(messages.errors) && messages.errors.length) {
+                // Only keep the first error. Others are often indicative
+                // of the same problem, but confuse the reader with noise.
+                if (messages.errors.length > 1) {
+                    messages.errors.length = 1;
+                }
+                return reject(new Error(messages.errors.join("\n\n")));
+            }
+            if (
+                process.env.CI &&
+                (typeof process.env.CI !== "string" || process.env.CI.toLowerCase() !== "false") &&
+                messages.warnings.length
+            ) {
+                log(
+                    chalk.yellow(
+                        "\nTreating warnings as errors because process.env.CI = true.\n" +
+                            "Most CI servers set it automatically.\n"
+                    )
+                );
+                return reject(new Error(messages.warnings.join("\n\n")));
+            }
+
+            return resolve({
+                stats,
+                previousFileSizes,
+                warnings: messages.warnings
+            });
+        });
+    });
+}
+
+function copyPublicFolder(paths) {
+    fs.copySync(paths.appPublic, paths.appBuild, {
+        dereference: true,
+        filter: file => file !== paths.appHtml
+    });
+}
+
+export const buildApp = async options => {
     applyDefaults();
 
     process.env.NODE_ENV = "production";
@@ -21,7 +93,7 @@ module.exports = async options => {
 
     const appIndexJs = overrides.entry || path.resolve(cwd, "src", "index.tsx");
 
-    const paths = require("./config/paths")({ appIndexJs, cwd });
+    const paths = configPaths({ appIndexJs, cwd });
 
     if (overrides.output) {
         paths.appBuild = path.resolve(overrides.output);
@@ -33,9 +105,6 @@ module.exports = async options => {
     process.on("unhandledRejection", err => {
         throw err;
     });
-
-    // Ensure environment variables are read.
-    const configFactory = require("./config/webpack.config");
 
     const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
     const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
@@ -125,73 +194,4 @@ module.exports = async options => {
     }
 };
 
-// Create the production build and print the deployment instructions.
-function build({ config, previousFileSizes, log }) {
-    const compiler = webpack(config);
-
-    return new Promise((resolve, reject) => {
-        compiler.run((err, stats) => {
-            let messages;
-            if (err) {
-                if (!err.message) {
-                    return reject(err);
-                }
-
-                let errMessage = err.message;
-
-                // Add additional information for postcss errors
-                if (Object.prototype.hasOwnProperty.call(err, "postcssNode")) {
-                    errMessage +=
-                        "\nCompileError: Begins at CSS selector " + err["postcssNode"].selector;
-                }
-
-                messages = formatWebpackMessages({
-                    errors: [errMessage],
-                    warnings: []
-                });
-            } else {
-                messages = formatWebpackMessages(
-                    stats.toJson({
-                        all: false,
-                        warnings: true,
-                        errors: true
-                    })
-                );
-            }
-            if (Array.isArray(messages.errors) && messages.errors.length) {
-                // Only keep the first error. Others are often indicative
-                // of the same problem, but confuse the reader with noise.
-                if (messages.errors.length > 1) {
-                    messages.errors.length = 1;
-                }
-                return reject(new Error(messages.errors.join("\n\n")));
-            }
-            if (
-                process.env.CI &&
-                (typeof process.env.CI !== "string" || process.env.CI.toLowerCase() !== "false") &&
-                messages.warnings.length
-            ) {
-                log(
-                    chalk.yellow(
-                        "\nTreating warnings as errors because process.env.CI = true.\n" +
-                            "Most CI servers set it automatically.\n"
-                    )
-                );
-                return reject(new Error(messages.warnings.join("\n\n")));
-            }
-
-            return resolve({
-                stats,
-                previousFileSizes,
-                warnings: messages.warnings
-            });
-        });
-    });
-}
-
-function copyPublicFolder(paths) {
-    fs.copySync(paths.appPublic, paths.appBuild, {
-        dereference: true,
-        filter: file => file !== paths.appHtml
-    });
-}
+export default buildApp;

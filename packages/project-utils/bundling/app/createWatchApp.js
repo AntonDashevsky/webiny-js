@@ -1,7 +1,9 @@
-const watchApp = require("./watchApp");
-const { prepareOptions } = require("../../utils");
+import { watchApp } from "./watchApp.js";
+import { prepareOptions } from "../../utils.js";
 
-module.exports = config => async options => {
+export const createWatchApp = config => async options => {
     const preparedOptions = prepareOptions({ config, options });
     return watchApp(preparedOptions);
 };
+
+export default createWatchApp;

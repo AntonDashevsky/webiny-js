@@ -1,6 +1,9 @@
-const { BaseFunctionBundler } = require("./BaseFunctionBundler");
+import { featureFlags } from "@webiny/feature-flags";
+import { RspackBundler } from "./RspackBundler.js";
+import { WebpackBundler } from "./WebpackBundler.js";
+import { BaseFunctionBundler } from "./BaseFunctionBundler.js";
 
-class FunctionBundler extends BaseFunctionBundler {
+export class FunctionBundler extends BaseFunctionBundler {
     constructor(params) {
         super();
         this.params = params;
@@ -18,15 +21,10 @@ class FunctionBundler extends BaseFunctionBundler {
     }
 
     getBundlerClass() {
-        const { featureFlags } = require("@webiny/feature-flags");
         if (featureFlags.rspack) {
-            const { RspackBundler } = require("./RspackBundler");
             return RspackBundler;
         }
 
-        const { WebpackBundler } = require("./WebpackBundler");
         return WebpackBundler;
     }
 }
-
-module.exports = { FunctionBundler };

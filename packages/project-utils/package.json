@@ -2,6 +2,7 @@
   "name": "@webiny/project-utils",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "description": "A collection of utilities for Webiny project.",
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "get-yarn-workspaces": "1.0.2",
     "glob": "^7.2.3",
     "html-webpack-plugin": "^5.6.3",
+    "import-meta-resolve": "^4.1.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "2.4.5",
     "null-loader": "^4.0.1",

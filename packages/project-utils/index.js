@@ -1,26 +1,8 @@
-const { createWatchApp, createBuildApp } = require("./bundling/app");
-const { createBuildFunction, createWatchFunction } = require("./bundling/function");
-const { createBuildHandler, createWatchHandler } = require("./bundling/function");
-const {
+export { createWatchApp, createBuildApp } from "./bundling/app/index.js";
+export { createBuildFunction, createWatchFunction } from "./bundling/function/index.js";
+export {
     createWatchPackage,
     createBuildPackage,
     createBabelConfigForNode,
     createBabelConfigForReact
-} = require("./packages");
-
-module.exports = {
-    createBuildApp,
-    createWatchApp,
-
-    // Functions.
-    createBuildFunction,
-    createWatchFunction,
-    createBuildHandler,
-    createWatchHandler,
-
-    // Packages.
-    createWatchPackage,
-    createBuildPackage,
-    createBabelConfigForNode,
-    createBabelConfigForReact
-};
+} from "./packages/index.js";

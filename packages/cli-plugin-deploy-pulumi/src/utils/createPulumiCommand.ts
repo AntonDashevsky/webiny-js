@@ -37,7 +37,7 @@ export const createPulumiCommand = ({
     telemetry
 }: ICreatePulumiCommandParams) => {
     return async (params: IUserCommandInput, context: Context) => {
-        const { getProject, getProjectApplication, sendEvent } = await import("@webiny/cli/utils");
+        const { getProject, sendEvent } = await import("@webiny/cli/utils");
         // If folder not specified, that means we want to deploy the whole project (all project applications).
         // For that, we look if there are registered plugins that perform that.
         if (!params.folder) {
@@ -102,7 +102,11 @@ export const createPulumiCommand = ({
             const cwd = path.join(process.cwd(), params.folder);
 
             // Get project application metadata.
-            projectApplication = await getProjectApplication({ cwd });
+            projectApplication = project.getApplication(cwd);
+
+            if (!projectApplication) {
+                throw Error(`Project application not found at "${cwd}"!`);
+            }
 
             if (createProjectApplicationWorkspaceParam !== false) {
                 await createProjectApplicationWorkspace({
