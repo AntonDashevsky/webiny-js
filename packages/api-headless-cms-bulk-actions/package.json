@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-headless-cms-bulk-actions",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "description": "Webiny Headless CMS bulk actions",
   "keywords": [

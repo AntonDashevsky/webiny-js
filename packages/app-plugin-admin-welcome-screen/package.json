@@ -1,6 +1,7 @@
 {
   "name": "@webiny/app-plugin-admin-welcome-screen",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",

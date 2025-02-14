@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-page-builder-import-export-so-ddb",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "keywords": [
     "@webiny/api-page-builder-import-export",

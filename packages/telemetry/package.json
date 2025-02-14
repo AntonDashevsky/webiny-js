@@ -1,6 +1,7 @@
 {
   "name": "@webiny/telemetry",
   "version": "0.0.0",
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "@webiny/global-config": "0.0.0",

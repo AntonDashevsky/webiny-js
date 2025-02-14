@@ -46,7 +46,9 @@ export const createWebpackConfig = async options => {
         },
         plugins: [
             new webpack.DefinePlugin({
-                "process.env.WEBINY_VERSION": JSON.stringify(process.env.WEBINY_VERSION || packageJson.version),
+                "process.env.WEBINY_VERSION": JSON.stringify(
+                    process.env.WEBINY_VERSION || packageJson.version
+                ),
                 ...definitions
             }),
             /**

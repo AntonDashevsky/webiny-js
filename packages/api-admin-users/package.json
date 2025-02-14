@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-admin-users",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",

@@ -1,9 +1,8 @@
-const createBuildFunction = require("../../../../../createBuildFunction");
-const createWatchFunction = require("../../../../../createWatchFunction");
+import { createWatchPackage, createBuildPackage } from "@webiny/project-utils";
 
-module.exports = {
+export default {
     commands: {
-        build: createBuildFunction({ cwd: __dirname }),
-        watch: createWatchFunction({ cwd: __dirname })
+        build: createBuildPackage({ cwd: import.meta.dirname }),
+        watch: createWatchPackage({ cwd: import.meta.dirname })
     }
 };

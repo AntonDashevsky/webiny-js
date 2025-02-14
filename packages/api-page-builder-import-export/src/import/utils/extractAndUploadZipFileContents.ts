@@ -11,7 +11,7 @@ import { extractZipAndUploadToS3 } from "~/import/utils/extractZipAndUploadToS3"
 import { getFileNameWithoutExt } from "~/import/utils/getFileNameWithoutExt";
 import { ImportData } from "~/types";
 import { INSTALL_DIR } from "~/import/constants";
-import { ensureDirSync } from "fs-extra";
+import fs from "fs-extra";
 
 const streamPipeline = promisify(pipeline);
 
@@ -68,7 +68,7 @@ function extractZipToDisk(exportFileZipPath: string): Promise<string[]> {
         const uniqueFolderNameForExport = getFileNameWithoutExt(exportFileZipPath);
         const EXPORT_FILE_EXTRACTION_PATH = path.join(INSTALL_DIR, uniqueFolderNameForExport);
         // Make sure DIR exists
-        ensureDirSync(EXPORT_FILE_EXTRACTION_PATH);
+        fs.ensureDirSync(EXPORT_FILE_EXTRACTION_PATH);
 
         yauzl.open(exportFileZipPath, { lazyEntries: true }, function (err, zipFile) {
             if (err) {

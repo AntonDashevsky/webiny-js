@@ -56,9 +56,12 @@ export const watchCommand = async (inputs: IUserCommandInput, context: Context) 
         }
 
         // Get project application metadata. Will throw an error if invalid folder specified.
-        projectApplication = await getProjectApplication({
-            cwd: path.join(process.cwd(), inputs.folder)
-        });
+        const appRoot = path.join(process.cwd(), inputs.folder);
+        projectApplication = project.getApplication(appRoot);
+
+        if(!projectApplication) {
+            throw new Error(`Project application "${appRoot}" was not found!`)
+        }
 
         // If exists - read default inputs from "webiny.application.ts" file.
         inputs = merge({}, get(projectApplication, "config.cli.watch"), inputs);

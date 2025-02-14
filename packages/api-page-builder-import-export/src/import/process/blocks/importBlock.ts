@@ -1,7 +1,7 @@
 import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
-import { ensureDirSync, createWriteStream } from "fs-extra";
+import fs from "fs-extra";
 import { PbImportExportContext } from "~/graphql/types";
 import { FileUploadsData } from "~/types";
 import { PageBlock } from "@webiny/api-page-builder/types";
@@ -30,7 +30,7 @@ export async function importBlock({
 
     // Making Directory for block in which we're going to extract the block data file.
     const BLOCK_EXTRACT_DIR = path.join(INSTALL_EXTRACT_DIR, blockKey);
-    ensureDirSync(BLOCK_EXTRACT_DIR);
+    fs.ensureDirSync(BLOCK_EXTRACT_DIR);
 
     const blockDataFileKey = dotProp.get(fileUploadsData, `data`);
     const BLOCK_DATA_FILE_PATH = path.join(BLOCK_EXTRACT_DIR, path.basename(blockDataFileKey));
@@ -38,7 +38,7 @@ export async function importBlock({
     log(`Downloading Block data file: ${blockDataFileKey} at "${BLOCK_DATA_FILE_PATH}"`);
     // Download and save block data file in disk.
     const readStream = await s3Stream.readStream(blockDataFileKey);
-    const writeStream = createWriteStream(BLOCK_DATA_FILE_PATH);
+    const writeStream = fs.createWriteStream(BLOCK_DATA_FILE_PATH);
 
     await new Promise((resolve, reject) => {
         readStream.on("error", reject).pipe(writeStream).on("finish", resolve).on("error", reject);

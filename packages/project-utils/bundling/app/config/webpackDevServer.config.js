@@ -70,4 +70,4 @@ export default function ({ host, port, https, allowedHost, proxy, paths }) {
             ];
         }
     };
-};
+}

@@ -1,6 +1,7 @@
 {
   "name": "@webiny/lexical-editor-pb-element",
   "version": "0.0.0",
+  "type": "module",
   "dependencies": {
     "@emotion/styled": "11.10.6",
     "@lexical/utils": "0.23.1",

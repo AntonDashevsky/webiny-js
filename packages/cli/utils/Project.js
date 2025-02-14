@@ -86,6 +86,7 @@ export class Project {
                 });
             }, Promise.resolve({}));
         } catch (error) {
+            console.log(error);
             // Usually, this error will happen in webiny-js repository, when building repo packages.
             // It is ok to ignore this error, because it is only related to package building, not actual project runtime.
         }

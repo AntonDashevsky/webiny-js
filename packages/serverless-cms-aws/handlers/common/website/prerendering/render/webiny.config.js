@@ -1,14 +1,8 @@
-const createBuildFunction = require("../../../../createBuildFunction");
-const createWatchFunction = require("../../../../createWatchFunction");
+import { createWatchPackage, createBuildPackage } from "@webiny/project-utils";
 
-const webpack = config => {
-    config.externals.push("@sparticuz/chromium");
-    return config;
-};
-
-module.exports = {
+export default {
     commands: {
-        build: createBuildFunction({ cwd: __dirname, overrides: { webpack } }),
-        watch: createWatchFunction({ cwd: __dirname, overrides: { webpack } })
+        build: createBuildPackage({ cwd: import.meta.dirname }),
+        watch: createWatchPackage({ cwd: import.meta.dirname })
     }
 };

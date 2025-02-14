@@ -1,4 +1,4 @@
-import { ArchiverError, create as createArchiver } from "archiver";
+import archiver from "archiver";
 import {
     CompleteMultipartUploadOutput,
     createS3,
@@ -69,9 +69,9 @@ export class ZipFiles {
             leavePartsOnError: false
         });
 
-        const archive = createArchiver("zip", {});
+        const archive = archiver.create("zip", {});
 
-        archive.on("error", (error: ArchiverError) => {
+        archive.on("error", (error: archiver.ArchiverError) => {
             console.error(error);
             throw new Error(
                 `${error.name} ${error.code} ${error.message} ${error.path} ${error.stack}`

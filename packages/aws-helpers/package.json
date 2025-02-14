@@ -1,6 +1,7 @@
 {
   "name": "@webiny/aws-helpers",
   "version": "0.0.0",
+  "type": "module",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {

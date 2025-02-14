@@ -1,9 +1,9 @@
-const { globalConfig } = require("@webiny/global-config");
-const { isCI } = require("ci-info");
-const { WTS } = require("wts-client/node");
-const baseSendEvent = require("./sendEvent");
+import { globalConfig } from "@webiny/global-config";
+import { isCI } from "ci-info";
+import { WTS } from "wts-client/node.js";
+import baseSendEvent from "./sendEvent.js";
 
-const sendEvent = async ({ event, user, version, properties }) => {
+export const sendEvent = async ({ event, user, version, properties }) => {
     const shouldSend = isEnabled();
     if (!shouldSend) {
         return;
@@ -41,15 +41,15 @@ const getWcpOrgProjectId = () => {
     return [];
 };
 
-const enable = () => {
+export const enable = () => {
     globalConfig.set("telemetry", true);
 };
 
-const disable = () => {
+export const disable = () => {
     globalConfig.set("telemetry", false);
 };
 
-const isEnabled = () => {
+export const isEnabled = () => {
     const config = globalConfig.get();
 
     if (config.telemetry === false) {
@@ -59,5 +59,3 @@ const isEnabled = () => {
     // `tracking` is left here for backwards compatibility with previous versions of Webiny.
     return config.tracking !== false;
 };
-
-module.exports = { sendEvent, enable, disable, isEnabled };

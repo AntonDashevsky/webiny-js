@@ -1,7 +1,7 @@
 import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
-import { createWriteStream, ensureDirSync } from "fs-extra";
+import fs from "fs-extra";
 import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
 import { FileInput } from "@webiny/api-file-manager/types";
 import { PageSettings } from "@webiny/api-page-builder/types";
@@ -27,7 +27,7 @@ export async function importPage({
 
     // Making Directory for page in which we're going to extract the page data file.
     const PAGE_EXTRACT_DIR = path.join(INSTALL_EXTRACT_DIR, pageKey);
-    ensureDirSync(PAGE_EXTRACT_DIR);
+    fs.ensureDirSync(PAGE_EXTRACT_DIR);
 
     const pageDataFileKey = dotProp.get(fileUploadsData, `data`);
     const PAGE_DATA_FILE_PATH = path.join(PAGE_EXTRACT_DIR, path.basename(pageDataFileKey));
@@ -35,7 +35,7 @@ export async function importPage({
     log(`Downloading Page data file: ${pageDataFileKey} at "${PAGE_DATA_FILE_PATH}"`);
     // Download and save page data file in disk.
     const readStream = await s3Stream.readStream(pageDataFileKey);
-    const writeStream = createWriteStream(PAGE_DATA_FILE_PATH);
+    const writeStream = fs.createWriteStream(PAGE_DATA_FILE_PATH);
 
     await new Promise((resolve, reject) => {
         readStream.on("error", reject).pipe(writeStream).on("finish", resolve).on("error", reject);

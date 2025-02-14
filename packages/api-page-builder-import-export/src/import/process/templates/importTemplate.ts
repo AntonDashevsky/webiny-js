@@ -1,7 +1,7 @@
 import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
-import { createWriteStream, ensureDirSync } from "fs-extra";
+import fs from "fs-extra";
 import { PbImportExportContext } from "~/graphql/types";
 import { FileUploadsData } from "~/types";
 import { INSTALL_EXTRACT_DIR } from "~/import/constants";
@@ -28,7 +28,7 @@ export async function importTemplate({
 
     // Making Directory for template in which we're going to extract the template data file.
     const TEMPLATE_EXTRACT_DIR = path.join(INSTALL_EXTRACT_DIR, templateKey);
-    ensureDirSync(TEMPLATE_EXTRACT_DIR);
+    fs.ensureDirSync(TEMPLATE_EXTRACT_DIR);
 
     const templateDataFileKey = dotProp.get(fileUploadsData, `data`);
     const TEMPLATE_DATA_FILE_PATH = path.join(
@@ -39,7 +39,7 @@ export async function importTemplate({
     log(`Downloading Template data file: ${templateDataFileKey} at "${TEMPLATE_DATA_FILE_PATH}"`);
     // Download and save template data file in disk.
     const readStream = await s3Stream.readStream(templateDataFileKey);
-    const writeStream = createWriteStream(TEMPLATE_DATA_FILE_PATH);
+    const writeStream = fs.createWriteStream(TEMPLATE_DATA_FILE_PATH);
 
     await new Promise((resolve, reject) => {
         readStream.on("error", reject).pipe(writeStream).on("finish", resolve).on("error", reject);

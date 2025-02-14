@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-prerendering-service",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "keywords": [
     "package:base",

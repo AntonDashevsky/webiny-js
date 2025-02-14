@@ -1,7 +1,4 @@
 import { checkCredentials } from "./checkCredentials.js";
-import { subscriptionRequiredException } from "./subscriptionRequiredException.js"
+import { subscriptionRequiredException } from "./subscriptionRequiredException.js";
 
-export default [
-    checkCredentials,
-    subscriptionRequiredException
-];
+export default [checkCredentials, subscriptionRequiredException];

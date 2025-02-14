@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-page-builder-aco",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "keywords": [
     "api-page-builder-aco:base"

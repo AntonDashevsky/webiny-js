@@ -1,1 +1,4 @@
-module.exports = require("@webiny/project-utils").createBabelConfigForReact({ path: __dirname });
+module.exports = require("@webiny/project-utils").createBabelConfigForReact({
+    path: __dirname,
+    esm: true
+});

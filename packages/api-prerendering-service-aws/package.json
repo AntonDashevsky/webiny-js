@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-prerendering-service-aws",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",

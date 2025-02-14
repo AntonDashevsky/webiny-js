@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-form-builder-so-ddb-es",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "keywords": [
     "@webiny/api-form-builder",

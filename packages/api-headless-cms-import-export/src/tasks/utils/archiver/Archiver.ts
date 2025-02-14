@@ -1,6 +1,6 @@
 import type { IArchiver } from "./abstractions/Archiver";
 import type { Archiver as BaseArchiver, ArchiverOptions } from "archiver";
-import { create as baseCreateArchiver } from "archiver";
+import archiver from "archiver";
 
 export interface IArchiverConfig {
     format?: "zip";
@@ -11,7 +11,7 @@ export class Archiver implements IArchiver {
     public readonly archiver: BaseArchiver;
 
     public constructor(config: IArchiverConfig) {
-        this.archiver = baseCreateArchiver(config.format || "zip", config.options);
+        this.archiver = archiver.create(config.format || "zip", config.options);
     }
 }
 

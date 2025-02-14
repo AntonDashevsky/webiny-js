@@ -1,5 +1,5 @@
 import dotProp from "dot-prop-immutable";
-import { createWriteStream, ensureDirSync } from "fs-extra";
+import fs from "fs-extra";
 import path from "path";
 import loadJson from "load-json-file";
 import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
@@ -23,7 +23,7 @@ export async function importForm({
 
     // Making Directory for form in which we're going to extract the form data file.
     const FORM_EXTRACT_DIR = path.join(INSTALL_EXTRACT_DIR, formKey);
-    ensureDirSync(FORM_EXTRACT_DIR);
+    fs.ensureDirSync(FORM_EXTRACT_DIR);
 
     const formDataFileKey = dotProp.get(fileUploadsData, `data`);
     const FORM_DATA_FILE_PATH = path.join(FORM_EXTRACT_DIR, path.basename(formDataFileKey));
@@ -31,7 +31,7 @@ export async function importForm({
     log(`Downloading Form data file: ${formDataFileKey} at "${FORM_DATA_FILE_PATH}"`);
     // Download and save form data file in disk.
     const readStream = await s3Stream.readStream(formDataFileKey);
-    const writeStream = createWriteStream(FORM_DATA_FILE_PATH);
+    const writeStream = fs.createWriteStream(FORM_DATA_FILE_PATH);
 
     await new Promise((resolve, reject) => {
         readStream.on("error", reject).pipe(writeStream).on("finish", resolve).on("error", reject);

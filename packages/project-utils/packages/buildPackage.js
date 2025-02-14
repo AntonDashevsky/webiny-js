@@ -9,7 +9,7 @@ import merge from "lodash/merge.js";
 export default async options => {
     const start = new Date();
 
-    const { cwd } = options;
+    const { cwd = "" } = options;
     options.logs !== false && console.log("Deleting existing build files...");
     rimraf.sync(join(cwd, "./dist"));
     rimraf.sync(join(cwd, "*.tsbuildinfo"), { glob: true });
@@ -123,7 +123,7 @@ const withSourceMapUrl = (file, code) => {
     return [code, "", `//# sourceMappingURL=${name}.js.map`].join("\n");
 };
 
-const tsCompile = ({ cwd, overrides, debug }) => {
+const tsCompile = ({ cwd = "", overrides, debug }) => {
     return new Promise((resolve, reject) => {
         let { config: readTsConfig } = ts.readConfigFile(
             join(cwd, "tsconfig.build.json"),

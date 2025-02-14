@@ -27,5 +27,4 @@ import { requireConfigWithExecute } from "~/utils/index.js";
             )} command is missing. Check package's ${cli.warning.hl("webiny.config.ts")} file.`
         );
     }
-
-})()
+})();

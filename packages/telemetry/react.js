@@ -1,7 +1,7 @@
-const baseSendEvent = require("./sendEvent");
-const { WTS } = require("wts-client/admin");
+import baseSendEvent from "./sendEvent.js";
+import { WTS } from "wts-client/admin.js";
 
-const sendEvent = async (event, properties = {}) => {
+export const sendEvent = async (event, properties = {}) => {
     const shouldSend = process.env.REACT_APP_WEBINY_TELEMETRY !== "false";
     if (!shouldSend) {
         return;
@@ -38,5 +38,3 @@ const getWcpOrgProjectId = () => {
     }
     return [];
 };
-
-module.exports = { sendEvent };

@@ -8,11 +8,8 @@ export {
     ListObjectsV2Command,
     ListPartsCommand,
     ObjectCannedACL,
-    Part,
     DeleteObjectCommand,
     PutObjectCommand,
-    PutObjectCommandInput,
-    PutObjectRequest,
     UploadPartCommand,
     AbortMultipartUploadCommand,
     CompleteMultipartUploadCommand,
@@ -22,6 +19,9 @@ export {
 } from "@aws-sdk/client-s3";
 
 export type {
+    Part,
+    PutObjectCommandInput,
+    PutObjectRequest,
     CompleteMultipartUploadCommandOutput,
     AbortMultipartUploadCommandOutput,
     CompleteMultipartUploadOutput,
@@ -39,7 +39,7 @@ export type {
 } from "@aws-sdk/client-s3";
 
 export { createPresignedPost } from "@aws-sdk/s3-presigned-post";
-export { PresignedPost, PresignedPostOptions } from "@aws-sdk/s3-presigned-post";
+export type { PresignedPost, PresignedPostOptions } from "@aws-sdk/s3-presigned-post";
 
 export { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 

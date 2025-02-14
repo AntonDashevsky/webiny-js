@@ -111,7 +111,7 @@ const updateLastActiveOnHookHandler = async () => {
 };
 
 // Export hooks plugins for deploy and watch commands.
-export default  () => [
+export default () => [
     // Deploy hook handlers.
     {
         type: "hook-before-deploy",

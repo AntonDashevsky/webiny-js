@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { create as createArchiver } from "archiver";
+import archiver from "archiver";
 
 export default async (destination = "./pageBuilderInstallation.zip"): Promise<void> => {
     if (fs.existsSync(destination)) {
@@ -13,7 +13,7 @@ export default async (destination = "./pageBuilderInstallation.zip"): Promise<vo
     }
 
     const source = path.join(__dirname, "files");
-    const archive = createArchiver("zip", {
+    const archive = archiver.create("zip", {
         zlib: {
             level: 9
         }

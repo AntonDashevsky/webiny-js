@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-headless-cms-es-tasks",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "description": "Elasticsearch Background tasks for Webiny Headless CMS",
   "keywords": [

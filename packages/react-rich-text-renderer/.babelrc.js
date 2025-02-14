@@ -1,8 +1,4 @@
-const defaults = require("@webiny/project-utils").createBabelConfigForReact({
-    path: __dirname
+module.exports = require("@webiny/project-utils").createBabelConfigForReact({
+    path: __dirname,
+    esm: true
 });
-
-module.exports = {
-    ...defaults,
-    plugins: [...defaults.plugins, "@babel/plugin-transform-modules-commonjs"]
-};

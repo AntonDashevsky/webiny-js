@@ -1,7 +1,7 @@
 import open from "open";
 import inquirer from "inquirer";
 import chalk from "chalk";
-import { getUser, setProjectId, /*WCP_APP_URL*/ } from "./utils/index.js";
+import { getUser, setProjectId /*WCP_APP_URL*/ } from "./utils/index.js";
 import { sleep } from "../../utils/index.js";
 
 export const command = () => [

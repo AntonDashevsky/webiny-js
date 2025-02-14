@@ -22,7 +22,10 @@ export const createProjectApplicationWorkspace: ICreateProjectApplicationWorkspa
         await utils.createProjectApplicationWorkspace(projectApplication);
 
         // Copy Pulumi-related files.
-        await ncp(path.join(import.meta.dirname, "workspaceTemplate"), projectApplication.paths.workspace);
+        await ncp(
+            path.join(import.meta.dirname, "workspaceTemplate"),
+            projectApplication.paths.workspace
+        );
 
         // Wait a bit and make sure the files are ready to have its content replaced.
         await new Promise(resolve => setTimeout(resolve, 10));

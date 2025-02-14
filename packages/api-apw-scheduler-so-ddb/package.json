@@ -1,6 +1,7 @@
 {
   "name": "@webiny/api-apw-scheduler-so-ddb",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "keywords": [
     "@webiny/api-apw",

@@ -1,10 +1,10 @@
-const stripAnsi = require("strip-ansi");
-const jsesc = require("jsesc");
+import stripAnsi from "strip-ansi";
+import jsesc from "jsesc";
 /**
  * The main `sendEvent` function.
  * NOTE: don't use this in your app directly. Instead, use the one from `cli.js` or `react.js` files accordingly.
  */
-module.exports = ({ event, user, properties, wts } = {}) => {
+export default ({ event, user, properties, wts } = {}) => {
     // 1. Check for existence of required base parameters.
     if (!event) {
         throw new Error(`Cannot send event - missing "event" name.`);

@@ -43,4 +43,3 @@ export const getOutput = options => {
 export const getEntry = ({ cwd, overrides }) => {
     return overrides.entry || path.join(cwd, "src/index");
 };
-
