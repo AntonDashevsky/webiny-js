@@ -12,3 +12,5 @@ const SidebarMenu = React.forwardRef<HTMLUListElement, React.ComponentProps<"ul"
     )
 );
 SidebarMenu.displayName = "SidebarMenu";
+
+export { SidebarMenu };

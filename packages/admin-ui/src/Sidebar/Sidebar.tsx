@@ -7,6 +7,7 @@ import { SidebarSeparator } from "./components/SidebarSeparator";
 import { SidebarMenuItem } from "./components/SidebarMenuItem";
 import { SidebarGroup } from "./components/SidebarGroup";
 import { SidebarProvider } from "./components/SidebarProvider";
+import { SidebarMenu } from "./components/SidebarMenu";
 
 interface SidebarProps
     extends React.ComponentPropsWithoutRef<typeof SidebarRoot>,
@@ -62,7 +63,9 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
                 <SidebarRoot {...rootProps}>
                     {triggerProps.children && <SidebarTrigger {...triggerProps} asChild />}
                     <SidebarContent {...contentProps} ref={ref}>
+                        <SidebarMenu>
                         {props.children}
+                        </SidebarMenu>
                     </SidebarContent>
                 </SidebarRoot>
             </SidebarProvider>
