@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "@webiny-scripts/cjs-to-esm",
+  "version": "0.0.0",
+  "sideEffects": false,
+  "bin": "./src/bin.js",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "glob": "^11.0.0",
+    "ts-morph": "^24.0.0"
+  }
+}
