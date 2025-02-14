@@ -15,6 +15,7 @@ import getClientEnvironment from "./env.js";
 import ESLintPlugin from "eslint-webpack-plugin";
 import ModuleNotFoundPlugin from "react-dev-utils/ModuleNotFoundPlugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import WebpackBar from "webpackbar";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { getProjectApplication } from "@webiny/cli/utils";
 
@@ -59,7 +60,6 @@ const sassLoader = {
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 export default async function (webpackEnv, { paths, options }) {
-    console.log("webpackEnv", webpackEnv);
     const projectApplication = await getProjectApplication({ cwd: options.cwd });
 
     const isEnvDevelopment = webpackEnv === "development";
@@ -525,14 +525,15 @@ export default async function (webpackEnv, { paths, options }) {
             }),
 
             // TypeScript type checking
-            // useTypeScript &&
-            //     new ForkTsCheckerWebpackPlugin({
-            //         typescript: {
-            //             configFile: paths.appTsConfig,
-            //             typescriptPath: resolve("typescript")
-            //         },
-            //         async: isEnvDevelopment
-            //     }),
+            useTypeScript &&
+                new ForkTsCheckerWebpackPlugin({
+                    typescript: {
+                        configFile: paths.appTsConfig,
+                        typescriptPath: resolve("typescript")
+                    },
+                    async: isEnvDevelopment
+                }),
+            new WebpackBar({ name: path.basename(paths.appPath) })
         ].filter(Boolean),
 
         // Turn off performance processing because we utilize

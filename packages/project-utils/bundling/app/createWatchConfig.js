@@ -76,7 +76,7 @@ export const createWatchConfig = async options => {
         process.exit(1);
     }
 
-    let buildConfig = configFactory("development", { paths, options });
+    let buildConfig = await configFactory("development", { paths, options });
 
     if (typeof overrides.webpack === "function") {
         buildConfig = overrides.webpack(buildConfig);
