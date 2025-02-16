@@ -6,6 +6,68 @@
   "main": "index.js",
   "license": "MIT",
   "author": "Webiny Ltd.",
+  "exports": {
+    "./client-apigatewaymanagementapi": {
+      "import": "./client-apigatewaymanagementapi/index.js",
+      "types": "./client-apigatewaymanagementapi/index.d.ts"
+    },
+    "./client-cloudfront": {
+      "import": "./client-cloudfront/index.js",
+      "types": "./client-cloudfront/index.d.ts"
+    },
+    "./client-cloudwatch": {
+      "import": "./client-cloudwatch/index.js",
+      "types": "./client-cloudwatch/index.d.ts"
+    },
+    "./client-cognito-identity-provider": {
+      "import": "./client-cognito-identity-provider/index.js",
+      "types": "./client-cognito-identity-provider/index.d.ts"
+    },
+    "./client-dynamodb": {
+      "import": "./client-dynamodb/index.js",
+      "types": "./client-dynamodb/index.d.ts"
+    },
+    "./client-eventbridge": {
+      "import": "./client-eventbridge/index.js",
+      "types": "./client-eventbridge/index.d.ts"
+    },
+    "./client-iam": {
+      "import": "./client-iam/index.js",
+      "types": "./client-iam/index.d.ts"
+    },
+    "./client-iot": {
+      "import": "./client-iot/index.js",
+      "types": "./client-iot/index.d.ts"
+    },
+    "./client-lambda": {
+      "import": "./client-lambda/index.js",
+      "types": "./client-lambda/index.d.ts"
+    },
+    "./client-s3": {
+      "import": "./client-s3/index.js",
+      "types": "./client-s3/index.d.ts"
+    },
+    "./client-sfn": {
+      "import": "./client-sfn/index.js",
+      "types": "./client-sfn/index.d.ts"
+    },
+    "./client-sqs": {
+      "import": "./client-sqs/index.js",
+      "types": "./client-sqs/index.d.ts"
+    },
+    "./client-sts": {
+      "import": "./client-sts/index.js",
+      "types": "./client-sts/index.d.ts"
+    },
+    "./credential-providers": {
+      "import": "./credential-providers/index.js",
+      "types": "./credential-providers/index.d.ts"
+    },
+    "./lib-storage": {
+      "import": "./lib-storage/index.js",
+      "types": "./lib-storage/index.d.ts"
+    }
+  },
   "dependencies": {
     "@aws-sdk/client-apigatewaymanagementapi": "3.734.0",
     "@aws-sdk/client-cloudfront": "3.734.0",
