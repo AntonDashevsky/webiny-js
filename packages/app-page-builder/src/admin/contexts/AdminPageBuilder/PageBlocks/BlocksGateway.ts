@@ -15,14 +15,14 @@ import {
     UPDATE_PAGE_BLOCK,
     UpdatePageBlockMutationResponse,
     UpdatePageBlockMutationVariables
-} from "~/admin/views/PageBlocks/graphql";
-import { PbPageBlock } from "~/types";
+} from "~/admin/views/PageBlocks/graphql.js";
+import { PbPageBlock } from "~/types.js";
 import {
     BlockGatewayInterface,
     CreatePageBlockInput,
     UpdatePageBlockInput
-} from "./BlockGatewayInterface";
-import { decompress } from "~/admin/components/useDecompress";
+} from "./BlockGatewayInterface.js";
+import { decompress } from "~/admin/components/useDecompress.js";
 
 export class BlocksGateway implements BlockGatewayInterface {
     private client: ApolloClient<any>;

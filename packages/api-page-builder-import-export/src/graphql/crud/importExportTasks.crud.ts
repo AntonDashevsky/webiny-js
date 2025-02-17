@@ -7,11 +7,11 @@ import {
     ImportExportTask,
     ImportExportTaskStatus,
     ImportExportTaskStorageOperationsListSubTaskParams
-} from "~/types";
-import { PbImportExportContext } from "~/graphql/types";
+} from "~/types.js";
+import { PbImportExportContext } from "~/graphql/types.js";
 import WebinyError from "@webiny/error";
-import { PageElementStorageOperationsListParams } from "@webiny/api-page-builder/types";
-import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions";
+import { PageElementStorageOperationsListParams } from "@webiny/api-page-builder/types.js";
+import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions.js";
 
 const dataModelStats = zod
     .object({

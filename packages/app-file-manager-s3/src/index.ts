@@ -1,6 +1,6 @@
-import { FileUploaderPlugin, UploadOptions } from "@webiny/app/types";
-import { SimpleUploadStrategy } from "~/SimpleUploadStrategy";
-import { MultiPartUploadStrategy } from "~/MultiPartUploadStrategy";
+import { FileUploaderPlugin, UploadOptions } from "@webiny/app/types.js";
+import { SimpleUploadStrategy } from "~/SimpleUploadStrategy.js";
+import { MultiPartUploadStrategy } from "~/MultiPartUploadStrategy.js";
 
 export interface FileUploadStrategy {
     upload: FileUploaderPlugin["upload"];

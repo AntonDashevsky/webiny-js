@@ -1,1 +1,1 @@
-export { ModelIsBeingDeletedError } from "./ModelIsBeingDeletedError";
+export { ModelIsBeingDeletedError } from "./ModelIsBeingDeletedError.js";

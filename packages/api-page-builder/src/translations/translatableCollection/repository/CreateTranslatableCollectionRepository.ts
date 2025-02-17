@@ -1,8 +1,8 @@
-import { PbContext } from "~/types";
-import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection";
-import { GetModel } from "~/translations/GetModel";
-import { TranslatableCollectionMapper } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionMapper";
-import { TranslatableCollectionDTO } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionDTO";
+import { PbContext } from "~/types.js";
+import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
+import { GetModel } from "~/translations/GetModel.js";
+import { TranslatableCollectionMapper } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionMapper.js";
+import { TranslatableCollectionDTO } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionDTO.js";
 
 export class CreateTranslatableCollectionRepository {
     private readonly context: PbContext;

@@ -1,5 +1,5 @@
-import { getAuditObject } from "~/utils/getAuditObject";
-import { App } from "~/types";
+import { getAuditObject } from "~/utils/getAuditObject.js";
+import { App } from "~/types.js";
 
 export enum ActionType {
     CREATE = "CREATE",

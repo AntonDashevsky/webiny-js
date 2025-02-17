@@ -7,12 +7,12 @@ import React, { useCallback, useEffect, ReactElement, useState } from "react";
 import gql from "graphql-tag";
 import { css } from "emotion";
 import { useQuery } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { Typography } from "@webiny/ui/Typography";
-import { useEventActionHandler } from "../hooks/useEventActionHandler";
-import { UpdateElementActionEvent } from "../recoil/actions";
-import { PbEditorElement } from "~/types";
-import useRenderEmptyEmbed from "../plugins/elements/utils/oembed/useRenderEmptyEmbed";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useEventActionHandler } from "../hooks/useEventActionHandler.js";
+import { UpdateElementActionEvent } from "../recoil/actions/index.js";
+import { PbEditorElement } from "~/types.js";
+import useRenderEmptyEmbed from "../plugins/elements/utils/oembed/useRenderEmptyEmbed.js";
 
 function appendSDK(props: OEmbedProps) {
     const { sdk, global, element } = props;

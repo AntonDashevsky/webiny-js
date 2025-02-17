@@ -5,7 +5,7 @@ import {
     ElementNode,
     LexicalNode
 } from "lexical";
-import { $createLinkNode, $isLinkNode, LinkAttributes, LinkNode } from "~/LinkNode";
+import { $createLinkNode, $isLinkNode, LinkAttributes, LinkNode } from "~/LinkNode.js";
 
 /**
  * Generates or updates a LinkNode. It can also delete a LinkNode if the URL is null,

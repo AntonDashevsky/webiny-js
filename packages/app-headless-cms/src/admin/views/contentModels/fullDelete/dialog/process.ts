@@ -3,9 +3,9 @@ import type {
     IDeleteCmsModelTask,
     IFullyDeleteCmsModelMutationResponse,
     IFullyDeleteCmsModelMutationVariables
-} from "~/admin/viewsGraphql";
-import { FULLY_DELETE_CONTENT_MODEL } from "~/admin/viewsGraphql";
-import type { CmsErrorResponse, CmsModel } from "~/types";
+} from "~/admin/viewsGraphql.js";
+import { FULLY_DELETE_CONTENT_MODEL } from "~/admin/viewsGraphql.js";
+import type { CmsErrorResponse, CmsModel } from "~/types.js";
 import type { DataProxy } from "apollo-cache";
 
 export interface ICreateProcessParams {

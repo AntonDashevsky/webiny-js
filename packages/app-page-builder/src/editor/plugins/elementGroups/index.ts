@@ -1,11 +1,11 @@
-import basicGroup from "./basic";
-import layoutGroup from "./layout";
-import mediaGroup from "./media";
-import embedsGroup from "./embeds";
-import formGroup from "./form";
-import socialGroup from "./social";
-import codeGroup from "./code";
-import savedGroup from "./saved";
+import basicGroup from "./basic/index.js";
+import layoutGroup from "./layout/index.js";
+import mediaGroup from "./media/index.js";
+import embedsGroup from "./embeds/index.js";
+import formGroup from "./form/index.js";
+import socialGroup from "./social/index.js";
+import codeGroup from "./code/index.js";
+import savedGroup from "./saved/index.js";
 
 export default [
     basicGroup,

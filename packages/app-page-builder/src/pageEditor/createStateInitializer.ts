@@ -1,13 +1,13 @@
-import omit from "lodash/omit";
+import omit from "lodash/omit.js";
 import {
     pageAtom,
     PageAtomType,
     PageWithContent,
     revisionsAtom,
     RevisionsAtomType
-} from "~/pageEditor/state";
-import { EditorStateInitializerFactory } from "~/editor/Editor";
-import { templateModeAtom } from "./hooks/useTemplateMode";
+} from "~/pageEditor/state/index.js";
+import { EditorStateInitializerFactory } from "~/editor/Editor.js";
+import { templateModeAtom } from "./hooks/useTemplateMode.js";
 
 export const createStateInitializer = (
     page: PageWithContent,

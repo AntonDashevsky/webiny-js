@@ -1,5 +1,5 @@
 import type { CreateReactPulumiAppParams } from "@webiny/pulumi-aws";
-import type { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types.js";
 
 export interface CreateReactAppParams extends CreateReactPulumiAppParams {
     plugins?: PluginCollection;

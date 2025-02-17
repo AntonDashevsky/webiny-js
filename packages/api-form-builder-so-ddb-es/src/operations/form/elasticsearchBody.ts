@@ -6,12 +6,12 @@ import {
     getElasticsearchOperatorPluginsByLocale,
     isSharedElasticsearchIndex
 } from "@webiny/api-elasticsearch";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { FormElasticsearchFieldPlugin } from "~/plugins/FormElasticsearchFieldPlugin";
-import { FormElasticsearchSortModifierPlugin } from "~/plugins/FormElasticsearchSortModifierPlugin";
-import { FormElasticsearchBodyModifierPlugin } from "~/plugins/FormElasticsearchBodyModifierPlugin";
-import { FormBuilderStorageOperationsListFormsParams } from "@webiny/api-form-builder/types";
-import { FormElasticsearchQueryModifierPlugin } from "~/plugins/FormElasticsearchQueryModifierPlugin";
+import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import { FormElasticsearchFieldPlugin } from "~/plugins/FormElasticsearchFieldPlugin.js";
+import { FormElasticsearchSortModifierPlugin } from "~/plugins/FormElasticsearchSortModifierPlugin.js";
+import { FormElasticsearchBodyModifierPlugin } from "~/plugins/FormElasticsearchBodyModifierPlugin.js";
+import { FormBuilderStorageOperationsListFormsParams } from "@webiny/api-form-builder/types.js";
+import { FormElasticsearchQueryModifierPlugin } from "~/plugins/FormElasticsearchQueryModifierPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 export const createFormElasticType = (): string => {

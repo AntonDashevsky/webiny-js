@@ -1,11 +1,11 @@
 import React from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { IconButton } from "@webiny/ui/Button";
-import { PbEditorPageElementSettingsRenderComponentProps } from "../../../../types";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { PbEditorPageElementSettingsRenderComponentProps } from "../../../../types.js";
 // Components
-import { ContentWrapper } from "../components/StyledComponents";
+import { ContentWrapper } from "../components/StyledComponents.js";
 // Icons
 import { ReactComponent as AlignTextLeftIcon } from "../align/icons/format_align_left.svg";
 import { ReactComponent as AlignTextCenterIcon } from "../align/icons/format_align_center.svg";

@@ -1,4 +1,4 @@
-import { FormSubmissionDynamoDbFieldPlugin } from "~/plugins/FormSubmissionDynamoDbFieldPlugin";
+import { FormSubmissionDynamoDbFieldPlugin } from "~/plugins/FormSubmissionDynamoDbFieldPlugin.js";
 
 export default () => [
     new FormSubmissionDynamoDbFieldPlugin({

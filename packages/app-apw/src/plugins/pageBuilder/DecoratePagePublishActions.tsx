@@ -1,15 +1,15 @@
 import React from "react";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { useNavigate } from "@webiny/react-router";
-import { ButtonIcon, ButtonPrimary, IconButton } from "@webiny/ui/Button";
-import { MenuItem } from "@webiny/ui/Menu";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
-import { i18n } from "@webiny/app/i18n";
+import { ButtonIcon, ButtonPrimary, IconButton } from "@webiny/ui/Button/index.js";
+import { MenuItem } from "@webiny/ui/Menu/index.js";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Components } from "@webiny/app-page-builder";
 import { ReactComponent as AddTaskIcon } from "~/assets/icons/add_task.svg";
-import { useContentReviewId } from "./useContentReviewId";
-import { routePaths } from "~/utils";
+import { useContentReviewId } from "./useContentReviewId.js";
+import { routePaths } from "~/utils.js";
 
 const t = i18n.ns("app-apw/page-builder/publish-page");
 

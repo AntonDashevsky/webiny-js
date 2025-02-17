@@ -1,4 +1,4 @@
-import { FbFormStep, MoveStepParams } from "~/types";
+import { FbFormStep, MoveStepParams } from "~/types.js";
 
 interface MoveStep extends MoveStepParams {
     data: FbFormStep[];

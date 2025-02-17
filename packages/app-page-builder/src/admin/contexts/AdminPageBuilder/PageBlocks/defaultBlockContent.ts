@@ -1,4 +1,4 @@
-import { addElementId } from "~/editor/helpers";
+import { addElementId } from "~/editor/helpers.js";
 
 export const getDefaultBlockContent = () => {
     return addElementId({

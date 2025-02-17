@@ -1,1 +1,1 @@
-export { default as withTopProgressBar } from "./withTopProgressBar";
+export { default as withTopProgressBar } from "./withTopProgressBar.js";

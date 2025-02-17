@@ -1,5 +1,5 @@
 import React, { ComponentProps } from "react";
-import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button";
+import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button.js";
 import { Link } from "@webiny/react-router";
 
 const LinkComponent: ComponentProps<typeof ButtonRenderer>["linkComponent"] = ({

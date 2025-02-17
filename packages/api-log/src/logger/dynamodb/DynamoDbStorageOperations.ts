@@ -1,4 +1,4 @@
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import {
     ILoggerCrudDeleteLogParams,
     ILoggerCrudDeleteLogsParams,
@@ -10,8 +10,8 @@ import {
     ILoggerStorageOperations,
     ILoggerStorageOperationsInsertParams,
     LogType
-} from "~/types";
-import { DynamoDbLoggerKeys } from "./DynamoDbLoggerKeys";
+} from "~/types.js";
+import { DynamoDbLoggerKeys } from "./DynamoDbLoggerKeys.js";
 import {
     batchReadAll,
     batchWriteAll,
@@ -19,9 +19,9 @@ import {
     getClean,
     queryPerPageClean
 } from "@webiny/db-dynamodb";
-import { GenericRecord } from "@webiny/api/types";
-import { compress, decompress } from "@webiny/utils/compression/gzip";
-import { convertAfterToStartKey, convertLastEvaluatedKeyToAfterKey } from "./convertKeys";
+import { GenericRecord } from "@webiny/api/types.js";
+import { compress, decompress } from "@webiny/utils/compression/gzip.js";
+import { convertAfterToStartKey, convertLastEvaluatedKeyToAfterKey } from "./convertKeys.js";
 
 const TO_STORAGE_ENCODING = "base64";
 const FROM_STORAGE_ENCODING = "utf8";

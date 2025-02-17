@@ -1,6 +1,6 @@
 import React from "react";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as PublishIcon } from "../../../../icons/publish.svg";
 import { ReactComponent as UnpublishIcon } from "../../../../icons/unpublish.svg";
 import {
@@ -10,12 +10,12 @@ import {
     UNPUBLISH_REVISION,
     UnpublishRevisionMutationResponse,
     UnpublishRevisionMutationVariable
-} from "~/admin/graphql";
-import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
+} from "~/admin/graphql.js";
+import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
 import { useApolloClient } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { FbRevisionModel } from "~/types";
-import { usePermission } from "~/hooks/usePermission";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { FbRevisionModel } from "~/types.js";
+import { usePermission } from "~/hooks/usePermission.js";
 
 interface PublishRevisionProps {
     revision: FbRevisionModel;

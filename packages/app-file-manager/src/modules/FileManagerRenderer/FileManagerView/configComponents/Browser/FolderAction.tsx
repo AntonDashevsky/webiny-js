@@ -1,10 +1,10 @@
 import React from "react";
 import { CompositionScope } from "@webiny/react-composition";
-import { AcoConfig, FolderActionConfig } from "@webiny/app-aco";
+import { AcoConfig, type FolderActionConfig } from "@webiny/app-aco";
 
 const { Folder } = AcoConfig;
 
-export { FolderActionConfig };
+export type { FolderActionConfig };
 
 type FolderActionProps = React.ComponentProps<typeof AcoConfig.Folder.Action>;
 

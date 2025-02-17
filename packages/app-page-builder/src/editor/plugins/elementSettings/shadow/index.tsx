@@ -1,6 +1,6 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
-import ShadowSettings from "./ShadowSettings";
+import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
+import ShadowSettings from "./ShadowSettings.js";
 
 export default {
     name: "pb-editor-page-element-style-settings-shadow",

@@ -1,1 +1,1 @@
-export * from "./QueryBuilderDrawer";
+export * from "./QueryBuilderDrawer.js";

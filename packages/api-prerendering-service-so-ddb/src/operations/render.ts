@@ -11,8 +11,8 @@ import type {
     Render,
     Tag,
     TagPathLink
-} from "@webiny/api-prerendering-service/types";
-import type { Entity, EntityQueryOptions } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-prerendering-service/types.js";
+import type { Entity, EntityQueryOptions } from "@webiny/db-dynamodb/toolbox.js";
 import {
     batchReadAll,
     cleanupItem,
@@ -25,7 +25,7 @@ import {
     queryAllClean
 } from "@webiny/db-dynamodb";
 import type { QueryAllParams } from "@webiny/db-dynamodb";
-import type { DataContainer } from "~/types";
+import type { DataContainer } from "~/types.js";
 
 export interface CreateRenderStorageOperationsParams {
     entity: Entity;

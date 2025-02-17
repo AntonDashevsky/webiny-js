@@ -1,5 +1,5 @@
-import { IGetPreviousRevisionByEntryId } from "../../abstractions";
-import { CmsEntryStorageOperationsGetPreviousRevisionParams, CmsModel } from "~/types";
+import { IGetPreviousRevisionByEntryId } from "../../abstractions/index.js";
+import { CmsEntryStorageOperationsGetPreviousRevisionParams, CmsModel } from "~/types/index.js";
 
 export class GetPreviousRevisionByEntryIdNotDeleted implements IGetPreviousRevisionByEntryId {
     private getPreviousRevisionByEntryId: IGetPreviousRevisionByEntryId;

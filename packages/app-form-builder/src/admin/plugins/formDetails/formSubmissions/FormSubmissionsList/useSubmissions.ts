@@ -1,15 +1,15 @@
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useCallback, useReducer } from "react";
-import debounce from "lodash/debounce";
-import get from "lodash/get";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { FbFormModel } from "~/types";
+import debounce from "lodash/debounce.js";
+import get from "lodash/get.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { FbFormModel } from "~/types.js";
 import {
     ExportFormSubmissionsMutationResponse,
     ExportFormSubmissionsMutationVariables,
     EXPORT_FORM_SUBMISSIONS,
     LIST_FORM_SUBMISSIONS
-} from "~/admin/graphql";
+} from "~/admin/graphql.js";
 
 interface State {
     loading: boolean;

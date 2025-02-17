@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { CompositionScope, createGenericContext } from "@webiny/app-admin";
 import { ContentEntryEditorConfig, ContentEntryListConfig } from "@webiny/app-headless-cms";
 import { Prompt } from "@webiny/react-router";
-import { ContentEntryGuard } from "./ContentEntryGuard";
-import { ContentEntryLocker } from "./ContentEntryLocker";
+import { ContentEntryGuard } from "./ContentEntryGuard.js";
+import { ContentEntryLocker } from "./ContentEntryLocker.js";
 
 const { ContentEntry, SingletonContentEntry } = ContentEntryEditorConfig;
 

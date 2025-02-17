@@ -1,4 +1,4 @@
-import { ValueFilterPlugin } from "../definitions/ValueFilterPlugin";
+import { ValueFilterPlugin } from "../definitions/ValueFilterPlugin.js";
 
 const createValues = (initialValue: string | string[]) => {
     const values = Array.isArray(initialValue) ? initialValue : [initialValue];

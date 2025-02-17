@@ -1,6 +1,6 @@
 import React from "react";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
-import { PageListConfig } from "~/admin/config/pages";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
+import { PageListConfig } from "~/admin/config/pages/index.js";
 
 export const CellCreated = () => {
     const { useTableRow } = PageListConfig.Browser.Table.Column;

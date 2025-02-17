@@ -1,1 +1,1 @@
-export * from "./I18NContext";
+export * from "./I18NContext.js";

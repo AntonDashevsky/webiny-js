@@ -21,15 +21,15 @@ import {
     OnFormRevisionAfterDeleteTopicParams,
     OnFormRevisionBeforeCreateTopicParams,
     OnFormRevisionBeforeDeleteTopicParams
-} from "~/types";
+} from "~/types.js";
 import WebinyError from "@webiny/error";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
 import { createIdentifier, createZodError, mdbid } from "@webiny/utils";
 import { createTopic } from "@webiny/pubsub";
-import { getStatus } from "./utils";
-import { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions";
-import { FormCreateDataModel, FormSettingsModel, FormUpdateDataModel } from "./forms.models";
+import { getStatus } from "./utils/index.js";
+import { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions.js";
+import { FormCreateDataModel, FormSettingsModel, FormUpdateDataModel } from "./forms.models.js";
 
 export interface CreateFormsCrudParams {
     getTenant: () => Tenant;

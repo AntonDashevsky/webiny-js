@@ -1,2 +1,2 @@
-export * from "./abstractions/IWebsocketsResponse";
-export * from "./WebsocketsResponse";
+export * from "./abstractions/IWebsocketsResponse.js";
+export * from "./WebsocketsResponse.js";

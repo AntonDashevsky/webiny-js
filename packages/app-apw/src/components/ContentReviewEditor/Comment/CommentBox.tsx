@@ -4,17 +4,17 @@ import { css, cx } from "emotion";
 import dotPropImmutable from "dot-prop-immutable";
 import { validation } from "@webiny/validation";
 import { Form } from "@webiny/form";
-import { RichTextEditor } from "@webiny/app-admin/components/RichTextEditor";
-import { IconButton as UiIconButton } from "@webiny/ui/Button";
+import { RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/index.js";
+import { IconButton as UiIconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as AttachFileIcon } from "~/assets/icons/attach_file_24dp.svg";
 import { ReactComponent as SendIcon } from "~/assets/icons/send_24dp.svg";
-import { useComment } from "~/hooks/useComment";
-import { useCurrentChangeRequestId } from "~/hooks/useCurrentChangeRequestId";
-import { Box, Columns } from "~/components/Layout";
+import { useComment } from "~/hooks/useComment.js";
+import { useCurrentChangeRequestId } from "~/hooks/useCurrentChangeRequestId.js";
+import { Box, Columns } from "~/components/Layout.js";
 import Spinner from "react-spinner-material";
-import { FileManager } from "@webiny/app-admin/components";
-import { richTextWrapperStyles } from "../Styled";
-import { ApwComment } from "~/types";
+import { FileManager } from "@webiny/app-admin/components/index.js";
+import { richTextWrapperStyles } from "../Styled.js";
+import { ApwComment } from "~/types.js";
 
 const richTextStyles = css`
     /**

@@ -1,10 +1,10 @@
-import interfaces from "./interfaces.gql";
-import base from "./base.gql";
-import apiKey from "./apiKey.gql";
-import group from "./group.gql";
-import team from "./team.gql";
-import install from "./install.gql";
-import identity from "./identity.gql";
+import interfaces from "./interfaces.gql.js";
+import base from "./base.gql.js";
+import apiKey from "./apiKey.gql.js";
+import group from "./group.gql.js";
+import team from "./team.gql.js";
+import install from "./install.gql.js";
+import identity from "./identity.gql.js";
 
 export interface CreateGraphQlPluginsParams {
     teams?: boolean;

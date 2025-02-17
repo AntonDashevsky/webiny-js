@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import pick from "lodash/pick";
+import pick from "lodash/pick.js";
 import WebinyError from "@webiny/error";
 import {
     FbForm,
@@ -18,18 +18,18 @@ import {
     OnFormSubmissionsAfterExport,
     OnFormSubmissionsBeforeExport,
     SubmissionsCRUD
-} from "~/types";
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { createTopic } from "@webiny/pubsub";
-import { sanitizeFormSubmissionData } from "~/plugins/crud/utils/sanitizeFormSubmissionData";
+import { sanitizeFormSubmissionData } from "~/plugins/crud/utils/sanitizeFormSubmissionData.js";
 import { createZodError, mdbid } from "@webiny/utils";
-import { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions";
-import { isRecaptchaEnabled } from "~/plugins/crud/utils/isRecaptchaEnabled";
+import { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions.js";
+import { isRecaptchaEnabled } from "~/plugins/crud/utils/isRecaptchaEnabled.js";
 import {
     FormSubmissionCreateDataModel,
     FormSubmissionUpdateDataModel
-} from "~/plugins/crud/forms.models";
+} from "~/plugins/crud/forms.models.js";
 
 interface CreateSubmissionsCrudParams {
     context: FormBuilderContext;

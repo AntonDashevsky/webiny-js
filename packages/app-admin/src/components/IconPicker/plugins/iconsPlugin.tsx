@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import styled from "@emotion/styled";
 
-import { ColorPicker } from "@webiny/ui/ColorPicker";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
+import { ColorPicker } from "@webiny/ui/ColorPicker/index.js";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
 
-import { useIcon } from "..";
-import { IconPickerTab } from "../IconPickerTab";
-import { useIconPicker } from "../IconPickerPresenterProvider";
-import { IconPickerConfig } from "../config";
-import { Icon } from "../types";
+import { useIcon } from "../index.js";
+import { IconPickerTab } from "../IconPickerTab.js";
+import { useIconPicker } from "../IconPickerPresenterProvider.js";
+import { IconPickerConfig } from "../config/index.js";
+import { Icon } from "../types.js";
 
 const StyledColorPicker = styled.div`
     [data-role="color-picker-swatch"] {

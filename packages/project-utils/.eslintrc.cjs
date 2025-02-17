@@ -1,5 +1,5 @@
-export default {
-    extends: ["../../.eslintrc.js"],
+module.exports = {
+    extends: ["../../.eslintrc.cjs"],
     rules: {
         "import/dynamic-import-chunkname": 0
     }

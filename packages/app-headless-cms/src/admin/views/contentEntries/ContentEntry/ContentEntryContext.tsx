@@ -1,22 +1,22 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "@webiny/react-router";
 import { useIsMounted, useSnackbar } from "@webiny/app-admin";
-import { useCms, useQuery } from "~/admin/hooks";
-import { ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext";
-import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries";
-import { CmsContentEntry, CmsContentEntryRevision } from "~/types";
+import { useCms, useQuery } from "~/admin/hooks/index.js";
+import { ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext.js";
+import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries.js";
+import { CmsContentEntry, CmsContentEntryRevision } from "~/types.js";
 import { parseIdentifier } from "@webiny/utils";
 import {
     CmsEntryGetQueryResponse,
     CmsEntryGetQueryVariables,
     createReadQuery
 } from "@webiny/app-headless-cms-common";
-import { getFetchPolicy } from "~/utils/getFetchPolicy";
+import { getFetchPolicy } from "~/utils/getFetchPolicy.js";
 import { useRecords } from "@webiny/app-aco";
-import * as Cms from "~/admin/contexts/Cms";
-import { useMockRecords } from "./useMockRecords";
-import { ROOT_FOLDER } from "~/admin/constants";
-import { OperationError } from "~/admin/contexts/Cms";
+import * as Cms from "~/admin/contexts/Cms/index.js";
+import { useMockRecords } from "./useMockRecords.js";
+import { ROOT_FOLDER } from "~/admin/constants.js";
+import { OperationError } from "~/admin/contexts/Cms/index.js";
 
 interface UpdateListCacheOptions {
     options?: {

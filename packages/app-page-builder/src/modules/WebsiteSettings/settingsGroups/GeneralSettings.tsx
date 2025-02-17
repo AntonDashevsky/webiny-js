@@ -1,9 +1,9 @@
 import React from "react";
 import { Bind } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { Input } from "@webiny/ui/Input";
-import { usePbWebsiteSettings } from "../usePbWebsiteSettings";
-import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig";
+import { Input } from "@webiny/ui/Input/index.js";
+import { usePbWebsiteSettings } from "../usePbWebsiteSettings.js";
+import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig.js";
 
 const { Group, Element } = WebsiteSettingsConfig;
 

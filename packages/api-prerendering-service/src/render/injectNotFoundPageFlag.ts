@@ -1,6 +1,6 @@
 import { NodeAPI } from "posthtml";
-import { getIsNotFoundPage } from "../utils";
-import { RenderUrlPostHtmlParams } from "~/render/types";
+import { getIsNotFoundPage } from "../utils/index.js";
+import { RenderUrlPostHtmlParams } from "~/render/types.js";
 
 export default (args: Pick<RenderUrlPostHtmlParams, "args">) => async (tree: NodeAPI) => {
     const render = args?.args?.args;

@@ -1,8 +1,8 @@
 import ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IListPageTemplatesGateway } from "./IListPageTemplatesGateway";
-import { PbPageTemplateWithContent } from "~/types";
-import { GenericRecord } from "@webiny/app/types";
+import { IListPageTemplatesGateway } from "./IListPageTemplatesGateway.js";
+import { PbPageTemplateWithContent } from "~/types.js";
+import { GenericRecord } from "@webiny/app/types.js";
 import { WebinyError } from "@webiny/error";
 
 const LIST_PAGE_TEMPLATES = gql`

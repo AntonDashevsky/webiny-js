@@ -1,5 +1,5 @@
 import React from "react";
-import { useModel } from "~/admin/components/ModelProvider";
+import { useModel } from "~/admin/components/ModelProvider/index.js";
 
 export interface IsApplicableToCurrentModelProps {
     modelIds: string[];

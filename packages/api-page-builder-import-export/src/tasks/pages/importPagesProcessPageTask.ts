@@ -1,10 +1,10 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import { PbImportExportContext } from "~/graphql/types";
+import { PbImportExportContext } from "~/graphql/types.js";
 import {
     IImportPagesProcessPagesInput,
     IImportPagesProcessPagesOutput,
     PageImportTask
-} from "~/import/pages/types";
+} from "~/import/pages/types.js";
 
 export const createImportPagesProcessPagesTask = () => {
     return createPrivateTaskDefinition<
@@ -28,7 +28,7 @@ export const createImportPagesProcessPagesTask = () => {
                 return response.aborted();
             }
             const { ImportPagesProcessPages } = await import(
-                /* webpackChunkName: "ImportPagesProcessPages" */ "~/import/pages/ImportPagesProcessPages"
+                /* webpackChunkName: "ImportPagesProcessPages" */ "~/import/pages/ImportPagesProcessPages.js"
             );
 
             const importPagesProcessPages = new ImportPagesProcessPages();

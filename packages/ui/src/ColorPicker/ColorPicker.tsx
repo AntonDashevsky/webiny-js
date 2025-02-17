@@ -2,8 +2,8 @@ import React from "react";
 import { SketchPicker, ColorState } from "react-color";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { FormComponentProps } from "~/types";
-import { FormElementMessage } from "~/FormElementMessage";
+import { FormComponentProps } from "~/types.js";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 import classNames from "classnames";
 
 const classes = {

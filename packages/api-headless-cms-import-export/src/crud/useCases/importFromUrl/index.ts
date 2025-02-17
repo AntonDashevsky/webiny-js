@@ -1,2 +1,2 @@
-export * from "./abstractions/ImportFromUrlUseCase";
-export * from "./ImportFromUrlUseCase";
+export * from "./abstractions/ImportFromUrlUseCase.js";
+export * from "./ImportFromUrlUseCase.js";

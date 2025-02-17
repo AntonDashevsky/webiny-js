@@ -1,15 +1,15 @@
 import React from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     LIST_MENU_CONTENT_GROUPS_MODELS,
     ListMenuCmsGroupsQueryResponse
-} from "~/admin/viewsGraphql";
-import useQuery from "~/admin/hooks/useQuery";
-import usePermission from "~/admin/hooks/usePermission";
+} from "~/admin/viewsGraphql.js";
+import useQuery from "~/admin/hooks/useQuery.js";
+import usePermission from "~/admin/hooks/usePermission.js";
 import { AddMenu as Menu } from "@webiny/app-admin";
-import { NothingToShow } from "./NothingToShowElement";
-import { CmsGroup, CmsModel } from "~/types";
+import { NothingToShow } from "./NothingToShowElement.js";
+import { CmsGroup, CmsModel } from "~/types.js";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface HasContentEntryPermissionsProps {

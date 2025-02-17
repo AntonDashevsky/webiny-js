@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ContentEntryListConfig } from "@webiny/app-headless-cms";
-import { useRecordLocking } from "~/hooks";
+import { useRecordLocking } from "~/hooks/index.js";
 
 export const UseContentEntriesListHookDecorator =
     ContentEntryListConfig.ContentEntries.useContentEntriesList.createDecorator(originalHook => {

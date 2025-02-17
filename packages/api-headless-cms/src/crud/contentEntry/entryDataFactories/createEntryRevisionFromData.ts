@@ -4,19 +4,19 @@ import {
     CmsModel,
     CreateCmsEntryInput,
     CreateCmsEntryOptionsInput
-} from "~/types";
-import { getDate } from "~/utils/date";
-import { getIdentity } from "~/utils/identity";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { mapAndCleanUpdatedInputData } from ".//mapAndCleanUpdatedInputData";
-import { validateModelEntryDataOrThrow } from "../entryDataValidation";
-import { referenceFieldsMapping } from "../referenceFieldsMapping";
+} from "~/types/index.js";
+import { getDate } from "~/utils/date.js";
+import { getIdentity } from "~/utils/identity.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { mapAndCleanUpdatedInputData } from ".//mapAndCleanUpdatedInputData.js";
+import { validateModelEntryDataOrThrow } from "../entryDataValidation.js";
+import { referenceFieldsMapping } from "../referenceFieldsMapping.js";
 import { createIdentifier, parseIdentifier } from "@webiny/utils";
 import WebinyError from "@webiny/error";
-import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses.js";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
 
 type CreateEntryRevisionFromDataParams = {
     sourceId: string;

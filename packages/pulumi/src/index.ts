@@ -3,4 +3,4 @@ export * from "./isResourceOfType.js";
 export * from "./PulumiAppModule.js";
 export * from "./PulumiAppResource.js";
 export * from "./PulumiAppRemoteResource.js";
-export * from "./types";
+export * from "./types.js";

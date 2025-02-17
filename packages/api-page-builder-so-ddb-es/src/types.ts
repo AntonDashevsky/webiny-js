@@ -6,11 +6,11 @@ import {
     PageBuilderStorageOperations as BasePageBuilderStorageOperations,
     PageTemplateStorageOperations as BasePageTemplateStorageOperations,
     PbContext as BasePbContext
-} from "@webiny/api-page-builder/types";
-import { AttributeDefinition, Entity, Table, TableConstructor } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-page-builder/types.js";
+import { AttributeDefinition, Entity, Table, TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { Client } from "@elastic/elasticsearch";
-import { PluginCollection } from "@webiny/plugins/types";
+import { PluginCollection } from "@webiny/plugins/types.js";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

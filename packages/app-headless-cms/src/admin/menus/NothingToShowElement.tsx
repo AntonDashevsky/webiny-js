@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
-import { List, ListItem } from "@webiny/ui/List";
-import { Typography } from "@webiny/ui/Typography";
+import { List, ListItem } from "@webiny/ui/List/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 const linkStyle = css({
     color: "var(--mdc-theme-text-primary-on-background)",

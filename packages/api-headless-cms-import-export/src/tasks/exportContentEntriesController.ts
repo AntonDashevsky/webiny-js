@@ -1,10 +1,10 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { EXPORT_CONTENT_ENTRIES_CONTROLLER_TASK } from "./constants";
-import type { Context } from "~/types";
+import { EXPORT_CONTENT_ENTRIES_CONTROLLER_TASK } from "./constants.js";
+import type { Context } from "~/types.js";
 import type {
     IExportContentEntriesControllerInput,
     IExportContentEntriesControllerOutput
-} from "~/tasks/domain/abstractions/ExportContentEntriesController";
+} from "~/tasks/domain/abstractions/ExportContentEntriesController.js";
 
 export const createExportContentEntriesControllerTask = () => {
     return createTaskDefinition<
@@ -19,7 +19,7 @@ export const createExportContentEntriesControllerTask = () => {
         description: "Export content entries and assets from a specific model - controller.",
         async run(params) {
             const { ExportContentEntriesController } = await import(
-                /* webpackChunkName: "ExportContentEntriesController" */ "./domain/ExportContentEntriesController"
+                /* webpackChunkName: "ExportContentEntriesController" */ "./domain/ExportContentEntriesController.js"
             );
 
             try {

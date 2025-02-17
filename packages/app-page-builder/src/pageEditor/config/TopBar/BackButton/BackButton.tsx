@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as BackIcon } from "@material-design-icons/svg/round/arrow_back.svg";
 import styled from "@emotion/styled";
-import { IconButton } from "@webiny/ui/Button";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 
 const BackButtonWrapper = styled.div`
     margin-left: -10px;

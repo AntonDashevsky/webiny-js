@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { ReactComponent as PermissionIcon } from "@material-design-icons/svg/outlined/privacy_tip.svg";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 export const NoPermissionWrapper = styled("div")`
     margin: 0 auto;

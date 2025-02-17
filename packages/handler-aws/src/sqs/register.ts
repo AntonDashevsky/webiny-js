@@ -1,7 +1,7 @@
-import type { SQSEvent } from "@webiny/aws-sdk/types";
-import { registry } from "~/registry";
-import { createHandler, HandlerParams } from "./index";
-import { createSourceHandler } from "~/sourceHandler";
+import type { SQSEvent } from "@webiny/aws-sdk/types/index.js";
+import { registry } from "~/registry.js";
+import { createHandler, HandlerParams } from "./index.js";
+import { createSourceHandler } from "~/sourceHandler.js";
 
 const handler = createSourceHandler<SQSEvent, HandlerParams>({
     name: "handler-aws-sqs",

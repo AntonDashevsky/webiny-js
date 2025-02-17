@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import omit from "lodash/omit";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
-import { COLORS } from "./StyledComponents";
+import omit from "lodash/omit.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
+import { COLORS } from "./StyledComponents.js";
 
 const selectStyle = css({
     display: "block",

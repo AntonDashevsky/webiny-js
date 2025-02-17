@@ -1,7 +1,7 @@
-import { PbAcoContext } from "~/types";
-import { Page } from "@webiny/api-page-builder/types";
+import { PbAcoContext } from "~/types.js";
+import { Page } from "@webiny/api-page-builder/types.js";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { ROOT_FOLDER } from "~/contants";
+import { ROOT_FOLDER } from "~/contants.js";
 
 export const createPbPageWbyAcoLocationGqlField = (ctx: PbAcoContext) => {
     ctx.plugins.register(

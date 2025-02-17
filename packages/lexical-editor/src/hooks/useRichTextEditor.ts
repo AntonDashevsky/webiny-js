@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { RichTextEditorContext } from "~/context/RichTextEditorContext";
+import { RichTextEditorContext } from "~/context/RichTextEditorContext.js";
 
 export function useRichTextEditor() {
     const context = useContext(RichTextEditorContext);

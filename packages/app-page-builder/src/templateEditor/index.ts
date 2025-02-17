@@ -1,2 +1,2 @@
-export * from "./hooks";
-export * from "./editorConfig/TemplateEditorConfig";
+export * from "./hooks/index.js";
+export * from "./editorConfig/TemplateEditorConfig.js";

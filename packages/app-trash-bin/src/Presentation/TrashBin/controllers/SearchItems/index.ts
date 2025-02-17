@@ -1,2 +1,2 @@
-export * from "./ISearchItemsController";
-export * from "./SearchItemsController";
+export * from "./ISearchItemsController.js";
+export * from "./SearchItemsController.js";

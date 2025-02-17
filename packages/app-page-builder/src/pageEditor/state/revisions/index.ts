@@ -1,1 +1,1 @@
-export * from "./revisionsAtom";
+export * from "./revisionsAtom.js";

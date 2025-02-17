@@ -1,6 +1,6 @@
 import React from "react";
 import { FolderTree, useNavigateFolder } from "@webiny/app-aco";
-import { SidebarContainer } from "./styled";
+import { SidebarContainer } from "./styled.js";
 
 interface Props {
     folderId?: string;

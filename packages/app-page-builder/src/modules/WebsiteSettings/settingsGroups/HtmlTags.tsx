@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "emotion";
 import { Bind } from "@webiny/form";
-import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig";
-import { CodeEditor } from "@webiny/ui/CodeEditor";
-import { Typography } from "@webiny/ui/Typography";
+import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig.js";
+import { CodeEditor } from "@webiny/ui/CodeEditor/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 const inputStyle = css({
     "& span": {

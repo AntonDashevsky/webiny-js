@@ -1,5 +1,5 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
 import {
     ApwChangeRequest,
     ApwContentReview,
@@ -12,7 +12,7 @@ import {
     ApwWorkflowStep,
     ApwWorkflowStepTypes,
     WorkflowScopeTypes
-} from "~/types";
+} from "~/types.js";
 
 export interface CreateModelFieldParams
     extends Omit<CmsModelField, "id" | "storageId" | "fieldId"> {

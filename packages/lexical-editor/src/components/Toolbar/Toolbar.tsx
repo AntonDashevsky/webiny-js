@@ -9,12 +9,12 @@ import {
 import { createPortal } from "react-dom";
 import { mergeRegister } from "@lexical/utils";
 import "./Toolbar.css";
-import { getDOMRangeRect } from "~/utils/getDOMRangeRect";
-import { setFloatingElemPosition } from "~/utils/setFloatingElemPosition";
-import { useLexicalEditorConfig } from "~/components/LexicalEditorConfig/LexicalEditorConfig";
-import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection";
-import { useRichTextEditor } from "~/hooks";
-import { isChildOfFloatingToolbar } from "~/utils/isChildOfFloatingToolbar";
+import { getDOMRangeRect } from "~/utils/getDOMRangeRect.js";
+import { setFloatingElemPosition } from "~/utils/setFloatingElemPosition.js";
+import { useLexicalEditorConfig } from "~/components/LexicalEditorConfig/LexicalEditorConfig.js";
+import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection.js";
+import { useRichTextEditor } from "~/hooks/index.js";
+import { isChildOfFloatingToolbar } from "~/utils/isChildOfFloatingToolbar.js";
 
 interface FloatingToolbarProps {
     anchorElem: HTMLElement;

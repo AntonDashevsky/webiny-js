@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { Elevation } from "@webiny/ui/Elevation";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
 
 export interface LayoutProps {
     className?: string;

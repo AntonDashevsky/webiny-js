@@ -1,28 +1,28 @@
 import React, { useCallback, useState, useEffect, useMemo } from "react";
 import styled from "@emotion/styled";
 import classNames from "classnames";
-import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
-import { ScrollList, ListItem } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
-import { Typography } from "@webiny/ui/Typography";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { Elevation } from "@webiny/ui/Elevation";
-import { ButtonSecondary } from "@webiny/ui/Button";
+import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout/index.js";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
+import { ScrollList, ListItem } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { ButtonSecondary } from "@webiny/ui/Button/index.js";
 
 import { ReactComponent as SearchIcon } from "~/editor/assets/icons/search.svg";
-import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
+import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
 import {
     listItem,
     activeListItem,
     ListItemTitle,
     listStyle,
     TitleContent
-} from "./PageTemplatesDialogStyled";
-import * as Styled from "~/templateEditor/config/Content/BlocksBrowser/StyledComponents";
-import { PbPageTemplate, PbPageTemplateWithContent } from "~/types";
-import { useListPageTemplates } from "~/features";
-import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview";
+} from "./PageTemplatesDialogStyled.js";
+import * as Styled from "~/templateEditor/config/Content/BlocksBrowser/StyledComponents.js";
+import { PbPageTemplate, PbPageTemplateWithContent } from "~/types.js";
+import { useListPageTemplates } from "~/features/index.js";
+import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview.js";
 
 const ListContainer = styled.div`
     width: 100%;

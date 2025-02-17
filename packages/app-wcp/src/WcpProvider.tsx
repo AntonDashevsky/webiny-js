@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { WcpProviderComponent } from "./contexts";
+import { WcpProviderComponent } from "./contexts/index.js";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { GetWcpProjectGqlResponse, WcpProject } from "~/types";
+import { GetWcpProjectGqlResponse, WcpProject } from "~/types.js";
 
 export const GET_WCP_PROJECT = gql`
     query GetWcpProject {

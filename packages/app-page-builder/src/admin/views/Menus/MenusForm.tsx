@@ -1,17 +1,17 @@
 import React, { useCallback, useMemo } from "react";
 import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
 import { validation } from "@webiny/validation";
 import {
     GET_MENU,
@@ -20,20 +20,20 @@ import {
     LIST_MENUS,
     GetMenuQueryResponse,
     GetMenuQueryVariables
-} from "./graphql";
+} from "./graphql.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { Input } from "@webiny/ui/Input";
-import MenuItems from "./MenusForm/MenuItems";
-import pick from "lodash/pick";
-import get from "lodash/get";
-import set from "lodash/set";
-import isEmpty from "lodash/isEmpty";
-import omit from "lodash/omit";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import MenuItems from "./MenusForm/MenuItems.js";
+import pick from "lodash/pick.js";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import isEmpty from "lodash/isEmpty.js";
+import omit from "lodash/omit.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { useMenusPermissions } from "~/hooks/permissions";
-import { PbMenu } from "~/types";
+import { useMenusPermissions } from "~/hooks/permissions/index.js";
+import { PbMenu } from "~/types.js";
 
 const t = i18n.ns("app-page-builder/admin/menus/form");
 const ButtonWrapper = styled("div")({

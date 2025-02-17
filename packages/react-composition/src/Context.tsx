@@ -6,7 +6,7 @@ import React, {
     useMemo,
     useState
 } from "react";
-import { useCompositionScope } from "~/CompositionScope";
+import { useCompositionScope } from "~/CompositionScope.js";
 import {
     ComposedFunction,
     ComposeWith,
@@ -17,7 +17,7 @@ import {
     Enumerable,
     GenericComponent,
     GenericHook
-} from "~/types";
+} from "~/types.js";
 
 export function compose<T>(...fns: Decorator<T>[]) {
     return (decoratee: T): T => {

@@ -1,28 +1,28 @@
 import React, { useCallback, useMemo } from "react";
-import get from "lodash/get";
-import set from "lodash/set";
-import startCase from "lodash/startCase";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import startCase from "lodash/startCase.js";
 import { useRecoilCallback, useRecoilValue } from "recoil";
 import classNames from "classnames";
 import { css } from "emotion";
-import { Typography } from "@webiny/ui/Typography";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { plugins } from "@webiny/plugins";
 import {
     PbEditorElement,
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin
-} from "../../../../types";
+} from "../../../../types.js";
 import {
     activeElementAtom,
     elementWithChildrenByIdSelector,
     uiAtom
-} from "../../../recoil/modules";
-import useUpdateHandlers, { PostModifyElementArgs } from "../useUpdateHandlers";
+} from "../../../recoil/modules/index.js";
+import useUpdateHandlers, { PostModifyElementArgs } from "../useUpdateHandlers.js";
 // Icons
 import { ReactComponent as LinkIcon } from "../../../assets/icons/link.svg";
 // Components
-import SpacingPicker from "./SpacingPicker";
+import SpacingPicker from "./SpacingPicker.js";
 import {
     COLORS,
     SpacingGrid,
@@ -35,9 +35,9 @@ import {
     BottomLeft,
     Bottom,
     BottomRight
-} from "./StyledComponents";
-import Accordion from "./Accordion";
-import { applyFallbackDisplayMode } from "../elementSettingsUtils";
+} from "./StyledComponents.js";
+import Accordion from "./Accordion.js";
+import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
 
 const classes = {
     gridContainerClass: css({

@@ -1,20 +1,20 @@
 import React, { useCallback } from "react";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
 import { useI18N } from "@webiny/app-i18n";
 import { useTenancy } from "@webiny/app-tenancy";
 import { AcoWithConfig } from "@webiny/app-aco";
-import { Sidebar } from "./Sidebar";
-import { Main } from "./Main";
+import { Sidebar } from "./Sidebar.js";
+import { Main } from "./Main.js";
 import {
     LOCAL_STORAGE_LATEST_VISITED_FOLDER,
     PAGE_BUILDER_LIST_LINK,
     PB_APP_TYPE
-} from "~/admin/constants";
+} from "~/admin/constants/index.js";
 import { AcoProvider, useNavigateFolder } from "@webiny/app-aco";
 import { useApolloClient } from "@apollo/react-hooks";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { PagesListProvider } from "~/admin/views/Pages/hooks/usePagesList";
-import { PageListWithConfig } from "~/admin/config/pages";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { PagesListProvider } from "~/admin/views/Pages/hooks/usePagesList.js";
+import { PageListWithConfig } from "~/admin/config/pages/index.js";
 
 /**
  * Generates a `layoutId` to be used with the `<SplitView />` component.

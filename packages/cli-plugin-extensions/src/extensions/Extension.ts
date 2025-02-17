@@ -4,10 +4,10 @@ import { ApiExtension } from "./ApiExtension.js";
 import { PbElementExtension } from "./PbElementExtension.js";
 import { WorkspaceExtension } from "./WorkspaceExtension.js";
 import loadJson from "load-json-file";
-import type { PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { PackageJson } from "@webiny/cli-plugin-scaffold/types.js";
 import path from "path";
 import { WebsiteExtension } from "~/extensions/WebsiteExtension.js";
-import type { ExtensionMessage } from "~/types";
+import type { ExtensionMessage } from "~/types.js";
 
 type PackageJsonPath = string;
 

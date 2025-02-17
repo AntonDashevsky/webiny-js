@@ -1,7 +1,7 @@
 import React from "react";
-import { MenuItem } from "@webiny/ui/Menu";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
+import { MenuItem } from "@webiny/ui/Menu/index.js";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 
 export interface PreviewPageMenuItemProps {
     onClick: () => void;

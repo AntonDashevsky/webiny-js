@@ -1,4 +1,4 @@
-import { CategoryDynamoDbFieldPlugin } from "~/plugins/definitions/CategoryDynamoDbFieldPlugin";
+import { CategoryDynamoDbFieldPlugin } from "~/plugins/definitions/CategoryDynamoDbFieldPlugin.js";
 
 export const createCategoryDynamoDbFields = (): CategoryDynamoDbFieldPlugin[] => {
     return [

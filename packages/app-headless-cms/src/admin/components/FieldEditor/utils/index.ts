@@ -1,4 +1,4 @@
-export { default as getFieldPosition } from "./getFieldPosition";
-export { default as moveField } from "./moveField";
-export { default as deleteField } from "./deleteField";
-export { default as moveRow } from "./moveRow";
+export { default as getFieldPosition } from "./getFieldPosition.js";
+export { default as moveField } from "./moveField.js";
+export { default as deleteField } from "./deleteField.js";
+export { default as moveRow } from "./moveRow.js";

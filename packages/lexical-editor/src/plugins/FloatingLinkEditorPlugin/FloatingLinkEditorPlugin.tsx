@@ -10,14 +10,14 @@ import {
     SELECTION_CHANGE_COMMAND
 } from "lexical";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@webiny/lexical-nodes";
-import { getSelectedNode } from "~/utils/getSelectedNode";
-import { setFloatingElemPosition } from "~/utils/setFloatingElemPosition";
-import { useFloatingLinkEditor } from "./useFloatingLinkEditor";
-import { LinkEditForm } from "./LinkEditForm";
-import { LinkPreviewForm } from "./LinkPreviewForm";
+import { getSelectedNode } from "~/utils/getSelectedNode.js";
+import { setFloatingElemPosition } from "~/utils/setFloatingElemPosition.js";
+import { useFloatingLinkEditor } from "./useFloatingLinkEditor.js";
+import { LinkEditForm } from "./LinkEditForm.js";
+import { LinkPreviewForm } from "./LinkPreviewForm.js";
 import "./FloatingLinkEditorPlugin.css";
-import { sanitizeUrl } from "~/utils/sanitizeUrl";
-import { isChildOfLinkEditor } from "~/plugins/FloatingLinkEditorPlugin/isChildOfLinkEditor";
+import { sanitizeUrl } from "~/utils/sanitizeUrl.js";
+import { isChildOfLinkEditor } from "~/plugins/FloatingLinkEditorPlugin/isChildOfLinkEditor.js";
 
 export interface LinkData {
     url: string;

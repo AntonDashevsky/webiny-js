@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
-import { Typography } from "@webiny/ui/Typography";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { Form } from "@webiny/form";
-import { useFormEditor } from "../../Context";
+import { useFormEditor } from "../../Context/index.js";
 import { plugins } from "@webiny/plugins";
-import set from "lodash/set";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { i18n } from "@webiny/app/i18n";
-import { FbEditorTrigger } from "~/types";
+import set from "lodash/set.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { FbEditorTrigger } from "~/types.js";
 const t = i18n.namespace("FormsApp.Editor.TriggersTab");
 
 const Container = styled("div")({

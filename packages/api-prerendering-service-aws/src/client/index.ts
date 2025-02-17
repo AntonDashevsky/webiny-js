@@ -4,10 +4,10 @@ import {
     PutEventsCommand
 } from "@webiny/aws-sdk/client-eventbridge";
 import WebinyError from "@webiny/error";
-import { ClientContext } from "@webiny/handler-client/types";
+import { ClientContext } from "@webiny/handler-client/types.js";
 import { ContextPlugin } from "@webiny/api";
-import { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types";
-import { FlushJob, RenderJob } from "@webiny/api-prerendering-service/types";
+import { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types.js";
+import { FlushJob, RenderJob } from "@webiny/api-prerendering-service/types.js";
 
 export interface PrerenderingServiceClientArgs {
     eventBus: string;

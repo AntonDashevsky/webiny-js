@@ -1,7 +1,7 @@
 import React from "react";
 import { Bind } from "@webiny/form";
-import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload";
-import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig";
+import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload.js";
+import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig.js";
 
 const { Group, Element } = WebsiteSettingsConfig;
 

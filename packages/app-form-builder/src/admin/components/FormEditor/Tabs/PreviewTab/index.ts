@@ -1,1 +1,1 @@
-export { PreviewTab } from "./PreviewTab";
+export { PreviewTab } from "./PreviewTab.js";

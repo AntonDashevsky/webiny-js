@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { ReactComponent as Duplicate } from "@material-design-icons/svg/outlined/library_add.svg";
 import { makeDecoratable } from "@webiny/react-composition";
-import { PageListConfig } from "~/admin/config/pages";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
-import { useDuplicatePage } from "~/admin/views/Pages/hooks/useDuplicatePage";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
+import { useDuplicatePage } from "~/admin/views/Pages/hooks/useDuplicatePage/index.js";
 
 export const DuplicatePage = makeDecoratable("TableActionDuplicatePage", () => {
     const { page } = usePage();

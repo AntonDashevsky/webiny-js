@@ -1,5 +1,5 @@
 import readJson from "load-json-file";
-import type { PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { PackageJson } from "@webiny/cli-plugin-scaffold/types.js";
 import writeJson from "write-json-file";
 import path from "path";
 import { getProject } from "@webiny/cli/utils/index.js";

@@ -1,1 +1,1 @@
-export * from "./ChildTasksCleanup";
+export * from "./ChildTasksCleanup.js";

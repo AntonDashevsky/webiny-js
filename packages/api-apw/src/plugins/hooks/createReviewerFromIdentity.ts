@@ -1,4 +1,4 @@
-import { LifeCycleHookCallbackParams } from "~/types";
+import { LifeCycleHookCallbackParams } from "~/types.js";
 
 export const createReviewerFromIdentity = ({ security, apw }: LifeCycleHookCallbackParams) => {
     /**

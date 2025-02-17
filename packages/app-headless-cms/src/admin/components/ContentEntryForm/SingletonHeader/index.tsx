@@ -1,1 +1,1 @@
-export * from "./SingletonHeader";
+export * from "./SingletonHeader.js";

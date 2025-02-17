@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import type { GenericRecord } from "@webiny/app/types";
+import type { GenericRecord } from "@webiny/app/types.js";
 
 const Context = createContext<{ dataSource: GenericRecord }>({ dataSource: {} });
 

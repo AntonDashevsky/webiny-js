@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { AccordionItem } from "@webiny/ui/Accordion";
-import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import { AccordionItem } from "@webiny/ui/Accordion/index.js";
+import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
 import { ReactComponent as ApwIcon } from "~/assets/icons/account_tree_24dp.svg";
-import { ApwPermissions as ApwPermissionsComponent } from "./ApwPermissions";
+import { ApwPermissions as ApwPermissionsComponent } from "./ApwPermissions.js";
 import { plugins } from "@webiny/plugins";
 
 const createPermissions = (): AdminAppPermissionRendererPlugin => {

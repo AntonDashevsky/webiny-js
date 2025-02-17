@@ -1,4 +1,4 @@
-export * from "./graphql/types";
+export * from "./graphql/types.js";
 
 // Entities.
 export enum ExportRevisionType {

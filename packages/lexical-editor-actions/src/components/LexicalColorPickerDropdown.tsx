@@ -1,6 +1,6 @@
 import React from "react";
 import { useFontColorPicker, DropDown } from "@webiny/lexical-editor";
-import { LexicalColorPicker } from "~/components/LexicalColorPicker/LexicalColorPicker";
+import { LexicalColorPicker } from "~/components/LexicalColorPicker/LexicalColorPicker.js";
 import { css } from "emotion";
 
 export const LexicalColorPickerDropdown = () => {

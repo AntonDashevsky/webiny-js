@@ -1,12 +1,12 @@
-import { createModelImportValidation } from "~/crud/contentModel/validation";
+import { createModelImportValidation } from "~/crud/contentModel/validation.js";
 import {
     CmsImportAction,
     CmsImportError,
     HeadlessCmsImportStructureParamsDataModel,
     ValidatedCmsModel,
     ValidatedCmsModelResult
-} from "~/export/types";
-import { CmsDynamicZoneTemplate, CmsGroup, CmsModel, CmsModelField } from "~/types";
+} from "~/export/types.js";
+import { CmsDynamicZoneTemplate, CmsGroup, CmsModel, CmsModelField } from "~/types/index.js";
 import { createZodError } from "@webiny/utils";
 
 interface CreateModelValidationParams {

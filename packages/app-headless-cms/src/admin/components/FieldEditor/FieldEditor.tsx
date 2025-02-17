@@ -1,17 +1,17 @@
 import React, { Fragment } from "react";
-import get from "lodash/get";
-import { Icon } from "@webiny/ui/Icon";
-import { i18n } from "@webiny/app/i18n";
+import get from "lodash/get.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as HandleIcon } from "~/admin/icons/round-drag_indicator-24px.svg";
-import { Center, Vertical, Horizontal } from "../DropZone";
-import Draggable from "../Draggable";
-import EditFieldDialog from "./EditFieldDialog";
-import Field from "./Field";
-import { rowHandle, fieldHandle, fieldContainer, Row, RowContainer } from "./Styled";
-import { useModelFieldEditor } from "./useModelFieldEditor";
-import { FieldEditorProvider, IsVisibleCallable } from "./FieldEditorContext";
-import { CmsModelField, CmsEditorFieldsLayout, CmsModelFieldTypePlugin, DragSource } from "~/types";
-import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider";
+import { Center, Vertical, Horizontal } from "../DropZone/index.js";
+import Draggable from "../Draggable.js";
+import EditFieldDialog from "./EditFieldDialog.js";
+import Field from "./Field.js";
+import { rowHandle, fieldHandle, fieldContainer, Row, RowContainer } from "./Styled.js";
+import { useModelFieldEditor } from "./useModelFieldEditor.js";
+import { FieldEditorProvider, IsVisibleCallable } from "./FieldEditorContext.js";
+import { CmsModelField, CmsEditorFieldsLayout, CmsModelFieldTypePlugin, DragSource } from "~/types.js";
+import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider/index.js";
 
 const t = i18n.namespace("app-headless-cms/admin/components/editor");
 

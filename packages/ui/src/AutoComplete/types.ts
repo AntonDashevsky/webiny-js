@@ -1,5 +1,5 @@
 import React from "react";
-import { FormComponentProps } from "~/types";
+import { FormComponentProps } from "~/types.js";
 
 export interface AutoCompleteBaseProps extends FormComponentProps {
     /**

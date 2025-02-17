@@ -1,4 +1,4 @@
-import { IRecordLockingLockRecord } from "~/types";
+import { IRecordLockingLockRecord } from "~/types.js";
 
 export type IKickOutCurrentUserUseCaseExecuteParams = IRecordLockingLockRecord;
 

@@ -1,1 +1,1 @@
-export * from "./NotAuthorizedError";
+export * from "./NotAuthorizedError/index.js";

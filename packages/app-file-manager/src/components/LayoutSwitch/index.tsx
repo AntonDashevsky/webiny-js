@@ -1,1 +1,1 @@
-export * from "./LayoutSwitch";
+export * from "./LayoutSwitch.js";

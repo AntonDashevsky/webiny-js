@@ -1,10 +1,10 @@
 import React from "react";
-import BackButton from "./BackButton";
-import Divider from "./Divider";
-import PublishFormButton from "./PublishFormButton";
-import { Name } from "./Name";
-import { FormSettingsButton } from "./FormSettings";
-import Revisions from "./Revisions";
+import BackButton from "./BackButton.js";
+import Divider from "./Divider.js";
+import PublishFormButton from "./PublishFormButton.js";
+import { Name } from "./Name/index.js";
+import { FormSettingsButton } from "./FormSettings/index.js";
+import Revisions from "./Revisions.js";
 
 export default [
     {

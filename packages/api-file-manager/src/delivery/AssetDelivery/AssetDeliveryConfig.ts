@@ -9,13 +9,13 @@ import {
     AssetTransformationStrategy,
     ResponseHeadersSetter,
     SetResponseHeaders
-} from "~/delivery";
-import { FileManagerContext } from "~/types";
-import { NullRequestResolver } from "~/delivery/AssetDelivery/NullRequestResolver";
-import { NullAssetResolver } from "~/delivery/AssetDelivery/NullAssetResolver";
-import { NullAssetOutputStrategy } from "./NullAssetOutputStrategy";
-import { TransformationAssetProcessor } from "./transformation/TransformationAssetProcessor";
-import { PassthroughAssetTransformationStrategy } from "./transformation/PassthroughAssetTransformationStrategy";
+} from "~/delivery/index.js";
+import { FileManagerContext } from "~/types.js";
+import { NullRequestResolver } from "~/delivery/AssetDelivery/NullRequestResolver.js";
+import { NullAssetResolver } from "~/delivery/AssetDelivery/NullAssetResolver.js";
+import { NullAssetOutputStrategy } from "./NullAssetOutputStrategy.js";
+import { TransformationAssetProcessor } from "./transformation/TransformationAssetProcessor.js";
+import { PassthroughAssetTransformationStrategy } from "./transformation/PassthroughAssetTransformationStrategy.js";
 
 type Setter<TParams, TReturn> = (params: TParams) => TReturn;
 

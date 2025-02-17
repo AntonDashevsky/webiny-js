@@ -3,7 +3,7 @@ import {
     PbBlockVariable,
     PbEditorElementTree,
     PbEditorPageElementVariableRendererPlugin
-} from "~/types";
+} from "~/types.js";
 
 export class InjectVariableValuesIntoElement {
     private elementVariablePlugins: PbEditorPageElementVariableRendererPlugin[];

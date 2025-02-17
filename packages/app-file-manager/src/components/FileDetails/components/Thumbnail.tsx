@@ -1,6 +1,6 @@
 import React from "react";
-import { useFile } from "~/hooks/useFile";
-import { useFileManagerViewConfig } from "~/index";
+import { useFile } from "~/hooks/useFile.js";
+import { useFileManagerViewConfig } from "~/index.js";
 
 export const Thumbnail = () => {
     const { file } = useFile();

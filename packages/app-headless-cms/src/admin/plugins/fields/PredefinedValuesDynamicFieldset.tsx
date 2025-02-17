@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { Grid, Cell, GridInner } from "@webiny/ui/Grid";
-import { i18n } from "@webiny/app/i18n";
-import { DynamicFieldset } from "@webiny/ui/DynamicFieldset";
-import { Typography } from "@webiny/ui/Typography";
-import { ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button";
-import { Input } from "@webiny/ui/Input";
-import { Switch } from "@webiny/ui/Switch";
-import { BindComponent, CmsModelField } from "~/types";
+import { Grid, Cell, GridInner } from "@webiny/ui/Grid/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { DynamicFieldset } from "@webiny/ui/DynamicFieldset/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import { BindComponent, CmsModelField } from "~/types.js";
 import { BindComponentRenderProp, FormAPI, useForm } from "@webiny/form";
-import { useModelField } from "~/admin/hooks";
+import { useModelField } from "~/admin/hooks/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/dynamic-fieldset-predefined-values");
 

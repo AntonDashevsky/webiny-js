@@ -1,6 +1,6 @@
 import React from "react";
-import { TemplateEditorConfig } from "~/templateEditor/editorConfig/TemplateEditorConfig";
-import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference";
+import { TemplateEditorConfig } from "~/templateEditor/editorConfig/TemplateEditorConfig.js";
+import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference.js";
 
 const { ElementAction } = TemplateEditorConfig;
 

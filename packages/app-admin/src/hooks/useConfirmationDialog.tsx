@@ -1,7 +1,7 @@
 import React from "react";
-import { useUi } from "@webiny/app/hooks/useUi";
-import { i18n } from "@webiny/app/i18n";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { useUi } from "@webiny/app/hooks/useUi.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
 const t = i18n.ns("app-admin/hooks/use-confirmation-dialog");
 

@@ -1,5 +1,5 @@
-import { createApiPulumiApp, CreateApiPulumiAppParams } from "@webiny/pulumi-aws/enterprise";
-import { PluginCollection } from "@webiny/plugins/types";
+import { createApiPulumiApp, CreateApiPulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
+import { PluginCollection } from "@webiny/plugins/types.js";
 import {
     ensureCoreDeployed,
     executeDataMigrations,
@@ -7,7 +7,7 @@ import {
     generateDdbEsHandlers,
     generateDdbHandlers,
     injectWcpTelemetryClientCode
-} from "~/api/plugins";
+} from "~/api/plugins/index.js";
 
 export { ApiOutput } from "@webiny/pulumi-aws";
 

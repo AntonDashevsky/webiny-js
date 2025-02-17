@@ -1,7 +1,7 @@
-import { LocalesStorageOperationsProviderDdbPlugin } from "./operations/locales";
-import { SystemStorageOperationsProviderDdbPlugin } from "./operations/system";
+import { LocalesStorageOperationsProviderDdbPlugin } from "./operations/locales/index.js";
+import { SystemStorageOperationsProviderDdbPlugin } from "./operations/system/index.js";
 
-export * from "./plugins";
+export * from "./plugins/index.js";
 
 export const createI18NStorageOperations = () => {
     return [

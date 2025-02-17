@@ -1,7 +1,7 @@
-import get from "lodash/get";
-import kebabCase from "lodash/kebabCase";
-import { PbRenderElementStylePlugin } from "../../../../types";
-import { applyPerDeviceStyleWithFallback } from "../../../utils";
+import get from "lodash/get.js";
+import kebabCase from "lodash/kebabCase.js";
+import { PbRenderElementStylePlugin } from "../../../../types.js";
+import { applyPerDeviceStyleWithFallback } from "../../../utils.js";
 
 const validateSpacingValue = (value: string): string | "auto" => {
     if (value?.includes("auto")) {

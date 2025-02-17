@@ -1,7 +1,7 @@
-import { ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types";
+import { ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types.js";
 
-import { base } from "./base";
-import { japanese } from "./japanese";
+import { base } from "./base.js";
+import { japanese } from "./japanese.js";
 
 export interface ElasticsearchIndexPlugins {
     body: ElasticsearchIndexRequestBody;

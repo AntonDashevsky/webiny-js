@@ -1,4 +1,4 @@
-import { PageTemplateDynamoDbElasticFieldPlugin } from "~/plugins/definitions/PageTemplateDynamoDbElasticFieldPlugin";
+import { PageTemplateDynamoDbElasticFieldPlugin } from "~/plugins/definitions/PageTemplateDynamoDbElasticFieldPlugin.js";
 
 export const createPageTemplateDynamoDbFields = (): PageTemplateDynamoDbElasticFieldPlugin[] => {
     return [

@@ -1,6 +1,6 @@
-import refInput from "./refInput";
-import refInputs from "./refInputs";
-import { createAdvancedRefRenderer } from "./advanced";
-import { createSimpleRefRenderer } from "./simple";
+import refInput from "./refInput.js";
+import refInputs from "./refInputs.js";
+import { createAdvancedRefRenderer } from "./advanced/index.js";
+import { createSimpleRefRenderer } from "./simple/index.js";
 
 export default [...createAdvancedRefRenderer(), refInput, refInputs, ...createSimpleRefRenderer()];

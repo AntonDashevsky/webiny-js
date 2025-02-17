@@ -1,5 +1,5 @@
-import type { PbRenderElementPlugin as BasePbRenderElementPlugin } from "@webiny/app-page-builder/types";
-import { legacyPluginToReactComponent } from "@webiny/app/utils";
+import type { PbRenderElementPlugin as BasePbRenderElementPlugin } from "@webiny/app-page-builder/types.js";
+import { legacyPluginToReactComponent } from "@webiny/app/utils/index.js";
 
 interface PbRenderElementPluginProps extends Pick<BasePbRenderElementPlugin, "elementType"> {
     renderer: BasePbRenderElementPlugin["render"];

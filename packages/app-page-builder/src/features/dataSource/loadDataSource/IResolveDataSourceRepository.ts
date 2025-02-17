@@ -1,5 +1,5 @@
-import type { GenericRecord } from "@webiny/app/types";
-import { Checksum } from "./Checksum";
+import type { GenericRecord } from "@webiny/app/types.js";
+import { Checksum } from "./Checksum.js";
 
 export type DataSourceData = GenericRecord<string>;
 

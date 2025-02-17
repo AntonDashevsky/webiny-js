@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import { LexicalEditor } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import type { ThemeEmotionMap, EditorTheme } from "@webiny/lexical-theme";
-import { ToolbarActionPlugin } from "~/types";
+import { ToolbarActionPlugin } from "~/types.js";
 
 export interface RichTextEditorContext {
     editor: LexicalEditor;

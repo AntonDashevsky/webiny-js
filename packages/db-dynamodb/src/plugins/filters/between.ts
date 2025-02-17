@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { ValueFilterPlugin } from "../definitions/ValueFilterPlugin";
+import { ValueFilterPlugin } from "../definitions/ValueFilterPlugin.js";
 
 const plugin = new ValueFilterPlugin({
     operation: "between",

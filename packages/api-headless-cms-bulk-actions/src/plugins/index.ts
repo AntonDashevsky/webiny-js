@@ -1,2 +1,2 @@
-export * from "./createBulkAction";
-export * from "./createDefaultGraphQL";
+export * from "./createBulkAction.js";
+export * from "./createDefaultGraphQL.js";

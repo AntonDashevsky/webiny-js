@@ -3,9 +3,9 @@ import {
     PrerenderingServiceSaveSettingsParams,
     PrerenderingServiceSettingsStorageOperations,
     PrerenderingSettings
-} from "@webiny/api-prerendering-service/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { get } from "@webiny/db-dynamodb/utils/get";
+} from "@webiny/api-prerendering-service/types.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { get } from "@webiny/db-dynamodb/utils/get.js";
 import { put } from "@webiny/db-dynamodb";
 
 export interface CreateSettingsStorageOperationsParams {

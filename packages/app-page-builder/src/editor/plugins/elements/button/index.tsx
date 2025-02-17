@@ -1,18 +1,18 @@
 import React from "react";
 import { css } from "emotion";
-import kebabCase from "lodash/kebabCase";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import kebabCase from "lodash/kebabCase.js";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
 import {
     DisplayMode,
     PbEditorPageElementPlugin,
     PbEditorPageElementStyleSettingsPlugin,
     PbEditorElementPluginArgs,
     PbEditorElement
-} from "~/types";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
-import ButtonSettings from "./ButtonSettings";
-import ButtonSettingsV2 from "./ButtonSettingsV2";
-import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button";
+} from "~/types.js";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
+import ButtonSettings from "./ButtonSettings.js";
+import ButtonSettingsV2 from "./ButtonSettingsV2.js";
+import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button.js";
 
 const buttonWrapper = css({
     display: "flex",

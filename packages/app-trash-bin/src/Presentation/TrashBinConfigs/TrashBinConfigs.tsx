@@ -1,15 +1,15 @@
 import React from "react";
 
-import { TrashBinListConfig } from "~/Presentation/configs";
-import { BulkActionsDeleteItems, BulkActionsRestoreItems } from "../components/BulkActions";
+import { TrashBinListConfig } from "~/Presentation/configs/index.js";
+import { BulkActionsDeleteItems, BulkActionsRestoreItems } from "../components/BulkActions/index.js";
 import {
     CellActions,
     CellCreatedBy,
     CellDeletedBy,
     CellDeletedOn,
     CellTitle
-} from "~/Presentation/components/Cells";
-import { DeleteItemAction, RestoreItemAction } from "~/Presentation/components/Actions";
+} from "~/Presentation/components/Cells/index.js";
+import { DeleteItemAction, RestoreItemAction } from "~/Presentation/components/Actions/index.js";
 
 const { Browser } = TrashBinListConfig;
 

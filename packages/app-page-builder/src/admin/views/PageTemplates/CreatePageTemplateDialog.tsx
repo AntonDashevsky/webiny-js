@@ -2,14 +2,14 @@ import React, { useCallback, useState } from "react";
 import { css } from "emotion";
 import { makeDecoratable } from "@webiny/app";
 import { Form } from "@webiny/form";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { SimpleFormContent } from "@webiny/app-admin/components/SimpleForm";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { validation } from "@webiny/validation";
-import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog";
-import { Input } from "@webiny/ui/Input";
-import { Validator } from "@webiny/validation/types";
-import { PbPageTemplate } from "~/types";
+import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Validator } from "@webiny/validation/types.js";
+import { PbPageTemplate } from "~/types.js";
 
 const narrowDialog = css`
     & .mdc-dialog__surface {

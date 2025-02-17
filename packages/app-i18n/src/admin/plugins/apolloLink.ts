@@ -1,5 +1,5 @@
 import { setContext } from "apollo-link-context";
-import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin";
+import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin.js";
 
 interface Input {
     headers: Record<string, string>;

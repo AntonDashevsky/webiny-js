@@ -1,11 +1,11 @@
 import React from "react";
 import { css } from "emotion";
-import { List } from "@webiny/ui/List";
-import { Elevation } from "@webiny/ui/Elevation";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { i18n } from "@webiny/app/i18n";
-import RevisionListItem from "./RevisionListItem";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
+import { List } from "@webiny/ui/List/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import RevisionListItem from "./RevisionListItem.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/content-details/content-revisions");
 

@@ -1,2 +1,2 @@
-export * from "./DeleteItem";
-export * from "./RestoreItem";
+export * from "./DeleteItem/index.js";
+export * from "./RestoreItem/index.js";

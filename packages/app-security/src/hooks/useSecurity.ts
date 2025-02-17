@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SecurityContext } from "~/contexts/Security";
+import { SecurityContext } from "~/contexts/Security.js";
 
 export function useSecurity() {
     const context = useContext(SecurityContext);

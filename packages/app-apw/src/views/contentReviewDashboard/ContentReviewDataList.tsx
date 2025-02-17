@@ -1,17 +1,17 @@
 import React, { useCallback } from "react";
-import debounce from "lodash/debounce";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
+import debounce from "lodash/debounce.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import styled from "@emotion/styled";
-import { DataList, DataListModalOverlayAction, List, ListItem } from "@webiny/ui/List";
-import { i18n } from "@webiny/app/i18n";
+import { DataList, DataListModalOverlayAction, List, ListItem } from "@webiny/ui/List/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { ApwContentReviewListItem } from "~/types";
-import { ContentReviewListItem } from "./components/ContentReviewItem";
-import { useContentReviewsList } from "~/hooks/useContentReviewsList";
-import { ContentReviewsFilterModal } from "./components/ContentReviewsFilterOverlay";
-import { Scrollbar } from "@webiny/ui/Scrollbar";
-import { Typography } from "@webiny/ui/Typography";
-import { useFetchInterval } from "~/hooks/useFetchInterval";
+import { ApwContentReviewListItem } from "~/types.js";
+import { ContentReviewListItem } from "./components/ContentReviewItem.js";
+import { useContentReviewsList } from "~/hooks/useContentReviewsList.js";
+import { ContentReviewsFilterModal } from "./components/ContentReviewsFilterOverlay.js";
+import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useFetchInterval } from "~/hooks/useFetchInterval.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/datalist");
 

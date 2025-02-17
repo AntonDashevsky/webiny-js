@@ -1,17 +1,17 @@
 import { useApolloClient } from "@apollo/react-hooks";
 import React, { useCallback, useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { useSnackbar } from "@webiny/app-admin";
-import { FileItem } from "@webiny/app-admin/types";
-import { FileManagerProvider } from "~/modules/FileManagerRenderer/FileManagerView";
-import { FileDetails } from "~/components/FileDetails";
-import { EditFileUsingUrlPresenter } from "./EditFileUsingUrlPresenter";
-import { EditFileUsingUrlRepository } from "./EditFileUsingUrlRepository";
-import { GetFileByUrl } from "./GetFileByUrl";
-import { UpdateFile } from "./UpdateFile";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
-import { useFileModel } from "~/hooks/useFileModel";
+import { FileItem } from "@webiny/app-admin/types.js";
+import { FileManagerProvider } from "~/modules/FileManagerRenderer/FileManagerView/index.js";
+import { FileDetails } from "~/components/FileDetails/index.js";
+import { EditFileUsingUrlPresenter } from "./EditFileUsingUrlPresenter.js";
+import { EditFileUsingUrlRepository } from "./EditFileUsingUrlRepository.js";
+import { GetFileByUrl } from "./GetFileByUrl.js";
+import { UpdateFile } from "./UpdateFile.js";
+import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import { useFileModel } from "~/hooks/useFileModel.js";
 
 interface EditFileRenderProp {
     editFile: (url: string) => void;

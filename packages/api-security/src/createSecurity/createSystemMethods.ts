@@ -5,7 +5,7 @@ import {
     Security,
     SecurityConfig,
     System as SystemRecord
-} from "../types";
+} from "../types.js";
 import { createTopic } from "@webiny/pubsub";
 
 export const createSystemMethods = ({

@@ -1,5 +1,5 @@
-import type { Element as ElementType } from "@webiny/app-page-builder-elements/types";
-import type { PbElementDataIconV1, PbElementDataIconV2 } from "~/types";
+import type { Element as ElementType } from "@webiny/app-page-builder-elements/types.js";
+import type { PbElementDataIconV1, PbElementDataIconV2 } from "~/types.js";
 
 type ElementWithIcon = ElementType<{ icon: PbElementDataIconV1 | PbElementDataIconV2 }>;
 

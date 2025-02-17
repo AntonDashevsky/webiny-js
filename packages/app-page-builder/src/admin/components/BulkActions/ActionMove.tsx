@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo } from "react";
 import { ReactComponent as MoveIcon } from "@material-design-icons/svg/outlined/drive_file_move.svg";
 import { useMoveToFolderDialog, useNavigateFolder, useRecords } from "@webiny/app-aco";
-import { FolderItem } from "@webiny/app-aco/types";
+import { FolderItem } from "@webiny/app-aco/types.js";
 import { observer } from "mobx-react-lite";
-import { PageListConfig } from "~/admin/config/pages";
-import { ROOT_FOLDER } from "~/admin/constants";
-import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { ROOT_FOLDER } from "~/admin/constants/index.js";
+import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions.js";
 
 export const ActionMove = observer(() => {
     const { moveRecord } = useRecords();

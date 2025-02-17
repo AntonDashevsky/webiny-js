@@ -1,2 +1,2 @@
-export * from "./FormDynamoDbFieldPlugin";
-export * from "./FormSubmissionDynamoDbFieldPlugin";
+export * from "./FormDynamoDbFieldPlugin.js";
+export * from "./FormSubmissionDynamoDbFieldPlugin.js";

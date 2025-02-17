@@ -1,17 +1,17 @@
-import { AdvancedPublishingWorkflow } from "~/types";
-import { apwEntryPlugins } from "./apwEntryPlugins";
-import { linkContentReviewToEntry } from "./linkContentReviewToEntry";
-import { linkWorkflowToEntry } from "./linkWorkflowToEntry";
-import { triggerContentReview } from "./triggerContentReview";
-import { updateContentReviewStatus } from "./updateContentReviewStatus";
-import { HeadlessCms } from "@webiny/api-headless-cms/types";
-import { Security } from "@webiny/api-security/types";
+import { AdvancedPublishingWorkflow } from "~/types.js";
+import { apwEntryPlugins } from "./apwEntryPlugins.js";
+import { linkContentReviewToEntry } from "./linkContentReviewToEntry.js";
+import { linkWorkflowToEntry } from "./linkWorkflowToEntry.js";
+import { triggerContentReview } from "./triggerContentReview.js";
+import { updateContentReviewStatus } from "./updateContentReviewStatus.js";
+import { HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import { Security } from "@webiny/api-security/types.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { CmsEntryApwSettingsGetterPlugin } from "./CmsEntryApwSettingsGetterPlugin";
-import { createCommentNotification } from "./notifications/commentNotification";
-import { createContentUrlPlugin } from "./notifications/contentUrl";
-import { createChangeRequestNotification } from "./notifications/changeRequestNotification";
-import { createContentReviewNotification } from "./notifications/contentReviewNotification";
+import { CmsEntryApwSettingsGetterPlugin } from "./CmsEntryApwSettingsGetterPlugin.js";
+import { createCommentNotification } from "./notifications/commentNotification.js";
+import { createContentUrlPlugin } from "./notifications/contentUrl.js";
+import { createChangeRequestNotification } from "./notifications/changeRequestNotification.js";
+import { createContentReviewNotification } from "./notifications/contentReviewNotification.js";
 
 interface ApwCmsHooksParams {
     apw: AdvancedPublishingWorkflow;

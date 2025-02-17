@@ -1,8 +1,8 @@
-import { IndexSettingsManager } from "~/settings/IndexSettingsManager";
-import { DisableIndexing } from "./DisableIndexing";
-import { EnableIndexing } from "./EnableIndexing";
-import { IElasticsearchIndexingTaskValuesSettings, IIndexSettingsValues } from "~/types";
-import { IIndexManager } from "~/settings/types";
+import { IndexSettingsManager } from "~/settings/IndexSettingsManager.js";
+import { DisableIndexing } from "./DisableIndexing.js";
+import { EnableIndexing } from "./EnableIndexing.js";
+import { IElasticsearchIndexingTaskValuesSettings, IIndexSettingsValues } from "~/types.js";
+import { IIndexManager } from "~/settings/types.js";
 import { Client } from "@webiny/api-elasticsearch";
 import { getObjectProperties } from "@webiny/utils";
 

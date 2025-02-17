@@ -1,2 +1,2 @@
-export * from "./elementByIdSelector";
-export * from "./elementWithChildrenByIdSelector";
+export * from "./elementByIdSelector.js";
+export * from "./elementWithChildrenByIdSelector.js";

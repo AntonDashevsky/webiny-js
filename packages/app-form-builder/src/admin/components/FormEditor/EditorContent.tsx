@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import { Typography } from "@webiny/ui/Typography";
-import { Tabs, Tab } from "@webiny/ui/Tabs";
-import { Icon } from "@webiny/ui/Icon";
-import { EditTab } from "./Tabs/EditTab";
-import { TriggersTab } from "./Tabs/TriggersTab";
-import { PreviewTab } from "./Tabs/PreviewTab";
-import { Fields } from "./Fields";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Tabs, Tab } from "@webiny/ui/Tabs/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { EditTab } from "./Tabs/EditTab/index.js";
+import { TriggersTab } from "./Tabs/TriggersTab/index.js";
+import { PreviewTab } from "./Tabs/PreviewTab/index.js";
+import { Fields } from "./Fields.js";
 
 import { ReactComponent as FormIcon } from "./icons/round-assignment-24px.svg";
 

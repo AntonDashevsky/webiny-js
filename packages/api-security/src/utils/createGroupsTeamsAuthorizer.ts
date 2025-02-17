@@ -1,9 +1,9 @@
 import { ContextPlugin } from "@webiny/handler";
-import { SecurityContext } from "~/types";
+import { SecurityContext } from "~/types.js";
 import {
     GroupsTeamsAuthorizerConfig,
     listPermissionsFromGroupsAndTeams
-} from "./createGroupsTeamsAuthorizer/listPermissionsFromGroupsAndTeams";
+} from "./createGroupsTeamsAuthorizer/listPermissionsFromGroupsAndTeams.js";
 
 export type { GroupsTeamsAuthorizerConfig };
 

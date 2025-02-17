@@ -1,7 +1,7 @@
-import { IExportPagesControllerTaskParams } from "./types";
+import { IExportPagesControllerTaskParams } from "./types.js";
 import { ITaskResponseResult } from "@webiny/tasks";
-import { ProcessZipPagesTasks } from "./controller/ProcessZipPagesTasks";
-import { CreateZipPagesTasks } from "./controller/CreateZipPagesTasks";
+import { ProcessZipPagesTasks } from "./controller/ProcessZipPagesTasks.js";
+import { CreateZipPagesTasks } from "./controller/CreateZipPagesTasks.js";
 
 export class ExportPagesController {
     public async execute(params: IExportPagesControllerTaskParams): Promise<ITaskResponseResult> {

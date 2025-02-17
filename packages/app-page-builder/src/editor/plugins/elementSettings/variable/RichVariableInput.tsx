@@ -3,11 +3,11 @@ import styled from "@emotion/styled";
 import { CoreOptions } from "medium-editor";
 import { ReactComponent as ExpandIcon } from "@material-design-icons/svg/filled/fullscreen.svg";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Dialog, DialogActions, DialogContent } from "@webiny/ui/Dialog";
-import { ButtonPrimary, IconButton } from "@webiny/ui/Button";
-import ReactMediumEditor from "~/editor/components/MediumEditor";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { useVariable } from "~/hooks/useVariable";
+import { Dialog, DialogActions, DialogContent } from "@webiny/ui/Dialog/index.js";
+import { ButtonPrimary, IconButton } from "@webiny/ui/Button/index.js";
+import ReactMediumEditor from "~/editor/components/MediumEditor/index.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { useVariable } from "~/hooks/useVariable.js";
 
 const InputWrapper = styled("div")`
     display: grid;

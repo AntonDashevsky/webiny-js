@@ -1,4 +1,4 @@
-import { QueryAllParams } from "~/utils/query";
+import { QueryAllParams } from "~/utils/query.js";
 
 export const count = async (params: QueryAllParams): Promise<number> => {
     const { entity, partitionKey, options = {} } = params;

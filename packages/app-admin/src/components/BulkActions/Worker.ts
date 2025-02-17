@@ -1,4 +1,4 @@
-import chunk from "lodash/chunk";
+import chunk from "lodash/chunk.js";
 import { makeAutoObservable } from "mobx";
 
 export interface CallbackParams<T> {

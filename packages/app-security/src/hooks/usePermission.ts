@@ -1,5 +1,5 @@
-import { useSecurity } from "~/hooks/useSecurity";
-import { SecurityPermission } from "~/types";
+import { useSecurity } from "~/hooks/useSecurity.js";
+import { SecurityPermission } from "~/types.js";
 
 export function usePermission<T extends SecurityPermission = SecurityPermission>(name: string) {
     const { getPermission } = useSecurity();

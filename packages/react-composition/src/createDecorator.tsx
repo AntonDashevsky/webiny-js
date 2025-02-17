@@ -5,8 +5,8 @@ import {
     DecoratableComponent,
     DecoratableHook,
     Decorator
-} from "~/types";
-import { Compose } from "~/Compose";
+} from "~/types.js";
+import { Compose } from "~/Compose.js";
 
 type GetBaseFunction<T> = T extends DecoratableComponent<infer F> ? F : never;
 

@@ -11,7 +11,7 @@ import {
 } from "lexical";
 import { addClassNamesToElement } from "@lexical/utils";
 import { EditorTheme, TypographyHTMLTag, TypographyValue } from "@webiny/lexical-theme";
-import { $createParagraphNode } from "~/ParagraphNode";
+import { $createParagraphNode } from "~/ParagraphNode.js";
 
 // Command and payload
 export const ADD_TYPOGRAPHY_COMMAND: LexicalCommand<TypographyPayload> =

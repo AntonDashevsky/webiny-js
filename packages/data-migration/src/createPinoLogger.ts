@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import pinoPretty from "pino-pretty";
-import { DataMigration } from "~/types";
+import { DataMigration } from "~/types.js";
 import { createPinoLogger as baseCreatePinoLogger, getLogLevel, Logger } from "@webiny/logger";
 
 export const createPinoLogger = () => {

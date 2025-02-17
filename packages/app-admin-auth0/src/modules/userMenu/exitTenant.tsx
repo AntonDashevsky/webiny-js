@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-serverless-cms";
-import { ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
+import { ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { ReactComponent as LogoutIcon } from "~/assets/icons/logout_black_24dp.svg";
 import { useSecurity } from "@webiny/app-security";
 import { useTenancy } from "@webiny/app-tenancy";

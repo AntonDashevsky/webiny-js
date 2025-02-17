@@ -1,6 +1,6 @@
 import { useApolloClient } from "@apollo/react-hooks";
-import { DUPLICATE_PAGE } from "~/admin/graphql/pages";
-import { DuplicatePageResponse, DuplicatePageVariables, isPbPageData, PageItem } from "./types";
+import { DUPLICATE_PAGE } from "~/admin/graphql/pages.js";
+import { DuplicatePageResponse, DuplicatePageVariables, isPbPageData, PageItem } from "./types.js";
 
 interface DuplicatePageMutationParams {
     page: PageItem;

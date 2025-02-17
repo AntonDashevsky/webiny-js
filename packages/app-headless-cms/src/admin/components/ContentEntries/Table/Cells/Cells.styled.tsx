@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Link } from "@webiny/react-router";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 export const RowTitle = styled("div")`
     display: flex;

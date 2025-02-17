@@ -3,10 +3,10 @@ import {
     DataSourceData,
     DataRequest,
     IResolveDataSourceRepository
-} from "./IResolveDataSourceRepository";
-import { IResolveDataSourceGateway } from "~/features/dataSource/loadDataSource/IResolveDataSourceGateway";
-import { DataSourceCache } from "~/features/dataSource/loadDataSource/dataSourceCache";
-import { IListCache } from "~/features/ListCache";
+} from "./IResolveDataSourceRepository.js";
+import { IResolveDataSourceGateway } from "~/features/dataSource/loadDataSource/IResolveDataSourceGateway.js";
+import { DataSourceCache } from "~/features/dataSource/loadDataSource/dataSourceCache.js";
+import { IListCache } from "~/features/ListCache.js";
 
 export class ResolveDataSourceRepository implements IResolveDataSourceRepository {
     private gateway: IResolveDataSourceGateway;

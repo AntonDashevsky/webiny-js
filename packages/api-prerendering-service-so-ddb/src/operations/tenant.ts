@@ -1,6 +1,6 @@
-import { PrerenderingServiceTenantStorageOperations } from "@webiny/api-prerendering-service/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { queryAll } from "@webiny/db-dynamodb/utils/query";
+import { PrerenderingServiceTenantStorageOperations } from "@webiny/api-prerendering-service/types.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { queryAll } from "@webiny/db-dynamodb/utils/query.js";
 
 export interface CreateTenantStorageOperationsParams {
     entity: Entity<any>;

@@ -1,7 +1,7 @@
 import React from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import LocalesDataList from "./LocalesDataList";
-import LocaleForm from "./LocaleForm";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import LocalesDataList from "./LocalesDataList.js";
+import LocaleForm from "./LocaleForm.js";
 
 export const LocalesView = () => {
     return (

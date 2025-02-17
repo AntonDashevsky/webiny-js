@@ -3,7 +3,7 @@ import {
     useActiveElement,
     useIsElementChildOfType,
     EditorConfig
-} from "@webiny/app-page-builder/editor";
+} from "@webiny/app-page-builder/editor/index.js";
 
 const { Ui } = EditorConfig;
 

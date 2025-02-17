@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { ElementRendererInputs } from "@webiny/app-page-builder-elements/contexts/ElementRendererInputs";
-import { usePage } from "~/pageEditor";
+import { ElementRendererInputs } from "@webiny/app-page-builder-elements/contexts/ElementRendererInputs.js";
+import { usePage } from "~/pageEditor/index.js";
 import {
     TranslatableItem,
     useTranslations
-} from "~/translations/ExtractTranslatableValues/TranslationContext";
-import { PbEditorElement } from "~/types";
+} from "~/translations/ExtractTranslatableValues/TranslationContext.js";
+import { PbEditorElement } from "~/types.js";
 import { ElementInputType } from "@webiny/app-page-builder-elements";
 
 export interface CreateTranslatableItemParams {

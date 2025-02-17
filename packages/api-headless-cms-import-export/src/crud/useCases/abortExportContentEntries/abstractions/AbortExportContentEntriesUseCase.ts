@@ -1,4 +1,4 @@
-import type { ICmsImportExportRecord } from "~/domain";
+import type { ICmsImportExportRecord } from "~/domain/index.js";
 
 export interface IAbortExportContentEntriesUseCaseExecuteParams {
     id: string;

@@ -1,4 +1,4 @@
-import { useModel, useModelField } from "~/admin/hooks";
+import { useModel, useModelField } from "~/admin/hooks/index.js";
 
 export const useModelFieldGraphqlContext = () => {
     const { model } = useModel();

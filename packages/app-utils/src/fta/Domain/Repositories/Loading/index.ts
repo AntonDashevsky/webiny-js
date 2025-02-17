@@ -1,3 +1,3 @@
-export * from "./ILoadingRepository";
-export * from "./LoadingRepository";
-export * from "./LoadingRepositoryFactory";
+export * from "./ILoadingRepository.js";
+export * from "./LoadingRepository.js";
+export * from "./LoadingRepositoryFactory.js";

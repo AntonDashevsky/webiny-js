@@ -6,11 +6,11 @@ import {
     IconButton as BaseIconButton,
     ButtonProps as BaseButtonProps,
     IconButtonProps as BaseIconButtonProps
-} from "@webiny/ui/Button";
-import { Tooltip, TooltipProps } from "@webiny/ui/Tooltip";
+} from "@webiny/ui/Button/index.js";
+import { Tooltip, TooltipProps } from "@webiny/ui/Tooltip/index.js";
 
-import { ButtonsProvider } from "./useButtons";
-import { ButtonContainer } from "./Buttons.styles";
+import { ButtonsProvider } from "./useButtons.js";
+import { ButtonContainer } from "./Buttons.styles.js";
 
 interface ButtonProps extends Omit<BaseButtonProps, "onClick"> {
     onAction: (ev?: any) => void;

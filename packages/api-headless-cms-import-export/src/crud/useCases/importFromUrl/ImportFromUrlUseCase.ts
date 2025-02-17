@@ -2,28 +2,28 @@ import type {
     IImportFromUrlUseCase,
     IImportFromUrlUseCaseExecuteParams,
     IImportFromUrlUseCaseExecuteResponse
-} from "./abstractions/ImportFromUrlUseCase";
+} from "./abstractions/ImportFromUrlUseCase.js";
 import type { ITasksContextObject } from "@webiny/tasks";
 import { TaskDataStatus } from "@webiny/tasks";
 import {
     IMPORT_FROM_URL_CONTROLLER_TASK,
     VALIDATE_IMPORT_FROM_URL_INTEGRITY_TASK
-} from "~/tasks/constants";
+} from "~/tasks/constants.js";
 import { WebinyError } from "@webiny/error";
 import type {
     IValidateImportFromUrlInput,
     IValidateImportFromUrlOutput
-} from "~/tasks/domain/abstractions/ValidateImportFromUrl";
-import { convertTaskToImportRecord } from "~/crud/utils/convertTaskToImportRecord";
+} from "~/tasks/domain/abstractions/ValidateImportFromUrl.js";
+import { convertTaskToImportRecord } from "~/crud/utils/convertTaskToImportRecord.js";
 import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController";
-import type { NonEmptyArray } from "@webiny/api/types";
+} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
+import type { NonEmptyArray } from "@webiny/api/types.js";
 import type {
     ICmsImportExportValidatedAssetsFile,
     ICmsImportExportValidatedContentEntriesFile
-} from "~/types";
+} from "~/types.js";
 
 export interface IImportFromUrlUseCaseParams {
     updateTask: ITasksContextObject["updateTask"];

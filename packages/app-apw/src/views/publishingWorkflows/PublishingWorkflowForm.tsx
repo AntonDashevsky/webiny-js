@@ -1,29 +1,29 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import isEqual from "lodash/isEqual";
+import isEqual from "lodash/isEqual.js";
 import { Prompt } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form, FormRenderPropParams } from "@webiny/form";
-import { ButtonDefault, ButtonPrimary, ButtonIcon } from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { ButtonDefault, ButtonPrimary, ButtonIcon } from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent
-} from "@webiny/app-admin/components/SimpleForm";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
-import { usePublishingWorkflowForm, getInitialStepData } from "~/hooks/usePublishingWorkflowForm";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { usePublishingWorkflowForm, getInitialStepData } from "~/hooks/usePublishingWorkflowForm.js";
 
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as WorkflowScopeIcon } from "~/assets/icons/workflow-scope.svg";
 import { ReactComponent as WorkflowStepIcon } from "~/assets/icons/workflow-step.svg";
 
-import WorkflowStep from "./components/WorkflowStep";
-import Title, { WorkflowFormHeader } from "./components/WorkflowTitle";
-import { WorkflowScope } from "./components/WorkflowScope";
-import { ApwWorkflow } from "~/types";
+import WorkflowStep from "./components/WorkflowStep.js";
+import Title, { WorkflowFormHeader } from "./components/WorkflowTitle.js";
+import { WorkflowScope } from "./components/WorkflowScope.js";
+import { ApwWorkflow } from "~/types.js";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/form");
 

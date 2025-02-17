@@ -1,13 +1,13 @@
 import React, { useCallback } from "react";
-import { Checkbox } from "@webiny/ui/Checkbox";
+import { Checkbox } from "@webiny/ui/Checkbox/index.js";
 import {
     CmsReferenceContentEntry,
     CmsReferenceValue
-} from "~/admin/plugins/fieldRenderers/ref/components/types";
+} from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { parseIdentifier } from "@webiny/utils";
 import styled from "@emotion/styled";
-import { CmsModelField } from "~/types";
-import { Radio } from "@webiny/ui/Radio";
+import { CmsModelField } from "~/types.js";
+import { Radio } from "@webiny/ui/Radio/index.js";
 
 const Title = styled("h5")({
     display: "block"

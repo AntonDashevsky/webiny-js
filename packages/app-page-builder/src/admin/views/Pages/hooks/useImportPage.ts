@@ -1,14 +1,14 @@
 import { useCallback } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import {
     IMPORT_PAGES,
     ImportPagesMutationResponse,
     ImportPagesMutationVariables
-} from "~/admin/graphql/pageImportExport.gql";
-import useImportPageDialog from "~/editor/plugins/defaultBar/components/ImportButton/page/useImportPageDialog";
-import useImportPageLoadingDialog from "~/editor/plugins/defaultBar/components/ImportButton/page/useImportPageLoadingDialog";
-import { PbCategory } from "~/types";
+} from "~/admin/graphql/pageImportExport.gql.js";
+import useImportPageDialog from "~/editor/plugins/defaultBar/components/ImportButton/page/useImportPageDialog.js";
+import useImportPageLoadingDialog from "~/editor/plugins/defaultBar/components/ImportButton/page/useImportPageLoadingDialog.js";
+import { PbCategory } from "~/types.js";
 
 interface UseImportPageParams {
     setLoading: () => void;

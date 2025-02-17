@@ -1,9 +1,9 @@
 import WebinyError from "@webiny/error";
-import { AcoApp } from "./AcoApp";
-import { AcoAppModifierPlugin } from "~/plugins";
-import { AcoContext, IAcoApp, IAcoAppParams, IAcoApps, IAcoAppsOptions } from "~/types";
+import { AcoApp } from "./AcoApp.js";
+import { AcoAppModifierPlugin } from "~/plugins/index.js";
+import { AcoContext, IAcoApp, IAcoAppParams, IAcoApps, IAcoAppsOptions } from "~/types.js";
 import { CmsModelPlugin } from "@webiny/api-headless-cms";
-import { createSchema } from "~/record/record.gql";
+import { createSchema } from "~/record/record.gql.js";
 
 export class AcoApps implements IAcoApps {
     private readonly apps: Map<string, IAcoApp> = new Map();

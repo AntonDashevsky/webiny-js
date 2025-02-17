@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useThemeManager } from "~/hooks/useThemeManager";
-import { ThemeSource } from "~/types";
+import { useThemeManager } from "~/hooks/useThemeManager.js";
+import { ThemeSource } from "~/types.js";
 
 export type AddThemeProps = ThemeSource;
 

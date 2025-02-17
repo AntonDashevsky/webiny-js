@@ -1,11 +1,11 @@
 import React, { Fragment, useCallback, useMemo } from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { i18n } from "@webiny/app/i18n";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
-import { CheckboxGroup, Checkbox } from "@webiny/ui/Checkbox";
-import { Radio, RadioGroup } from "@webiny/ui/Radio";
-import { I18NSecurityPermission } from "@webiny/app-i18n/types";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
+import { CheckboxGroup, Checkbox } from "@webiny/ui/Checkbox/index.js";
+import { Radio, RadioGroup } from "@webiny/ui/Radio/index.js";
+import { I18NSecurityPermission } from "@webiny/app-i18n/types.js";
 
 const t = i18n.ns("app-i18n/admin/plugins/permissionRenderer");
 

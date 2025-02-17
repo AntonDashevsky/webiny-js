@@ -1,6 +1,6 @@
-import { IDeleteEntry } from "~/crud/contentEntry/abstractions";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { CmsDeleteEntryOptions, CmsModel } from "~/types";
+import { IDeleteEntry } from "~/crud/contentEntry/abstractions/index.js";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { CmsDeleteEntryOptions, CmsModel } from "~/types/index.js";
 
 export class DeleteEntrySecure implements IDeleteEntry {
     private accessControl: AccessControl;

@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { ReactComponent as MoreVerticalIcon } from "@material-design-icons/svg/outlined/more_vert.svg";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 
-import { OptionsMenuItemProvider } from "./useOptionsMenuItem";
+import { OptionsMenuItemProvider } from "./useOptionsMenuItem.js";
 
-import { Menu } from "./OptionsMenu.styled";
+import { Menu } from "./OptionsMenu.styled.js";
 
 export interface OptionsMenuProps {
     actions: {

@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
-import { UIElement, UiElementRenderProps } from "~/ui/UIElement";
-import { TopAppBarSection } from "@webiny/ui/TopAppBar";
+import { UIElement, UiElementRenderProps } from "~/ui/UIElement.js";
+import { TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
 
 const edgeBars = css({
     width: "25%"

@@ -1,4 +1,4 @@
-import { IUserCommandInput } from "~/types";
+import { IUserCommandInput } from "~/types.js";
 import execa from "execa";
 import { WebinyConfigFile } from "./WebinyConfigFile.js";
 import { requireConfig } from "~/utils/index.js";

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase";
-import { IconRenderer } from "@webiny/app-page-builder-elements/renderers/icon";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import kebabCase from "lodash/kebabCase.js";
+import { IconRenderer } from "@webiny/app-page-builder-elements/renderers/icon.js";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
 import {
     PbEditorPageElementPlugin,
     PbEditorPageElementStyleSettingsPlugin,
@@ -10,12 +10,12 @@ import {
     PbEditorElementPluginArgs,
     PbEditorElement,
     PbElementDataIconV2
-} from "~/types";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
+} from "~/types.js";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
 // Icons
 import { ReactComponent as IconSvg } from "./round-star_border-24px.svg";
 // Components
-import IconSettings from "./IconSettings";
+import IconSettings from "./IconSettings.js";
 
 const createDefaultIcon = (): PbElementDataIconV2 => {
     return {

@@ -1,4 +1,4 @@
-import { Context } from "~/types";
+import { Context } from "~/types.js";
 import { createPulumiCommand, runHook } from "~/utils/index.js";
 import { PackagesBuilder } from "./buildPackages/PackagesBuilder.js";
 

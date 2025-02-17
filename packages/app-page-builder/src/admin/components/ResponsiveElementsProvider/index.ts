@@ -1,1 +1,1 @@
-export * from "./ResponsiveElementsProvider";
+export * from "./ResponsiveElementsProvider.js";

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { IconButton } from "@webiny/ui/Button";
-import { DrawerRight } from "@webiny/ui/Drawer";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { DrawerRight } from "@webiny/ui/Drawer/index.js";
 
 export const Drawer = styled(DrawerRight)`
     width: 1000px;

@@ -1,2 +1,2 @@
-export { useTemplate } from "./useTemplate";
-export { useDocumentDataSource } from "./useDocumentDataSource";
+export { useTemplate } from "./useTemplate.js";
+export { useDocumentDataSource } from "./useDocumentDataSource.js";

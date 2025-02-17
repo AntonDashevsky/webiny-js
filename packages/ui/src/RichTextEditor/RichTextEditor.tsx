@@ -6,11 +6,11 @@ import EditorJS, {
     SanitizerConfig,
     ToolSettings
 } from "@editorjs/editorjs";
-import { FormElementMessage } from "~/FormElementMessage";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 import { css } from "emotion";
 import classNames from "classnames";
 import { FormComponentProps } from "@webiny/form";
-import { generateAlphaNumericId } from "@webiny/utils/generateId";
+import { generateAlphaNumericId } from "@webiny/utils/generateId.js";
 
 const classes = {
     wrapper: css({

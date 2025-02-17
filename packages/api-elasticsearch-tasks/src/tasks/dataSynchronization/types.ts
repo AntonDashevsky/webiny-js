@@ -1,6 +1,6 @@
-import { IManager } from "~/types";
-import { PrimitiveValue } from "@webiny/api-elasticsearch/types";
-import { IIndexManager } from "~/settings/types";
+import { IManager } from "~/types.js";
+import { PrimitiveValue } from "@webiny/api-elasticsearch/types.js";
+import { IIndexManager } from "~/settings/types.js";
 import {
     ITaskResponseAbortedResult,
     ITaskResponseContinueResult,
@@ -8,8 +8,8 @@ import {
     ITaskResponseDoneResultOutput,
     ITaskResponseErrorResult
 } from "@webiny/tasks";
-import { IElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/abstractions/ElasticsearchSynchronize";
-import { IElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/abstractions/ElasticsearchFetcher";
+import { IElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/abstractions/ElasticsearchSynchronize.js";
+import { IElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/abstractions/ElasticsearchFetcher.js";
 
 export interface IDataSynchronizationInputValue {
     finished?: boolean;

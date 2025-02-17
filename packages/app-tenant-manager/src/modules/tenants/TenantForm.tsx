@@ -1,22 +1,22 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Tags } from "@webiny/ui/Tags";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Tags } from "@webiny/ui/Tags/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
 import { validation } from "@webiny/validation";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { useTenantForm } from "./hooks/useTenantForm";
-import { Input } from "@webiny/ui/Input";
-import { TenantFormFields } from "~/components/TenantFormFields";
+import { useTenantForm } from "./hooks/useTenantForm.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { TenantFormFields } from "~/components/TenantFormFields.js";
 
 const t = i18n.ns("app-i18n/admin/locales/form");
 

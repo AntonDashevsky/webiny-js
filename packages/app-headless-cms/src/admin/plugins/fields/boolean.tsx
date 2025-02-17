@@ -1,10 +1,10 @@
 import React from "react";
 import { ReactComponent as BooleanIcon } from "@material-design-icons/svg/outlined/toggle_on.svg";
-import { CmsModelFieldTypePlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { CmsModelFieldTypePlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Bind } from "@webiny/form";
-import { Radio, RadioGroup } from "@webiny/ui/Radio";
+import { Radio, RadioGroup } from "@webiny/ui/Radio/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields");
 

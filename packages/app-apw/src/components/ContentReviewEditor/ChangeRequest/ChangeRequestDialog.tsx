@@ -1,24 +1,24 @@
 import React, { useMemo } from "react";
-import pick from "lodash/pick";
+import pick from "lodash/pick.js";
 import { css } from "emotion";
-import * as UiDialog from "@webiny/ui/Dialog";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button";
-import { Input } from "@webiny/ui/Input";
-import { i18n } from "@webiny/app/i18n";
-import { Box, Columns, Stack } from "~/components/Layout";
+import * as UiDialog from "@webiny/ui/Dialog/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Box, Columns, Stack } from "~/components/Layout.js";
 import styled from "@emotion/styled";
-import { useChangeRequestDialog } from "./useChangeRequestDialog";
+import { useChangeRequestDialog } from "./useChangeRequestDialog.js";
 import { Form, FormOnSubmit } from "@webiny/form";
 import { BindComponent } from "@webiny/form";
-import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId";
-import { useChangeRequest } from "~/hooks/useChangeRequest";
+import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId.js";
+import { useChangeRequest } from "~/hooks/useChangeRequest.js";
 import { validation } from "@webiny/validation";
-import { RichTextEditor } from "@webiny/app-admin/components/RichTextEditor";
-import { FileManager } from "@webiny/app-admin/components";
-import { ApwFile } from "./ApwFile";
+import { RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/index.js";
+import { FileManager } from "@webiny/app-admin/components/index.js";
+import { ApwFile } from "./ApwFile.js";
 import { generateAlphaNumericId } from "@webiny/utils";
-import { ApwChangeRequest } from "~/types";
+import { ApwChangeRequest } from "~/types.js";
 
 const t = i18n.ns("app-apw/content-review/editor/change-request");
 

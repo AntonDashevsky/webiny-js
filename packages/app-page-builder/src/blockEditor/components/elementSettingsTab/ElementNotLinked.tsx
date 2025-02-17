@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { ButtonPrimary } from "@webiny/ui/Button";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { ReactComponent as InfoIcon } from "@webiny/app-admin/assets/icons/info.svg";
-import CreateVariableAction from "~/blockEditor/plugins/elementSettings/CreateVariableAction";
+import CreateVariableAction from "~/blockEditor/plugins/elementSettings/CreateVariableAction.js";
 
 export const ElementLinkStatusWrapper = styled("div")({
     padding: "16px",

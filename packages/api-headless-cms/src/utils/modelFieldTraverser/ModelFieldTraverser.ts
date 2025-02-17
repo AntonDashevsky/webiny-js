@@ -3,7 +3,7 @@ import {
     CmsModelField,
     CmsModelFieldAstNode,
     CmsModelFieldAstNodeField
-} from "~/types";
+} from "~/types/index.js";
 
 const nodeHasChildren = (node: CmsModelFieldAstNode) => {
     return node.children.length > 0;

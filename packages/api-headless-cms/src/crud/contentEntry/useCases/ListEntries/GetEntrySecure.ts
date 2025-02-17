@@ -1,7 +1,7 @@
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { IGetEntry } from "../../abstractions";
-import { CmsEntryGetParams, CmsModel } from "~/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { IGetEntry } from "../../abstractions/index.js";
+import { CmsEntryGetParams, CmsModel } from "~/types/index.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
 
 export class GetEntrySecure implements IGetEntry {
     private accessControl: AccessControl;

@@ -1,16 +1,16 @@
 import React, { useMemo } from "react";
 import styled from "@emotion/styled";
 import classNames from "classnames";
-import Loader from "./Loader";
-import NoData from "./NoData";
-import { Typography } from "~/Typography";
+import Loader from "./Loader.js";
+import NoData from "./NoData.js";
+import { Typography } from "~/Typography/index.js";
 import { css } from "emotion";
-import noop from "lodash/noop";
-import isEmpty from "lodash/isEmpty";
+import noop from "lodash/noop.js";
+import isEmpty from "lodash/isEmpty.js";
 
-import { Checkbox } from "../../Checkbox";
-import { Menu, MenuItem } from "../../Menu";
-import { Cell, Grid } from "../../Grid";
+import { Checkbox } from "../../Checkbox/index.js";
+import { Menu, MenuItem } from "../../Menu/index.js";
+import { Cell, Grid } from "../../Grid/index.js";
 
 import {
     FilterIcon,
@@ -19,10 +19,10 @@ import {
     PreviousPageIcon,
     RefreshIcon,
     SortIcon
-} from "./icons";
-import { List, ListItem, ListProps } from "..";
-import { DataListModalOverlayProvider } from "./DataListModalOverlay";
-import { PaginationProp, SortersProp } from "./types";
+} from "./icons/index.js";
+import { List, ListItem, ListProps } from "../index.js";
+import { DataListModalOverlayProvider } from "./DataListModalOverlay/index.js";
+import { PaginationProp, SortersProp } from "./types.js";
 
 const ListContainer = styled("div")({
     position: "relative",

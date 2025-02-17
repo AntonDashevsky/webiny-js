@@ -1,13 +1,13 @@
 import { useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { useRouter } from "@webiny/react-router";
-import { CREATE_PAGE } from "~/admin/graphql/pages";
-import { usePublishRevisionHandler } from "./usePublishRevisionHandler";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import * as GQLCache from "~/admin/views/Pages/cache";
-import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
-import { PbPageData, PbPageRevision } from "~/types";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
+import { CREATE_PAGE } from "~/admin/graphql/pages.js";
+import { usePublishRevisionHandler } from "./usePublishRevisionHandler.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import * as GQLCache from "~/admin/views/Pages/cache.js";
+import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
+import { PbPageData, PbPageRevision } from "~/types.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 import { useRecords } from "@webiny/app-aco";
 
 interface UseRevisionHandlersProps {

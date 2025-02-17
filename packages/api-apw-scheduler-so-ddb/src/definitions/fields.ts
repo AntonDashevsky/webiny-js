@@ -1,4 +1,4 @@
-import { ApwSchedulerScheduleActionDynamoDbFieldPlugin } from "~/plugins/ApwSchedulerScheduleActionDynamoDbFieldPlugin";
+import { ApwSchedulerScheduleActionDynamoDbFieldPlugin } from "~/plugins/ApwSchedulerScheduleActionDynamoDbFieldPlugin.js";
 
 const fields: ApwSchedulerScheduleActionDynamoDbFieldPlugin[] = [
     new ApwSchedulerScheduleActionDynamoDbFieldPlugin({

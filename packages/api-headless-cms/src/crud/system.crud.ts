@@ -8,11 +8,11 @@ import {
     CmsSystemContext,
     HeadlessCmsStorageOperations,
     OnSystemInstallErrorTopicParams
-} from "~/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+} from "~/types/index.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
 import { createTopic } from "@webiny/pubsub";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
 
 const initialContentModelGroup = {
     name: "Ungrouped",

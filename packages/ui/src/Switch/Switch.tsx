@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch as RmwcSwitch, SwitchProps } from "@rmwc/switch";
-import { FormComponentProps } from "~/types";
-import pick from "lodash/pick";
-import { FormElementMessage } from "~/FormElementMessage";
-import { getClasses } from "~/Helpers";
+import { FormComponentProps } from "~/types.js";
+import pick from "lodash/pick.js";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
+import { getClasses } from "~/Helpers/index.js";
 
 type Props = Omit<SwitchProps, "value"> &
     FormComponentProps<boolean> & {

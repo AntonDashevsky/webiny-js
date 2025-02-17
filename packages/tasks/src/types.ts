@@ -5,25 +5,25 @@ import {
     CmsEntryMeta,
     CmsModel,
     CmsModelField
-} from "@webiny/api-headless-cms/types";
-import { Topic } from "@webiny/pubsub/types";
+} from "@webiny/api-headless-cms/types/index.js";
+import { Topic } from "@webiny/pubsub/types.js";
 import {
     IResponseError,
     ITaskResponse,
     ITaskResponseDoneResultOutput,
     ITaskResponseResult
-} from "~/response/abstractions";
-import { IIsCloseToTimeoutCallable, ITaskManagerStore } from "./runner/abstractions";
-import { SecurityPermission } from "@webiny/api-security/types";
-import { GenericRecord } from "@webiny/api/types";
-import { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin";
+} from "~/response/abstractions/index.js";
+import { IIsCloseToTimeoutCallable, ITaskManagerStore } from "./runner/abstractions/index.js";
+import { SecurityPermission } from "@webiny/api-security/types.js";
+import { GenericRecord } from "@webiny/api/types.js";
+import { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin.js";
 import { ITimer } from "@webiny/handler-aws";
 
 import type zod from "zod";
 
-export * from "./handler/types";
-export * from "./response/abstractions";
-export * from "./runner/abstractions";
+export * from "./handler/types.js";
+export * from "./response/abstractions/index.js";
+export * from "./runner/abstractions/index.js";
 
 export type ITaskDataInput = GenericRecord;
 

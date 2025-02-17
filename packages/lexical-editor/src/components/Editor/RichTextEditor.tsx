@@ -2,7 +2,7 @@ import React, { Fragment, useRef, useState } from "react";
 import { css } from "emotion";
 import { CSSObject } from "@emotion/react";
 import { Klass, LexicalEditor, LexicalNode } from "lexical";
-import { EditorState } from "lexical/LexicalEditorState";
+import { EditorState } from "lexical/LexicalEditorState.js";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { $isRootTextContentEmpty } from "@lexical/text";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
@@ -20,19 +20,19 @@ import {
     toTypographyEmotionMap
 } from "@webiny/lexical-theme";
 import { allNodes } from "@webiny/lexical-nodes";
-import { RichTextEditorProvider } from "~/context/RichTextEditorContext";
-import { isValidLexicalData } from "~/utils/isValidLexicalData";
-import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin";
-import { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin";
-import { LexicalValue, ToolbarActionPlugin } from "~/types";
-import { Placeholder } from "~/ui/Placeholder";
-import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue";
-import { SharedHistoryContext, useSharedHistoryContext } from "~/context/SharedHistoryContext";
+import { RichTextEditorProvider } from "~/context/RichTextEditorContext.js";
+import { isValidLexicalData } from "~/utils/isValidLexicalData.js";
+import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin/index.js";
+import { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin.js";
+import { LexicalValue, ToolbarActionPlugin } from "~/types.js";
+import { Placeholder } from "~/ui/Placeholder.js";
+import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue.js";
+import { SharedHistoryContext, useSharedHistoryContext } from "~/context/SharedHistoryContext.js";
 import {
     LexicalEditorWithConfig,
     useLexicalEditorConfig
-} from "~/components/LexicalEditorConfig/LexicalEditorConfig";
-import { normalizeInputValue } from "./normalizeInputValue";
+} from "~/components/LexicalEditorConfig/LexicalEditorConfig.js";
+import { normalizeInputValue } from "./normalizeInputValue.js";
 
 export interface RichTextEditorProps {
     children?: React.ReactNode | React.ReactNode[];

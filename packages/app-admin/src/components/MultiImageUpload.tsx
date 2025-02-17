@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Image } from "@webiny/app/components/Image";
-import { MultiImageUpload as UiMultiImageUpload } from "@webiny/ui/ImageUpload";
+import { Image } from "@webiny/app/components/Image.js";
+import { MultiImageUpload as UiMultiImageUpload } from "@webiny/ui/ImageUpload/index.js";
 
 /**
  * TODO @ts-refactor

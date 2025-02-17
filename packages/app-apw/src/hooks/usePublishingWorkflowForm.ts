@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
-import isEmpty from "lodash/isEmpty";
+import isEmpty from "lodash/isEmpty.js";
 import { useNavigate } from "@webiny/react-router";
 import dotPropImmutable from "dot-prop-immutable";
-import pick from "lodash/pick";
+import pick from "lodash/pick.js";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { useCurrentApp } from "./useLocationSearch";
+import { useCurrentApp } from "./useLocationSearch.js";
 import {
     CREATE_WORKFLOW_MUTATION,
     CreateWorkflowMutationResponse,
@@ -16,18 +16,18 @@ import {
     UPDATE_WORKFLOW_MUTATION,
     UpdateWorkflowMutationResponse,
     UpdateWorkflowMutationVariables
-} from "~/graphql/workflow.gql";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { i18n } from "@webiny/app/i18n";
+} from "~/graphql/workflow.gql.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     ApwWorkflow,
     ApwWorkflowApplications,
     ApwWorkflowScopeTypes,
     ApwWorkflowStep,
     ApwWorkflowStepTypes
-} from "~/types";
+} from "~/types.js";
 import { generateAlphaNumericId } from "@webiny/utils";
-import { useQuery as useRouterQuery } from "~/hooks/useQuery";
+import { useQuery as useRouterQuery } from "~/hooks/useQuery.js";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/form");
 

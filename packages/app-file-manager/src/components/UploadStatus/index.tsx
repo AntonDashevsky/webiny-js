@@ -1,1 +1,1 @@
-export * from "./UploadStatus";
+export * from "./UploadStatus.js";

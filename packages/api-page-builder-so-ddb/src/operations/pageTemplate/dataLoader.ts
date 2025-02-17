@@ -1,9 +1,9 @@
 import DataLoader from "dataloader";
 import { batchReadAll } from "@webiny/db-dynamodb";
-import { PageTemplate } from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { createPrimaryPK } from "./keys";
-import { DataContainer, DataLoaderInterface } from "~/types";
+import { PageTemplate } from "@webiny/api-page-builder/types.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { createPrimaryPK } from "./keys.js";
+import { DataContainer, DataLoaderInterface } from "~/types.js";
 
 interface Params {
     entity: Entity<any>;

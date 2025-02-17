@@ -1,4 +1,4 @@
-import orderBy from "lodash/orderBy";
+import orderBy from "lodash/orderBy.js";
 
 type ListOrderItem = `${string}_ASC` | `${string}_DESC`;
 type ListOrder = ListOrderItem[];

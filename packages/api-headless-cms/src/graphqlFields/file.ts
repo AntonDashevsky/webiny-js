@@ -1,5 +1,5 @@
-import { CmsModelFieldToGraphQLPlugin } from "~/types";
-import { createGraphQLInputField } from "./helpers";
+import { CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
+import { createGraphQLInputField } from "./helpers.js";
 
 export const createFileField = (): CmsModelFieldToGraphQLPlugin => {
     return {

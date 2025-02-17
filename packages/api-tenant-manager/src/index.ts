@@ -1,6 +1,6 @@
-import graphqlPlugins from "./graphql";
+import graphqlPlugins from "./graphql/index.js";
 import { ContextPlugin } from "@webiny/api";
-import { TenantManagerContext } from "./types";
+import { TenantManagerContext } from "./types.js";
 
 export default () => [
     graphqlPlugins(),

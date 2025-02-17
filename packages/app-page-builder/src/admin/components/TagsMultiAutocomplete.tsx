@@ -2,8 +2,8 @@ import * as React from "react";
 import {
     MultiAutoComplete as UiMultiAutoComplete,
     MultiAutoCompleteProps
-} from "@webiny/ui/AutoComplete";
-import { useAutocomplete } from "@webiny/app/hooks/useAutocomplete";
+} from "@webiny/ui/AutoComplete/index.js";
+import { useAutocomplete } from "@webiny/app/hooks/useAutocomplete/index.js";
 import gql from "graphql-tag";
 
 const LIST_PAGE_TAGS = gql`

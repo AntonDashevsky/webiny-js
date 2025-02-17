@@ -1,1 +1,1 @@
-export * from "./CmsGraphQLSchemaPlugin";
+export * from "./CmsGraphQLSchemaPlugin.js";

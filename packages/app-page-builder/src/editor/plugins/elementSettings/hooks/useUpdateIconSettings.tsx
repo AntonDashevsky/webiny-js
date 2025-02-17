@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { PbEditorElement, PbElementDataIconV2 } from "~/types";
-import { useUpdateHandlers } from "~/editor";
-import { replaceFullIconObject } from "~/editor/plugins/elements/utils/iconUtils";
-import { useIconMarkup } from "~/editor/plugins/elementSettings/hooks/useIconMarkup";
+import { PbEditorElement, PbElementDataIconV2 } from "~/types.js";
+import { useUpdateHandlers } from "~/editor/index.js";
+import { replaceFullIconObject } from "~/editor/plugins/elements/utils/iconUtils.js";
+import { useIconMarkup } from "~/editor/plugins/elementSettings/hooks/useIconMarkup.js";
 import { Icon } from "@webiny/app-admin";
 
 const DEFAULT_WIDTH = 36;

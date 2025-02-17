@@ -1,7 +1,7 @@
-import orderBy from "lodash/orderBy";
-import get from "lodash/get";
+import orderBy from "lodash/orderBy.js";
+import get from "lodash/get.js";
 import { plugins } from "@webiny/plugins";
-import { PbElement, PbRenderResponsiveModePlugin } from "~/types";
+import { PbElement, PbRenderResponsiveModePlugin } from "~/types.js";
 
 type ApplyStyle = ({
     fallbackMode,

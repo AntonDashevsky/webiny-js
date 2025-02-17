@@ -1,4 +1,4 @@
-import type { CliCommandScaffoldTemplate } from "@webiny/cli-plugin-scaffold/types";
+import type { CliCommandScaffoldTemplate } from "@webiny/cli-plugin-scaffold/types.js";
 import { downloadAndLinkExtension } from "@webiny/cli-plugin-extensions/downloadAndLinkExtension.js";
 import { Input, promptQuestions } from "@webiny/cli-plugin-extensions/promptQuestions.js";
 import { generateExtension } from "@webiny/cli-plugin-extensions/generateExtension.js";

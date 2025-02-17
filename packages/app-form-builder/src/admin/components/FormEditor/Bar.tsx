@@ -1,6 +1,6 @@
 import React from "react";
-import { TopAppBar, TopAppBarSection } from "@webiny/ui/TopAppBar";
-import { renderPlugins } from "@webiny/app/plugins";
+import { TopAppBar, TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
+import { renderPlugins } from "@webiny/app/plugins/index.js";
 
 import { css } from "emotion";
 

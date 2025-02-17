@@ -1,16 +1,16 @@
 import ApolloClient from "apollo-client";
-import lodashChunk from "lodash/chunk";
+import lodashChunk from "lodash/chunk.js";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useApolloClient } from "~/admin/hooks";
+import { useApolloClient } from "~/admin/hooks/index.js";
 import {
     CmsReferenceContentEntry,
     CmsReferenceValue as BaseCmsReferenceValue
-} from "~/admin/plugins/fieldRenderers/ref/components/types";
+} from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import {
     LIST_LATEST_CONTENT_ENTRIES,
     ListLatestCmsEntriesResponse,
     ListLatestCmsEntriesVariables
-} from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/graphql";
+} from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/graphql.js";
 import { parseIdentifier } from "@webiny/utils";
 
 interface ExecuteSearchParams {

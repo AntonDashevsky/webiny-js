@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as DeleteIcon } from "~/admin/assets/delete.svg";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { useDeletePage } from "~/admin/views/Pages/hooks/useDeletePage";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { useDeletePage } from "~/admin/views/Pages/hooks/useDeletePage.js";
 import { useFolders } from "@webiny/app-aco";
 import { makeDecoratable } from "@webiny/react-composition";
-import { usePage } from "~/admin/views/Pages/PageDetails";
+import { usePage } from "~/admin/views/Pages/PageDetails.js";
 
 export interface DeletePageProps {
     onDelete?: () => void;

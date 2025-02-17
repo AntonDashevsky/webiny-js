@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect } from "react";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
 
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
 import { Form, FormAPI, FormOnSubmit } from "@webiny/form";
 
-import { QueryBuilderFormData, QueryBuilderViewModel } from "../QueryBuilderDrawerPresenter";
+import { QueryBuilderFormData, QueryBuilderViewModel } from "../QueryBuilderDrawerPresenter.js";
 
 import {
     AddFilter,
@@ -14,10 +14,10 @@ import {
     FilterOperationLabel,
     GroupOperationLabel,
     OperationSelector
-} from "./components";
+} from "./components/index.js";
 
-import { AccordionItemInner, Content, FilterOperationContainer } from "./Querybuilder.styled";
-import { FieldDTOWithElement } from "~/components/AdvancedSearch/domain";
+import { AccordionItemInner, Content, FilterOperationContainer } from "./Querybuilder.styled.js";
+import { FieldDTOWithElement } from "~/components/AdvancedSearch/domain/index.js";
 
 export interface QueryBuilderProps {
     onForm: (form: FormAPI) => void;

@@ -1,10 +1,10 @@
 import { useCallback } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { IMPORT_TEMPLATES } from "~/admin/graphql/templateImportExport.gql";
-import useImportTemplateDialog from "~/editor/plugins/defaultBar/components/ImportButton/template/useImportTemplateDialog";
-import useImportTemplateLoadingDialog from "~/editor/plugins/defaultBar/components/ImportButton/template/useImportTemplateLoadingDialog";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { IMPORT_TEMPLATES } from "~/admin/graphql/templateImportExport.gql.js";
+import useImportTemplateDialog from "~/editor/plugins/defaultBar/components/ImportButton/template/useImportTemplateDialog.js";
+import useImportTemplateLoadingDialog from "~/editor/plugins/defaultBar/components/ImportButton/template/useImportTemplateLoadingDialog.js";
 
 const useImportTemplate = () => {
     const [importTemplate] = useMutation(IMPORT_TEMPLATES);

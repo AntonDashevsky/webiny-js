@@ -1,6 +1,6 @@
 import { AbstractExtension } from "./AbstractExtension.js";
 import { updateWorkspaces } from "~/utils.js";
-import type { ExtensionMessage } from "~/types";
+import type { ExtensionMessage } from "~/types.js";
 
 export class WorkspaceExtension extends AbstractExtension {
     async link() {

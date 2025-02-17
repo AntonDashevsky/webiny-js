@@ -1,10 +1,10 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { Select } from "@webiny/ui/Select";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
 import { plugins } from "@webiny/plugins";
 import { validation } from "@webiny/validation";
-import { CmsModelFieldValidatorPlugin, CmsModelFieldRegexValidatorExpressionPlugin } from "~/types";
+import { CmsModelFieldValidatorPlugin, CmsModelFieldRegexValidatorExpressionPlugin } from "~/types.js";
 import { useForm, Bind } from "@webiny/form";
 
 const PatternSettings = () => {

@@ -5,8 +5,8 @@ import {
     DropTarget,
     DropDestination,
     DropSource
-} from "~/types";
-import getFieldPosition from "./getFieldPosition";
+} from "~/types.js";
+import getFieldPosition from "./getFieldPosition.js";
 
 /**
  * Remove all rows that have zero fields in it.

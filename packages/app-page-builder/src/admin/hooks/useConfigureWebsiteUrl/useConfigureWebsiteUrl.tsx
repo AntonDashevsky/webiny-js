@@ -1,8 +1,8 @@
 import React from "react";
 import { css } from "emotion";
 import { Link } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
 
 const t = i18n.ns("app-page-builder/utils");
 

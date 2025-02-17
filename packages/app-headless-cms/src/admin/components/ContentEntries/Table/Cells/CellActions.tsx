@@ -1,8 +1,8 @@
 import React from "react";
 import { FolderProvider, useAcoConfig } from "@webiny/app-aco";
 import { makeDecoratable, OptionsMenu } from "@webiny/app-admin";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { EntryProvider } from "~/admin/hooks/useEntry";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { EntryProvider } from "~/admin/hooks/useEntry.js";
 
 const DefaultCellActions = () => {
     const { useTableRow, isFolderRow } = ContentEntryListConfig.Browser.Table.Column;

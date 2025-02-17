@@ -1,6 +1,6 @@
-import type { ICmsImportExportFile } from "~/types";
-import type { GenericRecord, NonEmptyArray } from "@webiny/api/types";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type { ICmsImportExportFile } from "~/types.js";
+import type { GenericRecord, NonEmptyArray } from "@webiny/api/types.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 export interface IValidateImportFromUrlUseCaseExecuteParams {
     data: string | GenericRecord;

@@ -3,9 +3,9 @@ import {
     GraphQLFieldResolver as BaseGraphQLFieldResolver,
     GraphQLSchema
 } from "graphql";
-import { Plugin } from "@webiny/plugins/types";
-import { Context, GenericRecord } from "@webiny/api/types";
-import { RouteMethodPath } from "@webiny/handler/types";
+import { Plugin } from "@webiny/plugins/types.js";
+import { Context, GenericRecord } from "@webiny/api/types.js";
+import { RouteMethodPath } from "@webiny/handler/types.js";
 import { ResolversComposition } from "@graphql-tools/resolvers-composition";
 import { IResolvers, TypeSource } from "@graphql-tools/utils";
 

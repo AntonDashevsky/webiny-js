@@ -1,4 +1,4 @@
-import { Modifier } from "~/types";
+import { Modifier } from "~/types.js";
 
 export default (): Modifier => {
     return {

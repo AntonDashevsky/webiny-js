@@ -1,5 +1,5 @@
 import React from "react";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
 
 export const CellAuthor = () => {
     const { useTableRow } = FileManagerViewConfig.Browser.Table.Column;

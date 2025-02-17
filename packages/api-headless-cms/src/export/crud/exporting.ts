@@ -1,6 +1,6 @@
-import { HeadlessCmsExportStructure, SanitizedCmsModel } from "~/export/types";
-import { CmsContext } from "~/types";
-import { sanitizeGroup, sanitizeModel } from "./sanitize";
+import { HeadlessCmsExportStructure, SanitizedCmsModel } from "~/export/types.js";
+import { CmsContext } from "~/types/index.js";
+import { sanitizeGroup, sanitizeModel } from "./sanitize.js";
 
 export const createExportStructureContext = (context: CmsContext): HeadlessCmsExportStructure => {
     return async params => {

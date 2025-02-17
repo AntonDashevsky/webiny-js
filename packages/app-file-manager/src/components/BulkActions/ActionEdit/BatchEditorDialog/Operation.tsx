@@ -2,11 +2,11 @@ import React from "react";
 
 import { observer } from "mobx-react-lite";
 import { Bind } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
 
-import { FieldRenderer } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/FieldRenderer";
-import { OperationFormData } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter";
+import { FieldRenderer } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/FieldRenderer.js";
+import { OperationFormData } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter.js";
 
 export interface OperationProps {
     operation: OperationFormData;

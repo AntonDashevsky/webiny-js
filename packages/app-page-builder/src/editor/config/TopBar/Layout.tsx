@@ -1,8 +1,8 @@
 import React from "react";
 import { css } from "emotion";
 import { makeDecoratable } from "@webiny/app-admin";
-import { TopAppBar, TopAppBarSection } from "@webiny/ui/TopAppBar";
-import { TopBar } from "./TopBar";
+import { TopAppBar, TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
+import { TopBar } from "./TopBar.js";
 
 const topBar = css`
     box-shadow: 1px 0px 5px 0px rgba(128, 128, 128, 1);

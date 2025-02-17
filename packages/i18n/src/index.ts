@@ -1,6 +1,6 @@
-import I18n from "./I18n";
-import defaultProcessor from "./processors/default";
-import modifiersFactory from "./modifiers";
+import I18n from "./I18n.js";
+import defaultProcessor from "./processors/default.js";
+import modifiersFactory from "./modifiers/index.js";
 
 const i18n = new I18n();
 

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { Select } from "@webiny/ui/Select";
-import { Typography } from "@webiny/ui/Typography";
+import { Select } from "@webiny/ui/Select/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 export const TagContainer = styled("div")`
     display: flex;

@@ -1,5 +1,5 @@
 import { GraphQLSchemaPlugin, resolve, resolveList } from "@webiny/handler-graphql";
-import { Context, LogType } from "~/types";
+import { Context, LogType } from "~/types.js";
 import zod from "zod";
 import { createZodError } from "@webiny/utils";
 

@@ -1,9 +1,9 @@
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import { Table } from "@webiny/db-dynamodb/toolbox.js";
 import { DataMigrationContext } from "@webiny/data-migration";
-import { PrimaryDynamoTableSymbol } from "@webiny/data-migration/symbols";
-import { queryAll, queryOne } from "~/utils";
-import { createTenantEntity } from "./createTenantEntity";
-import { createUserEntity } from "./createUserEntity";
+import { PrimaryDynamoTableSymbol } from "@webiny/data-migration/symbols.js";
+import { queryAll, queryOne } from "~/utils/index.js";
+import { createTenantEntity } from "./createTenantEntity.js";
+import { createUserEntity } from "./createUserEntity.js";
 import { inject, makeInjectable } from "@webiny/ioc";
 import { executeWithRetry } from "@webiny/utils";
 import { createEntityWriteBatch } from "@webiny/db-dynamodb";

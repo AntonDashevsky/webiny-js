@@ -1,5 +1,5 @@
-import { IGetPublishedRevisionByEntryId } from "../../abstractions";
-import { CmsEntryStorageOperationsGetPublishedRevisionParams, CmsModel } from "~/types";
+import { IGetPublishedRevisionByEntryId } from "../../abstractions/index.js";
+import { CmsEntryStorageOperationsGetPublishedRevisionParams, CmsModel } from "~/types/index.js";
 
 export class GetPublishedRevisionByEntryIdNotDeleted implements IGetPublishedRevisionByEntryId {
     private getPublishedRevisionByEntryId: IGetPublishedRevisionByEntryId;

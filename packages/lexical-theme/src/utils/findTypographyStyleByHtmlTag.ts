@@ -1,4 +1,4 @@
-import { ThemeEmotionMap } from "~/types";
+import { ThemeEmotionMap } from "~/types.js";
 
 export const findTypographyStyleByHtmlTag = (htmlTag: string, themeEmotionMap: ThemeEmotionMap) => {
     for (const styleId in themeEmotionMap) {

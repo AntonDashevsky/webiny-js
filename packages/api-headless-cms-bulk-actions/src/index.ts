@@ -1,10 +1,10 @@
-import { createHandlers } from "~/handlers";
-import { createDefaultGraphQL } from "~/plugins";
+import { createHandlers } from "~/handlers/index.js";
+import { createDefaultGraphQL } from "~/plugins/index.js";
 
-export * from "./abstractions";
-export * from "./handlers";
-export * from "./useCases";
-export * from "./plugins";
-export * from "./tasks";
+export * from "./abstractions/index.js";
+export * from "./handlers/index.js";
+export * from "./useCases/index.js";
+export * from "./plugins/index.js";
+export * from "./tasks/index.js";
 
 export const createHcmsBulkActions = () => [createHandlers(), createDefaultGraphQL()];

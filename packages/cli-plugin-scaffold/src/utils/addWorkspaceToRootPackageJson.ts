@@ -1,7 +1,7 @@
 import readJson from "load-json-file";
 import writeJson from "write-json-file";
 
-import { PackageJson } from "~/types";
+import { PackageJson } from "~/types.js";
 
 export default async (packageJsonPath: string, pathToAdd: string): Promise<void> => {
     // Ensure forward slashes are used.

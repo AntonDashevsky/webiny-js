@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "emotion";
-import { useSecurity } from "@webiny/app-security/hooks/useSecurity";
-import { ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { Typography } from "@webiny/ui/Typography";
-import { Avatar } from "@webiny/ui/Avatar";
+import { useSecurity } from "@webiny/app-security/hooks/useSecurity.js";
+import { ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Avatar } from "@webiny/ui/Avatar/index.js";
 import { makeDecoratable } from "@webiny/app-serverless-cms";
 
 const avatarImage = css({

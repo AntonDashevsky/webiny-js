@@ -1,5 +1,5 @@
-import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter";
-import { FilterDTO, Operation } from "~/components/AdvancedSearch/domain";
+import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter.js";
+import { FilterDTO, Operation } from "~/components/AdvancedSearch/domain/index.js";
 
 describe("QueryBuilderDrawerPresenter", () => {
     const defaultFilter = { field: "", value: "", condition: "" };

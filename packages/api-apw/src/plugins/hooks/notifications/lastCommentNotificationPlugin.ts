@@ -1,5 +1,5 @@
-import { ApwContentTypes, ApwContext } from "~/types";
-import { ApwCommentNotification } from "~/ApwCommentNotification";
+import { ApwContentTypes, ApwContext } from "~/types.js";
+import { ApwCommentNotification } from "~/ApwCommentNotification.js";
 
 interface GetLastCommentNotificationPluginParams {
     context: ApwContext;

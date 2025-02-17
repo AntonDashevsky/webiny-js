@@ -1,12 +1,12 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import { ReactComponent as LinkIcon } from "./icons/round-link-24px.svg";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import get from "lodash/get";
-import { i18n } from "@webiny/app/i18n";
-import { Alert } from "@webiny/ui/Alert";
-import { FbEditorTrigger } from "~/types";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import get from "lodash/get.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { FbEditorTrigger } from "~/types.js";
 const t = i18n.namespace("FormsApp.Editor.RedirectTriggerSettings");
 
 const plugin: FbEditorTrigger = {

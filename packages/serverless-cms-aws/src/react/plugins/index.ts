@@ -1,1 +1,1 @@
-export * from "./uploadAppToS3";
+export * from "./uploadAppToS3.js";

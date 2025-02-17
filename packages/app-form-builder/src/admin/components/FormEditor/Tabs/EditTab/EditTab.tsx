@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { EditContainer } from "./Styled";
-import { useFormEditor } from "~/admin/components/FormEditor";
-import { FbFormStep } from "~/types";
+import { EditContainer } from "./Styled.js";
+import { useFormEditor } from "~/admin/components/FormEditor/index.js";
+import { FbFormStep } from "~/types.js";
 
-import { EditFormStepDialog } from "./FormStep/EditFormStepDialog";
+import { EditFormStepDialog } from "./FormStep/EditFormStepDialog.js";
 
-import { FieldErrors } from "./FieldErrors";
-import { EditTabStep } from "./EditTabStep";
+import { FieldErrors } from "./FieldErrors.js";
+import { EditTabStep } from "./EditTabStep.js";
 
 export const EditTab = () => {
     const { data, errors, updateStep } = useFormEditor();

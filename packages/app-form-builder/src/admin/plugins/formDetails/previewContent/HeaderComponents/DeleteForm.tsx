@@ -1,15 +1,15 @@
 import React from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
 import { ReactComponent as DeleteIcon } from "../../../../icons/delete.svg";
-import * as queries from "../../../../graphql";
-import { removeFormFromListCache } from "~/admin/views/cache";
-import { usePermission } from "~/hooks/usePermission";
-import { FbRevisionModel } from "~/types";
+import * as queries from "../../../../graphql.js";
+import { removeFormFromListCache } from "~/admin/views/cache.js";
+import { usePermission } from "~/hooks/usePermission.js";
+import { FbRevisionModel } from "~/types.js";
 
 interface DeleteRevisionProps {
     form: FbRevisionModel;

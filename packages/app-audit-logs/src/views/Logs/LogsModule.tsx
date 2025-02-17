@@ -1,13 +1,13 @@
 import React from "react";
 
-import { AuditLogsListConfig } from "~/config/list";
+import { AuditLogsListConfig } from "~/config/list/index.js";
 import {
     FilterByTimestamp,
     FilterByInitiator,
     FilterByApp,
     FilterByEntity,
     FilterByAction
-} from "~/views/Logs/Filters";
+} from "~/views/Logs/Filters/index.js";
 
 const { Browser } = AuditLogsListConfig;
 

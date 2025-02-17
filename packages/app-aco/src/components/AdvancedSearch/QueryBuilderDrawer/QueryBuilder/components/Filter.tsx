@@ -1,15 +1,15 @@
 import React from "react";
 import { Bind } from "@webiny/form";
-import { AutoComplete } from "@webiny/ui/AutoComplete";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
+import { AutoComplete } from "@webiny/ui/AutoComplete/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
 
-import { InputField } from "./InputField";
-import { RemoveFilter } from "./controls";
+import { InputField } from "./InputField.js";
+import { RemoveFilter } from "./controls/index.js";
 
-import { FieldDTOWithElement, FilterGroupFilterDTO } from "../../../domain";
+import { FieldDTOWithElement, FilterGroupFilterDTO } from "../../../domain/index.js";
 
-import { CellInner, FilterContainer } from "../Querybuilder.styled";
+import { CellInner, FilterContainer } from "../Querybuilder.styled.js";
 
 interface FilterProps {
     name: string;

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { default as localStorage } from "store";
-import { LoginScreen, Tags } from "~/index";
+import { LoginScreen, Tags } from "~/index.js";
 import { useSecurity } from "@webiny/app-security";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { SplitView, LeftPanel, RightPanel } from "../SplitView";
-import { Elevation } from "@webiny/ui/Elevation";
-import { Typography } from "@webiny/ui/Typography";
-import { useInstaller } from "./useInstaller";
-import Sidebar from "./Sidebar";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { SplitView, LeftPanel, RightPanel } from "../SplitView/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useInstaller } from "./useInstaller.js";
+import Sidebar from "./Sidebar.js";
 
 declare global {
     interface Window {
@@ -16,7 +16,7 @@ declare global {
     }
 }
 
-import { Wrapper, InnerContent, InstallContent, installerSplitView, SuccessDialog } from "./styled";
+import { Wrapper, InnerContent, InstallContent, installerSplitView, SuccessDialog } from "./styled.js";
 
 interface AppInstallerProps {
     children: React.ReactNode;

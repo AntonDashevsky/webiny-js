@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { ReactComponent as Icon } from "@material-symbols/svg-400/outlined/quick_reference_all.svg";
 
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { plugins } from "@webiny/plugins";
-import { AccordionItem } from "@webiny/ui/Accordion";
-import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import { AccordionItem } from "@webiny/ui/Accordion/index.js";
+import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
 
-import { AuditLogsPermissions as AuditLogsPermissionsComponent } from "./AuditLogsPermissions";
+import { AuditLogsPermissions as AuditLogsPermissionsComponent } from "./AuditLogsPermissions.js";
 
 const t = i18n.ns("app-audit-logs/plugins/permissionRenderer");
 

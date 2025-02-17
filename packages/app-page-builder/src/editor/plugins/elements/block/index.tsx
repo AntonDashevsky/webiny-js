@@ -1,13 +1,13 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase";
-import { Block } from "./Block";
+import kebabCase from "lodash/kebabCase.js";
+import { Block } from "./Block.js";
 import {
     DisplayMode,
     PbEditorPageElementPlugin,
     PbEditorElement,
     PbEditorElementPluginArgs
-} from "~/types";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
+} from "~/types.js";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
 
 export default (args: PbEditorElementPluginArgs = {}): PbEditorPageElementPlugin => {
     const elementSettings = [

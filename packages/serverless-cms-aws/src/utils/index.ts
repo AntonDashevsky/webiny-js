@@ -1,1 +1,1 @@
-export * from "./getHandlerPath";
+export * from "./getHandlerPath.js";

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { plugins } from "@webiny/plugins";
-import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import { Typography } from "@webiny/ui/Typography";
+import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout/index.js";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { Form } from "@webiny/form";
-import { Icon } from "@webiny/ui/Icon";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { List, ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { useFormEditor } from "~/admin/components/FormEditor";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { List, ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { useFormEditor } from "~/admin/components/FormEditor/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 const t = i18n.namespace("FormsApp.Editor.FormSettings");
 
 import {
@@ -18,9 +18,9 @@ import {
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { Title, listItem, ListItemTitle, listStyle, TitleContent } from "./FormSettingsStyled";
-import { FbEditorFormSettingsPlugin } from "~/types";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { Title, listItem, ListItemTitle, listStyle, TitleContent } from "./FormSettingsStyled.js";
+import { FbEditorFormSettingsPlugin } from "~/types.js";
 
 interface FormSettingsProps {
     onExited: () => void;

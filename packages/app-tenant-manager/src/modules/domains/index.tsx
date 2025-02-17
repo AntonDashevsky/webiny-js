@@ -1,8 +1,8 @@
 import React from "react";
 import gql from "graphql-tag";
 import { Plugins } from "@webiny/app-admin";
-import { Domains } from "~/components/Domains";
-import { AddTenantFormField } from "~/components/AddTenantFormField";
+import { Domains } from "~/components/Domains.js";
+import { AddTenantFormField } from "~/components/AddTenantFormField.js";
 
 export const DomainsModule = () => {
     const selection = gql`

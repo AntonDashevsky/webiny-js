@@ -1,26 +1,26 @@
-import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters";
-import elasticsearchPlugins from "./elasticsearch";
-import dynamoDbPlugins from "./dynamoDb";
-import { createSystemStorageOperations } from "./operations/system";
-import { createModelsStorageOperations } from "./operations/model";
-import { createEntriesStorageOperations } from "./operations/entry";
-import { ENTITIES, StorageOperationsFactory } from "~/types";
-import { createTable } from "~/definitions/table";
-import { createElasticsearchTable } from "~/definitions/tableElasticsearch";
-import { createGroupEntity } from "~/definitions/group";
-import { createModelEntity } from "~/definitions/model";
-import { createEntryEntity } from "~/definitions/entry";
-import { createEntryElasticsearchEntity } from "~/definitions/entryElasticsearch";
-import { createSystemEntity } from "~/definitions/system";
-import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex";
+import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters/index.js";
+import elasticsearchPlugins from "./elasticsearch/index.js";
+import dynamoDbPlugins from "./dynamoDb/index.js";
+import { createSystemStorageOperations } from "./operations/system/index.js";
+import { createModelsStorageOperations } from "./operations/model/index.js";
+import { createEntriesStorageOperations } from "./operations/entry/index.js";
+import { ENTITIES, StorageOperationsFactory } from "~/types.js";
+import { createTable } from "~/definitions/table.js";
+import { createElasticsearchTable } from "~/definitions/tableElasticsearch.js";
+import { createGroupEntity } from "~/definitions/group.js";
+import { createModelEntity } from "~/definitions/model.js";
+import { createEntryEntity } from "~/definitions/entry.js";
+import { createEntryElasticsearchEntity } from "~/definitions/entryElasticsearch.js";
+import { createSystemEntity } from "~/definitions/system.js";
+import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { createGroupsStorageOperations } from "~/operations/group";
+import { createGroupsStorageOperations } from "~/operations/group/index.js";
 import {
     CompressionPlugin,
     ElasticsearchQueryBuilderOperatorPlugin
 } from "@webiny/api-elasticsearch";
-import { elasticsearchIndexPlugins } from "./elasticsearch/indices";
-import { deleteElasticsearchIndex } from "./elasticsearch/deleteElasticsearchIndex";
+import { elasticsearchIndexPlugins } from "./elasticsearch/indices/index.js";
+import { deleteElasticsearchIndex } from "./elasticsearch/deleteElasticsearchIndex.js";
 import {
     CmsElasticsearchModelFieldPlugin,
     CmsEntryElasticsearchBodyModifierPlugin,
@@ -30,14 +30,14 @@ import {
     CmsEntryElasticsearchQueryModifierPlugin,
     CmsEntryElasticsearchSortModifierPlugin,
     CmsEntryElasticsearchValuesModifier
-} from "~/plugins";
-import { createFilterPlugins } from "~/operations/entry/elasticsearch/filtering/plugins";
-import { CmsEntryFilterPlugin } from "~/plugins/CmsEntryFilterPlugin";
+} from "~/plugins/index.js";
+import { createFilterPlugins } from "~/operations/entry/elasticsearch/filtering/plugins/index.js";
+import { CmsEntryFilterPlugin } from "~/plugins/CmsEntryFilterPlugin.js";
 import { StorageOperationsCmsModelPlugin, StorageTransformPlugin } from "@webiny/api-headless-cms";
-import { createElasticsearchIndexesOnLocaleAfterCreate } from "~/operations/system/indexes";
-import { createIndexTaskPluginTest } from "~/tasks/createIndexTaskPlugin";
+import { createElasticsearchIndexesOnLocaleAfterCreate } from "~/operations/system/indexes.js";
+import { createIndexTaskPluginTest } from "~/tasks/createIndexTaskPlugin.js";
 
-export * from "./plugins";
+export * from "./plugins/index.js";
 
 export const createStorageOperations: StorageOperationsFactory = params => {
     const {

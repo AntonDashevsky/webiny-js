@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Logo, makeDecoratable } from "@webiny/app-admin";
-import { Elevation } from "@webiny/ui/Elevation";
-import { LoginContent, LogoWrapper, Wrapper, InnerContent } from "./StyledComponents";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { LoginContent, LogoWrapper, Wrapper, InnerContent } from "./StyledComponents.js";
 
 export interface LoginLayoutProps {
     children: React.ReactNode;

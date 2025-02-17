@@ -1,6 +1,6 @@
-import { PbEditorElement } from "~/types";
+import { PbEditorElement } from "~/types.js";
 import { selectorFamily } from "recoil";
-import { elementsAtom } from "../elementsAtom";
+import { elementsAtom } from "../elementsAtom.js";
 
 export const elementByIdSelector = selectorFamily<PbEditorElement | null, string | null>({
     key: "elementByIdSelector",

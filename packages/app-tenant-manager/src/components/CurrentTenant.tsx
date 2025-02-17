@@ -1,8 +1,8 @@
 import React, { Fragment, useCallback, useState } from "react";
 import { useSecurity } from "@webiny/app-security";
 import { ReactComponent as TenantIcon } from "~/assets/business_black_24dp.svg";
-import { SettingsDialog } from "./CurrentTenant/SettingsDialog";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
+import { SettingsDialog } from "./CurrentTenant/SettingsDialog.js";
+import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
 
 export const CurrentTenant = () => {
     const { identity } = useSecurity();

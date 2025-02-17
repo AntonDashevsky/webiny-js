@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { ReactComponent as CloseIcon } from "@material-design-icons/svg/outlined/close.svg";
-import { IconButton } from "@webiny/ui/Button";
-import { SimpleFormHeader } from "@webiny/app-admin/components/SimpleForm";
-import { useFileDetails } from "~/hooks/useFileDetails";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { SimpleFormHeader } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { useFileDetails } from "~/hooks/useFileDetails.js";
 
 const CloseButton = styled(IconButton)`
     position: absolute;

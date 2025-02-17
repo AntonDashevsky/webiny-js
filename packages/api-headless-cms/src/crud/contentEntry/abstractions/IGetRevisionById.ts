@@ -1,4 +1,4 @@
-import { CmsEntryStorageOperationsGetRevisionParams, CmsModel, CmsStorageEntry } from "~/types";
+import { CmsEntryStorageOperationsGetRevisionParams, CmsModel, CmsStorageEntry } from "~/types/index.js";
 
 export interface IGetRevisionById {
     execute: (

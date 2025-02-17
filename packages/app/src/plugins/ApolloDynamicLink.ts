@@ -1,7 +1,7 @@
 import { ApolloLink, NextLink } from "apollo-link";
 import { plugins } from "@webiny/plugins";
-import { ApolloLinkPlugin } from "./ApolloLinkPlugin";
-import { Operation } from "apollo-link/lib/types";
+import { ApolloLinkPlugin } from "./ApolloLinkPlugin.js";
+import { Operation } from "apollo-link/lib/types.js";
 
 function createLink(plugin: ApolloLinkPlugin) {
     try {

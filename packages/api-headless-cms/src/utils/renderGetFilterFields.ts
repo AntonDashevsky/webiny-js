@@ -1,5 +1,5 @@
-import { CmsFieldTypePlugins, CmsModelField } from "~/types";
-import { getBaseFieldType } from "~/utils/getBaseFieldType";
+import { CmsFieldTypePlugins, CmsModelField } from "~/types/index.js";
+import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 
 interface RenderGetFilterFieldsParams {
     fields: CmsModelField[];

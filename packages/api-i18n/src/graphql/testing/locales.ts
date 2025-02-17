@@ -1,4 +1,4 @@
-import { ContextI18NGetLocales, I18NLocale } from "~/types";
+import { ContextI18NGetLocales, I18NLocale } from "~/types.js";
 
 export const locales: Record<string, I18NLocale> = {
     en: {

@@ -1,7 +1,7 @@
 import React from "react";
 import { FORMAT_TEXT_COMMAND } from "lexical";
-import { useCurrentSelection } from "~/hooks/useCurrentSelection";
-import { useRichTextEditor } from "~/hooks";
+import { useCurrentSelection } from "~/hooks/useCurrentSelection.js";
+import { useRichTextEditor } from "~/hooks/index.js";
 
 export const ItalicAction = () => {
     const { editor } = useRichTextEditor();

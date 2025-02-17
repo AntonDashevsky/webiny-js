@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import type { Element } from "@webiny/app-page-builder-elements/types";
-import { Editor, EditorProps } from "~/admin/components/Editor";
-import { PbEditorElementTree } from "~/types";
+import type { Element } from "@webiny/app-page-builder-elements/types.js";
+import { Editor, EditorProps } from "~/admin/components/Editor.js";
+import { PbEditorElementTree } from "~/types.js";
 
 export type ElementVisitor = (element: Element) => Element;
 

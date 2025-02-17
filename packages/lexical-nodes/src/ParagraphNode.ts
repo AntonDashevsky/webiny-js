@@ -12,7 +12,7 @@ import {
 import { EditorConfig } from "lexical";
 import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
-import { TypographyStylesNode, ThemeStyleValue, TextNodeThemeStyles } from "~/types";
+import { TypographyStylesNode, ThemeStyleValue, TextNodeThemeStyles } from "~/types.js";
 
 export type SerializeParagraphNode = Spread<
     {

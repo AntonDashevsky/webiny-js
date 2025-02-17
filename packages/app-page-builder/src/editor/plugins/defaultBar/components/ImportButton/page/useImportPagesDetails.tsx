@@ -1,10 +1,10 @@
 import React from "react";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "@webiny/app/i18n";
-import { Scrollbar } from "@webiny/ui/Scrollbar";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { Link } from "@webiny/react-router";
-import { ShowDetails } from "../styledComponents";
-import { ListImportedPagesResponse } from "~/admin/graphql/pageImportExport.gql";
+import { ShowDetails } from "../styledComponents.js";
+import { ListImportedPagesResponse } from "~/admin/graphql/pageImportExport.gql.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importPage");
 

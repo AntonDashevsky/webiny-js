@@ -1,12 +1,12 @@
-import type { ICreateCmsAssetsZipperCallable } from "./exportContentAssets/ExportContentAssets";
-import { ExportContentAssets } from "./exportContentAssets/ExportContentAssets";
+import type { ICreateCmsAssetsZipperCallable } from "./exportContentAssets/ExportContentAssets.js";
+import { ExportContentAssets } from "./exportContentAssets/ExportContentAssets.js";
 import { createS3Client } from "@webiny/aws-sdk/client-s3";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
-import { CmsAssetsZipper } from "../utils/cmsAssetsZipper";
-import { createUploadFactory } from "~/tasks/utils/upload";
-import { createArchiver } from "~/tasks/utils/archiver";
-import { Zipper } from "~/tasks/utils/zipper";
-import { WEBINY_EXPORT_ASSETS_EXTENSION } from "~/tasks/constants";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import { CmsAssetsZipper } from "../utils/cmsAssetsZipper/index.js";
+import { createUploadFactory } from "~/tasks/utils/upload/index.js";
+import { createArchiver } from "~/tasks/utils/archiver/index.js";
+import { Zipper } from "~/tasks/utils/zipper/index.js";
+import { WEBINY_EXPORT_ASSETS_EXTENSION } from "~/tasks/constants.js";
 
 export const createExportContentAssets = () => {
     const client = createS3Client();

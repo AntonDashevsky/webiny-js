@@ -1,6 +1,6 @@
-export { Container } from "./Container";
-export { Abstraction } from "./Abstraction";
-export { createImplementation } from "./createImplementation";
-export { createDecorator } from "./createDecorator";
-export { Metadata } from "./Metadata";
-export * from "./types";
+export { Container } from "./Container.js";
+export { Abstraction } from "./Abstraction.js";
+export { createImplementation } from "./createImplementation.js";
+export { createDecorator } from "./createDecorator.js";
+export { Metadata } from "./Metadata.js";
+export * from "./types.js";

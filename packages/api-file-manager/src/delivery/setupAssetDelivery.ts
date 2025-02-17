@@ -5,10 +5,10 @@ import {
     createRoute,
     ResponseHeaders
 } from "@webiny/handler";
-import { FileManagerContext } from "~/types";
-import { PrivateFilesAssetProcessor } from "./AssetDelivery/privateFiles/PrivateFilesAssetProcessor";
-import { PrivateAuthenticatedAuthorizer } from "./AssetDelivery/privateFiles/PrivateAuthenticatedAuthorizer";
-import { PrivateFileAssetRequestResolver } from "./AssetDelivery/privateFiles/PrivateFileAssetRequestResolver";
+import { FileManagerContext } from "~/types.js";
+import { PrivateFilesAssetProcessor } from "./AssetDelivery/privateFiles/PrivateFilesAssetProcessor.js";
+import { PrivateAuthenticatedAuthorizer } from "./AssetDelivery/privateFiles/PrivateAuthenticatedAuthorizer.js";
+import { PrivateFileAssetRequestResolver } from "./AssetDelivery/privateFiles/PrivateFileAssetRequestResolver.js";
 import {
     Asset,
     AssetDeliveryConfigBuilder,
@@ -17,8 +17,8 @@ import {
     AliasAssetRequestResolver,
     FilesAssetRequestResolver,
     createAssetDeliveryConfig
-} from "./index";
-import { Reply } from "@webiny/handler/types";
+} from "./index.js";
+import { Reply } from "@webiny/handler/types.js";
 
 const noCacheHeaders = ResponseHeaders.create({
     "content-type": "application/json",

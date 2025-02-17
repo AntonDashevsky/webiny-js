@@ -1,6 +1,6 @@
 import React from "react";
 import { Filters as BaseFilters, FiltersOnSubmit } from "@webiny/app-admin";
-import { useFileManagerView, useFileManagerViewConfig } from "~/index";
+import { useFileManagerView, useFileManagerViewConfig } from "~/index.js";
 
 export const Filters = () => {
     const { showingFilters, setFilters } = useFileManagerView();

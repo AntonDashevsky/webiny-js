@@ -1,10 +1,10 @@
 import DataLoader from "dataloader";
 import { batchReadAll } from "@webiny/db-dynamodb";
-import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup";
-import { CmsStorageEntry } from "@webiny/api-headless-cms/types";
-import { createPartitionKey, createPublishedSortKey } from "~/operations/entry/keys";
-import { DataLoaderParams } from "./types";
-import { createBatchScheduleFn } from "./createBatchScheduleFn";
+import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup.js";
+import { CmsStorageEntry } from "@webiny/api-headless-cms/types/index.js";
+import { createPartitionKey, createPublishedSortKey } from "~/operations/entry/keys.js";
+import { DataLoaderParams } from "./types.js";
+import { createBatchScheduleFn } from "./createBatchScheduleFn.js";
 
 export const createGetPublishedRevisionByEntryId = (params: DataLoaderParams) => {
     const { entity, locale, tenant } = params;

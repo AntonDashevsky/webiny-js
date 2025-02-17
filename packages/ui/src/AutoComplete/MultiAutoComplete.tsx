@@ -1,17 +1,17 @@
 import React from "react";
 import Downshift, { ControllerStateAndHelpers, PropGetters } from "downshift";
 import MaterialSpinner from "react-spinner-material";
-import { Input } from "~/Input";
-import { Chips, Chip } from "../Chips";
-import { getOptionValue, getOptionText, findInAliases } from "./utils";
-import { List, ListItem, ListItemMeta } from "~/List";
-import { IconButton } from "~/Button";
+import { Input } from "~/Input/index.js";
+import { Chips, Chip } from "../Chips/index.js";
+import { getOptionValue, getOptionText, findInAliases } from "./utils.js";
+import { List, ListItem, ListItemMeta } from "~/List/index.js";
+import { IconButton } from "~/Button/index.js";
 import classNames from "classnames";
-import { Elevation } from "~/Elevation";
-import { Typography } from "~/Typography";
-import { autoCompleteStyle, suggestionList } from "./styles";
-import { AutoCompleteBaseProps } from "./types";
-import { FormElementMessage } from "~/FormElementMessage";
+import { Elevation } from "~/Elevation/index.js";
+import { Typography } from "~/Typography/index.js";
+import { autoCompleteStyle, suggestionList } from "./styles.js";
+import { AutoCompleteBaseProps } from "./types.js";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 import { ReactComponent as BaselineCloseIcon } from "./icons/baseline-close-24px.svg";
 import { ReactComponent as PrevIcon } from "./icons/navigate_before-24px.svg";
 import { ReactComponent as NextIcon } from "./icons/navigate_next-24px.svg";
@@ -20,8 +20,8 @@ import { ReactComponent as NextAllIcon } from "./icons/skip_next-24px.svg";
 import { ReactComponent as DeleteIcon } from "./icons/baseline-close-24px.svg";
 import { ReactComponent as ReorderIcon } from "./icons/reorder_black_24dp.svg";
 import { css } from "emotion";
-import { ListItemGraphic } from "~/List";
-import { AutoCompleteProps } from "~/AutoComplete/AutoComplete";
+import { ListItemGraphic } from "~/List/index.js";
+import { AutoCompleteProps } from "~/AutoComplete/AutoComplete.js";
 
 const listItemMetaClassName = css({
     display: "table"

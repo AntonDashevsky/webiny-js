@@ -3,13 +3,13 @@ import {
     IRecordLockingUpdateEntryLock,
     IRecordLockingUpdateEntryLockExecuteParams,
     IRecordLockingUpdateEntryLockExecuteResult
-} from "~/domain/abstractions/IRecordLockingUpdateEntryLock";
-import { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient";
+} from "~/domain/abstractions/IRecordLockingUpdateEntryLock.js";
+import { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient.js";
 import {
     IRecordLockingUpdateEntryLockResponse,
     IRecordLockingUpdateEntryLockVariables,
     UPDATE_ENTRY_LOCK
-} from "~/domain/graphql/updateEntryLock";
+} from "~/domain/graphql/updateEntryLock.js";
 
 interface Params {
     client: IRecordLockingClient;

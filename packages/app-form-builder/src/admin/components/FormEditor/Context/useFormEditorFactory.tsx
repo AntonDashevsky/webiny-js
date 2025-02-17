@@ -1,7 +1,7 @@
 import React from "react";
-import { generateAlphaNumericId } from "@webiny/utils/generateId";
-import cloneDeep from "lodash/cloneDeep";
-import pick from "lodash/pick";
+import { generateAlphaNumericId } from "@webiny/utils/generateId.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import pick from "lodash/pick.js";
 import {
     GET_FORM,
     GetFormQueryResponse,
@@ -9,10 +9,10 @@ import {
     UPDATE_REVISION,
     UpdateFormRevisionMutationResponse,
     UpdateFormRevisionMutationVariables
-} from "./graphql";
-import { deleteField, moveStep, handleMoveRow, handleMoveField } from "./functions";
-import moveField from "./functions/handleMoveField/moveField";
-import getFieldPosition from "./functions/handleMoveField/getFieldPosition";
+} from "./graphql.js";
+import { deleteField, moveStep, handleMoveRow, handleMoveField } from "./functions/index.js";
+import moveField from "./functions/handleMoveField/moveField.js";
+import getFieldPosition from "./functions/handleMoveField/getFieldPosition.js";
 import { plugins } from "@webiny/plugins";
 
 import {
@@ -28,13 +28,13 @@ import {
     DropTarget,
     DropDestination,
     DropSource
-} from "~/types";
+} from "~/types.js";
 import { ApolloClient } from "apollo-client";
 import {
     FormEditorFieldError,
     FormEditorProviderContext,
     FormEditorProviderContextState
-} from "~/admin/components/FormEditor/Context/index";
+} from "~/admin/components/FormEditor/Context/index.js";
 import dotProp from "dot-prop-immutable";
 import { useSnackbar } from "@webiny/app-admin";
 import { mdbid } from "@webiny/utils";

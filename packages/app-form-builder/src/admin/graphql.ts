@@ -6,7 +6,7 @@ import {
     FbMetaResponse,
     FbRevisionModel,
     FormBuilderImportExportSubTask
-} from "~/types";
+} from "~/types.js";
 
 const ERROR_FIELDS = `
     code

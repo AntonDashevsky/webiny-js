@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import type { PbEditorElement, PbDataBinding, PbDataSource } from "~/types";
-import { useGetElement } from "~/editor";
+import type { PbEditorElement, PbDataBinding, PbDataSource } from "~/types.js";
+import { useGetElement } from "~/editor/index.js";
 
 export function useGetElementDataSource() {
     const getElementById = useGetElement();

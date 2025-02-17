@@ -5,13 +5,13 @@ import {
     PbPageData,
     PbPageDataSettingsSeo,
     PbPageDataSettingsSocial
-} from "@webiny/app-page-builder/types";
+} from "@webiny/app-page-builder/types.js";
 import { makeDecoratable } from "@webiny/app";
-import { SettingsQueryResponseData } from "./graphql";
-import { ErrorPage } from "./ErrorPage";
-import { WebsiteScripts } from "./WebsiteScripts";
-import { MainContent } from "./MainContent";
-import { Layout } from "./Layout";
+import { SettingsQueryResponseData } from "./graphql.js";
+import { ErrorPage } from "./ErrorPage.js";
+import { WebsiteScripts } from "./WebsiteScripts.js";
+import { MainContent } from "./MainContent.js";
+import { Layout } from "./Layout.js";
 import { PageProvider } from "@webiny/app-page-builder-elements";
 import { ApolloError } from "apollo-client";
 

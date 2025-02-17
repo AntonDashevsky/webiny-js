@@ -1,15 +1,15 @@
 import React, { useMemo } from "react";
 import styled from "@emotion/styled";
 
-import Draggable, { BeginDragProps } from "~/admin/components/FormEditor/Draggable";
-import { FbFormStep } from "~/types";
-import { RowContainer } from "./Styled";
-import { Horizontal } from "~/admin/components/FormEditor/DropZone";
-import { useEditTab } from "./EditFieldDialog/useEditTab";
+import Draggable, { BeginDragProps } from "~/admin/components/FormEditor/Draggable.js";
+import { FbFormStep } from "~/types.js";
+import { RowContainer } from "./Styled.js";
+import { Horizontal } from "~/admin/components/FormEditor/DropZone/index.js";
+import { useEditTab } from "./EditFieldDialog/useEditTab.js";
 
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/outlined/add_circle_outline.svg";
-import { EditTabStepRow } from "./EditTabStepRow";
+import { EditTabStepRow } from "./EditTabStepRow.js";
 
 const AddStepBtn = styled.div`
     display: flex;

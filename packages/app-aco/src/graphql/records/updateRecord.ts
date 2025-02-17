@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import { AcoAppMode, AcoModel } from "~/types";
-import { createAppFields, ERROR_FIELD } from "./common";
+import { AcoAppMode, AcoModel } from "~/types.js";
+import { createAppFields, ERROR_FIELD } from "./common.js";
 
 export const createUpdateRecord = (model: AcoModel, mode: AcoAppMode) => {
     if (mode === "cms") {

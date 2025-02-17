@@ -1,4 +1,4 @@
-import { createLexicalStateTransformer, SerializedEditorState } from "@webiny/lexical-converter";
+import { createLexicalStateTransformer, type SerializedEditorState } from "@webiny/lexical-converter";
 // @ts-expect-error jsdom types are messing with the repo, so they're disabled in the root package.json.
 import jsdom from "jsdom";
 

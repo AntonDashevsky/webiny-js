@@ -1,11 +1,11 @@
 import React from "react";
-import { BackButton } from "~/blockEditor/config/TopBar/BackButton";
-import { Title } from "~/blockEditor/config/TopBar/Title";
-import { SaveBlockButton } from "~/blockEditor/config/TopBar/SaveBlockButton";
-import { BlockSettingsButton } from "~/blockEditor/config/TopBar/BlockSettings/BlockSettingsButton";
-import { ElementSettingsDecorator } from "~/blockEditor/config/ElementSettingsTab";
-import { EventActionHandlers, EventActionHandlerDecorator } from "./eventActions";
-import { EditorConfig, DefaultEditorConfig } from "~/editor";
+import { BackButton } from "~/blockEditor/config/TopBar/BackButton/index.js";
+import { Title } from "~/blockEditor/config/TopBar/Title/index.js";
+import { SaveBlockButton } from "~/blockEditor/config/TopBar/SaveBlockButton/index.js";
+import { BlockSettingsButton } from "~/blockEditor/config/TopBar/BlockSettings/BlockSettingsButton.js";
+import { ElementSettingsDecorator } from "~/blockEditor/config/ElementSettingsTab.js";
+import { EventActionHandlers, EventActionHandlerDecorator } from "./eventActions/index.js";
+import { EditorConfig, DefaultEditorConfig } from "~/editor/index.js";
 
 const { Ui } = EditorConfig;
 

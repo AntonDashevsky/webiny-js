@@ -6,26 +6,26 @@ import {
     FormBuilderStorageOperationsListSubmissionsParams,
     FormBuilderStorageOperationsListSubmissionsResponse,
     FormBuilderStorageOperationsUpdateSubmissionParams
-} from "@webiny/api-form-builder/types";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-form-builder/types.js";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
 import { Client } from "@elastic/elasticsearch";
 import WebinyError from "@webiny/error";
 import { batchReadAll } from "@webiny/db-dynamodb";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
 import { createLimit, decodeCursor, encodeCursor } from "@webiny/api-elasticsearch";
 import {
     createElasticsearchBody,
     createSubmissionElasticType
-} from "~/operations/submission/elasticsearchBody";
+} from "~/operations/submission/elasticsearchBody.js";
 import { PluginsContainer } from "@webiny/plugins";
 import {
     FormBuilderSubmissionStorageOperations,
     FormBuilderSubmissionStorageOperationsCreatePartitionKeyParams
-} from "~/types";
-import { configurations } from "~/configurations";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
+} from "~/types.js";
+import { configurations } from "~/configurations.js";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
 import { parseIdentifier } from "@webiny/utils";
-import { ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types";
+import { ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types.js";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 export interface CreateSubmissionStorageOperationsParams {

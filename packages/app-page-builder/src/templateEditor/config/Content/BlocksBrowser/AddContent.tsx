@@ -2,12 +2,12 @@ import React from "react";
 import { useRecoilValue } from "recoil";
 import { keyframes } from "emotion";
 import styled from "@emotion/styled";
-import { Elevation } from "@webiny/ui/Elevation";
-import { ButtonFloating } from "@webiny/ui/Button";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { ButtonFloating } from "@webiny/ui/Button/index.js";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/round/add.svg";
-import { useDisplayMode } from "~/editor/hooks/useDisplayMode";
-import { elementsInContentTotalSelector } from "~/pageEditor/state";
-import { useBlocksBrowser } from "./useBlocksBrowser";
+import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";
+import { elementsInContentTotalSelector } from "~/pageEditor/state/index.js";
+import { useBlocksBrowser } from "./useBlocksBrowser.js";
 
 const pulse = keyframes`
   0% {

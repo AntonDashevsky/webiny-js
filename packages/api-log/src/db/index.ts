@@ -1,5 +1,5 @@
-import { createTable } from "~/db/table";
-import { createEntity } from "~/db/entity";
+import { createTable } from "~/db/table.js";
+import { createEntity } from "~/db/entity.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 
 interface IParams {

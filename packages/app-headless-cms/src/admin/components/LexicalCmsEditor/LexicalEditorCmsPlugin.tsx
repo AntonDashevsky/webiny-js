@@ -24,7 +24,7 @@ import {
     FontColorPlugin,
     TextAlignmentAction
 } from "@webiny/lexical-editor";
-import { TypographyDropDown } from "~/admin/components/LexicalCmsEditor/TypographyDropDown";
+import { TypographyDropDown } from "~/admin/components/LexicalCmsEditor/TypographyDropDown.js";
 import { CompositionScope } from "@webiny/react-composition";
 
 const { ToolbarElement, Plugin } = LexicalEditorConfig;

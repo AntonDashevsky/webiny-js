@@ -1,16 +1,16 @@
 import React from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as ViewListIcon } from "~/admin/icons/view_list.svg";
 import {
     GET_CONTENT_MODEL,
     GetCmsModelQueryResponse,
     GetCmsModelQueryVariables
-} from "~/admin/graphql/contentModels";
-import { useModelEditor } from "~/admin/hooks";
+} from "~/admin/graphql/contentModels.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
 
 const t = i18n.namespace("app-headless-cms/admin/editor/top-bar/save-button");
 

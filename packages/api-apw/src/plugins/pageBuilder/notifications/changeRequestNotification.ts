@@ -1,5 +1,5 @@
-import { ApwContentTypes } from "~/types";
-import { createApwChangeRequestNotification } from "~/ApwChangeRequestNotification";
+import { ApwContentTypes } from "~/types.js";
+import { createApwChangeRequestNotification } from "~/ApwChangeRequestNotification.js";
 
 export const createChangeRequestNotification = () => {
     const plugin = createApwChangeRequestNotification(ApwContentTypes.PAGE, params => {

@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { CoreOptions } from "medium-editor";
 import { makeDecoratable } from "@webiny/react-composition";
-import { PbEditorElement } from "~/types";
-import useUpdateHandlers from "../../plugins/elementSettings/useUpdateHandlers";
-import ReactMediumEditor from "../../components/MediumEditor";
-import { applyFallbackDisplayMode } from "../../plugins/elementSettings/elementSettingsUtils";
-import { useActiveElementId, useDisplayMode, useElementById } from "~/editor";
+import { PbEditorElement } from "~/types.js";
+import useUpdateHandlers from "../../plugins/elementSettings/useUpdateHandlers.js";
+import ReactMediumEditor from "../../components/MediumEditor/index.js";
+import { applyFallbackDisplayMode } from "../../plugins/elementSettings/elementSettingsUtils.js";
+import { useActiveElementId, useDisplayMode, useElementById } from "~/editor/index.js";
 
 const DATA_NAMESPACE = "data.text";
 

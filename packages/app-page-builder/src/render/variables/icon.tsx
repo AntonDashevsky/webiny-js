@@ -1,7 +1,7 @@
 import React from "react";
-import { IconRenderer } from "@webiny/app-page-builder-elements/renderers/icon";
-import { useElementVariables } from "~/hooks/useElementVariables";
-import { PbBlockVariable } from "~/types";
+import { IconRenderer } from "@webiny/app-page-builder-elements/renderers/icon.js";
+import { useElementVariables } from "~/hooks/useElementVariables.js";
+import { PbBlockVariable } from "~/types.js";
 
 const getVariableValues = (variables: PbBlockVariable<{ markup: string }>[]) => {
     const value = variables[0].value;

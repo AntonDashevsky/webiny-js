@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { generateId } from "@webiny/utils";
-import { useDrawers } from "./DrawersProvider";
-import { IconButton } from "./IconButton";
+import { useDrawers } from "./DrawersProvider.js";
+import { IconButton } from "./IconButton.js";
 
 export interface DrawerTriggerProps {
     icon: JSX.Element;

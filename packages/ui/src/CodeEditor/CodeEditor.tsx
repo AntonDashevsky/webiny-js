@@ -1,18 +1,18 @@
 import React from "react";
-import { FormComponentProps } from "~/types";
+import { FormComponentProps } from "~/types.js";
 import { css } from "emotion";
 
 import AceEditor from "react-ace";
 // Modes
-import "brace/mode/html";
-import "brace/mode/json";
+import "brace/mode/html.js";
+import "brace/mode/json.js";
 // Extensions
-import "brace/ext/searchbox";
+import "brace/ext/searchbox.js";
 // Themes
-import "brace/theme/github";
-import "brace/theme/twilight";
-import "brace/theme/chrome";
-import { FormElementMessage } from "~/FormElementMessage";
+import "brace/theme/github.js";
+import "brace/theme/twilight.js";
+import "brace/theme/chrome.js";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 
 /**
  * Controls the helper text below the checkbox.

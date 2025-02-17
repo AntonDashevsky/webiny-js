@@ -1,9 +1,9 @@
 /**
  * Field converters are used to convert the fieldId to storageId and vice versa.
  */
-import { CmsModelObjectFieldConverterPlugin } from "~/fieldConverters/CmsModelObjectFieldConverterPlugin";
-import { CmsModelDefaultFieldConverterPlugin } from "~/fieldConverters/CmsModelDefaultFieldConverterPlugin";
-import { CmsModelDynamicZoneFieldConverterPlugin } from "~/fieldConverters/CmsModelDynamicZoneFieldConverterPlugin";
+import { CmsModelObjectFieldConverterPlugin } from "~/fieldConverters/CmsModelObjectFieldConverterPlugin.js";
+import { CmsModelDefaultFieldConverterPlugin } from "~/fieldConverters/CmsModelDefaultFieldConverterPlugin.js";
+import { CmsModelDynamicZoneFieldConverterPlugin } from "~/fieldConverters/CmsModelDynamicZoneFieldConverterPlugin.js";
 
 export const createFieldConverters = () => {
     return [

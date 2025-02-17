@@ -1,6 +1,6 @@
 import { plugins } from "@webiny/plugins";
-import { EventActionCallable, OnCreateActions, PbEditorPageElementPlugin } from "~/types";
-import { AfterDropElementActionArgsType } from "./types";
+import { EventActionCallable, OnCreateActions, PbEditorPageElementPlugin } from "~/types.js";
+import { AfterDropElementActionArgsType } from "./types.js";
 
 const elementPluginType = "pb-editor-page-element";
 

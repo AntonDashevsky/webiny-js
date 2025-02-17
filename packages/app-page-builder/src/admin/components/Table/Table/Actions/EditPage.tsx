@@ -1,10 +1,10 @@
 import React from "react";
 import { ReactComponent as Edit } from "@material-design-icons/svg/outlined/edit.svg";
 import { makeDecoratable } from "@webiny/app-admin";
-import { PageListConfig } from "~/admin/config/pages";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
-import { useCreatePageFrom } from "~/admin/views/Pages/hooks/useCreatePageFrom";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
+import { useCreatePageFrom } from "~/admin/views/Pages/hooks/useCreatePageFrom.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 
 export const EditPage = makeDecoratable("EditPage", () => {
     const { page } = usePage();

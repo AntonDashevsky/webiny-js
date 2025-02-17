@@ -1,6 +1,6 @@
 import { Plugin } from "@webiny/plugins";
 import WebinyError from "@webiny/error";
-import { assignFields } from "./assignFields";
+import { assignFields } from "./assignFields.js";
 
 export interface ValueTransformPluginParamsTransformParams {
     value: Date | string | null | undefined;

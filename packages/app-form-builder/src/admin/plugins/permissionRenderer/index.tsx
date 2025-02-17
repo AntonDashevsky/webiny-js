@@ -1,9 +1,9 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import { AccordionItem } from "@webiny/ui/Accordion";
-import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { AccordionItem } from "@webiny/ui/Accordion/index.js";
+import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
 import { ReactComponent as FormBuilderIcon } from "../../icons/round-ballot-24px.svg";
-import { FormBuilderPermissions } from "./FormBuilderPermissions";
+import { FormBuilderPermissions } from "./FormBuilderPermissions.js";
 
 const t = i18n.ns("app-form-builder/admin/plugins/permissionRenderer");
 

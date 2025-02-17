@@ -1,6 +1,6 @@
-import { defineCloudfrontFunctionRequestHandler } from "~/cloudfrontFunctions";
+import { defineCloudfrontFunctionRequestHandler } from "~/cloudfrontFunctions/index.js";
 
-import { variantFixedKey, variantRandomKey } from "../utils/common";
+import { variantFixedKey, variantRandomKey } from "../utils/common.js";
 
 defineCloudfrontFunctionRequestHandler(event => {
     const request = event.request;

@@ -1,4 +1,4 @@
-import { PathsParser } from "./PathsParser";
+import { PathsParser } from "./PathsParser.js";
 
 describe("PathsParser", () => {
     it("should generate a simple selection", () => {

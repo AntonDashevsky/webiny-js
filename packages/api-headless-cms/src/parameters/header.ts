@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { CmsParametersPlugin } from "~/plugins/CmsParametersPlugin";
-import { ApiEndpoint } from "~/types";
+import { CmsParametersPlugin } from "~/plugins/CmsParametersPlugin.js";
+import { ApiEndpoint } from "~/types/index.js";
 
 enum HeaderKeys {
     TYPE = "x-webiny-cms-endpoint",

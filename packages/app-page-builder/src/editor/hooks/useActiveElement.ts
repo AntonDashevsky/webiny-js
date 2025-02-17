@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useRecoilState } from "recoil";
-import { activeElementAtom } from "~/editor/recoil/modules";
-import { useElementById } from "~/editor/hooks/useElementById";
-import { PbEditorElement } from "~/types";
+import { activeElementAtom } from "~/editor/recoil/modules/index.js";
+import { useElementById } from "~/editor/hooks/useElementById.js";
+import { PbEditorElement } from "~/types.js";
 
 interface ActiveElementSetter {
     (element: PbEditorElement | string | null): void;

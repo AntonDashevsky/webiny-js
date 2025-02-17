@@ -23,7 +23,7 @@ const ImageComponent = React.lazy(
     () =>
         import(
             /* webpackChunkName: "LexicalNodesComponentsImageNodeImageComponent" */
-            "./components/ImageNode/ImageComponent"
+            "./components/ImageNode/ImageComponent.js"
         )
 );
 

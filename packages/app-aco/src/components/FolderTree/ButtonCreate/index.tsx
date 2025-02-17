@@ -1,10 +1,10 @@
 import React from "react";
 
-import { i18n } from "@webiny/app/i18n";
-import { Typography } from "@webiny/ui/Typography";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
-import { useCreateDialog } from "~/dialogs";
-import { Button, Icon, IconContainer } from "./styled";
+import { useCreateDialog } from "~/dialogs/index.js";
+import { Button, Icon, IconContainer } from "./styled.js";
 
 type CreateButtonProps = {
     disabled?: boolean;

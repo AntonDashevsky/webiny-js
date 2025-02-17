@@ -2,12 +2,12 @@ import dotProp from "dot-prop-immutable";
 import fs from "fs-extra";
 import path from "path";
 import loadJson from "load-json-file";
-import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
-import { FileUploadsData } from "~/types";
-import { s3Stream } from "~/export/s3Stream";
-import { deleteS3Folder } from "~/import/utils/deleteS3Folder";
-import { INSTALL_EXTRACT_DIR } from "~/import/constants";
-import { ExportedFormData } from "~/export/process/exporters/FormExporter";
+import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles.js";
+import { FileUploadsData } from "~/types.js";
+import { s3Stream } from "~/export/s3Stream.js";
+import { deleteS3Folder } from "~/import/utils/deleteS3Folder.js";
+import { INSTALL_EXTRACT_DIR } from "~/import/constants.js";
+import { ExportedFormData } from "~/export/process/exporters/FormExporter.js";
 
 interface ImportFormParams {
     key: string;

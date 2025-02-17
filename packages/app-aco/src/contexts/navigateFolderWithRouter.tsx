@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "@webiny/react-router";
-import { NavigateFolderProvider } from "~/contexts/navigateFolder";
-import { ROOT_FOLDER } from "~/constants";
+import { NavigateFolderProvider } from "~/contexts/navigateFolder.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface NavigateFolderProviderProps {
     children: React.ReactNode;

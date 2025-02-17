@@ -1,4 +1,4 @@
-import { PbPageData } from "~/types";
+import { PbPageData } from "~/types.js";
 
 export type UpdatedPage = Pick<
     PbPageData,

@@ -2,13 +2,13 @@ import React from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import { useRouter } from "@webiny/react-router";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { Icon } from "@webiny/ui/Icon";
-import { MenuItem } from "@webiny/ui/Menu";
-import { Typography } from "@webiny/ui/Typography";
-import { Menu } from "@webiny/ui/Menu";
-import { statuses as statusesLabels } from "~/admin/constants";
-import { usePage } from "~/admin/views/Pages/PageDetails";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { MenuItem } from "@webiny/ui/Menu/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Menu } from "@webiny/ui/Menu/index.js";
+import { statuses as statusesLabels } from "~/admin/constants/index.js";
+import { usePage } from "~/admin/views/Pages/PageDetails.js";
 import { ReactComponent as DownButton } from "~/admin/assets/round-arrow_drop_down-24px.svg";
 
 const buttonStyle = css`

@@ -1,4 +1,4 @@
-import { SubmissionElasticsearchFieldPlugin } from "~/plugins/SubmissionElasticsearchFieldPlugin";
+import { SubmissionElasticsearchFieldPlugin } from "~/plugins/SubmissionElasticsearchFieldPlugin.js";
 
 export default () => [
     new SubmissionElasticsearchFieldPlugin({

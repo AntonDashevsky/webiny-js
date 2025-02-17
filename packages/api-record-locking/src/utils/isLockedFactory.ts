@@ -1,4 +1,4 @@
-import { IRecordLockingLockRecord } from "~/types";
+import { IRecordLockingLockRecord } from "~/types.js";
 
 export interface IIsLocked {
     (record?: Pick<IRecordLockingLockRecord, "lockedOn"> | null): boolean;

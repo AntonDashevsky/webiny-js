@@ -1,8 +1,8 @@
-import { GetEntriesByIds } from "./GetEntriesByIds";
-import { GetEntriesByIdsSecure } from "./GetEntriesByIdsSecure";
-import { GetEntriesByIdsNotDeleted } from "./GetEntriesByIdsNotDeleted";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { CmsEntryStorageOperations } from "~/types";
+import { GetEntriesByIds } from "./GetEntriesByIds.js";
+import { GetEntriesByIdsSecure } from "./GetEntriesByIdsSecure.js";
+import { GetEntriesByIdsNotDeleted } from "./GetEntriesByIdsNotDeleted.js";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { CmsEntryStorageOperations } from "~/types/index.js";
 
 interface GetEntriesByIdsUseCasesParams {
     operation: CmsEntryStorageOperations["getByIds"];

@@ -1,4 +1,4 @@
-import { useDynamicDocument } from "./useDynamicDocument";
+import { useDynamicDocument } from "./useDynamicDocument.js";
 
 export const useElementBindings = (elementId: string) => {
     const { dataBindings } = useDynamicDocument();

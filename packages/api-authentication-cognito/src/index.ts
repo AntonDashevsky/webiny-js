@@ -1,4 +1,4 @@
-import { AuthenticationContext, Identity } from "@webiny/api-authentication/types";
+import { AuthenticationContext, Identity } from "@webiny/api-authentication/types.js";
 import { ContextPlugin } from "@webiny/api";
 import { createAuthenticator, Config as CognitoConfig } from "@webiny/api-cognito-authenticator";
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { usePage } from "~/admin/views/Pages/PageDetails";
-import { PreviewRevisionMenuItem } from "./PreviewRevisionMenuItem";
-import { usePreviewPage } from "~/admin/hooks/usePreviewPage";
-import { useRevision } from "~/admin/plugins/pageDetails/pageRevisions/RevisionsList";
+import { usePage } from "~/admin/views/Pages/PageDetails.js";
+import { PreviewRevisionMenuItem } from "./PreviewRevisionMenuItem.js";
+import { usePreviewPage } from "~/admin/hooks/usePreviewPage.js";
+import { useRevision } from "~/admin/plugins/pageDetails/pageRevisions/RevisionsList.js";
 
 interface DefaultPreviewPageProps {
     label: React.ReactNode;

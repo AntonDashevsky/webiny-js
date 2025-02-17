@@ -1,8 +1,8 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import { WebinyError } from "@webiny/error";
-import { GenericRecord } from "@webiny/app/types";
-import { IDeletePageTemplateGateway } from "~/features/pageTemplate/deletePageTemplate/IDeletePageTemplateGateway";
+import { GenericRecord } from "@webiny/app/types.js";
+import { IDeletePageTemplateGateway } from "~/features/pageTemplate/deletePageTemplate/IDeletePageTemplateGateway.js";
 
 const DELETE_PAGE_TEMPLATE = gql`
     mutation DeletePageTemplate($id: ID!) {

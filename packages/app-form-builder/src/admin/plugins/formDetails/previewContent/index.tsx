@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Tab } from "@webiny/ui/Tabs";
+import { Tab } from "@webiny/ui/Tabs/index.js";
 import styled from "@emotion/styled";
-import { Elevation } from "@webiny/ui/Elevation";
-import FormPreview from "./FormPreview";
-import Header from "./Header";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { i18n } from "@webiny/app/i18n";
-import { FbFormDetailsPluginRenderParams, FbFormDetailsPluginType } from "~/types";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import FormPreview from "./FormPreview.js";
+import Header from "./Header.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { FbFormDetailsPluginRenderParams, FbFormDetailsPluginType } from "~/types.js";
 
 const t = i18n.namespace("FormsApp.FormDetails.PreviewContent");
 

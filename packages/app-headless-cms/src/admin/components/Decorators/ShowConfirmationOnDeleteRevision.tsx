@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import { useBind } from "@webiny/form";
 import { useDialogs, useSnackbar } from "@webiny/app-admin";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { EntryRevisionDeletedSnackbarMessage } from "./ShowConfirmationOnDeleteRevision/EntryRevisionDeletedSnackbarMessage";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { EntryRevisionDeletedSnackbarMessage } from "./ShowConfirmationOnDeleteRevision/EntryRevisionDeletedSnackbarMessage.js";
 import {
     DeleteEntryRevisionParams,
     DeleteEntryRevisionResponse
-} from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext";
+} from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
 
 type GetEntry = ReturnType<typeof useContentEntry>["getEntry"];
 

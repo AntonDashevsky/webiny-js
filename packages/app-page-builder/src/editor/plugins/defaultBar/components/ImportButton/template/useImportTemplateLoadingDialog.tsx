@@ -1,18 +1,18 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useLazyQuery, useQuery } from "@apollo/react-hooks";
-import { i18n } from "@webiny/app/i18n";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { Typography } from "@webiny/ui/Typography";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import ImportTemplatesDetails from "./useImportTemplatesDetails";
-import ProgressBar from "../ProgressBar";
-import { LoadingDialog } from "../styledComponents";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import ImportTemplatesDetails from "./useImportTemplatesDetails.js";
+import ProgressBar from "../ProgressBar.js";
+import { LoadingDialog } from "../styledComponents.js";
 import {
     GET_TEMPLATE_IMPORT_EXPORT_TASK,
     LIST_TEMPLATE_IMPORT_EXPORT_SUB_TASKS,
     GetTemplateImportExportTaskResponse
-} from "~/admin/graphql/templateImportExport.gql";
-import { ImportExportTaskStatus } from "~/types";
+} from "~/admin/graphql/templateImportExport.gql.js";
+import { ImportExportTaskStatus } from "~/types.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importTemplate");
 

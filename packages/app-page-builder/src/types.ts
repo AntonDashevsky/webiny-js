@@ -1,19 +1,19 @@
 import React, { ComponentType, ReactElement, ReactNode } from "react";
-import { DragObjectWithTypeWithTarget } from "./editor/components/Droppable";
-import { BaseEventAction, EventAction } from "./editor/recoil/eventActions";
-import { PbState } from "./editor/recoil/modules/types";
-import { GenericRecord, Plugin } from "@webiny/app/types";
+import { DragObjectWithTypeWithTarget } from "./editor/components/Droppable.js";
+import { BaseEventAction, EventAction } from "./editor/recoil/eventActions/index.js";
+import { PbState } from "./editor/recoil/modules/types.js";
+import { GenericRecord, Plugin } from "@webiny/app/types.js";
 import { BindComponent } from "@webiny/form";
 import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
-import { Icon } from "@webiny/app-admin/components/IconPicker/types";
-import { FormAPI, FormOnSubmit, FormSetValue, GenericFormData } from "@webiny/form/types";
+import { Icon } from "@webiny/app-admin/components/IconPicker/types.js";
+import { FormAPI, FormOnSubmit, FormSetValue, GenericFormData } from "@webiny/form/types.js";
 import { CoreOptions } from "medium-editor";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
-import { SecurityPermission } from "@webiny/app-security/types";
-import { PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types";
-import { Theme } from "@webiny/app-theme/types";
-import { Renderer } from "@webiny/app-page-builder-elements/types";
-import { FolderTableItem, RecordTableItem, SearchRecordItem } from "@webiny/app-aco/table.types";
+import { MenuTreeItem } from "~/admin/views/Menus/types.js";
+import { SecurityPermission } from "@webiny/app-security/types.js";
+import { PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types.js";
+import { Theme } from "@webiny/app-theme/types.js";
+import { Renderer } from "@webiny/app-page-builder-elements/types.js";
+import { FolderTableItem, RecordTableItem, SearchRecordItem } from "@webiny/app-aco/table.types.js";
 import type { SourceType } from "dnd-core";
 
 export type DragObjectWithType = {

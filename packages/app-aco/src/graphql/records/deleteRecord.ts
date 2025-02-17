@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import { AcoAppMode, AcoModel } from "~/types";
-import { ERROR_FIELD } from "./common";
+import { AcoAppMode, AcoModel } from "~/types.js";
+import { ERROR_FIELD } from "./common.js";
 
 export const createDeleteRecord = (model: AcoModel, mode: AcoAppMode) => {
     if (mode === "cms") {

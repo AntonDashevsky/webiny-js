@@ -1,17 +1,17 @@
 import React, { useEffect, useCallback } from "react";
 import { observer } from "mobx-react-lite";
-import isEqual from "lodash/isEqual";
+import isEqual from "lodash/isEqual.js";
 import { ReactComponent as CloseIcon } from "@material-design-icons/svg/outlined/close.svg";
 
-import { Menu } from "@webiny/ui/Menu";
-import { Tabs } from "@webiny/ui/Tabs";
-import { Typography } from "@webiny/ui/Typography";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
-import { FormComponentProps } from "@webiny/ui/types";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Menu } from "@webiny/ui/Menu/index.js";
+import { Tabs } from "@webiny/ui/Tabs/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
+import { FormComponentProps } from "@webiny/ui/types.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { IconPickerPresenter } from "./IconPickerPresenter";
-import { IconProvider, IconRenderer } from "./IconRenderer";
+import { IconPickerPresenter } from "./IconPickerPresenter.js";
+import { IconProvider, IconRenderer } from "./IconRenderer.js";
 import {
     IconPickerWrapper,
     IconPickerLabel,
@@ -20,11 +20,11 @@ import {
     MenuHeader,
     PlaceholderIcon,
     RemoveButton
-} from "./IconPicker.styles";
-import { IconPickerTabRenderer } from "./IconPickerTab";
-import { IconPickerPresenterProvider } from "./IconPickerPresenterProvider";
-import { IconTypeProvider } from "./config/IconType";
-import { Icon, ICON_PICKER_SIZE } from "./types";
+} from "./IconPicker.styles.js";
+import { IconPickerTabRenderer } from "./IconPickerTab.js";
+import { IconPickerPresenterProvider } from "./IconPickerPresenterProvider.js";
+import { IconTypeProvider } from "./config/IconType.js";
+import { Icon, ICON_PICKER_SIZE } from "./types.js";
 
 export interface IconPickerProps extends FormComponentProps<Icon | undefined> {
     label?: string;

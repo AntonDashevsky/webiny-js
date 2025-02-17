@@ -1,30 +1,30 @@
 import React, { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import styled from "@emotion/styled";
-import pick from "lodash/pick";
-import get from "lodash/get";
+import pick from "lodash/pick.js";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { validation } from "@webiny/validation";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CREATE_TEAM, LIST_TEAMS, READ_TEAM, UPDATE_TEAM } from "./graphql";
-import isEmpty from "lodash/isEmpty";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CREATE_TEAM, LIST_TEAMS, READ_TEAM, UPDATE_TEAM } from "./graphql.js";
+import isEmpty from "lodash/isEmpty.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { GroupsMultiAutocomplete } from "~/components/GroupsMultiAutocomplete";
-import { Team } from "~/types";
-import { Alert } from "@webiny/ui/Alert";
+import { GroupsMultiAutocomplete } from "~/components/GroupsMultiAutocomplete/index.js";
+import { Team } from "~/types.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
 
 const t = i18n.ns("app-security/admin/teams/form");
 

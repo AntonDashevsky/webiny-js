@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import { ElementStylesModifier } from "~/types.js";
 
 const textAlign: ElementStylesModifier = ({ element }) => {
     const { horizontalAlign: textAlign } = element.data.settings || {};

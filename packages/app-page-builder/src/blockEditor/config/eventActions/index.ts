@@ -1,2 +1,2 @@
-export { EventActionHandlerDecorator } from "./EventActionHandlerDecorator";
-export { EventActionHandlers } from "./EventActionHandlers";
+export { EventActionHandlerDecorator } from "./EventActionHandlerDecorator.js";
+export { EventActionHandlers } from "./EventActionHandlers.js";

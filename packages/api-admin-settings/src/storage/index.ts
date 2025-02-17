@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
-import { createSettingsEntity } from "./definitions/settings";
-import { createTable } from "./definitions/table";
-import { StorageOperationsFactory } from "./types";
-import { createSettingsStorageOperations } from "~/storage/operations/settings";
+import { createSettingsEntity } from "./definitions/settings.js";
+import { createTable } from "./definitions/table.js";
+import { StorageOperationsFactory } from "./types.js";
+import { createSettingsStorageOperations } from "~/storage/operations/settings.js";
 
 export const createStorageOperations: StorageOperationsFactory = async params => {
     const { table, documentClient } = params;

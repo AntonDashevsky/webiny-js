@@ -1,6 +1,6 @@
 import React from "react";
-import { EditorConfig } from "@webiny/app-page-builder/editor";
-import { HideIfEntriesListGridWithDataSource } from "./HideIfEntriesListGridWithDataSource";
+import { EditorConfig } from "@webiny/app-page-builder/editor/index.js";
+import { HideIfEntriesListGridWithDataSource } from "./HideIfEntriesListGridWithDataSource.js";
 
 const { ElementAction } = EditorConfig;
 

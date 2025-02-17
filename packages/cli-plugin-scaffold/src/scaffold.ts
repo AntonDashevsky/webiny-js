@@ -1,8 +1,8 @@
 import ora from "ora";
 import inquirer from "inquirer";
 import chalk from "chalk";
-import { CliCommandScaffold, CliCommandScaffoldTemplate } from "./types";
-import { CliContext } from "@webiny/cli/types";
+import { CliCommandScaffold, CliCommandScaffoldTemplate } from "./types.js";
+import { CliContext } from "@webiny/cli/types.js";
 
 const wait = (ms?: number): Promise<void> => {
     return new Promise((resolve: () => void) => {

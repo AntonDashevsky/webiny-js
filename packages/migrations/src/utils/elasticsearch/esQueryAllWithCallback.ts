@@ -3,7 +3,7 @@ import {
     ElasticsearchSearchResponse,
     PrimitiveValue,
     SearchBody
-} from "@webiny/api-elasticsearch/types";
+} from "@webiny/api-elasticsearch/types.js";
 import { executeWithRetry } from "@webiny/utils";
 
 export interface EsQueryAllWithCallbackParams<TItem> {

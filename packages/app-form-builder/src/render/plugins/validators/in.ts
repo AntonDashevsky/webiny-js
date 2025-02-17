@@ -1,5 +1,5 @@
 import { validation } from "@webiny/validation";
-import { FbFormFieldValidatorPlugin } from "~/types";
+import { FbFormFieldValidatorPlugin } from "~/types.js";
 
 const plugin: FbFormFieldValidatorPlugin = {
     type: "fb-form-field-validator",

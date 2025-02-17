@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FontColorActionContext } from "~/context/FontColorActionContext";
+import { FontColorActionContext } from "~/context/FontColorActionContext.js";
 
 export function useFontColorPicker() {
     const context = useContext(FontColorActionContext);

@@ -1,7 +1,7 @@
 import React from "react";
-import { VariableSettings as BaseVariableSettings } from "~/editor/plugins/elementSettings/variable/VariableSettings";
-import { useTemplateMode } from "~/pageEditor/hooks/useTemplateMode";
-import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference";
+import { VariableSettings as BaseVariableSettings } from "~/editor/plugins/elementSettings/variable/VariableSettings.js";
+import { useTemplateMode } from "~/pageEditor/hooks/useTemplateMode.js";
+import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference.js";
 
 export const VariableSettings = () => {
     const blockReference = useBlockReference();

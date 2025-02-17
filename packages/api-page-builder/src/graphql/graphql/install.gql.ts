@@ -1,6 +1,6 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
-import { Response, ErrorResponse } from "@webiny/handler-graphql/responses";
-import { PbContext } from "../../types";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import { Response, ErrorResponse } from "@webiny/handler-graphql/responses.js";
+import { PbContext } from "../../types.js";
 
 export const createInstallGraphQL = (): GraphQLSchemaPlugin<PbContext> => {
     return {

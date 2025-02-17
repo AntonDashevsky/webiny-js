@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { EXPORT_TEMPLATES } from "~/admin/graphql/templateImportExport.gql";
-import useExportTemplateDialog from "./useExportTemplateDialog";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { EXPORT_TEMPLATES } from "~/admin/graphql/templateImportExport.gql.js";
+import useExportTemplateDialog from "./useExportTemplateDialog.js";
 
 const useExportTemplate = () => {
     const [taskId, setTaskId] = useState<string | null>(null);

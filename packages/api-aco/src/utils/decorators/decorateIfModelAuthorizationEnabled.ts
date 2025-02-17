@@ -1,4 +1,4 @@
-import { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 
 /**
  * This type matches any function that has a CmsModel as the first parameter.

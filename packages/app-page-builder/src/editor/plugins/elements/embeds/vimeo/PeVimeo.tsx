@@ -1,9 +1,9 @@
 import React from "react";
 
 import { createRenderer, useRenderer } from "@webiny/app-page-builder-elements";
-import PeOEmbed from "~/editor/components/PeOEmbed";
-import { EmbedPluginConfig } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
-import VimeoEmbed from "./VimeoEmbed";
+import PeOEmbed from "~/editor/components/PeOEmbed.js";
+import { EmbedPluginConfig } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin.js";
+import VimeoEmbed from "./VimeoEmbed.js";
 
 interface Props {
     embedPluginConfig: EmbedPluginConfig;

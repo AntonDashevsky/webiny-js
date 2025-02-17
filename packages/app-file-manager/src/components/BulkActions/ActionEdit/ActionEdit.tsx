@@ -4,12 +4,12 @@ import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/
 import {
     FileManagerViewConfig,
     useFileManagerViewConfig
-} from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { useFileModel } from "~/hooks/useFileModel";
-import { BatchDTO } from "~/components/BulkActions/ActionEdit/domain";
-import { BatchEditorDialog } from "./BatchEditorDialog";
-import { ActionEditPresenter } from "./ActionEditPresenter";
-import { useActionEditWorker } from "~/components/BulkActions/ActionEdit/useActionEditWorker";
+} from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { useFileModel } from "~/hooks/useFileModel.js";
+import { BatchDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { BatchEditorDialog } from "./BatchEditorDialog/index.js";
+import { ActionEditPresenter } from "./ActionEditPresenter.js";
+import { useActionEditWorker } from "~/components/BulkActions/ActionEdit/useActionEditWorker.js";
 
 const { useButtons } = FileManagerViewConfig.Browser.BulkAction;
 

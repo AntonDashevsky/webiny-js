@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Bind } from "@webiny/form";
-import { Select } from "@webiny/ui/Select";
-import { useInputField } from "~/components";
+import { Select } from "@webiny/ui/Select/index.js";
+import { useInputField } from "~/components/index.js";
 
 export const PredefinedValues = () => {
     const { name, field } = useInputField();

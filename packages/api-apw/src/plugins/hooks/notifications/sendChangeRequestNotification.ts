@@ -1,5 +1,5 @@
-import { getLastChangeRequestNotificationPlugin } from "./lastChangeRequestNotificationPlugin";
-import { ApwChangeRequestNotificationCbParams } from "~/ApwChangeRequestNotification";
+import { getLastChangeRequestNotificationPlugin } from "./lastChangeRequestNotificationPlugin.js";
+import { ApwChangeRequestNotificationCbParams } from "~/ApwChangeRequestNotification.js";
 
 export const sendChangeRequestNotification = async (
     params: ApwChangeRequestNotificationCbParams

@@ -1,3 +1,3 @@
-export * from "./ISortingRepository";
-export * from "./SortingRepository";
-export * from "./SortingRepositoryFactory";
+export * from "./ISortingRepository.js";
+export * from "./SortingRepository.js";
+export * from "./SortingRepositoryFactory.js";

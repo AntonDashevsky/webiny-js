@@ -1,9 +1,9 @@
 import React from "react";
-import { flip, filter, crop, rotate } from "./toolbar";
-import { ImageEditorTool, ToolbarTool } from "./toolbar/types";
+import { flip, filter, crop, rotate } from "./toolbar/index.js";
+import { ImageEditorTool, ToolbarTool } from "./toolbar/types.js";
 import styled from "@emotion/styled";
 import classNames from "classnames";
-import { ButtonSecondary, ButtonPrimary } from "../Button";
+import { ButtonSecondary, ButtonPrimary } from "../Button/index.js";
 /**
  * Package load-script does not have types.
  */

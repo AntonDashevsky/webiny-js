@@ -1,16 +1,16 @@
 import React, { useEffect, useMemo } from "react";
-import { DefaultData, OnSortingChange, Sorting } from "@webiny/ui/DataTable";
-import { Column, ColumnsPresenter, columnsRepositoryFactory } from "./Columns";
+import { DefaultData, OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
+import { Column, ColumnsPresenter, columnsRepositoryFactory } from "./Columns/index.js";
 import {
     ColumnsVisibilityDecorator,
     ColumnsVisibilityPresenter,
     ColumnsVisibilityUpdater,
     columnsVisibilityRepositoryFactory
-} from "./ColumnVisibility";
-import { ColumnsVisibilityLocalStorageGateway } from "./gateways";
-import { TablePresenter } from "./TablePresenter";
-import { TableInner } from "./TableInner";
-import { useAcoConfig } from "~/config";
+} from "./ColumnVisibility/index.js";
+import { ColumnsVisibilityLocalStorageGateway } from "./gateways/index.js";
+import { TablePresenter } from "./TablePresenter.js";
+import { TableInner } from "./TableInner.js";
+import { useAcoConfig } from "~/config/index.js";
 
 export interface TableProps<T> {
     data: T[];

@@ -1,5 +1,5 @@
-import { SecurityPermission } from "@webiny/api-security/types";
-import { I18NContext } from "../types";
+import { SecurityPermission } from "@webiny/api-security/types.js";
+import { I18NContext } from "../types.js";
 
 interface ContentPermission {
     locales?: string[];

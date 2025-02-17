@@ -1,14 +1,14 @@
-import get from "lodash/get";
+import get from "lodash/get.js";
 import type { ElementInputs } from "@webiny/app-page-builder-elements";
-import type { GenericRecord } from "@webiny/app/types";
-import type { PbEditorElement } from "~/types";
+import type { GenericRecord } from "@webiny/app/types.js";
+import type { PbEditorElement } from "~/types.js";
 import { isValidLexicalData } from "@webiny/lexical-editor";
 import {
     ElementInputBinding,
     useBindingContext,
     useDataSourceData,
     useDynamicDocument
-} from "~/dataInjection";
+} from "~/dataInjection/index.js";
 
 const BIND_ALL = "*";
 

@@ -1,12 +1,12 @@
 import * as React from "react";
-import { renderPlugins } from "@webiny/app/plugins";
-import { Tab } from "@webiny/ui/Tabs";
+import { renderPlugins } from "@webiny/app/plugins/index.js";
+import { Tab } from "@webiny/ui/Tabs/index.js";
 import styled from "@emotion/styled";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { FbFormDetailsPluginType, FbFormDetailsSubmissionsPlugin } from "../../../../types";
-import { i18n } from "@webiny/app/i18n";
-import { FormSubmissionsOverview } from "./FormSubmissionsOverview";
-import { FormSubmissionsList } from "./FormSubmissionsList";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { FbFormDetailsPluginType, FbFormDetailsSubmissionsPlugin } from "../../../../types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { FormSubmissionsOverview } from "./FormSubmissionsOverview.js";
+import { FormSubmissionsList } from "./FormSubmissionsList/index.js";
 
 const t = i18n.namespace("FormsApp.FormDetails.PreviewContent");
 

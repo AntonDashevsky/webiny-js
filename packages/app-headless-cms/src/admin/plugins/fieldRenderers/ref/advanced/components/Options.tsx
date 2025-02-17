@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import { CmsModel } from "~/types";
-import { OptionsModelList } from "~/admin/plugins/fieldRenderers/ref/advanced/components/options/OptionsModelList";
+import { CmsModel } from "~/types.js";
+import { OptionsModelList } from "~/admin/plugins/fieldRenderers/ref/advanced/components/options/OptionsModelList.js";
 import { ReactComponent as LinkIcon } from "./assets/link.svg";
 import { ReactComponent as AddIcon } from "./assets/add-circle.svg";
 

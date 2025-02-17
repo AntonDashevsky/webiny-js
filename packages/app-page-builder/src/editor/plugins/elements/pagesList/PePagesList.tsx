@@ -1,13 +1,13 @@
-import { PbPageElementPagesListComponentPlugin } from "~/types";
+import { PbPageElementPagesListComponentPlugin } from "~/types.js";
 import {
     createPagesList,
     PagesListRenderer
-} from "@webiny/app-page-builder-elements/renderers/pagesList";
+} from "@webiny/app-page-builder-elements/renderers/pagesList/index.js";
 import React, { useMemo } from "react";
 import { plugins } from "@webiny/plugins";
 import { useApolloClient } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { LIST_PUBLISHED_PAGES } from "@webiny/app-page-builder-elements/renderers/pagesList/dataLoaders/defaultDataLoader";
+import { LIST_PUBLISHED_PAGES } from "@webiny/app-page-builder-elements/renderers/pagesList/dataLoaders/defaultDataLoader.js";
 
 export const PePagesList = (props: React.ComponentProps<PagesListRenderer>) => {
     // We wrap the original renderer in order to be able to provide the Apollo client.

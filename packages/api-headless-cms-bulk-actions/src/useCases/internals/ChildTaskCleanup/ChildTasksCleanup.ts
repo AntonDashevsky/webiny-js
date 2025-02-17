@@ -1,6 +1,6 @@
 import { ITask, Context, TaskLogItemType } from "@webiny/tasks";
-import { IUseCase } from "~/abstractions";
-import { HcmsBulkActionsContext } from "~/types";
+import { IUseCase } from "~/abstractions/index.js";
+import { HcmsBulkActionsContext } from "~/types.js";
 
 export interface IChildTasksCleanupExecuteParams {
     context: Context;

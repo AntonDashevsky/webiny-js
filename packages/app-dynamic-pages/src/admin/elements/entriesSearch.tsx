@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as RepeatIcon } from "@material-design-icons/svg/round/repeat.svg";
-import { PbEditorPageElementPlugin, PbElement } from "@webiny/app-page-builder/types";
-import { EntriesSearchRenderer } from "~/dataInjection/renderers/EntriesSearch";
+import { PbEditorPageElementPlugin, PbElement } from "@webiny/app-page-builder/types.js";
+import { EntriesSearchRenderer } from "~/dataInjection/renderers/EntriesSearch.js";
 
 export const createEntriesSearchElement = (): PbEditorPageElementPlugin => {
     return {

@@ -2,9 +2,9 @@ import * as React from "react";
 import Helmet from "react-helmet";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import authErrorImg from "./SecureRouteError.svg";
-import type { CmsModel } from "@webiny/app-headless-cms-common/types";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 import { useRouter } from "@webiny/react-router";
 
 const ContentWrapper = styled("div")({

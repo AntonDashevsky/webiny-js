@@ -1,4 +1,4 @@
-import { createTaskDefinition } from "~/task";
+import { createTaskDefinition } from "~/task/index.js";
 
 export const createTestingRunTask = () => {
     return createTaskDefinition({

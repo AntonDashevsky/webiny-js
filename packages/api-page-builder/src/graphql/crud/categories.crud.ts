@@ -12,17 +12,17 @@ import {
     PageBuilderContextObject,
     PageBuilderStorageOperations,
     PbContext
-} from "~/types";
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import {
     createCategoryCreateValidation,
     createCategoryUpdateValidation
-} from "~/graphql/crud/categories/validation";
+} from "~/graphql/crud/categories/validation.js";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { CategoriesPermissions } from "~/graphql/crud/permissions/CategoriesPermissions";
-import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions";
+import { CategoriesPermissions } from "~/graphql/crud/permissions/CategoriesPermissions.js";
+import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions.js";
 
 export interface CreateCategoriesCrudParams {
     context: PbContext;

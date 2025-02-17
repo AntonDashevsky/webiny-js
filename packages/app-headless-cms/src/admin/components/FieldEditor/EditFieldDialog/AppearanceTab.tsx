@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { i18n } from "@webiny/app/i18n";
-import { Radio, RadioGroup } from "@webiny/ui/Radio";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Radio, RadioGroup } from "@webiny/ui/Radio/index.js";
 import { css } from "emotion";
 import { validation } from "@webiny/validation";
 import { useBind } from "@webiny/form";
-import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput";
-import { Typography } from "@webiny/ui/Typography";
-import { RendererOptions } from "./AppearanceTab/RendererOptions";
-import { LegacyRichTextInput } from "./AppearanceTab/LegacyRichTextInput";
-import { useRendererPlugins } from "./useRendererPlugins";
-import { useModelField } from "~/admin/components/ModelFieldProvider";
+import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { RendererOptions } from "./AppearanceTab/RendererOptions.js";
+import { LegacyRichTextInput } from "./AppearanceTab/LegacyRichTextInput.js";
+import { useRendererPlugins } from "./useRendererPlugins.js";
+import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-editor/tabs/appearance-tab");
 

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { ButtonPrimary, ButtonDefault } from "@webiny/ui/Button";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
+import { ButtonPrimary, ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import { Form, FormAPI, FormOnSubmit } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { CmsDynamicZoneTemplate } from "~/types";
+import { CmsDynamicZoneTemplate } from "~/types.js";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
-import { IconPicker } from "~/admin/components/IconPicker";
-import { Dialog, DialogTitle, DialogContent, DialogActions } from "~/admin/components/Dialog";
-import { Alert } from "@webiny/ui/Alert";
-import { Tags } from "@webiny/ui/Tags";
+import { IconPicker } from "~/admin/components/IconPicker.js";
+import { Dialog, DialogTitle, DialogContent, DialogActions } from "~/admin/components/Dialog.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { Tags } from "@webiny/ui/Tags/index.js";
 
 const typeNameValidator = (value: string) => {
     const regex = new RegExp("^[A-Z]+[_0-9A-Za-z]+$");

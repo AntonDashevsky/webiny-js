@@ -1,4 +1,4 @@
-import type { ICmsImportExportRecord } from "~/domain/abstractions/CmsImportExportRecord";
+import type { ICmsImportExportRecord } from "~/domain/abstractions/CmsImportExportRecord.js";
 
 export interface IGetExportContentEntriesUseCaseExecuteParams {
     id: string;

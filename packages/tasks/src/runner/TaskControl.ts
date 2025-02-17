@@ -1,4 +1,4 @@
-import { ITaskEvent } from "~/handler/types";
+import { ITaskEvent } from "~/handler/types.js";
 import {
     Context,
     ITask,
@@ -7,14 +7,14 @@ import {
     ITaskLog,
     TaskDataStatus,
     TaskResponseStatus
-} from "~/types";
-import { ITaskControl, ITaskRunner } from "./abstractions";
-import { TaskManager } from "./TaskManager";
-import { IResponse, IResponseResult } from "~/response/abstractions";
-import { DatabaseResponse, TaskResponse } from "~/response";
-import { TaskManagerStore } from "./TaskManagerStore";
+} from "~/types.js";
+import { ITaskControl, ITaskRunner } from "./abstractions/index.js";
+import { TaskManager } from "./TaskManager.js";
+import { IResponse, IResponseResult } from "~/response/abstractions/index.js";
+import { DatabaseResponse, TaskResponse } from "~/response/index.js";
+import { TaskManagerStore } from "./TaskManagerStore.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { getErrorProperties } from "~/utils/getErrorProperties";
+import { getErrorProperties } from "~/utils/getErrorProperties.js";
 
 export class TaskControl implements ITaskControl {
     public readonly runner: ITaskRunner;

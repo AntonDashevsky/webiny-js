@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import pick from "lodash/pick";
+import pick from "lodash/pick.js";
 import { Prompt } from "@webiny/react-router";
 import { Form } from "@webiny/form";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
 import type { FormAPI, FormOnSubmit, FormValidation, FormInvalidFields } from "@webiny/form";
-import type { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms-common/types";
+import type { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 import { CompositionScope, useSnackbar } from "@webiny/app-admin";
-import type { CreateEntryResponse, UpdateEntryRevisionResponse } from "~/admin/contexts/Cms";
+import type { CreateEntryResponse, UpdateEntryRevisionResponse } from "~/admin/contexts/Cms/index.js";
 
 const promptMessage =
     "There are some unsaved changes! Are you sure you want to navigate away and discard all changes?";

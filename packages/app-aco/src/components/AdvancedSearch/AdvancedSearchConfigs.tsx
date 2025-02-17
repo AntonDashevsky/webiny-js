@@ -1,13 +1,13 @@
 import React from "react";
-import { AcoConfig } from "~/config";
-import { FieldType } from "~/components/AdvancedSearch/domain";
+import { AcoConfig } from "~/config/index.js";
+import { FieldType } from "~/components/AdvancedSearch/domain/index.js";
 import {
     Boolean,
     DateWithoutTimezone,
     DateWithTimezone,
     Input,
     PredefinedValues
-} from "~/components/AdvancedSearch/fields";
+} from "~/components/AdvancedSearch/fields/index.js";
 
 const { AdvancedSearch } = AcoConfig;
 

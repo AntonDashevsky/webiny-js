@@ -1,1 +1,1 @@
-export { useConfigureWebsiteUrlDialog } from "./useConfigureWebsiteUrl";
+export { useConfigureWebsiteUrlDialog } from "./useConfigureWebsiteUrl.js";

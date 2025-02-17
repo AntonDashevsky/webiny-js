@@ -1,2 +1,2 @@
-export { FieldEditor } from "./FieldEditor";
-export { useModelFieldEditor } from "./useModelFieldEditor";
+export { FieldEditor } from "./FieldEditor.js";
+export { useModelFieldEditor } from "./useModelFieldEditor.js";

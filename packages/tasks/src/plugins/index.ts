@@ -1,1 +1,1 @@
-export * from "./TaskServicePlugin";
+export * from "./TaskServicePlugin.js";

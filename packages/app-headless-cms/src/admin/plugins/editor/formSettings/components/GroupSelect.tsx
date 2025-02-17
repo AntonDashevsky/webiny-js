@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
-import { Select } from "@webiny/ui/Select";
-import { FormComponentProps } from "@webiny/ui/types";
+import { Select } from "@webiny/ui/Select/index.js";
+import { FormComponentProps } from "@webiny/ui/types.js";
 import {
     LIST_MENU_CONTENT_GROUPS_MODELS,
     ListMenuCmsGroupsQueryResponse
-} from "~/admin/viewsGraphql";
-import { useQuery } from "~/admin/hooks";
+} from "~/admin/viewsGraphql.js";
+import { useQuery } from "~/admin/hooks/index.js";
 
 export default function GroupSelect({ value, ...props }: FormComponentProps) {
     const { data, loading } = useQuery<ListMenuCmsGroupsQueryResponse>(

@@ -1,6 +1,6 @@
-import { registry } from "@webiny/handler-aws/registry";
+import { registry } from "@webiny/handler-aws/registry.js";
 import { createSourceHandler } from "@webiny/handler-aws";
-import { HandlerParams, IWebsocketsIncomingEvent } from "./types";
+import { HandlerParams, IWebsocketsIncomingEvent } from "./types.js";
 
 const handler = createSourceHandler<IWebsocketsIncomingEvent, HandlerParams>({
     name: "handler-webiny-websockets",
@@ -11,7 +11,7 @@ const handler = createSourceHandler<IWebsocketsIncomingEvent, HandlerParams>({
     handle: async ({ params, event, context }) => {
         const { createHandler } = await import(
             /* webpackChunkName: "SocketsHandler" */
-            "./handler"
+            "./handler.js"
         );
         return createHandler(params)(event, context);
     }

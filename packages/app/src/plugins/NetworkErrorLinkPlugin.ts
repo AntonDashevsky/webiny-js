@@ -1,9 +1,9 @@
-import { ApolloLinkPlugin } from "./ApolloLinkPlugin";
+import { ApolloLinkPlugin } from "./ApolloLinkPlugin.js";
 import { onError } from "apollo-link-error";
-import { print } from "graphql/language";
-import createErrorOverlay from "./NetworkErrorLinkPlugin/createErrorOverlay";
+import { print } from "graphql/language/index.js";
+import createErrorOverlay from "./NetworkErrorLinkPlugin/createErrorOverlay.js";
 import { boolean } from "boolean";
-import { config as appConfig } from "~/config";
+import { config as appConfig } from "~/config.js";
 
 /**
  * This plugin creates an ApolloLink that checks for `NetworkError` and shows an ErrorOverlay in the browser.

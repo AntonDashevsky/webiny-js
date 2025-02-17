@@ -1,4 +1,4 @@
-import { getApiUrl } from "./getApiUrl";
+import { getApiUrl } from "./getApiUrl.js";
 
 export const getGqlApiUrl = (): string => {
     return getApiUrl("/graphql");

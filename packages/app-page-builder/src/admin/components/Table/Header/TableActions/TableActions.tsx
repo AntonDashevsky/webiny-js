@@ -2,15 +2,15 @@ import React, { ReactElement, useCallback, useMemo } from "react";
 
 import { ReactComponent as ExportIcon } from "@material-design-icons/svg/outlined/file_download.svg";
 import { ReactComponent as ImportIcon } from "@material-design-icons/svg/outlined/file_upload.svg";
-import { i18n } from "@webiny/app/i18n";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { IconButton } from "@webiny/ui/Button";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 
-import useExportPageRevisionSelectorDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageRevisionSelectorDialog";
-import useExportPageDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageDialog";
+import useExportPageRevisionSelectorDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageRevisionSelectorDialog.js";
+import useExportPageDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageDialog.js";
 
-import { PbPageDataItem } from "~/types";
-import { SearchRecordItem } from "@webiny/app-aco/types";
+import { PbPageDataItem } from "~/types.js";
+import { SearchRecordItem } from "@webiny/app-aco/types.js";
 
 const t = i18n.ns("app-page-builder/admin/views/pages/table/header/buttons/table-actions");
 

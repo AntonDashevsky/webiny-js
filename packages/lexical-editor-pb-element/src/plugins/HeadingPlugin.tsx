@@ -2,10 +2,10 @@ import React from "react";
 import {
     ActiveHeadingRenderer,
     elementInputs
-} from "@webiny/app-page-builder/editor/plugins/elements/heading";
+} from "@webiny/app-page-builder/editor/plugins/elements/heading/index.js";
 import { isValidLexicalData } from "@webiny/lexical-editor";
 import { useRenderer } from "@webiny/app-page-builder-elements";
-import { LexicalTextEditor } from "~/components/LexicalTextEditor";
+import { LexicalTextEditor } from "~/components/LexicalTextEditor.js";
 
 export const LexicalActiveHeadingRenderer = ActiveHeadingRenderer.Component.createDecorator(
     Original => {

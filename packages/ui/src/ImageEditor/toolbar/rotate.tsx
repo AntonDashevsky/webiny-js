@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as RotateRight } from "./icons/rotateRight.svg";
-import { ImageEditorTool } from "./types";
-import { Slider } from "../../Slider";
-import { Tooltip } from "~/Tooltip";
-import { IconButton } from "~/Button";
+import { ImageEditorTool } from "./types.js";
+import { Slider } from "../../Slider/index.js";
+import { Tooltip } from "~/Tooltip/index.js";
+import { IconButton } from "~/Button/index.js";
 
 import Cropper from "cropperjs";
 import "cropperjs/dist/cropper.css";

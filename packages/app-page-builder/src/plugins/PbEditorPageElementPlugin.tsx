@@ -1,7 +1,7 @@
-import type { PbEditorPageElementPlugin as BasePbEditorPageElementPlugin } from "~/types";
-import type { Renderer } from "@webiny/app-page-builder-elements/types";
+import type { PbEditorPageElementPlugin as BasePbEditorPageElementPlugin } from "~/types.js";
+import type { Renderer } from "@webiny/app-page-builder-elements/types.js";
 
-import { legacyPluginToReactComponent } from "@webiny/app/utils";
+import { legacyPluginToReactComponent } from "@webiny/app/utils/index.js";
 
 export interface PbEditorPageElementPluginProps
     extends Pick<

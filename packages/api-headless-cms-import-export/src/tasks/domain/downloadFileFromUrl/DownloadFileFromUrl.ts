@@ -1,10 +1,10 @@
-import type { IMultipartUploadHandler } from "~/tasks/utils/upload";
+import type { IMultipartUploadHandler } from "~/tasks/utils/upload/index.js";
 import type {
     IDownloadFileFromUrl,
     IDownloadFileFromUrlProcessOnIterationCallable,
     IDownloadFileFromUrlProcessResponseType
-} from "./abstractions/DownloadFileFromUrl";
-import { createSizeSegments } from "~/tasks/utils/helpers/sizeSegments";
+} from "./abstractions/DownloadFileFromUrl.js";
+import { createSizeSegments } from "~/tasks/utils/helpers/sizeSegments.js";
 
 export interface IDownloadFileFromUrlFile {
     url: string;

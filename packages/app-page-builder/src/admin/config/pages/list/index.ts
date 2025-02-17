@@ -1,1 +1,1 @@
-export * from "./PageListConfig";
+export * from "./PageListConfig.js";

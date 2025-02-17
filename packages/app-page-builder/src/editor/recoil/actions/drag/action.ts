@@ -1,5 +1,5 @@
-import { DragEndActionEvent, DragStartActionEvent } from "./event";
-import { EventActionCallable } from "~/types";
+import { DragEndActionEvent, DragStartActionEvent } from "./event.js";
+import { EventActionCallable } from "~/types.js";
 
 export const dragStartAction: EventActionCallable<DragStartActionEvent> = state => {
     return {

@@ -1,7 +1,7 @@
 import React from "react";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as MenuIcon } from "./icons/hamburger.svg";
-import { useNavigation } from "./index";
+import { useNavigation } from "./index.js";
 import { useTags } from "@webiny/app-admin";
 
 const Hamburger = () => {

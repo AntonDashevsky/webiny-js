@@ -1,7 +1,7 @@
 import { Open } from "unzipper";
-import type { S3Client } from "../helpers/s3Client";
-import type { IUnzipperFile } from "./abstractions/Decompressor";
-import type { ICompressedFileReader } from "./abstractions/CompressedFileReader";
+import type { S3Client } from "../helpers/s3Client.js";
+import type { IUnzipperFile } from "./abstractions/Decompressor.js";
+import type { ICompressedFileReader } from "./abstractions/CompressedFileReader.js";
 
 export interface ICompressedFileReaderParams {
     client: S3Client;

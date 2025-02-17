@@ -1,5 +1,5 @@
 import type { CreateCorePulumiAppParams } from "@webiny/pulumi-aws";
-import type { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types.js";
 
 export { CoreOutput, configureAdminCognitoFederation } from "@webiny/pulumi-aws";
 

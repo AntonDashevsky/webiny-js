@@ -1,1 +1,1 @@
-export * from "./DropFilesHere";
+export * from "./DropFilesHere.js";

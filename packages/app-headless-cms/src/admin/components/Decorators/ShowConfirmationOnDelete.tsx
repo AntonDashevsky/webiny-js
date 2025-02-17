@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import { useBind } from "@webiny/form";
 import { useDialogs, useSnackbar } from "@webiny/app-admin";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
 
 type GetEntry = ReturnType<typeof useContentEntry>["getEntry"];
 type DeleteEntry = ReturnType<typeof useContentEntry>["deleteEntry"];

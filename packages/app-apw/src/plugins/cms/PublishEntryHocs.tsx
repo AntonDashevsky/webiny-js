@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "@webiny/react-router";
 import { HigherOrderComponent } from "@webiny/app-admin";
-import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { i18n } from "@webiny/app/i18n";
+import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as AddTaskIcon } from "~/assets/icons/add_task.svg";
-import { useContentReviewId } from "./useContentReviewId";
-import { routePaths } from "~/utils";
+import { useContentReviewId } from "./useContentReviewId.js";
+import { routePaths } from "~/utils.js";
 import { css } from "emotion";
 import { ContentEntryEditorConfig } from "@webiny/app-headless-cms/";
 

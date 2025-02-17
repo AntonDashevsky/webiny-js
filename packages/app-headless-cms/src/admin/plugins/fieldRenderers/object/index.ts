@@ -1,7 +1,7 @@
-import singleObjectInline from "./singleObjectInline";
-import singleObjectAccordion from "./singleObjectAccordion";
-import multipleObjects from "./multipleObjects";
-import multipleObjectsAccordion from "./multipleObjectsAccordion";
+import singleObjectInline from "./singleObjectInline.js";
+import singleObjectAccordion from "./singleObjectAccordion.js";
+import multipleObjects from "./multipleObjects.js";
+import multipleObjectsAccordion from "./multipleObjectsAccordion.js";
 
 export default [
     singleObjectInline,

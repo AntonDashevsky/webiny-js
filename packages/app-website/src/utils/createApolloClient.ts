@@ -1,11 +1,11 @@
 import ApolloClient from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { BatchHttpLink } from "apollo-link-batch-http";
-import { InMemoryCache } from "@webiny/app/apollo-client/InMemoryCache";
-import { IntrospectionFragmentMatcher } from "@webiny/app/apollo-client/IntrospectionFragmentMatcher";
-import { ApolloDynamicLink } from "@webiny/app/plugins/ApolloDynamicLink";
+import { InMemoryCache } from "@webiny/app/apollo-client/InMemoryCache.js";
+import { IntrospectionFragmentMatcher } from "@webiny/app/apollo-client/IntrospectionFragmentMatcher.js";
+import { ApolloDynamicLink } from "@webiny/app/plugins/ApolloDynamicLink.js";
 import { plugins } from "@webiny/plugins";
-import { ApolloCacheObjectIdPlugin } from "@webiny/app/plugins/ApolloCacheObjectIdPlugin";
+import { ApolloCacheObjectIdPlugin } from "@webiny/app/plugins/ApolloCacheObjectIdPlugin.js";
 
 declare global {
     interface Window {

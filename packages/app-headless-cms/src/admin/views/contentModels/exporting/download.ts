@@ -1,4 +1,4 @@
-import { CmsGroup, CmsModel } from "@webiny/app-headless-cms-common/types";
+import { CmsGroup, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 
 interface Params {
     groups: CmsGroup[];

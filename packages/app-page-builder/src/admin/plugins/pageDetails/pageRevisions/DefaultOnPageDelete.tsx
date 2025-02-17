@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import get from "lodash/get";
-import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
-import { DELETE_PAGE } from "~/admin/graphql/pages";
-import { DeletePageOptions } from "~/admin/contexts/AdminPageBuilder";
-import { PbPageData } from "~/types";
+import get from "lodash/get.js";
+import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
+import { DELETE_PAGE } from "~/admin/graphql/pages.js";
+import { DeletePageOptions } from "~/admin/contexts/AdminPageBuilder.js";
+import { PbPageData } from "~/types.js";
 
 export const DefaultOnPageDelete = () => {
     const { onPageDelete } = useAdminPageBuilder();

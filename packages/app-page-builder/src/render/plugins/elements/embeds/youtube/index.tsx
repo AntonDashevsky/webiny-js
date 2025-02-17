@@ -1,6 +1,6 @@
-import kebabCase from "lodash/kebabCase";
-import { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types";
-import { createYoutube } from "@webiny/app-page-builder-elements/renderers/embeds/youtube";
+import kebabCase from "lodash/kebabCase.js";
+import { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types.js";
+import { createYoutube } from "@webiny/app-page-builder-elements/renderers/embeds/youtube.js";
 
 export default (args: PbRenderElementPluginArgs = {}): PbRenderElementPlugin => {
     const elementType = kebabCase(args.elementType || "youtube");

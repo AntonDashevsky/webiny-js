@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import { ElementStylesModifier } from "~/types.js";
 
 const margin: ElementStylesModifier = ({ element, theme }) => {
     const { margin } = element.data.settings || {};

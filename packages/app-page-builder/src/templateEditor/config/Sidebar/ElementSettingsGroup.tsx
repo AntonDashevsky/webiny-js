@@ -1,11 +1,11 @@
 import React from "react";
 import { plugins } from "@webiny/plugins";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { ElementNotLinked } from "~/blockEditor/components/elementSettingsTab/ElementNotLinked";
-import VariableSettings from "~/blockEditor/components/elementSettingsTab/VariableSettings";
-import VariablesList from "~/blockEditor/components/elementSettingsTab/VariablesList";
-import { PbBlockEditorCreateVariablePlugin } from "~/types";
-import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { ElementNotLinked } from "~/blockEditor/components/elementSettingsTab/ElementNotLinked.js";
+import VariableSettings from "~/blockEditor/components/elementSettingsTab/VariableSettings.js";
+import VariablesList from "~/blockEditor/components/elementSettingsTab/VariablesList.js";
+import { PbBlockEditorCreateVariablePlugin } from "~/types.js";
+import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference.js";
 
 export const ElementSettingsGroup = () => {
     const variablePlugins = plugins.byType<PbBlockEditorCreateVariablePlugin>(

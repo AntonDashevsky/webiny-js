@@ -1,6 +1,6 @@
-import { FlushEvent, PrerenderingSettings, Render } from "~/types";
-import { Plugin } from "@webiny/plugins/types";
-import { Context } from "@webiny/handler/types";
+import { FlushEvent, PrerenderingSettings, Render } from "~/types.js";
+import { Plugin } from "@webiny/plugins/types.js";
+import { Context } from "@webiny/handler/types.js";
 
 export type HandlerArgs = FlushEvent | FlushEvent[];
 

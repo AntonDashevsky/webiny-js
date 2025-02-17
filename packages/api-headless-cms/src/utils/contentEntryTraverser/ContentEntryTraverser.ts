@@ -5,7 +5,7 @@ import {
     ContentEntryValueVisitor,
     CmsModelFieldAstNodeCollection,
     CmsEntryValues
-} from "~/types";
+} from "~/types/index.js";
 
 type ParentNode = CmsModelAst | CmsModelFieldAstNode | null;
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { statuses } from "~/admin/constants";
-import { PageListConfig } from "~/admin/config/pages";
+import { statuses } from "~/admin/constants/index.js";
+import { PageListConfig } from "~/admin/config/pages/index.js";
 
 export const CellStatus = () => {
     const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;

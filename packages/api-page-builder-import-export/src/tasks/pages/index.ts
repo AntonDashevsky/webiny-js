@@ -1,8 +1,8 @@
-import { createExportPagesControllerTask } from "./exportPagesControllerTask";
-import { createImportPagesControllerTask } from "./importPagesControllerTask";
-import { createExportPagesZipPagesTask } from "./exportPagesZipPagesTask";
-import { createExportPagesCleanupTask } from "./exportPagesCleanupTask";
-import { createImportPagesProcessPagesTask } from "./importPagesProcessPageTask";
+import { createExportPagesControllerTask } from "./exportPagesControllerTask.js";
+import { createImportPagesControllerTask } from "./importPagesControllerTask.js";
+import { createExportPagesZipPagesTask } from "./exportPagesZipPagesTask.js";
+import { createExportPagesCleanupTask } from "./exportPagesCleanupTask.js";
+import { createImportPagesProcessPagesTask } from "./importPagesProcessPageTask.js";
 
 export const createPagesTasks = () => {
     return [

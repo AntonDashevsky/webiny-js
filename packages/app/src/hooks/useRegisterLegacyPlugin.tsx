@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { plugins } from "@webiny/plugins";
-import { type Plugin } from "@webiny/plugins/types";
+import { type Plugin } from "@webiny/plugins/types.js";
 
 export function useRegisterLegacyPlugin<TPlugin extends Plugin>(plugin: TPlugin) {
     const pluginRegistered = useRef<boolean>(false);

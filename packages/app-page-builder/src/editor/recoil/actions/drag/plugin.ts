@@ -1,6 +1,6 @@
-import { DragStartActionEvent, DragEndActionEvent } from "./event";
-import { dragStartAction, dragEndAction } from "./action";
-import { PbEditorEventActionPlugin } from "~/types";
+import { DragStartActionEvent, DragEndActionEvent } from "./event.js";
+import { dragStartAction, dragEndAction } from "./action.js";
+import { PbEditorEventActionPlugin } from "~/types.js";
 
 export default (): PbEditorEventActionPlugin[] => {
     return [

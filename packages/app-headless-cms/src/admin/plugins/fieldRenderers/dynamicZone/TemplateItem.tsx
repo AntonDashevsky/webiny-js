@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Typography } from "@webiny/ui/Typography";
-import { ButtonSecondary } from "@webiny/ui/Button";
-import { CmsDynamicZoneTemplate } from "~/types";
-import { TemplateIcon } from "~/admin/plugins/fieldRenderers/dynamicZone/TemplateIcon";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { CmsDynamicZoneTemplate } from "~/types.js";
+import { TemplateIcon } from "~/admin/plugins/fieldRenderers/dynamicZone/TemplateIcon.js";
 
 const CardContainer = styled.div`
     display: flex;

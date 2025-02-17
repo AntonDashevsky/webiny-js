@@ -20,7 +20,7 @@ import type {
     PulumiAppParamCallback,
     PulumiProgram,
     ResourceHandler
-} from "~/types";
+} from "~/types.js";
 import { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import { DEFAULT_PROD_ENV_NAMES } from "./constants.js";

@@ -1,10 +1,10 @@
-import { PbContext } from "@webiny/api-page-builder/types";
+import { PbContext } from "@webiny/api-page-builder/types.js";
 import { ContextPlugin } from "@webiny/api";
-import { FormBuilderContext } from "~/types";
+import { FormBuilderContext } from "~/types.js";
 
-import afterFormPublish from "./afterFormPublish";
-import afterFormDelete from "./afterFormDelete";
-import afterFormRevisionDelete from "./afterFormRevisionDelete";
+import afterFormPublish from "./afterFormPublish.js";
+import afterFormDelete from "./afterFormDelete.js";
+import afterFormRevisionDelete from "./afterFormRevisionDelete.js";
 
 export default (): ContextPlugin<FormBuilderContext & PbContext>[] => {
     return [afterFormPublish(), afterFormDelete(), afterFormRevisionDelete()];

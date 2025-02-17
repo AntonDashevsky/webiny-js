@@ -1,5 +1,5 @@
 import React from "react";
-import { PageListConfig } from "~/admin/config/pages";
+import { PageListConfig } from "~/admin/config/pages/index.js";
 
 export const CellAuthor = () => {
     const { useTableRow } = PageListConfig.Browser.Table.Column;

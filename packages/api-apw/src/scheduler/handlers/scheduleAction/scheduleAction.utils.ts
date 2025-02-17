@@ -1,10 +1,10 @@
-import { dateTimeToCronExpression, moveDateTimeToCurrentCentury } from "~/scheduler/handlers/utils";
-import { ApwScheduleAction } from "~/scheduler/types";
+import { dateTimeToCronExpression, moveDateTimeToCurrentCentury } from "~/scheduler/handlers/utils.js";
+import { ApwScheduleAction } from "~/scheduler/types.js";
 import {
     HandlerArgs,
     InvocationTypes,
     Configuration
-} from "~/scheduler/handlers/scheduleAction/index";
+} from "~/scheduler/handlers/scheduleAction/index.js";
 import {
     DeleteRuleCommand,
     RemoveTargetsCommand,
@@ -12,8 +12,8 @@ import {
     PutRuleCommand,
     PutRuleCommandInput
 } from "@webiny/aws-sdk/client-cloudwatch";
-import { ClientContext } from "@webiny/handler-client/types";
-import { getApwSettings } from "~/scheduler/handlers/utils";
+import { ClientContext } from "@webiny/handler-client/types.js";
+import { getApwSettings } from "~/scheduler/handlers/utils.js";
 
 const log = console.log;
 

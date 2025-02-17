@@ -1,1 +1,1 @@
-export { TriggersTab } from "./TriggersTab";
+export { TriggersTab } from "./TriggersTab.js";

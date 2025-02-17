@@ -8,7 +8,7 @@ import type {
     IUrlSigner,
     IUrlSignerSignParams,
     IUrlSignerSignResult
-} from "./abstractions/UrlSigner";
+} from "./abstractions/UrlSigner.js";
 
 const DEFAULT_TIMEOUT = 3600; // 1 hour
 

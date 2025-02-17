@@ -1,4 +1,4 @@
-import { ROOT_FOLDER } from "@webiny/api-headless-cms/constants";
+import { ROOT_FOLDER } from "@webiny/api-headless-cms/constants.js";
 
 const text =
     "orem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue justo, tempor vel aliquet id, sodales ut est. Morbi sodales lacus lacinia justo molestie, a vulputate ligula ornare. Cras commodo augue sed suscipit auctor. Mauris dapibus vulputate nibh, ultrices porta risus ullamcorper in. Praesent iaculis faucibus tellus, eget egestas mauris ultrices in. Ut dapibus felis id tincidunt tempor. Cras imperdiet lectus et mollis facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vitae nulla ut quam cursus viverra ac sed felis. Cras eget nulla nunc. Phasellus facilisis ante in velit tincidunt posuere. Aenean a cursus ex. In a accumsan metus. Nullam faucibus sapien ac pulvinar volutpat. Sed varius sem quis libero pharetra ullamcorper.";

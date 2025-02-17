@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import store from "store";
-import { ROOT_FOLDER } from "~/constants";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface NavigateFolderContext {
     currentFolderId?: string;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { css } from "emotion";
 import { plugins } from "@webiny/plugins";
-import ElementPreview from "./SaveDialog/ElementPreview";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { PageElementsProvider } from "~/contexts/PageBuilder/PageElementsProvider";
-import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache";
+import ElementPreview from "./SaveDialog/ElementPreview.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { PageElementsProvider } from "~/contexts/PageBuilder/PageElementsProvider.js";
+import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache.js";
 
 import {
     Dialog,
@@ -13,21 +13,21 @@ import {
     DialogActions,
     DialogCancel,
     DialogOnClose
-} from "@webiny/ui/Dialog";
-import { Input } from "@webiny/ui/Input";
-import { Switch } from "@webiny/ui/Switch";
-import { Select } from "@webiny/ui/Select";
-import { Grid, Cell } from "@webiny/ui/Grid";
+} from "@webiny/ui/Dialog/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Form, FormOnSubmit } from "@webiny/form";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
-import { PbEditorBlockCategoryPlugin, PbEditorElement, PbElement } from "~/types";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import { ButtonPrimary } from "@webiny/ui/Button";
+import { PbEditorBlockCategoryPlugin, PbEditorElement, PbElement } from "~/types.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import {
     SaveBlockFormData,
     SaveElementFormData
-} from "~/editor/plugins/elementSettings/save/SaveAction";
+} from "~/editor/plugins/elementSettings/save/SaveAction.js";
 
 const narrowDialog = css({
     ".mdc-dialog__surface": {

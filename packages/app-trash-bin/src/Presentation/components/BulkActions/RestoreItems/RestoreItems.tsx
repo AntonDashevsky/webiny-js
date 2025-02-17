@@ -2,11 +2,11 @@ import React, { useCallback, useMemo } from "react";
 import { ReactComponent as RestoreIcon } from "@material-design-icons/svg/outlined/restore.svg";
 import { observer } from "mobx-react-lite";
 import { useSnackbar } from "@webiny/app-admin";
-import { TrashBinListConfig } from "~/Presentation/configs";
-import { useTrashBin } from "~/Presentation/hooks";
-import { getEntriesLabel } from "../BulkActions";
-import { RestoreItemsReportMessage } from "~/Presentation/components/BulkActions/RestoreItems/RestoreItemsReportMessage";
-import { TrashBinItemDTO } from "~/Domain";
+import { TrashBinListConfig } from "~/Presentation/configs/index.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
+import { getEntriesLabel } from "../BulkActions/index.js";
+import { RestoreItemsReportMessage } from "~/Presentation/components/BulkActions/RestoreItems/RestoreItemsReportMessage.js";
+import { TrashBinItemDTO } from "~/Domain/index.js";
 
 export const BulkActionsRestoreItems = observer(() => {
     const { restoreItem, onItemAfterRestore, getRestoredItemById, restoreBulkAction } =

@@ -2,15 +2,15 @@
 import React, { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { css } from "emotion";
 import { plugins } from "@webiny/plugins";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { Grid } from "react-virtualized";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { Menu, MenuChildrenFunctionProps } from "@webiny/ui/Menu";
-import { Input } from "@webiny/ui/Input";
-import { PbIcon, PbIconsPlugin } from "~/types";
-import { FormComponentProps } from "@webiny/ui/types";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { Menu, MenuChildrenFunctionProps } from "@webiny/ui/Menu/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { PbIcon, PbIconsPlugin } from "~/types.js";
+import { FormComponentProps } from "@webiny/ui/types.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 import { GridCellProps } from "react-virtualized/dist/es/Grid";
 
 /**

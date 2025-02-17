@@ -1,17 +1,17 @@
-import type { IPutBatchItem } from "~/utils/batch/types";
+import type { IPutBatchItem } from "~/utils/batch/types.js";
 import type {
     IEntityReadBatch,
     IEntityReadBatchBuilder,
     IEntityReadBatchBuilderGetResponse,
     IEntityReadBatchKey
-} from "./types";
-import type { TableDef } from "~/toolbox";
-import type { Entity as ToolboxEntity } from "~/toolbox";
-import { batchReadAll } from "~/utils/batch/batchRead";
-import { GenericRecord } from "@webiny/api/types";
-import { createEntityReadBatchBuilder } from "./EntityReadBatchBuilder";
-import type { EntityOption } from "./getEntity";
-import { getEntity } from "./getEntity";
+} from "./types.js";
+import type { TableDef } from "~/toolbox.js";
+import type { Entity as ToolboxEntity } from "~/toolbox.js";
+import { batchReadAll } from "~/utils/batch/batchRead.js";
+import { GenericRecord } from "@webiny/api/types.js";
+import { createEntityReadBatchBuilder } from "./EntityReadBatchBuilder.js";
+import type { EntityOption } from "./getEntity.js";
+import { getEntity } from "./getEntity.js";
 
 export interface IEntityReadBatchParams {
     entity: EntityOption;

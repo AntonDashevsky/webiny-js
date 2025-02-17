@@ -8,7 +8,7 @@ import {
     OnCommentAfterUpdateTopicParams,
     OnCommentBeforeDeleteTopicParams,
     OnCommentAfterDeleteTopicParams
-} from "~/types";
+} from "~/types.js";
 
 export function createCommentMethods({ storageOperations }: CreateApwParams): ApwCommentCrud {
     // create

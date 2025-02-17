@@ -1,4 +1,4 @@
-import { CMS_ENTRY_BATCH_SCHEDULE_WAIT } from "./constants";
+import { CMS_ENTRY_BATCH_SCHEDULE_WAIT } from "./constants.js";
 
 /**
  * This is to be used when user wants to wait for a number of milliseconds before the batch is executed.

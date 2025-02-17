@@ -15,7 +15,7 @@ import type {
     ICmsImportExportRecord,
     IListExportContentEntriesParams,
     IListExportContentEntriesResult
-} from "~/types";
+} from "~/types.js";
 import {
     AbortExportContentEntriesUseCase,
     GetExportContentEntriesUseCase,
@@ -25,13 +25,13 @@ import {
     ListExportContentEntriesUseCase,
     ValidateImportFromUrlIntegrityUseCase,
     ValidateImportFromUrlUseCase
-} from "./useCases";
+} from "./useCases/index.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { ExportContentEntriesUseCase } from "~/crud/useCases/exportContentEntries";
-import { UrlSigner } from "~/tasks/utils/urlSigner";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client";
-import { AbortImportFromUrlUseCase } from "./useCases/abortImportFromUrl";
+import { ExportContentEntriesUseCase } from "~/crud/useCases/exportContentEntries/index.js";
+import { UrlSigner } from "~/tasks/utils/urlSigner/index.js";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
+import { AbortImportFromUrlUseCase } from "./useCases/abortImportFromUrl/index.js";
 
 export const createHeadlessCmsImportExportCrud = async (
     context: Context

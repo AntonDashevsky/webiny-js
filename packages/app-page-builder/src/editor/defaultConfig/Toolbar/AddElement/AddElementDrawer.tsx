@@ -1,29 +1,29 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { css } from "emotion";
-import isEqual from "lodash/isEqual";
+import isEqual from "lodash/isEqual.js";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/round/add.svg";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { useSnackbar } from "@webiny/app-admin";
-import { ButtonFloating } from "@webiny/ui/Button";
+import { ButtonFloating } from "@webiny/ui/Button/index.js";
 import { plugins } from "@webiny/plugins";
-import * as Styled from "./StyledComponents";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import * as Styled from "./StyledComponents.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import {
     DragEndActionEvent,
     DragStartActionEvent,
     DropElementActionEvent
-} from "~/editor/recoil/actions";
-import Draggable from "~/editor/components/Draggable";
-import { usePageBuilder } from "~/hooks/usePageBuilder";
+} from "~/editor/recoil/actions/index.js";
+import Draggable from "~/editor/components/Draggable.js";
+import { usePageBuilder } from "~/hooks/usePageBuilder.js";
 import {
     PbEditorElement,
     PbEditorPageElementGroupPlugin,
     PbEditorPageElementPlugin
-} from "~/types";
-import { DropElementActionArgsType } from "~/editor/recoil/actions/dropElement/types";
-import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
-import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton";
-import { useDrawer } from "~/editor/config/Toolbar/Drawers/DrawerProvider";
+} from "~/types.js";
+import { DropElementActionArgsType } from "~/editor/recoil/actions/dropElement/types.js";
+import Accordion from "~/editor/plugins/elementSettings/components/Accordion.js";
+import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton.js";
+import { useDrawer } from "~/editor/config/Toolbar/Drawers/DrawerProvider.js";
 
 const accordionStyle = css`
     & .icon-container svg {

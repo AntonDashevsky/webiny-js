@@ -1,6 +1,6 @@
 import { useContext, useCallback } from "react";
-import { WcpContext, WcpContextValue } from "../contexts";
-import { WcpProject, WcpProjectPackage } from "~/types";
+import { WcpContext, WcpContextValue } from "../contexts/index.js";
+import { WcpProject, WcpProjectPackage } from "~/types.js";
 
 interface UseWcpHook {
     getProject: () => WcpProject | null;

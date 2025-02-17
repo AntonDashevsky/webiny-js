@@ -32,10 +32,10 @@ import {
     VisibilityState
 } from "@tanstack/react-table";
 
-import { Checkbox } from "~/Checkbox";
-import { Skeleton } from "~/Skeleton";
-import { ColumnDirectionProps } from "~/DataTable/ColumnDirection";
-import { ColumnsVisibility } from "~/DataTable/ColumnsVisibility";
+import { Checkbox } from "~/Checkbox/index.js";
+import { Skeleton } from "~/Skeleton/index.js";
+import { ColumnDirectionProps } from "~/DataTable/ColumnDirection.js";
+import { ColumnsVisibility } from "~/DataTable/ColumnsVisibility.js";
 
 import "@rmwc/data-table/data-table.css";
 import {
@@ -47,7 +47,7 @@ import {
     Resizer,
     Table,
     TableHeadCell
-} from "./styled";
+} from "./styled.js";
 
 export interface Column<T> {
     /*
@@ -100,7 +100,7 @@ export type TableRow<T> = Row<DefaultData & T>;
 
 export type Sorting = SortingState;
 
-export { ColumnSort };
+export type { ColumnSort };
 
 export type OnSortingChange = OnChangeFn<Sorting>;
 

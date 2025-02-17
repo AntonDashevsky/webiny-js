@@ -1,4 +1,4 @@
-import { ValueFilterPlugin } from "../definitions/ValueFilterPlugin";
+import { ValueFilterPlugin } from "../definitions/ValueFilterPlugin.js";
 import WebinyError from "@webiny/error";
 
 interface MatchesParams {

@@ -1,9 +1,9 @@
-import { CloudFrontResponse } from "~/lambdaEdge";
+import { CloudFrontResponse } from "~/lambdaEdge/index.js";
 import { get } from "https";
 import { load, Element } from "cheerio";
 import { parse as parseSrcset, stringify as stringifySrcset, SrcSetDefinition } from "srcset";
-import { isHeaderBlacklisted } from "./headerBlacklist";
-import { logDebug } from "./log";
+import { isHeaderBlacklisted } from "./headerBlacklist.js";
+import { logDebug } from "./log.js";
 
 /**
  * Load HTML from origin and perform transformation of URLs to absolute

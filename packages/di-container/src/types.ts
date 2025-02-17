@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { Abstraction } from "./Abstraction";
+import { Abstraction } from "./Abstraction.js";
 
 export type Constructor<T = any> = new (...args: any[]) => T;
 

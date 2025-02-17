@@ -1,1 +1,1 @@
-export * from "./FbFormLayoutPlugin";
+export * from "./FbFormLayoutPlugin.js";

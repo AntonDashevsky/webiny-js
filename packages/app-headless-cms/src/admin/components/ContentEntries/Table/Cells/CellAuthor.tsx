@@ -1,5 +1,5 @@
 import React from "react";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
 
 export const CellAuthor = () => {
     const { useTableRow } = ContentEntryListConfig.Browser.Table.Column;

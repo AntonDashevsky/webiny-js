@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { css } from "emotion";
-import { i18n } from "@webiny/app/i18n";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { ButtonIcon, ButtonSecondary, CopyButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { ButtonIcon, ButtonSecondary, CopyButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { usePageBuilder } from "@webiny/app-page-builder/hooks/usePageBuilder";
+import { usePageBuilder } from "@webiny/app-page-builder/hooks/usePageBuilder.js";
 import { ReactComponent as FileDownloadIcon } from "@material-design-icons/svg/round/download.svg";
-import ExportFormLoadingDialogContent from "./ExportFormLoadingDialogContent";
-import useExportForm from "./useExportForm";
+import ExportFormLoadingDialogContent from "./ExportFormLoadingDialogContent.js";
+import useExportForm from "./useExportForm.js";
 
 const t = i18n.ns("app-form-builder/editor/plugins/defaultBar/exportFormButton");
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { CreateFormParams, FormData } from "./types";
-import FormRender from "./FormRender";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
-import { GetFormDataLoaderVariables } from "./dataLoaders";
+import { CreateFormParams, FormData } from "./types.js";
+import FormRender from "./FormRender.js";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
+import { GetFormDataLoaderVariables } from "./dataLoaders/index.js";
 
 export type FormRenderer = ReturnType<typeof createForm>;
 

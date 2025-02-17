@@ -1,12 +1,12 @@
-import type { HcmsTasksContext } from "~/types";
-import { DELETE_MODEL_TASK } from "~/tasks/deleteModel/constants";
+import type { HcmsTasksContext } from "~/types.js";
+import { DELETE_MODEL_TASK } from "~/tasks/deleteModel/constants.js";
 import type {
     IDeleteCmsModelTask,
     IDeleteModelTaskInput,
     IStoreValue
-} from "~/tasks/deleteModel/types";
-import { getStatus } from "~/tasks/deleteModel/graphql/status";
-import { createStoreKey, createStoreValue } from "~/tasks/deleteModel/helpers/store";
+} from "~/tasks/deleteModel/types.js";
+import { getStatus } from "~/tasks/deleteModel/graphql/status.js";
+import { createStoreKey, createStoreValue } from "~/tasks/deleteModel/helpers/store.js";
 
 export interface IFullyDeleteModelParams {
     readonly context: Pick<HcmsTasksContext, "cms" | "tasks" | "db" | "security">;

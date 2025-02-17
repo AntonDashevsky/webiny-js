@@ -1,5 +1,5 @@
 import React from "react";
-import { useActiveElement, useIsElementChildOfType } from "@webiny/app-page-builder/editor";
+import { useActiveElement, useIsElementChildOfType } from "@webiny/app-page-builder/editor/index.js";
 
 interface HideIfChildOfEntriesListProps {
     children: React.ReactNode;

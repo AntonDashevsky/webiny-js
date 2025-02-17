@@ -1,7 +1,7 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
-import type { Resolvers } from "@webiny/handler-graphql/types";
-import type { DataSourcesContext } from "~/dataSources/types";
-import { DataLoaderRequest } from "~/dataSources";
+import type { Resolvers } from "@webiny/handler-graphql/types.js";
+import type { DataSourcesContext } from "~/dataSources/types.js";
+import { DataLoaderRequest } from "~/dataSources/index.js";
 
 export const dataSourcesResolvers: Resolvers<DataSourcesContext> = {
     Query: {

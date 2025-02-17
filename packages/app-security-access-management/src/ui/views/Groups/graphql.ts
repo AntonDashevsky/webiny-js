@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { Group } from "~/types";
+import { Group } from "~/types.js";
 
 const fields = `
     id

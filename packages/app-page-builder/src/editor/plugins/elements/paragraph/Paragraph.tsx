@@ -1,10 +1,10 @@
 import React from "react";
 import { CompositionScope } from "@webiny/app-admin";
-import { ParagraphRenderer } from "@webiny/app-page-builder-elements/renderers/paragraph";
-import type { Element } from "@webiny/app-page-builder-elements/types";
-import { MediumEditorOptions, PbEditorElement } from "~/types";
-import { useActiveElementId } from "~/editor";
-import { ActiveParagraphRenderer } from "./ActiveParagraphRenderer";
+import { ParagraphRenderer } from "@webiny/app-page-builder-elements/renderers/paragraph.js";
+import type { Element } from "@webiny/app-page-builder-elements/types.js";
+import { MediumEditorOptions, PbEditorElement } from "~/types.js";
+import { useActiveElementId } from "~/editor/index.js";
+import { ActiveParagraphRenderer } from "./ActiveParagraphRenderer.js";
 
 export const textClassName = "webiny-pb-base-page-element-style webiny-pb-page-element-text";
 

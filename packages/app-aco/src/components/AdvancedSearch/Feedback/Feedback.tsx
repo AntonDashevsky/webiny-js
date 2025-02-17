@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Snackbar } from "@webiny/ui/Snackbar";
+import { Snackbar } from "@webiny/ui/Snackbar/index.js";
 
 export interface FeedbackProps {
     isOpen: boolean;

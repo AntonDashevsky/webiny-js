@@ -1,9 +1,9 @@
-import { CmsContext, CmsEntry, CmsModel } from "~/types";
-import { STATUS_PUBLISHED } from "./statuses";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation";
-import { getIdentity } from "~/utils/identity";
-import { getDate } from "~/utils/date";
+import { CmsContext, CmsEntry, CmsModel } from "~/types/index.js";
+import { STATUS_PUBLISHED } from "./statuses.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation.js";
+import { getIdentity } from "~/utils/identity.js";
+import { getDate } from "~/utils/date.js";
 
 type CreatePublishEntryDataParams = {
     model: CmsModel;

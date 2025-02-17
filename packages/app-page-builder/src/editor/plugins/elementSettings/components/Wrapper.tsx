@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 interface WrapperPropsType {
     label: string;

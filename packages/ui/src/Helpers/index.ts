@@ -1,3 +1,3 @@
-import { getClasses } from "./ClassNames";
+import { getClasses } from "./ClassNames.js";
 
 export { getClasses };

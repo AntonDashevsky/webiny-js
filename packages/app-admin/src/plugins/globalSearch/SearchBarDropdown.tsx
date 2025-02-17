@@ -1,13 +1,13 @@
 import * as React from "react";
-import { AdminGlobalSearchPlugin } from "~/types";
+import { AdminGlobalSearchPlugin } from "~/types.js";
 import classnames from "classnames";
-import { List, ListItem, ListItemGraphic, ListItemText, ListItemMeta } from "@webiny/ui/List";
-import { searchBarDropdown, iconSearchType } from "./styled";
-import { Elevation } from "@webiny/ui/Elevation";
-import { Icon } from "@webiny/ui/Icon";
+import { List, ListItem, ListItemGraphic, ListItemText, ListItemMeta } from "@webiny/ui/List/index.js";
+import { searchBarDropdown, iconSearchType } from "./styled.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { Actions as DownshiftActions, DownshiftState, PropGetters } from "downshift";
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
-import { SearchBarState } from "~/plugins/globalSearch/SearchBar";
+import { SearchBarState } from "~/plugins/globalSearch/SearchBar.js";
 
 interface SearchBarDropdownPropsContextDownshiftCurrent
     extends DownshiftActions<any>,

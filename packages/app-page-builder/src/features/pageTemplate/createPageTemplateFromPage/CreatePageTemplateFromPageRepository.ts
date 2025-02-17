@@ -1,8 +1,8 @@
-import { ICreatePageTemplateFromPageRepository } from "./ICreatePageTemplateFromPageRepository";
-import { PageTemplateInputDto } from "~/features/pageTemplate/createPageTemplateFromPage/PageTemplateInputDto";
-import { PbPageTemplateWithContent } from "~/types";
-import { ListCache } from "~/features/ListCache";
-import { ICreatePageTemplateFromPageGateway } from "~/features/pageTemplate/createPageTemplateFromPage/ICreatePageTemplateFromPageGateway";
+import { ICreatePageTemplateFromPageRepository } from "./ICreatePageTemplateFromPageRepository.js";
+import { PageTemplateInputDto } from "~/features/pageTemplate/createPageTemplateFromPage/PageTemplateInputDto.js";
+import { PbPageTemplateWithContent } from "~/types.js";
+import { ListCache } from "~/features/ListCache.js";
+import { ICreatePageTemplateFromPageGateway } from "~/features/pageTemplate/createPageTemplateFromPage/ICreatePageTemplateFromPageGateway.js";
 
 export class CreatePageTemplateFromPageRepository implements ICreatePageTemplateFromPageRepository {
     private cache: ListCache<PbPageTemplateWithContent>;

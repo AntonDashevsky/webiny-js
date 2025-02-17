@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
-import { MailerContext } from "@webiny/api-mailer/types";
-import { FbFormTriggerHandlerPlugin } from "~/types";
+import { MailerContext } from "@webiny/api-mailer/types.js";
+import { FbFormTriggerHandlerPlugin } from "~/types.js";
 
 const plugin = new ContextPlugin<MailerContext>(async context => {
     context.plugins.register({

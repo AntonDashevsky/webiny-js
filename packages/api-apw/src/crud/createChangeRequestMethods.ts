@@ -8,7 +8,7 @@ import {
     OnChangeRequestBeforeCreateTopicParams,
     OnChangeRequestBeforeDeleteTopicParams,
     OnChangeRequestBeforeUpdateTopicParams
-} from "~/types";
+} from "~/types.js";
 
 export function createChangeRequestMethods({
     storageOperations

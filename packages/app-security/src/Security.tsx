@@ -3,7 +3,7 @@
 // But this is a faster solution, as I'm really short on time :)
 import React from "react";
 import { Provider } from "@webiny/app";
-import { SecurityProvider as ContextProvider } from "./contexts/Security";
+import { SecurityProvider as ContextProvider } from "./contexts/Security.js";
 
 interface SecurityProviderProps {
     children: React.ReactNode;

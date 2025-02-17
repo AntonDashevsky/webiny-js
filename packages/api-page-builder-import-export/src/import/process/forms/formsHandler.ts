@@ -1,9 +1,9 @@
-import { ImportExportTaskStatus, PbImportExportContext } from "~/types";
-import { importForm } from "./importForm";
-import { invokeHandlerClient } from "~/client";
-import { mockSecurity } from "~/mockSecurity";
+import { ImportExportTaskStatus, PbImportExportContext } from "~/types.js";
+import { importForm } from "./importForm.js";
+import { invokeHandlerClient } from "~/client.js";
+import { mockSecurity } from "~/mockSecurity.js";
 import { zeroPad } from "@webiny/utils";
-import { Configuration, Payload, Response } from "~/import/process";
+import { Configuration, Payload, Response } from "~/import/process/index.js";
 
 export const formsHandler = async (
     configuration: Configuration,

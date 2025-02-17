@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
 import { List } from "react-virtualized";
-import groupBy from "lodash/groupBy";
+import groupBy from "lodash/groupBy.js";
 
-import { Tab } from "@webiny/ui/Tabs";
-import { Typography } from "@webiny/ui/Typography";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { Input } from "@webiny/ui/Input";
+import { Tab } from "@webiny/ui/Tabs/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import { makeDecoratable } from "@webiny/react-composition";
 
-import { IconProvider, IconRenderer } from "./IconRenderer";
+import { IconProvider, IconRenderer } from "./IconRenderer.js";
 import {
     Row,
     Cell,
@@ -17,10 +17,10 @@ import {
     ListWrapper,
     NoResultsWrapper,
     InputsWrapper
-} from "./IconPicker.styles";
-import { useIconPicker } from "./IconPickerPresenterProvider";
-import { useIconType } from "./config/IconType";
-import { Icon, IconPickerGridRow, ICON_PICKER_SIZE } from "./types";
+} from "./IconPicker.styles.js";
+import { useIconPicker } from "./IconPickerPresenterProvider.js";
+import { useIconType } from "./config/IconType.js";
+import { Icon, IconPickerGridRow, ICON_PICKER_SIZE } from "./types.js";
 
 const COLUMN_COUNT = 8;
 

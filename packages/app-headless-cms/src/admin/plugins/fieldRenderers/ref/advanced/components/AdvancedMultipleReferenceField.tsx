@@ -1,25 +1,25 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styled from "@emotion/styled";
-import * as GQL from "~/admin/viewsGraphql";
-import { ListCmsModelsQueryResponse, withoutBeingDeletedModels } from "~/admin/viewsGraphql";
+import * as GQL from "~/admin/viewsGraphql.js";
+import { ListCmsModelsQueryResponse, withoutBeingDeletedModels } from "~/admin/viewsGraphql.js";
 import {
     BindComponentRenderProp,
     CmsContentEntry,
     CmsModel,
     CmsModelFieldRendererProps
-} from "~/types";
-import { Options } from "./Options";
-import { useReferences } from "../hooks/useReferences";
-import { Entry } from "./Entry";
-import { ReferencesDialog } from "./ReferencesDialog";
-import { useModelFieldGraphqlContext, useQuery } from "~/admin/hooks";
+} from "~/types.js";
+import { Options } from "./Options.js";
+import { useReferences } from "../hooks/useReferences.js";
+import { Entry } from "./Entry.js";
+import { ReferencesDialog } from "./ReferencesDialog.js";
+import { useModelFieldGraphqlContext, useQuery } from "~/admin/hooks/index.js";
 import { useSnackbar } from "@webiny/app-admin";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { AbsoluteLoader as Loader } from "./Loader";
+import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { AbsoluteLoader as Loader } from "./Loader.js";
 import { parseIdentifier } from "@webiny/utils";
-import { Entries } from "./Entries";
-import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import { Entries } from "./Entries.js";
+import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 
 const FieldLabel = styled("h3")({
     fontSize: 24,

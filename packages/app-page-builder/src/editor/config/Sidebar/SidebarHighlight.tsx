@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from "react";
 import styled from "@emotion/styled";
-import { highlightSidebarTabMutation } from "~/editor/recoil/modules";
-import { useElementSidebar } from "~/editor/hooks/useElementSidebar";
+import { highlightSidebarTabMutation } from "~/editor/recoil/modules/index.js";
+import { useElementSidebar } from "~/editor/hooks/useElementSidebar.js";
 
 const PanelHighLight = styled("div")({
     "&": {

@@ -1,5 +1,5 @@
-import { IListEntriesOperation } from "../../abstractions";
-import { CmsEntryListSort, CmsEntryStorageOperationsListParams, CmsModel } from "~/types";
+import { IListEntriesOperation } from "../../abstractions/index.js";
+import { CmsEntryListSort, CmsEntryStorageOperationsListParams, CmsModel } from "~/types/index.js";
 
 export class ListEntriesOperationWithSort implements IListEntriesOperation {
     private listEntries: IListEntriesOperation;

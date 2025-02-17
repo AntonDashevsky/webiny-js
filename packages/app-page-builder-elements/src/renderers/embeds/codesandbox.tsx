@@ -1,8 +1,8 @@
 import React from "react";
 
-import { OEmbed } from "./components/OEmbed";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
+import { OEmbed } from "./components/OEmbed.js";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
 
 export const createCodesandbox = () => {
     return createRenderer(() => {

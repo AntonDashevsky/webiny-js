@@ -1,8 +1,8 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context, IPruneLogsInput, IPruneLogsOutput } from "~/tasks/pruneLogs/types";
-import { LogType } from "~/types";
-import { NonEmptyArray } from "@webiny/api/types";
-import { PRUNE_LOGS_TASK } from "./constants";
+import { Context, IPruneLogsInput, IPruneLogsOutput } from "~/tasks/pruneLogs/types.js";
+import { LogType } from "~/types.js";
+import { NonEmptyArray } from "@webiny/api/types.js";
+import { PRUNE_LOGS_TASK } from "./constants.js";
 
 export const createPruneLogsTask = () => {
     return createTaskDefinition<Context, IPruneLogsInput, IPruneLogsOutput>({
@@ -14,11 +14,11 @@ export const createPruneLogsTask = () => {
         title: "Prune Logs",
         run: async params => {
             const { PruneLogs } = await import(
-                /* webpackChunkName: "PruneLogs" */ "./pruneLogs/PruneLogs"
+                /* webpackChunkName: "PruneLogs" */ "./pruneLogs/PruneLogs.js"
             );
 
             const { DynamoDbLoggerKeys } = await import(
-                /* webpackChunkName: "DynamoDbLoggerKeys" */ "~/logger/dynamodb/DynamoDbLoggerKeys"
+                /* webpackChunkName: "DynamoDbLoggerKeys" */ "~/logger/dynamodb/DynamoDbLoggerKeys.js"
             );
 
             try {

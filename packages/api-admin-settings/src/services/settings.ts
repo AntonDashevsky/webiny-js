@@ -3,8 +3,8 @@ import {
     AdminSettingsContext,
     AdminSettingsService,
     AdminSettingsVariant
-} from "~/types";
-import { StorageOperationsService } from "~/storage/types";
+} from "~/types.js";
+import { StorageOperationsService } from "~/storage/types.js";
 import WebinyError from "@webiny/error";
 
 interface Params {

@@ -1,8 +1,8 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import { Typography } from "@webiny/ui/Typography";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Container, LoaderContainer } from "./styled";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Container, LoaderContainer } from "./styled.js";
 
 const t = i18n.ns("app-headless-cms/admin/components/content-entries/loading-more");
 

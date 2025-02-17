@@ -5,11 +5,11 @@ import {
     IImportFromUrlControllerInputStep,
     IImportFromUrlControllerInputStepsStep,
     IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController";
-import type { Context } from "~/types";
-import { ImportFromUrlControllerDownloadStep } from "~/tasks/domain/importFromUrlControllerSteps/ImportFromUrlControllerDownloadStep";
-import { ImportFromUrlControllerProcessEntriesStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessEntriesStep";
-import { ImportFromUrlControllerProcessAssetsStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessAssetsStep";
+} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
+import type { Context } from "~/types.js";
+import { ImportFromUrlControllerDownloadStep } from "~/tasks/domain/importFromUrlControllerSteps/ImportFromUrlControllerDownloadStep.js";
+import { ImportFromUrlControllerProcessEntriesStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessEntriesStep.js";
+import { ImportFromUrlControllerProcessAssetsStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessAssetsStep.js";
 
 const getDefaultStepValues = (): IImportFromUrlControllerInputStepsStep => {
     return {

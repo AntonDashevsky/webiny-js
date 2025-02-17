@@ -1,19 +1,19 @@
-import { Topic } from "@webiny/pubsub/types";
+import { Topic } from "@webiny/pubsub/types.js";
 import {
     CmsContext,
     CmsEntryStorageOperations,
     OnEntryAfterRestoreFromBinTopicParams,
     OnEntryBeforeRestoreFromBinTopicParams,
     OnEntryRestoreFromBinErrorTopicParams
-} from "~/types";
-import { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { RestoreEntryFromBinOperation } from "./RestoreEntryFromBinOperation";
-import { RestoreEntryFromBinOperationWithEvents } from "./RestoreEntryFromBinOperationWithEvents";
-import { TransformEntryRestoreFromBin } from "./TransformEntryRestoreFromBin";
-import { RestoreEntryFromBin } from "./RestoreEntryFromBin";
-import { RestoreEntryFromBinSecure } from "./RestoreEntryFromBinSecure";
+} from "~/types/index.js";
+import { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions/index.js";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { RestoreEntryFromBinOperation } from "./RestoreEntryFromBinOperation.js";
+import { RestoreEntryFromBinOperationWithEvents } from "./RestoreEntryFromBinOperationWithEvents.js";
+import { TransformEntryRestoreFromBin } from "./TransformEntryRestoreFromBin.js";
+import { RestoreEntryFromBin } from "./RestoreEntryFromBin.js";
+import { RestoreEntryFromBinSecure } from "./RestoreEntryFromBinSecure.js";
 
 export interface RestoreEntryFromBinUseCasesTopics {
     onEntryBeforeRestoreFromBin: Topic<OnEntryBeforeRestoreFromBinTopicParams>;

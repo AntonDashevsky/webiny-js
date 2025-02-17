@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
-import { Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
+import { Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import { validation } from "@webiny/validation";
-import { PluginCollection } from "@webiny/plugins/types";
-import { ViewPlugin } from "@webiny/app/plugins/ViewPlugin";
-import { UIViewPlugin } from "@webiny/app-admin/ui/UIView";
-import { UsersFormView } from "~/ui/views/Users/UsersFormView";
-import { PasswordElement } from "@webiny/app-admin/ui/elements/form/PasswordElement";
-import { createPasswordValidator, PasswordPolicy } from "~/createPasswordValidator";
-import { config as appConfig } from "@webiny/app/config";
+import { PluginCollection } from "@webiny/plugins/types.js";
+import { ViewPlugin } from "@webiny/app/plugins/ViewPlugin.js";
+import { UIViewPlugin } from "@webiny/app-admin/ui/UIView.js";
+import { UsersFormView } from "~/ui/views/Users/UsersFormView.js";
+import { PasswordElement } from "@webiny/app-admin/ui/elements/form/PasswordElement.js";
+import { createPasswordValidator, PasswordPolicy } from "~/createPasswordValidator.js";
+import { config as appConfig } from "@webiny/app/config.js";
 
 export default (): PluginCollection => {
     let envPasswordValidatorPolicy;

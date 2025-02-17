@@ -1,3 +1,3 @@
-export * from "./ElasticsearchCatHealth";
-export * from "./ElasticsearchCatNodes";
-export * from "./types";
+export * from "./ElasticsearchCatHealth.js";
+export * from "./ElasticsearchCatNodes.js";
+export * from "./types.js";

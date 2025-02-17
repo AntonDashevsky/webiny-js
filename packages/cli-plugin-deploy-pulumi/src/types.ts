@@ -3,7 +3,7 @@ export {
     ProjectApplication,
     IProjectApplicationPackage,
     Project
-} from "@webiny/cli/types";
+} from "@webiny/cli/types.js";
 
 import type { Pulumi } from "@webiny/pulumi-sdk";
 

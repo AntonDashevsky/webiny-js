@@ -1,21 +1,21 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
-import { Input } from "@webiny/ui/Input";
-import { Select } from "@webiny/ui/Select";
-import { CheckboxGroup } from "@webiny/ui/Checkbox";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
 import { BindComponent } from "@webiny/form";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { css } from "emotion";
 import { ReactComponent as CloseIcon } from "~/assets/icons/close_24dp.svg";
 
-import { ApwWorkflowStepTypes } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { Box, Stack } from "~/components/Layout";
-import { restGridStyles, StepWrapper } from "./Styled";
-import { ReviewersList } from "./ReviewersList";
+import { ApwWorkflowStepTypes } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Box, Stack } from "~/components/Layout.js";
+import { restGridStyles, StepWrapper } from "./Styled.js";
+import { ReviewersList } from "./ReviewersList.js";
 
 const ReviewersStack = styled(Stack)`
     box-sizing: border-box;

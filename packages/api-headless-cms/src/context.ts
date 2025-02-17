@@ -1,19 +1,19 @@
-import { ApiEndpoint, CmsContext, HeadlessCmsStorageOperations } from "~/types";
+import { ApiEndpoint, CmsContext, HeadlessCmsStorageOperations } from "~/types/index.js";
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { GraphQLRequestBody } from "@webiny/handler-graphql/types";
+import { GraphQLRequestBody } from "@webiny/handler-graphql/types.js";
 import { processRequestBody } from "@webiny/handler-graphql";
-import { CmsParametersPlugin, CmsParametersPluginResponse } from "~/plugins/CmsParametersPlugin";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { createSystemCrud } from "~/crud/system.crud";
-import { createModelGroupsCrud } from "~/crud/contentModelGroup.crud";
-import { createModelsCrud } from "~/crud/contentModel.crud";
-import { createContentEntryCrud } from "~/crud/contentEntry.crud";
-import { StorageOperationsCmsModelPlugin } from "~/plugins";
-import { createCmsModelFieldConvertersAttachFactory } from "~/utils/converters/valueKeyStorageConverter";
-import { createExportCrud } from "~/export";
-import { createImportCrud } from "~/export/crud/importing";
-import { getSchema } from "~/graphql/getSchema";
+import { CmsParametersPlugin, CmsParametersPluginResponse } from "~/plugins/CmsParametersPlugin.js";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { createSystemCrud } from "~/crud/system.crud.js";
+import { createModelGroupsCrud } from "~/crud/contentModelGroup.crud.js";
+import { createModelsCrud } from "~/crud/contentModel.crud.js";
+import { createContentEntryCrud } from "~/crud/contentEntry.crud.js";
+import { StorageOperationsCmsModelPlugin } from "~/plugins/index.js";
+import { createCmsModelFieldConvertersAttachFactory } from "~/utils/converters/valueKeyStorageConverter.js";
+import { createExportCrud } from "~/export/index.js";
+import { createImportCrud } from "~/export/crud/importing.js";
+import { getSchema } from "~/graphql/getSchema.js";
 
 const getParameters = async (context: CmsContext): Promise<CmsParametersPluginResponse> => {
     const plugins = context.plugins.byType<CmsParametersPlugin>(CmsParametersPlugin.type);

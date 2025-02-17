@@ -1,10 +1,10 @@
 import { useMemo } from "react";
-import lodashSet from "lodash/set";
-import lodashMerge from "lodash/merge";
-import { useHandler } from "@webiny/app/hooks/useHandler";
-import { PbEditorElement } from "~/types";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
-import { UpdateElementActionArgsType } from "~/editor/recoil/actions";
+import lodashSet from "lodash/set.js";
+import lodashMerge from "lodash/merge.js";
+import { useHandler } from "@webiny/app/hooks/useHandler.js";
+import { PbEditorElement } from "~/types.js";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
+import { UpdateElementActionArgsType } from "~/editor/recoil/actions/index.js";
 
 export type PostModifyElementArgs = {
     name: string;

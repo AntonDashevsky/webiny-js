@@ -2,17 +2,17 @@ import React, { useCallback, useMemo, useState } from "react";
 import { useNavigation } from "@webiny/app-admin";
 import { useNavigate } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin";
-import { getTenantId } from "@webiny/app/utils";
+import { getTenantId } from "@webiny/app/utils/index.js";
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
 /**
  * Library does not have types.
  */
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
-import { Input } from "@webiny/ui/Input";
-import { Typography } from "@webiny/ui/Typography";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
-import { Dialog } from "./OmniSearch/Dialog";
+import { Dialog } from "./OmniSearch/Dialog.js";
 
 interface Item {
     id: string;

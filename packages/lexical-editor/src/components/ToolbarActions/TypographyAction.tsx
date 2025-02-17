@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { LexicalCommand } from "lexical";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
 import { TypographyValue } from "@webiny/lexical-theme";
-import { TypographyActionContext } from "~/context/TypographyActionContext";
+import { TypographyActionContext } from "~/context/TypographyActionContext.js";
 import {
     $isHeadingNode,
     $isListNode,
@@ -13,15 +13,15 @@ import {
     TypographyNode,
     TypographyPayload
 } from "@webiny/lexical-nodes";
-import { useRichTextEditor } from "~/hooks/useRichTextEditor";
+import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
 import {
     INSERT_ORDERED_LIST_COMMAND,
     INSERT_UNORDERED_LIST_COMMAND,
     INSERT_QUOTE_COMMAND,
     ListCommandPayload,
     QuoteCommandPayload
-} from "~/commands";
-import { useCurrentElement } from "~/hooks/useCurrentElement";
+} from "~/commands/index.js";
+import { useCurrentElement } from "~/hooks/useCurrentElement.js";
 
 /*
  * Base composable action component that is mounted on toolbar action as a placeholder for the custom toolbar action.

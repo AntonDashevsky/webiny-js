@@ -1,4 +1,4 @@
-import type { ICmsImportExportValidateRecord } from "~/domain/abstractions/CmsImportExportValidateRecord";
+import type { ICmsImportExportValidateRecord } from "~/domain/abstractions/CmsImportExportValidateRecord.js";
 
 export interface IGetValidateImportFromUrlExecuteParams {
     id: string;

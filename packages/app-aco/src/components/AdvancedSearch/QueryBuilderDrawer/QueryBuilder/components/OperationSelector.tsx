@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Bind } from "@webiny/form";
-import { Switch } from "@webiny/ui/Switch";
-import { Operation } from "~/components/AdvancedSearch/domain";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import { Operation } from "~/components/AdvancedSearch/domain/index.js";
 
 interface OperationSelectorProps {
     label: string;

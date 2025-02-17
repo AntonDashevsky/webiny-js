@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useRouter } from "@webiny/react-router";
 import { useQuery } from "@apollo/react-hooks";
-import isEmpty from "lodash/isEmpty";
+import isEmpty from "lodash/isEmpty.js";
 import {
     DataList,
     DataListModalOverlay,
@@ -16,28 +16,28 @@ import {
     ListItemTextPrimary,
     ListItemTextSecondary,
     ScrollList
-} from "@webiny/ui/List";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import { Typography } from "@webiny/ui/Typography";
-import { CircularProgress } from "@webiny/ui/Progress";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { Dialog, DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog";
-import { ButtonDefault, ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
-import { useSnackbar, useStateIfMounted, useStateWithCallback } from "@webiny/app-admin/hooks";
+} from "@webiny/ui/List/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { Dialog, DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
+import { ButtonDefault, ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { useSnackbar, useStateIfMounted, useStateWithCallback } from "@webiny/app-admin/hooks/index.js";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as DownloadFileIcon } from "@webiny/app-admin/assets/icons/file_download.svg";
 import { ReactComponent as UploadFileIcon } from "@webiny/app-admin/assets/icons/file_upload.svg";
-import { Icon } from "~/admin/utils/createBlockCategoryPlugin";
-import { OptionsMenu } from "~/admin/components/OptionsMenu";
+import { Icon } from "~/admin/utils/createBlockCategoryPlugin.js";
+import { OptionsMenu } from "~/admin/components/OptionsMenu.js";
 
-import { PbBlockCategory } from "~/types";
-import { LIST_PAGE_CATEGORIES } from "./graphql";
-import useImportBlock from "~/admin/views/PageBlocks/hooks/useImportBlock";
-import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog";
-import useFilteredCategoriesListData from "./hooks/useFilteredCategoriesListData";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+import { PbBlockCategory } from "~/types.js";
+import { LIST_PAGE_CATEGORIES } from "./graphql.js";
+import useImportBlock from "~/admin/views/PageBlocks/hooks/useImportBlock.js";
+import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog.js";
+import useFilteredCategoriesListData from "./hooks/useFilteredCategoriesListData.js";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
 
 const t = i18n.ns("app-page-builder/admin/page-blocks/by-categories-data-list");
 

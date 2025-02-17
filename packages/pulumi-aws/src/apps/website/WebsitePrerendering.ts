@@ -1,7 +1,7 @@
 import * as path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { marshall } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import { marshall } from "@webiny/aws-sdk/client-dynamodb";
 
 import { PulumiApp } from "@webiny/pulumi";
 import { getLayerArn } from "@webiny/aws-layers";

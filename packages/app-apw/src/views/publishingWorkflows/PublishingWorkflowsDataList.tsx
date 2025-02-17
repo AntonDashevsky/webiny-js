@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     DataListWithSections,
     ScrollListWithSections,
@@ -10,16 +10,16 @@ import {
     ListItemMeta,
     ListActions,
     ListItemTextSecondary
-} from "@webiny/ui/List";
-import { Typography } from "@webiny/ui/Typography";
-import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
+} from "@webiny/ui/List/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons/index.js";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
 
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 
-import { usePublishingWorkflowsList } from "~/hooks/usePublishingWorkflowsList";
-import { ApwWorkflow, ApwWorkflowApplications } from "~/types";
-import { Box, Columns } from "~/components/Layout";
+import { usePublishingWorkflowsList } from "~/hooks/usePublishingWorkflowsList.js";
+import { ApwWorkflow, ApwWorkflowApplications } from "~/types.js";
+import { Box, Columns } from "~/components/Layout.js";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/data-list");
 

@@ -10,11 +10,11 @@ import {
     LexicalNode,
     NodeKey
 } from "lexical";
-import { $createListNode, $isListNode, ListNode } from "~/ListNode";
+import { $createListNode, $isListNode, ListNode } from "~/ListNode.js";
 import { $getNearestNodeOfType } from "@lexical/utils";
-import { $createListItemNode, $isListItemNode, ListItemNode } from "~/ListItemNode";
+import { $createListItemNode, $isListItemNode, ListItemNode } from "~/ListItemNode.js";
 import { ListType } from "@lexical/list";
-import { $createParagraphNode, ParagraphNode } from "~/ParagraphNode";
+import { $createParagraphNode, ParagraphNode } from "~/ParagraphNode.js";
 import {
     $getAllListItems,
     $getTopListNode,
@@ -22,7 +22,7 @@ import {
     findNearestListItemNode,
     getUniqueListItemNodes,
     isNestedListNode
-} from "~/utils/listNode";
+} from "~/utils/listNode.js";
 
 const DEFAULT_LIST_START_NUMBER = 1;
 

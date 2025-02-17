@@ -1,2 +1,2 @@
-export * from "./abstractions/ValidateImportFromUrlUseCase";
-export * from "./ValidateImportFromUrlUseCase";
+export * from "./abstractions/ValidateImportFromUrlUseCase.js";
+export * from "./ValidateImportFromUrlUseCase.js";

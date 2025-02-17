@@ -1,12 +1,12 @@
 import React, { ReactElement } from "react";
 
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
-import { i18n } from "@webiny/app/i18n";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
-import { ButtonDefault } from "@webiny/ui/Button";
+import { i18n } from "@webiny/app/i18n/index.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
 
-import { Buttons, Icon } from "./styled";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Buttons, Icon } from "./styled.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
 const t = i18n.ns("app-page-builder/admin/views/pages/table/empty");
 

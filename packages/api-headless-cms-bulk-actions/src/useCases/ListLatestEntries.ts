@@ -1,6 +1,6 @@
-import { CmsEntryListParams } from "@webiny/api-headless-cms/types";
-import { IListEntries } from "~/abstractions";
-import { HcmsBulkActionsContext } from "~/types";
+import { CmsEntryListParams } from "@webiny/api-headless-cms/types/index.js";
+import { IListEntries } from "~/abstractions/index.js";
+import { HcmsBulkActionsContext } from "~/types.js";
 
 class ListLatestEntries implements IListEntries {
     private readonly context: HcmsBulkActionsContext;

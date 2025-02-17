@@ -5,16 +5,16 @@ import {
     CmsModel,
     UpdateCmsEntryInput,
     UpdateCmsEntryOptionsInput
-} from "~/types";
-import { getDate } from "~/utils/date";
-import { getIdentity } from "~/utils/identity";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { validateModelEntryDataOrThrow } from "../entryDataValidation";
-import { referenceFieldsMapping } from "../referenceFieldsMapping";
-import { mapAndCleanUpdatedInputData } from "./mapAndCleanUpdatedInputData";
-import lodashMerge from "lodash/merge";
+} from "~/types/index.js";
+import { getDate } from "~/utils/date.js";
+import { getIdentity } from "~/utils/identity.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { validateModelEntryDataOrThrow } from "../entryDataValidation.js";
+import { referenceFieldsMapping } from "../referenceFieldsMapping.js";
+import { mapAndCleanUpdatedInputData } from "./mapAndCleanUpdatedInputData.js";
+import lodashMerge from "lodash/merge.js";
 import { removeNullValues, removeUndefinedValues } from "@webiny/utils";
 
 type CreateEntryRevisionFromDataParams = {

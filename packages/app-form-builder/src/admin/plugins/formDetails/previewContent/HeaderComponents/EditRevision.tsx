@@ -1,11 +1,11 @@
 import React from "react";
 import { useRouter } from "@webiny/react-router";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as EditIcon } from "../../../../icons/edit.svg";
-import { useRevision } from "../../formRevisions/useRevision";
-import { usePermission } from "~/hooks/usePermission";
-import { FbRevisionModel } from "~/types";
+import { useRevision } from "../../formRevisions/useRevision.js";
+import { usePermission } from "~/hooks/usePermission.js";
+import { FbRevisionModel } from "~/types.js";
 
 interface EditRevisionProps {
     revision: FbRevisionModel;

@@ -1,10 +1,10 @@
-import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
-import { IGetIdentity, IRecordLockingLockRecord } from "~/types";
+import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
+import { IGetIdentity, IRecordLockingLockRecord } from "~/types.js";
 import {
     IGetLockedEntryLockRecordUseCase,
     IGetLockedEntryLockRecordUseCaseExecuteParams
-} from "~/abstractions/IGetLockedEntryLockRecordUseCase";
-import { IIsLocked } from "~/utils/isLockedFactory";
+} from "~/abstractions/IGetLockedEntryLockRecordUseCase.js";
+import { IIsLocked } from "~/utils/isLockedFactory.js";
 
 export interface IGetLockedEntryLockRecordUseCaseParams {
     getLockRecordUseCase: IGetLockRecordUseCase;

@@ -1,9 +1,9 @@
-import { Resolvers } from "@webiny/handler-graphql/types";
-import { Context } from "~/types";
-import { emptyResolver, resolve } from "./utils";
-import { IWebsocketsContextListConnectionsParams } from "~/context";
-import { IWebsocketsConnectionRegistryData } from "~/registry";
-import { checkPermissions } from "~/graphql/checkPermissions";
+import { Resolvers } from "@webiny/handler-graphql/types.js";
+import { Context } from "~/types.js";
+import { emptyResolver, resolve } from "./utils.js";
+import { IWebsocketsContextListConnectionsParams } from "~/context/index.js";
+import { IWebsocketsConnectionRegistryData } from "~/registry/index.js";
+import { checkPermissions } from "~/graphql/checkPermissions.js";
 
 export interface IWebsocketsMutationDisconnectConnectionsArgs {
     connections: string[];

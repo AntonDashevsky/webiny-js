@@ -6,9 +6,9 @@ import {
 } from "@webiny/app-admin-cognito";
 import { useTags } from "@webiny/app-admin";
 import { useTenancy, withTenant } from "@webiny/app-tenancy";
-import { NotAuthorizedError } from "./NotAuthorizedError";
-import { createGetIdentityData, LOGIN_ST, LOGIN_MT } from "~/createGetIdentityData";
-import { GetIdentityDataCallable } from "~/createGetIdentityData/createGetIdentityData";
+import { NotAuthorizedError } from "./NotAuthorizedError/index.js";
+import { createGetIdentityData, LOGIN_ST, LOGIN_MT } from "~/createGetIdentityData/index.js";
+import { GetIdentityDataCallable } from "~/createGetIdentityData/createGetIdentityData.js";
 
 export interface CreateAuthenticationConfig extends Partial<BaseConfig> {
     loginMutation?: DocumentNode;

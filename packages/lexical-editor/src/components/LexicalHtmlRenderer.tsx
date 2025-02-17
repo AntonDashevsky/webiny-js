@@ -13,11 +13,11 @@ import {
     ThemeEmotionMap,
     toTypographyEmotionMap
 } from "@webiny/lexical-theme";
-import { isValidLexicalData } from "~/utils/isValidLexicalData";
-import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue";
-import { LexicalValue } from "~/types";
-import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin";
-import { RichTextEditorProvider } from "~/context/RichTextEditorContext";
+import { isValidLexicalData } from "~/utils/isValidLexicalData.js";
+import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue.js";
+import { LexicalValue } from "~/types.js";
+import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin/index.js";
+import { RichTextEditorProvider } from "~/context/RichTextEditorContext.js";
 
 interface LexicalHtmlRendererProps {
     nodes?: Klass<LexicalNode>[];

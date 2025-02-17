@@ -2,9 +2,9 @@
  * TODO: possibly remove this subscription.
  * It creates problems when doing mass deletes on DDB only systems with a lot of entries.
  */
-import { Topic } from "@webiny/pubsub/types";
-import { CmsContext, OnEntryAfterDeleteTopicParams } from "~/types";
-import { markUnlockedFields } from "./markLockedFields";
+import { Topic } from "@webiny/pubsub/types.js";
+import { CmsContext, OnEntryAfterDeleteTopicParams } from "~/types/index.js";
+import { markUnlockedFields } from "./markLockedFields.js";
 
 interface AssignAfterEntryDeleteParams {
     context: CmsContext;

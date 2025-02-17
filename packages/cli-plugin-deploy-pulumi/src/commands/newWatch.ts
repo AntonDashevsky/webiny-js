@@ -1,7 +1,7 @@
-import { Context, IUserCommandInput, ProjectApplication } from "~/types";
+import { Context, IUserCommandInput, ProjectApplication } from "~/types.js";
 import chalk from "chalk";
 import path from "path";
-import { getProject, getProjectApplication } from "@webiny/cli/utils";
+import { getProject, getProjectApplication } from "@webiny/cli/utils/index.js";
 import get from "lodash/get.js";
 import merge from "lodash/merge.js";
 import { getDeploymentId, loadEnvVariables, runHook } from "~/utils/index.js";

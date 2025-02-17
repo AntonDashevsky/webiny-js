@@ -1,8 +1,8 @@
 import type { IContentEntryTraverser } from "@webiny/api-headless-cms";
-import { matchKeyOrAlias } from "~/tasks/utils/helpers/matchKeyOrAlias";
-import type { IAsset, IAssignAssetsInput, IEntryAssets } from "./abstractions/EntryAssets";
-import type { GenericRecord } from "@webiny/api/types";
-import type { IUniqueResolver } from "~/tasks/utils/uniqueResolver/abstractions/UniqueResolver";
+import { matchKeyOrAlias } from "~/tasks/utils/helpers/matchKeyOrAlias.js";
+import type { IAsset, IAssignAssetsInput, IEntryAssets } from "./abstractions/EntryAssets.js";
+import type { GenericRecord } from "@webiny/api/types.js";
+import type { IUniqueResolver } from "~/tasks/utils/uniqueResolver/abstractions/UniqueResolver.js";
 
 export interface IEntryAssetsParams {
     traverser: IContentEntryTraverser;

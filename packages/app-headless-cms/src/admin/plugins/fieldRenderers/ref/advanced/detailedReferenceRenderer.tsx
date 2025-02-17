@@ -1,7 +1,7 @@
 import React from "react";
-import { CmsModelFieldRendererPlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { AdvancedSingleReferenceField } from "./components/AdvancedSingleReferenceField";
+import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { AdvancedSingleReferenceField } from "./components/AdvancedSingleReferenceField.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");
 

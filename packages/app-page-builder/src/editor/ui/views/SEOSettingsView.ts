@@ -1,13 +1,13 @@
-import trim from "lodash/trim";
-import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement";
-import { PageSettingsFormView } from "~/editor/ui/views/PageSettingsView/PageSettingsFormView";
+import trim from "lodash/trim.js";
+import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement.js";
+import { PageSettingsFormView } from "~/editor/ui/views/PageSettingsView/PageSettingsFormView.js";
 import { validation } from "@webiny/validation";
-import { SmallButtonElement } from "@webiny/app-admin/ui/elements/SmallButtonElement";
-import { TypographyElement } from "@webiny/app-admin/ui/elements/TypographyElement";
-import { LabelElement } from "@webiny/app-admin/ui/elements/LabelElement";
-import { ButtonElement } from "@webiny/app-admin/ui/elements/ButtonElement";
-import { DynamicFieldsetElement } from "@webiny/app-admin/ui/elements/form/DynamicFieldsetElement";
-import { ButtonGroupElement } from "@webiny/app-admin/ui/elements/ButtonGroupElement";
+import { SmallButtonElement } from "@webiny/app-admin/ui/elements/SmallButtonElement.js";
+import { TypographyElement } from "@webiny/app-admin/ui/elements/TypographyElement.js";
+import { LabelElement } from "@webiny/app-admin/ui/elements/LabelElement.js";
+import { ButtonElement } from "@webiny/app-admin/ui/elements/ButtonElement.js";
+import { DynamicFieldsetElement } from "@webiny/app-admin/ui/elements/form/DynamicFieldsetElement.js";
+import { ButtonGroupElement } from "@webiny/app-admin/ui/elements/ButtonGroupElement.js";
 
 export class SEOSettingsView extends PageSettingsFormView {
     public constructor() {

@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { Plugin } from "@webiny/plugins";
-import { ElasticsearchIndexRequestBody } from "~/types";
+import { ElasticsearchIndexRequestBody } from "~/types.js";
 
 export interface ElasticsearchIndexPluginParams {
     /**

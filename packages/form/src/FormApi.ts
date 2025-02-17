@@ -1,4 +1,4 @@
-import { FormPresenter } from "~/FormPresenter";
+import { FormPresenter } from "~/FormPresenter.js";
 import {
     BindComponentProps,
     FormOnSubmit,
@@ -6,7 +6,7 @@ import {
     FormValidationOptions,
     GenericFormData,
     UseBindHook
-} from "~/types";
+} from "~/types.js";
 
 export interface FormApiOptions<T extends GenericFormData = GenericFormData> {
     onSubmit: FormOnSubmit<T>;

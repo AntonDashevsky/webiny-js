@@ -7,9 +7,9 @@ import {
     CmsModelFieldValidation,
     CmsModelFieldValidatorPlugin,
     CmsModelFieldValidatorValidateParams
-} from "~/types";
+} from "~/types/index.js";
 import WebinyError from "@webiny/error";
-import camelCase from "lodash/camelCase";
+import camelCase from "lodash/camelCase.js";
 
 type PluginValidationCallable = (params: CmsModelFieldValidatorValidateParams) => Promise<boolean>;
 type PluginValidationList = Record<string, PluginValidationCallable[]>;

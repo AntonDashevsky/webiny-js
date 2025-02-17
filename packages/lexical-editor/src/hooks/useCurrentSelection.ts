@@ -6,8 +6,8 @@ import {
     RangeSelection,
     NodeSelection
 } from "lexical";
-import { useIsMounted } from "./useIsMounted";
-import { useRichTextEditor } from "~/hooks/useRichTextEditor";
+import { useIsMounted } from "./useIsMounted.js";
+import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
 
 export interface CurrentSelection {
     selection: ReturnType<typeof $getSelection>;

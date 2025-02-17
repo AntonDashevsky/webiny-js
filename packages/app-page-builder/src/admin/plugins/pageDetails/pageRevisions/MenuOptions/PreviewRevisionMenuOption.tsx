@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as PreviewIcon } from "~/admin/assets/visibility.svg";
 import { makeDecoratable } from "@webiny/app-admin";
-import { useRevision } from "~/admin/plugins/pageDetails/pageRevisions/RevisionsList";
-import { DefaultPreviewRevision } from "./PreviewRevision/DefaultPreviewRevision";
-import { PreviewRevisionMenuItem } from "./PreviewRevision/PreviewRevisionMenuItem";
+import { useRevision } from "~/admin/plugins/pageDetails/pageRevisions/RevisionsList.js";
+import { DefaultPreviewRevision } from "./PreviewRevision/DefaultPreviewRevision.js";
+import { PreviewRevisionMenuItem } from "./PreviewRevision/PreviewRevisionMenuItem.js";
 
 export interface PreviewRevisionProps {
     icon?: React.ReactElement;

@@ -1,8 +1,8 @@
-import { PbContext } from "~/types";
-import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
-import { GetTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/GetTranslatedCollectionUseCase";
-import { GetOrCreateTranslatableCollectionUseCase } from "~/translations/translatableCollection/useCases/GetOrCreateTranslatableCollectionUseCase";
-import { TranslatedItem } from "~/translations/translatedCollection/domain/TranslatedItem";
+import { PbContext } from "~/types.js";
+import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection.js";
+import { GetTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/GetTranslatedCollectionUseCase.js";
+import { GetOrCreateTranslatableCollectionUseCase } from "~/translations/translatableCollection/useCases/GetOrCreateTranslatableCollectionUseCase.js";
+import { TranslatedItem } from "~/translations/translatedCollection/domain/TranslatedItem.js";
 
 interface GetTranslatedCollectionParams {
     collectionId: string;

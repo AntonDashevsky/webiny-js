@@ -1,6 +1,6 @@
-import { FbFormModel, FbFormStep, DropSource, DropDestination } from "~/types";
-import moveRow from "./handleMoveRow/moveRow";
-import moveRowBetween from "./handleMoveRow/moveRowBetween";
+import { FbFormModel, FbFormStep, DropSource, DropDestination } from "~/types.js";
+import moveRow from "./handleMoveRow/moveRow.js";
+import moveRowBetween from "./handleMoveRow/moveRowBetween.js";
 
 interface HandleMoveRowParams {
     data: FbFormModel;

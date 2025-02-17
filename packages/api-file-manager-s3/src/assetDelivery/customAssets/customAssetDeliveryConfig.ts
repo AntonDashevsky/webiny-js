@@ -1,7 +1,7 @@
 import { createAssetDeliveryConfig } from "@webiny/api-file-manager";
 import { S3 } from "@webiny/aws-sdk/client-s3";
-import { S3CustomAssetResolver } from "./S3CustomAssetResolver";
-import { CustomAssetProcessor } from "~/assetDelivery/customAssets/CustomAssetProcessor";
+import { S3CustomAssetResolver } from "./S3CustomAssetResolver.js";
+import { CustomAssetProcessor } from "~/assetDelivery/customAssets/CustomAssetProcessor.js";
 
 export const customAssetDeliveryConfig = () => {
     return createAssetDeliveryConfig(config => {

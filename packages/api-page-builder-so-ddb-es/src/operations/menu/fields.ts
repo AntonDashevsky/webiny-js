@@ -1,4 +1,4 @@
-import { MenuDynamoDbElasticFieldPlugin } from "~/plugins/definitions/MenuDynamoDbElasticFieldPlugin";
+import { MenuDynamoDbElasticFieldPlugin } from "~/plugins/definitions/MenuDynamoDbElasticFieldPlugin.js";
 
 export const createMenuDynamoDbFields = (): MenuDynamoDbElasticFieldPlugin[] => {
     return [

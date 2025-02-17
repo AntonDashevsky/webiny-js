@@ -4,10 +4,10 @@ import { ReactComponent as FolderIcon } from "@material-design-icons/svg/outline
 import { ReactComponent as FolderSharedIcon } from "@material-design-icons/svg/outlined/folder_shared.svg";
 import { OptionsMenu } from "@webiny/app-admin";
 
-import { useFolder } from "~/hooks";
-import { useAcoConfig } from "~/config";
+import { useFolder } from "~/hooks/index.js";
+import { useAcoConfig } from "~/config/index.js";
 
-import { FolderContainer, FolderContent, Text } from "./styled";
+import { FolderContainer, FolderContent, Text } from "./styled.js";
 
 export interface FolderProps {
     onClick: (id: string) => void;

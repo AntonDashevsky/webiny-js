@@ -1,16 +1,16 @@
 import React from "react";
-import get from "lodash/get";
-import { i18n } from "@webiny/app/i18n";
-import { CmsModelField, CmsModelFieldRendererPlugin } from "~/types";
+import get from "lodash/get.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CmsModelField, CmsModelFieldRendererPlugin } from "~/types.js";
 import { ReactComponent as DeleteIcon } from "~/admin/icons/close.svg";
-import DynamicSection from "../DynamicSection";
-import { IconButton } from "@webiny/ui/Button";
+import DynamicSection from "../DynamicSection.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import styled from "@emotion/styled";
-import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor";
-import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor.js";
+import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 import { useForm } from "@webiny/form";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/rich-text");
 

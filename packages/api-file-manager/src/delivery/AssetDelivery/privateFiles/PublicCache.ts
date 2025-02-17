@@ -1,5 +1,5 @@
 import { parse, stringify } from "cache-control-parser";
-import { Asset, AssetOutputStrategy, AssetReply } from "~/delivery";
+import { Asset, AssetOutputStrategy, AssetReply } from "~/delivery/index.js";
 
 export class PublicCache implements AssetOutputStrategy {
     private strategy: AssetOutputStrategy;

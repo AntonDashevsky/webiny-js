@@ -1,11 +1,11 @@
 import React from "react";
-import { FormComponentProps } from "~/types";
+import { FormComponentProps } from "~/types.js";
 import BrowseFiles, { SelectedFile, FileError } from "react-butterfiles";
-import { FormElementMessage } from "~/FormElementMessage";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 import styled from "@emotion/styled";
 import classNames from "classnames";
-import Image from "./Image";
-import { ImageEditorDialog } from "./ImageEditorDialog";
+import Image from "./Image.js";
+import { ImageEditorDialog } from "./ImageEditorDialog.js";
 
 const ImageUploadWrapper = styled("div")({
     position: "relative",

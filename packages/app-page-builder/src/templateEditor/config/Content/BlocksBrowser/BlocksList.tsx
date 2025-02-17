@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useInViewport } from "react-in-viewport";
 import styled from "@emotion/styled";
-import { BlockPreview } from "./BlockPreview";
-import { PbEditorBlockPlugin } from "~/types";
-import { ResponsiveElementsProvider } from "~/admin/components/ResponsiveElementsProvider";
+import { BlockPreview } from "./BlockPreview.js";
+import { PbEditorBlockPlugin } from "~/types.js";
+import { ResponsiveElementsProvider } from "~/admin/components/ResponsiveElementsProvider/index.js";
 
 interface RenderRowProps {
     index: number;

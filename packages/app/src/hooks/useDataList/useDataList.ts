@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useRouter } from "@webiny/react-router";
-import get from "lodash/get";
-import isEqual from "lodash/isEqual";
-import { prepareLoadListParams } from "./utils";
-import { getData, getError, getMeta } from "./functions";
+import get from "lodash/get.js";
+import isEqual from "lodash/isEqual.js";
+import { prepareLoadListParams } from "./utils/index.js";
+import { getData, getError, getMeta } from "./functions/index.js";
 
 import { DocumentNode } from "graphql";
 import { ApolloClient } from "apollo-client";

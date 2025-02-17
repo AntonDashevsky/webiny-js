@@ -1,6 +1,6 @@
-import { IBulkActionUseCase } from "~/UseCases";
-import { IBulkActionsController } from "./IBulkActionsController";
-import { TrashBinBulkActionsParams } from "~/types";
+import { IBulkActionUseCase } from "~/UseCases/index.js";
+import { IBulkActionsController } from "./IBulkActionsController.js";
+import { TrashBinBulkActionsParams } from "~/types.js";
 
 export class BulkActionsController implements IBulkActionsController {
     private readonly useCaseFactory: () => IBulkActionUseCase;

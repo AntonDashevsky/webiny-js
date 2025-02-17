@@ -2,11 +2,11 @@ import React, { useCallback } from "react";
 import { ReactComponent as MoveIcon } from "@material-design-icons/svg/outlined/drive_file_move.svg";
 import { useRecords, useMoveToFolderDialog, useNavigateFolder } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
-import { FolderItem } from "@webiny/app-aco/types";
+import { FolderItem } from "@webiny/app-aco/types.js";
 import { observer } from "mobx-react-lite";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { ROOT_FOLDER } from "~/admin/constants";
-import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { ROOT_FOLDER } from "~/admin/constants.js";
+import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions.js";
 
 export const ActionMove = observer(() => {
     const { moveRecord } = useRecords();

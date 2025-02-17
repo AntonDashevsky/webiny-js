@@ -4,8 +4,8 @@ import {
     GetPageQueryResponse,
     GetPageQueryVariables,
     PageResponseData
-} from "~/admin/graphql/pages";
-import { PbErrorResponse } from "~/types";
+} from "~/admin/graphql/pages.js";
+import { PbErrorResponse } from "~/types.js";
 
 export type Page = PageResponseData & { settings: Record<string, any> };
 

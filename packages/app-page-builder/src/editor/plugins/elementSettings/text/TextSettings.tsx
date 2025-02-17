@@ -1,33 +1,33 @@
 import React, { useCallback, useMemo } from "react";
 import { css } from "emotion";
 import { useRecoilValue } from "recoil";
-import get from "lodash/get";
-import set from "lodash/set";
-import merge from "lodash/merge";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import merge from "lodash/merge.js";
 import { plugins } from "@webiny/plugins";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import {
     PbEditorElement,
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin,
     PbThemePlugin
-} from "~/types";
+} from "~/types.js";
 import {
     activeElementAtom,
     elementWithChildrenByIdSelector,
     uiAtom
-} from "~/editor/recoil/modules";
+} from "~/editor/recoil/modules/index.js";
 // Components
-import Accordion from "../../elementSettings/components/Accordion";
-import Wrapper from "../../elementSettings/components/Wrapper";
-import SelectField from "../../elementSettings/components/SelectField";
-import { BaseColorPicker } from "../components/ColorPicker";
-import useUpdateHandlers from "../../elementSettings/useUpdateHandlers";
-import TextAlignment from "./TextAlignment";
-import { applyFallbackDisplayMode } from "../elementSettingsUtils";
-import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements";
+import Accordion from "../../elementSettings/components/Accordion.js";
+import Wrapper from "../../elementSettings/components/Wrapper.js";
+import SelectField from "../../elementSettings/components/SelectField.js";
+import { BaseColorPicker } from "../components/ColorPicker.js";
+import useUpdateHandlers from "../../elementSettings/useUpdateHandlers.js";
+import TextAlignment from "./TextAlignment.js";
+import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
+import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements.js";
 
-import { TypographyStyle } from "@webiny/app-theme/types";
+import { TypographyStyle } from "@webiny/app-theme/types.js";
 
 const classes = {
     grid: css({

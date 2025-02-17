@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { ApwContentReview, ApwContentReviewContent } from "~/types";
+import { ApwContentReview, ApwContentReviewContent } from "~/types.js";
 
 const ERROR_FIELDS = `{
     message

@@ -3,7 +3,7 @@ import {
     FileManagerFilesStorageOperations,
     FileManagerFilesStorageOperationsListResponse,
     FileManagerFilesStorageOperationsTagsResponse
-} from "@webiny/api-file-manager/types";
+} from "@webiny/api-file-manager/types.js";
 
 /**
  * This class is here to satisfy TS interface, but it will always be overridden by CMS storage operations

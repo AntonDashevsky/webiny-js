@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
 import {
     EXPORT_PAGES,
     ExportPagesResponse,
     ExportPagesVariables
-} from "~/admin/graphql/pageImportExport.gql";
-import useExportPageDialog from "./useExportPageDialog";
+} from "~/admin/graphql/pageImportExport.gql.js";
+import useExportPageDialog from "./useExportPageDialog.js";
 
 const useExportPage = () => {
     const [taskId, setTaskId] = useState<string | null>(null);

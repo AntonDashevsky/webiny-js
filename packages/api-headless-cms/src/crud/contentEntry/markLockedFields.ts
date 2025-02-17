@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { CmsContext, CmsEntry, CmsModel, CmsModelLockedFieldPlugin, LockedField } from "~/types";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
-import { getBaseFieldType } from "~/utils/getBaseFieldType";
+import { CmsContext, CmsEntry, CmsModel, CmsModelLockedFieldPlugin, LockedField } from "~/types/index.js";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
+import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 
 interface MarkLockedFieldsParams {
     model: CmsModel;

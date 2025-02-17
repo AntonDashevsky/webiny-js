@@ -1,6 +1,6 @@
 import { Plugin } from "@webiny/plugins";
-import { Field } from "~/operations/entry/filtering/types";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import { Field } from "~/operations/entry/filtering/types.js";
+import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 interface CmsEntryFieldSortingPluginCanUseParams {
     model: CmsModel;

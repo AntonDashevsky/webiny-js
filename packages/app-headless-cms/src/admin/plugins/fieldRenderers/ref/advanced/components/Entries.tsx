@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import styled from "@emotion/styled";
-import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { Scrollbar } from "@webiny/ui/Scrollbar";
+import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { positionValues as PositionValues } from "react-custom-scrollbars";
 
 /**

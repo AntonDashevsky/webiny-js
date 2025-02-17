@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Bind } from "@webiny/form";
-import { CheckboxGroup, Checkbox } from "@webiny/ui/Checkbox";
+import { CheckboxGroup, Checkbox } from "@webiny/ui/Checkbox/index.js";
 import { validation } from "@webiny/validation";
-import { useThemeManager } from "~/hooks/useThemeManager";
+import { useThemeManager } from "~/hooks/useThemeManager.js";
 
 const WideOptions = styled.div(`
   .mdc-form-field {

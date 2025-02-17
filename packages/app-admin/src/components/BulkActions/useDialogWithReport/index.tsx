@@ -1,1 +1,1 @@
-export * from "./useDialogWithReport";
+export * from "./useDialogWithReport.js";

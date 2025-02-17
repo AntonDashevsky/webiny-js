@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { createRecordLocking } from "~/domain/RecordLocking";
+import { createRecordLocking } from "~/domain/RecordLocking.js";
 import {
     IFetchLockedEntryLockRecordParams,
     IFetchLockRecordParams,
@@ -9,7 +9,7 @@ import {
     IRecordLockingError,
     IUnlockEntryParams,
     IUpdateEntryLockParams
-} from "~/types";
+} from "~/types.js";
 import { useStateIfMounted } from "@webiny/app-admin";
 
 export interface IRecordLockingProviderProps {

@@ -1,11 +1,11 @@
 import React, { ReactNode, useContext, useEffect, useMemo } from "react";
-import { useWcp } from "@webiny/app-wcp/hooks/useWcp";
+import { useWcp } from "@webiny/app-wcp/hooks/useWcp.js";
 import { useStateIfMounted } from "@webiny/app-admin";
-import { dataLoader, loadingHandler } from "~/handlers";
-import { FolderItem, Loading, LoadingActions } from "~/types";
-import { AcoAppContext } from "~/contexts/app";
-import { useFoldersApi } from "~/hooks";
-import { ROOT_FOLDER } from "~/constants";
+import { dataLoader, loadingHandler } from "~/handlers.js";
+import { FolderItem, Loading, LoadingActions } from "~/types.js";
+import { AcoAppContext } from "~/contexts/app.js";
+import { useFoldersApi } from "~/hooks/index.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface FoldersContextFolderLevelPermissions {
     canManageStructure(folderId: string): boolean;

@@ -1,11 +1,11 @@
 import React from "react";
-import { ImageEditorTool } from "./types";
+import { ImageEditorTool } from "./types.js";
 import { ReactComponent as FlipIcon } from "./icons/flip.svg";
 import Cropper from "cropperjs";
 import "cropperjs/dist/cropper.css";
 
-import { IconButton, ButtonDefault } from "../../Button";
-import { Tooltip } from "~/Tooltip";
+import { IconButton, ButtonDefault } from "../../Button/index.js";
+import { Tooltip } from "~/Tooltip/index.js";
 
 let cropper: Cropper;
 

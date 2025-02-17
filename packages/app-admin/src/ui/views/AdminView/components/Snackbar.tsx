@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import { Snackbar } from "@webiny/ui/Snackbar";
-import get from "lodash/get";
-import { useUi } from "@webiny/app/hooks/useUi";
+import { Snackbar } from "@webiny/ui/Snackbar/index.js";
+import get from "lodash/get.js";
+import { useUi } from "@webiny/app/hooks/useUi.js";
 
 const SnackbarMain = () => {
     const ui = useUi();

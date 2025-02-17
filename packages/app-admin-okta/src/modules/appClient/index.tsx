@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import gql from "graphql-tag";
 import { Plugins } from "@webiny/app-admin";
 import { AddTenantFormField } from "@webiny/app-tenant-manager";
-import { AppClientInput } from "./AppClientInput";
+import { AppClientInput } from "./AppClientInput.js";
 
 const TenantFormFields = memo(function TenantFormFields() {
     const selection = gql`

@@ -1,3 +1,3 @@
-import { Files } from "./Files";
+import { Files } from "./Files.js";
 
 export default Files;

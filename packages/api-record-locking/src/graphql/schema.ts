@@ -1,15 +1,15 @@
-import { resolve, resolveList } from "~/utils/resolve";
-import { Context } from "~/types";
+import { resolve, resolveList } from "~/utils/resolve.js";
+import { Context } from "~/types.js";
 import {
     createGraphQLSchemaPlugin,
     IGraphQLSchemaPlugin,
     NotFoundError
 } from "@webiny/handler-graphql";
-import { renderFields } from "@webiny/api-headless-cms/utils/renderFields";
-import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords";
-import { renderListFilterFields } from "@webiny/api-headless-cms/utils/renderListFilterFields";
-import { renderSortEnum } from "@webiny/api-headless-cms/utils/renderSortEnum";
-import { checkPermissions } from "~/utils/checkPermissions";
+import { renderFields } from "@webiny/api-headless-cms/utils/renderFields.js";
+import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords.js";
+import { renderListFilterFields } from "@webiny/api-headless-cms/utils/renderListFilterFields.js";
+import { renderSortEnum } from "@webiny/api-headless-cms/utils/renderSortEnum.js";
+import { checkPermissions } from "~/utils/checkPermissions.js";
 
 interface Params {
     context: Pick<Context, "plugins" | "recordLocking" | "security" | "cms">;

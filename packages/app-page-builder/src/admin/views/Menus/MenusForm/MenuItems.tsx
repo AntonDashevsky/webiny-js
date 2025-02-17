@@ -3,17 +3,17 @@ import { css } from "emotion";
 import styled from "@emotion/styled";
 import uniqid from "uniqid";
 import { plugins } from "@webiny/plugins";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Icon } from "@webiny/ui/Icon";
-import { Menu } from "@webiny/ui/Menu";
-import { List, ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import MenuItemsList from "./MenuItems/MenuItemsList";
-import MenuItemForm from "./MenuItems/MenuItemForm";
-import findObject from "./MenuItems/findObject";
-import { PbMenuItemPlugin } from "~/types";
-import { Typography } from "@webiny/ui/Typography";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Menu } from "@webiny/ui/Menu/index.js";
+import { List, ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import MenuItemsList from "./MenuItems/MenuItemsList.js";
+import MenuItemForm from "./MenuItems/MenuItemForm.js";
+import findObject from "./MenuItems/findObject.js";
+import { PbMenuItemPlugin } from "~/types.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { MenuTreeItem } from "~/admin/views/Menus/types.js";
 const leftPanel = css({
     padding: 25,
     backgroundColor: "var(--mdc-theme-background)",

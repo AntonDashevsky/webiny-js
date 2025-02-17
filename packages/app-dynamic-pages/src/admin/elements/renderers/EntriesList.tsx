@@ -1,8 +1,8 @@
 import React from "react";
-import { PbElement } from "@webiny/app-page-builder/types";
-import { EmptyCell } from "@webiny/app-page-builder/editor/plugins/elements/cell/EmptyCell";
-import { useElementWithChildren } from "@webiny/app-page-builder/editor";
-import { EntriesListRenderer } from "~/dataInjection/renderers/EntriesList";
+import { PbElement } from "@webiny/app-page-builder/types.js";
+import { EmptyCell } from "@webiny/app-page-builder/editor/plugins/elements/cell/EmptyCell.js";
+import { useElementWithChildren } from "@webiny/app-page-builder/editor/index.js";
+import { EntriesListRenderer } from "~/dataInjection/renderers/EntriesList.js";
 
 interface AdminEntriesListRendererProps {
     element: PbElement;

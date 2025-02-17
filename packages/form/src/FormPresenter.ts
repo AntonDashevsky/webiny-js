@@ -1,12 +1,12 @@
 import { makeAutoObservable, runInAction, toJS } from "mobx";
-import lodashGet from "lodash/get";
-import lodashSet from "lodash/set";
-import lodashNoop from "lodash/noop";
-import lodashIsEqual from "lodash/isEqual";
-import { BindComponentProps, FormValidationOptions, GenericFormData } from "~/types";
-import { FormField } from "./FormField";
-import { FormValidator } from "./FormValidator";
-import { FieldValidationResult } from "./FormFieldValidator";
+import lodashGet from "lodash/get.js";
+import lodashSet from "lodash/set.js";
+import lodashNoop from "lodash/noop.js";
+import lodashIsEqual from "lodash/isEqual.js";
+import { BindComponentProps, FormValidationOptions, GenericFormData } from "~/types.js";
+import { FormField } from "./FormField.js";
+import { FormValidator } from "./FormValidator.js";
+import { FieldValidationResult } from "./FormFieldValidator.js";
 
 export interface FormInvalidFields {
     [name: string]: string;

@@ -2,21 +2,21 @@ import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Form, Bind, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { Input } from "@webiny/ui/Input";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Alert } from "@webiny/ui/Alert";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
 import {
     useSignIn,
     UseSignInCallableParams
-} from "@webiny/app-cognito-authenticator/hooks/useSignIn";
-import { View } from "~/components/View";
-import { FederatedLogin } from "./FederatedLogin";
-import { Divider } from "~/components/Divider";
-import { alignRight, alignCenter, errorMessage } from "~/components/StyledComponents";
-import { FederatedIdentityProvider } from "~/federatedIdentityProviders";
+} from "@webiny/app-cognito-authenticator/hooks/useSignIn.js";
+import { View } from "~/components/View.js";
+import { FederatedLogin } from "./FederatedLogin.js";
+import { Divider } from "~/components/Divider.js";
+import { alignRight, alignCenter, errorMessage } from "~/components/StyledComponents.js";
+import { FederatedIdentityProvider } from "~/federatedIdentityProviders.js";
 
 export interface SignInProps {
     title?: string;

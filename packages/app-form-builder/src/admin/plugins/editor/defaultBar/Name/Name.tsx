@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { Input } from "@webiny/ui/Input";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { Typography } from "@webiny/ui/Typography";
-import { useFormEditor } from "~/admin/components/FormEditor";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useFormEditor } from "~/admin/components/FormEditor/index.js";
 /**
  * Package react-hotkeyz does not have types.
  */
@@ -15,8 +15,8 @@ import {
     FormVersion,
     NameInputWrapper,
     NameWrapper
-} from "./NameStyled";
-import { i18n } from "@webiny/app/i18n";
+} from "./NameStyled.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 const t = i18n.namespace("FormEditor.Name");
 
 declare global {

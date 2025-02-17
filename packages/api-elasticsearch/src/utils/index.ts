@@ -1,3 +1,3 @@
-export * from "./waitUntilHealthy";
-export * from "./createIndex";
-export * from "./waitUntilHealthy";
+export * from "./waitUntilHealthy/index.js";
+export * from "./createIndex.js";
+export * from "./waitUntilHealthy/index.js";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Input } from "@webiny/ui/Input";
+import { Input } from "@webiny/ui/Input/index.js";
 import { makeDecoratable } from "@webiny/app-admin";
-import { useVariable } from "~/hooks/useVariable";
+import { useVariable } from "~/hooks/useVariable.js";
 
 interface TextVariableInputProps {
     variableId: string;

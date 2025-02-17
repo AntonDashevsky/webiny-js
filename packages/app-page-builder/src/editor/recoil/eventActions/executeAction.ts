@@ -1,10 +1,10 @@
-import { PbState } from "../modules/types";
+import { PbState } from "../modules/types.js";
 import {
     EventActionHandlerCallableArgs,
     EventActionCallable,
     EventActionHandlerActionCallableResponse,
     EventActionHandlerMeta
-} from "~/types";
+} from "~/types.js";
 
 export const executeAction = <T extends EventActionHandlerCallableArgs = any>(
     state: PbState,

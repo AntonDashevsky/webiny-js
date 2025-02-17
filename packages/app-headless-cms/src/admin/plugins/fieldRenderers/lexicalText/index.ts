@@ -1,5 +1,5 @@
-import lexicalTextInput from "./lexicalTextInput";
-import lexicalTextInputs from "./lexicalTextInputs";
+import lexicalTextInput from "./lexicalTextInput.js";
+import lexicalTextInputs from "./lexicalTextInputs.js";
 export const createLexicalInput = () => {
     return [lexicalTextInput, lexicalTextInputs];
 };

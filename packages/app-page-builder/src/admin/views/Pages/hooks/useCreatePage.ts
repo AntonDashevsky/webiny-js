@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { CREATE_PAGE, CREATE_PAGE_FROM_TEMPLATE } from "~/admin/graphql/pages";
-import * as GQLCache from "~/admin/views/Pages/cache";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { CREATE_PAGE, CREATE_PAGE_FROM_TEMPLATE } from "~/admin/graphql/pages.js";
+import * as GQLCache from "~/admin/views/Pages/cache.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useRecords } from "@webiny/app-aco";
-import { PbPageTemplate } from "~/types";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
+import { PbPageTemplate } from "~/types.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 
 interface UseCreatePageParams {
     setLoading: () => void;

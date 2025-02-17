@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { ImageEditor } from "~/ImageEditor";
-import { Tooltip } from "~/Tooltip";
+import { ImageEditor } from "~/ImageEditor/index.js";
+import { Tooltip } from "~/Tooltip/index.js";
 import { css } from "emotion";
-import { Dialog, DialogCancel, DialogActions, DialogContent, DialogOnClose } from "../Dialog";
-import { ButtonPrimary } from "~/Button";
+import { Dialog, DialogCancel, DialogActions, DialogContent, DialogOnClose } from "../Dialog/index.js";
+import { ButtonPrimary } from "~/Button/index.js";
 
 interface ImageEditorDialogProps {
     dialogZIndex?: number;

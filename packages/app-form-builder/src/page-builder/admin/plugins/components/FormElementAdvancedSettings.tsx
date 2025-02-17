@@ -1,23 +1,23 @@
 import React, { useMemo } from "react";
 import { useLazyQuery, useQuery } from "@apollo/react-hooks";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Alert } from "@webiny/ui/Alert";
-import { AutoComplete } from "@webiny/ui/AutoComplete";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { AutoComplete } from "@webiny/ui/AutoComplete/index.js";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
-import Accordion from "@webiny/app-page-builder/editor/plugins/elementSettings/components/Accordion";
+import Accordion from "@webiny/app-page-builder/editor/plugins/elementSettings/components/Accordion.js";
 import {
     ButtonContainer,
     classes,
     SimpleButton
-} from "@webiny/app-page-builder/editor/plugins/elementSettings/components/StyledComponents";
+} from "@webiny/app-page-builder/editor/plugins/elementSettings/components/StyledComponents.js";
 import {
     GET_FORM_REVISIONS,
     GetFormRevisionsQueryResponse,
     GetFormRevisionsQueryVariables,
     LIST_FORMS,
     ListFormsQueryResponse
-} from "./graphql";
+} from "./graphql.js";
 import { BindComponent, FormOnSubmit } from "@webiny/form";
 
 const FormOptionsWrapper = styled("div")({

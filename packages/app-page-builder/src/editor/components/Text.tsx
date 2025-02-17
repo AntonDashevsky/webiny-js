@@ -1,7 +1,7 @@
 import React from "react";
 import { CoreOptions } from "medium-editor";
 
-import { PeText } from "./Text/PeText";
+import { PeText } from "./Text/PeText.js";
 
 interface TextElementProps {
     elementId: string;

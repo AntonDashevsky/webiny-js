@@ -1,4 +1,4 @@
-import { NonEmptyArray } from "@webiny/api/types";
+import { NonEmptyArray } from "@webiny/api/types.js";
 
 export interface IRegistryRegisterParams<T = unknown> {
     item: T;
@@ -25,4 +25,4 @@ export interface IRegistry {
     getItems<T = unknown>(cb: (item: IRegistryItem<T>) => boolean): IRegistryItem<T>[];
 }
 
-export * from "./store/types";
+export * from "./store/types.js";

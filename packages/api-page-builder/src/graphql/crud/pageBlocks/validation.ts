@@ -1,5 +1,5 @@
 import zod from "zod";
-import { dynamicData } from "~/graphql/crud/dynamicData.validation";
+import { dynamicData } from "~/graphql/crud/dynamicData.validation.js";
 
 const refineValidation = (value?: string) => {
     if (!value) {

@@ -1,4 +1,4 @@
-import { PbConfigPluginType, PbConfigType } from "../../types";
+import { PbConfigPluginType, PbConfigType } from "../../types.js";
 
 export default (config: PbConfigType) =>
     ({

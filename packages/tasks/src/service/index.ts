@@ -1,5 +1,5 @@
-import { EventBridgeEventTransportPlugin } from "./EventBridgeEventTransportPlugin";
-import { StepFunctionServicePlugin } from "./StepFunctionServicePlugin";
+import { EventBridgeEventTransportPlugin } from "./EventBridgeEventTransportPlugin.js";
+import { StepFunctionServicePlugin } from "./StepFunctionServicePlugin.js";
 
 export const createServicePlugins = () => {
     return [
@@ -8,4 +8,4 @@ export const createServicePlugins = () => {
     ];
 };
 
-export * from "./createService";
+export * from "./createService.js";

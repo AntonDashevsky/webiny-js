@@ -1,9 +1,9 @@
 import React from "react";
-import { Element } from "~/types";
-import { OEmbed, OEmbedProps } from "./components/OEmbed";
+import { Element } from "~/types.js";
+import { OEmbed, OEmbedProps } from "./components/OEmbed.js";
 import styled from "@emotion/styled";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
 
 const OuterWrapper = styled.div({
     boxSizing: "border-box",

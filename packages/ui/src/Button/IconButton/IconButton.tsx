@@ -5,7 +5,7 @@ import {
 } from "@rmwc/icon-button";
 import styled from "@emotion/styled";
 
-import { FormComponentProps } from "../../types";
+import { FormComponentProps } from "../../types.js";
 
 const StyledRIconButton = styled(RIconButton)`
     i {

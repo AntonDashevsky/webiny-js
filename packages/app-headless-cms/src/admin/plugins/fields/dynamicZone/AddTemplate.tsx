@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { CmsDynamicZoneTemplate } from "~/types";
-import { ButtonSecondary, IconButton } from "@webiny/ui/Button";
-import { TemplateDialog } from "./TemplateDialog";
-import { Typography } from "@webiny/ui/Typography";
+import { CmsDynamicZoneTemplate } from "~/types.js";
+import { ButtonSecondary, IconButton } from "@webiny/ui/Button/index.js";
+import { TemplateDialog } from "./TemplateDialog.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/round/add_circle_outline.svg";
-import { Elevation } from "@webiny/ui/Elevation";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
 
 const AddTemplateButtonContainer = styled(Elevation)`
     padding: 25px 0 20px;

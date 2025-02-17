@@ -1,5 +1,5 @@
 import { useCurrentTenant } from "@webiny/app-tenant-manager";
-import { useThemeManager } from "./useThemeManager";
+import { useThemeManager } from "./useThemeManager.js";
 
 export function useTenantThemes() {
     const { loading, tenant } = useCurrentTenant();

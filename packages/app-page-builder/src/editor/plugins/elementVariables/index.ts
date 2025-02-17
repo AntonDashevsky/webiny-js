@@ -1,18 +1,18 @@
-import button from "./basic/button";
-import heading from "./basic/heading";
-import icon from "./basic/icon";
-import image from "./basic/image";
-import imagesList from "./basic/images-list";
-import list from "./basic/list";
-import paragraph from "./basic/paragraph";
-import quote from "./basic/quote";
-import codesandbox from "./code/codesandbox";
-import iframe from "./embeds/iframe";
-import soundcloud from "./embeds/soundcloud";
-import vimeo from "./embeds/vimeo";
-import youtube from "./embeds/youtube";
-import pinterest from "./social/pinterest";
-import twitter from "./social/twitter";
+import button from "./basic/button/index.js";
+import heading from "./basic/heading/index.js";
+import icon from "./basic/icon/index.js";
+import image from "./basic/image/index.js";
+import imagesList from "./basic/images-list/index.js";
+import list from "./basic/list/index.js";
+import paragraph from "./basic/paragraph/index.js";
+import quote from "./basic/quote/index.js";
+import codesandbox from "./code/codesandbox/index.js";
+import iframe from "./embeds/iframe/index.js";
+import soundcloud from "./embeds/soundcloud/index.js";
+import vimeo from "./embeds/vimeo/index.js";
+import youtube from "./embeds/youtube/index.js";
+import pinterest from "./social/pinterest/index.js";
+import twitter from "./social/twitter/index.js";
 
 export default () => [
     button,

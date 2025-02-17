@@ -1,7 +1,7 @@
 import React from "react";
-import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview";
-import { DataSourceProvider, DynamicDocumentProvider } from "~/dataInjection";
-import { WebsiteDataInjection } from "~/dataInjection/presets/WebsiteDataInjection";
+import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview.js";
+import { DataSourceProvider, DynamicDocumentProvider } from "~/dataInjection/index.js";
+import { WebsiteDataInjection } from "~/dataInjection/presets/WebsiteDataInjection.js";
 
 export const PageTemplatesPreview = PageTemplateContentPreview.createDecorator(Original => {
     return function PreviewWithDynamicData(props) {

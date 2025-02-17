@@ -6,15 +6,15 @@ import {
     MenuStorageOperationsGetParams,
     MenuStorageOperationsListParams,
     MenuStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-page-builder/types.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import WebinyError from "@webiny/error";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort";
-import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
-import { MenuDynamoDbFieldPlugin } from "~/plugins/definitions/MenuDynamoDbFieldPlugin";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
+import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
+import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
+import { MenuDynamoDbFieldPlugin } from "~/plugins/definitions/MenuDynamoDbFieldPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 

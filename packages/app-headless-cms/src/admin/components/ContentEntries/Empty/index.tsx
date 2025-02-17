@@ -1,11 +1,11 @@
 import React from "react";
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
-import { i18n } from "@webiny/app/i18n";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { Buttons, Icon } from "./styled";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { useModel } from "~/admin/components/ModelProvider";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Buttons, Icon } from "./styled.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { useModel } from "~/admin/components/ModelProvider/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/components/content-entries/empty");
 

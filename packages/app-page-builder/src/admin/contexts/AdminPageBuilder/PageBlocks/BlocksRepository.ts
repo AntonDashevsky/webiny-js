@@ -1,10 +1,10 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { plugins } from "@webiny/plugins";
-import { Loading } from "./Loading";
-import { BlockGatewayInterface } from "./BlockGatewayInterface";
-import { PbEditorBlockPlugin, PbPageBlock } from "~/types";
-import { getDefaultBlockContent } from "./defaultBlockContent";
-import { createBlockPlugin } from "./createBlockPlugin";
+import { Loading } from "./Loading.js";
+import { BlockGatewayInterface } from "./BlockGatewayInterface.js";
+import { PbEditorBlockPlugin, PbPageBlock } from "~/types.js";
+import { getDefaultBlockContent } from "./defaultBlockContent.js";
+import { createBlockPlugin } from "./createBlockPlugin.js";
 
 export class BlocksRepository {
     private gateway: BlockGatewayInterface;

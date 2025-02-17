@@ -4,13 +4,13 @@ import {
     EventActionHandlerProvider,
     EventActionHandlerProviderProps,
     GetCallableState
-} from "~/editor/contexts/EventActionHandlerProvider";
-import { usePage } from "~/pageEditor/hooks/usePage";
-import { useRevisions } from "~/pageEditor/hooks/useRevisions";
-import { TemplateModeAtomType, useTemplateMode } from "~/pageEditor/hooks/useTemplateMode";
-import { PageAtomType, RevisionsAtomType } from "~/pageEditor/state";
-import { PageEditorEventActionCallableState } from "~/pageEditor/types";
-import { PbEditorElementTree } from "~/types";
+} from "~/editor/contexts/EventActionHandlerProvider.js";
+import { usePage } from "~/pageEditor/hooks/usePage.js";
+import { useRevisions } from "~/pageEditor/hooks/useRevisions.js";
+import { TemplateModeAtomType, useTemplateMode } from "~/pageEditor/hooks/useTemplateMode.js";
+import { PageAtomType, RevisionsAtomType } from "~/pageEditor/state/index.js";
+import { PageEditorEventActionCallableState } from "~/pageEditor/types.js";
+import { PbEditorElementTree } from "~/types.js";
 
 type ProviderProps = EventActionHandlerProviderProps<PageEditorEventActionCallableState>;
 

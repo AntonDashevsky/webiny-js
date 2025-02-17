@@ -1,11 +1,11 @@
-import { onPageAfterCreateHook } from "~/page/hooks/onPageAfterCreate.hook";
-import { onPageAfterCreateFromHook } from "~/page/hooks/onPageAfterCreateFrom.hook";
-import { onPageAfterDeleteHook } from "~/page/hooks/onPageAfterDelete.hook";
-import { onPageAfterPublishHook } from "~/page/hooks/onPageAfterPublish.hook";
-import { onPageAfterUnpublishHook } from "~/page/hooks/onPageAfterUnpublish.hook";
-import { onPageAfterUpdateHook } from "~/page/hooks/onPageAfterUpdate.hook";
+import { onPageAfterCreateHook } from "~/page/hooks/onPageAfterCreate.hook.js";
+import { onPageAfterCreateFromHook } from "~/page/hooks/onPageAfterCreateFrom.hook.js";
+import { onPageAfterDeleteHook } from "~/page/hooks/onPageAfterDelete.hook.js";
+import { onPageAfterPublishHook } from "~/page/hooks/onPageAfterPublish.hook.js";
+import { onPageAfterUnpublishHook } from "~/page/hooks/onPageAfterUnpublish.hook.js";
+import { onPageAfterUpdateHook } from "~/page/hooks/onPageAfterUpdate.hook.js";
 
-import { PbAcoContext } from "~/types";
+import { PbAcoContext } from "~/types.js";
 
 export const createPageHooks = (context: PbAcoContext) => {
     onPageAfterCreateHook(context);

@@ -3,7 +3,7 @@ import { DocumentNode } from "graphql";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import { generateAlphaNumericId } from "@webiny/utils";
-import { ElementConfig } from "./Element";
+import { ElementConfig } from "./Element.js";
 
 declare module "graphql" {
     interface DocumentNode {

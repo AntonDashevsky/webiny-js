@@ -1,16 +1,16 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import { PbEditorElement, PbBlockVariable, PbElement } from "~/types";
-import { Typography } from "@webiny/ui/Typography";
-import { useMoveVariable } from "~/blockEditor/components/elementSettingsTab/variablesListHooks";
-import { useSortableList } from "~/hooks/useSortableList";
-import { Collapsable } from "~/editor/defaultConfig/Toolbar/Navigator/StyledComponents";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+import { PbEditorElement, PbBlockVariable, PbElement } from "~/types.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useMoveVariable } from "~/blockEditor/components/elementSettingsTab/variablesListHooks.js";
+import { useSortableList } from "~/hooks/useSortableList.js";
+import { Collapsable } from "~/editor/defaultConfig/Toolbar/Navigator/StyledComponents.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
 import { ReactComponent as DragIndicatorIcon } from "~/editor/defaultConfig/Toolbar/Navigator/assets/drag_indicator_24px.svg";
 import { ReactComponent as DeleteIcon } from "~/editor/assets/icons/delete.svg";
-import { findElementByVariableId } from "~/blockEditor/config/eventActions/saveBlock";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { findElementByVariableId } from "~/blockEditor/config/eventActions/saveBlock/index.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 
 const TitleWrapper = styled("div")({
     padding: "16px",

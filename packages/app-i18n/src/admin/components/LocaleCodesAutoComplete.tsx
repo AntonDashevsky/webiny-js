@@ -1,7 +1,7 @@
 import * as React from "react";
 import gql from "graphql-tag";
-import { AutoComplete } from "@webiny/ui/AutoComplete";
-import { useAutocomplete } from "@webiny/app/hooks/useAutocomplete";
+import { AutoComplete } from "@webiny/ui/AutoComplete/index.js";
+import { useAutocomplete } from "@webiny/app/hooks/useAutocomplete/index.js";
 
 export const SEARCH_LOCALE_CODES = gql`
     query SearchLocaleCodes($search: String) {

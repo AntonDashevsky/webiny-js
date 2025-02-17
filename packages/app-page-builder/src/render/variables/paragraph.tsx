@@ -1,7 +1,7 @@
 import React from "react";
-import { ParagraphRenderer } from "@webiny/app-page-builder-elements/renderers/paragraph";
-import { useElementVariables } from "~/hooks/useElementVariables";
-import { PbBlockVariable } from "~/types";
+import { ParagraphRenderer } from "@webiny/app-page-builder-elements/renderers/paragraph.js";
+import { useElementVariables } from "~/hooks/useElementVariables.js";
+import { PbBlockVariable } from "~/types.js";
 
 const getVariableValues = (variables: PbBlockVariable<string>[]) => {
     return {

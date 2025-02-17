@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
-import { FileManagerContext, OnFileBeforeUpdateTopicParams } from "@webiny/api-file-manager/types";
-import { CdnPathsGenerator } from "~/flushCdnCache/CdnPathsGenerator";
+import { FileManagerContext, OnFileBeforeUpdateTopicParams } from "@webiny/api-file-manager/types.js";
+import { CdnPathsGenerator } from "~/flushCdnCache/CdnPathsGenerator.js";
 
 class FlushCacheOnFileUpdate {
     private readonly context: FileManagerContext;

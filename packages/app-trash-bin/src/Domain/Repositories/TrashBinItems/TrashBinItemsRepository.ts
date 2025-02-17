@@ -1,15 +1,15 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import uniqBy from "lodash/uniqBy";
-import { ITrashBinItemMapper, TrashBinItem } from "~/Domain";
+import uniqBy from "lodash/uniqBy.js";
+import { ITrashBinItemMapper, TrashBinItem } from "~/Domain/index.js";
 import {
     ITrashBinListGateway,
     ITrashBinDeleteItemGateway,
     ITrashBinRestoreItemGateway,
     ITrashBinBulkActionsGateway
-} from "~/Gateways";
+} from "~/Gateways/index.js";
 import { IMetaRepository, Meta } from "@webiny/app-utils";
-import { TrashBinBulkActionsParams, TrashBinListQueryVariables } from "~/types";
-import { ITrashBinItemsRepository } from "./ITrashBinItemsRepository";
+import { TrashBinBulkActionsParams, TrashBinListQueryVariables } from "~/types.js";
+import { ITrashBinItemsRepository } from "./ITrashBinItemsRepository.js";
 
 export class TrashBinItemsRepository<TItem extends Record<string, any>>
     implements ITrashBinItemsRepository

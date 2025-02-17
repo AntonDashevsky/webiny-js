@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import UnlinkBlockAction from "~/pageEditor/plugins/elementSettings/UnlinkBlockAction";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import UnlinkBlockAction from "~/pageEditor/plugins/elementSettings/UnlinkBlockAction.js";
 import { ReactComponent as InfoIcon } from "@webiny/app-admin/assets/icons/info.svg";
-import { useTemplateMode } from "~/pageEditor/hooks/useTemplateMode";
-import { PageEditorConfig } from "~/pageEditor/editorConfig/PageEditorConfig";
-import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference";
+import { useTemplateMode } from "~/pageEditor/hooks/useTemplateMode.js";
+import { PageEditorConfig } from "~/pageEditor/editorConfig/PageEditorConfig.js";
+import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference.js";
 
 type UnlinkBlockWrapperProps = {
     permission: boolean;

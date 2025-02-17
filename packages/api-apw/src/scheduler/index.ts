@@ -1,5 +1,5 @@
-import { createScheduleActionMethods } from "./createScheduleActionMethods";
-import { ApwScheduleActionCrud, CreateScheduleActionParams } from "./types";
+import { createScheduleActionMethods } from "./createScheduleActionMethods.js";
+import { ApwScheduleActionCrud, CreateScheduleActionParams } from "./types.js";
 
 export const createScheduler = (params: CreateScheduleActionParams): ApwScheduleActionCrud => {
     const { getLocale, getIdentity, getTenant, getPermission, storageOperations } = params;

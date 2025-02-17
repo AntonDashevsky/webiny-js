@@ -1,4 +1,4 @@
-import { decodeCursor, encodeCursor } from "~/utils/cursor";
+import { decodeCursor, encodeCursor } from "~/utils/cursor.js";
 
 interface MetaResponse {
     cursor: string | null;

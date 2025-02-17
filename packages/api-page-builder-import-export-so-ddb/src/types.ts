@@ -1,6 +1,6 @@
-import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
+import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { ImportExportTaskStorageOperations } from "@webiny/api-page-builder-import-export/types";
+import { ImportExportTaskStorageOperations } from "@webiny/api-page-builder-import-export/types.js";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

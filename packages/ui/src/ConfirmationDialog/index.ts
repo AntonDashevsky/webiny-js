@@ -1,2 +1,2 @@
-export * from "./ConfirmationDialog";
-export * from "./withConfirmation";
+export * from "./ConfirmationDialog.js";
+export * from "./withConfirmation.js";

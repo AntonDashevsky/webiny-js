@@ -1,6 +1,6 @@
-import kebabCase from "lodash/kebabCase";
-import { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types";
-import { IconRenderer } from "@webiny/app-page-builder-elements/renderers/icon";
+import kebabCase from "lodash/kebabCase.js";
+import { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types.js";
+import { IconRenderer } from "@webiny/app-page-builder-elements/renderers/icon.js";
 
 export default (args: PbRenderElementPluginArgs = {}): PbRenderElementPlugin => {
     const elementType = args.elementType || "icon";

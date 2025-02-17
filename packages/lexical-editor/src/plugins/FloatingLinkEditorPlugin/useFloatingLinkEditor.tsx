@@ -1,10 +1,10 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useRichTextEditor } from "~/hooks";
-import { getSelectedNode } from "~/utils/getSelectedNode";
+import { useRichTextEditor } from "~/hooks/index.js";
+import { getSelectedNode } from "~/utils/getSelectedNode.js";
 import { $isAutoLinkNode, $isLinkNode, TOGGLE_LINK_COMMAND } from "@webiny/lexical-nodes";
-import { isChildOfLinkEditor } from "~/plugins/FloatingLinkEditorPlugin/isChildOfLinkEditor";
-import debounce from "lodash/debounce";
+import { isChildOfLinkEditor } from "~/plugins/FloatingLinkEditorPlugin/isChildOfLinkEditor.js";
+import debounce from "lodash/debounce.js";
 import {
     $getSelection,
     $isRangeSelection,
@@ -14,7 +14,7 @@ import {
     SELECTION_CHANGE_COMMAND
 } from "lexical";
 import { $findMatchingParent, mergeRegister } from "@lexical/utils";
-import { FloatingLinkEditor } from "./FloatingLinkEditorPlugin";
+import { FloatingLinkEditor } from "./FloatingLinkEditorPlugin.js";
 
 export function useFloatingLinkEditor(anchorElem: HTMLElement): JSX.Element | null {
     const { editor } = useRichTextEditor();

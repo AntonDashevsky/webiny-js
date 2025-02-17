@@ -1,6 +1,6 @@
 import React from "react";
-import { useVariable } from "~/hooks/useVariable";
-import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload";
+import { useVariable } from "~/hooks/useVariable.js";
+import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload.js";
 
 interface SingleImageVariableInputProps {
     variableId: string;

@@ -1,10 +1,10 @@
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 import { createZodError } from "@webiny/utils";
 import { resolve, resolveList } from "@webiny/handler-graphql";
 import zod from "zod";
-import type { GenericRecord, NonEmptyArray } from "@webiny/api/types";
-import { CmsEntryListSort, CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
-import { checkPermissions } from "./security";
+import type { GenericRecord, NonEmptyArray } from "@webiny/api/types.js";
+import { CmsEntryListSort, CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { checkPermissions } from "./security.js";
 
 const validateAbortExportContentEntries = zod.object({
     id: zod.string()

@@ -1,4 +1,4 @@
-import { ApwWorkflowApplications } from "~/types";
+import { ApwWorkflowApplications } from "~/types.js";
 
 export const useCurrentApp = (): ApwWorkflowApplications => {
     let app = new URLSearchParams(location.search).get("app");

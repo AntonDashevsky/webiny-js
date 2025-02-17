@@ -4,41 +4,41 @@ import {
     onBlockAfterDeleteHook,
     onBlocksAfterExportHook,
     onBlocksAfterImportHook
-} from "./blocks";
+} from "./blocks.js";
 import {
     onBlockCategoryAfterCreateHook,
     onBlockCategoryAfterUpdateHook,
     onBlockCategoryAfterDeleteHook
-} from "./blockCategories";
-import { onPageAfterCreateHook, onPagesAfterExportHook, onPagesAfterImportHook } from "./pages";
+} from "./blockCategories.js";
+import { onPageAfterCreateHook, onPagesAfterExportHook, onPagesAfterImportHook } from "./pages.js";
 import {
     onPageRevisionAfterCreateHook,
     onPageRevisionAfterUpdateHook,
     onPageRevisionAfterDeleteHook,
     onPageRevisionAfterPublishHook,
     onPageRevisionAfterUnpublishHook
-} from "./pageRevisions";
+} from "./pageRevisions.js";
 import {
     onPageElementAfterCreateHook,
     onPageElementAfterUpdateHook,
     onPageElementAfterDeleteHook
-} from "./pageElements";
+} from "./pageElements.js";
 import {
     onCategoryAfterCreateHook,
     onCategoryAfterUpdateHook,
     onCategoryAfterDeleteHook
-} from "./categories";
+} from "./categories.js";
 import {
     onTemplateAfterCreateHook,
     onTemplateAfterUpdateHook,
     onTemplateAfterDeleteHook,
     onTemplatesAfterExportHook,
     onTemplatesAfterImportHook
-} from "./templates";
-import { onMenuAfterCreateHook, onMenuAfterUpdateHook, onMenuAfterDeleteHook } from "./menus";
-import { onSettingsAfterUpdateHook } from "./settings";
+} from "./templates.js";
+import { onMenuAfterCreateHook, onMenuAfterUpdateHook, onMenuAfterDeleteHook } from "./menus.js";
+import { onSettingsAfterUpdateHook } from "./settings.js";
 
-import { AuditLogsContext } from "~/types";
+import { AuditLogsContext } from "~/types.js";
 
 export const createPageBuilderHooks = (context: AuditLogsContext) => {
     onBlockAfterCreateHook(context);

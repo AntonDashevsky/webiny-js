@@ -1,5 +1,5 @@
 import React from "react";
-import { ElementBinding } from "./ElementBinding";
+import { ElementBinding } from "./ElementBinding.js";
 
 export const ElementInputs = () => {
     return (

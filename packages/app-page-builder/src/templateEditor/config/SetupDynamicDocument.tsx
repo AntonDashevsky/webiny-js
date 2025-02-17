@@ -1,7 +1,7 @@
 import React from "react";
-import { useTemplate, TemplateEditorConfig } from "~/templateEditor";
-import { DynamicDocumentProvider } from "~/dataInjection";
-import { PbDataBinding, PbDataSource } from "~/types";
+import { useTemplate, TemplateEditorConfig } from "~/templateEditor/index.js";
+import { DynamicDocumentProvider } from "~/dataInjection/index.js";
+import { PbDataBinding, PbDataSource } from "~/types.js";
 
 const { Ui } = TemplateEditorConfig;
 

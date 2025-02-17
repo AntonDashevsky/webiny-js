@@ -2,10 +2,10 @@ import React from "react";
 import BrowseFiles, { SelectedFile, FileError } from "react-butterfiles";
 import { css } from "emotion";
 import classNames from "classnames";
-import { FormElementMessage } from "../FormElementMessage";
-import Image from "./Image";
-import { ImageEditorDialog } from "./ImageEditorDialog";
-import { FormComponentProps } from "../types";
+import { FormElementMessage } from "../FormElementMessage/index.js";
+import Image from "./Image.js";
+import { ImageEditorDialog } from "./ImageEditorDialog.js";
+import { FormComponentProps } from "../types.js";
 
 const imagesStyle = css({
     ".disabled": {

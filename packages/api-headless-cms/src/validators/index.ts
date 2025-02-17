@@ -1,16 +1,16 @@
-import { createGteValidator } from "./gte";
-import { createInValidator } from "./in";
-import { createLteValidator } from "./lte";
-import { createMaxLengthValidator } from "./maxLength";
-import { createMinLengthValidator } from "./minLength";
-import { createPatternValidator } from "./pattern";
-import { createRequiredValidator } from "./required";
-import { createPatternValidatorPlugins } from "./patternPlugins";
-import { createDateLteValidator } from "./dateLte";
-import { createDateGteValidator } from "./dateGte";
-import { createTimeLteValidator } from "./timeLte";
-import { createTimeGteValidator } from "./timeGte";
-import { createUniqueValidator } from "./unique";
+import { createGteValidator } from "./gte.js";
+import { createInValidator } from "./in.js";
+import { createLteValidator } from "./lte.js";
+import { createMaxLengthValidator } from "./maxLength.js";
+import { createMinLengthValidator } from "./minLength.js";
+import { createPatternValidator } from "./pattern.js";
+import { createRequiredValidator } from "./required.js";
+import { createPatternValidatorPlugins } from "./patternPlugins/index.js";
+import { createDateLteValidator } from "./dateLte.js";
+import { createDateGteValidator } from "./dateGte.js";
+import { createTimeLteValidator } from "./timeLte.js";
+import { createTimeGteValidator } from "./timeGte.js";
+import { createUniqueValidator } from "./unique.js";
 
 export const createValidators = () => [
     createGteValidator(),

@@ -1,8 +1,8 @@
 import React from "react";
 import type { CoreOptions } from "medium-editor";
 import { createRenderer, useRenderer } from "@webiny/app-page-builder-elements";
-import { elementInputs } from "@webiny/app-page-builder-elements/renderers/heading";
-import Text from "~/editor/components/Text";
+import { elementInputs } from "@webiny/app-page-builder-elements/renderers/heading.js";
+import Text from "~/editor/components/Text.js";
 
 const mediumEditorOptions: CoreOptions = {
     toolbar: {

@@ -6,12 +6,12 @@ import {
     ElasticsearchQueryBuilderOperatorPlugin,
     isSharedElasticsearchIndex
 } from "@webiny/api-elasticsearch";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { SubmissionElasticsearchFieldPlugin } from "~/plugins/SubmissionElasticsearchFieldPlugin";
-import { SubmissionElasticsearchSortModifierPlugin } from "~/plugins/SubmissionElasticsearchSortModifierPlugin";
-import { SubmissionElasticsearchBodyModifierPlugin } from "~/plugins/SubmissionElasticsearchBodyModifierPlugin";
-import { FormBuilderStorageOperationsListSubmissionsParams } from "@webiny/api-form-builder/types";
-import { SubmissionElasticsearchQueryModifierPlugin } from "~/plugins/SubmissionElasticsearchQueryModifierPlugin";
+import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import { SubmissionElasticsearchFieldPlugin } from "~/plugins/SubmissionElasticsearchFieldPlugin.js";
+import { SubmissionElasticsearchSortModifierPlugin } from "~/plugins/SubmissionElasticsearchSortModifierPlugin.js";
+import { SubmissionElasticsearchBodyModifierPlugin } from "~/plugins/SubmissionElasticsearchBodyModifierPlugin.js";
+import { FormBuilderStorageOperationsListSubmissionsParams } from "@webiny/api-form-builder/types.js";
+import { SubmissionElasticsearchQueryModifierPlugin } from "~/plugins/SubmissionElasticsearchQueryModifierPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 const createInitialQueryValue = (): ElasticsearchBoolQueryConfig => {

@@ -1,4 +1,4 @@
-import { FormElasticsearchFieldPlugin } from "~/plugins/FormElasticsearchFieldPlugin";
+import { FormElasticsearchFieldPlugin } from "~/plugins/FormElasticsearchFieldPlugin.js";
 
 export default () => [
     new FormElasticsearchFieldPlugin({

@@ -1,5 +1,5 @@
-import { GenericRecord } from "@webiny/api/types";
-import { Context } from "~/types";
+import { GenericRecord } from "@webiny/api/types.js";
+import { Context } from "~/types.js";
 
 export interface IWebsocketsActionPluginCallableParamsSend {
     toConnection<T extends GenericRecord = GenericRecord>(

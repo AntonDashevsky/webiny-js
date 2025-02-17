@@ -1,13 +1,13 @@
-import gte from "./gte";
-import dateGte from "./dateTimeGte";
-import inValidator from "./in";
-import lte from "./lte";
-import dateLte from "./dateTimeLte";
-import maxLength from "./maxLength";
-import minLength from "./minLength";
-import pattern from "./pattern";
-import required from "./required";
-import patternPlugins from "./patternPlugins";
+import gte from "./gte.js";
+import dateGte from "./dateTimeGte.js";
+import inValidator from "./in.js";
+import lte from "./lte.js";
+import dateLte from "./dateTimeLte.js";
+import maxLength from "./maxLength.js";
+import minLength from "./minLength.js";
+import pattern from "./pattern.js";
+import required from "./required.js";
+import patternPlugins from "./patternPlugins/index.js";
 
 export default [
     gte,

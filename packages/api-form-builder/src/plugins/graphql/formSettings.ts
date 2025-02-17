@@ -1,6 +1,6 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
-import { ErrorResponse, Response } from "@webiny/handler-graphql/responses";
-import { FormBuilderContext } from "~/types";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
+import { FormBuilderContext } from "~/types.js";
 
 const plugin: GraphQLSchemaPlugin<FormBuilderContext> = {
     type: "graphql-schema",

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { Property } from "./Properties";
-import { toObject } from "./utils";
+import { Property } from "./Properties.js";
+import { toObject } from "./utils.js";
 
 declare global {
     interface Window {

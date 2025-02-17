@@ -1,2 +1,2 @@
-export * from "./EntriesGraphQLGateway";
-export * from "./EntriesGatewayInterface";
+export * from "./EntriesGraphQLGateway.js";
+export * from "./EntriesGatewayInterface.js";

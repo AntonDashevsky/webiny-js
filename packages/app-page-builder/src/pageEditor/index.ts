@@ -1,3 +1,3 @@
-export { PublishPageButton } from "./config/TopBar/PublishPageButton/PublishPageButton";
-export * from "./hooks";
-export * from "./editorConfig/PageEditorConfig";
+export { PublishPageButton } from "./config/TopBar/PublishPageButton/PublishPageButton.js";
+export * from "./hooks/index.js";
+export * from "./editorConfig/PageEditorConfig.js";

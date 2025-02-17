@@ -1,6 +1,6 @@
 import { createDecoratorFactory } from "@webiny/react-composition";
-import { FieldElement as FieldElementComponent } from "~/admin/components/ContentEntryForm/FieldElement";
-import { useModel } from "~/admin/components/ModelProvider";
+import { FieldElement as FieldElementComponent } from "~/admin/components/ContentEntryForm/FieldElement.js";
+import { useModel } from "~/admin/components/ModelProvider/index.js";
 
 const createDecorator = createDecoratorFactory<{ modelIds?: string[] }>()(
     FieldElementComponent,

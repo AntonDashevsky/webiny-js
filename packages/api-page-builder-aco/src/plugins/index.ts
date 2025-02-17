@@ -1,2 +1,2 @@
-export * from "./PageBuilderAcoModifyCreatePayloadPlugin";
-export * from "./PageBuilderAcoModifyUpdatePayloadPlugin";
+export * from "./PageBuilderAcoModifyCreatePayloadPlugin.js";
+export * from "./PageBuilderAcoModifyUpdatePayloadPlugin.js";

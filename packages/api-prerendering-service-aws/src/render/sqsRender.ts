@@ -1,7 +1,7 @@
-import plugin, { RenderParams } from "@webiny/api-prerendering-service/render";
+import plugin, { RenderParams } from "@webiny/api-prerendering-service/render/index.js";
 import { createSQSEventHandler } from "@webiny/handler-aws";
-import { HandlerPayload } from "@webiny/api-prerendering-service/render/types";
-import { Context as LoggerContext } from "@webiny/api-log/types";
+import { HandlerPayload } from "@webiny/api-prerendering-service/render/types.js";
+import { Context as LoggerContext } from "@webiny/api-log/types.js";
 
 export default (params: RenderParams) => {
     const render = plugin(params);

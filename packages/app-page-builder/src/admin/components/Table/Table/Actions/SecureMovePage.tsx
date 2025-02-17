@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useFolders } from "@webiny/app-aco";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
-import { MovePage } from "./MovePage";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
+import { MovePage } from "./MovePage.js";
 
 export const SecureMovePage = () => {
     const { page } = usePage();

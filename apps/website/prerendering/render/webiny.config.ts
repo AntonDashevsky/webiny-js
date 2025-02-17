@@ -7,7 +7,7 @@ const webpack = config => {
 
 export default {
     commands: {
-        build: createBuildFunction({ cwd: __dirname, overrides: { webpack } }),
-        watch: createWatchFunction({ cwd: __dirname, overrides: { webpack } })
+        build: createBuildFunction({ cwd: import.meta.dirname, overrides: { webpack } }),
+        watch: createWatchFunction({ cwd: import.meta.dirname, overrides: { webpack } })
     }
 };

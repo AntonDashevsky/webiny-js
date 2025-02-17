@@ -1,32 +1,32 @@
 import React, { useCallback, useMemo } from "react";
 import { useRouter } from "@webiny/react-router";
 import { Form } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
-import { Select } from "@webiny/ui/Select";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { validation } from "@webiny/validation";
-import { useApolloClient, useMutation, useQuery } from "../../hooks";
-import { i18n } from "@webiny/app/i18n";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import * as UID from "@webiny/ui/Dialog";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { useApolloClient, useMutation, useQuery } from "../../hooks/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import * as UID from "@webiny/ui/Dialog/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";
-import { addModelToGroupCache, addModelToListCache } from "./cache";
-import * as GQL from "../../viewsGraphql";
+import { addModelToGroupCache, addModelToListCache } from "./cache.js";
+import * as GQL from "../../viewsGraphql.js";
 import {
     CreateCmsModelMutationResponse,
     CreateCmsModelMutationVariables,
     ListMenuCmsGroupsQueryResponse
-} from "../../viewsGraphql";
-import { CmsModel } from "~/types";
-import { CmsGroupOption } from "./types";
-import { Dialog } from "~/admin/components/Dialog";
-import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator";
-import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator";
-import { Checkbox } from "@webiny/ui/Checkbox";
-import { IconPicker } from "~/admin/components/IconPicker";
-import { Switch } from "@webiny/ui/Switch";
+} from "../../viewsGraphql.js";
+import { CmsModel } from "~/types.js";
+import { CmsGroupOption } from "./types.js";
+import { Dialog } from "~/admin/components/Dialog.js";
+import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator.js";
+import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator.js";
+import { Checkbox } from "@webiny/ui/Checkbox/index.js";
+import { IconPicker } from "~/admin/components/IconPicker.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/new-content-model-dialog");
 

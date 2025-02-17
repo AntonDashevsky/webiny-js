@@ -1,29 +1,29 @@
 import React, { useMemo, useRef } from "react";
 import ReactDOM from "react-dom";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 // @ts-expect-error This package has no types.
 import { useHotkeys } from "react-hotkeyz";
 import styled from "@emotion/styled";
-import { FileItem } from "@webiny/app-admin/types";
+import { FileItem } from "@webiny/app-admin/types.js";
 import { Form, FormOnSubmit } from "@webiny/form";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
-import { DrawerRight, DrawerContent } from "@webiny/ui/Drawer";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Tab, Tabs } from "@webiny/ui/Tabs";
-import { FileDetailsProvider } from "~/components/FileDetails/FileDetailsProvider";
-import { Preview } from "./components/Preview";
-import { PreviewMeta } from "./components/PreviewMeta";
-import { Actions } from "./components/Actions";
-import { Header } from "./components/Header";
-import { Elevation } from "@webiny/ui/Elevation";
-import { Content } from "./components/Content";
-import { SimpleForm } from "@webiny/app-admin/components/SimpleForm";
-import { Footer } from "./components/Footer";
-import { Extensions } from "./components/Extensions";
-import { useFileModel } from "~/hooks/useFileModel";
-import { useFileManagerViewConfig } from "~/index";
-import { FileProvider } from "~/contexts/FileProvider";
+import { DrawerRight, DrawerContent } from "@webiny/ui/Drawer/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Tab, Tabs } from "@webiny/ui/Tabs/index.js";
+import { FileDetailsProvider } from "~/components/FileDetails/FileDetailsProvider.js";
+import { Preview } from "./components/Preview.js";
+import { PreviewMeta } from "./components/PreviewMeta.js";
+import { Actions } from "./components/Actions.js";
+import { Header } from "./components/Header.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { Content } from "./components/Content.js";
+import { SimpleForm } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { Footer } from "./components/Footer.js";
+import { Extensions } from "./components/Extensions.js";
+import { useFileModel } from "~/hooks/useFileModel.js";
+import { useFileManagerViewConfig } from "~/index.js";
+import { FileProvider } from "~/contexts/FileProvider.js";
 
 type FileDetailsDrawerProps = React.ComponentProps<typeof DrawerRight> & { width: string };
 

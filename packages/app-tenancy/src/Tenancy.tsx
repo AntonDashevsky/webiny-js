@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
 import { Provider } from "@webiny/app-admin";
-import installation from "./plugins/installation";
-import { TenancyProvider as ContextProvider } from "./contexts/Tenancy";
+import installation from "./plugins/installation.js";
+import { TenancyProvider as ContextProvider } from "./contexts/Tenancy.js";
 
 interface TenancyProviderHOCProps {
     children: React.ReactNode;

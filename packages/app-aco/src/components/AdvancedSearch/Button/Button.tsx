@@ -1,6 +1,6 @@
 import React from "react";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { Icon } from "./Button.styled";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Icon } from "./Button.styled.js";
 
 export interface ButtonProps {
     onClick: () => void;

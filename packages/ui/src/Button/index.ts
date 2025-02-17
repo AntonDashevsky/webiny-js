@@ -1,3 +1,3 @@
-export * from "./Button";
-export * from "./IconButton/IconButton";
-export * from "./CopyButton/CopyButton";
+export * from "./Button.js";
+export * from "./IconButton/IconButton.js";
+export * from "./CopyButton/CopyButton.js";

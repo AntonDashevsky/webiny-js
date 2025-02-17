@@ -1,4 +1,4 @@
-import { PageDynamoDbFieldPlugin } from "~/plugins/definitions/PageDynamoDbFieldPlugin";
+import { PageDynamoDbFieldPlugin } from "~/plugins/definitions/PageDynamoDbFieldPlugin.js";
 
 export const createPageFields = (): PageDynamoDbFieldPlugin[] => [
     new PageDynamoDbFieldPlugin({

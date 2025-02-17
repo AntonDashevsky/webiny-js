@@ -1,6 +1,6 @@
 import { generateAlphaNumericId } from "@webiny/utils";
-import { PageContentElement } from "@webiny/api-page-builder/types";
-import { ExportedBlockData } from "~/export/utils";
+import { PageContentElement } from "@webiny/api-page-builder/types.js";
+import { ExportedBlockData } from "~/export/utils.js";
 
 export class ElementIdsProcessor {
     process(block: ExportedBlockData["block"]): ExportedBlockData["block"] {

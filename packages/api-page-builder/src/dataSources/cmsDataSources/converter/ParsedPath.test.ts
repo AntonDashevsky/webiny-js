@@ -1,4 +1,4 @@
-import { ParsedPath } from "./ParsedPath";
+import { ParsedPath } from "./ParsedPath.js";
 
 describe("Path Parser", () => {
     it("should parse simple field", () => {

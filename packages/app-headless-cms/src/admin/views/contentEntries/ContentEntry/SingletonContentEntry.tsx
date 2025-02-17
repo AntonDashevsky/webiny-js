@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Elevation as BaseElevation } from "@webiny/ui/Elevation";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
+import { Elevation as BaseElevation } from "@webiny/ui/Elevation/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm.js";
 import { makeDecoratable } from "@webiny/app";
-import { useSingletonContentEntry } from "../hooks/useSingletonContentEntry";
-import { PartialCmsContentEntryWithId } from "~/admin/contexts/Cms";
-import { SingletonHeader } from "~/admin/components/ContentEntryForm/SingletonHeader";
+import { useSingletonContentEntry } from "../hooks/useSingletonContentEntry.js";
+import { PartialCmsContentEntryWithId } from "~/admin/contexts/Cms/index.js";
+import { SingletonHeader } from "~/admin/components/ContentEntryForm/SingletonHeader/index.js";
 
 const Elevation = styled(BaseElevation)`
     height: 100%;

@@ -1,6 +1,6 @@
 import React from "react";
 import { gql } from "graphql-tag";
-import { useTenancy } from "~/hooks/useTenancy";
+import { useTenancy } from "~/hooks/useTenancy.js";
 import ApolloClient from "apollo-client";
 
 export const GET_DEFAULT_TENANT = gql`

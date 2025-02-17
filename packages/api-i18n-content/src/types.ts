@@ -1,5 +1,5 @@
-import { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
-import { SecurityContext } from "@webiny/api-security/types";
+import { I18NContext, I18NLocale } from "@webiny/api-i18n/types.js";
+import { SecurityContext } from "@webiny/api-security/types.js";
 
 /**
  * @deprecated

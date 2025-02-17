@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useStateIfMounted } from "@webiny/app-admin";
-import { Input } from "@webiny/ui/Input";
+import { Input } from "@webiny/ui/Input/index.js";
 
 interface TextInputProps {
     label?: string;

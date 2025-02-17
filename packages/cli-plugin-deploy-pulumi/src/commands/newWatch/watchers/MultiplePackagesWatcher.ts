@@ -4,7 +4,7 @@ import path from "path";
 import chalk from "chalk";
 import { BasePackagesWatcher } from "./BasePackagesWatcher.js";
 import { getRandomColorForString } from "~/utils/index.js";
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 
 const WORKER_PATH = path.resolve(__dirname, "worker.js");
 

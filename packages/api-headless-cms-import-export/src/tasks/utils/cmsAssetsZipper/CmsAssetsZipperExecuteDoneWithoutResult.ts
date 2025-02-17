@@ -1,4 +1,4 @@
-import type { ICmsAssetsZipperExecuteDoneWithoutResult } from "./abstractions/CmsAssetsZipperExecuteDoneWithoutResult";
+import type { ICmsAssetsZipperExecuteDoneWithoutResult } from "./abstractions/CmsAssetsZipperExecuteDoneWithoutResult.js";
 
 export class CmsAssetsZipperExecuteDoneWithoutResult
     implements ICmsAssetsZipperExecuteDoneWithoutResult {

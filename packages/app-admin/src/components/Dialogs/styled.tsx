@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Dialog, DialogActions as DefaultDialogActions } from "@webiny/ui/Dialog";
+import { Dialog, DialogActions as DefaultDialogActions } from "@webiny/ui/Dialog/index.js";
 
 export const DialogContainer = styled(Dialog)`
     z-index: 100;

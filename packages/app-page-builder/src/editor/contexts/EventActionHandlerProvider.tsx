@@ -8,7 +8,7 @@ import {
     useRecoilValue,
     useSetRecoilState
 } from "recoil";
-import merge from "lodash/merge";
+import merge from "lodash/merge.js";
 import { useApolloClient } from "@apollo/react-hooks";
 import { makeDecoratable } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
@@ -23,10 +23,10 @@ import {
     SidebarAtomType,
     RootElementAtom,
     UiAtomType
-} from "../recoil/modules";
+} from "../recoil/modules/index.js";
 
-import { PbState } from "../recoil/modules/types";
-import { EventAction } from "~/editor/recoil/eventActions";
+import { PbState } from "../recoil/modules/types.js";
+import { EventAction } from "~/editor/recoil/eventActions/index.js";
 import {
     EventActionHandlerCallableArgs,
     EventActionCallable,
@@ -40,9 +40,9 @@ import {
     EventActionHandlerCallableState,
     GetElementTreeProps,
     PbEditorElementTree
-} from "~/types";
-import { composeAsync, composeSync, AsyncProcessor, SyncProcessor } from "@webiny/utils/compose";
-import { UpdateElementTreeActionEvent, UpdateDocumentActionEvent } from "~/editor/recoil/actions";
+} from "~/types.js";
+import { composeAsync, composeSync, AsyncProcessor, SyncProcessor } from "@webiny/utils/compose.js";
+import { UpdateElementTreeActionEvent, UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
 
 type ListType = Map<symbol, EventActionCallable>;
 type RegistryType = Map<string, ListType>;

@@ -1,5 +1,5 @@
-import type { CmsContentFormRendererPlugin as BaseCmsContentFormRendererPlugin } from "~/types";
-import { legacyPluginToReactComponent } from "@webiny/app/utils";
+import type { CmsContentFormRendererPlugin as BaseCmsContentFormRendererPlugin } from "~/types.js";
+import { legacyPluginToReactComponent } from "@webiny/app/utils/index.js";
 
 export type CmsContentFormRendererPluginProps = Pick<
     BaseCmsContentFormRendererPlugin,

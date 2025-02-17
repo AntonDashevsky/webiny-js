@@ -2,8 +2,8 @@ import {
     CmsEntry,
     CmsStorageEntry,
     StorageOperationsCmsModel
-} from "@webiny/api-headless-cms/types";
-import { convertEntryKeysToStorage } from "./convertEntryKeys";
+} from "@webiny/api-headless-cms/types/index.js";
+import { convertEntryKeysToStorage } from "./convertEntryKeys.js";
 
 interface TransformKeysParams {
     model: StorageOperationsCmsModel;

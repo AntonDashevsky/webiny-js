@@ -6,11 +6,11 @@ import { AddMenu, AddRoute, Layout, Plugin, useWcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { AcoProvider } from "@webiny/app-aco";
 
-import { AuditLogsListWithConfig } from "~/config/list";
-import { LogsModule } from "~/views/Logs/LogsModule";
-import { AuditLogsPermissions } from "~/plugins/permissionRenderer";
-import AuditLogsView from "~/views/Logs/Logs";
-import { LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/constants";
+import { AuditLogsListWithConfig } from "~/config/list/index.js";
+import { LogsModule } from "~/views/Logs/LogsModule.js";
+import { AuditLogsPermissions } from "~/plugins/permissionRenderer/index.js";
+import AuditLogsView from "~/views/Logs/Logs.js";
+import { LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/constants/index.js";
 
 export const AuditLogs = () => {
     const client = useApolloClient();

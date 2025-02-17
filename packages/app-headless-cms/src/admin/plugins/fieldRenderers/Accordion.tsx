@@ -2,7 +2,7 @@ import React, { ReactElement, useCallback, useState } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import classNames from "classnames";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 const classes = {
     accordionWrapper: css({

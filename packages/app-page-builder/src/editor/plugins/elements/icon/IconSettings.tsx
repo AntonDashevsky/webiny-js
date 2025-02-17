@@ -1,14 +1,14 @@
 import React from "react";
 import { css } from "emotion";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
 // Components
-import { IconPicker } from "@webiny/app-admin/components/IconPicker";
-import { ICON_PICKER_SIZE } from "@webiny/app-admin/components/IconPicker/types";
-import Accordion from "../../elementSettings/components/Accordion";
-import Wrapper from "../../elementSettings/components/Wrapper";
-import InputField from "../../elementSettings/components/InputField";
-import { useActiveElement } from "~/editor";
-import { useUpdateIconSettings } from "~/editor/plugins/elementSettings/hooks/useUpdateIconSettings";
+import { IconPicker } from "@webiny/app-admin/components/IconPicker/index.js";
+import { ICON_PICKER_SIZE } from "@webiny/app-admin/components/IconPicker/types.js";
+import Accordion from "../../elementSettings/components/Accordion.js";
+import Wrapper from "../../elementSettings/components/Wrapper.js";
+import InputField from "../../elementSettings/components/InputField.js";
+import { useActiveElement } from "~/editor/index.js";
+import { useUpdateIconSettings } from "~/editor/plugins/elementSettings/hooks/useUpdateIconSettings.js";
 
 const classes = {
     grid: css({

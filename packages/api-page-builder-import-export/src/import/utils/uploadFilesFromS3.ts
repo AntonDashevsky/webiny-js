@@ -1,5 +1,5 @@
-import { s3Stream } from "~/export/s3Stream";
-import { FileInput } from "@webiny/api-file-manager/types";
+import { s3Stream } from "~/export/s3Stream.js";
+import { FileInput } from "@webiny/api-file-manager/types.js";
 
 export type UploadFileMap = Map<string, FileInput>;
 

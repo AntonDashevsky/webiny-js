@@ -4,7 +4,7 @@ import { createWebpackConfig } from "./webpack/createWebpackConfig.js";
 import { getProjectApplication } from "@webiny/cli/utils/index.js";
 import webpack from "webpack";
 
-class WebpackBundler extends BaseFunctionBundler {
+export class WebpackBundler extends BaseFunctionBundler {
     constructor(params) {
         super();
         this.params = params;
@@ -93,5 +93,3 @@ class WebpackBundler extends BaseFunctionBundler {
         });
     }
 }
-
-module.exports = { WebpackBundler };

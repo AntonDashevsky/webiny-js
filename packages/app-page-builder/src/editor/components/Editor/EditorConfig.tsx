@@ -1,4 +1,4 @@
-import { createConfigPortal } from "~/utils/createConfigPortal";
+import { createConfigPortal } from "~/utils/createConfigPortal.js";
 
 const { ConfigApply, Config } = createConfigPortal("Editor");
 

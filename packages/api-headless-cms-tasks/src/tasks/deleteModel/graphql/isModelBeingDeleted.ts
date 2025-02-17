@@ -1,4 +1,4 @@
-import type { IStoreValue } from "~/tasks/deleteModel/types";
+import type { IStoreValue } from "~/tasks/deleteModel/types.js";
 
 export interface ICreateIsModelBeingDeletedParams {
     listModelsBeingDeleted: () => Promise<IStoreValue[]>;

@@ -2,7 +2,7 @@ import fs from "fs";
 import chalk from "chalk";
 import loadJsonFile from "load-json-file";
 import { getDuplicatesFilePath, getReferencesFilePath } from "~/references/files.js";
-import type { IDependencyTree } from "~/types";
+import type { IDependencyTree } from "~/types.js";
 
 export interface IVerifyDependenciesParams {
     tree: IDependencyTree;

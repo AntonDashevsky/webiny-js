@@ -1,1 +1,1 @@
-export * from "./TrashBinItem";
+export * from "./TrashBinItem/index.js";

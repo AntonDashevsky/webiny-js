@@ -1,4 +1,4 @@
-import { IElasticsearchIndexingTaskValuesSettings, IIndexSettingsValues } from "~/types";
+import { IElasticsearchIndexingTaskValuesSettings, IIndexSettingsValues } from "~/types.js";
 
 export interface IIndexManager {
     settings: IElasticsearchIndexingTaskValuesSettings;

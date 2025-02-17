@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { ApwContentReview, ApwContentTypes, ApwWorkflow } from "~/types";
+import { ApwContentReview, ApwContentTypes, ApwWorkflow } from "~/types.js";
 
 export interface ApwContentUrlPluginCbParams {
     baseUrl: string;

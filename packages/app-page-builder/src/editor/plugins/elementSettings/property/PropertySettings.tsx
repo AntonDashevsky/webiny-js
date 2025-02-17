@@ -1,33 +1,33 @@
 import React, { useCallback, useMemo } from "react";
 import { css } from "emotion";
 import { useRecoilValue } from "recoil";
-import merge from "lodash/merge";
-import set from "lodash/set";
-import get from "lodash/get";
+import merge from "lodash/merge.js";
+import set from "lodash/set.js";
+import get from "lodash/get.js";
 import { plugins } from "@webiny/plugins";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { Switch } from "@webiny/ui/Switch";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import { Form, FormOnSubmit } from "@webiny/form";
-import { Validator } from "@webiny/validation/types";
+import { Validator } from "@webiny/validation/types.js";
 import {
     PbEditorElement,
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin
-} from "~/types";
+} from "~/types.js";
 import {
     activeElementAtom,
     elementWithChildrenByIdSelector,
     uiAtom
-} from "~/editor/recoil/modules";
-import { UpdateElementActionEvent } from "~/editor/recoil/actions";
-import { applyFallbackDisplayMode } from "~/editor/plugins/elementSettings/elementSettingsUtils";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+} from "~/editor/recoil/modules/index.js";
+import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
+import { applyFallbackDisplayMode } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 // Components
-import Accordion from "../../elementSettings/components/Accordion";
-import Wrapper from "../../elementSettings/components/Wrapper";
-import useUpdateHandlers from "../../elementSettings/useUpdateHandlers";
-import InputField from "../components/InputField";
-import { ContentWrapper } from "../components/StyledComponents";
+import Accordion from "../../elementSettings/components/Accordion.js";
+import Wrapper from "../../elementSettings/components/Wrapper.js";
+import useUpdateHandlers from "../../elementSettings/useUpdateHandlers.js";
+import InputField from "../components/InputField.js";
+import { ContentWrapper } from "../components/StyledComponents.js";
 
 const classes = {
     grid: css({

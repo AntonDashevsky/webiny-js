@@ -1,11 +1,11 @@
 import {
     IGetLockRecordUseCase,
     IGetLockRecordUseCaseExecuteParams
-} from "~/abstractions/IGetLockRecordUseCase";
-import { IRecordLockingModelManager, IRecordLockingLockRecord } from "~/types";
+} from "~/abstractions/IGetLockRecordUseCase.js";
+import { IRecordLockingModelManager, IRecordLockingLockRecord } from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { convertEntryToLockRecord } from "~/utils/convertEntryToLockRecord";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
+import { convertEntryToLockRecord } from "~/utils/convertEntryToLockRecord.js";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
 import { createIdentifier } from "@webiny/utils";
 
 export interface IGetLockRecordUseCaseParams {

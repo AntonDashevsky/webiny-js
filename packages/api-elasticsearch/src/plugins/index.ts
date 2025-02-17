@@ -1,2 +1,2 @@
-export * from "./operator";
-export * from "./definition";
+export * from "./operator/index.js";
+export * from "./definition/index.js";

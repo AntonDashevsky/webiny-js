@@ -2,11 +2,11 @@ import { boolean } from "boolean";
 import { GraphQLSchema } from "graphql";
 import { Context, RoutePlugin } from "@webiny/handler";
 import WebinyError from "@webiny/error";
-import { Plugin } from "@webiny/plugins/types";
-import { GraphQLRequestBody, HandlerGraphQLOptions } from "./types";
-import { createGraphQLSchema, getSchemaPlugins } from "./createGraphQLSchema";
-import debugPlugins from "./debugPlugins";
-import { processRequestBody } from "./processRequestBody";
+import { Plugin } from "@webiny/plugins/types.js";
+import { GraphQLRequestBody, HandlerGraphQLOptions } from "./types.js";
+import { createGraphQLSchema, getSchemaPlugins } from "./createGraphQLSchema.js";
+import debugPlugins from "./debugPlugins.js";
+import { processRequestBody } from "./processRequestBody.js";
 
 const DEFAULT_CACHE_MAX_AGE = 30758400; // 1 year
 

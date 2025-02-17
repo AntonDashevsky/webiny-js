@@ -4,7 +4,7 @@ import { IconPrefix } from "@fortawesome/fontawesome-common-types";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
-import { CmsIcon, CmsIconsPlugin } from "~/types";
+import { CmsIcon, CmsIconsPlugin } from "~/types.js";
 
 const createSvg = (icon: string[]): React.ReactElement => {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { ElementRendererInputs } from "@webiny/app-page-builder-elements";
-import { useBindElementInputs } from "./useBindElementInputs";
+import { useBindElementInputs } from "./useBindElementInputs.js";
 
 export const InjectDynamicValues = ElementRendererInputs.createDecorator(Original => {
     return function ElementRendererInputs(props) {

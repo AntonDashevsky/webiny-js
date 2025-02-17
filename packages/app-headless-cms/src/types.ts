@@ -1,9 +1,9 @@
-import { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
-import { FolderTableItem, RecordTableItem } from "@webiny/app-aco/table.types";
+import { CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
+import { FolderTableItem, RecordTableItem } from "@webiny/app-aco/table.types.js";
 import { DragSourceMonitor, XYCoord } from "react-dnd";
 import { DragDropManager, Identifier, Listener, Unsubscribe } from "dnd-core";
 
-export * from "@webiny/app-headless-cms-common/types";
+export * from "@webiny/app-headless-cms-common/types/index.js";
 
 /***
  * ###### TABLE ########

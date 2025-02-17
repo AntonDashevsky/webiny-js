@@ -1,4 +1,4 @@
-import { CmsModel } from "~/types";
+import { CmsModel } from "~/types/index.js";
 
 /**
  * Given a model, return an array of tags ensuring the `type` tag is set.

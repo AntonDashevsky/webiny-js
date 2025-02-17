@@ -1,4 +1,4 @@
-import { ErrorResponse } from "@webiny/handler-graphql/responses";
+import { ErrorResponse } from "@webiny/handler-graphql/responses.js";
 
 interface NotAuthorizedResponseArgsType {
     message: string;

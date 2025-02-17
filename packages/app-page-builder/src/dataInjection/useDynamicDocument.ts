@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DynamicDocumentContext } from "./DynamicDocumentProvider";
+import { DynamicDocumentContext } from "./DynamicDocumentProvider.js";
 
 export const useDynamicDocument = () => {
     const context = useContext(DynamicDocumentContext);

@@ -1,2 +1,2 @@
-export * from "./SettingsAttributePlugin";
-export * from "./SystemAttributePlugin";
+export * from "./SettingsAttributePlugin.js";
+export * from "./SystemAttributePlugin.js";

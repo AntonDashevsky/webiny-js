@@ -1,3 +1,3 @@
-export * from "./IListEntries";
-export * from "./IProcessEntry";
-export * from "./IUseCase";
+export * from "./IListEntries.js";
+export * from "./IProcessEntry.js";
+export * from "./IUseCase.js";

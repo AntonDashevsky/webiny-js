@@ -1,17 +1,17 @@
 import React, { useState, useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import styled from "@emotion/styled";
-import { useHandlers } from "@webiny/app/hooks/useHandlers";
+import { useHandlers } from "@webiny/app/hooks/useHandlers.js";
 import { plugins } from "@webiny/plugins";
-import { Typography } from "@webiny/ui/Typography";
-import { IconButton } from "@webiny/ui/Button";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { ReactComponent as DeleteIcon } from "../../../editor/assets/icons/close.svg";
 import { ReactComponent as EditIcon } from "../../../editor/assets/icons/edit.svg";
-import { DELETE_PAGE_ELEMENT, UPDATE_PAGE_ELEMENT } from "./graphql";
-import EditElementDialog from "./EditElementDialog";
-import createElementPlugin from "../createElementPlugin";
-import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
+import { DELETE_PAGE_ELEMENT, UPDATE_PAGE_ELEMENT } from "./graphql.js";
+import EditElementDialog from "./EditElementDialog.js";
+import createElementPlugin from "../createElementPlugin.js";
+import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
 
 const EditIconWrapper = styled("div")({
     position: "absolute",

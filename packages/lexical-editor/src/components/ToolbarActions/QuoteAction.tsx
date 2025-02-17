@@ -1,7 +1,7 @@
 import React from "react";
 import { $isQuoteNode, formatToQuote, formatToParagraph } from "@webiny/lexical-nodes";
-import { useRichTextEditor } from "~/hooks/useRichTextEditor";
-import { useCurrentElement } from "~/hooks/useCurrentElement";
+import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
+import { useCurrentElement } from "~/hooks/useCurrentElement.js";
 
 export const QuoteAction = () => {
     const { editor, themeEmotionMap } = useRichTextEditor();

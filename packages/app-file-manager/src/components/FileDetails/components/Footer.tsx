@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { SimpleFormFooter } from "@webiny/app-admin/components/SimpleForm";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button";
+import { SimpleFormFooter } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { useForm } from "@webiny/form";
-import { useFileDetails } from "~/hooks/useFileDetails";
+import { useFileDetails } from "~/hooks/useFileDetails.js";
 
 const SimpleFormFooterStyled = styled(SimpleFormFooter)`
     justify-content: flex-end;

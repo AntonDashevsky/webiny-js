@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
 
 export function useDeactivateOnEsc() {
     const [, setActiveElement] = useActiveElement();

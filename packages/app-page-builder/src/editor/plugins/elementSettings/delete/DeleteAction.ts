@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useActiveElement, useDeleteElement } from "~/editor";
+import { useActiveElement, useDeleteElement } from "~/editor/index.js";
 
 interface DeleteActionPropsType {
     children: React.ReactElement;

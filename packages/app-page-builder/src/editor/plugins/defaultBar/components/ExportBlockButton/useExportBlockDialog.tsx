@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { css } from "emotion";
-import { i18n } from "@webiny/app/i18n";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { ButtonIcon, ButtonSecondary, CopyButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { ButtonIcon, ButtonSecondary, CopyButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { ReactComponent as FileDownloadIcon } from "~/editor/assets/icons/file_download_black_24dp.svg";
-import ExportBlockLoadingDialogContent from "./ExportBlockLoadingDialogContent";
-import useExportBlock from "./useExportBlock";
+import ExportBlockLoadingDialogContent from "./ExportBlockLoadingDialogContent.js";
+import useExportBlock from "./useExportBlock.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/exportBlockButton");
 

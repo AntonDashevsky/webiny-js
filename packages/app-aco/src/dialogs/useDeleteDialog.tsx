@@ -1,8 +1,8 @@
 import { useSnackbar } from "@webiny/app-admin";
 
 import { useDialogs } from "@webiny/app-admin";
-import { useFolders } from "~/hooks";
-import { FolderItem } from "~/types";
+import { useFolders } from "~/hooks/index.js";
+import { FolderItem } from "~/types.js";
 import { useCallback } from "react";
 
 interface ShowDialogParams {

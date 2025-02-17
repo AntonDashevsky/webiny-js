@@ -1,2 +1,2 @@
-export * from "./abstractions/Zipper";
-export * from "./Zipper";
+export * from "./abstractions/Zipper.js";
+export * from "./Zipper.js";

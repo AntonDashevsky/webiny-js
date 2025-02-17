@@ -1,1 +1,1 @@
-export * from "./QuerySaverDialog";
+export * from "./QuerySaverDialog.js";

@@ -1,5 +1,5 @@
-import { IListEntriesOperation, IListEntries } from "~/crud/contentEntry/abstractions";
-import { CmsEntry, CmsEntryListParams, CmsEntryMeta, CmsEntryValues, CmsModel } from "~/types";
+import { IListEntriesOperation, IListEntries } from "~/crud/contentEntry/abstractions/index.js";
+import { CmsEntry, CmsEntryListParams, CmsEntryMeta, CmsEntryValues, CmsModel } from "~/types/index.js";
 import WebinyError from "@webiny/error";
 
 export class ListEntries implements IListEntries {

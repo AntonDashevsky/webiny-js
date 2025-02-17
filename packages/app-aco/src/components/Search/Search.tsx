@@ -1,7 +1,7 @@
 import React from "react";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 
-import { SearchWrapper } from "./styled";
+import { SearchWrapper } from "./styled.js";
 
 interface SearchProps {
     value: string;

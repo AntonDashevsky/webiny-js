@@ -1,4 +1,4 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
 
 export default new GraphQLSchemaPlugin({
     typeDefs: /* GraphQL */ `

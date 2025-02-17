@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
 import { ReactComponent as Close } from "@material-design-icons/svg/outlined/close.svg";
 import { Buttons } from "@webiny/app-admin";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 
-import { useContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
+import { useContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useContentEntriesList } from "~/admin/views/contentEntries/hooks/index.js";
 
-import { BulkActionsContainer, BulkActionsInner, ButtonsContainer } from "./BulkActions.styled";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "@webiny/app/i18n";
+import { BulkActionsContainer, BulkActionsInner, ButtonsContainer } from "./BulkActions.styled.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-entries/bulk-actions");
 

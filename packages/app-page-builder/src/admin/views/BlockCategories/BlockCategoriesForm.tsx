@@ -1,20 +1,20 @@
 import React, { useCallback, useMemo } from "react";
 import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import IconPicker from "./IconPicker";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import IconPicker from "./IconPicker.js";
 import { validation } from "@webiny/validation";
-import { blockCategorySlugValidator, blockCategoryDescriptionValidator } from "./validators";
+import { blockCategorySlugValidator, blockCategoryDescriptionValidator } from "./validators.js";
 import {
     GET_BLOCK_CATEGORY,
     CREATE_BLOCK_CATEGORY,
@@ -26,18 +26,18 @@ import {
     UpdateBlockCategoryMutationVariables,
     CreateBlockCategoryMutationResponse,
     CreateBlockCategoryMutationVariables
-} from "./graphql";
+} from "./graphql.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { Input } from "@webiny/ui/Input";
-import { PbBlockCategory } from "~/types";
-import pick from "lodash/pick";
-import get from "lodash/get";
-import set from "lodash/set";
-import isEmpty from "lodash/isEmpty";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { PbBlockCategory } from "~/types.js";
+import pick from "lodash/pick.js";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import isEmpty from "lodash/isEmpty.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { usePagesPermissions } from "~/hooks/permissions";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
 
 const t = i18n.ns("app-page-builder/admin/block-categories/form");
 

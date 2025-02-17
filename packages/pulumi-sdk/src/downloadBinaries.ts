@@ -6,13 +6,16 @@ import path from "path";
 // @ts-expect-error `tar` has no types.
 import decompress from "decompress";
 import semver from "semver";
-import { downloadFile } from "./downloadFile";
+import findUp from "find-up";
+import readJsonSync from "read-json-sync";
+import { downloadFile } from "./downloadFile.js";
 
 // We need to sanitize the package version because, occasionally, we've noticed that the Pulumi version
 // can look like the following: "2.25.2+dirty". We want to ensure only "2.25.2" is returned.
 // @see https://github.com/pulumi/pulumi/issues/6847
 const getPulumiVersion = () => {
-    const { version } = require("@pulumi/pulumi/package.json");
+    const pkgJsonPath = findUp.sync("node_modules/@pulumi/pulumi/package.json");
+    const { version } = readJsonSync(pkgJsonPath);
     return semver.clean(version);
 };
 

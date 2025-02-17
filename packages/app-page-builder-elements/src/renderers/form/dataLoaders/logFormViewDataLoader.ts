@@ -1,5 +1,5 @@
-import { fetchData } from "./fetchData";
-import { LOG_FORM_VIEW } from "./graphql";
+import { fetchData } from "./fetchData.js";
+import { LOG_FORM_VIEW } from "./graphql.js";
 
 export interface CreateLogFormViewDataLoaderParams {
     apiUrl: string;

@@ -4,11 +4,11 @@ import type {
     CmsModel,
     CmsStorageEntry,
     StorageOperationsCmsModel
-} from "@webiny/api-headless-cms/types";
-import { CONTENT_ENTRY_STATUS } from "@webiny/api-headless-cms/types";
-import { extractEntriesFromIndex } from "~/helpers";
-import { configurations } from "~/configurations";
-import type { Entity } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-headless-cms/types/index.js";
+import { CONTENT_ENTRY_STATUS } from "@webiny/api-headless-cms/types/index.js";
+import { extractEntriesFromIndex } from "~/helpers/index.js";
+import { configurations } from "~/configurations.js";
+import type { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import type { Client } from "@elastic/elasticsearch";
 import type { PluginsContainer } from "@webiny/plugins";
 import type { BatchReadItem, QueryAllParams, QueryOneParams } from "@webiny/db-dynamodb";
@@ -20,13 +20,13 @@ import {
     queryAll,
     queryOne
 } from "@webiny/db-dynamodb";
-import { DataLoadersHandler } from "./dataLoaders";
+import { DataLoadersHandler } from "./dataLoaders.js";
 import {
     createLatestSortKey,
     createPartitionKey,
     createPublishedSortKey,
     createRevisionSortKey
-} from "./keys";
+} from "./keys.js";
 import {
     compress,
     createLimit,
@@ -38,21 +38,21 @@ import { zeroPad } from "@webiny/utils";
 import type {
     ElasticsearchSearchResponse,
     SearchBody as ElasticsearchSearchBody
-} from "@webiny/api-elasticsearch/types";
-import type { CmsEntryStorageOperations, CmsIndexEntry } from "~/types";
-import { createElasticsearchBody } from "./elasticsearch/body";
-import { logIgnoredEsResponseError } from "./elasticsearch/logIgnoredEsResponseError";
-import { shouldIgnoreEsResponseError } from "./elasticsearch/shouldIgnoreEsResponseError";
-import { createLatestRecordType, createPublishedRecordType, createRecordType } from "./recordType";
+} from "@webiny/api-elasticsearch/types.js";
+import type { CmsEntryStorageOperations, CmsIndexEntry } from "~/types.js";
+import { createElasticsearchBody } from "./elasticsearch/body.js";
+import { logIgnoredEsResponseError } from "./elasticsearch/logIgnoredEsResponseError.js";
+import { shouldIgnoreEsResponseError } from "./elasticsearch/shouldIgnoreEsResponseError.js";
+import { createLatestRecordType, createPublishedRecordType, createRecordType } from "./recordType.js";
 import { StorageOperationsCmsModelPlugin } from "@webiny/api-headless-cms";
-import { createTransformer } from "./transformations";
-import { convertEntryKeysFromStorage } from "./transformations/convertEntryKeys";
+import { createTransformer } from "./transformations/index.js";
+import { convertEntryKeysFromStorage } from "./transformations/convertEntryKeys.js";
 import {
     isDeletedEntryMetaField,
     isEntryLevelEntryMetaField,
     isRestoredEntryMetaField,
     pickEntryMetaFields
-} from "@webiny/api-headless-cms/constants";
+} from "@webiny/api-headless-cms/constants.js";
 
 interface ElasticsearchDbRecord {
     PK: string;

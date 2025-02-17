@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useActiveElement, EditorConfig } from "~/editor";
-import type { PbEditorElement, PbDataSource } from "~/types";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { Input } from "@webiny/ui/Input";
-import { OnElementType } from "./OnElementType";
-import { useGetElementDataSource } from "./useGetElementDataSource";
-import { useDocumentDataSource } from "~/dataInjection";
+import { useActiveElement, EditorConfig } from "~/editor/index.js";
+import type { PbEditorElement, PbDataSource } from "~/types.js";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { OnElementType } from "./OnElementType.js";
+import { useGetElementDataSource } from "./useGetElementDataSource.js";
+import { useDocumentDataSource } from "~/dataInjection/index.js";
 
 const { Ui } = EditorConfig;
 

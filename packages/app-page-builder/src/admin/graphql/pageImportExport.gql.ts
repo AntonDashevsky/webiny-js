@@ -1,13 +1,13 @@
 import gql from "graphql-tag";
-import { PbErrorResponse } from "~/types";
+import { PbErrorResponse } from "~/types.js";
 import {
     CreatedBy,
     PbImportExportTaskData,
     PbListPagesSearchInput,
     PbListPagesWhereInput,
     PbTaskStatus
-} from "./types";
-import { PbRevisionType } from "~/contexts/PageBuilder";
+} from "./types.js";
+import { PbRevisionType } from "~/contexts/PageBuilder/index.js";
 
 const ERROR = `
 error {

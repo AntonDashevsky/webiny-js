@@ -1,9 +1,9 @@
 import React from "react";
-import { Elements } from "~/components/Elements";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
-import { BlockProvider } from "./block/BlockProvider";
-export * from "./block/BlockProvider";
+import { Elements } from "~/components/Elements.js";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
+import { BlockProvider } from "./block/BlockProvider.js";
+export * from "./block/BlockProvider.js";
 
 interface BlockRendererProps {
     ifEmpty?: JSX.Element;

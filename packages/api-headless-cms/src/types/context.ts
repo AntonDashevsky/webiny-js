@@ -1,5 +1,5 @@
-import { ContentEntryTraverser } from "~/utils/contentEntryTraverser/ContentEntryTraverser";
-import { Topic } from "@webiny/pubsub/types";
+import { ContentEntryTraverser } from "~/utils/contentEntryTraverser/ContentEntryTraverser.js";
+import { Topic } from "@webiny/pubsub/types.js";
 import {
     CmsDeleteEntryOptions,
     CmsEntry,
@@ -50,8 +50,8 @@ import {
     OnEntryUpdateErrorTopicParams,
     UpdateCmsEntryInput,
     UpdateCmsEntryOptionsInput
-} from "./types";
-import { CmsModel } from "./model";
+} from "./types.js";
+import { CmsModel } from "./model.js";
 
 /**
  * Cms Entry CRUD methods in the context.

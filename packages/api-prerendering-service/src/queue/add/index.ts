@@ -1,5 +1,5 @@
-import { QueueAddJobEvent } from "./types";
-import { PrerenderingServiceStorageOperations, QueueJob } from "~/types";
+import { QueueAddJobEvent } from "./types.js";
+import { PrerenderingServiceStorageOperations, QueueJob } from "~/types.js";
 import { EventPlugin } from "@webiny/handler";
 import { mdbid } from "@webiny/utils";
 

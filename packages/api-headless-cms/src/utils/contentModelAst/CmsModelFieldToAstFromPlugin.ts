@@ -3,7 +3,7 @@ import {
     CmsModelFieldAstNode,
     CmsModelFieldToGraphQLPlugin,
     ICmsModelFieldToAst
-} from "~/types";
+} from "~/types/index.js";
 
 export class CmsModelFieldToAstFromPlugin implements ICmsModelFieldToAst {
     private readonly converter: ICmsModelFieldToAst;

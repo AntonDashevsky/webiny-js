@@ -1,6 +1,6 @@
 import { ColumnSorting } from "@webiny/app-utils";
-import { TrashBinItemDTO } from "~/Domain";
-import { TrashBinMetaResponse } from "~/types";
+import { TrashBinItemDTO } from "~/Domain/index.js";
+import { TrashBinMetaResponse } from "~/types.js";
 
 export interface TrashBinPresenterViewModel {
     items: TrashBinItemDTO[];

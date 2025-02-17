@@ -1,12 +1,12 @@
 import React from "react";
 import { css } from "emotion";
 import { Link } from "@webiny/react-router";
-import { useSecurity } from "@webiny/app-security/hooks/useSecurity";
-import { Image } from "@webiny/app/components";
-import { ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { Typography } from "@webiny/ui/Typography";
-import { Avatar } from "@webiny/ui/Avatar";
-import { useIsDefaultTenant } from "./useIsDefaultTenant";
+import { useSecurity } from "@webiny/app-security/hooks/useSecurity.js";
+import { Image } from "@webiny/app/components/index.js";
+import { ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Avatar } from "@webiny/ui/Avatar/index.js";
+import { useIsDefaultTenant } from "./useIsDefaultTenant.js";
 
 const avatarImage = css({
     height: "40px !important",

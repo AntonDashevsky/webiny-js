@@ -1,9 +1,9 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
-import { compress } from "@webiny/utils/compression/gzip";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
+import { compress } from "@webiny/utils/compression/gzip.js";
 
-import resolve from "./utils/resolve";
-import { PbContext } from "../types";
-import { PageBlock } from "~/types";
+import resolve from "./utils/resolve.js";
+import { PbContext } from "../types.js";
+import { PageBlock } from "~/types.js";
 
 export const createPageBlockGraphQL = new GraphQLSchemaPlugin<PbContext>({
     typeDefs: /* GraphQL */ `

@@ -1,5 +1,5 @@
-import { CmsModelField } from "~/types";
-import { getBaseFieldType } from "~/utils/getBaseFieldType";
+import { CmsModelField } from "~/types/index.js";
+import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 
 export const createFieldStorageId = (params: Pick<CmsModelField, "id" | "type">): string => {
     const { type, id } = params;

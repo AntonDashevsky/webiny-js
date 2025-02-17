@@ -2,7 +2,7 @@ import { makeDecoratable } from "@webiny/react-composition";
 /**
  * https://github.com/remix-run/react-router/blob/v5/packages/react-router/modules/Prompt.js
  */
-import { usePrompt } from "~/usePrompt";
+import { usePrompt } from "~/usePrompt.js";
 
 export interface PromptProps {
     when: boolean;

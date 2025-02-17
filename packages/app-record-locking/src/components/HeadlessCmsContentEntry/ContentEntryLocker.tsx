@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { useRecordLocking } from "~/hooks";
-import { IIsRecordLockedParams, IRecordLockingIdentity, IRecordLockingLockRecord } from "~/types";
+import { useRecordLocking } from "~/hooks/index.js";
+import { IIsRecordLockedParams, IRecordLockingIdentity, IRecordLockingLockRecord } from "~/types.js";
 import {
     IncomingGenericData,
     IWebsocketsSubscription,
@@ -9,7 +9,7 @@ import {
 import { parseIdentifier } from "@webiny/utils";
 import { useDialogs } from "@webiny/app-admin";
 import styled from "@emotion/styled";
-import { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types";
+import { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types.js";
 
 const Bold = styled.span`
     font-weight: 600;

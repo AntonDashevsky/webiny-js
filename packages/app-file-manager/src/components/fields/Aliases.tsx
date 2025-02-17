@@ -1,10 +1,10 @@
 import React, { Fragment, useMemo } from "react";
 import styled from "@emotion/styled";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
-import { DynamicFieldset } from "@webiny/ui/DynamicFieldset";
-import { Input } from "@webiny/ui/Input";
-import { Typography } from "@webiny/ui/Typography";
-import { ButtonDefault, IconButton } from "@webiny/ui/Button";
+import { DynamicFieldset } from "@webiny/ui/DynamicFieldset/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { ButtonDefault, IconButton } from "@webiny/ui/Button/index.js";
 import { validation } from "@webiny/validation";
 import { Bind, useBind } from "@webiny/form";
 

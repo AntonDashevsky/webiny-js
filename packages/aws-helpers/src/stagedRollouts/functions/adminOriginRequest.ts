@@ -1,8 +1,8 @@
-import { defineLambdaEdgeRequestHandler, setDomainOrigin } from "~/lambdaEdge";
+import { defineLambdaEdgeRequestHandler, setDomainOrigin } from "~/lambdaEdge/index.js";
 
-import { pointsToFile } from "../utils/common";
-import { loadOriginPage } from "../utils/loadOriginPage";
-import { loadVariantOrigin } from "../utils/loadVariantOrigin";
+import { pointsToFile } from "../utils/common.js";
+import { loadOriginPage } from "../utils/loadOriginPage.js";
+import { loadVariantOrigin } from "../utils/loadVariantOrigin.js";
 
 export default defineLambdaEdgeRequestHandler(async event => {
     try {

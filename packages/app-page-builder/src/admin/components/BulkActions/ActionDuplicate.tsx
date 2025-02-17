@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import { ReactComponent as Duplicate } from "@material-design-icons/svg/outlined/library_add.svg";
 import { useRecords } from "@webiny/app-aco";
 import { observer } from "mobx-react-lite";
-import { PageListConfig } from "~/admin/config/pages";
-import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions";
-import { useDuplicatePageCase } from "~/admin/views/Pages/hooks/useDuplicatePage";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions.js";
+import { useDuplicatePageCase } from "~/admin/views/Pages/hooks/useDuplicatePage/index.js";
 import { makeDecoratable } from "@webiny/react-composition";
 
 export const ActionDuplicate = makeDecoratable(

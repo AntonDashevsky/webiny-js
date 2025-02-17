@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { Entity, EntityQueryOptions } from "~/toolbox";
-import { cleanupItem, cleanupItems } from "~/utils/cleanup";
-import { GenericRecord } from "@webiny/api/types";
+import { Entity, EntityQueryOptions } from "~/toolbox.js";
+import { cleanupItem, cleanupItems } from "~/utils/cleanup.js";
+import { GenericRecord } from "@webiny/api/types.js";
 
 export interface QueryAllParams {
     entity: Entity<any>;

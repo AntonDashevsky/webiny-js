@@ -2,9 +2,9 @@ import {
     FbFormRenderComponentProps,
     FbFormTriggerHandlerPlugin,
     FormSubmitResponseType
-} from "~/types";
+} from "~/types.js";
 import { plugins } from "@webiny/plugins";
-import get from "lodash/get";
+import get from "lodash/get.js";
 
 interface HandleFormTriggersArgs {
     props: FbFormRenderComponentProps;

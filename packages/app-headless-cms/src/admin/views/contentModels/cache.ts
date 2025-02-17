@@ -6,8 +6,8 @@ import {
     LIST_MENU_CONTENT_GROUPS_MODELS,
     ListCmsModelsQueryResponse,
     ListMenuCmsGroupsQueryResponse
-} from "../../viewsGraphql";
-import { CmsEditorContentModel, CmsModel } from "~/types";
+} from "../../viewsGraphql.js";
+import { CmsEditorContentModel, CmsModel } from "~/types.js";
 
 export const addModelToListCache = (cache: DataProxy, model: CmsEditorContentModel): void => {
     const response = cache.readQuery<ListCmsModelsQueryResponse>({

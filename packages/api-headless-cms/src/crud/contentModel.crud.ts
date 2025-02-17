@@ -23,34 +23,34 @@ import {
     OnModelDeleteErrorTopicParams,
     OnModelInitializeParams,
     OnModelUpdateErrorTopicParams
-} from "~/types";
+} from "~/types/index.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { contentModelManagerFactory } from "./contentModel/contentModelManagerFactory";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import { contentModelManagerFactory } from "./contentModel/contentModelManagerFactory.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
 import { createTopic } from "@webiny/pubsub";
-import { assignModelBeforeCreate } from "./contentModel/beforeCreate";
-import { assignModelBeforeUpdate } from "./contentModel/beforeUpdate";
-import { assignModelBeforeDelete } from "./contentModel/beforeDelete";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
+import { assignModelBeforeCreate } from "./contentModel/beforeCreate.js";
+import { assignModelBeforeUpdate } from "./contentModel/beforeUpdate.js";
+import { assignModelBeforeDelete } from "./contentModel/beforeDelete.js";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
 import {
     createModelCreateFromValidation,
     createModelCreateValidation,
     createModelUpdateValidation
-} from "~/crud/contentModel/validation";
+} from "~/crud/contentModel/validation.js";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { assignModelDefaultFields } from "~/crud/contentModel/defaultFields";
-import { createCacheKey, createMemoryCache } from "~/utils";
-import { ensureTypeTag } from "./contentModel/ensureTypeTag";
-import { listModelsFromDatabase } from "~/crud/contentModel/listModelsFromDatabase";
-import { filterAsync } from "~/utils/filterAsync";
-import { AccessControl } from "./AccessControl/AccessControl";
+import { assignModelDefaultFields } from "~/crud/contentModel/defaultFields.js";
+import { createCacheKey, createMemoryCache } from "~/utils/index.js";
+import { ensureTypeTag } from "./contentModel/ensureTypeTag.js";
+import { listModelsFromDatabase } from "~/crud/contentModel/listModelsFromDatabase.js";
+import { filterAsync } from "~/utils/filterAsync.js";
+import { AccessControl } from "./AccessControl/AccessControl.js";
 import {
     CmsModelFieldToAstConverterFromPlugins,
     CmsModelToAstConverter
-} from "~/utils/contentModelAst";
-import { SingletonModelManager } from "~/modelManager";
+} from "~/utils/contentModelAst/index.js";
+import { SingletonModelManager } from "~/modelManager/index.js";
 
 export interface CreateModelsCrudParams {
     getTenant: () => Tenant;

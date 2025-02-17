@@ -1,1 +1,1 @@
-export * from "./useAuditLogsList";
+export * from "./useAuditLogsList.js";

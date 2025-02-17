@@ -1,10 +1,10 @@
 import React from "react";
-import type { CmsErrorResponse, CmsModel } from "~/types";
-import { FullyDeleteModelStateStatus } from "../types";
-import { Information } from "./Information";
-import { Confirmation } from "./Confirmation";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Processed } from "./Processed";
+import type { CmsErrorResponse, CmsModel } from "~/types.js";
+import { FullyDeleteModelStateStatus } from "../types.js";
+import { Information } from "./Information.js";
+import { Confirmation } from "./Confirmation.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Processed } from "./Processed.js";
 
 export interface IContentProps {
     model: CmsModel | null;

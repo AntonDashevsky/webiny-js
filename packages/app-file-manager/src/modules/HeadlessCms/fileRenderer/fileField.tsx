@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 import {
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
-} from "@webiny/app-headless-cms/types";
-import { FileManager } from "@webiny/app-admin/components";
-import { Typography } from "@webiny/ui/Typography";
-import { File } from "./File";
-import { EditFileUsingUrl } from "~/components/EditFileUsingUrl";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+} from "@webiny/app-headless-cms/types.js";
+import { FileManager } from "@webiny/app-admin/components/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { File } from "./File.js";
+import { EditFileUsingUrl } from "~/components/EditFileUsingUrl/index.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 
 const ImageFieldWrapper = styled("div")({
     background: "var(--mdc-theme-on-background)",

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
-import useUpdateHandlers from "@webiny/app-page-builder/editor/plugins/elementSettings/useUpdateHandlers";
-import { PbEditorElement } from "@webiny/app-page-builder/types";
+import useUpdateHandlers from "@webiny/app-page-builder/editor/plugins/elementSettings/useUpdateHandlers.js";
+import { PbEditorElement } from "@webiny/app-page-builder/types.js";
 import { useRenderer } from "@webiny/app-page-builder-elements";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { LexicalEditor } from "~/LexicalEditor";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { LexicalEditor } from "~/LexicalEditor.js";
 
 interface LexicalTextEditorProps {
     text: string;

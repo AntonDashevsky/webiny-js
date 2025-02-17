@@ -1,10 +1,10 @@
 import { useCallback } from "react";
-import { FbFormStep, MoveStepParams } from "~/types";
+import { FbFormStep, MoveStepParams } from "~/types.js";
 import {
     DragObjectWithFieldInfo,
     IsVisibleCallableParams
-} from "~/admin/components/FormEditor/Droppable";
-import { useFormEditor } from "~/admin/components/FormEditor/Context";
+} from "~/admin/components/FormEditor/Droppable.js";
+import { useFormEditor } from "~/admin/components/FormEditor/Context/index.js";
 
 export const useEditTab = () => {
     const { data, moveStep, addStep } = useFormEditor();

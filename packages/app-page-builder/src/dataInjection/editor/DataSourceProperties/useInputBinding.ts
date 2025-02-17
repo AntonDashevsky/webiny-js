@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import type { PbEditorElement, PbDataBinding } from "~/types";
-import { ElementInputBinding, useDynamicDocument } from "~/dataInjection";
-import { useGetElementDataSource } from "./useGetElementDataSource";
+import type { PbEditorElement, PbDataBinding } from "~/types.js";
+import { ElementInputBinding, useDynamicDocument } from "~/dataInjection/index.js";
+import { useGetElementDataSource } from "./useGetElementDataSource.js";
 
 const byElementIdAndName = (id: string, inputName: string) => {
     return (binding: ElementInputBinding) => {

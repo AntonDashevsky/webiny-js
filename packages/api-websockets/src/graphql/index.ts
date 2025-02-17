@@ -1,6 +1,6 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { createTypeDefs } from "./createTypeDefs";
-import { createResolvers } from "./createResolvers";
+import { createTypeDefs } from "./createTypeDefs.js";
+import { createResolvers } from "./createResolvers.js";
 
 export const createWebsocketsGraphQL = () => {
     const plugin = new GraphQLSchemaPlugin({

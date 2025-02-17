@@ -1,1 +1,1 @@
-export * from "./ContentEntryEditorConfig";
+export * from "./ContentEntryEditorConfig.js";

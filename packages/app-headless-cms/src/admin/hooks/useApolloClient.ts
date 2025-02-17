@@ -1,4 +1,4 @@
-import useCms from "./useCms";
+import useCms from "./useCms.js";
 import { ApolloClient } from "apollo-client";
 
 const useApolloClient = function (): ApolloClient<any> {

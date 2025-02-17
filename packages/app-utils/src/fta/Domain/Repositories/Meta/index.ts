@@ -1,3 +1,3 @@
-export * from "./IMetaRepository";
-export * from "./MetaRepository";
-export * from "./MetaRepositoryFactory";
+export * from "./IMetaRepository.js";
+export * from "./MetaRepository.js";
+export * from "./MetaRepositoryFactory.js";

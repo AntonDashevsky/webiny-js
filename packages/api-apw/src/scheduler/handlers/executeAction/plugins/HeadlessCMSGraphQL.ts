@@ -4,10 +4,10 @@ import {
     ApwSettings,
     ApplicationGraphQLGetUrlParams,
     ApwScheduleActionData
-} from "./ApplicationGraphQL";
-import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types";
+} from "./ApplicationGraphQL.js";
+import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types.js";
 import WebinyError from "@webiny/error";
-import upperFirst from "lodash/upperFirst";
+import upperFirst from "lodash/upperFirst.js";
 
 const META_FIELDS = `
     title

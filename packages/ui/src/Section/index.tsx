@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { Typography } from "~/Typography";
-import { Elevation } from "~/Elevation";
+import { Typography } from "~/Typography/index.js";
+import { Elevation } from "~/Elevation/index.js";
 
 const SectionWrapper = styled("div")({
     backgroundColor: "var(--mdc-theme-background)",

@@ -1,5 +1,5 @@
-import { ListErrorResponse, Response } from "@webiny/handler-graphql/responses";
-import { CmsEntryListParams, CmsEntryResolverFactory as ResolverFactory } from "~/types";
+import { ListErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
+import { CmsEntryListParams, CmsEntryResolverFactory as ResolverFactory } from "~/types/index.js";
 
 type ResolveGetUniqueFieldValuesList = ResolverFactory<any, CmsEntryListParams>;
 

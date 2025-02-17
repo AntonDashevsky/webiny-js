@@ -1,8 +1,8 @@
 import React from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { useRouter } from "@webiny/react-router";
-import { FormEditorProvider } from "./Context";
-import FormEditor from "./FormEditor";
+import { FormEditorProvider } from "./Context/index.js";
+import FormEditor from "./FormEditor.js";
 
 const FormEditorApp = () => {
     const { params } = useRouter();

@@ -2,20 +2,20 @@ import type {
     APIGatewayProxyResult,
     SQSEvent,
     Context as LambdaContext
-} from "@webiny/aws-sdk/types";
+} from "@webiny/aws-sdk/types/index.js";
 import { createHandler as createBaseHandler } from "@webiny/handler";
-import { registerDefaultPlugins } from "~/plugins";
-import { SQSEventHandler, SQSEventHandlerCallableParams } from "~/sqs/plugins/SQSEventHandler";
-import { execute } from "~/execute";
-import { HandlerFactoryParams } from "~/types";
+import { registerDefaultPlugins } from "~/plugins/index.js";
+import { SQSEventHandler, SQSEventHandlerCallableParams } from "~/sqs/plugins/SQSEventHandler.js";
+import { execute } from "~/execute.js";
+import { HandlerFactoryParams } from "~/types.js";
 /**
  * We need a class, not an interface exported from types.
  */
 // @ts-expect-error
-import Reply from "fastify/lib/reply";
-import { createComposedHandler } from "~/utils/composedHandler";
+import Reply from "fastify/lib/reply.js";
+import { createComposedHandler } from "~/utils/composedHandler.js";
 
-export * from "./plugins/SQSEventHandler";
+export * from "./plugins/SQSEventHandler.js";
 
 export interface HandlerCallable {
     (event: SQSEvent, context: LambdaContext): Promise<APIGatewayProxyResult>;

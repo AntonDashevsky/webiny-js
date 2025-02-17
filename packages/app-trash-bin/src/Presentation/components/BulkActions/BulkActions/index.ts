@@ -1,1 +1,1 @@
-export * from "./BulkActions";
+export * from "./BulkActions.js";

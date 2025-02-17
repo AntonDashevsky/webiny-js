@@ -1,9 +1,9 @@
-import { LocalesStorageOperations } from "./LocalesStorageOperations";
+import { LocalesStorageOperations } from "./LocalesStorageOperations.js";
 import {
     LocalesStorageOperationsProviderPlugin,
     LocalesStorageOperationsProviderPluginParams
-} from "@webiny/api-i18n/plugins/LocalesStorageOperationsProviderPlugin";
-import fields from "./fields";
+} from "@webiny/api-i18n/plugins/LocalesStorageOperationsProviderPlugin.js";
+import fields from "./fields.js";
 
 export class LocalesStorageOperationsProviderDdbPlugin extends LocalesStorageOperationsProviderPlugin {
     public override name = "i18n.storageOperationsProvider.settings.ddb";

@@ -1,7 +1,7 @@
 import React from "react";
 import { default as localStorage } from "store";
-import { UIElement, UIElementConfig } from "~/ui/UIElement";
-import { UILayoutSorter } from "@webiny/ui-composer/UILayout";
+import { UIElement, UIElementConfig } from "~/ui/UIElement.js";
+import { UILayoutSorter } from "@webiny/ui-composer/UILayout.js";
 
 export interface NavigationMenuElementConfig extends UIElementConfig {
     label: React.ReactNode;

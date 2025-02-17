@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
 import { TextField, TextFieldProps } from "@rmwc/textfield";
-import { FormElementMessage } from "~/FormElementMessage";
-import pick from "lodash/pick";
-import { FormComponentProps } from "~/types";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
+import pick from "lodash/pick.js";
+import { FormComponentProps } from "~/types.js";
 import { ReactElement } from "react";
 import classNames from "classnames";
-import { webinyInputStyles } from "./styled";
+import { webinyInputStyles } from "./styled.js";
 
 export type InputProps<TValue = any> = FormComponentProps<TValue> &
     TextFieldProps & {

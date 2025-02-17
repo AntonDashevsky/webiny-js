@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from "react";
-import orderBy from "lodash/orderBy";
-import { i18n } from "@webiny/app/i18n";
+import orderBy from "lodash/orderBy.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useRouter } from "@webiny/react-router";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { LIST_MENUS, DELETE_MENU } from "./graphql";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import { LIST_MENUS, DELETE_MENU } from "./graphql.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 
 import {
     DataList,
@@ -17,17 +17,17 @@ import {
     ListItemMeta,
     ListActions,
     ListItemTextSecondary
-} from "@webiny/ui/List";
+} from "@webiny/ui/List/index.js";
 
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import { PbMenu } from "~/types";
-import { useMenusPermissions } from "~/hooks/permissions";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { PbMenu } from "~/types.js";
+import { useMenusPermissions } from "~/hooks/permissions/index.js";
 
 const t = i18n.ns("app-page-builder/admin/menus/data-list");
 

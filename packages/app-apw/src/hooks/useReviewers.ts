@@ -3,8 +3,8 @@ import {
     LIST_REVIEWS_QUERY,
     ListReviewersQueryResponse,
     ListReviewersQueryVariables
-} from "~/graphql/reviewer.gql";
-import { ApwReviewer } from "~/types";
+} from "~/graphql/reviewer.gql.js";
+import { ApwReviewer } from "~/types.js";
 import dotPropImmutable from "dot-prop-immutable";
 import { useMemo } from "react";
 

@@ -1,9 +1,9 @@
 import React from "react";
-import { activeElementAtom, elementWithChildrenByIdSelector } from "../../../recoil/modules";
-import get from "lodash/get";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Select as SelectCmp } from "@webiny/ui/Select";
+import { activeElementAtom, elementWithChildrenByIdSelector } from "../../../recoil/modules/index.js";
+import get from "lodash/get.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Select as SelectCmp } from "@webiny/ui/Select/index.js";
 import { css } from "emotion";
 import { useRecoilValue } from "recoil";
 

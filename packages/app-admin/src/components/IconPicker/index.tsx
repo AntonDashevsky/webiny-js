@@ -1,7 +1,7 @@
-export { IconPicker } from "./IconPicker";
-export { IconPickerConfig } from "./config";
-export { useIcon } from "./IconRenderer";
-export { useIconPicker } from "./IconPickerPresenterProvider";
-export { useIconType } from "./config/IconType";
-export { defaultIcon } from "./defaultIcon";
-export type { Icon } from "./types";
+export { IconPicker } from "./IconPicker.js";
+export { IconPickerConfig } from "./config/index.js";
+export { useIcon } from "./IconRenderer.js";
+export { useIconPicker } from "./IconPickerPresenterProvider.js";
+export { useIconType } from "./config/IconType.js";
+export { defaultIcon } from "./defaultIcon.js";
+export type { Icon } from "./types.js";

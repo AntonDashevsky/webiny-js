@@ -2,7 +2,7 @@ import {
     ValueTransformPlugin,
     ValueTransformPluginParams,
     ValueTransformPluginParamsTransformParams
-} from "./ValueTransformPlugin";
+} from "./ValueTransformPlugin.js";
 import WebinyError from "@webiny/error";
 
 const transformTime = (params: ValueTransformPluginParamsTransformParams): number => {

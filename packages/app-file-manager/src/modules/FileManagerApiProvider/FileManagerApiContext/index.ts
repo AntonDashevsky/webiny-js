@@ -1,3 +1,3 @@
-export { FileManagerApiProvider } from "./FileManagerApiContext";
-export { useFileManagerApi } from "./useFileManagerApi";
-export { getFileGraphQLSelection } from "./getFileGraphQLSelection";
+export { FileManagerApiProvider } from "./FileManagerApiContext.js";
+export { useFileManagerApi } from "./useFileManagerApi.js";
+export { getFileGraphQLSelection } from "./getFileGraphQLSelection.js";

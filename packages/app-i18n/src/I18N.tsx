@@ -1,12 +1,12 @@
 import React, { Fragment, memo } from "react";
 import { plugins } from "@webiny/plugins";
 import { Provider, Plugins, AddMenu } from "@webiny/app-admin";
-import { I18NProvider as ContextProvider } from "./contexts/I18N";
+import { I18NProvider as ContextProvider } from "./contexts/I18N/index.js";
 import { HasPermission } from "@webiny/app-security";
 import { AddRoute } from "@webiny/app-admin";
 import { Layout } from "@webiny/app-admin";
-import { LocalesView } from "./admin/views/locales";
-import i18nPlugins from "./admin/plugins";
+import { LocalesView } from "./admin/views/locales/index.js";
+import i18nPlugins from "./admin/plugins/index.js";
 
 interface I18NProviderProps {
     children: React.ReactNode;

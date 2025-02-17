@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
-import orderBy from "lodash/orderBy";
-import { i18n } from "@webiny/app/i18n";
+import orderBy from "lodash/orderBy.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     DataList,
     ScrollList,
@@ -11,21 +11,21 @@ import {
     ListActions,
     DataListModalOverlayAction,
     DataListModalOverlay
-} from "@webiny/ui/List";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
+} from "@webiny/ui/List/index.js";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
 import { useRouter } from "@webiny/react-router";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import * as GQL from "./graphql";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import * as GQL from "./graphql.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { deserializeSorters } from "../utils";
-import { ApiKey } from "~/types";
+import { deserializeSorters } from "../utils.js";
+import { ApiKey } from "~/types.js";
 
 const t = i18n.ns("app-security/admin/groups/data-list");
 

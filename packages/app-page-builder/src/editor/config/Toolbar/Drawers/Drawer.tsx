@@ -2,8 +2,8 @@ import React from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import classNames from "classnames";
-import { DrawerContent, DrawerLeft } from "@webiny/ui/Drawer";
-import { useDrawer } from "./DrawerProvider";
+import { DrawerContent, DrawerLeft } from "@webiny/ui/Drawer/index.js";
+import { useDrawer } from "./DrawerProvider.js";
 
 const DrawerContainer = styled("div")<{ open: boolean }>(({ open }) => ({
     pointerEvents: open ? "all" : "none",

@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { useFolders } from "@webiny/app-aco";
 import { observer } from "mobx-react-lite";
-import { PageListConfig } from "~/admin/config/pages";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { ActionDuplicate } from "~/admin/components/BulkActions/ActionDuplicate";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { ActionDuplicate } from "~/admin/components/BulkActions/ActionDuplicate.js";
 
 export const SecureActionDuplicate = ActionDuplicate.createDecorator(Original => {
     return observer(() => {

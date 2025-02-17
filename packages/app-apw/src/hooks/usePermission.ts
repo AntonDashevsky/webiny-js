@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { ApwSecurityPermission } from "~/types";
+import { ApwSecurityPermission } from "~/types.js";
 
 export const usePermission = () => {
     const { identity, getPermission } = useSecurity();

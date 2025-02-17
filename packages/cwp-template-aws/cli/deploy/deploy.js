@@ -43,11 +43,16 @@ export default async (inputs, context) => {
 
         // 1. Check if Pulumi is installed. By calling the `install` method
         // manually, we get to know if the installation was initiated or not.
-        const pulumi = await getPulumi({ install: false });
-        const installed = await pulumi.install();
+        let installationTookPlace = false;
+
+        await getPulumi({
+            onInstall: () => {
+                installationTookPlace = true;
+            }
+        });
 
         // If we just installed Pulumi, let's add a new line.
-        installed && console.log();
+        installationTookPlace && console.log();
 
         // 2. Check if first deployment.
         const isFirstDeployment =

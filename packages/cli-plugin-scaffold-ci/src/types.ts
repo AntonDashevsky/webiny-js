@@ -1,10 +1,10 @@
 import {
     CliCommandScaffoldCallableArgs,
     CliCommandScaffoldCallableWithErrorArgs
-} from "@webiny/cli-plugin-scaffold/types";
-import { Plugin } from "@webiny/plugins/types";
+} from "@webiny/cli-plugin-scaffold/types.js";
+import { Plugin } from "@webiny/plugins/types.js";
 import { DistinctQuestion } from "inquirer";
-import { GenericRecord } from "@webiny/cli/types";
+import { GenericRecord } from "@webiny/cli/types.js";
 
 export interface CliPluginsScaffoldCi<T extends GenericRecord = GenericRecord> extends Plugin {
     type: "cli-plugin-scaffold-ci";

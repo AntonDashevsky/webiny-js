@@ -2,15 +2,15 @@ import React from "react";
 import { css } from "emotion";
 import { merge } from "dot-prop-immutable";
 import { Form } from "@webiny/form";
-import { withActiveElement } from "~/editor/components";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import { UpdateElementActionEvent } from "~/editor/recoil/actions";
-import { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types";
+import { withActiveElement } from "~/editor/components/index.js";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
+import { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types.js";
 // Components
-import Accordion from "../../../elementSettings/components/Accordion";
-import Wrapper from "../../../elementSettings/components/Wrapper";
-import InputField from "../../../elementSettings/components/InputField";
+import Accordion from "../../../elementSettings/components/Accordion.js";
+import Wrapper from "../../../elementSettings/components/Wrapper.js";
+import InputField from "../../../elementSettings/components/InputField.js";
 
 const classes = {
     gridClass: css({

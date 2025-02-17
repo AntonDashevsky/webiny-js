@@ -1,17 +1,17 @@
-import "./handler/register";
-import { Plugin } from "@webiny/plugins/types";
-import { createWebsocketsContext } from "~/context";
-import { createWebsocketsGraphQL } from "~/graphql";
+import "./handler/register.js";
+import { Plugin } from "@webiny/plugins/types.js";
+import { createWebsocketsContext } from "~/context/index.js";
+import { createWebsocketsGraphQL } from "~/graphql/index.js";
 
 export const createWebsockets = (): Plugin[] => {
     return [createWebsocketsContext(), createWebsocketsGraphQL()];
 };
 
-export * from "./validator";
-export * from "./transport";
-export * from "./runner";
-export * from "./registry";
-export * from "./context";
+export * from "./validator/index.js";
+export * from "./transport/index.js";
+export * from "./runner/index.js";
+export * from "./registry/index.js";
+export * from "./context/index.js";
 
-export * from "./plugins";
-export * from "./types";
+export * from "./plugins/index.js";
+export * from "./types.js";

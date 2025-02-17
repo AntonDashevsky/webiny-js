@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { DialogsContext } from "./DialogsContext";
+import { DialogsContext } from "./DialogsContext.js";
 
 export const useDialogs = () => {
     const context = useContext(DialogsContext);
@@ -12,4 +12,4 @@ export const useDialogs = () => {
     return context;
 };
 
-export { useCustomDialog } from "./CustomDialog";
+export { useCustomDialog } from "./CustomDialog.js";

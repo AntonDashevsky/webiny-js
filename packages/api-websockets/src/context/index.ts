@@ -1,11 +1,11 @@
 import { ContextPlugin } from "@webiny/handler";
-import { Context } from "~/types";
-import { WebsocketsContext } from "./WebsocketsContext";
-import { WebsocketsConnectionRegistry } from "~/registry";
-import { WebsocketsTransport } from "~/transport";
+import { Context } from "~/types.js";
+import { WebsocketsContext } from "./WebsocketsContext.js";
+import { WebsocketsConnectionRegistry } from "~/registry/index.js";
+import { WebsocketsTransport } from "~/transport/index.js";
 
-export * from "./WebsocketsContext";
-export * from "./abstractions/IWebsocketsContext";
+export * from "./WebsocketsContext.js";
+export * from "./abstractions/IWebsocketsContext.js";
 
 export const createWebsocketsContext = () => {
     const plugin = new ContextPlugin<Context>(async context => {

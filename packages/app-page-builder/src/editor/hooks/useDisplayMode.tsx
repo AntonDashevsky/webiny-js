@@ -3,11 +3,11 @@ import {
     setDisplayModeMutation,
     setPagePreviewDimensionMutation,
     PagePreviewDimension
-} from "~/editor/recoil/modules";
+} from "~/editor/recoil/modules/index.js";
 import { plugins } from "@webiny/plugins";
-import { useUI } from "~/editor/hooks/useUI";
-import { DisplayMode, PbEditorResponsiveModePlugin } from "~/types";
-import { usePageBuilder } from "~/hooks/usePageBuilder";
+import { useUI } from "~/editor/hooks/useUI.js";
+import { DisplayMode, PbEditorResponsiveModePlugin } from "~/types.js";
+import { usePageBuilder } from "~/hooks/usePageBuilder.js";
 
 export type DisplayModeConfig = PbEditorResponsiveModePlugin["config"];
 

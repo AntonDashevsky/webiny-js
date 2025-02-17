@@ -16,9 +16,9 @@ import {
     HigherOrderComponent,
     DecoratorsCollection
 } from "@webiny/react-composition";
-import { Routes as SortRoutes } from "./core/Routes";
-import { DebounceRender } from "./core/DebounceRender";
-import { PluginsProvider } from "./core/Plugins";
+import { Routes as SortRoutes } from "./core/Routes.js";
+import { DebounceRender } from "./core/DebounceRender.js";
+import { PluginsProvider } from "./core/Plugins.js";
 
 type RoutesByPath = {
     [key: string]: ReactElement<RouteProps>;

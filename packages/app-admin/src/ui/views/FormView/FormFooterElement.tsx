@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { UIElement, UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement, UiElementRenderProps } from "~/ui/UIElement.js";
 
 const ButtonWrapper = styled("div")({
     display: "flex",

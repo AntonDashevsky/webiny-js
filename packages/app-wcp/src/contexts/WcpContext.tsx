@@ -1,5 +1,5 @@
 import React from "react";
-import { WcpProject } from "~/types";
+import { WcpProject } from "~/types.js";
 
 export interface WcpContextValue {
     project: WcpProject | null;

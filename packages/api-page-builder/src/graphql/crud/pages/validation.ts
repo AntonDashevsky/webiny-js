@@ -1,6 +1,6 @@
-import normalizePath from "./normalizePath";
+import normalizePath from "./normalizePath.js";
 import zod from "zod";
-import { dynamicData } from "~/graphql/crud/dynamicData.validation";
+import { dynamicData } from "~/graphql/crud/dynamicData.validation.js";
 
 export const createPageValidation = zod.object({
     category: zod.string().max(500)

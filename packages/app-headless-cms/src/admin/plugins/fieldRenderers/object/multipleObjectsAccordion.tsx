@@ -1,29 +1,29 @@
 import React, { Dispatch, SetStateAction, useState, useCallback } from "react";
-import { i18n } from "@webiny/app/i18n";
-import { IconButton } from "@webiny/ui/Button";
-import { Cell } from "@webiny/ui/Grid";
-import { Accordion as RootAccordion, AccordionItem } from "@webiny/ui/Accordion";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Cell } from "@webiny/ui/Grid/index.js";
+import { Accordion as RootAccordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
 import {
     BindComponentRenderProp,
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
-} from "~/types";
-import DynamicSection from "../DynamicSection";
-import { Fields } from "~/admin/components/ContentEntryForm/Fields";
+} from "~/types.js";
+import DynamicSection from "../DynamicSection.js";
+import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
 import { ReactComponent as DeleteIcon } from "~/admin/icons/close.svg";
 import { ReactComponent as ArrowUp } from "./arrow_drop_up.svg";
 import { ReactComponent as ArrowDown } from "./arrow_drop_down.svg";
-import Accordion from "~/admin/plugins/fieldRenderers/Accordion";
+import Accordion from "~/admin/plugins/fieldRenderers/Accordion.js";
 import {
     fieldsWrapperStyle,
     dynamicSectionGridStyle,
     fieldsGridStyle,
     ItemHighLight,
     ObjectItem
-} from "./StyledComponents";
+} from "./StyledComponents.js";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
-import { FieldSettings } from "./FieldSettings";
-import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings";
+import { FieldSettings } from "./FieldSettings.js";
+import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings.js";
 import { useConfirmationDialog } from "@webiny/app-admin";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");

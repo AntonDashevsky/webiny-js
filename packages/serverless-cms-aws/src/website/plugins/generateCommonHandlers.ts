@@ -1,4 +1,4 @@
-import { generateHandlers } from "~/utils/generateHandlers";
+import { generateHandlers } from "~/utils/generateHandlers.js";
 
 const HANDLERS_PATHS = [
     ["prerendering", "flush"],

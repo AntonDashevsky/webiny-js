@@ -1,4 +1,4 @@
-import { IMPORT_BASE_PATH } from "~/tasks/constants";
+import { IMPORT_BASE_PATH } from "~/tasks/constants.js";
 
 export const stripImportPath = (key: string): string => {
     return key.replace(IMPORT_BASE_PATH, "").replace(/^\/+/, "");

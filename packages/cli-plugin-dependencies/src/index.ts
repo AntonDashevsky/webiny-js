@@ -1,5 +1,5 @@
 import path from "path";
-import type { CliCommandPlugin, CliCommandPluginArgs } from "@webiny/cli/types";
+import type { CliCommandPlugin, CliCommandPluginArgs } from "@webiny/cli/types.js";
 import { createDependencyTree } from "./references/index.js";
 import { createReferenceFile } from "./references/createReferenceFile.js";
 import { verifyDependencies } from "./references/verifyDependencies.js";

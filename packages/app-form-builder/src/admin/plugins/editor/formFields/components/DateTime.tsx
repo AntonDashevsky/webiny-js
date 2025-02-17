@@ -1,9 +1,9 @@
 import React from "react";
-import { Input } from "@webiny/ui/Input";
-import { Select } from "@webiny/ui/Select";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { validation } from "@webiny/validation";
-import { BindComponent } from "@webiny/form/types";
+import { BindComponent } from "@webiny/form/types.js";
 import { UTC_TIMEZONES } from "@webiny/utils";
 
 export const DateTime = ({ fieldFormat, Bind }: { fieldFormat: string; Bind: BindComponent }) => {

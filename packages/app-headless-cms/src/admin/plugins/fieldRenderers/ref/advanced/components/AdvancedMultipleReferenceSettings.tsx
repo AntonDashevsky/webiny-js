@@ -1,7 +1,7 @@
 import { Bind } from "@webiny/form";
 import React from "react";
-import { Select } from "@webiny/ui/Select";
-import { Cell } from "@webiny/ui/Grid";
+import { Select } from "@webiny/ui/Select/index.js";
+import { Cell } from "@webiny/ui/Grid/index.js";
 
 export interface MultiRefFieldSettings {
     newItemPosition: "first" | "last";

@@ -1,9 +1,9 @@
 import React from "react";
-import lodashGet from "lodash/get";
-import ColorPickerCmp from "../../../components/ColorPicker/ColorPicker";
-import { activeElementAtom, elementByIdSelector } from "../../../recoil/modules";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import lodashGet from "lodash/get.js";
+import ColorPickerCmp from "../../../components/ColorPicker/ColorPicker.js";
+import { activeElementAtom, elementByIdSelector } from "../../../recoil/modules/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { useRecoilValue } from "recoil";
 
 const extrapolateActiveElementValue = (

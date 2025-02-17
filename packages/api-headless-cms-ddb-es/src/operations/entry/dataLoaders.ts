@@ -1,11 +1,11 @@
 import DataLoader from "dataloader";
 import WebinyError from "@webiny/error";
-import { CmsModel, CmsStorageEntry } from "@webiny/api-headless-cms/types";
-import { CacheKeyParams, DataLoaderCache } from "~/operations/entry/dataLoader/DataLoaderCache";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { DataLoaders, getDataLoaderFactory } from "~/operations/entry/dataLoader";
+import { CmsModel, CmsStorageEntry } from "@webiny/api-headless-cms/types/index.js";
+import { CacheKeyParams, DataLoaderCache } from "~/operations/entry/dataLoader/DataLoaderCache.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { DataLoaders, getDataLoaderFactory } from "~/operations/entry/dataLoader/index.js";
 import { parseIdentifier } from "@webiny/utils";
-import { DataLoadersHandlerInterface, DataLoadersHandlerInterfaceClearAllParams } from "~/types";
+import { DataLoadersHandlerInterface, DataLoadersHandlerInterfaceClearAllParams } from "~/types.js";
 
 interface DataLoaderParams {
     model: Pick<CmsModel, "tenant" | "locale" | "modelId">;

@@ -1,6 +1,6 @@
-import { default as DynamoDbDriver } from "./DynamoDbDriver";
+import { default as DynamoDbDriver } from "./DynamoDbDriver.js";
 
-export * from "./utils";
-export type { DbItem } from "./types";
+export * from "./utils/index.js";
+export type { DbItem } from "./types.js";
 
 export { DynamoDbDriver };

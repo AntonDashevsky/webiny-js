@@ -1,14 +1,17 @@
+import { createResolve } from "../resolve.js";
+
+const resolve = createResolve(import.meta.url);
+
 export default {
     presets: [
         [
-            require.resolve("@babel/preset-env", { paths: [__dirname] }),
+            resolve("@babel/preset-env"),
             {
                 targets: {
-                    node: "18"
+                    node: "20"
                 }
             }
         ],
-        require.resolve("@babel/preset-typescript", { paths: [__dirname] })
-    ],
-    plugins: [require.resolve("@babel/plugin-proposal-class-properties", { paths: [__dirname] })]
+        resolve("@babel/preset-typescript")
+    ]
 };

@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 interface LogIgnoredElasticsearchExceptionParams {
     error: WebinyError;

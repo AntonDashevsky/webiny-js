@@ -3,9 +3,9 @@ import {
     IWebsocketsAction,
     IWebsocketsManagerMessageEvent,
     IWebsocketsSubscription
-} from "~/domain/types";
+} from "~/domain/types.js";
 
-export * from "./domain/types";
+export * from "./domain/types.js";
 
 export interface IWebsocketsContextSendCallable {
     <T extends IGenericData = IGenericData>(action: string, data?: T, timeout?: number): void;

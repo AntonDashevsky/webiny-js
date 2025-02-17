@@ -1,5 +1,5 @@
-import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin";
-import { ElasticsearchBoolQueryConfig, ElasticsearchQueryBuilderArgsPlugin } from "~/types";
+import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin.js";
+import { ElasticsearchBoolQueryConfig, ElasticsearchQueryBuilderArgsPlugin } from "~/types.js";
 
 export class ElasticsearchQueryBuilderOperatorBetweenPlugin extends ElasticsearchQueryBuilderOperatorPlugin {
     public override name = "elasticsearch.queryBuilder.operator.between.default";

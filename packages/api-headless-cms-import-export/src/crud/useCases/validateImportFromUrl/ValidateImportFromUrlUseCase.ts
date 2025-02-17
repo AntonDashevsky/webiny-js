@@ -2,15 +2,15 @@ import type {
     IValidateImportFromUrlUseCase,
     IValidateImportFromUrlUseCaseExecuteParams,
     IValidateImportFromUrlUseCaseExecuteResult
-} from "./abstractions/ValidateImportFromUrlUseCase";
-import { CmsImportExportFileType } from "~/types";
-import type { ICmsImportExportFile } from "~/types";
-import type { NonEmptyArray } from "@webiny/api/types";
+} from "./abstractions/ValidateImportFromUrlUseCase.js";
+import { CmsImportExportFileType } from "~/types.js";
+import type { ICmsImportExportFile } from "~/types.js";
+import type { NonEmptyArray } from "@webiny/api/types.js";
 import { WebinyError } from "@webiny/error";
-import { getImportExportFileType } from "~/tasks/utils/helpers/getImportExportFileType";
-import { parseImportUrlData } from "~/crud/utils/parseImportUrlData";
-import type { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
-import { makeSureModelsAreIdentical } from "~/crud/utils/makeSureModelsAreIdentical";
+import { getImportExportFileType } from "~/tasks/utils/helpers/getImportExportFileType.js";
+import { parseImportUrlData } from "~/crud/utils/parseImportUrlData.js";
+import type { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import { makeSureModelsAreIdentical } from "~/crud/utils/makeSureModelsAreIdentical.js";
 
 export interface IValidateImportFromUrlUseCaseParams {
     getModel: HeadlessCms["getModel"];

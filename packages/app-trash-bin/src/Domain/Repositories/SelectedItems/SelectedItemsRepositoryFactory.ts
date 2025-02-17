@@ -1,4 +1,4 @@
-import { SelectedItemsRepository } from "./SelectedItemsRepository";
+import { SelectedItemsRepository } from "./SelectedItemsRepository.js";
 
 export class SelectedItemsRepositoryFactory {
     private cache: Map<string, SelectedItemsRepository> = new Map();

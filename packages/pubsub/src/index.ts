@@ -1,4 +1,4 @@
-import { Event, Subscriber, Topic } from "~/types";
+import { Event, Subscriber, Topic } from "~/types.js";
 
 export const createTopic = <TEvent extends Event = Event>(topicName?: string): Topic<TEvent> => {
     const subscribers: Subscriber<TEvent>[] = [];

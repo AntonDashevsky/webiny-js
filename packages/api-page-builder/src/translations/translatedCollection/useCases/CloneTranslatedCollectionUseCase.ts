@@ -1,6 +1,6 @@
-import { PbContext } from "~/graphql/types";
-import { GetTranslatedCollectionUseCase, SaveTranslatedCollectionUseCase } from "~/translations";
-import { TranslatedCollection } from "../domain/TranslatedCollection";
+import { PbContext } from "~/graphql/types.js";
+import { GetTranslatedCollectionUseCase, SaveTranslatedCollectionUseCase } from "~/translations/index.js";
+import { TranslatedCollection } from "../domain/TranslatedCollection.js";
 
 interface CloneTranslatableCollectionParams {
     sourceCollectionId: string;

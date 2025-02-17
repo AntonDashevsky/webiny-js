@@ -7,11 +7,11 @@ import {
     CmsMetaResponse,
     CmsModelField,
     CmsModel
-} from "~/types";
-import { createFieldsList } from "./createFieldsList";
-import { getModelTitleFieldId } from "./getModelTitleFieldId";
+} from "~/types/index.js";
+import { createFieldsList } from "./createFieldsList.js";
+import { getModelTitleFieldId } from "./getModelTitleFieldId.js";
 import { FormValidationOptions } from "@webiny/form";
-import { CMS_MODEL_SINGLETON_TAG } from "./constants";
+import { CMS_MODEL_SINGLETON_TAG } from "./constants.js";
 
 const CONTENT_META_FIELDS = /* GraphQL */ `
     title

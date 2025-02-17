@@ -1,6 +1,6 @@
-import type { PbEditorElement } from "~/types";
-import { useGetElement } from "~/editor";
-import { ElementInputBinding, useDocumentDataSource, useDynamicDocument } from "~/dataInjection";
+import type { PbEditorElement } from "~/types.js";
+import { useGetElement } from "~/editor/index.js";
+import { ElementInputBinding, useDocumentDataSource, useDynamicDocument } from "~/dataInjection/index.js";
 
 const getDataSourceFromBindings = async (
     getElement: (id: string) => Promise<PbEditorElement | null>,

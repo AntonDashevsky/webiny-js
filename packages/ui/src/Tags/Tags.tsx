@@ -2,11 +2,11 @@ import React, { SyntheticEvent, useCallback, useState } from "react";
 import { css } from "emotion";
 import keycode from "keycode";
 import minimatch from "minimatch";
-import { Input, InputProps } from "~/Input";
-import { Chips, Chip } from "~/Chips";
-import { FormComponentProps } from "~/types";
+import { Input, InputProps } from "~/Input/index.js";
+import { Chips, Chip } from "~/Chips/index.js";
+import { FormComponentProps } from "~/types.js";
 import { ReactComponent as BaselineCloseIcon } from "./icons/baseline-close-24px.svg";
-import { FormElementMessage } from "~/FormElementMessage";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 
 interface TagsProps extends FormComponentProps {
     /**

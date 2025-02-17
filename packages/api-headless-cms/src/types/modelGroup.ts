@@ -1,4 +1,4 @@
-import { CmsIdentity } from "./identity";
+import { CmsIdentity } from "./identity.js";
 
 /**
  * @category Database model

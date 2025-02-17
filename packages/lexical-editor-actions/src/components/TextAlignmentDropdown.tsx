@@ -1,7 +1,7 @@
 import React from "react";
 import { $isParentElementRTL } from "@lexical/selection";
 import { Divider, DropDown, DropDownItem, useTextAlignmentAction } from "@webiny/lexical-editor";
-import { useDeriveValueFromSelection } from "@webiny/lexical-editor/hooks/useCurrentSelection";
+import { useDeriveValueFromSelection } from "@webiny/lexical-editor/hooks/useCurrentSelection.js";
 
 export const TextAlignmentDropdown = () => {
     const { applyTextAlignment, outdentText, indentText } = useTextAlignmentAction();

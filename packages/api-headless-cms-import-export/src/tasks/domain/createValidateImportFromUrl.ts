@@ -1,8 +1,8 @@
-import { ValidateImportFromUrl } from "~/tasks/domain/validateImportFromUrl/ValidateImportFromUrl";
-import { ExternalFileFetcher } from "~/tasks/utils/externalFileFetcher";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
-import { FileFetcher } from "~/tasks/utils/fileFetcher";
+import { ValidateImportFromUrl } from "~/tasks/domain/validateImportFromUrl/ValidateImportFromUrl.js";
+import { ExternalFileFetcher } from "~/tasks/utils/externalFileFetcher/index.js";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import { FileFetcher } from "~/tasks/utils/fileFetcher/index.js";
 
 export const createValidateImportFromUrl = () => {
     const fileFetcher = new ExternalFileFetcher({

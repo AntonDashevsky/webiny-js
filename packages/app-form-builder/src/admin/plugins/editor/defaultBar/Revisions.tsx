@@ -1,19 +1,19 @@
 import React from "react";
 import { css } from "emotion";
 import { useRouter } from "@webiny/react-router";
-import { Menu, MenuItem } from "@webiny/ui/Menu";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { Icon } from "@webiny/ui/Icon";
-import { Typography } from "@webiny/ui/Typography";
+import { Menu, MenuItem } from "@webiny/ui/Menu/index.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { ReactComponent as DownButton } from "./icons/round-arrow_drop_down-24px.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useQuery } from "@apollo/react-hooks";
 import {
     GET_FORM_REVISIONS,
     GetFormRevisionsQueryResponse,
     GetFormRevisionsQueryVariables
-} from "~/admin/graphql";
-import { useFormEditor } from "~/admin/components/FormEditor";
+} from "~/admin/graphql.js";
+import { useFormEditor } from "~/admin/components/FormEditor/index.js";
 
 const t = i18n.namespace("FormEditor.RevisionsMenu");
 

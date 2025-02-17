@@ -1,4 +1,4 @@
-export { ActionEdit } from "./ActionEdit";
-export { ActionDelete } from "./ActionDelete";
-export { ActionMove } from "./ActionMove";
-export * from "./BulkActions";
+export { ActionEdit } from "./ActionEdit/index.js";
+export { ActionDelete } from "./ActionDelete.js";
+export { ActionMove } from "./ActionMove.js";
+export * from "./BulkActions.js";

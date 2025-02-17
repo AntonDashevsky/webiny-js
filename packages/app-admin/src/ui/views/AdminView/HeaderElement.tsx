@@ -1,13 +1,13 @@
 import React from "react";
-import { UIElement } from "~/ui/UIElement";
-import { TopAppBarPrimary, TopAppBarTitle } from "@webiny/ui/TopAppBar";
-import { GenericElement } from "~/ui/elements/GenericElement";
-import { PlaceholderElement } from "~/ui/elements/PlaceholderElement";
-import { HeaderSectionLeftElement } from "./HeaderSectionLeftElement";
-import { HeaderSectionCenterElement } from "./HeaderSectionCenterElement";
-import { HeaderSectionRightElement } from "./HeaderSectionRightElement";
-import Hamburger from "./components/Hamburger";
-import { UIRenderer, UIRenderParams } from "~/ui/UIRenderer";
+import { UIElement } from "~/ui/UIElement.js";
+import { TopAppBarPrimary, TopAppBarTitle } from "@webiny/ui/TopAppBar/index.js";
+import { GenericElement } from "~/ui/elements/GenericElement.js";
+import { PlaceholderElement } from "~/ui/elements/PlaceholderElement.js";
+import { HeaderSectionLeftElement } from "./HeaderSectionLeftElement.js";
+import { HeaderSectionCenterElement } from "./HeaderSectionCenterElement.js";
+import { HeaderSectionRightElement } from "./HeaderSectionRightElement.js";
+import Hamburger from "./components/Hamburger.js";
+import { UIRenderer, UIRenderParams } from "~/ui/UIRenderer.js";
 
 enum ElementID {
     MenuButton = "headerMenuButton",

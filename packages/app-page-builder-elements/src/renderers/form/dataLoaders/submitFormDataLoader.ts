@@ -1,5 +1,5 @@
-import { fetchData } from "./fetchData";
-import { CREATE_FORM_SUBMISSION } from "./graphql";
+import { fetchData } from "./fetchData.js";
+import { CREATE_FORM_SUBMISSION } from "./graphql.js";
 
 export interface CreateSubmitFormDataLoaderParams {
     apiUrl: string;

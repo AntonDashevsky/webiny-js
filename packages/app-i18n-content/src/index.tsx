@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
 import { Compose, LocaleSelector as LocaleSelectorSpec } from "@webiny/app-admin";
-import { LocaleSelector } from "./admin/LocaleSelector";
-import contentPermissions from "./admin/contentPermissions";
+import { LocaleSelector } from "./admin/LocaleSelector.js";
+import contentPermissions from "./admin/contentPermissions/index.js";
 
 const LocaleSelectorHOC = () => {
     return function LocaleSelectorHOC() {

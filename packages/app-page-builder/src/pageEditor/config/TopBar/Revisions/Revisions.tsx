@@ -1,13 +1,13 @@
 import React from "react";
 import { css } from "emotion";
 import { ReactComponent as DownButton } from "@material-design-icons/svg/round/arrow_drop_down.svg";
-import { Menu, MenuItem } from "@webiny/ui/Menu";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { Icon } from "@webiny/ui/Icon";
-import { Typography } from "@webiny/ui/Typography";
-import { useRevisions } from "~/pageEditor/hooks/useRevisions";
-import { RevisionItemAtomType } from "~/pageEditor/state";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
+import { Menu, MenuItem } from "@webiny/ui/Menu/index.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useRevisions } from "~/pageEditor/hooks/useRevisions.js";
+import { RevisionItemAtomType } from "~/pageEditor/state/index.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 
 const buttonStyle = css({
     "&.mdc-button": {

@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "emotion";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { PublishRevision, EditRevision, DeleteForm, RevisionSelector } from "./HeaderComponents";
-import { FbFormDetailsPluginRenderParams, FbRevisionModel } from "~/types";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { PublishRevision, EditRevision, DeleteForm, RevisionSelector } from "./HeaderComponents/index.js";
+import { FbFormDetailsPluginRenderParams, FbRevisionModel } from "~/types.js";
 
 const headerTitle = css({
     "&.mdc-layout-grid": {

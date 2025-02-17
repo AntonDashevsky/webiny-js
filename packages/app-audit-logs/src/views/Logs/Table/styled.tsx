@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { Text } from "~/components/Text";
-import { ActionType } from "~/types";
+import { Text } from "~/components/Text.js";
+import { ActionType } from "~/types.js";
 
 const ACTION_TYPES_COLORS_MAP = {
     YELLOW: [ActionType.UPDATE],

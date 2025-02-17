@@ -1,6 +1,6 @@
 import React from "react";
-import { Skeleton } from "@webiny/ui/Skeleton";
-import { Name } from "./styled";
+import { Skeleton } from "@webiny/ui/Skeleton/index.js";
+import { Name } from "./styled.js";
 
 interface TitleProps {
     title?: string;

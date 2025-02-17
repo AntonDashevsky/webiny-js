@@ -1,4 +1,4 @@
-import type { IPulumi, IUserCommandInput, ProjectApplication } from "~/types";
+import type { IPulumi, IUserCommandInput, ProjectApplication } from "~/types.js";
 import { getStackName, getStackOutput, login } from "~/utils/index.js";
 import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
 

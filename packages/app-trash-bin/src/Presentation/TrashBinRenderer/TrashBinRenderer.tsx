@@ -1,9 +1,9 @@
 import React from "react";
 import { useAcoConfig } from "@webiny/app-aco";
 import { Sorting } from "@webiny/app-utils";
-import { TrashBinItemDTO } from "~/Domain";
-import { TrashBinProps } from "~/Presentation";
-import { TrashBin } from "../TrashBin";
+import { TrashBinItemDTO } from "~/Domain/index.js";
+import { TrashBinProps } from "~/Presentation/index.js";
+import { TrashBin } from "../TrashBin/index.js";
 
 export type TrashBinRendererProps = Omit<TrashBinProps, "render"> & {
     onClose: () => void;

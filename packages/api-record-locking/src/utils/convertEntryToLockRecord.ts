@@ -1,4 +1,4 @@
-import { CmsEntry, IRecordLockingIdentity } from "~/types";
+import { CmsEntry, IRecordLockingIdentity } from "~/types.js";
 import {
     IRecordLockingLockRecord,
     IRecordLockingLockRecordAction,
@@ -9,9 +9,9 @@ import {
     IRecordLockingLockRecordObject,
     IRecordLockingLockRecordRequestedAction,
     IRecordLockingLockRecordValues
-} from "~/types";
-import { removeLockRecordDatabasePrefix } from "~/utils/lockRecordDatabaseId";
-import { calculateExpiresOn } from "~/utils/calculateExpiresOn";
+} from "~/types.js";
+import { removeLockRecordDatabasePrefix } from "~/utils/lockRecordDatabaseId.js";
+import { calculateExpiresOn } from "~/utils/calculateExpiresOn.js";
 
 export const convertEntryToLockRecord = (
     entry: CmsEntry<IRecordLockingLockRecordValues>

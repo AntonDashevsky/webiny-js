@@ -1,5 +1,5 @@
-import { IHeadlessCmsLockRecordParams } from "./convertEntryToLockRecord";
-import { getTimeout } from "./getTimeout";
+import { IHeadlessCmsLockRecordParams } from "./convertEntryToLockRecord.js";
+import { getTimeout } from "./getTimeout.js";
 
 export const calculateExpiresOn = (input: Pick<IHeadlessCmsLockRecordParams, "savedOn">): Date => {
     const timeout = getTimeout();

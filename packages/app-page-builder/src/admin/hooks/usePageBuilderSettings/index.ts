@@ -1,1 +1,1 @@
-export * from "./usePageBuilderSettings";
+export * from "./usePageBuilderSettings.js";

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { ContentReviewStatus } from "./ContentReviewStatus";
-import { BackButton } from "./BackButton";
-import { Divider } from "./Divider";
-import { Name } from "./Name";
+import { ContentReviewStatus } from "./ContentReviewStatus.js";
+import { BackButton } from "./BackButton.js";
+import { Divider } from "./Divider.js";
+import { Name } from "./Name.js";
 import { plugins } from "@webiny/plugins";
 
 const defaultBaPlugins = [

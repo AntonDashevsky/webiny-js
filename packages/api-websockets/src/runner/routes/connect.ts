@@ -1,5 +1,5 @@
-import { WebsocketsEventRoute } from "~/handler/types";
-import { createWebsocketsRoutePlugin } from "~/plugins/WebsocketsRoutePlugin";
+import { WebsocketsEventRoute } from "~/handler/types.js";
+import { createWebsocketsRoutePlugin } from "~/plugins/WebsocketsRoutePlugin.js";
 
 const getConnectedOn = (connectedAt?: number) => {
     if (!connectedAt) {

@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from "react";
 import { css } from "emotion";
 import { plugins } from "@webiny/plugins";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { Typography } from "@webiny/ui/Typography";
-import { PbBlockVariable, PbEditorPageElementVariableRendererPlugin } from "~/types";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { PbBlockVariable, PbEditorPageElementVariableRendererPlugin } from "~/types.js";
 
 const wrapperStyle = css({
     padding: "16px",

@@ -4,14 +4,14 @@ import {
     IRecordLockingListLockRecords,
     IRecordLockingListLockRecordsParams,
     IRecordLockingListLockRecordsResult
-} from "./abstractions/IRecordLockingListLockRecords";
-import { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
-import { createRecordLockingClient } from "./utils/createRecordLockingClient";
+} from "./abstractions/IRecordLockingListLockRecords.js";
+import { IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
+import { createRecordLockingClient } from "./utils/createRecordLockingClient.js";
 import {
     IRecordLockingListLockedRecordsResponse,
     IRecordLockingListLockedRecordsVariables,
     LIST_LOCK_RECORDS
-} from "~/domain/graphql/listLockRecords";
+} from "~/domain/graphql/listLockRecords.js";
 
 interface Params {
     client: IRecordLockingClient | ApolloClient<any>;

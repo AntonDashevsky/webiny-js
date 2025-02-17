@@ -1,7 +1,7 @@
-import { PbContext } from "~/types";
-import { GetModel } from "~/translations/GetModel";
-import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection";
-import { TranslatableCollectionMapper } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionMapper";
+import { PbContext } from "~/types.js";
+import { GetModel } from "~/translations/GetModel.js";
+import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
+import { TranslatableCollectionMapper } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionMapper.js";
 import { WebinyError } from "@webiny/error";
 import { createIdentifier } from "@webiny/utils";
 

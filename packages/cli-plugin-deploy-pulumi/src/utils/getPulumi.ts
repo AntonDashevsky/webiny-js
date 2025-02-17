@@ -4,17 +4,16 @@ import ora from "ora";
 import merge from "lodash/merge.js";
 import path from "path";
 import fs from "fs";
-import type { ProjectApplication } from "@webiny/cli/types";
+import type { ProjectApplication } from "@webiny/cli/types.js";
 
 const { green, red } = chalk;
 
 export interface IGetPulumiParams {
     projectApplication?: Pick<ProjectApplication, "paths">;
-    pulumi?: unknown;
-    install?: boolean;
+    onInstall?: () => void;
 }
 
-export const getPulumi = async ({ projectApplication, pulumi, install }: IGetPulumiParams = {}) => {
+export const getPulumi = async ({ projectApplication, onInstall }: IGetPulumiParams = {}) => {
     const spinner = ora();
 
     let cwd;
@@ -39,7 +38,7 @@ export const getPulumi = async ({ projectApplication, pulumi, install }: IGetPul
         }
     }
 
-    const instance = new Pulumi(
+    return await Pulumi.create(
         merge(
             {
                 pulumiFolder: path.join(project.root, ".webiny"),
@@ -56,17 +55,13 @@ export const getPulumi = async ({ projectApplication, pulumi, install }: IGetPul
                         symbol: green("✔"),
                         text: `Pulumi downloaded, continuing...`
                     });
+
+                    if (typeof onInstall === "function") {
+                        onInstall();
+                    }
                 }
             },
-            { execa: { cwd } },
-            pulumi
+            { execa: { cwd } }
         )
     );
-
-    // Run install method, just in case Pulumi wasn't installed yet.
-    if (install !== false) {
-        await instance.install();
-    }
-
-    return instance;
 };

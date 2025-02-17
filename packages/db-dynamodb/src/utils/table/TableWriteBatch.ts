@@ -1,14 +1,14 @@
-import type { Entity, TableDef } from "~/toolbox";
+import type { Entity, TableDef } from "~/toolbox.js";
 import type {
     BatchWriteItem,
     BatchWriteResult,
     IDeleteBatchItem,
     IPutBatchItem
-} from "~/utils/batch/types";
-import type { IEntityWriteBatchBuilder } from "~/utils/entity/types";
-import { batchWriteAll } from "~/utils/batch/batchWrite";
-import { createEntityWriteBatchBuilder } from "~/utils/entity/EntityWriteBatchBuilder";
-import type { ITableWriteBatch } from "./types";
+} from "~/utils/batch/types.js";
+import type { IEntityWriteBatchBuilder } from "~/utils/entity/types.js";
+import { batchWriteAll } from "~/utils/batch/batchWrite.js";
+import { createEntityWriteBatchBuilder } from "~/utils/entity/EntityWriteBatchBuilder.js";
+import type { ITableWriteBatch } from "./types.js";
 
 export interface ITableWriteBatchParams {
     table: TableDef;

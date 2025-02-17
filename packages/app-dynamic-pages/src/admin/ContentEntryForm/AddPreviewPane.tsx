@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import styled from "@emotion/styled";
 import { useModel } from "@webiny/app-headless-cms";
 import { ContentEntryEditorConfig } from "@webiny/app-headless-cms";
-import { useListPageTemplates } from "@webiny/app-page-builder/features";
-import { PreviewPane } from "~/admin/ContentEntryForm/PreviewPane";
+import { useListPageTemplates } from "@webiny/app-page-builder/features/index.js";
+import { PreviewPane } from "~/admin/ContentEntryForm/PreviewPane.js";
 
 const { ContentEntry } = ContentEntryEditorConfig;
 

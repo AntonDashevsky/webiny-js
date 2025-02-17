@@ -1,8 +1,8 @@
 import React from "react";
-import { Input } from "@webiny/ui/Input";
-import trim from "lodash/trim";
+import { Input } from "@webiny/ui/Input/index.js";
+import trim from "lodash/trim.js";
 import { BindComponentRenderPropValidation, Form } from "@webiny/form";
-import { FieldOption } from "~/admin/plugins/editor/formFields/components/types";
+import { FieldOption } from "~/admin/plugins/editor/formFields/components/types.js";
 
 interface AddOptionInputProps {
     onAdd: (value: string) => void;

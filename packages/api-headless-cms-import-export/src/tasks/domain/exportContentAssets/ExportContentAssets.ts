@@ -1,32 +1,32 @@
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 import type {
     IExportContentAssets,
     IExportContentAssetsInput,
     IExportContentAssetsOutput
-} from "~/tasks/domain/abstractions/ExportContentAssets";
+} from "~/tasks/domain/abstractions/ExportContentAssets.js";
 import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import type { ICmsEntryFetcher } from "~/tasks/utils/cmsEntryFetcher";
-import { createCmsEntryFetcher } from "~/tasks/utils/cmsEntryFetcher";
-import type { IEntryAssets, IEntryAssetsResolver } from "~/tasks/utils/entryAssets";
-import { EntryAssets, EntryAssetsResolver } from "~/tasks/utils/entryAssets";
+import type { ICmsEntryFetcher } from "~/tasks/utils/cmsEntryFetcher/index.js";
+import { createCmsEntryFetcher } from "~/tasks/utils/cmsEntryFetcher/index.js";
+import type { IEntryAssets, IEntryAssetsResolver } from "~/tasks/utils/entryAssets/index.js";
+import { EntryAssets, EntryAssetsResolver } from "~/tasks/utils/entryAssets/index.js";
 import type {
     ICmsAssetsZipper,
     ICmsAssetsZipperExecuteResult
-} from "~/tasks/utils/cmsAssetsZipper";
+} from "~/tasks/utils/cmsAssetsZipper/index.js";
 import {
     CmsAssetsZipperExecuteContinueResult,
     CmsAssetsZipperExecuteContinueWithoutResult,
     CmsAssetsZipperExecuteDoneResult,
     CmsAssetsZipperExecuteDoneWithoutResult
-} from "~/tasks/utils/cmsAssetsZipper";
-import type { IFileFetcher } from "~/tasks/utils/fileFetcher";
-import { FileFetcher } from "~/tasks/utils/fileFetcher";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
-import { getErrorProperties } from "@webiny/tasks/utils";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client";
-import { UniqueResolver } from "~/tasks/utils/uniqueResolver/UniqueResolver";
-import { WEBINY_EXPORT_ASSETS_EXTENSION } from "~/tasks/constants";
+} from "~/tasks/utils/cmsAssetsZipper/index.js";
+import type { IFileFetcher } from "~/tasks/utils/fileFetcher/index.js";
+import { FileFetcher } from "~/tasks/utils/fileFetcher/index.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { getErrorProperties } from "@webiny/tasks/utils/index.js";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
+import { UniqueResolver } from "~/tasks/utils/uniqueResolver/UniqueResolver.js";
+import { WEBINY_EXPORT_ASSETS_EXTENSION } from "~/tasks/constants.js";
 
 export interface ICreateCmsAssetsZipperCallableConfig {
     filename: string;

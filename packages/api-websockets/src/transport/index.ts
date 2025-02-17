@@ -1,2 +1,2 @@
-export * from "./WebsocketsTransport";
-export * from "./abstractions/IWebsocketsTransport";
+export * from "./WebsocketsTransport.js";
+export * from "./abstractions/IWebsocketsTransport.js";

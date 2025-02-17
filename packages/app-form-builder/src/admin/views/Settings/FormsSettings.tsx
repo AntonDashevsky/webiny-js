@@ -1,25 +1,25 @@
 import React from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { Input } from "@webiny/ui/Input";
-import { Switch } from "@webiny/ui/Switch";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import { useSnackbar, CenteredView } from "@webiny/app-admin";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import graphql, {
     GetFormSettingsQueryResponse,
     UpdateFormSettingsMutationResponse,
     UpdateFormSettingsMutationVariables
-} from "./graphql";
+} from "./graphql.js";
 
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { FbSettings } from "~/types";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { FbSettings } from "~/types.js";
 
 const FormsSettings = () => {
     const { showSnackbar } = useSnackbar();

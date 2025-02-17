@@ -1,8 +1,8 @@
 import React from "react";
-import { MultiAutoComplete } from "@webiny/ui/AutoComplete";
+import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
 import { useBind } from "@webiny/form";
-import { useFileManagerApi, useFileManagerView } from "~/index";
-import { useFileOrUndefined } from "./useFileOrUndefined";
+import { useFileManagerApi, useFileManagerView } from "~/index.js";
+import { useFileOrUndefined } from "./useFileOrUndefined.js";
 
 export const Tags = () => {
     const { file } = useFileOrUndefined();

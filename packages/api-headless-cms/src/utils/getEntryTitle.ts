@@ -1,4 +1,4 @@
-import { CmsEntry, CmsModel } from "~/types";
+import { CmsEntry, CmsModel } from "~/types/index.js";
 
 export function getEntryTitle(
     model: Pick<CmsModel, "titleFieldId" | "fields">,

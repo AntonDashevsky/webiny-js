@@ -2,13 +2,13 @@ import type {
     IValidateImportFromUrl,
     IValidateImportFromUrlInput,
     IValidateImportFromUrlOutput
-} from "~/tasks/domain/abstractions/ValidateImportFromUrl";
-import type { IExternalFileFetcher } from "~/tasks/utils/externalFileFetcher";
+} from "~/tasks/domain/abstractions/ValidateImportFromUrl.js";
+import type { IExternalFileFetcher } from "~/tasks/utils/externalFileFetcher/index.js";
 import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import type { Context, ICmsImportExportValidatedFile } from "~/types";
-import { getImportExportFileType } from "~/tasks/utils/helpers/getImportExportFileType";
-import type { NonEmptyArray } from "@webiny/api/types";
-import { prependImportPath } from "~/tasks/utils/helpers/importPath";
+import type { Context, ICmsImportExportValidatedFile } from "~/types.js";
+import { getImportExportFileType } from "~/tasks/utils/helpers/getImportExportFileType.js";
+import type { NonEmptyArray } from "@webiny/api/types.js";
+import { prependImportPath } from "~/tasks/utils/helpers/importPath.js";
 
 export interface IFileExists {
     (key: string): Promise<boolean>;

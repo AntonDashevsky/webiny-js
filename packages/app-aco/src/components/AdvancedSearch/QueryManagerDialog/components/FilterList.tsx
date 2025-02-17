@@ -3,14 +3,14 @@ import React from "react";
 import { ReactComponent as SavedSearchIcon } from "@material-design-icons/svg/outlined/saved_search.svg";
 import { ReactComponent as MoreIcon } from "@material-design-icons/svg/outlined/more_vert.svg";
 
-import { IconButton } from "@webiny/ui/Button";
-import { List, ListItem, ListItemMeta, ListItemText, ListItemTextPrimary } from "@webiny/ui/List";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { Menu, MenuItem } from "@webiny/ui/Menu";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { List, ListItem, ListItemMeta, ListItemText, ListItemTextPrimary } from "@webiny/ui/List/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { Menu, MenuItem } from "@webiny/ui/Menu/index.js";
 
-import { ListActions } from "../QueryManagerDialog.styled";
-import { QueryManagerFilter } from "../QueryManagerDialog";
-import { Description } from "~/components/AdvancedSearch/QueryManagerDialog/components/Description";
+import { ListActions } from "../QueryManagerDialog.styled.js";
+import { QueryManagerFilter } from "../QueryManagerDialog.js";
+import { Description } from "~/components/AdvancedSearch/QueryManagerDialog/components/Description.js";
 
 type filterCallback = (filterId: string) => void;
 

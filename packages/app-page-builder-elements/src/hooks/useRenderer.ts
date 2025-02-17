@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { RendererContext } from "~/contexts/Renderer";
+import { RendererContext } from "~/contexts/Renderer.js";
 
 export function useRenderer() {
     const context = useContext(RendererContext);

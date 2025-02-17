@@ -1,1 +1,1 @@
-export { withActiveElement } from "./withActiveElement";
+export { withActiveElement } from "./withActiveElement.js";

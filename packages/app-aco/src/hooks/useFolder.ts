@@ -1,5 +1,5 @@
 import React from "react";
-import { FolderContext } from "~/contexts/folder";
+import { FolderContext } from "~/contexts/folder.js";
 
 export const useFolder = () => {
     const context = React.useContext(FolderContext);

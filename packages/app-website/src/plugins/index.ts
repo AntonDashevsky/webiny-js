@@ -1,1 +1,1 @@
-export * from "./PbRenderElementPlugin";
+export * from "./PbRenderElementPlugin.js";

@@ -1,9 +1,9 @@
-import { createBaseGraphQL } from "./graphql/base";
-import { createLocalesGraphQL } from "./graphql/locales";
-import { createInstallationGraphQL } from "./graphql/installation";
-import { createI18NBaseContext } from "./context";
-import localeContexts from "./localeContexts";
-import { ContextI18NGetLocales } from "~/types";
+import { createBaseGraphQL } from "./graphql/base.js";
+import { createLocalesGraphQL } from "./graphql/locales.js";
+import { createInstallationGraphQL } from "./graphql/installation.js";
+import { createI18NBaseContext } from "./context.js";
+import localeContexts from "./localeContexts.js";
+import { ContextI18NGetLocales } from "~/types.js";
 
 const getLocalesPlugin: ContextI18NGetLocales = {
     name: "context-i18n-get-locales",

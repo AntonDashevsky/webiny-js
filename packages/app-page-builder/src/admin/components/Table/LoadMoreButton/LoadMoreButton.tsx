@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react";
 
-import { i18n } from "@webiny/app/i18n";
-import { ButtonPrimary } from "@webiny/ui/Button";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 
-import { Container } from "./styled";
+import { Container } from "./styled.js";
 
 const t = i18n.ns("app-headless-cms/app-page-builder/pages-table/load-more-button");
 

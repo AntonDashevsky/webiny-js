@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as Copy } from "@material-design-icons/svg/outlined/content_copy.svg";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { useCopyFile } from "~/hooks/useCopyFile";
-import { useFile } from "~/hooks/useFile";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { useCopyFile } from "~/hooks/useCopyFile.js";
+import { useFile } from "~/hooks/useFile.js";
 
 export const CopyFile = () => {
     const { file } = useFile();

@@ -1,10 +1,10 @@
-import { IMPORT_FROM_URL_DOWNLOAD_TASK } from "~/tasks/constants";
+import { IMPORT_FROM_URL_DOWNLOAD_TASK } from "~/tasks/constants.js";
 import { createTaskDefinition } from "@webiny/tasks";
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 import type {
     IImportFromUrlDownloadInput,
     IImportFromUrlDownloadOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlDownload";
+} from "~/tasks/domain/abstractions/ImportFromUrlDownload.js";
 
 export const createImportFromUrlDownloadTask = () => {
     return createTaskDefinition<Context, IImportFromUrlDownloadInput, IImportFromUrlDownloadOutput>(
@@ -16,7 +16,7 @@ export const createImportFromUrlDownloadTask = () => {
             description: "Downloads the files from external URL.",
             async run(params) {
                 const { ImportFromUrlDownload } = await import(
-                    /* webpackChunkName: "ImportFromUrlDownload" */ "./domain/ImportFromUrlDownload"
+                    /* webpackChunkName: "ImportFromUrlDownload" */ "./domain/ImportFromUrlDownload.js"
                 );
 
                 try {

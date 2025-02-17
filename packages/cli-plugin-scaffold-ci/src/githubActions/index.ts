@@ -1,8 +1,8 @@
-import { CliPluginsScaffoldCi } from "~/types";
+import { CliPluginsScaffoldCi } from "~/types.js";
 import { Octokit } from "octokit";
 import chalk from "chalk";
-import commitWorkflows from "~/githubActions/commitWorkflows";
-import fetchAllRepositories from "~/githubActions/fetchAllRepositories";
+import commitWorkflows from "~/githubActions/commitWorkflows.js";
+import fetchAllRepositories from "~/githubActions/fetchAllRepositories.js";
 import validateNpmPackageName from "validate-npm-package-name";
 import open from "open";
 import { validation } from "@webiny/validation";

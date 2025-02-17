@@ -1,5 +1,5 @@
 import React from "react";
-import { Element } from "~/types";
+import { Element } from "~/types.js";
 import { makeDecoratable } from "@webiny/react-composition";
 
 interface BlockProviderProps {

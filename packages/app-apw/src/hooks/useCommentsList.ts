@@ -4,9 +4,9 @@ import {
     LIST_COMMENTS_QUERY,
     ListCommentsQueryResponse,
     ListCommentsQueryVariables
-} from "~/graphql/comment.gql";
-import { ApwComment } from "~/types";
-import { useCurrentChangeRequestId } from "~/hooks/useCurrentChangeRequestId";
+} from "~/graphql/comment.gql.js";
+import { ApwComment } from "~/types.js";
+import { useCurrentChangeRequestId } from "~/hooks/useCurrentChangeRequestId.js";
 
 interface UseCommentsListResult {
     loading: boolean;

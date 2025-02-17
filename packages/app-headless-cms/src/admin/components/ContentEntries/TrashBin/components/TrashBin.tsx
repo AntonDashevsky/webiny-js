@@ -1,5 +1,5 @@
 import React, { useMemo, useCallback } from "react";
-import { useApolloClient, useModel, usePermission } from "~/admin/hooks";
+import { useApolloClient, useModel, usePermission } from "~/admin/hooks/index.js";
 import { TrashBin as BaseTrashBin } from "@webiny/app-trash-bin";
 import {
     TrashBinBulkActionsGraphQLGateway,
@@ -8,9 +8,9 @@ import {
     TrashBinListGraphQLGateway,
     TrashBinRestoreItemGraphQLGateway,
     TrashBinRestoreItemGraphQLGatewayWithCallback
-} from "../adapters";
+} from "../adapters/index.js";
 
-import { TrashBinButton } from "./TrashBinButton";
+import { TrashBinButton } from "./TrashBinButton.js";
 import { useNavigateFolder, useRecords } from "@webiny/app-aco";
 
 export const TrashBin = () => {

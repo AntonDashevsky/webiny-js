@@ -1,11 +1,11 @@
 import React, { useMemo, useEffect } from "react";
-import { useIconPickerConfig } from "./config";
-import { iconRepositoryFactory } from "./IconRepositoryFactory";
-import { IconPickerPresenter } from "./IconPickerPresenter";
-import { IconPickerComponent, IconPickerProps } from "./IconPickerComponent";
-import { IconProvider, IconRenderer } from "./IconRenderer";
-import { IconPickerTab } from "./IconPickerTab";
-import { Icon } from "./types";
+import { useIconPickerConfig } from "./config/index.js";
+import { iconRepositoryFactory } from "./IconRepositoryFactory.js";
+import { IconPickerPresenter } from "./IconPickerPresenter.js";
+import { IconPickerComponent, IconPickerProps } from "./IconPickerComponent.js";
+import { IconProvider, IconRenderer } from "./IconRenderer.js";
+import { IconPickerTab } from "./IconPickerTab.js";
+import { Icon } from "./types.js";
 
 const IconPicker = (props: IconPickerProps) => {
     const { iconTypes, iconPackProviders } = useIconPickerConfig();

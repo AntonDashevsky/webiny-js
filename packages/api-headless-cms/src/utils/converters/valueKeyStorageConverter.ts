@@ -3,8 +3,8 @@ import {
     CmsModelConverterCallable,
     ConverterCollection,
     ConverterCollectionConvertParams as BaseConverterCollectionConvertParams
-} from "~/utils/converters/ConverterCollection";
-import { CmsModel, StorageOperationsCmsModel } from "~/types";
+} from "~/utils/converters/ConverterCollection.js";
+import { CmsModel, StorageOperationsCmsModel } from "~/types/index.js";
 import semver, { SemVer } from "semver";
 
 const featureVersion = semver.coerce("5.33.0") as SemVer;

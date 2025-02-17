@@ -1,9 +1,9 @@
 import dotProp from "dot-prop";
 import WebinyError from "@webiny/error";
 import { Plugin, PluginsContainer } from "@webiny/plugins";
-import { ValueFilterPlugin } from "~/plugins/definitions/ValueFilterPlugin";
-import { FieldPlugin } from "~/plugins/definitions/FieldPlugin";
-import { DynamoDbContainsFilter } from "~/types";
+import { ValueFilterPlugin } from "~/plugins/definitions/ValueFilterPlugin.js";
+import { FieldPlugin } from "~/plugins/definitions/FieldPlugin.js";
+import { DynamoDbContainsFilter } from "~/types.js";
 
 type TransformValue = (value: any) => any;
 

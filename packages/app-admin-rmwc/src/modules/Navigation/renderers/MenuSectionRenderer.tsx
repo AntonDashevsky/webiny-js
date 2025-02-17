@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { css } from "emotion";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { MenuItems, useMenuItem } from "@webiny/app-admin";
 
 const menuSectionTitle = css({

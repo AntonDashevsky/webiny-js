@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useSecurity } from "~/hooks/useSecurity";
+import { useSecurity } from "~/hooks/useSecurity.js";
 
 interface HasPermissionProps {
     any?: string[];

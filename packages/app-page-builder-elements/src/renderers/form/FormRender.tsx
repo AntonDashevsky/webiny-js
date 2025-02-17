@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { createReCaptchaComponent, createTermsOfServiceComponent } from "./FormRender/components";
+import { createReCaptchaComponent, createTermsOfServiceComponent } from "./FormRender/components/index.js";
 import {
     createFormSubmission,
     handleFormTriggers,
     reCaptchaEnabled,
     termsOfServiceEnabled,
     onFormMounted
-} from "./FormRender/functions";
+} from "./FormRender/functions/index.js";
 
 import {
     FormLayoutComponent as FormLayoutComponentType,
@@ -21,7 +21,7 @@ import {
     FormSubmissionFieldValues,
     CreateFormParamsFormLayoutComponent,
     CreateFormParamsValidator
-} from "./types";
+} from "./types.js";
 
 interface FieldValidator {
     (value: string): Promise<boolean>;

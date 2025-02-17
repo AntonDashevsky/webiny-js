@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo } from "react";
-import type { CmsErrorResponse, CmsModel } from "~/types";
-import { Input } from "@webiny/ui/Input";
+import type { CmsErrorResponse, CmsModel } from "~/types.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import { css } from "emotion";
-import { createValidationValue } from "./validationValue";
+import { createValidationValue } from "./validationValue.js";
 
 const errorClassName = css({
     color: "red",

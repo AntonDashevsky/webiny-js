@@ -1,4 +1,4 @@
-import { LOGIN_ST } from "./graphql";
+import { LOGIN_ST } from "./graphql.js";
 import { DocumentNode } from "graphql";
 import { ApolloClient } from "apollo-client";
 

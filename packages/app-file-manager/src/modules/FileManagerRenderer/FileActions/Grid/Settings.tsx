@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/filled/settings.svg";
-import { FileManagerViewConfig, useFile, useFileManagerView } from "~/index";
+import { FileManagerViewConfig, useFile, useFileManagerView } from "~/index.js";
 
 const { Browser } = FileManagerViewConfig;
 

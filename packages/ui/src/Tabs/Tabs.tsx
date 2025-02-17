@@ -1,7 +1,7 @@
 import React, { createContext, useMemo, useState } from "react";
 import classNames from "classnames";
 import { TabBar, Tab as RmwcTab } from "@rmwc/tabs";
-import { TabProps } from "./Tab";
+import { TabProps } from "./Tab.js";
 
 export interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
     /**

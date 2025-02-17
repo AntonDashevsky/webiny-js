@@ -1,10 +1,10 @@
 import React from "react";
-import { EditorConfig } from "~/editor";
-import { InjectDynamicValues } from "./InjectDynamicValues";
-import { AddBindingContext, DataSourceProvider, useDynamicDocument } from "~/dataInjection";
-import { DataSourceConfigAndBindings } from "./DataSourceConfigAndBindings";
-import { ElementInputs } from "~/dataInjection/editor/DataSourceProperties/ElementInputs";
-import { DeveloperUtilities } from "./DeveloperUtilities";
+import { EditorConfig } from "~/editor/index.js";
+import { InjectDynamicValues } from "./InjectDynamicValues.js";
+import { AddBindingContext, DataSourceProvider, useDynamicDocument } from "~/dataInjection/index.js";
+import { DataSourceConfigAndBindings } from "./DataSourceConfigAndBindings.js";
+import { ElementInputs } from "~/dataInjection/editor/DataSourceProperties/ElementInputs.js";
+import { DeveloperUtilities } from "./DeveloperUtilities.js";
 
 const { Ui } = EditorConfig;
 

@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from "react";
 import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outlined/settings.svg";
 import { Column } from "@tanstack/react-table";
-import { IconButton } from "~/Button";
-import { Checkbox } from "~/Checkbox";
-import { Menu, MenuDivider } from "~/Menu";
-import { ColumnsVisibilityMenuHeader, ColumnsVisibilityMenuItem } from "~/DataTable/styled";
+import { IconButton } from "~/Button/index.js";
+import { Checkbox } from "~/Checkbox/index.js";
+import { Menu, MenuDivider } from "~/Menu/index.js";
+import { ColumnsVisibilityMenuHeader, ColumnsVisibilityMenuItem } from "~/DataTable/styled.js";
 
 interface ColumnsVisibilityProps<T> {
     columns: Column<T>[];

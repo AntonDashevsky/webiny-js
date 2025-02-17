@@ -1,8 +1,8 @@
-import useCms from "./useCms";
+import useCms from "./useCms.js";
 import { useMutation as apolloUseMutation } from "@apollo/react-hooks";
 import { DocumentNode } from "graphql";
 import { OperationVariables } from "@apollo/react-common";
-import { MutationHookOptions, MutationTuple } from "@apollo/react-hooks/lib/types";
+import { MutationHookOptions, MutationTuple } from "@apollo/react-hooks/lib/types.js";
 
 const useMutation = function <TData = any, TVariables = OperationVariables>(
     mutation: DocumentNode,

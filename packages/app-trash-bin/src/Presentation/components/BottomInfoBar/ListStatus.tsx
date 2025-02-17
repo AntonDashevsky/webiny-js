@@ -1,6 +1,6 @@
 import React from "react";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { CircularProgressHolder, StatusWrapper, UploadingLabel } from "./BottomInfoBar.styled";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { CircularProgressHolder, StatusWrapper, UploadingLabel } from "./BottomInfoBar.styled.js";
 
 export interface ListStatusProps {
     loading: boolean;

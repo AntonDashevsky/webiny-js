@@ -1,5 +1,5 @@
-import findIndex from "lodash/findIndex";
-import each from "lodash/each";
+import findIndex from "lodash/findIndex.js";
+import each from "lodash/each.js";
 /**
  * Recursively search for an object with given ID in the given source array.
  *

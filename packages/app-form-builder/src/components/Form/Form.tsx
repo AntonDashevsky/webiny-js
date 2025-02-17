@@ -1,7 +1,7 @@
 import React from "react";
-import FormLoad from "./FormLoad";
-import FormRender from "./FormRender";
-import { FormComponentPropsType } from "~/types";
+import FormLoad from "./FormLoad.js";
+import FormRender from "./FormRender.js";
+import { FormComponentPropsType } from "~/types.js";
 
 const Form = (props: FormComponentPropsType) => {
     if (props.data) {

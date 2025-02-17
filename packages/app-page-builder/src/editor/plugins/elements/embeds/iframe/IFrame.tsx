@@ -1,8 +1,8 @@
 import React from "react";
-import { PbEditorElement } from "~/types";
-import PeIframe from "./PeIFrame";
+import { PbEditorElement } from "~/types.js";
+import PeIframe from "./PeIFrame.js";
 
-import { Element } from "@webiny/app-page-builder-elements/types";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
 
 interface IframeProps {
     element: PbEditorElement;

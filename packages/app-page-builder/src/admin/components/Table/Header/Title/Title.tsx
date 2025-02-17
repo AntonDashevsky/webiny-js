@@ -1,8 +1,8 @@
 import React, { ReactElement } from "react";
 
-import { Skeleton } from "@webiny/ui/Skeleton";
+import { Skeleton } from "@webiny/ui/Skeleton/index.js";
 
-import { Name } from "./styled";
+import { Name } from "./styled.js";
 
 export interface TitleProps {
     title?: string;

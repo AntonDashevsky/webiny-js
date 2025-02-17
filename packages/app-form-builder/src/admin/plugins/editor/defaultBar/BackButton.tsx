@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as BackIcon } from "./icons/round-arrow_back-24px.svg";
 import styled from "@emotion/styled";
 import { useRouter } from "@webiny/react-router";

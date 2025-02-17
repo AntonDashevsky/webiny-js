@@ -1,6 +1,6 @@
 import dotPropImmutable from "dot-prop-immutable";
 import { useQuery, useMutation, MutationTuple } from "@apollo/react-hooks";
-import cloneDeep from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep.js";
 import {
     CREATE_CHANGE_REQUEST_MUTATION,
     GET_CHANGE_REQUEST_QUERY,
@@ -15,12 +15,12 @@ import {
     UpdateChangeRequestMutationVariables,
     DeleteChangeRequestMutationResponse,
     DeleteChangeRequestMutationVariables
-} from "~/graphql/changeRequest.gql";
+} from "~/graphql/changeRequest.gql.js";
 import { useSnackbar } from "@webiny/app-admin";
 import { useNavigate } from "@webiny/react-router";
-import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId";
-import { ApwChangeRequest } from "~/types";
-import { GET_CONTENT_REVIEW_QUERY } from "~/graphql/contentReview.gql";
+import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId.js";
+import { ApwChangeRequest } from "~/types.js";
+import { GET_CONTENT_REVIEW_QUERY } from "~/graphql/contentReview.gql.js";
 
 interface UseChangeRequestParams {
     id: string | null;

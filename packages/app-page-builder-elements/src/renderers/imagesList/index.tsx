@@ -2,9 +2,9 @@ import React from "react";
 import {
     ImagesListComponent as RenderImagesListComponent,
     Image
-} from "~/renderers/imagesList/types";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
+} from "~/renderers/imagesList/types.js";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
 
 export interface ImagesListComponent {
     id: string;

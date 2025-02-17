@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 export const FolderContainer = styled("div")`
     display: flex;

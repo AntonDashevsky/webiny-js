@@ -1,4 +1,4 @@
-import { ElasticsearchIndexPlugin } from "~/plugins/definition/ElasticsearchIndexPlugin";
+import { ElasticsearchIndexPlugin } from "~/plugins/definition/ElasticsearchIndexPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 import WebinyError from "@webiny/error";
 

@@ -1,7 +1,7 @@
 import { $insertNodes, $isRootOrShadowRoot } from "lexical";
 import { $wrapNodeInElement } from "@lexical/utils";
 import { $createParagraphNode, $createImageNode } from "@webiny/lexical-nodes";
-import { InsertImagePayload } from "~/plugins/ImagesPlugin/ImagesPlugin";
+import { InsertImagePayload } from "~/plugins/ImagesPlugin/ImagesPlugin.js";
 
 /*
  * Insert image into editor.

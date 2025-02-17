@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable, useOptionsMenuItem } from "@webiny/app-admin";
-import { BaseAction, BaseActionProps } from "./BaseAction";
+import { BaseAction, BaseActionProps } from "./BaseAction.js";
 
 export type MenuItemActionType = "menu-item-action";
 export type MenuItemActionProps = Omit<BaseActionProps, "$type">;

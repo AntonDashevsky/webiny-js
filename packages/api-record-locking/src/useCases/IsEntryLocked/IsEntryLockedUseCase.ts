@@ -1,11 +1,11 @@
 import {
     IIsEntryLockedUseCase,
     IIsEntryLockedUseCaseExecuteParams
-} from "~/abstractions/IIsEntryLocked";
-import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
+} from "~/abstractions/IIsEntryLocked.js";
+import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { IIsLocked } from "~/utils/isLockedFactory";
-import { IGetIdentity } from "~/types";
+import { IIsLocked } from "~/utils/isLockedFactory.js";
+import { IGetIdentity } from "~/types.js";
 
 export interface IIsEntryLockedParams {
     getLockRecordUseCase: IGetLockRecordUseCase;

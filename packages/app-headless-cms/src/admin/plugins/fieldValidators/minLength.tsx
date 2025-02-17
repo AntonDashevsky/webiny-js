@@ -1,9 +1,9 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import { validation } from "@webiny/validation";
 import { Bind } from "@webiny/form";
-import { CmsModelFieldValidatorPlugin } from "~/types";
+import { CmsModelFieldValidatorPlugin } from "~/types.js";
 
 const plugin: CmsModelFieldValidatorPlugin = {
     type: "cms-model-field-validator",

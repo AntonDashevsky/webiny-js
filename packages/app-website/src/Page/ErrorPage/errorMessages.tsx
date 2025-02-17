@@ -1,4 +1,4 @@
-import { isLocalhost } from "@webiny/app/utils";
+import { isLocalhost } from "@webiny/app/utils/index.js";
 import React from "react";
 
 const PB_NOT_INSTALLED = {

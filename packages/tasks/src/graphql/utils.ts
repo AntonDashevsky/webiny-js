@@ -1,5 +1,5 @@
 import { ErrorResponse, ListErrorResponse, ListResponse, Response } from "@webiny/handler-graphql";
-import { CmsEntryMeta } from "@webiny/api-headless-cms/types";
+import { CmsEntryMeta } from "@webiny/api-headless-cms/types/index.js";
 
 export const emptyResolver = () => ({});
 

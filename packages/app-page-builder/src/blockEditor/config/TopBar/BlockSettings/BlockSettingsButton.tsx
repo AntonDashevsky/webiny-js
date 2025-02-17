@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as SettingsIcon } from "./settings.svg";
-import { BlockSettingsModal } from "./BlockSettingsModal";
+import { BlockSettingsModal } from "./BlockSettingsModal.js";
 
 export const BlockSettingsButton = () => {
     const [open, setState] = useState(false);

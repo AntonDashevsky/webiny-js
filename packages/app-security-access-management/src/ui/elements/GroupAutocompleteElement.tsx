@@ -1,8 +1,8 @@
 import React from "react";
 import { FormRenderPropParams } from "@webiny/form";
-import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement";
-import { GroupAutocomplete } from "~/components/GroupAutocomplete";
-import { FormFieldElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormFieldElement";
+import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement.js";
+import { GroupAutocomplete } from "~/components/GroupAutocomplete/index.js";
+import { FormFieldElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormFieldElement.js";
 
 export class GroupAutocompleteElement extends InputElement {
     public override render(props: FormFieldElementRenderProps): React.ReactElement {

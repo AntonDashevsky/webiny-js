@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
-import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
-import { CmsEntry } from "@webiny/api-headless-cms/types";
-import { Field } from "./types";
-import { getValue } from "./getValue";
+import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin.js";
+import { CmsEntry } from "@webiny/api-headless-cms/types/index.js";
+import { Field } from "./types.js";
+import { getValue } from "./getValue.js";
 
 interface Params {
     term?: string;

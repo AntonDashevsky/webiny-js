@@ -3,7 +3,7 @@ import type {
     ITaskResponseResult,
     ITaskRunParams
 } from "@webiny/tasks";
-import type { Context, ICmsImportExportValidatedValidFile } from "~/types";
+import type { Context, ICmsImportExportValidatedValidFile } from "~/types.js";
 
 export type IImportFromUrlProcessAssetsInputFile = Pick<
     ICmsImportExportValidatedValidFile,

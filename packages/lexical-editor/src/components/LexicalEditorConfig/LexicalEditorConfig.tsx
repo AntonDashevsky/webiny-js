@@ -1,9 +1,9 @@
 import React, { useContext, useMemo, useState } from "react";
 import { makeDecoratable, Compose, Decorator, GenericComponent } from "@webiny/react-composition";
 import { Property, Properties, toObject } from "@webiny/react-properties";
-import { ToolbarElement, ToolbarElementConfig } from "./components/ToolbarElement";
-import { Plugin, PluginConfig } from "./components/Plugin";
-import { Node, NodeConfig } from "./components/Node";
+import { ToolbarElement, ToolbarElementConfig } from "./components/ToolbarElement.js";
+import { Plugin, PluginConfig } from "./components/Plugin.js";
+import { Node, NodeConfig } from "./components/Node.js";
 
 const LexicalEditorConfigApply = makeDecoratable("LexicalEditorConfigApply", ({ children }) => {
     return <>{children}</>;

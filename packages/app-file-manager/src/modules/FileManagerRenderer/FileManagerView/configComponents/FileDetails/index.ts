@@ -1,10 +1,10 @@
-import { Field, FieldConfig } from "./Field";
-import { createScopedFieldDecorator } from "./FieldDecorator";
-import { Width } from "./Width";
-import { GroupFields } from "./GroupFields";
-import { Action, ActionConfig } from "./Action";
-import { ActionButton } from "~/components/FileDetails/components/ActionButton";
-import { Thumbnail, ThumbnailConfig } from "./Thumbnail";
+import { Field, FieldConfig } from "./Field.js";
+import { createScopedFieldDecorator } from "./FieldDecorator.js";
+import { Width } from "./Width.js";
+import { GroupFields } from "./GroupFields.js";
+import { Action, ActionConfig } from "./Action.js";
+import { ActionButton } from "~/components/FileDetails/components/ActionButton.js";
+import { Thumbnail, ThumbnailConfig } from "./Thumbnail.js";
 
 export interface FileDetailsConfig {
     actions: ActionConfig[];

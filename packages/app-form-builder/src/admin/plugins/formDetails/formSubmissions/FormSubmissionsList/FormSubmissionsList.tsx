@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n";
-import * as ListComponents from "@webiny/ui/List";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { IconButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { Scrollbar } from "@webiny/ui/Scrollbar";
-import FormSubmissionDialog from "./FormSubmissionDialog";
+import { i18n } from "@webiny/app/i18n/index.js";
+import * as ListComponents from "@webiny/ui/List/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
+import FormSubmissionDialog from "./FormSubmissionDialog.js";
 import { ReactComponent as ImportExport } from "./icons/round-cloud_download-24px.svg";
-import Block from "../Block";
-import { useSubmissions } from "./useSubmissions";
-import { FbFormSubmissionData } from "~/types";
+import Block from "../Block.js";
+import { useSubmissions } from "./useSubmissions.js";
+import { FbFormSubmissionData } from "~/types.js";
 
 const t = i18n.namespace("FormsApp.FormsDataList");
 

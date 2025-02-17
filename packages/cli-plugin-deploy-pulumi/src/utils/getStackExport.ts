@@ -1,6 +1,6 @@
 import execa from "execa";
 import { getProject } from "@webiny/cli/utils/index.js";
-import type { IUserCommandInput } from "~/types";
+import type { IUserCommandInput } from "~/types.js";
 
 interface ILambdaFunctionResourceOutputsCodeAsset {
     path: string;

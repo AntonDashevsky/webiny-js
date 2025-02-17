@@ -1,13 +1,13 @@
-import set from "lodash/set";
-import { AdvancedPublishingWorkflow } from "~/types";
+import set from "lodash/set.js";
+import { AdvancedPublishingWorkflow } from "~/types.js";
 import {
     assignWorkflowToEntry,
     getEntryTitle,
     hasEntries,
     isApwDisabledOnModel,
     updateEntryMeta
-} from "~/plugins/cms/utils";
-import { HeadlessCms } from "@webiny/api-headless-cms/types";
+} from "~/plugins/cms/utils.js";
+import { HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 
 interface LinkWorkflowToEntryParams {
     apw: AdvancedPublishingWorkflow;

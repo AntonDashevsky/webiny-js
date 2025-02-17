@@ -1,3 +1,3 @@
-export * from "./base";
-export * from "./common";
-export * from "./japanese";
+export * from "./base.js";
+export * from "./common.js";
+export * from "./japanese.js";

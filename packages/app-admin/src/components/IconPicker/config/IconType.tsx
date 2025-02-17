@@ -2,8 +2,8 @@ import React from "react";
 
 import { Property, useIdGenerator } from "@webiny/react-properties";
 
-import { IconRenderer, useIcon } from "../IconRenderer";
-import { IconPickerTabRenderer } from "../IconPickerTab";
+import { IconRenderer, useIcon } from "../IconRenderer.js";
+import { IconPickerTabRenderer } from "../IconPickerTab.js";
 
 export type IconTypeProps = {
     name: string;

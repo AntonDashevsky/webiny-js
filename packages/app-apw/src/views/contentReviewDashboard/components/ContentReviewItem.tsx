@@ -1,13 +1,13 @@
 import React from "react";
-import { listItemStyles, StatusBox, TypographyBold } from "./Styled";
-import { Box, Columns, Stack } from "~/components/Layout";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "@webiny/app/i18n";
+import { listItemStyles, StatusBox, TypographyBold } from "./Styled.js";
+import { Box, Columns, Stack } from "~/components/Layout.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 
-import { ContentReviewBy } from "./ContentReviewSubmittedInfo";
-import { ContentReviewStatus } from "./ContentReviewStatus";
-import { LatestComment } from "./LatestComment";
-import { ApwContentReviewListItem } from "~/types";
+import { ContentReviewBy } from "./ContentReviewSubmittedInfo.js";
+import { ContentReviewStatus } from "./ContentReviewStatus.js";
+import { LatestComment } from "./LatestComment.js";
+import { ApwContentReviewListItem } from "~/types.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/datalist");
 

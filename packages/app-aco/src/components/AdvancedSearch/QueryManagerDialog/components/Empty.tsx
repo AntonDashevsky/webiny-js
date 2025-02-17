@@ -1,9 +1,9 @@
 import React from "react";
 
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 
-import { EmptyContainer, EmptyIconContainer } from "../QueryManagerDialog.styled";
+import { EmptyContainer, EmptyIconContainer } from "../QueryManagerDialog.styled.js";
 
 export const Empty = () => {
     return (

@@ -1,3 +1,3 @@
-export * from "./BulkActions";
-export * from "./DeleteItems";
-export * from "./RestoreItems";
+export * from "./BulkActions/index.js";
+export * from "./DeleteItems/index.js";
+export * from "./RestoreItems/index.js";

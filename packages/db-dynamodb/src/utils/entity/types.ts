@@ -4,15 +4,15 @@ import type {
     BatchWriteResult,
     IDeleteBatchItem,
     IPutBatchItem
-} from "~/utils/batch/types";
-import type { GenericRecord } from "@webiny/api/types";
-import type { TableDef } from "~/toolbox";
-import type { ITableWriteBatch } from "~/utils/table/types";
-import type { IPutParamsItem, put } from "~/utils/put";
-import type { QueryAllParams, QueryOneParams } from "~/utils/query";
-import type { get, getClean, GetRecordParamsKeys } from "~/utils/get";
-import type { deleteItem, IDeleteItemKeys } from "~/utils/delete";
-import type { batchReadAll } from "~/utils/batch/batchRead";
+} from "~/utils/batch/types.js";
+import type { GenericRecord } from "@webiny/api/types.js";
+import type { TableDef } from "~/toolbox.js";
+import type { ITableWriteBatch } from "~/utils/table/types.js";
+import type { IPutParamsItem, put } from "~/utils/put.js";
+import type { QueryAllParams, QueryOneParams } from "~/utils/query.js";
+import type { get, getClean, GetRecordParamsKeys } from "~/utils/get.js";
+import type { deleteItem, IDeleteItemKeys } from "~/utils/delete.js";
+import type { batchReadAll } from "~/utils/batch/batchRead.js";
 
 export type IEntityQueryOneParams = Omit<QueryOneParams, "entity">;
 

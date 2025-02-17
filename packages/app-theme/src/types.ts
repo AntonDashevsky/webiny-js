@@ -1,1 +1,1 @@
-export * from "@webiny/theme/types";
+export * from "@webiny/theme/types.js";

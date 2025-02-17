@@ -1,2 +1,2 @@
-export * from "./AutoComplete";
-export * from "./MultiAutoComplete";
+export * from "./AutoComplete.js";
+export * from "./MultiAutoComplete.js";

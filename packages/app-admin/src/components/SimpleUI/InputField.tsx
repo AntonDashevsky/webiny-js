@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import omit from "lodash/omit";
-import { Typography } from "@webiny/ui/Typography";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import omit from "lodash/omit.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 
 const inputStyle = css({
     boxSizing: "border-box",

@@ -2,17 +2,17 @@ import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
 import fs from "fs-extra";
-import { PbImportExportContext } from "~/graphql/types";
-import { FileUploadsData } from "~/types";
-import { PageBlock } from "@webiny/api-page-builder/types";
-import { s3Stream } from "~/export/s3Stream";
-import { uploadAssets } from "~/import/utils/uploadAssets";
-import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
-import { deleteS3Folder } from "~/import/utils/deleteS3Folder";
-import { updateFilesInData } from "~/import/utils/updateFilesInData";
-import { INSTALL_EXTRACT_DIR } from "~/import/constants";
-import { ExportedBlockData } from "~/export/process/exporters/BlockExporter";
-import { ElementIdsProcessor } from "~/import/process/blocks/ElementIdsProcessor";
+import { PbImportExportContext } from "~/graphql/types.js";
+import { FileUploadsData } from "~/types.js";
+import { PageBlock } from "@webiny/api-page-builder/types.js";
+import { s3Stream } from "~/export/s3Stream.js";
+import { uploadAssets } from "~/import/utils/uploadAssets.js";
+import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles.js";
+import { deleteS3Folder } from "~/import/utils/deleteS3Folder.js";
+import { updateFilesInData } from "~/import/utils/updateFilesInData.js";
+import { INSTALL_EXTRACT_DIR } from "~/import/constants.js";
+import { ExportedBlockData } from "~/export/process/exporters/BlockExporter.js";
+import { ElementIdsProcessor } from "~/import/process/blocks/ElementIdsProcessor.js";
 
 interface ImportBlockParams {
     key: string;

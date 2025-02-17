@@ -1,1 +1,1 @@
-export * from "./ModelFieldTraverser";
+export * from "./ModelFieldTraverser.js";

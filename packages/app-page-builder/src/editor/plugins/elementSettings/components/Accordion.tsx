@@ -1,8 +1,8 @@
 import React, { ReactElement, useCallback, useState } from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import { COLORS } from "./StyledComponents";
-import { Typography } from "@webiny/ui/Typography";
+import { COLORS } from "./StyledComponents.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 const classes = {
     accordionWrapper: css({

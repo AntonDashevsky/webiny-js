@@ -5,7 +5,7 @@ import {
     ContextPluginCallable as BaseContextPluginCallable,
     createContextPlugin as baseCreateContextPlugin
 } from "@webiny/api";
-import { Context as ContextInterface } from "~/types";
+import { Context as ContextInterface } from "~/types.js";
 
 export interface ContextParams extends BaseContextParams {
     routes: ContextInterface["routes"];

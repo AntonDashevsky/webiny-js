@@ -1,6 +1,6 @@
-import { FbFormModel, FbFormModelField, DropTarget, DropSource, DropDestination } from "~/types";
-import moveField from "./handleMoveField/moveField";
-import moveFieldBetween from "./handleMoveField/moveFieldBetween";
+import { FbFormModel, FbFormModelField, DropTarget, DropSource, DropDestination } from "~/types.js";
+import moveField from "./handleMoveField/moveField.js";
+import moveFieldBetween from "./handleMoveField/moveFieldBetween.js";
 
 interface HandleMoveField {
     data: FbFormModel;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
-import Accordion from "@webiny/app-page-builder/editor/plugins/elementSettings/components/Accordion";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import Accordion from "@webiny/app-page-builder/editor/plugins/elementSettings/components/Accordion.js";
 // assets
 import { ReactComponent as UploadInProgressIcon } from "../../../icons/undraw-uploading.svg";
 import { ReactComponent as ExportInProgressIcon } from "../../../icons/undraw_export_files.svg";

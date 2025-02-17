@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Alert } from "@webiny/ui/Alert";
-import { FormEditorFieldError } from "~/admin/components/FormEditor/Context";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { FormEditorFieldError } from "~/admin/components/FormEditor/Context/index.js";
 
 const Block = styled("span")`
     display: block;

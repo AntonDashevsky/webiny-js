@@ -1,15 +1,15 @@
-import { BulkAction, BulkActionConfig } from "./BulkAction";
-import { Filter, FilterConfig } from "./Filter";
-import { FiltersToWhere, FiltersToWhereConverter } from "./FiltersToWhere";
-import { FilterByTags } from "./FilterByTags";
-import { FolderAction, FolderActionConfig } from "./FolderAction";
-import { FileAction, FileActionConfig } from "./FileAction";
-import { Table, TableConfig } from "./Table";
-import { BulkEditField, BulkEditFieldConfig } from "./BulkEditField";
-import { Action } from "./Grid/Action";
-import { Thumbnail } from "./Grid/Thumbnail";
-import { GridConfig } from "./Grid";
-import { ActionButton } from "~/components/Grid/ActionButton";
+import { BulkAction, BulkActionConfig } from "./BulkAction.js";
+import { Filter, FilterConfig } from "./Filter.js";
+import { FiltersToWhere, FiltersToWhereConverter } from "./FiltersToWhere.js";
+import { FilterByTags } from "./FilterByTags.js";
+import { FolderAction, type FolderActionConfig } from "./FolderAction.js";
+import { FileAction, FileActionConfig } from "./FileAction.js";
+import { Table, TableConfig } from "./Table/index.js";
+import { BulkEditField, BulkEditFieldConfig } from "./BulkEditField.js";
+import { Action } from "./Grid/Action.js";
+import { Thumbnail } from "./Grid/Thumbnail.js";
+import { GridConfig } from "./Grid/index.js";
+import { ActionButton } from "~/components/Grid/ActionButton.js";
 
 export interface BrowserConfig {
     bulkActions: BulkActionConfig[];

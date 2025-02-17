@@ -1,12 +1,12 @@
-import { AcoContext } from "~/types";
-import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
+import { AcoContext } from "~/types.js";
+import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { FolderLevelPermissions } from "~/utils/FolderLevelPermissions";
-import { ROOT_FOLDER } from "./constants";
+import { FolderLevelPermissions } from "~/utils/FolderLevelPermissions.js";
+import { ROOT_FOLDER } from "./constants.js";
 
 type Context = Pick<AcoContext, "aco" | "cms">;
 
-import { createFolderType } from "./createFolderType";
+import { createFolderType } from "./createFolderType.js";
 
 export const filterEntriesByFolderFactory = (
     context: Context,

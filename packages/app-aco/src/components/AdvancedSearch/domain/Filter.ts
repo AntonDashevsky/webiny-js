@@ -1,5 +1,5 @@
 import zod from "zod";
-import { Operation } from "./Operation";
+import { Operation } from "./Operation.js";
 
 export interface FilterGroupFilterDTO {
     field: string;

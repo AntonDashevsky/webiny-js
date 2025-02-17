@@ -1,5 +1,5 @@
-import { Center } from "./Center";
-import { Horizontal } from "./Horizontal";
-import { Vertical } from "./Vertical";
+import { Center } from "./Center.js";
+import { Horizontal } from "./Horizontal.js";
+import { Vertical } from "./Vertical.js";
 
 export { Center, Horizontal, Vertical };

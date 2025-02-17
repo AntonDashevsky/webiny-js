@@ -1,11 +1,11 @@
 import React from "react";
 import { css } from "emotion";
 import { Form } from "@webiny/form";
-import { Dialog, DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog";
-import { useTenant } from "./useTenant";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Domains } from "../Domains";
-import { ButtonPrimary } from "@webiny/ui/Button";
+import { Dialog, DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
+import { useTenant } from "./useTenant.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Domains } from "../Domains.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 
 interface Props {
     open: boolean;

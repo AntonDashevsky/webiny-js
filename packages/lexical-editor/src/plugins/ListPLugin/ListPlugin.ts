@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ListNode, ListItemNode } from "@webiny/lexical-nodes";
-import { useList, useRichTextEditor } from "~/hooks";
+import { useList, useRichTextEditor } from "~/hooks/index.js";
 
 export function ListPlugin(): null {
     const { editor } = useRichTextEditor();

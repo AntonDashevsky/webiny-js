@@ -1,4 +1,4 @@
-import { Context } from "@webiny/handler/types";
+import { Context } from "@webiny/handler/types.js";
 
 export interface AuthenticationContext<TIdentity = Identity> extends Context {
     authentication: Authentication<TIdentity>;

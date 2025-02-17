@@ -4,9 +4,9 @@ import {
     GET_CONTENT_REVIEW_QUERY,
     GetContentReviewQueryResponse,
     GetContentReviewQueryVariables
-} from "~/graphql/contentReview.gql";
-import { ApwContentReview } from "~/types";
-import { useContentReviewId } from "./useContentReviewId";
+} from "~/graphql/contentReview.gql.js";
+import { ApwContentReview } from "~/types.js";
+import { useContentReviewId } from "./useContentReviewId.js";
 
 interface UseContentReviewParams {
     id: string;

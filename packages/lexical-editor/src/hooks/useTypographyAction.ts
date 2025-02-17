@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TypographyActionContext } from "~/context/TypographyActionContext";
+import { TypographyActionContext } from "~/context/TypographyActionContext.js";
 
 export function useTypographyAction() {
     const context = useContext(TypographyActionContext);

@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import slugify from "slugify";
-import { CmsModel } from "@webiny/app-headless-cms/types";
-import { useCreatePageTemplate } from "@webiny/app-page-builder/features";
-import { useListDynamicTemplates } from "~/features/pageTemplate/listDynamicTemplates/useListDynamicTemplates";
+import { CmsModel } from "@webiny/app-headless-cms/types.js";
+import { useCreatePageTemplate } from "@webiny/app-page-builder/features/index.js";
+import { useListDynamicTemplates } from "~/features/pageTemplate/listDynamicTemplates/useListDynamicTemplates.js";
 
 export const useCreateDynamicPageTemplate = () => {
     const { dynamicTemplates } = useListDynamicTemplates();

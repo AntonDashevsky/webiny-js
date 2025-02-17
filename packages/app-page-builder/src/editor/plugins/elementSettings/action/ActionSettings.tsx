@@ -3,16 +3,16 @@ import { css } from "emotion";
 import { merge } from "dot-prop-immutable";
 import { Form, FormOnSubmit } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
-import { withActiveElement } from "../../../components";
+import { withActiveElement } from "../../../components/index.js";
 import {
     PbEditorElement,
     PbEditorPageElementSettingsRenderComponentProps,
     PbPageElementActionTypePlugin
-} from "~/types";
-import Accordion from "../components/Accordion";
-import Wrapper from "../components/Wrapper";
-import SelectField from "../components/SelectField";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+} from "~/types.js";
+import Accordion from "../components/Accordion.js";
+import Wrapper from "../components/Wrapper.js";
+import SelectField from "../components/SelectField.js";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
 
 const classes = {
     gridClass: css({

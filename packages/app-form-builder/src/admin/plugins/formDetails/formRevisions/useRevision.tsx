@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "@webiny/react-router";
 import { useApolloClient } from "@apollo/react-hooks";
-import { useHandlers } from "@webiny/app/hooks/useHandlers";
+import { useHandlers } from "@webiny/app/hooks/useHandlers.js";
 import {
     CREATE_REVISION_FROM,
     CreateRevisionFromMutationResponse,
@@ -9,14 +9,14 @@ import {
     DELETE_REVISION,
     PUBLISH_REVISION,
     UNPUBLISH_REVISION
-} from "~/admin/graphql";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { FbRevisionModel } from "~/types";
+} from "~/admin/graphql.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { FbRevisionModel } from "~/types.js";
 import {
     removeRevisionFromFormCache,
     updateLatestRevisionInListCache,
     addRevisionToRevisionsCache
-} from "~/admin/views/cache";
+} from "~/admin/views/cache.js";
 
 interface CreateRevisionCallable {
     (id?: string): Promise<void>;

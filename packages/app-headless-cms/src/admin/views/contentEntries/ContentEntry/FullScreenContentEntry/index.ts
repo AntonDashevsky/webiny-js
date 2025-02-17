@@ -1,1 +1,1 @@
-export * from "./FullScreenContentEntry";
+export * from "./FullScreenContentEntry.js";

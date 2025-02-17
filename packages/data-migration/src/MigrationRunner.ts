@@ -7,8 +7,8 @@ import {
     LoggerSymbol,
     MigrationSymbol,
     ExecutionTimeLimiterSymbol
-} from "./symbols";
-import { createPinoLogger, getChildLogger } from "./createPinoLogger";
+} from "./symbols.js";
+import { createPinoLogger, getChildLogger } from "./createPinoLogger.js";
 import {
     MigrationRepository,
     DataMigration,
@@ -17,7 +17,7 @@ import {
     MigrationRun,
     MigrationStatus,
     MigrationRunItem
-} from "~/types";
+} from "~/types.js";
 
 export type IsMigrationApplicable = (migration: DataMigration) => boolean;
 

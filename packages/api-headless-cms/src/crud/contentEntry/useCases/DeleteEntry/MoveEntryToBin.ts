@@ -3,9 +3,9 @@ import {
     IDeleteEntry,
     IGetLatestRevisionByEntryId,
     IMoveEntryToBinOperation
-} from "~/crud/contentEntry/abstractions";
-import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin";
-import { CmsModel } from "~/types";
+} from "~/crud/contentEntry/abstractions/index.js";
+import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin.js";
+import { CmsModel } from "~/types/index.js";
 
 export class MoveEntryToBin implements IDeleteEntry {
     private getEntry: IGetLatestRevisionByEntryId;

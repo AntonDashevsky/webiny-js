@@ -1,8 +1,8 @@
-import { Context as ContextInterface } from "~/types";
+import { Context as ContextInterface } from "~/types.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { PluginCollection } from "@webiny/plugins/types";
-import { Benchmark } from "~/Benchmark";
-import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin";
+import { PluginCollection } from "@webiny/plugins/types.js";
+import { Benchmark } from "~/Benchmark.js";
+import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin.js";
 
 interface Waiter {
     targets: string[];

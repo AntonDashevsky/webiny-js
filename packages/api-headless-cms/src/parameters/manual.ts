@@ -6,7 +6,7 @@ import {
     CmsParametersPlugin,
     CmsParametersPluginResponseLocale,
     CmsParametersPluginResponseType
-} from "~/plugins/CmsParametersPlugin";
+} from "~/plugins/CmsParametersPlugin.js";
 
 export interface ManualPluginParams {
     endpointType?: CmsParametersPluginResponseType;

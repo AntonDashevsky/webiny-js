@@ -1,5 +1,5 @@
 import { ResponseHeaders } from "@webiny/handler";
-import { AssetReply } from "~/delivery";
+import { AssetReply } from "~/delivery/index.js";
 
 export class NotAuthorizedAssetReply extends AssetReply {
     constructor() {

@@ -1,5 +1,5 @@
-import { IAcoAppRegisterParams } from "@webiny/api-aco/types";
-import { PB_PAGE_TYPE } from "~/contants";
+import { IAcoAppRegisterParams } from "@webiny/api-aco/types.js";
+import { PB_PAGE_TYPE } from "~/contants.js";
 
 export const createApp = (): IAcoAppRegisterParams => {
     return {

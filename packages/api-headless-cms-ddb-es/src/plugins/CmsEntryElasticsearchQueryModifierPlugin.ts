@@ -3,7 +3,7 @@ import {
     ModifyQueryCallable,
     ModifyQueryParams as BaseModifyQueryParams
 } from "@webiny/api-elasticsearch";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 export interface ModifyQueryParams extends BaseModifyQueryParams {
     model: CmsModel;

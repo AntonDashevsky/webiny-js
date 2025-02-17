@@ -1,4 +1,4 @@
-import { CmsModelField } from "~/types";
+import { CmsModelField } from "~/types/index.js";
 
 export const getApplicableFieldById = (
     fields: CmsModelField[],

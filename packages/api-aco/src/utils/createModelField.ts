@@ -1,5 +1,5 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types";
-import camelCase from "lodash/camelCase";
+import { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import camelCase from "lodash/camelCase.js";
 
 export interface CreateModelFieldParams
     extends Omit<CmsModelField, "id" | "storageId" | "fieldId"> {

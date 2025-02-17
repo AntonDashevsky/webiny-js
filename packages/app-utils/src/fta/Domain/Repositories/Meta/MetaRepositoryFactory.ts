@@ -1,4 +1,4 @@
-import { MetaRepository } from "./MetaRepository";
+import { MetaRepository } from "./MetaRepository.js";
 
 export class MetaRepositoryFactory {
     private cache: Map<string, MetaRepository> = new Map();

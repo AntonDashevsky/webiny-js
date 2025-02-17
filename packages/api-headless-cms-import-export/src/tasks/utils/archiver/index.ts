@@ -1,2 +1,2 @@
-export * from "./abstractions/Archiver";
-export * from "./Archiver";
+export * from "./abstractions/Archiver.js";
+export * from "./Archiver.js";

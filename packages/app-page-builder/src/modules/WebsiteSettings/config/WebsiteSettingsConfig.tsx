@@ -1,9 +1,9 @@
 import { DocumentNode } from "graphql";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Group, GroupConfig } from "./Group";
-import { Element } from "./Element";
-import { GET_SETTINGS, UPDATE_SETTINGS } from "../graphql";
-import { createDocumentNodeModifier } from "./DocumentNodeModifier";
+import { Group, GroupConfig } from "./Group.js";
+import { Element } from "./Element.js";
+import { GET_SETTINGS, UPDATE_SETTINGS } from "../graphql.js";
+import { createDocumentNodeModifier } from "./DocumentNodeModifier.js";
 
 const base = createConfigurableComponent<WebsiteSettingsConfig>("WebsiteSettingsConfig");
 

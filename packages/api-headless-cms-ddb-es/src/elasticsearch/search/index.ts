@@ -1,6 +1,6 @@
-import { createTimeSearchPlugin } from "./timeSearch";
-import { createRefSearchPlugin } from "./refSearch";
-import { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin";
+import { createTimeSearchPlugin } from "./timeSearch.js";
+import { createRefSearchPlugin } from "./refSearch.js";
+import { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin.js";
 
 export default (): CmsEntryElasticsearchQueryBuilderValueSearchPlugin[] => [
     createTimeSearchPlugin(),

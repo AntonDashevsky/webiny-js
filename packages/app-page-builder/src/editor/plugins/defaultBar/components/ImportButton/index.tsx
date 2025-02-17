@@ -1,5 +1,5 @@
 import React from "react";
-import { FileManager } from "@webiny/app-admin/components";
+import { FileManager } from "@webiny/app-admin/components/index.js";
 
 interface WrapperWithFileUploadProps
     extends Pick<React.ComponentProps<typeof FileManager>, "children"> {

@@ -1,11 +1,11 @@
 import React from "react";
-import { ScrollList, ListItem } from "@webiny/ui/List";
-import { ListItemGraphic } from "./UsersTeamsSelection/ListItemGraphic";
-import { ListItemText } from "./UsersTeamsSelection/ListItemText";
-import { ListItemMeta } from "./UsersTeamsSelection/ListItemMeta";
+import { ScrollList, ListItem } from "@webiny/ui/List/index.js";
+import { ListItemGraphic } from "./UsersTeamsSelection/ListItemGraphic.js";
+import { ListItemText } from "./UsersTeamsSelection/ListItemText.js";
+import { ListItemMeta } from "./UsersTeamsSelection/ListItemMeta.js";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
-import { FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
 
 interface UsersTeamsSelectionProps {
     targetsList: FolderLevelPermissionsTarget[];

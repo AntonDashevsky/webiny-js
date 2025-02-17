@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
 
-import { PbAcoContext, PbPageRecordData } from "~/types";
-import { PB_PAGE_TYPE } from "~/contants";
-import { updatePageRecordPayload } from "~/utils/createRecordPayload";
+import { PbAcoContext, PbPageRecordData } from "~/types.js";
+import { PB_PAGE_TYPE } from "~/contants.js";
+import { updatePageRecordPayload } from "~/utils/createRecordPayload.js";
 
 export const onPageAfterDeleteHook = (context: PbAcoContext) => {
     const { aco, pageBuilder } = context;

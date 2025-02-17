@@ -1,9 +1,9 @@
 import React from "react";
-import camelCase from "lodash/camelCase";
+import camelCase from "lodash/camelCase.js";
 import { plugins } from "@webiny/plugins";
-import { PbEditorPageElementSettingsPlugin } from "~/types";
-import { EditorConfig } from "~/editor/config";
-import { useElementSettings } from "~/editor/plugins/elementSettings/hooks/useElementSettings";
+import { PbEditorPageElementSettingsPlugin } from "~/types.js";
+import { EditorConfig } from "~/editor/config/index.js";
+import { useElementSettings } from "~/editor/plugins/elementSettings/hooks/useElementSettings.js";
 
 const getActionName = (pluginName: string) => {
     return camelCase(pluginName.replace("pb-editor-page-element-settings-", ""));

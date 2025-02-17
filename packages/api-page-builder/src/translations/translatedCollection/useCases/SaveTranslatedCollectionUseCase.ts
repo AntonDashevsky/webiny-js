@@ -1,10 +1,10 @@
-import { PbContext } from "~/graphql/types";
-import { Identifier } from "~/translations/Identifier";
-import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
-import { GetOrCreateTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/GetOrCreateTranslatedCollectionUseCase";
-import { UpdateTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/UpdateTranslatedCollectionRepository";
-import { CreateTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/CreateTranslatedCollectionRepository";
-import { TranslatedItem } from "~/translations/translatedCollection/domain/TranslatedItem";
+import { PbContext } from "~/graphql/types.js";
+import { Identifier } from "~/translations/Identifier.js";
+import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection.js";
+import { GetOrCreateTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/GetOrCreateTranslatedCollectionUseCase.js";
+import { UpdateTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/UpdateTranslatedCollectionRepository.js";
+import { CreateTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/CreateTranslatedCollectionRepository.js";
+import { TranslatedItem } from "~/translations/translatedCollection/domain/TranslatedItem.js";
 
 interface SaveTranslatedCollectionParams {
     collectionId: string;

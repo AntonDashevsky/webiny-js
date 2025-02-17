@@ -1,2 +1,2 @@
-export * from "./abstractions/AbortExportContentEntriesUseCase";
-export * from "./AbortExportContentEntriesUseCase";
+export * from "./abstractions/AbortExportContentEntriesUseCase.js";
+export * from "./AbortExportContentEntriesUseCase.js";

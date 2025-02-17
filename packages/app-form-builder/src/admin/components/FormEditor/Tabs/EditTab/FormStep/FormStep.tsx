@@ -1,18 +1,18 @@
 import React from "react";
 
-import { FbFormModelField, FbFormStep } from "~/types";
-import { RowHandle, StyledAccordion, StyledAccordionItem, Wrapper } from "../Styled";
+import { FbFormModelField, FbFormStep } from "~/types.js";
+import { RowHandle, StyledAccordion, StyledAccordionItem, Wrapper } from "../Styled.js";
 
-import { Icon } from "@webiny/ui/Icon";
-import { AccordionItem } from "@webiny/ui/Accordion";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { AccordionItem } from "@webiny/ui/Accordion/index.js";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";
 import { ReactComponent as HandleIcon } from "~/admin/components/FormEditor/icons/round-drag_indicator-24px.svg";
-import { EmptyFormStep } from "./EmptyFormStep";
-import { FormStepWithFields } from "./FormStepWithFields";
+import { EmptyFormStep } from "./EmptyFormStep.js";
+import { FormStepWithFields } from "./FormStepWithFields.js";
 
-import EditFieldDialog from "../EditFieldDialog";
-import { useFormStep } from "./useFormStep";
+import EditFieldDialog from "../EditFieldDialog.js";
+import { useFormStep } from "./useFormStep.js";
 
 export interface FormStepProps {
     title: string;

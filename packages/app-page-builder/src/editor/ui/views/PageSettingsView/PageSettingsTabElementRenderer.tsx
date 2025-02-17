@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { UIRenderer, UIRenderParams } from "@webiny/app-admin/ui/UIRenderer";
-import { ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
-import { Typography } from "@webiny/ui/Typography";
-import { PageSettingsView } from "../PageSettingsView";
-import { PageSettingsTabElement } from "./PageSettingsTabElement";
+import { UIRenderer, UIRenderParams } from "@webiny/app-admin/ui/UIRenderer.js";
+import { ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { PageSettingsView } from "../PageSettingsView.js";
+import { PageSettingsTabElement } from "./PageSettingsTabElement.js";
 
 export const listItem = css({
     padding: "15px 20px",

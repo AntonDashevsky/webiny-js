@@ -1,13 +1,13 @@
 import React, { useCallback } from "react";
-import get from "lodash/get";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
+import get from "lodash/get.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
 import { makeDecoratable } from "@webiny/app-admin";
-import { usePage } from "~/pageEditor/hooks/usePage";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
+import { usePage } from "~/pageEditor/hooks/usePage.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 
 const DefaultPublishPageButton = () => {
     const [page] = usePage();

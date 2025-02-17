@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as RepeatIcon } from "@material-design-icons/svg/round/repeat.svg";
-import { PbEditorPageElementPlugin, PbElement } from "@webiny/app-page-builder/types";
-import { AdminEntriesListRenderer } from "./renderers/EntriesList";
-import { createElement } from "@webiny/app-page-builder/editor/helpers";
+import { PbEditorPageElementPlugin, PbElement } from "@webiny/app-page-builder/types.js";
+import { AdminEntriesListRenderer } from "./renderers/EntriesList.js";
+import { createElement } from "@webiny/app-page-builder/editor/helpers.js";
 
 export const createEntriesListElement = (): PbEditorPageElementPlugin => {
     return {

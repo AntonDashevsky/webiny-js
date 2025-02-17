@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
-import { Switch } from "@webiny/ui/Switch";
-import { Footer as FooterStyled } from "./StyledComponents";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import { Footer as FooterStyled } from "./StyledComponents.js";
 import { css } from "emotion";
 
 const switchStyle = css({

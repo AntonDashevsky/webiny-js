@@ -2,35 +2,35 @@
  * TODO remove regular model delete at some point.
  */
 import React, { useCallback, useMemo, useState } from "react";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 import { css } from "emotion";
 import { useRouter } from "@webiny/react-router";
-import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons";
+import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons/index.js";
 import { ReactComponent as ViewListIcon } from "../../icons/view_list.svg";
 import { ReactComponent as CloneIcon } from "../../icons/clone.svg";
-import { useModels } from "../../hooks";
-import * as UIL from "@webiny/ui/List";
-import { ButtonIcon, ButtonSecondary, IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { i18n } from "@webiny/app/i18n";
+import { useModels } from "../../hooks/index.js";
+import * as UIL from "@webiny/ui/List/index.js";
+import { ButtonIcon, ButtonSecondary, IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { deserializeSorters } from "../utils";
-import orderBy from "lodash/orderBy";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { deserializeSorters } from "../utils.js";
+import orderBy from "lodash/orderBy.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import type { CmsEditorContentModel, CmsModel } from "~/types";
-import { usePermission } from "~/admin/hooks/usePermission";
+import type { CmsEditorContentModel, CmsModel } from "~/types.js";
+import { usePermission } from "~/admin/hooks/usePermission.js";
 import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { OptionsMenu } from "./OptionsMenu";
+import { OptionsMenu } from "./OptionsMenu.js";
 import { ReactComponent as DownloadFileIcon } from "@webiny/app-admin/assets/icons/file_download.svg";
 import { ReactComponent as UploadFileIcon } from "@webiny/app-admin/assets/icons/file_upload.svg";
-import { useModelExport } from "./exporting/useModelExport";
-import { ModelIsBeingDeleted } from "./fullDelete/ModelIsBeingDeleted";
-import { FullyDeleteModelDialog } from "~/admin/views/contentModels/fullDelete/FullyDeleteModelDialog";
+import { useModelExport } from "./exporting/useModelExport.js";
+import { ModelIsBeingDeleted } from "./fullDelete/ModelIsBeingDeleted.js";
+import { FullyDeleteModelDialog } from "~/admin/views/contentModels/fullDelete/FullyDeleteModelDialog.js";
 
 const t = i18n.namespace("FormsApp.ContentModelsDataList");
 

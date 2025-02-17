@@ -1,6 +1,6 @@
-import { HandlerPayload as RenderHandlerArgs } from "~/render/types";
-import { HandlerArgs as FlushHandlerArgs } from "~/flush/types";
-import { QueueAddJobEvent as QueueHandlerArgs } from "~/queue/add/types";
+import { HandlerPayload as RenderHandlerArgs } from "~/render/types.js";
+import { HandlerArgs as FlushHandlerArgs } from "~/flush/types.js";
+import { QueueAddJobEvent as QueueHandlerArgs } from "~/queue/add/types.js";
 
 export interface PrerenderingServiceClientContext {
     prerenderingServiceClient: {

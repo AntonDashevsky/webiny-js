@@ -1,1 +1,1 @@
-export * from "./CreateTasksByModel";
+export * from "./CreateTasksByModel.js";

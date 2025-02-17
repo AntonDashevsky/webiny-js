@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
-import { GroupOperationLabelContainer } from "../Querybuilder.styled";
+import { GroupOperationLabelContainer } from "../Querybuilder.styled.js";
 
 interface GroupOperationLabelProps {
     operation: string;

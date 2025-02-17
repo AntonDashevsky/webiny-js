@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { ReactComponent as AddIcon } from "~/editor/assets/icons/add_circle_outline.svg";
-import { EditorConfig } from "~/editor/config";
-import { useUI } from "~/editor/hooks/useUI";
-import { AddElementDrawer } from "./AddElementDrawer";
-import { useDrawer } from "~/editor/config/Toolbar/Drawers/DrawerProvider";
+import { EditorConfig } from "~/editor/config/index.js";
+import { useUI } from "~/editor/hooks/useUI.js";
+import { AddElementDrawer } from "./AddElementDrawer.js";
+import { useDrawer } from "~/editor/config/Toolbar/Drawers/DrawerProvider.js";
 
 const { Ui } = EditorConfig;
 

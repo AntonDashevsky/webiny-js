@@ -4,13 +4,13 @@ import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-import { Icon } from "@webiny/ui/Icon";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { List, ListItem } from "@webiny/ui/List";
-import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { List, ListItem } from "@webiny/ui/List/index.js";
+import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { useModels } from "@webiny/app-headless-cms";
-import { CmsModel } from "@webiny/app-headless-cms/types";
+import { CmsModel } from "@webiny/app-headless-cms/types.js";
 
 import { ReactComponent as ArrowRightIcon } from "@material-design-icons/svg/round/keyboard_arrow_right.svg";
 import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";

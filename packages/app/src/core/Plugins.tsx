@@ -1,5 +1,5 @@
 import React, { Fragment, Children, createContext, useContext, useEffect, memo } from "react";
-import { useApp } from "~/App";
+import { useApp } from "~/App.js";
 
 export const PluginsContext = createContext<boolean>(false);
 PluginsContext.displayName = "PluginsContext";

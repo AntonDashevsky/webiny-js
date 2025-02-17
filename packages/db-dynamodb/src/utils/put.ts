@@ -1,5 +1,5 @@
-import { Entity } from "~/toolbox";
-import { GenericRecord } from "@webiny/api/types";
+import { Entity } from "~/toolbox.js";
+import { GenericRecord } from "@webiny/api/types.js";
 
 export type IPutParamsItem<T extends GenericRecord = GenericRecord> = {
     PK: string;

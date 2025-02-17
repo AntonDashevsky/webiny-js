@@ -1,7 +1,7 @@
-import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
-import { Folder } from "~/folder/folder.types";
-import { ROOT_FOLDER } from "./constants";
-import { isPageModel } from "~/utils/decorators/isPageModel";
+import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { Folder } from "~/folder/folder.types.js";
+import { ROOT_FOLDER } from "./constants.js";
+import { isPageModel } from "~/utils/decorators/isPageModel.js";
 
 interface Params {
     model: CmsModel;

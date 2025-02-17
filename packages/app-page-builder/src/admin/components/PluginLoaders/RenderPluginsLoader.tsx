@@ -1,4 +1,4 @@
-import { createPluginsLoader } from "~/admin/components/PluginLoaders/createPluginsLoader";
+import { createPluginsLoader } from "~/admin/components/PluginLoaders/createPluginsLoader.js";
 
 export const RenderPluginsLoader = createPluginsLoader({
     type: "pb-render-page-element",

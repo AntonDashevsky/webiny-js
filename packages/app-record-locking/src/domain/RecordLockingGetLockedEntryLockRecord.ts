@@ -1,15 +1,15 @@
-import { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient";
+import { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient.js";
 import {
     GET_LOCKED_ENTRY_LOCK_RECORD_QUERY,
     IRecordLockingGetLockedEntryLockRecordResponse,
     IRecordLockingGetLockedEntryLockRecordVariables
-} from "~/domain/graphql/getLockedEntryLockRecord";
+} from "~/domain/graphql/getLockedEntryLockRecord.js";
 import { WebinyError } from "@webiny/error";
 import {
     IRecordLockingGetLockedEntryLockRecord,
     IRecordLockingGetLockedEntryLockRecordExecuteParams,
     IRecordLockingGetLockedEntryLockRecordExecuteResult
-} from "~/domain/abstractions/IRecordLockingGetLockedEntryLockRecord";
+} from "~/domain/abstractions/IRecordLockingGetLockedEntryLockRecord.js";
 
 interface Params {
     client: IRecordLockingClient;

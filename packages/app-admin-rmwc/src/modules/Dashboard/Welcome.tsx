@@ -7,12 +7,12 @@ import {
     SimpleFormHeader,
     SimpleFormContent,
     SimpleFormFooter
-} from "@webiny/app-admin/components/SimpleForm";
-import { useSecurity } from "@webiny/app-security/hooks/useSecurity";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { useSecurity } from "@webiny/app-security/hooks/useSecurity.js";
 import { plugins } from "@webiny/plugins";
-import { Typography } from "@webiny/ui/Typography";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Elevation } from "@webiny/ui/Elevation";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
 // Icons
 import { ReactComponent as YouTubeIcon } from "./icons/youtube.svg";
 import { ReactComponent as GithubIcon } from "./icons/github.svg";
@@ -20,7 +20,7 @@ import { ReactComponent as SlackIcon } from "./icons/slack.svg";
 import { ReactComponent as TwitterIcon } from "./icons/twitter.svg";
 import { ReactComponent as TextbookIcon } from "./icons/textbook.svg";
 import { ReactComponent as LaptopIcon } from "./icons/laptop.svg";
-import { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types";
+import { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types.js";
 
 const linkStyle = css({
     textDecoration: "none",

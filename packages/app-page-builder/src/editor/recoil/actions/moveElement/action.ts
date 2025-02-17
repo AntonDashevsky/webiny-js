@@ -1,8 +1,8 @@
-import { EventActionCallable } from "~/types";
-import { MoveElementActionArgsType } from "./types";
-import { updateElementAction } from "~/editor/recoil/actions";
-import { addElementToParent, removeElementFromParent } from "~/editor/helpers";
-import { executeAction } from "~/editor/recoil/eventActions";
+import { EventActionCallable } from "~/types.js";
+import { MoveElementActionArgsType } from "./types.js";
+import { updateElementAction } from "~/editor/recoil/actions/index.js";
+import { addElementToParent, removeElementFromParent } from "~/editor/helpers.js";
+import { executeAction } from "~/editor/recoil/eventActions/index.js";
 
 const defaultReturn = {
     actions: []

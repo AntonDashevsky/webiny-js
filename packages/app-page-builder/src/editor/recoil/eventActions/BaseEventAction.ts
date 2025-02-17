@@ -1,4 +1,4 @@
-import { EventAction, EventActionOptionsType } from "./EventAction";
+import { EventAction, EventActionOptionsType } from "./EventAction.js";
 
 export abstract class BaseEventAction<T extends object = any> implements EventAction<T> {
     private readonly _args: T;

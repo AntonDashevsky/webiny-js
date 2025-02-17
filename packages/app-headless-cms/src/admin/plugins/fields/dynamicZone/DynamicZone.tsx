@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
-import { Accordion } from "@webiny/ui/Accordion";
-import { CmsDynamicZoneTemplate } from "~/types";
-import { AddTemplateIcon, AddTemplateButton } from "./AddTemplate";
-import { DynamicZoneTemplate } from "./DynamicZoneTemplate";
-import { useModelField, useModelFieldEditor } from "~/admin/hooks";
+import { Accordion } from "@webiny/ui/Accordion/index.js";
+import { CmsDynamicZoneTemplate } from "~/types.js";
+import { AddTemplateIcon, AddTemplateButton } from "./AddTemplate.js";
+import { DynamicZoneTemplate } from "./DynamicZoneTemplate.js";
+import { useModelField, useModelFieldEditor } from "~/admin/hooks/index.js";
 
 function updateOrCreateTemplate(
     templates: CmsDynamicZoneTemplate[],

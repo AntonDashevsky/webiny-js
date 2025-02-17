@@ -2,13 +2,13 @@ import type {
     CmsEntryListSort,
     CmsEntryListWhere,
     CmsModelField
-} from "@webiny/api-headless-cms/types";
+} from "@webiny/api-headless-cms/types/index.js";
 import type {
     ITaskResponseDoneResultOutput,
     ITaskResponseResult,
     ITaskRunParams
 } from "@webiny/tasks";
-import type { CmsImportExportFileType, Context } from "~/types";
+import type { CmsImportExportFileType, Context } from "~/types.js";
 
 export enum ExportContentEntriesControllerState {
     entryExport = "entryExport",

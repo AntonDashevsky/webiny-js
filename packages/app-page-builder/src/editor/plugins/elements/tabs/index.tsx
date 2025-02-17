@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase";
+import kebabCase from "lodash/kebabCase.js";
 import { ReactComponent as TabsIcon } from "@material-design-icons/svg/round/tab.svg";
-import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
-import { createElement } from "~/editor/helpers";
-import Tabs from "./Tabs";
-import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types";
+import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
+import { createElement } from "~/editor/helpers.js";
+import Tabs from "./Tabs.js";
+import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

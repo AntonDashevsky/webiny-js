@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react";
-import { Plugin } from "@webiny/plugins/types";
+import { Plugin } from "@webiny/plugins/types.js";
 import { ApolloClient } from "apollo-client";
-import { ItemProps, MenuProps, SectionProps } from "~/plugins/MenuPlugin";
+import { ItemProps, MenuProps, SectionProps } from "~/plugins/MenuPlugin.js";
 
-export { Icon } from "~/components/IconPicker/types";
+export { Icon } from "~/components/IconPicker/types.js";
 
 export type AdminGlobalSearchPlugin = Plugin & {
     type: "admin-global-search";
@@ -73,7 +73,7 @@ export type AdminAppPermissionRendererPlugin = Plugin & {
     render(params: any): ReactElement;
 };
 
-import { SecurityPermission } from "@webiny/app-security/types";
+import { SecurityPermission } from "@webiny/app-security/types.js";
 
 /**
  * Represents a file as we receive from the GraphQL API.

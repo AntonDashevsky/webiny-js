@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ParagraphNode, $createHeadingNode } from "@webiny/lexical-nodes";
-import { useRichTextEditor } from "~/hooks";
+import { useRichTextEditor } from "~/hooks/index.js";
 
 /**
  * In the "Heading" editor, we only want to support heading tags.

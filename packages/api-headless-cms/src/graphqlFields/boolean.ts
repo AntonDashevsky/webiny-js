@@ -1,5 +1,5 @@
-import { CmsModelField, CmsModelFieldToGraphQLPlugin } from "~/types";
-import { createGraphQLInputField } from "./helpers";
+import { CmsModelField, CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
+import { createGraphQLInputField } from "./helpers.js";
 
 interface CreateListFiltersParams {
     field: CmsModelField;

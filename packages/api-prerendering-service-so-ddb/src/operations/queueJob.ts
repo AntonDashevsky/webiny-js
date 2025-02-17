@@ -4,11 +4,11 @@ import type {
     PrerenderingServiceStorageOperationsCreateQueueJobParams,
     PrerenderingServiceStorageOperationsDeleteQueueJobsParams,
     QueueJob
-} from "@webiny/api-prerendering-service/types";
-import type { Entity } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-prerendering-service/types.js";
+import type { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import { createEntityWriteBatch, put } from "@webiny/db-dynamodb";
-import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
-import { queryAllClean } from "@webiny/db-dynamodb/utils/query";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { queryAllClean } from "@webiny/db-dynamodb/utils/query.js";
 
 export interface CreateQueueJobStorageOperationsParams {
     entity: Entity<any>;

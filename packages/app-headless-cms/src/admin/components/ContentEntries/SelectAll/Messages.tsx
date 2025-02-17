@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography } from "@webiny/ui/Typography";
-import { getEntriesLabel } from "./SelectAll";
-import { Button, MessageContainer } from "./SelectAll.styled";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { getEntriesLabel } from "./SelectAll.js";
+import { Button, MessageContainer } from "./SelectAll.styled.js";
 
 export interface MessagesProps {
     onClick: () => void;

@@ -7,16 +7,16 @@ import {
     IWebsocketsContext,
     IWebsocketsContextSendCallable,
     WebsocketsCloseCode
-} from "~/types";
+} from "~/types.js";
 import {
     createWebsocketsAction,
     createWebsocketsActions,
     createWebsocketsConnection,
     createWebsocketsManager,
     createWebsocketsSubscriptionManager
-} from "./domain";
-import { IGenericData, IWebsocketsManager } from "./domain/types";
-import { getUrl } from "./utils/getUrl";
+} from "./domain/index.js";
+import { IGenericData, IWebsocketsManager } from "./domain/types.js";
+import { getUrl } from "./utils/getUrl.js";
 
 export interface IWebsocketsContextProviderProps {
     loader?: React.ReactElement;

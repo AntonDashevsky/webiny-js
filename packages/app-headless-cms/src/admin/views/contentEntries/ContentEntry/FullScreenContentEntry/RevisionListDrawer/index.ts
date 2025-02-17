@@ -1,1 +1,1 @@
-export * from "./RevisionListDrawer";
+export * from "./RevisionListDrawer.js";

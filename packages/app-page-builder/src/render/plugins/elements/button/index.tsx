@@ -1,5 +1,5 @@
-import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button";
-import { PbRenderElementPlugin } from "~/types";
+import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button.js";
+import { PbRenderElementPlugin } from "~/types.js";
 
 export default () => {
     return [

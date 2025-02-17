@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { ButtonDefault as DefaultButtonDefault } from "@webiny/ui/Button";
-import { Menu as DefaultMenu } from "@webiny/ui/Menu";
+import { ButtonDefault as DefaultButtonDefault } from "@webiny/ui/Button/index.js";
+import { Menu as DefaultMenu } from "@webiny/ui/Menu/index.js";
 
 export const Button = styled(DefaultButtonDefault)`
     color: var(--mdc-theme-text-primary-on-background) !important;

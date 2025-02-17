@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
 import { mdbid } from "@webiny/utils";
-import { IAcoApp } from "@webiny/api-aco/types";
-import { AuditAction, AuditLog, AuditLogsContext } from "~/types";
-import { compressor } from "~/utils/compressor";
+import { IAcoApp } from "@webiny/api-aco/types.js";
+import { AuditAction, AuditLog, AuditLogsContext } from "~/types.js";
+import { compressor } from "~/utils/compressor.js";
 
 interface AuditLogPayload extends Omit<AuditLog, "id" | "data"> {
     data: Record<string, any>;

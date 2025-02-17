@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { plugins } from "@webiny/plugins";
-import { useEventActionHandler, useFindElementBlock, useUpdateElement } from "~/editor";
-import { DeleteElementActionEvent } from "~/editor/recoil/actions";
-import type { PbBlockVariable, PbEditorElement, PbEditorPageElementPlugin } from "~/types";
+import { useEventActionHandler, useFindElementBlock, useUpdateElement } from "~/editor/index.js";
+import { DeleteElementActionEvent } from "~/editor/recoil/actions/index.js";
+import type { PbBlockVariable, PbEditorElement, PbEditorPageElementPlugin } from "~/types.js";
 
 const removeVariableFromBlock = (block: PbEditorElement, variableId: string) => {
     const variables = block.data.variables ?? [];

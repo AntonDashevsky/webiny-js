@@ -1,5 +1,5 @@
 import React from "react";
-import { UIElement, UiElementRenderProps } from "~/UIElement";
+import { UIElement, UiElementRenderProps } from "~/UIElement.js";
 
 interface Renderer<TRenderProps> {
     (props: TRenderProps): React.ReactNode;

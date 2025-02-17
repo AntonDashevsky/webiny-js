@@ -1,3 +1,3 @@
-export * from "./BaseEventAction";
-export * from "./EventAction";
-export * from "./executeAction";
+export * from "./BaseEventAction.js";
+export * from "./EventAction.js";
+export * from "./executeAction.js";

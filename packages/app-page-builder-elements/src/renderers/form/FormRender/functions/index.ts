@@ -1,5 +1,5 @@
-export { default as onFormMounted } from "./onFormMounted";
-export { default as createFormSubmission } from "./createFormSubmission";
-export { default as handleFormTriggers } from "./handleFormTriggers";
-export { default as reCaptchaEnabled } from "./reCaptchaEnabled";
-export { default as termsOfServiceEnabled } from "./termsOfServiceEnabled";
+export { default as onFormMounted } from "./onFormMounted.js";
+export { default as createFormSubmission } from "./createFormSubmission.js";
+export { default as handleFormTriggers } from "./handleFormTriggers.js";
+export { default as reCaptchaEnabled } from "./reCaptchaEnabled.js";
+export { default as termsOfServiceEnabled } from "./termsOfServiceEnabled.js";

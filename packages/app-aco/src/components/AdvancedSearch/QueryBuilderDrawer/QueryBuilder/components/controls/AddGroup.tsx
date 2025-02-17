@@ -1,6 +1,6 @@
 import React from "react";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { AddGroupInner, ButtonIcon } from "../../Querybuilder.styled";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { AddGroupInner, ButtonIcon } from "../../Querybuilder.styled.js";
 
 interface AddGroupProps {
     onClick: () => void;

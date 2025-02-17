@@ -1,1 +1,1 @@
-export * from "./TopProgressBar";
+export * from "./TopProgressBar.js";

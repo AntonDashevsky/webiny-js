@@ -1,15 +1,15 @@
 import React from "react";
 import { TypographyAction } from "@webiny/lexical-editor";
-import { LexicalActiveHeadingRenderer } from "~/plugins/HeadingPlugin";
-import { LexicalActiveParagraphRenderer } from "~/plugins/ParagraphPlugin";
-import { RichVariableInputPlugin } from "~/plugins/elementSettings/variables/RichVariableInputPlugin";
-import { TextVariableInputPlugin } from "~/plugins/elementSettings/variables/TextVariableInputPlugin";
+import { LexicalActiveHeadingRenderer } from "~/plugins/HeadingPlugin.js";
+import { LexicalActiveParagraphRenderer } from "~/plugins/ParagraphPlugin.js";
+import { RichVariableInputPlugin } from "~/plugins/elementSettings/variables/RichVariableInputPlugin.js";
+import { TextVariableInputPlugin } from "~/plugins/elementSettings/variables/TextVariableInputPlugin.js";
 import { CompositionScope } from "@webiny/react-composition";
-import { TypographyDropDown } from "~/components/TypographyDropDown";
-import { ParagraphEditorPreset } from "~/components/LexicalPresets/ParagraphEditorPreset";
-import { HeadingEditorPreset } from "~/components/LexicalPresets/HeadingEditorPreset";
+import { TypographyDropDown } from "~/components/TypographyDropDown.js";
+import { ParagraphEditorPreset } from "~/components/LexicalPresets/ParagraphEditorPreset.js";
+import { HeadingEditorPreset } from "~/components/LexicalPresets/HeadingEditorPreset.js";
 
-export * from "./LexicalEditor";
+export * from "./LexicalEditor.js";
 
 export const LexicalEditorPlugin = () => {
     return (

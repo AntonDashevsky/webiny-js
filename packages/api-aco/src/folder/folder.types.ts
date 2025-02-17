@@ -1,6 +1,6 @@
-import { ListMeta, ListSort, User } from "~/types";
-import { Topic } from "@webiny/pubsub/types";
-import { FolderPermission } from "~/utils/FolderLevelPermissions";
+import { ListMeta, ListSort, User } from "~/types.js";
+import { Topic } from "@webiny/pubsub/types.js";
+import { FolderPermission } from "~/utils/FolderLevelPermissions.js";
 
 export interface Folder {
     id: string;

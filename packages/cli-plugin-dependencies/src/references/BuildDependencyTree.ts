@@ -1,6 +1,6 @@
 import type { PackageJson } from "type-fest";
 import loadJsonFile from "load-json-file";
-import type { IDependencyTree } from "~/types";
+import type { IDependencyTree } from "~/types.js";
 import { DependencyTree } from "./DependencyTree.js";
 
 export interface IBuildDependencyTreeParams {

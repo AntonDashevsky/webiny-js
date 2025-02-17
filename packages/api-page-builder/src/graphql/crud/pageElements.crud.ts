@@ -11,16 +11,16 @@ import {
     PageElementsCrud,
     PageElementStorageOperationsListParams,
     PbContext
-} from "~/types";
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import {
     createPageElementsCreateValidation,
     createPageElementsUpdateValidation
-} from "~/graphql/crud/pageElements/validation";
+} from "~/graphql/crud/pageElements/validation.js";
 import { createZodError, mdbid, removeUndefinedValues } from "@webiny/utils";
-import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions";
+import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions.js";
 
 export interface CreatePageElementsCrudParams {
     context: PbContext;

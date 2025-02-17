@@ -1,11 +1,11 @@
 import * as React from "react";
 import { css } from "emotion";
-import { Form } from "../../../../components/Form";
-import { DATA_FIELDS } from "~/components/Form/graphql";
+import { Form } from "../../../../components/Form/index.js";
+import { DATA_FIELDS } from "~/components/Form/graphql.js";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { FbErrorResponse, FbFormModel, FbRevisionModel } from "~/types";
-import CircularProgress from "@webiny/ui/Progress/CircularProgress";
+import { FbErrorResponse, FbFormModel, FbRevisionModel } from "~/types.js";
+import CircularProgress from "@webiny/ui/Progress/CircularProgress.js";
 
 interface GetFormQueryResponse {
     formBuilder: {

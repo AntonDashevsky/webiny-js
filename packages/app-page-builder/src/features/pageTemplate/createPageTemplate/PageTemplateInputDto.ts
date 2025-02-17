@@ -1,5 +1,5 @@
-import type { GenericRecord } from "@webiny/app/types";
-import type { PbDataBinding, PbDataSource } from "~/types";
+import type { GenericRecord } from "@webiny/app/types.js";
+import type { PbDataBinding, PbDataSource } from "~/types.js";
 
 export interface PageTemplateInputDto {
     title: string;

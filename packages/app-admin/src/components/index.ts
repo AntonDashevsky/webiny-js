@@ -1,1 +1,1 @@
-export { FileManager } from "~/base/ui/FileManager";
+export { FileManager } from "~/base/ui/FileManager.js";

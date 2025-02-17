@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useRecordLocking } from "~/hooks";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { LockedRecord } from "../LockedRecord";
-import { IRecordLockingLockRecord } from "~/types";
-import { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types";
+import { useRecordLocking } from "~/hooks/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { LockedRecord } from "../LockedRecord/index.js";
+import { IRecordLockingLockRecord } from "~/types.js";
+import { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types.js";
 
 export interface IContentEntryGuardProps {
     loading: boolean;

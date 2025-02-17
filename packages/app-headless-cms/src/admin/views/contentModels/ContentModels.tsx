@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { CloneContentModelDialog } from "./CloneContentModelDialog";
-import NewContentModelDialog from "./NewContentModelDialog";
-import ContentModelsDataList from "./ContentModelsDataList";
+import { CloneContentModelDialog } from "./CloneContentModelDialog.js";
+import NewContentModelDialog from "./NewContentModelDialog.js";
+import ContentModelsDataList from "./ContentModelsDataList.js";
 import { css } from "emotion";
 import { useSecurity } from "@webiny/app-security";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { CmsModel, CmsSecurityPermission } from "~/types";
-import { ImportContentModelsDialog } from "./importing/ImportContentModelsDialog";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { CmsModel, CmsSecurityPermission } from "~/types.js";
+import { ImportContentModelsDialog } from "./importing/ImportContentModelsDialog.js";
 
 const grid = css({
     "&.mdc-layout-grid": {

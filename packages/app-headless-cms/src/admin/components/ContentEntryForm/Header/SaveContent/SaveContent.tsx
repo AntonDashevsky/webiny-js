@@ -1,7 +1,7 @@
 import React from "react";
-import { ContentEntryEditorConfig } from "~/admin/config/contentEntries";
-import { usePermission } from "~/admin/hooks/usePermission";
-import { useContentEntryForm } from "~/admin/components/ContentEntryForm/useContentEntryForm";
+import { ContentEntryEditorConfig } from "~/admin/config/contentEntries/index.js";
+import { usePermission } from "~/admin/hooks/usePermission.js";
+import { useContentEntryForm } from "~/admin/components/ContentEntryForm/useContentEntryForm.js";
 
 export const SaveContentButton = () => {
     const { canEdit } = usePermission();

@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography } from "@webiny/ui/Typography";
-import { EmptyContainer } from "./styled";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { EmptyContainer } from "./styled.js";
 
 type EmptyProps = {
     disclaimer?: string;

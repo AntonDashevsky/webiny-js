@@ -5,11 +5,11 @@ import {
     ICreateMultipartUploadHandler,
     IMultipartUploadHandler,
     IPart
-} from "./abstractions/MultipartUploadHandler";
+} from "./abstractions/MultipartUploadHandler.js";
 import {
     IMultipartUploadFactory,
     IMultipartUploadFactoryContinueParams
-} from "./abstractions/MultipartUploadFactory";
+} from "./abstractions/MultipartUploadFactory.js";
 
 export interface IMultipartUploadFactoryParams {
     client: S3Client;

@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { i18n } from "@webiny/app/i18n";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { Typography } from "@webiny/ui/Typography";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import ProgressBar from "../ProgressBar";
-import { LoadingDialog } from "../styledComponents";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import ProgressBar from "../ProgressBar.js";
+import { LoadingDialog } from "../styledComponents.js";
 import {
     GET_PAGES_IMPORT_TASK,
     GetPagesImportTaskResponse,
@@ -14,9 +14,9 @@ import {
     LIST_IMPORTED_PAGES,
     ListImportedPagesResponse,
     ListImportedPagesVariables
-} from "~/admin/graphql/pageImportExport.gql";
-import { PbTaskStatus } from "~/admin/graphql/types";
-import ImportPagesDetails from "./useImportPagesDetails";
+} from "~/admin/graphql/pageImportExport.gql.js";
+import { PbTaskStatus } from "~/admin/graphql/types.js";
+import ImportPagesDetails from "./useImportPagesDetails.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importPage");
 

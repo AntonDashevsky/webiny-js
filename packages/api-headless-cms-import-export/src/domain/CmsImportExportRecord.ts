@@ -1,7 +1,7 @@
 import type {
     ICmsImportExportRecord,
     ICmsImportExportRecordFile
-} from "~/domain/abstractions/CmsImportExportRecord";
+} from "~/domain/abstractions/CmsImportExportRecord.js";
 import type { TaskDataStatus } from "@webiny/tasks";
 
 export class CmsImportExportRecord implements ICmsImportExportRecord {

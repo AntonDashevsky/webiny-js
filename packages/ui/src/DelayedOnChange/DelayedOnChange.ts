@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import isEqual from "lodash/isEqual";
+import isEqual from "lodash/isEqual.js";
 
 const emptyFunction = (): undefined => {
     return undefined;

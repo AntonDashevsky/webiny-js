@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { plugins } from "@webiny/plugins";
 import { Prompt } from "@webiny/react-router";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import { createSaveAction, SaveTemplateActionEvent } from "./saveTemplate";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
-import { TemplateEditorEventActionCallableState } from "~/templateEditor/types";
-import { createCloneElementPlugin } from "./cloneElement/plugin";
-import { useUpdatePageTemplate } from "~/features";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { createSaveAction, SaveTemplateActionEvent } from "./saveTemplate/index.js";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
+import { TemplateEditorEventActionCallableState } from "~/templateEditor/types.js";
+import { createCloneElementPlugin } from "./cloneElement/plugin.js";
+import { useUpdatePageTemplate } from "~/features/index.js";
 
 export const EventActionHandlers = () => {
     plugins.register(createCloneElementPlugin());

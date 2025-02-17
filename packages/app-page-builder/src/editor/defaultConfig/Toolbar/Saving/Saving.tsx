@@ -1,6 +1,6 @@
 import React from "react";
-import { EditorConfig } from "~/editor/config";
-import { useUI } from "~/editor/hooks/useUI";
+import { EditorConfig } from "~/editor/config/index.js";
+import { useUI } from "~/editor/hooks/useUI.js";
 import { ReactComponent as SaveIcon } from "~/editor/assets/icons/baseline-cloud_upload-24px.svg";
 import { ReactComponent as SavedIcon } from "~/editor/assets/icons/baseline-cloud_done-24px.svg";
 

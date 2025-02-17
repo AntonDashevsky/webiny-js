@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Dialog as BaseDialog } from "~/admin/components/Dialog";
+import { Dialog as BaseDialog } from "~/admin/components/Dialog.js";
 
 export const Dialog = styled(BaseDialog)({
     minWidth: "800px",

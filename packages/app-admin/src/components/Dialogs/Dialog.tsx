@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
 
 import { Form, FormOnSubmit, GenericFormData } from "@webiny/form";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button";
-import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { DialogContainer } from "./styled";
+import { DialogContainer } from "./styled.js";
 
 interface DialogProps {
     title: ReactNode;

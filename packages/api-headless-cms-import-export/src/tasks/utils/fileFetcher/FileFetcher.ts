@@ -12,7 +12,7 @@ import type {
     IFileFetcherFile,
     IFileFetcherHeadResult,
     IFileFetcherStream
-} from "./abstractions/FileFetcher";
+} from "./abstractions/FileFetcher.js";
 
 export interface IFileFetcherParams {
     client: S3Client;

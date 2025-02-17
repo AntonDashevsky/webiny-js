@@ -1,16 +1,16 @@
 import {
     createWebsitePulumiApp,
     CreateWebsitePulumiAppParams
-} from "@webiny/pulumi-aws/enterprise";
-import { PluginCollection } from "@webiny/plugins/types";
+} from "@webiny/pulumi-aws/enterprise/index.js";
+import { PluginCollection } from "@webiny/plugins/types.js";
 import {
     generateCommonHandlers,
     lambdaEdgeWarning,
     renderWebsite,
     telemetryNoLongerNewUser,
     ensureApiDeployedBeforeBuild
-} from "~/website/plugins";
-import { uploadAppToS3 } from "~/react/plugins";
+} from "~/website/plugins/index.js";
+import { uploadAppToS3 } from "~/react/plugins/index.js";
 
 export interface CreateWebsiteAppParams extends CreateWebsitePulumiAppParams {
     plugins?: PluginCollection;

@@ -1,4 +1,4 @@
-import type { Context, IUserCommandInput, ProjectApplication } from "~/types";
+import type { Context, IUserCommandInput, ProjectApplication } from "~/types.js";
 import { processHooks } from "./processHooks.js";
 
 export interface IRunHookParamsArgs {

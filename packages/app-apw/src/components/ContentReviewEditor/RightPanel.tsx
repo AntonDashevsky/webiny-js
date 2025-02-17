@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import styled from "@emotion/styled";
-import { useCurrentChangeRequestId } from "~/hooks/useCurrentChangeRequestId";
-import { Box, Stack } from "~/components/Layout";
-import { PanelBox } from "./Styled";
-import ChangeRequest from "./ChangeRequest/ChangeRequest";
-import { Comments } from "./Comment/Comments";
-import { CommentBox } from "./Comment/CommentBox";
+import { useCurrentChangeRequestId } from "~/hooks/useCurrentChangeRequestId.js";
+import { Box, Stack } from "~/components/Layout.js";
+import { PanelBox } from "./Styled.js";
+import ChangeRequest from "./ChangeRequest/ChangeRequest.js";
+import { Comments } from "./Comment/Comments.js";
+import { CommentBox } from "./Comment/CommentBox.js";
 
 const RightPanelStack = styled(PanelBox)`
     display: flex;

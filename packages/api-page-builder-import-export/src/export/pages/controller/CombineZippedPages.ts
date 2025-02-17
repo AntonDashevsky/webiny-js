@@ -1,8 +1,8 @@
-import { IExportPagesCombineZippedPagesParams } from "~/export/pages/types";
+import { IExportPagesCombineZippedPagesParams } from "~/export/pages/types.js";
 import { ITaskResponseResult } from "@webiny/tasks";
-import { ListObjectsOutput, s3Stream } from "~/export/s3Stream";
-import { createExportPagesDataKey } from "~/export/pages/utils";
-import { ZipFiles } from "~/utils/ZipFiles";
+import { ListObjectsOutput, s3Stream } from "~/export/s3Stream.js";
+import { createExportPagesDataKey } from "~/export/pages/utils.js";
+import { ZipFiles } from "~/utils/ZipFiles.js";
 import uniqueId from "uniqid";
 
 export class CombineZippedPages {

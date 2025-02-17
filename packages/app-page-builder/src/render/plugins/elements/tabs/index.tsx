@@ -1,5 +1,5 @@
-import { PbRenderElementPlugin } from "~/types";
-import { createTabs } from "@webiny/app-page-builder-elements/renderers/tabs";
+import { PbRenderElementPlugin } from "~/types.js";
+import { createTabs } from "@webiny/app-page-builder-elements/renderers/tabs.js";
 
 export default (): PbRenderElementPlugin => {
     return {

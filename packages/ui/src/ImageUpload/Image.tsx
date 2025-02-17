@@ -3,8 +3,8 @@ import classNames from "classnames";
 import { ReactComponent as AddImageIcon } from "./icons/round-add_photo_alternate-24px.svg";
 import { ReactComponent as RemoveImageIcon } from "./icons/round-close-24px.svg";
 import { ReactComponent as EditImageIcon } from "./icons/round-edit-24px.svg";
-import { Typography } from "../Typography";
-import { CircularProgress } from "../Progress";
+import { Typography } from "../Typography/index.js";
+import { CircularProgress } from "../Progress/index.js";
 import {
     AddImageIconWrapper,
     AddImageWrapper,
@@ -12,7 +12,7 @@ import {
     EditImage,
     ImagePreviewWrapper,
     RemoveImage
-} from "./styled";
+} from "./styled.js";
 import { BrowseFilesParams } from "react-butterfiles";
 
 interface ImageProps {

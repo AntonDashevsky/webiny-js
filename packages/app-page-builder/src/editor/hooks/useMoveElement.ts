@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import { useEventActionHandler, useGetElementById } from "~/editor";
-import { MoveElementActionEvent } from "~/editor/recoil/actions/moveElement";
+import { useEventActionHandler, useGetElementById } from "~/editor/index.js";
+import { MoveElementActionEvent } from "~/editor/recoil/actions/moveElement/index.js";
 
 export const useMoveElement = () => {
     const editorHandler = useEventActionHandler();

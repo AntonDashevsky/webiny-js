@@ -4,7 +4,7 @@ import {
     Compose,
     DashboardRenderer as DashboardRendererSpec
 } from "@webiny/app-admin";
-import Welcome from "./Welcome";
+import Welcome from "./Welcome.js";
 
 const DashboardRendererHOC = () => {
     return function DashboardRenderer() {

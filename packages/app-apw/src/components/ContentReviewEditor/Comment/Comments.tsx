@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { RichTextEditor } from "@webiny/ui/RichTextEditor";
-import { ApwComment } from "~/types";
-import { Box, Columns, Stack } from "~/components/Layout";
-import { fromNow } from "~/utils";
-import { Avatar } from "~/views/publishingWorkflows/components/ReviewersList";
-import { useCommentsList } from "~/hooks/useCommentsList";
-import { AuthorName, richTextWrapperStyles, TypographyBody, TypographySecondary } from "../Styled";
-import { CommentFile } from "../ChangeRequest/ApwFile";
-import { FileWithOverlay } from "../ChangeRequest/ChangeRequestMedia";
-import { useFetchInterval } from "~/hooks/useFetchInterval";
+import { RichTextEditor } from "@webiny/ui/RichTextEditor/index.js";
+import { ApwComment } from "~/types.js";
+import { Box, Columns, Stack } from "~/components/Layout.js";
+import { fromNow } from "~/utils.js";
+import { Avatar } from "~/views/publishingWorkflows/components/ReviewersList.js";
+import { useCommentsList } from "~/hooks/useCommentsList.js";
+import { AuthorName, richTextWrapperStyles, TypographyBody, TypographySecondary } from "../Styled.js";
+import { CommentFile } from "../ChangeRequest/ApwFile.js";
+import { FileWithOverlay } from "../ChangeRequest/ChangeRequestMedia.js";
+import { useFetchInterval } from "~/hooks/useFetchInterval.js";
 
 const HEADER_HEIGHT = "65px";
 const CR_DETAIL_HEIGHT = "179px";

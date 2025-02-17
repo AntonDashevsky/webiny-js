@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "../../Typography";
+import { Typography } from "../../Typography/index.js";
 import styled from "@emotion/styled";
 
 const NoDataWrapper = styled("div")({

@@ -5,11 +5,11 @@ import {
     OnSystemAfterInstallTopicParams,
     OnSystemBeforeInstallTopicParams,
     SystemCRUD
-} from "~/types";
+} from "~/types.js";
 import WebinyError from "@webiny/error";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { createTopic } from "@webiny/pubsub";
-import { Tenant } from "@webiny/api-tenancy/types";
+import { Tenant } from "@webiny/api-tenancy/types.js";
 
 interface CreateSystemCrudParams {
     context: I18NContext;

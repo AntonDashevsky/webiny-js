@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import get from "lodash/get";
-import { Input } from "@webiny/ui/Input";
-import { Switch } from "@webiny/ui/Switch";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import get from "lodash/get.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import { plugins } from "@webiny/plugins";
-import { FbFormLayoutPlugin } from "~/types";
-import { PbTheme, PbThemePlugin } from "@webiny/app-page-builder/types";
-import { RichTextEditor, createPropsFromConfig } from "@webiny/app-admin/components/RichTextEditor";
+import { FbFormLayoutPlugin } from "~/types.js";
+import { PbTheme, PbThemePlugin } from "@webiny/app-page-builder/types.js";
+import { RichTextEditor, createPropsFromConfig } from "@webiny/app-admin/components/RichTextEditor/index.js";
 import { BindComponent } from "@webiny/form";
 
 type LayoutListItem = FbFormLayoutPlugin["layout"];

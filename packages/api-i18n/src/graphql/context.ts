@@ -5,12 +5,12 @@ import {
     I18NContextObject,
     I18NLocale,
     LocaleKeys
-} from "~/types";
+} from "~/types.js";
 import { ContextPlugin } from "@webiny/api";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { I18NLocaleContextPlugin } from "~/plugins/I18NLocaleContextPlugin";
-import { createCrudContext } from "~/graphql/crud";
-import { hasI18NContentPermission } from "./hasI18NContentPermission";
+import { I18NLocaleContextPlugin } from "~/plugins/I18NLocaleContextPlugin.js";
+import { createCrudContext } from "~/graphql/crud/index.js";
+import { hasI18NContentPermission } from "./hasI18NContentPermission.js";
 
 interface Locales {
     content: string;

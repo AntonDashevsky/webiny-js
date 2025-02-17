@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDialogs, useSnackbar } from "@webiny/app-admin";
 import { useBind } from "@webiny/form";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import styled from "@emotion/styled";
-import { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks";
+import { CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
 
 type GetEntry = ReturnType<typeof useContentEntry>["getEntry"];
 type PublishEntry = ReturnType<typeof useContentEntry>["publishEntryRevision"];

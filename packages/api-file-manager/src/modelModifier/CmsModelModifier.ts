@@ -1,7 +1,7 @@
 import { Plugin } from "@webiny/plugins";
-import { CmsModelField as BaseModelField } from "@webiny/api-headless-cms/types";
+import { CmsModelField as BaseModelField } from "@webiny/api-headless-cms/types/index.js";
 import { CmsPrivateModelFull, createModelField } from "@webiny/api-headless-cms";
-import { FILE_MODEL_ID } from "~/cmsFileStorage/file.model";
+import { FILE_MODEL_ID } from "~/cmsFileStorage/file.model.js";
 
 type CmsModelField = Omit<BaseModelField, "storageId"> & { bulkEdit?: boolean };
 

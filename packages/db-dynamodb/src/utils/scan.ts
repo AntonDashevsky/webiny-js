@@ -1,5 +1,5 @@
 import type { ScanInput, ScanOutput } from "@webiny/aws-sdk/client-dynamodb";
-import type { Entity, ScanOptions, TableDef } from "~/toolbox";
+import type { Entity, ScanOptions, TableDef } from "~/toolbox.js";
 import { executeWithRetry, ExecuteWithRetryOptions } from "@webiny/utils";
 
 export type { ScanOptions, ScanInput, ScanOutput };

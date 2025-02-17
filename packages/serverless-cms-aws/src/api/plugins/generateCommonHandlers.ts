@@ -1,4 +1,4 @@
-import { generateHandlers } from "~/utils/generateHandlers";
+import { generateHandlers } from "~/utils/generateHandlers.js";
 
 const COMMON_HANDLERS_PATHS = [["fileManager", "manage"]];
 

@@ -1,1 +1,1 @@
-export * from "./RevisionSelector";
+export * from "./RevisionSelector.js";

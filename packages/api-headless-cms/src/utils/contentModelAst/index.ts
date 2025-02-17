@@ -1,3 +1,3 @@
-export * from "./CmsModelFieldToAstFromPlugin";
-export * from "./CmsModelFieldToAstConverterFromPlugins";
-export * from "./CmsModelToAstConverter";
+export * from "./CmsModelFieldToAstFromPlugin.js";
+export * from "./CmsModelFieldToAstConverterFromPlugins.js";
+export * from "./CmsModelToAstConverter.js";

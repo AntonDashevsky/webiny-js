@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import type { CliCommandPlugin } from "@webiny/cli/types.js";
 import { regions } from "@webiny/cli/regions.js";
-import type { IUserCommandInput } from "~/types";
+import type { IUserCommandInput } from "~/types.js";
 
 const { red } = chalk;
 
@@ -171,7 +171,7 @@ export const commands: CliCommandPlugin[] = [
                 }
             );
 
-            let useNewWatchCommand = false;
+            const useNewWatchCommand = false;
 
             // We needed to add try / catch here because, in `webiny-js` repository,
             // `@webiny/feature-flags` package is not available on first project build (`yarn build`).

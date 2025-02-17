@@ -1,7 +1,7 @@
 /**
  * TODO If adding GSIs to the Elasticsearch table, add them here.
  */
-import type { TableDef } from "@webiny/db-dynamodb/toolbox";
+import type { TableDef } from "@webiny/db-dynamodb/toolbox.js";
 import type { IEntity } from "@webiny/db-dynamodb";
 import { createEntity } from "@webiny/db-dynamodb";
 

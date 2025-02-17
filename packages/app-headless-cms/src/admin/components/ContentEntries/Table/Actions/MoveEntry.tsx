@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Move } from "@material-design-icons/svg/outlined/drive_file_move.svg";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useEntry, useMoveContentEntryToFolder } from "~/admin/hooks";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useEntry, useMoveContentEntryToFolder } from "~/admin/hooks/index.js";
 
 export const MoveEntry = () => {
     const { entry: record } = useEntry();

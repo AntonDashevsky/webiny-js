@@ -1,13 +1,15 @@
 import React, { Fragment, useCallback, useState } from "react";
 import { default as localStorage } from "store";
 import { css } from "emotion";
-import { Transition } from "react-transition-group";
+// @ts-expect-error This package organization is a mess, so we just ignore its types.
+import Transition from "react-transition-group/esm/Transition.js";
+import type { TransitionStatus } from "react-transition-group/Transition";
 import classNames from "classnames";
 import { Link } from "@webiny/react-router";
 import { useMenuItem, MenuItems } from "@webiny/app-admin";
-import { List, ListItem, ListItemGraphic, ListItemMeta } from "@webiny/ui/List";
-import { IconButton } from "@webiny/ui/Button";
-import { useNavigation } from "../index";
+import { List, ListItem, ListItemGraphic, ListItemMeta } from "@webiny/ui/List/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { useNavigation } from "../index.js";
 import { ReactComponent as UpIcon } from "../icons/round-keyboard_arrow_up-24px.svg";
 import { ReactComponent as DownIcon } from "../icons/round-keyboard_arrow_down-24px.svg";
 
@@ -141,7 +143,7 @@ export const MenuGroupRenderer = (PrevMenuItem: React.ComponentType) => {
                 {menuItem.path ? withLink(item) : item}
                 {menuItem.children ? (
                     <Transition in={isExpanded} timeout={100} appear unmountOnExit>
-                        {state => (
+                        {(state: TransitionStatus) => (
                             <div style={{ ...defaultStyle, ...transitionStyles[state] }}>
                                 <MenuItems menuItems={menuItem.children} />
                             </div>

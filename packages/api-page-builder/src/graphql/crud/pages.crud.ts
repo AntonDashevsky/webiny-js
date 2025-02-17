@@ -1,5 +1,5 @@
 import uniqid from "uniqid";
-import lodashGet from "lodash/get";
+import lodashGet from "lodash/get.js";
 import DataLoader from "dataloader";
 import { NotFoundError } from "@webiny/handler-graphql";
 import {
@@ -14,16 +14,16 @@ import {
     PageStorageOperationsListParams,
     PageStorageOperationsListTagsParams,
     PbContext
-} from "~/types";
-import normalizePath from "./pages/normalizePath";
+} from "~/types.js";
+import normalizePath from "./pages/normalizePath.js";
 import {
     createPageCreateValidation,
     createPageSettingsUpdateValidation,
     createPageUpdateValidation
-} from "./pages/validation";
-import { processPageContent } from "./pages/processPageContent";
+} from "./pages/validation.js";
+import { processPageContent } from "./pages/processPageContent.js";
 import WebinyError from "@webiny/error";
-import lodashTrimEnd from "lodash/trimEnd";
+import lodashTrimEnd from "lodash/trimEnd.js";
 import {
     FlushParams,
     OnPageAfterCreateFromTopicParams,
@@ -38,7 +38,7 @@ import {
     OnPageBeforeUnpublishTopicParams,
     OnPageBeforeUpdateTopicParams,
     RenderParams
-} from "~/graphql/types";
+} from "~/graphql/types.js";
 import { createTopic } from "@webiny/pubsub";
 import {
     createIdentifier,
@@ -49,9 +49,9 @@ import {
     removeUndefinedValues,
     zeroPad
 } from "@webiny/utils";
-import { createCompression } from "~/graphql/crud/pages/compression";
-import { PagesPermissions } from "./permissions/PagesPermissions";
-import { PageContent } from "./pages/PageContent";
+import { createCompression } from "~/graphql/crud/pages/compression.js";
+import { PagesPermissions } from "./permissions/PagesPermissions.js";
+import { PageContent } from "./pages/PageContent.js";
 
 const STATUS_DRAFT = "draft";
 const STATUS_PUBLISHED = "published";

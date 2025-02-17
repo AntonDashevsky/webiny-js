@@ -1,9 +1,9 @@
-import { createCrud, CreateCrudParams } from "./crud";
-import graphql from "./graphql";
-import { createTranslations, createTranslationsGraphQl } from "~/translations/createTranslations";
-import { PluginCollection } from "@webiny/plugins/types";
-import { createDataSourcesContext } from "~/dataSources/context/createDataSourcesContext";
-import { createDataSourcesSchema } from "~/dataSources/graphql/createDataSourcesSchema";
+import { createCrud, CreateCrudParams } from "./crud.js";
+import graphql from "./graphql.js";
+import { createTranslations, createTranslationsGraphQl } from "~/translations/createTranslations.js";
+import { PluginCollection } from "@webiny/plugins/types.js";
+import { createDataSourcesContext } from "~/dataSources/context/createDataSourcesContext.js";
+import { createDataSourcesSchema } from "~/dataSources/graphql/createDataSourcesSchema.js";
 
 export const createPageBuilderGraphQL = (): PluginCollection => {
     return [...graphql(), ...createTranslationsGraphQl(), createDataSourcesSchema()];
@@ -14,5 +14,5 @@ export const createPageBuilderContext = (params: ContextParams) => {
     return [createCrud(params), ...createTranslations(), createDataSourcesContext()];
 };
 
-export * from "./crud/pages/PageContent";
-export * from "./crud/pages/PageElementId";
+export * from "./crud/pages/PageContent.js";
+export * from "./crud/pages/PageElementId.js";

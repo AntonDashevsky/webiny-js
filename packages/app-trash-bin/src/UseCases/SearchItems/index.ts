@@ -1,2 +1,2 @@
-export * from "./ISearchItemsUseCase";
-export * from "./SearchItemsUseCase";
+export * from "./ISearchItemsUseCase.js";
+export * from "./SearchItemsUseCase.js";

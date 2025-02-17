@@ -1,4 +1,4 @@
-import { useAuthenticator } from "./useAuthenticator";
+import { useAuthenticator } from "./useAuthenticator.js";
 
 interface SignedInState {
     shouldRender: boolean;

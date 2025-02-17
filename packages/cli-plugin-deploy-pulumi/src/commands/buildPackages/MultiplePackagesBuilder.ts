@@ -3,7 +3,7 @@ import { deserializeError } from "serialize-error";
 import path from "path";
 import Listr from "listr";
 import chalk from "chalk";
-import type { IProjectApplicationPackage } from "@webiny/cli/types";
+import type { IProjectApplicationPackage } from "@webiny/cli/types.js";
 import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
 import { measureDuration } from "~/utils/index.js";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useBind } from "@webiny/form";
-import { Select } from "@webiny/ui/Select";
+import { Select } from "@webiny/ui/Select/index.js";
 
 export const FilterByType = () => {
     const bind = useBind({

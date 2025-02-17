@@ -1,7 +1,7 @@
 import invariant from "invariant";
 import { customAlphabet } from "nanoid";
 import { set } from "dot-prop-immutable";
-import { DragObjectWithTypeWithTarget as BaseDragObjectWithTypeWithTarget } from "./components/Droppable";
+import { DragObjectWithTypeWithTarget as BaseDragObjectWithTypeWithTarget } from "./components/Droppable.js";
 import { plugins } from "@webiny/plugins";
 import {
     PbBlockVariable,
@@ -12,16 +12,16 @@ import {
     PbEditorPageElementSettingsPlugin,
     PbEditorPageElementStyleSettingsPlugin,
     PbElement
-} from "~/types";
+} from "~/types.js";
 import {
     CreateElementActionEvent,
     DeleteElementActionEvent,
     UpdateDocumentActionEvent,
     updateElementAction,
     UpdateElementActionArgsType
-} from "~/editor/recoil/actions";
-import { AfterDropElementActionEvent } from "~/editor/recoil/actions/afterDropElement";
-import { executeAction } from "~/editor/recoil/eventActions";
+} from "~/editor/recoil/actions/index.js";
+import { AfterDropElementActionEvent } from "~/editor/recoil/actions/afterDropElement/index.js";
+import { executeAction } from "~/editor/recoil/eventActions/index.js";
 
 const ALPHANUMERIC = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 export const getNanoid = customAlphabet(ALPHANUMERIC, 10);

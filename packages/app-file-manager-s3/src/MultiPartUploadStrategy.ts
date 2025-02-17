@@ -1,7 +1,7 @@
-import { UploadedFile, UploadOptions } from "@webiny/app/types";
-import { FileUploadStrategy } from "~/index";
-import { MultiPartUploader } from "~/MultiPartUploader";
-import { MultiPartUploadGraphQLAPI } from "~/MultiPartUploadGraphQLAPI";
+import { UploadedFile, UploadOptions } from "@webiny/app/types.js";
+import { FileUploadStrategy } from "~/index.js";
+import { MultiPartUploader } from "~/MultiPartUploader.js";
+import { MultiPartUploadGraphQLAPI } from "~/MultiPartUploadGraphQLAPI.js";
 
 export class MultiPartUploadStrategy implements FileUploadStrategy {
     async upload(file: File, options: UploadOptions): Promise<UploadedFile> {

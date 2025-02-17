@@ -1,25 +1,25 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import isEmpty from "lodash/isEmpty";
+import isEmpty from "lodash/isEmpty.js";
 
 import { useRouter } from "@webiny/react-router";
-import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons";
-import { IconButton } from "@webiny/ui/Button";
+import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as DuplicateIcon } from "~/editor/assets/icons/round-queue-24px.svg";
 import { ReactComponent as ExportIcon } from "@material-design-icons/svg/round/download.svg";
-import { CircularProgress } from "@webiny/ui/Progress";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "@webiny/app/i18n";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog.js";
 
-import { PbPageBlock } from "~/types";
-import { CreatableItem } from "./PageBlocks";
-import { PreviewBlock } from "~/admin/components/PreviewBlock";
-import { ResponsiveElementsProvider } from "~/admin/components/ResponsiveElementsProvider";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+import { PbPageBlock } from "~/types.js";
+import { CreatableItem } from "./PageBlocks.js";
+import { PreviewBlock } from "~/admin/components/PreviewBlock.js";
+import { ResponsiveElementsProvider } from "~/admin/components/ResponsiveElementsProvider/index.js";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
 
 const t = i18n.ns("app-page-builder/admin/page-blocks/data-list");
 

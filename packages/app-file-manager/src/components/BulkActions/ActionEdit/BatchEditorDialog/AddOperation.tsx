@@ -1,11 +1,11 @@
 import React from "react";
 
-import { ButtonDefault } from "@webiny/ui/Button";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
 
 import {
     AddOperationInner,
     ButtonIcon
-} from "~/components/BulkActions/ActionEdit/ActionEdit.styled";
+} from "~/components/BulkActions/ActionEdit/ActionEdit.styled.js";
 
 interface AddOperationProps {
     disabled: boolean;

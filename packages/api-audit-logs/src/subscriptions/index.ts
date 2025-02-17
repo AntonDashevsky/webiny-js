@@ -1,13 +1,13 @@
-import { createFormBuilderHooks } from "./formBuilder";
-import { createPageBuilderHooks } from "./pageBuilder";
-import { createFileManagerHooks } from "./fileManager";
-import { createHeadlessCmsHooks } from "./headlessCms";
-import { createSecurityHooks } from "./security";
-import { createI18NHooks } from "./i18n";
-import { createMailerHooks } from "./mailer";
-import { createAcoHooks } from "./aco";
-import { createApwHooks } from "./apw";
-import { AuditLogsContext } from "~/types";
+import { createFormBuilderHooks } from "./formBuilder/index.js";
+import { createPageBuilderHooks } from "./pageBuilder/index.js";
+import { createFileManagerHooks } from "./fileManager/index.js";
+import { createHeadlessCmsHooks } from "./headlessCms/index.js";
+import { createSecurityHooks } from "./security/index.js";
+import { createI18NHooks } from "./i18n/index.js";
+import { createMailerHooks } from "./mailer/index.js";
+import { createAcoHooks } from "./aco/index.js";
+import { createApwHooks } from "./apw/index.js";
+import { AuditLogsContext } from "~/types.js";
 
 export const createSubscriptionHooks = (context: AuditLogsContext) => {
     createFormBuilderHooks(context);

@@ -1,40 +1,40 @@
 import React, { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import {
     ButtonDefault,
     ButtonIcon,
     ButtonPrimary,
     CopyButton,
     IconButton
-} from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
-import { Permissions } from "@webiny/app-admin/components/Permissions";
+} from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
+import { Permissions } from "@webiny/app-admin/components/Permissions/index.js";
 import { validation } from "@webiny/validation";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { Typography } from "@webiny/ui/Typography";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { pickDataForAPI } from "./utils";
-import * as GQL from "./graphql";
-import { SnackbarAction } from "@webiny/ui/Snackbar";
-import isEmpty from "lodash/isEmpty";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { pickDataForAPI } from "./utils.js";
+import * as GQL from "./graphql.js";
+import { SnackbarAction } from "@webiny/ui/Snackbar/index.js";
+import isEmpty from "lodash/isEmpty.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as CopyIcon } from "@material-design-icons/svg/outlined/content_copy.svg";
 import styled from "@emotion/styled";
-import { ApiKey } from "~/types";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { ApiKey } from "~/types.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
 const t = i18n.ns("app-security-admin-users/admin/api-keys/form");
 

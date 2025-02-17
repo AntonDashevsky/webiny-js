@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { Link } from "@webiny/react-router";
-import { createNewEntryUrl } from "./createEntryUrl";
-import { i18n } from "@webiny/app/i18n";
+import { createNewEntryUrl } from "./createEntryUrl.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");
 

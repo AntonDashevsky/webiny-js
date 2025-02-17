@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ListItemGraphic as BaseListItemGraphic, ListItem as BaseListItem } from "@webiny/ui/List";
+import { ListItemGraphic as BaseListItemGraphic, ListItem as BaseListItem } from "@webiny/ui/List/index.js";
 
 export const MessageContainer = styled("div")`
     margin-bottom: 16px;

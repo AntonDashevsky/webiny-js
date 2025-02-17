@@ -1,1 +1,1 @@
-export * from "./templateAtom";
+export * from "./templateAtom.js";

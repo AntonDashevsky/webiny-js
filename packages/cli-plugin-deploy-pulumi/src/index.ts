@@ -1,4 +1,4 @@
-import { commands } from "./commands";
+import { commands } from "./commands/index.js";
 
 export default () => {
     return commands;

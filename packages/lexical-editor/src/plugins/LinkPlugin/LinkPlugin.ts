@@ -8,7 +8,7 @@ import {
     PASTE_COMMAND
 } from "lexical";
 import { LinkNode, TOGGLE_LINK_COMMAND, toggleLink } from "@webiny/lexical-nodes";
-import { useRichTextEditor } from "~/hooks";
+import { useRichTextEditor } from "~/hooks/index.js";
 
 type Props = {
     validateUrl?: (url: string) => boolean;

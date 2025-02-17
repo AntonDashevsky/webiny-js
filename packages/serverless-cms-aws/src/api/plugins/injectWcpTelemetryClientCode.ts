@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 import fetch from "node-fetch";
 import { getWcpApiUrl } from "@webiny/wcp";
-import { AfterBuildPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins";
+import { AfterBuildPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins/index.js";
 
 export const injectWcpTelemetryClientCode = new AfterBuildPlugin(
     async ({ projectApplication }, context) => {

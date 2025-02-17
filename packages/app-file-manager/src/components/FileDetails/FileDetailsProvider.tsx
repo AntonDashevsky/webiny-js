@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { FileItem } from "@webiny/app-admin/types";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { FileItem } from "@webiny/app-admin/types.js";
 
 export interface FileDetailsContext {
     close: () => void;

@@ -1,6 +1,6 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import { Icon } from "@webiny/ui/Icon";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 
 import {
     NoPermissionBody,
@@ -9,7 +9,7 @@ import {
     NoPermissionOuter,
     NoPermissionTitle,
     NoPermissionWrapper
-} from "./styled";
+} from "./styled.js";
 
 const t = i18n.ns("app-admin/file-manager/components/no-permission");
 

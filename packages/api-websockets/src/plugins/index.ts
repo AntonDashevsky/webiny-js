@@ -1,3 +1,3 @@
-export * from "./WebsocketsRoutePlugin";
-export * from "./WebsocketsActionPlugin";
-export * from "./abstrations/IWebsocketsActionPlugin";
+export * from "./WebsocketsRoutePlugin.js";
+export * from "./WebsocketsActionPlugin.js";
+export * from "./abstrations/IWebsocketsActionPlugin.js";

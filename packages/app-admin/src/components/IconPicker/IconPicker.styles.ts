@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
 
-import { ButtonSecondary } from "@webiny/ui/Button";
+import { ButtonSecondary } from "@webiny/ui/Button/index.js";
 
-import { ICON_PICKER_SIZE } from "./types";
+import { ICON_PICKER_SIZE } from "./types.js";
 
 export const IconPickerWrapper = styled.div`
     .mdc-menu-surface {

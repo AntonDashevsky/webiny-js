@@ -1,5 +1,5 @@
 import React from "react";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
 
 export interface NoActiveElementProps {
     children?: React.ReactNode;

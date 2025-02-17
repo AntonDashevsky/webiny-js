@@ -1,5 +1,5 @@
-import { ErrorResponse, Response } from "@webiny/handler-graphql/responses";
-import { CmsEntryResolverFactory as ResolverFactory } from "~/types";
+import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
+import { CmsEntryResolverFactory as ResolverFactory } from "~/types/index.js";
 
 interface ResolveRestoreFromBinArgs {
     revision: string;

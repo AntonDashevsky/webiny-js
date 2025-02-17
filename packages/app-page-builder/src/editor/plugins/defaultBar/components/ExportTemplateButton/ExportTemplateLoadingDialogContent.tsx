@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery } from "@apollo/react-hooks";
 import {
     GET_TEMPLATE_IMPORT_EXPORT_TASK,
     GetTemplateImportExportTaskResponse
-} from "~/admin/graphql/templateImportExport.gql";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "@webiny/app/i18n";
-import { LoadingDialog } from "../ImportButton/styledComponents";
-import ProgressBar from "../ImportButton/ProgressBar";
-import useExportTemplateDialog from "./useExportTemplateDialog";
-import { ImportExportTaskStatus } from "~/types";
+} from "~/admin/graphql/templateImportExport.gql.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { LoadingDialog } from "../ImportButton/styledComponents.js";
+import ProgressBar from "../ImportButton/ProgressBar.js";
+import useExportTemplateDialog from "./useExportTemplateDialog.js";
+import { ImportExportTaskStatus } from "~/types.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importTemplate");
 

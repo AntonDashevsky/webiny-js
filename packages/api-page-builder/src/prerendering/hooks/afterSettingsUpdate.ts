@@ -1,4 +1,4 @@
-import { PathItem, PbContext } from "~/graphql/types";
+import { PathItem, PbContext } from "~/graphql/types.js";
 import { ContextPlugin } from "@webiny/api";
 
 export default () => {

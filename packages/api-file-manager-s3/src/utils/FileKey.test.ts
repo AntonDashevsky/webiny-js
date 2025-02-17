@@ -1,4 +1,4 @@
-import { FileKey } from "./FileKey";
+import { FileKey } from "./FileKey.js";
 
 describe("FileKey", () => {
     it("should generate a file key (extension is included in the name)", () => {

@@ -1,2 +1,2 @@
-export * from "./Meta";
-export * from "./MetaMapper";
+export * from "./Meta.js";
+export * from "./MetaMapper.js";

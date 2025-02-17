@@ -1,2 +1,2 @@
-export { default as getEnvironment } from "./getEnvironment";
-export { default as getObjectParams } from "./getObjectParams";
+export { default as getEnvironment } from "./getEnvironment.js";
+export { default as getObjectParams } from "./getObjectParams.js";

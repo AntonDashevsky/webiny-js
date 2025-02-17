@@ -1,11 +1,11 @@
-import get from "lodash/get";
-import set from "lodash/set";
-import { FbFormRenderComponentProps } from "~/types";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import { FbFormRenderComponentProps } from "~/types.js";
 import {
     SAVE_FORM_VIEW,
     SaveFormViewMutationResponse,
     SaveFormViewMutationVariables
-} from "./graphql";
+} from "./graphql.js";
 
 const saveFormView = ({ data, client }: Required<FbFormRenderComponentProps>) => {
     // SSR?

@@ -2,18 +2,18 @@ import WebinyError from "@webiny/error";
 import {
     IUnlockEntryUseCase,
     IUnlockEntryUseCaseExecuteParams
-} from "~/abstractions/IUnlockEntryUseCase";
+} from "~/abstractions/IUnlockEntryUseCase.js";
 import {
     IGetIdentity,
     IHasFullAccessCallable,
     IRecordLockingLockRecord,
     IRecordLockingModelManager
-} from "~/types";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
-import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
-import { validateSameIdentity } from "~/utils/validateSameIdentity";
+} from "~/types.js";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
+import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
+import { validateSameIdentity } from "~/utils/validateSameIdentity.js";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { IKickOutCurrentUserUseCase } from "~/abstractions/IKickOutCurrentUserUseCase";
+import { IKickOutCurrentUserUseCase } from "~/abstractions/IKickOutCurrentUserUseCase.js";
 
 export interface IUnlockEntryUseCaseParams {
     readonly getLockRecordUseCase: IGetLockRecordUseCase;

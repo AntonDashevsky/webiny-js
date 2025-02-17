@@ -1,4 +1,4 @@
-import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
+import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 
 export type Attributes = Record<string, AttributeDefinition>;

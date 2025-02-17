@@ -1,10 +1,10 @@
 import React from "react";
 import { css } from "emotion";
-import groupBy from "lodash/groupBy";
-import get from "lodash/get";
-import { Typography } from "@webiny/ui/Typography";
-import { Checkbox } from "@webiny/ui/Checkbox";
-import { GetValueCallable, OnChangeCallable, PermissionSelectorCmsGroup } from "./types";
+import groupBy from "lodash/groupBy.js";
+import get from "lodash/get.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Checkbox } from "@webiny/ui/Checkbox/index.js";
+import { GetValueCallable, OnChangeCallable, PermissionSelectorCmsGroup } from "./types.js";
 
 const groupStyles = css({
     marginLeft: 20

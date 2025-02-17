@@ -1,12 +1,12 @@
 import React from "react";
 import { ContentEntryListConfig, useModel } from "@webiny/app-headless-cms";
 import { ReactComponent as LockedIcon } from "@material-design-icons/svg/round/lock.svg";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { useRecordLocking } from "~/hooks";
-import { UseContentEntriesListHookDecorator } from "./decorators/UseContentEntriesListHookDecorator";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { useRecordLocking } from "~/hooks/index.js";
+import { UseContentEntriesListHookDecorator } from "./decorators/UseContentEntriesListHookDecorator.js";
 import styled from "@emotion/styled";
-import { UseSaveEntryDecorator } from "~/components/decorators/UseSaveEntryDecorator";
-import { UseRecordsDecorator } from "./decorators/UseRecordsDecorator";
+import { UseSaveEntryDecorator } from "~/components/decorators/UseSaveEntryDecorator.js";
+import { UseRecordsDecorator } from "./decorators/UseRecordsDecorator.js";
 
 const CenterAlignment = styled.div`
     display: block;

@@ -1,5 +1,5 @@
-import { SecurityConfig } from "~/types";
-import { listGroupsFromProvider } from "./listGroupsFromProvider";
+import { SecurityConfig } from "~/types.js";
+import { listGroupsFromProvider } from "./listGroupsFromProvider.js";
 
 export interface GetGroupFromPluginsParams {
     groupsProvider?: SecurityConfig["groupsProvider"];

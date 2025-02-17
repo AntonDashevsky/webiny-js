@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context, IElasticsearchTaskConfig } from "~/types";
-import { IElasticsearchEnableIndexingTaskInput } from "./types";
+import { Context, IElasticsearchTaskConfig } from "~/types.js";
+import { IElasticsearchEnableIndexingTaskInput } from "./types.js";
 
 export const createEnableIndexingTask = (params?: IElasticsearchTaskConfig) => {
     return createTaskDefinition<Context, IElasticsearchEnableIndexingTaskInput>({
@@ -9,14 +9,14 @@ export const createEnableIndexingTask = (params?: IElasticsearchTaskConfig) => {
         run: async ({ response, context, isAborted, isCloseToTimeout, input, store, timer }) => {
             const { Manager } = await import(
                 /* webpackChunkName: "Manager" */
-                "../Manager"
+                "../Manager.js"
             );
             const { IndexManager } = await import(
-                /* webpackChunkName: "IndexManager" */ "~/settings"
+                /* webpackChunkName: "IndexManager" */ "~/settings/index.js"
             );
 
             const { EnableIndexingTaskRunner } = await import(
-                /* webpackChunkName: "EnableIndexingTaskRunner" */ "./EnableIndexingTaskRunner"
+                /* webpackChunkName: "EnableIndexingTaskRunner" */ "./EnableIndexingTaskRunner.js"
             );
 
             const manager = new Manager<IElasticsearchEnableIndexingTaskInput>({

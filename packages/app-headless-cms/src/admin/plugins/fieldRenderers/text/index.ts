@@ -1,5 +1,5 @@
-import textInput from "./textInput";
-import textInputs from "./textInputs";
-import { tags } from "./tags";
+import textInput from "./textInput.js";
+import textInputs from "./textInputs.js";
+import { tags } from "./tags.js";
 
 export default [textInput, textInputs, tags];

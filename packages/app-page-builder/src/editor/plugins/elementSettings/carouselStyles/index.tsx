@@ -1,6 +1,6 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
-import CarouselStylesSettings from "./CarouselStyles";
+import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
+import CarouselStylesSettings from "./CarouselStyles.js";
 
 export default {
     name: "pb-editor-page-element-style-settings-carousel-styles",

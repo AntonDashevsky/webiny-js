@@ -1,6 +1,6 @@
 import { Client } from "@webiny/api-elasticsearch";
-import { configurations } from "@webiny/api-headless-cms-ddb-es/configurations";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import { configurations } from "@webiny/api-headless-cms-ddb-es/configurations.js";
+import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 export interface IDisableIndexingParams {
     client: Client;

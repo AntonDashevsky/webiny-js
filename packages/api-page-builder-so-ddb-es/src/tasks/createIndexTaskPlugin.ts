@@ -1,6 +1,6 @@
 import { createElasticsearchIndexTaskPlugin } from "@webiny/api-elasticsearch-tasks";
-import { configurations } from "~/configurations";
-import { PbContext } from "~/types";
+import { configurations } from "~/configurations.js";
+import { PbContext } from "~/types.js";
 
 export const createIndexTaskPlugin = () => {
     return createElasticsearchIndexTaskPlugin<PbContext>({

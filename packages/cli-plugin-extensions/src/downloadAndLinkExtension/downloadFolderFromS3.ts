@@ -5,7 +5,7 @@ import {
     S3Client,
     ListObjectsV2Command,
     GetObjectCommand
-} from "@webiny/aws-sdk/client-s3/index.js";
+} from "@webiny/aws-sdk/client-s3";
 
 interface DownloadFolderFromS3Params {
     bucketName: string;

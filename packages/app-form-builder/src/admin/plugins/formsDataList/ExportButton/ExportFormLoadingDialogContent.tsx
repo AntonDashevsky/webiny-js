@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_FORM_IMPORT_EXPORT_TASK } from "~/admin/graphql";
-import get from "lodash/get";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "@webiny/app/i18n";
-import { LoadingDialog } from "../ImportButton/styledComponents";
-import ProgressBar from "../ImportButton/ProgressBar";
-import useExportFormDialog from "./useExportFormDialog";
-import { ImportExportTaskStatus } from "~/types";
+import { GET_FORM_IMPORT_EXPORT_TASK } from "~/admin/graphql.js";
+import get from "lodash/get.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { LoadingDialog } from "../ImportButton/styledComponents.js";
+import ProgressBar from "../ImportButton/ProgressBar.js";
+import useExportFormDialog from "./useExportFormDialog.js";
+import { ImportExportTaskStatus } from "~/types.js";
 
 const t = i18n.ns("app-form-builder/admin/plugins/editor/defaultBar/exportForm");
 

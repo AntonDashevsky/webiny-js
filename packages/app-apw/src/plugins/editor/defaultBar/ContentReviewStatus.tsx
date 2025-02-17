@@ -1,9 +1,9 @@
 import React from "react";
-import upperCase from "lodash/upperCase";
-import { Box, Columns, Stack } from "~/components/Layout";
-import { Circle, StatusText } from "~/views/contentReviewDashboard/components/Styled";
-import { statusToLevel } from "~/views/contentReviewDashboard/components/ContentReviewStatus";
-import { useCurrentContentReview } from "~/hooks/useContentReview";
+import upperCase from "lodash/upperCase.js";
+import { Box, Columns, Stack } from "~/components/Layout.js";
+import { Circle, StatusText } from "~/views/contentReviewDashboard/components/Styled.js";
+import { statusToLevel } from "~/views/contentReviewDashboard/components/ContentReviewStatus.js";
+import { useCurrentContentReview } from "~/hooks/useContentReview.js";
 
 export const ContentReviewStatus = () => {
     const { contentReview } = useCurrentContentReview();

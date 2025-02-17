@@ -1,10 +1,10 @@
 import { Plugin } from "@webiny/plugins";
-import { GenericRecord } from "@webiny/api/types";
+import { GenericRecord } from "@webiny/api/types.js";
 import {
     IWebsocketsActionPluginCallable,
     IWebsocketsActionPluginCallableParams,
     WebsocketsActionPluginCallableResponse
-} from "./abstrations/IWebsocketsActionPlugin";
+} from "./abstrations/IWebsocketsActionPlugin.js";
 
 export class WebsocketsActionPlugin<T extends GenericRecord = GenericRecord> extends Plugin {
     public static override readonly type: string = "websockets.route.action";

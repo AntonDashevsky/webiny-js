@@ -2,10 +2,10 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import classNames from "classnames";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
-import { Elevation } from "@webiny/ui/Elevation";
-import { Icon } from "@webiny/ui/Icon";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 
 const SimpleFormContainer = styled("div")({
     position: "relative",

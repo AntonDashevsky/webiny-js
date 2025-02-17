@@ -2,7 +2,7 @@ import {
     DecryptedWcpProjectLicense,
     MT_OPTIONS_MAX_COUNT_TYPE,
     PROJECT_PACKAGE_FEATURE_NAME
-} from "~/types";
+} from "~/types.js";
 
 export const createTestWcpLicense = (): DecryptedWcpProjectLicense => {
     return {

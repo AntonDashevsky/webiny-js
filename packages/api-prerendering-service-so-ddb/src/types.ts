@@ -1,8 +1,8 @@
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { TableConstructor } from "@webiny/db-dynamodb/toolbox";
-import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
-import { PrerenderingServiceStorageOperations as BasePrerenderingServiceStorageOperations } from "@webiny/api-prerendering-service/types";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
+import { TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
+import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
+import { PrerenderingServiceStorageOperations as BasePrerenderingServiceStorageOperations } from "@webiny/api-prerendering-service/types.js";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

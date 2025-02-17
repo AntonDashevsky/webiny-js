@@ -1,4 +1,4 @@
-import { LogStream } from "./LogStream";
+import { LogStream } from "./LogStream.js";
 
 export class LogReporter {
     private readonly logGroupName: string;

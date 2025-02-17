@@ -4,10 +4,10 @@ import {
     CmsSystemStorageOperationsCreateParams,
     CmsSystemStorageOperationsGetParams,
     CmsSystemStorageOperationsUpdateParams
-} from "@webiny/api-headless-cms/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-headless-cms/types/index.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import WebinyError from "@webiny/error";
-import { getClean } from "@webiny/db-dynamodb/utils/get";
+import { getClean } from "@webiny/db-dynamodb/utils/get.js";
 import { put } from "@webiny/db-dynamodb";
 
 interface CreateSystemStorageOperationsParams {

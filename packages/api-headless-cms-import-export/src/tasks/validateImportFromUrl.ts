@@ -1,10 +1,10 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { VALIDATE_IMPORT_FROM_URL_INTEGRITY_TASK } from "./constants";
-import type { Context } from "~/types";
+import { VALIDATE_IMPORT_FROM_URL_INTEGRITY_TASK } from "./constants.js";
+import type { Context } from "~/types.js";
 import type {
     IValidateImportFromUrlInput,
     IValidateImportFromUrlOutput
-} from "~/tasks/domain/abstractions/ValidateImportFromUrl";
+} from "~/tasks/domain/abstractions/ValidateImportFromUrl.js";
 
 export const createValidateImportFromUrlTask = () => {
     return createTaskDefinition<Context, IValidateImportFromUrlInput, IValidateImportFromUrlOutput>(
@@ -17,7 +17,7 @@ export const createValidateImportFromUrlTask = () => {
                 "Validates given URLs to verify that they are what we need to import the data.",
             async run(params) {
                 const { createValidateImportFromUrl } = await import(
-                    /* webpackChunkName: "createValidateImportFromUrl" */ "./domain/createValidateImportFromUrl"
+                    /* webpackChunkName: "createValidateImportFromUrl" */ "./domain/createValidateImportFromUrl.js"
                 );
 
                 try {

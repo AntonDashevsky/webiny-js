@@ -1,15 +1,15 @@
 import React, { Fragment } from "react";
-import { i18n } from "@webiny/app/i18n";
-import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox";
-import { Cell } from "@webiny/ui/Grid";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
+import { Cell } from "@webiny/ui/Grid/index.js";
 import { BindComponent } from "@webiny/form";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 import {
     GetValueCallable,
     OnChangeCallable,
     PermissionSelectorCmsGroup,
     PermissionSelectorCmsModel
-} from "./types";
+} from "./types.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

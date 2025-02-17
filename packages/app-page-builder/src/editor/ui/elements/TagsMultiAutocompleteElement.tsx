@@ -3,8 +3,8 @@ import {
     FormFieldElement,
     FormFieldElementConfig,
     FormFieldElementRenderProps
-} from "@webiny/app-admin/ui/elements/form/FormFieldElement";
-import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete";
+} from "@webiny/app-admin/ui/elements/form/FormFieldElement.js";
+import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete.js";
 
 export class TagsMultiAutocompleteElement extends FormFieldElement {
     public constructor(id: string, config: FormFieldElementConfig) {

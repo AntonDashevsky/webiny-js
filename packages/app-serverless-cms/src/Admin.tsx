@@ -14,14 +14,14 @@ import { PageBuilder } from "@webiny/app-page-builder";
 import { FormBuilder } from "@webiny/app-form-builder";
 import { HeadlessCMS } from "@webiny/app-headless-cms";
 import { RMWC } from "@webiny/app-admin-rmwc";
-import { FileManager } from "@webiny/app-file-manager/app";
+import { FileManager } from "@webiny/app-file-manager/app.js";
 import { GraphQLPlayground } from "@webiny/app-graphql-playground";
 import { AccessManagement } from "@webiny/app-security-access-management";
-import { imagePlugin } from "@webiny/app/plugins";
+import { imagePlugin } from "@webiny/app/plugins/index.js";
 import fileStorageS3Plugin from "@webiny/app-file-manager-s3";
-import { createApolloClient as defaultApolloClientFactory } from "./apolloClientFactory";
-import apolloLinks from "./apolloLinks";
-import { createViewCompositionProvider } from "@webiny/app-admin/base/providers/ViewCompositionProvider";
+import { createApolloClient as defaultApolloClientFactory } from "./apolloClientFactory.js";
+import apolloLinks from "./apolloLinks.js";
+import { createViewCompositionProvider } from "@webiny/app-admin/base/providers/ViewCompositionProvider.js";
 import { AdvancedPublishingWorkflow } from "@webiny/app-apw";
 import { TenantManager } from "@webiny/app-tenant-manager";
 import { AuditLogs } from "@webiny/app-audit-logs";
@@ -32,7 +32,7 @@ import { Folders } from "@webiny/app-aco";
 import { Websockets } from "@webiny/app-websockets";
 import { RecordLocking } from "@webiny/app-record-locking";
 import { TrashBinConfigs } from "@webiny/app-trash-bin";
-import { DynamicPages } from "@webiny/app-dynamic-pages/admin";
+import { DynamicPages } from "@webiny/app-dynamic-pages/admin/index.js";
 
 export interface AdminProps extends Omit<BaseAdminProps, "createApolloClient"> {
     createApolloClient?: BaseAdminProps["createApolloClient"];

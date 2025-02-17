@@ -1,4 +1,4 @@
-import { createBulkAction } from "~/plugins";
+import { createBulkAction } from "~/plugins/index.js";
 import {
     createDeleteEntry,
     createListDeletedEntries,
@@ -10,7 +10,7 @@ import {
     createPublishEntry,
     createRestoreEntryFromTrash,
     createUnpublishEntry
-} from "~/useCases";
+} from "~/useCases/index.js";
 
 export const createBulkActionEntriesTasks = () => {
     return [

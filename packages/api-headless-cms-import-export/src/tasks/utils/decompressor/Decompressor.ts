@@ -2,12 +2,12 @@ import type {
     IDecompressor,
     IDecompressorDecompressParams,
     IUnzipperFile
-} from "./abstractions/Decompressor";
+} from "./abstractions/Decompressor.js";
 import type {
     IMultipartUploadFactory,
     IMultipartUploadHandlerAddResult,
     IUploadDoneResult
-} from "~/tasks/utils/upload";
+} from "~/tasks/utils/upload/index.js";
 import type { Entry } from "unzipper";
 import { PassThrough } from "stream";
 

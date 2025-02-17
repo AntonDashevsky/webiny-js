@@ -1,1 +1,1 @@
-export * from "./DeleteItems";
+export * from "./DeleteItems.js";

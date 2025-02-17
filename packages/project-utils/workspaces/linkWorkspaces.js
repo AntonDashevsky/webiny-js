@@ -4,12 +4,17 @@
  * - lerna.json -> command.publish.contents
  * - package root directory
  */
+
+/**
+ * We load TSX so we can later import .ts files from @webiny/cli.
+ */
+import "tsx";
+
 import path from "path";
 import get from "lodash/get.js";
 import fs from "fs-extra";
 import * as rimraf from "rimraf";
 import readJsonSync from "read-json-sync";
-import { PackageJson } from "@webiny/cli/utils/PackageJson.js";
 
 async function symlink(src, dest) {
     if (process.platform !== "win32") {
@@ -51,6 +56,7 @@ const defaults = {
 
 export const linkWorkspaces = async ({ whitelist, blacklist } = defaults) => {
     console.log(`Linking project workspaces...`);
+    const { PackageJson } = await import("@webiny/cli/utils/PackageJson.js");
 
     whitelist = (whitelist || []).map(p => path.resolve(p));
     blacklist = (blacklist || []).map(p => path.resolve(p));

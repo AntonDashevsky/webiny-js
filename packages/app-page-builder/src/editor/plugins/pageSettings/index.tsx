@@ -1,20 +1,20 @@
 import * as React from "react";
 import { gql } from "graphql-tag";
-import get from "lodash/get";
-import { PluginCollection } from "@webiny/plugins/types";
-import { AddQuerySelectionPlugin } from "@webiny/app/plugins/AddQuerySelectionPlugin";
+import get from "lodash/get.js";
+import { PluginCollection } from "@webiny/plugins/types.js";
+import { AddQuerySelectionPlugin } from "@webiny/app/plugins/AddQuerySelectionPlugin.js";
 import { ReactComponent as SettingsIcon } from "./icons/round-settings-24px.svg";
 import { ReactComponent as SocialIcon } from "./icons/round-thumb_up-24px.svg";
 import { ReactComponent as SeoIcon } from "./icons/round-search-24px.svg";
-import { GeneralSettingsView } from "~/editor/ui/views/GeneralSettingsView";
-import { UIViewPlugin } from "@webiny/app-admin/ui/UIView";
-import { PageSettingsView } from "~/editor/ui/views/PageSettingsView";
-import { SocialSettingsView } from "~/editor/ui/views/SocialSettingsView";
-import { FileManagerElement } from "@webiny/app-admin/ui/elements/form/FileManagerElement";
-import appendOgImageDimensions from "./appendOgImageDimensions";
-import { HiddenElement } from "@webiny/app-admin/ui/elements/form/HiddenElement";
-import { SEOSettingsView } from "~/editor/ui/views/SEOSettingsView";
-import { PageBuilderFormDataFileItem, PageBuilderFormDataSettings } from "~/types";
+import { GeneralSettingsView } from "~/editor/ui/views/GeneralSettingsView.js";
+import { UIViewPlugin } from "@webiny/app-admin/ui/UIView.js";
+import { PageSettingsView } from "~/editor/ui/views/PageSettingsView.js";
+import { SocialSettingsView } from "~/editor/ui/views/SocialSettingsView.js";
+import { FileManagerElement } from "@webiny/app-admin/ui/elements/form/FileManagerElement.js";
+import appendOgImageDimensions from "./appendOgImageDimensions.js";
+import { HiddenElement } from "@webiny/app-admin/ui/elements/form/HiddenElement.js";
+import { SEOSettingsView } from "~/editor/ui/views/SEOSettingsView.js";
+import { PageBuilderFormDataFileItem, PageBuilderFormDataSettings } from "~/types.js";
 
 const plugins: PluginCollection = [
     new UIViewPlugin<PageSettingsView>(PageSettingsView, view => {

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TextAlignmentActionContext } from "~/context/TextAlignmentActionContextProps";
+import { TextAlignmentActionContext } from "~/context/TextAlignmentActionContextProps.js";
 
 export function useTextAlignmentAction() {
     const context = useContext(TextAlignmentActionContext);

@@ -2,10 +2,10 @@ import type {
     IValidateImportFromUrlIntegrityUseCase,
     IValidateImportFromUrlIntegrityUseCaseExecuteParams,
     IValidateImportFromUrlIntegrityUseCaseExecuteResult
-} from "./abstractions/ValidateImportFromUrlIntegrityUseCase";
+} from "./abstractions/ValidateImportFromUrlIntegrityUseCase.js";
 import type { ITasksContextObject } from "@webiny/tasks";
-import { VALIDATE_IMPORT_FROM_URL_INTEGRITY_TASK } from "~/tasks/constants";
-import type { IValidateImportFromUrlInput } from "~/tasks/domain/abstractions/ValidateImportFromUrl";
+import { VALIDATE_IMPORT_FROM_URL_INTEGRITY_TASK } from "~/tasks/constants.js";
+import type { IValidateImportFromUrlInput } from "~/tasks/domain/abstractions/ValidateImportFromUrl.js";
 
 export interface IValidateImportFromUrlIntegrityUseCaseParams {
     triggerTask: ITasksContextObject["trigger"];

@@ -1,6 +1,6 @@
-import { defineCloudfrontFunctionResponseHandler, setResponseCookie } from "~/cloudfrontFunctions";
+import { defineCloudfrontFunctionResponseHandler, setResponseCookie } from "~/cloudfrontFunctions/index.js";
 
-import { variantRandomKey } from "../utils/common";
+import { variantRandomKey } from "../utils/common.js";
 
 defineCloudfrontFunctionResponseHandler(event => {
     const request = event.request;

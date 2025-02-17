@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Droppable, IsVisibleCallable } from "../Droppable";
-import { DragSource } from "~/types";
+import { Droppable, IsVisibleCallable } from "../Droppable.js";
+import { DragSource } from "~/types.js";
 
 const InnerDiv = styled("div")({
     height: 15,

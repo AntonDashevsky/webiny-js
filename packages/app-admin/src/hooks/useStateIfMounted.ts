@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { useIsMounted } from "./useIsMounted";
+import { useIsMounted } from "./useIsMounted.js";
 
 export function useStateIfMounted<T>(
     defaultState: T

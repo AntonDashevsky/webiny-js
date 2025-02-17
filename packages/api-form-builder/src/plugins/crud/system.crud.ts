@@ -8,11 +8,11 @@ import {
     Settings,
     System,
     SystemCRUD
-} from "~/types";
-import { Tenant } from "@webiny/api-tenancy/types";
+} from "~/types.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
 import { createTopic } from "@webiny/pubsub";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
 
 interface CreateSystemCrudParams {
     getIdentity: () => SecurityIdentity;

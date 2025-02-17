@@ -1,6 +1,6 @@
 import React from "react";
-import { ListItemTextSecondary } from "@webiny/ui/List";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import { ListItemTextSecondary } from "@webiny/ui/List/index.js";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 
 export interface DescriptionProps {
     children?: string;

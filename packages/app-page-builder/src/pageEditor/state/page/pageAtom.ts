@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { DynamicDocument, PbEditorElementTree } from "~/types";
+import { DynamicDocument, PbEditorElementTree } from "~/types.js";
 
 interface PageCategoryType {
     slug: string;

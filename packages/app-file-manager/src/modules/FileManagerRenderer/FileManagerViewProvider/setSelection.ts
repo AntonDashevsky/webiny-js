@@ -1,5 +1,5 @@
-import { FileItem } from "@webiny/app-admin/types";
-import { State } from "./state";
+import { FileItem } from "@webiny/app-admin/types.js";
+import { State } from "./state.js";
 
 interface GetSelectionParams {
     state: State;

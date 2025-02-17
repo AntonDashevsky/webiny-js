@@ -1,2 +1,2 @@
-export * from "./saveTemplateAction";
-export * from "./event";
+export * from "./saveTemplateAction.js";
+export * from "./event.js";

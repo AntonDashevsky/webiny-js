@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useReducer } from "react";
-import get from "lodash/get";
-import pick from "lodash/pick";
+import get from "lodash/get.js";
+import pick from "lodash/pick.js";
 import { ApolloClient } from "apollo-client";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import {
     GET_CONTENT_MODEL,
     GetCmsModelQueryResponse,
@@ -11,12 +11,12 @@ import {
     UPDATE_CONTENT_MODEL,
     UpdateCmsModelMutationResponse,
     UpdateCmsModelMutationVariables
-} from "~/admin/graphql/contentModels";
-import { LIST_MENU_CONTENT_GROUPS_MODELS } from "~/admin/viewsGraphql";
-import { CmsModel, CmsModelField } from "~/types";
+} from "~/admin/graphql/contentModels.js";
+import { LIST_MENU_CONTENT_GROUPS_MODELS } from "~/admin/viewsGraphql.js";
+import { CmsModel, CmsModelField } from "~/types.js";
 import { FetchResult } from "apollo-link";
-import { ModelProvider } from "~/admin/components/ModelProvider";
-import { createHashing } from "@webiny/app/utils";
+import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
+import { createHashing } from "@webiny/app/utils/index.js";
 
 export interface ContentModelEditorProviderContext {
     apolloClient: ApolloClient<any>;

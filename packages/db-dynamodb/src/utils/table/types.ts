@@ -1,13 +1,13 @@
-import type { TableDef } from "dynamodb-toolbox/dist/cjs/classes/Table/types";
+import type { TableDef } from "dynamodb-toolbox/dist/cjs/classes/Table/types.js";
 import type {
     BatchWriteItem,
     BatchWriteResult,
     IDeleteBatchItem,
     IPutBatchItem
-} from "~/utils/batch/types";
-import type { BaseScanParams, ScanResponse } from "../scan";
-import type { Entity } from "~/toolbox";
-import type { GenericRecord } from "@webiny/api/types";
+} from "~/utils/batch/types.js";
+import type { BaseScanParams, ScanResponse } from "../scan.js";
+import type { Entity } from "~/toolbox.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 export type ITableScanParams = BaseScanParams;
 

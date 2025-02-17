@@ -3,10 +3,10 @@ import vending from "archiver";
 import { CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
 import { Readable } from "stream";
 import * as path from "path";
-import kebabCase from "lodash/kebabCase";
+import kebabCase from "lodash/kebabCase.js";
 import uniqueId from "uniqid";
-import { s3Stream } from "./s3Stream";
-import { File } from "@webiny/api-file-manager/types";
+import { s3Stream } from "./s3Stream.js";
+import { File } from "@webiny/api-file-manager/types.js";
 
 interface FileStreamDetails {
     stream: Readable;

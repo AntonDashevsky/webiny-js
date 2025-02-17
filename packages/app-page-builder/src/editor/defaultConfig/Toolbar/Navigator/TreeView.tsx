@@ -1,18 +1,18 @@
 import React, { useCallback, useContext, useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { css } from "emotion";
-import { Typography } from "@webiny/ui/Typography";
-import { Icon } from "@webiny/ui/Icon";
-import { activeElementAtom, elementByIdSelector, uiAtom } from "~/editor/recoil/modules";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { activeElementAtom, elementByIdSelector, uiAtom } from "~/editor/recoil/modules/index.js";
 import { ReactComponent as VisibilityOffIcon } from "~/editor/assets/icons/visibility_off_24px.svg";
-import { useVisibilitySetting } from "~/editor/plugins/elementSettings/property/PropertySettings";
-import { ElementTypeContainer } from "./StyledComponents";
-import CollapsableList from "./CollapsableList";
-import DragBlockIndicator from "./DragBlockIndicator";
-import { BLOCK, useMoveBlock, useSortableList } from "./navigatorHooks";
-import { NavigatorContext } from "./NavigatorDrawer";
-import { PbEditorElementTree } from "~/types";
+import { useVisibilitySetting } from "~/editor/plugins/elementSettings/property/PropertySettings.js";
+import { ElementTypeContainer } from "./StyledComponents.js";
+import CollapsableList from "./CollapsableList.js";
+import DragBlockIndicator from "./DragBlockIndicator.js";
+import { BLOCK, useMoveBlock, useSortableList } from "./navigatorHooks.js";
+import { NavigatorContext } from "./NavigatorDrawer.js";
+import { PbEditorElementTree } from "~/types.js";
 
 const elementIdStyle = css`
     text-transform: none;

@@ -1,2 +1,2 @@
-export * from "./ITrashBinControllers";
-export * from "./ITrashBinPresenter";
+export * from "./ITrashBinControllers.js";
+export * from "./ITrashBinPresenter.js";

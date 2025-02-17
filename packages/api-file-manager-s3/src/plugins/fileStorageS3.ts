@@ -1,10 +1,10 @@
 import { S3 } from "@webiny/aws-sdk/client-s3";
-import { FilePhysicalStoragePlugin } from "@webiny/api-file-manager/plugins/FilePhysicalStoragePlugin";
-import { getPresignedPostPayload } from "~/utils/getPresignedPostPayload";
-import uploadFileToS3 from "../utils/uploadFileToS3";
+import { FilePhysicalStoragePlugin } from "@webiny/api-file-manager/plugins/FilePhysicalStoragePlugin.js";
+import { getPresignedPostPayload } from "~/utils/getPresignedPostPayload.js";
+import uploadFileToS3 from "../utils/uploadFileToS3.js";
 import { ContextPlugin } from "@webiny/api";
-import { createFileNormalizerFromContext } from "~/utils/createFileNormalizerFromContext";
-import { PresignedPostPayloadData } from "~/types";
+import { createFileNormalizerFromContext } from "~/utils/createFileNormalizerFromContext.js";
+import { PresignedPostPayloadData } from "~/types.js";
 
 const S3_BUCKET = process.env.S3_BUCKET;
 

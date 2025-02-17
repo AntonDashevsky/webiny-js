@@ -2,17 +2,17 @@ import React, { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import type { FormOnSubmit } from "@webiny/form";
 import { makeDecoratable } from "@webiny/app-admin";
-import { CmsContentEntry } from "~/types";
-import { ModelProvider, useModel } from "~/admin/components/ModelProvider";
-import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer";
+import { CmsContentEntry } from "~/types.js";
+import { ModelProvider, useModel } from "~/admin/components/ModelProvider/index.js";
+import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer.js";
 import {
     ContentEntryFormContext,
     ContentEntryFormProvider,
     PersistEntry
-} from "./ContentEntryFormProvider";
-import { CustomLayout } from "./CustomLayout";
-import { DefaultLayout } from "./DefaultLayout";
-import { useGoToRevision } from "~/admin/components/ContentEntryForm/useGoToRevision";
+} from "./ContentEntryFormProvider.js";
+import { CustomLayout } from "./CustomLayout.js";
+import { DefaultLayout } from "./DefaultLayout.js";
+import { useGoToRevision } from "~/admin/components/ContentEntryForm/useGoToRevision.js";
 
 const FormWrapper = styled("div")({
     height: "calc(100vh - 260px)",

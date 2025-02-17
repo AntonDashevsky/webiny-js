@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Select as UiSelect, SelectProps as BaseSelectProps } from "@webiny/ui/Select";
+import { Select as UiSelect, SelectProps as BaseSelectProps } from "@webiny/ui/Select/index.js";
 
 export interface Option {
     value: string;

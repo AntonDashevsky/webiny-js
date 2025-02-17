@@ -1,4 +1,4 @@
-import { TranslatedCollectionDto } from "./TranslatedCollectionDto";
+import { TranslatedCollectionDto } from "./TranslatedCollectionDto.js";
 
 export interface IGetTranslatedCollectionGateway {
     execute(collectionId: string, languageCode: string): Promise<TranslatedCollectionDto>;

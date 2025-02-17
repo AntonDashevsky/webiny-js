@@ -1,7 +1,7 @@
 import React from "react";
-import { Element as ElementType } from "~/types";
-import { Element } from "./Element";
-import { useRenderer } from "~/hooks/useRenderer";
+import { Element as ElementType } from "~/types.js";
+import { Element } from "./Element.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
 
 // All elements have a unique ID. The only exception are the elements
 // nested in a pre-made block (a block created via the Blocks module).

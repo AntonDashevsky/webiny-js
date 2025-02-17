@@ -1,4 +1,4 @@
-import { CliCommandScaffoldTemplate, PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import { CliCommandScaffoldTemplate, PackageJson } from "@webiny/cli-plugin-scaffold/types.js";
 import fs from "fs";
 import path from "path";
 import util from "util";
@@ -14,7 +14,7 @@ import validateNpmPackageName from "validate-npm-package-name";
  * Write types for log.
  */
 // @ts-expect-error
-import { getProject, log } from "@webiny/cli/utils";
+import { getProject, log } from "@webiny/cli/utils/index.js";
 
 const ncp = util.promisify(ncpBase.ncp);
 

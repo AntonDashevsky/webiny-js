@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { plugins } from "@webiny/plugins";
-import { ViewPlugin } from "../plugins/ViewPlugin";
+import { ViewPlugin } from "../plugins/ViewPlugin.js";
 
 interface Props {
     name: string;

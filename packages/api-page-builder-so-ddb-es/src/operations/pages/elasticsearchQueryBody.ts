@@ -8,12 +8,12 @@ import {
     getElasticsearchOperatorPluginsByLocale,
     isSharedElasticsearchIndex
 } from "@webiny/api-elasticsearch";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { PageStorageOperationsListWhere } from "@webiny/api-page-builder/types";
-import { PageElasticsearchFieldPlugin } from "~/plugins/definitions/PageElasticsearchFieldPlugin";
-import { PageElasticsearchSortModifierPlugin } from "~/plugins/definitions/PageElasticsearchSortModifierPlugin";
-import { PageElasticsearchQueryModifierPlugin } from "~/plugins/definitions/PageElasticsearchQueryModifierPlugin";
-import { PageElasticsearchBodyModifierPlugin } from "~/plugins/definitions/PageElasticsearchBodyModifierPlugin";
+import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import { PageStorageOperationsListWhere } from "@webiny/api-page-builder/types.js";
+import { PageElasticsearchFieldPlugin } from "~/plugins/definitions/PageElasticsearchFieldPlugin.js";
+import { PageElasticsearchSortModifierPlugin } from "~/plugins/definitions/PageElasticsearchSortModifierPlugin.js";
+import { PageElasticsearchQueryModifierPlugin } from "~/plugins/definitions/PageElasticsearchQueryModifierPlugin.js";
+import { PageElasticsearchBodyModifierPlugin } from "~/plugins/definitions/PageElasticsearchBodyModifierPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 interface CreateElasticsearchQueryArgs {

@@ -1,14 +1,14 @@
 import React from "react";
 import dayjs from "dayjs";
-import advancedFormat from "dayjs/plugin/advancedFormat";
+import advancedFormat from "dayjs/plugin/advancedFormat.js";
 // Extend dayjs format.
 dayjs.extend(advancedFormat);
 
-import { i18n } from "@webiny/app/i18n";
-import { Box, Columns } from "~/components/Layout";
-import { Typography } from "@webiny/ui/Typography";
-import { TypographySecondary } from "./Styled";
-import { formatDate } from "~/utils";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Box, Columns } from "~/components/Layout.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { TypographySecondary } from "./Styled.js";
+import { formatDate } from "~/utils.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/datalist");
 

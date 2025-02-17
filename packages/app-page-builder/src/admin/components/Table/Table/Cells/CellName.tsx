@@ -5,12 +5,12 @@ import { ReactComponent as Folder } from "@material-design-icons/svg/outlined/fo
 import { ReactComponent as FolderShared } from "@material-design-icons/svg/outlined/folder_shared.svg";
 import { ReactComponent as File } from "@material-design-icons/svg/outlined/description.svg";
 
-import { PageListConfig } from "~/admin/config/pages";
-import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList";
-import { RowIcon, RowText, RowTitle } from "./Cells.styled";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList.js";
+import { RowIcon, RowText, RowTitle } from "./Cells.styled.js";
 
-import { FolderTableItem } from "@webiny/app-aco/types";
-import { PbPageTableItem } from "~/types";
+import { FolderTableItem } from "@webiny/app-aco/types.js";
+import { PbPageTableItem } from "~/types.js";
 
 interface FolderCellNameProps {
     folder: FolderTableItem;

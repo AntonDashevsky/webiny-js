@@ -1,9 +1,9 @@
 import {
     CliCommandScaffoldCallableArgs,
     CliCommandScaffoldTemplate
-} from "@webiny/cli-plugin-scaffold/types";
-import githubActions, { GithubActionsInput } from "~/githubActions";
-import { CliPluginsScaffoldCi } from "~/types";
+} from "@webiny/cli-plugin-scaffold/types.js";
+import githubActions, { GithubActionsInput } from "~/githubActions/index.js";
+import { CliPluginsScaffoldCi } from "~/types.js";
 import link from "terminal-link";
 
 const runHookCallback = async (

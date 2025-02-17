@@ -1,7 +1,7 @@
 import React from "react";
-import { PbEditorPageElementVariableRendererPlugin } from "~/types";
-import IconVariableInput from "~/editor/plugins/elementSettings/variable/IconVariableInput";
-import { useElementVariables } from "~/editor/hooks/useElementVariableValue";
+import { PbEditorPageElementVariableRendererPlugin } from "~/types.js";
+import IconVariableInput from "~/editor/plugins/elementSettings/variable/IconVariableInput.js";
+import { useElementVariables } from "~/editor/hooks/useElementVariableValue.js";
 
 export default {
     name: "pb-editor-page-element-variable-renderer-icon",

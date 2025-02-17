@@ -1,8 +1,8 @@
 import React from "react";
-import { MenuItem } from "@webiny/ui/Menu";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
-import { usePagesPermissions } from "~/hooks/permissions";
+import { MenuItem } from "@webiny/ui/Menu/index.js";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
 
 export interface DuplicatePageMenuItemProps {
     onClick: () => void;

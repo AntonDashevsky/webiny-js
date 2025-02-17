@@ -1,10 +1,10 @@
 import React from "react";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
-import { ContentModelEditor } from "~/admin/components/ContentModelEditor/ContentModelEditor";
+import { ContentModelEditor } from "~/admin/components/ContentModelEditor/ContentModelEditor.js";
 import { useRouter } from "@webiny/react-router";
-import { useCms } from "~/admin/hooks";
-import { ContentModelEditorProvider } from "~/admin/components/ContentModelEditor";
+import { useCms } from "~/admin/hooks/index.js";
+import { ContentModelEditorProvider } from "~/admin/components/ContentModelEditor/index.js";
 
 const ContentModelEditorView = () => {
     const { params } = useRouter();

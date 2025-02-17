@@ -1,1 +1,1 @@
-export { createDynamicZoneField } from "./dynamicZoneField";
+export { createDynamicZoneField } from "./dynamicZoneField.js";

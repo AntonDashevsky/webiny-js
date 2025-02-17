@@ -1,6 +1,6 @@
 import { plugins } from "@webiny/plugins";
-import type { Renderer } from "@webiny/app-page-builder-elements/types";
-import type { PbEditorElement, PbRenderElementPlugin } from "~/types";
+import type { Renderer } from "@webiny/app-page-builder-elements/types.js";
+import type { PbEditorElement, PbRenderElementPlugin } from "~/types.js";
 
 /**
  * Gets element renderer inputs. These are defined for each individual renderer, when using

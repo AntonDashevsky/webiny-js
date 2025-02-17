@@ -1,6 +1,6 @@
 import React from "react";
-import { PrepareEditorContent } from "../PrepareEditorContent";
-import { convertIconSettings } from "~/backwardsCompatibility/convertIconSettings";
+import { PrepareEditorContent } from "../PrepareEditorContent.js";
+import { convertIconSettings } from "~/backwardsCompatibility/convertIconSettings.js";
 
 /**
  * This component ensures that all elements using an `icon` have the new icon settings structure.

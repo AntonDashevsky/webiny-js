@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
-import { i18n } from "@webiny/app/i18n";
-import { Alert } from "@webiny/ui/Alert";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index.js";
 import styled from "@emotion/styled";
-import { AdminInstallationPlugin } from "@webiny/app-admin/types";
-import { CmsErrorResponse } from "~/types";
+import { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
+import { CmsErrorResponse } from "~/types.js";
 
 const SimpleFormPlaceholder = styled.div({
     minHeight: 300,

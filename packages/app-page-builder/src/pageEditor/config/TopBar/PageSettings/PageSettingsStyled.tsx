@@ -1,7 +1,7 @@
 import * as React from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 export const listStyle = css({
     "&.mdc-deprecated-list": {

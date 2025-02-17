@@ -4,8 +4,8 @@ import type {
     GenericRecord,
     CliCommandPlugin,
     CliCommandPluginArgs
-} from "@webiny/cli/types";
-import type { Plugin } from "@webiny/plugins/types";
+} from "@webiny/cli/types.js";
+import type { Plugin } from "@webiny/plugins/types.js";
 import { Ora } from "ora";
 import inquirer from "inquirer";
 

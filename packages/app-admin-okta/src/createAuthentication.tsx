@@ -7,18 +7,18 @@ import { Security, LoginCallback } from "@okta/okta-react";
 import { OktaAuth, AuthStateManager } from "@okta/okta-auth-js";
 import OktaSignIn from "@okta/okta-signin-widget";
 import { plugins } from "@webiny/plugins";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { useSecurity } from "@webiny/app-serverless-cms";
-import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin";
+import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin.js";
 import { useTenancy, withTenant } from "@webiny/app-tenancy";
-import OktaSignInWidget from "./OktaSignInWidget";
+import OktaSignInWidget from "./OktaSignInWidget.js";
 import {
     createGetIdentityData,
     GetIdentityDataCallable,
     LOGIN_MT,
     LOGIN_ST
-} from "./createGetIdentityData";
-import { SecurityPermission } from "@webiny/app-security/types";
+} from "./createGetIdentityData/index.js";
+import { SecurityPermission } from "@webiny/app-security/types.js";
 
 const noop = () => {
     return void 0;

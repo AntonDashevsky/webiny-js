@@ -1,9 +1,9 @@
-import cloneDeep from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep.js";
 import { makeAutoObservable, runInAction } from "mobx";
 
-import { Loading } from "./Loading";
-import { IconPackProviderInterface as IconPackProvider, IconType } from "./config";
-import { Icon } from "./types";
+import { Loading } from "./Loading.js";
+import { IconPackProviderInterface as IconPackProvider, IconType } from "./config/index.js";
+import { Icon } from "./types.js";
 
 export class IconRepository {
     private readonly iconPackProviders: IconPackProvider[];

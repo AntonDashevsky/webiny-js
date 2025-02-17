@@ -1,6 +1,6 @@
-import lodashGet from "lodash/get";
-import { IndexPageDataPlugin } from "~/plugins/definitions/IndexPageDataPlugin";
-import { Page } from "@webiny/api-page-builder/types";
+import lodashGet from "lodash/get.js";
+import { IndexPageDataPlugin } from "~/plugins/definitions/IndexPageDataPlugin.js";
+import { Page } from "@webiny/api-page-builder/types.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 /**

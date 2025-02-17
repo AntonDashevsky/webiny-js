@@ -1,23 +1,23 @@
 import React, { useEffect, useCallback, useState } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useApolloClient } from "@apollo/react-hooks";
 import { plugins } from "@webiny/plugins";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import SaveDialog from "./SaveDialog";
-import createElementPlugin from "~/admin/utils/createElementPlugin";
-import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
-import { CREATE_PAGE_ELEMENT } from "~/admin/graphql/pages";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import SaveDialog from "./SaveDialog.js";
+import createElementPlugin from "~/admin/utils/createElementPlugin.js";
+import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
+import { CREATE_PAGE_ELEMENT } from "~/admin/graphql/pages.js";
 import {
     PbEditorPageElementPlugin,
     PbEditorPageElementSaveActionPlugin,
     PbEditorElement as BasePbEditorElement,
     PbElement,
     PbEditorElement
-} from "~/types";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import { removeElementId } from "~/editor/helpers";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+} from "~/types.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { removeElementId } from "~/editor/helpers.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
 
 interface PbEditorElementWithSource extends PbEditorElement {
     source: string;

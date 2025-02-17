@@ -1,1 +1,1 @@
-export * from "./GraphQLSchemaPlugin";
+export * from "./GraphQLSchemaPlugin.js";

@@ -1,4 +1,4 @@
-import { createHashing } from "@webiny/app/utils";
+import { createHashing } from "@webiny/app/utils/index.js";
 
 const sha1 = createHashing("SHA-1");
 

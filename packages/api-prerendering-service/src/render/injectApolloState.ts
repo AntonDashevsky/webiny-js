@@ -1,5 +1,5 @@
 import { NodeAPI } from "posthtml";
-import { RenderApolloState, RenderUrlPostHtmlParams } from "~/render/types";
+import { RenderApolloState, RenderUrlPostHtmlParams } from "~/render/types.js";
 
 const stringifyApolloState = (state?: RenderApolloState | null): string | undefined => {
     if (state === undefined || state === null) {

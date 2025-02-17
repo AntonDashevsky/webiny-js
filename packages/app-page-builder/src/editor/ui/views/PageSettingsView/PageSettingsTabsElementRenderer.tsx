@@ -1,8 +1,8 @@
 import React from "react";
 import { css } from "emotion";
-import { UIRenderer, UIRenderParams } from "@webiny/app-admin/ui/UIRenderer";
-import { PageSettingsTabsElement } from "~/editor/ui/views/PageSettingsView/PageSettingsTabsElement";
-import { List } from "@webiny/ui/List";
+import { UIRenderer, UIRenderParams } from "@webiny/app-admin/ui/UIRenderer.js";
+import { PageSettingsTabsElement } from "~/editor/ui/views/PageSettingsView/PageSettingsTabsElement.js";
+import { List } from "@webiny/ui/List/index.js";
 
 export const listStyle = css({
     "&.mdc-deprecated-list": {

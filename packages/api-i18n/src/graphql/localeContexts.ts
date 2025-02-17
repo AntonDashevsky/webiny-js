@@ -1,4 +1,4 @@
-import { I18NLocaleContextPlugin } from "~/plugins/I18NLocaleContextPlugin";
+import { I18NLocaleContextPlugin } from "~/plugins/I18NLocaleContextPlugin.js";
 
 export default [
     new I18NLocaleContextPlugin({

@@ -1,7 +1,7 @@
 import { createRenderer, Elements, useRenderer } from "@webiny/app-page-builder-elements";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
 import { useRecoilValue } from "recoil";
-import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
+import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
 import React from "react";
 
 const PeDocument = createRenderer(() => {

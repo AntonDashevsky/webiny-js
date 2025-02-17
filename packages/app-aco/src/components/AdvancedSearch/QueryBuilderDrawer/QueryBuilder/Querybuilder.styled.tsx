@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/round/add.svg";
 import { ReactComponent as SavedSearchIcon } from "@material-design-icons/svg/outlined/saved_search.svg";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 interface CellInnerProps {
     align: "left" | "center" | "right";

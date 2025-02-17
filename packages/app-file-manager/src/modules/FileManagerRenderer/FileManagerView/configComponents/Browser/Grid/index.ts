@@ -1,5 +1,5 @@
-import { ThumbnailConfig } from "./Thumbnail";
-import { ActionConfig } from "./Action";
+import { ThumbnailConfig } from "./Thumbnail.js";
+import { ActionConfig } from "./Action.js";
 
 export interface GridConfig {
     itemThumbnails: ThumbnailConfig[];

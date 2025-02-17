@@ -1,11 +1,11 @@
 import React, { memo } from "react";
-import { ThemesModule } from "./modules/themes";
-import { ThemeSource } from "~/types";
-export type { ThemeSource } from "~/types";
-export { AddTheme } from "./components/AddTheme";
-export { createThemeLoader } from "./website/createThemeLoader";
-export { useThemeManager } from "./hooks/useThemeManager";
-export { useTenantThemes } from "./hooks/useTenantThemes";
+import { ThemesModule } from "./modules/themes/index.js";
+import { ThemeSource } from "~/types.js";
+export type { ThemeSource } from "~/types.js";
+export { AddTheme } from "./components/AddTheme.js";
+export { createThemeLoader } from "./website/createThemeLoader.js";
+export { useThemeManager } from "./hooks/useThemeManager.js";
+export { useTenantThemes } from "./hooks/useTenantThemes.js";
 
 interface ThemeManagerAppProps {
     themes?: ThemeSource[];

@@ -4,11 +4,11 @@ export type {
     ScanOptions,
     TableDef,
     TableConstructor
-} from "dynamodb-toolbox/dist/cjs/classes/Table";
+} from "dynamodb-toolbox/dist/cjs/classes/Table/index.js";
 export type {
     Readonly,
     EntityConstructor,
     AttributeDefinition,
     EntityQueryOptions,
     AttributeDefinitions
-} from "dynamodb-toolbox/dist/cjs/classes/Entity";
+} from "dynamodb-toolbox/dist/cjs/classes/Entity/index.js";

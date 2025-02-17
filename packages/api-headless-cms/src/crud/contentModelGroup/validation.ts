@@ -1,5 +1,5 @@
 import zod from "zod";
-import { toSlug } from "~/utils/toSlug";
+import { toSlug } from "~/utils/toSlug.js";
 
 const str = zod.string().trim();
 

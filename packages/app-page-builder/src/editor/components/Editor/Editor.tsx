@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import classSet from "classnames";
 import { plugins } from "@webiny/plugins";
-import { useEventActionHandler } from "../../hooks/useEventActionHandler";
-import { EventActionHandler, PbEditorEventActionPlugin } from "~/types";
-import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
+import { useEventActionHandler } from "../../hooks/useEventActionHandler.js";
+import { EventActionHandler, PbEditorEventActionPlugin } from "~/types.js";
+import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
 import "./Editor.scss";
-import DragPreview from "./DragPreview";
-import Dialogs from "./Dialogs";
-import { useUI } from "~/editor/hooks/useUI";
-import { EditorConfig } from "~/editor/config";
+import DragPreview from "./DragPreview.js";
+import Dialogs from "./Dialogs.js";
+import { useUI } from "~/editor/hooks/useUI.js";
+import { EditorConfig } from "~/editor/config/index.js";
 
 type PluginRegistryType = Map<string, () => void>;
 

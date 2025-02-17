@@ -1,31 +1,31 @@
 import uniqueId from "uniqid";
 import type { IGetTaskResponse, ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
 import { TaskDataStatus } from "@webiny/tasks";
-import type { Context } from "~/types";
-import { CmsImportExportFileType } from "~/types";
+import type { Context } from "~/types.js";
+import { CmsImportExportFileType } from "~/types.js";
 import type {
     IExportContentEntriesController,
     IExportContentEntriesControllerInput,
     IExportContentEntriesControllerOutput,
     IExportContentEntriesControllerOutputFile,
     IExportedCmsModel
-} from "~/tasks/domain/abstractions/ExportContentEntriesController";
-import { ExportContentEntriesControllerState } from "~/tasks/domain/abstractions/ExportContentEntriesController";
+} from "~/tasks/domain/abstractions/ExportContentEntriesController.js";
+import { ExportContentEntriesControllerState } from "~/tasks/domain/abstractions/ExportContentEntriesController.js";
 import {
     EXPORT_BASE_PATH,
     EXPORT_CONTENT_ASSETS_TASK,
     EXPORT_CONTENT_ENTRIES_TASK
-} from "~/tasks/constants";
+} from "~/tasks/constants.js";
 import type {
     IExportContentEntriesInput,
     IExportContentEntriesOutput
-} from "~/tasks/domain/abstractions/ExportContentEntries";
+} from "~/tasks/domain/abstractions/ExportContentEntries.js";
 import type {
     IExportContentAssetsInput,
     IExportContentAssetsOutput
-} from "~/tasks/domain/abstractions/ExportContentAssets";
-import { getBackOffSeconds } from "~/tasks/utils/helpers/getBackOffSeconds";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
+} from "~/tasks/domain/abstractions/ExportContentAssets.js";
+import { getBackOffSeconds } from "~/tasks/utils/helpers/getBackOffSeconds.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 const prepareExportModel = (model: Pick<CmsModel, "modelId" | "fields">): IExportedCmsModel => {
     return {

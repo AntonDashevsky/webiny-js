@@ -1,9 +1,9 @@
 import React from "react";
-import { AccordionItem } from "@webiny/ui/Accordion";
-import { PermissionRendererPlugin } from "@webiny/app-admin/plugins/PermissionRendererPlugin";
-import { i18n } from "@webiny/app/i18n";
+import { AccordionItem } from "@webiny/ui/Accordion/index.js";
+import { PermissionRendererPlugin } from "@webiny/app-admin/plugins/PermissionRendererPlugin.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as TranslateIcon } from "../../assets/icons/round-translate-24px.svg";
-import { I18NPermissions } from "./I18NPermissions";
+import { I18NPermissions } from "./I18NPermissions.js";
 
 const t = i18n.ns("app-i18n/admin/plugins/permissionRenderer");
 

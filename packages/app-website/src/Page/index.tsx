@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useSearchParams, useLocation } from "@webiny/react-router";
-import { PageRenderer } from "./PageRenderer";
+import { PageRenderer } from "./PageRenderer.js";
 import {
     GET_SETTINGS,
     GET_PUBLISHED_PAGE,
@@ -9,7 +9,7 @@ import {
     PublishedPageQueryVariables,
     SettingsQueryResponse,
     SettingsQueryResponseData
-} from "./graphql";
+} from "./graphql.js";
 
 declare global {
     interface Window {

@@ -1,1 +1,1 @@
-export { useSiteStatus } from "./useSiteStatus";
+export { useSiteStatus } from "./useSiteStatus.js";

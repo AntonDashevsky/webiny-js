@@ -1,15 +1,15 @@
 import WebinyError from "@webiny/error";
-import { ENTITIES, PrerenderingServiceFactory, PrerenderingServiceFactoryParams } from "~/types";
-import { createTable } from "~/definitions/table";
-import { createRenderEntity } from "~/definitions/render";
-import { createSettingsEntity } from "~/definitions/settings";
-import { createQueueJobEntity } from "~/definitions/queueJob";
-import { createRenderStorageOperations } from "~/operations/render";
-import { createTenantStorageOperations } from "~/operations/tenant";
-import { createSettingsStorageOperations } from "~/operations/settings";
-import { createQueueJobStorageOperations } from "~/operations/queueJob";
-import { createTagPathLinkEntity } from "~/definitions/tagPathLink";
-import { createTenantEntity } from "~/definitions/tenantEntity";
+import { ENTITIES, PrerenderingServiceFactory, PrerenderingServiceFactoryParams } from "~/types.js";
+import { createTable } from "~/definitions/table.js";
+import { createRenderEntity } from "~/definitions/render.js";
+import { createSettingsEntity } from "~/definitions/settings.js";
+import { createQueueJobEntity } from "~/definitions/queueJob.js";
+import { createRenderStorageOperations } from "~/operations/render.js";
+import { createTenantStorageOperations } from "~/operations/tenant.js";
+import { createSettingsStorageOperations } from "~/operations/settings.js";
+import { createQueueJobStorageOperations } from "~/operations/queueJob.js";
+import { createTagPathLinkEntity } from "~/definitions/tagPathLink.js";
+import { createTenantEntity } from "~/definitions/tenantEntity.js";
 
 const reservedFields = ["PK", "SK", "index", "data", "TYPE", "__type", "GSI1_PK", "GSI1_SK"];
 

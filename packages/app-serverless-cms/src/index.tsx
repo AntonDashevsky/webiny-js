@@ -1,5 +1,5 @@
-export { Admin } from "./Admin";
-export type { AdminProps } from "./Admin";
+export { Admin } from "./Admin.js";
+export type { AdminProps } from "./Admin.js";
 export {
     useApp,
     useWcp,
@@ -68,4 +68,4 @@ export { HasPermission, useSecurity, usePermission } from "@webiny/app-security"
 export { useTenancy } from "@webiny/app-tenancy";
 export type { Tenant } from "@webiny/app-tenancy";
 
-export * from "./apolloClientFactory";
+export * from "./apolloClientFactory.js";

@@ -1,13 +1,13 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import isEmpty from "lodash/isEmpty";
-import get from "lodash/get";
+import isEmpty from "lodash/isEmpty.js";
+import get from "lodash/get.js";
 import { Form, FormRenderPropParams } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { i18n } from "@webiny/app/i18n";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { validation } from "@webiny/validation";
 
 import {
@@ -15,16 +15,16 @@ import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent
-} from "@webiny/app-admin/components/SimpleForm";
-import { IconPicker } from "~/admin/components/IconPicker";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { IconPicker } from "~/admin/components/IconPicker.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { useMutation, useQuery } from "../../hooks";
-import * as GQL from "./graphql";
-import usePermission from "../../hooks/usePermission";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { useMutation, useQuery } from "../../hooks/index.js";
+import * as GQL from "./graphql.js";
+import usePermission from "../../hooks/usePermission.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import {
     CmsGroup,
     CreateCmsGroupMutationResponse,
@@ -34,7 +34,7 @@ import {
     ListCmsGroupsQueryResponse,
     UpdateCmsGroupMutationResponse,
     UpdateCmsGroupMutationVariables
-} from "./graphql";
+} from "./graphql.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/form");
 const ButtonWrapper = styled("div")({

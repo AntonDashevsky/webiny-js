@@ -1,2 +1,2 @@
-export * from "./plugins";
-export * from "./graphql";
+export * from "./plugins/index.js";
+export * from "./graphql/index.js";

@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useParentProperty } from "~/Properties";
+import { useParentProperty } from "~/Properties.js";
 
 export function useIdGenerator(name: string) {
     const parentProperty = useParentProperty();

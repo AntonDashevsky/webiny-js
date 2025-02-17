@@ -1,9 +1,9 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { ReactComponent as Delete } from "@material-design-icons/svg/outlined/delete.svg";
-import { PageListConfig } from "~/admin/config/pages";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
-import { useDeletePage } from "~/admin/views/Pages/hooks/useDeletePage";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
+import { useDeletePage } from "~/admin/views/Pages/hooks/useDeletePage.js";
 
 export const DeletePage = makeDecoratable("DeletePage", () => {
     const { page } = usePage();

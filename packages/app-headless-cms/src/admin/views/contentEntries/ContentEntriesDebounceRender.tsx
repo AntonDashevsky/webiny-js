@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useMemo, useState } from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import { useAcoConfig } from "@webiny/app-aco";
-import { useContentEntryListConfig } from "~/admin/config/contentEntries";
+import { useContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
 
 interface Props {
     children?: React.ReactNode;

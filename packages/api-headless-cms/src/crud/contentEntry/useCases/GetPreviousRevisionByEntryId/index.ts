@@ -1,6 +1,6 @@
-import { GetPreviousRevisionByEntryId } from "./GetPreviousRevisionByEntryId";
-import { GetPreviousRevisionByEntryIdNotDeleted } from "./GetPreviousRevisionByEntryIdNotDeleted";
-import { CmsEntryStorageOperations } from "~/types";
+import { GetPreviousRevisionByEntryId } from "./GetPreviousRevisionByEntryId.js";
+import { GetPreviousRevisionByEntryIdNotDeleted } from "./GetPreviousRevisionByEntryIdNotDeleted.js";
+import { CmsEntryStorageOperations } from "~/types/index.js";
 
 interface GetPreviousRevisionByEntryIdUseCasesParams {
     operation: CmsEntryStorageOperations["getPreviousRevision"];

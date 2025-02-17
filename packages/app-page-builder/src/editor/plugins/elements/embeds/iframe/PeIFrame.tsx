@@ -1,7 +1,7 @@
 import React from "react";
 import { createRenderer, useRenderer } from "@webiny/app-page-builder-elements";
 import { ReactComponent as IFrameIcon } from "~/editor/plugins/elements/embeds/iframe/iframe-icon.svg";
-import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue";
+import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue.js";
 import styled from "@emotion/styled";
 
 export interface IFrameElementData {

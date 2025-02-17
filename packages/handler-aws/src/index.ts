@@ -1,22 +1,22 @@
-import "./gateway/register";
-import "./s3/register";
-import "./dynamodb/register";
-import "./sqs/register";
-import "./eventBridge/register";
-import "./sns/register";
+import "./gateway/register.js";
+import "./s3/register.js";
+import "./dynamodb/register.js";
+import "./sqs/register.js";
+import "./eventBridge/register.js";
+import "./sns/register.js";
 
-export * from "./utils";
+export * from "./utils/index.js";
 
 /**
  * API Gateway
  */
 export {
     createHandler as createApiGatewayHandler,
-    HandlerParams as CreateApiGatewayHandlerParams,
-    HandlerCallable as ApiGatewayHandlerCallable,
+    type HandlerParams as CreateApiGatewayHandlerParams,
+    type HandlerCallable as ApiGatewayHandlerCallable,
     RoutePlugin,
     createRoute as createApiGatewayRoute
-} from "~/gateway";
+} from "~/gateway/index.js";
 
 /**
  * S3
@@ -24,12 +24,12 @@ export {
 //
 export {
     createHandler as createS3Handler,
-    HandlerParams as CreateS3HandlerParams,
+    type HandlerParams as CreateS3HandlerParams,
     S3EventHandler,
-    S3EventHandlerCallable,
-    S3EventHandlerCallableParams,
+    type S3EventHandlerCallable,
+    type S3EventHandlerCallableParams,
     createEventHandler as createS3EventHandler
-} from "~/s3";
+} from "~/s3/index.js";
 
 /**
  * DynamoDB Stream
@@ -37,12 +37,12 @@ export {
 //
 export {
     createHandler as createDynamoDBHandler,
-    HandlerParams as CreateDynamoDBHandlerParams,
+    type HandlerParams as CreateDynamoDBHandlerParams,
     DynamoDBEventHandler,
-    DynamoDBEventHandlerCallable,
-    DynamoDBEventHandlerCallableParams,
+    type DynamoDBEventHandlerCallable,
+    type DynamoDBEventHandlerCallableParams,
     createEventHandler as createDynamoDBEventHandler
-} from "~/dynamodb";
+} from "~/dynamodb/index.js";
 
 /**
  * SQS
@@ -50,12 +50,12 @@ export {
 //
 export {
     createHandler as createSQSHandler,
-    HandlerParams as CreateSQSHandlerParams,
+    type HandlerParams as CreateSQSHandlerParams,
     SQSEventHandler,
-    SQSEventHandlerCallable,
-    SQSEventHandlerCallableParams,
+    type SQSEventHandlerCallable,
+    type SQSEventHandlerCallableParams,
     createEventHandler as createSQSEventHandler
-} from "~/sqs";
+} from "~/sqs/index.js";
 
 /**
  * SNS
@@ -63,12 +63,12 @@ export {
 //
 export {
     createHandler as createSNSHandler,
-    HandlerParams as CreateSNSHandlerParams,
+    type HandlerParams as CreateSNSHandlerParams,
     SNSEventHandler,
-    SNSEventHandlerCallable,
-    SNSEventHandlerCallableParams,
+    type SNSEventHandlerCallable,
+    type SNSEventHandlerCallableParams,
     createEventHandler as createSNSEventHandler
-} from "~/sns";
+} from "~/sns/index.js";
 
 /**
  * EventBridge
@@ -76,24 +76,24 @@ export {
 //
 export {
     createHandler as createEventBridgeHandler,
-    HandlerParams as CreateEventBridgeHandlerParams,
+    type HandlerParams as CreateEventBridgeHandlerParams,
     EventBridgeEventHandler,
-    EventBridgeEventHandlerCallable,
-    EventBridgeEventHandlerCallableParams,
+    type EventBridgeEventHandlerCallable,
+    type EventBridgeEventHandlerCallableParams,
     createEventHandler as createEventBridgeEventHandler
-} from "~/eventBridge";
+} from "~/eventBridge/index.js";
 
 export {
     createHandler as createRawHandler,
-    CreateHandlerParams as CreateRawHandlerParams,
-    HandlerCallable as RawHandlerCallable,
+    type CreateHandlerParams as CreateRawHandlerParams,
+    type HandlerCallable as RawHandlerCallable,
     createEventHandler as createRawEventHandler,
-    RawEventHandlerCallableParams,
-    RawEventHandlerCallable,
+    type RawEventHandlerCallableParams,
+    type RawEventHandlerCallable,
     RawEventHandler
-} from "~/raw";
+} from "~/raw/index.js";
 
-export { ContextPlugin, createContextPlugin, ContextPluginCallable } from "@webiny/handler";
+export { ContextPlugin, createContextPlugin, type ContextPluginCallable } from "@webiny/handler";
 
-export * from "./createHandler";
-export * from "./sourceHandler";
+export * from "./createHandler.js";
+export * from "./sourceHandler.js";

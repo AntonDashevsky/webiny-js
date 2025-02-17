@@ -1,14 +1,14 @@
-import type { ICmsImportExportRecord } from "~/domain";
+import type { ICmsImportExportRecord } from "~/domain/index.js";
 import type {
     IAbortExportContentEntriesUseCase,
     IAbortExportContentEntriesUseCaseExecuteParams
-} from "./abstractions/AbortExportContentEntriesUseCase";
-import { convertTaskToCmsExportRecord } from "~/crud/utils/convertTaskToExportRecord";
+} from "./abstractions/AbortExportContentEntriesUseCase.js";
+import { convertTaskToCmsExportRecord } from "~/crud/utils/convertTaskToExportRecord.js";
 import type { ITasksContextObject } from "@webiny/tasks";
 import type {
     IExportContentEntriesControllerInput,
     IExportContentEntriesControllerOutput
-} from "~/tasks/domain/abstractions/ExportContentEntriesController";
+} from "~/tasks/domain/abstractions/ExportContentEntriesController.js";
 
 export interface IAbortExportContentEntriesUseCaseParams {
     abortTask: ITasksContextObject["abort"];

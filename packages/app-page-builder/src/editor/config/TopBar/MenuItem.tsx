@@ -1,7 +1,7 @@
 import React from "react";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
-import { MenuItem as UiMenuItem } from "@webiny/ui/Menu";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { MenuItem as UiMenuItem } from "@webiny/ui/Menu/index.js";
 
 export interface MenuItemProps {
     label: string;

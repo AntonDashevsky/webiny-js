@@ -1,2 +1,2 @@
-export * from "./createBulkActionEntriesTasks";
-export * from "./createEmptyTrashBinsTask";
+export * from "./createBulkActionEntriesTasks.js";
+export * from "./createEmptyTrashBinsTask.js";

@@ -1,5 +1,5 @@
-import { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient";
-import { RecordLockingClient } from "~/domain/RecordLockingClient";
+import { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient.js";
+import { RecordLockingClient } from "~/domain/RecordLockingClient.js";
 import { ApolloClient } from "apollo-client";
 
 export const createRecordLockingClient = (client: IRecordLockingClient | ApolloClient<any>) => {

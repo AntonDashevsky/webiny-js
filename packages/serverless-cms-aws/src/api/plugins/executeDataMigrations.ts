@@ -1,6 +1,6 @@
 import { LambdaClient } from "@webiny/aws-sdk/client-lambda";
-import { CliContext } from "@webiny/cli/types";
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
+import { CliContext } from "@webiny/cli/types.js";
+import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
 import {
     CliMigrationRunReporter,
     InteractiveCliStatusReporter,
@@ -9,7 +9,7 @@ import {
     MigrationStatusReporter,
     NonInteractiveCliStatusReporter,
     VoidStatusReporter
-} from "@webiny/data-migration/cli";
+} from "@webiny/data-migration/cli/index.js";
 
 export interface IExecuteDataMigrationsParamsInputs {
     build?: boolean;

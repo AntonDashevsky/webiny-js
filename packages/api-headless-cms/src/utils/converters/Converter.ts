@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { CmsEntryValues, CmsModelField } from "~/types";
-import { CmsModelFieldConverterPlugin } from "~/plugins";
-import { ConverterCollection } from "./ConverterCollection";
+import { CmsEntryValues, CmsModelField } from "~/types/index.js";
+import { CmsModelFieldConverterPlugin } from "~/plugins/index.js";
+import { ConverterCollection } from "./ConverterCollection.js";
 
 export interface CmsModelFieldWithParent extends CmsModelField {
     parent?: CmsModelFieldWithParent | null;

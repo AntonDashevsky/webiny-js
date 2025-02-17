@@ -1,4 +1,4 @@
-import { ImportExportTaskStatus } from "~/types";
+import { ImportExportTaskStatus } from "~/types.js";
 
 export function initialStats(total: number) {
     return {

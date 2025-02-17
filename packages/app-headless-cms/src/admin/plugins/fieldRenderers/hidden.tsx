@@ -1,4 +1,4 @@
-import { CmsModelFieldRendererPlugin } from "~/types";
+import { CmsModelFieldRendererPlugin } from "~/types.js";
 
 export const hiddenFieldRenderer: CmsModelFieldRendererPlugin = {
     type: "cms-editor-field-renderer",

@@ -1,4 +1,4 @@
-import type { IImportFromUrlUseCaseExecuteResponse } from "~/crud/useCases";
+import type { IImportFromUrlUseCaseExecuteResponse } from "~/crud/useCases/index.js";
 
 export interface IAbortImportFromUrlUseCaseExecuteParams {
     id: string;

@@ -1,25 +1,25 @@
 import React, { useMemo } from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import get from "lodash/get";
-import set from "lodash/set";
-import merge from "lodash/merge";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { IconButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
-import { applyFallbackDisplayMode } from "../elementSettingsUtils";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import merge from "lodash/merge.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
+import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
 // Components
-import { ContentWrapper } from "../components/StyledComponents";
-import Accordion from "../components/Accordion";
+import { ContentWrapper } from "../components/StyledComponents.js";
+import Accordion from "../components/Accordion.js";
 // Icons
 import { ReactComponent as AlignTopIcon } from "../align/icons/align_vertical_top.svg";
 import { ReactComponent as AlignCenterIcon } from "../align/icons/align_vertical_center.svg";
 import { ReactComponent as AlignBottomIcon } from "../align/icons/align_vertical_bottom.svg";
-import { useDisplayMode } from "~/editor/hooks/useDisplayMode";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { useElementById } from "~/editor/hooks/useElementById";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { useElementById } from "~/editor/hooks/useElementById.js";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
 
 const classes = {
     activeIcon: css({

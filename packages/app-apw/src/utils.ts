@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
-import advancedFormat from "dayjs/plugin/advancedFormat";
-import relativeTime from "dayjs/plugin/relativeTime";
-import utc from "dayjs/plugin/utc";
+import advancedFormat from "dayjs/plugin/advancedFormat.js";
+import relativeTime from "dayjs/plugin/relativeTime.js";
+import utc from "dayjs/plugin/utc.js";
 // Extend dayjs format.
 dayjs.extend(advancedFormat);
 dayjs.extend(relativeTime);

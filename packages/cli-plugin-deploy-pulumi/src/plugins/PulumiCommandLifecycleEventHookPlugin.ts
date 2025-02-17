@@ -1,4 +1,4 @@
-import { CliContext, ProjectApplication } from "@webiny/cli/types";
+import { CliContext, ProjectApplication } from "@webiny/cli/types.js";
 import { Plugin } from "@webiny/plugins";
 
 export interface CallableParams {

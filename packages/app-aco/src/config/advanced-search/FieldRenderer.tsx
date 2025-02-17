@@ -1,7 +1,7 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { FieldType } from "~/components/AdvancedSearch/domain";
-import { useInputField } from "~/components/AdvancedSearch/useInputField";
+import { FieldType } from "~/components/AdvancedSearch/domain/index.js";
+import { useInputField } from "~/components/AdvancedSearch/useInputField.js";
 
 export interface FieldRendererConfig {
     name: string;

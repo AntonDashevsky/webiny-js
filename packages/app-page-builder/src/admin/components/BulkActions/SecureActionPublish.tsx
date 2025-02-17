@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { useFolders } from "@webiny/app-aco";
 import { observer } from "mobx-react-lite";
-import { PageListConfig } from "~/admin/config/pages";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { ActionPublish as ActionPublishBase } from "~/admin/components/BulkActions";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { ActionPublish as ActionPublishBase } from "~/admin/components/BulkActions/index.js";
 
 export const SecureActionPublish = observer(() => {
     const { canPublish } = usePagesPermissions();

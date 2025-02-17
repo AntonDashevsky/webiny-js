@@ -1,1 +1,1 @@
-export { LexicalEditorActions } from "~/LexicalEditorActions";
+export { LexicalEditorActions } from "~/LexicalEditorActions.js";

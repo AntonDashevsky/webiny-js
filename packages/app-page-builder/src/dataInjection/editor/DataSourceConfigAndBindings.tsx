@@ -1,6 +1,6 @@
 import React from "react";
-import { ElementBinding } from "./DataSourceProperties/ElementBinding";
-import { DataSourceConfigInput } from "./DataSourceProperties/DataSourceConfigInput";
+import { ElementBinding } from "./DataSourceProperties/ElementBinding.js";
+import { DataSourceConfigInput } from "./DataSourceProperties/DataSourceConfigInput.js";
 
 export const DataSourceConfigAndBindings = () => {
     return (

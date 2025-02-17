@@ -1,10 +1,10 @@
 import React from "react";
 import { FilesRenderChildren } from "react-butterfiles";
 
-import { useFileManagerApi } from "~/index";
-import { NoPermission } from "~/components/NoPermission";
-import { NoResults } from "~/components/NoResults";
-import { DropFilesHere } from "~/components/DropFilesHere";
+import { useFileManagerApi } from "~/index.js";
+import { NoPermission } from "~/components/NoPermission/index.js";
+import { NoResults } from "~/components/NoResults/index.js";
+import { DropFilesHere } from "~/components/DropFilesHere/index.js";
 
 interface EmptyViewProps {
     browseFiles: FilesRenderChildren["browseFiles"];

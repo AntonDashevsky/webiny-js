@@ -8,8 +8,8 @@ import {
     IWebsocketsTransportDisconnectConnection,
     IWebsocketsTransportSendConnection,
     IWebsocketsTransportSendData
-} from "./abstractions/IWebsocketsTransport";
-import { GenericRecord } from "@webiny/api/types";
+} from "./abstractions/IWebsocketsTransport.js";
+import { GenericRecord } from "@webiny/api/types.js";
 
 export class WebsocketsTransport implements IWebsocketsTransport {
     private readonly clients = new Map<string, ApiGatewayManagementApiClient>();

@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { css } from "emotion";
 import { useLocation, useNavigate } from "@webiny/react-router";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as BackIcon } from "./round-arrow_back-24px.svg";
-import { useBlock } from "~/blockEditor/hooks/useBlock";
-import { BlockEditorConfig } from "~/blockEditor/editorConfig/BlockEditorConfig";
+import { useBlock } from "~/blockEditor/hooks/useBlock.js";
+import { BlockEditorConfig } from "~/blockEditor/editorConfig/BlockEditorConfig.js";
 
 const backStyles = css({
     marginLeft: -10

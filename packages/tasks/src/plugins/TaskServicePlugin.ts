@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { Context, ITask } from "~/types";
+import { Context, ITask } from "~/types.js";
 
 export interface ITaskServiceCreatePluginParams {
     context: Context;

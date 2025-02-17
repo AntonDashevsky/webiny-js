@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
-import { ERROR_FIELDS, LOCK_RECORD_FIELDS } from "./fields";
-import { IRecordLockingError, IRecordLockingLockRecord } from "~/types";
-import { IRecordLockingGetLockRecordExecuteParams } from "~/domain/abstractions/IRecordLockingGetLockRecord";
+import { ERROR_FIELDS, LOCK_RECORD_FIELDS } from "./fields.js";
+import { IRecordLockingError, IRecordLockingLockRecord } from "~/types.js";
+import { IRecordLockingGetLockRecordExecuteParams } from "~/domain/abstractions/IRecordLockingGetLockRecord.js";
 
 export type IRecordLockingGetLockRecordVariables = IRecordLockingGetLockRecordExecuteParams;
 

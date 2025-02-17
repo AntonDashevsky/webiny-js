@@ -1,13 +1,13 @@
 import React from "react";
 import { css } from "emotion";
-import { ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
+import { ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { Link } from "@webiny/react-router";
 import { ReactComponent as AccountIcon } from "~/assets/icons/round-account_circle-24px.svg";
 import { ReactComponent as LogoutIcon } from "~/assets/icons/logout_black_24dp.svg";
 import { useSecurity } from "@webiny/app-security";
 import { useTenancy } from "@webiny/app-tenancy";
-import { useIsDefaultTenant } from "./useIsDefaultTenant";
+import { useIsDefaultTenant } from "./useIsDefaultTenant.js";
 
 const linkStyles = css({
     "&:hover": {

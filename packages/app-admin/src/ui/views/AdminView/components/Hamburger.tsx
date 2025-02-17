@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { get, set } from "dot-prop-immutable";
-import { useUi } from "@webiny/app/hooks/useUi";
-import { IconButton } from "@webiny/ui/Button";
+import { useUi } from "@webiny/app/hooks/useUi.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as MenuIcon } from "@material-design-icons/svg/outlined/menu.svg";
 
 const Hamburger = () => {

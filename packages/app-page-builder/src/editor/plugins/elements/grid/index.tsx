@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase";
-import Grid from "./Grid";
+import kebabCase from "lodash/kebabCase.js";
+import Grid from "./Grid.js";
 import { ReactComponent as GridIcon } from "../../../assets/icons/view_quilt.svg";
-import { createElement } from "../../../helpers";
-import { PbEditorPageElementPlugin, DisplayMode, PbEditorElementPluginArgs } from "~/types";
-import { getDefaultPresetCellsTypePluginType, calculatePresetCells } from "../../gridPresets";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
+import { createElement } from "../../../helpers.js";
+import { PbEditorPageElementPlugin, DisplayMode, PbEditorElementPluginArgs } from "~/types.js";
+import { getDefaultPresetCellsTypePluginType, calculatePresetCells } from "../../gridPresets/index.js";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

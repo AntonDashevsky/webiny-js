@@ -3,17 +3,17 @@ import {
     onFormAfterDeleteHook,
     onFormsAfterExportHook,
     onFormsAfterImportHook
-} from "./forms";
+} from "./forms.js";
 import {
     onFormRevisionAfterCreateHook,
     onFormRevisionAfterUpdateHook,
     onFormRevisionAfterDeleteHook,
     onFormRevisionAfterPublishHook,
     onFormRevisionAfterUnpublishHook
-} from "./formRevisions";
-import { onFormSubmissionsAfterExportHook } from "./formSubmissions";
-import { onSettingsAfterUpdateHook } from "./settings";
-import { AuditLogsContext } from "~/types";
+} from "./formRevisions.js";
+import { onFormSubmissionsAfterExportHook } from "./formSubmissions.js";
+import { onSettingsAfterUpdateHook } from "./settings.js";
+import { AuditLogsContext } from "~/types.js";
 
 export const createFormBuilderHooks = (context: AuditLogsContext) => {
     onFormAfterCreateHook(context);

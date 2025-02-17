@@ -1,7 +1,7 @@
 import React from "react";
 import { Checkbox as RmwcCheckbox } from "@rmwc/checkbox";
-import { FormElementMessage } from "~/FormElementMessage";
-import { FormComponentProps } from "~/types";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
+import { FormComponentProps } from "~/types.js";
 
 interface Props extends FormComponentProps {
     // Component id.

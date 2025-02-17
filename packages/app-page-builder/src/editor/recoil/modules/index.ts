@@ -1,3 +1,3 @@
-export * from "./elements";
-export * from "./ui";
-export * from "./rootElement";
+export * from "./elements/index.js";
+export * from "./ui/index.js";
+export * from "./rootElement/index.js";

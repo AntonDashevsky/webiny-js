@@ -6,16 +6,16 @@ import {
     FileManagerOnChange,
     FileManagerRenderer as BaseFileManagerRenderer
 } from "@webiny/app-admin";
-import { FileItem } from "@webiny/app-admin/types";
-import FileManagerView from "./FileManagerView";
+import { FileItem } from "@webiny/app-admin/types.js";
+import FileManagerView from "./FileManagerView.js";
 import {
     FileManagerViewProvider,
     FileManagerViewProviderProps
-} from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { FM_ACO_APP } from "~/constants";
-import { FileManagerViewWithConfig } from "./FileManagerViewConfig";
-import { FoldersProvider } from "@webiny/app-aco/contexts/folders";
-import { NavigateFolderProvider } from "./NavigateFolderProvider";
+} from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { FM_ACO_APP } from "~/constants.js";
+import { FileManagerViewWithConfig } from "./FileManagerViewConfig.js";
+import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
+import { NavigateFolderProvider } from "./NavigateFolderProvider.js";
 import { AcoWithConfig } from "@webiny/app-aco";
 import { CompositionScope } from "@webiny/react-composition";
 

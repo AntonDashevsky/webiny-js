@@ -2,10 +2,10 @@ import {
     IDataSynchronizationInput,
     IDataSynchronizationManager,
     IFactories
-} from "~/tasks/dataSynchronization/types";
-import { IIndexManager } from "~/settings/types";
-import { ElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchSynchronize";
-import { ElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchFetcher";
+} from "~/tasks/dataSynchronization/types.js";
+import { IIndexManager } from "~/settings/types.js";
+import { ElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchSynchronize.js";
+import { ElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchFetcher.js";
 
 export interface IDataSynchronizationTaskRunnerParams {
     manager: IDataSynchronizationManager;

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import pWaitFor from "p-wait-for";
 import { Plugin, plugins } from "@webiny/plugins";
-import { UIElement, UIElementConfig } from "./UIElement";
+import { UIElement, UIElementConfig } from "./UIElement.js";
 
 interface UIViewIDProps {
     children: React.ReactNode;

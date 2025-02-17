@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { IColumnsVisibilityGateway } from "../gateways/IColumnsVisibilityGateway";
-import { IColumnsVisibilityRepository } from "./IColumnsVisibilityRepository";
+import { IColumnsVisibilityGateway } from "../gateways/IColumnsVisibilityGateway.js";
+import { IColumnsVisibilityRepository } from "./IColumnsVisibilityRepository.js";
 
 export class ColumnsVisibilityRepository implements IColumnsVisibilityRepository {
     private gateway: IColumnsVisibilityGateway;

@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 import {
     ListItem,
     ListItemText,
@@ -8,12 +8,12 @@ import {
     ListItemTextSecondary,
     ListItemGraphic,
     ListItemMeta
-} from "@webiny/ui/List";
-import { IconButton } from "@webiny/ui/Button";
-import { Icon } from "@webiny/ui/Icon";
-import { MenuItem, Menu, MenuDivider } from "@webiny/ui/Menu";
-import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
-import { Tooltip } from "@webiny/ui/Tooltip";
+} from "@webiny/ui/List/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { MenuItem, Menu, MenuDivider } from "@webiny/ui/Menu/index.js";
+import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as AddIcon } from "../../../icons/add.svg";
 import { ReactComponent as BeenHereIcon } from "../../../icons/beenhere.svg";
 import { ReactComponent as DeleteIcon } from "../../../icons/delete.svg";
@@ -23,9 +23,9 @@ import { ReactComponent as LockIcon } from "../../../icons/lock.svg";
 import { ReactComponent as MoreVerticalIcon } from "../../../icons/more_vert.svg";
 import { ReactComponent as PublishIcon } from "../../../icons/publish.svg";
 import { ReactComponent as UnpublishIcon } from "../../../icons/unpublish.svg";
-import { useRevision } from "./useRevision";
-import { FbFormModel, FbRevisionModel } from "~/types";
-import { usePermission } from "~/hooks/usePermission";
+import { useRevision } from "./useRevision.js";
+import { FbFormModel, FbRevisionModel } from "~/types.js";
+import { usePermission } from "~/hooks/usePermission.js";
 
 const primaryColor = css({ color: "var(--mdc-theme-primary)" });
 

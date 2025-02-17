@@ -4,6 +4,9 @@ import WebpackBar from "webpackbar";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import packageJson from "@webiny/project-utils/package.json" assert { type: "json" };
 import { getOutput, getEntry } from "../../utils.js";
+import { createResolve } from "../../../resolve.js";
+
+const resolve = createResolve(import.meta.url);
 
 export const createWebpackConfig = async options => {
     const output = getOutput(options);
@@ -11,7 +14,7 @@ export const createWebpackConfig = async options => {
 
     const { cwd, overrides, production } = options;
 
-    let babelOptions = await import("./babelrc");
+    let babelOptions = await import("./babelrc").then(m => m.default ?? m);
     // Customize Babel options.
     if (typeof overrides.babel === "function") {
         babelOptions = overrides.babel(babelOptions);
@@ -23,10 +26,9 @@ export const createWebpackConfig = async options => {
     const tsChecksEnabled = process.env.WEBINY_ENABLE_TS_CHECKS === "true";
 
     return {
-        entry: [
-            sourceMaps && require.resolve("source-map-support/register"),
-            path.resolve(entry)
-        ].filter(Boolean),
+        entry: [sourceMaps && resolve("source-map-support/register"), path.resolve(entry)].filter(
+            Boolean
+        ),
         target: "node",
         output: {
             libraryTarget: "commonjs",
@@ -62,7 +64,7 @@ export const createWebpackConfig = async options => {
                 new ForkTsCheckerWebpackPlugin({
                     typescript: {
                         configFile: path.resolve(cwd, "./tsconfig.json"),
-                        typescriptPath: require.resolve("typescript")
+                        typescriptPath: resolve("typescript")
                     },
                     async: !production
                 }),
@@ -77,7 +79,7 @@ export const createWebpackConfig = async options => {
                         sourceMaps && {
                             test: /\.js$/,
                             enforce: "pre",
-                            use: [require.resolve("source-map-loader")]
+                            use: [resolve("source-map-loader")]
                         },
                         {
                             test: /\.mjs$/,
@@ -89,7 +91,7 @@ export const createWebpackConfig = async options => {
                         },
                         {
                             test: /\.(js|ts)$/,
-                            loader: require.resolve("babel-loader"),
+                            loader: resolve("babel-loader"),
                             exclude: /node_modules/,
                             options: babelOptions
                         }
@@ -101,14 +103,14 @@ export const createWebpackConfig = async options => {
                  */
                 {
                     test: /\.css$/,
-                    loader: require.resolve("null-loader")
+                    loader: resolve("null-loader")
                 }
             ]
         },
         resolve: {
             alias: {
                 // Force `lexical` to use the CJS export.
-                lexical: require.resolve("lexical")
+                lexical: resolve("lexical")
             },
             modules: [path.resolve(path.join(cwd, "node_modules")), "node_modules"],
             extensions: [".ts", ".mjs", ".js", ".json", ".css"]

@@ -3,7 +3,7 @@ import {
     CloudFrontResponse,
     defineLambdaEdgeRequestHandler,
     setHeader
-} from "~/lambdaEdge";
+} from "~/lambdaEdge/index.js";
 
 import { get } from "https";
 

@@ -1,5 +1,5 @@
-import { Context } from "@webiny/api/types";
-import { DecryptedWcpProjectLicense, WcpProjectEnvironment } from "@webiny/wcp/types";
+import { Context } from "@webiny/api/types.js";
+import { DecryptedWcpProjectLicense, WcpProjectEnvironment } from "@webiny/wcp/types.js";
 import { WCP_FEATURE_LABEL } from "@webiny/wcp";
 
 export interface WcpContext extends Context {

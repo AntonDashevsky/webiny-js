@@ -1,4 +1,4 @@
-import { HcmsBulkActionsContext } from "~/types";
+import { HcmsBulkActionsContext } from "~/types.js";
 import { ITask, ITaskDataInput } from "@webiny/tasks";
 
 /**

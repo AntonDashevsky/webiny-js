@@ -5,7 +5,7 @@ import {
     ApwContext,
     ApwReviewerWithEmail,
     ApwWorkflow
-} from "~/types";
+} from "~/types.js";
 
 export interface ApwContentReviewNotificationCbParams {
     context: ApwContext;

@@ -19,13 +19,13 @@ import {
     PbPageElement,
     Page,
     PageContentWithTemplate
-} from "~/types";
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import { mdbid } from "@webiny/utils";
-import { PageTemplatesPermissions } from "~/graphql/crud/permissions/PageTemplatesPermissions";
-import { dynamicData } from "~/graphql/crud/dynamicData.validation";
+import { PageTemplatesPermissions } from "~/graphql/crud/permissions/PageTemplatesPermissions.js";
+import { dynamicData } from "~/graphql/crud/dynamicData.validation.js";
 
 const createSchema = zod.object({
     title: zod.string().max(100),

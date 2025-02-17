@@ -3,7 +3,7 @@ import {
     ModifyBodyCallable,
     ModifyBodyParams as BaseModifyBodyParams
 } from "@webiny/api-elasticsearch";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 export interface ModifyBodyParams extends BaseModifyBodyParams {
     model: CmsModel;

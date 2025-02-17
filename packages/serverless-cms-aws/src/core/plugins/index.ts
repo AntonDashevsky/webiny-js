@@ -1,3 +1,3 @@
-export * from "./generateDdbToEsHandler";
-export * from "./checkEsServiceRole";
-export * from "./checkOsServiceRole";
+export * from "./generateDdbToEsHandler.js";
+export * from "./checkEsServiceRole.js";
+export * from "./checkOsServiceRole.js";

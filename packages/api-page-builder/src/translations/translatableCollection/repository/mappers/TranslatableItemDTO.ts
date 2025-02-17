@@ -1,4 +1,4 @@
-import { Identity } from "~/translations/Identity";
+import { Identity } from "~/translations/Identity.js";
 
 export interface TranslatableItemDTO {
     itemId: string;

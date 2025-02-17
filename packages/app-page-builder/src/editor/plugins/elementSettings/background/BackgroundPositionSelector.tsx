@@ -1,8 +1,8 @@
 import * as React from "react";
 import classNames from "classnames";
 import styled from "@emotion/styled";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { Typography } from "@webiny/ui/Typography";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 const positions = [
     "top left",

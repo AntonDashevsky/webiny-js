@@ -1,9 +1,9 @@
 import React from "react";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { i18n } from "@webiny/app/i18n";
-import useExportFormDialog, { ExportFormsDialogProps } from "./useExportFormDialog";
-import useExportFormRevisionSelectorDialog from "./useExportFormRevisionSelectorDialog";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import useExportFormDialog, { ExportFormsDialogProps } from "./useExportFormDialog.js";
+import useExportFormRevisionSelectorDialog from "./useExportFormRevisionSelectorDialog.js";
 // assets
 import { ReactComponent as DownloadIcon } from "@material-design-icons/svg/round/download.svg";
 

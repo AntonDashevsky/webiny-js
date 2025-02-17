@@ -1,4 +1,4 @@
-import { isLocalhost } from "./isLocalhost";
+import { isLocalhost } from "./isLocalhost.js";
 
 declare global {
     interface Window {

@@ -11,9 +11,9 @@ import {
     SimpleListItem as RmwcSimpleListItem,
     SimpleListItemProps as RmwcSimpleListItemProps
 } from "@rmwc/list";
-import { Typography } from "~/Typography";
+import { Typography } from "~/Typography/index.js";
 import classNames from "classnames";
-import { SelectBoxWrapper, webinyList } from "./styled";
+import { SelectBoxWrapper, webinyList } from "./styled.js";
 
 export type ListItemProps = RmwcListItemProps & {
     children: React.ReactNode;

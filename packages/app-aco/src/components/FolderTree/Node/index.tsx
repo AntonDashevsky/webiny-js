@@ -4,12 +4,12 @@ import { ReactComponent as Folder } from "@material-symbols/svg-400/rounded/fold
 import { ReactComponent as FolderShared } from "@material-symbols/svg-400/rounded/folder_shared-fill.svg";
 import { ReactComponent as HomeIcon } from "@material-design-icons/svg/filled/home.svg";
 import { NodeModel, useDragOver } from "@minoru/react-dnd-treeview";
-import { MenuActions } from "../MenuActions";
-import { Container, ArrowIcon, FolderIcon, Text, Content } from "./styled";
-import { DndFolderItemData, FolderItem } from "~/types";
+import { MenuActions } from "../MenuActions/index.js";
+import { Container, ArrowIcon, FolderIcon, Text, Content } from "./styled.js";
+import { DndFolderItemData, FolderItem } from "~/types.js";
 import { parseIdentifier } from "@webiny/utils";
-import { ROOT_FOLDER } from "~/constants";
-import { useFolder } from "~/hooks";
+import { ROOT_FOLDER } from "~/constants.js";
+import { useFolder } from "~/hooks/index.js";
 
 type NodeProps = {
     node: NodeModel<DndFolderItemData>;

@@ -1,6 +1,6 @@
-import { ConsoleLinkPlugin } from "@webiny/app/plugins/ConsoleLinkPlugin";
-import { NetworkErrorLinkPlugin } from "@webiny/app/plugins/NetworkErrorLinkPlugin";
-import { OmitTypenameLinkPlugin } from "@webiny/app/plugins/OmitTypenameLinkPlugin";
+import { ConsoleLinkPlugin } from "@webiny/app/plugins/ConsoleLinkPlugin.js";
+import { NetworkErrorLinkPlugin } from "@webiny/app/plugins/NetworkErrorLinkPlugin.js";
+import { OmitTypenameLinkPlugin } from "@webiny/app/plugins/OmitTypenameLinkPlugin.js";
 
 export default [
     /**

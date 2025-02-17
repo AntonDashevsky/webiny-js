@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { TypeAndSize } from "./TypeAndSize";
-import { CreatedOn } from "./CreatedOn";
+import { TypeAndSize } from "./TypeAndSize.js";
+import { CreatedOn } from "./CreatedOn.js";
 
 const PreviewMetaWrapper = styled.div`
     display: flex;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { COLORS } from "~/editor/plugins/elementSettings/components/StyledComponents";
-import { EditorConfig } from "~/editor/config";
+import { COLORS } from "~/editor/plugins/elementSettings/components/StyledComponents.js";
+import { EditorConfig } from "~/editor/config/index.js";
 
 const SidebarActions = styled("div")({
     display: "flex",

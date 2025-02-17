@@ -3,9 +3,9 @@ import bytes from "bytes";
 import styled from "@emotion/styled";
 import { ReactComponent as ImageIcon } from "@material-design-icons/svg/outlined/insert_photo.svg";
 import { ReactComponent as FileIcon } from "@material-design-icons/svg/outlined/insert_drive_file.svg";
-import { Icon } from "@webiny/ui/Icon";
-import { Typography } from "@webiny/ui/Typography";
-import { useFile } from "~/hooks/useFile";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useFile } from "~/hooks/useFile.js";
 
 const TypeAndSizeWrapper = styled.div`
     display: flex;

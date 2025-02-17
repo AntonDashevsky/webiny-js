@@ -3,8 +3,8 @@ import {
     IExportPagesZipPagesInput,
     IExportPagesZipPagesOutput,
     PageExportTask
-} from "~/export/pages/types";
-import { PbImportExportContext } from "~/graphql/types";
+} from "~/export/pages/types.js";
+import { PbImportExportContext } from "~/graphql/types.js";
 
 export const createExportPagesZipPagesTask = () => {
     return createPrivateTaskDefinition<
@@ -29,7 +29,7 @@ export const createExportPagesZipPagesTask = () => {
             }
 
             const { ExportPagesZipPages } = await import(
-                /* webpackChunkName: "ExportPagesZipPages" */ "~/export/pages/ExportPagesZipPages"
+                /* webpackChunkName: "ExportPagesZipPages" */ "~/export/pages/ExportPagesZipPages.js"
             );
 
             const exportPagesZipPages = new ExportPagesZipPages();

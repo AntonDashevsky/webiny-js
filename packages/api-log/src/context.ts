@@ -1,9 +1,9 @@
-import { ContextPlugin } from "@webiny/api/plugins/ContextPlugin";
-import { Context } from "~/types";
-import { loggerFactory } from "~/logger/factory";
-import { createCrud } from "~/crud";
-import { checkPermissionFactory } from "~/security/checkPermission";
-import { createGraphQl } from "~/graphql";
+import { ContextPlugin } from "@webiny/api/plugins/ContextPlugin.js";
+import { Context } from "~/types.js";
+import { loggerFactory } from "~/logger/factory.js";
+import { createCrud } from "~/crud/index.js";
+import { checkPermissionFactory } from "~/security/checkPermission.js";
+import { createGraphQl } from "~/graphql/index.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 
 export interface ICreateLoggerContextParams {

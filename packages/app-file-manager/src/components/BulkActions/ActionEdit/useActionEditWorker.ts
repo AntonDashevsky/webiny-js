@@ -1,14 +1,14 @@
 import { useMemo } from "react";
-import omit from "lodash/omit";
-import { FileItem } from "@webiny/app-admin/types";
+import omit from "lodash/omit.js";
+import { FileItem } from "@webiny/app-admin/types.js";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
-import { CmsModelField } from "@webiny/app-headless-cms-common/types";
-import { BatchDTO } from "~/components/BulkActions/ActionEdit/domain";
-import { GraphQLInputMapper } from "~/components/BulkActions/ActionEdit/GraphQLInputMapper";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { getFilesLabel } from "~/components/BulkActions";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+import { CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
+import { BatchDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { GraphQLInputMapper } from "~/components/BulkActions/ActionEdit/GraphQLInputMapper.js";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { getFilesLabel } from "~/components/BulkActions/index.js";
+import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
 
 const { useWorker, useDialog: useBulkActionDialog } = FileManagerViewConfig.Browser.BulkAction;
 

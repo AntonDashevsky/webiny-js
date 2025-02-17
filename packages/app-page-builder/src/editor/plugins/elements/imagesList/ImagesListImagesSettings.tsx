@@ -5,15 +5,15 @@ import { css } from "emotion";
  */
 // @ts-expect-error
 import { sortable } from "react-sortable";
-import { FileManager } from "@webiny/app-admin/components";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import File from "./File";
-import Accordion from "../../elementSettings/components/Accordion";
+import { FileManager } from "@webiny/app-admin/components/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import File from "./File.js";
+import Accordion from "../../elementSettings/components/Accordion.js";
 import {
     classes,
     SimpleButton,
     ButtonContainer
-} from "../../elementSettings/components/StyledComponents";
+} from "../../elementSettings/components/StyledComponents.js";
 import { BindComponent } from "@webiny/form";
 import { FileManagerFileItem } from "@webiny/app-admin";
 

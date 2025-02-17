@@ -3,8 +3,8 @@ import {
     FilterGroupDTO,
     FilterGroupFilterDTO,
     Operation
-} from "~/components/AdvancedSearch/domain";
-import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter";
+} from "~/components/AdvancedSearch/domain/index.js";
+import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
 
 describe("QuerySaverDialogPresenter", () => {
     const demoFilter: FilterGroupFilterDTO = {

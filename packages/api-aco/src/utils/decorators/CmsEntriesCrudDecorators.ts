@@ -1,9 +1,9 @@
-import { AcoContext } from "~/types";
-import { createWhere } from "./where";
-import { ROOT_FOLDER } from "./constants";
-import { filterEntriesByFolderFactory } from "./filterEntriesByFolderFactory";
-import { createFolderType } from "./createFolderType";
-import { decorateIfModelAuthorizationEnabled } from "./decorateIfModelAuthorizationEnabled";
+import { AcoContext } from "~/types.js";
+import { createWhere } from "./where.js";
+import { ROOT_FOLDER } from "./constants.js";
+import { filterEntriesByFolderFactory } from "./filterEntriesByFolderFactory.js";
+import { createFolderType } from "./createFolderType.js";
+import { decorateIfModelAuthorizationEnabled } from "./decorateIfModelAuthorizationEnabled.js";
 
 type Context = Pick<AcoContext, "aco" | "cms">;
 

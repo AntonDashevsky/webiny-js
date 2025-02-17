@@ -1,2 +1,2 @@
-export * from "./composedHandler";
-export * from "./timer";
+export * from "./composedHandler.js";
+export * from "./timer/index.js";

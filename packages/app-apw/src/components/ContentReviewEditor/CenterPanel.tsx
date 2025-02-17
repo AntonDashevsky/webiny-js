@@ -1,23 +1,23 @@
 import React from "react";
 import { Route, Routes } from "@webiny/react-router";
 import styled from "@emotion/styled";
-import { List } from "@webiny/ui/List";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { i18n } from "@webiny/app/i18n";
-import { Typography } from "@webiny/ui/Typography";
+import { List } from "@webiny/ui/List/index.js";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 
-import { useChangeRequestsList } from "~/hooks/useChangeRequestsList";
-import { useCurrentStep } from "~/hooks/useCurrentStep";
-import { ChangeRequestListItem } from "./ChangeRequest/ChangeRequestListItem";
-import { ProvideSignOff } from "./ChangeRequest/ProvideSignOff";
-import { useChangeRequestDialog } from "./ChangeRequest/useChangeRequestDialog";
-import { Box } from "../Layout";
-import { PanelBox } from "./Styled";
-import { RightPanel } from "./RightPanel";
-import { PlaceholderBox } from "./PlaceholderBox";
-import { useFetchInterval } from "~/hooks/useFetchInterval";
+import { useChangeRequestsList } from "~/hooks/useChangeRequestsList.js";
+import { useCurrentStep } from "~/hooks/useCurrentStep.js";
+import { ChangeRequestListItem } from "./ChangeRequest/ChangeRequestListItem.js";
+import { ProvideSignOff } from "./ChangeRequest/ProvideSignOff.js";
+import { useChangeRequestDialog } from "./ChangeRequest/useChangeRequestDialog.js";
+import { Box } from "../Layout.js";
+import { PanelBox } from "./Styled.js";
+import { RightPanel } from "./RightPanel.js";
+import { PlaceholderBox } from "./PlaceholderBox.js";
+import { useFetchInterval } from "~/hooks/useFetchInterval.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/editor");
 

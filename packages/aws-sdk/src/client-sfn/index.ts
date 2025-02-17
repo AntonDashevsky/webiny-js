@@ -15,7 +15,7 @@ import {
     StartExecutionCommand
 } from "@aws-sdk/client-sfn";
 import { createCacheKey } from "@webiny/utils";
-import { GenericRecord } from "@webiny/cli/types";
+import { GenericRecord } from "@webiny/cli/types.js";
 
 export {
     SFNClient,

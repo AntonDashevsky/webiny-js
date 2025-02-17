@@ -2,7 +2,7 @@ import fs from "fs-extra";
 import extract from "extract-zip";
 import path from "path";
 import { GetObjectCommand, getSignedUrl, S3 } from "@webiny/aws-sdk/client-s3";
-import download from "./download";
+import download from "./download.js";
 
 const PAGE_BUILDER_S3_BUCKET = process.env.S3_BUCKET;
 const PAGE_BUILDER_INSTALLATION_FILES_ZIP_KEY = "pbInstallation.zip";

@@ -2,10 +2,10 @@ import yauzl from "yauzl";
 import { pipeline } from "stream";
 import { promisify } from "util";
 import { CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
-import { s3Stream } from "~/export/s3Stream";
-import { getFileNameWithoutExt } from "./getFileNameWithoutExt";
-import { ImportData } from "~/types";
-import { prepareDataDirMap } from "~/import/utils/prepareDataDirMap";
+import { s3Stream } from "~/export/s3Stream.js";
+import { getFileNameWithoutExt } from "./getFileNameWithoutExt.js";
+import { ImportData } from "~/types.js";
+import { prepareDataDirMap } from "~/import/utils/prepareDataDirMap.js";
 
 const FILE_CONTENT_TYPE = "application/octet-stream";
 const streamPipeline = promisify(pipeline);

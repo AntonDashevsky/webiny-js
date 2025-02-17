@@ -1,5 +1,5 @@
-import { FormRenderProps } from "../../FormRender";
-import { CreateFormParamsTrigger, FormSubmissionFieldValues } from "../../types";
+import { FormRenderProps } from "../../FormRender.js";
+import { CreateFormParamsTrigger, FormSubmissionFieldValues } from "../../types.js";
 
 interface HandleFormTriggersParams {
     props: FormRenderProps;

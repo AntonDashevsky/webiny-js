@@ -1,14 +1,14 @@
-import { Topic } from "@webiny/pubsub/types";
-import { CreatedBy, ListPagesParams, Page, PbContext } from "@webiny/api-page-builder/types";
-import { FormBuilderContext } from "@webiny/api-form-builder/types";
+import { Topic } from "@webiny/pubsub/types.js";
+import { CreatedBy, ListPagesParams, Page, PbContext } from "@webiny/api-page-builder/types.js";
+import { FormBuilderContext } from "@webiny/api-form-builder/types.js";
 import {
     ExportRevisionType,
     ImportExportTask,
     ImportExportTaskStatus,
     ImportExportTaskStorageOperations,
     ImportExportTaskStorageOperationsListParams
-} from "~/types";
-import { Context as TasksContext, IResponseError } from "@webiny/tasks/types";
+} from "~/types.js";
+import { Context as TasksContext, IResponseError } from "@webiny/tasks/types.js";
 
 export interface ExportPagesParams extends Pick<ListPagesParams, "where" | "sort" | "search"> {
     limit?: number;

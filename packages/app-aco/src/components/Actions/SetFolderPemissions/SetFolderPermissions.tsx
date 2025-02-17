@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { ReactComponent as Security } from "@material-design-icons/svg/outlined/add_moderator.svg";
 
-import { AcoConfig } from "~/config";
-import { useSetPermissionsDialog } from "~/dialogs";
-import { useFolder } from "~/hooks";
+import { AcoConfig } from "~/config/index.js";
+import { useSetPermissionsDialog } from "~/dialogs/index.js";
+import { useFolder } from "~/hooks/index.js";
 
 export const SetFolderPermissions = () => {
     const { folder } = useFolder();

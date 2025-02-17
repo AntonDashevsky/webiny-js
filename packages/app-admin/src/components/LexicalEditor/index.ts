@@ -1,1 +1,1 @@
-export { LexicalEditor } from "./LexicalEditor";
+export { LexicalEditor } from "./LexicalEditor.js";

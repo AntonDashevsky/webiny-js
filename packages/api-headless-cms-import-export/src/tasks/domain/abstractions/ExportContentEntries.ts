@@ -1,10 +1,10 @@
-import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
 import type {
     ITaskResponseDoneResultOutput,
     ITaskResponseResult,
     ITaskRunParams
 } from "@webiny/tasks";
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 
 export interface IExportContentEntriesInputFile {
     readonly key: string;

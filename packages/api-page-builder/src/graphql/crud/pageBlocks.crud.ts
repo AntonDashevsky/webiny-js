@@ -14,16 +14,16 @@ import {
     PbContext,
     PageContentElement,
     PageBlockVariable
-} from "~/types";
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
 import {
     createPageBlocksCreateValidation,
     createPageBlocksUpdateValidation
-} from "~/graphql/crud/pageBlocks/validation";
+} from "~/graphql/crud/pageBlocks/validation.js";
 import { createZodError, mdbid, removeUndefinedValues } from "@webiny/utils";
-import { PageBlocksPermissions } from "./permissions/PageBlocksPermissions";
-import { PageElementId } from "~/graphql/crud/pages/PageElementId";
+import { PageBlocksPermissions } from "./permissions/PageBlocksPermissions.js";
+import { PageElementId } from "~/graphql/crud/pages/PageElementId.js";
 
 export interface CreatePageBlocksCrudParams {
     context: PbContext;

@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { InputContainer, SearchIconContainer } from "./SearchInput.styled";
-import { useTrashBin } from "~/Presentation/hooks";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { InputContainer, SearchIconContainer } from "./SearchInput.styled.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
 
 export const SearchInput = () => {
     const { vm, searchItems } = useTrashBin();

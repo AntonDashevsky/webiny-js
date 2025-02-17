@@ -5,10 +5,10 @@ import {
     PageBlock,
     PageTemplate,
     PageTemplateInput
-} from "@webiny/api-page-builder/types";
-import { FileManagerContext, File } from "@webiny/api-file-manager/types";
-import get from "lodash/get";
-import Zipper from "./zipper";
+} from "@webiny/api-page-builder/types.js";
+import { FileManagerContext, File } from "@webiny/api-file-manager/types.js";
+import get from "lodash/get.js";
+import Zipper from "./zipper.js";
 
 export const EXPORT_PAGES_FOLDER_KEY = "WEBINY_PB_EXPORT_PAGES";
 export const EXPORT_BLOCKS_FOLDER_KEY = "WEBINY_PB_EXPORT_BLOCK";

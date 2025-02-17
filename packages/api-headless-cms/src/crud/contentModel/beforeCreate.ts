@@ -1,20 +1,20 @@
 import WebinyError from "@webiny/error";
-import camelCase from "lodash/camelCase";
+import camelCase from "lodash/camelCase.js";
 import {
     CmsContext,
     CmsModel,
     HeadlessCmsStorageOperations,
     OnModelBeforeCreateFromTopicParams,
     OnModelBeforeCreateTopicParams
-} from "~/types";
-import { Topic } from "@webiny/pubsub/types";
+} from "~/types/index.js";
+import { Topic } from "@webiny/pubsub/types.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
-import { validateModel } from "./validateModel";
-import { validateExistingModelId, validateModelIdAllowed } from "./validate/modelId";
-import { validateSingularApiName } from "./validate/singularApiName";
-import { validatePluralApiName } from "./validate/pluralApiName";
-import { validateEndingAllowed } from "~/crud/contentModel/validate/endingAllowed";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
+import { validateModel } from "./validateModel.js";
+import { validateExistingModelId, validateModelIdAllowed } from "./validate/modelId.js";
+import { validateSingularApiName } from "./validate/singularApiName.js";
+import { validatePluralApiName } from "./validate/pluralApiName.js";
+import { validateEndingAllowed } from "~/crud/contentModel/validate/endingAllowed.js";
 
 const getModelId = (model: CmsModel): string => {
     const { modelId, name } = model;

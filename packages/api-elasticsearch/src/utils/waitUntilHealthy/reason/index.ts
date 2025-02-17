@@ -1,3 +1,3 @@
-export * from "./ClusterHealthReason";
-export * from "./MemoryReason";
-export * from "./ProcessorReason";
+export * from "./ClusterHealthReason.js";
+export * from "./MemoryReason.js";
+export * from "./ProcessorReason.js";

@@ -1,7 +1,7 @@
 import React from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Bind } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
+import { Input } from "@webiny/ui/Input/index.js";
 import { validation } from "@webiny/validation";
 
 export const AppClientInput = () => {

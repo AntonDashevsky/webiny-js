@@ -2,10 +2,10 @@ import React, { useMemo } from "react";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
 import { observer } from "mobx-react-lite";
 
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { getFilesLabel } from "~/components/BulkActions/BulkActions";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { getFilesLabel } from "~/components/BulkActions/BulkActions.js";
 
 export const ActionDelete = observer(() => {
     const { deleteFile } = useFileManagerView();

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
-import { Center } from "~/admin/components/FormEditor/DropZone";
-import { i18n } from "@webiny/app/i18n";
-import { FbFormStep } from "~/types";
-import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable";
-import { useFormStep } from "./useFormStep";
+import { Center } from "~/admin/components/FormEditor/DropZone/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { FbFormStep } from "~/types.js";
+import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable.js";
+import { useFormStep } from "./useFormStep.js";
 
 const t = i18n.namespace("FormsApp.Editor.EditTab");
 

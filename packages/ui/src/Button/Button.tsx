@@ -1,10 +1,10 @@
 import React from "react";
 import * as RmwcButton from "@rmwc/button";
 import { Fab, FabProps } from "@rmwc/fab";
-import { Icon, IconProps } from "../Icon/Icon";
+import { Icon, IconProps } from "../Icon/Icon.js";
 import classNames from "classnames";
 import { SyntheticEvent } from "react";
-import { webinyButtonStyles } from "./Button.styles";
+import { webinyButtonStyles } from "./Button.styles.js";
 
 export interface ButtonProps {
     /**

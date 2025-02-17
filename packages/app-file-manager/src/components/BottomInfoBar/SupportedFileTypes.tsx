@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import { i18n } from "@webiny/app/i18n";
-import mime from "mime/lite";
+import { i18n } from "@webiny/app/i18n/index.js";
+import mime from "mime/lite.js";
 
 mime.define({ "image/x-icon": ["ico"] }, true);
 mime.define({ "image/jpg": ["jpg"] }, true);

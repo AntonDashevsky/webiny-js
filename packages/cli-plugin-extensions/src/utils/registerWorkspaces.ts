@@ -1,7 +1,7 @@
 import loadJson from "load-json-file";
 import writeJson from "write-json-file";
 import type { ExtensionWorkspace } from "./getExtensionsFromFilesystem.js";
-import type { PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { PackageJson } from "@webiny/cli-plugin-scaffold/types.js";
 import { formatCode } from "@webiny/cli-plugin-scaffold/utils/index.js";
 
 export const registerWorkspaces = async (extensions: ExtensionWorkspace[]) => {

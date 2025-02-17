@@ -5,7 +5,7 @@ import {
     FilterDTO,
     FilterMapper,
     FilterRepository
-} from "~/components/AdvancedSearch/domain";
+} from "~/components/AdvancedSearch/domain/index.js";
 
 export interface AdvancedSearchPresenterInterface {
     load(): Promise<void>;

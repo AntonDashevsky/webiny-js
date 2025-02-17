@@ -1,8 +1,8 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { CircularProgressHolder, StatusWrapper, UploadingLabel } from "./styled";
+import { CircularProgressHolder, StatusWrapper, UploadingLabel } from "./styled.js";
 
 const t = i18n.ns("app-admin/file-manager/components/bottom-info-bar/list-status");
 

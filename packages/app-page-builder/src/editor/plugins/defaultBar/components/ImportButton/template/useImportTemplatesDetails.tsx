@@ -1,12 +1,12 @@
 import React from "react";
-import get from "lodash/get";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "@webiny/app/i18n";
-import { Scrollbar } from "@webiny/ui/Scrollbar";
+import get from "lodash/get.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { Link } from "@webiny/react-router";
-import { ShowDetails } from "../styledComponents";
-import { ListTemplateImportExportSubTasksResponse } from "~/admin/graphql/templateImportExport.gql";
-import { PageBuilderImportExportSubTask } from "~/types";
+import { ShowDetails } from "../styledComponents.js";
+import { ListTemplateImportExportSubTasksResponse } from "~/admin/graphql/templateImportExport.gql.js";
+import { PageBuilderImportExportSubTask } from "~/types.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importTemplate");
 

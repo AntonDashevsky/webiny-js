@@ -1,4 +1,4 @@
-import { CmsEntryStorageOperationsGetLatestByIdsParams, CmsModel, CmsStorageEntry } from "~/types";
+import { CmsEntryStorageOperationsGetLatestByIdsParams, CmsModel, CmsStorageEntry } from "~/types/index.js";
 
 export interface IGetLatestEntriesByIds {
     execute: (

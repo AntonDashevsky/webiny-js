@@ -1,8 +1,8 @@
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController";
+} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
 import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
 
 export interface ImportFromUrlControllerStep<

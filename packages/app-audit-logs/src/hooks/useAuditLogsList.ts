@@ -1,18 +1,18 @@
 import { useCallback, useEffect, useState, useMemo } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 
 import { useRouter } from "@webiny/react-router";
-import { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
+import { OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
 import { useAcoList, createSort } from "@webiny/app-aco";
-import { ListMeta, SearchRecordItem } from "@webiny/app-aco/types";
+import { ListMeta, SearchRecordItem } from "@webiny/app-aco/types.js";
 
 import {
     Entry,
     transformCmsContentEntriesToRecordEntries
-} from "~/utils/transformCmsContentEntriesToRecordEntries";
-import { LIST_USERS } from "~/graphql";
-import { AuditLog, User } from "~/types";
+} from "~/utils/transformCmsContentEntriesToRecordEntries.js";
+import { LIST_USERS } from "~/graphql.js";
+import { AuditLog, User } from "~/types.js";
 
 interface UpdateSearchCallableParams {
     search: string;

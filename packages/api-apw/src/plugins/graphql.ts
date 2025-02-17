@@ -1,11 +1,11 @@
-import workflowSchema from "./graphql/workflow.gql";
-import contentReviewSchema from "./graphql/contentReview.gql";
-import reviewerSchema from "./graphql/reviewer.gql";
-import commentSchema from "./graphql/comment.gql";
-import changeRequestedSchema from "./graphql/changeRequest.gql";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
+import workflowSchema from "./graphql/workflow.gql.js";
+import contentReviewSchema from "./graphql/contentReview.gql.js";
+import reviewerSchema from "./graphql/reviewer.gql.js";
+import commentSchema from "./graphql/comment.gql.js";
+import changeRequestedSchema from "./graphql/changeRequest.gql.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
 import { ContextPlugin } from "@webiny/api";
-import { ApwContext } from "~/types";
+import { ApwContext } from "~/types.js";
 
 const emptyResolver = () => ({});
 

@@ -1,14 +1,14 @@
 import React, { useCallback } from "react";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
-import { Sidebar } from "./Sidebar";
-import { Main } from "./Main";
-import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
+import { Sidebar } from "./Sidebar.js";
+import { Main } from "./Main.js";
+import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
 import { AcoProvider, useNavigateFolder } from "@webiny/app-aco";
 import { useI18N } from "@webiny/app-i18n";
 import { useTenancy } from "@webiny/app-tenancy";
-import { useApolloClient, useModel } from "~/admin/hooks";
-import { ContentEntriesListProvider } from "~/admin/views/contentEntries/hooks";
-import { CMS_ENTRY_LIST_LINK, LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/admin/constants";
+import { useApolloClient, useModel } from "~/admin/hooks/index.js";
+import { ContentEntriesListProvider } from "~/admin/views/contentEntries/hooks/index.js";
+import { CMS_ENTRY_LIST_LINK, LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/admin/constants.js";
 
 /**
  * Generates a `layoutId` to be used with the `<SplitView />` component.

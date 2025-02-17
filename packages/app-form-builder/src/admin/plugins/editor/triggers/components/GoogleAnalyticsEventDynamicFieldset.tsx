@@ -1,10 +1,10 @@
 import React from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { DynamicFieldset } from "@webiny/ui/DynamicFieldset";
-import { Input } from "@webiny/ui/Input";
-import { Typography } from "@webiny/ui/Typography";
-import { ButtonSecondary, ButtonDefault } from "@webiny/ui/Button";
+import { DynamicFieldset } from "@webiny/ui/DynamicFieldset/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { ButtonSecondary, ButtonDefault } from "@webiny/ui/Button/index.js";
 import { validation } from "@webiny/validation";
 import { BindComponent } from "@webiny/form";
 

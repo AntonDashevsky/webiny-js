@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { TopAppBar, TopAppBarSection } from "@webiny/ui/TopAppBar";
-import { renderPlugins } from "@webiny/app/plugins";
+import { TopAppBar, TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
+import { renderPlugins } from "@webiny/app/plugins/index.js";
 
 const EditorTopAppBar = styled(TopAppBar)`
     box-shadow: 1px 0 5px 0 rgba(128, 128, 128, 1);

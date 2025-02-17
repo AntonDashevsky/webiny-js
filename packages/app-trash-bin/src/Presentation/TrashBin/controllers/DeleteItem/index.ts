@@ -1,2 +1,2 @@
-export * from "./IDeleteItemController";
-export * from "./DeleteItemController";
+export * from "./IDeleteItemController.js";
+export * from "./DeleteItemController.js";

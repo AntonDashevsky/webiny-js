@@ -1,10 +1,10 @@
 import React from "react";
-import { ContentEntryListConfig } from "./ContentEntryListConfig";
-export * from "./HeadlessCMS";
-export * from "./admin/hooks";
-export { LexicalEditorConfig } from "~/admin/lexicalConfig/LexicalEditorConfig";
-export * from "~/admin/components/ContentEntryForm/FieldElement";
-export { ModelProvider } from "~/admin/components/ModelProvider";
+import { ContentEntryListConfig } from "./ContentEntryListConfig.js";
+export * from "./HeadlessCMS.js";
+export * from "./admin/hooks/index.js";
+export { LexicalEditorConfig } from "~/admin/lexicalConfig/LexicalEditorConfig.js";
+export * from "~/admin/components/ContentEntryForm/FieldElement.js";
+export { ModelProvider } from "~/admin/components/ModelProvider/index.js";
 
 export { ContentEntryListConfig };
 
@@ -35,6 +35,6 @@ export const ContentEntriesViewConfig = Object.assign(LegacyContentEntriesViewCo
     Sorter: LegacySorter
 });
 
-export { ContentEntryEditorConfig } from "./ContentEntryEditorConfig";
+export { ContentEntryEditorConfig } from "./ContentEntryEditorConfig.js";
 
-export * from "./plugins";
+export * from "./plugins/index.js";

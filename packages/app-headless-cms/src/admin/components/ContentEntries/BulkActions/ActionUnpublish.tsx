@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as UnpublishIcon } from "@material-design-icons/svg/outlined/settings_backup_restore.svg";
 import { observer } from "mobx-react-lite";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useCms, useModel, usePermission } from "~/admin/hooks";
-import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useCms, useModel, usePermission } from "~/admin/hooks/index.js";
+import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions.js";
 import { useRecords } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
 

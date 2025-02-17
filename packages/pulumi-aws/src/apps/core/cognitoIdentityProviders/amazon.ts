@@ -1,5 +1,5 @@
 import * as pulumi from "@pulumi/pulumi";
-import { IdentityProviderArgs } from "@pulumi/aws/cognito";
+import { IdentityProviderArgs } from "@pulumi/aws/cognito/index.js";
 import { CognitoIdentityProviderConfig } from "./configure.js";
 
 /**

@@ -1,2 +1,2 @@
-export * from "./ISelectAllItemsController";
-export * from "./SelectAllItemsController";
+export * from "./ISelectAllItemsController.js";
+export * from "./SelectAllItemsController.js";

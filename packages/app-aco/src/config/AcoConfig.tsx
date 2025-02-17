@@ -1,15 +1,15 @@
 import { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { AdvancedSearch, AdvancedSearchConfig } from "./advanced-search";
-import { Record, RecordConfig } from "./record";
-import { Folder, FolderConfig } from "./folder";
-import { Table, TableConfig } from "~/config/table";
+import { AdvancedSearch, AdvancedSearchConfig } from "./advanced-search/index.js";
+import { Record, RecordConfig } from "./record/index.js";
+import { Folder, FolderConfig } from "./folder/index.js";
+import { Table, TableConfig } from "~/config/table/index.js";
 
-export { FieldRendererConfig as AdvancedSearchFieldRendererConfig } from "./advanced-search/FieldRenderer";
-export { ActionConfig as RecordActionConfig } from "./record/Action";
-export { ActionConfig as FolderActionConfig } from "./folder/Action";
-export { ColumnConfig as TableColumnConfig } from "./table/Column";
-export { SortingConfig as TableSortingConfig } from "./table/Sorting";
+export type { FieldRendererConfig as AdvancedSearchFieldRendererConfig } from "./advanced-search/FieldRenderer.js";
+export type { ActionConfig as RecordActionConfig } from "./record/Action.js";
+export type { ActionConfig as FolderActionConfig } from "./folder/Action.js";
+export type { ColumnConfig as TableColumnConfig } from "./table/Column.js";
+export type { SortingConfig as TableSortingConfig } from "./table/Sorting.js";
 
 const base = createConfigurableComponent<AcoConfig>("AcoConfig");
 

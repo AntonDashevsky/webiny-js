@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Delete } from "@material-design-icons/svg/outlined/delete.svg";
-import { useDeleteTrashBinItem, useTrashBinItem } from "~/Presentation/hooks";
-import { TrashBinListConfig } from "~/Presentation/configs";
+import { useDeleteTrashBinItem, useTrashBinItem } from "~/Presentation/hooks/index.js";
+import { TrashBinListConfig } from "~/Presentation/configs/index.js";
 
 export const DeleteItemAction = () => {
     const { item } = useTrashBinItem();

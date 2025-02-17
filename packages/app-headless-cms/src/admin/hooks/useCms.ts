@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CmsContext } from "../contexts/Cms";
+import { CmsContext } from "../contexts/Cms/index.js";
 
 function useCms() {
     const context = useContext(CmsContext);

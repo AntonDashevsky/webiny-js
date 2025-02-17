@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Form } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { ButtonSecondary, ButtonPrimary } from "@webiny/ui/Button";
-import { Elevation } from "@webiny/ui/Elevation";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { ButtonSecondary, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { validation } from "@webiny/validation";
-import { FormOnSubmit } from "@webiny/form/types";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import { FormOnSubmit } from "@webiny/form/types.js";
+import { MenuTreeItem } from "~/admin/views/Menus/types.js";
 import { css } from "emotion";
 
 const menuFormStyle = css({

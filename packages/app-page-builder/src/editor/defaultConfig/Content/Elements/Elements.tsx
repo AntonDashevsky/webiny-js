@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase";
-import { PbEditorElement, PbTheme } from "~/types";
-import { uiAtom, rootElementAtom, elementsAtom } from "~/editor/recoil/modules";
+import kebabCase from "lodash/kebabCase.js";
+import { PbEditorElement, PbTheme } from "~/types.js";
+import { uiAtom, rootElementAtom, elementsAtom } from "~/editor/recoil/modules/index.js";
 
 import { Element as PeElement } from "@webiny/app-page-builder-elements";
-import { Element as ElementType } from "@webiny/app-page-builder-elements/types";
+import { Element as ElementType } from "@webiny/app-page-builder-elements/types.js";
 
 const BREADCRUMB_HEIGHT = 33;
 

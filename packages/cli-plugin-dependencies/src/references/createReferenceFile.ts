@@ -1,7 +1,7 @@
 import path from "path";
 import writeJsonFile from "write-json-file";
-import type { CliContext } from "@webiny/cli/types";
-import type { IDependencyTree } from "~/types";
+import type { CliContext } from "@webiny/cli/types.js";
+import type { IDependencyTree } from "~/types.js";
 
 export interface ICreateReferenceFileParams {
     context: CliContext;

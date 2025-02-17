@@ -4,7 +4,7 @@ import {
     OnEntryAfterPublishTopicParams,
     OnEntryAfterUnpublishTopicParams,
     CmsEntryListSort
-} from "@webiny/api-headless-cms/types";
+} from "@webiny/api-headless-cms/types/index.js";
 import {
     Page,
     OnPageBeforeCreateTopicParams,
@@ -12,19 +12,19 @@ import {
     OnPageBeforeUpdateTopicParams,
     OnPageBeforePublishTopicParams,
     PageSettings
-} from "@webiny/api-page-builder/types";
-import { Context } from "@webiny/api/types";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { Topic } from "@webiny/pubsub/types";
-import { ApwScheduleActionCrud, ScheduleActionContext } from "~/scheduler/types";
-import HandlerClient from "@webiny/handler-client/HandlerClient";
+} from "@webiny/api-page-builder/types.js";
+import { Context } from "@webiny/api/types.js";
+import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
+import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { Topic } from "@webiny/pubsub/types.js";
+import { ApwScheduleActionCrud, ScheduleActionContext } from "~/scheduler/types.js";
+import HandlerClient from "@webiny/handler-client/HandlerClient.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { WcpContextObject } from "@webiny/api-wcp/types";
-import { MailerContext } from "@webiny/api-mailer/types";
-import { AdminSettingsContext } from "@webiny/api-admin-settings/types";
+import { WcpContextObject } from "@webiny/api-wcp/types.js";
+import { MailerContext } from "@webiny/api-mailer/types.js";
+import { AdminSettingsContext } from "@webiny/api-admin-settings/types.js";
 
 export interface ApwCmsEntry extends BaseCmsEntry {
     title: string;

@@ -1,7 +1,7 @@
 import React from "react";
-import { FormComponentProps } from "~/types";
-import { webinyRadioTitle } from "./Radio.styles";
-import { FormElementMessage } from "~/FormElementMessage";
+import { FormComponentProps } from "~/types.js";
+import { webinyRadioTitle } from "./Radio.styles.js";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 
 interface RadioGroupRenderParams {
     onChange: (id: string | number) => () => void;

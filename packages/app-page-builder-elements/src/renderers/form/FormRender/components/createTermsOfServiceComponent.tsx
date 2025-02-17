@@ -1,7 +1,7 @@
 import React from "react";
 import { OutputBlockData } from "@editorjs/editorjs";
-import { CreateFormParams, FormData } from "../../types";
-import { termsOfServiceEnabled } from "~/renderers/form/FormRender/functions";
+import { CreateFormParams, FormData } from "../../types.js";
+import { termsOfServiceEnabled } from "~/renderers/form/FormRender/functions/index.js";
 
 interface CreateTermsOfServiceComponentArgs {
     createFormParams: CreateFormParams;

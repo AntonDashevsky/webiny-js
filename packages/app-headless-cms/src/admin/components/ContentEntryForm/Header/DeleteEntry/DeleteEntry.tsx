@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
 import { useNavigateFolder } from "@webiny/app-aco";
-import { usePermission } from "~/admin/hooks";
-import { ContentEntryEditorConfig } from "~/admin/config/contentEntries";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
+import { usePermission } from "~/admin/hooks/index.js";
+import { ContentEntryEditorConfig } from "~/admin/config/contentEntries/index.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
 
 export const DeleteEntry = () => {
     const { navigateToFolder } = useNavigateFolder();

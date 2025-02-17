@@ -1,2 +1,2 @@
-export { Buttons, ButtonContainer } from "./Buttons";
-export { useButtons } from "./useButtons";
+export { Buttons, ButtonContainer } from "./Buttons.js";
+export { useButtons } from "./useButtons.js";

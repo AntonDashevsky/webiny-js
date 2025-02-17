@@ -1,6 +1,6 @@
 import React from "react";
 import dotProp from "dot-prop-immutable";
-import { FormElementMessage } from "~/FormElementMessage";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 import styled from "@emotion/styled";
 
 interface ChildrenRenderPropRowCallableParams {

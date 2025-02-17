@@ -1,15 +1,15 @@
 import { plugins } from "@webiny/plugins";
-import cloneDeep from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep.js";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { createReCaptchaComponent, createTermsOfServiceComponent } from "./components";
+import { createReCaptchaComponent, createTermsOfServiceComponent } from "./components/index.js";
 import {
     createFormSubmission,
     handleFormTriggers,
     onFormMounted,
     reCaptchaEnabled,
     termsOfServiceEnabled
-} from "./functions";
+} from "./functions/index.js";
 
 import {
     FormRenderPropsType,
@@ -21,9 +21,9 @@ import {
     FormRenderFbFormModelField,
     FbFormModel,
     FbFormLayout
-} from "~/types";
-import { FbFormLayoutPlugin } from "~/plugins";
-import { ReCaptchaComponent } from "./components/createReCaptchaComponent";
+} from "~/types.js";
+import { FbFormLayoutPlugin } from "~/plugins/index.js";
+import { ReCaptchaComponent } from "./components/createReCaptchaComponent.js";
 
 declare global {
     // eslint-disable-next-line

@@ -1,1 +1,1 @@
-export * from "./IndexManager";
+export * from "./IndexManager.js";

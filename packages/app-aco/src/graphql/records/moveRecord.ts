@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import { AcoAppMode, AcoModel } from "~/types";
-import { ERROR_FIELD } from "./common";
+import { AcoAppMode, AcoModel } from "~/types.js";
+import { ERROR_FIELD } from "./common.js";
 
 export const createMoveRecord = (model: AcoModel, mode: AcoAppMode) => {
     const { singularApiName } = model;

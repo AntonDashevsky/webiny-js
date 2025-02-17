@@ -9,7 +9,7 @@ import {
 } from "@webiny/app-admin";
 import { Link } from "@webiny/react-router";
 import { ReactComponent as LogoIcon } from "./webiny-logo.svg";
-import { useNavigation } from "../Navigation";
+import { useNavigation } from "../Navigation/index.js";
 
 const BrandImpl: HigherOrderComponent = () => {
     return function BrandRenderer() {

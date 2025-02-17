@@ -3,9 +3,9 @@ import {
     createAssetDeliveryConfig
 } from "@webiny/api-file-manager";
 import { S3 } from "@webiny/aws-sdk/client-s3";
-import { S3AssetResolver } from "~/assetDelivery/s3/S3AssetResolver";
-import { S3OutputStrategy } from "~/assetDelivery/s3/S3OutputStrategy";
-import { SharpTransform } from "~/assetDelivery/s3/SharpTransform";
+import { S3AssetResolver } from "~/assetDelivery/s3/S3AssetResolver.js";
+import { S3OutputStrategy } from "~/assetDelivery/s3/S3OutputStrategy.js";
+import { SharpTransform } from "~/assetDelivery/s3/SharpTransform.js";
 
 export type AssetDeliveryParams = Parameters<typeof createBaseAssetDelivery>[0] & {
     imageResizeWidths?: number[];

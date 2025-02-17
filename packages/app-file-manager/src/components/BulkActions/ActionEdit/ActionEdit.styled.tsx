@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/round/add.svg";
-import { Dialog } from "@webiny/ui/Dialog";
+import { Dialog } from "@webiny/ui/Dialog/index.js";
 
 export const ActionEditFormContainer = styled.div`
     margin: -24px !important;

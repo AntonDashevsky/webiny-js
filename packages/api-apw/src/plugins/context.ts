@@ -1,20 +1,20 @@
-import { attachApwHooks } from "./hooks";
+import { attachApwHooks } from "./hooks/index.js";
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { ApwContext } from "~/types";
-import { createApw } from "~/crud";
-import { apwPageBuilderHooks } from "./pageBuilder";
-import { createStorageOperations } from "~/storageOperations";
-import { SecurityPermission } from "@webiny/api-security/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { CreateApwContextParams } from "~/scheduler/types";
-import { createScheduler } from "~/scheduler";
-import { createCustomAuth } from "~/scheduler/handlers/executeAction/security";
-import { isInstallationPending } from "./utils";
-import { extendPbPageSettingsSchema } from "~/plugins/pageBuilder/extendPbPageSettingsSchema";
-import { apwContentPagePlugins } from "~/plugins/pageBuilder/apwContentPagePlugins";
-import { apwCmsHooks } from "~/plugins/cms";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import { ApwContext } from "~/types.js";
+import { createApw } from "~/crud/index.js";
+import { apwPageBuilderHooks } from "./pageBuilder/index.js";
+import { createStorageOperations } from "~/storageOperations/index.js";
+import { SecurityPermission } from "@webiny/api-security/types.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { CreateApwContextParams } from "~/scheduler/types.js";
+import { createScheduler } from "~/scheduler/index.js";
+import { createCustomAuth } from "~/scheduler/handlers/executeAction/security.js";
+import { isInstallationPending } from "./utils.js";
+import { extendPbPageSettingsSchema } from "~/plugins/pageBuilder/extendPbPageSettingsSchema.js";
+import { apwContentPagePlugins } from "~/plugins/pageBuilder/apwContentPagePlugins.js";
+import { apwCmsHooks } from "~/plugins/cms/index.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
 
 const setupApwContext = (params: CreateApwContextParams) =>
     new ContextPlugin<ApwContext>(async context => {

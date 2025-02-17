@@ -1,7 +1,7 @@
-import { WcpProjectEnvironment } from "@webiny/wcp/types";
+import { WcpProjectEnvironment } from "@webiny/wcp/types.js";
 import { decrypt } from "@webiny/wcp";
 import fetch from "node-fetch";
-import { WcpFetchParams } from "~/createWcp";
+import { WcpFetchParams } from "~/createWcp.js";
 
 export function getWcpProjectEnvironment(): WcpProjectEnvironment | null {
     if (process.env.WCP_PROJECT_ENVIRONMENT) {

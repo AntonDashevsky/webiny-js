@@ -1,9 +1,9 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase";
-import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
-import CarouselElement from "./CarouselElement";
-import { createElement } from "~/editor/helpers";
-import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types";
+import kebabCase from "lodash/kebabCase.js";
+import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
+import CarouselElement from "./CarouselElement.js";
+import { createElement } from "~/editor/helpers.js";
+import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
 
 export default (args: PbEditorElementPluginArgs = {}): PbEditorPageElementPlugin => {
     const defaultSettings = [

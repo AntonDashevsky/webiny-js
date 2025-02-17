@@ -1,6 +1,6 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase";
-import Quote from "./Quote";
+import kebabCase from "lodash/kebabCase.js";
+import Quote from "./Quote.js";
 
 import {
     DisplayMode,
@@ -8,9 +8,9 @@ import {
     PbEditorPageElementPlugin,
     PbEditorTextElementPluginsArgs,
     PbElement
-} from "~/types";
-import { createInitialTextValue } from "../utils/textUtils";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
+} from "~/types.js";
+import { createInitialTextValue } from "../utils/textUtils.js";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
 
 /*
  * @TODO: Remove the Quote component

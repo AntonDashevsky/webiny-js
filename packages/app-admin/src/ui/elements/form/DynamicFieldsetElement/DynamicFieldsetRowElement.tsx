@@ -1,5 +1,5 @@
 import React from "react";
-import { UIElement, UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement, UiElementRenderProps } from "~/ui/UIElement.js";
 // import styled from "@emotion/styled";
 
 // const DynamicFieldsetRow = styled("div")({

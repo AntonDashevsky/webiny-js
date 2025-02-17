@@ -1,1 +1,1 @@
-export * from "./SetFolderPermissions";
+export * from "./SetFolderPermissions.js";

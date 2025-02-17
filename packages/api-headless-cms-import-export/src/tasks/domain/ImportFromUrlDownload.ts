@@ -1,17 +1,17 @@
-import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks/types";
+import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks/types.js";
 import type {
     IImportFromUrlDownload,
     IImportFromUrlDownloadInput,
     IImportFromUrlDownloadOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlDownload";
-import type { Context } from "~/types";
-import { createS3Client } from "~/tasks/utils/helpers/s3Client";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
-import type { IMultipartUploadFactoryContinueParams } from "~/tasks/utils/upload";
-import { createMultipartUpload, createMultipartUploadFactory } from "~/tasks/utils/upload";
-import { prependImportPath } from "~/tasks/utils/helpers/importPath";
-import type { IDownloadFileFromUrlProcessResponseType } from "./downloadFileFromUrl";
-import { createDownloadFileFromUrl } from "./downloadFileFromUrl";
+} from "~/tasks/domain/abstractions/ImportFromUrlDownload.js";
+import type { Context } from "~/types.js";
+import { createS3Client } from "~/tasks/utils/helpers/s3Client.js";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import type { IMultipartUploadFactoryContinueParams } from "~/tasks/utils/upload/index.js";
+import { createMultipartUpload, createMultipartUploadFactory } from "~/tasks/utils/upload/index.js";
+import { prependImportPath } from "~/tasks/utils/helpers/importPath.js";
+import type { IDownloadFileFromUrlProcessResponseType } from "./downloadFileFromUrl/index.js";
+import { createDownloadFileFromUrl } from "./downloadFileFromUrl/index.js";
 
 type ProcessType = IDownloadFileFromUrlProcessResponseType<"continue" | "aborted">;
 

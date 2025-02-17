@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
-import { Menu, MenuItem } from "@webiny/ui/Menu";
-import { ButtonPrimary, ButtonIcon } from "@webiny/ui/Button";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
+import { Menu, MenuItem } from "@webiny/ui/Menu/index.js";
+import { ButtonPrimary, ButtonIcon } from "@webiny/ui/Button/index.js";
 import { css } from "emotion";
 import { useSecurity } from "@webiny/app-security";
 import { ReactComponent as DoneIcon } from "./assets/done-24px.svg";
 import { ReactComponent as TranslateIcon } from "./assets/round-translate-24px.svg";
-import { I18NSecurityPermission } from "@webiny/app-i18n/types";
+import { I18NSecurityPermission } from "@webiny/app-i18n/types.js";
 
 const menuList = css({
     width: 160,

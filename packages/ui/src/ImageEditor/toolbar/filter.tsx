@@ -4,11 +4,11 @@
  */
 import React from "react";
 import { ReactComponent as FilterIcon } from "./icons/filter.svg";
-import { Slider } from "~/Slider";
-import { ImageEditorTool } from "./types";
-import { IconButton, ButtonDefault } from "~/Button";
-import { Tooltip } from "~/Tooltip";
-import debounce from "lodash/debounce";
+import { Slider } from "~/Slider/index.js";
+import { ImageEditorTool } from "./types.js";
+import { IconButton, ButtonDefault } from "~/Button/index.js";
+import { Tooltip } from "~/Tooltip/index.js";
+import debounce from "lodash/debounce.js";
 import styled from "@emotion/styled";
 
 interface RenderFormState {

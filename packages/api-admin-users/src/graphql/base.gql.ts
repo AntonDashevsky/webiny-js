@@ -1,5 +1,5 @@
-import { AdminUsersContext } from "~/types";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
+import { AdminUsersContext } from "~/types.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
 
 const emptyResolver = () => ({});
 

@@ -1,4 +1,4 @@
-import { SearchRepository } from "./SearchRepository";
+import { SearchRepository } from "./SearchRepository.js";
 
 export class SearchRepositoryFactory {
     private cache: Map<string, SearchRepository> = new Map();

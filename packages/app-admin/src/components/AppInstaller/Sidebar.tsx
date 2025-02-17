@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import classSet from "classnames";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import signInDivider from "./assets/sign-in-divider.svg";
-import { Installer } from "./useInstaller";
-import { Brand } from "~/base/ui/Brand";
-import { Tags } from "~/base/ui/Tags";
+import { Installer } from "./useInstaller.js";
+import { Brand } from "~/base/ui/Brand.js";
+import { Tags } from "~/base/ui/Tags.js";
 
 const Logo = styled("div")({
     padding: 15,

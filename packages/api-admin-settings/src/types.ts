@@ -1,4 +1,4 @@
-import { TenancyContext } from "@webiny/api-tenancy/types";
+import { TenancyContext } from "@webiny/api-tenancy/types.js";
 
 export interface AdminSettings {
     appUrl: string;

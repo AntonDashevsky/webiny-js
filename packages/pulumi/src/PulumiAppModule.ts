@@ -1,4 +1,4 @@
-import type { PulumiApp } from "./types";
+import type { PulumiApp } from "./types.js";
 
 export interface PulumiAppModuleCallback<TModule, TConfig> {
     (this: void, app: PulumiApp, config: TConfig): TModule;

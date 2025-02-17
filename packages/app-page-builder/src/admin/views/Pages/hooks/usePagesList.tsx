@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "@webiny/react-router";
-import debounce from "lodash/debounce";
-import omit from "lodash/omit";
-import { PAGE_BUILDER_LIST_LINK } from "~/admin/constants";
+import debounce from "lodash/debounce.js";
+import omit from "lodash/omit.js";
+import { PAGE_BUILDER_LIST_LINK } from "~/admin/constants/index.js";
 import { createSort, useAcoList } from "@webiny/app-aco";
-import { PbPageDataItem, TableItem } from "~/types";
-import { FolderItem, ListMeta, SearchRecordItem } from "@webiny/app-aco/types";
-import { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
+import { PbPageDataItem, TableItem } from "~/types.js";
+import { FolderItem, ListMeta, SearchRecordItem } from "@webiny/app-aco/types.js";
+import { OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
 
 interface UpdateSearchCallableParams {
     search: string;

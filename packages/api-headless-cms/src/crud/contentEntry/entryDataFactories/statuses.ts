@@ -1,4 +1,4 @@
-import { CONTENT_ENTRY_STATUS } from "~/types";
+import { CONTENT_ENTRY_STATUS } from "~/types/index.js";
 
 export const STATUS_DRAFT = CONTENT_ENTRY_STATUS.DRAFT;
 export const STATUS_PUBLISHED = CONTENT_ENTRY_STATUS.PUBLISHED;

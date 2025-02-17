@@ -1,1 +1,1 @@
-export * from "./Mosaic";
+export * from "./Mosaic.js";

@@ -1,2 +1,2 @@
-export { createGetIdentityData } from "./createGetIdentityData";
-export * from "./graphql";
+export { createGetIdentityData } from "./createGetIdentityData.js";
+export * from "./graphql.js";

@@ -1,3 +1,3 @@
-export * from "./createCognito";
-export { createCognito as default } from "./createCognito";
-export * from "./syncWithCognito";
+export * from "./createCognito.js";
+export { createCognito as default } from "./createCognito.js";
+export * from "./syncWithCognito.js";

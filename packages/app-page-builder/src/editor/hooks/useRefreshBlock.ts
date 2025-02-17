@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
-import { PbEditorElement } from "~/types";
-import { addElementId } from "~/editor/helpers";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
+import { PbEditorElement } from "~/types.js";
+import { addElementId } from "~/editor/helpers.js";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
 
 export const useRefreshBlock = () => {
     const updateElement = useUpdateElement();

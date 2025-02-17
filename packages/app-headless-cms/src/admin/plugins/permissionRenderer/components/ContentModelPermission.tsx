@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect } from "react";
-import get from "lodash/get";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
-import { Select } from "@webiny/ui/Select";
-import { i18n } from "@webiny/app/i18n";
-import { Elevation } from "@webiny/ui/Elevation";
-import { PermissionSelector, PermissionSelectorWrapper } from "./PermissionSelector";
-import { useCmsData, CmsDataCmsModel } from "./useCmsData";
-import { Note } from "./StyledComponents";
-import ContentModelList from "./ContentModelList";
-import { BindComponent } from "@webiny/form/types";
-import { CmsSecurityPermission } from "~/types";
+import get from "lodash/get.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { PermissionSelector, PermissionSelectorWrapper } from "./PermissionSelector.js";
+import { useCmsData, CmsDataCmsModel } from "./useCmsData.js";
+import { Note } from "./StyledComponents.js";
+import ContentModelList from "./ContentModelList.js";
+import { BindComponent } from "@webiny/form/types.js";
+import { CmsSecurityPermission } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

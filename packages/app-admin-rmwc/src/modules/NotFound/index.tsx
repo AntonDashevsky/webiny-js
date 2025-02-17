@@ -2,7 +2,7 @@ import * as React from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import { Link } from "@webiny/react-router";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { Compose, NotFound as NotFoundSpec } from "@webiny/app-admin";
 import authErrorImg from "./SecureRouteError.svg";
 

@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import {
     createEmbedPlugin,
     createEmbedSettingsPlugin
-} from "./../../utils/oembed/createEmbedPlugin";
+} from "./../../utils/oembed/createEmbedPlugin.js";
 import placeholder from "./placeholder.jpg";
 import { ReactComponent as LogoIcon } from "./instagram-brands.svg";
-import Accordion from "../../../elementSettings/components/Accordion";
-import InputField from "../../../elementSettings/components/InputField";
+import Accordion from "../../../elementSettings/components/Accordion.js";
+import InputField from "../../../elementSettings/components/InputField.js";
 import {
     ButtonContainer,
     SimpleButton
-} from "../../../elementSettings/components/StyledComponents";
+} from "../../../elementSettings/components/StyledComponents.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

@@ -1,1 +1,1 @@
-export * from "./Pulumi";
+export * from "./Pulumi.js";

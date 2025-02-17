@@ -1,4 +1,4 @@
-import { MigrationRunnerResult } from "~/cli/MigrationRunner";
+import { MigrationRunnerResult } from "~/cli/MigrationRunner.js";
 
 export interface MigrationRunReporter {
     report(result: MigrationRunnerResult): void | Promise<void>;

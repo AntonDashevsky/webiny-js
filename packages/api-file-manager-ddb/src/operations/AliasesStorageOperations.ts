@@ -1,10 +1,10 @@
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
 import type {
     File,
     FileAlias,
     FileManagerAliasesStorageOperations
-} from "@webiny/api-file-manager/types";
+} from "@webiny/api-file-manager/types.js";
 import {
     createEntityWriteBatch,
     createStandardEntity,

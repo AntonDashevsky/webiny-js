@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import type { CmsModel } from "~/types";
+import type { CmsModel } from "~/types.js";
 
 export interface IProcessedProps {
     model: CmsModel;

@@ -1,4 +1,4 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
 
 export const createPageSettingsSeoGraphQL = (): GraphQLSchemaPlugin => {
     return {

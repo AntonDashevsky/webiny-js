@@ -1,4 +1,4 @@
-import { Context, IUserCommandInput } from "~/types";
+import { Context, IUserCommandInput } from "~/types.js";
 
 export interface IBasePackagesWatcherPackage {
     name: string;

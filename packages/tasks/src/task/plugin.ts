@@ -1,4 +1,4 @@
-import camelCase from "lodash/camelCase";
+import camelCase from "lodash/camelCase.js";
 import WebinyError from "@webiny/error";
 import { Plugin } from "@webiny/plugins";
 import {
@@ -6,7 +6,7 @@ import {
     ITaskDefinition,
     ITaskDefinitionField,
     ITaskResponseDoneResultOutput
-} from "~/types";
+} from "~/types.js";
 
 /**
  * By default, we will stop iterating through the task after DEFAULT_MAX_ITERATIONS.

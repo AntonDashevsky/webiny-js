@@ -1,13 +1,13 @@
 import React, { useCallback } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import classNames from "classnames";
 import { css } from "emotion";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { ReactComponent as LinkIcon } from "../../../assets/icons/link.svg";
 // Components
-import InputField from "./InputField";
-import { COLORS } from "./StyledComponents";
+import InputField from "./InputField.js";
+import { COLORS } from "./StyledComponents.js";
 
 const classes = {
     gridWrapper: css({

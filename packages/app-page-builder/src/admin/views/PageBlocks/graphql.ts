@@ -1,9 +1,9 @@
 import gql from "graphql-tag";
 
-import { PbPageBlock, PbErrorResponse } from "~/types";
+import { PbPageBlock, PbErrorResponse } from "~/types.js";
 
-import { PAGE_BLOCK_CATEGORY_BASE_FIELDS } from "~/admin/views/BlockCategories/graphql";
-export { LIST_BLOCK_CATEGORIES } from "~/admin/views/BlockCategories/graphql";
+import { PAGE_BLOCK_CATEGORY_BASE_FIELDS } from "~/admin/views/BlockCategories/graphql.js";
+export { LIST_BLOCK_CATEGORIES } from "~/admin/views/BlockCategories/graphql.js";
 
 const PAGE_BLOCK_BASE_FIELDS = `
     id

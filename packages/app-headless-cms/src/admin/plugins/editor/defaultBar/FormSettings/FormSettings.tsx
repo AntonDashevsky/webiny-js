@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { plugins } from "@webiny/plugins";
-import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
-import { Typography } from "@webiny/ui/Typography";
+import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout/index.js";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { Form } from "@webiny/form";
-import { Icon } from "@webiny/ui/Icon";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { List, ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { i18n } from "@webiny/app/i18n";
-import * as SF from "@webiny/app-admin/components/SimpleForm";
-import { CmsEditorFormSettingsPlugin } from "~/types";
-import { listItem, ListItemTitle, listStyle, Title, TitleContent } from "./FormSettingsStyled";
-import { useModelEditor } from "~/admin/hooks";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { List, ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import * as SF from "@webiny/app-admin/components/SimpleForm/index.js";
+import { CmsEditorFormSettingsPlugin } from "~/types.js";
+import { listItem, ListItemTitle, listStyle, Title, TitleContent } from "./FormSettingsStyled.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
 
 const t = i18n.namespace("FormsApp.Editor.FormSettings");
 

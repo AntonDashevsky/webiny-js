@@ -1,11 +1,11 @@
 import React from "react";
 import { css } from "emotion";
-import { UIElement, UIElementConfig, UiElementRenderProps } from "~/ui/UIElement";
-import { TopAppBarSecondary, TopAppBarSection } from "@webiny/ui/TopAppBar";
-import { IconButton } from "@webiny/ui/Button";
+import { UIElement, UIElementConfig, UiElementRenderProps } from "~/ui/UIElement.js";
+import { TopAppBarSecondary, TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as CloseIcon } from "@material-design-icons/svg/outlined/close.svg";
-import { PlaceholderElement } from "~/ui/elements/PlaceholderElement";
-import { HeaderTitleElement } from "./HeaderTitleElement";
+import { PlaceholderElement } from "~/ui/elements/PlaceholderElement.js";
+import { HeaderTitleElement } from "./HeaderTitleElement.js";
 
 interface HeaderElementConfig extends UIElementConfig {
     onClose: (event: React.MouseEvent) => void;

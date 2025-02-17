@@ -1,10 +1,10 @@
-import { FileManagerContextObject, FileManagerStorageOperations } from "~/types";
-import { GetPermissions, SecurityIdentity } from "@webiny/api-security/types";
-import { createFilesCrud } from "~/createFileManager/files.crud";
-import { FileStorage } from "~/storage/FileStorage";
-import { createSettingsCrud } from "~/createFileManager/settings.crud";
-import { createSystemCrud } from "~/createFileManager/system.crud";
-import { FilesPermissions } from "~/createFileManager/permissions/FilesPermissions";
+import { FileManagerContextObject, FileManagerStorageOperations } from "~/types.js";
+import { GetPermissions, SecurityIdentity } from "@webiny/api-security/types.js";
+import { createFilesCrud } from "~/createFileManager/files.crud.js";
+import { FileStorage } from "~/storage/FileStorage.js";
+import { createSettingsCrud } from "~/createFileManager/settings.crud.js";
+import { createSystemCrud } from "~/createFileManager/system.crud.js";
+import { FilesPermissions } from "~/createFileManager/permissions/FilesPermissions.js";
 
 export interface FileManagerConfig {
     storageOperations: FileManagerStorageOperations;

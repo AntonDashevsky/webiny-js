@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
 
-import { AcoConfig } from "~/config";
-import { useDeleteDialog } from "~/dialogs";
-import { useFolder } from "~/hooks";
+import { AcoConfig } from "~/config/index.js";
+import { useDeleteDialog } from "~/dialogs/index.js";
+import { useFolder } from "~/hooks/index.js";
 
 export const DeleteFolder = () => {
     const { folder } = useFolder();

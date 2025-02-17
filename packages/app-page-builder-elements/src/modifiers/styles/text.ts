@@ -1,6 +1,6 @@
-import { ElementStylesModifier } from "~/types";
+import { ElementStylesModifier } from "~/types.js";
 import { type CSSObject } from "@emotion/react";
-import { getTypographyStyleById } from "~/utils";
+import { getTypographyStyleById } from "~/utils/index.js";
 
 const text: ElementStylesModifier = ({ element, theme }) => {
     const { text } = element.data || {};

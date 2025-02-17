@@ -1,34 +1,34 @@
 import React, { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import styled from "@emotion/styled";
-import pick from "lodash/pick";
-import get from "lodash/get";
+import pick from "lodash/pick.js";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { Alert } from "@webiny/ui/Alert";
-import { ButtonDefault, ButtonIcon, ButtonPrimary, IconButton } from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { ButtonDefault, ButtonIcon, ButtonPrimary, IconButton } from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { validation } from "@webiny/validation";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { Typography } from "@webiny/ui/Typography";
-import { Permissions } from "@webiny/app-admin/components/Permissions";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CREATE_GROUP, LIST_GROUPS, READ_GROUP, UPDATE_GROUP } from "./graphql";
-import { SnackbarAction } from "@webiny/ui/Snackbar";
-import isEmpty from "lodash/isEmpty";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Permissions } from "@webiny/app-admin/components/Permissions/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CREATE_GROUP, LIST_GROUPS, READ_GROUP, UPDATE_GROUP } from "./graphql.js";
+import { SnackbarAction } from "@webiny/ui/Snackbar/index.js";
+import isEmpty from "lodash/isEmpty.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as CopyIcon } from "@material-design-icons/svg/outlined/content_copy.svg";
-import { Group } from "~/types";
+import { Group } from "~/types.js";
 
 const t = i18n.ns("app-security/admin/roles/form");
 

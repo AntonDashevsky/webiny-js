@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import { FolderGrid } from "@webiny/app-aco";
-import { i18n } from "@webiny/app/i18n";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { FileThumbnail } from "./File";
-import { FileList, FolderList } from "./styled";
-import { FolderItem } from "@webiny/app-aco/types";
-import { FileItem } from "@webiny/app-admin/types";
-import { Thumbnail } from "./Thumbnail";
-import { FileProvider } from "~/contexts/FileProvider";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { FileThumbnail } from "./File.js";
+import { FileList, FolderList } from "./styled.js";
+import { FolderItem } from "@webiny/app-aco/types.js";
+import { FileItem } from "@webiny/app-admin/types.js";
+import { Thumbnail } from "./Thumbnail.js";
+import { FileProvider } from "~/contexts/FileProvider.js";
 
 const t = i18n.ns("app-admin/file-manager/components/grid");
 

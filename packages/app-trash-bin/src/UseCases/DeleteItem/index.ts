@@ -1,2 +1,2 @@
-export * from "./IDeleteItemUseCase";
-export * from "./DeleteItemUseCase";
+export * from "./IDeleteItemUseCase.js";
+export * from "./DeleteItemUseCase.js";

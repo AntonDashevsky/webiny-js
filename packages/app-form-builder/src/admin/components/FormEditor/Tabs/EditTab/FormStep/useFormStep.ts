@@ -6,11 +6,11 @@ import {
     FbFormModelField,
     FbFormStep,
     DropPosition
-} from "~/types";
-import { useFormEditor } from "~/admin/components/FormEditor";
-import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable";
-import cloneDeep from "lodash/cloneDeep";
-import { FormStepContext } from "./FormStepContext/FormStepContext";
+} from "~/types.js";
+import { useFormEditor } from "~/admin/components/FormEditor/index.js";
+import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import { FormStepContext } from "./FormStepContext/FormStepContext.js";
 
 interface CreateCustomFieldParams {
     data: FbFormModelField;

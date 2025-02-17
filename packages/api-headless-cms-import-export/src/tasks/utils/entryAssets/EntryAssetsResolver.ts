@@ -3,9 +3,9 @@ import type {
     FileListMeta,
     FileListWhereParams,
     FilesListOpts
-} from "@webiny/api-file-manager/types";
-import type { IEntryAssetsResolver, IResolvedAsset } from "./abstractions/EntryAssetsResolver";
-import type { IAsset } from "./abstractions/EntryAssets";
+} from "@webiny/api-file-manager/types.js";
+import type { IEntryAssetsResolver, IResolvedAsset } from "./abstractions/EntryAssetsResolver.js";
+import type { IAsset } from "./abstractions/EntryAssets.js";
 
 export interface IFetchFilesCbResult {
     items: File[];

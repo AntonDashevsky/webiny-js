@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { CmsModel } from "~/types";
+import { CmsModel } from "~/types.js";
 import { ReactComponent as CloseIcon } from "./assets/close.svg";
 
 const Container = styled("div")({

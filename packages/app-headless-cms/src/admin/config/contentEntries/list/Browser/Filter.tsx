@@ -1,7 +1,7 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import { createDecoratorFactory, makeDecoratable } from "@webiny/react-composition";
-import { useModel } from "~/admin/hooks";
+import { useModel } from "~/admin/hooks/index.js";
 
 export interface FilterConfig {
     name: string;

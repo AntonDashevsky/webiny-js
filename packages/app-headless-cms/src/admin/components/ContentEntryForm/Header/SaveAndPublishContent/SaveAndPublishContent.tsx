@@ -1,9 +1,9 @@
 import React from "react";
 
-import { ContentEntryEditorConfig } from "~/admin/config/contentEntries";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
-import usePermission from "~/admin/hooks/usePermission";
-import { useContentEntryForm } from "~/admin/components/ContentEntryForm/useContentEntryForm";
+import { ContentEntryEditorConfig } from "~/admin/config/contentEntries/index.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
+import usePermission from "~/admin/hooks/usePermission.js";
+import { useContentEntryForm } from "~/admin/components/ContentEntryForm/useContentEntryForm.js";
 
 export const SaveAndPublishButton = () => {
     const { loading, entry, publishEntryRevision } = useContentEntry();

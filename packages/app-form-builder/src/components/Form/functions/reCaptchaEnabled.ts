@@ -1,5 +1,5 @@
-import get from "lodash/get";
-import { FbFormModel } from "~/types";
+import get from "lodash/get.js";
+import { FbFormModel } from "~/types.js";
 
 export default (formData: FbFormModel): boolean => {
     return (

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { ReactComponent as Edit } from "@material-design-icons/svg/outlined/edit.svg";
 
-import { AcoConfig } from "~/config";
-import { useEditDialog } from "~/dialogs";
-import { useFolder } from "~/hooks";
+import { AcoConfig } from "~/config/index.js";
+import { useEditDialog } from "~/dialogs/index.js";
+import { useFolder } from "~/hooks/index.js";
 
 export const EditFolder = () => {
     const { folder } = useFolder();

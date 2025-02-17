@@ -1,6 +1,6 @@
 import prettier from "prettier";
-import { PathsParser } from "./PathsParser";
-import { SelectionFormatter } from "./SelectionFormatter";
+import { PathsParser } from "./PathsParser.js";
+import { SelectionFormatter } from "./SelectionFormatter.js";
 
 const prettyGql = (value: string) => {
     return prettier.format(value.trim(), { parser: "graphql" });

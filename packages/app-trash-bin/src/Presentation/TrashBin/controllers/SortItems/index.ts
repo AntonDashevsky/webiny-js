@@ -1,2 +1,2 @@
-export * from "./ISortItemsController";
-export * from "./SortItemsController";
+export * from "./ISortItemsController.js";
+export * from "./SortItemsController.js";

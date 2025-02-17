@@ -1,11 +1,11 @@
 import React from "react";
-import { elementWithChildrenByIdSelector, activeElementAtom } from "../../../recoil/modules";
-import lodashGet from "lodash/get";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Icon } from "@webiny/ui/Icon";
-import { Slider } from "@webiny/ui/Slider";
+import { elementWithChildrenByIdSelector, activeElementAtom } from "../../../recoil/modules/index.js";
+import lodashGet from "lodash/get.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Slider } from "@webiny/ui/Slider/index.js";
 import { useRecoilValue } from "recoil";
-import InputField from "./InputField";
+import InputField from "./InputField.js";
 
 interface SliderWithInputPropsType {
     icon: React.ReactElement;

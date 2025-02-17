@@ -6,7 +6,7 @@ import {
     ApwScheduleActionData,
     ApwScheduleActionTypes,
     CreateScheduleActionParams
-} from "~/scheduler/types";
+} from "~/scheduler/types.js";
 import zod from "zod";
 /*
 const CreateDataModel = withFields((instance: any) => {

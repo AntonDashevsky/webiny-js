@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FieldEditorContext } from "./FieldEditorContext";
+import { FieldEditorContext } from "./FieldEditorContext.js";
 
 export function useModelFieldEditor() {
     const context = useContext(FieldEditorContext);

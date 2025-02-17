@@ -1,20 +1,20 @@
 import React, { Fragment, useCallback, useMemo } from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import { i18n } from "@webiny/app/i18n";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     CannotUseAaclAlert,
     PermissionInfo,
     gridNoPaddingClass
-} from "@webiny/app-admin/components/Permissions";
+} from "@webiny/app-admin/components/Permissions/index.js";
 import { Form } from "@webiny/form";
-import { Elevation } from "@webiny/ui/Elevation";
-import { Typography } from "@webiny/ui/Typography";
-import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox";
-import CustomSection from "./CustomSection";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
+import CustomSection from "./CustomSection.js";
 import { useSecurity } from "@webiny/app-security";
-import { SecurityPermission } from "@webiny/app-security/types";
-import { PageBuilderSecurityPermission } from "~/types";
+import { SecurityPermission } from "@webiny/app-security/types.js";
+import { PageBuilderSecurityPermission } from "~/types.js";
 import { AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-page-builder/admin/plugins/permissionRenderer");

@@ -14,7 +14,7 @@ import {
     DialogTitleProps as RmwcDialogTitleProps
 } from "@rmwc/dialog";
 import { css } from "emotion";
-import { getClasses } from "~/Helpers";
+import { getClasses } from "~/Helpers/index.js";
 
 export type DialogOnClose = (event: DialogOnCloseEventT) => void;
 

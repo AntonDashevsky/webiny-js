@@ -1,10 +1,10 @@
 import React from "react";
 
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/round/add_circle_outline.svg";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
-import { AddFilterInner } from "../../Querybuilder.styled";
+import { AddFilterInner } from "../../Querybuilder.styled.js";
 
 interface AddFilterProps {
     onClick: () => void;

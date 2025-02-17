@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import facepaint, { type DynamicStyleFunction } from "facepaint";
-import { usePageElements } from "~/hooks/usePageElements";
+import { usePageElements } from "~/hooks/usePageElements.js";
 
 export const useFacepaint: typeof facepaint = (...args) => {
     return useMemo(() => facepaint(...args), [JSON.stringify(args)]);

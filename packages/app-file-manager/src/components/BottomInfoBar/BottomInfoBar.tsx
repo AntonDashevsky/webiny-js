@@ -1,10 +1,10 @@
 import React from "react";
-import mime from "mime/lite";
+import mime from "mime/lite.js";
 
-import SupportedFileTypes, { SupportedFileTypesProps } from "./SupportedFileTypes";
-import ListStatus, { ListStatusProps } from "./ListStatus";
+import SupportedFileTypes, { SupportedFileTypesProps } from "./SupportedFileTypes.js";
+import ListStatus, { ListStatusProps } from "./ListStatus.js";
 
-import { BottomInfoBarInner, BottomInfoBarWrapper } from "./styled";
+import { BottomInfoBarInner, BottomInfoBarWrapper } from "./styled.js";
 
 mime.define({ "image/x-icon": ["ico"] }, true);
 mime.define({ "image/jpg": ["jpg"] }, true);

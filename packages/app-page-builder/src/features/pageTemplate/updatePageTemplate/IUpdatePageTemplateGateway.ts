@@ -1,4 +1,4 @@
-import { PageTemplateDto } from "~/features/pageTemplate/updatePageTemplate/PageTemplateDto";
+import { PageTemplateDto } from "~/features/pageTemplate/updatePageTemplate/PageTemplateDto.js";
 
 export interface IUpdatePageTemplateGateway {
     execute(pageTemplateDto: PageTemplateDto): Promise<PageTemplateDto>;

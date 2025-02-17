@@ -1,10 +1,10 @@
 import React from "react";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "@webiny/app/i18n";
-import { useComment } from "~/hooks/useComment";
-import { CommentStatusBox, TypographySecondary, AuthorName } from "./Styled";
-import { formatDate } from "~/utils";
-import { RichTextEditor } from "@webiny/ui/RichTextEditor";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useComment } from "~/hooks/useComment.js";
+import { CommentStatusBox, TypographySecondary, AuthorName } from "./Styled.js";
+import { formatDate } from "~/utils.js";
+import { RichTextEditor } from "@webiny/ui/RichTextEditor/index.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/datalist");
 

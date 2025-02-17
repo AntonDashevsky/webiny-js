@@ -1,4 +1,4 @@
-import { PageElementId } from "~/graphql/crud/pages/PageElementId";
+import { PageElementId } from "~/graphql/crud/pages/PageElementId.js";
 
 export class PageContent {
     private readonly content: any;

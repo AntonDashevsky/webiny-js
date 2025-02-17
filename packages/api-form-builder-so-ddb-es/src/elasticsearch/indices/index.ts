@@ -1,5 +1,5 @@
-import { base } from "./base";
-import { japanese } from "./japanese";
+import { base } from "./base.js";
+import { japanese } from "./japanese.js";
 
 export const elasticsearchIndexPlugins = () => {
     return [base, japanese];

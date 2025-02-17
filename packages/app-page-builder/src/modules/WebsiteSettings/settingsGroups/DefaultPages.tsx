@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { Bind } from "@webiny/form";
-import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
-import { usePbWebsiteSettings } from "../usePbWebsiteSettings";
-import { PagesAutocomplete } from "~/admin/components/PagesAutocomplete";
+import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { usePbWebsiteSettings } from "../usePbWebsiteSettings.js";
+import { PagesAutocomplete } from "~/admin/components/PagesAutocomplete.js";
 import { ReactComponent as EditIcon } from "~/admin/assets/edit.svg";
-import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig";
+import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig.js";
 
 const Homepage = () => {
     const { settings, editPage } = usePbWebsiteSettings();

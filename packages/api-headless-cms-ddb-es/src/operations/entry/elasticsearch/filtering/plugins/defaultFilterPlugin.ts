@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { CmsEntryFilterPlugin } from "~/plugins/CmsEntryFilterPlugin";
+import { CmsEntryFilterPlugin } from "~/plugins/CmsEntryFilterPlugin.js";
 
 export const createDefaultFilterPlugin = () => {
     const plugin = new CmsEntryFilterPlugin({

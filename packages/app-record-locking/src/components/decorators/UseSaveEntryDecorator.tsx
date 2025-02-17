@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useRecordLocking } from "~/hooks";
+import { useRecordLocking } from "~/hooks/index.js";
 import { ContentEntryEditorConfig, useModel } from "@webiny/app-headless-cms";
 import { useSnackbar } from "@webiny/app-admin";
 

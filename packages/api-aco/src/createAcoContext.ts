@@ -1,22 +1,22 @@
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { Tenant } from "@webiny/api-tenancy/types";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { createAcoHooks } from "~/createAcoHooks";
-import { createAcoStorageOperations } from "~/createAcoStorageOperations";
-import { AcoContext, CreateAcoParams, Folder, IAcoAppRegisterParams } from "~/types";
-import { createFolderCrudMethods } from "~/folder/folder.crud";
-import { createSearchRecordCrudMethods } from "~/record/record.crud";
-import { AcoApps } from "./apps";
-import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model";
-import { AcoAppRegisterPlugin } from "~/plugins";
-import { FolderLevelPermissions } from "~/utils/FolderLevelPermissions";
-import { CmsEntriesCrudDecorators } from "~/utils/decorators/CmsEntriesCrudDecorators";
-import { FOLDER_MODEL_ID } from "~/folder/folder.model";
-import { createOperationsWrapper } from "~/utils/createOperationsWrapper";
-import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues";
-import { createFilterCrudMethods } from "~/filter/filter.crud";
+import { createAcoHooks } from "~/createAcoHooks.js";
+import { createAcoStorageOperations } from "~/createAcoStorageOperations.js";
+import { AcoContext, CreateAcoParams, Folder, IAcoAppRegisterParams } from "~/types.js";
+import { createFolderCrudMethods } from "~/folder/folder.crud.js";
+import { createSearchRecordCrudMethods } from "~/record/record.crud.js";
+import { AcoApps } from "./apps/index.js";
+import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model.js";
+import { AcoAppRegisterPlugin } from "~/plugins/index.js";
+import { FolderLevelPermissions } from "~/utils/FolderLevelPermissions.js";
+import { CmsEntriesCrudDecorators } from "~/utils/decorators/CmsEntriesCrudDecorators.js";
+import { FOLDER_MODEL_ID } from "~/folder/folder.model.js";
+import { createOperationsWrapper } from "~/utils/createOperationsWrapper.js";
+import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues.js";
+import { createFilterCrudMethods } from "~/filter/filter.crud.js";
 
 interface CreateAcoContextParams {
     useFolderLevelPermissions?: boolean;

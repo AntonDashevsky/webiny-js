@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Tab } from "@webiny/ui/Tabs";
-import { PbPageDetailsRevisionContentPlugin } from "~/types";
-import RevisionsList from "./RevisionsList";
+import { Tab } from "@webiny/ui/Tabs/index.js";
+import { PbPageDetailsRevisionContentPlugin } from "~/types.js";
+import RevisionsList from "./RevisionsList.js";
 
 const plugin: PbPageDetailsRevisionContentPlugin = {
     name: "pb-page-details-revision-content-revisions",

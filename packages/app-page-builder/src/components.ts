@@ -1,19 +1,19 @@
-import PagePublishRevision from "./admin/plugins/pageDetails/header/publishRevision/PublishRevision";
-import DeleteTheEntirePage from "./admin/plugins/pageDetails/header/deletePage/DeletePage";
-import EditPageInToolbar from "./admin/plugins/pageDetails/header/editRevision/EditRevision";
-import * as RevisionsList from "./admin/plugins/pageDetails/pageRevisions/RevisionsList";
-import { usePage as usePageDetailsPage } from "./admin/views/Pages/PageDetails";
-import { PreviewPage as PreviewPageToolbar } from "./admin/plugins/pageDetails/header/pageOptionsMenu/PreviewPage";
-import { DuplicatePage as DuplicatePageToolbar } from "./admin/plugins/pageDetails/header/pageOptionsMenu/DuplicatePage";
+import PagePublishRevision from "./admin/plugins/pageDetails/header/publishRevision/PublishRevision.js";
+import DeleteTheEntirePage from "./admin/plugins/pageDetails/header/deletePage/DeletePage.js";
+import EditPageInToolbar from "./admin/plugins/pageDetails/header/editRevision/EditRevision.js";
+import * as RevisionsList from "./admin/plugins/pageDetails/pageRevisions/RevisionsList.js";
+import { usePage as usePageDetailsPage } from "./admin/views/Pages/PageDetails.js";
+import { PreviewPage as PreviewPageToolbar } from "./admin/plugins/pageDetails/header/pageOptionsMenu/PreviewPage.js";
+import { DuplicatePage as DuplicatePageToolbar } from "./admin/plugins/pageDetails/header/pageOptionsMenu/DuplicatePage/index.js";
 import {
     PublishPageMenuOption,
     DeleteRevisionMenuOption,
     UnpublishPageMenuOption,
     EditRevisionMenuOption,
     PreviewRevisionMenuOption
-} from "~/admin/plugins/pageDetails/pageRevisions/MenuOptions";
-import { PageRevisionListItemGraphic } from "~/admin/plugins/pageDetails/pageRevisions/PageRevisionListItemGraphic";
-import { PublishPageButton, usePage as usePageFromEditor } from "./pageEditor";
+} from "~/admin/plugins/pageDetails/pageRevisions/MenuOptions/index.js";
+import { PageRevisionListItemGraphic } from "~/admin/plugins/pageDetails/pageRevisions/PageRevisionListItemGraphic.js";
+import { PublishPageButton, usePage as usePageFromEditor } from "./pageEditor/index.js";
 import {
     DeletePage,
     MovePage,
@@ -21,8 +21,8 @@ import {
     PreviewPage,
     ChangePageStatus,
     DuplicatePage
-} from "~/admin/components/Table/Table";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
+} from "~/admin/components/Table/Table/index.js";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
 
 export const Components = {
     PageList: {

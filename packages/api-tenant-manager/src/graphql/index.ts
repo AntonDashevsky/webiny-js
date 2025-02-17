@@ -1,3 +1,3 @@
-import tenants from "./tenants";
+import tenants from "./tenants.js";
 
 export default () => tenants;

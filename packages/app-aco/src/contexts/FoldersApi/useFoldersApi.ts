@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FoldersApiContext } from "./FoldersApiProvider";
+import { FoldersApiContext } from "./FoldersApiProvider.js";
 
 export function useFoldersApi() {
     const context = useContext(FoldersApiContext);

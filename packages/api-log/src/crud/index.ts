@@ -13,11 +13,11 @@ import {
     ILoggerStorageOperations,
     ILoggerWithSource,
     IPruneLogsStoredValue
-} from "~/types";
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { WebinyError } from "@webiny/error";
-import { PRUNE_LOGS_TASK } from "~/tasks/constants";
-import { createStoreKey } from "~/utils/storeKey";
+import { PRUNE_LOGS_TASK } from "~/tasks/constants.js";
+import { createStoreKey } from "~/utils/storeKey.js";
 
 export interface ICreateCrudParams {
     getContext: () => Pick<Context, "tasks" | "db" | "security">;

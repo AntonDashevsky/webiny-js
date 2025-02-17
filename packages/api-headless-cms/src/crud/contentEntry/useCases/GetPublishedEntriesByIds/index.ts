@@ -1,8 +1,8 @@
-import { GetPublishedEntriesByIds } from "./GetPublishedEntriesByIds";
-import { GetPublishedEntriesByIdsNotDeleted } from "./GetPublishedEntriesByIdsNotDeleted";
-import { GetPublishedEntriesByIdsSecure } from "./GetPublishedEntriesByIdsSecure";
-import { CmsEntryStorageOperations } from "~/types";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import { GetPublishedEntriesByIds } from "./GetPublishedEntriesByIds.js";
+import { GetPublishedEntriesByIdsNotDeleted } from "./GetPublishedEntriesByIdsNotDeleted.js";
+import { GetPublishedEntriesByIdsSecure } from "./GetPublishedEntriesByIdsSecure.js";
+import { CmsEntryStorageOperations } from "~/types/index.js";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
 
 interface GetPublishedEntriesByIdsUseCasesParams {
     operation: CmsEntryStorageOperations["getPublishedByIds"];

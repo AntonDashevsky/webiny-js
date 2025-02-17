@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import {
     getCurrentDate,
     getCurrentLocalTime,
@@ -7,9 +7,9 @@ import {
     getHHmm,
     getHHmmss,
     RemoveFieldButton
-} from "./utils";
-import { Input } from "./Input";
-import { CmsModelField } from "~/types";
+} from "./utils.js";
+import { Input } from "./Input.js";
+import { CmsModelField } from "~/types.js";
 import { BindComponentRenderProp } from "@webiny/form";
 
 interface State {

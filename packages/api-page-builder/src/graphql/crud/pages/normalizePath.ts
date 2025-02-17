@@ -1,4 +1,4 @@
-import trim from "lodash/trim";
+import trim from "lodash/trim.js";
 
 export default (value: string): `/${string}` | null => {
     if (typeof value === "string") {

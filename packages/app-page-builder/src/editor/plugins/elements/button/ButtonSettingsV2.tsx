@@ -1,19 +1,19 @@
 import React, { useCallback } from "react";
 import { css } from "emotion";
-import startCase from "lodash/startCase";
-import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import startCase from "lodash/startCase.js";
+import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements.js";
+import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
 // Components
-import { IconPicker } from "@webiny/app-admin/components/IconPicker";
-import { ICON_PICKER_SIZE } from "@webiny/app-admin/components/IconPicker/types";
-import Accordion from "../../elementSettings/components/Accordion";
-import { ContentWrapper } from "../../elementSettings/components/StyledComponents";
-import Wrapper from "../../elementSettings/components/Wrapper";
-import InputField from "../../elementSettings/components/InputField";
-import SelectField from "../../elementSettings/components/SelectField";
-import useUpdateHandlers from "../../elementSettings/useUpdateHandlers";
-import { useActiveElement } from "~/editor";
-import { useUpdateIconSettings } from "~/editor/plugins/elementSettings/hooks/useUpdateIconSettings";
+import { IconPicker } from "@webiny/app-admin/components/IconPicker/index.js";
+import { ICON_PICKER_SIZE } from "@webiny/app-admin/components/IconPicker/types.js";
+import Accordion from "../../elementSettings/components/Accordion.js";
+import { ContentWrapper } from "../../elementSettings/components/StyledComponents.js";
+import Wrapper from "../../elementSettings/components/Wrapper.js";
+import InputField from "../../elementSettings/components/InputField.js";
+import SelectField from "../../elementSettings/components/SelectField.js";
+import useUpdateHandlers from "../../elementSettings/useUpdateHandlers.js";
+import { useActiveElement } from "~/editor/index.js";
+import { useUpdateIconSettings } from "~/editor/plugins/elementSettings/hooks/useUpdateIconSettings.js";
 
 const classes = {
     gridClass: css({

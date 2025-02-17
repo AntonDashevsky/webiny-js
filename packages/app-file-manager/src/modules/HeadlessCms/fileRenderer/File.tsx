@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import { Image } from "@webiny/app/components";
-import * as Ui from "@webiny/ui/ImageUpload";
-import { createRenderImagePreview, imagePlugins } from "./utils";
+import { Image } from "@webiny/app/components/index.js";
+import * as Ui from "@webiny/ui/ImageUpload/index.js";
+import { createRenderImagePreview, imagePlugins } from "./utils.js";
 import fileIcon from "@material-design-icons/svg/round/insert_drive_file.svg";
 
 const imagePreviewProps = {

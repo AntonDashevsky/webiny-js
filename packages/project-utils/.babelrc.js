@@ -1,1 +1,1 @@
-module.exports = require("./packages").createBabelConfigForNode({ path: __dirname, esm: true });
+module.exports = require("./packages").createBabelConfigForNode({ path: __dirname });

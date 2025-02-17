@@ -1,4 +1,4 @@
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import { Plugin, PluginCollection } from "@webiny/plugins/types.js";
 import {
     CmsContext as BaseCmsContext,
     CmsEntry,
@@ -8,8 +8,8 @@ import {
     CmsModelFieldToGraphQLPlugin,
     CmsModelFieldType,
     HeadlessCmsStorageOperations as BaseHeadlessCmsStorageOperations
-} from "@webiny/api-headless-cms/types";
-import { AttributeDefinition, Entity, Table, TableConstructor } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-headless-cms/types/index.js";
+import { AttributeDefinition, Entity, Table, TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { Client } from "@elastic/elasticsearch";
 import { PluginsContainer } from "@webiny/plugins";

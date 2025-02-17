@@ -1,16 +1,16 @@
 import React from "react";
-import get from "lodash/get";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
-import { Checkbox } from "@webiny/ui/Checkbox";
+import get from "lodash/get.js";
+import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
+import { Checkbox } from "@webiny/ui/Checkbox/index.js";
 import styled from "@emotion/styled";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import useUpdateHandlers from "~/editor/plugins/elementSettings/useUpdateHandlers";
-import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper";
-import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import useUpdateHandlers from "~/editor/plugins/elementSettings/useUpdateHandlers.js";
+import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper.js";
+import Accordion from "~/editor/plugins/elementSettings/components/Accordion.js";
 import {
     ContentWrapper,
     classes
-} from "~/editor/plugins/elementSettings/components/StyledComponents";
+} from "~/editor/plugins/elementSettings/components/StyledComponents.js";
 
 const NAMESPACE = "data.settings.carousel";
 

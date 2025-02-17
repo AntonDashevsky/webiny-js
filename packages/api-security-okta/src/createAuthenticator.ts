@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import jwkToPem from "jwk-to-pem";
 import fetch from "node-fetch";
 import util from "util";
-import { SecurityContext, SecurityIdentity } from "@webiny/api-security/types";
+import { SecurityContext, SecurityIdentity } from "@webiny/api-security/types.js";
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
 const verify = util.promisify<string, string, Record<string, any>>(jwt.verify);

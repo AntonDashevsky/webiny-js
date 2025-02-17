@@ -1,21 +1,21 @@
-import type { IZipper, IZipperDoneResult } from "~/tasks/utils/zipper";
-import type { IEntryAssets, IEntryAssetsResolver, IResolvedAsset } from "~/tasks/utils/entryAssets";
-import type { ICmsEntryFetcher } from "../cmsEntryFetcher";
+import type { IZipper, IZipperDoneResult } from "~/tasks/utils/zipper/index.js";
+import type { IEntryAssets, IEntryAssetsResolver, IResolvedAsset } from "~/tasks/utils/entryAssets/index.js";
+import type { ICmsEntryFetcher } from "../cmsEntryFetcher/index.js";
 import type {
     ICmsAssetsZipper,
     ICmsAssetsZipperExecuteParams,
     ICmsAssetsZipperExecuteResult
-} from "./abstractions/CmsAssetsZipper";
-import { CmsAssetsZipperExecuteContinueResult } from "./CmsAssetsZipperExecuteContinueResult";
-import { CmsAssetsZipperExecuteDoneResult } from "./CmsAssetsZipperExecuteDoneResult";
-import type { IFileFetcher } from "../fileFetcher";
-import { CmsAssetsZipperExecuteContinueWithoutResult } from "./CmsAssetsZipperExecuteContinueWithoutResult";
-import { CmsAssetsZipperExecuteDoneWithoutResult } from "./CmsAssetsZipperExecuteDoneWithoutResult";
-import { PointerStore } from "~/tasks/utils/cmsAssetsZipper/PointerStore";
-import { UniqueResolver } from "../uniqueResolver/UniqueResolver";
-import type { CmsEntryMeta } from "@webiny/api-headless-cms/types";
-import { stripExportPath } from "~/tasks/utils/helpers/exportPath";
-import { MANIFEST_JSON } from "~/tasks/constants";
+} from "./abstractions/CmsAssetsZipper.js";
+import { CmsAssetsZipperExecuteContinueResult } from "./CmsAssetsZipperExecuteContinueResult.js";
+import { CmsAssetsZipperExecuteDoneResult } from "./CmsAssetsZipperExecuteDoneResult.js";
+import type { IFileFetcher } from "../fileFetcher/index.js";
+import { CmsAssetsZipperExecuteContinueWithoutResult } from "./CmsAssetsZipperExecuteContinueWithoutResult.js";
+import { CmsAssetsZipperExecuteDoneWithoutResult } from "./CmsAssetsZipperExecuteDoneWithoutResult.js";
+import { PointerStore } from "~/tasks/utils/cmsAssetsZipper/PointerStore.js";
+import { UniqueResolver } from "../uniqueResolver/UniqueResolver.js";
+import type { CmsEntryMeta } from "@webiny/api-headless-cms/types/index.js";
+import { stripExportPath } from "~/tasks/utils/helpers/exportPath.js";
+import { MANIFEST_JSON } from "~/tasks/constants.js";
 
 export interface ICmsAssetsZipperConfig {
     zipper: IZipper;

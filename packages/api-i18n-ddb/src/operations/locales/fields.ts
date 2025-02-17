@@ -1,4 +1,4 @@
-import { LocaleDynamoDbFieldPlugin } from "~/plugins/LocaleDynamoDbFieldPlugin";
+import { LocaleDynamoDbFieldPlugin } from "~/plugins/LocaleDynamoDbFieldPlugin.js";
 
 export default () => [
     new LocaleDynamoDbFieldPlugin({

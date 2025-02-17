@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as MoveFileIcon } from "@material-design-icons/svg/outlined/drive_file_move.svg";
-import { FileManagerViewConfig, useFile, useMoveFileToFolder } from "~/index";
+import { FileManagerViewConfig, useFile, useMoveFileToFolder } from "~/index.js";
 
 const { FileDetails } = FileManagerViewConfig;
 

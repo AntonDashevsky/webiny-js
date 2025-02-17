@@ -1,5 +1,5 @@
 import { Client } from "@elastic/elasticsearch";
-import { ElasticsearchSearchResponse, SearchBody } from "@webiny/api-elasticsearch/types";
+import { ElasticsearchSearchResponse, SearchBody } from "@webiny/api-elasticsearch/types.js";
 import { executeWithRetry } from "@webiny/utils";
 
 export interface EsQueryAllParams {

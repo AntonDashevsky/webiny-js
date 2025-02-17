@@ -1,1 +1,1 @@
-export * from "./ProcessTasksByModel";
+export * from "./ProcessTasksByModel.js";

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { ThemeProvider, useTheme } from "@webiny/app-theme";
-import type { LexicalNode, LexicalValue, Klass } from "@webiny/lexical-editor/types";
+import type { LexicalNode, LexicalValue, Klass } from "@webiny/lexical-editor/types.js";
 import type { EditorTheme } from "@webiny/lexical-theme";
 import { LexicalHtmlRenderer } from "@webiny/lexical-editor";
 

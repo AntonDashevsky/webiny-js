@@ -11,9 +11,9 @@ import {
 } from "lexical";
 import { EditorTheme, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
-import { ListNodeTagType } from "@lexical/list/LexicalListNode";
-import { $getListDepth, wrapInListItem } from "~/utils/listNode";
-import { $isListItemNode, ListItemNode } from "./ListItemNode";
+import { ListNodeTagType } from "@lexical/list/LexicalListNode.js";
+import { $getListDepth, wrapInListItem } from "~/utils/listNode.js";
+import { $isListItemNode, ListItemNode } from "./ListItemNode.js";
 import { ListType } from "@lexical/list";
 
 const TypographyStyleAttrName = "data-theme-list-style-id";

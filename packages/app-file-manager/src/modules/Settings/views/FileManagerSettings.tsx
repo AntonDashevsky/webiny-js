@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Form } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { ButtonPrimary } from "@webiny/ui/Button";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { Mutation, Query } from "@apollo/react-components";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { Input } from "@webiny/ui/Input";
-import graphql, { GetSettingsResponse } from "../graphql";
-import { CircularProgress } from "@webiny/ui/Progress";
-import get from "lodash/get";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import graphql, { GetSettingsResponse } from "../graphql.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import get from "lodash/get.js";
 import { validation } from "@webiny/validation";
 
 import {
@@ -15,9 +15,9 @@ import {
     SimpleFormContent,
     SimpleFormFooter,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
 import { CenteredView } from "@webiny/app-admin";
-import { QueryGetSettingsResult, Settings } from "~/types";
+import { QueryGetSettingsResult, Settings } from "~/types.js";
 import { MutationFunction, MutationResult } from "@apollo/react-common";
 
 function prefixValidator(value: string) {

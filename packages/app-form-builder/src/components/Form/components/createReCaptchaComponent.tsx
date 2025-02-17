@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { reCaptchaEnabled } from "./../functions";
-import { FbFormModel, FbFormRenderComponentProps } from "~/types";
+import { reCaptchaEnabled } from "./../functions/index.js";
+import { FbFormModel, FbFormRenderComponentProps } from "~/types.js";
 
 type CreateReCaptchaComponentArgs = {
     props: FbFormRenderComponentProps;

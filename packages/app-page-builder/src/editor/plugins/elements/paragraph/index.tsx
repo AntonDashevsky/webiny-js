@@ -1,17 +1,17 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase";
+import kebabCase from "lodash/kebabCase.js";
 import {
     DisplayMode,
     PbEditorElement,
     PbEditorPageElementPlugin,
     PbEditorTextElementPluginsArgs,
     PbElement
-} from "~/types";
-import { Paragraph, textClassName } from "./Paragraph";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
-import { defaultText, displayText } from "~/editor/plugins/elements/paragraph/elementText";
+} from "~/types.js";
+import { Paragraph, textClassName } from "./Paragraph.js";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
+import { defaultText, displayText } from "~/editor/plugins/elements/paragraph/elementText.js";
 
-export * from "./ActiveParagraphRenderer";
+export * from "./ActiveParagraphRenderer.js";
 
 export default (args: PbEditorTextElementPluginsArgs = {}): PbEditorPageElementPlugin => {
     const elementType = kebabCase(args.elementType || "paragraph");

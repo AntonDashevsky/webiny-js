@@ -3,9 +3,9 @@ import {
     ListErrorResponse,
     ListResponse,
     Response
-} from "@webiny/handler-graphql/responses";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
-import { SecurityContext } from "~/types";
+} from "@webiny/handler-graphql/responses.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
+import { SecurityContext } from "~/types.js";
 
 export default new GraphQLSchemaPlugin<SecurityContext>({
     typeDefs: /* GraphQL */ `

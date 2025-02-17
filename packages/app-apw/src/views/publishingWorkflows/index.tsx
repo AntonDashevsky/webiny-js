@@ -1,7 +1,7 @@
 import React from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import PublishingWorkflowsDataList from "./PublishingWorkflowsDataList";
-import PublishingWorkflowForm from "./PublishingWorkflowForm";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import PublishingWorkflowsDataList from "./PublishingWorkflowsDataList.js";
+import PublishingWorkflowForm from "./PublishingWorkflowForm.js";
 
 export const PublishingWorkflowsView = () => {
     return (

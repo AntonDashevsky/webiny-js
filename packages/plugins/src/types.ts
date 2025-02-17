@@ -1,4 +1,4 @@
-export { PluginsContainer } from "./PluginsContainer";
+export { PluginsContainer } from "./PluginsContainer.js";
 
 export type Plugin<T = Record<string, any>> = {
     type: string;

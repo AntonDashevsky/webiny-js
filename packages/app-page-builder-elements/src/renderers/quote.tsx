@@ -1,6 +1,6 @@
 import React from "react";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
 
 export type QuoteRenderer = ReturnType<typeof createQuote>;
 

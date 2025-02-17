@@ -1,8 +1,8 @@
-import type { Entity } from "~/toolbox";
-import type { BatchWriteItem, IDeleteBatchItem, IPutBatchItem } from "~/utils/batch/types";
-import type { IEntityWriteBatchBuilder } from "./types";
-import type { EntityOption } from "./getEntity";
-import { getEntity } from "./getEntity";
+import type { Entity } from "~/toolbox.js";
+import type { BatchWriteItem, IDeleteBatchItem, IPutBatchItem } from "~/utils/batch/types.js";
+import type { IEntityWriteBatchBuilder } from "./types.js";
+import type { EntityOption } from "./getEntity.js";
+import { getEntity } from "./getEntity.js";
 
 export class EntityWriteBatchBuilder implements IEntityWriteBatchBuilder {
     private readonly entity: Entity;

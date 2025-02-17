@@ -1,6 +1,6 @@
 import { useRouter } from "@webiny/react-router";
 import { useCallback } from "react";
-import { useModel } from "~/admin/hooks";
+import { useModel } from "~/admin/hooks/index.js";
 
 export const useGoToRevision = () => {
     const { model } = useModel();

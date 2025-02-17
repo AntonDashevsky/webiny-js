@@ -1,12 +1,12 @@
 import WebinyError from "@webiny/error";
 import { CmsModelPlugin, createCmsModel } from "@webiny/api-headless-cms";
-import { createWorkflowModel } from "./workflow.model";
-import { createContentReviewModel } from "./contentReview.model";
-import { createReviewerModel } from "./reviewer.model";
-import { createCommentModel } from "./comment.model";
-import { createChangeRequestModel } from "./changeRequest.model";
-import { CmsContext } from "@webiny/api-headless-cms/types";
-import { isInstallationPending } from "~/plugins/utils";
+import { createWorkflowModel } from "./workflow.model.js";
+import { createContentReviewModel } from "./contentReview.model.js";
+import { createReviewerModel } from "./reviewer.model.js";
+import { createCommentModel } from "./comment.model.js";
+import { createChangeRequestModel } from "./changeRequest.model.js";
+import { CmsContext } from "@webiny/api-headless-cms/types/index.js";
+import { isInstallationPending } from "~/plugins/utils.js";
 
 export const createApwModels = (context: CmsContext) => {
     /**

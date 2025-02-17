@@ -5,8 +5,8 @@ import * as fecha from "fecha";
  */
 // @ts-expect-error
 import hash from "short-hash";
-import lodashAssign from "lodash/assign";
-import lodashGet from "lodash/get";
+import lodashAssign from "lodash/assign.js";
+import lodashGet from "lodash/get.js";
 
 import {
     Formats,
@@ -19,7 +19,7 @@ import {
     ProcessorResult,
     Translations,
     Translator
-} from "./types";
+} from "./types.js";
 
 export type Translated =
     | ((values: I18NDataValues) => ProcessorResult | null)

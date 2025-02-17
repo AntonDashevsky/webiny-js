@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { EXPORT_BLOCKS } from "~/admin/graphql/blockImportExport.gql";
-import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { EXPORT_BLOCKS } from "~/admin/graphql/blockImportExport.gql.js";
+import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog.js";
 
 const useExportBlock = () => {
     const [taskId, setTaskId] = useState<string | null>(null);

@@ -1,7 +1,7 @@
 import React from "react";
 import { Buttons } from "@webiny/app-admin";
 import styled from "@emotion/styled";
-import { SaveAction } from "./SaveAction";
+import { SaveAction } from "./SaveAction.js";
 
 const ToolbarGrid = styled.div`
     padding: 15px;

@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { Typography } from "@webiny/ui/Typography";
-import { Elevation } from "@webiny/ui/Elevation";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
 
 const BlockWrapper = styled("div")({
     padding: "0 0 25px 0"

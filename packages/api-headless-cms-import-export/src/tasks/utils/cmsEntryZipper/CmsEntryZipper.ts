@@ -1,20 +1,20 @@
-import type { CmsEntry } from "@webiny/api-headless-cms/types";
-import type { ICmsEntryEntriesJson, ICmsEntryManifestJson, IFileMeta } from "../types";
-import { CmsEntryZipperExecuteContinueResult } from "./CmsEntryZipperExecuteContinueResult";
-import { CmsEntryZipperExecuteDoneResult } from "./CmsEntryZipperExecuteDoneResult";
+import type { CmsEntry } from "@webiny/api-headless-cms/types/index.js";
+import type { ICmsEntryEntriesJson, ICmsEntryManifestJson, IFileMeta } from "../types.js";
+import { CmsEntryZipperExecuteContinueResult } from "./CmsEntryZipperExecuteContinueResult.js";
+import { CmsEntryZipperExecuteDoneResult } from "./CmsEntryZipperExecuteDoneResult.js";
 import type {
     ICmsEntryZipper,
     ICmsEntryZipperExecuteParams,
     ICmsEntryZipperExecuteResult
-} from "./abstractions/CmsEntryZipper";
-import type { ICmsEntryFetcher } from "~/tasks/utils/cmsEntryFetcher/abstractions/CmsEntryFetcher";
-import type { IZipper } from "~/tasks/utils/zipper";
-import type { IAsset, IEntryAssets } from "~/tasks/utils/entryAssets";
-import type { IUniqueResolver } from "~/tasks/utils/uniqueResolver/abstractions/UniqueResolver";
-import { sanitizeModel } from "@webiny/api-headless-cms/export/crud/sanitize";
-import { stripExportPath } from "~/tasks/utils/helpers/exportPath";
-import { cleanChecksum } from "~/tasks/utils/helpers/cleanChecksum";
-import { MANIFEST_JSON } from "~/tasks/constants";
+} from "./abstractions/CmsEntryZipper.js";
+import type { ICmsEntryFetcher } from "~/tasks/utils/cmsEntryFetcher/abstractions/CmsEntryFetcher.js";
+import type { IZipper } from "~/tasks/utils/zipper/index.js";
+import type { IAsset, IEntryAssets } from "~/tasks/utils/entryAssets/index.js";
+import type { IUniqueResolver } from "~/tasks/utils/uniqueResolver/abstractions/UniqueResolver.js";
+import { sanitizeModel } from "@webiny/api-headless-cms/export/crud/sanitize.js";
+import { stripExportPath } from "~/tasks/utils/helpers/exportPath.js";
+import { cleanChecksum } from "~/tasks/utils/helpers/cleanChecksum.js";
+import { MANIFEST_JSON } from "~/tasks/constants.js";
 
 export interface ICmsEntryZipperConfig {
     zipper: IZipper;

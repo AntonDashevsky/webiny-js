@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
 import { createRenderer } from "@webiny/app-page-builder-elements";
-import { useDataSource } from "@webiny/app-page-builder/dataInjection";
+import { useDataSource } from "@webiny/app-page-builder/dataInjection/index.js";
 
 export const EntriesSearchRenderer = createRenderer(() => {
     const data = useDataSource();

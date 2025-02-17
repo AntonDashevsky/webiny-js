@@ -1,6 +1,6 @@
 import React, { Fragment, useCallback, useContext, useMemo, useState } from "react";
 import styled from "@emotion/styled";
-import { Drawer, DrawerContent, DrawerHeader } from "@webiny/ui/Drawer";
+import { Drawer, DrawerContent, DrawerHeader } from "@webiny/ui/Drawer/index.js";
 import {
     Brand as BrandSpec,
     Compose,
@@ -13,14 +13,14 @@ import {
     Provider,
     useNavigation as useAdminNavigation
 } from "@webiny/app-admin";
-import Hamburger from "./Hamburger";
-import { MenuGroupRenderer } from "./renderers/MenuGroupRenderer";
-import { MenuSectionItemRenderer } from "./renderers/MenuSectionItemRenderer";
-import { MenuSectionRenderer } from "./renderers/MenuSectionRenderer";
-import { MenuLinkRenderer } from "./renderers/MenuLinkRenderer";
-import { MenuElementRenderer } from "./renderers/MenuElementRenderer";
-import { List } from "@webiny/ui/List";
-import { MenuFooter, MenuHeader, navContent, navHeader } from "./Styled";
+import Hamburger from "./Hamburger.js";
+import { MenuGroupRenderer } from "./renderers/MenuGroupRenderer.js";
+import { MenuSectionItemRenderer } from "./renderers/MenuSectionItemRenderer.js";
+import { MenuSectionRenderer } from "./renderers/MenuSectionRenderer.js";
+import { MenuLinkRenderer } from "./renderers/MenuLinkRenderer.js";
+import { MenuElementRenderer } from "./renderers/MenuElementRenderer.js";
+import { List } from "@webiny/ui/List/index.js";
+import { MenuFooter, MenuHeader, navContent, navHeader } from "./Styled.js";
 
 const AutoWidthDrawer = styled(Drawer)`
     width: auto;

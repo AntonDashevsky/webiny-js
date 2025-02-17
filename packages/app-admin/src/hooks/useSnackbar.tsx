@@ -1,6 +1,6 @@
 import React from "react";
-import { useUi } from "@webiny/app/hooks/useUi";
-import { SnackbarAction } from "@webiny/ui/Snackbar";
+import { useUi } from "@webiny/app/hooks/useUi.js";
+import { SnackbarAction } from "@webiny/ui/Snackbar/index.js";
 
 interface UseSnackbarResponse {
     showSnackbar: (message: React.ReactNode, options?: Record<string, React.ReactNode>) => void;

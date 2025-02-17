@@ -1,16 +1,16 @@
-import { Security } from "@webiny/api-security/types";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
-import { AdvancedPublishingWorkflow } from "~/types";
-import { triggerContentReview } from "./triggerContentReview";
-import { linkContentReviewToPage } from "./linkContentReviewToPage";
-import { updateContentReviewStatus } from "./updateContentReviewStatus";
-import { linkWorkflowToPage } from "./linkWorkflowToPage";
+import { Security } from "@webiny/api-security/types.js";
+import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
+import { AdvancedPublishingWorkflow } from "~/types.js";
+import { triggerContentReview } from "./triggerContentReview.js";
+import { linkContentReviewToPage } from "./linkContentReviewToPage.js";
+import { updateContentReviewStatus } from "./updateContentReviewStatus.js";
+import { linkWorkflowToPage } from "./linkWorkflowToPage.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { PageApwSettingsGetterPlugin } from "~/plugins/pageBuilder/PageApwSettingsGetterPlugin";
-import { createCommentNotification } from "./notifications/commentNotification";
-import { createContentUrlPlugin } from "./notifications/contentUrl";
-import { createChangeRequestNotification } from "./notifications/changeRequestNotification";
-import { createContentReviewNotification } from "./notifications/contentReviewNotification";
+import { PageApwSettingsGetterPlugin } from "~/plugins/pageBuilder/PageApwSettingsGetterPlugin.js";
+import { createCommentNotification } from "./notifications/commentNotification.js";
+import { createContentUrlPlugin } from "./notifications/contentUrl.js";
+import { createChangeRequestNotification } from "./notifications/changeRequestNotification.js";
+import { createContentReviewNotification } from "./notifications/contentReviewNotification.js";
 
 export interface ApwPageBuilderPluginsParams {
     pageBuilder: PageBuilderContextObject;

@@ -1,4 +1,4 @@
-import { Modifier, ModifierOptions } from "~/types";
+import { Modifier, ModifierOptions } from "~/types.js";
 
 export default ({ i18n }: ModifierOptions): Modifier => ({
     name: "number",

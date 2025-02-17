@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as FileIcon } from "@material-design-icons/svg/outlined/file_present.svg";
-import { CmsModelFieldTypePlugin } from "@webiny/app-headless-cms/types";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Switch } from "@webiny/ui/Switch";
+import { CmsModelFieldTypePlugin } from "@webiny/app-headless-cms/types.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import { Bind } from "@webiny/form";
 
 export const fileField: CmsModelFieldTypePlugin = {

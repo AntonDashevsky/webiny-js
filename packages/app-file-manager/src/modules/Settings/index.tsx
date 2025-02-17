@@ -3,9 +3,9 @@ import { plugins } from "@webiny/plugins";
 import { AddRoute, Plugin } from "@webiny/app";
 import { HasPermission } from "@webiny/app-security";
 import { AddMenu, Layout } from "@webiny/app-admin";
-import installation from "./plugins/installation";
-import permissionRenderer from "./plugins/permissionRenderer";
-import { FileManagerSettings } from "./views/FileManagerSettings";
+import installation from "./plugins/installation.js";
+import permissionRenderer from "./plugins/permissionRenderer/index.js";
+import { FileManagerSettings } from "./views/FileManagerSettings.js";
 
 export const SettingsModule = () => {
     plugins.register(installation, permissionRenderer);

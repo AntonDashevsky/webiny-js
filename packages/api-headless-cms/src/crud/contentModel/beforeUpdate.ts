@@ -1,9 +1,9 @@
-import { Topic } from "@webiny/pubsub/types";
-import { CmsContext, OnModelBeforeUpdateTopicParams } from "~/types";
-import { validateModel } from "./validateModel";
-import { validateSingularApiName } from "./validate/singularApiName";
-import { validatePluralApiName } from "./validate/pluralApiName";
-import { validateEndingAllowed } from "~/crud/contentModel/validate/endingAllowed";
+import { Topic } from "@webiny/pubsub/types.js";
+import { CmsContext, OnModelBeforeUpdateTopicParams } from "~/types/index.js";
+import { validateModel } from "./validateModel.js";
+import { validateSingularApiName } from "./validate/singularApiName.js";
+import { validatePluralApiName } from "./validate/pluralApiName.js";
+import { validateEndingAllowed } from "~/crud/contentModel/validate/endingAllowed.js";
 
 interface AssignBeforeModelUpdateParams {
     onModelBeforeUpdate: Topic<OnModelBeforeUpdateTopicParams>;

@@ -1,7 +1,7 @@
-import { PbEditorElement } from "~/types";
-import { useCurrentElement } from "~/editor/hooks/useCurrentElement";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { elementByIdSelector } from "~/editor/recoil/modules";
+import { PbEditorElement } from "~/types.js";
+import { useCurrentElement } from "~/editor/hooks/useCurrentElement.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { elementByIdSelector } from "~/editor/recoil/modules/index.js";
 import { selectorFamily, useRecoilValue } from "recoil";
 
 export interface UseCurrentBlock {

@@ -1,16 +1,16 @@
 import React from "react";
 import { Form } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { ButtonSecondary, ButtonPrimary } from "@webiny/ui/Button";
-import { Select } from "@webiny/ui/Select";
-import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete";
-import { CategoriesAutocomplete } from "~/admin/components/CategoriesAutocomplete";
-import { Elevation } from "@webiny/ui/Elevation";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { ButtonSecondary, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete.js";
+import { CategoriesAutocomplete } from "~/admin/components/CategoriesAutocomplete.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { validation } from "@webiny/validation";
-import { FormOnSubmit } from "@webiny/form/types";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import { FormOnSubmit } from "@webiny/form/types.js";
+import { MenuTreeItem } from "~/admin/views/Menus/types.js";
 import { css } from "emotion";
 
 const menuPageFormStyle = css({

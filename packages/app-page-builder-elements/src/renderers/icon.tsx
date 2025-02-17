@@ -1,7 +1,7 @@
 import React from "react";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
-import { ElementInput } from "~/inputs/ElementInput";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
+import { ElementInput } from "~/inputs/ElementInput.js";
 
 export interface IconElementData {
     icon: {

@@ -9,13 +9,13 @@ import {
     OnFormsAfterExportTopicParams,
     OnFormsBeforeImportTopicParams,
     OnFormsAfterImportTopicParams
-} from "~/types";
-import { invokeHandlerClient } from "~/client";
-import { Payload as CreateHandlerPayload } from "~/import/create";
-import { initialStats } from "~/import/utils";
-import { Payload as ExportFormsProcessHandlerPayload } from "~/export/process";
+} from "~/types.js";
+import { invokeHandlerClient } from "~/client.js";
+import { Payload as CreateHandlerPayload } from "~/import/create/index.js";
+import { initialStats } from "~/import/utils/index.js";
+import { Payload as ExportFormsProcessHandlerPayload } from "~/export/process/index.js";
 import { zeroPad } from "@webiny/utils";
-import { FormsPermissions } from "@webiny/api-form-builder/plugins/crud/permissions/FormsPermissions";
+import { FormsPermissions } from "@webiny/api-form-builder/plugins/crud/permissions/FormsPermissions.js";
 
 const EXPORT_FORMS_FOLDER_KEY = "WEBINY_FB_EXPORT_FORM";
 const EXPORT_FORMS_PROCESS_HANDLER = process.env.EXPORT_PROCESS_HANDLER as string;

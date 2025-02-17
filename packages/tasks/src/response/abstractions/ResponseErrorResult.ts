@@ -1,6 +1,6 @@
-import { TaskResponseStatus } from "~/types";
-import { IResponseBaseResult } from "./ResponseBaseResult";
-import { GenericRecord } from "@webiny/api/types";
+import { TaskResponseStatus } from "~/types.js";
+import { IResponseBaseResult } from "./ResponseBaseResult.js";
+import { GenericRecord } from "@webiny/api/types.js";
 
 export interface IResponseError {
     message: string;

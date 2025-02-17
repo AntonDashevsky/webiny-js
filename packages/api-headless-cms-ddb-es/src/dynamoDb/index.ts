@@ -1,5 +1,5 @@
-import { createRichTextStorageTransformPlugin } from "./storage/richText";
-import { createLongTextStorageTransformPlugin } from "./storage/longText";
+import { createRichTextStorageTransformPlugin } from "./storage/richText.js";
+import { createLongTextStorageTransformPlugin } from "./storage/longText.js";
 
 export default () => createDynamoDbPlugins();
 

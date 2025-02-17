@@ -1,1 +1,1 @@
-export { Extensions as DynamicPages } from "./Extensions";
+export { Extensions as DynamicPages } from "./Extensions.js";

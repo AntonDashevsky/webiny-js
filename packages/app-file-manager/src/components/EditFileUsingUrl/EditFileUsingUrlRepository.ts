@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { FileItem } from "@webiny/app-admin/types";
-import { Loading, LOADING_STATE } from "./Loading";
+import { FileItem } from "@webiny/app-admin/types.js";
+import { Loading, LOADING_STATE } from "./Loading.js";
 
 export interface IGetFileByUrl {
     execute(url: string): Promise<FileItem>;

@@ -1,23 +1,23 @@
 export * from "@webiny/theme";
 
-export * from "./createRenderer";
+export * from "./createRenderer.js";
 
-export * from "./hooks/usePage";
-export * from "./hooks/usePageElements";
-export * from "./hooks/useRenderer";
-export * from "./hooks/useFacepaint";
-export * from "./hooks/useLoader";
+export * from "./hooks/usePage.js";
+export * from "./hooks/usePageElements.js";
+export * from "./hooks/useRenderer.js";
+export * from "./hooks/useFacepaint.js";
+export * from "./hooks/useLoader.js";
 
-export * from "./contexts/PageElements";
-export * from "./contexts/Page";
-export * from "./contexts/Renderer";
-export * from "./contexts/ElementRendererInputs";
+export * from "./contexts/PageElements.js";
+export * from "./contexts/Page.js";
+export * from "./contexts/Renderer.js";
+export * from "./contexts/ElementRendererInputs.js";
 
-export * from "./components/Page";
-export * from "./components/Content";
-export * from "./components/Element";
-export * from "./components/Elements";
-export * from "./components/ErrorBoundary";
+export * from "./components/Page.js";
+export * from "./components/Content.js";
+export * from "./components/Element.js";
+export * from "./components/Elements.js";
+export * from "./components/ErrorBoundary.js";
 
-export * from "./inputs/ElementInput";
-export type { DecoratableRenderer } from "./types";
+export * from "./inputs/ElementInput.js";
+export type { DecoratableRenderer } from "./types.js";

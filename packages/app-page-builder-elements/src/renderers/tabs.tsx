@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { Elements } from "~/components/Elements";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
+import { Elements } from "~/components/Elements.js";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
 import { ClassNames } from "@emotion/react";
 
 const TabsHeader = styled.div`

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { css } from "emotion";
-import { OverlayView } from "../OverlayView";
+import { OverlayView } from "../OverlayView.js";
 
 const noScroll = css({
     overflow: "hidden",

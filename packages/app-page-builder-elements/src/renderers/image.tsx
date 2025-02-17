@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
-import { LinkComponent as LinkComponentType } from "~/types";
-import { DefaultLinkComponent } from "~/renderers/components";
-import { ElementInput } from "~/inputs/ElementInput";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
+import { LinkComponent as LinkComponentType } from "~/types.js";
+import { DefaultLinkComponent } from "~/renderers/components/index.js";
+import { ElementInput } from "~/inputs/ElementInput.js";
 
 declare global {
     // eslint-disable-next-line

@@ -1,5 +1,5 @@
-import { IUnselectAllItemsUseCase } from "~/UseCases";
-import { IUnselectAllItemsController } from "./IUnselectAllItemsController";
+import { IUnselectAllItemsUseCase } from "~/UseCases/index.js";
+import { IUnselectAllItemsController } from "./IUnselectAllItemsController.js";
 
 export class UnselectAllItemsController implements IUnselectAllItemsController {
     private readonly useCaseFactory: () => IUnselectAllItemsUseCase;

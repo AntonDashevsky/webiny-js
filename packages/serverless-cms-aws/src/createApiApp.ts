@@ -1,5 +1,5 @@
 import type { CreateApiPulumiAppParams } from "@webiny/pulumi-aws";
-import type { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types.js";
 
 export { ApiOutput } from "@webiny/pulumi-aws";
 

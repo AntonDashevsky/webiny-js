@@ -1,8 +1,8 @@
 import React, { useState, useCallback, SyntheticEvent } from "react";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { Input } from "@webiny/ui/Input";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { Typography } from "@webiny/ui/Typography";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import {
     PageMeta,
     PageTitle,
@@ -10,11 +10,11 @@ import {
     PageVersion,
     TitleInputWrapper,
     TitleWrapper
-} from "./Styled";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import { usePage } from "~/pageEditor/hooks/usePage";
-import { PageAtomType } from "~/pageEditor/state";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
+} from "./Styled.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { usePage } from "~/pageEditor/hooks/usePage.js";
+import { PageAtomType } from "~/pageEditor/state/index.js";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
 
 declare global {
     interface Window {

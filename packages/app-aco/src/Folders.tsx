@@ -1,6 +1,6 @@
 import React from "react";
 import { Plugin } from "@webiny/app-admin";
-import { FoldersApiProvider } from "~/contexts/FoldersApi";
+import { FoldersApiProvider } from "~/contexts/FoldersApi/index.js";
 
 interface FoldersApiProviderHOCProps {
     children: React.ReactNode;

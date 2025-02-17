@@ -1,6 +1,6 @@
-export * from "./encryption";
-export * from "./licenses";
-export * from "./urls";
+export * from "./encryption.js";
+export * from "./licenses.js";
+export * from "./urls.js";
 
 export const WCP_FEATURE_LABEL = {
     seats: "User Seats",

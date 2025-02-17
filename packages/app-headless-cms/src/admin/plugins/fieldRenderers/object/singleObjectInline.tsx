@@ -1,14 +1,14 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import { CmsModelFieldRendererPlugin } from "~/types";
-import { Fields } from "~/admin/components/ContentEntryForm/Fields";
-import { SimpleFormHeader } from "@webiny/app-admin/components/SimpleForm";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
-import { fieldsWrapperStyle } from "./StyledComponents";
-import { FieldSettings } from "./FieldSettings";
-import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue";
-import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
+import { SimpleFormHeader } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
+import { fieldsWrapperStyle } from "./StyledComponents.js";
+import { FieldSettings } from "./FieldSettings.js";
+import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue.js";
+import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");
 

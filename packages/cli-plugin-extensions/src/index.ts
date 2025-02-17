@@ -1,11 +1,11 @@
 import inquirer from "inquirer";
 import ora from "ora";
-import type { CliContext } from "@webiny/cli/types";
-import type { CliCommandPlugin } from "@webiny/cli-plugin-scaffold/types";
+import type { CliContext } from "@webiny/cli/types.js";
+import type { CliCommandPlugin } from "@webiny/cli-plugin-scaffold/types.js";
 import { downloadAndLinkExtension } from "~/downloadAndLinkExtension.js";
 import { generateExtension } from "~/generateExtension.js";
 import { promptQuestions } from "~/promptQuestions.js";
-import { ExtensionCommandGenerateParams, ExtensionsCommandParams } from "~/types";
+import { ExtensionCommandGenerateParams, ExtensionsCommandParams } from "~/types.js";
 import { runYarnInstall } from "~/utils/runYarnInstall.js";
 
 export interface CliPluginExtensionParams {

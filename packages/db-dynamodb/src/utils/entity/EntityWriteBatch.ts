@@ -1,18 +1,18 @@
-import type { TableDef } from "~/toolbox";
-import type { Entity as ToolboxEntity } from "~/toolbox";
-import { batchWriteAll } from "~/utils/batch/batchWrite";
+import type { TableDef } from "~/toolbox.js";
+import type { Entity as ToolboxEntity } from "~/toolbox.js";
+import { batchWriteAll } from "~/utils/batch/batchWrite.js";
 import type {
     BatchWriteItem,
     BatchWriteResult,
     IDeleteBatchItem,
     IPutBatchItem
-} from "~/utils/batch/types";
-import type { IEntityWriteBatch, IEntityWriteBatchBuilder } from "./types";
-import type { ITableWriteBatch } from "~/utils/table/types";
-import { createTableWriteBatch } from "~/utils/table/TableWriteBatch";
-import { createEntityWriteBatchBuilder } from "./EntityWriteBatchBuilder";
-import type { EntityOption } from "./getEntity";
-import { getEntity } from "./getEntity";
+} from "~/utils/batch/types.js";
+import type { IEntityWriteBatch, IEntityWriteBatchBuilder } from "./types.js";
+import type { ITableWriteBatch } from "~/utils/table/types.js";
+import { createTableWriteBatch } from "~/utils/table/TableWriteBatch.js";
+import { createEntityWriteBatchBuilder } from "./EntityWriteBatchBuilder.js";
+import type { EntityOption } from "./getEntity.js";
+import { getEntity } from "./getEntity.js";
 
 export interface IEntityWriteBatchParams {
     entity: EntityOption;

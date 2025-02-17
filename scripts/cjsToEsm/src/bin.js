@@ -1,13 +1,14 @@
-#!/usr/bin/env -S npx tsx
+import "tsx";
 import path from "path";
-import { cjsToEsm } from "./cjsToEsm";
 
-const rootFolder = process.argv[2];
-const absolutePath = path.resolve(rootFolder);
-const shouldTransformProject = process.argv.includes("--transform");
+(async () => {
+    const rootFolder = process.argv[2];
+    const absolutePath = path.resolve(rootFolder);
+    const shouldTransformProject = process.argv.includes("--transform");
 
-
-if (shouldTransformProject) {
-    console.log("Transforming project to ESM...");
-    cjsToEsm(absolutePath);
-}
+    if (shouldTransformProject) {
+        console.log("Transforming project to ESM...");
+        const { cjsToEsm } = await import("./cjsToEsm.js");
+        await cjsToEsm(absolutePath);
+    }
+})();

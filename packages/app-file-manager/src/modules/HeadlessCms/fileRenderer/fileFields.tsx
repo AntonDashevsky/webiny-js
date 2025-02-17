@@ -4,15 +4,15 @@ import {
     BindComponentRenderProp,
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
-} from "@webiny/app-headless-cms/types";
-import { i18n } from "@webiny/app/i18n";
-import { FileManager } from "@webiny/app-admin/components";
+} from "@webiny/app-headless-cms/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { FileManager } from "@webiny/app-admin/components/index.js";
 import styled from "@emotion/styled";
-import { imageWrapperStyles } from "./utils";
-import { File } from "./File";
-import { EditFileUsingUrl } from "~/components/EditFileUsingUrl";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
-import { FileItem } from "@webiny/app-admin/types";
+import { imageWrapperStyles } from "./utils.js";
+import { File } from "./File.js";
+import { EditFileUsingUrl } from "~/components/EditFileUsingUrl/index.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
+import { FileItem } from "@webiny/app-admin/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/file");
 

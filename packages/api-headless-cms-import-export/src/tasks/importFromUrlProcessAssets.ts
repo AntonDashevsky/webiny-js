@@ -1,10 +1,10 @@
-import { IMPORT_FROM_URL_PROCESS_ASSETS_TASK } from "~/tasks/constants";
+import { IMPORT_FROM_URL_PROCESS_ASSETS_TASK } from "~/tasks/constants.js";
 import { createTaskDefinition } from "@webiny/tasks";
-import type { Context } from "~/types";
+import type { Context } from "~/types.js";
 import type {
     IImportFromUrlProcessAssetsInput,
     IImportFromUrlProcessAssetsOutput
-} from "./domain/importFromUrlProcessAssets/abstractions/ImportFromUrlProcessAssets";
+} from "./domain/importFromUrlProcessAssets/abstractions/ImportFromUrlProcessAssets.js";
 
 export const createImportFromUrlProcessAssetsTask = () => {
     return createTaskDefinition<
@@ -19,7 +19,7 @@ export const createImportFromUrlProcessAssetsTask = () => {
         description: "Process entries import.",
         async run(params) {
             const { createImportFromUrlProcessAssets } = await import(
-                /* webpackChunkName: "createImportFromUrlProcessAssets" */ "./domain/createImportFromUrlProcessAssets"
+                /* webpackChunkName: "createImportFromUrlProcessAssets" */ "./domain/createImportFromUrlProcessAssets.js"
             );
 
             try {

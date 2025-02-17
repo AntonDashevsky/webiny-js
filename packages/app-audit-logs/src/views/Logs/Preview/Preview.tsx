@@ -1,15 +1,15 @@
 import React from "react";
 import { format, addMinutes } from "date-fns";
 
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Dialog, DialogContent, DialogTitle, DialogCancel, DialogActions } from "@webiny/ui/Dialog";
-import { CodeEditor } from "@webiny/ui/CodeEditor";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Dialog, DialogContent, DialogTitle, DialogCancel, DialogActions } from "@webiny/ui/Dialog/index.js";
+import { CodeEditor } from "@webiny/ui/CodeEditor/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
-import { Action } from "~/views/Logs/Table";
-import { Text } from "~/components/Text";
-import { Entry } from "~/utils/transformCmsContentEntriesToRecordEntries";
-import { PayloadWrapper, previewDialog } from "./styled";
+import { Action } from "~/views/Logs/Table/index.js";
+import { Text } from "~/components/Text.js";
+import { Entry } from "~/utils/transformCmsContentEntriesToRecordEntries.js";
+import { PayloadWrapper, previewDialog } from "./styled.js";
 
 type HeaderProps = {
     auditLog: Entry | null;

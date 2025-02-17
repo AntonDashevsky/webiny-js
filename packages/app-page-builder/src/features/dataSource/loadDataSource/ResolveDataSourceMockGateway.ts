@@ -1,9 +1,9 @@
-import { IResolveDataSourceGateway } from "./IResolveDataSourceGateway";
-import { GenericRecord } from "@webiny/app/types";
+import { IResolveDataSourceGateway } from "./IResolveDataSourceGateway.js";
+import { GenericRecord } from "@webiny/app/types.js";
 import {
     DataRequest,
     DataSourceData
-} from "~/features/dataSource/loadDataSource/IResolveDataSourceRepository";
+} from "~/features/dataSource/loadDataSource/IResolveDataSourceRepository.js";
 
 // const lexicalParagraph = (value: string) => {
 //     return {

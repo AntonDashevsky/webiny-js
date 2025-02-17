@@ -3,7 +3,7 @@ import { Compose, SearchRenderer as SearchSpec } from "@webiny/app-admin";
 
 // For the time being, import the existing component.
 // TODO: implement a new SearchBar component
-import SearchBar from "@webiny/app-admin/plugins/globalSearch/SearchBar";
+import SearchBar from "@webiny/app-admin/plugins/globalSearch/SearchBar.js";
 
 const SearchRenderer = () => {
     return function Search() {

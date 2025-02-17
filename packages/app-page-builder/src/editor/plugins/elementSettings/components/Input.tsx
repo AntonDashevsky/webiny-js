@@ -1,11 +1,11 @@
 import React from "react";
-import { activeElementAtom, elementByIdSelector } from "../../../recoil/modules";
-import get from "lodash/get";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input as InputCmp } from "@webiny/ui/Input";
+import { activeElementAtom, elementByIdSelector } from "../../../recoil/modules/index.js";
+import get from "lodash/get.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input as InputCmp } from "@webiny/ui/Input/index.js";
 import { useRecoilValue } from "recoil";
-import { InputContainer } from "./StyledComponents";
+import { InputContainer } from "./StyledComponents.js";
 
 interface InputPropsType {
     label: string;

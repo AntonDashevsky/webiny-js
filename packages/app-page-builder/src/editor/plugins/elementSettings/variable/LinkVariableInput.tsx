@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { Form } from "@webiny/form";
-import { Validator } from "@webiny/validation/types";
+import { Validator } from "@webiny/validation/types.js";
 import { makeDecoratable } from "@webiny/react-composition";
-import InputField from "~/editor/plugins/elementSettings/components/InputField";
-import { Typography } from "@webiny/ui/Typography";
-import { SimpleButton } from "~/editor/plugins/elementSettings/components/StyledComponents";
-import { useVariable } from "~/hooks/useVariable";
+import InputField from "~/editor/plugins/elementSettings/components/InputField.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { SimpleButton } from "~/editor/plugins/elementSettings/components/StyledComponents.js";
+import { useVariable } from "~/hooks/useVariable.js";
 
 const ButtonContainer = styled.div`
     margin-top: 16px;

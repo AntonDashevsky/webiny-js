@@ -1,4 +1,4 @@
-import { ElementAttributesModifier } from "~/types";
+import { ElementAttributesModifier } from "~/types.js";
 
 const id: ElementAttributesModifier = ({ element }) => {
     return { id: element.data.settings?.property?.id || element.id };

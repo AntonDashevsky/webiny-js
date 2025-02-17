@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
+import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
 
 export interface Drawer {
     id: string;

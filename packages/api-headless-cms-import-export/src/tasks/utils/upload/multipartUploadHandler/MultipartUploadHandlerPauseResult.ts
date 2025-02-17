@@ -1,7 +1,7 @@
 import type {
     IMultipartUploadHandlerPauseResult,
     IPart
-} from "../abstractions/MultipartUploadHandler";
+} from "../abstractions/MultipartUploadHandler.js";
 
 export class MultipartUploadHandlerPauseResult implements IMultipartUploadHandlerPauseResult {
     uploadId: string;

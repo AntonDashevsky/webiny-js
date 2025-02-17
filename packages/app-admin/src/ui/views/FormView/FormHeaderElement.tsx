@@ -1,10 +1,10 @@
 import React from "react";
 import { css } from "emotion";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
-import { UIElement, UIElementConfig } from "~/ui/UIElement";
-import { Icon } from "@webiny/ui/Icon";
-import { FormElementRenderProps } from "~/ui/elements/form/FormElement";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { UIElement, UIElementConfig } from "~/ui/UIElement.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { FormElementRenderProps } from "~/ui/elements/form/FormElement.js";
 
 const iconClass = css({
     marginRight: 15,

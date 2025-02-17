@@ -1,7 +1,7 @@
 /**
  * CMS Model AST
  */
-import { CmsModelField } from "./modelField";
+import { CmsModelField } from "./modelField.js";
 
 export interface ICmsModelFieldToAst {
     toAst(field: CmsModelField): CmsModelFieldAstNode;

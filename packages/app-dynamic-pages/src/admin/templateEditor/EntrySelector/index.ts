@@ -1,1 +1,1 @@
-export * from "./EntrySelector";
+export * from "./EntrySelector.js";

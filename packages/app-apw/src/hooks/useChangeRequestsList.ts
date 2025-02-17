@@ -5,9 +5,9 @@ import {
     LIST_CHANGE_REQUESTS_QUERY,
     ListChangeRequestsQueryResponse,
     ListChangeRequestsQueryVariables
-} from "~/graphql/changeRequest.gql";
-import { ApwChangeRequest } from "~/types";
-import { useChangeRequestStep } from "./useChangeRequest";
+} from "~/graphql/changeRequest.gql.js";
+import { ApwChangeRequest } from "~/types.js";
+import { useChangeRequestStep } from "./useChangeRequest.js";
 
 const serializeSorters = (data: any) => {
     if (!data) {

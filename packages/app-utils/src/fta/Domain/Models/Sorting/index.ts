@@ -1,2 +1,2 @@
-export * from "./Sorting";
-export * from "./SortingMapper";
+export * from "./Sorting.js";
+export * from "./SortingMapper.js";

@@ -12,22 +12,22 @@ import {
     PbImportExportContext,
     PbImportPagesTaskData,
     PbImportPagesTaskStats
-} from "~/types";
-import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions";
+} from "~/types.js";
+import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions.js";
 import {
     IExportPagesControllerInput,
     IExportPagesControllerOutput,
     IExportPagesZipPagesInput,
     IExportPagesZipPagesOutput,
     PageExportTask
-} from "~/export/pages/types";
+} from "~/export/pages/types.js";
 import {
     IImportPagesControllerInput,
     IImportPagesControllerOutput,
     IImportPagesProcessPagesInput,
     IImportPagesProcessPagesOutput,
     PageImportTask
-} from "~/import/pages/types";
+} from "~/import/pages/types.js";
 
 export default new ContextPlugin<PbImportExportContext>(context => {
     const pagesPermissions = new PagesPermissions({

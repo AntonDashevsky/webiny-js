@@ -1,1 +1,1 @@
-export { NotAuthorizedError } from "./NotAuthorizedError";
+export { NotAuthorizedError } from "./NotAuthorizedError.js";

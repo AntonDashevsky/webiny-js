@@ -1,2 +1,2 @@
-export * from "./useDialogWithReport";
-export * from "./Worker";
+export * from "./useDialogWithReport/index.js";
+export * from "./Worker.js";

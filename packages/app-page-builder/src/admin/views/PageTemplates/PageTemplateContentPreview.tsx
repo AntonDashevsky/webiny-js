@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "emotion";
 import { makeDecoratable } from "@webiny/app";
 import { Content } from "@webiny/app-page-builder-elements";
-import type { PbPageTemplateWithContent } from "~/types";
+import type { PbPageTemplateWithContent } from "~/types.js";
 
 const pageInnerWrapper = css`
     overflow-y: scroll;

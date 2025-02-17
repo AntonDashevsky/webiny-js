@@ -1,6 +1,6 @@
 import React from "react";
 import { CompositionScope } from "@webiny/app-admin";
-import { EditorConfig } from "~/editor/config";
+import { EditorConfig } from "~/editor/config/index.js";
 
 interface BlockEditorConfigProps {
     children: React.ReactNode;

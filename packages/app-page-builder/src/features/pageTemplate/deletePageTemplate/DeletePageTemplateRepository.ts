@@ -1,7 +1,7 @@
-import { IDeletePageTemplateRepository } from "./IDeletePageTemplateRepository";
-import { PbPageTemplate } from "~/types";
-import { ListCache } from "~/features/ListCache";
-import { IDeletePageTemplateGateway } from "~/features/pageTemplate/deletePageTemplate/IDeletePageTemplateGateway";
+import { IDeletePageTemplateRepository } from "./IDeletePageTemplateRepository.js";
+import { PbPageTemplate } from "~/types.js";
+import { ListCache } from "~/features/ListCache.js";
+import { IDeletePageTemplateGateway } from "~/features/pageTemplate/deletePageTemplate/IDeletePageTemplateGateway.js";
 
 export class DeletePageTemplateRepository implements IDeletePageTemplateRepository {
     private cache: ListCache<PbPageTemplate>;

@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import { useFolders } from "@webiny/app-aco";
-import { PageListConfig } from "~/admin/config/pages";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { ActionUnpublish as ActionUnpublishBase } from "~/admin/components/BulkActions";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { ActionUnpublish as ActionUnpublishBase } from "~/admin/components/BulkActions/index.js";
 
 export const SecureActionUnpublish = observer(() => {
     const { canUnpublish } = usePagesPermissions();

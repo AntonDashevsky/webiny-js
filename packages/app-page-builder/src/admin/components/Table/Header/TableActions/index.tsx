@@ -1,1 +1,1 @@
-export * from "./TableActions";
+export * from "./TableActions.js";

@@ -1,11 +1,11 @@
 import * as React from "react";
 import { useMemo } from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { Switch } from "@webiny/ui/Switch";
-import get from "lodash/get";
-import { FormSettingsPluginRenderFunctionType } from "~/types";
-import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import get from "lodash/get.js";
+import { FormSettingsPluginRenderFunctionType } from "~/types.js";
+import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/index.js";
 import { plugins } from "@webiny/plugins";
 
 const TermsOfServiceSettings: FormSettingsPluginRenderFunctionType = ({ Bind, formData }) => {

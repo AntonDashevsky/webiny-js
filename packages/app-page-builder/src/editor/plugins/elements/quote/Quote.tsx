@@ -1,8 +1,8 @@
 import React from "react";
-import { MediumEditorOptions, PbEditorElement } from "~/types";
-import PeQuote from "./PeQuote";
+import { MediumEditorOptions, PbEditorElement } from "~/types.js";
+import PeQuote from "./PeQuote.js";
 
-import { Element } from "@webiny/app-page-builder-elements/types";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
 
 interface QuoteProps {
     element: PbEditorElement;

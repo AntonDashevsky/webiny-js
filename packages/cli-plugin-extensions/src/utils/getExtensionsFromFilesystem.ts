@@ -1,7 +1,7 @@
 import loadJson from "load-json-file";
 import glob from "glob";
 import path from "path";
-import type { PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { PackageJson } from "@webiny/cli-plugin-scaffold/types.js";
 
 export type ExtensionType = "api" | "admin" | "pbElement" | undefined;
 

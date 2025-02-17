@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Typography } from "@webiny/ui/Typography";
-import { InputFieldProvider } from "~/components";
-import { FieldDTOWithElement } from "~/components/AdvancedSearch/domain";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { InputFieldProvider } from "~/components/index.js";
+import { FieldDTOWithElement } from "~/components/AdvancedSearch/domain/index.js";
 
 interface InputFieldProps {
     field?: FieldDTOWithElement;

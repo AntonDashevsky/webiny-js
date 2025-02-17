@@ -1,2 +1,2 @@
-export * from "./FoldersApiProvider";
-export * from "./useFoldersApi";
+export * from "./FoldersApiProvider.js";
+export * from "./useFoldersApi.js";

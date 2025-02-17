@@ -11,7 +11,7 @@ export default async options => {
 
     const { cwd, overrides, production } = options;
 
-    let babelOptions = await import("./babelrc");
+    let babelOptions = await import("./babelrc.js");
     // Customize Babel options.
     if (typeof overrides.babel === "function") {
         babelOptions = overrides.babel(babelOptions);

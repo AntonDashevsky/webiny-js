@@ -1,2 +1,2 @@
-export * from "./createDummyTransport";
-export * from "./createSmtpTransport";
+export * from "./createDummyTransport.js";
+export * from "./createSmtpTransport.js";

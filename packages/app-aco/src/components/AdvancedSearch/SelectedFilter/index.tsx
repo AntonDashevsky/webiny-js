@@ -1,1 +1,1 @@
-export * from "./SelectedFilter";
+export * from "./SelectedFilter.js";

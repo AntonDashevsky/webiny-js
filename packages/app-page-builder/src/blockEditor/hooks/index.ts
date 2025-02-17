@@ -1,3 +1,3 @@
-export { useBlock } from "./useBlock";
-export { useBlockCategories } from "./useBlockCategories";
-export { useElementRendererInputs } from "./useElementRendererInputs";
+export { useBlock } from "./useBlock.js";
+export { useBlockCategories } from "./useBlockCategories.js";
+export { useElementRendererInputs } from "./useElementRendererInputs.js";

@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import get from "lodash/get";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
-import { AdminGlobalSearchPlugin } from "@webiny/app-admin/types";
+import get from "lodash/get.js";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
+import { AdminGlobalSearchPlugin } from "@webiny/app-admin/types.js";
 import { plugins } from "@webiny/plugins";
-import { useQuery } from "~/admin/hooks";
+import { useQuery } from "~/admin/hooks/index.js";
 import {
     LIST_MENU_CONTENT_GROUPS_MODELS,
     ListMenuCmsGroupsQueryResponse
-} from "~/admin/viewsGraphql";
-import { CmsGroup } from "~/types";
+} from "~/admin/viewsGraphql.js";
+import { CmsGroup } from "~/types.js";
 
 /**
  * DISCLAIMER!

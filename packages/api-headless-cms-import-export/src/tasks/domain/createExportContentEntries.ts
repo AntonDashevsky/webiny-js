@@ -1,14 +1,14 @@
 import { createS3Client } from "@webiny/aws-sdk/client-s3";
-import { getBucket } from "~/tasks/utils/helpers/getBucket";
-import { ExportContentEntries } from "~/tasks/domain/exportContentEntries/ExportContentEntries";
-import type { ICreateCmsEntryZipperConfig } from "~/tasks/domain/exportContentEntries/ExportContentEntries";
-import { CmsEntryZipper } from "../utils/cmsEntryZipper";
-import { createUploadFactory } from "~/tasks/utils/upload";
-import { createArchiver } from "~/tasks/utils/archiver";
-import { Zipper } from "~/tasks/utils/zipper";
-import { EntryAssets } from "../utils/entryAssets";
-import { UniqueResolver } from "~/tasks/utils/uniqueResolver/UniqueResolver";
-import { WEBINY_EXPORT_ENTRIES_EXTENSION } from "~/tasks/constants";
+import { getBucket } from "~/tasks/utils/helpers/getBucket.js";
+import { ExportContentEntries } from "~/tasks/domain/exportContentEntries/ExportContentEntries.js";
+import type { ICreateCmsEntryZipperConfig } from "~/tasks/domain/exportContentEntries/ExportContentEntries.js";
+import { CmsEntryZipper } from "../utils/cmsEntryZipper/index.js";
+import { createUploadFactory } from "~/tasks/utils/upload/index.js";
+import { createArchiver } from "~/tasks/utils/archiver/index.js";
+import { Zipper } from "~/tasks/utils/zipper/index.js";
+import { EntryAssets } from "../utils/entryAssets/index.js";
+import { UniqueResolver } from "~/tasks/utils/uniqueResolver/UniqueResolver.js";
+import { WEBINY_EXPORT_ENTRIES_EXTENSION } from "~/tasks/constants.js";
 
 export const createExportContentEntries = () => {
     const client = createS3Client();

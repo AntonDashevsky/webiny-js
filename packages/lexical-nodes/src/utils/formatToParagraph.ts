@@ -1,6 +1,6 @@
 import { $getSelection, $isRangeSelection, LexicalEditor } from "lexical";
 import { $setBlocksType } from "@lexical/selection";
-import { $createParagraphNode } from "~/ParagraphNode";
+import { $createParagraphNode } from "~/ParagraphNode.js";
 
 export const formatToParagraph = (editor: LexicalEditor, typographyStyleId?: string) => {
     editor.update(() => {

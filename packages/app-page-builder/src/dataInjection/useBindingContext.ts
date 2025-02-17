@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { BindingContext } from "./BindingProvider";
+import { BindingContext } from "./BindingProvider.js";
 
 export const useBindingContext = () => {
     const binding = React.useContext(BindingContext);

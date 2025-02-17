@@ -1,10 +1,10 @@
 import DataLoader from "dataloader";
 import { batchReadAll } from "@webiny/db-dynamodb";
-import { Category } from "@webiny/api-page-builder/types";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { createPartitionKey, createSortKey } from "./keys";
-import { DataLoaderInterface } from "~/types";
+import { Category } from "@webiny/api-page-builder/types.js";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { createPartitionKey, createSortKey } from "./keys.js";
+import { DataLoaderInterface } from "~/types.js";
 
 interface Params {
     entity: Entity<any>;

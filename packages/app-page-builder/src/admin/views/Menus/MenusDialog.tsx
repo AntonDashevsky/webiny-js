@@ -8,17 +8,17 @@ import {
     DialogContent,
     DialogActions,
     DialogOnClose
-} from "@webiny/ui/Dialog";
+} from "@webiny/ui/Dialog/index.js";
 import {
     List,
     ListItem,
     ListItemText,
     ListItemTextPrimary,
     ListItemTextSecondary
-} from "@webiny/ui/List";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { LIST_MENUS } from "./graphql";
-import { PbMenu } from "~/types";
+} from "@webiny/ui/List/index.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { LIST_MENUS } from "./graphql.js";
+import { PbMenu } from "~/types.js";
 
 const narrowDialog = css({
     ".mdc-dialog__surface": {

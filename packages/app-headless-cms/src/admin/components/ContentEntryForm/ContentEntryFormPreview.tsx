@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { makeDecoratable } from "@webiny/app-admin";
-import { CmsContentEntry, CmsEditorContentModel } from "~/types";
-import { ModelProvider } from "~/admin/components/ModelProvider";
-import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer";
-import { CustomLayout } from "~/admin/components/ContentEntryForm/CustomLayout";
-import { DefaultLayout } from "~/admin/components/ContentEntryForm/DefaultLayout";
-import { ContentEntryFormProvider } from "./ContentEntryFormProvider";
+import { CmsContentEntry, CmsEditorContentModel } from "~/types.js";
+import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
+import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer.js";
+import { CustomLayout } from "~/admin/components/ContentEntryForm/CustomLayout.js";
+import { DefaultLayout } from "~/admin/components/ContentEntryForm/DefaultLayout.js";
+import { ContentEntryFormProvider } from "./ContentEntryFormProvider.js";
 
 const FormWrapper = styled("div")({
     height: "calc(100vh - 260px)",

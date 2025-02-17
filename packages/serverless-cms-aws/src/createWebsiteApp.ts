@@ -1,5 +1,5 @@
 import type { CreateWebsitePulumiAppParams } from "@webiny/pulumi-aws";
-import type { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types.js";
 
 export interface CreateWebsiteAppParams extends CreateWebsitePulumiAppParams {
     plugins?: PluginCollection;

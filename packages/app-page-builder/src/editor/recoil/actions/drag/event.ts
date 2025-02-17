@@ -1,5 +1,5 @@
-import { DragStartActionArgsType, DragEndActionArgsType } from "./types";
-import { BaseEventAction } from "../../eventActions";
+import { DragStartActionArgsType, DragEndActionArgsType } from "./types.js";
+import { BaseEventAction } from "../../eventActions/index.js";
 
 export class DragStartActionEvent extends BaseEventAction<DragStartActionArgsType> {
     public getName(): string {

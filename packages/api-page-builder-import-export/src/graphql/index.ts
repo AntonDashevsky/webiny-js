@@ -1,6 +1,6 @@
-import crud from "./crud";
-import graphql from "./graphql";
-import { ImportExportPluginsParams } from "~/graphql/types";
-import { createTasks } from "~/tasks";
+import crud from "./crud.js";
+import graphql from "./graphql.js";
+import { ImportExportPluginsParams } from "~/graphql/types.js";
+import { createTasks } from "~/tasks/index.js";
 
 export default (params: ImportExportPluginsParams) => [crud(params), graphql, createTasks()];

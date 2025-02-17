@@ -1,3 +1,3 @@
-export * from "./saveRevisionAction";
-export * from "./toggleSaveRevisionStateAction";
-export * from "./event";
+export * from "./saveRevisionAction.js";
+export * from "./toggleSaveRevisionStateAction.js";
+export * from "./event.js";

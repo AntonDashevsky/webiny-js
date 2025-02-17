@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { Client } from "@elastic/elasticsearch";
-import pick from "lodash/pick";
+import pick from "lodash/pick.js";
 
 export interface GetIndexSettingsParams {
     elasticsearchClient: Client;

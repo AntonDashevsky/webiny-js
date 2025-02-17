@@ -1,24 +1,24 @@
 import React, { useMemo } from "react";
 import { useRecoilValue } from "recoil";
-import get from "lodash/get";
-import set from "lodash/set";
-import merge from "lodash/merge";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types";
-import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
-import { useDisplayMode } from "~/editor/hooks/useDisplayMode";
-import { applyFallbackDisplayMode } from "~/editor/plugins/elementSettings/elementSettingsUtils";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import merge from "lodash/merge.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types.js";
+import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
+import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";
+import { applyFallbackDisplayMode } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
 
 // Components
-import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper";
-import SelectField from "~/editor/plugins/elementSettings/components/SelectField";
-import InputField from "~/editor/plugins/elementSettings/components/InputField";
+import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper.js";
+import SelectField from "~/editor/plugins/elementSettings/components/SelectField.js";
+import InputField from "~/editor/plugins/elementSettings/components/InputField.js";
 import {
     ContentWrapper,
     classes
-} from "~/editor/plugins/elementSettings/components/StyledComponents";
-import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
+} from "~/editor/plugins/elementSettings/components/StyledComponents.js";
+import Accordion from "~/editor/plugins/elementSettings/components/Accordion.js";
 
 const DATA_NAMESPACE = "data.settings.gridSettings";
 

@@ -1,5 +1,5 @@
-import type { GenericRecord } from "@webiny/api/types";
-import type { RequestDto } from "~/dataSources/types";
+import type { GenericRecord } from "@webiny/api/types.js";
+import type { RequestDto } from "~/dataSources/types.js";
 
 export class DataLoaderRequest<TConfig extends GenericRecord = GenericRecord> {
     private readonly type: string;

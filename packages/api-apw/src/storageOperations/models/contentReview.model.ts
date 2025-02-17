@@ -1,7 +1,7 @@
 import { createPrivateModel } from "@webiny/api-headless-cms";
-import { CmsModelField } from "@webiny/api-headless-cms/types";
-import { createModelField } from "./utils";
-import { stepTitleField, stepTypeField, stepIdField, stepReviewersField } from "./workflow.model";
+import { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import { createModelField } from "./utils.js";
+import { stepTitleField, stepTypeField, stepIdField, stepReviewersField } from "./workflow.model.js";
 
 const contentField = (fields: CmsModelField[]) =>
     createModelField({

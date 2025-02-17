@@ -2,10 +2,10 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import { Search } from "@webiny/app-aco";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 
-import { ButtonFilters } from "~/views/Logs/Header/ButtonFilters";
-import { Text } from "~/components/Text";
+import { ButtonFilters } from "~/views/Logs/Header/ButtonFilters/index.js";
+import { Text } from "~/components/Text.js";
 
 const Container = styled("div")`
     padding: 8px 20px 8px 20px;

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect } from "react";
-import { makeDecoratable, useNavigation } from "~/index";
+import { makeDecoratable, useNavigation } from "~/index.js";
 
 export interface MenuUpdater {
     (menuItem: MenuData | undefined | null): MenuData | undefined;

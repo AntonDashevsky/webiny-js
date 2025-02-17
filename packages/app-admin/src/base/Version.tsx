@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { ListItem } from "@webiny/ui/List";
-import { config as appConfig } from "@webiny/app/config";
-import { Typography } from "@webiny/ui/Typography";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { useWcp } from "~/index";
+import { ListItem } from "@webiny/ui/List/index.js";
+import { config as appConfig } from "@webiny/app/config.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { useWcp } from "~/index.js";
 
 export const subFooter = css`
     .mdc-drawer &.mdc-list-item {

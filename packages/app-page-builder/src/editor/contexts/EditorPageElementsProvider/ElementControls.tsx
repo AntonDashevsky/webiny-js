@@ -1,15 +1,15 @@
 import React from "react";
 import { useRenderer } from "@webiny/app-page-builder-elements";
-import { ElementControlsOverlay } from "./ElementControlsOverlay";
-import { ElementControlHorizontalDropZones } from "./ElementControlHorizontalDropZones";
-import { DropElementActionEvent } from "~/editor/recoil/actions";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import Droppable, { DragObjectWithTypeWithTarget } from "~/editor/components/Droppable";
+import { ElementControlsOverlay } from "./ElementControlsOverlay.js";
+import { ElementControlHorizontalDropZones } from "./ElementControlHorizontalDropZones.js";
+import { DropElementActionEvent } from "~/editor/recoil/actions/index.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import Droppable, { DragObjectWithTypeWithTarget } from "~/editor/components/Droppable.js";
 import { useRecoilValue } from "recoil";
-import { uiAtom } from "~/editor/recoil/modules";
-import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin";
+import { uiAtom } from "~/editor/recoil/modules/index.js";
+import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin.js";
 import { makeDecoratable, useSnackbar } from "@webiny/app-admin";
-import { getElementTitle } from "~/editor/contexts/EditorPageElementsProvider/getElementTitle";
+import { getElementTitle } from "~/editor/contexts/EditorPageElementsProvider/getElementTitle.js";
 import styled from "@emotion/styled";
 
 const DisablePointerEvents = styled("pb-eco-interactivity")`

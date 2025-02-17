@@ -1,18 +1,18 @@
 import { useEffect } from "react";
-import { useEventActionHandler } from "@webiny/app-page-builder/editor";
+import { useEventActionHandler } from "@webiny/app-page-builder/editor/index.js";
 import {
     CreateElementActionEvent,
     DeleteElementActionEvent
-} from "@webiny/app-page-builder/editor/recoil/actions";
+} from "@webiny/app-page-builder/editor/recoil/actions/index.js";
 import type {
     DynamicDocument,
     EventActionCallable,
     PbEditorElementTree,
     PbPageTemplate
-} from "@webiny/app-page-builder/types";
-import type { CreateElementEventActionArgsType } from "@webiny/app-page-builder/editor/recoil/actions/createElement/types";
-import type { DeleteElementActionArgsType } from "@webiny/app-page-builder/editor/recoil/actions/deleteElement/types";
-import { ContentTraverser } from "@webiny/app-page-builder/dataInjection";
+} from "@webiny/app-page-builder/types.js";
+import type { CreateElementEventActionArgsType } from "@webiny/app-page-builder/editor/recoil/actions/createElement/types.js";
+import type { DeleteElementActionArgsType } from "@webiny/app-page-builder/editor/recoil/actions/deleteElement/types.js";
+import { ContentTraverser } from "@webiny/app-page-builder/dataInjection/index.js";
 
 const doNothing = {
     actions: []

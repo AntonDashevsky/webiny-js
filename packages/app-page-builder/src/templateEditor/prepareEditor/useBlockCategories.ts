@@ -1,11 +1,11 @@
 import {
     LIST_BLOCK_CATEGORIES,
     ListPageBlocksQueryResponse
-} from "~/admin/views/PageBlocks/graphql";
-import { PbBlockCategory } from "~/types";
-import createBlockCategoryPlugin from "~/admin/utils/createBlockCategoryPlugin";
+} from "~/admin/views/PageBlocks/graphql.js";
+import { PbBlockCategory } from "~/types.js";
+import createBlockCategoryPlugin from "~/admin/utils/createBlockCategoryPlugin.js";
 import { useQuery } from "@apollo/react-hooks";
-import get from "lodash/get";
+import get from "lodash/get.js";
 
 export const useBlockCategories = () => {
     const blockCategories = useQuery<ListPageBlocksQueryResponse>(LIST_BLOCK_CATEGORIES, {

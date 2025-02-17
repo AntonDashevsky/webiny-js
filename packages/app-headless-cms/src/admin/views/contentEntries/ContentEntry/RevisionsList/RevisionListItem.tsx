@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { Date } from "@webiny/ui/DateTime";
+import { Date } from "@webiny/ui/DateTime/index.js";
 import {
     ListItem,
     ListItemText,
@@ -8,11 +8,11 @@ import {
     ListItemTextSecondary,
     ListItemGraphic,
     ListItemMeta
-} from "@webiny/ui/List";
-import { IconButton } from "@webiny/ui/Button";
-import { Icon } from "@webiny/ui/Icon";
-import { MenuItem, Menu, MenuDivider } from "@webiny/ui/Menu";
-import { Tooltip } from "@webiny/ui/Tooltip";
+} from "@webiny/ui/List/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { MenuItem, Menu, MenuDivider } from "@webiny/ui/Menu/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as MoreVerticalIcon } from "~/admin/icons/more_vert.svg";
 import { ReactComponent as LockIcon } from "~/admin/icons/lock.svg";
 import { ReactComponent as BeenHereIcon } from "~/admin/icons/beenhere.svg";
@@ -21,12 +21,12 @@ import { ReactComponent as AddIcon } from "~/admin/icons/add.svg";
 import { ReactComponent as EditIcon } from "~/admin/icons/edit.svg";
 import { ReactComponent as UnpublishIcon } from "~/admin/icons/unpublish.svg";
 import { ReactComponent as DeleteIcon } from "~/admin/icons/delete.svg";
-import { CmsContentEntryRevision } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { useRevision } from "./useRevision";
-import { usePermission } from "~/admin/hooks/usePermission";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
-import { PublishEntryRevisionListItem } from "./PublishEntryRevisionListItem";
+import { CmsContentEntryRevision } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useRevision } from "./useRevision.js";
+import { usePermission } from "~/admin/hooks/usePermission.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
+import { PublishEntryRevisionListItem } from "./PublishEntryRevisionListItem.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/content-details/content-revisions");
 

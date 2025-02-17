@@ -1,6 +1,6 @@
 import React from "react";
 import { Element } from "@webiny/app-page-builder-elements";
-import { convertIconSettings } from "~/backwardsCompatibility/convertIconSettings";
+import { convertIconSettings } from "~/backwardsCompatibility/convertIconSettings.js";
 
 export const ConvertIconSettings = Element.createDecorator(Original => {
     const elementsWithIcons = ["button", "icon"];

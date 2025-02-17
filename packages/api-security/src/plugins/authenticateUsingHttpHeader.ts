@@ -1,8 +1,8 @@
 import { createBeforeHandlerPlugin } from "@webiny/handler";
-import { Context as BaseContext } from "@webiny/handler/types";
-import { authenticateUsingCookie } from "./authenticateUsingCookie";
-import { SecurityContext } from "~/types";
-import { setupSecureHeaders } from "~/plugins/secureHeaders";
+import { Context as BaseContext } from "@webiny/handler/types.js";
+import { authenticateUsingCookie } from "./authenticateUsingCookie.js";
+import { SecurityContext } from "~/types.js";
+import { setupSecureHeaders } from "~/plugins/secureHeaders.js";
 
 type Context = BaseContext & SecurityContext;
 

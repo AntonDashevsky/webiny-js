@@ -8,7 +8,7 @@ import {
     SecurityConfig,
     TenantLink,
     UpdateTenantLinkParams
-} from "~/types";
+} from "~/types.js";
 
 export const createTenantLinksMethods = ({ storageOperations }: SecurityConfig) => {
     return {

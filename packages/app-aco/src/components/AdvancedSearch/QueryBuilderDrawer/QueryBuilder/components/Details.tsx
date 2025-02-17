@@ -1,16 +1,16 @@
 import React from "react";
 
-import { Elevation } from "@webiny/ui/Elevation";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 
-import { OperationSelector } from "./OperationSelector";
+import { OperationSelector } from "./OperationSelector.js";
 
 import {
     CellInner,
     DetailsContainer,
     FilterDetailsDetails,
     FilterDetailsIcon
-} from "../Querybuilder.styled";
+} from "../Querybuilder.styled.js";
 
 export interface DetailsProps {
     name: string;

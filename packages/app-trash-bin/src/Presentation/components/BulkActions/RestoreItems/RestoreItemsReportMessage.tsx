@@ -1,5 +1,5 @@
 import React from "react";
-import { LocationAction } from "./RestoredItems.styled";
+import { LocationAction } from "./RestoredItems.styled.js";
 
 export interface RestoreItemsReportMessageProps {
     onLocationClick: () => void;

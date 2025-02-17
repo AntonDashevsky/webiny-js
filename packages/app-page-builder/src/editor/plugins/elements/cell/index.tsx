@@ -1,19 +1,19 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase";
-import set from "lodash/set";
-import Cell from "./Cell";
+import kebabCase from "lodash/kebabCase.js";
+import set from "lodash/set.js";
+import Cell from "./Cell.js";
 import {
     DisplayMode,
     PbEditorPageElementPlugin,
     PbEditorPageElementSaveActionPlugin,
     PbEditorElement,
     PbEditorElementPluginArgs
-} from "~/types";
-import { Plugin } from "@webiny/plugins/types";
-import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
-import { createElement } from "~/editor/helpers";
+} from "~/types.js";
+import { Plugin } from "@webiny/plugins/types.js";
+import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
+import { createElement } from "~/editor/helpers.js";
 
-import lodashGet from "lodash/get";
+import lodashGet from "lodash/get.js";
 
 const cellPlugin = (args: PbEditorElementPluginArgs = {}): PbEditorPageElementPlugin => {
     const defaultSettings = [

@@ -1,2 +1,2 @@
-export * from "./abstractions/DownloadFileFromUrl";
-export * from "./DownloadFileFromUrl";
+export * from "./abstractions/DownloadFileFromUrl.js";
+export * from "./DownloadFileFromUrl.js";

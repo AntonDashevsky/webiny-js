@@ -1,5 +1,5 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context, IElasticsearchIndexingTaskValues, IElasticsearchTaskConfig } from "~/types";
+import { Context, IElasticsearchIndexingTaskValues, IElasticsearchTaskConfig } from "~/types.js";
 
 export const createElasticsearchReindexingTask = (params?: IElasticsearchTaskConfig) => {
     return createTaskDefinition<Context, IElasticsearchIndexingTaskValues>({
@@ -8,13 +8,13 @@ export const createElasticsearchReindexingTask = (params?: IElasticsearchTaskCon
         run: async ({ context, isCloseToTimeout, response, input, isAborted, store, timer }) => {
             const { Manager } = await import(
                 /* webpackChunkName: "Manager" */
-                "../Manager"
+                "../Manager.js"
             );
             const { IndexManager } = await import(
-                /* webpackChunkName: "IndexManager" */ "~/settings"
+                /* webpackChunkName: "IndexManager" */ "~/settings/index.js"
             );
             const { ReindexingTaskRunner } = await import(
-                /* webpackChunkName: "ReindexingTaskRunner" */ "./ReindexingTaskRunner"
+                /* webpackChunkName: "ReindexingTaskRunner" */ "./ReindexingTaskRunner.js"
             );
 
             const manager = new Manager<IElasticsearchIndexingTaskValues>({

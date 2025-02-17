@@ -1,4 +1,4 @@
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import {
     FileManagerSettings,
@@ -7,7 +7,7 @@ import {
     FileManagerSettingsStorageOperationsUpdateParams,
     FileManagerStorageOperationsDeleteSettings,
     FileManagerStorageOperationsGetSettingsParams
-} from "@webiny/api-file-manager/types";
+} from "@webiny/api-file-manager/types.js";
 import WebinyError from "@webiny/error";
 import { createStandardEntity, createTable, deleteItem, get, put } from "@webiny/db-dynamodb";
 

@@ -7,7 +7,7 @@ import {
     formatToHeading
 } from "@webiny/lexical-nodes";
 import { HeadingTagType } from "@lexical/rich-text";
-import { useRichTextEditor } from "~/hooks";
+import { useRichTextEditor } from "~/hooks/index.js";
 
 export const TypographyPlugin = () => {
     const { editor } = useRichTextEditor();

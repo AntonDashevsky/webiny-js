@@ -1,6 +1,6 @@
-import { CmsModel } from "@webiny/api-headless-cms/types";
-import { PathsParser } from "./converter/PathsParser";
-import { SelectionFormatter } from "./converter/SelectionFormatter";
+import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { PathsParser } from "./converter/PathsParser.js";
+import { SelectionFormatter } from "./converter/SelectionFormatter.js";
 
 export class ModelListQuery {
     getQuery(model: CmsModel, paths: string[]) {

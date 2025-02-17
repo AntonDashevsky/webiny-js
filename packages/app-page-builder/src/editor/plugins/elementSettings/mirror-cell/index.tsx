@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as MirrorIcon } from "~/editor/assets/icons/mirror_cell.svg";
-import MirrorCellAction from "./MirrorCellAction";
-import Action from "../components/Action";
-import { PbEditorPageElementSettingsPlugin } from "~/types";
+import MirrorCellAction from "./MirrorCellAction.js";
+import Action from "../components/Action.js";
+import { PbEditorPageElementSettingsPlugin } from "~/types.js";
 
 export default {
     name: "pb-editor-page-element-settings-mirror-cell",

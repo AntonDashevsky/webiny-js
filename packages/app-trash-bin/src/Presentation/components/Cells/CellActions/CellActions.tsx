@@ -1,8 +1,8 @@
 import React from "react";
 import { useAcoConfig } from "@webiny/app-aco";
 import { OptionsMenu } from "@webiny/app-admin";
-import { TrashBinListConfig } from "~/Presentation/configs";
-import { TrashBinItemProvider } from "~/Presentation/hooks";
+import { TrashBinListConfig } from "~/Presentation/configs/index.js";
+import { TrashBinItemProvider } from "~/Presentation/hooks/index.js";
 
 export const CellActions = () => {
     const { useTableRow } = TrashBinListConfig.Browser.Table.Column;

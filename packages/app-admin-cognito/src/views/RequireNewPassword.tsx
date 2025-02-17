@@ -1,13 +1,13 @@
 import React from "react";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { Input } from "@webiny/ui/Input";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
-import { useRequireNewPassword } from "@webiny/app-cognito-authenticator/hooks/useRequireNewPassword";
-import { View } from "~/components/View";
-import { alignRight, Title } from "~/components/StyledComponents";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useRequireNewPassword } from "@webiny/app-cognito-authenticator/hooks/useRequireNewPassword.js";
+import { View } from "~/components/View.js";
+import { alignRight, Title } from "~/components/StyledComponents.js";
 
 const sentenceCase = (str: string) => {
     const lower = str.toLowerCase();

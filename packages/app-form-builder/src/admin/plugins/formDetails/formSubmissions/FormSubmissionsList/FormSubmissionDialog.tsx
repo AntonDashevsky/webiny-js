@@ -1,15 +1,15 @@
 import React from "react";
 import { css } from "emotion";
 import { parse } from "json2csv";
-import { Typography } from "@webiny/ui/Typography";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { Dialog, DialogContent, DialogTitle, DialogCancel, DialogActions } from "@webiny/ui/Dialog";
-import { i18n } from "@webiny/app/i18n";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { Dialog, DialogContent, DialogTitle, DialogCancel, DialogActions } from "@webiny/ui/Dialog/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useSnackbar } from "@webiny/app-admin";
 import { ReactComponent as ObjectIcon } from "@material-design-icons/svg/outlined/data_object.svg";
 import { ReactComponent as TableIcon } from "@material-design-icons/svg/outlined/table_rows.svg";
-import { FbFormModelField, FbFormSubmissionData } from "~/types";
+import { FbFormModelField, FbFormSubmissionData } from "~/types.js";
 
 const t = i18n.namespace("FormEditor.FormSubmissionDialog");
 

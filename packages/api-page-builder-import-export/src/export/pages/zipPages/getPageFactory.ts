@@ -1,6 +1,6 @@
-import { PbImportExportContext } from "~/graphql/types";
+import { PbImportExportContext } from "~/graphql/types.js";
 import { ITaskManagerStore } from "@webiny/tasks";
-import { IExportPagesZipPagesInput } from "~/export/pages/types";
+import { IExportPagesZipPagesInput } from "~/export/pages/types.js";
 
 export const getPageFactory = (
     context: PbImportExportContext,

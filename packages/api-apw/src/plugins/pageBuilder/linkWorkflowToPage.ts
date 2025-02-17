@@ -1,19 +1,19 @@
-import set from "lodash/set";
+import set from "lodash/set.js";
 import {
     AdvancedPublishingWorkflow,
     ApwOnPageBeforeCreateFromTopicParams,
     ApwOnPageBeforeCreateTopicParams,
     ApwOnPageBeforeUpdateTopicParams,
     ApwWorkflowApplications
-} from "~/types";
+} from "~/types.js";
 import {
     assignWorkflowToPage,
     getPagesDiff,
     hasPages,
     shouldUpdatePages,
     updatePageSettings
-} from "./utils";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
+} from "./utils.js";
+import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
 
 interface LinkWorkflowToPageParams {
     apw: AdvancedPublishingWorkflow;

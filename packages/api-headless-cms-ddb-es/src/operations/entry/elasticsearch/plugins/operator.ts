@@ -1,6 +1,6 @@
 import { PluginsContainer } from "@webiny/plugins";
 import { ElasticsearchQueryBuilderOperatorPlugin } from "@webiny/api-elasticsearch";
-import { ElasticsearchQueryBuilderOperatorPlugins } from "../types";
+import { ElasticsearchQueryBuilderOperatorPlugins } from "../types.js";
 
 interface Params {
     plugins: PluginsContainer;

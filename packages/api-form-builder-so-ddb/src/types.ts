@@ -4,10 +4,10 @@ import {
     FormBuilderSubmissionStorageOperations as BaseFormBuilderSubmissionStorageOperations,
     FormBuilderSettingsStorageOperations as BaseFormBuilderSettingsStorageOperations,
     FormBuilderFormStorageOperations as BaseFormBuilderFormStorageOperations
-} from "@webiny/api-form-builder/types";
+} from "@webiny/api-form-builder/types.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
+import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
 import { Plugin } from "@webiny/plugins";
 
 export type Attributes = Record<string, AttributeDefinition>;

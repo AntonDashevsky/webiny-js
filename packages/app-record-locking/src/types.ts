@@ -1,6 +1,6 @@
-import { EntryTableItem } from "@webiny/app-headless-cms/types";
-import { GenericRecord } from "@webiny/app/types";
-import { IRecordLockingUnlockEntryResult } from "~/domain/abstractions/IRecordLockingUnlockEntry";
+import { EntryTableItem } from "@webiny/app-headless-cms/types.js";
+import { GenericRecord } from "@webiny/app/types.js";
+import { IRecordLockingUnlockEntryResult } from "~/domain/abstractions/IRecordLockingUnlockEntry.js";
 
 export interface IRecordLockingIdentity {
     id: string;

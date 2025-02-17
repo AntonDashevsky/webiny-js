@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useReducer } from "react";
 import { Auth } from "@aws-amplify/auth";
-import { AuthOptions } from "@aws-amplify/auth/lib-esm/types";
-import { CognitoIdToken } from "./types";
+import { AuthOptions } from "@aws-amplify/auth/lib-esm/types/index.js";
+import { CognitoIdToken } from "./types.js";
 
 export type AuthState =
     | "signIn"

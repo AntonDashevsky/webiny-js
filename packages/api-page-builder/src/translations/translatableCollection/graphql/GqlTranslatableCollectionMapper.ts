@@ -1,6 +1,6 @@
-import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection";
-import { GqlTranslatableCollectionDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableCollectionDTO";
-import { GqlTranslatableItemMapper } from "~/translations/translatableCollection/graphql/GqlTranslatableItemMapper";
+import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
+import { GqlTranslatableCollectionDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableCollectionDTO.js";
+import { GqlTranslatableItemMapper } from "~/translations/translatableCollection/graphql/GqlTranslatableItemMapper.js";
 
 export class GqlTranslatableCollectionMapper {
     static toDTO(collection: TranslatableCollection): GqlTranslatableCollectionDTO {

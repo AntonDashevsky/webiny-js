@@ -1,25 +1,25 @@
 import React from "react";
-import { ContentEntryEditorConfig, ContentEntryListConfig } from "~/admin/config/contentEntries";
+import { ContentEntryEditorConfig, ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
 
 import {
     ActionDelete,
     ActionMove,
     ActionPublish,
     ActionUnpublish
-} from "~/admin/components/ContentEntries/BulkActions";
-import { FilterByStatus } from "~/admin/components/ContentEntries/Filters";
+} from "~/admin/components/ContentEntries/BulkActions/index.js";
+import { FilterByStatus } from "~/admin/components/ContentEntries/Filters/index.js";
 import {
     DeleteEntry as DeleteEntryMenuItem,
     SaveAndPublishButton,
     SaveContentButton
-} from "~/admin/components/ContentEntryForm/Header";
+} from "~/admin/components/ContentEntryForm/Header/index.js";
 import { DeleteFolder, EditFolder, SetFolderPermissions } from "@webiny/app-aco";
 import {
     ChangeEntryStatus,
     DeleteEntry,
     EditEntry,
     MoveEntry
-} from "~/admin/components/ContentEntries/Table/Actions";
+} from "~/admin/components/ContentEntries/Table/Actions/index.js";
 import {
     CellActions,
     CellAuthor,
@@ -27,15 +27,15 @@ import {
     CellModified,
     CellName,
     CellStatus
-} from "~/admin/components/ContentEntries/Table/Cells";
-import { Ref } from "~/admin/components/ContentEntries/Filters/RefFieldRenderer";
-import { ShowConfirmationOnDelete } from "~/admin/components/Decorators/ShowConfirmationOnDelete";
-import { ShowConfirmationOnPublish } from "~/admin/components/Decorators/ShowConfirmationOnPublish";
-import { ShowConfirmationOnUnpublish } from "~/admin/components/Decorators/ShowConfirmationOnUnpublish";
-import { ShowConfirmationOnDeleteRevision } from "~/admin/components/Decorators/ShowConfirmationOnDeleteRevision";
-import { FullScreenContentEntry } from "~/admin/views/contentEntries/ContentEntry/FullScreenContentEntry";
-import { ShowRevisionList } from "~/admin/components/ContentEntryForm/Header/ShowRevisionsList";
-import { cmsLegacyEntryEditor } from "~/utils/cmsLegacyEntryEditor";
+} from "~/admin/components/ContentEntries/Table/Cells/index.js";
+import { Ref } from "~/admin/components/ContentEntries/Filters/RefFieldRenderer/index.js";
+import { ShowConfirmationOnDelete } from "~/admin/components/Decorators/ShowConfirmationOnDelete.js";
+import { ShowConfirmationOnPublish } from "~/admin/components/Decorators/ShowConfirmationOnPublish.js";
+import { ShowConfirmationOnUnpublish } from "~/admin/components/Decorators/ShowConfirmationOnUnpublish.js";
+import { ShowConfirmationOnDeleteRevision } from "~/admin/components/Decorators/ShowConfirmationOnDeleteRevision.js";
+import { FullScreenContentEntry } from "~/admin/views/contentEntries/ContentEntry/FullScreenContentEntry/index.js";
+import { ShowRevisionList } from "~/admin/components/ContentEntryForm/Header/ShowRevisionsList/index.js";
+import { cmsLegacyEntryEditor } from "~/utils/cmsLegacyEntryEditor.js";
 
 const { Browser } = ContentEntryListConfig;
 const { Actions } = ContentEntryEditorConfig;

@@ -1,4 +1,4 @@
-import { CmsEntryStorageOperationsGetByIdsParams, CmsModel, CmsStorageEntry } from "~/types";
+import { CmsEntryStorageOperationsGetByIdsParams, CmsModel, CmsStorageEntry } from "~/types/index.js";
 
 export interface IGetEntriesByIds {
     execute: (

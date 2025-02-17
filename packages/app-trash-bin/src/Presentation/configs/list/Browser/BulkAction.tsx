@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import { CallbackParams, useButtons, useDialogWithReport, Worker } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { useTrashBin } from "~/Presentation/hooks";
-import { TrashBinItemDTO } from "~/Domain";
-import { TrashBinBulkActionsParams } from "~/types";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
+import { TrashBinItemDTO } from "~/Domain/index.js";
+import { TrashBinBulkActionsParams } from "~/types.js";
 
 export interface BulkActionConfig {
     name: string;

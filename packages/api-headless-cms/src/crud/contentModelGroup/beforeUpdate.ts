@@ -1,6 +1,6 @@
-import { Topic } from "@webiny/pubsub/types";
-import { OnGroupBeforeUpdateTopicParams } from "~/types";
-import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";
+import { Topic } from "@webiny/pubsub/types.js";
+import { OnGroupBeforeUpdateTopicParams } from "~/types/index.js";
+import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 interface AssignBeforeGroupUpdateParams {

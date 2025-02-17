@@ -1,2 +1,2 @@
-export * from "./Chips";
-export * from "./Chip";
+export * from "./Chips.js";
+export * from "./Chip.js";

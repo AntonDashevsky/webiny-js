@@ -1,17 +1,17 @@
 import type {
     IExportContentEntriesControllerInput,
     IExportContentEntriesControllerOutput
-} from "~/tasks/domain/abstractions/ExportContentEntriesController";
-import { convertTaskToCmsExportRecord } from "~/crud/utils/convertTaskToExportRecord";
+} from "~/tasks/domain/abstractions/ExportContentEntriesController.js";
+import { convertTaskToCmsExportRecord } from "~/crud/utils/convertTaskToExportRecord.js";
 import type { ITasksContextObject } from "@webiny/tasks";
 import type {
     IGetExportContentEntriesUseCase,
     IGetExportContentEntriesUseCaseExecuteParams,
     IGetExportContentEntriesUseCaseExecuteResponse
-} from "./abstractions/GetExportContentEntriesUseCase";
-import { EXPORT_CONTENT_ENTRIES_CONTROLLER_TASK } from "~/tasks/constants";
-import type { IUrlSigner } from "~/tasks/utils/urlSigner";
-import { prependExportPath } from "~/tasks/utils/helpers/exportPath";
+} from "./abstractions/GetExportContentEntriesUseCase.js";
+import { EXPORT_CONTENT_ENTRIES_CONTROLLER_TASK } from "~/tasks/constants.js";
+import type { IUrlSigner } from "~/tasks/utils/urlSigner/index.js";
+import { prependExportPath } from "~/tasks/utils/helpers/exportPath.js";
 
 export interface IGetExportContentEntriesUseCaseParams {
     getTask: ITasksContextObject["getTask"];

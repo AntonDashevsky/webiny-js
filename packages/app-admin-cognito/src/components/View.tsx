@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Logo, makeDecoratable } from "@webiny/app-admin";
-import * as Styled from "./StyledComponents";
-import { Elevation } from "@webiny/ui/Elevation";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
+import * as Styled from "./StyledComponents.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 export interface ContainerProps {
     children: React.ReactNode;

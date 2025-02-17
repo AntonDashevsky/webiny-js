@@ -5,11 +5,11 @@ import { ReactComponent as FolderShared } from "@material-design-icons/svg/outli
 import { ReactComponent as Image } from "@material-design-icons/svg/outlined/insert_photo.svg";
 import { ReactComponent as File } from "@material-design-icons/svg/outlined/description.svg";
 
-import { RowIcon, RowText, RowTitle } from "./Cells.styled";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { FileTableItem } from "~/types";
-import { FolderTableItem } from "@webiny/app-aco/types";
+import { RowIcon, RowText, RowTitle } from "./Cells.styled.js";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { FileTableItem } from "~/types.js";
+import { FolderTableItem } from "@webiny/app-aco/types.js";
 
 interface DefaultProps {
     onClick: (id: string) => void;

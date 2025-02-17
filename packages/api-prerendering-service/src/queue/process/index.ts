@@ -1,7 +1,7 @@
 import hash from "object-hash";
-import chunk from "lodash/chunk";
+import chunk from "lodash/chunk.js";
 import pluralize from "pluralize";
-import { FlushJob, RenderJob, QueueJob, PrerenderingServiceStorageOperations } from "~/types";
+import { FlushJob, RenderJob, QueueJob, PrerenderingServiceStorageOperations } from "~/types.js";
 import { EventPlugin } from "@webiny/handler";
 
 const IS_TEST = process.env.NODE_ENV === "test";

@@ -1,12 +1,12 @@
 import React from "react";
 
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button";
-import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { Empty, FilterList } from "./components";
+import { Empty, FilterList } from "./components/index.js";
 
-import { DialogContainer } from "./QueryManagerDialog.styled";
+import { DialogContainer } from "./QueryManagerDialog.styled.js";
 
 type filterCallback = (filterId: string) => void;
 

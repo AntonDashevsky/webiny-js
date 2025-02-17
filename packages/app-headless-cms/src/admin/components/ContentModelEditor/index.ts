@@ -1,2 +1,2 @@
-export * from "./ContentModelEditorProvider";
-export * from "./useModelEditor";
+export * from "./ContentModelEditorProvider.js";
+export * from "./useModelEditor.js";

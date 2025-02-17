@@ -1,8 +1,8 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context } from "~/types";
-import { IMockDataManagerInput, IMockDataManagerOutput } from "~/tasks/MockDataManager/types";
-import { CARS_MODEL_ID } from "~/tasks/MockDataManager/constants";
-import { enableIndexing } from "~/utils";
+import { Context } from "~/types.js";
+import { IMockDataManagerInput, IMockDataManagerOutput } from "~/tasks/MockDataManager/types.js";
+import { CARS_MODEL_ID } from "~/tasks/MockDataManager/constants.js";
+import { enableIndexing } from "~/utils/index.js";
 
 export const MOCK_DATA_MANAGER_TASK_ID = "mockDataManager";
 
@@ -13,7 +13,7 @@ export const createMockDataManagerTask = () => {
         maxIterations: 500,
         async run(params) {
             const { MockDataManager } = await import(
-                /* webpackChunkName: "MockDataManager" */ "./MockDataManager/MockDataManager"
+                /* webpackChunkName: "MockDataManager" */ "./MockDataManager/MockDataManager.js"
             );
 
             const carsMock = new MockDataManager<

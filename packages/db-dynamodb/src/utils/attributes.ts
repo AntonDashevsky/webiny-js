@@ -1,5 +1,5 @@
-import { Context } from "@webiny/api/types";
-import { AttributePlugin } from "~/plugins/definitions/AttributePlugin";
+import { Context } from "@webiny/api/types.js";
+import { AttributePlugin } from "~/plugins/definitions/AttributePlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 /**

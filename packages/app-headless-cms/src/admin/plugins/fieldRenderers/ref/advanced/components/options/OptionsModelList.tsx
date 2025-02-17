@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { CmsModel } from "~/types";
-import { Elevation } from "@webiny/ui/Elevation";
-import { OptionsModelListItem } from "./OptionsModelListItem";
+import { CmsModel } from "~/types.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { OptionsModelListItem } from "./OptionsModelListItem.js";
 import { ReactComponent as DownIcon } from "../assets/down-arrow.svg";
 
 const Container = styled("span")({

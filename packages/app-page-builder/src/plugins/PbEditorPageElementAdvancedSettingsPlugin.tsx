@@ -1,5 +1,5 @@
-import type { PbEditorPageElementAdvancedSettingsPlugin as BasePbEditorPageElementAdvancedSettingsPlugin } from "~/types";
-import { useRegisterLegacyPlugin } from "@webiny/app/hooks/useRegisterLegacyPlugin";
+import type { PbEditorPageElementAdvancedSettingsPlugin as BasePbEditorPageElementAdvancedSettingsPlugin } from "~/types.js";
+import { useRegisterLegacyPlugin } from "@webiny/app/hooks/useRegisterLegacyPlugin.js";
 
 export interface PbEditorPageElementAdvancedSettingsPluginParams
     extends Pick<BasePbEditorPageElementAdvancedSettingsPlugin, "elementType" | "onSave"> {

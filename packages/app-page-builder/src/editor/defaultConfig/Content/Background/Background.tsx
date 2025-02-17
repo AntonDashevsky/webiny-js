@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { css } from "emotion";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
 
 const backgroundStyle = css`
     position: fixed;

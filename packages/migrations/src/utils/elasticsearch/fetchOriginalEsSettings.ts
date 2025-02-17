@@ -1,4 +1,4 @@
-import { esGetIndexSettings } from "~/utils";
+import { esGetIndexSettings } from "~/utils/index.js";
 import { Logger } from "@webiny/data-migration";
 import { Client } from "@elastic/elasticsearch";
 

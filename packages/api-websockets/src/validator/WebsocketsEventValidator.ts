@@ -3,11 +3,11 @@ import {
     IWebsocketsEvent,
     IWebsocketsEventData,
     WebsocketsEventRequestContextEventType
-} from "~/handler/types";
+} from "~/handler/types.js";
 import {
     IWebsocketsEventValidator,
     IWebsocketsEventValidatorValidateParams
-} from "./abstractions/IWebsocketsEventValidator";
+} from "./abstractions/IWebsocketsEventValidator.js";
 import { createZodError } from "@webiny/utils";
 
 const validation = zod

@@ -1,1 +1,1 @@
-export { default as DynamicFieldset } from "./Fieldset";
+export { default as DynamicFieldset } from "./Fieldset.js";

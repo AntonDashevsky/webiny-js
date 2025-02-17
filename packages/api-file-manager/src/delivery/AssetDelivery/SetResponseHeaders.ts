@@ -4,8 +4,8 @@ import {
     AssetReply,
     AssetRequest,
     AssetOutputStrategyDecoratorParams
-} from "~/delivery";
-import { FileManagerContext } from "~/types";
+} from "~/delivery/index.js";
+import { FileManagerContext } from "~/types.js";
 import { ResponseHeaders } from "@webiny/handler";
 
 export interface ResponseHeadersParams {

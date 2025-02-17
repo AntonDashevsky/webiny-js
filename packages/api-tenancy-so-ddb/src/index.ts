@@ -5,14 +5,14 @@ import {
     getClean,
     put
 } from "@webiny/db-dynamodb";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
 import WebinyError from "@webiny/error";
-import { createTable } from "~/definitions/table";
-import { createTenantEntity } from "~/definitions/tenantEntity";
-import { createSystemEntity } from "~/definitions/systemEntity";
-import { createDomainEntity } from "~/definitions/domainEntity";
-import { CreateTenancyStorageOperations, ENTITIES } from "~/types";
-import type { ListTenantsParams, System, Tenant, TenantDomain } from "@webiny/api-tenancy/types";
+import { createTable } from "~/definitions/table.js";
+import { createTenantEntity } from "~/definitions/tenantEntity.js";
+import { createSystemEntity } from "~/definitions/systemEntity.js";
+import { createDomainEntity } from "~/definitions/domainEntity.js";
+import { CreateTenancyStorageOperations, ENTITIES } from "~/types.js";
+import type { ListTenantsParams, System, Tenant, TenantDomain } from "@webiny/api-tenancy/types.js";
 
 interface TenantDomainRecord {
     PK: string;

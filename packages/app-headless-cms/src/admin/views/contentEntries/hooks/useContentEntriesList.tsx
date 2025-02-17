@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import debounce from "lodash/debounce";
-import omit from "lodash/omit";
+import debounce from "lodash/debounce.js";
+import omit from "lodash/omit.js";
 import { useRouter } from "@webiny/react-router";
 import { makeDecoratable } from "@webiny/react-composition";
-import { useContentEntries } from "./useContentEntries";
-import { CmsContentEntry, EntryTableItem, TableItem } from "~/types";
-import { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
+import { useContentEntries } from "./useContentEntries.js";
+import { CmsContentEntry, EntryTableItem, TableItem } from "~/types.js";
+import { OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
 import {
     createFoldersData,
     createRecordsData,
@@ -13,8 +13,8 @@ import {
     useAcoList,
     useNavigateFolder
 } from "@webiny/app-aco";
-import { CMS_ENTRY_LIST_LINK, ROOT_FOLDER } from "~/admin/constants";
-import { FolderTableItem, ListMeta } from "@webiny/app-aco/types";
+import { CMS_ENTRY_LIST_LINK, ROOT_FOLDER } from "~/admin/constants.js";
+import { FolderTableItem, ListMeta } from "@webiny/app-aco/types.js";
 
 interface UpdateSearchCallableParams {
     search: string;

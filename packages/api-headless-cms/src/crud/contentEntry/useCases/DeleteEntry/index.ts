@@ -1,23 +1,23 @@
-import { DeleteEntry } from "./DeleteEntry";
-import { DeleteEntryOperation } from "./DeleteEntryOperation";
-import { DeleteEntryOperationWithEvents } from "./DeleteEntryOperationWithEvents";
-import { DeleteEntrySecure } from "./DeleteEntrySecure";
-import { MoveEntryToBin } from "./MoveEntryToBin";
-import { MoveEntryToBinOperation } from "./MoveEntryToBinOperation";
-import { MoveEntryToBinOperationWithEvents } from "./MoveEntryToBinOperationWithEvents";
-import { TransformEntryDelete } from "./TransformEntryDelete";
-import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin";
-import { Topic } from "@webiny/pubsub/types";
+import { DeleteEntry } from "./DeleteEntry.js";
+import { DeleteEntryOperation } from "./DeleteEntryOperation.js";
+import { DeleteEntryOperationWithEvents } from "./DeleteEntryOperationWithEvents.js";
+import { DeleteEntrySecure } from "./DeleteEntrySecure.js";
+import { MoveEntryToBin } from "./MoveEntryToBin.js";
+import { MoveEntryToBinOperation } from "./MoveEntryToBinOperation.js";
+import { MoveEntryToBinOperationWithEvents } from "./MoveEntryToBinOperationWithEvents.js";
+import { TransformEntryDelete } from "./TransformEntryDelete.js";
+import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin.js";
+import { Topic } from "@webiny/pubsub/types.js";
 import {
     CmsContext,
     CmsEntryStorageOperations,
     OnEntryAfterDeleteTopicParams,
     OnEntryBeforeDeleteTopicParams,
     OnEntryDeleteErrorTopicParams
-} from "~/types";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions";
+} from "~/types/index.js";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions/index.js";
 
 export interface DeleteEntryUseCasesTopics {
     onEntryBeforeDelete: Topic<OnEntryBeforeDeleteTopicParams>;

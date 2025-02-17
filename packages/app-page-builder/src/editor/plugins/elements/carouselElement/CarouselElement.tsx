@@ -1,8 +1,8 @@
 import React from "react";
-import { PbEditorElement } from "~/types";
+import { PbEditorElement } from "~/types.js";
 
-import PeCarouselElement from "./PeCarouselElement";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import PeCarouselElement from "./PeCarouselElement.js";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
 
 interface CarouselElementProps {
     element: PbEditorElement;

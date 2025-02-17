@@ -1,1 +1,1 @@
-export { createEmbedPlugin, createEmbedSettingsPlugin } from "./createEmbedPlugin";
+export { createEmbedPlugin, createEmbedSettingsPlugin } from "./createEmbedPlugin.js";

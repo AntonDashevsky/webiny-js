@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useRecoilCallback } from "recoil";
-import { blockByElementSelector } from "~/editor/hooks/useCurrentBlockElement";
+import { blockByElementSelector } from "~/editor/hooks/useCurrentBlockElement.js";
 
 /**
  * Exposes a getter which traverses the element tree upwards from the given element id, and returns an element

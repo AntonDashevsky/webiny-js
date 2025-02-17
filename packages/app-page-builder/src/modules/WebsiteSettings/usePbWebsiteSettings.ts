@@ -1,19 +1,19 @@
 import { useCallback, useState, useEffect, useMemo } from "react";
-import get from "lodash/get";
-import set from "lodash/set";
-import debounce from "lodash/debounce";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import debounce from "lodash/debounce.js";
 import { useLazyQuery, useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin";
-import { sendEvent } from "@webiny/telemetry/react";
+import { sendEvent } from "@webiny/telemetry/react.js";
 import {
     GetSettingsQueryResponse,
     GetSettingsResponseData,
     UpdateSettingsMutationResponse,
     UpdateSettingsMutationVariables
-} from "./graphql";
-import { PbErrorResponse } from "~/types";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
-import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig";
+} from "./graphql.js";
+import { PbErrorResponse } from "~/types.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
+import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig.js";
 
 interface PageBuilderWebsiteSettings {
     id?: string;

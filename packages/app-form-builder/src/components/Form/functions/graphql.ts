@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { FbErrorResponse } from "~/types";
+import { FbErrorResponse } from "~/types.js";
 
 /**
  * ########################

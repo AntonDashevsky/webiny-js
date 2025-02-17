@@ -2,7 +2,7 @@ import {
     CmsEntryStorageOperationsGetPreviousRevisionParams,
     CmsModel,
     CmsStorageEntry
-} from "~/types";
+} from "~/types/index.js";
 
 export interface IGetPreviousRevisionByEntryId {
     execute: (

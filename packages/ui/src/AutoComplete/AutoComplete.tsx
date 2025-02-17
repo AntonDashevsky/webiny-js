@@ -1,14 +1,14 @@
 import React from "react";
 import Downshift, { ControllerStateAndHelpers, PropGetters } from "downshift";
-import { Input } from "~/Input";
+import { Input } from "~/Input/index.js";
 import classNames from "classnames";
-import { Elevation } from "~/Elevation";
-import { Typography } from "~/Typography";
+import { Elevation } from "~/Elevation/index.js";
+import { Typography } from "~/Typography/index.js";
 import keycode from "keycode";
-import { autoCompleteStyle, suggestionList } from "./styles";
-import { AutoCompleteBaseProps } from "./types";
-import { getOptionValue, getOptionText, findInAliases } from "./utils";
-import isEqual from "lodash/isEqual";
+import { autoCompleteStyle, suggestionList } from "./styles.js";
+import { AutoCompleteBaseProps } from "./types.js";
+import { getOptionValue, getOptionText, findInAliases } from "./utils.js";
+import isEqual from "lodash/isEqual.js";
 import MaterialSpinner from "react-spinner-material";
 import { css } from "emotion";
 

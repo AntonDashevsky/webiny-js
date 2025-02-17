@@ -1,1 +1,1 @@
-export * from "./RestoreItem";
+export * from "./RestoreItem.js";

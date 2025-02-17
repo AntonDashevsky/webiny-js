@@ -1,3 +1,3 @@
-export * from "./getElasticsearchEntity";
-export * from "./getElasticsearchEntityType";
-export * from "./getTable";
+export * from "./getElasticsearchEntity.js";
+export * from "./getElasticsearchEntityType.js";
+export * from "./getTable.js";

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Compose, Decorator, makeDecoratable } from "@webiny/react-composition";
-import { GenericComponent } from "@webiny/react-composition/types";
-import { Property, Properties, toObject } from "~/index";
-import { useDebugConfig } from "./useDebugConfig";
+import { GenericComponent } from "@webiny/react-composition/types.js";
+import { Property, Properties, toObject } from "~/index.js";
+import { useDebugConfig } from "./useDebugConfig.js";
 
 const createHOC =
     (newChildren: React.ReactNode): Decorator<GenericComponent<{ children?: React.ReactNode }>> =>

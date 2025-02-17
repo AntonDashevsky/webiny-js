@@ -1,14 +1,14 @@
 import React from "react";
 import dotPropImmutable from "dot-prop-immutable";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
 import {
     DELETE_CONTENT_REVIEW_MUTATION,
     DeleteApwContentReviewMutationVariables,
     DeleteApwContentReviewMutationResponse
-} from "~/graphql/contentReview.gql";
-import { ApwContentTypes } from "~/types";
-import { IS_REVIEW_REQUIRED_QUERY } from "../graphql";
+} from "~/graphql/contentReview.gql.js";
+import { ApwContentTypes } from "~/types.js";
+import { IS_REVIEW_REQUIRED_QUERY } from "../graphql.js";
 import { ContentEntryEditorConfig } from "@webiny/app-headless-cms";
 import { FetchResult } from "apollo-link";
 import { useApolloClient } from "@apollo/react-hooks";

@@ -3,17 +3,17 @@ import {
     ITaskServiceCreatePluginParams,
     ITaskServiceTask,
     TaskServicePlugin
-} from "~/plugins";
+} from "~/plugins/index.js";
 import {
     createStepFunctionClient,
     DescribeExecutionCommandOutput,
     describeExecutionFactory,
     triggerStepFunctionFactory
 } from "@webiny/aws-sdk/client-sfn";
-import { ITaskEventInput } from "~/handler/types";
+import { ITaskEventInput } from "~/handler/types.js";
 import { generateAlphaNumericId } from "@webiny/utils";
 import { ServiceDiscovery } from "@webiny/api";
-import { ITask } from "~/types";
+import { ITask } from "~/types.js";
 
 export type IStepFunctionServiceFetchResult = DescribeExecutionCommandOutput;
 

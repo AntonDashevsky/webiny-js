@@ -1,6 +1,6 @@
 import React from "react";
 import NukaCarousel, { CarouselProps, CarouselRenderControl } from "nuka-carousel";
-import pick from "lodash/pick";
+import pick from "lodash/pick.js";
 
 interface Props extends CarouselProps {
     // slides as set of HTMLElements

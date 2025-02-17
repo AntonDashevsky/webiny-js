@@ -1,7 +1,7 @@
-import { UIElement } from "@webiny/app-admin/ui/UIElement";
-import { FormView } from "@webiny/app-admin/ui/views/FormView";
-import { PageSettingsView } from "../PageSettingsView";
-import { UsePageSettings } from "~/pageEditor/hooks/usePageSettings";
+import { UIElement } from "@webiny/app-admin/ui/UIElement.js";
+import { FormView } from "@webiny/app-admin/ui/views/FormView.js";
+import { PageSettingsView } from "../PageSettingsView.js";
+import { UsePageSettings } from "~/pageEditor/hooks/usePageSettings.js";
 
 export class PageSettingsFormView extends FormView {
     constructor(id: string) {

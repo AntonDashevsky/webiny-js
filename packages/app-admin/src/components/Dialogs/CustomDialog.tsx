@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Form, FormOnSubmit, GenericFormData, useForm } from "@webiny/form";
-import { DialogContainer } from "./styled";
+import { DialogContainer } from "./styled.js";
 
 interface DialogProps {
     onSubmit: (data: GenericFormData) => void;

@@ -3,9 +3,9 @@ import type {
     CmsModelAst,
     CmsModelField,
     HeadlessCms
-} from "@webiny/api-headless-cms/types";
-import type { IExportedCmsModel } from "~/tasks/domain/abstractions/ExportContentEntriesController";
-import { ModelFieldTraverser } from "@webiny/api-headless-cms/utils";
+} from "@webiny/api-headless-cms/types/index.js";
+import type { IExportedCmsModel } from "~/tasks/domain/abstractions/ExportContentEntriesController.js";
+import { ModelFieldTraverser } from "@webiny/api-headless-cms/utils/index.js";
 import { WebinyError } from "@webiny/error";
 
 export interface IMakeSureModelsAreIdenticalParams {

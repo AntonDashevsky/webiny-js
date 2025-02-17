@@ -2,8 +2,8 @@
  * In this file we create a plugin which in turn creates a content entry url when requested by the code which sends notifications.
  * Due to multiple content types for the APW, everything needs to be pluginable.
  */
-import { createApwContentUrlPlugin } from "~/ApwContentUrlPlugin";
-import { ApwContentTypes } from "~/types";
+import { createApwContentUrlPlugin } from "~/ApwContentUrlPlugin.js";
+import { ApwContentTypes } from "~/types.js";
 
 interface CreatePageUrlParams {
     baseUrl?: string;

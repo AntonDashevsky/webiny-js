@@ -2,15 +2,15 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin";
 import { GenericFormData, useBind } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 
-import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete";
-import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection";
-import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql";
+import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete.js";
+import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection.js";
+import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql.js";
 
 import { useDialogs } from "@webiny/app-admin";
-import { useFolders } from "~/hooks";
-import { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import { useFolders } from "~/hooks/index.js";
+import { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
 
 interface ShowDialogParams {
     folder: FolderItem;

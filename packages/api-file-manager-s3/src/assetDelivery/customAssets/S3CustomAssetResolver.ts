@@ -1,9 +1,9 @@
 import path from "path";
 import { S3 } from "@webiny/aws-sdk/client-s3";
 import { Asset, AssetRequest, AssetResolver } from "@webiny/api-file-manager";
-import { S3AssetMetadataReader } from "~/assetDelivery/s3/S3AssetMetadataReader";
-import { S3ContentsReader } from "~/assetDelivery/s3/S3ContentsReader";
-import { CustomAsset } from "./CustomAsset";
+import { S3AssetMetadataReader } from "~/assetDelivery/s3/S3AssetMetadataReader.js";
+import { S3ContentsReader } from "~/assetDelivery/s3/S3ContentsReader.js";
+import { CustomAsset } from "./CustomAsset.js";
 
 /**
  * This asset resolver kicks in only if the default resolution fails to resolve an asset.

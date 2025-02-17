@@ -1,6 +1,6 @@
-import RevisionSelector from "./RevisionSelector";
-import PublishRevision from "./PublishRevision";
-import EditRevision from "./EditRevision";
-import DeleteForm from "./DeleteForm";
+import RevisionSelector from "./RevisionSelector.js";
+import PublishRevision from "./PublishRevision.js";
+import EditRevision from "./EditRevision.js";
+import DeleteForm from "./DeleteForm.js";
 
 export { RevisionSelector, EditRevision, PublishRevision, DeleteForm };

@@ -1,1 +1,1 @@
-export * from "./CodeHighlightPlugin";
+export * from "./CodeHighlightPlugin.js";

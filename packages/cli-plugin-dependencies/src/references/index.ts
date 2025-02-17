@@ -1,6 +1,6 @@
 import path from "path";
-import type { CliContext } from "@webiny/cli/types";
-import type { IDependencyTree } from "~/types";
+import type { CliContext } from "@webiny/cli/types.js";
+import type { IDependencyTree } from "~/types.js";
 import { ListAllPackages } from "~/references/ListAllPackages.js";
 import { ListAllPackageJsonFiles } from "./ListAllPackageJsonFiles.js";
 import { BuildDependencyTree } from "./BuildDependencyTree.js";

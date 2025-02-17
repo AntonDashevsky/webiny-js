@@ -3,16 +3,16 @@ import { css } from "emotion";
 import { useRouter } from "@webiny/react-router";
 import { useMutation } from "@apollo/react-hooks";
 import { Form } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
+import { Input } from "@webiny/ui/Input/index.js";
 import {
     CREATE_FORM,
     CreateFormMutationResponse,
     CreateFormMutationVariables
-} from "../../graphql";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CircularProgress } from "@webiny/ui/Progress";
+} from "../../graphql.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 const t = i18n.namespace("Forms.NewFormDialog");
 
 import {
@@ -21,9 +21,9 @@ import {
     DialogContent,
     DialogActions,
     DialogOnClose
-} from "@webiny/ui/Dialog";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { addFormToListCache } from "../cache";
+} from "@webiny/ui/Dialog/index.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { addFormToListCache } from "../cache.js";
 
 const narrowDialog = css({
     ".mdc-dialog__surface": {

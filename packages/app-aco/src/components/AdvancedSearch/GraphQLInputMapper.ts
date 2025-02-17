@@ -1,5 +1,5 @@
-import get from "lodash/get";
-import { FilterDTO } from "~/components/AdvancedSearch/domain";
+import get from "lodash/get.js";
+import { FilterDTO } from "~/components/AdvancedSearch/domain/index.js";
 
 interface NestedObject {
     [key: string]: string | boolean | NestedObject;

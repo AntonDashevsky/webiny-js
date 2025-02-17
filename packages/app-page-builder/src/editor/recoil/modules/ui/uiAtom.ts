@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { DisplayMode } from "~/types";
+import { DisplayMode } from "~/types.js";
 
 export interface PagePreviewDimension {
     width: number;

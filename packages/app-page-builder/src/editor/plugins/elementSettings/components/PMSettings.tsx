@@ -1,11 +1,11 @@
 import React, { useMemo, useState } from "react";
-import SliderWithInput from "./SliderWithInput";
-import Footer from "./Footer";
-import { useEventActionHandler } from "../../../hooks/useEventActionHandler";
-import { UpdateElementActionEvent } from "../../../recoil/actions";
-import { activeElementAtom, elementWithChildrenByIdSelector } from "../../../recoil/modules";
-import { Tabs, Tab } from "@webiny/ui/Tabs";
-import get from "lodash/get";
+import SliderWithInput from "./SliderWithInput.js";
+import Footer from "./Footer.js";
+import { useEventActionHandler } from "../../../hooks/useEventActionHandler.js";
+import { UpdateElementActionEvent } from "../../../recoil/actions/index.js";
+import { activeElementAtom, elementWithChildrenByIdSelector } from "../../../recoil/modules/index.js";
+import { Tabs, Tab } from "@webiny/ui/Tabs/index.js";
+import get from "lodash/get.js";
 import { set, merge } from "dot-prop-immutable";
 import { ReactComponent as BorderOuterIcon } from "../../../assets/icons/border_outer.svg";
 import { ReactComponent as BorderLeftIcon } from "../../../assets/icons/border_left.svg";

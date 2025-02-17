@@ -1,2 +1,2 @@
-export * from "./IRestoreItemUseCase";
-export * from "./RestoreItemUseCase";
+export * from "./IRestoreItemUseCase.js";
+export * from "./RestoreItemUseCase.js";

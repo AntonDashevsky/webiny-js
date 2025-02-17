@@ -7,16 +7,16 @@ import {
     DialogActions,
     DialogCancel,
     DialogOnClose
-} from "@webiny/ui/Dialog";
+} from "@webiny/ui/Dialog/index.js";
 import { validation } from "@webiny/validation";
-import { Input } from "@webiny/ui/Input";
-import { Select } from "@webiny/ui/Select";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Form, FormOnSubmit } from "@webiny/form";
 import styled from "@emotion/styled";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { PbEditorBlockCategoryPlugin, PbEditorBlockPlugin } from "~/types";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { PbEditorBlockCategoryPlugin, PbEditorBlockPlugin } from "~/types.js";
 
 const StyledDialog = styled(Dialog)`
     // We need to have this z-index because without it Edit Block Dialog will be rendered below All Blocks Component.

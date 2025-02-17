@@ -1,10 +1,10 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types";
-import { createSystemFields } from "./systemFields";
-import { Field, FieldParent } from "./types";
+import { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import { createSystemFields } from "./systemFields.js";
+import { Field, FieldParent } from "./types.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { CmsFieldFilterValueTransformPlugin } from "~/types";
-import { CmsEntryFieldFilterPathPlugin } from "~/plugins";
-import { getMappedPlugins } from "./mapPlugins";
+import { CmsFieldFilterValueTransformPlugin } from "~/types.js";
+import { CmsEntryFieldFilterPathPlugin } from "~/plugins/index.js";
+import { getMappedPlugins } from "./mapPlugins.js";
 
 interface Params {
     fields: CmsModelField[];

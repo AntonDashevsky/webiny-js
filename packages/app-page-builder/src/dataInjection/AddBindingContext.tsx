@@ -1,7 +1,7 @@
 import React from "react";
 import { Element } from "@webiny/app-page-builder-elements";
-import { BindingProvider } from "./BindingProvider";
-import { useDynamicDocument } from "./useDynamicDocument";
+import { BindingProvider } from "./BindingProvider.js";
+import { useDynamicDocument } from "./useDynamicDocument.js";
 
 // TODO: find a better way to manage this!
 const addPrefixForTypes = ["grid", "repeater"];

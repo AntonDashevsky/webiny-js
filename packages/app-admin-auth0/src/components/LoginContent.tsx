@@ -1,9 +1,9 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-serverless-cms";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { alignCenter, Title } from "~/components/StyledComponents";
-import { Typography } from "@webiny/ui/Typography";
-import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { alignCenter, Title } from "~/components/StyledComponents.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { ReactComponent as Auth0Icon } from "~/assets/icons/auth0-icon.svg";
 import { useAuth0 } from "@auth0/auth0-react";
 

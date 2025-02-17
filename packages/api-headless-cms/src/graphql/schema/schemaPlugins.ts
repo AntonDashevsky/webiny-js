@@ -1,19 +1,19 @@
-import type { ApiEndpoint, CmsContext, CmsModel } from "~/types";
-import { createManageSDL } from "./createManageSDL";
-import { createReadSDL } from "./createReadSDL";
-import { createManageResolvers } from "./createManageResolvers";
-import { createReadResolvers } from "./createReadResolvers";
-import { createPreviewResolvers } from "./createPreviewResolvers";
-import { createGraphQLSchemaPluginFromFieldPlugins } from "~/utils/getSchemaFromFieldPlugins";
+import type { ApiEndpoint, CmsContext, CmsModel } from "~/types/index.js";
+import { createManageSDL } from "./createManageSDL.js";
+import { createReadSDL } from "./createReadSDL.js";
+import { createManageResolvers } from "./createManageResolvers.js";
+import { createReadResolvers } from "./createReadResolvers.js";
+import { createPreviewResolvers } from "./createPreviewResolvers.js";
+import { createGraphQLSchemaPluginFromFieldPlugins } from "~/utils/getSchemaFromFieldPlugins.js";
 import {
     CmsGraphQLSchemaSorterPlugin,
     createCmsGraphQLSchemaPlugin,
     ICmsGraphQLSchemaPlugin
-} from "~/plugins";
-import { createFieldTypePluginRecords } from "./createFieldTypePluginRecords";
-import { CMS_MODEL_SINGLETON_TAG } from "~/constants";
-import { createSingularSDL } from "./createSingularSDL";
-import { createSingularResolvers } from "./createSingularResolvers";
+} from "~/plugins/index.js";
+import { createFieldTypePluginRecords } from "./createFieldTypePluginRecords.js";
+import { CMS_MODEL_SINGLETON_TAG } from "~/constants.js";
+import { createSingularSDL } from "./createSingularSDL.js";
+import { createSingularResolvers } from "./createSingularResolvers.js";
 
 interface GenerateSchemaPluginsParams {
     context: CmsContext;

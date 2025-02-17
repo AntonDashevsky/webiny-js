@@ -2,13 +2,13 @@ import React, { Fragment } from "react";
 import { HasPermission } from "@webiny/app-security";
 
 import { AddRoute, Layout } from "@webiny/app-admin";
-import { GeneralSettings } from "./settingsGroups/GeneralSettings";
-import { DefaultPages } from "./settingsGroups/DefaultPages";
-import { WebsiteSettingsView } from "./WebsiteSettingsView";
-import { FaviconAndLogo } from "./settingsGroups/FaviconAndLogo";
-import { SocialMedia } from "./settingsGroups/SocialMedia";
-import { HtmlTags } from "./settingsGroups/HtmlTags";
-import { WebsiteSettingsWithConfig } from "./config/WebsiteSettingsConfig";
+import { GeneralSettings } from "./settingsGroups/GeneralSettings.js";
+import { DefaultPages } from "./settingsGroups/DefaultPages.js";
+import { WebsiteSettingsView } from "./WebsiteSettingsView.js";
+import { FaviconAndLogo } from "./settingsGroups/FaviconAndLogo.js";
+import { SocialMedia } from "./settingsGroups/SocialMedia.js";
+import { HtmlTags } from "./settingsGroups/HtmlTags.js";
+import { WebsiteSettingsWithConfig } from "./config/WebsiteSettingsConfig.js";
 
 export const WebsiteSettings = () => {
     return (

@@ -1,7 +1,7 @@
 import React from "react";
-import { ButtonLink } from "./elements/ButtonLink";
+import { ButtonLink } from "./elements/ButtonLink.js";
 import { ReactComponent as MoveUpIcon } from "./assets/move-up.svg";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
 interface MoveUpProps {
     onClick: (ev: React.MouseEvent) => void;

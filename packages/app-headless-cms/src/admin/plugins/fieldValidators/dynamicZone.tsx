@@ -1,17 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import { AccordionItem } from "@webiny/ui/Accordion";
+import { AccordionItem } from "@webiny/ui/Accordion/index.js";
 import { Bind } from "@webiny/form";
 import {
     CmsDynamicZoneTemplate,
     CmsModelFieldValidatorConfig,
     CmsModelFieldValidatorPlugin
-} from "~/types";
-import { ValidatorsList } from "~/admin/components/FieldEditor/EditFieldDialog/ValidatorsList";
-import { createValidators } from "~/utils/createValidators";
-import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter";
-import { useModelField } from "~/admin/components/ModelFieldProvider";
-import { commonValidators } from "~/admin/plugins/fields/dynamicZone/commonValidators";
+} from "~/types.js";
+import { ValidatorsList } from "~/admin/components/FieldEditor/EditFieldDialog/ValidatorsList.js";
+import { createValidators } from "~/utils/createValidators.js";
+import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
+import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
+import { commonValidators } from "~/admin/plugins/fields/dynamicZone/commonValidators.js";
 
 function TemplateValidationSettings() {
     const { field } = useModelField();

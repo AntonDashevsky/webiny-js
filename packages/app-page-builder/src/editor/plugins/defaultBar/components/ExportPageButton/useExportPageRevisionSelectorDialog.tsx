@@ -1,15 +1,15 @@
 import React from "react";
 import { css } from "emotion";
-import { i18n } from "@webiny/app/i18n";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { Typography } from "@webiny/ui/Typography";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Radio, RadioGroup } from "@webiny/ui/Radio";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Radio, RadioGroup } from "@webiny/ui/Radio/index.js";
 import { Form } from "@webiny/form";
-import { Alert } from "@webiny/ui/Alert";
-import { usePageBuilder } from "~/hooks/usePageBuilder";
-import { PbElementDataSettingsFormType } from "~/types";
-import { PbRevisionType } from "~/contexts/PageBuilder";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { usePageBuilder } from "~/hooks/usePageBuilder.js";
+import { PbElementDataSettingsFormType } from "~/types.js";
+import { PbRevisionType } from "~/contexts/PageBuilder/index.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/exportPageButton");
 

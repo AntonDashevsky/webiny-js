@@ -1,1 +1,1 @@
-export { default as FormSettingsButton } from "./FormSettingsButton";
+export { default as FormSettingsButton } from "./FormSettingsButton.js";

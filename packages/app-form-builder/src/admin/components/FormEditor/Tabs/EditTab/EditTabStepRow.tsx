@@ -1,9 +1,9 @@
 import React from "react";
 import { ConnectDragSource } from "react-dnd";
-import { FormStepContextProvider } from "./FormStep/FormStepContext/FormStepContext";
-import { FormStep } from "./FormStep/FormStep";
-import { FbFormStep } from "~/types";
-import { useFormEditor } from "~/admin/components/FormEditor/Context";
+import { FormStepContextProvider } from "./FormStep/FormStepContext/FormStepContext.js";
+import { FormStep } from "./FormStep/FormStep.js";
+import { FbFormStep } from "~/types.js";
+import { useFormEditor } from "~/admin/components/FormEditor/Context/index.js";
 
 interface EditTabStepRowProps {
     dragRef: ConnectDragSource;

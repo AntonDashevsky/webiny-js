@@ -3,8 +3,8 @@ import {
     IRecordLockingLockEntry,
     IRecordLockingLockEntryParams,
     IRecordLockingLockEntryResult
-} from "~/domain/abstractions/IRecordLockingLockEntry";
-import { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
+} from "~/domain/abstractions/IRecordLockingLockEntry.js";
+import { IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
 
 interface Params {
     client: IRecordLockingClient;

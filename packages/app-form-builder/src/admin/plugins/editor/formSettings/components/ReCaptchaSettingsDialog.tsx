@@ -1,18 +1,18 @@
 import React from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { Form } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { UPDATE_FORMS_SETTINGS } from "./graphql";
-import { useFormEditor } from "~/admin/components/FormEditor";
+import { Input } from "@webiny/ui/Input/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { UPDATE_FORMS_SETTINGS } from "./graphql.js";
+import { useFormEditor } from "~/admin/components/FormEditor/index.js";
 import { validation } from "@webiny/validation";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 const t = i18n.namespace("Forms.ReCaptchaSettingsDialog");
 
-import { Dialog, DialogTitle, DialogContent, DialogActions } from "@webiny/ui/Dialog";
-import { ButtonDefault } from "@webiny/ui/Button";
+import { Dialog, DialogTitle, DialogContent, DialogActions } from "@webiny/ui/Dialog/index.js";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
 
 interface ReCapchaSettingsDialogProps {
     open: boolean;

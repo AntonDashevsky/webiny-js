@@ -2,16 +2,16 @@ import React from "react";
 import classSet from "classnames";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
-import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button/index.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { GetBindCallable } from "~/admin/components/ContentEntryForm/useBind";
-import { ParentFieldProvider } from "~/admin/hooks";
-import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider";
-import { BindComponent, BindComponentRenderProp, CmsModelField } from "~/types";
+import { GetBindCallable } from "~/admin/components/ContentEntryForm/useBind.js";
+import { ParentFieldProvider } from "~/admin/hooks/index.js";
+import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider/index.js";
+import { BindComponent, BindComponentRenderProp, CmsModelField } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");
 

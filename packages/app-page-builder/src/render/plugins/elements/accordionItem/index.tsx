@@ -1,5 +1,5 @@
-import { PbRenderElementPlugin } from "~/types";
-import { createAccordionItem } from "@webiny/app-page-builder-elements/renderers/accordionItem";
+import { PbRenderElementPlugin } from "~/types.js";
+import { createAccordionItem } from "@webiny/app-page-builder-elements/renderers/accordionItem.js";
 
 export default (): PbRenderElementPlugin => {
     return {

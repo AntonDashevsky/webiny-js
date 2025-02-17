@@ -1,14 +1,14 @@
-import type { HcmsTasksContext } from "~/types";
+import type { HcmsTasksContext } from "~/types.js";
 import type {
     IDeleteCmsModelTask,
     IDeleteModelTaskInput,
     IDeleteModelTaskOutput,
     IStoreValue
-} from "~/tasks/deleteModel/types";
-import { DELETE_MODEL_TASK } from "~/tasks/deleteModel/constants";
+} from "~/tasks/deleteModel/types.js";
+import { DELETE_MODEL_TASK } from "~/tasks/deleteModel/constants.js";
 import { WebinyError } from "@webiny/error";
-import { getStatus } from "~/tasks/deleteModel/graphql/status";
-import { createStoreKey } from "~/tasks/deleteModel/helpers/store";
+import { getStatus } from "~/tasks/deleteModel/graphql/status.js";
+import { createStoreKey } from "~/tasks/deleteModel/helpers/store.js";
 
 export interface ICancelDeleteModelParams {
     readonly context: Pick<HcmsTasksContext, "cms" | "tasks" | "db">;

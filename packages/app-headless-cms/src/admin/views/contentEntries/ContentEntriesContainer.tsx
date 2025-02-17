@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { i18n } from "@webiny/app/i18n";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import {
     GET_CONTENT_MODEL,
     GetCmsModelQueryResponse,
     GetCmsModelQueryVariables
-} from "~/admin/graphql/contentModels";
-import { useQuery } from "../../hooks";
-import { CmsModel } from "~/types";
-import { ModelProvider } from "~/admin/components/ModelProvider";
+} from "~/admin/graphql/contentModels.js";
+import { useQuery } from "../../hooks/index.js";
+import { CmsModel } from "~/types.js";
+import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-entries");
 

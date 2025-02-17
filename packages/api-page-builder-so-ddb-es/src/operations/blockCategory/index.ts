@@ -6,17 +6,17 @@ import {
     BlockCategoryStorageOperationsGetParams,
     BlockCategoryStorageOperationsListParams,
     BlockCategoryStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter";
-import { BlockCategoryDataLoader } from "./dataLoader";
-import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
-import { BlockCategoryDynamoDbElasticFieldPlugin } from "~/plugins/definitions/BlockCategoryDynamoDbElasticFieldPlugin";
+} from "@webiny/api-page-builder/types.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
+import { BlockCategoryDataLoader } from "./dataLoader.js";
+import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
+import { BlockCategoryDynamoDbElasticFieldPlugin } from "~/plugins/definitions/BlockCategoryDynamoDbElasticFieldPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { createPartitionKey, createSortKey } from "~/operations/blockCategory/keys";
-import { BlockCategoryStorageOperations } from "~/types";
+import { createPartitionKey, createSortKey } from "~/operations/blockCategory/keys.js";
+import { BlockCategoryStorageOperations } from "~/types.js";
 import { deleteItem, put } from "@webiny/db-dynamodb";
 
 const createType = (): string => {

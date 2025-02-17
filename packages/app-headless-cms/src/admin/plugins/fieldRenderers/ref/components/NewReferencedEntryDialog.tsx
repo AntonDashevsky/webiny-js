@@ -1,34 +1,34 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext";
-import { FoldersProvider } from "@webiny/app-aco/contexts/folders";
-import { DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog";
-import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext";
-import { i18n } from "@webiny/app/i18n";
-import { CmsContentEntry, CmsModel } from "~/types";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
-import { ModelProvider } from "~/admin/components/ModelProvider";
-import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
-import { ButtonPrimary } from "@webiny/ui/Button";
+import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
+import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
+import { DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
+import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CmsContentEntry, CmsModel } from "~/types.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
+import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
+import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import {
     GET_CONTENT_MODEL,
     GetCmsModelQueryResponse,
     GetCmsModelQueryVariables
-} from "~/admin/graphql/contentModels";
-import { useCms } from "~/admin/hooks";
-import { FullWidthDialog } from "./dialog/Dialog";
-import { NavigateFolderProvider as AbstractNavigateFolderProvider } from "@webiny/app-aco/contexts/navigateFolder";
-import { SearchRecordsProvider } from "@webiny/app-aco/contexts/records";
+} from "~/admin/graphql/contentModels.js";
+import { useCms } from "~/admin/hooks/index.js";
+import { FullWidthDialog } from "./dialog/Dialog.js";
+import { NavigateFolderProvider as AbstractNavigateFolderProvider } from "@webiny/app-aco/contexts/navigateFolder.js";
+import { SearchRecordsProvider } from "@webiny/app-aco/contexts/records.js";
 import { FolderTree, useNavigateFolder } from "@webiny/app-aco";
 import styled from "@emotion/styled";
-import { Elevation } from "@webiny/ui/Elevation";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { usePersistEntry } from "~/admin/hooks/usePersistEntry";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { usePersistEntry } from "~/admin/hooks/usePersistEntry.js";
 import {
     AcoAppContext,
     AcoAppProviderContext,
     createAppFromModel
-} from "@webiny/app-aco/contexts/app";
+} from "@webiny/app-aco/contexts/app.js";
 import { DialogsProvider } from "@webiny/app-admin";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");

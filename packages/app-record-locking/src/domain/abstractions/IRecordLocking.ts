@@ -9,8 +9,8 @@ import {
     IFetchLockRecordParams,
     IFetchLockRecordResult,
     IFetchLockedEntryLockRecordParams
-} from "~/types";
-import { IRecordLockingUnlockEntryResult } from "./IRecordLockingUnlockEntry";
+} from "~/types.js";
+import { IRecordLockingUnlockEntryResult } from "./IRecordLockingUnlockEntry.js";
 
 export interface IRecordLockingUpdateEntryLockResult {
     data: IRecordLockingLockRecord | null;

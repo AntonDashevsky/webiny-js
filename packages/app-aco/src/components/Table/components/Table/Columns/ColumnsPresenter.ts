@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { IColumnsRepository } from "./IColumnsRepository";
+import { IColumnsRepository } from "./IColumnsRepository.js";
 
 export class ColumnsPresenter {
     private repository: IColumnsRepository;

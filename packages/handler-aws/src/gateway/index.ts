@@ -2,12 +2,12 @@ import type {
     APIGatewayEvent,
     APIGatewayProxyEventHeaders,
     Context as LambdaContext
-} from "@webiny/aws-sdk/types";
+} from "@webiny/aws-sdk/types/index.js";
 import awsLambdaFastify, { LambdaResponse } from "@fastify/aws-lambda";
 import { createHandler as createBaseHandler, createRoute, RoutePlugin } from "@webiny/handler";
-import { registerDefaultPlugins } from "~/plugins";
-import type { HandlerFactoryParams } from "~/types";
-import { Base64EncodeHeader } from "~/types";
+import { registerDefaultPlugins } from "~/plugins/index.js";
+import type { HandlerFactoryParams } from "~/types.js";
+import { Base64EncodeHeader } from "~/types.js";
 
 export { RoutePlugin, createRoute };
 

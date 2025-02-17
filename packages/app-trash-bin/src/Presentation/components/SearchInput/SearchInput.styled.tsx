@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { Icon } from "@webiny/ui/Icon";
-import { IconButton } from "@webiny/ui/Button";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 
 export const SearchIconContainer = styled(Icon)`
     &.mdc-button__icon {

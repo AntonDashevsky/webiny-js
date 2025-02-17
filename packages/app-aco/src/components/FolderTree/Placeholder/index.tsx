@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Element } from "./styled";
+import { Element } from "./styled.js";
 
 interface PlaceholderProps {
     depth: number;

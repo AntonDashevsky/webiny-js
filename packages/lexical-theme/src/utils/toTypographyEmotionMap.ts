@@ -1,5 +1,5 @@
-import { ThemeEmotionMap, TypographyHTMLTag } from "~/types";
-import { EditorTheme } from "~/createTheme";
+import { ThemeEmotionMap, TypographyHTMLTag } from "~/types.js";
+import { EditorTheme } from "~/createTheme.js";
 import { css as EmotionCSS } from "emotion";
 
 /*

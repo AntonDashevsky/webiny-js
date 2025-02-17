@@ -1,5 +1,5 @@
 import { createCmsModel, createPrivateModel } from "@webiny/api-headless-cms";
-import { TaskLogItemType, TaskDataStatus } from "~/types";
+import { TaskLogItemType, TaskDataStatus } from "~/types.js";
 
 export const WEBINY_TASK_MODEL_ID = "webinyTask";
 export const WEBINY_TASK_LOG_MODEL_ID = "webinyTaskLog";

@@ -1,5 +1,5 @@
-import { getHeader } from "./headers";
-import { CloudFrontRequest, CloudFrontResponse } from "./types";
+import { getHeader } from "./headers.js";
+import { CloudFrontRequest, CloudFrontResponse } from "./types.js";
 
 export function getRequestCookies(request: CloudFrontRequest) {
     const header = getHeader(request.headers, "cookie");

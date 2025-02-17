@@ -1,5 +1,5 @@
-import { SecurityContext } from "@webiny/api-security/types";
-import { TenancyContext } from "@webiny/api-tenancy/types";
-import { I18NContext } from "@webiny/api-i18n/types";
+import { SecurityContext } from "@webiny/api-security/types.js";
+import { TenancyContext } from "@webiny/api-tenancy/types.js";
+import { I18NContext } from "@webiny/api-i18n/types.js";
 
 export type CoreContext = TenancyContext & SecurityContext & I18NContext;

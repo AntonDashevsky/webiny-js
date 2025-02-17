@@ -1,17 +1,17 @@
 import WebinyError from "@webiny/error";
-import lodashCamelCase from "lodash/camelCase";
-import camelCase from "lodash/camelCase";
-import upperFirst from "lodash/upperFirst";
+import lodashCamelCase from "lodash/camelCase.js";
+import camelCase from "lodash/camelCase.js";
+import upperFirst from "lodash/upperFirst.js";
 import pluralize from "pluralize";
 import { Plugin } from "@webiny/plugins";
 import {
     CmsModel as CmsModelBase,
     CmsModelField as CmsModelFieldBase,
     CmsModelFieldSettings as BaseCmsModelFieldSettings
-} from "~/types";
-import { createFieldStorageId } from "~/crud/contentModel/createFieldStorageId";
-import { validateStorageId } from "~/crud/contentModel/validateStorageId";
-import { CMS_MODEL_SINGLETON_TAG } from "~/constants";
+} from "~/types/index.js";
+import { createFieldStorageId } from "~/crud/contentModel/createFieldStorageId.js";
+import { validateStorageId } from "~/crud/contentModel/validateStorageId.js";
+import { CMS_MODEL_SINGLETON_TAG } from "~/constants.js";
 
 const createApiName = (name: string) => {
     return upperFirst(camelCase(name));

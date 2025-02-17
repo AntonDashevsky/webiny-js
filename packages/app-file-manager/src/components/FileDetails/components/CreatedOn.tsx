@@ -1,10 +1,10 @@
 import React from "react";
 import dayjs from "dayjs";
 import { ReactComponent as CalendarIcon } from "@material-design-icons/svg/outlined/today.svg";
-import { Icon } from "@webiny/ui/Icon";
-import { Typography } from "@webiny/ui/Typography";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import styled from "@emotion/styled";
-import { useFile } from "~/hooks/useFile";
+import { useFile } from "~/hooks/useFile.js";
 
 const CreatedOnWrapper = styled.div`
     display: flex;

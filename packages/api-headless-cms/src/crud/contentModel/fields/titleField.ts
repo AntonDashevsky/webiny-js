@@ -1,6 +1,6 @@
-import { CmsModelField } from "~/types";
-import { getBaseFieldType } from "~/utils/getBaseFieldType";
-import { getApplicableFieldById } from "~/crud/contentModel/fields/getApplicableFieldById";
+import { CmsModelField } from "~/types/index.js";
+import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
+import { getApplicableFieldById } from "~/crud/contentModel/fields/getApplicableFieldById.js";
 
 const defaultTitleFieldId = "id";
 

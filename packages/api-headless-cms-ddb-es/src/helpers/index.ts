@@ -1,2 +1,2 @@
-export * from "./entryIndexHelpers";
-export * from "./fieldIdentifier";
+export * from "./entryIndexHelpers.js";
+export * from "./fieldIdentifier.js";

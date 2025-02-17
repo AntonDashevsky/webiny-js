@@ -1,6 +1,6 @@
-import { CmsModelFieldToGraphQLPlugin } from "~/types";
-import { createGraphQLInputField } from "./helpers";
-import { createRichTextResolver } from "~/graphqlFields/richText/richTextResolver";
+import { CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
+import { createGraphQLInputField } from "./helpers.js";
+import { createRichTextResolver } from "~/graphqlFields/richText/richTextResolver.js";
 
 export const createRichTextField = (): CmsModelFieldToGraphQLPlugin => {
     return {

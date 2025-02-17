@@ -9,16 +9,16 @@ import type {
     S3Event,
     SNSEvent,
     SQSEvent
-} from "@webiny/aws-sdk/types";
+} from "@webiny/aws-sdk/types/index.js";
 import "fastify";
 import type { CreateHandlerParams as BaseCreateHandlerParams } from "@webiny/handler";
 import type { LambdaFastifyOptions as LambdaOptions } from "@fastify/aws-lambda";
 
 export type { AttributeValue, DynamoDBRecord };
 
-export { HandlerRegistry } from "~/registry";
+export type { HandlerRegistry } from "~/registry.js";
 
-export * from "@webiny/handler/types";
+export * from "@webiny/handler/types.js";
 
 export type { APIGatewayEvent, LambdaContext, APIGatewayEventRequestContextWithAuthorizer };
 

@@ -1,6 +1,6 @@
-import { BaseActionConfig } from "./BaseAction";
-import { ButtonAction, ButtonActionType } from "./ButtonAction";
-import { MenuItemAction, MenuItemActionType } from "./MenuItemAction";
+import { BaseActionConfig } from "./BaseAction.js";
+import { ButtonAction, ButtonActionType } from "./ButtonAction.js";
+import { MenuItemAction, MenuItemActionType } from "./MenuItemAction.js";
 
 export type ActionsConfig = (
     | BaseActionConfig<ButtonActionType>

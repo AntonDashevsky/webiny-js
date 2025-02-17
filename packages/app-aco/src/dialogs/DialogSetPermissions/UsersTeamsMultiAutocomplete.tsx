@@ -1,5 +1,5 @@
 import React from "react";
-import { MultiAutoComplete } from "@webiny/ui/AutoComplete";
+import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
 
 interface UsersTeamsMultiAutocompleteProps {
     options: any;

@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
 
-import { AUDIT } from "~/config";
-import { getAuditConfig } from "~/utils/getAuditConfig";
-import { AuditLogsContext } from "~/types";
+import { AUDIT } from "~/config.js";
+import { getAuditConfig } from "~/utils/getAuditConfig.js";
+import { AuditLogsContext } from "~/types.js";
 
 export const onFormRevisionAfterCreateHook = (context: AuditLogsContext) => {
     context.formBuilder.onFormRevisionAfterCreate.subscribe(async ({ form }) => {

@@ -1,9 +1,9 @@
 import React from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import { DataListModalOverlay } from "@webiny/ui/List";
-import { ApwContentReviewStatus } from "~/types";
-import { i18n } from "@webiny/app/i18n";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { DataListModalOverlay } from "@webiny/ui/List/index.js";
+import { ApwContentReviewStatus } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/datalist/modal");
 

@@ -1,4 +1,4 @@
-import { Plugin } from "@webiny/plugins/types";
+import { Plugin } from "@webiny/plugins/types.js";
 import { createBackgroundTaskContext, createBackgroundTaskGraphQL } from "@webiny/tasks";
 
 export const createBackgroundTasks = (): Plugin[] => {

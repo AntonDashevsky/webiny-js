@@ -1,8 +1,8 @@
 import React from "react";
-import { Icon } from "@webiny/ui/Icon";
-import { Elevation } from "@webiny/ui/Elevation";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { ReactComponent as HandleIcon } from "./icons/round-drag_indicator-24px.svg";
-import Draggable from "./Draggable";
+import Draggable from "./Draggable.js";
 
 interface FieldProps {
     label: string;

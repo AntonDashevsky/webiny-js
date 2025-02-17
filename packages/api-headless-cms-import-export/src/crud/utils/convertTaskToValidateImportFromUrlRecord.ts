@@ -1,11 +1,11 @@
-import { createCmsImportValidateRecord } from "~/domain";
+import { createCmsImportValidateRecord } from "~/domain/index.js";
 import type { ITask } from "@webiny/tasks";
 import type {
     IValidateImportFromUrlInput,
     IValidateImportFromUrlOutput
-} from "~/tasks/domain/abstractions/ValidateImportFromUrl";
-import type { NonEmptyArray } from "@webiny/api/types";
-import type { ICmsImportExportValidatedFile } from "~/types";
+} from "~/tasks/domain/abstractions/ValidateImportFromUrl.js";
+import type { NonEmptyArray } from "@webiny/api/types.js";
+import type { ICmsImportExportValidatedFile } from "~/types.js";
 
 export const convertTaskToValidateImportFromUrlRecord = (
     task: ITask<IValidateImportFromUrlInput, IValidateImportFromUrlOutput>

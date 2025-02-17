@@ -1,7 +1,7 @@
 import React from "react";
-import { Icon } from "@webiny/ui/Icon";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { MenuItem } from "@webiny/ui/Menu";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { MenuItem } from "@webiny/ui/Menu/index.js";
 
 export interface OptionsMenuItemProps {
     onAction: () => void;

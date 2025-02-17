@@ -1,5 +1,5 @@
-import { CliContext } from "@webiny/cli/types";
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
+import { CliContext } from "@webiny/cli/types.js";
+import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
 
 /**
  * This hook is used to display a warning message to the user, that notifies

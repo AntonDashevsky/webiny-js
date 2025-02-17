@@ -1,5 +1,5 @@
 import pRetry from "p-retry";
-import { MultiPartUpload, MultiPartUploadAPI, FilePart } from "./MultiPartUploadAPI";
+import { MultiPartUpload, MultiPartUploadAPI, FilePart } from "./MultiPartUploadAPI.js";
 
 interface MultiPartUploaderOptions {
     /**

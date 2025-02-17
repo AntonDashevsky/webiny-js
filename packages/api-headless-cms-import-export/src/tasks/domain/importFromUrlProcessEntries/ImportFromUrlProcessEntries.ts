@@ -1,16 +1,16 @@
-import type { Context } from "~/types";
-import { CmsImportExportFileType } from "~/types";
+import type { Context } from "~/types.js";
+import { CmsImportExportFileType } from "~/types.js";
 import type {
     IImportFromUrlProcessEntries,
     IImportFromUrlProcessEntriesInput,
     IImportFromUrlProcessEntriesOutput
-} from "./abstractions/ImportFromUrlProcessEntries";
+} from "./abstractions/ImportFromUrlProcessEntries.js";
 import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import type { ICmsEntryManager } from "@webiny/api-headless-cms/types";
-import { ImportFromUrlProcessEntriesDecompress } from "~/tasks/domain/importFromUrlProcessEntries/ImportFromUrlProcessEntriesDecompress";
-import type { IFileFetcher } from "~/tasks/utils/fileFetcher";
-import { ImportFromUrlProcessEntriesInsert } from "./ImportFromUrlProcessEntriesInsert";
-import type { ICompressedFileReader, IDecompressor } from "~/tasks/utils/decompressor";
+import type { ICmsEntryManager } from "@webiny/api-headless-cms/types/index.js";
+import { ImportFromUrlProcessEntriesDecompress } from "~/tasks/domain/importFromUrlProcessEntries/ImportFromUrlProcessEntriesDecompress.js";
+import type { IFileFetcher } from "~/tasks/utils/fileFetcher/index.js";
+import { ImportFromUrlProcessEntriesInsert } from "./ImportFromUrlProcessEntriesInsert.js";
+import type { ICompressedFileReader, IDecompressor } from "~/tasks/utils/decompressor/index.js";
 
 export interface IImportFromUrlProcessEntriesParams {
     fileFetcher: IFileFetcher;

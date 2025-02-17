@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { getUniqueId, toObject } from "./utils";
+import { getUniqueId, toObject } from "./utils.js";
 
 export interface Property {
     id: string;

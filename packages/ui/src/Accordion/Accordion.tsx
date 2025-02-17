@@ -1,7 +1,7 @@
 import React from "react";
-import { List, ListItem } from "../List";
-import { AccordionItem } from "./AccordionItem";
-import { Elevation } from "../Elevation";
+import { List, ListItem } from "../List/index.js";
+import { AccordionItem } from "./AccordionItem.js";
+import { Elevation } from "../Elevation/index.js";
 import { css } from "emotion";
 import classNames from "classnames";
 

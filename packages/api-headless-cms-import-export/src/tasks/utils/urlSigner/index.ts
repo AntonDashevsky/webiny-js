@@ -1,2 +1,2 @@
-export * from "./abstractions/UrlSigner";
-export * from "./UrlSigner";
+export * from "./abstractions/UrlSigner.js";
+export * from "./UrlSigner.js";

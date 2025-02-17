@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Tab as UiTab } from "@webiny/ui/Tabs";
+import { Tab as UiTab } from "@webiny/ui/Tabs/index.js";
 
 export const TabContainer = styled("div")({
     display: "flex",

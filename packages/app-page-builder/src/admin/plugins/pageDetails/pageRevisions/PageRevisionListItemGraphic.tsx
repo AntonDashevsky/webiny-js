@@ -1,14 +1,14 @@
 import React from "react";
 import { css } from "emotion";
-import { Icon } from "@webiny/ui/Icon";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { makeDecoratable } from "@webiny/app-admin";
 import { ReactComponent as LockIcon } from "~/admin/assets/lock.svg";
 import { ReactComponent as BeenHereIcon } from "~/admin/assets/beenhere.svg";
 import { ReactComponent as GestureIcon } from "~/admin/assets/gesture.svg";
-import { PbPageRevision } from "~/types";
-import { useRevision } from "~/admin/plugins/pageDetails/pageRevisions/RevisionsList";
+import { PbPageRevision } from "~/types.js";
+import { useRevision } from "~/admin/plugins/pageDetails/pageRevisions/RevisionsList.js";
 
 const primaryColor = css({ color: "var(--mdc-theme-primary)" });
 

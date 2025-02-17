@@ -1,7 +1,7 @@
 import { useNavigateFolder } from "@webiny/app-aco";
 import { useRouter } from "@webiny/react-router";
 import { useMemo } from "react";
-import { PAGE_BUILDER_EDITOR_LINK, PAGE_BUILDER_LIST_LINK } from "~/admin/constants";
+import { PAGE_BUILDER_EDITOR_LINK, PAGE_BUILDER_LIST_LINK } from "~/admin/constants/index.js";
 
 interface UseNavigatePageResponse {
     navigateToLatestFolder: () => void;

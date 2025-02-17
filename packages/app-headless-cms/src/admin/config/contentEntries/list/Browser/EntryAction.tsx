@@ -1,11 +1,11 @@
 import React from "react";
 import { CompositionScope, makeDecoratable } from "@webiny/react-composition";
-import { AcoConfig, RecordActionConfig } from "@webiny/app-aco";
-import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel";
+import { AcoConfig, type RecordActionConfig } from "@webiny/app-aco";
+import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel.js";
 
 const { Record } = AcoConfig;
 
-export { RecordActionConfig as EntryActionConfig };
+export type { RecordActionConfig as EntryActionConfig };
 
 export interface EntryActionProps extends React.ComponentProps<typeof AcoConfig.Record.Action> {
     modelIds?: string[];

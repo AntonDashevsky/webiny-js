@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { PbPageTemplateWithContent } from "@webiny/app-page-builder/types";
-import { RenderPluginsLoader } from "@webiny/app-page-builder/admin";
+import { PbPageTemplateWithContent } from "@webiny/app-page-builder/types.js";
+import { RenderPluginsLoader } from "@webiny/app-page-builder/admin/index.js";
 import { Content } from "@webiny/app-page-builder-elements";
 import {
     DataSourceProvider,
     DynamicDocumentProvider
-} from "@webiny/app-page-builder/dataInjection";
-import { RefreshIcon } from "@webiny/ui/List/DataList/icons";
-import { useRefreshPageTemplates } from "@webiny/app-page-builder/features";
+} from "@webiny/app-page-builder/dataInjection/index.js";
+import { RefreshIcon } from "@webiny/ui/List/DataList/icons/index.js";
+import { useRefreshPageTemplates } from "@webiny/app-page-builder/features/index.js";
 
 const LivePreviewContainer = styled.div`
     position: relative;

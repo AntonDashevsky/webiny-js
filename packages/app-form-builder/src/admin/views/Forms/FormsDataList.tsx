@@ -1,21 +1,21 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import orderBy from "lodash/orderBy";
-import upperFirst from "lodash/upperFirst";
+import orderBy from "lodash/orderBy.js";
+import upperFirst from "lodash/upperFirst.js";
 import { useRouter } from "@webiny/react-router";
-import { Typography } from "@webiny/ui/Typography";
-import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
-import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
+import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons/index.js";
 import {
     CREATE_REVISION_FROM,
     CreateRevisionFromMutationResponse,
     CreateRevisionFromMutationVariables,
     DELETE_FORM
-} from "../../graphql";
+} from "../../graphql.js";
 import { useApolloClient } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import {
     DataList,
     DataListModalOverlay,
@@ -27,25 +27,25 @@ import {
     ListItemText,
     ListItemTextSecondary,
     ListSelectBox
-} from "@webiny/ui/List";
-import { i18n } from "@webiny/app/i18n";
-import { removeFormFromListCache, updateLatestRevisionInListCache } from "../cache";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
+} from "@webiny/ui/List/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { removeFormFromListCache, updateLatestRevisionInListCache } from "../cache.js";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import { Checkbox } from "@webiny/ui/Checkbox";
-import { useMultiSelect } from "./hooks/useMultiSelect";
-import { usePermission } from "~/hooks/usePermission";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { Checkbox } from "@webiny/ui/Checkbox/index.js";
+import { useMultiSelect } from "./hooks/useMultiSelect.js";
+import { usePermission } from "~/hooks/usePermission.js";
 import { ReactComponent as FileUploadIcon } from "@material-design-icons/svg/round/upload.svg";
-import useImportForm from "./hooks/useImportForm";
-import { ExportFormsButton } from "~/admin/plugins/formsDataList/ExportButton";
-import { OptionsMenu } from "~/admin/components/OptionsMenu";
-import { useForms } from "./useForms";
-import { deserializeSorters } from "../utils";
-import { FbFormModel, FbRevisionModel } from "~/types";
+import useImportForm from "./hooks/useImportForm.js";
+import { ExportFormsButton } from "~/admin/plugins/formsDataList/ExportButton/index.js";
+import { OptionsMenu } from "~/admin/components/OptionsMenu.js";
+import { useForms } from "./useForms.js";
+import { deserializeSorters } from "../utils.js";
+import { FbFormModel, FbRevisionModel } from "~/types.js";
 
 const t = i18n.namespace("FormsApp.FormsDataList");
 const rightAlign = css({

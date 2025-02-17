@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "emotion";
 import { Form, FormOnSubmit } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { i18n } from "@webiny/app/i18n";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 /**
  * Package react-hotkeys does not have types.
  */
@@ -11,7 +11,7 @@ import { i18n } from "@webiny/app/i18n";
 import { Hotkeys } from "react-hotkeyz";
 import { validation } from "@webiny/validation";
 
-import { Dialog, DialogTitle, DialogContent, DialogActions, DialogButton } from "@webiny/ui/Dialog";
+import { Dialog, DialogTitle, DialogContent, DialogActions, DialogButton } from "@webiny/ui/Dialog/index.js";
 
 const t = i18n.namespace("Forms.FormEditor.EditFieldOptionDialog");
 const narrowDialog = css({

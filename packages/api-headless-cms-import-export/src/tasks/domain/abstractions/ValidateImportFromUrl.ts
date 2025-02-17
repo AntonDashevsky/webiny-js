@@ -1,11 +1,11 @@
-import type { Context, ICmsImportExportFile, ICmsImportExportValidatedFile } from "~/types";
+import type { Context, ICmsImportExportFile, ICmsImportExportValidatedFile } from "~/types.js";
 import type {
     ITaskResponseDoneResultOutput,
     ITaskResponseResult,
     ITaskRunParams
 } from "@webiny/tasks";
-import type { NonEmptyArray } from "@webiny/api/types";
-import type { IExportedCmsModel } from "~/tasks/domain/abstractions/ExportContentEntriesController";
+import type { NonEmptyArray } from "@webiny/api/types.js";
+import type { IExportedCmsModel } from "~/tasks/domain/abstractions/ExportContentEntriesController.js";
 
 export interface IValidateImportFromUrlInput {
     files: NonEmptyArray<ICmsImportExportFile>;

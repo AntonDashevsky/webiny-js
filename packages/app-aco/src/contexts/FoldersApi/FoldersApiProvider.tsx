@@ -6,7 +6,7 @@ import {
     GET_FOLDER,
     LIST_FOLDERS,
     UPDATE_FOLDER
-} from "~/graphql/folders.gql";
+} from "~/graphql/folders.gql.js";
 
 import {
     CreateFolderResponse,
@@ -20,8 +20,8 @@ import {
     ListFoldersResponse,
     UpdateFolderResponse,
     UpdateFolderVariables
-} from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+} from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 interface OffCacheUpdate {
     (): void;

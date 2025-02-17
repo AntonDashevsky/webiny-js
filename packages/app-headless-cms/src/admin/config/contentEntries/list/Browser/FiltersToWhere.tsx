@@ -1,6 +1,6 @@
 import React from "react";
 import { Property } from "@webiny/react-properties";
-import { useModel } from "~/admin/hooks";
+import { useModel } from "~/admin/hooks/index.js";
 
 export interface FiltersToWhereConverter {
     (filters: Record<string, any>): Record<string, any>;

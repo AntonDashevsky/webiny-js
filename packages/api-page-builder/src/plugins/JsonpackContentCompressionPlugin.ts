@@ -1,5 +1,5 @@
 import jsonpack from "jsonpack";
-import { CompressedValue, ContentCompressionPlugin } from "./ContentCompressionPlugin";
+import { CompressedValue, ContentCompressionPlugin } from "./ContentCompressionPlugin.js";
 
 const JSONPACK_COMPRESSION = "jsonpack";
 

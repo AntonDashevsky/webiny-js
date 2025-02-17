@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { css } from "emotion";
 import { Link } from "@webiny/react-router";
-import { ListItem, ListItemGraphic } from "@webiny/ui/List";
+import { ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
 import { useMenuItem } from "@webiny/app-admin";
-import { Icon } from "@webiny/ui/Icon";
-import { useNavigation } from "../index";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { useNavigation } from "../index.js";
 
 const listItemStyle = css`
     font-weight: 400 !important;

@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography } from "@webiny/ui/Typography";
-import { Button, Icon, IconContainer } from "./TrashBin.styled";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Button, Icon, IconContainer } from "./TrashBin.styled.js";
 
 export interface TrashBinButtonProps {
     onClick: () => void;

@@ -1,6 +1,6 @@
-import type { Table } from "@webiny/db-dynamodb/toolbox";
-import type { I18NContext } from "@webiny/api-i18n/types";
-import { getExtraAttributesFromPlugins } from "@webiny/db-dynamodb/utils/attributes";
+import type { Table } from "@webiny/db-dynamodb/toolbox.js";
+import type { I18NContext } from "@webiny/api-i18n/types.js";
+import { getExtraAttributesFromPlugins } from "@webiny/db-dynamodb/utils/attributes.js";
 import type { IEntity } from "@webiny/db-dynamodb";
 import { createEntity } from "@webiny/db-dynamodb";
 

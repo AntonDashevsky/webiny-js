@@ -1,9 +1,9 @@
 import React from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { restGridStyles } from "~/views/publishingWorkflows/components/Styled";
-import { Box } from "~/components/Layout";
-import { Typography } from "@webiny/ui/Typography";
-import { Checkbox } from "@webiny/ui/Checkbox";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { restGridStyles } from "~/views/publishingWorkflows/components/Styled.js";
+import { Box } from "~/components/Layout.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Checkbox } from "@webiny/ui/Checkbox/index.js";
 import styled from "@emotion/styled";
 
 interface ListItemWithCheckboxProps {

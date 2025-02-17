@@ -1,15 +1,15 @@
 import React from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useRouter } from "@webiny/react-router";
-import { Icon } from "@webiny/ui/Icon";
-import { Typography } from "@webiny/ui/Typography";
-import { MenuItem } from "@webiny/ui/Menu";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { MenuItem } from "@webiny/ui/Menu/index.js";
 import { ReactComponent as DownButton } from "@material-design-icons/svg/round/arrow_drop_down.svg";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
-import { statuses as statusLabels } from "~/admin/constants";
-import { CmsContentEntryRevision } from "~/types";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
+import { statuses as statusLabels } from "~/admin/constants.js";
+import { CmsContentEntryRevision } from "~/types.js";
 
-import { Button, Menu } from "./RevisionSelector.styles";
+import { Button, Menu } from "./RevisionSelector.styles.js";
 
 interface CmsEntryRevision extends Pick<CmsContentEntryRevision, "id"> {
     meta: Pick<CmsContentEntryRevision["meta"], "version" | "status">;

@@ -2,13 +2,13 @@ import React from "react";
 import { CompositionScope } from "@webiny/react-composition";
 import {
     AcoConfig,
-    AdvancedSearchFieldRendererConfig as FieldRendererConfig
+    type AdvancedSearchFieldRendererConfig as FieldRendererConfig
 } from "@webiny/app-aco";
-import { useModel } from "~/admin/components/ModelProvider";
+import { useModel } from "~/admin/components/ModelProvider/index.js";
 
 const { AdvancedSearch } = AcoConfig;
 
-export { FieldRendererConfig };
+export type { FieldRendererConfig };
 
 export interface FieldRendererProps
     extends React.ComponentProps<typeof AcoConfig.AdvancedSearch.FieldRenderer> {

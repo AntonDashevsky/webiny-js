@@ -1,5 +1,5 @@
-import { createApwCommentNotification } from "~/ApwCommentNotification";
-import { ApwContentTypes } from "~/types";
+import { createApwCommentNotification } from "~/ApwCommentNotification.js";
+import { ApwContentTypes } from "~/types.js";
 
 export const createCommentNotification = () => {
     const plugin = createApwCommentNotification(ApwContentTypes.CMS_ENTRY, params => {

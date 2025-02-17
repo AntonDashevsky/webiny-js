@@ -18,11 +18,11 @@ import type {
     IMultipartUploadHandlerParamsMinBufferSize,
     IMultipartUploadHandlerPauseResult,
     IPart
-} from "../abstractions/MultipartUploadHandler";
-import { createMultipartUploadHandlerPauseResult } from "./MultipartUploadHandlerPauseResult";
-import { createMultipartUploadHandlerAbortResult } from "./MultipartUploadHandlerAbortResult";
-import { createMultipartUploadHandlerCompleteResult } from "./MultipartUploadHandlerCompleteResult";
-import { createMultipartUploadHandlerAddResult } from "./MultipartUploadHandlerAddResult";
+} from "../abstractions/MultipartUploadHandler.js";
+import { createMultipartUploadHandlerPauseResult } from "./MultipartUploadHandlerPauseResult.js";
+import { createMultipartUploadHandlerAbortResult } from "./MultipartUploadHandlerAbortResult.js";
+import { createMultipartUploadHandlerCompleteResult } from "./MultipartUploadHandlerCompleteResult.js";
+import { createMultipartUploadHandlerAddResult } from "./MultipartUploadHandlerAddResult.js";
 
 /**
  * Minimum we can send into the S3 is 5MB.

@@ -1,4 +1,4 @@
-import { PbErrorResponse } from "~/types";
+import { PbErrorResponse } from "~/types.js";
 // a copy of values from the @webiny/tasks/types.ts TaskDataStatus enum
 export enum PbTaskStatus {
     pending = "pending",

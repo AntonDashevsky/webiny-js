@@ -1,17 +1,17 @@
 import React from "react";
 import { css } from "emotion";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 import {
     ListItem,
     ListItemMeta,
     ListItemText,
     ListItemTextPrimary,
     ListItemTextSecondary
-} from "@webiny/ui/List";
-import { IconButton } from "@webiny/ui/Button";
-import { Menu } from "@webiny/ui/Menu";
+} from "@webiny/ui/List/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Menu } from "@webiny/ui/Menu/index.js";
 import { ReactComponent as MoreVerticalIcon } from "~/admin/assets/more_vert.svg";
-import { useRevisionHandlers } from "./useRevisionHandlers";
+import { useRevisionHandlers } from "./useRevisionHandlers.js";
 import {
     PreviewRevisionMenuOption,
     SecureDeleteRevisionMenuOption,
@@ -19,10 +19,10 @@ import {
     SecureNewRevisionFromCurrent,
     SecurePublishPageMenuOption,
     SecureUnpublishPageMenuOption
-} from "./MenuOptions";
-import { PageRevisionListItemGraphic } from "./PageRevisionListItemGraphic";
-import { usePage } from "~/admin/views/Pages/PageDetails";
-import { useRevision } from "./RevisionsList";
+} from "./MenuOptions/index.js";
+import { PageRevisionListItemGraphic } from "./PageRevisionListItemGraphic.js";
+import { usePage } from "~/admin/views/Pages/PageDetails.js";
+import { useRevision } from "./RevisionsList.js";
 
 const revisionsMenu = css({
     width: 250,

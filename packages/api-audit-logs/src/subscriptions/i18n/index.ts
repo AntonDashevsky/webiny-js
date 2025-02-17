@@ -2,9 +2,9 @@ import {
     onLocaleAfterCreateHook,
     onLocaleAfterUpdateHook,
     onLocaleAfterDeleteHook
-} from "./locales";
+} from "./locales.js";
 
-import { AuditLogsContext } from "~/types";
+import { AuditLogsContext } from "~/types.js";
 
 export const createI18NHooks = (context: AuditLogsContext) => {
     onLocaleAfterCreateHook(context);

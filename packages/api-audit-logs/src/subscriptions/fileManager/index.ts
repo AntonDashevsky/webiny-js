@@ -1,7 +1,7 @@
-import { onFileAfterCreateHook, onFileAfterUpdateHook, onFileAfterDeleteHook } from "./files";
-import { onSettingsAfterUpdateHook } from "./settings";
+import { onFileAfterCreateHook, onFileAfterUpdateHook, onFileAfterDeleteHook } from "./files.js";
+import { onSettingsAfterUpdateHook } from "./settings.js";
 
-import { AuditLogsContext } from "~/types";
+import { AuditLogsContext } from "~/types.js";
 
 export const createFileManagerHooks = (context: AuditLogsContext) => {
     onFileAfterCreateHook(context);

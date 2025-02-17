@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin";
-import { CmsContext, CmsEntry, CmsModel, CmsModelField } from "~/types";
-import { getBaseFieldType } from "~/utils/getBaseFieldType";
+import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin.js";
+import { CmsContext, CmsEntry, CmsModel, CmsModelField } from "~/types/index.js";
+import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 
 export interface GetStoragePluginFactory {
     (context: Pick<CmsContext, "plugins">): (fieldType: string) => StorageTransformPlugin<any>;

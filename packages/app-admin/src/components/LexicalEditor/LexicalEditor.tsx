@@ -1,7 +1,7 @@
 import React from "react";
-import { FileManager } from "~/components";
+import { FileManager } from "~/components/index.js";
 import { RichTextEditor as BaseEditor } from "@webiny/lexical-editor";
-import { RichTextEditorProps } from "@webiny/lexical-editor/types";
+import { RichTextEditorProps } from "@webiny/lexical-editor/types.js";
 import { useTheme } from "@webiny/app-theme";
 import { EditorTheme } from "@webiny/lexical-theme";
 

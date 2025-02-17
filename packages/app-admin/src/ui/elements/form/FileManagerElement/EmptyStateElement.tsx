@@ -1,5 +1,5 @@
-import { UIElement } from "~/ui/UIElement";
-import { EmptyStateElementRenderer } from "./EmptyStateElementRenderer";
+import { UIElement } from "~/ui/UIElement.js";
+import { EmptyStateElementRenderer } from "./EmptyStateElementRenderer.js";
 
 export class EmptyStateElement extends UIElement<any> {
     public constructor(id: string) {

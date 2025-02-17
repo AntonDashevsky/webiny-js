@@ -1,1 +1,1 @@
-export * from "./LockedRecord";
+export * from "./LockedRecord.js";

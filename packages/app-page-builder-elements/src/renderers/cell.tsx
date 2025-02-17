@@ -1,7 +1,7 @@
 import React from "react";
-import { Elements } from "~/components/Elements";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
+import { Elements } from "~/components/Elements.js";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
 
 export type CellRenderer = ReturnType<typeof createCell>;
 

@@ -1,8 +1,8 @@
-import { FilterDTO } from "../domain";
+import { FilterDTO } from "../domain/index.js";
 import {
     CreateFilterPayload,
     UpdateFilterPayload
-} from "~/components/AdvancedSearch/gateways/filters.types";
+} from "~/components/AdvancedSearch/gateways/filters.types.js";
 
 export interface FiltersGatewayInterface {
     list: (namespace: string) => Promise<FilterDTO[]>;

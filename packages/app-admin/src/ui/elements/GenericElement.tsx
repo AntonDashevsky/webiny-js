@@ -1,1 +1,1 @@
-export * from "@webiny/ui-composer/elements/GenericElement";
+export * from "@webiny/ui-composer/elements/GenericElement.js";

@@ -1,10 +1,10 @@
 import React from "react";
 
-import { FolderProvider } from "~/contexts/folder";
-import { Folder } from "~/components/FolderGrid/Folder";
-import { Grid } from "~/components/FolderGrid/styled";
-import { AcoWithConfig } from "~/config";
-import { FolderItem } from "~/types";
+import { FolderProvider } from "~/contexts/folder.js";
+import { Folder } from "~/components/FolderGrid/Folder.js";
+import { Grid } from "~/components/FolderGrid/styled.js";
+import { AcoWithConfig } from "~/config/index.js";
+import { FolderItem } from "~/types.js";
 
 interface FolderGridProps {
     folders: FolderItem[];

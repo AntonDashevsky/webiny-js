@@ -3,20 +3,20 @@ import styled from "@emotion/styled";
 import {
     CmsReferenceContentEntry,
     CmsReferenceValue
-} from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { Image } from "./entry/Image";
-import { ModelName } from "./entry/ModelName";
-import { Title } from "./entry/Title";
-import { Description } from "./entry/Description";
-import { Status } from "./entry/Status";
-import { CreatedBy } from "./entry/CreatedBy";
-import { ModifiedBy } from "./entry/ModifiedBy";
-import { View } from "./entry/View";
-import { Select } from "./entry/Select";
-import { Remove } from "./entry/Remove";
-import { MoveUp } from "./entry/MoveUp";
-import { MoveDown } from "./entry/MoveDown";
-import { CmsModel } from "~/types";
+} from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { Image } from "./entry/Image.js";
+import { ModelName } from "./entry/ModelName.js";
+import { Title } from "./entry/Title.js";
+import { Description } from "./entry/Description.js";
+import { Status } from "./entry/Status.js";
+import { CreatedBy } from "./entry/CreatedBy.js";
+import { ModifiedBy } from "./entry/ModifiedBy.js";
+import { View } from "./entry/View.js";
+import { Select } from "./entry/Select.js";
+import { Remove } from "./entry/Remove.js";
+import { MoveUp } from "./entry/MoveUp.js";
+import { MoveDown } from "./entry/MoveDown.js";
+import { CmsModel } from "~/types.js";
 
 const Container = styled("div")({
     width: "100%",

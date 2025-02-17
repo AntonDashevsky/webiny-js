@@ -1,1 +1,1 @@
-export * from "./FloatingLinkEditorPlugin";
+export * from "./FloatingLinkEditorPlugin.js";

@@ -1,7 +1,7 @@
 import React from "react";
 import editorMock from "~/admin/assets/editor-mock.png";
-import { Typography } from "@webiny/ui/Typography";
-import { LoadingEditor, LoadingTitle } from "./EditorLoadingScreen.styles";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { LoadingEditor, LoadingTitle } from "./EditorLoadingScreen.styles.js";
 
 export const EditorLoadingScreen = () => {
     return (

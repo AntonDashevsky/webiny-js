@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import {
     DataList,
     ScrollList,
@@ -10,18 +10,18 @@ import {
     ListItemTextSecondary,
     DataListModalOverlay,
     DataListModalOverlayAction
-} from "@webiny/ui/List";
+} from "@webiny/ui/List/index.js";
 
-import { ButtonIcon, ButtonSecondary, IconButton } from "@webiny/ui/Button";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
+import { ButtonIcon, ButtonSecondary, IconButton } from "@webiny/ui/Button/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
 import { ReactComponent as LoginIcon } from "~/assets/login_black_24dp.svg";
-import { useTenantsList } from "./hooks/useTenantsList";
+import { useTenantsList } from "./hooks/useTenantsList.js";
 import { useTenancy } from "@webiny/app-tenancy";
-import { TenantItem } from "~/types";
+import { TenantItem } from "~/types.js";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

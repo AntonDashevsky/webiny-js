@@ -1,10 +1,10 @@
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
+import utc from "dayjs/plugin/utc.js";
 import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
 import dbPlugins from "@webiny/handler-db";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
-import dynamoDbPlugins from "@webiny/db-dynamodb/plugins";
-import { InvocationTypes } from "~/scheduler/types";
+import dynamoDbPlugins from "@webiny/db-dynamodb/plugins/index.js";
+import { InvocationTypes } from "~/scheduler/types.js";
 
 /**
  * https://day.js.org/docs/en/plugin/utc

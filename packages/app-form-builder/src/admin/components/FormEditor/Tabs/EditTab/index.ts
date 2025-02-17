@@ -1,1 +1,1 @@
-export { EditTab } from "./EditTab";
+export { EditTab } from "./EditTab.js";

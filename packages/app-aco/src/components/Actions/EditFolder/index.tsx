@@ -1,1 +1,1 @@
-export * from "./EditFolder";
+export * from "./EditFolder.js";

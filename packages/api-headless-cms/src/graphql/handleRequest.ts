@@ -1,9 +1,9 @@
-import { ApiEndpoint, CmsContext } from "~/types";
-import { checkEndpointAccess } from "./checkEndpointAccess";
-import { createRequestBody } from "./createRequestBody";
-import { formatErrorPayload } from "./formatErrorPayload";
-import { getSchema } from "./getSchema";
-import { Reply, Request } from "@webiny/handler/types";
+import { ApiEndpoint, CmsContext } from "~/types/index.js";
+import { checkEndpointAccess } from "./checkEndpointAccess.js";
+import { createRequestBody } from "./createRequestBody.js";
+import { formatErrorPayload } from "./formatErrorPayload.js";
+import { getSchema } from "./getSchema.js";
+import { Reply, Request } from "@webiny/handler/types.js";
 import { processRequestBody } from "@webiny/handler-graphql";
 import { ExecutionResult } from "graphql";
 

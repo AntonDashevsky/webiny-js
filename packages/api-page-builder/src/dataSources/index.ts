@@ -1,2 +1,2 @@
-export * from "./DataLoaderRequest";
-export * from "./types";
+export * from "./DataLoaderRequest.js";
+export * from "./types.js";

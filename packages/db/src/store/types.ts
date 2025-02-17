@@ -1,5 +1,5 @@
 import { CamelCase } from "type-fest";
-import { GenericRecord } from "@webiny/api/types";
+import { GenericRecord } from "@webiny/api/types.js";
 
 export type StorageKey = `${CamelCase<string>}`;
 

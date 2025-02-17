@@ -1,14 +1,14 @@
-import eqFilter from "./eq";
-import betweenFilter from "./between";
-import andInFilter from "./andIn";
-import inFilter from "./in";
-import gtFilter from "./gt";
-import gteFilter from "./gte";
-import ltFilter from "./lt";
-import lteFilter from "./lte";
-import containsFilter from "./contains";
-import fuzzyFilter from "./fuzzy";
-import startsWithFilter from "./startsWith";
+import eqFilter from "./eq.js";
+import betweenFilter from "./between.js";
+import andInFilter from "./andIn.js";
+import inFilter from "./in.js";
+import gtFilter from "./gt.js";
+import gteFilter from "./gte.js";
+import ltFilter from "./lt.js";
+import lteFilter from "./lte.js";
+import containsFilter from "./contains.js";
+import fuzzyFilter from "./fuzzy.js";
+import startsWithFilter from "./startsWith.js";
 
 export default () => [
     eqFilter,

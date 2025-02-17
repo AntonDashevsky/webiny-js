@@ -2,16 +2,16 @@ import React from "react";
 import { App } from "@webiny/app";
 import { ThemeProvider } from "@webiny/app-theme";
 import { WcpProvider } from "@webiny/app-wcp";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { ApolloClientFactory, createApolloProvider } from "./providers/ApolloProvider";
-import { Base } from "./Base";
-import { createTelemetryProvider } from "./providers/TelemetryProvider";
-import { createUiStateProvider } from "./providers/UiStateProvider";
-import { SearchProvider } from "./ui/Search";
-import { UserMenuProvider } from "./ui/UserMenu";
-import { NavigationProvider } from "./ui/Navigation";
-import { createDialogsProvider } from "~/components/Dialogs/DialogsContext";
-import { DefaultIcons, IconPickerConfigProvider } from "~/components/IconPicker/config";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { ApolloClientFactory, createApolloProvider } from "./providers/ApolloProvider.js";
+import { Base } from "./Base.js";
+import { createTelemetryProvider } from "./providers/TelemetryProvider.js";
+import { createUiStateProvider } from "./providers/UiStateProvider.js";
+import { SearchProvider } from "./ui/Search.js";
+import { UserMenuProvider } from "./ui/UserMenu.js";
+import { NavigationProvider } from "./ui/Navigation.js";
+import { createDialogsProvider } from "~/components/Dialogs/DialogsContext.js";
+import { DefaultIcons, IconPickerConfigProvider } from "~/components/IconPicker/config/index.js";
 
 export interface AdminProps {
     createApolloClient: ApolloClientFactory;

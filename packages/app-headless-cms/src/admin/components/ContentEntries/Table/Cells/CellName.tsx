@@ -5,14 +5,14 @@ import { ReactComponent as FolderShared } from "@material-design-icons/svg/outli
 import { ReactComponent as File } from "@material-design-icons/svg/outlined/description.svg";
 import { useNavigateFolder } from "@webiny/app-aco";
 
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
-import { usePermission } from "~/admin/hooks";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useContentEntriesList } from "~/admin/views/contentEntries/hooks/index.js";
+import { usePermission } from "~/admin/hooks/index.js";
 
-import { LinkTitle, RowIcon, RowText, RowTitle } from "./Cells.styled";
+import { LinkTitle, RowIcon, RowText, RowTitle } from "./Cells.styled.js";
 
-import { FolderTableItem } from "@webiny/app-aco/types";
-import { EntryTableItem } from "~/types";
+import { FolderTableItem } from "@webiny/app-aco/types.js";
+import { EntryTableItem } from "~/types.js";
 
 interface FolderCellNameProps {
     folder: FolderTableItem;

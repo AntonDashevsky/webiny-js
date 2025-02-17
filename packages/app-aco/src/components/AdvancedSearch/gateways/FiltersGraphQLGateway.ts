@@ -13,15 +13,15 @@ import {
     UpdateFilterPayload,
     UpdateFilterResponse,
     UpdateFilterVariables
-} from "./filters.types";
-import { FiltersGatewayInterface } from "./FiltersGatewayInterface";
+} from "./filters.types.js";
+import { FiltersGatewayInterface } from "./FiltersGatewayInterface.js";
 import {
     CREATE_FILTER,
     DELETE_FILTER,
     GET_FILTER,
     LIST_FILTERS,
     UPDATE_FILTER
-} from "./filters.gql";
+} from "./filters.gql.js";
 
 export class FiltersGraphQLGateway implements FiltersGatewayInterface {
     private client: ApolloClient<any>;

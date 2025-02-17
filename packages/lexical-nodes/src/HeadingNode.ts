@@ -13,8 +13,8 @@ import {
     SerializedHeadingNode as BaseSerializedHeadingNode
 } from "@lexical/rich-text";
 import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
-import { ParagraphNode } from "~/ParagraphNode";
-import { TypographyStylesNode, ThemeStyleValue, TextNodeThemeStyles } from "~/types";
+import { ParagraphNode } from "~/ParagraphNode.js";
+import { TypographyStylesNode, ThemeStyleValue, TextNodeThemeStyles } from "~/types.js";
 
 export type SerializeHeadingNode = Spread<
     {

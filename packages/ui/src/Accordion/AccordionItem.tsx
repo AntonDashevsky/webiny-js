@@ -1,10 +1,12 @@
 import React, { CSSProperties, useCallback, useEffect, useState } from "react";
-import { ListItem, ListItemGraphic, ListItemMeta } from "~/List";
-import Transition, { TransitionStatus } from "react-transition-group/Transition";
-import { Icon } from "~/Icon";
+import { ListItem, ListItemGraphic, ListItemMeta } from "~/List/index.js";
+// @ts-expect-error This package organization is a mess, so we just ignore its types.
+import Transition from "react-transition-group/esm/Transition.js";
+import type { TransitionStatus } from "react-transition-group/Transition";
+import { Icon } from "~/Icon/index.js";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { Typography } from "~/Typography";
+import { Typography } from "~/Typography/index.js";
 import { ReactComponent as UpArrow } from "./icons/round-keyboard_arrow_up-24px.svg";
 import { ReactComponent as DownArrow } from "./icons/round-keyboard_arrow_down-24px.svg";
 import classNames from "classnames";
@@ -12,7 +14,7 @@ import {
     AccordionItemAction,
     AccordionItemActions,
     AccordionItemElement
-} from "~/Accordion/AccordionItemActions";
+} from "~/Accordion/AccordionItemActions.js";
 
 const Content = styled.div`
     width: 100%;

@@ -1,7 +1,7 @@
 import readline from "readline";
-import { MigrationStatusReporter } from "~/cli/MigrationStatusReporter";
-import { MigrationStatus } from "~/types";
-import { LogReporter } from "~/cli/LogReporter";
+import { MigrationStatusReporter } from "~/cli/MigrationStatusReporter.js";
+import { MigrationStatus } from "~/types.js";
+import { LogReporter } from "~/cli/LogReporter.js";
 
 export class InteractiveCliStatusReporter implements MigrationStatusReporter {
     private logReporter: LogReporter;

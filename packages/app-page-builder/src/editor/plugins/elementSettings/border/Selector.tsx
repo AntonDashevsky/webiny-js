@@ -1,8 +1,8 @@
 import React from "react";
 import { css } from "emotion";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { IconButton } from "@webiny/ui/Button";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as TopIcon } from "./icons/round-border_top-24px.svg";
 import { ReactComponent as RightIcon } from "./icons/round-border_right-24px.svg";
 import { ReactComponent as BottomIcon } from "./icons/round-border_bottom-24px.svg";

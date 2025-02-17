@@ -1,6 +1,6 @@
 import React from "react";
 import { FORMAT_TEXT_COMMAND } from "lexical";
-import { useCurrentSelection, useRichTextEditor } from "~/hooks";
+import { useCurrentSelection, useRichTextEditor } from "~/hooks/index.js";
 
 export const UnderlineAction = () => {
     const { editor } = useRichTextEditor();

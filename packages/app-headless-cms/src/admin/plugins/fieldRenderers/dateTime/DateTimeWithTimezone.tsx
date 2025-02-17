@@ -1,7 +1,7 @@
 import React from "react";
-import { Input } from "./Input";
-import { Select } from "./Select";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import { Input } from "./Input.js";
+import { Select } from "./Select.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import {
     RemoveFieldButton,
     getDefaultFieldValue,
@@ -11,8 +11,8 @@ import {
     getCurrentTimeZone,
     getHHmmss,
     getHHmm
-} from "./utils";
-import { CmsModelField } from "~/types";
+} from "./utils.js";
+import { CmsModelField } from "~/types.js";
 import { BindComponentRenderProp } from "@webiny/form";
 import { UTC_TIMEZONES } from "@webiny/utils";
 

@@ -1,10 +1,10 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { IMPORT_FROM_URL_CONTROLLER_TASK } from "./constants";
-import type { Context } from "~/types";
+import { IMPORT_FROM_URL_CONTROLLER_TASK } from "./constants.js";
+import type { Context } from "~/types.js";
 import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController";
+} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
 
 export const createImportFromUrlControllerTask = () => {
     return createTaskDefinition<
@@ -19,7 +19,7 @@ export const createImportFromUrlControllerTask = () => {
         description: "Imports the data from the given URL list - controller.",
         async run(params) {
             const { ImportFromUrlController } = await import(
-                /* webpackChunkName: "ImportFromUrlController" */ "./domain/ImportFromUrlController"
+                /* webpackChunkName: "ImportFromUrlController" */ "./domain/ImportFromUrlController.js"
             );
 
             try {
@@ -31,7 +31,7 @@ export const createImportFromUrlControllerTask = () => {
         },
         async onDone({ task }) {
             const { createDeleteFiles } = await import(
-                /* webpackChunkName: "DeleteFiles" */ "./utils/deleteFiles/DeleteFiles"
+                /* webpackChunkName: "DeleteFiles" */ "./utils/deleteFiles/DeleteFiles.js"
             );
 
             const deleteFiles = createDeleteFiles();

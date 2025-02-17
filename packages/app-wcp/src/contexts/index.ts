@@ -1,1 +1,1 @@
-export * from "./WcpContext";
+export * from "./WcpContext.js";

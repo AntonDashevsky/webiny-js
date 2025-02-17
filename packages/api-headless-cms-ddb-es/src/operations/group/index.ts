@@ -6,15 +6,15 @@ import {
     CmsGroupStorageOperationsGetParams,
     CmsGroupStorageOperationsListParams,
     CmsGroupStorageOperationsUpdateParams
-} from "@webiny/api-headless-cms/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-headless-cms/types/index.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import WebinyError from "@webiny/error";
-import { getClean } from "@webiny/db-dynamodb/utils/get";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter";
+import { getClean } from "@webiny/db-dynamodb/utils/get.js";
+import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort";
+import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin.js";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
 import { deleteItem, put, cleanupItems } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

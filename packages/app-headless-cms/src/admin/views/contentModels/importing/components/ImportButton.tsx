@@ -1,6 +1,6 @@
 import React from "react";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { i18n } from "@webiny/app/i18n";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/import-content-models-dialog");
 

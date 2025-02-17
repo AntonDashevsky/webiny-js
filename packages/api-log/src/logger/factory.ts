@@ -1,5 +1,5 @@
-import { createDynamoDbLogger, createStorageOperations, DynamoDbLoggerKeys } from "./dynamodb";
-import { create } from "~/db";
+import { createDynamoDbLogger, createStorageOperations, DynamoDbLoggerKeys } from "./dynamodb/index.js";
+import { create } from "~/db/index.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 
 export interface ILoggerFactoryParams {

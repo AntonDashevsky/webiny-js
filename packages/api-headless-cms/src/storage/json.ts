@@ -1,4 +1,4 @@
-import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin";
+import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin.js";
 // TODO implement compression
 export const createJsonStorageTransform = (): StorageTransformPlugin => {
     return new StorageTransformPlugin({

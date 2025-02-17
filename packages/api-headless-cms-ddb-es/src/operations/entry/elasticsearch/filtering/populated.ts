@@ -1,4 +1,4 @@
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
 
 export const getPopulated = (
     query: ElasticsearchBoolQueryConfig

@@ -1,12 +1,12 @@
-import omit from "lodash/omit";
-import omitBy from "lodash/omitBy";
-import isNull from "lodash/isNull";
+import omit from "lodash/omit.js";
+import omitBy from "lodash/omitBy.js";
+import isNull from "lodash/isNull.js";
 import uniqid from "uniqid";
-import { useHandlers } from "@webiny/app/hooks/useHandlers";
+import { useHandlers } from "@webiny/app/hooks/useHandlers.js";
 import { plugins } from "@webiny/plugins";
-import findObject from "./findObject";
-import { PbMenuItemPlugin } from "~/types";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import findObject from "./findObject.js";
+import { PbMenuItemPlugin } from "~/types.js";
+import { MenuTreeItem } from "~/admin/views/Menus/types.js";
 
 interface MenuItemFormProps {
     currentMenuItem: MenuTreeItem;

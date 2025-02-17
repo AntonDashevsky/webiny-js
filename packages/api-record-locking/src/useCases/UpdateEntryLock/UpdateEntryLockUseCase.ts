@@ -1,15 +1,15 @@
 import {
     IUpdateEntryLockUseCase,
     IUpdateEntryLockUseCaseExecuteParams
-} from "~/abstractions/IUpdateEntryLockUseCase";
-import { IGetIdentity, IRecordLockingLockRecord, IRecordLockingModelManager } from "~/types";
-import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
+} from "~/abstractions/IUpdateEntryLockUseCase.js";
+import { IGetIdentity, IRecordLockingLockRecord, IRecordLockingModelManager } from "~/types.js";
+import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
 import { WebinyError } from "@webiny/error";
-import { convertEntryToLockRecord } from "~/utils/convertEntryToLockRecord";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
+import { convertEntryToLockRecord } from "~/utils/convertEntryToLockRecord.js";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
 import { createIdentifier } from "@webiny/utils";
-import { validateSameIdentity } from "~/utils/validateSameIdentity";
-import { ILockEntryUseCase } from "~/abstractions/ILockEntryUseCase";
+import { validateSameIdentity } from "~/utils/validateSameIdentity.js";
+import { ILockEntryUseCase } from "~/abstractions/ILockEntryUseCase.js";
 
 export interface IUpdateEntryLockUseCaseParams {
     readonly getLockRecordUseCase: IGetLockRecordUseCase;

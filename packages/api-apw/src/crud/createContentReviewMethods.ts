@@ -19,23 +19,23 @@ import {
     OnContentReviewBeforeListTopicParams,
     OnContentReviewBeforeUpdateTopicParams,
     UpdateApwContentReviewParams
-} from "~/types";
-import { getNextStepStatus, hasReviewer } from "~/plugins/utils";
+} from "~/types.js";
+import { getNextStepStatus, hasReviewer } from "~/plugins/utils.js";
 import {
     NoSignOffProvidedError,
     NotAuthorizedError,
     PendingChangeRequestsError,
     StepInActiveError,
     StepMissingError
-} from "~/utils/errors";
-import { ApwScheduleActionTypes } from "~/scheduler/types";
+} from "~/utils/errors.js";
+import { ApwScheduleActionTypes } from "~/scheduler/types.js";
 import {
     checkValidDateTime,
     filterContentReviewsByRequiresMyAttention,
     getPendingRequiredSteps,
     INITIAL_CONTENT_REVIEW_CONTENT_SCHEDULE_META
-} from "./utils";
-import { getContentApwSettingsPlugin } from "~/utils/contentApwSettingsPlugin";
+} from "./utils.js";
+import { getContentApwSettingsPlugin } from "~/utils/contentApwSettingsPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 export interface CreateContentReviewMethodsParams extends CreateApwParams {

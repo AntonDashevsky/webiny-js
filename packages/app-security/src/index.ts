@@ -1,6 +1,6 @@
-export * from "./components";
-export * from "./contexts/Security";
-export { SecurityContext } from "./contexts/Security";
-export * from "./hooks/useSecurity";
-export * from "./hooks/usePermission";
-export * from "./Security";
+export * from "./components/index.js";
+export * from "./contexts/Security.js";
+export { SecurityContext } from "./contexts/Security.js";
+export * from "./hooks/useSecurity.js";
+export * from "./hooks/usePermission.js";
+export * from "./Security.js";

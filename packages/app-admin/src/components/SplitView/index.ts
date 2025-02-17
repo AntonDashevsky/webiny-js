@@ -1,1 +1,1 @@
-export { SplitView, LeftPanel, RightPanel } from "./SplitView";
+export { SplitView, LeftPanel, RightPanel } from "./SplitView.js";

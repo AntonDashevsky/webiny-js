@@ -1,6 +1,6 @@
 import React from "react";
-import { Compose } from "~/Compose";
-import { GetDecoratee, GetDecorateeParams } from "~/createDecorator";
+import { Compose } from "~/Compose.js";
+import { GetDecoratee, GetDecorateeParams } from "~/createDecorator.js";
 import {
     DecoratableComponent,
     GenericComponent,
@@ -8,7 +8,7 @@ import {
     GenericHook,
     DecoratableHook,
     ComponentDecorator
-} from "~/types";
+} from "~/types.js";
 
 export interface ShouldDecorate<TDecorator = any, TComponent = any> {
     (decoratorProps: TDecorator, componentProps: TComponent): boolean;

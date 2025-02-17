@@ -1,6 +1,6 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
-import WidthSettings from "./WidthSettings";
+import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
+import WidthSettings from "./WidthSettings.js";
 
 export default {
     name: "pb-editor-page-element-style-settings-width",

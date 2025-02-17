@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { preparePageData } from "./install/welcomeToWebinyPageData";
-import { notFoundPageData } from "./install/notFoundPageData";
-import { savePageAssets } from "./install/utils/savePageAssets";
+import { preparePageData } from "./install/welcomeToWebinyPageData.js";
+import { notFoundPageData } from "./install/notFoundPageData.js";
+import { savePageAssets } from "./install/utils/savePageAssets.js";
 import {
     Category,
     OnSystemAfterInstallTopicParams,
@@ -13,7 +13,7 @@ import {
     PbContext,
     System,
     SystemCrud
-} from "~/types";
+} from "~/types.js";
 import { createTopic } from "@webiny/pubsub";
 
 export interface CreateSystemCrudParams {

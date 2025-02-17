@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
 
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Bind, GenericFormData } from "@webiny/form";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { useDialogs } from "@webiny/app-admin";
-import { FolderTree } from "~/components";
-import { DialogFoldersContainer } from "~/dialogs/styled";
+import { FolderTree } from "~/components/index.js";
+import { DialogFoldersContainer } from "~/dialogs/styled.js";
 
 const t = i18n.ns("app-aco/dialogs/use-move-to-folder-dialog");
 

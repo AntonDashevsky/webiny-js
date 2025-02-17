@@ -1,8 +1,8 @@
 import React from "react";
-import { ScheduleActionDialogProvider } from "./useScheduleActionDialog";
-import { ScheduleActionDialog } from "./ScheduleActionDialog";
-import { ChangeContentStatusDialog } from "./ChangeContentStatusDialog";
-import { ChangeContentStatusButton } from "./ChangeContentStatusButton";
+import { ScheduleActionDialogProvider } from "./useScheduleActionDialog.js";
+import { ScheduleActionDialog } from "./ScheduleActionDialog.js";
+import { ChangeContentStatusDialog } from "./ChangeContentStatusDialog.js";
+import { ChangeContentStatusButton } from "./ChangeContentStatusButton.js";
 
 export const ChangeContentStatus = () => {
     return (

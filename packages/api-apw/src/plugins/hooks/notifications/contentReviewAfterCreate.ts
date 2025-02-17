@@ -1,10 +1,10 @@
 import WebinyError from "@webiny/error";
-import { ApwContext } from "~/types";
-import { getAppUrl } from "./appUrl";
-import { createContentReviewUrl } from "./contentReviewUrl";
-import { createContentUrl } from "./contentUrl";
-import { fetchReviewers } from "./reviewers";
-import { sendContentReviewNotification } from "./sendContentReviewNotification";
+import { ApwContext } from "~/types.js";
+import { getAppUrl } from "./appUrl.js";
+import { createContentReviewUrl } from "./contentReviewUrl.js";
+import { createContentUrl } from "./contentUrl.js";
+import { fetchReviewers } from "./reviewers.js";
+import { sendContentReviewNotification } from "./sendContentReviewNotification.js";
 
 export const attachContentReviewAfterCreate = (context: ApwContext): void => {
     context.apw.contentReview.onContentReviewAfterCreate.subscribe(async ({ contentReview }) => {

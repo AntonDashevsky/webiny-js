@@ -1,4 +1,4 @@
-import { RenderUrlPostHtmlParams } from "~/render/types";
+import { RenderUrlPostHtmlParams } from "~/render/types.js";
 import { NodeAPI } from "posthtml";
 
 export default ({ id }: Pick<RenderUrlPostHtmlParams, "id">) =>

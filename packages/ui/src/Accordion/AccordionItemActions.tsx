@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton } from "~/Button";
+import { IconButton } from "~/Button/index.js";
 
 interface AccordionItemActionsProps {
     children: React.ReactNode;

@@ -2,18 +2,18 @@ import React, { lazy, Suspense } from "react";
 import { AddMenu as Menu, AddRoute } from "@webiny/app-admin";
 import { ReactComponent as ApwIcon } from "~/assets/icons/account_tree_24dp.svg";
 import { SecureRoute } from "@webiny/app-security";
-import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
+import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
 import Helmet from "react-helmet";
-import { PublishingWorkflowsView } from "~/views/publishingWorkflows";
-import { ContentReviewDashboard } from "~/views/contentReviewDashboard";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { usePermission } from "~/hooks/usePermission";
+import { PublishingWorkflowsView } from "~/views/publishingWorkflows/index.js";
+import { ContentReviewDashboard } from "~/views/contentReviewDashboard/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { usePermission } from "~/hooks/usePermission.js";
 
 const ContentReviewEditor = lazy(
     () =>
         import(
             /* webpackChunkName: "ApwViewsContentReviewDashboardContentReviewEditor" */
-            "~/views/contentReviewDashboard/ContentReviewEditor"
+            "~/views/contentReviewDashboard/ContentReviewEditor.js"
         )
 );
 

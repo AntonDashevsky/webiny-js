@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect } from "react";
 import dotPropImmutable from "dot-prop-immutable";
-import pick from "lodash/pick";
+import pick from "lodash/pick.js";
 import { useStateIfMounted } from "@webiny/app-admin";
 import { useSecurity } from "@webiny/app-security";
 import {
@@ -10,12 +10,12 @@ import {
     ListSearchRecordsQueryVariables,
     ListSearchRecordsSort,
     SearchRecordItem
-} from "~/types";
-import { useAcoApp, useNavigateFolder } from "~/hooks";
-import { FoldersContext } from "~/contexts/folders";
-import { SearchRecordsContext } from "~/contexts/records";
-import { sortTableItems, validateOrGetDefaultDbSort } from "~/sorting";
-import { ROOT_FOLDER } from "~/constants";
+} from "~/types.js";
+import { useAcoApp, useNavigateFolder } from "~/hooks/index.js";
+import { FoldersContext } from "~/contexts/folders.js";
+import { SearchRecordsContext } from "~/contexts/records.js";
+import { sortTableItems, validateOrGetDefaultDbSort } from "~/sorting.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface AcoListContextData<T> {
     folders: FolderItem[];

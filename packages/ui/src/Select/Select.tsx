@@ -4,10 +4,10 @@ import {
     Select as RmwcSelect,
     SelectProps as RmwcSelectProps
 } from "@rmwc/select";
-import { FormElementMessage } from "~/FormElementMessage";
-import { FormComponentProps } from "~/types";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
+import { FormComponentProps } from "~/types.js";
 import classNames from "classnames";
-import { webinySelect } from "./styled";
+import { webinySelect } from "./styled.js";
 
 export type SelectProps = FormComponentProps &
     RmwcSelectProps & {

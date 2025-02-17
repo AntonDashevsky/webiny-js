@@ -1,5 +1,5 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 import {
     StatusWrapper,
@@ -11,7 +11,7 @@ import {
     ProgressBar,
     ProgressBarPercentage,
     UploadingLabelFile
-} from "./styled";
+} from "./styled.js";
 
 import loadingIcon from "./assets/loading.svg";
 import checkIcon from "./assets/check.svg";

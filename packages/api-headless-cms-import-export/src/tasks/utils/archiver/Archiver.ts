@@ -1,4 +1,4 @@
-import type { IArchiver } from "./abstractions/Archiver";
+import type { IArchiver } from "./abstractions/Archiver.js";
 import type { Archiver as BaseArchiver, ArchiverOptions } from "archiver";
 import archiver from "archiver";
 

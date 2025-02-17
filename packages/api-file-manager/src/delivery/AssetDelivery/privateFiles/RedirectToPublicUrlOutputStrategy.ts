@@ -1,4 +1,4 @@
-import { Asset, AssetOutputStrategy, AssetReply, AssetRequest } from "~/delivery";
+import { Asset, AssetOutputStrategy, AssetReply, AssetRequest } from "~/delivery/index.js";
 import { ResponseHeaders } from "@webiny/handler";
 
 export class RedirectToPublicUrlOutputStrategy implements AssetOutputStrategy {

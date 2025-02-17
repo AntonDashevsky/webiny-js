@@ -1,7 +1,7 @@
 import React from "react";
 import { BindComponent } from "@webiny/form";
 import { makeDecoratable } from "@webiny/app-admin";
-import { ApwWorkflow } from "~/types";
+import { ApwWorkflow } from "~/types.js";
 
 export interface WorkflowScopeProps {
     Bind: BindComponent;

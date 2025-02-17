@@ -1,2 +1,2 @@
-export * from "./FilePhysicalStoragePlugin";
-export * from "./FileStorageTransformPlugin";
+export * from "./FilePhysicalStoragePlugin.js";
+export * from "./FileStorageTransformPlugin.js";

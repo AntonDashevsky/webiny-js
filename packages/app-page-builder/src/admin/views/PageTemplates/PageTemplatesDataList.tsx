@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useState } from "react";
 import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useRouter } from "@webiny/react-router";
-import orderBy from "lodash/orderBy";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
+import orderBy from "lodash/orderBy.js";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
 
 import {
     DataList,
@@ -17,25 +17,25 @@ import {
     ListSelectBox,
     ListTextOverline,
     ScrollList
-} from "@webiny/ui/List";
-import { Checkbox } from "@webiny/ui/Checkbox";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { ButtonIcon, ButtonSecondary, IconButton } from "@webiny/ui/Button";
+} from "@webiny/ui/List/index.js";
+import { Checkbox } from "@webiny/ui/Checkbox/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { ButtonIcon, ButtonSecondary, IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/filled/add.svg";
 import { ReactComponent as FilterIcon } from "@material-design-icons/svg/round/filter_alt.svg";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/round/edit.svg";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/round/delete.svg";
-import { CreatableItem } from "./PageTemplates";
-import { useMultiSelect } from "~/admin/views/Pages/hooks/useMultiSelect";
-import { ExportTemplatesButton } from "~/editor/plugins/defaultBar/components/ExportTemplateButton";
+import { CreatableItem } from "./PageTemplates.js";
+import { useMultiSelect } from "~/admin/views/Pages/hooks/useMultiSelect.js";
+import { ExportTemplatesButton } from "~/editor/plugins/defaultBar/components/ExportTemplateButton/index.js";
 import { ReactComponent as FileUploadIcon } from "@webiny/app-admin/assets/icons/file_upload.svg";
-import useImportTemplate from "~/admin/views/PageTemplates/hooks/useImportTemplate";
-import { OptionsMenu } from "~/admin/components/OptionsMenu";
+import useImportTemplate from "~/admin/views/PageTemplates/hooks/useImportTemplate.js";
+import { OptionsMenu } from "~/admin/components/OptionsMenu.js";
 
-import { PbPageTemplate } from "~/types";
-import { useListPageTemplates } from "~/features";
+import { PbPageTemplate } from "~/types.js";
+import { useListPageTemplates } from "~/features/index.js";
 
 const t = i18n.ns("app-page-builder/admin/views/page-templates/page-templates-details");
 

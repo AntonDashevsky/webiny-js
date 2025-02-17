@@ -1,4 +1,4 @@
-import { s3Stream } from "~/export/s3Stream";
+import { s3Stream } from "~/export/s3Stream.js";
 
 export async function deleteS3Folder(key: string): Promise<void> {
     // Append trailing slash i.e "/" to key to make sure we only delete a specific folder.

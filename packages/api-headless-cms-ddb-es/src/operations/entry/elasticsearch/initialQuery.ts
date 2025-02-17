@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
-import { createLatestRecordType, createPublishedRecordType } from "../recordType";
+import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { createLatestRecordType, createPublishedRecordType } from "../recordType.js";
 import { isSharedElasticsearchIndex } from "@webiny/api-elasticsearch";
 
 export const createBaseQuery = (): ElasticsearchBoolQueryConfig => {

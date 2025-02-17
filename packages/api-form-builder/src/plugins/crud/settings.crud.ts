@@ -9,14 +9,14 @@ import {
     OnSettingsBeforeUpdate,
     Settings,
     SettingsCRUD
-} from "~/types";
+} from "~/types.js";
 import WebinyError from "@webiny/error";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
-import { SettingsPermissions } from "./permissions/SettingsPermissions";
-import { createSettingsValidation, updateSettingsValidation } from "~/plugins/crud/settings.models";
+import { SettingsPermissions } from "./permissions/SettingsPermissions.js";
+import { createSettingsValidation, updateSettingsValidation } from "~/plugins/crud/settings.models.js";
 import { createZodError } from "@webiny/utils";
 
 export interface CreateSettingsCrudParams {

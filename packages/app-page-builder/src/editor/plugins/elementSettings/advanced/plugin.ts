@@ -1,6 +1,6 @@
-import { PbEditorEventActionPlugin } from "~/types";
-import { elementSettingsAction } from "./elementSettingsAction";
-import { CreateElementActionEvent } from "~/editor/recoil/actions";
+import { PbEditorEventActionPlugin } from "~/types.js";
+import { elementSettingsAction } from "./elementSettingsAction.js";
+import { CreateElementActionEvent } from "~/editor/recoil/actions/index.js";
 
 export default {
     name: "pb-editor-event-action-advanced-settings",

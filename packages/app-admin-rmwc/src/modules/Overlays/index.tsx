@@ -1,10 +1,10 @@
 import React from "react";
 import { Provider } from "@webiny/app-admin";
-import Snackbar from "./Snackbar";
-import { DialogContainer } from "./Dialog";
+import Snackbar from "./Snackbar.js";
+import { DialogContainer } from "./Dialog.js";
 import { Portal } from "@rmwc/base";
 import { featureFlags } from "@webiny/feature-flags";
-import { OmniSearch } from "./OmniSearch";
+import { OmniSearch } from "./OmniSearch.js";
 
 interface OverlaysProps {
     children?: React.ReactNode;

@@ -5,12 +5,12 @@ import path from "path";
 import glob from "fast-glob";
 import get from "lodash/get.js";
 import merge from "lodash/merge.js";
-import { getProject, getProjectApplication } from "@webiny/cli/utils/index.js";
+import { getProject } from "@webiny/cli/utils/index.js";
 import simpleOutput from "./watch/output/simpleOutput.js";
 import { listPackages } from "./watch/listPackages.js";
 import { watchPackages } from "./watch/watchPackages.js";
 import { PackagesWatcher } from "./watch/watchers/PackagesWatcher.js";
-import type { Context, IUserCommandInput, ProjectApplication } from "~/types";
+import type { Context, IUserCommandInput, ProjectApplication } from "~/types.js";
 import {
     getPulumi,
     getRandomColorForString,
@@ -18,7 +18,7 @@ import {
     loadEnvVariables,
     login,
     runHook
-} from "~/utils";
+} from "~/utils/index.js";
 import {
     createEnvConfiguration,
     withEnv,

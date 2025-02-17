@@ -12,8 +12,8 @@ import {
     UNPUBLISH_CONTENT_MUTATION,
     UnPublishContentMutationResponse,
     UnPublishContentMutationVariables
-} from "~/graphql/contentReview.gql";
-import { useContentReviewId } from "~/hooks/useContentReviewId";
+} from "~/graphql/contentReview.gql.js";
+import { useContentReviewId } from "~/hooks/useContentReviewId.js";
 import { useSnackbar } from "@webiny/app-admin";
 
 interface UsePublishContentResult {

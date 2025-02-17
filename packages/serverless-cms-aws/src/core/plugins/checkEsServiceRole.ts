@@ -1,7 +1,7 @@
 import { IAM } from "@webiny/aws-sdk/client-iam";
 import ora from "ora";
 import chalk from "chalk";
-import { CliContext } from "@webiny/cli/types";
+import { CliContext } from "@webiny/cli/types.js";
 
 const { green } = chalk;
 

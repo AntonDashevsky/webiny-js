@@ -1,3 +1,3 @@
-export * from "./LocaleDynamoDbFieldPlugin";
-export * from "./LocalesAttributePlugin";
-export * from "./SystemAttributePlugin";
+export * from "./LocaleDynamoDbFieldPlugin.js";
+export * from "./LocalesAttributePlugin.js";
+export * from "./SystemAttributePlugin.js";

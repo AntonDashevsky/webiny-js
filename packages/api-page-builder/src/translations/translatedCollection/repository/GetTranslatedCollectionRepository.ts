@@ -1,9 +1,9 @@
 import { WebinyError } from "@webiny/error";
-import { PbContext } from "~/types";
-import { GetModel } from "~/translations/GetModel";
-import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
-import { TranslatedCollectionDTO } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionDTO";
-import { TranslatedCollectionMapper } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionMapper";
+import { PbContext } from "~/types.js";
+import { GetModel } from "~/translations/GetModel.js";
+import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection.js";
+import { TranslatedCollectionDTO } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionDTO.js";
+import { TranslatedCollectionMapper } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionMapper.js";
 
 interface GetTranslatedCollectionParams {
     collectionId: string;

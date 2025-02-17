@@ -3,15 +3,15 @@ import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
 import { Form, FormAPI, FormOnSubmit } from "@webiny/form";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
 
-import { AddOperation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/AddOperation";
-import { Operation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/Operation";
+import { AddOperation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/AddOperation.js";
+import { Operation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/Operation.js";
 import {
     BatchEditorDialogViewModel,
     BatchEditorFormData
-} from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter";
-import { BatchEditorContainer } from "~/components/BulkActions/ActionEdit/ActionEdit.styled";
+} from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter.js";
+import { BatchEditorContainer } from "~/components/BulkActions/ActionEdit/ActionEdit.styled.js";
 
 export interface BatchEditorProps {
     onForm: (form: FormAPI) => void;

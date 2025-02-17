@@ -1,8 +1,8 @@
 import React from "react";
 import { OptionsMenu } from "@webiny/app-admin";
 
-import { useContentEntryEditorConfig } from "~/admin/config/contentEntries";
-import { OptionMenuContainer } from "./ContentFormOptionsMenu.styles";
+import { useContentEntryEditorConfig } from "~/admin/config/contentEntries/index.js";
+import { OptionMenuContainer } from "./ContentFormOptionsMenu.styles.js";
 
 export const ContentFormOptionsMenu = () => {
     const { menuItemActions } = useContentEntryEditorConfig();

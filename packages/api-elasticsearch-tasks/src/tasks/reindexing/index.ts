@@ -1,1 +1,1 @@
-export * from "./reindexingTaskDefinition";
+export * from "./reindexingTaskDefinition.js";

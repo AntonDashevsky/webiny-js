@@ -1,9 +1,9 @@
 import React from "react";
-import { createRenderer } from "~/createRenderer";
-import { useRenderer } from "~/hooks/useRenderer";
-import { ElementInput } from "~/inputs/ElementInput";
-import { isJson } from "~/renderers/isJson";
-import { isHtml } from "~/renderers/isHtml";
+import { createRenderer } from "~/createRenderer.js";
+import { useRenderer } from "~/hooks/useRenderer.js";
+import { ElementInput } from "~/inputs/ElementInput.js";
+import { isJson } from "~/renderers/isJson.js";
+import { isHtml } from "~/renderers/isHtml.js";
 
 export const elementInputs = {
     text: ElementInput.create<string>({

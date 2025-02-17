@@ -1,6 +1,6 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "~/types";
-import PropertySettings from "./PropertySettings";
+import { PbEditorPageElementStyleSettingsPlugin } from "~/types.js";
+import PropertySettings from "./PropertySettings.js";
 
 export default {
     name: "pb-editor-page-element-style-settings-property",

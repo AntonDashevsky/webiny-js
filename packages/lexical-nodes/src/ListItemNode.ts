@@ -13,16 +13,16 @@ import {
     SerializedElementNode,
     Spread
 } from "lexical";
-import { $createListNode, $isListNode, ListNode } from "~/ListNode";
+import { $createListNode, $isListNode, ListNode } from "~/ListNode.js";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
 import {
     $handleIndent,
     $handleOutdent,
     mergeLists,
     updateChildrenListItemValue
-} from "~/utils/formatList";
-import { $createParagraphNode, $isParagraphNode } from "~/ParagraphNode";
-import { isNestedListNode } from "~/utils/listNode";
+} from "~/utils/formatList.js";
+import { $createParagraphNode, $isParagraphNode } from "~/ParagraphNode.js";
+import { isNestedListNode } from "~/utils/listNode.js";
 
 export type SerializedWebinyListItemNode = Spread<
     {

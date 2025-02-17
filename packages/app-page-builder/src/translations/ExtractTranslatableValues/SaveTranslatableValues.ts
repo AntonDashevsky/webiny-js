@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import debounce from "lodash/debounce";
-import { PbEditorElementTree } from "~/types";
-import { useEventActionHandler } from "~/editor";
-import { PageEditorEventActionCallableState } from "~/pageEditor/types";
-import { useSaveTranslatableCollection } from "~/translations";
-import { ToggleSaveRevisionStateActionEvent } from "~/pageEditor/config/eventActions/saveRevision";
+import debounce from "lodash/debounce.js";
+import { PbEditorElementTree } from "~/types.js";
+import { useEventActionHandler } from "~/editor/index.js";
+import { PageEditorEventActionCallableState } from "~/pageEditor/types.js";
+import { useSaveTranslatableCollection } from "~/translations/index.js";
+import { ToggleSaveRevisionStateActionEvent } from "~/pageEditor/config/eventActions/saveRevision/index.js";
 import {
     TranslatableItem,
     useTranslations
-} from "~/translations/ExtractTranslatableValues/TranslationContext";
+} from "~/translations/ExtractTranslatableValues/TranslationContext.js";
 
 const extractElementIds = (elements: PbEditorElementTree[]): string[] => {
     return [

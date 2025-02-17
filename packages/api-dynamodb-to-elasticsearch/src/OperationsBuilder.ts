@@ -3,9 +3,9 @@ import {
     IOperations,
     IOperationsBuilder,
     IOperationsBuilderBuildParams
-} from "./types";
-import { Operations, OperationType } from "~/Operations";
-import { unmarshall } from "~/marshall";
+} from "./types.js";
+import { Operations, OperationType } from "~/Operations.js";
+import { unmarshall } from "~/marshall.js";
 
 interface RecordDynamoDbImage {
     data: Record<string, any>;

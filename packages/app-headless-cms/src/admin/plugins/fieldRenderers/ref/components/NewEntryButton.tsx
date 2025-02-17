@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button";
+import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button/index.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 
 const DefaultButton = styled(ButtonDefault)`

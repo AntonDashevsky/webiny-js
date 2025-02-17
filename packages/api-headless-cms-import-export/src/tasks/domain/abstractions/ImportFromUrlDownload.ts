@@ -1,4 +1,4 @@
-import type { Context, ICmsImportExportValidatedValidFile } from "~/types";
+import type { Context, ICmsImportExportValidatedValidFile } from "~/types.js";
 import type {
     ITaskResponseDoneResultOutput,
     ITaskResponseResult,

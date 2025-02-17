@@ -1,5 +1,5 @@
 import { TaskDataStatus } from "@webiny/tasks";
-import { DeleteCmsModelTaskStatus } from "~/tasks/deleteModel/types";
+import { DeleteCmsModelTaskStatus } from "~/tasks/deleteModel/types.js";
 
 export const getStatus = (status: TaskDataStatus): DeleteCmsModelTaskStatus => {
     switch (status) {

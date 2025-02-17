@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { ReactComponent as ExportIcon } from "@material-design-icons/svg/outlined/file_download.svg";
 import { observer } from "mobx-react-lite";
-import { PageListConfig } from "~/admin/config/pages";
-import useExportPageRevisionSelectorDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageRevisionSelectorDialog";
-import useExportPageDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageDialog";
-import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import useExportPageRevisionSelectorDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageRevisionSelectorDialog.js";
+import useExportPageDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageDialog.js";
+import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions.js";
 
 export const ActionExport = observer(() => {
     const { showExportPageRevisionSelectorDialog } = useExportPageRevisionSelectorDialog();

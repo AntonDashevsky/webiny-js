@@ -1,6 +1,6 @@
 import React from "react";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { IconButton } from "@webiny/ui/Button";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 
 export interface ActionButtonProps {
     label: string;

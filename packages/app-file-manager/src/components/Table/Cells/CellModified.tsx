@@ -1,6 +1,6 @@
 import React from "react";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
 
 export const CellModified = () => {
     const { useTableRow } = FileManagerViewConfig.Browser.Table.Column;

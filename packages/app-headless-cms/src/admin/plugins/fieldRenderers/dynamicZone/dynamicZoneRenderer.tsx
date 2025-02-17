@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
 import {
     BindComponent,
     BindComponentRenderProp,
@@ -8,11 +8,11 @@ import {
     CmsModelField,
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
-} from "~/types";
-import { SingleValueDynamicZone } from "./SingleValueDynamicZone";
-import { MultiValueDynamicZone } from "./MultiValueDynamicZone";
-import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+} from "~/types.js";
+import { SingleValueDynamicZone } from "./SingleValueDynamicZone.js";
+import { MultiValueDynamicZone } from "./MultiValueDynamicZone.js";
+import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 import { makeDecoratable } from "@webiny/react-composition";
 
 const noBottomPadding = css`

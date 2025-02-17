@@ -1,4 +1,4 @@
-export { usePage } from "./usePage";
-export { usePageSettings } from "./usePageSettings";
-export { useRevisions } from "./useRevisions";
-export { useTemplateMode } from "./useTemplateMode";
+export { usePage } from "./usePage.js";
+export { usePageSettings } from "./usePageSettings.js";
+export { useRevisions } from "./useRevisions.js";
+export { useTemplateMode } from "./useTemplateMode.js";

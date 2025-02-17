@@ -13,18 +13,18 @@ import {
     User
 } from "@auth0/auth0-react";
 import { plugins } from "@webiny/plugins";
-import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin";
+import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin.js";
 import { useSecurity } from "@webiny/app-serverless-cms";
 import { useTenancy, withTenant } from "@webiny/app-tenancy";
-import { SecurityPermission } from "@webiny/app-security/types";
+import { SecurityPermission } from "@webiny/app-security/types.js";
 import { useRouter, UseHistory } from "@webiny/react-router";
 import {
     createGetIdentityData,
     GetIdentityDataCallable,
     LOGIN_MT,
     LOGIN_ST
-} from "./createGetIdentityData";
-import { LoginContent, LoginLayout } from "~/components";
+} from "./createGetIdentityData/index.js";
+import { LoginContent, LoginLayout } from "~/components/index.js";
 
 export type Auth0Options = Auth0ProviderOptions;
 

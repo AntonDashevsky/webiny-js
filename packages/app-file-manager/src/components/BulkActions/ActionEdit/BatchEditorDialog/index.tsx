@@ -1,1 +1,1 @@
-export * from "./BatchEditorDialog";
+export * from "./BatchEditorDialog.js";

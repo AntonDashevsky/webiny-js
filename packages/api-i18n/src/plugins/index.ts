@@ -1,3 +1,3 @@
-export * from "./I18NLocaleContextPlugin";
-export * from "./LocalesStorageOperationsProviderPlugin";
-export * from "./SystemStorageOperationsProviderPlugin";
+export * from "./I18NLocaleContextPlugin.js";
+export * from "./LocalesStorageOperationsProviderPlugin.js";
+export * from "./SystemStorageOperationsProviderPlugin.js";

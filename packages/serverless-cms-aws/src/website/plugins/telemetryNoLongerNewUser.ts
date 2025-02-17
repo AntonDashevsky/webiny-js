@@ -1,5 +1,5 @@
 import { globalConfig } from "@webiny/global-config";
-import { AfterDeployPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins";
+import { AfterDeployPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins/index.js";
 
 export const telemetryNoLongerNewUser = new AfterDeployPlugin(params => {
     // If for some reason the deployment was skipped, we don't want to mark the user as no longer new.

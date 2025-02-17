@@ -1,10 +1,10 @@
 import React from "react";
 import { css } from "emotion";
-import { Elevation } from "@webiny/ui/Elevation";
-import { i18n } from "@webiny/app/i18n";
-import { CmsEditorContentTab } from "~/types";
-import { useModelEditor } from "~/admin/hooks";
-import { ContentEntryFormPreview } from "../ContentEntryForm/ContentEntryFormPreview";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CmsEditorContentTab } from "~/types.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
+import { ContentEntryFormPreview } from "../ContentEntryForm/ContentEntryFormPreview.js";
 
 const t = i18n.ns("app-headless-cms/admin/components/editor/tabs/preview");
 

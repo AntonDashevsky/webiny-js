@@ -1,14 +1,14 @@
 import React, { useCallback, useMemo } from "react";
-import { FbFormModelField, FbFormStep } from "~/types";
-import Draggable, { BeginDragProps } from "~/admin/components/FormEditor/Draggable";
-import { RowHandle, Row, RowContainer } from "~/admin/components/FormEditor/Tabs/EditTab/Styled";
+import { FbFormModelField, FbFormStep } from "~/types.js";
+import Draggable, { BeginDragProps } from "~/admin/components/FormEditor/Draggable.js";
+import { RowHandle, Row, RowContainer } from "~/admin/components/FormEditor/Tabs/EditTab/Styled.js";
 
-import { Icon } from "@webiny/ui/Icon";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { ReactComponent as HandleIcon } from "~/admin/components/FormEditor/icons/round-drag_indicator-24px.svg";
-import { Horizontal } from "~/admin/components/FormEditor/DropZone";
-import { useFormStep } from "~/admin/components/FormEditor/Tabs/EditTab/FormStep/useFormStep";
-import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable";
-import { FormStepRowField } from "./FormStepRowField";
+import { Horizontal } from "~/admin/components/FormEditor/DropZone/index.js";
+import { useFormStep } from "~/admin/components/FormEditor/Tabs/EditTab/FormStep/useFormStep.js";
+import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable.js";
+import { FormStepRowField } from "./FormStepRowField.js";
 
 export interface FormStepRowProps {
     formStep: FbFormStep;

@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
-import { ContentEntryFormContext } from "./ContentEntryFormProvider";
+import { ContentEntryFormContext } from "./ContentEntryFormProvider.js";
 
 export const useContentEntryForm = makeDecoratable(() => {
     const context = React.useContext(ContentEntryFormContext);

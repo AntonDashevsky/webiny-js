@@ -5,9 +5,9 @@ import {
     CmsErrorResponse,
     CmsMetaResponse,
     CmsModel
-} from "~/types";
-import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { CmsEntryGetEntryVariable } from "~/admin/plugins/fieldRenderers/ref/components/graphql";
+} from "~/types.js";
+import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { CmsEntryGetEntryVariable } from "~/admin/plugins/fieldRenderers/ref/components/graphql.js";
 
 const fields = `
     data {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useActiveElement } from "~/editor";
+import { useActiveElement } from "~/editor/index.js";
 
 export interface OnElementTypeProps {
     elementType: string;

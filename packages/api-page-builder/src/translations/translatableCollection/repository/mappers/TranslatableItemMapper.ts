@@ -1,5 +1,5 @@
-import { TranslatableItem } from "~/translations/translatableCollection/domain/TranslatableItem";
-import { TranslatableItemDTO } from "~/translations/translatableCollection/repository/mappers/TranslatableItemDTO";
+import { TranslatableItem } from "~/translations/translatableCollection/domain/TranslatableItem.js";
+import { TranslatableItemDTO } from "~/translations/translatableCollection/repository/mappers/TranslatableItemDTO.js";
 
 export class TranslatableItemMapper {
     static fromDTO(dto: TranslatableItemDTO) {

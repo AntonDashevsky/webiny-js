@@ -1,8 +1,8 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { filterSchema } from "~/filter/filter.gql";
-import { folderSchema } from "~/folder/folder.gql";
-import { appGql } from "~/apps/app.gql";
-import { AcoContext } from "~/types";
+import { filterSchema } from "~/filter/filter.gql.js";
+import { folderSchema } from "~/folder/folder.gql.js";
+import { appGql } from "~/apps/app.gql.js";
+import { AcoContext } from "~/types.js";
 
 const emptyResolver = () => ({});
 

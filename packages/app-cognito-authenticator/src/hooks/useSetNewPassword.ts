@@ -1,6 +1,6 @@
 import { useCallback, useReducer } from "react";
 import { Auth } from "@aws-amplify/auth";
-import { useAuthenticator } from "./useAuthenticator";
+import { useAuthenticator } from "./useAuthenticator.js";
 
 export interface UseSetNewPasswordCallableParams {
     code: string;

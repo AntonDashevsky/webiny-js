@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
-import { ListActions, ListItemMeta as UiListItemMeta } from "@webiny/ui/List";
-import { Menu, MenuDivider, MenuItem } from "@webiny/ui/Menu";
+import { ListActions, ListItemMeta as UiListItemMeta } from "@webiny/ui/List/index.js";
+import { Menu, MenuDivider, MenuItem } from "@webiny/ui/Menu/index.js";
 import { ReactComponent as More } from "@material-design-icons/svg/outlined/arrow_drop_down.svg";
 import { ReactComponent as Check } from "@material-design-icons/svg/outlined/check.svg";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import styled from "@emotion/styled";
 import { useSecurity } from "@webiny/app-security";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { FolderAccessLevel, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { FolderAccessLevel, FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
 
 const TARGET_LEVELS = [
     {

@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import store from "store";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { useElementSidebar } from "~/editor/hooks/useElementSidebar";
-import { updateSidebarActiveTabIndexMutation } from "~/editor/recoil/modules";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { useElementSidebar } from "~/editor/hooks/useElementSidebar.js";
+import { updateSidebarActiveTabIndexMutation } from "~/editor/recoil/modules/index.js";
 
 const LOCAL_STORAGE_KEY = "webiny_pb_editor_active_tab";
 

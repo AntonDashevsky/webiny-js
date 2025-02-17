@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import dotPropImmutable from "dot-prop-immutable";
-import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId";
+import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId.js";
 import { useSnackbar } from "@webiny/app-admin";
-import { GET_CHANGE_REQUEST_QUERY } from "~/graphql/changeRequest.gql";
-import { useActiveChangeRequestId } from "~/hooks/useCurrentChangeRequestId";
+import { GET_CHANGE_REQUEST_QUERY } from "~/graphql/changeRequest.gql.js";
+import { useActiveChangeRequestId } from "~/hooks/useCurrentChangeRequestId.js";
 import {
     GET_CONTENT_REVIEW_QUERY,
     PROVIDE_SIGN_OFF_MUTATION,
@@ -13,7 +13,7 @@ import {
     RETRACT_SIGN_OFF_MUTATION,
     RetractSignOffMutationResponse,
     RetractSignOffMutationVariables
-} from "~/graphql/contentReview.gql";
+} from "~/graphql/contentReview.gql.js";
 
 interface UseStepSignOffResult {
     provideSignOff: () => Promise<void>;

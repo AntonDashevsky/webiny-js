@@ -1,5 +1,5 @@
-import { ApwContentTypes, ApwContext } from "~/types";
-import { ApwChangeRequestNotification } from "~/ApwChangeRequestNotification";
+import { ApwContentTypes, ApwContext } from "~/types.js";
+import { ApwChangeRequestNotification } from "~/ApwChangeRequestNotification.js";
 
 interface GetLastChangeRequestNotificationPluginParams {
     context: ApwContext;

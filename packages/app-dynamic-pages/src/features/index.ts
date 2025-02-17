@@ -1,3 +1,3 @@
-export * from "./pageTemplate/hasMainDataSource";
-export * from "./pageTemplate/createDynamicTemplate/useCreateDynamicTemplate";
-export * from "./pageTemplate/listDynamicTemplates/useListDynamicTemplates";
+export * from "./pageTemplate/hasMainDataSource.js";
+export * from "./pageTemplate/createDynamicTemplate/useCreateDynamicTemplate.js";
+export * from "./pageTemplate/listDynamicTemplates/useListDynamicTemplates.js";

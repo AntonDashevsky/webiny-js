@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ButtonDefault } from "@webiny/ui/Button";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
 
 export const SelectAllContainer = styled.div`
     width: 100%;

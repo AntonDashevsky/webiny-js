@@ -1,8 +1,8 @@
 import React from "react";
-import { IfDynamicPagesEnabled } from "@webiny/app-page-builder/IfDynamicPagesEnabled";
+import { IfDynamicPagesEnabled } from "@webiny/app-page-builder/IfDynamicPagesEnabled.js";
 
 const SetupDynamicPages = React.lazy(() => {
-    return import(/* webpackChunkName: "experimentalDynamicPages" */ "./SetupDynamicPages").then(
+    return import(/* webpackChunkName: "experimentalDynamicPages" */ "./SetupDynamicPages.js").then(
         m => ({ default: m.SetupDynamicPages })
     );
 });

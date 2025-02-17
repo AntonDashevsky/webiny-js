@@ -1,11 +1,11 @@
 import React from "react";
 import { CompositionScope } from "@webiny/react-composition";
-import { AcoConfig, FolderActionConfig } from "@webiny/app-aco";
-import { useModel } from "~/admin/hooks";
+import { AcoConfig, type FolderActionConfig } from "@webiny/app-aco";
+import { useModel } from "~/admin/hooks/index.js";
 
 const { Folder } = AcoConfig;
 
-export { FolderActionConfig };
+export type { FolderActionConfig };
 
 export interface FolderActionProps extends React.ComponentProps<typeof AcoConfig.Folder.Action> {
     modelIds?: string[];

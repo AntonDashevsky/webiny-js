@@ -1,4 +1,4 @@
-import type { IListExportContentEntriesResult, IListExportContentEntriesParams } from "~/types";
+import type { IListExportContentEntriesResult, IListExportContentEntriesParams } from "~/types.js";
 
 export type IListExportContentEntriesUseCaseExecuteParams = IListExportContentEntriesParams;
 

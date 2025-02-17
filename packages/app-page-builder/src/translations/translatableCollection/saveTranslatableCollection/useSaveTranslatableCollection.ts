@@ -1,9 +1,9 @@
 import { useCallback, useMemo } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { TranslatableCollection } from "~/translations/translatableCollection/TranslatableCollection";
-import { SaveTranslatableCollectionGqlGateway } from "~/translations/translatableCollection/saveTranslatableCollection/SaveTranslatableCollectionGqlGateway";
-import { SaveTranslatableCollectionRepository } from "~/translations/translatableCollection/saveTranslatableCollection/SaveTranslatableCollectionRepository";
-import { translatedCollectionCache } from "~/translations/translatedCollection/translatedCollectionCache";
+import { TranslatableCollection } from "~/translations/translatableCollection/TranslatableCollection.js";
+import { SaveTranslatableCollectionGqlGateway } from "~/translations/translatableCollection/saveTranslatableCollection/SaveTranslatableCollectionGqlGateway.js";
+import { SaveTranslatableCollectionRepository } from "~/translations/translatableCollection/saveTranslatableCollection/SaveTranslatableCollectionRepository.js";
+import { translatedCollectionCache } from "~/translations/translatedCollection/translatedCollectionCache.js";
 
 export const useSaveTranslatableCollection = () => {
     const client = useApolloClient();

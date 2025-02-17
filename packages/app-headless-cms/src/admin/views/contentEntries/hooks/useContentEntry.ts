@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { ContentEntryContext } from "../ContentEntry/ContentEntryContext";
+import { ContentEntryContext } from "../ContentEntry/ContentEntryContext.js";
 
 export const useContentEntry = makeDecoratable(() => {
     const context = useContext(ContentEntryContext);

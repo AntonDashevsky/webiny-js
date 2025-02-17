@@ -1,1 +1,1 @@
-export * from "./ActionEdit";
+export * from "./ActionEdit.js";

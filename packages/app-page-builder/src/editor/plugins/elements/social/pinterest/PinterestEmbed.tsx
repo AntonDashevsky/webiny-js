@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect } from "react";
 import { css } from "emotion";
-import isEqual from "lodash/isEqual";
-import get from "lodash/get";
-import { PbEditorElement, PbElementDataTypeSource } from "~/types";
-import useRenderEmptyEmbed from "~/editor/plugins/elements/utils/oembed/useRenderEmptyEmbed";
-import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue";
+import isEqual from "lodash/isEqual.js";
+import get from "lodash/get.js";
+import { PbEditorElement, PbElementDataTypeSource } from "~/types.js";
+import useRenderEmptyEmbed from "~/editor/plugins/elements/utils/oembed/useRenderEmptyEmbed.js";
+import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue.js";
 
 declare global {
     interface Window {

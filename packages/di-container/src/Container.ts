@@ -1,4 +1,4 @@
-import { Abstraction } from "./Abstraction";
+import { Abstraction } from "./Abstraction.js";
 import {
     Constructor,
     Registration,
@@ -7,8 +7,8 @@ import {
     Dependencies,
     DependencyOptions,
     LifetimeScope
-} from "./types";
-import { Metadata } from "./Metadata";
+} from "./types.js";
+import { Metadata } from "./Metadata.js";
 
 export class Container {
     private registrations = new Map<symbol, Registration[]>();

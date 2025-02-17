@@ -1,2 +1,2 @@
-export * from "./createGetIdentityData";
-export * from "./graphql";
+export * from "./createGetIdentityData.js";
+export * from "./graphql.js";

@@ -1,5 +1,5 @@
-import { getStackOutput, GracefulError } from "@webiny/cli-plugin-deploy-pulumi/utils";
-import { createBeforeBuildPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins";
+import { getStackOutput, GracefulError } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { createBeforeBuildPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins/index.js";
 
 export const ensureApiDeployedBeforeBuild = createBeforeBuildPlugin(({ env, variant }, ctx) => {
     const output = getStackOutput({

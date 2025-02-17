@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
 
 export function useVariable<TValue = any>(variableId: string) {
     const [element] = useActiveElement();

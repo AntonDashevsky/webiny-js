@@ -1,4 +1,4 @@
-import extract from "./extract";
+import extract from "./extract.js";
 import glob from "glob";
 import fs from "fs";
 

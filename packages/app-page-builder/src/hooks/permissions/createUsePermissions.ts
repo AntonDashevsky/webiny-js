@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { PageBuilderSecurityPermission } from "~/types";
+import { PageBuilderSecurityPermission } from "~/types.js";
 
 export interface UsePermission {
     canCreate: () => boolean;

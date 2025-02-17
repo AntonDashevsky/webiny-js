@@ -5,7 +5,7 @@ import {
     CmsEntriesListQueryVariables,
     createListQuery
 } from "@webiny/app-headless-cms-common";
-import { CmsContentEntry, CmsMetaResponse, CmsModel } from "@webiny/app-headless-cms-common/types";
+import { CmsContentEntry, CmsMetaResponse, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 
 export class TrashBinListGraphQLGateway implements ITrashBinListGateway<CmsContentEntry> {
     private client: ApolloClient<any>;

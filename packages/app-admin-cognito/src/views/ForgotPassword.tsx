@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary, ButtonDefault } from "@webiny/ui/Button";
-import { Input } from "@webiny/ui/Input";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Typography } from "@webiny/ui/Typography";
-import { Alert } from "@webiny/ui/Alert";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator";
-import { useForgotPassword } from "@webiny/app-cognito-authenticator/hooks/useForgotPassword";
-import { View } from "~/components/View";
-import { alignRight } from "~/components/StyledComponents";
+import { ButtonPrimary, ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
+import { useForgotPassword } from "@webiny/app-cognito-authenticator/hooks/useForgotPassword.js";
+import { View } from "~/components/View.js";
+import { alignRight } from "~/components/StyledComponents.js";
 
 export const ForgotPassword = () => {
     const { authData, changeState } = useAuthenticator();

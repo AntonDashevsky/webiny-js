@@ -3,8 +3,8 @@ import {
     AdvancedPublishingWorkflow,
     ApwContentReviewStatus,
     ApwOnPageBeforePublishTopicParams
-} from "~/types";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
+} from "~/types.js";
+import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
 
 interface TriggerContentReviewParams {
     apw: AdvancedPublishingWorkflow;

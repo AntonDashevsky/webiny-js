@@ -1,11 +1,11 @@
 import * as React from "react";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 // Components
-import EditorBar from "./Bar";
-import EditorContent from "./EditorContent";
-import DragPreview from "./DragPreview";
-import { useFormEditor } from "./Context";
+import EditorBar from "./Bar.js";
+import EditorContent from "./EditorContent.js";
+import DragPreview from "./DragPreview.js";
+import { useFormEditor } from "./Context/index.js";
 
 const FormEditor = () => {
     const {

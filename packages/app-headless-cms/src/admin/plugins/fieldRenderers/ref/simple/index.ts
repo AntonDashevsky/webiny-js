@@ -1,5 +1,5 @@
-import { createSimpleSingleRenderer } from "./simpleSingleRenderer";
-import { createSimpleMultipleRenderer } from "./simpleMultipleRenderer";
+import { createSimpleSingleRenderer } from "./simpleSingleRenderer.js";
+import { createSimpleMultipleRenderer } from "./simpleMultipleRenderer.js";
 
 export const createSimpleRefRenderer = () => {
     return [createSimpleSingleRenderer(), createSimpleMultipleRenderer()];

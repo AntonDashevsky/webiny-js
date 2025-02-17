@@ -1,9 +1,9 @@
 import type { ITask } from "@webiny/tasks";
-import type { ICmsImportExportObjectImportFromUrlResult } from "~/types";
+import type { ICmsImportExportObjectImportFromUrlResult } from "~/types.js";
 import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController";
+} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
 
 export const convertTaskToImportRecord = (
     task: ITask<IImportFromUrlControllerInput, IImportFromUrlControllerOutput>

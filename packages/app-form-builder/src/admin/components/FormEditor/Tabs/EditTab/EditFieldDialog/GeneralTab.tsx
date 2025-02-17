@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
-import { Input } from "@webiny/ui/Input";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import camelCase from "lodash/camelCase";
-import { useFormEditor } from "../../../Context";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import camelCase from "lodash/camelCase.js";
+import { useFormEditor } from "../../../Context/index.js";
 import { validation } from "@webiny/validation";
-import { Validator } from "@webiny/validation/types";
-import { FbFormModelField } from "~/types";
-import { FormRenderPropParams } from "@webiny/form/types";
+import { Validator } from "@webiny/validation/types.js";
+import { FbFormModelField } from "~/types.js";
+import { FormRenderPropParams } from "@webiny/form/types.js";
 
 interface GeneralTabProps {
     field: FbFormModelField;

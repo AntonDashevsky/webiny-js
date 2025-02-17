@@ -1,4 +1,4 @@
-import { SortingRepository } from "./SortingRepository";
+import { SortingRepository } from "./SortingRepository.js";
 
 export class SortingRepositoryFactory {
     private cache: Map<string, SortingRepository> = new Map();

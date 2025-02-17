@@ -1,6 +1,6 @@
 import React from "react";
-import { UIElement, UIElementConfig } from "~/UIElement";
-import { UIView, UIViewComponent } from "~/UIView";
+import { UIElement, UIElementConfig } from "~/UIElement.js";
+import { UIView, UIViewComponent } from "~/UIView.js";
 
 interface ViewElementConfig extends UIElementConfig {
     view: UIView;

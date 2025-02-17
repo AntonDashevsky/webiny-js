@@ -4,10 +4,10 @@ import type {
     I18NSystemStorageOperations,
     I18NSystemStorageOperationsCreate,
     I18NSystemStorageOperationsUpdate
-} from "@webiny/api-i18n/types";
+} from "@webiny/api-i18n/types.js";
 import WebinyError from "@webiny/error";
-import defineSystemEntity from "~/definitions/systemEntity";
-import defineTable from "~/definitions/table";
+import defineSystemEntity from "~/definitions/systemEntity.js";
+import defineTable from "~/definitions/table.js";
 import type { IEntity } from "@webiny/db-dynamodb";
 
 interface ConstructorParams {

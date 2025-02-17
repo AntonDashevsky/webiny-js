@@ -1,12 +1,12 @@
 import React from "react";
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
-import { DrawerContent } from "@webiny/ui/Drawer";
-import { RevisionsList } from "~/admin/views/contentEntries/ContentEntry/RevisionsList/RevisionsList";
-import { cmsLegacyEntryEditor } from "~/utils/cmsLegacyEntryEditor";
-import { useFullScreenContentEntry } from "../useFullScreenContentEntry";
-import { Header } from "./Header";
-import { Drawer } from "./RevisionListDrawer.styled";
+import { DrawerContent } from "@webiny/ui/Drawer/index.js";
+import { RevisionsList } from "~/admin/views/contentEntries/ContentEntry/RevisionsList/RevisionsList.js";
+import { cmsLegacyEntryEditor } from "~/utils/cmsLegacyEntryEditor.js";
+import { useFullScreenContentEntry } from "../useFullScreenContentEntry.js";
+import { Header } from "./Header.js";
+import { Drawer } from "./RevisionListDrawer.styled.js";
 
 export const RevisionListDrawer = () => {
     const { isRevisionListOpen, openRevisionList } = useFullScreenContentEntry();

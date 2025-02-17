@@ -1,4 +1,4 @@
-import { ImagePayload } from "~/commands";
+import { ImagePayload } from "~/commands/index.js";
 
 export interface FileManagerFileItem {
     id: string;

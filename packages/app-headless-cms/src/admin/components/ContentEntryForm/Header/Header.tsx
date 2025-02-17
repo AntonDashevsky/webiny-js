@@ -1,10 +1,10 @@
 import React from "react";
 import { Buttons, makeDecoratable } from "@webiny/app-admin";
 
-import { useContentEntryEditorConfig } from "~/admin/config/contentEntries";
+import { useContentEntryEditorConfig } from "~/admin/config/contentEntries/index.js";
 
-import { ContentFormOptionsMenu } from "./ContentFormOptionsMenu";
-import { RevisionSelector } from "~/admin/components/ContentEntryForm/Header/RevisionSelector";
+import { ContentFormOptionsMenu } from "./ContentFormOptionsMenu/index.js";
+import { RevisionSelector } from "~/admin/components/ContentEntryForm/Header/RevisionSelector/index.js";
 import styled from "@emotion/styled";
 
 const ToolbarGrid = styled.div`

@@ -1,5 +1,5 @@
 import { TaskDataStatus } from "@webiny/tasks";
-import { BulkActionOperationByModelAction, IBulkActionOperationByModelTaskParams } from "~/types";
+import { BulkActionOperationByModelAction, IBulkActionOperationByModelTaskParams } from "~/types.js";
 
 /**
  * The `ProcessTasksByModel` class is responsible for processing tasks for a specific model.

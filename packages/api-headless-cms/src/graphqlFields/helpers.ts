@@ -1,4 +1,4 @@
-import { CmsModelField, CmsModelFieldValidation } from "~/types";
+import { CmsModelField, CmsModelFieldValidation } from "~/types/index.js";
 
 const requiredValidationName = "required";
 

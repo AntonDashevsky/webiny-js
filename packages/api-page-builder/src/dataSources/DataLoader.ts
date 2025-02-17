@@ -1,6 +1,6 @@
 import { createZodError } from "@webiny/utils";
-import type { DataLoaderResult, IDataLoader, IDataSource } from "~/dataSources/types";
-import type { DataLoaderRequest } from "~/dataSources/DataLoaderRequest";
+import type { DataLoaderResult, IDataLoader, IDataSource } from "~/dataSources/types.js";
+import type { DataLoaderRequest } from "~/dataSources/DataLoaderRequest.js";
 
 export class DataLoader implements IDataLoader {
     private readonly dataSources: IDataSource[];

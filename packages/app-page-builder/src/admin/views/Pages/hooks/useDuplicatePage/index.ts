@@ -1,2 +1,2 @@
-export * from "./useDuplicatePageCase";
-export * from "./useDuplicatePage";
+export * from "./useDuplicatePageCase.js";
+export * from "./useDuplicatePage.js";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Input } from "@webiny/ui/Input";
-import { useDocumentDataSource } from "@webiny/app-page-builder/templateEditor";
+import { Input } from "@webiny/ui/Input/index.js";
+import { useDocumentDataSource } from "@webiny/app-page-builder/templateEditor/index.js";
 
 export const EntrySelector = () => {
     const { getDataSource, updateDataSource } = useDocumentDataSource();

@@ -1,5 +1,5 @@
-import { createEventBridgeHandler } from "./eventBridgeEventHandler";
-import { setupEventsTenant } from "./setupEventsTenant";
+import { createEventBridgeHandler } from "./eventBridgeEventHandler.js";
+import { setupEventsTenant } from "./setupEventsTenant.js";
 
 export const createHandlers = () => {
     return [setupEventsTenant(), createEventBridgeHandler()];

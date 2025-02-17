@@ -1,1 +1,1 @@
-export * from "./CmsContentFormRendererPlugin";
+export * from "./CmsContentFormRendererPlugin.js";

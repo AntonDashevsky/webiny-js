@@ -1,4 +1,4 @@
-import { CmsModel, CmsModelAst, CmsModelFieldAstNode, ICmsModelFieldToAst } from "~/types";
+import { CmsModel, CmsModelAst, CmsModelFieldAstNode, ICmsModelFieldToAst } from "~/types/index.js";
 
 /**
  * The purpose of this class is to convert the given CmsModel to an AST, which is easier to traverse programmatically.

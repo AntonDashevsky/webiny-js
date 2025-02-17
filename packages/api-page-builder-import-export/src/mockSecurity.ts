@@ -1,4 +1,4 @@
-import { SecurityContext, SecurityIdentity } from "@webiny/api-security/types";
+import { SecurityContext, SecurityIdentity } from "@webiny/api-security/types.js";
 
 export const mockSecurity = (identity: SecurityIdentity, context: SecurityContext) => {
     context.security.setIdentity(identity);

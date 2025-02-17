@@ -1,8 +1,8 @@
 import React from "react";
 import { Slider as RmwcSlider } from "@rmwc/slider";
-import { FormComponentProps } from "~/types";
+import { FormComponentProps } from "~/types.js";
 import styled from "@emotion/styled";
-import { FormElementMessage } from "~/FormElementMessage";
+import { FormElementMessage } from "~/FormElementMessage/index.js";
 
 type Props = FormComponentProps & {
     // Component label.

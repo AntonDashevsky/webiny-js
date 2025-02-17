@@ -1,1 +1,1 @@
-export * from "./getTenantId";
+export * from "./getTenantId.js";

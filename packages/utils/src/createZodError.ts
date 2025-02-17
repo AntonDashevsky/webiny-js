@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { ZodError } from "zod/lib/ZodError";
+import { ZodError } from "zod/lib/ZodError.js";
 
 interface OutputError {
     code: string;

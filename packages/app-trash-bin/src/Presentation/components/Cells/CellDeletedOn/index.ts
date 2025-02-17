@@ -1,1 +1,1 @@
-export * from "./CellDeletedOn";
+export * from "./CellDeletedOn.js";

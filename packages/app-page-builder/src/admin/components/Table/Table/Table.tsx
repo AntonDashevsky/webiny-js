@@ -1,10 +1,10 @@
 import React, { ForwardRefRenderFunction, useMemo } from "react";
 
 import { createFoldersData, createRecordsData, Table as AcoTable } from "@webiny/app-aco";
-import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList";
+import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList.js";
 
-import { TableContainer } from "./styled";
-import { TableItem } from "~/types";
+import { TableContainer } from "./styled.js";
+import { TableItem } from "~/types.js";
 
 const BaseTable: ForwardRefRenderFunction<HTMLDivElement> = (_, ref) => {
     const list = usePagesList();

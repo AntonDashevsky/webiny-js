@@ -1,1 +1,1 @@
-export * from "@webiny/ui-composer/elements/ViewElement";
+export * from "@webiny/ui-composer/elements/ViewElement.js";

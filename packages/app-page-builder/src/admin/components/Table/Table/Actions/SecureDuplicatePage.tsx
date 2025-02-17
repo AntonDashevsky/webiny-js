@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { useFolders } from "@webiny/app-aco";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
-import { DuplicatePage } from "./DuplicatePage";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
+import { DuplicatePage } from "./DuplicatePage.js";
 
 export const SecureDuplicatePage = DuplicatePage.createDecorator(Original => {
     return function SecureDuplicatePageRenderer() {

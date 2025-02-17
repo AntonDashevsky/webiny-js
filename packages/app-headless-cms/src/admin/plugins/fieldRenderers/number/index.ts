@@ -1,4 +1,4 @@
-import numberInput from "./numberInput";
-import numberInputs from "./numberInputs";
+import numberInput from "./numberInput.js";
+import numberInputs from "./numberInputs.js";
 
 export default [numberInput, numberInputs];

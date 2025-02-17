@@ -1,5 +1,5 @@
 import React from "react";
-import { contentModelEditorContext } from "./ContentModelEditorProvider";
+import { contentModelEditorContext } from "./ContentModelEditorProvider.js";
 
 export function useModelEditor() {
     const context = React.useContext(contentModelEditorContext);

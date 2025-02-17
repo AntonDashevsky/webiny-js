@@ -1,7 +1,7 @@
 import { ContextPlugin } from "@webiny/handler";
-import { AdminSettingsContext } from "~/types";
-import { createStorageOperations } from "~/storage";
-import { createSettingsService } from "~/services/settings";
+import { AdminSettingsContext } from "~/types.js";
+import { createStorageOperations } from "~/storage/index.js";
+import { createSettingsService } from "~/services/settings.js";
 
 export const createContext = () => {
     return new ContextPlugin<AdminSettingsContext>(async context => {

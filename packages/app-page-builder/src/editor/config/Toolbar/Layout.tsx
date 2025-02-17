@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Toolbar } from "./Toolbar";
-import { useDrawers } from "./Drawers/DrawersProvider";
-import { DrawerProvider } from "./Drawers/DrawerProvider";
+import { Toolbar } from "./Toolbar.js";
+import { useDrawers } from "./Drawers/DrawersProvider.js";
+import { DrawerProvider } from "./Drawers/DrawerProvider.js";
 
 const ToolbarDrawerContainer = styled("div")({
     top: 64,

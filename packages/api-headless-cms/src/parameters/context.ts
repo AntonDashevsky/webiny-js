@@ -1,4 +1,4 @@
-import { CmsParametersPlugin } from "~/plugins/CmsParametersPlugin";
+import { CmsParametersPlugin } from "~/plugins/CmsParametersPlugin.js";
 
 const DEFAULT_LOCALE_CODE = "en-US";
 

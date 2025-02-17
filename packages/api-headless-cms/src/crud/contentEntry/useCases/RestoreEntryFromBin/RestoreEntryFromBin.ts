@@ -3,9 +3,9 @@ import {
     IGetLatestRevisionByEntryId,
     IRestoreEntryFromBin,
     IRestoreEntryFromBinOperation
-} from "~/crud/contentEntry/abstractions";
-import { TransformEntryRestoreFromBin } from "./TransformEntryRestoreFromBin";
-import { CmsModel } from "~/types";
+} from "~/crud/contentEntry/abstractions/index.js";
+import { TransformEntryRestoreFromBin } from "./TransformEntryRestoreFromBin.js";
+import { CmsModel } from "~/types/index.js";
 import { parseIdentifier } from "@webiny/utils";
 
 export class RestoreEntryFromBin implements IRestoreEntryFromBin {

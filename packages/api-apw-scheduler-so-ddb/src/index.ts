@@ -1,10 +1,10 @@
-import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup";
+import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup.js";
 import WebinyError from "@webiny/error";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
-import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
-import { createTable } from "~/definitions/table";
-import { createScheduleActionsEntity } from "~/definitions/scheduleActionEntity";
-import { CreateStorageOperationsParams, PartitionKeyOptions } from "~/types";
+import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
+import { createTable } from "~/definitions/table.js";
+import { createScheduleActionsEntity } from "~/definitions/scheduleActionEntity.js";
+import { CreateStorageOperationsParams, PartitionKeyOptions } from "~/types.js";
 import {
     ApwScheduleAction,
     ApwScheduleActionStorageOperations,
@@ -17,12 +17,12 @@ import {
     StorageOperationsListScheduleActionsResponse,
     StorageOperationsUpdateCurrentTaskParams,
     StorageOperationsUpdateScheduleActionParams
-} from "@webiny/api-apw/scheduler/types";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter";
-import { ApwSchedulerScheduleActionDynamoDbFieldPlugin } from "~/plugins/ApwSchedulerScheduleActionDynamoDbFieldPlugin";
+} from "@webiny/api-apw/scheduler/types.js";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
+import { ApwSchedulerScheduleActionDynamoDbFieldPlugin } from "~/plugins/ApwSchedulerScheduleActionDynamoDbFieldPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { createFields } from "~/definitions/fields";
-import dynamoDbFilters from "@webiny/db-dynamodb/plugins/filters";
+import { createFields } from "~/definitions/fields.js";
+import dynamoDbFilters from "@webiny/db-dynamodb/plugins/filters/index.js";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 export const createStorageOperations = (

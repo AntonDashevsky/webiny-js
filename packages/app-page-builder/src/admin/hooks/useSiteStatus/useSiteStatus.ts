@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { pingSite } from "./utils";
+import { pingSite } from "./utils.js";
 
 type UseSiteStatus = [boolean, () => void];
 export const useSiteStatus = (url: string): UseSiteStatus => {

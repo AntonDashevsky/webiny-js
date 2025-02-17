@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Box } from "~/components/Layout";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { Box } from "~/components/Layout.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 
 const EmptyBox = styled(Box)`
     height: 100%;

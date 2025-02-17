@@ -1,3 +1,3 @@
-export * from "./ISelectedItemsRepository";
-export * from "./SelectedItemsRepository";
-export * from "./SelectedItemsRepositoryFactory";
+export * from "./ISelectedItemsRepository.js";
+export * from "./SelectedItemsRepository.js";
+export * from "./SelectedItemsRepositoryFactory.js";

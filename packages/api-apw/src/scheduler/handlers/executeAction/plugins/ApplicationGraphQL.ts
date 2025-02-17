@@ -1,8 +1,8 @@
-import { Plugin } from "@webiny/plugins/Plugin";
-import { ApwScheduleActionData } from "~/scheduler/types";
-import { ApwSettings } from "~/scheduler/handlers/utils";
+import { Plugin } from "@webiny/plugins/Plugin.js";
+import { ApwScheduleActionData } from "~/scheduler/types.js";
+import { ApwSettings } from "~/scheduler/handlers/utils.js";
 
-export { ApwScheduleActionData, ApwSettings };
+export type { ApwScheduleActionData, ApwSettings };
 
 export interface ApplicationGraphQLGetUrlParams {
     tenant: string;

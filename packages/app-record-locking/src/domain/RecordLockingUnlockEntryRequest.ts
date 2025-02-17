@@ -3,8 +3,8 @@ import {
     IRecordLockingUnlockEntryRequest,
     IRecordLockingUnlockEntryRequestParams,
     IRecordLockingUnlockEntryRequestResult
-} from "~/domain/abstractions/IRecordLockingUnlockEntryRequest";
-import { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
+} from "~/domain/abstractions/IRecordLockingUnlockEntryRequest.js";
+import { IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
 
 interface Params {
     client: IRecordLockingClient;

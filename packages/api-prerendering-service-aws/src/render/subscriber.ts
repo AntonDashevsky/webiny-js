@@ -3,12 +3,12 @@ import {
     SendMessageBatchRequestEntry,
     SQSClient
 } from "@webiny/aws-sdk/client-sqs";
-import lodashChunk from "lodash/chunk";
+import lodashChunk from "lodash/chunk.js";
 import {
     PrerenderingServiceStorageOperations,
     RenderEvent,
     RenderPagesEvent
-} from "@webiny/api-prerendering-service/types";
+} from "@webiny/api-prerendering-service/types.js";
 import { createEventBridgeEventHandler } from "@webiny/handler-aws";
 import { generateId } from "@webiny/utils";
 

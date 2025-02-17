@@ -1,7 +1,7 @@
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { IListEntries } from "../../abstractions";
-import { CmsEntry, CmsEntryListParams, CmsEntryMeta, CmsEntryValues, CmsModel } from "~/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { IListEntries } from "../../abstractions/index.js";
+import { CmsEntry, CmsEntryListParams, CmsEntryMeta, CmsEntryValues, CmsModel } from "~/types/index.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
 
 export class ListEntriesSecure implements IListEntries {
     private accessControl: AccessControl;

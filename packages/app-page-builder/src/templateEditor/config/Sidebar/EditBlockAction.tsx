@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/round/edit.svg";
-import { TemplateEditorConfig } from "~/templateEditor/editorConfig/TemplateEditorConfig";
-import { useBlockReference } from "./useBlockReference";
+import { TemplateEditorConfig } from "~/templateEditor/editorConfig/TemplateEditorConfig.js";
+import { useBlockReference } from "./useBlockReference.js";
 
 const { ElementAction } = TemplateEditorConfig;
 

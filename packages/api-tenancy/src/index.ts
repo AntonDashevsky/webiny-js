@@ -1,9 +1,9 @@
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { TenancyContext, TenancyStorageOperations } from "./types";
-import { createTenancy } from "./createTenancy";
-import graphql from "./graphql/full.gql";
-import baseGraphQLTypes from "./graphql/types.gql";
+import { TenancyContext, TenancyStorageOperations } from "./types.js";
+import { createTenancy } from "./createTenancy.js";
+import graphql from "./graphql/full.gql.js";
+import baseGraphQLTypes from "./graphql/types.gql.js";
 import { createWcpContext } from "@webiny/api-wcp";
 
 interface TenancyPluginsParams {

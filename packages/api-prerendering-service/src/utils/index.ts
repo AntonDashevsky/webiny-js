@@ -1,5 +1,5 @@
-export { getRenderUrl } from "./getRenderUrl";
-export { getStorageFolder } from "./getStorageFolder";
-export { getIsNotFoundPage } from "./getIsNotFoundPage";
-export { isMultiTenancyEnabled } from "./isMultiTenancyEnabled";
-export { log } from "./log";
+export { getRenderUrl } from "./getRenderUrl.js";
+export { getStorageFolder } from "./getStorageFolder.js";
+export { getIsNotFoundPage } from "./getIsNotFoundPage.js";
+export { isMultiTenancyEnabled } from "./isMultiTenancyEnabled.js";
+export { log } from "./log.js";

@@ -1,6 +1,6 @@
-import { PluginsContainer } from "./PluginsContainer";
-import { AsyncPluginsContainer } from "./AsyncPluginsContainer";
-import { Plugin } from "./Plugin";
+import { PluginsContainer } from "./PluginsContainer.js";
+import { AsyncPluginsContainer } from "./AsyncPluginsContainer.js";
+import { Plugin } from "./Plugin.js";
 
 const plugins = new PluginsContainer();
 

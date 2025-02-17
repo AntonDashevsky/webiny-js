@@ -1,1 +1,1 @@
-export * from "./lambdaEdge";
+export * from "./lambdaEdge/index.js";

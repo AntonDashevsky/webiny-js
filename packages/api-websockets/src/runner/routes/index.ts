@@ -1,6 +1,6 @@
-import { createWebsocketsRouteConnectPlugin } from "./connect";
-import { createWebsocketsRouteDefaultPlugin } from "./default";
-import { createWebsocketsRouteDisconnectPlugin } from "./disconnect";
+import { createWebsocketsRouteConnectPlugin } from "./connect.js";
+import { createWebsocketsRouteDefaultPlugin } from "./default.js";
+import { createWebsocketsRouteDisconnectPlugin } from "./disconnect.js";
 
 export const createWebsocketsRoutePlugins = () => {
     return [

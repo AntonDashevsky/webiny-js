@@ -1,11 +1,11 @@
 import { ContextPlugin } from "@webiny/api";
-import { I18NContext } from "~/types";
-import { LocalesStorageOperationsProviderPlugin } from "~/plugins/LocalesStorageOperationsProviderPlugin";
-import { SystemStorageOperationsProviderPlugin } from "~/plugins/SystemStorageOperationsProviderPlugin";
+import { I18NContext } from "~/types.js";
+import { LocalesStorageOperationsProviderPlugin } from "~/plugins/LocalesStorageOperationsProviderPlugin.js";
+import { SystemStorageOperationsProviderPlugin } from "~/plugins/SystemStorageOperationsProviderPlugin.js";
 import WebinyError from "@webiny/error";
-import { createLocalesCrud } from "~/graphql/crud/locales.crud";
-import { createSystemCrud } from "~/graphql/crud/system.crud";
-import { LocalesPermissions } from "~/graphql/crud/permissions/LocalesPermissions";
+import { createLocalesCrud } from "~/graphql/crud/locales.crud.js";
+import { createSystemCrud } from "~/graphql/crud/system.crud.js";
+import { LocalesPermissions } from "~/graphql/crud/permissions/LocalesPermissions.js";
 
 const getStorageOperations = async <T = any>(context: I18NContext, type: string): Promise<T> => {
     const providerPlugin = context.plugins.byType<any>(type).find(() => true);

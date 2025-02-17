@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useState } from "react";
-import get from "lodash/get";
-import orderBy from "lodash/orderBy";
+import get from "lodash/get.js";
+import orderBy from "lodash/orderBy.js";
 import dotProp from "dot-prop-immutable";
-import { i18n } from "@webiny/app/i18n";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
 import {
     DataList,
     DataListModalOverlay,
@@ -14,23 +14,23 @@ import {
     ListItemMeta,
     ListItemText,
     ListItemTextSecondary
-} from "@webiny/ui/List";
+} from "@webiny/ui/List/index.js";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useApolloClient, useQuery } from "../../hooks";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import * as GQL from "./graphql";
-import { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import SearchUI from "@webiny/app-admin/components/SearchUI";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useApolloClient, useQuery } from "../../hooks/index.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import * as GQL from "./graphql.js";
+import { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql.js";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { deserializeSorters } from "../utils";
-import usePermission from "../../hooks/usePermission";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { CmsGroup } from "~/types";
+import { deserializeSorters } from "../utils.js";
+import usePermission from "../../hooks/usePermission.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { CmsGroup } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/data-list");
 

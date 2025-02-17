@@ -2,13 +2,13 @@ import type {
     Context,
     ICmsImportExportValidatedAssetsFile,
     ICmsImportExportValidatedContentEntriesFile
-} from "~/types";
+} from "~/types.js";
 import type {
     ITaskResponseDoneResultOutput,
     ITaskResponseResult,
     ITaskRunParams
 } from "@webiny/tasks";
-import type { NonEmptyArray } from "@webiny/api/types";
+import type { NonEmptyArray } from "@webiny/api/types.js";
 
 export enum IImportFromUrlControllerInputStep {
     DOWNLOAD = "download",

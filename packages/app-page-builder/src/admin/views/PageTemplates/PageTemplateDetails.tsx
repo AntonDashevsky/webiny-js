@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { useRouter } from "@webiny/react-router";
-import { ButtonDefault, ButtonIcon, IconButton } from "@webiny/ui/Button";
-import { Elevation } from "@webiny/ui/Elevation";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Typography } from "@webiny/ui/Typography";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
-import { i18n } from "@webiny/app/i18n";
+import { ButtonDefault, ButtonIcon, IconButton } from "@webiny/ui/Button/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/filled/add.svg";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/round/edit.svg";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/round/delete.svg";
 
-import { CreatableItem } from "./PageTemplates";
-import { PbPageTemplate } from "~/types";
-import { useListPageTemplates } from "~/features";
-import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview";
+import { CreatableItem } from "./PageTemplates.js";
+import { PbPageTemplate } from "~/types.js";
+import { useListPageTemplates } from "~/features/index.js";
+import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview.js";
 
 const t = i18n.ns("app-page-builder/admin/views/page-templates/page-template-details");
 

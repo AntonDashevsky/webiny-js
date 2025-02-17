@@ -5,7 +5,7 @@ import {
     S3Client,
     PresignedPostOptions,
     HeadObjectCommand
-} from "@webiny/aws-sdk/client-s3/index.js";
+} from "@webiny/aws-sdk/client-s3";
 import mime from "mime";
 import chunk from "lodash/chunk.js";
 import { relative } from "path";

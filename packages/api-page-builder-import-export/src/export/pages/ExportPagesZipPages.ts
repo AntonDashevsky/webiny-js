@@ -1,6 +1,6 @@
-import { IExportPagesZipPagesTaskParams } from "~/export/pages/types";
+import { IExportPagesZipPagesTaskParams } from "~/export/pages/types.js";
 import { ITaskResponseResult } from "@webiny/tasks";
-import { ZipPages } from "./zipPages/ZipPages";
+import { ZipPages } from "./zipPages/ZipPages.js";
 
 export class ExportPagesZipPages {
     public async execute(params: IExportPagesZipPagesTaskParams): Promise<ITaskResponseResult> {

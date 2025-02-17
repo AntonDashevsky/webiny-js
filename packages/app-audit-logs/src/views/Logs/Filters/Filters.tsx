@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Filters as BaseFilters, FiltersOnSubmit } from "@webiny/app-admin";
-import { useAuditLogsListConfig } from "~/config/list";
+import { useAuditLogsListConfig } from "~/config/list/index.js";
 
 type FiltersProps = {
     showingFilters: boolean;

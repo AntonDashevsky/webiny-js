@@ -1,17 +1,17 @@
-import { I18NContext } from "@webiny/api-i18n/types";
-import { FileStorage } from "./storage/FileStorage";
-import { TenancyContext } from "@webiny/api-tenancy/types";
-import { SecurityContext, SecurityPermission } from "@webiny/api-security/types";
-import { Context } from "@webiny/api/types";
-import { FileLifecycleEvents } from "./types/file.lifecycle";
-import { CreatedBy, File } from "./types/file";
-import { Topic } from "@webiny/pubsub/types";
-import { CmsContext, CmsEntryListSort } from "@webiny/api-headless-cms/types";
-import { Context as TasksContext } from "@webiny/tasks/types";
+import { I18NContext } from "@webiny/api-i18n/types.js";
+import { FileStorage } from "./storage/FileStorage.js";
+import { TenancyContext } from "@webiny/api-tenancy/types.js";
+import { SecurityContext, SecurityPermission } from "@webiny/api-security/types.js";
+import { Context } from "@webiny/api/types.js";
+import { FileLifecycleEvents } from "./types/file.lifecycle.js";
+import { CreatedBy, File } from "./types/file.js";
+import { Topic } from "@webiny/pubsub/types.js";
+import { CmsContext, CmsEntryListSort } from "@webiny/api-headless-cms/types/index.js";
+import { Context as TasksContext } from "@webiny/tasks/types.js";
 
-export * from "./types/file.lifecycle";
-export * from "./types/file";
-export * from "./types/file";
+export * from "./types/file.lifecycle.js";
+export * from "./types/file.js";
+export * from "./types/file.js";
 
 export interface FileManagerContextObject extends FilesCRUD, SettingsCRUD, SystemCRUD {
     storage: FileStorage;

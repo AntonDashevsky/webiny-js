@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import dotPropImmutable from "dot-prop-immutable";
 import { useApolloClient } from "@apollo/react-hooks";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { useAdminPageBuilder } from "@webiny/app-page-builder/admin/hooks/useAdminPageBuilder";
-import { DELETE_CONTENT_REVIEW_MUTATION } from "~/graphql/contentReview.gql";
-import { ApwContentTypes } from "~/types";
-import { IS_REVIEW_REQUIRED_QUERY } from "../graphql";
+import { useAdminPageBuilder } from "@webiny/app-page-builder/admin/hooks/useAdminPageBuilder.js";
+import { DELETE_CONTENT_REVIEW_MUTATION } from "~/graphql/contentReview.gql.js";
+import { ApwContentTypes } from "~/types.js";
+import { IS_REVIEW_REQUIRED_QUERY } from "../graphql.js";
 
 const t = i18n.ns("app-apw/page-builder/dialog");
 

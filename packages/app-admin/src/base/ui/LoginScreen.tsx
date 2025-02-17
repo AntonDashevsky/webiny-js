@@ -1,6 +1,6 @@
 import React from "react";
 import { createVoidComponent, makeDecoratable } from "@webiny/app";
-import { Tags } from "./Tags";
+import { Tags } from "./Tags.js";
 
 export interface LoginScreenProps {
     children: React.ReactNode;

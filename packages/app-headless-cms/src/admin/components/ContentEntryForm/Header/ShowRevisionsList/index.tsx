@@ -1,1 +1,1 @@
-export * from "./ShowRevisionList";
+export * from "./ShowRevisionList.js";

@@ -2,7 +2,7 @@ import type {
     IMultipartUploadHandlerAddResult,
     IMultipartUploadHandlerPauseResult,
     IPart
-} from "../abstractions/MultipartUploadHandler";
+} from "../abstractions/MultipartUploadHandler.js";
 
 export interface IMultipartUploadHandlerAddResultParams {
     written: boolean;

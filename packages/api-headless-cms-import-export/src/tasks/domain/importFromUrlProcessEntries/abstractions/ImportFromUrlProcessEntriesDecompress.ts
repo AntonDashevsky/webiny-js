@@ -1,8 +1,8 @@
 import type {
     IImportFromUrlProcessEntriesInput,
     IImportFromUrlProcessEntriesOutput
-} from "./ImportFromUrlProcessEntries";
-import type { Context } from "~/types";
+} from "./ImportFromUrlProcessEntries.js";
+import type { Context } from "~/types.js";
 import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
 
 export type IImportFromUrlProcessEntriesDecompressRunParams<

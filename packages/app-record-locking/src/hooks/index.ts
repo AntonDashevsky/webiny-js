@@ -1,2 +1,2 @@
-export * from "./useRecordLocking";
-export * from "./usePermission";
+export * from "./useRecordLocking.js";
+export * from "./usePermission.js";

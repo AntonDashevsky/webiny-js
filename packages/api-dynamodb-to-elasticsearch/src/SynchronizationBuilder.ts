@@ -4,9 +4,9 @@ import {
     IInsertOperationParams,
     IModifyOperationParams,
     IOperations
-} from "~/types";
-import { Operations } from "~/Operations";
-import { executeWithRetry, IExecuteWithRetryParams } from "~/executeWithRetry";
+} from "~/types.js";
+import { Operations } from "~/Operations.js";
+import { executeWithRetry, IExecuteWithRetryParams } from "~/executeWithRetry.js";
 import { ITimer } from "@webiny/handler-aws";
 
 export type ISynchronizationBuilderExecuteWithRetryParams = Omit<

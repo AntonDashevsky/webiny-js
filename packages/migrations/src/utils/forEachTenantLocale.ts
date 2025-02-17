@@ -1,5 +1,5 @@
-import { createLocaleEntity, createTenantEntity, queryAll } from "~/utils";
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import { createLocaleEntity, createTenantEntity, queryAll } from "~/utils/index.js";
+import { Table } from "@webiny/db-dynamodb/toolbox.js";
 import { Logger } from "@webiny/logger";
 
 export interface Tenant {

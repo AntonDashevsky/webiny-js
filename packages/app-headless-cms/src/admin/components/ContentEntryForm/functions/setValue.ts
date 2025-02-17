@@ -1,4 +1,4 @@
-import { CmsModelField } from "~/types";
+import { CmsModelField } from "~/types.js";
 import { BindComponentRenderProp } from "@webiny/form";
 
 interface setValueParams {

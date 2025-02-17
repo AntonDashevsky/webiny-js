@@ -7,13 +7,13 @@ import {
     FileManagerFilesStorageOperationsTagsParamsWhere,
     FilesCRUD,
     FilesListOpts
-} from "~/types";
-import { FileManagerConfig } from "~/createFileManager/index";
-import { ROOT_FOLDER } from "~/contants";
+} from "~/types.js";
+import { FileManagerConfig } from "~/createFileManager/index.js";
+import { ROOT_FOLDER } from "~/contants.js";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { getDate } from "@webiny/api-headless-cms/utils/date";
-import { getIdentity as utilsGetIdentity } from "@webiny/api-headless-cms/utils/identity";
-import { CmsEntryListSort } from "@webiny/api-headless-cms/types";
+import { getDate } from "@webiny/api-headless-cms/utils/date.js";
+import { getIdentity as utilsGetIdentity } from "@webiny/api-headless-cms/utils/identity.js";
+import { CmsEntryListSort } from "@webiny/api-headless-cms/types/index.js";
 
 export const createFilesCrud = (config: FileManagerConfig): FilesCRUD => {
     const {

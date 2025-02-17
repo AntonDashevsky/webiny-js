@@ -5,14 +5,14 @@ import {
     getElasticsearchEntityType,
     getTable,
     IGetElasticsearchEntityTypeParams
-} from "~/tasks/dataSynchronization/entities";
+} from "~/tasks/dataSynchronization/entities/index.js";
 import { ITimer } from "@webiny/handler-aws";
-import { Context } from "~/types";
+import { Context } from "~/types.js";
 import {
     IElasticsearchSynchronize,
     IElasticsearchSynchronizeExecuteParams,
     IElasticsearchSynchronizeExecuteResponse
-} from "./abstractions/ElasticsearchSynchronize";
+} from "./abstractions/ElasticsearchSynchronize.js";
 
 export interface IElasticsearchSynchronizeParams {
     timer: ITimer;

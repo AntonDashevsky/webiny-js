@@ -1,8 +1,8 @@
 import React from "react";
 import bytes from "bytes";
 import minimatch from "minimatch";
-import { readFileContent } from "./utils/readFileContent";
-import { generateId } from "./utils/generateId";
+import { readFileContent } from "./utils/readFileContent.js";
+import { generateId } from "./utils/generateId.js";
 
 export type SelectedFile = {
     id: string;

@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as Publish } from "@material-design-icons/svg/outlined/publish.svg";
 import { ReactComponent as Unpublish } from "@material-design-icons/svg/outlined/settings_backup_restore.svg";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useContentEntry, useEntry, usePermission } from "~/admin/hooks";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useContentEntry, useEntry, usePermission } from "~/admin/hooks/index.js";
 
 export const ChangeEntryStatus = () => {
     const { entry } = useEntry();

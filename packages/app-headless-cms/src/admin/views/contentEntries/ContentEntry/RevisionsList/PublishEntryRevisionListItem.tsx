@@ -1,9 +1,9 @@
 import { makeDecoratable } from "@webiny/react-composition";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { ReactComponent as PublishIcon } from "~/admin/icons/publish.svg";
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/content-details/content-revisions");
 

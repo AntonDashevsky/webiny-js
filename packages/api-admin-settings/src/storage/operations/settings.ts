@@ -1,8 +1,8 @@
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { get } from "@webiny/db-dynamodb/utils/get";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { get } from "@webiny/db-dynamodb/utils/get.js";
 import WebinyError from "@webiny/error";
-import { AdminSettings } from "~/types";
-import { StorageOperationsSettingsService } from "~/storage/types";
+import { AdminSettings } from "~/types.js";
+import { StorageOperationsSettingsService } from "~/storage/types.js";
 
 interface DbData {
     PK: string;

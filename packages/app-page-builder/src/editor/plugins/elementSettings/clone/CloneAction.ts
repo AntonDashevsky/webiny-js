@@ -1,11 +1,11 @@
 import React from "react";
-import cloneDeep from "lodash/cloneDeep";
-import { useEventActionHandler } from "../../../hooks/useEventActionHandler";
-import { activeElementAtom, elementByIdSelector } from "../../../recoil/modules";
+import cloneDeep from "lodash/cloneDeep.js";
+import { useEventActionHandler } from "../../../hooks/useEventActionHandler.js";
+import { activeElementAtom, elementByIdSelector } from "../../../recoil/modules/index.js";
 import { plugins } from "@webiny/plugins";
-import { PbEditorPageElementPlugin, PbEditorElement } from "../../../../types";
+import { PbEditorPageElementPlugin, PbEditorElement } from "../../../../types.js";
 import { useRecoilValue } from "recoil";
-import { CloneElementActionEvent } from "../../../recoil/actions/cloneElement";
+import { CloneElementActionEvent } from "../../../recoil/actions/cloneElement/index.js";
 
 const removeVariableId = (element: PbEditorElement) => {
     if (element?.data?.variableId) {

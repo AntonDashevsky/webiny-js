@@ -1,9 +1,9 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { FbEditorTrigger } from "~/types";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { FbEditorTrigger } from "~/types.js";
 import { ReactComponent as LinkIcon } from "./icons/round-link-24px.svg";
-import WebhooksRequestsDynamicFieldset from "./components/WebhooksRequestsDynamicFieldset";
+import WebhooksRequestsDynamicFieldset from "./components/WebhooksRequestsDynamicFieldset.js";
 
 const plugin: FbEditorTrigger = {
     type: "form-editor-trigger",

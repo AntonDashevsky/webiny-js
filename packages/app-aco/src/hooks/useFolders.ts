@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo } from "react";
-import { FoldersContext } from "~/contexts/folders";
+import { FoldersContext } from "~/contexts/folders.js";
 
 export const useFolders = () => {
     const context = useContext(FoldersContext);

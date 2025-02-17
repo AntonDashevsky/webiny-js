@@ -1,14 +1,15 @@
 import * as React from "react";
-import { Transition } from "react-transition-group";
+// @ts-expect-error This package organization is a mess, so we just ignore its types.
+import Transition from "react-transition-group/esm/Transition.js";
+import type { ExitHandler, TransitionStatus } from "react-transition-group/Transition";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { TopAppBarSecondary, TopAppBarSection } from "@webiny/ui/TopAppBar";
-import { IconButton } from "@webiny/ui/Button";
-import noop from "lodash/noop";
+import { TopAppBarSecondary, TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import noop from "lodash/noop.js";
 
 import { ReactComponent as CloseIcon } from "@material-design-icons/svg/outlined/close.svg";
-import { OverlayView } from "~/ui/views/OverlayView";
-import { ExitHandler } from "react-transition-group/Transition";
+import { OverlayView } from "~/ui/views/OverlayView.js";
 
 const OverlayLayoutWrapper = styled("div")({
     position: "fixed",
@@ -95,7 +96,7 @@ export class OverlayLayout extends React.Component<OverlayLayoutProps, OverlayLa
 
         return (
             <Transition in={this.state.isVisible} timeout={100} appear onExited={onExited}>
-                {state => (
+                {(state: TransitionStatus) => (
                     <OverlayLayoutWrapper
                         {...rest}
                         style={{ ...defaultStyle, ...style, ...transitionStyles[state] }}

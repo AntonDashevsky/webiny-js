@@ -1,5 +1,5 @@
-import { PbEditorElement } from "~/types";
-import { getNanoid } from "~/editor/helpers";
+import { PbEditorElement } from "~/types.js";
+import { getNanoid } from "~/editor/helpers.js";
 
 export interface IdGenerator {
     (element: PbEditorElement): string;

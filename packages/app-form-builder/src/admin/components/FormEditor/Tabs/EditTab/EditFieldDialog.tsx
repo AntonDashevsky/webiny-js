@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import cloneDeep from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep.js";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import {
@@ -9,16 +9,16 @@ import {
     DialogCancel,
     DialogContent,
     DialogTitle
-} from "@webiny/ui/Dialog";
+} from "@webiny/ui/Dialog/index.js";
 import { Form, FormOnSubmit } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
-import { Tab, Tabs } from "@webiny/ui/Tabs";
-import GeneralTab from "./EditFieldDialog/GeneralTab";
-import ValidatorsTab from "./EditFieldDialog/ValidatorsTab";
-import FieldTypeSelector from "./EditFieldDialog/FieldTypeSelector";
-import { i18n } from "@webiny/app/i18n";
-import { useFormEditor } from "../../Context";
-import { FbBuilderFieldPlugin, FbFormModelField } from "~/types";
+import { Tab, Tabs } from "@webiny/ui/Tabs/index.js";
+import GeneralTab from "./EditFieldDialog/GeneralTab.js";
+import ValidatorsTab from "./EditFieldDialog/ValidatorsTab.js";
+import FieldTypeSelector from "./EditFieldDialog/FieldTypeSelector.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useFormEditor } from "../../Context/index.js";
+import { FbBuilderFieldPlugin, FbFormModelField } from "~/types.js";
 
 const t = i18n.namespace("FormEditor.EditFieldDialog");
 

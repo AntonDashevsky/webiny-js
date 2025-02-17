@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 export const flexClass = css({
     display: "flex",

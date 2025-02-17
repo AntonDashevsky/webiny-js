@@ -1,8 +1,8 @@
-import lodashUpperFirst from "lodash/upperFirst";
-import lodashCamelCase from "lodash/camelCase";
+import lodashUpperFirst from "lodash/upperFirst.js";
+import lodashCamelCase from "lodash/camelCase.js";
 import gql from "graphql-tag";
 import ApolloClient from "apollo-client";
-import { CmsModel } from "~/types";
+import { CmsModel } from "~/types.js";
 
 /**
  * This list is to disallow creating models that might interfere with GraphQL schema creation.

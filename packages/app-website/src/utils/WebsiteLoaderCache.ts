@@ -1,6 +1,6 @@
-import type { ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache";
-import { getPrerenderId, isPrerendering } from "@webiny/app/utils";
-import { PeLoaderHtmlCache } from "./WebsiteLoaderCache/PeLoaderHtmlCache";
+import type { ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache.js";
+import { getPrerenderId, isPrerendering } from "@webiny/app/utils/index.js";
+import { PeLoaderHtmlCache } from "./WebsiteLoaderCache/PeLoaderHtmlCache.js";
 
 export class WebsiteLoaderCache implements ILoaderCache {
     private loaderCache: Record<string, any> = {};

@@ -1,7 +1,7 @@
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
-import { AdminUsersStorageOperations as BaseAdminUsersStorageOperations } from "@webiny/api-admin-users/types";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
+import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
+import { AdminUsersStorageOperations as BaseAdminUsersStorageOperations } from "@webiny/api-admin-users/types.js";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

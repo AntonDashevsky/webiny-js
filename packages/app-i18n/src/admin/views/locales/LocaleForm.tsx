@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
-import { Switch } from "@webiny/ui/Switch";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
 import { validation } from "@webiny/validation";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import LocaleCodesAutoComplete from "~/admin/components/LocaleCodesAutoComplete";
-import { useLocaleForm } from "./hooks/useLocaleForm";
+import LocaleCodesAutoComplete from "~/admin/components/LocaleCodesAutoComplete.js";
+import { useLocaleForm } from "./hooks/useLocaleForm.js";
 
 const t = i18n.ns("app-i18n/admin/locales/form");
 

@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { i18n } from "@webiny/app/i18n";
-import { useModelEditor } from "~/admin/hooks";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
 
 const t = i18n.namespace("app-headless-cms/admin/editor/top-bar/save-button");
 

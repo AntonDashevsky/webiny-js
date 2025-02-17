@@ -12,7 +12,7 @@ export default async (destination = "./pageBuilderInstallation.zip"): Promise<vo
         fs.mkdirSync(dir, { recursive: true });
     }
 
-    const source = path.join(__dirname, "files");
+    const source = path.join(import.meta.dirname, "files");
     const archive = archiver.create("zip", {
         zlib: {
             level: 9

@@ -3,11 +3,11 @@ import {
     CmsModel,
     CmsModelField,
     CmsModelFieldSettings
-} from "@webiny/app-headless-cms-common/types";
+} from "@webiny/app-headless-cms-common/types/index.js";
 
-export { CmsIdentity } from "@webiny/app-headless-cms-common/types";
-export * from "~/graphql/records/types";
-export * from "~/table.types";
+export { CmsIdentity } from "@webiny/app-headless-cms-common/types/index.js";
+export * from "~/graphql/records/types.js";
+export * from "~/table.types.js";
 export type FolderAccessLevel = "owner" | "viewer" | "editor" | "public";
 
 export interface FolderPermission {

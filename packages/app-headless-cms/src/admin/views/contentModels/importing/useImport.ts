@@ -1,5 +1,5 @@
 import React from "react";
-import { ImportContext } from "./ImportContext";
+import { ImportContext } from "./ImportContext.js";
 
 export const useImport = () => {
     const context = React.useContext(ImportContext);

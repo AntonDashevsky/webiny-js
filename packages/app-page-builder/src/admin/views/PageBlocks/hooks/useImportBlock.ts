@@ -1,10 +1,10 @@
 import { useCallback } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { IMPORT_BLOCKS } from "~/admin/graphql/blockImportExport.gql";
-import useImportBlockDialog from "~/editor/plugins/defaultBar/components/ImportButton/block/useImportBlockDialog";
-import useImportBlockLoadingDialog from "~/editor/plugins/defaultBar/components/ImportButton/block/useImportBlockLoadingDialog";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { IMPORT_BLOCKS } from "~/admin/graphql/blockImportExport.gql.js";
+import useImportBlockDialog from "~/editor/plugins/defaultBar/components/ImportButton/block/useImportBlockDialog.js";
+import useImportBlockLoadingDialog from "~/editor/plugins/defaultBar/components/ImportButton/block/useImportBlockLoadingDialog.js";
 
 const useImportBlock = () => {
     const [importBlock] = useMutation(IMPORT_BLOCKS);

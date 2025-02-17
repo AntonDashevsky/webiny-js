@@ -1,2 +1,2 @@
-export * from "./pageAtom";
-export * from "./elementsInContentTotalSelector";
+export * from "./pageAtom.js";
+export * from "./elementsInContentTotalSelector.js";

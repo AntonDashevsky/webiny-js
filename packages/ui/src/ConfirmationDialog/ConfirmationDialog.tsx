@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Dialog, DialogCancel, DialogActions, DialogTitle, DialogContent } from "./../Dialog";
+import { Dialog, DialogCancel, DialogActions, DialogTitle, DialogContent } from "./../Dialog/index.js";
 
-import { CircularProgress } from "../Progress";
-import { ButtonPrimary } from "~/Button";
+import { CircularProgress } from "../Progress/index.js";
+import { ButtonPrimary } from "~/Button/index.js";
 
 interface ChildrenRenderProp {
     showConfirmation: (onAccept?: () => void, onCancel?: () => void) => any;

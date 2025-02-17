@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
-import { DecryptedWcpProjectLicense, EncryptedWcpProjectLicense } from "./types";
-import { decrypt } from "./encryption";
-import { getWcpApiUrl } from "./urls";
+import { DecryptedWcpProjectLicense, EncryptedWcpProjectLicense } from "./types.js";
+import { decrypt } from "./encryption.js";
+import { getWcpApiUrl } from "./urls.js";
 
 interface GetWcpProjectLicenseParams {
     orgId: string;

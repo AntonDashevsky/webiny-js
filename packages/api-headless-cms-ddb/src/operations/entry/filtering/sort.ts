@@ -1,9 +1,9 @@
-import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
+import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import WebinyError from "@webiny/error";
 import dotProp from "dot-prop";
-import lodashSortBy from "lodash/sortBy";
-import { extractSort } from "./extractSort";
-import { Field } from "./types";
+import lodashSortBy from "lodash/sortBy.js";
+import { extractSort } from "./extractSort.js";
+import { Field } from "./types.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 interface Params {

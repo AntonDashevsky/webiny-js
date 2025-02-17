@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "@emotion/styled";
-import { useFileManagerViewConfig } from "~/index";
+import { useFileManagerViewConfig } from "~/index.js";
 
 const ActionsContainer = styled.div`
     text-align: center;

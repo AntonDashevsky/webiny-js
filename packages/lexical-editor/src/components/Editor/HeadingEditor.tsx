@@ -1,7 +1,7 @@
 import React from "react";
-import { RichTextEditor, RichTextEditorProps } from "~/components/Editor/RichTextEditor";
-import { Toolbar } from "~/components/Toolbar/Toolbar";
-import { EnsureHeadingTagPlugin } from "~/components/Editor/EnsureHeadingTagPlugin";
+import { RichTextEditor, RichTextEditorProps } from "~/components/Editor/RichTextEditor.js";
+import { Toolbar } from "~/components/Toolbar/Toolbar.js";
+import { EnsureHeadingTagPlugin } from "~/components/Editor/EnsureHeadingTagPlugin.js";
 
 interface HeadingEditorProps extends RichTextEditorProps {
     tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

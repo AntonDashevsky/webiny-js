@@ -3,7 +3,7 @@ import { set } from "dot-prop-immutable";
 import { useRouter, UseRouter } from "@webiny/react-router";
 import Downshift from "downshift";
 import { plugins } from "@webiny/plugins";
-import { AdminGlobalSearchPlugin, AdminGlobalSearchPreventHotkeyPlugin } from "~/types";
+import { AdminGlobalSearchPlugin, AdminGlobalSearchPreventHotkeyPlugin } from "~/types.js";
 import classnames from "classnames";
 /**
  * Package react-hotkeyz does not have types.
@@ -12,9 +12,9 @@ import classnames from "classnames";
 import { Hotkeys } from "react-hotkeyz";
 
 // UI components
-import { Icon } from "@webiny/ui/Icon";
-import { Elevation } from "@webiny/ui/Elevation";
-import SearchBarDropdown from "./SearchBarDropdown";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import SearchBarDropdown from "./SearchBarDropdown.js";
 
 // Icons
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
@@ -27,8 +27,8 @@ import {
     SearchBarWrapper,
     SearchShortcut,
     searchWrapper
-} from "./styled";
-import { makeDecoratable } from "~/index";
+} from "./styled.js";
+import { makeDecoratable } from "~/index.js";
 
 type SearchBarProps = UseRouter;
 

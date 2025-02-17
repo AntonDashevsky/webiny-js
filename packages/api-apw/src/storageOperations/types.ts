@@ -1,11 +1,11 @@
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import {
     ApwReviewerStorageOperations as BaseApwReviewerStorageOperations,
     ApwWorkflowStorageOperations as BaseApwWorkflowStorageOperations,
     ApwContentReviewStorageOperations as BaseApwContentReviewStorageOperations,
     ApwChangeRequestStorageOperations as BaseApwChangeRequestStorageOperations,
     ApwCommentStorageOperations as BaseApwCommentStorageOperations
-} from "~/types";
+} from "~/types.js";
 
 export interface ApwCommentStorageOperations extends BaseApwCommentStorageOperations {
     /**

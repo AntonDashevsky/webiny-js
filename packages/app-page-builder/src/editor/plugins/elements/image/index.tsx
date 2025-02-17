@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase";
-import ImageSettings from "./ImageSettings";
-import { imageCreatedEditorAction } from "./imageCreatedEditorAction";
-import { CreateElementActionEvent } from "../../../recoil/actions";
+import kebabCase from "lodash/kebabCase.js";
+import ImageSettings from "./ImageSettings.js";
+import { imageCreatedEditorAction } from "./imageCreatedEditorAction.js";
+import { CreateElementActionEvent } from "../../../recoil/actions/index.js";
 import { ReactComponent as ImageIcon } from "./round-image-24px.svg";
 import {
     PbEditorPageElementPlugin,
@@ -12,11 +12,11 @@ import {
     DisplayMode,
     PbEditorElementPluginArgs,
     PbEditorElement
-} from "~/types";
-import { Plugin } from "@webiny/plugins/types";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
-import { Element } from "@webiny/app-page-builder-elements/types";
-import { PeImage } from "~/editor/plugins/elements/image/PeImage";
+} from "~/types.js";
+import { Plugin } from "@webiny/plugins/types.js";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
+import { PeImage } from "~/editor/plugins/elements/image/PeImage.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

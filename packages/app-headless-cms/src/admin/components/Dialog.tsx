@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { Dialog as BaseDialog } from "@webiny/ui/Dialog";
-export * from "@webiny/ui/Dialog";
+import { Dialog as BaseDialog } from "@webiny/ui/Dialog/index.js";
+export * from "@webiny/ui/Dialog/index.js";
 
 export const Dialog = styled(BaseDialog)`
     .mdc-dialog__surface {

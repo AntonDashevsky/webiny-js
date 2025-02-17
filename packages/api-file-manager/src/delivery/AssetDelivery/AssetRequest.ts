@@ -1,4 +1,4 @@
-import { GenericRecord } from "@webiny/api/types";
+import { GenericRecord } from "@webiny/api/types.js";
 
 export interface AssetRequestOptions {
     original?: boolean;

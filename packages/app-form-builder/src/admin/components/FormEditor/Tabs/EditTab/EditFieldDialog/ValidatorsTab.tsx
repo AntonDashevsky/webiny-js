@@ -1,23 +1,23 @@
 import React, { useMemo } from "react";
 import { plugins } from "@webiny/plugins";
-import { Switch } from "@webiny/ui/Switch";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import {
     SimpleForm,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { useFormEditor } from "../../../Context";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { useFormEditor } from "../../../Context/index.js";
 import { BindComponentRenderPropOnChange, Form, FormRenderPropParams } from "@webiny/form";
-import cloneDeep from "lodash/cloneDeep";
-import debounce from "lodash/debounce";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
+import cloneDeep from "lodash/cloneDeep.js";
+import debounce from "lodash/debounce.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import { validation } from "@webiny/validation";
 import {
     FbBuilderFormFieldValidatorPlugin,
     FbBuilderFormFieldValidatorPluginValidator,
     FbFormModelField
-} from "~/types";
+} from "~/types.js";
 
 interface OnEnabledChangeParams {
     data: Record<string, string>;

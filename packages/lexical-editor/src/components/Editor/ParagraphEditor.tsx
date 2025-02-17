@@ -1,6 +1,6 @@
 import React from "react";
-import { RichTextEditor, RichTextEditorProps } from "~/components/Editor/RichTextEditor";
-import { Toolbar } from "~/components/Toolbar/Toolbar";
+import { RichTextEditor, RichTextEditorProps } from "~/components/Editor/RichTextEditor.js";
+import { Toolbar } from "~/components/Toolbar/Toolbar.js";
 
 interface ParagraphLexicalEditorProps extends RichTextEditorProps {
     tag?: "p";

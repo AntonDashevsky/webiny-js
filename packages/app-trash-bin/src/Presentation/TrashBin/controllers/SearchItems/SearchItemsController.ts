@@ -1,5 +1,5 @@
-import { IListItemsUseCase, ISearchItemsUseCase } from "~/UseCases";
-import { ISearchItemsController } from "./ISearchItemsController";
+import { IListItemsUseCase, ISearchItemsUseCase } from "~/UseCases/index.js";
+import { ISearchItemsController } from "./ISearchItemsController.js";
 
 export class SearchItemsController implements ISearchItemsController {
     private readonly listItemsUseCaseFactory: () => IListItemsUseCase;

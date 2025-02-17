@@ -1,11 +1,11 @@
 import DataLoader from "dataloader";
-import { DataLoaderParams } from "./types";
-import { createGetAllEntryRevisions } from "./getAllEntryRevisions";
-import { createGetLatestRevisionByEntryId } from "./getLatestRevisionByEntryId";
-import { createGetPublishedRevisionByEntryId } from "./getPublishedRevisionByEntryId";
-import { createGetRevisionById } from "./getRevisionById";
+import { DataLoaderParams } from "./types.js";
+import { createGetAllEntryRevisions } from "./getAllEntryRevisions.js";
+import { createGetLatestRevisionByEntryId } from "./getLatestRevisionByEntryId.js";
+import { createGetPublishedRevisionByEntryId } from "./getPublishedRevisionByEntryId.js";
+import { createGetRevisionById } from "./getRevisionById.js";
 
-export * from "./DataLoaderCache";
+export * from "./DataLoaderCache.js";
 
 interface Callable {
     (params: DataLoaderParams): DataLoader<any, any>;

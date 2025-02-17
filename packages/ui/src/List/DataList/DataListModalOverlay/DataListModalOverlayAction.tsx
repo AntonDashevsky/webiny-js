@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { IconButton } from "../../../Button";
-import { DataListModalOverlayContext } from "./DataListModalOverlayContext";
+import { IconButton } from "../../../Button/index.js";
+import { DataListModalOverlayContext } from "./DataListModalOverlayContext.js";
 
 export interface DataListModalOverlayActionProps {
     icon: React.ReactNode;

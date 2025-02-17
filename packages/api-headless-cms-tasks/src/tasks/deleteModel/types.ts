@@ -1,7 +1,7 @@
-import { CmsIdentity } from "@webiny/api-headless-cms/types";
+import { CmsIdentity } from "@webiny/api-headless-cms/types/index.js";
 import { ITaskResponseDoneResultOutput } from "@webiny/tasks";
 import type { ListValuesResult } from "@webiny/db";
-import type { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types.js";
 
 export interface IDeleteModelTaskInput {
     modelId: string;

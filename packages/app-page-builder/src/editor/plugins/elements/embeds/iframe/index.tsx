@@ -1,14 +1,14 @@
 import React from "react";
-import IFrame from "./IFrame";
-import IFrameSettings from "./IFrameSettings";
+import IFrame from "./IFrame.js";
+import IFrameSettings from "./IFrameSettings.js";
 import styled from "@emotion/styled";
 import { ReactComponent as IFrameIcon } from "./iframe-icon.svg";
 import {
     DisplayMode,
     PbEditorPageElementPlugin,
     PbEditorPageElementStyleSettingsPlugin
-} from "~/types";
-import { createInitialPerDeviceSettingValue } from "../../../elementSettings/elementSettingsUtils";
+} from "~/types.js";
+import { createInitialPerDeviceSettingValue } from "../../../elementSettings/elementSettingsUtils.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

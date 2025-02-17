@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from "react";
-import { Input } from "@webiny/ui/Input";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 /**
  * Package react-hotkeyz does not have types.
  */
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
-import { FormName, formNameWrapper, NameInputWrapper, NameWrapper } from "./NameStyled";
-import { i18n } from "@webiny/app/i18n";
-import { useModelEditor } from "~/admin/hooks";
+import { FormName, formNameWrapper, NameInputWrapper, NameWrapper } from "./NameStyled.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useModelEditor } from "~/admin/hooks/index.js";
 
 const t = i18n.namespace("ContentModelEditor.Name");
 

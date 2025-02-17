@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "@emotion/styled";
-import { DataListModalOverlayContext } from "./DataListModalOverlayContext";
+import { DataListModalOverlayContext } from "./DataListModalOverlayContext.js";
 
 export type SimpleOverlayProps = { showOverlay: boolean };
 export const SimpleOverlay = styled.div<SimpleOverlayProps>(({ showOverlay }) => ({

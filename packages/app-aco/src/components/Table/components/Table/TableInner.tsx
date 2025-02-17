@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from "react";
 import { observer } from "mobx-react-lite";
-import { Columns, DataTable, DefaultData, OnSortingChange, Sorting } from "@webiny/ui/DataTable";
-import { ColumnMapper, ColumnsPresenter } from "./Columns";
-import { ColumnsVisibilityPresenter, ColumnsVisibilityUpdater } from "./ColumnVisibility";
-import { TablePresenter } from "./TablePresenter";
-import { TableRowProvider } from "~/components";
+import { Columns, DataTable, DefaultData, OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
+import { ColumnMapper, ColumnsPresenter } from "./Columns/index.js";
+import { ColumnsVisibilityPresenter, ColumnsVisibilityUpdater } from "./ColumnVisibility/index.js";
+import { TablePresenter } from "./TablePresenter.js";
+import { TableRowProvider } from "~/components/index.js";
 
 export interface TableInnerProps<T> {
     columnsPresenter: ColumnsPresenter;

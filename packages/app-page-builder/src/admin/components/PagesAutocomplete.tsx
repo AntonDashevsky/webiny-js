@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { AutoComplete, AutoCompleteProps } from "@webiny/ui/AutoComplete";
+import { AutoComplete, AutoCompleteProps } from "@webiny/ui/AutoComplete/index.js";
 import gql from "graphql-tag";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useQuery } from "@apollo/react-hooks";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 
 // We utilize the same "listPages" GraphQL field.
 const GET_PUBLISHED_PAGE = gql`

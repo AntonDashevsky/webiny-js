@@ -1,7 +1,7 @@
-import { GenericRecord } from "@webiny/cli/types";
-import { DynamoDBRecord } from "@webiny/handler-aws/types";
-import { ElasticsearchContext } from "@webiny/api-elasticsearch/types";
-import { Context as LoggerContext } from "@webiny/api-log/types";
+import { GenericRecord } from "@webiny/cli/types.js";
+import { DynamoDBRecord } from "@webiny/handler-aws/types.js";
+import { ElasticsearchContext } from "@webiny/api-elasticsearch/types.js";
+import { Context as LoggerContext } from "@webiny/api-log/types.js";
 
 export interface IOperationsBuilderBuildParams {
     records: DynamoDBRecord[];

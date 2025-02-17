@@ -1,6 +1,6 @@
-import { BulkAction, BulkActionConfig } from "./BulkAction";
-import { EntryAction, EntryActionConfig } from "./EntryAction";
-import { Table, TableConfig } from "./Table";
+import { BulkAction, BulkActionConfig } from "./BulkAction.js";
+import { EntryAction, EntryActionConfig } from "./EntryAction.js";
+import { Table, TableConfig } from "./Table/index.js";
 
 export interface BrowserConfig {
     bulkActions: BulkActionConfig[];

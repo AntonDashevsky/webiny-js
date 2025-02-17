@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import React, { useCallback, useState } from "react";
-import type { CmsModel } from "@webiny/app-headless-cms-common/types";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { i18n } from "@webiny/app/i18n";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useConfirmationDialog } from "@webiny/app-admin";
-import { useCancelDelete } from "~/admin/views/contentModels/fullDelete/useCancelDelete";
+import { useCancelDelete } from "~/admin/views/contentModels/fullDelete/useCancelDelete.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/fully-delete-model");
 

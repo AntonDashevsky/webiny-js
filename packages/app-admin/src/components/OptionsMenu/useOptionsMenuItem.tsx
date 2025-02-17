@@ -1,6 +1,6 @@
 import React from "react";
-import { OptionsMenuItem } from "./OptionsMenuItem";
-import { OptionsMenuLink } from "./OptionsMenuLink";
+import { OptionsMenuItem } from "./OptionsMenuItem.js";
+import { OptionsMenuLink } from "./OptionsMenuLink.js";
 
 export interface OptionsMenuItemProviderContext {
     OptionsMenuItem: typeof OptionsMenuItem;

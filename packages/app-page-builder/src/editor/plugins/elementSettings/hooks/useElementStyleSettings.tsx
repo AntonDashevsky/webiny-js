@@ -1,8 +1,8 @@
 import { plugins } from "@webiny/plugins";
-import { PbEditorPageElementPlugin, PbEditorPageElementStyleSettingsPlugin } from "~/types";
-import { userElementStyleSettingsPlugins } from "../../../helpers";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { useDeactivateOnEsc } from "~/editor/plugins/elementSettings/hooks/useDeactivateOnEsc";
+import { PbEditorPageElementPlugin, PbEditorPageElementStyleSettingsPlugin } from "~/types.js";
+import { userElementStyleSettingsPlugins } from "../../../helpers.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { useDeactivateOnEsc } from "~/editor/plugins/elementSettings/hooks/useDeactivateOnEsc.js";
 
 interface ElementSettings {
     plugin: PbEditorPageElementStyleSettingsPlugin;

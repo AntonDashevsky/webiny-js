@@ -1,3 +1,3 @@
-export * from "~/Context";
-export * from "~/ServiceDiscovery";
-export * from "~/plugins/ContextPlugin";
+export * from "~/Context.js";
+export * from "~/ServiceDiscovery.js";
+export * from "~/plugins/ContextPlugin.js";

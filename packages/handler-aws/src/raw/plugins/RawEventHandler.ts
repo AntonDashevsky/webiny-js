@@ -1,5 +1,5 @@
-import type { Context as LambdaContext } from "@webiny/aws-sdk/types";
-import { Context as BaseContext, Reply } from "@webiny/handler/types";
+import type { Context as LambdaContext } from "@webiny/aws-sdk/types/index.js";
+import { Context as BaseContext, Reply } from "@webiny/handler/types.js";
 import { EventPlugin, EventPluginCallableParams } from "@webiny/handler";
 
 export interface RawEventHandlerCallableParams<Event, Context extends BaseContext>

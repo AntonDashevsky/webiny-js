@@ -1,8 +1,8 @@
 import React from "react";
-import get from "lodash/get";
-import { CmsModelFieldRendererPlugin } from "~/types";
-import { Switch } from "@webiny/ui/Switch";
-import { i18n } from "@webiny/app/i18n";
+import get from "lodash/get.js";
+import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/boolean");
 

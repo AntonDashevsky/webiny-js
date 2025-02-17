@@ -1,4 +1,4 @@
-import { CmsModelField, CmsModelFieldToGraphQLPlugin } from "~/types";
+import { CmsModelField, CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 interface BuildParams {

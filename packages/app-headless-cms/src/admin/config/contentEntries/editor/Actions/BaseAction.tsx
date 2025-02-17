@@ -1,6 +1,6 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { useModel } from "~/admin/hooks";
+import { useModel } from "~/admin/hooks/index.js";
 
 export interface BaseActionConfig<T extends string> {
     name: string;

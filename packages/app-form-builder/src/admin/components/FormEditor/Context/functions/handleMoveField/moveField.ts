@@ -1,5 +1,5 @@
-import { FbFormModel, FbFormModelField, FbFormStep, DropTarget, DropDestination } from "~/types";
-import getFieldPosition from "./getFieldPosition";
+import { FbFormModel, FbFormModelField, FbFormStep, DropTarget, DropDestination } from "~/types.js";
+import getFieldPosition from "./getFieldPosition.js";
 
 /**
  * Remove all rows that have zero fields in it.

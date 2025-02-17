@@ -1,5 +1,5 @@
-import { CmsContext } from "~/types";
-import { createExportStructureContext } from "./exporting";
+import { CmsContext } from "~/types/index.js";
+import { createExportStructureContext } from "./exporting.js";
 
 export const createExportCrud = (context: CmsContext) => {
     return {

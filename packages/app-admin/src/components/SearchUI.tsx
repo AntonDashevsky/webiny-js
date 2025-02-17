@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import InputField, { OnKeyDownProps } from "./SimpleUI/InputField";
+import InputField, { OnKeyDownProps } from "./SimpleUI/InputField.js";
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
 
 const SearchWrapper = styled("div")({

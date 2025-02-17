@@ -1,1 +1,1 @@
-export * from "./fta";
+export * from "./fta/index.js";

@@ -1,9 +1,9 @@
 import React from "react";
-import { useUi } from "@webiny/app/hooks/useUi";
-import { i18n } from "@webiny/app/i18n";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { ResultDialogMessage } from "./DialogMessage";
-import { Result } from "../Worker";
+import { useUi } from "@webiny/app/hooks/useUi.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { ResultDialogMessage } from "./DialogMessage.js";
+import { Result } from "../Worker.js";
 
 const t = i18n.ns("app-admin/hooks/use-dialog-with-report");
 

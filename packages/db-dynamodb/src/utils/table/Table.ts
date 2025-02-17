@@ -1,15 +1,15 @@
-import type { TableConstructor } from "~/toolbox";
-import { Table as BaseTable } from "~/toolbox";
+import type { TableConstructor } from "~/toolbox.js";
+import { Table as BaseTable } from "~/toolbox.js";
 import type {
     ITable,
     ITableReadBatch,
     ITableScanParams,
     ITableScanResponse,
     ITableWriteBatch
-} from "./types";
-import { createTableWriteBatch } from "./TableWriteBatch";
-import { createTableReadBatch } from "./TableReadBatch";
-import { scan } from "../scan";
+} from "./types.js";
+import { createTableWriteBatch } from "./TableWriteBatch.js";
+import { createTableReadBatch } from "./TableReadBatch.js";
+import { scan } from "../scan.js";
 
 export class TableDefinition<
     Name extends string = string,

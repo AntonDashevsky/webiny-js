@@ -1,5 +1,5 @@
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
 
 const name = "SocketsConnectionRegistry";
 

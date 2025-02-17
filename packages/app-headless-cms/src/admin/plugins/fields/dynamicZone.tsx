@@ -1,11 +1,11 @@
 import React from "react";
 import { ReactComponent as ObjectIcon } from "@material-design-icons/svg/outlined/dynamic_form.svg";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { createFieldsList } from "@webiny/app-headless-cms-common";
-import { DynamicZone } from "~/admin/plugins/fields/dynamicZone/DynamicZone";
-import { createTypeName } from "~/utils/createTypeName";
-import { CmsModelFieldTypePlugin, CmsModelFieldValidatorsGroup } from "~/types";
-import { commonValidators } from "./dynamicZone/commonValidators";
+import { DynamicZone } from "~/admin/plugins/fields/dynamicZone/DynamicZone.js";
+import { createTypeName } from "~/utils/createTypeName.js";
+import { CmsModelFieldTypePlugin, CmsModelFieldValidatorsGroup } from "~/types.js";
+import { commonValidators } from "./dynamicZone/commonValidators.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields");
 

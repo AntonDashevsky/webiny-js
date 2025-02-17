@@ -3,11 +3,11 @@ import {
     FormBuilderStorageOperationsGetSystemParams,
     FormBuilderStorageOperationsUpdateSystemParams,
     System
-} from "@webiny/api-form-builder/types";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { FormBuilderSystemCreateKeysParams, FormBuilderSystemStorageOperations } from "~/types";
+} from "@webiny/api-form-builder/types.js";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
+import { FormBuilderSystemCreateKeysParams, FormBuilderSystemStorageOperations } from "~/types.js";
 import WebinyError from "@webiny/error";
-import { getClean } from "@webiny/db-dynamodb/utils/get";
+import { getClean } from "@webiny/db-dynamodb/utils/get.js";
 import { put } from "@webiny/db-dynamodb";
 
 export interface CreateSystemStorageOperationsParams {

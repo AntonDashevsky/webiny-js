@@ -1,12 +1,12 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { Route } from "@webiny/react-router";
-import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
-import { SecureRoute } from "@webiny/app-security/components";
-import { RoutePlugin } from "@webiny/app/types";
-import { Groups } from "~/ui/views/Groups";
-import { ApiKeys } from "~/ui/views/ApiKeys";
-import { Permission } from "./constants";
+import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
+import { SecureRoute } from "@webiny/app-security/components/index.js";
+import { RoutePlugin } from "@webiny/app/types.js";
+import { Groups } from "~/ui/views/Groups/index.js";
+import { ApiKeys } from "~/ui/views/ApiKeys/index.js";
+import { Permission } from "./constants.js";
 
 const plugins: RoutePlugin[] = [
     {

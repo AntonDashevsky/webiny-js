@@ -10,8 +10,8 @@ import {
     DataTableHeadCellProps,
     DataTableCellProps
 } from "@rmwc/data-table";
-import { ColumnDirectionProps } from "~/DataTable/ColumnDirection";
-import { Typography } from "~/Typography";
+import { ColumnDirectionProps } from "~/DataTable/ColumnDirection.js";
+import { Typography } from "~/Typography/index.js";
 
 interface TableProps extends DataTableProps {
     bordered?: boolean;

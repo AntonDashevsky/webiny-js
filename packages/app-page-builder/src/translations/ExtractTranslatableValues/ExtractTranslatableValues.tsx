@@ -1,11 +1,11 @@
 import React from "react";
-import { AddTranslatableItemsContext } from "./AddTranslatableItemsContext";
-import { SaveTranslatableValues } from "~/translations/ExtractTranslatableValues/SaveTranslatableValues";
-import { PageEditorConfig } from "~/pageEditor";
+import { AddTranslatableItemsContext } from "./AddTranslatableItemsContext.js";
+import { SaveTranslatableValues } from "~/translations/ExtractTranslatableValues/SaveTranslatableValues.js";
+import { PageEditorConfig } from "~/pageEditor/index.js";
 import {
     createElementRendererInputsDecorator,
     CreateTranslatableItem
-} from "~/translations/ExtractTranslatableValues/CollectElementValues";
+} from "~/translations/ExtractTranslatableValues/CollectElementValues.js";
 
 interface ExtractTranslatableValuesProps {
     createTranslatableItem: CreateTranslatableItem;

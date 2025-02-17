@@ -1,8 +1,8 @@
-import { Topic } from "@webiny/pubsub/types";
-import { CmsContext, OnModelBeforeDeleteTopicParams } from "~/types";
+import { Topic } from "@webiny/pubsub/types.js";
+import { CmsContext, OnModelBeforeDeleteTopicParams } from "~/types/index.js";
 import WebinyError from "@webiny/error";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
-import { CMS_MODEL_SINGLETON_TAG } from "~/constants";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
+import { CMS_MODEL_SINGLETON_TAG } from "~/constants.js";
 
 interface AssignBeforeModelDeleteParams {
     onModelBeforeDelete: Topic<OnModelBeforeDeleteTopicParams>;

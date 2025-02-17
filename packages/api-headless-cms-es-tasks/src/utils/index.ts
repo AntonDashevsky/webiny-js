@@ -1,3 +1,3 @@
-export * from "./createIndex";
-export * from "./disableIndexing";
-export * from "./enableIndexing";
+export * from "./createIndex.js";
+export * from "./disableIndexing.js";
+export * from "./enableIndexing.js";

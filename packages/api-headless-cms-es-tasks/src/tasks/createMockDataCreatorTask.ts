@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context } from "~/types";
-import { IMockDataCreatorInput, IMockDataCreatorOutput } from "~/tasks/MockDataCreator/types";
+import { Context } from "~/types.js";
+import { IMockDataCreatorInput, IMockDataCreatorOutput } from "~/tasks/MockDataCreator/types.js";
 
 export const MOCK_DATA_CREATOR_TASK_ID = "mockDataCreator";
 
@@ -11,7 +11,7 @@ export const createMockDataCreatorTask = () => {
         maxIterations: 500,
         async run(params) {
             const { MockDataCreator } = await import(
-                /* webpackChunkName: "MockDataCreator" */ "./MockDataCreator/MockDataCreator"
+                /* webpackChunkName: "MockDataCreator" */ "./MockDataCreator/MockDataCreator.js"
             );
 
             const carsMock = new MockDataCreator<

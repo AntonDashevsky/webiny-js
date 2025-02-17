@@ -2,17 +2,17 @@ import React, { Fragment, memo } from "react";
 import { Plugin, AddMenu as Menu, AddUserMenuItem, AddRoute, Layout } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
-import { Permission } from "~/plugins/constants";
-import { UsersView } from "~/ui/views/Users/UsersView";
-import { Account } from "~/ui/views/Account";
-import { UserInfo } from "./plugins/userMenu/userInfo";
-import { AccountDetails } from "./plugins/userMenu/accountDetails";
-import { SignOut } from "./plugins/userMenu/signOut";
+import { Permission } from "~/plugins/constants.js";
+import { UsersView } from "~/ui/views/Users/UsersView.js";
+import { Account } from "~/ui/views/Account/index.js";
+import { UserInfo } from "./plugins/userMenu/userInfo.js";
+import { AccountDetails } from "./plugins/userMenu/accountDetails.js";
+import { SignOut } from "./plugins/userMenu/signOut.js";
 
-import installation from "./plugins/installation";
-import permissionRenderer from "./plugins/permissionRenderer";
-import cognito from "./plugins/cognito";
-import { CognitoLogin, CognitoProps } from "./CognitoLogin";
+import installation from "./plugins/installation.js";
+import permissionRenderer from "./plugins/permissionRenderer/index.js";
+import cognito from "./plugins/cognito.js";
+import { CognitoLogin, CognitoProps } from "./CognitoLogin.js";
 
 const ACCOUNT_ROUTE = "/account";
 

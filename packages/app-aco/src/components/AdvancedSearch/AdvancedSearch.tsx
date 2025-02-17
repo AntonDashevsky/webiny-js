@@ -1,19 +1,19 @@
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 
-import { Field, FieldMapper, FieldRaw, FilterDTO, FilterRepository } from "./domain";
+import { Field, FieldMapper, FieldRaw, FilterDTO, FilterRepository } from "./domain/index.js";
 
-import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter";
+import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter.js";
 
-import { Button } from "./Button";
-import { Feedback } from "./Feedback";
-import { QueryManagerDialog } from "./QueryManagerDialog";
-import { QueryBuilderDrawer } from "./QueryBuilderDrawer";
-import { QuerySaverDialog } from "./QuerySaverDialog";
-import { SelectedFilter } from "./SelectedFilter";
+import { Button } from "./Button/index.js";
+import { Feedback } from "./Feedback/index.js";
+import { QueryManagerDialog } from "./QueryManagerDialog/index.js";
+import { QueryBuilderDrawer } from "./QueryBuilderDrawer/index.js";
+import { QuerySaverDialog } from "./QuerySaverDialog/index.js";
+import { SelectedFilter } from "./SelectedFilter/index.js";
 
-import { AdvancedSearchContainer } from "./AdvancedSearch.styled";
-import { useAcoConfig } from "~/config";
+import { AdvancedSearchContainer } from "./AdvancedSearch.styled.js";
+import { useAcoConfig } from "~/config/index.js";
 
 export interface AdvancedSearchProps {
     fields: FieldRaw[];

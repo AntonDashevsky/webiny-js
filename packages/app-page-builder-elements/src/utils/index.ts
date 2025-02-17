@@ -11,9 +11,9 @@ import {
     RendererProps,
     ElementStylesCallback,
     StylesCallback
-} from "~/types";
+} from "~/types.js";
 
-import { StylesObject, ThemeBreakpoints, Typography, TypographyStyle } from "@webiny/theme/types";
+import { StylesObject, ThemeBreakpoints, Typography, TypographyStyle } from "@webiny/theme/types.js";
 
 let usingPageElementsFlag = false;
 

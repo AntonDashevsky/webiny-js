@@ -1,7 +1,7 @@
 import React from "react";
-import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
-import { SelectAllContainer } from "./SelectAll.styled";
-import { ClearSelectionMessage, SelectAllMessage } from "./Messages";
+import { useContentEntriesList } from "~/admin/views/contentEntries/hooks/index.js";
+import { SelectAllContainer } from "./SelectAll.styled.js";
+import { ClearSelectionMessage, SelectAllMessage } from "./Messages.js";
 
 export const getEntriesLabel = (count = 0): string => {
     return `${count} ${count === 1 ? "entry" : "entries"}`;

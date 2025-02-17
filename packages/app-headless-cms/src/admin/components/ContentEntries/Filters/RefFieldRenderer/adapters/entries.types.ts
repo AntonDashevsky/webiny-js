@@ -1,5 +1,5 @@
-import { CmsErrorResponse } from "~/types";
-import { EntryReference } from "../domain";
+import { CmsErrorResponse } from "~/types.js";
+import { EntryReference } from "../domain/index.js";
 
 export interface ListEntriesQueryVariables {
     modelIds: string[];

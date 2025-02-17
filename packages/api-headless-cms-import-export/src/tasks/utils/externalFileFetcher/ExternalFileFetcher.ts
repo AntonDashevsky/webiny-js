@@ -2,7 +2,7 @@ import type {
     IExternalFileFetcher,
     IExternalFileFetcherFetchResult,
     IExternalFileFetcherHeadResult
-} from "./abstractions/ExternalFileFetcher";
+} from "./abstractions/ExternalFileFetcher.js";
 import { getObjectProperties } from "@webiny/utils";
 import { WebinyError } from "@webiny/error";
 

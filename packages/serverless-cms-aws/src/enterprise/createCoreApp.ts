@@ -1,6 +1,6 @@
-import { createCorePulumiApp, CreateCorePulumiAppParams } from "@webiny/pulumi-aws/enterprise";
-import { PluginCollection } from "@webiny/plugins/types";
-import { generateDdbToEsHandler, checkEsServiceRole, checkOsServiceRole } from "~/core/plugins";
+import { createCorePulumiApp, CreateCorePulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
+import { PluginCollection } from "@webiny/plugins/types.js";
+import { generateDdbToEsHandler, checkEsServiceRole, checkOsServiceRole } from "~/core/plugins/index.js";
 
 export { CoreOutput, configureAdminCognitoFederation } from "@webiny/pulumi-aws";
 

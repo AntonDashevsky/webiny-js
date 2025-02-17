@@ -7,22 +7,22 @@ import {
     SimpleFormContent,
     SimpleFormFooter,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary } from "@webiny/ui/Button";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import {
     GET_SETTINGS_QUERY,
     SAVE_SETTINGS_MUTATION,
     SaveSettingsMutationResponse,
     SaveSettingsMutationVariables,
     SettingsQueryResponse
-} from "./graphql";
-import { TransportSettings, ValidationError } from "~/types";
-import { Alert } from "@webiny/ui/Alert";
-import { Validator } from "@webiny/validation/types";
+} from "./graphql.js";
+import { TransportSettings, ValidationError } from "~/types.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { Validator } from "@webiny/validation/types.js";
 import dotPropImmutable from "dot-prop-immutable";
 
 const displayErrors = (errors?: ValidationError[]) => {

@@ -7,7 +7,7 @@ import {
     OnWorkflowBeforeCreateTopicParams,
     OnWorkflowBeforeDeleteTopicParams,
     OnWorkflowBeforeUpdateTopicParams
-} from "~/types";
+} from "~/types.js";
 import { createTopic } from "@webiny/pubsub";
 import { NotAuthorizedError } from "@webiny/api-security";
 

@@ -1,4 +1,4 @@
-import { CloudFrontHeaders, Header } from "./types";
+import { CloudFrontHeaders, Header } from "./types.js";
 
 export function getHeader(headers: CloudFrontHeaders, header: string) {
     return headers[header]?.value;

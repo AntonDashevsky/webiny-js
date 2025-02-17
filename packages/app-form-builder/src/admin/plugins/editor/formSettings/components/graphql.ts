@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { FbErrorResponse, FbSettings } from "~/types";
+import { FbErrorResponse, FbSettings } from "~/types.js";
 
 const fields = /* GraphQL */ `
     {

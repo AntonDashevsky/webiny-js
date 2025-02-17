@@ -1,10 +1,10 @@
 import React from "react";
 import { ReactComponent as Add } from "@material-design-icons/svg/filled/add.svg";
-import { i18n } from "@webiny/app/i18n";
-import { ButtonIcon, ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button";
-import { Container } from "./styled";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { useModel } from "~/admin/hooks";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ButtonIcon, ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { Container } from "./styled.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { useModel } from "~/admin/hooks/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/components/content-entries/header/buttons/create");
 

@@ -11,7 +11,7 @@ import {
     Tags,
     UserMenu
 } from "@webiny/app-admin";
-import { TopAppBarPrimary, TopAppBarSection } from "@webiny/ui/TopAppBar";
+import { TopAppBarPrimary, TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
 
 const RMWCLayout = () => {
     return function RMWCLayout({ title, children }: LayoutProps) {

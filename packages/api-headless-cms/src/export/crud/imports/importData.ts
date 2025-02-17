@@ -3,10 +3,10 @@ import {
     CmsModelImportResult,
     ValidCmsGroupResult,
     ValidCmsModelResult
-} from "~/export/types";
-import { CmsContext } from "~/types";
-import { importGroups } from "./importGroups";
-import { importModels } from "./importModels";
+} from "~/export/types.js";
+import { CmsContext } from "~/types/index.js";
+import { importGroups } from "./importGroups.js";
+import { importModels } from "./importModels.js";
 
 interface Params {
     context: CmsContext;

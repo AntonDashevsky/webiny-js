@@ -12,12 +12,12 @@ import {
     StoreValuesResult
 } from "@webiny/db";
 import { Entity } from "dynamodb-toolbox";
-import { createTable, Table } from "~/utils/createTable";
-import { GenericRecord } from "@webiny/api/types";
-import { createEntity } from "~/store/entity";
-import { batchReadAll, batchWriteAll, get, put, queryAll } from "~/utils";
-import { createPartitionKey, createSortKey, createType } from "~/store/keys";
-import { IStoreItem } from "~/store/types";
+import { createTable, Table } from "~/utils/createTable.js";
+import { GenericRecord } from "@webiny/api/types.js";
+import { createEntity } from "~/store/entity.js";
+import { batchReadAll, batchWriteAll, get, put, queryAll } from "~/utils/index.js";
+import { createPartitionKey, createSortKey, createType } from "~/store/keys.js";
+import { IStoreItem } from "~/store/types.js";
 
 interface ConstructorArgs {
     documentClient: DynamoDBDocument;

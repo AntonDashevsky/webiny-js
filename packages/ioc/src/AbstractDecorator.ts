@@ -1,4 +1,4 @@
-import { Decorator } from "./container";
+import { Decorator } from "./container.js";
 
 export abstract class AbstractDecorator<T> implements Decorator<T> {
     private __decoratee: T | undefined;

@@ -34,11 +34,11 @@ import {
     KEY_ESCAPE_COMMAND,
     SELECTION_CHANGE_COMMAND
 } from "lexical";
-import { Placeholder } from "./Placeholder";
-import { ImageResizer } from "./ImageResizer";
-import { useSharedHistoryContext } from "./SharedHistoryContext";
-import { $isImageNode } from "~/ImageNode";
-import { LexicalContentEditable } from "./ContentEditable";
+import { Placeholder } from "./Placeholder.js";
+import { ImageResizer } from "./ImageResizer.js";
+import { useSharedHistoryContext } from "./SharedHistoryContext.js";
+import { $isImageNode } from "~/ImageNode.js";
+import { LexicalContentEditable } from "./ContentEditable.js";
 
 const imageCache = new Set();
 

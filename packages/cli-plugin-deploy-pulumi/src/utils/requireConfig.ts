@@ -1,4 +1,4 @@
-import type { CliContext } from "@webiny/cli/types";
+import type { CliContext } from "@webiny/cli/types.js";
 
 export interface IRequireConfigOptions {
     env: string;

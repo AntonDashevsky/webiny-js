@@ -1,4 +1,4 @@
-import { CloudFrontHeaders } from "./types";
+import { CloudFrontHeaders } from "./types.js";
 
 export function setHeader(headers: CloudFrontHeaders, header: { key: string; value: string }) {
     headers[header.key] = [header];

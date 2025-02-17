@@ -1,4 +1,4 @@
-import getEnvironment from "./getEnvironment";
+import getEnvironment from "./getEnvironment.js";
 
 export interface ObjectParamsResponse {
     Bucket: string;

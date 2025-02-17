@@ -1,11 +1,11 @@
 import React from "react";
 import { Bind } from "@webiny/form";
-import { Cell } from "@webiny/ui/Grid";
-import { Switch } from "@webiny/ui/Switch";
+import { Cell } from "@webiny/ui/Grid/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import {
     CmsModelField,
     CmsModelFieldRendererSettingsProps
-} from "@webiny/app-headless-cms-common/types";
+} from "@webiny/app-headless-cms-common/types/index.js";
 
 export interface IAccordionRenderSettings {
     open: boolean;

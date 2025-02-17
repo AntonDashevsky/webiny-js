@@ -1,10 +1,10 @@
-import { CmsEntry, CmsFieldTypePlugins, CmsModel } from "@webiny/api-headless-cms/types";
-import { createFieldResolversFactory } from "@webiny/api-headless-cms/graphql/schema/createFieldResolvers";
-import { AcoContext, IAcoApp } from "~/types";
-import { resolve, resolveList } from "~/utils/resolve";
+import { CmsEntry, CmsFieldTypePlugins, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { createFieldResolversFactory } from "@webiny/api-headless-cms/graphql/schema/createFieldResolvers.js";
+import { AcoContext, IAcoApp } from "~/types.js";
+import { resolve, resolveList } from "~/utils/resolve.js";
 import { parseIdentifier } from "@webiny/utils";
-import { removeAcoRecordPrefix } from "~/utils/acoRecordId";
-import { ensureAuthentication } from "~/utils/ensureAuthentication";
+import { removeAcoRecordPrefix } from "~/utils/acoRecordId.js";
+import { ensureAuthentication } from "~/utils/ensureAuthentication.js";
 
 interface Params {
     app: IAcoApp;

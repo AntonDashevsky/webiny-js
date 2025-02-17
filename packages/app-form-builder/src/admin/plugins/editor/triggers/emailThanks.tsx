@@ -1,11 +1,11 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { Alert } from "@webiny/ui/Alert";
-import { i18n } from "@webiny/app/i18n";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as EmailIcon } from "@material-symbols/svg-400/outlined/send.svg";
-import { FbEditorTrigger } from "~/types";
+import { FbEditorTrigger } from "~/types.js";
 
 const t = i18n.namespace("FormsApp.Editor.EmailThanksTriggerSettings");
 

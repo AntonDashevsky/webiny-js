@@ -7,7 +7,7 @@ import {
     IWebsocketsSubscriptionManager,
     WebsocketsCloseCode,
     WebsocketsReadyState
-} from "./types";
+} from "./types.js";
 
 interface ICreateUrlResult {
     token: string;

@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { ApwContentReview, LifeCycleHookCallbackParams } from "~/types";
-import { extractContentReviewIdAndStep } from "~/plugins/utils";
+import { ApwContentReview, LifeCycleHookCallbackParams } from "~/types.js";
+import { extractContentReviewIdAndStep } from "~/plugins/utils.js";
 import { parseIdentifier } from "@webiny/utils";
 
 export const validateChangeRequest = ({ apw }: Pick<LifeCycleHookCallbackParams, "apw">) => {

@@ -1,6 +1,6 @@
-import { Authentication } from "@webiny/api-authentication/types";
-import { SecurityPermission, Team } from "@webiny/api-security/types";
-import { Folder } from "~/folder/folder.types";
+import { Authentication } from "@webiny/api-authentication/types.js";
+import { SecurityPermission, Team } from "@webiny/api-security/types.js";
+import { Folder } from "~/folder/folder.types.js";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 export type FolderAccessLevel = "owner" | "viewer" | "editor" | "public";

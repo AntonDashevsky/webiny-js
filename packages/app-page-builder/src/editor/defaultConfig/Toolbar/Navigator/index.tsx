@@ -1,8 +1,8 @@
 import React from "react";
 import { css } from "emotion";
 import { ReactComponent as NavigatorIcon } from "~/editor/assets/icons/segment_black_24px.svg";
-import { EditorConfig } from "~/editor/config";
-import { NavigatorDrawer } from "./NavigatorDrawer";
+import { EditorConfig } from "~/editor/config/index.js";
+import { NavigatorDrawer } from "./NavigatorDrawer.js";
 
 const drawerClassName = css({
     "&.mdc-drawer--dismissible": {

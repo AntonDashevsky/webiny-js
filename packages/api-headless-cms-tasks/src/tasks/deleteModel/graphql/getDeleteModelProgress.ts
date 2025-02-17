@@ -3,14 +3,14 @@ import type {
     IDeleteModelTaskInput,
     IDeleteModelTaskOutput,
     IStoreValue
-} from "~/tasks/deleteModel/types";
-import type { HcmsTasksContext } from "~/types";
-import { DELETE_MODEL_TASK } from "~/tasks/deleteModel/constants";
+} from "~/tasks/deleteModel/types.js";
+import type { HcmsTasksContext } from "~/types.js";
+import { DELETE_MODEL_TASK } from "~/tasks/deleteModel/constants.js";
 import { WebinyError } from "@webiny/error";
-import { getStatus } from "~/tasks/deleteModel/graphql/status";
+import { getStatus } from "~/tasks/deleteModel/graphql/status.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
-import { createStoreKey } from "../helpers/store";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { createStoreKey } from "../helpers/store.js";
 
 export interface IGetDeleteModelProgress {
     readonly context: Pick<HcmsTasksContext, "cms" | "tasks" | "db">;

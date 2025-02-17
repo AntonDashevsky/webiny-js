@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Routes, Route } from "@webiny/react-router";
-import { Box, Columns } from "~/components/Layout";
-import { useCurrentContentReview } from "~/hooks/useContentReview";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { Box, Columns } from "~/components/Layout.js";
+import { useCurrentContentReview } from "~/hooks/useContentReview.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
 /**
  * Components
  */
-import { ChangeRequestDialogProvider } from "./ChangeRequest/useChangeRequestDialog";
-import { ChangeRequestDialog } from "./ChangeRequest/ChangeRequestDialog";
-import { PanelBox } from "./Styled";
-import { PlaceholderBox } from "./PlaceholderBox";
-import { Header } from "./Header";
-import { LeftPanel } from "./LeftPanel";
-import { CenterPanel } from "./CenterPanel";
+import { ChangeRequestDialogProvider } from "./ChangeRequest/useChangeRequestDialog.js";
+import { ChangeRequestDialog } from "./ChangeRequest/ChangeRequestDialog.js";
+import { PanelBox } from "./Styled.js";
+import { PlaceholderBox } from "./PlaceholderBox.js";
+import { Header } from "./Header.js";
+import { LeftPanel } from "./LeftPanel.js";
+import { CenterPanel } from "./CenterPanel.js";
 
 const EditorColumns = styled(Columns)`
     background-color: var(--mdc-theme-surface);

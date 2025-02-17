@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Plugin } from "@webiny/plugins/types";
+import { Plugin } from "@webiny/plugins/types.js";
 
 export type AdminWelcomeScreenWidgetPlugin = Plugin & {
     type: "admin-welcome-screen-widget";

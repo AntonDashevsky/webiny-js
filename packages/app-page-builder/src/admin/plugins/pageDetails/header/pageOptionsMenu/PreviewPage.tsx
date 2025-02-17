@@ -1,9 +1,9 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { ReactComponent as PreviewIcon } from "~/admin/assets/visibility.svg";
-import { usePage } from "~/admin/views/Pages/PageDetails";
-import { PreviewPageMenuItem } from "./PreviewPage/PreviewPageMenuItem";
-import { DefaultPreviewPage } from "./PreviewPage/DefaultPreviewPage";
+import { usePage } from "~/admin/views/Pages/PageDetails.js";
+import { PreviewPageMenuItem } from "./PreviewPage/PreviewPageMenuItem.js";
+import { DefaultPreviewPage } from "./PreviewPage/DefaultPreviewPage.js";
 
 export interface PreviewPageProps {
     icon?: React.ReactElement;

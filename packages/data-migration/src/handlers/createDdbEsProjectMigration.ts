@@ -1,5 +1,5 @@
 import { Client as ElasticsearchClient } from "@elastic/elasticsearch";
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import { Table } from "@webiny/db-dynamodb/toolbox.js";
 import { createRawEventHandler } from "@webiny/handler-aws";
 import { Constructor, createContainer } from "@webiny/ioc";
 import {
@@ -8,7 +8,7 @@ import {
     MigrationEventHandlerResponse,
     MigrationEventPayload,
     MigrationRepository
-} from "~/types";
+} from "~/types.js";
 import {
     ElasticsearchClientSymbol,
     ElasticsearchDynamoTableSymbol,
@@ -16,11 +16,11 @@ import {
     MigrationRepositorySymbol,
     MigrationSymbol,
     PrimaryDynamoTableSymbol
-} from "~/symbols";
-import { IsMigrationApplicable, MigrationRunner } from "~/MigrationRunner";
-import { MigrationRepositoryImpl } from "~/repository/migrations.repository";
-import { devVersionErrorResponse } from "~/handlers/devVersionErrorResponse";
-import { createPatternMatcher } from "~/handlers/createPatternMatcher";
+} from "~/symbols.js";
+import { IsMigrationApplicable, MigrationRunner } from "~/MigrationRunner.js";
+import { MigrationRepositoryImpl } from "~/repository/migrations.repository.js";
+import { devVersionErrorResponse } from "~/handlers/devVersionErrorResponse.js";
+import { createPatternMatcher } from "~/handlers/createPatternMatcher.js";
 import { coerce as semverCoerce } from "semver";
 
 interface CreateDdbEsDataMigrationConfig {

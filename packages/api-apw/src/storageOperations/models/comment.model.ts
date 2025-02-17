@@ -1,5 +1,5 @@
 import { createPrivateModel } from "@webiny/api-headless-cms";
-import { createModelField } from "./utils";
+import { createModelField } from "./utils.js";
 
 const commentBody = () =>
     createModelField({

@@ -1,1 +1,1 @@
-export * from "./ensureApiDeployed";
+export * from "./ensureApiDeployed.js";

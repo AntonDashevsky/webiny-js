@@ -1,8 +1,8 @@
 import React from "react";
-import { Typography } from "@webiny/ui/Typography";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { css } from "emotion";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import styled from "@emotion/styled";
 
 import { useSortable } from "@dnd-kit/sortable";
@@ -19,11 +19,11 @@ import {
 } from "@dnd-kit/core";
 import { sortableKeyboardCoordinates, SortableContext } from "@dnd-kit/sortable";
 
-import { Switch } from "@webiny/ui/Switch";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import { ReactComponent as EditIcon } from "../../../../../icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "../../../../../icons/delete.svg";
-import { BindComponent } from "@webiny/form/types";
-import { FieldOption } from "~/admin/plugins/editor/formFields/components/types";
+import { BindComponent } from "@webiny/form/types.js";
+import { FieldOption } from "~/admin/plugins/editor/formFields/components/types.js";
 
 const OptionList = styled("ul")({
     padding: 25,

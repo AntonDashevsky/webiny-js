@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
-import { PbErrorResponse } from "~/types";
-import { PageResponseData } from "~/admin/graphql/pages";
+import { PbErrorResponse } from "~/types.js";
+import { PageResponseData } from "~/admin/graphql/pages.js";
 
 /**
  * ##############################

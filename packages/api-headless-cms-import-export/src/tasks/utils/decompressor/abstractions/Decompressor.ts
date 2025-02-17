@@ -1,4 +1,4 @@
-import type { IUploadDoneResult } from "~/tasks/utils/upload";
+import type { IUploadDoneResult } from "~/tasks/utils/upload/index.js";
 import type { File as IUnzipperFile } from "unzipper";
 
 export type { IUnzipperFile };

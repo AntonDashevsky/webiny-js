@@ -2,7 +2,7 @@ import type { CompleteMultipartUploadCommandOutput } from "@webiny/aws-sdk/clien
 import type {
     IMultipartUploadHandlerCompleteResult,
     IPart
-} from "../abstractions/MultipartUploadHandler";
+} from "../abstractions/MultipartUploadHandler.js";
 
 export class MultipartUploadHandlerCompleteResult implements IMultipartUploadHandlerCompleteResult {
     public readonly result: CompleteMultipartUploadCommandOutput;

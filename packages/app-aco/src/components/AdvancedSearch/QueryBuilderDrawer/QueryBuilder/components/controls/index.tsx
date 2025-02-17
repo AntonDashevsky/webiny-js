@@ -1,3 +1,3 @@
-export * from "./AddFilter";
-export * from "./AddGroup";
-export * from "./RemoveFilter";
+export * from "./AddFilter.js";
+export * from "./AddGroup.js";
+export * from "./RemoveFilter.js";

@@ -5,7 +5,7 @@ import WebinyError from "@webiny/error";
 import {
     CmsEntryFieldFilterPathPlugin,
     CreatePathCallable
-} from "~/plugins/CmsEntryFieldFilterPathPlugin";
+} from "~/plugins/CmsEntryFieldFilterPathPlugin.js";
 
 const createPath: CreatePathCallable = ({ field }) => {
     const { path } = field.settings || {};

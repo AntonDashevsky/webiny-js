@@ -1,8 +1,8 @@
 import React, { forwardRef, useMemo } from "react";
 import { createFoldersData, createRecordsData, Table as AcoTable } from "@webiny/app-aco";
-import { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { TableItem } from "~/types";
+import { OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { TableItem } from "~/types.js";
 
 export interface TableProps {
     onSelectRow: ((rows: TableItem[] | []) => void) | undefined;

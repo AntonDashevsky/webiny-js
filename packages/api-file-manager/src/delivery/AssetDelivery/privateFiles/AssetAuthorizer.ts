@@ -1,4 +1,4 @@
-import { File } from "~/types";
+import { File } from "~/types.js";
 
 export interface AssetAuthorizer {
     authorize(file: File): Promise<void>;

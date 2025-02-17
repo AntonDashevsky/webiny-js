@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { FileItem } from "@webiny/app-admin/types";
-import { useFileManagerView } from "~/index";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { FileItem } from "@webiny/app-admin/types.js";
+import { useFileManagerView } from "~/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
 const t = i18n.ns("app-admin/file-manager/hooks/use-delete-file");
 

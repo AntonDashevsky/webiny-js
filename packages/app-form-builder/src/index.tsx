@@ -2,21 +2,21 @@ import React, { lazy, Suspense } from "react";
 import { AddMenu, AddRoute, Layout, Plugin } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { ReactComponent as FormsIcon } from "~/admin/icons/round-ballot-24px.svg";
-import { CircularProgress } from "@webiny/ui/Progress";
-import FormsSettings from "./admin/views/Settings/FormsSettings";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import FormsSettings from "./admin/views/Settings/FormsSettings.js";
 
 const FormEditor = lazy(
     () =>
         import(
             /* webpackChunkName: "FormBuilderAdminViewsEditor" */
-            "./admin/views/Editor"
+            "./admin/views/Editor.js"
         )
 );
 const Forms = lazy(
     () =>
         import(
             /* webpackChunkName: "FormBuilderAdminViewsForms" */
-            "./admin/views/Forms/Forms"
+            "./admin/views/Forms/Forms.js"
         )
 );
 
@@ -76,4 +76,4 @@ export const FormBuilder = () => {
     );
 };
 
-export * from "./plugins";
+export * from "./plugins/index.js";

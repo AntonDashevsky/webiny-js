@@ -4,10 +4,10 @@ import {
     EventActionHandlerProvider,
     EventActionHandlerProviderProps,
     GetCallableState
-} from "~/editor/contexts/EventActionHandlerProvider";
-import { TemplateEditorEventActionCallableState } from "~/templateEditor/types";
-import { useTemplate } from "~/templateEditor/hooks/useTemplate";
-import { PbPageTemplate, PbEditorElementTree } from "~/types";
+} from "~/editor/contexts/EventActionHandlerProvider.js";
+import { TemplateEditorEventActionCallableState } from "~/templateEditor/types.js";
+import { useTemplate } from "~/templateEditor/hooks/useTemplate.js";
+import { PbPageTemplate, PbEditorElementTree } from "~/types.js";
 
 type ProviderProps = EventActionHandlerProviderProps<TemplateEditorEventActionCallableState>;
 

@@ -20,15 +20,15 @@ import {
     OnTaskBeforeDeleteTopicParams,
     OnTaskBeforeUpdateTopicParams,
     TaskDataStatus
-} from "~/types";
-import { WEBINY_TASK_LOG_MODEL_ID, WEBINY_TASK_MODEL_ID } from "./model";
-import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
+} from "~/types.js";
+import { WEBINY_TASK_LOG_MODEL_ID, WEBINY_TASK_MODEL_ID } from "./model.js";
+import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
-import { remapWhere } from "./where";
+import { remapWhere } from "./where.js";
 import { createZodError, parseIdentifier } from "@webiny/utils";
 import zod from "zod";
-import { GenericRecord } from "@webiny/api/types";
+import { GenericRecord } from "@webiny/api/types.js";
 
 const createRevisionId = (id: string) => {
     const { id: entryId } = parseIdentifier(id);

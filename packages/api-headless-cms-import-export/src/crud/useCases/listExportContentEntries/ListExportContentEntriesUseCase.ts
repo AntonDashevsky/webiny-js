@@ -2,14 +2,14 @@ import type {
     IListExportContentEntriesUseCase,
     IListExportContentEntriesUseCaseExecuteParams,
     IListExportContentEntriesUseCaseExecuteResult
-} from "./abstractions/ListExportContentEntriesUseCase";
+} from "./abstractions/ListExportContentEntriesUseCase.js";
 import type { ITasksContextObject } from "@webiny/tasks";
-import { convertTaskToCmsExportRecord } from "~/crud/utils/convertTaskToExportRecord";
-import { EXPORT_CONTENT_ENTRIES_CONTROLLER_TASK } from "~/tasks/constants";
+import { convertTaskToCmsExportRecord } from "~/crud/utils/convertTaskToExportRecord.js";
+import { EXPORT_CONTENT_ENTRIES_CONTROLLER_TASK } from "~/tasks/constants.js";
 import type {
     IExportContentEntriesControllerInput,
     IExportContentEntriesControllerOutput
-} from "~/tasks/domain/abstractions/ExportContentEntriesController";
+} from "~/tasks/domain/abstractions/ExportContentEntriesController.js";
 
 export interface IListExportContentEntriesUseCaseParams {
     listTasks: ITasksContextObject["listTasks"];

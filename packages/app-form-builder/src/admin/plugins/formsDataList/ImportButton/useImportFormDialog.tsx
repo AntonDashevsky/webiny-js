@@ -1,16 +1,16 @@
 import React, { useCallback, useState } from "react";
 import { css } from "emotion";
 import dotProp from "dot-prop-immutable";
-import { i18n } from "@webiny/app/i18n";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
-import { Input } from "@webiny/ui/Input";
-import { Typography } from "@webiny/ui/Typography";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Form } from "@webiny/form";
-import { useUi } from "@webiny/app/hooks/useUi";
+import { useUi } from "@webiny/app/hooks/useUi.js";
 import { validation } from "@webiny/validation";
-import { WrapperWithFileUpload } from "./index";
+import { WrapperWithFileUpload } from "./index.js";
 // assets
 import { ReactComponent as UploadFileIcon } from "@material-design-icons/svg/round/upload.svg";
 import { ReactComponent as LinkIcon } from "@material-design-icons/svg/round/link.svg";

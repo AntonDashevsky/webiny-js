@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
 
 export const StyledAccordion = styled(Accordion)`
     background: var(--mdc-theme-background);

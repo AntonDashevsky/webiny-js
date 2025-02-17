@@ -2,10 +2,10 @@ import React from "react";
 import styled from "@emotion/styled";
 import { ReactComponent as CloseIcon } from "@material-design-icons/svg/outlined/highlight_off.svg";
 import { DecoratableComponent, makeDecoratable, withDecoratorFactory } from "@webiny/app-admin";
-import { IconButton } from "@webiny/ui/Button";
-import { CmsDynamicZoneTemplate } from "~/types";
-import { useModel, useModelField } from "~/admin/hooks";
-import { TemplateItem } from "./TemplateItem";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { CmsDynamicZoneTemplate } from "~/types.js";
+import { useModel, useModelField } from "~/admin/hooks/index.js";
+import { TemplateItem } from "./TemplateItem.js";
 
 export interface TemplateGalleryContainerProps {
     children: React.ReactNode;

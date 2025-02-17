@@ -1,11 +1,11 @@
 import React from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
 import { AddMenu, AddRoute, Layout } from "@webiny/app-admin";
 import { ReactComponent as TenantIcon } from "~/assets/business_black_24dp.svg";
-import TenantDataList from "./TenantDataList";
-import TenantForm from "./TenantForm";
+import TenantDataList from "./TenantDataList.js";
+import TenantForm from "./TenantForm.js";
 import { Plugins } from "@webiny/app-admin";
-import { IsRootTenant } from "~/components/IsRootTenant";
+import { IsRootTenant } from "~/components/IsRootTenant.js";
 
 export const TenantsView = () => {
     return (

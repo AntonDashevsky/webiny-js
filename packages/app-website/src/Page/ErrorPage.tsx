@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import styled from "@emotion/styled";
 import { makeDecoratable } from "@webiny/app";
-import { errorMessages } from "./ErrorPage/errorMessages";
+import { errorMessages } from "./ErrorPage/errorMessages.js";
 
 const Wrapper = styled.div`
     padding: 50px;

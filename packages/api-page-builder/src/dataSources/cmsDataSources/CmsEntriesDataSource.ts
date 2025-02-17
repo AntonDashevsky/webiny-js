@@ -1,7 +1,7 @@
 import zod from "zod";
-import type { CmsContext } from "@webiny/api-headless-cms/types";
-import type { DataLoaderRequest, DataLoaderResult, IDataSource } from "~/dataSources";
-import { ModelListQuery } from "~/dataSources/cmsDataSources/ModelListQuery";
+import type { CmsContext } from "@webiny/api-headless-cms/types/index.js";
+import type { DataLoaderRequest, DataLoaderResult, IDataSource } from "~/dataSources/index.js";
+import { ModelListQuery } from "~/dataSources/cmsDataSources/ModelListQuery.js";
 
 export interface CmsEntriesDataSourceConfig {
     modelId: string;

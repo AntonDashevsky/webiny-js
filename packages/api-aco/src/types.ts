@@ -1,24 +1,24 @@
-import { TenancyContext, Tenant } from "@webiny/api-tenancy/types";
-import { Context as BaseContext } from "@webiny/handler/types";
-import { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
-import { SecurityContext } from "@webiny/api-security/types";
-import { AdminUsersContext } from "@webiny/api-admin-users/types";
-import { FileManagerContext } from "@webiny/api-file-manager/types";
-import { CmsContext, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import { TenancyContext, Tenant } from "@webiny/api-tenancy/types.js";
+import { Context as BaseContext } from "@webiny/handler/types.js";
+import { I18NContext, I18NLocale } from "@webiny/api-i18n/types.js";
+import { SecurityContext } from "@webiny/api-security/types.js";
+import { AdminUsersContext } from "@webiny/api-admin-users/types.js";
+import { FileManagerContext } from "@webiny/api-file-manager/types.js";
+import { CmsContext, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 import {
     AcoSearchRecordCrud,
     AcoSearchRecordCrudBase,
     AcoSearchRecordStorageOperations,
     GenericSearchData,
     SearchRecord
-} from "~/record/record.types";
-import { AcoFolderCrud, AcoFolderStorageOperations } from "~/folder/folder.types";
-import { AcoFilterCrud, AcoFilterStorageOperations } from "~/filter/filter.types";
-import { FolderLevelPermissions } from "~/utils/FolderLevelPermissions";
+} from "~/record/record.types.js";
+import { AcoFolderCrud, AcoFolderStorageOperations } from "~/folder/folder.types.js";
+import { AcoFilterCrud, AcoFilterStorageOperations } from "~/filter/filter.types.js";
+import { FolderLevelPermissions } from "~/utils/FolderLevelPermissions.js";
 
-export * from "./filter/filter.types";
-export * from "./folder/folder.types";
-export * from "./record/record.types";
+export * from "./filter/filter.types.js";
+export * from "./folder/folder.types.js";
+export * from "./record/record.types.js";
 
 export interface User {
     id: string;

@@ -1,7 +1,7 @@
 import Error from "@webiny/error";
-import { AdvancedPublishingWorkflow, ApwContentTypes } from "~/types";
-import { updatePageSettings } from "./utils";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
+import { AdvancedPublishingWorkflow, ApwContentTypes } from "~/types.js";
+import { updatePageSettings } from "./utils.js";
+import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
 
 interface LinkContentReviewToPageParams {
     apw: AdvancedPublishingWorkflow;

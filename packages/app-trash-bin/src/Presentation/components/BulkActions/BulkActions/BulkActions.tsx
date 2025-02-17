@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { ReactComponent as Close } from "@material-design-icons/svg/outlined/close.svg";
 import { Buttons } from "@webiny/app-admin";
-import { IconButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { useTrashBinListConfig } from "~/Presentation/configs";
-import { useTrashBin } from "~/Presentation/hooks";
-import { BulkActionsContainer, BulkActionsInner, ButtonsContainer } from "./BulkActions.styled";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useTrashBinListConfig } from "~/Presentation/configs/index.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
+import { BulkActionsContainer, BulkActionsInner, ButtonsContainer } from "./BulkActions.styled.js";
 
 export const getEntriesLabel = (count: number, isSelectedAll: boolean): string => {
     if (isSelectedAll) {

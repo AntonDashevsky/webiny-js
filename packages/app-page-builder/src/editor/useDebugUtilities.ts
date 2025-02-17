@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 
 /**
  * This hook attaches `activeElementToJson()` function to the `window` object in development mode.

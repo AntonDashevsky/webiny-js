@@ -1,11 +1,11 @@
 import React from "react";
-import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandlers";
-import { AddButtonLinkComponent } from "~/elementDecorators/AddButtonLinkComponent";
-import { InjectElementVariables } from "~/render/variables/InjectElementVariables";
-import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph";
-import { LexicalHeadingRenderer } from "~/render/plugins/elements/heading/LexicalHeading";
-import { ConvertIconSettings } from "~/render/plugins/elementSettings/icon";
-import { AddImageLinkComponent } from "~/elementDecorators/AddImageLinkComponent";
+import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandlers.js";
+import { AddButtonLinkComponent } from "~/elementDecorators/AddButtonLinkComponent.js";
+import { InjectElementVariables } from "~/render/variables/InjectElementVariables.js";
+import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph.js";
+import { LexicalHeadingRenderer } from "~/render/plugins/elements/heading/LexicalHeading.js";
+import { ConvertIconSettings } from "~/render/plugins/elementSettings/icon/index.js";
+import { AddImageLinkComponent } from "~/elementDecorators/AddImageLinkComponent.js";
 
 export const PageBuilder = React.memo(() => {
     return (

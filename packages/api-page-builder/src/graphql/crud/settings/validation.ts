@@ -1,5 +1,5 @@
 import zod from "zod";
-import trimEnd from "lodash/trimEnd";
+import trimEnd from "lodash/trimEnd.js";
 import { parseIdentifier } from "@webiny/utils";
 
 // We don't want trailing slashes in Page Builder app's important URLs (website URL, website preview URL, app URL).

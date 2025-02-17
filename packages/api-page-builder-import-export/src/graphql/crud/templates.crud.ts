@@ -9,13 +9,13 @@ import {
     OnTemplatesAfterExportTopicParams,
     OnTemplatesBeforeImportTopicParams,
     OnTemplatesAfterImportTopicParams
-} from "~/types";
-import { invokeHandlerClient } from "~/client";
-import { Payload as CreateHandlerPayload } from "~/import/create";
-import { initialStats } from "~/import/utils";
-import { Payload as ExportTemplatesProcessHandlerPayload } from "~/export/process";
+} from "~/types.js";
+import { invokeHandlerClient } from "~/client.js";
+import { Payload as CreateHandlerPayload } from "~/import/create/index.js";
+import { initialStats } from "~/import/utils/index.js";
+import { Payload as ExportTemplatesProcessHandlerPayload } from "~/export/process/index.js";
 import { zeroPad } from "@webiny/utils";
-import { PageTemplatesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PageTemplatesPermissions";
+import { PageTemplatesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PageTemplatesPermissions.js";
 
 const EXPORT_TEMPLATES_FOLDER_KEY = "WEBINY_PB_EXPORT_TEMPLATE";
 const EXPORT_TEMPLATES_PROCESS_HANDLER = process.env.EXPORT_PROCESS_HANDLER as string;

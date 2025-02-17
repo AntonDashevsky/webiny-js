@@ -1,2 +1,2 @@
-export * from "./ISelectAllItemsUseCase";
-export * from "./SelectAllItemsUseCase";
+export * from "./ISelectAllItemsUseCase.js";
+export * from "./SelectAllItemsUseCase.js";

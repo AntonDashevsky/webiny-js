@@ -1,17 +1,17 @@
 import React, { useMemo } from "react";
-import noop from "lodash/noop";
-import { i18n } from "@webiny/app/i18n";
-import { ApwContentReviewStep, ApwContentReviewStepStatus } from "~/types";
-import { Box, Columns, Stack } from "~/components/Layout";
+import noop from "lodash/noop.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ApwContentReviewStep, ApwContentReviewStepStatus } from "~/types.js";
+import { Box, Columns, Stack } from "~/components/Layout.js";
 import {
     BadgeBox,
     PanelListItem,
     TypographyBody,
     TypographySecondary,
     TypographyTitle
-} from "../Styled";
+} from "../Styled.js";
 import { useNavigate } from "@webiny/react-router";
-import { useActiveStepId } from "~/hooks/useContentReviewId";
+import { useActiveStepId } from "~/hooks/useContentReviewId.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/editor");
 

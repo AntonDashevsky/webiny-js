@@ -1,1 +1,1 @@
-export * from "./defaultImagesListComponent";
+export * from "./defaultImagesListComponent.js";

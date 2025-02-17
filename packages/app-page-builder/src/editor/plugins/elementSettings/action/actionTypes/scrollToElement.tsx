@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { css } from "emotion";
 import { Bind } from "@webiny/form";
-import { PbEditorElement, PbElement, PbPageElementActionTypePlugin } from "~/types";
-import Wrapper from "../../components/Wrapper";
-import SelectField from "../../components/SelectField";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import { getElementsPropertiesValues } from "~/render/utils";
-import { withActiveElement } from "~/editor/components";
+import { PbEditorElement, PbElement, PbPageElementActionTypePlugin } from "~/types.js";
+import Wrapper from "../../components/Wrapper.js";
+import SelectField from "../../components/SelectField.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { getElementsPropertiesValues } from "~/render/utils.js";
+import { withActiveElement } from "~/editor/components/index.js";
 
 const classes = {
     gridClass: css({

@@ -1,14 +1,14 @@
 import React, { useCallback } from "react";
-import { CircularProgress } from "@webiny/ui/Progress";
-import * as UID from "@webiny/ui/Dialog";
-import { Dialog } from "~/admin/components/Dialog";
-import { i18n } from "@webiny/app/i18n";
-import { ImportButton } from "./components/ImportButton";
-import { FileUpload } from "./components/FileUpload";
-import { Errors } from "./components/Errors";
-import { DataList } from "./components/DataList";
-import { DataListInstructions } from "./components/Model/DataListInstructions";
-import { ImportContextProvider } from "~/admin/views/contentModels/importing/ImportContext";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import * as UID from "@webiny/ui/Dialog/index.js";
+import { Dialog } from "~/admin/components/Dialog.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ImportButton } from "./components/ImportButton.js";
+import { FileUpload } from "./components/FileUpload.js";
+import { Errors } from "./components/Errors.js";
+import { DataList } from "./components/DataList.js";
+import { DataListInstructions } from "./components/Model/DataListInstructions.js";
+import { ImportContextProvider } from "~/admin/views/contentModels/importing/ImportContext.js";
 
 const t = i18n.ns("app-headless-cms/admin/views/content-models/import-content-models-dialog");
 

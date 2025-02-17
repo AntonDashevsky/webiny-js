@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { I18NContext, I18NContextValue } from "../contexts/I18N";
-import { I18NCurrentLocaleItem, I18NLocaleItem } from "~/types";
+import { I18NContext, I18NContextValue } from "../contexts/I18N/index.js";
+import { I18NCurrentLocaleItem, I18NLocaleItem } from "~/types.js";
 
 type LocaleTypes = "default" | "content";
 interface UseI18NHook {

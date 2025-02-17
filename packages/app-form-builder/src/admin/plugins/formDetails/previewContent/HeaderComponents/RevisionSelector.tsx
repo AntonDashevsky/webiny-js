@@ -1,13 +1,13 @@
 import React from "react";
 import { css } from "emotion";
-import { ButtonDefault } from "@webiny/ui/Button";
-import { Icon } from "@webiny/ui/Icon";
+import { ButtonDefault } from "@webiny/ui/Button/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { ReactComponent as DownButton } from "../../../../icons/round-arrow_drop_down-24px.svg";
 
-import { MenuItem } from "@webiny/ui/Menu";
-import { Typography } from "@webiny/ui/Typography";
-import { Menu } from "@webiny/ui/Menu";
-import { FbRevisionModel } from "~/types";
+import { MenuItem } from "@webiny/ui/Menu/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Menu } from "@webiny/ui/Menu/index.js";
+import { FbRevisionModel } from "~/types.js";
 
 const buttonStyle = css({
     "&.mdc-button": {

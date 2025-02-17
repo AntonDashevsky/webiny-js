@@ -1,2 +1,2 @@
-export * from "./Accordion";
-export * from "./AccordionItem";
+export * from "./Accordion.js";
+export * from "./AccordionItem.js";

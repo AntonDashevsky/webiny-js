@@ -1,12 +1,12 @@
 import zod from "zod";
 import { ContextPlugin } from "@webiny/api";
 import { CmsGraphQLSchemaPlugin, isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { validateConfirmation } from "../helpers/confirmation";
-import type { HcmsTasksContext } from "~/types";
+import { validateConfirmation } from "../helpers/confirmation.js";
+import type { HcmsTasksContext } from "~/types.js";
 import { createResolverDecorator, ErrorResponse, resolve, Response } from "@webiny/handler-graphql";
 import { createZodError } from "@webiny/utils";
-import type { IDeleteCmsModelTask } from "~/tasks/deleteModel/types";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type { IDeleteCmsModelTask } from "~/tasks/deleteModel/types.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 const deleteValidation = zod
     .object({

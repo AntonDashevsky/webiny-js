@@ -1,6 +1,6 @@
 import { validation } from "@webiny/validation";
-import { FormPresenter } from "~/FormPresenter";
-import { FormField } from "~/FormField";
+import { FormPresenter } from "~/FormPresenter.js";
+import { FormField } from "~/FormField.js";
 
 const formData = {
     firstName: "John",

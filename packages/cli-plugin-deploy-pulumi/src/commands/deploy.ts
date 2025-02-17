@@ -5,7 +5,7 @@ import { pulumiLoginSelectStack } from "./deploy/pulumiLoginSelectStack.js";
 import { executeDeploy } from "./deploy/executeDeploy.js";
 import { executePreview } from "./deploy/executePreview.js";
 import { setTimeout } from "node:timers/promises";
-import { CliContext } from "@webiny/cli/types";
+import { CliContext } from "@webiny/cli/types.js";
 
 export interface IDeployParams {
     _: string[];

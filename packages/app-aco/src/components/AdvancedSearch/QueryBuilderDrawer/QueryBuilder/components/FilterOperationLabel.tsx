@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
-import { FilterOperationLabelContainer } from "../Querybuilder.styled";
+import { FilterOperationLabelContainer } from "../Querybuilder.styled.js";
 
 interface FilterOperationLabelProps {
     operation: string;

@@ -1,11 +1,11 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { validation } from "@webiny/validation";
-import { CmsModelFieldValidatorPlugin } from "~/types";
-import { createInputField } from "./date/createDateInputField";
-import { getAvailableValidators } from "./date/availableValidators";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
-import { useModelField } from "~/admin/hooks";
+import { CmsModelFieldValidatorPlugin } from "~/types.js";
+import { createInputField } from "./date/createDateInputField.js";
+import { getAvailableValidators } from "./date/availableValidators.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
+import { useModelField } from "~/admin/hooks/index.js";
 import { Bind } from "@webiny/form";
 
 function DateGteSettings() {

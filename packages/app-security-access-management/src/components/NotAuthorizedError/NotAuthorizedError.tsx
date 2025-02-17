@@ -4,7 +4,7 @@ import { css } from "emotion";
 import styled from "@emotion/styled";
 import Helmet from "react-helmet";
 import authErrorImg from "./SecureRouteError.svg";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 const ContentWrapper = styled("div")({
     display: "block",

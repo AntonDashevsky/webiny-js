@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { useRouter } from "@webiny/react-router";
-import { usePage } from "~/admin/views/Pages/PageDetails";
-import { DuplicatePageMenuItem } from "./DuplicatePageMenuItem";
-import { useDuplicatePage } from "~/admin/views/Pages/hooks/useDuplicatePage";
+import { usePage } from "~/admin/views/Pages/PageDetails.js";
+import { DuplicatePageMenuItem } from "./DuplicatePageMenuItem.js";
+import { useDuplicatePage } from "~/admin/views/Pages/hooks/useDuplicatePage/index.js";
 
 interface DefaultDuplicatePageProps {
     label: React.ReactNode;

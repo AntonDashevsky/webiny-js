@@ -1,4 +1,4 @@
-import { AssetReply } from "~/delivery/AssetDelivery/abstractions/AssetReply";
+import { AssetReply } from "~/delivery/AssetDelivery/abstractions/AssetReply.js";
 
 export class NullAssetReply extends AssetReply {
     constructor() {

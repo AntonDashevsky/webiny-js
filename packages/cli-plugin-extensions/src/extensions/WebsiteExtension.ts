@@ -5,7 +5,7 @@ import { AbstractExtension } from "./AbstractExtension.js";
 import { EXTENSIONS_ROOT_FOLDER } from "~/utils/constants.js";
 import { formatCode } from "@webiny/cli-plugin-scaffold/utils/index.js";
 import { updateDependencies, updateWorkspaces } from "~/utils.js";
-import type { ExtensionMessage } from "~/types";
+import type { ExtensionMessage } from "~/types.js";
 
 export class WebsiteExtension extends AbstractExtension {
     async link() {

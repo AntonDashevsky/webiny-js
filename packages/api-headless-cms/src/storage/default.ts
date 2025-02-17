@@ -1,4 +1,4 @@
-import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin";
+import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin.js";
 
 export const createDefaultStorageTransform = (): StorageTransformPlugin => {
     return new StorageTransformPlugin({

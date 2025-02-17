@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
-import { EditorConfig } from "~/editor/config/EditorConfig";
+import { EditorConfig } from "~/editor/config/EditorConfig.js";
 
 export const Layout = makeDecoratable("EditorLayout", () => {
     return (

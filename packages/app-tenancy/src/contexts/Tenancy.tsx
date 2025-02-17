@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback, Fragment, useState } from "react";
 import { default as localStorage } from "store";
 import { plugins } from "@webiny/plugins";
-import { TenantHeaderLinkPlugin } from "@webiny/app/plugins/TenantHeaderLinkPlugin";
+import { TenantHeaderLinkPlugin } from "@webiny/app/plugins/TenantHeaderLinkPlugin.js";
 import { useWcp } from "@webiny/app-admin";
 
 export interface Tenant {

@@ -1,6 +1,6 @@
-import kebabCase from "lodash/kebabCase";
-import { createIFrame } from "@webiny/app-page-builder-elements/renderers/embeds/iframe";
-import { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types";
+import kebabCase from "lodash/kebabCase.js";
+import { createIFrame } from "@webiny/app-page-builder-elements/renderers/embeds/iframe.js";
+import { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types.js";
 
 export default (args: PbRenderElementPluginArgs = {}): PbRenderElementPlugin => {
     const elementType = kebabCase(args.elementType || "iframe");

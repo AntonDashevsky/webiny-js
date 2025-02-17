@@ -1,8 +1,8 @@
-import { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types";
-import { Context } from "~/types";
-import { createGroupData } from "./group";
-import { createCarsModel } from "./model";
-import { createIndex } from "~/utils";
+import { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { Context } from "~/types.js";
+import { createGroupData } from "./group.js";
+import { createCarsModel } from "./model.js";
+import { createIndex } from "~/utils/index.js";
 
 interface ICreateModelAndGroupParams {
     context: Context;

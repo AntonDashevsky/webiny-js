@@ -1,4 +1,4 @@
-import { Sorting, SortingDTO } from "./Sorting";
+import { Sorting, SortingDTO } from "./Sorting.js";
 
 export type DbSorting = `${string}_ASC` | `${string}_DESC`;
 

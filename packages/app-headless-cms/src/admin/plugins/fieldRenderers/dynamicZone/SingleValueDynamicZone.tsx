@@ -1,9 +1,9 @@
 import React from "react";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
-import { AddTemplateButton } from "./AddTemplate";
-import { TemplateIcon } from "./TemplateIcon";
-import { TemplateProvider } from "./TemplateProvider";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
+import { AddTemplateButton } from "./AddTemplate.js";
+import { TemplateIcon } from "./TemplateIcon.js";
+import { TemplateProvider } from "./TemplateProvider.js";
 import {
     BindComponentRenderProp,
     CmsDynamicZoneTemplate,
@@ -11,13 +11,13 @@ import {
     CmsModel,
     CmsModelField,
     CmsDynamicZoneTemplateWithTypename
-} from "~/types";
-import { Fields } from "~/admin/components/ContentEntryForm/Fields";
-import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue";
+} from "~/types.js";
+import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
+import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue.js";
 import {
     ParentValueIndexProvider,
     ModelFieldProvider
-} from "~/admin/components/ModelFieldProvider";
+} from "~/admin/components/ModelFieldProvider/index.js";
 import { useConfirmationDialog } from "@webiny/app-admin";
 
 type GetBind = CmsModelFieldRendererProps["getBind"];

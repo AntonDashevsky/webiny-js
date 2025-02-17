@@ -1,3 +1,3 @@
-export * from "./Actions";
-export * from "./Cells";
-export * from "./Table";
+export * from "./Actions/index.js";
+export * from "./Cells/index.js";
+export * from "./Table.js";

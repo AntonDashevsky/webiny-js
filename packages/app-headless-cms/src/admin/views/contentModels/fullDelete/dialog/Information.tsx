@@ -1,5 +1,5 @@
 import React from "react";
-import type { CmsModel } from "~/types";
+import type { CmsModel } from "~/types.js";
 import { css } from "emotion";
 
 export interface IInformationProps {

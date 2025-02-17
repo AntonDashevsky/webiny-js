@@ -1,1 +1,1 @@
-export * from "./ITrashBinBulkActionsGateway";
+export * from "./ITrashBinBulkActionsGateway.js";

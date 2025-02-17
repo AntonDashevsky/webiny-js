@@ -2,10 +2,10 @@ import WebinyError from "@webiny/error";
 import {
     CmsModelFieldConverterPlugin,
     ConvertParams
-} from "~/plugins/CmsModelFieldConverterPlugin";
-import { CmsDynamicZoneTemplate, CmsEntryValues, CmsModelDynamicZoneField } from "~/types";
-import { ConverterCollection } from "~/utils/converters/ConverterCollection";
-import { GenericRecord } from "@webiny/api/types";
+} from "~/plugins/CmsModelFieldConverterPlugin.js";
+import { CmsDynamicZoneTemplate, CmsEntryValues, CmsModelDynamicZoneField } from "~/types/index.js";
+import { ConverterCollection } from "~/utils/converters/ConverterCollection.js";
+import { GenericRecord } from "@webiny/api/types.js";
 
 type DynamicZoneValue = GenericRecord<string>;
 

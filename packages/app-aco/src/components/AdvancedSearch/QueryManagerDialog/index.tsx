@@ -1,1 +1,1 @@
-export * from "./QueryManagerDialog";
+export * from "./QueryManagerDialog.js";

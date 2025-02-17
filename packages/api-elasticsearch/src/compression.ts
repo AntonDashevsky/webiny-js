@@ -1,4 +1,4 @@
-import { CompressionPlugin } from "~/plugins/definition/CompressionPlugin";
+import { CompressionPlugin } from "~/plugins/definition/CompressionPlugin.js";
 import { PluginsContainer } from "@webiny/plugins";
 
 /**

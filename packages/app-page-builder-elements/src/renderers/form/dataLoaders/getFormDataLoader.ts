@@ -1,6 +1,6 @@
-import { FormData } from "./../types";
-import { fetchData } from "./fetchData";
-import { GET_PUBLISHED_FORM } from "./graphql";
+import { FormData } from "./../types.js";
+import { fetchData } from "./fetchData.js";
+import { GET_PUBLISHED_FORM } from "./graphql.js";
 
 export interface CreateGetFormDataLoaderParams {
     apiUrl: string;

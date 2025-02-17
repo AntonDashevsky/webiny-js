@@ -1,6 +1,6 @@
-import { Box } from "~/components/Layout";
-import { ListItem } from "@webiny/ui/List";
-import { Typography } from "@webiny/ui/Typography";
+import { Box } from "~/components/Layout.js";
+import { ListItem } from "@webiny/ui/List/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 

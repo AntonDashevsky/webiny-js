@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { Slider as SliderCmp } from "@webiny/ui/Slider";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Slider as SliderCmp } from "@webiny/ui/Slider/index.js";
 
 interface SliderPropsType {
     label: string;

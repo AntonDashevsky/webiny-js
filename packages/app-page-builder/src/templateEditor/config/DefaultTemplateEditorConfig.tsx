@@ -1,19 +1,19 @@
 import React from "react";
-import { EventActionHandlerDecorator, EventActionHandlers } from "./eventActions";
-import { BackButton } from "./TopBar/BackButton/BackButton";
-import { SaveTemplateButton } from "./TopBar/SaveTemplateButton/SaveTemplateButton";
-import { TemplateSettingsButton } from "./TopBar/TemplateSettingsButton/TemplateSettingsButton";
-import { Title } from "./TopBar/Title/Title";
-import { BlocksBrowser } from "./Content/BlocksBrowser/BlocksBrowser";
-import { AddBlock } from "./Content/BlocksBrowser/AddBlock";
-import { AddContent } from "./Content/BlocksBrowser/AddContent";
-import { UnlinkBlock } from "./Sidebar/UnlinkBlock";
-import { ElementSettingsGroup } from "./Sidebar/ElementSettingsGroup";
-import { RefreshBlockAction } from "./Sidebar/RefreshBlockAction";
-import { EditBlockAction } from "./Sidebar/EditBlockAction";
-import { HideSaveAction } from "./Sidebar/HideSaveAction";
-import { EditorConfig } from "~/editor/config";
-import { SetupDynamicDocument } from "./SetupDynamicDocument";
+import { EventActionHandlerDecorator, EventActionHandlers } from "./eventActions/index.js";
+import { BackButton } from "./TopBar/BackButton/BackButton.js";
+import { SaveTemplateButton } from "./TopBar/SaveTemplateButton/SaveTemplateButton.js";
+import { TemplateSettingsButton } from "./TopBar/TemplateSettingsButton/TemplateSettingsButton.js";
+import { Title } from "./TopBar/Title/Title.js";
+import { BlocksBrowser } from "./Content/BlocksBrowser/BlocksBrowser.js";
+import { AddBlock } from "./Content/BlocksBrowser/AddBlock.js";
+import { AddContent } from "./Content/BlocksBrowser/AddContent.js";
+import { UnlinkBlock } from "./Sidebar/UnlinkBlock.js";
+import { ElementSettingsGroup } from "./Sidebar/ElementSettingsGroup.js";
+import { RefreshBlockAction } from "./Sidebar/RefreshBlockAction.js";
+import { EditBlockAction } from "./Sidebar/EditBlockAction.js";
+import { HideSaveAction } from "./Sidebar/HideSaveAction.js";
+import { EditorConfig } from "~/editor/config/index.js";
+import { SetupDynamicDocument } from "./SetupDynamicDocument.js";
 
 const { Ui, ElementAction } = EditorConfig;
 

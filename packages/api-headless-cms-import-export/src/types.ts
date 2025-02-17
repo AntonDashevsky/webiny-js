@@ -1,14 +1,14 @@
-import type { FileManagerContext } from "@webiny/api-file-manager/types";
-import type { Context as TasksContext, TaskDataStatus } from "@webiny/tasks/types";
-import type { ICmsImportExportRecord } from "./domain/abstractions/CmsImportExportRecord";
-import type { GenericRecord, NonEmptyArray } from "@webiny/api/types";
+import type { FileManagerContext } from "@webiny/api-file-manager/types.js";
+import type { Context as TasksContext, TaskDataStatus } from "@webiny/tasks/types.js";
+import type { ICmsImportExportRecord } from "./domain/abstractions/CmsImportExportRecord.js";
+import type { GenericRecord, NonEmptyArray } from "@webiny/api/types.js";
 import type {
     CmsEntryListSort,
     CmsEntryListWhere,
     CmsEntryMeta
-} from "@webiny/api-headless-cms/types";
+} from "@webiny/api-headless-cms/types/index.js";
 
-export * from "./domain/abstractions/CmsImportExportRecord";
+export * from "./domain/abstractions/CmsImportExportRecord.js";
 
 export enum CmsImportExportFileType {
     ENTRIES = "entries",

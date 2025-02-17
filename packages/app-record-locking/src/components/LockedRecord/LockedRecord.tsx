@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Elevation as BaseElevation } from "@webiny/ui/Elevation";
-import { useRecordLocking } from "~/hooks";
+import { Elevation as BaseElevation } from "@webiny/ui/Elevation/index.js";
+import { useRecordLocking } from "~/hooks/index.js";
 import { useContentEntry } from "@webiny/app-headless-cms";
-import { LockedRecordForceUnlock } from "./LockedRecordForceUnlock";
+import { LockedRecordForceUnlock } from "./LockedRecordForceUnlock.js";
 import { ReactComponent as LockIcon } from "@material-design-icons/svg/outlined/lock.svg";
-import { IRecordLockingLockRecord } from "~/types";
+import { IRecordLockingLockRecord } from "~/types.js";
 
 const StyledWrapper = styled("div")({
     width: "50%",

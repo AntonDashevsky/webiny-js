@@ -1,5 +1,5 @@
-import { WEBINY_EXPORT_ASSETS_EXTENSION, WEBINY_EXPORT_ENTRIES_EXTENSION } from "~/tasks/constants";
-import { CmsImportExportFileType } from "~/types";
+import { WEBINY_EXPORT_ASSETS_EXTENSION, WEBINY_EXPORT_ENTRIES_EXTENSION } from "~/tasks/constants.js";
+import { CmsImportExportFileType } from "~/types.js";
 
 interface SuccessResponse {
     type: CmsImportExportFileType;

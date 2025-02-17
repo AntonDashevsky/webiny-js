@@ -5,19 +5,19 @@ import {
     CmsModelField,
     CreateCmsEntryInput,
     CreateCmsEntryOptionsInput
-} from "~/types";
-import { getDate } from "~/utils/date";
-import { ROOT_FOLDER } from "~/constants";
+} from "~/types/index.js";
+import { getDate } from "~/utils/date.js";
+import { ROOT_FOLDER } from "~/constants.js";
 import WebinyError from "@webiny/error";
-import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation";
-import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping";
+import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation.js";
+import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping.js";
 import { createIdentifier, mdbid } from "@webiny/utils";
-import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { getIdentity } from "~/utils/identity";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses.js";
+import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { Tenant } from "@webiny/api-tenancy/types.js";
+import { getIdentity } from "~/utils/identity.js";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
 
 type DefaultValue = boolean | number | string | null;
 

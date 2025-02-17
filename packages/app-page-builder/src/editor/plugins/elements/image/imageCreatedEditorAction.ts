@@ -1,6 +1,6 @@
 import { plugins } from "@webiny/plugins";
-import { CreateElementEventActionArgsType } from "~/editor/recoil/actions/createElement/types";
-import { PbEditorPageElementPlugin, PbEditorElement, EventActionCallable } from "~/types";
+import { CreateElementEventActionArgsType } from "~/editor/recoil/actions/createElement/types.js";
+import { PbEditorPageElementPlugin, PbEditorElement, EventActionCallable } from "~/types.js";
 
 const MAX_ELEMENT_FIND_RETRIES = 10;
 const ELEMENT_FIND_RETRY_TIMEOUT = 100;

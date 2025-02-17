@@ -1,6 +1,6 @@
 import React from "react";
-import { ListMeta } from "./ListMeta";
-import { BottomInfoBarInner, BottomInfoBarWrapper } from "./BottomInfoBar.styled";
+import { ListMeta } from "./ListMeta.js";
+import { BottomInfoBarInner, BottomInfoBarWrapper } from "./BottomInfoBar.styled.js";
 
 interface BottomInfoBarProps {
     loading: boolean;

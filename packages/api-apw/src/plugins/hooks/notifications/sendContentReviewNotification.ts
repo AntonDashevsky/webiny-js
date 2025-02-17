@@ -1,5 +1,5 @@
-import { getLastContentReviewNotificationPlugin } from "./lastContentReviewNotificationPlugin";
-import { ApwContentReviewNotificationCbParams } from "~/ApwContentReviewNotification";
+import { getLastContentReviewNotificationPlugin } from "./lastContentReviewNotificationPlugin.js";
+import { ApwContentReviewNotificationCbParams } from "~/ApwContentReviewNotification.js";
 
 export const sendContentReviewNotification = async (
     params: ApwContentReviewNotificationCbParams

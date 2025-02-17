@@ -1,10 +1,10 @@
 import React from "react";
 import { css } from "emotion";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Elevation } from "@webiny/ui/Elevation";
-import { Tabs } from "@webiny/ui/Tabs";
-import { Sidebar } from "./Sidebar";
-import { SidebarHighlight } from "./SidebarHighlight";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { Tabs } from "@webiny/ui/Tabs/index.js";
+import { Sidebar } from "./Sidebar.js";
+import { SidebarHighlight } from "./SidebarHighlight.js";
 
 const rightSideBar = css({
     boxShadow: "1px 0px 5px 0px rgba(128,128,128,1)",

@@ -3,9 +3,9 @@ import {
     AdvancedPublishingWorkflow,
     ApwContentReviewStatus,
     OnCmsEntryBeforePublishTopicParams
-} from "~/types";
-import { HeadlessCms } from "@webiny/api-headless-cms/types";
-import { isApwDisabledOnModel } from "~/plugins/cms/utils";
+} from "~/types.js";
+import { HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import { isApwDisabledOnModel } from "~/plugins/cms/utils.js";
 
 interface TriggerContentReviewParams {
     apw: AdvancedPublishingWorkflow;

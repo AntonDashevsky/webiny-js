@@ -1,11 +1,11 @@
 import WebinyError from "@webiny/error";
-import { ApwContext } from "~/types";
-import { extractContentReviewIdAndStep } from "~/plugins/utils";
-import { createContentUrl } from "./contentUrl";
-import { createCommentUrl } from "./commentUrl";
-import { fetchReviewers } from "./reviewers";
-import { sendCommentNotification } from "./sendCommentNotification";
-import { getAppUrl } from "~/plugins/hooks/notifications/appUrl";
+import { ApwContext } from "~/types.js";
+import { extractContentReviewIdAndStep } from "~/plugins/utils.js";
+import { createContentUrl } from "./contentUrl.js";
+import { createCommentUrl } from "./commentUrl.js";
+import { fetchReviewers } from "./reviewers.js";
+import { sendCommentNotification } from "./sendCommentNotification.js";
+import { getAppUrl } from "~/plugins/hooks/notifications/appUrl.js";
 
 export const attachCommentAfterCreate = (context: ApwContext): void => {
     context.apw.comment.onCommentAfterCreate.subscribe(async ({ comment }) => {

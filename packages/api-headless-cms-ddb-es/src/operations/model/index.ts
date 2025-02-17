@@ -7,12 +7,12 @@ import {
     CmsModelStorageOperationsGetParams,
     CmsModelStorageOperationsListParams,
     CmsModelStorageOperationsUpdateParams
-} from "@webiny/api-headless-cms/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { configurations } from "~/configurations";
+} from "@webiny/api-headless-cms/types/index.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { configurations } from "~/configurations.js";
 import { Client } from "@elastic/elasticsearch";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
-import { queryAllClean, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
+import { queryAllClean, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeysParams {

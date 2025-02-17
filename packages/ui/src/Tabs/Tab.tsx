@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { TabProps as RmwcTabProps } from "@rmwc/tabs";
-import { generateAlphaNumericId } from "@webiny/utils/generateId";
-import { TabsContext } from "./Tabs";
+import { generateAlphaNumericId } from "@webiny/utils/generateId.js";
+import { TabsContext } from "./Tabs.js";
 
 export type TabProps = RmwcTabProps & {
     visible?: boolean;

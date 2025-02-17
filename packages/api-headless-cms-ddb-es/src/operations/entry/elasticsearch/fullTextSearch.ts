@@ -1,11 +1,11 @@
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
 import { normalizeValue } from "@webiny/api-elasticsearch";
-import { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 import { PluginsContainer } from "@webiny/plugins";
 import {
     CmsEntryElasticsearchFullTextSearchPlugin,
     createCmsEntryElasticsearchFullTextSearchPlugin
-} from "~/plugins";
+} from "~/plugins/index.js";
 
 /**
  * Our default plugin is working with the AND operator for the multiple words query string.

@@ -1,6 +1,6 @@
-import { ApwContentTypes } from "~/types";
+import { ApwContentTypes } from "~/types.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { ContentApwSettingsPlugin } from "~/ContentApwSettingsPlugin";
+import { ContentApwSettingsPlugin } from "~/ContentApwSettingsPlugin.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 
 interface GetContentApwSettingsPluginParams {

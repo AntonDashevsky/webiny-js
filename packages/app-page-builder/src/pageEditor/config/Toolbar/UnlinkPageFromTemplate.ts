@@ -1,5 +1,5 @@
-import { PbEditorElementTree } from "~/types";
-import { InjectVariableValuesIntoElement } from "~/pageEditor/config/Toolbar/InjectVariableValuesIntoElement";
+import { PbEditorElementTree } from "~/types.js";
+import { InjectVariableValuesIntoElement } from "~/pageEditor/config/Toolbar/InjectVariableValuesIntoElement.js";
 
 export class UnlinkPageFromTemplate {
     execute(content: PbEditorElementTree) {

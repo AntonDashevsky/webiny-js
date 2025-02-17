@@ -1,1 +1,1 @@
-export * from "./AcoConfig";
+export * from "./AcoConfig.js";

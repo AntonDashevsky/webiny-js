@@ -1,1 +1,1 @@
-export { default as createInstallationZip } from "./createInstallationZip";
+export { default as createInstallationZip } from "./createInstallationZip.js";

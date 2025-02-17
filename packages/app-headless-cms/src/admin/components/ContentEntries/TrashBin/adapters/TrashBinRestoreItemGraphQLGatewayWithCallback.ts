@@ -1,4 +1,4 @@
-import { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
+import { CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
 
 import { ITrashBinRestoreItemGateway } from "@webiny/app-trash-bin";
 

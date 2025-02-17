@@ -1,8 +1,8 @@
-import { ImportExportTaskStatus, PbImportExportContext } from "~/types";
-import { s3Stream } from "../s3Stream";
-import { ZipOfZip } from "../zipper";
-import { mockSecurity } from "~/mockSecurity";
-import { Payload, Response } from "~/export/combine";
+import { ImportExportTaskStatus, PbImportExportContext } from "~/types.js";
+import { s3Stream } from "../s3Stream.js";
+import { ZipOfZip } from "../zipper.js";
+import { mockSecurity } from "~/mockSecurity.js";
+import { Payload, Response } from "~/export/combine/index.js";
 
 /**
  * Handles the export templates combine workflow.

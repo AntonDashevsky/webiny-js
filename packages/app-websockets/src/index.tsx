@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "@webiny/app";
-import { WebsocketsContextProvider } from "~/WebsocketsContextProvider";
+import { WebsocketsContextProvider } from "~/WebsocketsContextProvider.js";
 
 export interface WebsocketsProviderProps {
     children: React.ReactNode;
@@ -26,5 +26,5 @@ const WebsocketsExtension = () => {
 
 export const Websockets = React.memo(WebsocketsExtension);
 
-export * from "./types";
-export * from "./hooks";
+export * from "./types.js";
+export * from "./hooks/index.js";

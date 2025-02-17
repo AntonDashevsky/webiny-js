@@ -1,8 +1,8 @@
-import { createWorkflowMethods } from "./createWorkflowMethods";
-import { createReviewerMethods } from "./createReviewerMethods";
-import { createCommentMethods } from "./createCommentMethods";
-import { createChangeRequestMethods } from "./createChangeRequestMethods";
-import { createContentReviewMethods } from "./createContentReviewMethods";
+import { createWorkflowMethods } from "./createWorkflowMethods.js";
+import { createReviewerMethods } from "./createReviewerMethods.js";
+import { createCommentMethods } from "./createCommentMethods.js";
+import { createChangeRequestMethods } from "./createChangeRequestMethods.js";
+import { createContentReviewMethods } from "./createContentReviewMethods.js";
 import {
     AdvancedPublishingWorkflow,
     ApwContentTypes,
@@ -10,7 +10,7 @@ import {
     ContentPublisher,
     ContentUnPublisher,
     CreateApwParams
-} from "~/types";
+} from "~/types.js";
 
 export const createApw = (params: CreateApwParams): AdvancedPublishingWorkflow => {
     const contentGetters = new Map<ApwContentTypes, ContentGetter>();

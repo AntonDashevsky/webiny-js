@@ -1,5 +1,5 @@
-import { Context, IPulumi, IUserCommandInput } from "~/types";
-import { measureDuration } from "~/utils";
+import { Context, IPulumi, IUserCommandInput } from "~/types.js";
+import { measureDuration } from "~/utils/index.js";
 import ora from "ora";
 import { isCI } from "ci-info";
 import {
@@ -9,7 +9,7 @@ import {
     withProjectName,
     withPulumiConfigPassphrase,
     withRegion
-} from "~/utils/env";
+} from "~/utils/env/index.js";
 
 const spinnerMessages: [number, string][] = [
     [60, "Still deploying..."],

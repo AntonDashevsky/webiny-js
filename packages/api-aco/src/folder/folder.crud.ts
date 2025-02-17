@@ -1,6 +1,6 @@
 import { createTopic } from "@webiny/pubsub";
 import { validation } from "@webiny/validation";
-import { CreateAcoParams, Folder } from "~/types";
+import { CreateAcoParams, Folder } from "~/types.js";
 import {
     AcoFolderCrud,
     OnFolderAfterCreateTopicParams,
@@ -9,12 +9,12 @@ import {
     OnFolderBeforeCreateTopicParams,
     OnFolderBeforeDeleteTopicParams,
     OnFolderBeforeUpdateTopicParams
-} from "./folder.types";
+} from "./folder.types.js";
 
-import { getFolderAndItsAncestors } from "~/utils/getFolderAndItsAncestors";
-import NotAuthorizedError from "@webiny/api-security/NotAuthorizedError";
-import { AdminUser } from "@webiny/api-admin-users/types";
-import { Team } from "@webiny/api-security/types";
+import { getFolderAndItsAncestors } from "~/utils/getFolderAndItsAncestors.js";
+import NotAuthorizedError from "@webiny/api-security/NotAuthorizedError.js";
+import { AdminUser } from "@webiny/api-admin-users/types.js";
+import { Team } from "@webiny/api-security/types.js";
 import WError from "@webiny/error";
 
 const FIXED_FOLDER_LISTING_LIMIT = 10_000;

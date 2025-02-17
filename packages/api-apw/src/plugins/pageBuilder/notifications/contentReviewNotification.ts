@@ -1,5 +1,5 @@
-import { ApwContentTypes } from "~/types";
-import { createApwContentReviewNotification } from "~/ApwContentReviewNotification";
+import { ApwContentTypes } from "~/types.js";
+import { createApwContentReviewNotification } from "~/ApwContentReviewNotification.js";
 
 export const createContentReviewNotification = () => {
     const plugin = createApwContentReviewNotification(ApwContentTypes.PAGE, params => {

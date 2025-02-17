@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import { ElementStylesModifier } from "~/types.js";
 
 const border: ElementStylesModifier = ({ element, theme }) => {
     const { border } = element.data.settings || {};

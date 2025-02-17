@@ -3,7 +3,7 @@ import React from "react";
 import { Hotkeys } from "react-hotkeyz";
 // @ts-expect-error
 import dataURLtoBlob from "dataurl-to-blob";
-import { ImageEditorDialog } from "@webiny/ui/ImageUpload";
+import { ImageEditorDialog } from "@webiny/ui/ImageUpload/index.js";
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";
 import {
     FileManagerViewConfig,
@@ -11,7 +11,7 @@ import {
     useFileDetails,
     useFileManagerApi,
     useFileManagerView
-} from "~/index";
+} from "~/index.js";
 import { useSnackbar } from "@webiny/app-admin";
 
 function toDataUrl(url: string): Promise<string> {

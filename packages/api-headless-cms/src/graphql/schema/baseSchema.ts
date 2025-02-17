@@ -1,9 +1,9 @@
-import { CmsContext, CmsModelFieldValidatorPlugin } from "~/types";
-import { createCmsGraphQLSchemaPlugin } from "~/plugins";
+import { CmsContext, CmsModelFieldValidatorPlugin } from "~/types/index.js";
+import { createCmsGraphQLSchemaPlugin } from "~/plugins/index.js";
 import { GraphQLSchemaPlugin, IGraphQLSchemaPlugin } from "@webiny/handler-graphql";
 import { PluginsContainer } from "@webiny/plugins";
 import { ContextPlugin } from "@webiny/api";
-import camelCase from "lodash/camelCase";
+import camelCase from "lodash/camelCase.js";
 
 const createSkipValidatorEnum = (plugins: PluginsContainer) => {
     const validators = plugins

@@ -2,10 +2,10 @@ import {
     PageBuilderFormDataFileItem,
     PageBuilderFormDataSettings,
     PageBuilderFormDataSettingsSocialMeta
-} from "~/types";
+} from "~/types.js";
 
 const OG_IMAGE_DIMENSIONS_PROPERTIES = ["og:image:width", "og:image:height"];
-import get from "lodash/get";
+import get from "lodash/get.js";
 
 interface Params {
     data: PageBuilderFormDataSettings;

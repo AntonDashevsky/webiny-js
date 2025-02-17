@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
-import FormElementAdvancedSettings from "./components/FormElementAdvancedSettings";
-import formElement from "../../../page-builder/render/plugins/formElement";
-import FormElement from "./components/FormElement";
+import FormElementAdvancedSettings from "./components/FormElementAdvancedSettings.js";
+import formElement from "../../../page-builder/render/plugins/formElement.js";
+import FormElement from "./components/FormElement.js";
 import { ReactComponent as FormLogo } from "./components/icons/round-description-24px.svg";
 import {
     PbEditorPageElementAdvancedSettingsPlugin,
     PbEditorPageElementPlugin,
     OnCreateActions
-} from "@webiny/app-page-builder/types";
+} from "@webiny/app-page-builder/types.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

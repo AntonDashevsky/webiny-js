@@ -1,8 +1,8 @@
 import React from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { leftPanel } from "@webiny/app-admin/components/SplitView/SplitView";
-import { restGridStyles } from "../publishingWorkflows/components/Styled";
-import { ContentReviewDataList } from "./ContentReviewDataList";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { leftPanel } from "@webiny/app-admin/components/SplitView/SplitView.js";
+import { restGridStyles } from "../publishingWorkflows/components/Styled.js";
+import { ContentReviewDataList } from "./ContentReviewDataList.js";
 
 interface LayoutCenterProps {
     children: React.ReactNode;

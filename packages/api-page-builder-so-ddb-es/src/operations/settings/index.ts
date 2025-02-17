@@ -6,9 +6,9 @@ import {
     SettingsStorageOperationsCreateParams,
     SettingsStorageOperationsGetParams,
     SettingsStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { getClean } from "@webiny/db-dynamodb/utils/get";
+} from "@webiny/api-page-builder/types.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { getClean } from "@webiny/db-dynamodb/utils/get.js";
 import WebinyError from "@webiny/error";
 import { put } from "@webiny/db-dynamodb";
 

@@ -1,12 +1,12 @@
 import React from "react";
 import { css } from "emotion";
 import { Bind } from "@webiny/form";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
 import { validation } from "@webiny/validation";
-import { Switch } from "@webiny/ui/Switch";
-import { PbPageElementActionTypePlugin } from "~/types";
-import Wrapper from "../../components/Wrapper";
-import InputField from "../../components/InputField";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import { PbPageElementActionTypePlugin } from "~/types.js";
+import Wrapper from "../../components/Wrapper.js";
+import InputField from "../../components/InputField.js";
 
 const classes = {
     gridClass: css({

@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import { IconButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { Switch } from "@webiny/ui/Switch";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
 import { ReactComponent as EditIcon } from "../../icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "../../icons/delete.svg";
-import { useFormEditor } from "../../Context";
-import { FbFormModelField } from "~/types";
+import { useFormEditor } from "../../Context/index.js";
+import { FbFormModelField } from "~/types.js";
 
 const FieldContainer = styled("div")({
     display: "flex",

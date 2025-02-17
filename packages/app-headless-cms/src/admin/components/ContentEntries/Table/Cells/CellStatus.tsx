@@ -1,6 +1,6 @@
 import React from "react";
-import { statuses } from "~/admin/constants";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
+import { statuses } from "~/admin/constants.js";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
 
 export const CellStatus = () => {
     const { useTableRow, isFolderRow } = ContentEntryListConfig.Browser.Table.Column;

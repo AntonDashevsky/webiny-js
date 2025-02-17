@@ -1,7 +1,7 @@
 import React from "react";
-import { PbEditorPageElementVariableRendererPlugin } from "~/types";
-import MultipleImageVariableInput from "~/editor/plugins/elementSettings/variable/MultipleImageVariableInput";
-import { useElementVariables } from "~/editor/hooks/useElementVariableValue";
+import { PbEditorPageElementVariableRendererPlugin } from "~/types.js";
+import MultipleImageVariableInput from "~/editor/plugins/elementSettings/variable/MultipleImageVariableInput.js";
+import { useElementVariables } from "~/editor/hooks/useElementVariableValue.js";
 
 export default {
     name: "pb-editor-page-element-variable-renderer-images-list",

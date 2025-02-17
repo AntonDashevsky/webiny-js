@@ -1,10 +1,10 @@
 import React from "react";
 import { SetterOrUpdater } from "recoil";
 import styled from "@emotion/styled";
-import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
-import { useElementById } from "~/editor/hooks/useElementById";
-import { PbEditorElement } from "~/types";
-import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton";
+import { useActiveElementId } from "~/editor/hooks/useActiveElementId.js";
+import { useElementById } from "~/editor/hooks/useElementById.js";
+import { PbEditorElement } from "~/types.js";
+import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton.js";
 
 const EmptyCellStyled = styled.div<{ isActive: boolean; zIndex: number }>`
     z-index: ${props => props.zIndex};

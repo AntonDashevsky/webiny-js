@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as TextIcon } from "../../../assets/icons/round-text_format-24px.svg";
-import { PbEditorPageElementGroupPlugin } from "../../../../types";
+import { PbEditorPageElementGroupPlugin } from "../../../../types.js";
 
 const basicGroup: PbEditorPageElementGroupPlugin = {
     name: "pb-editor-element-group-basic",

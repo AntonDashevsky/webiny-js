@@ -1,1 +1,1 @@
-export * from "./SaveAndPublishContent";
+export * from "./SaveAndPublishContent.js";

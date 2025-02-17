@@ -1,4 +1,4 @@
-export { default as crop } from "./crop";
-export { default as flip } from "./flip";
-export { default as filter } from "./filter";
-export { default as rotate } from "./rotate";
+export { default as crop } from "./crop.js";
+export { default as flip } from "./flip.js";
+export { default as filter } from "./filter.js";
+export { default as rotate } from "./rotate.js";

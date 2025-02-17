@@ -1,2 +1,2 @@
-export * from "./Cache";
-export * from "./CacheKey";
+export * from "./Cache.js";
+export * from "./CacheKey.js";

@@ -1,6 +1,6 @@
-import { Tenant } from "@webiny/api-tenancy/types";
+import { Tenant } from "@webiny/api-tenancy/types.js";
 import Error from "@webiny/error";
-import { Context } from "~/index";
+import { Context } from "~/index.js";
 
 export interface AdminUserInput {
     firstName: string;

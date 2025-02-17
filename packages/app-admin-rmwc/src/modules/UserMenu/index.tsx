@@ -10,14 +10,14 @@ import {
     useUserMenuItem,
     useUserMenu
 } from "@webiny/app-admin";
-import { Menu } from "@webiny/ui/Menu";
-import { List, ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
+import { Menu } from "@webiny/ui/Menu/index.js";
+import { List, ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { Link } from "@webiny/react-router";
 import { useSecurity } from "@webiny/app-security";
-import { Avatar } from "@webiny/ui/Avatar";
-import { Image } from "@webiny/app/components";
-import { TopAppBarActionItem } from "@webiny/ui/TopAppBar";
+import { Avatar } from "@webiny/ui/Avatar/index.js";
+import { Image } from "@webiny/app/components/index.js";
+import { TopAppBarActionItem } from "@webiny/ui/TopAppBar/index.js";
 
 const UserMenuRendererImpl = () => {
     return function UserMenu() {

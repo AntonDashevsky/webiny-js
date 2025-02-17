@@ -1,9 +1,9 @@
 import { Client } from "@elastic/elasticsearch";
 import { PluginsContainer } from "@webiny/plugins";
-import { CmsEntryElasticsearchIndexPlugin } from "~/plugins/CmsEntryElasticsearchIndexPlugin";
+import { CmsEntryElasticsearchIndexPlugin } from "~/plugins/CmsEntryElasticsearchIndexPlugin.js";
 import { createIndex } from "@webiny/api-elasticsearch";
-import { configurations } from "~/configurations";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import { configurations } from "~/configurations.js";
+import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 
 export interface CreateElasticsearchIndexParams {
     client: Client;

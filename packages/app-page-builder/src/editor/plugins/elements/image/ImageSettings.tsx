@@ -1,20 +1,20 @@
 import React, { useCallback } from "react";
 import { useRecoilValue } from "recoil";
 import { css } from "emotion";
-import { activeElementAtom, elementByIdSelector } from "~/editor/recoil/modules";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import { activeElementAtom, elementByIdSelector } from "~/editor/recoil/modules/index.js";
+import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
 // Components
-import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
-import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper";
-import InputField from "~/editor/plugins/elementSettings/components/InputField";
-import SpacingPicker from "~/editor/plugins/elementSettings/components/SpacingPicker";
-import useUpdateHandlers from "~/editor/plugins/elementSettings/useUpdateHandlers";
-import { justifySelfEndStyle } from "~/editor/plugins/elementSettings/components/StyledComponents";
+import Accordion from "~/editor/plugins/elementSettings/components/Accordion.js";
+import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper.js";
+import InputField from "~/editor/plugins/elementSettings/components/InputField.js";
+import SpacingPicker from "~/editor/plugins/elementSettings/components/SpacingPicker.js";
+import useUpdateHandlers from "~/editor/plugins/elementSettings/useUpdateHandlers.js";
+import { justifySelfEndStyle } from "~/editor/plugins/elementSettings/components/StyledComponents.js";
 import {
     WIDTH_UNIT_OPTIONS,
     HEIGHT_UNIT_OPTIONS
-} from "~/editor/plugins/elementSettings/elementSettingsUtils";
-import SelectField from "~/editor/plugins/elementSettings/components/SelectField";
+} from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
+import SelectField from "~/editor/plugins/elementSettings/components/SelectField.js";
 
 const classes = {
     grid: css({

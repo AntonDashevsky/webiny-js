@@ -1,10 +1,10 @@
 import React from "react";
-import { Input } from "@webiny/ui/Input";
+import { Input } from "@webiny/ui/Input/index.js";
 import {
     FormFieldElement,
     FormFieldElementConfig,
     FormFieldElementRenderProps
-} from "~/ui/elements/form/FormFieldElement";
+} from "~/ui/elements/form/FormFieldElement.js";
 
 export type InputElementRenderProps = FormFieldElementRenderProps;
 export class InputElement extends FormFieldElement {

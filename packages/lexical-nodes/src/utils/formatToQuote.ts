@@ -1,6 +1,6 @@
 import { $getSelection, $isRangeSelection, LexicalEditor } from "lexical";
 import { $setBlocksType } from "@lexical/selection";
-import { $createQuoteNode } from "~/QuoteNode";
+import { $createQuoteNode } from "~/QuoteNode.js";
 
 /*
  * Will change the selected root HTML tag to specified blockquote tag.

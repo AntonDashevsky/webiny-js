@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import { resolve as importResolve } from "import-meta-resolve";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
@@ -18,10 +17,9 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import WebpackBar from "webpackbar";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { getProjectApplication } from "@webiny/cli/utils";
+import { createResolve } from "../../resolve.js";
 
-const resolve = module => {
-    return importResolve(module, import.meta.url).replace("file://", "");
-};
+const resolve = createResolve(import.meta.url);
 
 const materialNodeModules = resolve("@material/base/package.json").split("@material")[0];
 

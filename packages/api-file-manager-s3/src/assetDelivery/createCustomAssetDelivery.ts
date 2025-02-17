@@ -14,7 +14,7 @@ import { createAssetDeliveryPluginLoader } from "@webiny/api-file-manager";
 export const createCustomAssetDelivery = () => {
     return createAssetDeliveryPluginLoader(async () => {
         return import(
-            /* webpackChunkName: "customAssetDelivery" */ "./customAssets/customAssetDeliveryConfig"
+            /* webpackChunkName: "customAssetDelivery" */ "./customAssets/customAssetDeliveryConfig.js"
         ).then(({ customAssetDeliveryConfig }) => customAssetDeliveryConfig());
     });
 };

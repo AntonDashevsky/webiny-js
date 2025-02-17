@@ -5,9 +5,9 @@ import {
     GetFormRevisionsQueryVariables,
     LIST_FORMS,
     ListFormsQueryResponse
-} from "../graphql";
+} from "../graphql.js";
 import { DataProxy } from "apollo-cache";
-import { FbRevisionModel } from "~/types";
+import { FbRevisionModel } from "~/types.js";
 
 // Replace existing "latest" revision with the new revision
 export const updateLatestRevisionInListCache = (

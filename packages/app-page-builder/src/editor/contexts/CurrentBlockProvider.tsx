@@ -1,9 +1,9 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { BlockProvider } from "@webiny/app-page-builder-elements/renderers/block/BlockProvider";
-import { Element } from "@webiny/app-page-builder-elements/types";
-import { blockByElementSelector } from "~/editor/hooks/useCurrentBlockElement";
-import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
+import { BlockProvider } from "@webiny/app-page-builder-elements/renderers/block/BlockProvider.js";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
+import { blockByElementSelector } from "~/editor/hooks/useCurrentBlockElement.js";
+import { useActiveElementId } from "~/editor/hooks/useActiveElementId.js";
 
 export const CurrentBlockProvider = ({ children }: { children: React.ReactNode }) => {
     const [activeElementId] = useActiveElementId();

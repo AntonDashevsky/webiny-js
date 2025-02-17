@@ -1,1 +1,1 @@
-export * from "./TrashBinOverlay";
+export * from "./TrashBinOverlay.js";

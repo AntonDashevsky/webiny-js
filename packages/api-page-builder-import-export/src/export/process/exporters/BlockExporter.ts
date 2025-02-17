@@ -1,7 +1,7 @@
-import { BlockCategory, PageBlock } from "@webiny/api-page-builder/types";
-import { File, FileManagerContext } from "@webiny/api-file-manager/types";
-import Zipper from "~/export/zipper";
-import { extractFilesFromData } from "~/export/utils";
+import { BlockCategory, PageBlock } from "@webiny/api-page-builder/types.js";
+import { File, FileManagerContext } from "@webiny/api-file-manager/types.js";
+import Zipper from "~/export/zipper.js";
+import { extractFilesFromData } from "~/export/utils.js";
 
 export interface ExportedBlockData {
     block: Pick<PageBlock, "name" | "content">;

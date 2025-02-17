@@ -1,6 +1,6 @@
 import { InitialOpen, NodeModel } from "@minoru/react-dnd-treeview";
-import { DndFolderItemData, FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+import { DndFolderItemData, FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 /**
  * Transform an array of folders returned by useFolders hook into an array of elements for the tree component.

@@ -1,17 +1,17 @@
 import WebinyError from "@webiny/error";
-import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
-import { ModelFields } from "~/operations/entry/elasticsearch/types";
+import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { ModelFields } from "~/operations/entry/elasticsearch/types.js";
 import { PluginsContainer } from "@webiny/plugins";
-import { ElasticsearchBoolQueryConfig, Query } from "@webiny/api-elasticsearch/types";
-import { createSearchPluginList } from "~/operations/entry/elasticsearch/plugins/search";
-import { createOperatorPluginList } from "~/operations/entry/elasticsearch/plugins/operator";
-import { createBaseQuery } from "~/operations/entry/elasticsearch/initialQuery";
+import { ElasticsearchBoolQueryConfig, Query } from "@webiny/api-elasticsearch/types.js";
+import { createSearchPluginList } from "~/operations/entry/elasticsearch/plugins/search.js";
+import { createOperatorPluginList } from "~/operations/entry/elasticsearch/plugins/operator.js";
+import { createBaseQuery } from "~/operations/entry/elasticsearch/initialQuery.js";
 import { parseWhereKey } from "@webiny/api-elasticsearch";
-import { getWhereValues } from "./values";
-import { getPopulated } from "./populated";
-import { createApplyFiltering } from "./applyFiltering";
-import { CmsEntryFilterPlugin } from "~/plugins/CmsEntryFilterPlugin";
-import { assignMinimumShouldMatchToQuery } from "~/operations/entry/elasticsearch/assignMinimumShouldMatchToQuery";
+import { getWhereValues } from "./values.js";
+import { getPopulated } from "./populated.js";
+import { createApplyFiltering } from "./applyFiltering.js";
+import { CmsEntryFilterPlugin } from "~/plugins/CmsEntryFilterPlugin.js";
+import { assignMinimumShouldMatchToQuery } from "~/operations/entry/elasticsearch/assignMinimumShouldMatchToQuery.js";
 
 export interface CreateExecParams {
     model: CmsModel;

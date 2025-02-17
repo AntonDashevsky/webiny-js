@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 import styled from "@emotion/styled";
 import { useBind } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
-import { Select } from "@webiny/ui/Select";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
 import { UTC_TIMEZONES } from "@webiny/utils";
-import { useInputField } from "~/components";
+import { useInputField } from "~/components/index.js";
 
 const DateWithTimezoneContainer = styled.div`
     display: flex;

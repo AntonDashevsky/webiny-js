@@ -1,7 +1,7 @@
 import React from "react";
-import { Page as PageType } from "~/types";
-import { Content } from "./Content";
-import { PageProvider } from "~/contexts/Page";
+import { Page as PageType } from "~/types.js";
+import { Content } from "./Content.js";
+import { PageProvider } from "~/contexts/Page.js";
 
 export interface PageProps {
     page: PageType;

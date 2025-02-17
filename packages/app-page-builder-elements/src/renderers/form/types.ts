@@ -1,5 +1,5 @@
 import React from "react";
-import { GetFormDataLoader, LogFormViewDataLoader, SubmitFormDataLoader } from "./dataLoaders";
+import { GetFormDataLoader, LogFormViewDataLoader, SubmitFormDataLoader } from "./dataLoaders/index.js";
 
 export type FieldIdType = string;
 export type FormDataFieldsLayout = FieldIdType[][];

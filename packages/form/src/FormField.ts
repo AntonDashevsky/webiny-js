@@ -1,7 +1,7 @@
-import lodashNoop from "lodash/noop";
-import { BindComponentProps, FormAPI, FormValidationOptions } from "~/types";
-import { Validator } from "@webiny/validation/types";
-import { FieldValidationResult, FormFieldValidator } from "./FormFieldValidator";
+import lodashNoop from "lodash/noop.js";
+import { BindComponentProps, FormAPI, FormValidationOptions } from "~/types.js";
+import { Validator } from "@webiny/validation/types.js";
+import { FieldValidationResult, FormFieldValidator } from "./FormFieldValidator.js";
 
 interface BeforeChange {
     (value: unknown, cb: (value: unknown) => void): void;

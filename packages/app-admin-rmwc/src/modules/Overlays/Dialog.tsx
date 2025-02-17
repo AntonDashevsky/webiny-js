@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
-import get from "lodash/get";
-import { useUi } from "@webiny/app/hooks/useUi";
-import { Dialog, DialogAccept, DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog";
-import { ButtonPrimary } from "@webiny/ui/Button";
+import get from "lodash/get.js";
+import { useUi } from "@webiny/app/hooks/useUi.js";
+import { Dialog, DialogAccept, DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 
 export const DialogContainer = () => {
     const ui = useUi();

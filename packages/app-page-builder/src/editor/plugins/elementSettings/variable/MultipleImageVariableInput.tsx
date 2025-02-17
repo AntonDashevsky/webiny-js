@@ -5,14 +5,14 @@ import { css } from "emotion";
  */
 // @ts-expect-error
 import { sortable } from "react-sortable";
-import cloneDeep from "lodash/cloneDeep";
-import { FileManager } from "@webiny/app-admin/components";
-import File from "~/editor/plugins/elements/imagesList/File";
+import cloneDeep from "lodash/cloneDeep.js";
+import { FileManager } from "@webiny/app-admin/components/index.js";
+import File from "~/editor/plugins/elements/imagesList/File.js";
 import {
     SimpleButton,
     ButtonContainer
-} from "~/editor/plugins/elementSettings/components/StyledComponents";
-import { useVariable } from "~/hooks/useVariable";
+} from "~/editor/plugins/elementSettings/components/StyledComponents.js";
+import { useVariable } from "~/hooks/useVariable.js";
 
 const style = {
     addImagesButton: css({ clear: "both", padding: "20px 10px", textAlign: "center" }),

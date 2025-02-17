@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import { ReactComponent as HomeIcon } from "@material-design-icons/svg/round/home.svg";
 import { useConfirmationDialog } from "@webiny/app-admin";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
-import { usePage } from "~/pageEditor/hooks/usePage";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
-import { usePageBuilderSettings } from "~/admin/hooks/usePageBuilderSettings";
-import { PageEditorConfig } from "~/pageEditor/editorConfig/PageEditorConfig";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
+import { usePage } from "~/pageEditor/hooks/usePage.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
+import { usePageBuilderSettings } from "~/admin/hooks/usePageBuilderSettings/index.js";
+import { PageEditorConfig } from "~/pageEditor/editorConfig/PageEditorConfig.js";
 
 const { Ui } = PageEditorConfig;
 

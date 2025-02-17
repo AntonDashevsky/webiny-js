@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Files from "react-butterfiles";
-import { getError } from "./Errors";
-import { useImport } from "~/admin/views/contentModels/importing/useImport";
+import { getError } from "./Errors.js";
+import { useImport } from "~/admin/views/contentModels/importing/useImport.js";
 
 const Container = styled("div")({
     width: "100%",

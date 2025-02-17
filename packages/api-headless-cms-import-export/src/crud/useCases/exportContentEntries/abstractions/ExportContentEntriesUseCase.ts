@@ -1,5 +1,5 @@
-import type { ICmsImportExportRecord } from "~/domain";
-import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import type { ICmsImportExportRecord } from "~/domain/index.js";
+import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
 
 export interface IExportContentEntriesUseCaseExecuteParams {
     modelId: string;

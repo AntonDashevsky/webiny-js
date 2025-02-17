@@ -4,12 +4,12 @@ import {
     PageBlockStorageOperations as BasePageBlockStorageOperations,
     PageBuilderStorageOperations as BasePageBuilderStorageOperations,
     PageTemplateStorageOperations as BasePageTemplateStorageOperations
-} from "@webiny/api-page-builder/types";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-page-builder/types.js";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Plugin } from "@webiny/plugins/types";
-import { TableConstructor } from "@webiny/db-dynamodb/toolbox";
-import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
+import { Plugin } from "@webiny/plugins/types.js";
+import { TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
+import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

@@ -1,6 +1,6 @@
 import { Plugin } from "@webiny/plugins";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 
 export interface CmsEntryElasticsearchFullTextSearchPluginCbParams {
     model: CmsModel;

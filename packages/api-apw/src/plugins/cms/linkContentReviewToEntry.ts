@@ -1,7 +1,7 @@
-import { AdvancedPublishingWorkflow, ApwContentTypes } from "~/types";
-import { fetchModel, isApwDisabledOnModel, updateEntryMeta } from "~/plugins/cms/utils";
+import { AdvancedPublishingWorkflow, ApwContentTypes } from "~/types.js";
+import { fetchModel, isApwDisabledOnModel, updateEntryMeta } from "~/plugins/cms/utils.js";
 import Error from "@webiny/error";
-import { HeadlessCms } from "@webiny/api-headless-cms/types";
+import { HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 
 interface LinkContentReviewToEntryParams {
     apw: AdvancedPublishingWorkflow;

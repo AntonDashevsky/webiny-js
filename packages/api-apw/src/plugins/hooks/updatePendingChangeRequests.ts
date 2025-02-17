@@ -1,9 +1,9 @@
-import { ApwChangeRequest, ApwContentReviewCrud, LifeCycleHookCallbackParams } from "~/types";
+import { ApwChangeRequest, ApwContentReviewCrud, LifeCycleHookCallbackParams } from "~/types.js";
 import {
     extractContentReviewIdAndStep,
     updateContentReview,
     updateContentReviewStep
-} from "../utils";
+} from "../utils.js";
 
 interface UpdatePendingChangeRequestsParams {
     contentReviewMethods: ApwContentReviewCrud;

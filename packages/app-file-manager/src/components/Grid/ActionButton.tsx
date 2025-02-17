@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 
 export interface ActionButtonProps {
     icon: JSX.Element;

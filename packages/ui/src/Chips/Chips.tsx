@@ -1,8 +1,8 @@
 import React from "react";
 import classNames from "classnames";
 import { ChipSet } from "@rmwc/chip";
-import { Chip } from "./Chip";
-import { chipIconWrapper, disabledChips } from "./styles";
+import { Chip } from "./Chip.js";
+import { chipIconWrapper, disabledChips } from "./styles.js";
 
 export interface ChipsProps {
     /**

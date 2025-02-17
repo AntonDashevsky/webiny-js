@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
-import { i18n } from "@webiny/app/i18n";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { Form } from "@webiny/form";
-import { Alert } from "@webiny/ui/Alert";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { Input } from "@webiny/ui/Input";
+import { Alert } from "@webiny/ui/Alert/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 
 import { validation } from "@webiny/validation";
 import {
@@ -15,8 +15,8 @@ import {
     SimpleFormContent,
     SimpleFormFooter,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm";
-import { AdminInstallationPlugin } from "@webiny/app-admin/types";
+} from "@webiny/app-admin/components/SimpleForm/index.js";
+import { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
 
 const t = i18n.ns("api-page-builder/admin/installation");
 

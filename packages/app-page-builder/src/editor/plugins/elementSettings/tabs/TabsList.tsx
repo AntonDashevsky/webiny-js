@@ -2,18 +2,18 @@ import React, { useCallback } from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import { useRecoilValue } from "recoil";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
-import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
-import { moveInPlace, useSortableList } from "~/hooks/useSortableList";
-import { Collapsable } from "~/editor/defaultConfig/Toolbar/Navigator/StyledComponents";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
+import Accordion from "~/editor/plugins/elementSettings/components/Accordion.js";
+import { moveInPlace, useSortableList } from "~/hooks/useSortableList.js";
+import { Collapsable } from "~/editor/defaultConfig/Toolbar/Navigator/StyledComponents.js";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
 import { ReactComponent as DragIndicatorIcon } from "~/editor/defaultConfig/Toolbar/Navigator/assets/drag_indicator_24px.svg";
 import { ReactComponent as DeleteIcon } from "~/editor/assets/icons/delete.svg";
-import { createElement } from "~/editor/helpers";
-import { PbEditorElement } from "~/types";
+import { createElement } from "~/editor/helpers.js";
+import { PbEditorElement } from "~/types.js";
 
 const accordionStyles = css`
     .accordion-content {

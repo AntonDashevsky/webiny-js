@@ -1,17 +1,17 @@
 import WebinyError from "@webiny/error";
-import { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 import {
     AdvancedPublishingWorkflow,
     ApwWorkflow,
     ApwWorkflowApplications,
     WorkflowScopeTypes
-} from "~/types";
-import { workflowByCreatedOnDesc, workflowByPrecedenceDesc } from "~/plugins/utils";
-import { CHANGE_REQUEST_MODEL_ID } from "~/storageOperations/models/changeRequest.model";
-import { COMMENT_MODEL_ID } from "~/storageOperations/models/comment.model";
-import { CONTENT_REVIEW_MODEL_ID } from "~/storageOperations/models/contentReview.model";
-import { REVIEWER_MODEL_ID } from "~/storageOperations/models/reviewer.model";
-import { WORKFLOW_MODEL_ID } from "~/storageOperations/models/workflow.model";
+} from "~/types.js";
+import { workflowByCreatedOnDesc, workflowByPrecedenceDesc } from "~/plugins/utils.js";
+import { CHANGE_REQUEST_MODEL_ID } from "~/storageOperations/models/changeRequest.model.js";
+import { COMMENT_MODEL_ID } from "~/storageOperations/models/comment.model.js";
+import { CONTENT_REVIEW_MODEL_ID } from "~/storageOperations/models/contentReview.model.js";
+import { REVIEWER_MODEL_ID } from "~/storageOperations/models/reviewer.model.js";
+import { WORKFLOW_MODEL_ID } from "~/storageOperations/models/workflow.model.js";
 
 export const fetchModel = async (
     cms: HeadlessCms,

@@ -9,14 +9,14 @@ import {
 } from "@minoru/react-dnd-treeview";
 import { useSnackbar } from "@webiny/app-admin";
 import { DndProvider } from "react-dnd";
-import { Node } from "../Node";
-import { NodePreview } from "../NodePreview";
-import { Placeholder } from "../Placeholder";
-import { createInitialOpenList, createTreeData } from "./utils";
-import { useFolders } from "~/hooks";
-import { ROOT_FOLDER } from "~/constants";
-import { DndFolderItemData, FolderItem } from "~/types";
-import { FolderProvider } from "~/contexts/folder";
+import { Node } from "../Node/index.js";
+import { NodePreview } from "../NodePreview/index.js";
+import { Placeholder } from "../Placeholder/index.js";
+import { createInitialOpenList, createTreeData } from "./utils.js";
+import { useFolders } from "~/hooks/index.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import { DndFolderItemData, FolderItem } from "~/types.js";
+import { FolderProvider } from "~/contexts/folder.js";
 
 interface ListProps {
     folders: FolderItem[];

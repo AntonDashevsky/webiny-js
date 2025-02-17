@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { sendEvent } from "@webiny/telemetry/react";
+import { sendEvent } from "@webiny/telemetry/react.js";
 import { createProvider } from "@webiny/app";
 
 let eventSent = false;

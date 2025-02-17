@@ -1,9 +1,9 @@
 import React from "react";
 import ApolloClient from "apollo-client";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { config as appConfig } from "@webiny/app/config";
-import { CmsContentEntry, CmsContentEntryRevision, CmsErrorResponse, CmsModel } from "~/types";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { config as appConfig } from "@webiny/app/config.js";
+import { CmsContentEntry, CmsContentEntryRevision, CmsErrorResponse, CmsModel } from "~/types.js";
 import {
     CmsEntryPublishMutationResponse,
     CmsEntryPublishMutationVariables,
@@ -38,7 +38,7 @@ import {
     CmsEntryBulkActionMutationResponse,
     CmsEntryBulkActionMutationVariables
 } from "@webiny/app-headless-cms-common";
-import { getFetchPolicy } from "~/utils/getFetchPolicy";
+import { getFetchPolicy } from "~/utils/getFetchPolicy.js";
 
 export interface EntryError {
     message: string;

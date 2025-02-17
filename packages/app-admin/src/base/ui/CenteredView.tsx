@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { makeDecoratable } from "~/index";
+import { makeDecoratable } from "~/index.js";
 
 export interface CenteredViewProps {
     children: React.ReactNode;

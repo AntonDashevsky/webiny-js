@@ -1,8 +1,8 @@
-import { createReactAppConfig, ReactAppConfigModifier } from "~/createReactAppConfig";
+import { createReactAppConfig, ReactAppConfigModifier } from "~/createReactAppConfig.js";
 import { ApiOutput } from "@webiny/pulumi-aws";
 
 // @ts-expect-error Rewrite CLI into TypeScript.
-import { log, sleepSync } from "@webiny/cli/utils";
+import { log, sleepSync } from "@webiny/cli/utils/index.js";
 
 export const createWebsiteAppConfig = (modifier?: ReactAppConfigModifier) => {
     return createReactAppConfig(baseParams => {

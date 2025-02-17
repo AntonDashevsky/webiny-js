@@ -1,4 +1,3 @@
-// @ts-nocheck
 /* We don't need the following rule in this file, as it's not being bundled with Webpack. */
 /* eslint-disable import/dynamic-import-chunkname */
 export default {
@@ -60,6 +59,6 @@ export default {
         experimentalAdminOmniSearch: true,
         experimentalDynamicPages: false,
         newWatchCommand: true,
-        rspack: true
+        rspack: false
     }
 };

@@ -1,1 +1,1 @@
-export { DateComponent as Date } from "./Date";
+export { DateComponent as Date } from "./Date.js";

@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-import { Filter, FilterDTO } from "../domain";
+import { Filter, FilterDTO } from "../domain/index.js";
 import { FormInvalidFields } from "@webiny/form";
 
 export interface QuerySaverDialogPresenterInterface {

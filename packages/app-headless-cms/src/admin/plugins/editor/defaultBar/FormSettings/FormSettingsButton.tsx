@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { IconButton } from "@webiny/ui/Button";
-import FormSettings from "./FormSettings";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import FormSettings from "./FormSettings.js";
 
 import { ReactComponent as SettingsIcon } from "./../icons/settings.svg";
 

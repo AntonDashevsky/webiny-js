@@ -1,8 +1,8 @@
 import * as React from "react";
-import { FormSettingsPluginType } from "~/types";
-import GeneralSettings from "./components/GeneralSettings";
-import TermsOfServiceSettings from "./components/TermsOfServiceSettings";
-import ReCaptchaSettings from "./components/ReCaptchaSettings";
+import { FormSettingsPluginType } from "~/types.js";
+import GeneralSettings from "./components/GeneralSettings.js";
+import TermsOfServiceSettings from "./components/TermsOfServiceSettings.js";
+import ReCaptchaSettings from "./components/ReCaptchaSettings.js";
 import { ReactComponent as SettingsIcon } from "./icons/round-settings-24px.svg";
 import { ReactComponent as TermsOfServiceIcon } from "./icons/round-receipt-24px.svg";
 import { ReactComponent as ReCaptchaIcon } from "./icons/round-vpn_lock-24px.svg";

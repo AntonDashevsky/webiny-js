@@ -1,4 +1,4 @@
-import { MenuDynamoDbFieldPlugin } from "~/plugins/definitions/MenuDynamoDbFieldPlugin";
+import { MenuDynamoDbFieldPlugin } from "~/plugins/definitions/MenuDynamoDbFieldPlugin.js";
 
 export const createMenuDynamoDbFields = (): MenuDynamoDbFieldPlugin[] => {
     return [

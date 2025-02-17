@@ -1,2 +1,2 @@
-export * from "./IUnselectAllItemsController";
-export * from "./UnselectAllItemsController";
+export * from "./IUnselectAllItemsController.js";
+export * from "./UnselectAllItemsController.js";

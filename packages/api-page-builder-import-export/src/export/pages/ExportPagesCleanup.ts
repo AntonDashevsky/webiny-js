@@ -3,10 +3,10 @@ import {
     IExportPagesControllerOutput,
     IExportPagesZipPagesOutput,
     PageExportTask
-} from "~/export/pages/types";
+} from "~/export/pages/types.js";
 import { ITaskResponseResult } from "@webiny/tasks";
 import { createS3 } from "@webiny/aws-sdk/client-s3";
-import lodashChunk from "lodash/chunk";
+import lodashChunk from "lodash/chunk.js";
 
 export class ExportPagesCleanup {
     public async execute(params: IExportPagesCleanupTaskParams): Promise<ITaskResponseResult> {

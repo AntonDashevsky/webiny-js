@@ -1,4 +1,4 @@
-import prepareMenuItems from "./menus/prepareMenuItems";
+import prepareMenuItems from "./menus/prepareMenuItems.js";
 import WebinyError from "@webiny/error";
 import {
     Menu,
@@ -14,15 +14,15 @@ import {
     PageBuilderContextObject,
     PageBuilderStorageOperations,
     PbContext
-} from "~/types";
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
 import {
     createMenuCreateValidation,
     createMenuUpdateValidation
-} from "~/graphql/crud/menus/validation";
+} from "~/graphql/crud/menus/validation.js";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { MenusPermissions } from "~/graphql/crud/permissions/MenusPermissions";
+import { MenusPermissions } from "~/graphql/crud/permissions/MenusPermissions.js";
 
 export interface CreateMenuCrudParams {
     context: PbContext;

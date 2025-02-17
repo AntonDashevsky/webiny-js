@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { css } from "emotion";
 import { Link } from "@webiny/react-router";
-import { List, ListItem } from "@webiny/ui/List";
-import { useNavigation } from "../index";
+import { List, ListItem } from "@webiny/ui/List/index.js";
+import { useNavigation } from "../index.js";
 import { useMenuItem } from "@webiny/app-admin";
 
 const linkStyle = css({

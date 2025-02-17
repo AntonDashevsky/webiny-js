@@ -1,4 +1,4 @@
-import { ApwContext } from "~/types";
+import { ApwContext } from "~/types.js";
 
 export const getAppUrl = async (context: ApwContext) => {
     const tenant = context.tenancy.getCurrentTenant().id;

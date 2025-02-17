@@ -7,12 +7,12 @@ import {
     CmsModelField,
     CmsModelFieldToGraphQLCreateResolver,
     CmsModelFieldToGraphQLPlugin
-} from "~/types";
-import { createTypeName } from "~/utils/createTypeName";
-import { createTypeFromFields } from "~/utils/createTypeFromFields";
-import { createGraphQLInputField } from "../helpers";
-import { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
-import { GenericRecord } from "@webiny/api/types";
+} from "~/types/index.js";
+import { createTypeName } from "~/utils/createTypeName.js";
+import { createTypeFromFields } from "~/utils/createTypeFromFields.js";
+import { createGraphQLInputField } from "../helpers.js";
+import { GraphQLFieldResolver } from "@webiny/handler-graphql/types.js";
+import { GenericRecord } from "@webiny/api/types.js";
 
 const createUnionTypeName = (model: CmsModel, field: CmsModelField) => {
     return `${model.singularApiName}_${createTypeName(field.fieldId)}`;

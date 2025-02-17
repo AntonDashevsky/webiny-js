@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
 import { useRecords } from "@webiny/app-aco";
 import { observer } from "mobx-react-lite";
-import { PageListConfig } from "~/admin/config/pages";
-import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
-import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
+import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions.js";
 
 export const ActionDelete = observer(() => {
     const { deletePage, client } = useAdminPageBuilder();

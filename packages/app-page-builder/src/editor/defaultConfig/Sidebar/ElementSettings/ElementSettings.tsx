@@ -1,12 +1,12 @@
 import React from "react";
 import { merge } from "dot-prop-immutable";
-import { renderPlugins } from "@webiny/app/plugins";
+import { renderPlugins } from "@webiny/app/plugins/index.js";
 import { plugins } from "@webiny/plugins";
 import { Form, FormOnSubmit, FormRenderPropParams } from "@webiny/form";
-import { PbEditorElement, PbEditorPageElementAdvancedSettingsPlugin } from "~/types";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { ElementProperties, ElementProperty } from "~/editor/config/ElementProperty";
+import { PbEditorElement, PbEditorPageElementAdvancedSettingsPlugin } from "~/types.js";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { ElementProperties, ElementProperty } from "~/editor/config/ElementProperty.js";
 
 export const ElementSettings = () => {
     const [element] = useActiveElement();

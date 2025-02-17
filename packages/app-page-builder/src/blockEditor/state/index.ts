@@ -1,1 +1,1 @@
-export * from "./blockAtom";
+export * from "./blockAtom.js";

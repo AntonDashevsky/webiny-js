@@ -4,7 +4,7 @@ import {
     createPageValidation,
     updatePageValidation,
     updatePageSettingsValidation
-} from "~/graphql/crud/pages/validation";
+} from "~/graphql/crud/pages/validation.js";
 
 export interface PageBuilderPageValidationModifierPluginParams {
     onCreate?: (

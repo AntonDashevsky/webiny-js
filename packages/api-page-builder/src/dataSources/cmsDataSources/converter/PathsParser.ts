@@ -1,5 +1,5 @@
-import { ParsedPath } from "./ParsedPath";
-import type { Fragment, GraphQLSelection } from "./types";
+import { ParsedPath } from "./ParsedPath.js";
+import type { Fragment, GraphQLSelection } from "./types.js";
 
 export class PathsParser {
     parse(paths: string[]) {

@@ -13,13 +13,13 @@ import {
     SetElementStylesCallback,
     SetStylesCallback,
     StylesCallback
-} from "~/types";
+} from "~/types.js";
 import {
     defaultElementAttributesCallback,
     defaultElementStylesCallback,
     defaultStylesCallback,
     setUsingPageElements
-} from "~/utils";
+} from "~/utils/index.js";
 
 export const PageElementsContext = createContext<PageElementsContextValue>(
     null as unknown as PageElementsContextValue

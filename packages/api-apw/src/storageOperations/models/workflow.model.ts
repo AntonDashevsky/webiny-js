@@ -1,7 +1,7 @@
 import { createPrivateModel } from "@webiny/api-headless-cms";
-import { CmsModelField } from "@webiny/api-headless-cms/types";
-import { createModelField } from "./utils";
-import { WorkflowScopeTypes } from "~/types";
+import { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import { createModelField } from "./utils.js";
+import { WorkflowScopeTypes } from "~/types.js";
 
 const titleField = () =>
     createModelField({

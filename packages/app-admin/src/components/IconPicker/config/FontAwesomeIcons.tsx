@@ -1,5 +1,5 @@
 import React from "react";
-import { IconPickerConfig } from ".";
+import { IconPickerConfig } from "./index.js";
 
 type FaIconSet = {
     [key: string]: {

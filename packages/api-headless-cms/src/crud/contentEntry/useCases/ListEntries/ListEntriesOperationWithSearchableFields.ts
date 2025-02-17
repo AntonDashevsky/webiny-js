@@ -1,6 +1,6 @@
-import { IListEntriesOperation } from "../../abstractions";
-import { CmsContext, CmsEntryStorageOperationsListParams, CmsModel } from "~/types";
-import { getSearchableFields } from "~/crud/contentEntry/searchableFields";
+import { IListEntriesOperation } from "../../abstractions/index.js";
+import { CmsContext, CmsEntryStorageOperationsListParams, CmsModel } from "~/types/index.js";
+import { getSearchableFields } from "~/crud/contentEntry/searchableFields.js";
 
 export class ListEntriesOperationWithSearchableFields implements IListEntriesOperation {
     private context: CmsContext;

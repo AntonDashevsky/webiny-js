@@ -1,6 +1,6 @@
-import { HcmsAcoContext } from "~/types";
+import { HcmsAcoContext } from "~/types.js";
 import WebinyError from "@webiny/error";
-import { ROOT_FOLDER } from "@webiny/api-headless-cms/constants";
+import { ROOT_FOLDER } from "@webiny/api-headless-cms/constants.js";
 
 export const onEntryBeforeRestoreFromBinHook = (context: HcmsAcoContext) => {
     const { aco, cms } = context;

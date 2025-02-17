@@ -1,8 +1,8 @@
 import React from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import BlockCategoriesDataList from "./BlockCategoriesDataList";
-import BlockCategoriesForm from "./BlockCategoriesForm";
-import { useBlockCategoriesPermissions } from "~/hooks/permissions";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import BlockCategoriesDataList from "./BlockCategoriesDataList.js";
+import BlockCategoriesForm from "./BlockCategoriesForm.js";
+import { useBlockCategoriesPermissions } from "~/hooks/permissions/index.js";
 
 const BlockCategories = () => {
     const { canCreate } = useBlockCategoriesPermissions();

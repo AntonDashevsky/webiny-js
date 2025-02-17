@@ -6,21 +6,21 @@ import {
     FormBuilderStorageOperationsListSubmissionsParams,
     FormBuilderStorageOperationsListSubmissionsResponse,
     FormBuilderStorageOperationsUpdateSubmissionParams
-} from "@webiny/api-form-builder/types";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-form-builder/types.js";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
 import WebinyError from "@webiny/error";
 import { PluginsContainer } from "@webiny/plugins";
 import {
     FormBuilderSubmissionStorageOperations,
     FormBuilderSubmissionStorageOperationsCreatePartitionKeyParams
-} from "~/types";
+} from "~/types.js";
 import { parseIdentifier } from "@webiny/utils";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
-import { decodeCursor, encodeCursor } from "@webiny/db-dynamodb/utils/cursor";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter";
-import { FormSubmissionDynamoDbFieldPlugin } from "~/plugins/FormSubmissionDynamoDbFieldPlugin";
-import { getClean } from "@webiny/db-dynamodb/utils/get";
+import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { decodeCursor, encodeCursor } from "@webiny/db-dynamodb/utils/cursor.js";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
+import { FormSubmissionDynamoDbFieldPlugin } from "~/plugins/FormSubmissionDynamoDbFieldPlugin.js";
+import { getClean } from "@webiny/db-dynamodb/utils/get.js";
 import { deleteItem, put } from "@webiny/db-dynamodb";
 
 export interface CreateSubmissionStorageOperationsParams {

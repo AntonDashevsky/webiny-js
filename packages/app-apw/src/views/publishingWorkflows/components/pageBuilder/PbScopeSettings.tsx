@@ -1,17 +1,17 @@
 import React from "react";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { css } from "emotion";
-import { Tab, Tabs } from "@webiny/ui/Tabs";
-import { Typography } from "@webiny/ui/Typography";
-import { CheckboxGroup } from "@webiny/ui/Checkbox";
-import { Scrollbar } from "@webiny/ui/Scrollbar";
-import { MultiAutoComplete } from "@webiny/ui/AutoComplete";
-import { Elevation } from "@webiny/ui/Elevation";
+import { Tab, Tabs } from "@webiny/ui/Tabs/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
+import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
+import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
+import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { BindComponent } from "@webiny/form";
-import { Box, Stack } from "~/components/Layout";
-import { ListItemWithCheckbox } from "../ListItemWithCheckbox";
-import { usePbCategories } from "~/hooks/usePbCategories";
-import { usePbPages } from "~/hooks/usePbPages";
+import { Box, Stack } from "~/components/Layout.js";
+import { ListItemWithCheckbox } from "../ListItemWithCheckbox.js";
+import { usePbCategories } from "~/hooks/usePbCategories.js";
+import { usePbPages } from "~/hooks/usePbPages.js";
 import { validation } from "@webiny/validation";
 import { BindComponentRenderProp } from "@webiny/form";
 

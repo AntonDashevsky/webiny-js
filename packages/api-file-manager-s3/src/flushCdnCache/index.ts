@@ -1,6 +1,6 @@
-import { flushCacheOnFileUpdate } from "~/flushCdnCache/flushCacheOnFileUpdate";
-import { flushCacheOnFileDelete } from "~/flushCdnCache/flushCacheOnFileDelete";
-import { createInvalidateCacheTask } from "./invalidateCacheTaskDefinition";
+import { flushCacheOnFileUpdate } from "~/flushCdnCache/flushCacheOnFileUpdate.js";
+import { flushCacheOnFileDelete } from "~/flushCdnCache/flushCacheOnFileDelete.js";
+import { createInvalidateCacheTask } from "./invalidateCacheTaskDefinition.js";
 
 export const flushCdnCache = () => {
     return [flushCacheOnFileUpdate(), flushCacheOnFileDelete(), createInvalidateCacheTask()];

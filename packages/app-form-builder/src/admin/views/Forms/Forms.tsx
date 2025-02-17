@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import FormsDataList from "./FormsDataList";
-import FormDetails from "./FormDetails";
-import NewFormDialog from "./NewFormDialog";
-import { FormsProvider } from "./FormsContext";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import FormsDataList from "./FormsDataList.js";
+import FormDetails from "./FormDetails.js";
+import NewFormDialog from "./NewFormDialog.js";
+import { FormsProvider } from "./FormsContext.js";
 
 const Forms = () => {
     const [newFormDialogOpened, openNewFormDialog] = React.useState<boolean>(false);

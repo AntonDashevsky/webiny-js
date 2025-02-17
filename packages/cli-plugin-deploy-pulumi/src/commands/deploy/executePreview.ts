@@ -1,4 +1,4 @@
-import { Context, IPulumi, IUserCommandInput } from "~/types";
+import { Context, IPulumi, IUserCommandInput } from "~/types.js";
 import {
     createEnvConfiguration,
     withEnv,

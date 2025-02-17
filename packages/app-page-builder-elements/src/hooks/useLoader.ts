@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type DependencyList } from "react";
-import { createObjectHash } from "./useLoader/createObjectHash";
-import { useRenderer } from "..";
+import { createObjectHash } from "./useLoader/createObjectHash.js";
+import { useRenderer } from "../index.js";
 
 export interface RendererLoader<TData = unknown, TError = unknown> {
     data: TData | null;

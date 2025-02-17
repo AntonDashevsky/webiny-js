@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { IColumnsVisibilityRepository } from "./IColumnsVisibilityRepository";
-import { IColumnsVisibilityUpdater } from "./IColumnsVisibilityUpdater";
-import { OnColumnVisibilityChange } from "@webiny/ui/DataTable";
+import { IColumnsVisibilityRepository } from "./IColumnsVisibilityRepository.js";
+import { IColumnsVisibilityUpdater } from "./IColumnsVisibilityUpdater.js";
+import { OnColumnVisibilityChange } from "@webiny/ui/DataTable/index.js";
 
 export class ColumnsVisibilityUpdater implements IColumnsVisibilityUpdater {
     private repository: IColumnsVisibilityRepository;

@@ -5,14 +5,14 @@
 import React, { forwardRef } from "react";
 // import { TreeItemComponentProps } from "dnd-kit-sortable-tree";
 import classnames from "classnames";
-import { IconButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { Icon } from "@webiny/ui/Icon";
-import { rowHandle, fieldContainer, Row, RowContainer, FolderTreeItemWrapper } from "./Styled";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { rowHandle, fieldContainer, Row, RowContainer, FolderTreeItemWrapper } from "./Styled.js";
 import { ReactComponent as EditIcon } from "./icons/round-edit-24px.svg";
 import { ReactComponent as DeleteIcon } from "./icons/round-delete-24px.svg";
 import { ReactComponent as HandleIcon } from "./icons/round-drag_indicator-24px.svg";
-import { TreeItemComponentProps, MenuTreeItem } from "~/admin/views/Menus/types";
+import { TreeItemComponentProps, MenuTreeItem } from "~/admin/views/Menus/types.js";
 export interface NodeRendererDefaultProps {
     editItem: (item: MenuTreeItem) => void;
     deleteItem: (item: MenuTreeItem) => void;

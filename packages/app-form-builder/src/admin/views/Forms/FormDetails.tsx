@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { renderPlugins } from "@webiny/app/plugins";
+import { renderPlugins } from "@webiny/app/plugins/index.js";
 import { useRouter } from "@webiny/react-router";
 import styled from "@emotion/styled";
 import {
@@ -10,16 +10,16 @@ import {
     GetFormRevisionQueryVariables,
     GetFormRevisionsQueryResponse,
     GetFormRevisionsQueryVariables
-} from "../../graphql";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { Tabs } from "@webiny/ui/Tabs";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button";
+} from "../../graphql.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { Tabs } from "@webiny/ui/Tabs/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button/index.js";
 import { useSecurity } from "@webiny/app-security";
-import EmptyView from "@webiny/app-admin/components/EmptyView";
+import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { i18n } from "@webiny/app/i18n";
-import { useForms } from "./useForms";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useForms } from "./useForms.js";
 
 const t = i18n.ns("app-form-builder/admin/views/forms/form-details");
 

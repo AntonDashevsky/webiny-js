@@ -1,5 +1,5 @@
 import { NotAuthorizedError } from "@webiny/api-security";
-import { Context, TaskPermission } from "~/types";
+import { Context, TaskPermission } from "~/types.js";
 
 /**
  * @throws

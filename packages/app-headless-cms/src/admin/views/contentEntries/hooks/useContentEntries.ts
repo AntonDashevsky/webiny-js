@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ContentEntriesContext } from "../ContentEntriesContext";
+import { ContentEntriesContext } from "../ContentEntriesContext.js";
 
 export function useContentEntries() {
     const context = useContext(ContentEntriesContext);

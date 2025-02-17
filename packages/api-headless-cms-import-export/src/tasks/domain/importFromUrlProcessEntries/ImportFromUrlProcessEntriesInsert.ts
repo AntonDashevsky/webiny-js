@@ -2,18 +2,18 @@ import type {
     IImportFromUrlProcessEntriesInsert,
     IImportFromUrlProcessEntriesInsertRunParams,
     IImportFromUrlProcessEntriesInsertRunResult
-} from "./abstractions/ImportFromUrlProcessEntriesInsert";
+} from "./abstractions/ImportFromUrlProcessEntriesInsert.js";
 import type {
     IImportFromUrlProcessEntriesInput,
     IImportFromUrlProcessEntriesInsertProcessedFileErrorsInput,
     IImportFromUrlProcessEntriesInsertProcessedFileInput,
     IImportFromUrlProcessEntriesOutput
-} from "./abstractions/ImportFromUrlProcessEntries";
-import type { ICmsEntryManager } from "@webiny/api-headless-cms/types";
-import type { Context } from "~/types";
-import { MANIFEST_JSON } from "~/tasks/constants";
-import type { IFileFetcher } from "~/tasks/utils/fileFetcher";
-import type { ICmsEntryEntriesJson } from "~/tasks/utils/types";
+} from "./abstractions/ImportFromUrlProcessEntries.js";
+import type { ICmsEntryManager } from "@webiny/api-headless-cms/types/index.js";
+import type { Context } from "~/types.js";
+import { MANIFEST_JSON } from "~/tasks/constants.js";
+import type { IFileFetcher } from "~/tasks/utils/fileFetcher/index.js";
+import type { ICmsEntryEntriesJson } from "~/tasks/utils/types.js";
 
 export interface IImportFromUrlProcessEntriesInsertParams {
     entryManager: ICmsEntryManager;

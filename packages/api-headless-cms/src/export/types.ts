@@ -1,4 +1,4 @@
-import { CmsGroup, CmsModel } from "~/types";
+import { CmsGroup, CmsModel } from "~/types/index.js";
 
 export interface CmsImportError {
     message: string;

@@ -12,7 +12,7 @@ import {
     QuoteNode as BaseQuoteNode,
     SerializedQuoteNode as BaseSerializedQuoteNode
 } from "@lexical/rich-text";
-import { TextNodeThemeStyles, ThemeStyleValue, TypographyStylesNode } from "~/types";
+import { TextNodeThemeStyles, ThemeStyleValue, TypographyStylesNode } from "~/types.js";
 
 export type SerializedQuoteNode = Spread<
     {

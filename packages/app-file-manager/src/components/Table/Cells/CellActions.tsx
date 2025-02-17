@@ -1,8 +1,8 @@
 import React from "react";
 import { OptionsMenu } from "@webiny/app-admin";
 import { FolderProvider, useAcoConfig } from "@webiny/app-aco";
-import { FileProvider } from "~/contexts/FileProvider";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+import { FileProvider } from "~/contexts/FileProvider.js";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
 
 export const CellActions = () => {
     const { useTableRow, isFolderRow } = FileManagerViewConfig.Browser.Table.Column;

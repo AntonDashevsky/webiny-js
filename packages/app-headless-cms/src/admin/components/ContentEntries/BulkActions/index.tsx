@@ -1,5 +1,5 @@
-export { ActionDelete } from "./ActionDelete";
-export { ActionMove } from "./ActionMove";
-export { ActionPublish } from "./ActionPublish";
-export { ActionUnpublish } from "./ActionUnpublish";
-export * from "./BulkActions";
+export { ActionDelete } from "./ActionDelete.js";
+export { ActionMove } from "./ActionMove.js";
+export { ActionPublish } from "./ActionPublish.js";
+export { ActionUnpublish } from "./ActionUnpublish.js";
+export * from "./BulkActions.js";

@@ -1,4 +1,4 @@
-import { UploadedFile } from "@webiny/app/types";
+import { UploadedFile } from "@webiny/app/types.js";
 
 export interface CreateUploadParams {
     data: {

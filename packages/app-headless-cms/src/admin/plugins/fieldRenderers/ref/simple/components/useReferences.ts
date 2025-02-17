@@ -1,13 +1,13 @@
 import ApolloClient from "apollo-client";
 import { useEffect, useState } from "react";
-import { useApolloClient, useModelFieldGraphqlContext } from "~/admin/hooks";
-import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import { useApolloClient, useModelFieldGraphqlContext } from "~/admin/hooks/index.js";
+import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import {
     CmsEntrySearchQueryResponse,
     CmsEntrySearchQueryVariables,
     SEARCH_CONTENT_ENTRIES
-} from "~/admin/plugins/fieldRenderers/ref/components/graphql";
-import { CmsModel } from "~/types";
+} from "~/admin/plugins/fieldRenderers/ref/components/graphql.js";
+import { CmsModel } from "~/types.js";
 
 interface ExecuteSearchParams {
     setLoading: (loading: boolean) => void;

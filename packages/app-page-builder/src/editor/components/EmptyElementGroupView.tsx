@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 const EmptyViewWrapper = styled("div")({
     display: "flex",

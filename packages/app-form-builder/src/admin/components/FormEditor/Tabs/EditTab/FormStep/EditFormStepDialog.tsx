@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-import { Dialog as BaseDialog } from "@webiny/ui/Dialog";
+import { Dialog as BaseDialog } from "@webiny/ui/Dialog/index.js";
 import { Form, FormOnSubmit } from "@webiny/form";
-import { Input } from "@webiny/ui/Input";
-import { ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button";
+import { Input } from "@webiny/ui/Input/index.js";
+import { ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { validation } from "@webiny/validation";
 
 const EditStepDialog = styled(BaseDialog)`

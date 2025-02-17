@@ -1,12 +1,12 @@
 import React, { Fragment, useMemo } from "react";
-import { DynamicFieldset } from "@webiny/ui/DynamicFieldset";
-import { Input } from "@webiny/ui/Input";
+import { DynamicFieldset } from "@webiny/ui/DynamicFieldset/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography";
-import { ButtonSecondary, ButtonDefault } from "@webiny/ui/Button";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { ButtonSecondary, ButtonDefault } from "@webiny/ui/Button/index.js";
 import { validation } from "@webiny/validation";
 import { Bind } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 
 const Fieldset = styled("div")({
     position: "relative",

@@ -1,10 +1,10 @@
 import { useCallback } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { IMPORT_FORMS } from "~/admin/graphql";
-import useImportFormDialog from "~/admin/plugins/formsDataList/ImportButton/useImportFormDialog";
-import useImportFormLoadingDialog from "~/admin/plugins/formsDataList/ImportButton/useImportFormLoadingDialog";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { IMPORT_FORMS } from "~/admin/graphql.js";
+import useImportFormDialog from "~/admin/plugins/formsDataList/ImportButton/useImportFormDialog.js";
+import useImportFormLoadingDialog from "~/admin/plugins/formsDataList/ImportButton/useImportFormLoadingDialog.js";
 
 const useImportForm = () => {
     const [importForm] = useMutation(IMPORT_FORMS);

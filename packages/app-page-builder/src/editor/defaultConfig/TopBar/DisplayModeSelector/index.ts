@@ -1,1 +1,1 @@
-export { DisplayModeSelector } from "./DisplayModeSelector";
+export { DisplayModeSelector } from "./DisplayModeSelector.js";

@@ -4,10 +4,10 @@ import {
     EventActionHandlerProvider,
     EventActionHandlerProviderProps,
     GetCallableState
-} from "~/editor/contexts/EventActionHandlerProvider";
-import { BlockEditorEventActionCallableState } from "~/blockEditor/types";
-import { BlockAtomType } from "~/blockEditor/state";
-import { useBlock } from "~/blockEditor/hooks/useBlock";
+} from "~/editor/contexts/EventActionHandlerProvider.js";
+import { BlockEditorEventActionCallableState } from "~/blockEditor/types.js";
+import { BlockAtomType } from "~/blockEditor/state/index.js";
+import { useBlock } from "~/blockEditor/hooks/useBlock.js";
 
 type ProviderProps = EventActionHandlerProviderProps<BlockEditorEventActionCallableState>;
 

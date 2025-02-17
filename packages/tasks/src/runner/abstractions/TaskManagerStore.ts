@@ -6,8 +6,8 @@ import {
     ITaskResponseDoneResultOutput,
     ITaskUpdateData,
     TaskDataStatus
-} from "~/types";
-import { GenericRecord } from "@webiny/api/types";
+} from "~/types.js";
+import { GenericRecord } from "@webiny/api/types.js";
 
 export type ITaskManagerStoreUpdateTaskValues<T = ITaskDataInput> = T;
 

@@ -1,8 +1,8 @@
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { mergeResolvers } from "@graphql-tools/merge";
 import { ResolverDecoration } from "@webiny/handler-graphql";
-import { Resolvers, TypeDefs } from "@webiny/handler-graphql/types";
-import { ICmsGraphQLSchemaPlugin } from "~/plugins";
+import { Resolvers, TypeDefs } from "@webiny/handler-graphql/types.js";
+import { ICmsGraphQLSchemaPlugin } from "~/plugins/index.js";
 
 interface Params {
     plugins: ICmsGraphQLSchemaPlugin[];

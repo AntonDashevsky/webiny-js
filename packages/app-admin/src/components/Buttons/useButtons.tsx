@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonDefault, ButtonPrimary, ButtonSecondary, IconButton } from "./Buttons";
+import { ButtonDefault, ButtonPrimary, ButtonSecondary, IconButton } from "./Buttons.js";
 
 export interface ButtonsProviderContext {
     ButtonDefault: typeof ButtonDefault;

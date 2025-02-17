@@ -1,15 +1,15 @@
 import type { ITasksContextObject } from "@webiny/tasks";
-import { VALIDATE_IMPORT_FROM_URL_INTEGRITY_TASK } from "~/tasks/constants";
+import { VALIDATE_IMPORT_FROM_URL_INTEGRITY_TASK } from "~/tasks/constants.js";
 import type {
     IGetValidateImportFromUrlExecuteParams,
     IGetValidateImportFromUrlExecuteResponse,
     IGetValidateImportFromUrlUseCase
-} from "./abstractions/GetValidateImportFromUrlUseCase";
+} from "./abstractions/GetValidateImportFromUrlUseCase.js";
 import type {
     IValidateImportFromUrlInput,
     IValidateImportFromUrlOutput
-} from "~/tasks/domain/abstractions/ValidateImportFromUrl";
-import { convertTaskToValidateImportFromUrlRecord } from "~/crud/utils/convertTaskToValidateImportFromUrlRecord";
+} from "~/tasks/domain/abstractions/ValidateImportFromUrl.js";
+import { convertTaskToValidateImportFromUrlRecord } from "~/crud/utils/convertTaskToValidateImportFromUrlRecord.js";
 
 export interface IGetValidateImportFromUrlUseCaseParams {
     getTask: ITasksContextObject["getTask"];

@@ -1,1 +1,1 @@
-export * from "./EditorConfig";
+export * from "./EditorConfig.js";

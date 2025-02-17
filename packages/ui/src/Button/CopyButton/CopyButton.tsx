@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as CopyToClipboardIcon } from "../assets/file_copy-24px.svg";
-import { IconButton } from "../index";
-import { FormComponentProps } from "../../types";
+import { IconButton } from "../index.js";
+import { FormComponentProps } from "../../types.js";
 import { useCallback } from "react";
 
 export interface CopyButtonProps extends FormComponentProps {

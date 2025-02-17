@@ -1,9 +1,9 @@
-import { ImportExportTask, PbImportExportContext } from "~/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import { ImportExportTask, PbImportExportContext } from "~/types.js";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
 import { createRawEventHandler } from "@webiny/handler-aws";
-import { blocksHandler } from "~/import/create/blocksHandler";
-import { formsHandler } from "~/import/create/formsHandler";
-import { templatesHandler } from "~/import/create/templatesHandler";
+import { blocksHandler } from "~/import/create/blocksHandler.js";
+import { formsHandler } from "~/import/create/formsHandler.js";
+import { templatesHandler } from "~/import/create/templatesHandler.js";
 
 export interface Configuration {
     handlers: {

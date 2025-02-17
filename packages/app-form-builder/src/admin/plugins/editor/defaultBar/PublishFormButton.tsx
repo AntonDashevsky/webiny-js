@@ -1,17 +1,17 @@
 import React from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { useRouter } from "@webiny/react-router";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { i18n } from "@webiny/app/i18n";
-import { useFormEditor } from "~/admin/components/FormEditor";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { useFormEditor } from "~/admin/components/FormEditor/index.js";
 import {
     PUBLISH_REVISION,
     PublishRevisionMutationResponse,
     PublishRevisionMutationVariables
-} from "~/admin/graphql";
-import { usePermission } from "~/hooks/usePermission";
+} from "~/admin/graphql.js";
+import { usePermission } from "~/hooks/usePermission.js";
 
 const t = i18n.namespace("FormEditor.PublishPageButton");
 

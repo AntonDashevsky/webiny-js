@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ReactComponent as ExpandIcon } from "@material-design-icons/svg/filled/fullscreen.svg";
-import { Dialog, DialogActions, DialogContent } from "@webiny/ui/Dialog";
-import { ButtonPrimary, IconButton } from "@webiny/ui/Button";
-import { useVariable } from "@webiny/app-page-builder/hooks/useVariable";
-import { LexicalEditor } from "~/LexicalEditor";
+import { Dialog, DialogActions, DialogContent } from "@webiny/ui/Dialog/index.js";
+import { ButtonPrimary, IconButton } from "@webiny/ui/Button/index.js";
+import { useVariable } from "@webiny/app-page-builder/hooks/useVariable.js";
+import { LexicalEditor } from "~/LexicalEditor.js";
 import styled from "@emotion/styled";
-import { LexicalValue } from "@webiny/lexical-editor/types";
+import { LexicalValue } from "@webiny/lexical-editor/types.js";
 
 const InputWrapper = styled.div`
     display: grid;

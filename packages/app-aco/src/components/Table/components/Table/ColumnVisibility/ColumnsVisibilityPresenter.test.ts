@@ -1,10 +1,10 @@
-import { ColumnsVisibilityPresenter } from "./ColumnsVisibilityPresenter";
-import { IColumnsVisibilityGateway } from "../gateways";
-import { ColumnConfig } from "~/config/table/Column";
-import { Column, ColumnsPresenter, ColumnsRepository } from "../Columns";
-import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository";
-import { ColumnsVisibilityDecorator } from "./ColumnsVisibilityDecorator";
-import { ColumnsVisibilityUpdater } from "~/components/Table/components/Table/ColumnVisibility/ColumnsVisibilityUpdater";
+import { ColumnsVisibilityPresenter } from "./ColumnsVisibilityPresenter.js";
+import { IColumnsVisibilityGateway } from "../gateways/index.js";
+import { ColumnConfig } from "~/config/table/Column.js";
+import { Column, ColumnsPresenter, ColumnsRepository } from "../Columns/index.js";
+import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository.js";
+import { ColumnsVisibilityDecorator } from "./ColumnsVisibilityDecorator.js";
+import { ColumnsVisibilityUpdater } from "~/components/Table/components/Table/ColumnVisibility/ColumnsVisibilityUpdater.js";
 
 const defaultGateway: IColumnsVisibilityGateway = {
     get: jest.fn(),

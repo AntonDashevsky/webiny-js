@@ -1,3 +1,3 @@
-export { default as SecureView } from "./SecureView";
-export { default as SecureRoute } from "./SecureRoute";
-export { HasPermission } from "./HasPermission";
+export { default as SecureView } from "./SecureView.js";
+export { default as SecureRoute } from "./SecureRoute.js";
+export { HasPermission } from "./HasPermission.js";

@@ -5,7 +5,7 @@ import { JsxFragment, Node, Project } from "ts-morph";
 import { formatCode } from "@webiny/cli-plugin-scaffold/utils/index.js";
 import { updateDependencies, updateWorkspaces } from "~/utils.js";
 import Case from "case";
-import type { ExtensionMessage } from "~/types";
+import type { ExtensionMessage } from "~/types.js";
 
 export class AdminExtension extends AbstractExtension {
     async link() {

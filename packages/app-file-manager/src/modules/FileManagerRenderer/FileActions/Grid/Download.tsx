@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as DownloadIcon } from "@material-design-icons/svg/filled/download.svg";
-import { FileManagerViewConfig, useFile } from "~/index";
+import { FileManagerViewConfig, useFile } from "~/index.js";
 
 const { Browser } = FileManagerViewConfig;
 

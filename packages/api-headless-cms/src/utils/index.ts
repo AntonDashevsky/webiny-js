@@ -1,2 +1,2 @@
-export * from "./caching";
-export * from "./modelFieldTraverser";
+export * from "./caching/index.js";
+export * from "./modelFieldTraverser/index.js";

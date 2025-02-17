@@ -1,11 +1,11 @@
 import React from "react";
 import { css } from "emotion";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Menu, MenuItem } from "@webiny/ui/Menu";
-import { IconButton } from "@webiny/ui/Button";
+import { Menu, MenuItem } from "@webiny/ui/Menu/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as MoreVerticalIcon } from "@material-design-icons/svg/filled/more_vert.svg";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 
 const menuStyles = css({
     ".disabled": {

@@ -1,7 +1,7 @@
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { filterAsync } from "~/utils/filterAsync";
-import { IGetLatestEntriesByIds } from "../../abstractions";
-import { CmsEntryStorageOperationsGetLatestByIdsParams, CmsModel } from "~/types";
+import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { filterAsync } from "~/utils/filterAsync.js";
+import { IGetLatestEntriesByIds } from "../../abstractions/index.js";
+import { CmsEntryStorageOperationsGetLatestByIdsParams, CmsModel } from "~/types/index.js";
 
 export class GetLatestEntriesByIdsSecure implements IGetLatestEntriesByIds {
     private accessControl: AccessControl;

@@ -4,7 +4,7 @@ import {
     QueryCommand,
     unmarshall
 } from "@webiny/aws-sdk/client-dynamodb";
-import { GenericRecord } from "~/types";
+import { GenericRecord } from "~/types.js";
 
 interface ServiceManifest {
     name: string;

@@ -1,6 +1,6 @@
 import Error from "@webiny/error";
-import { File, FileManagerContext } from "~/types";
-import { AssetAuthorizer } from "./AssetAuthorizer";
+import { File, FileManagerContext } from "~/types.js";
+import { AssetAuthorizer } from "./AssetAuthorizer.js";
 
 export class PrivateAuthenticatedAuthorizer implements AssetAuthorizer {
     private context: FileManagerContext;

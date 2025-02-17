@@ -1,6 +1,6 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
-import { PbContext } from "../../types";
-import resolve from "./utils/resolve";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import { PbContext } from "../../types.js";
+import resolve from "./utils/resolve.js";
 
 export const createMenuGraphQL = (): GraphQLSchemaPlugin<PbContext> => {
     return {

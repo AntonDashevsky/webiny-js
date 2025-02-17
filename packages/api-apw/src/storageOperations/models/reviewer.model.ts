@@ -1,4 +1,4 @@
-import { createModelField } from "./utils";
+import { createModelField } from "./utils.js";
 import { createPrivateModel } from "@webiny/api-headless-cms";
 
 const idField = () =>

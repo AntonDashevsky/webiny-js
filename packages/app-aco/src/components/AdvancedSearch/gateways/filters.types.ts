@@ -1,5 +1,5 @@
-import { FilterDTO, FilterStorage } from "~/components/AdvancedSearch/domain";
-import { AcoError } from "~/types";
+import { FilterDTO, FilterStorage } from "~/components/AdvancedSearch/domain/index.js";
+import { AcoError } from "~/types.js";
 
 export interface ListFiltersQueryVariables {
     namespace: string;

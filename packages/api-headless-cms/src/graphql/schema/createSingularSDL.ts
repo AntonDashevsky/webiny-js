@@ -1,7 +1,7 @@
-import { ApiEndpoint, CmsFieldTypePlugins, CmsModel } from "~/types";
-import { renderInputFields } from "~/utils/renderInputFields";
-import { renderFields } from "~/utils/renderFields";
-import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
+import { ApiEndpoint, CmsFieldTypePlugins, CmsModel } from "~/types/index.js";
+import { renderInputFields } from "~/utils/renderInputFields.js";
+import { renderFields } from "~/utils/renderFields.js";
+import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";
 
 interface CreateSingularSDLParams {
     models: CmsModel[];

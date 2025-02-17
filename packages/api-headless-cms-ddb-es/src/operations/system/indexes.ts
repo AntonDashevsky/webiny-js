@@ -1,7 +1,7 @@
-import { CmsContext } from "~/types";
+import { CmsContext } from "~/types.js";
 import { PluginsContainer } from "@webiny/plugins";
 import { Client } from "@elastic/elasticsearch";
-import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex";
+import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex.js";
 
 interface Params {
     context: CmsContext;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
 const LoaderContainer = styled("div")({
     display: "flex",

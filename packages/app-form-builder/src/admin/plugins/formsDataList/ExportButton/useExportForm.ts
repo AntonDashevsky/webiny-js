@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import { EXPORT_FORMS } from "~/admin/graphql";
-import useExportFormDialog from "./useExportFormDialog";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
+import { EXPORT_FORMS } from "~/admin/graphql.js";
+import useExportFormDialog from "./useExportFormDialog.js";
 
 const useExportForm = () => {
     const [taskId, setTaskId] = useState<string | null>(null);

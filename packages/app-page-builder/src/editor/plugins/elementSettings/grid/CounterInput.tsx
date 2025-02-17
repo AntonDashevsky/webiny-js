@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { css } from "emotion";
-import { IconButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 // Icons
 import { ReactComponent as AddIcon } from "../../../assets/icons/add.svg";
 import { ReactComponent as RemoveIcon } from "../../../assets/icons/remove.svg";
-import { COLORS } from "../components/StyledComponents";
+import { COLORS } from "../components/StyledComponents.js";
 
 const classes = {
     grid: css({

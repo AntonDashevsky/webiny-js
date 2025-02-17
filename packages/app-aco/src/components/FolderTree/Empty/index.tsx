@@ -1,9 +1,9 @@
 import React from "react";
 
-import { i18n } from "@webiny/app/i18n";
-import { Typography } from "@webiny/ui/Typography";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
-import { Container } from "./styled";
+import { Container } from "./styled.js";
 
 const t = i18n.ns("app-aco/components/folder-tree/empty");
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { ColumnDirectionIcon, ColumnDirectionWrapper } from "~/DataTable/styled";
+import { ColumnDirectionIcon, ColumnDirectionWrapper } from "~/DataTable/styled.js";
 
 export interface ColumnDirectionProps {
     direction?: "asc" | "desc";

@@ -1,8 +1,8 @@
-import type { IAddOptions, IZipper, IZipperDoneResult } from "./abstractions/Zipper";
+import type { IAddOptions, IZipper, IZipperDoneResult } from "./abstractions/Zipper.js";
 import type { Readable } from "stream";
 import type { ArchiverError, EntryData, ProgressData } from "archiver";
-import type { IUpload } from "~/tasks/utils/upload";
-import type { IArchiver } from "~/tasks/utils/archiver";
+import type { IUpload } from "~/tasks/utils/upload/index.js";
+import type { IArchiver } from "~/tasks/utils/archiver/index.js";
 
 export interface IZipperConfig {
     upload: IUpload;

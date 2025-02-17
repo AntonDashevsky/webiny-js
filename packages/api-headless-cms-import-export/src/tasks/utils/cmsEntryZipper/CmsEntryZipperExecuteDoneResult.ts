@@ -1,4 +1,4 @@
-import type { ICmsEntryZipperExecuteDoneResult } from "./abstractions/CmsEntryZipperExecuteDoneResult";
+import type { ICmsEntryZipperExecuteDoneResult } from "./abstractions/CmsEntryZipperExecuteDoneResult.js";
 
 export class CmsEntryZipperExecuteDoneResult implements ICmsEntryZipperExecuteDoneResult {
     public readonly key: string;

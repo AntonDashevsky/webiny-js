@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import camelCase from "lodash/camelCase";
-import cloneDeep from "lodash/cloneDeep";
-import { OptionsListItem, AddOptionInput, EditFieldOptionDialog } from "./OptionsListComponents";
-import { Icon } from "@webiny/ui/Icon";
-import { Typography } from "@webiny/ui/Typography";
-import { Switch } from "@webiny/ui/Switch";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import camelCase from "lodash/camelCase.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import { OptionsListItem, AddOptionInput, EditFieldOptionDialog } from "./OptionsListComponents/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Switch } from "@webiny/ui/Switch/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { ReactComponent as HandleIcon } from "../../../../icons/round-drag_indicator-24px.svg";
 import { validation } from "@webiny/validation";
-import { FormRenderPropParams } from "@webiny/form/types";
-import { FieldOption } from "./types";
+import { FormRenderPropParams } from "@webiny/form/types.js";
+import { FieldOption } from "./types.js";
 import { DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import {
     SortableContainerContextProvider,
     FieldOptionWithId
-} from "./OptionsListComponents/OptionsListItem";
+} from "./OptionsListComponents/OptionsListItem.js";
 
 const OptionListItem = styled("li")({
     zIndex: 10,

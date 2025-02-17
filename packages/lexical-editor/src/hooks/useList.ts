@@ -22,8 +22,8 @@ import {
     INSERT_ORDERED_LIST_COMMAND,
     INSERT_UNORDERED_LIST_COMMAND,
     REMOVE_LIST_COMMAND
-} from "~/commands";
-import { getNodeFromSelection } from "~/hooks/useCurrentElement";
+} from "~/commands/index.js";
+import { getNodeFromSelection } from "~/hooks/useCurrentElement.js";
 
 export function useList(editor: LexicalEditor): void {
     useEffect(() => {

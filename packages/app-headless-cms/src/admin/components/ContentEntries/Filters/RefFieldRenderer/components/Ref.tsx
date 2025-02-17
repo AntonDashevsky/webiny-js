@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import debounce from "lodash/debounce";
+import debounce from "lodash/debounce.js";
 import { observer } from "mobx-react-lite";
 import { useBind } from "@webiny/form";
-import { EntriesGraphQLGateway } from "../adapters";
-import { entryRepositoryFactory } from "../domain";
-import { AutoComplete } from "./AutoComplete";
-import { RefPresenter } from "./RefPresenter";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
-import { useApolloClient } from "~/admin/hooks";
+import { EntriesGraphQLGateway } from "../adapters/index.js";
+import { entryRepositoryFactory } from "../domain/index.js";
+import { AutoComplete } from "./AutoComplete.js";
+import { RefPresenter } from "./RefPresenter.js";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
+import { useApolloClient } from "~/admin/hooks/index.js";
 
 const { useInputField } = ContentEntryListConfig.Browser.AdvancedSearch.FieldRenderer;
 

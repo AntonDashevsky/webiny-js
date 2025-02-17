@@ -1,13 +1,13 @@
-import type { Entity, TableDef } from "~/toolbox";
+import type { Entity, TableDef } from "~/toolbox.js";
 import type {
     IEntityReadBatchBuilder,
     IEntityReadBatchBuilderGetResponse
-} from "~/utils/entity/types";
-import { batchReadAll } from "~/utils/batch/batchRead";
-import { createEntityReadBatchBuilder } from "~/utils/entity/EntityReadBatchBuilder";
-import type { GenericRecord } from "@webiny/api/types";
+} from "~/utils/entity/types.js";
+import { batchReadAll } from "~/utils/batch/batchRead.js";
+import { createEntityReadBatchBuilder } from "~/utils/entity/EntityReadBatchBuilder.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 import { WebinyError } from "@webiny/error";
-import type { ITableReadBatch, ITableReadBatchKey } from "./types";
+import type { ITableReadBatch, ITableReadBatchKey } from "./types.js";
 
 export interface ITableReadBatchParams {
     table: TableDef;

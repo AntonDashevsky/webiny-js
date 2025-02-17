@@ -1,4 +1,4 @@
-import { esPutIndexSettings } from "~/utils";
+import { esPutIndexSettings } from "~/utils/index.js";
 import { Logger } from "@webiny/data-migration";
 import { Client } from "@elastic/elasticsearch";
 

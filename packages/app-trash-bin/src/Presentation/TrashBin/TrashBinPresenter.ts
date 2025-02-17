@@ -1,13 +1,13 @@
 import { makeAutoObservable } from "mobx";
-import { ITrashBinItemMapper, TrashBinItem } from "~/Domain";
+import { ITrashBinItemMapper, TrashBinItem } from "~/Domain/index.js";
 import { ISortingRepository, MetaMapper, SortingMapper } from "@webiny/app-utils";
 import {
     TrashBinItemMapper,
     ITrashBinItemsRepository,
     ISelectedItemsRepository,
     ISearchRepository
-} from "~/Domain/Repositories";
-import { LoadingActions } from "~/types";
+} from "~/Domain/Repositories/index.js";
+import { LoadingActions } from "~/types.js";
 
 export class TrashBinPresenter {
     private itemsRepository: ITrashBinItemsRepository;

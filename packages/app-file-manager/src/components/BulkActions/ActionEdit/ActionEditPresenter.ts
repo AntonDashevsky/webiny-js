@@ -8,7 +8,7 @@ import {
     FieldDTO,
     FieldMapper,
     FieldRaw
-} from "~/components/BulkActions/ActionEdit/domain";
+} from "~/components/BulkActions/ActionEdit/domain/index.js";
 
 function isBulkEditableField(field: FieldRaw) {
     return field.tags && field.tags.includes("$bulk-edit");

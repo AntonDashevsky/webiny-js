@@ -16,19 +16,19 @@ import {
     OnEntryLockErrorTopicParams,
     OnEntryUnlockErrorTopicParams,
     OnEntryUnlockRequestErrorTopicParams
-} from "~/types";
-import { RECORD_LOCKING_MODEL_ID } from "./model";
-import { IGetLockRecordUseCaseExecute } from "~/abstractions/IGetLockRecordUseCase";
-import { IIsEntryLockedUseCaseExecute } from "~/abstractions/IIsEntryLocked";
-import { ILockEntryUseCaseExecute } from "~/abstractions/ILockEntryUseCase";
-import { IUnlockEntryUseCaseExecute } from "~/abstractions/IUnlockEntryUseCase";
-import { createUseCases } from "~/useCases";
-import { IUnlockEntryRequestUseCaseExecute } from "~/abstractions/IUnlockEntryRequestUseCase";
+} from "~/types.js";
+import { RECORD_LOCKING_MODEL_ID } from "./model.js";
+import { IGetLockRecordUseCaseExecute } from "~/abstractions/IGetLockRecordUseCase.js";
+import { IIsEntryLockedUseCaseExecute } from "~/abstractions/IIsEntryLocked.js";
+import { ILockEntryUseCaseExecute } from "~/abstractions/ILockEntryUseCase.js";
+import { IUnlockEntryUseCaseExecute } from "~/abstractions/IUnlockEntryUseCase.js";
+import { createUseCases } from "~/useCases/index.js";
+import { IUnlockEntryRequestUseCaseExecute } from "~/abstractions/IUnlockEntryRequestUseCase.js";
 import { createTopic } from "@webiny/pubsub";
-import { IListAllLockRecordsUseCaseExecute } from "~/abstractions/IListAllLockRecordsUseCase";
-import { IListLockRecordsUseCaseExecute } from "~/abstractions/IListLockRecordsUseCase";
-import { IUpdateEntryLockUseCaseExecute } from "~/abstractions/IUpdateEntryLockUseCase";
-import { IGetLockedEntryLockRecordUseCaseExecute } from "~/abstractions/IGetLockedEntryLockRecordUseCase";
+import { IListAllLockRecordsUseCaseExecute } from "~/abstractions/IListAllLockRecordsUseCase.js";
+import { IListLockRecordsUseCaseExecute } from "~/abstractions/IListLockRecordsUseCase.js";
+import { IUpdateEntryLockUseCaseExecute } from "~/abstractions/IUpdateEntryLockUseCase.js";
+import { IGetLockedEntryLockRecordUseCaseExecute } from "~/abstractions/IGetLockedEntryLockRecordUseCase.js";
 
 interface Params {
     context: Pick<Context, "plugins" | "cms" | "benchmark" | "security" | "websockets">;

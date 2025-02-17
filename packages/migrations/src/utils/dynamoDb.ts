@@ -15,7 +15,7 @@ import {
     ScanParams,
     ScanResponse,
     scanWithCallback as ddbScanWithCallback
-} from "@webiny/db-dynamodb/utils";
+} from "@webiny/db-dynamodb/utils/index.js";
 
 export {
     count,

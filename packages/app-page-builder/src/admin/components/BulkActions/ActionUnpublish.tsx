@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import { ReactComponent as UnpublishIcon } from "@material-design-icons/svg/outlined/settings_backup_restore.svg";
 import { observer } from "mobx-react-lite";
 import { useRecords } from "@webiny/app-aco";
-import { PageListConfig } from "~/admin/config/pages";
-import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
-import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions";
+import { PageListConfig } from "~/admin/config/pages/index.js";
+import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
+import { getPagesLabel } from "~/admin/components/BulkActions/BulkActions.js";
 
 export const ActionUnpublish = observer(() => {
     const { unpublishPage, client } = useAdminPageBuilder();

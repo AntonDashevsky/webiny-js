@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
-import { SimpleFormFooter as BaseSimpleFormFooter } from "@webiny/app-admin/components/SimpleForm";
-import { IconButton } from "@webiny/ui/Button";
-import { DrawerRight } from "@webiny/ui/Drawer";
+import { SimpleFormFooter as BaseSimpleFormFooter } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { DrawerRight } from "@webiny/ui/Drawer/index.js";
 
 export const CloseButton = styled(IconButton)`
     position: absolute;

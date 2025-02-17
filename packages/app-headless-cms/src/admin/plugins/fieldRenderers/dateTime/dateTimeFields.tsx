@@ -1,13 +1,13 @@
 import React from "react";
-import get from "lodash/get";
-import DynamicSection from "../DynamicSection";
-import { CmsModelFieldRendererPlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
+import get from "lodash/get.js";
+import DynamicSection from "../DynamicSection.js";
+import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as DeleteIcon } from "~/admin/icons/close.svg";
-import { DateTimeWithoutTimezone } from "./DateTimeWithoutTimezone";
-import { DateTimeWithTimezone } from "./DateTimeWithTimezone";
-import { DateOnly } from "./DateOnly";
-import { Time } from "./Time";
+import { DateTimeWithoutTimezone } from "./DateTimeWithoutTimezone.js";
+import { DateTimeWithTimezone } from "./DateTimeWithTimezone.js";
+import { DateOnly } from "./DateOnly.js";
+import { Time } from "./Time.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/date-time");
 

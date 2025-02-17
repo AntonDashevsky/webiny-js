@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FormAPI, GenericFormData } from "~/types";
+import { FormAPI, GenericFormData } from "~/types.js";
 
 export const FormContext = React.createContext<FormAPI | undefined>(undefined);
 

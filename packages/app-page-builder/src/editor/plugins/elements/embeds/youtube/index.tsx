@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
-import { Typography } from "@webiny/ui/Typography";
-import { createEmbedSettingsPlugin, createEmbedPlugin } from "../../utils/oembed";
-import YoutubeEmbed from "./YoutubeEmbed";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { createEmbedSettingsPlugin, createEmbedPlugin } from "../../utils/oembed/index.js";
+import YoutubeEmbed from "./YoutubeEmbed.js";
 import placeholder from "./placeholder.png";
 import { ReactComponent as LogoIcon } from "./youtube-brands.svg";
-import Accordion from "../../../elementSettings/components/Accordion";
-import InputField from "../../../elementSettings/components/InputField";
-import { SimpleButton } from "../../../elementSettings/components/StyledComponents";
-import { OnCreateActions, PbEditorElementPluginArgs } from "~/types";
-import kebabCase from "lodash/kebabCase";
-import { EmbedPluginConfigRenderCallable } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
+import Accordion from "../../../elementSettings/components/Accordion.js";
+import InputField from "../../../elementSettings/components/InputField.js";
+import { SimpleButton } from "../../../elementSettings/components/StyledComponents.js";
+import { OnCreateActions, PbEditorElementPluginArgs } from "~/types.js";
+import kebabCase from "lodash/kebabCase.js";
+import { EmbedPluginConfigRenderCallable } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin.js";
 
-import { PElementsYouTube } from "./PElementsYouTube";
+import { PElementsYouTube } from "./PElementsYouTube.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

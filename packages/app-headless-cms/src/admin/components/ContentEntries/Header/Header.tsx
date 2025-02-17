@@ -1,9 +1,9 @@
 import React from "react";
 import { Search } from "@webiny/app-aco";
-import { ButtonFilters } from "./ButtonFilters";
-import { ButtonsCreate } from "./ButtonsCreate";
-import { Title } from "./Title";
-import { ActionsColumn, Container, TitleColumn, WrapperActions } from "./styled";
+import { ButtonFilters } from "./ButtonFilters/index.js";
+import { ButtonsCreate } from "./ButtonsCreate/index.js";
+import { Title } from "./Title/index.js";
+import { ActionsColumn, Container, TitleColumn, WrapperActions } from "./styled.js";
 
 interface HeaderProps {
     title?: string;

@@ -1,9 +1,9 @@
 import { ITaskResponseResult } from "@webiny/tasks";
-import { IExportPagesZipPagesTaskParams } from "~/export/pages/types";
-import { PageExporter } from "~/export/process/exporters/PageExporter";
-import { ZipPagesDataManager } from "./ZipPagesDataManager";
-import { getPageFactory } from "./getPageFactory";
-import { createExportPagesDataKey } from "~/export/pages/utils";
+import { IExportPagesZipPagesTaskParams } from "~/export/pages/types.js";
+import { PageExporter } from "~/export/process/exporters/PageExporter.js";
+import { ZipPagesDataManager } from "./ZipPagesDataManager.js";
+import { getPageFactory } from "./getPageFactory.js";
+import { createExportPagesDataKey } from "~/export/pages/utils.js";
 
 /**
  * We will pause the execution of the task if there is less than CLOSE_TO_TIMEOUT_SECONDS left on the Lambda execution time.

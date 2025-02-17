@@ -2,10 +2,11 @@ import os from "os";
 import execa from "execa";
 import * as path from "path";
 import fs from "fs-extra";
-import merge from "lodash/merge";
-import kebabCase from "lodash/kebabCase";
-import set from "lodash/set";
-import downloadBinaries from "./downloadBinaries";
+import merge from "lodash/merge.js";
+import kebabCase from "lodash/kebabCase.js";
+import set from "lodash/set.js";
+import downloadBinaries from "./downloadBinaries.js";
+import { PackageJson } from "@webiny/cli";
 
 type Command = string | string[];
 
@@ -35,7 +36,6 @@ export interface Options {
 
 export interface RunArgs {
     command: Command;
-
     args?: PulumiArgs;
     execa?: ExecaArgs;
     beforePulumiInstall?: () => any;
@@ -55,7 +55,16 @@ export class Pulumi {
     pulumiDownloadFolder: string;
     pulumiBinaryPath: string;
 
-    constructor(options: Options = {}) {
+    static async create(options: Options = {}) {
+        const pulumi = new Pulumi(options);
+        // If not already installed, Pulumi binaries will be downloaded in this step.
+        await pulumi.install();
+        // No matter if it's a fresh installation or not, we make sure that Pulumi AWS plugin is installed.
+        await pulumi.ensureAwsPluginIsInstalled();
+        return pulumi;
+    }
+
+    private constructor(options: Options = {}) {
         this.options = options;
 
         this.pulumiDownloadFolder = path.join(
@@ -69,8 +78,6 @@ export class Pulumi {
     }
 
     run(rawArgs: RunArgs) {
-        this.ensureAwsPluginIsInstalled();
-
         const args = merge({}, this.options, rawArgs);
 
         if (!Array.isArray(args.command)) {
@@ -140,30 +147,25 @@ export class Pulumi {
         return execa(this.pulumiBinaryPath, [...args.command, ...finalArgs, ...flags], execaArgs);
     }
 
-    async install(rawArgs?: InstallArgs): Promise<boolean> {
+    private async install(rawArgs?: InstallArgs): Promise<boolean> {
         const args = merge({}, this.options, rawArgs);
 
-        const installed = await downloadBinaries(
+        return await downloadBinaries(
             this.pulumiDownloadFolder,
             args.beforePulumiInstall,
             args.afterPulumiInstall
         );
-
-        if (installed) {
-            this.ensureAwsPluginIsInstalled();
-        }
-
-        return installed;
     }
 
-    ensureAwsPluginIsInstalled() {
-        const { version } = require("@pulumi/aws/package.json");
+    private async ensureAwsPluginIsInstalled() {
+        const pulumiAwsPackageJson = await PackageJson.fromPackage("@pulumi/aws");
+        const packageJson = pulumiAwsPackageJson.getJson();
 
         const pluginExists = fs.pathExistsSync(
             path.join(
                 this.pulumiFolder,
                 "plugins",
-                `resource-aws-${version}`,
+                `resource-aws-${packageJson.version}`,
                 "pulumi-resource-aws"
             )
         );
@@ -174,7 +176,7 @@ export class Pulumi {
 
         return execa.sync(
             this.pulumiBinaryPath,
-            ["plugin", "install", "resource", "aws", version],
+            ["plugin", "install", "resource", "aws", packageJson.version],
             {
                 stdio: "inherit",
                 env: {

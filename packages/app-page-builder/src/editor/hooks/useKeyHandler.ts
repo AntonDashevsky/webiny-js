@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from "react";
 import isHotkey from "is-hotkey";
-import { getNanoid } from "../helpers";
+import { getNanoid } from "../helpers.js";
 
 interface KeyHandler {
     id: string;

@@ -1,19 +1,19 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
-import { Search } from "./Search";
-import { Entry } from "./Entry";
-import { DialogActions, DialogContent as BaseDialogContent } from "~/admin/components/Dialog";
-import { CmsModelField, CmsModelFieldRendererProps } from "~/types";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button";
+import { Search } from "./Search.js";
+import { Entry } from "./Entry.js";
+import { DialogActions, DialogContent as BaseDialogContent } from "~/admin/components/Dialog.js";
+import { CmsModelField, CmsModelFieldRendererProps } from "~/types.js";
+import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { useSnackbar } from "@webiny/app-admin";
 import { parseIdentifier } from "@webiny/utils";
-import { AbsoluteLoader } from "~/admin/plugins/fieldRenderers/ref/advanced/components/Loader";
-import { useEntries } from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/useEntries";
-import { Entries } from "./Entries";
-import { Dialog } from "~/admin/plugins/fieldRenderers/ref/components/dialog/Dialog";
-import { DialogHeader } from "~/admin/plugins/fieldRenderers/ref/components/dialog/DialogHeader";
-import { MultiRefFieldSettings } from "~/admin/plugins/fieldRenderers/ref/advanced/components/AdvancedMultipleReferenceSettings";
+import { AbsoluteLoader } from "~/admin/plugins/fieldRenderers/ref/advanced/components/Loader.js";
+import { useEntries } from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/useEntries.js";
+import { Entries } from "./Entries.js";
+import { Dialog } from "~/admin/plugins/fieldRenderers/ref/components/dialog/Dialog.js";
+import { DialogHeader } from "~/admin/plugins/fieldRenderers/ref/components/dialog/DialogHeader.js";
+import { MultiRefFieldSettings } from "~/admin/plugins/fieldRenderers/ref/advanced/components/AdvancedMultipleReferenceSettings.js";
 
 const Container = styled("div")({
     width: "100%",

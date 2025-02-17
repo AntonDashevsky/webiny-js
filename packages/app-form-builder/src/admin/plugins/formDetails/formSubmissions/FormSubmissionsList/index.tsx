@@ -1,1 +1,1 @@
-export { FormSubmissionsList } from "./FormSubmissionsList";
+export { FormSubmissionsList } from "./FormSubmissionsList.js";

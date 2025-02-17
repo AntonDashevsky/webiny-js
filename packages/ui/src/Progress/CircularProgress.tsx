@@ -1,8 +1,11 @@
 // This is just to center the spinner
 import React from "react";
 import styled from "@emotion/styled";
-import Spinner from "react-spinner-material";
-import { Typography } from "../Typography";
+import spinnerModule from "react-spinner-material";
+import { Typography } from "../Typography/index.js";
+
+// @ts-expect-error `react-spinner-module` is obsolete and doesn't play well with ESM.
+const Spinner: React.ComponentType<any> = spinnerModule.default;
 
 interface CircularProgressProps {
     label?: React.ReactNode;
@@ -47,6 +50,7 @@ const CircularProgress = (props: CircularProgressProps) => {
         visible = true,
         style
     } = props;
+
     /**
      * We can safely cast because we have default props
      */

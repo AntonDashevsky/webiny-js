@@ -1,7 +1,7 @@
 import React from "react";
-import { PbEditorPageElementVariableRendererPlugin } from "~/types";
-import LinkVariableInput from "~/editor/plugins/elementSettings/variable/LinkVariableInput";
-import { useElementVariables } from "~/editor/hooks/useElementVariableValue";
+import { PbEditorPageElementVariableRendererPlugin } from "~/types.js";
+import LinkVariableInput from "~/editor/plugins/elementSettings/variable/LinkVariableInput.js";
+import { useElementVariables } from "~/editor/hooks/useElementVariableValue.js";
 
 export default {
     name: "pb-editor-page-element-variable-renderer-twitter",

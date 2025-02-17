@@ -1,28 +1,28 @@
 import React, { useCallback, useMemo } from "react";
 import { css } from "emotion";
-import startCase from "lodash/startCase";
-import get from "lodash/get";
-import set from "lodash/set";
-import merge from "lodash/merge";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import startCase from "lodash/startCase.js";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import merge from "lodash/merge.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { plugins } from "@webiny/plugins";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload.js";
 import { FileManagerFileItem } from "@webiny/app-admin";
 import {
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin
-} from "~/types";
-import useUpdateHandlers from "../useUpdateHandlers";
+} from "~/types.js";
+import useUpdateHandlers from "../useUpdateHandlers.js";
 // Components
-import Wrapper from "../components/Wrapper";
-import SelectField from "../components/SelectField";
-import Accordion from "../components/Accordion";
-import ColorPicker from "../components/ColorPicker";
-import { ContentWrapper, classes } from "../components/StyledComponents";
-import { applyFallbackDisplayMode } from "../elementSettingsUtils";
-import { useDisplayMode } from "~/editor/hooks/useDisplayMode";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import Wrapper from "../components/Wrapper.js";
+import SelectField from "../components/SelectField.js";
+import Accordion from "../components/Accordion.js";
+import ColorPicker from "../components/ColorPicker.js";
+import { ContentWrapper, classes } from "../components/StyledComponents.js";
+import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
+import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
 
 const positions = [
     "top left",

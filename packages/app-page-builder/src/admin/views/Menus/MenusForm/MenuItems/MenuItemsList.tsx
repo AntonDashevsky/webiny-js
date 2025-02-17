@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
-import NodeRendererDefault, { NodeRendererDefaultProps } from "./MenuItemRenderer";
+import NodeRendererDefault, { NodeRendererDefaultProps } from "./MenuItemRenderer.js";
 import { SortableTree, TreeItems, TreeItemComponentProps } from "dnd-kit-sortable-tree";
-import { Typography } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import styled from "@emotion/styled";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import { MenuTreeItem } from "~/admin/views/Menus/types.js";
 
 const TreeWrapper = styled("div")({
     width: "100%",

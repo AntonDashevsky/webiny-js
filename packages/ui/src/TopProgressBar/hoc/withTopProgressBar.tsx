@@ -1,5 +1,5 @@
 import React from "react";
-import { TopProgressBar } from "..";
+import { TopProgressBar } from "../index.js";
 
 const withTopProgressBar = () => {
     return (BaseComponent: React.ComponentType<any>) => {

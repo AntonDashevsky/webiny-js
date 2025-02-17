@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { EntryTableItem } from "~/types";
+import { EntryTableItem } from "~/types.js";
 
 export interface EntryContext {
     entry: EntryTableItem;

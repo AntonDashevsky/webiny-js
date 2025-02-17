@@ -1,11 +1,11 @@
 import { createPrivateTaskDefinition, ITask } from "@webiny/tasks";
-import { IListEntries, IProcessEntry } from "~/abstractions";
+import { IListEntries, IProcessEntry } from "~/abstractions/index.js";
 import {
     ChildTasksCleanup,
     CreateTasksByModel,
     ProcessTask,
     ProcessTasksByModel
-} from "~/useCases/internals";
+} from "~/useCases/internals/index.js";
 import {
     BulkActionOperationByModelAction,
     HcmsBulkActionsContext,
@@ -13,7 +13,7 @@ import {
     IBulkActionOperationByModelOutput,
     IBulkActionOperationInput,
     IBulkActionOperationOutput
-} from "~/types";
+} from "~/types.js";
 
 export interface CreateBackgroundTasksConfig {
     name: string;

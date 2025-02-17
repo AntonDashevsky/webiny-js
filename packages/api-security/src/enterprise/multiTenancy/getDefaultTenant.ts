@@ -1,5 +1,5 @@
-import { SecurityContext } from "~/types";
-import { TenancyContext } from "@webiny/api-tenancy/types";
+import { SecurityContext } from "~/types.js";
+import { TenancyContext } from "@webiny/api-tenancy/types.js";
 
 export type Context = SecurityContext & TenancyContext;
 

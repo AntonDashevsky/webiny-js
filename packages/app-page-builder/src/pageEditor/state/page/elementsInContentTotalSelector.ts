@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { rootElementAtom, elementsAtom } from "~/editor/recoil/modules";
+import { rootElementAtom, elementsAtom } from "~/editor/recoil/modules/index.js";
 
 export const elementsInContentTotalSelector = selector({
     key: "elementsInContentTotalSelector",

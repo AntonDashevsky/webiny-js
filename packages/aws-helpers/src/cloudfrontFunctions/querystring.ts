@@ -1,4 +1,4 @@
-import { CloudFrontQuery } from "./types";
+import { CloudFrontQuery } from "./types.js";
 
 export function stringifyQuery(query: CloudFrontQuery) {
     let qs = "";

@@ -1,7 +1,7 @@
 import React from "react";
-import { Input } from "@webiny/ui/Input";
+import { Input } from "@webiny/ui/Input/index.js";
 import { FormRenderPropParams } from "@webiny/form";
-import { FormFieldElement, FormFieldElementConfig } from "~/ui/elements/form/FormFieldElement";
+import { FormFieldElement, FormFieldElementConfig } from "~/ui/elements/form/FormFieldElement.js";
 
 export interface TextareaElementRenderProps {
     formProps: FormRenderPropParams;

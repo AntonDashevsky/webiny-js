@@ -7,7 +7,7 @@ import {
     OnReviewerBeforeCreateTopicParams,
     OnReviewerBeforeDeleteTopicParams,
     OnReviewerBeforeUpdateTopicParams
-} from "~/types";
+} from "~/types.js";
 import { createTopic } from "@webiny/pubsub";
 
 export function createReviewerMethods({ storageOperations }: CreateApwParams): ApwReviewerCrud {

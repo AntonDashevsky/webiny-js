@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import { ElementStylesModifier } from "~/types.js";
 
 const visibility: ElementStylesModifier = ({ element, theme }) => {
     const visibility = element.data?.settings?.property?.visibility;

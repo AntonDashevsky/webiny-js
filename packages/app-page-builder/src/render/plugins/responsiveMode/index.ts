@@ -1,4 +1,4 @@
-import { PbRenderResponsiveModePlugin, DisplayMode } from "../../../types";
+import { PbRenderResponsiveModePlugin, DisplayMode } from "../../../types.js";
 
 export default () => [
     {

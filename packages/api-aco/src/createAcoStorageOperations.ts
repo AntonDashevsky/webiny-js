@@ -1,12 +1,12 @@
-import { CmsContext, HeadlessCms } from "@webiny/api-headless-cms/types";
-import { Security } from "@webiny/api-security/types";
+import { CmsContext, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import { Security } from "@webiny/api-security/types.js";
 
-import { createFilterOperations } from "~/filter/filter.so";
-import { createFolderOperations } from "~/folder/folder.so";
-import { createSearchRecordOperations } from "~/record/record.so";
-import { createAcoModels } from "~/createAcoModels";
+import { createFilterOperations } from "~/filter/filter.so.js";
+import { createFolderOperations } from "~/folder/folder.so.js";
+import { createSearchRecordOperations } from "~/record/record.so.js";
+import { createAcoModels } from "~/createAcoModels.js";
 
-import { AcoStorageOperations } from "~/types";
+import { AcoStorageOperations } from "~/types.js";
 
 export interface CreateAcoStorageOperationsParams {
     cms: HeadlessCms;

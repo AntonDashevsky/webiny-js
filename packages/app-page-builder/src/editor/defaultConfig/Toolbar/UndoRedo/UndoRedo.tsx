@@ -1,10 +1,10 @@
 import React from "react";
 import platform from "platform";
-import { EditorConfig } from "~/editor/config";
+import { EditorConfig } from "~/editor/config/index.js";
 import { ReactComponent as UndoIcon } from "~/editor/assets/icons/undo-icon.svg";
 import { ReactComponent as RedoIcon } from "~/editor/assets/icons/redo-icon.svg";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
 
 const osFamily = platform.os ? platform.os.family : null;
 const metaKey = osFamily === "OS X" ? "CMD" : "CTRL";

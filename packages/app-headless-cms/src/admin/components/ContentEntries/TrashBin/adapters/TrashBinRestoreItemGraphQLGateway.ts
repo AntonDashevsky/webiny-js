@@ -1,5 +1,5 @@
 import { ApolloClient } from "apollo-client";
-import { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms-common/types";
+import { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 import {
     CmsEntryRestoreFromBinMutationResponse,
     CmsEntryRestoreFromBinMutationVariables,

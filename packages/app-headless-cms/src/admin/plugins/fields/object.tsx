@@ -1,10 +1,10 @@
 import React from "react";
 import { ReactComponent as ObjectIcon } from "@material-design-icons/svg/outlined/ballot.svg";
 import { createFieldsList } from "@webiny/app-headless-cms-common";
-import { i18n } from "@webiny/app/i18n";
-import { ObjectFields } from "./object/ObjectFields";
-import { CmsModelFieldTypePlugin, CmsModelField } from "~/types";
-import { createTypeName } from "~/utils/createTypeName";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ObjectFields } from "./object/ObjectFields.js";
+import { CmsModelFieldTypePlugin, CmsModelField } from "~/types.js";
+import { createTypeName } from "~/utils/createTypeName.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields");
 

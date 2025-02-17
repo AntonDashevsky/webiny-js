@@ -1,12 +1,12 @@
-import { FormBuilderContext, FormBuilderStorageOperations } from "~/types";
+import { FormBuilderContext, FormBuilderStorageOperations } from "~/types.js";
 import { ContextPlugin } from "@webiny/api";
-import { createSystemCrud } from "~/plugins/crud/system.crud";
-import { createSettingsCrud } from "~/plugins/crud/settings.crud";
-import { createFormsCrud } from "~/plugins/crud/forms.crud";
-import { createSubmissionsCrud } from "~/plugins/crud/submissions.crud";
+import { createSystemCrud } from "~/plugins/crud/system.crud.js";
+import { createSettingsCrud } from "~/plugins/crud/settings.crud.js";
+import { createFormsCrud } from "~/plugins/crud/forms.crud.js";
+import { createSubmissionsCrud } from "~/plugins/crud/submissions.crud.js";
 import WebinyError from "@webiny/error";
-import { FormsPermissions } from "./permissions/FormsPermissions";
-import { SettingsPermissions } from "~/plugins/crud/permissions/SettingsPermissions";
+import { FormsPermissions } from "./permissions/FormsPermissions.js";
+import { SettingsPermissions } from "~/plugins/crud/permissions/SettingsPermissions.js";
 
 export interface CreateFormBuilderCrudParams {
     storageOperations: FormBuilderStorageOperations;

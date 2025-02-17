@@ -9,11 +9,11 @@ import type {
     ITaskResponseDoneResultOutput,
     ITasksContextServiceObject,
     ITaskTriggerParams
-} from "~/types";
-import { TaskDataStatus, TaskLogItemType } from "~/types";
+} from "~/types.js";
+import { TaskDataStatus, TaskLogItemType } from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { createService } from "~/service";
-import { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin";
+import { createService } from "~/service/index.js";
+import { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin.js";
 
 const MAX_DELAY_DAYS = 355;
 const MAX_DELAY_SECONDS = MAX_DELAY_DAYS * 24 * 60 * 60;

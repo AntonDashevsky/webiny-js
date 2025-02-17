@@ -1,2 +1,2 @@
-export * from "./abstractions/CmsEntryFetcher";
-export * from "./createCmsEntryFetcher";
+export * from "./abstractions/CmsEntryFetcher.js";
+export * from "./createCmsEntryFetcher.js";

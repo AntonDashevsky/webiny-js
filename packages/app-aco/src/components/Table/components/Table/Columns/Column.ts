@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { ColumnConfig } from "~/config/table/Column";
+import { ColumnConfig } from "~/config/table/Column.js";
 
 export interface ColumnDTO {
     cell: string | ReactElement;

@@ -1,3 +1,3 @@
-export * from "./components";
-export * from "./createTableData";
-export * from "./useTableRow";
+export * from "./components/index.js";
+export * from "./createTableData.js";
+export * from "./useTableRow.js";

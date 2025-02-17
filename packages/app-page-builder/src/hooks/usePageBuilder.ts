@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PageBuilderContext } from "~/contexts/PageBuilder";
+import { PageBuilderContext } from "~/contexts/PageBuilder/index.js";
 
 export function usePageBuilder() {
     const context = useContext(PageBuilderContext);

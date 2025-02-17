@@ -4,15 +4,15 @@ import {
     CmsModel,
     CmsModelField,
     CmsModelFieldToGraphQLPlugin
-} from "@webiny/api-headless-cms/types";
-import { CmsModelFieldToElasticsearchPlugin } from "~/types";
-import { ModelFieldParent, ModelFields } from "./types";
-import { CmsElasticsearchModelFieldPlugin } from "~/plugins";
+} from "@webiny/api-headless-cms/types/index.js";
+import { CmsModelFieldToElasticsearchPlugin } from "~/types.js";
+import { ModelFieldParent, ModelFields } from "./types.js";
+import { CmsElasticsearchModelFieldPlugin } from "~/plugins/index.js";
 import {
     ENTRY_META_FIELDS,
     isDateTimeEntryMetaField,
     isIdentityEntryMetaField
-} from "@webiny/api-headless-cms/constants";
+} from "@webiny/api-headless-cms/constants.js";
 
 type PartialCmsModelField = Partial<CmsModelField> &
     Pick<CmsModelField, "storageId" | "fieldId" | "type">;

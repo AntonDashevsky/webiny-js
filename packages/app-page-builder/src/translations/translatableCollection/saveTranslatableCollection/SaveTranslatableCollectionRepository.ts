@@ -1,10 +1,10 @@
 import { makeAutoObservable } from "mobx";
-import { ISaveTranslatableCollectionRepository } from "~/translations/translatableCollection/saveTranslatableCollection/ISaveTranslatableCollectionRepository";
-import { ISaveTranslatableCollectionGateway } from "~/translations/translatableCollection/saveTranslatableCollection/ISaveTranslatableCollectionGateway";
-import { TranslatableCollection } from "~/translations/translatableCollection/TranslatableCollection";
-import { TranslatableCollectionInputDto } from "~/translations/translatableCollection/saveTranslatableCollection/TranslatableCollectionInputDto";
-import { TranslatedCollection } from "~/translations";
-import { ListCache } from "~/translations/ListCache";
+import { ISaveTranslatableCollectionRepository } from "~/translations/translatableCollection/saveTranslatableCollection/ISaveTranslatableCollectionRepository.js";
+import { ISaveTranslatableCollectionGateway } from "~/translations/translatableCollection/saveTranslatableCollection/ISaveTranslatableCollectionGateway.js";
+import { TranslatableCollection } from "~/translations/translatableCollection/TranslatableCollection.js";
+import { TranslatableCollectionInputDto } from "~/translations/translatableCollection/saveTranslatableCollection/TranslatableCollectionInputDto.js";
+import { TranslatedCollection } from "~/translations/index.js";
+import { ListCache } from "~/translations/ListCache.js";
 
 export class SaveTranslatableCollectionRepository implements ISaveTranslatableCollectionRepository {
     private readonly gateway: ISaveTranslatableCollectionGateway;

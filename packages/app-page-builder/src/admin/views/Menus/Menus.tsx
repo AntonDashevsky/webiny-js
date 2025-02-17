@@ -1,8 +1,8 @@
 import React from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import MenusDataList from "./MenusDataList";
-import MenusForm from "./MenusForm";
-import { useMenusPermissions } from "~/hooks/permissions";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import MenusDataList from "./MenusDataList.js";
+import MenusForm from "./MenusForm.js";
+import { useMenusPermissions } from "~/hooks/permissions/index.js";
 
 const Menus = () => {
     const { canCreate } = useMenusPermissions();

@@ -1,17 +1,21 @@
+// @ts-expect-error `read-json-sync` has no type declarations.
 import readJson from "read-json-sync";
 import findUp from "find-up";
 
 export class PackageJson {
-    static async fromFile(filePath) {
+    private readonly filePath: string;
+    private readonly json: Record<string, any>;
+
+    static async fromFile(filePath: string) {
         return new PackageJson(filePath, readJson(filePath));
     }
 
-    static async findClosest(fromPath) {
+    static async findClosest(fromPath: string) {
         const closestPackageJson = await findUp("package.json", { cwd: fromPath });
-        return PackageJson.fromFile(closestPackageJson);
+        return PackageJson.fromFile(closestPackageJson!);
     }
 
-    constructor(filePath, json) {
+    constructor(filePath: string, json: Record<string, any>) {
         this.filePath = filePath;
         this.json = json;
     }

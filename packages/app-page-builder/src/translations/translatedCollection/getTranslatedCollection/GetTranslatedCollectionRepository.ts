@@ -1,10 +1,10 @@
 import { makeAutoObservable } from "mobx";
-import { IGetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionRepository";
-import { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
-import { Loading } from "~/translations/Loading";
-import { ListCache } from "~/translations/ListCache";
-import { IGetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionGateway";
-import { GenericRecord } from "@webiny/app/types";
+import { IGetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionRepository.js";
+import { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection.js";
+import { Loading } from "~/translations/Loading.js";
+import { ListCache } from "~/translations/ListCache.js";
+import { IGetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionGateway.js";
+import { GenericRecord } from "@webiny/app/types.js";
 
 export class GetTranslatedCollectionRepository implements IGetTranslatedCollectionRepository {
     private readonly loading: Loading;

@@ -5,16 +5,16 @@ import {
     DialogCancel,
     DialogContent,
     DialogTitle
-} from "~/admin/components/Dialog";
-import type { CmsModel } from "~/types";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { FullyDeleteModelStateStatus } from "./types";
-import { Content } from "./dialog/Content";
-import { createValidationValue } from "./dialog/validationValue";
-import { createProcessConfirmation } from "./dialog/process";
-import { useApolloClient } from "~/admin/hooks";
-import { useDialogState } from "./dialog/state";
-import { updateModelInCache } from "~/admin/views/contentModels/cache";
+} from "~/admin/components/Dialog.js";
+import type { CmsModel } from "~/types.js";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { FullyDeleteModelStateStatus } from "./types.js";
+import { Content } from "./dialog/Content.js";
+import { createValidationValue } from "./dialog/validationValue.js";
+import { createProcessConfirmation } from "./dialog/process.js";
+import { useApolloClient } from "~/admin/hooks/index.js";
+import { useDialogState } from "./dialog/state.js";
+import { updateModelInCache } from "~/admin/views/contentModels/cache.js";
 
 export interface FullyDeleteModelDialogProps {
     model: CmsModel | null;

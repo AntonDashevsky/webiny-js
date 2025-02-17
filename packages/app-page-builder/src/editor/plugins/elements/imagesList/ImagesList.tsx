@@ -1,8 +1,8 @@
 import React from "react";
-import { PbEditorElement } from "~/types";
-import PeImagesList from "./PeImagesList";
+import { PbEditorElement } from "~/types.js";
+import PeImagesList from "./PeImagesList.js";
 
-import { Element } from "@webiny/app-page-builder-elements/types";
+import { Element } from "@webiny/app-page-builder-elements/types.js";
 
 interface ImagesListProps {
     element: PbEditorElement;

@@ -1,4 +1,4 @@
-import { CmsGroupCreateInput } from "@webiny/api-headless-cms/types";
+import { CmsGroupCreateInput } from "@webiny/api-headless-cms/types/index.js";
 
 export const createGroupData = (): CmsGroupCreateInput => {
     return {

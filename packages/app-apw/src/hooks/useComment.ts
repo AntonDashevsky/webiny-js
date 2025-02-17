@@ -1,8 +1,8 @@
 import dotPropImmutable from "dot-prop-immutable";
 import { useQuery, useMutation, MutationTuple } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin";
-import { ApwComment } from "~/types";
-import { useListCommentsVariables } from "~/hooks/useCommentsList";
+import { ApwComment } from "~/types.js";
+import { useListCommentsVariables } from "~/hooks/useCommentsList.js";
 import {
     CREATE_COMMENT_MUTATION,
     LIST_COMMENTS_QUERY,
@@ -11,7 +11,7 @@ import {
     CreateCommentMutationVariables,
     GetCommentQueryVariables,
     GetCommentQueryResponse
-} from "~/graphql/comment.gql";
+} from "~/graphql/comment.gql.js";
 
 interface UseCommentResult {
     createComment: MutationTuple<CreateCommentMutationResponse, CreateCommentMutationVariables>[0];

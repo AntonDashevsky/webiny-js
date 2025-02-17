@@ -1,5 +1,5 @@
 import React from "react";
-import { FileContext } from "~/contexts/FileProvider";
+import { FileContext } from "~/contexts/FileProvider.js";
 
 export const useFile = () => {
     const context = React.useContext(FileContext);

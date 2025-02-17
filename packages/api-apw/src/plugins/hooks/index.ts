@@ -1,16 +1,16 @@
 import { ContextPlugin } from "@webiny/api";
-import { ApwContext } from "~/types";
-import { deleteCommentsAfterChangeRequest } from "./deleteCommentsAfterChangeRequest";
-import { deleteChangeRequestsWithContentReview } from "./deleteChangeRequestsAfterContentReview";
-import { createReviewerFromIdentity } from "./createReviewerFromIdentity";
-import { initializeContentReviewSteps } from "./initializeContentReviewSteps";
-import { updatePendingChangeRequestsCount } from "./updatePendingChangeRequests";
-import { updateTotalCommentsCount, updateLatestCommentId } from "./updateTotalComments";
-import { validateChangeRequest } from "./validateChangeRequest";
-import { validateContentReview } from "./validateContentReview";
-import { validateComment } from "./validateComment";
-import { listContentReviews } from "./listContentReviews";
-import { initializeNotifications } from "./initializeNotifications";
+import { ApwContext } from "~/types.js";
+import { deleteCommentsAfterChangeRequest } from "./deleteCommentsAfterChangeRequest.js";
+import { deleteChangeRequestsWithContentReview } from "./deleteChangeRequestsAfterContentReview.js";
+import { createReviewerFromIdentity } from "./createReviewerFromIdentity.js";
+import { initializeContentReviewSteps } from "./initializeContentReviewSteps.js";
+import { updatePendingChangeRequestsCount } from "./updatePendingChangeRequests.js";
+import { updateTotalCommentsCount, updateLatestCommentId } from "./updateTotalComments.js";
+import { validateChangeRequest } from "./validateChangeRequest.js";
+import { validateContentReview } from "./validateContentReview.js";
+import { validateComment } from "./validateComment.js";
+import { listContentReviews } from "./listContentReviews.js";
+import { initializeNotifications } from "./initializeNotifications.js";
 
 export const attachApwHooks = () =>
     /**

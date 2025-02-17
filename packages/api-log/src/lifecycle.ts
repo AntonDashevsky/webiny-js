@@ -1,5 +1,5 @@
 import { createModifyFastifyPlugin } from "@webiny/handler";
-import type { Context } from "./types";
+import type { Context } from "./types.js";
 
 const execute = async (input?: Context | unknown) => {
     if (!input) {

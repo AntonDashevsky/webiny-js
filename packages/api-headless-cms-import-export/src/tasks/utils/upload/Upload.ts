@@ -7,8 +7,8 @@ import type {
     PutObjectCommandInput,
     S3Client
 } from "@webiny/aws-sdk/client-s3";
-import { IAwsUpload, IUpload, IUploadOnListener } from "./abstractions/Upload";
-import { getContentType } from "./getContentType";
+import { IAwsUpload, IUpload, IUploadOnListener } from "./abstractions/Upload.js";
+import { getContentType } from "./getContentType.js";
 
 export interface IUploadConfig {
     client: S3Client;

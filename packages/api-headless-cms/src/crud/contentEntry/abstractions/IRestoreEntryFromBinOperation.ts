@@ -1,4 +1,4 @@
-import { CmsEntryStorageOperationsRestoreFromBinParams, CmsModel, CmsStorageEntry } from "~/types";
+import { CmsEntryStorageOperationsRestoreFromBinParams, CmsModel, CmsStorageEntry } from "~/types/index.js";
 
 export interface IRestoreEntryFromBinOperation {
     execute: (

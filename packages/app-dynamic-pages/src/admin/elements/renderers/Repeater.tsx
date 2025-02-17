@@ -1,8 +1,8 @@
 import React from "react";
-import { PbElement } from "@webiny/app-page-builder/types";
-import { EmptyCell } from "@webiny/app-page-builder/editor/plugins/elements/cell/EmptyCell";
-import { useElementWithChildren } from "@webiny/app-page-builder/editor";
-import { RepeaterRenderer } from "~/dataInjection/renderers/Repeater";
+import { PbElement } from "@webiny/app-page-builder/types.js";
+import { EmptyCell } from "@webiny/app-page-builder/editor/plugins/elements/cell/EmptyCell.js";
+import { useElementWithChildren } from "@webiny/app-page-builder/editor/index.js";
+import { RepeaterRenderer } from "~/dataInjection/renderers/Repeater.js";
 
 interface AdminRepeaterRendererProps {
     element: PbElement;

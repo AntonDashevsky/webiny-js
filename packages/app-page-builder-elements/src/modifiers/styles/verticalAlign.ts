@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import { ElementStylesModifier } from "~/types.js";
 
 const verticalAlign: ElementStylesModifier = ({ element, theme }) => {
     const { verticalAlign } = element.data.settings || {};

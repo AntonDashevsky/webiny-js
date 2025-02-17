@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "@emotion/styled";
 
-import { Skeleton } from "~/Skeleton";
+import { Skeleton } from "~/Skeleton/index.js";
 
 const LoaderUl = styled("ul")`
     list-style: none;

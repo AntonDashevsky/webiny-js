@@ -1,5 +1,5 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase";
+import kebabCase from "lodash/kebabCase.js";
 import {
     DisplayMode,
     PbEditorElement,
@@ -7,10 +7,10 @@ import {
     PbEditorPageElementPluginSettings,
     PbEditorTextElementPluginsArgs,
     PbElement
-} from "~/types";
-import List from "./List";
-import { createInitialTextValue } from "../utils/textUtils";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
+} from "~/types.js";
+import List from "./List.js";
+import { createInitialTextValue } from "../utils/textUtils.js";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
 
 /*
  * @TODO: Remove the list component

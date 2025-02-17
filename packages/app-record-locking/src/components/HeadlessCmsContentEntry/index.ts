@@ -1,1 +1,1 @@
-export * from "./HeadlessCmsContentEntry";
+export * from "./HeadlessCmsContentEntry.js";

@@ -2,26 +2,26 @@ import React from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
-import get from "lodash/get";
-import set from "lodash/set";
-import merge from "lodash/merge";
-import { Cell, Grid } from "@webiny/ui/Grid";
+import get from "lodash/get.js";
+import set from "lodash/set.js";
+import merge from "lodash/merge.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import {
     DisplayMode,
     PbEditorElement,
     PbEditorGridPresetPluginType,
     PbEditorPageElementSettingsRenderComponentProps
-} from "~/types";
-import { useEventActionHandler } from "~/editor";
-import { createElement } from "~/editor/helpers";
-import { calculatePresetPluginCells, getPresetPlugins } from "~/editor/plugins/gridPresets";
-import { UpdateElementActionEvent } from "~/editor/recoil/actions";
-import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
+} from "~/types.js";
+import { useEventActionHandler } from "~/editor/index.js";
+import { createElement } from "~/editor/helpers.js";
+import { calculatePresetPluginCells, getPresetPlugins } from "~/editor/plugins/gridPresets/index.js";
+import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
+import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
 
 // Components
-import CounterInput from "./CounterInput";
-import { ContentWrapper } from "../components/StyledComponents";
-import Accordion from "../components/Accordion";
+import CounterInput from "./CounterInput.js";
+import { ContentWrapper } from "../components/StyledComponents.js";
+import Accordion from "../components/Accordion.js";
 
 const classes = {
     grid: css({

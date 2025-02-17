@@ -1,1 +1,1 @@
-export * from "./DeleteEntry";
+export * from "./DeleteEntry.js";

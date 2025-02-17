@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@webiny/lexical-nodes";
-import { getNodeFromSelection } from "~/hooks/useCurrentElement";
-import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection";
-import { useRichTextEditor } from "~/hooks";
+import { getNodeFromSelection } from "~/hooks/useCurrentElement.js";
+import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection.js";
+import { useRichTextEditor } from "~/hooks/index.js";
 
 export const LinkAction = () => {
     const { editor } = useRichTextEditor();

@@ -1,15 +1,15 @@
 import React from "react";
-import Accordion from "../../elementSettings/components/Accordion";
-import Wrapper from "../../elementSettings/components/Wrapper";
-import SelectField from "../../elementSettings/components/SelectField";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import Accordion from "../../elementSettings/components/Accordion.js";
+import Wrapper from "../../elementSettings/components/Wrapper.js";
+import SelectField from "../../elementSettings/components/SelectField.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { plugins } from "@webiny/plugins";
-import { PbPageElementImagesListComponentPlugin } from "~/types";
+import { PbPageElementImagesListComponentPlugin } from "~/types.js";
 import {
     ButtonContainer,
     classes,
     SimpleButton
-} from "../../elementSettings/components/StyledComponents";
+} from "../../elementSettings/components/StyledComponents.js";
 import { BindComponent } from "@webiny/form";
 
 interface ImagesListDesignSettingsProps {

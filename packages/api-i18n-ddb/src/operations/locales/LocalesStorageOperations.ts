@@ -10,14 +10,14 @@ import type {
     I18NLocalesStorageOperationsListResponse,
     I18NLocalesStorageOperationsUpdateDefaultParams,
     I18NLocalesStorageOperationsUpdateParams
-} from "@webiny/api-i18n/types";
-import type { Table } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-i18n/types.js";
+import type { Table } from "@webiny/db-dynamodb/toolbox.js";
 import WebinyError from "@webiny/error";
-import defineTable from "~/definitions/table";
-import defineLocaleEntity from "~/definitions/localeEntity";
+import defineTable from "~/definitions/table.js";
+import defineLocaleEntity from "~/definitions/localeEntity.js";
 import type { IEntity, IEntityQueryAllParams } from "@webiny/db-dynamodb";
 import { createListResponse, filterItems, sortItems } from "@webiny/db-dynamodb";
-import { LocaleDynamoDbFieldPlugin } from "~/plugins/LocaleDynamoDbFieldPlugin";
+import { LocaleDynamoDbFieldPlugin } from "~/plugins/LocaleDynamoDbFieldPlugin.js";
 
 interface ConstructorParams {
     context: I18NContext;

@@ -1,10 +1,10 @@
 import React from "react";
-import BackButton from "./BackButton";
-import Divider from "./Divider";
-import SaveContentModelButton from "./SaveContentModelButton";
-import CreateContentButton from "./CreateContentButton";
-import { Name } from "./Name";
-import { FormSettingsButton } from "./FormSettings";
+import BackButton from "./BackButton.js";
+import Divider from "./Divider.js";
+import SaveContentModelButton from "./SaveContentModelButton.js";
+import CreateContentButton from "./CreateContentButton.js";
+import { Name } from "./Name/index.js";
+import { FormSettingsButton } from "./FormSettings/index.js";
 
 export default [
     {

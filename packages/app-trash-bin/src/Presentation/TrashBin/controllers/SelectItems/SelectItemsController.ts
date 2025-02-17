@@ -1,6 +1,6 @@
-import { TrashBinItem, TrashBinItemDTO } from "~/Domain";
-import { ISelectItemsUseCase } from "~/UseCases";
-import { ISelectItemsController } from "./ISelectItemsController";
+import { TrashBinItem, TrashBinItemDTO } from "~/Domain/index.js";
+import { ISelectItemsUseCase } from "~/UseCases/index.js";
+import { ISelectItemsController } from "./ISelectItemsController.js";
 
 export class SelectItemsController implements ISelectItemsController {
     private readonly useCaseFactory: () => ISelectItemsUseCase;

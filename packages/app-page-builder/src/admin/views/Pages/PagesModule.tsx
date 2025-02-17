@@ -1,5 +1,5 @@
 import React from "react";
-import { PageListConfig } from "~/admin/config/pages";
+import { PageListConfig } from "~/admin/config/pages/index.js";
 
 import {
     SecureActionDelete,
@@ -9,7 +9,7 @@ import {
     SecureActionUnpublish,
     ActionDuplicate,
     SecureActionDuplicate as SecureBulkActionDuplicate
-} from "~/admin/components/BulkActions";
+} from "~/admin/components/BulkActions/index.js";
 
 import { DeleteFolder, EditFolder, SetFolderPermissions } from "@webiny/app-aco";
 import {
@@ -26,9 +26,9 @@ import {
     PreviewPage,
     SecureDuplicatePage as SecureListDuplicatePage,
     DuplicatePage
-} from "~/admin/components/Table/Table";
+} from "~/admin/components/Table/Table/index.js";
 
-import { SecureDuplicatePage as SecurePageDetailsDuplicatePage } from "~/admin/plugins/pageDetails/header/pageOptionsMenu/DuplicatePage";
+import { SecureDuplicatePage as SecurePageDetailsDuplicatePage } from "~/admin/plugins/pageDetails/header/pageOptionsMenu/DuplicatePage/index.js";
 
 const { Browser } = PageListConfig;
 

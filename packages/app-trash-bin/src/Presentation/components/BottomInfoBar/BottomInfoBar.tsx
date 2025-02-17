@@ -1,9 +1,9 @@
 import React from "react";
-import { ListMeta } from "./ListMeta";
-import { ListStatus } from "./ListStatus";
-import { BottomInfoBarInner, BottomInfoBarWrapper } from "./BottomInfoBar.styled";
-import { LoadingActions } from "~/types";
-import { useTrashBin } from "~/Presentation/hooks";
+import { ListMeta } from "./ListMeta.js";
+import { ListStatus } from "./ListStatus.js";
+import { BottomInfoBarInner, BottomInfoBarWrapper } from "./BottomInfoBar.styled.js";
+import { LoadingActions } from "~/types.js";
+import { useTrashBin } from "~/Presentation/hooks/index.js";
 
 export const BottomInfoBar = () => {
     const { vm } = useTrashBin();

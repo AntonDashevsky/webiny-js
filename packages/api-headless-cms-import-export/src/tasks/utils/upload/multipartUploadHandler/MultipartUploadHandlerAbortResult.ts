@@ -2,7 +2,7 @@ import type { AbortMultipartUploadCommandOutput } from "@webiny/aws-sdk/client-s
 import type {
     IMultipartUploadHandlerAbortResult,
     IPart
-} from "../abstractions/MultipartUploadHandler";
+} from "../abstractions/MultipartUploadHandler.js";
 
 export class MultipartUploadHandlerAbortResult implements IMultipartUploadHandlerAbortResult {
     public readonly result: AbortMultipartUploadCommandOutput;

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AdminPageBuilderContext } from "../contexts/AdminPageBuilder";
+import { AdminPageBuilderContext } from "../contexts/AdminPageBuilder.js";
 
 export function useAdminPageBuilder() {
     const context = useContext(AdminPageBuilderContext);

@@ -1,8 +1,8 @@
 import { ContextPlugin } from "@webiny/api";
-import { AuditLogsAcoContext } from "./types";
-import { createApp } from "./app";
+import { AuditLogsAcoContext } from "./types.js";
+import { createApp } from "./app.js";
 
-export * from "./createAppModifier";
+export * from "./createAppModifier.js";
 
 const setupContext = async (context: AuditLogsAcoContext): Promise<void> => {
     const app = await context.aco.registerApp(createApp());

@@ -1,7 +1,7 @@
 import React from "react";
-import { IconButton } from "@webiny/ui/Button";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/round/settings.svg";
-import { usePageSettings } from "./usePageSettings";
+import { usePageSettings } from "./usePageSettings.js";
 
 export const PageSettingsButton = () => {
     const { openSettings } = usePageSettings();

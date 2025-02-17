@@ -19,24 +19,24 @@ export type {
 } from "@webiny/app";
 
 export * from "@webiny/app-theme";
-export * from "./Website";
-export type { WebsiteProps } from "./Website";
-export * from "./Page";
-export * from "./Page/PageRenderer";
-export * from "./Page/Layout";
-export * from "./Page/MainContent";
-export * from "./Page/WebsiteScripts";
-export * from "./Page/ErrorPage";
-export * from "./Menu";
-export * from "./LinkPreload";
-export * from "./plugins";
+export * from "./Website.js";
+export type { WebsiteProps } from "./Website.js";
+export * from "./Page/index.js";
+export * from "./Page/PageRenderer.js";
+export * from "./Page/Layout.js";
+export * from "./Page/MainContent.js";
+export * from "./Page/WebsiteScripts.js";
+export * from "./Page/ErrorPage.js";
+export * from "./Menu.js";
+export * from "./LinkPreload.js";
+export * from "./plugins/index.js";
 
 // Exporting chosen utils from `@webiny/app` package.
-export * from "@webiny/app/utils/getApiUrl";
-export * from "@webiny/app/utils/getGqlApiUrl";
-export * from "@webiny/app/utils/getHeadlessCmsGqlApiUrl";
-export * from "@webiny/app/utils/getLocaleCode";
-export * from "@webiny/app/utils/getPrerenderId";
-export * from "@webiny/app/utils/getTenantId";
-export * from "@webiny/app/utils/isLocalhost";
-export * from "@webiny/app/utils/isPrerendering";
+export * from "@webiny/app/utils/getApiUrl.js";
+export * from "@webiny/app/utils/getGqlApiUrl.js";
+export * from "@webiny/app/utils/getHeadlessCmsGqlApiUrl.js";
+export * from "@webiny/app/utils/getLocaleCode.js";
+export * from "@webiny/app/utils/getPrerenderId.js";
+export * from "@webiny/app/utils/getTenantId.js";
+export * from "@webiny/app/utils/isLocalhost.js";
+export * from "@webiny/app/utils/isPrerendering.js";

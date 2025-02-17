@@ -3,8 +3,8 @@ import { ApolloClient } from "apollo-client";
 import { plugins } from "@webiny/plugins";
 import { Plugins, AddMenu, AddRoute, Layout } from "@webiny/app-admin";
 import { ReactComponent as InfoIcon } from "./assets/graphql.svg";
-import Playground from "./plugins/Playground";
-import playgroundPlugins from "./plugins";
+import Playground from "./plugins/Playground.js";
+import playgroundPlugins from "./plugins/index.js";
 
 interface CreateApolloClientParams {
     uri: string;

@@ -1,5 +1,5 @@
-import { File } from "@webiny/api-file-manager/types";
-import get from "lodash/get";
+import { File } from "@webiny/api-file-manager/types.js";
+import get from "lodash/get.js";
 
 const FILE_ID_MAP = {
     HERO_BLOCK_BG_SVG: "6022814b7a77e60008f70d62",

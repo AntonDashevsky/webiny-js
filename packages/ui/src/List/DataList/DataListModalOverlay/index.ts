@@ -1,6 +1,6 @@
-export { DataListModalOverlay } from "./DataListModalOverlay";
-export { DataListModalOverlayAction } from "./DataListModalOverlayAction";
+export { DataListModalOverlay } from "./DataListModalOverlay.js";
+export { DataListModalOverlayAction } from "./DataListModalOverlayAction.js";
 export {
     DataListModalOverlayContext,
     DataListModalOverlayProvider
-} from "./DataListModalOverlayContext";
+} from "./DataListModalOverlayContext.js";

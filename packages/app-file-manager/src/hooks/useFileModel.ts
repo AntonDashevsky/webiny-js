@@ -1,5 +1,5 @@
 import React from "react";
-import { FileModelContext } from "~/modules/FileManagerApiProvider/FileManagerApiContext/FileModelContext";
+import { FileModelContext } from "~/modules/FileManagerApiProvider/FileManagerApiContext/FileModelContext.js";
 
 export function useFileModel() {
     const context = React.useContext(FileModelContext);

@@ -1,6 +1,6 @@
-import { TableConstructor } from "@webiny/db-dynamodb/toolbox";
+import { TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { AdminSettings, AdminSettingsVariant } from "~/types";
+import { AdminSettings, AdminSettingsVariant } from "~/types.js";
 
 export interface TableModifier {
     (table: TableConstructor<string, string, string>): TableConstructor<string, string, string>;

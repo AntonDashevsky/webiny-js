@@ -1,8 +1,8 @@
-import { CmsFieldTypePlugins, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
-import { renderFields } from "@webiny/api-headless-cms/utils/renderFields";
-import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields";
-import { renderListFilterFields } from "@webiny/api-headless-cms/utils/renderListFilterFields";
-import { renderSortEnum } from "@webiny/api-headless-cms/utils/renderSortEnum";
+import { CmsFieldTypePlugins, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import { renderFields } from "@webiny/api-headless-cms/utils/renderFields.js";
+import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields.js";
+import { renderListFilterFields } from "@webiny/api-headless-cms/utils/renderListFilterFields.js";
+import { renderSortEnum } from "@webiny/api-headless-cms/utils/renderSortEnum.js";
 
 export interface CreateFilesTypeDefsParams {
     model: CmsModel;

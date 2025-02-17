@@ -1,1 +1,1 @@
-export { Snackbar, SnackbarAction } from "./Snackbar";
+export { Snackbar, SnackbarAction } from "./Snackbar.js";

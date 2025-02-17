@@ -1,7 +1,7 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
-import { TenancyContext } from "~/types";
-import types from "./types.gql";
+import { TenancyContext } from "~/types.js";
+import types from "./types.gql.js";
 
 const emptyResolver = () => ({});
 

@@ -1,4 +1,4 @@
-import { Plugin, PluginCollection, PluginFactory, PluginsContainer } from "~/types";
+import { Plugin, PluginCollection, PluginFactory, PluginsContainer } from "~/types.js";
 
 const isPluginLoader = (value: unknown): value is PluginFactory => {
     return typeof value === "function";

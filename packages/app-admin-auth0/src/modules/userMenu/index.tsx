@@ -5,10 +5,10 @@ import {
     Compose,
     Plugins
 } from "@webiny/app-serverless-cms";
-import { UserInfo } from "~/modules/userMenu/userInfo";
-import { SignOut } from "~/modules/userMenu/signOut";
-import { UserImage } from "~/modules/userMenu/userImage";
-import { ExitTenant } from "./exitTenant";
+import { UserInfo } from "~/modules/userMenu/userInfo.js";
+import { SignOut } from "~/modules/userMenu/signOut.js";
+import { UserImage } from "~/modules/userMenu/userImage.js";
+import { ExitTenant } from "./exitTenant.js";
 
 const UserImageHOC = () => {
     return function UserImageHOC() {

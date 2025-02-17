@@ -1,7 +1,7 @@
-import type { CmsFieldTypePlugins, CmsModel } from "~/types";
-import { resolveGet } from "./resolvers/preview/resolveGet";
-import { resolveList } from "./resolvers/preview/resolveList";
-import { createFieldResolversFactory } from "./createFieldResolvers";
+import type { CmsFieldTypePlugins, CmsModel } from "~/types/index.js";
+import { resolveGet } from "./resolvers/preview/resolveGet.js";
+import { resolveList } from "./resolvers/preview/resolveList.js";
+import { createFieldResolversFactory } from "./createFieldResolvers.js";
 
 interface CreateReadResolversParams {
     models: CmsModel[];

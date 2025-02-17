@@ -1,9 +1,9 @@
 import { ContextPlugin } from "@webiny/api";
-import type { Plugin } from "@webiny/plugins/types";
-import { attachHeadlessCmsImportExportGraphQL } from "~/graphql";
-import type { Context } from "./types";
+import type { Plugin } from "@webiny/plugins/types.js";
+import { attachHeadlessCmsImportExportGraphQL } from "~/graphql/index.js";
+import type { Context } from "./types.js";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { createHeadlessCmsImportExportCrud } from "~/crud";
+import { createHeadlessCmsImportExportCrud } from "~/crud/index.js";
 import {
     createExportContentAssets,
     createExportContentEntriesControllerTask,
@@ -13,7 +13,7 @@ import {
     createValidateImportFromUrlTask,
     createImportFromUrlProcessEntriesTask,
     createImportFromUrlProcessAssetsTask
-} from "~/tasks";
+} from "~/tasks/index.js";
 
 export const createHeadlessCmsImportExport = (): Plugin[] => {
     const plugin = new ContextPlugin<Context>(async context => {

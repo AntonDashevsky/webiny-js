@@ -1,5 +1,5 @@
 import { DocumentNode } from "graphql";
-import { ExecutableDefinitionNode, FieldNode, OperationDefinitionNode } from "graphql/language/ast";
+import { ExecutableDefinitionNode, FieldNode, OperationDefinitionNode } from "graphql/language/ast.js";
 
 declare module "graphql" {
     interface DocumentNode {

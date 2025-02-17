@@ -1,11 +1,11 @@
-import createCruds from "./plugins/crud";
-import graphql from "./plugins/graphql";
-import triggerHandlers from "./plugins/triggers";
-import validators from "./plugins/validators";
-import formsGraphQL from "./plugins/graphql/form";
-import formSettingsGraphQL from "./plugins/graphql/formSettings";
-import formBuilderPrerenderingPlugins from "~/plugins/prerenderingHooks";
-import { FormBuilderStorageOperations } from "~/types";
+import createCruds from "./plugins/crud/index.js";
+import graphql from "./plugins/graphql.js";
+import triggerHandlers from "./plugins/triggers/index.js";
+import validators from "./plugins/validators/index.js";
+import formsGraphQL from "./plugins/graphql/form.js";
+import formSettingsGraphQL from "./plugins/graphql/formSettings.js";
+import formBuilderPrerenderingPlugins from "~/plugins/prerenderingHooks/index.js";
+import { FormBuilderStorageOperations } from "~/types.js";
 
 export interface CreateFormBuilderParams {
     storageOperations: FormBuilderStorageOperations;

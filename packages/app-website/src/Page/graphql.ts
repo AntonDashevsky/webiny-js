@@ -4,7 +4,7 @@ import {
     PbPageSettingsFieldsPlugin,
     PbPageData,
     PbErrorResponse
-} from "@webiny/app-page-builder/types";
+} from "@webiny/app-page-builder/types.js";
 
 /**
  * We get all the `PbPageSettingsFieldsPlugin` plugins, which contain different page-settings-related GraphQL fields.

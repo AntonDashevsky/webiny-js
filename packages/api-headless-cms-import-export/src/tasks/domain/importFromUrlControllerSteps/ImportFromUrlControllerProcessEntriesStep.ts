@@ -1,17 +1,17 @@
-import type { ImportFromUrlControllerStep } from "./abstractions/ImportFromUrlControllerStep";
-import { IMPORT_FROM_URL_PROCESS_ENTRIES_TASK } from "~/tasks/constants";
-import { getBackOffSeconds } from "~/tasks/utils/helpers/getBackOffSeconds";
-import type { Context } from "~/types";
-import { CmsImportExportFileType } from "~/types";
+import type { ImportFromUrlControllerStep } from "./abstractions/ImportFromUrlControllerStep.js";
+import { IMPORT_FROM_URL_PROCESS_ENTRIES_TASK } from "~/tasks/constants.js";
+import { getBackOffSeconds } from "~/tasks/utils/helpers/getBackOffSeconds.js";
+import type { Context } from "~/types.js";
+import { CmsImportExportFileType } from "~/types.js";
 import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController";
-import { IImportFromUrlControllerInputStep } from "~/tasks/domain/abstractions/ImportFromUrlController";
+} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
+import { IImportFromUrlControllerInputStep } from "~/tasks/domain/abstractions/ImportFromUrlController.js";
 import type { ITask, ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import { getChildTasks } from "./getChildTasks";
-import type { IImportFromUrlProcessEntriesInput } from "../importFromUrlProcessEntries/abstractions/ImportFromUrlProcessEntries";
-import { prependImportPath } from "~/tasks/utils/helpers/importPath";
+import { getChildTasks } from "./getChildTasks.js";
+import type { IImportFromUrlProcessEntriesInput } from "../importFromUrlProcessEntries/abstractions/ImportFromUrlProcessEntries.js";
+import { prependImportPath } from "~/tasks/utils/helpers/importPath.js";
 
 export class ImportFromUrlControllerProcessEntriesStep<
     C extends Context = Context,

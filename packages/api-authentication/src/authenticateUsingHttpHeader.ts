@@ -1,5 +1,5 @@
 import { BeforeHandlerPlugin } from "@webiny/handler";
-import { AuthenticationContext } from "~/types";
+import { AuthenticationContext } from "~/types.js";
 
 export interface GetHeader {
     (headers: Record<string, any>): string | null;

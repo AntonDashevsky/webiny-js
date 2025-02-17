@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import dotPropImmutable from "dot-prop-immutable";
 import { useNavigate } from "@webiny/react-router";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { useCurrentWorkflowId } from "./useLocationSearch";
+import { useCurrentWorkflowId } from "./useLocationSearch.js";
 import {
     DELETE_WORKFLOW_MUTATION,
     LIST_WORKFLOWS_QUERY,
@@ -10,10 +10,10 @@ import {
     ListWorkflowQueryVariables,
     DeleteWorkflowMutationVariables,
     DeleteWorkflowMutationResponse
-} from "~/graphql/workflow.gql";
+} from "~/graphql/workflow.gql.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { i18n } from "@webiny/app/i18n";
-import { ApwWorkflow, ApwWorkflowApplications } from "~/types";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { ApwWorkflow, ApwWorkflowApplications } from "~/types.js";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/data-list");
 

@@ -1,4 +1,4 @@
-import { Action, ActionConfig } from "./Action";
+import { Action, ActionConfig } from "./Action.js";
 
 export interface RecordConfig {
     actions: ActionConfig[];

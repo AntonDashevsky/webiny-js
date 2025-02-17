@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { ISearchRepository } from "./ISearchRepository";
+import { ISearchRepository } from "./ISearchRepository.js";
 
 export class SearchRepository implements ISearchRepository {
     private query = "";

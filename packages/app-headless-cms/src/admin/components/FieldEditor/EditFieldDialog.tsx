@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import cloneDeep from "lodash/cloneDeep";
+import cloneDeep from "lodash/cloneDeep.js";
 import styled from "@emotion/styled";
-import { Dialog, DialogContent, DialogTitle, DialogActions } from "~/admin/components/Dialog";
+import { Dialog, DialogContent, DialogTitle, DialogActions } from "~/admin/components/Dialog.js";
 import { Form, FormOnSubmit } from "@webiny/form";
-import { Tabs, Tab } from "@webiny/ui/Tabs";
-import { i18n } from "@webiny/app/i18n";
-import { CmsEditorContentModel, CmsModelField } from "~/types";
-import GeneralTab from "./EditFieldDialog/GeneralTab";
-import AppearanceTab from "./EditFieldDialog/AppearanceTab";
-import PredefinedValues from "./EditFieldDialog/PredefinedValues";
-import { ValidatorsList } from "./EditFieldDialog/ValidatorsList";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button";
-import { useModelField, useModelEditor } from "~/admin/hooks";
-import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider";
-import { ValidationsSection } from "~/admin/components/FieldEditor/EditFieldDialog/ValidationsSection";
-import { getFieldValidators, getListValidators } from "./EditFieldDialog/getValidators";
-import { useRendererPlugins } from "~/admin/components/FieldEditor/EditFieldDialog/useRendererPlugins";
+import { Tabs, Tab } from "@webiny/ui/Tabs/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CmsEditorContentModel, CmsModelField } from "~/types.js";
+import GeneralTab from "./EditFieldDialog/GeneralTab.js";
+import AppearanceTab from "./EditFieldDialog/AppearanceTab.js";
+import PredefinedValues from "./EditFieldDialog/PredefinedValues.js";
+import { ValidatorsList } from "./EditFieldDialog/ValidatorsList.js";
+import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { useModelField, useModelEditor } from "~/admin/hooks/index.js";
+import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider/index.js";
+import { ValidationsSection } from "~/admin/components/FieldEditor/EditFieldDialog/ValidationsSection.js";
+import { getFieldValidators, getListValidators } from "./EditFieldDialog/getValidators.js";
+import { useRendererPlugins } from "~/admin/components/FieldEditor/EditFieldDialog/useRendererPlugins.js";
 
 const t = i18n.namespace("app-headless-cms/admin/components/editor");
 

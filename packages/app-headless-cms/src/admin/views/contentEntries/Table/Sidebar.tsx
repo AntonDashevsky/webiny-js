@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { FolderTree, useNavigateFolder } from "@webiny/app-aco";
-import { SidebarContainer, SidebarContent, SidebarFooter } from "./styled";
-import { Typography } from "@webiny/ui/Typography";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { SidebarContainer, SidebarContent, SidebarFooter } from "./styled.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { Link } from "@webiny/react-router";
-import { useModel } from "~/admin/components/ModelProvider";
-import { i18n } from "@webiny/app/i18n";
+import { useModel } from "~/admin/components/ModelProvider/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { css } from "emotion";
-import { TrashBin } from "~/admin/components/ContentEntries/TrashBin/components/TrashBin";
+import { TrashBin } from "~/admin/components/ContentEntries/TrashBin/components/TrashBin.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-entries/table");
 

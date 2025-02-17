@@ -1,2 +1,2 @@
-export * from "./abstractions/FileFetcher";
-export * from "./FileFetcher";
+export * from "./abstractions/FileFetcher.js";
+export * from "./FileFetcher.js";

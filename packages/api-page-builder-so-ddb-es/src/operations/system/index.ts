@@ -5,8 +5,8 @@ import {
     SystemStorageOperationsCreateParams,
     SystemStorageOperationsGetParams,
     SystemStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+} from "@webiny/api-page-builder/types.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox.js";
 import { getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

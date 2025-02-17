@@ -25,7 +25,7 @@ export default [
             return (
                 await import(
                     /* webpackChunkName: "editorPlugins" */
-                    "./pageBuilder/editorPlugins"
+                    "./pageBuilder/editorPlugins.js"
                 )
             ).default;
         },
@@ -33,7 +33,7 @@ export default [
             return (
                 await import(
                     /* webpackChunkName: "renderPlugins" */
-                    "./pageBuilder/renderPlugins"
+                    "./pageBuilder/renderPlugins.js"
                 )
             ).default;
         }

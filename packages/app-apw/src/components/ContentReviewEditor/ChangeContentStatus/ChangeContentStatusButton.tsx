@@ -1,18 +1,18 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { Box, Stack } from "~/components/Layout";
-import { ButtonIcon, ButtonPrimary, ButtonDefault } from "@webiny/ui/Button";
+import { Box, Stack } from "~/components/Layout.js";
+import { ButtonIcon, ButtonPrimary, ButtonDefault } from "@webiny/ui/Button/index.js";
 import { ReactComponent as CheckIcon } from "~/assets/icons/check_24dp.svg";
-import { ApwContentReview, ApwContentReviewStatus } from "~/types";
+import { ApwContentReview, ApwContentReviewStatus } from "~/types.js";
 
-import { i18n } from "@webiny/app/i18n";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { usePublishContent } from "~/hooks/usePublishContent";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { useScheduleActionDialog } from "./useScheduleActionDialog";
-import { Typography } from "@webiny/ui/Typography";
-import { useCurrentContentReview } from "~/hooks/useContentReview";
-import { formatDatetime } from "~/utils";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { usePublishContent } from "~/hooks/usePublishContent.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { useScheduleActionDialog } from "./useScheduleActionDialog.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useCurrentContentReview } from "~/hooks/useContentReview.js";
+import { formatDatetime } from "~/utils.js";
 
 const t = i18n.ns("app-apw/content-reviews/editor/steps/publishContent");
 

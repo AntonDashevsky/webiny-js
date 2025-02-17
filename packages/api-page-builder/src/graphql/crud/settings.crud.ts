@@ -10,13 +10,13 @@ import {
     SettingsStorageOperationsCreateParams,
     SettingsStorageOperationsGetParams,
     SettingsUpdateTopicMetaParams
-} from "~/types";
-import mergeWith from "lodash/mergeWith";
+} from "~/types.js";
+import mergeWith from "lodash/mergeWith.js";
 import WebinyError from "@webiny/error";
-import lodashGet from "lodash/get";
+import lodashGet from "lodash/get.js";
 import DataLoader from "dataloader";
 import { createTopic } from "@webiny/pubsub";
-import { createSettingsCreateValidation } from "~/graphql/crud/settings/validation";
+import { createSettingsCreateValidation } from "~/graphql/crud/settings/validation.js";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
 
 interface SettingsParams {

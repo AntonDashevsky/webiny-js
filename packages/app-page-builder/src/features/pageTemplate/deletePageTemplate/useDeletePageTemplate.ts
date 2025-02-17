@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache";
-import { DeletePageTemplateRepository } from "~/features/pageTemplate/deletePageTemplate/DeletePageTemplateRepository";
-import { DeletePageTemplateGqlGateway } from "~/features/pageTemplate/deletePageTemplate/DeletePageTemplateGqlGateway";
+import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache.js";
+import { DeletePageTemplateRepository } from "~/features/pageTemplate/deletePageTemplate/DeletePageTemplateRepository.js";
+import { DeletePageTemplateGqlGateway } from "~/features/pageTemplate/deletePageTemplate/DeletePageTemplateGqlGateway.js";
 
 export const useDeletePageTemplate = () => {
     const client = useApolloClient();

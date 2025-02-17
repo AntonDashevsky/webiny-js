@@ -1,6 +1,6 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import { IExportPagesCleanupInput, PageExportTask } from "~/export/pages/types";
-import { PbImportExportContext } from "~/graphql/types";
+import { IExportPagesCleanupInput, PageExportTask } from "~/export/pages/types.js";
+import { PbImportExportContext } from "~/graphql/types.js";
 
 export const createExportPagesCleanupTask = () => {
     return createPrivateTaskDefinition<PbImportExportContext, IExportPagesCleanupInput>({
@@ -18,7 +18,7 @@ export const createExportPagesCleanupTask = () => {
             }
 
             const { ExportPagesCleanup } = await import(
-                /* webpackChunkName: "ExportPagesCleanup" */ "~/export/pages/ExportPagesCleanup"
+                /* webpackChunkName: "ExportPagesCleanup" */ "~/export/pages/ExportPagesCleanup.js"
             );
 
             const exportPagesCleanup = new ExportPagesCleanup();

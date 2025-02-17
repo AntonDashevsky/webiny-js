@@ -1,10 +1,10 @@
 import { ErrorResponse, NotFoundError, Response } from "@webiny/handler-graphql";
-import { CmsContext, CmsModel } from "~/types";
-import { Resolvers } from "@webiny/handler-graphql/types";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
-import { createCmsGraphQLSchemaPlugin, ICmsGraphQLSchemaPlugin } from "~/plugins";
-import { toSlug } from "~/utils/toSlug";
-import { GenericRecord } from "@webiny/api/types";
+import { CmsContext, CmsModel } from "~/types/index.js";
+import { Resolvers } from "@webiny/handler-graphql/types.js";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
+import { createCmsGraphQLSchemaPlugin, ICmsGraphQLSchemaPlugin } from "~/plugins/index.js";
+import { toSlug } from "~/utils/toSlug.js";
+import { GenericRecord } from "@webiny/api/types.js";
 
 export interface CreateModelsSchemaParams {
     context: CmsContext;

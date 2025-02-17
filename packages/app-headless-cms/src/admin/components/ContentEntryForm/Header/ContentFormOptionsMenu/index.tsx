@@ -1,1 +1,1 @@
-export * from "./ContentFormOptionsMenu";
+export * from "./ContentFormOptionsMenu.js";

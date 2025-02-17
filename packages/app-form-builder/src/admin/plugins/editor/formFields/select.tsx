@@ -1,9 +1,9 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { ReactComponent as Icon } from "./icons/dropdown-icon.svg";
-import OptionsList from "./components/OptionsList";
-import { Input } from "@webiny/ui/Input";
-import { FbBuilderFieldPlugin } from "~/types";
+import OptionsList from "./components/OptionsList.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { FbBuilderFieldPlugin } from "~/types.js";
 
 const plugin: FbBuilderFieldPlugin = {
     type: "form-editor-field-type",

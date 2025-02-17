@@ -1,1 +1,1 @@
-export * from "./rootElementAtom";
+export * from "./rootElementAtom.js";

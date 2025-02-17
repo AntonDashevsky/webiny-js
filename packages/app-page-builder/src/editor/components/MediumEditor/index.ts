@@ -1,7 +1,7 @@
 import React, { useEffect, createElement, useCallback } from "react";
 import MediumEditor, { CoreOptions } from "medium-editor";
 import { css } from "emotion";
-import merge from "lodash/merge";
+import merge from "lodash/merge.js";
 import dotProp from "dot-prop-immutable";
 
 const editorClass = css({

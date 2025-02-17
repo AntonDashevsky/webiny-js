@@ -3,8 +3,8 @@ import { FormRenderPropParams } from "@webiny/form";
 import {
     InputElement,
     InputElementRenderProps
-} from "@webiny/app-admin/ui/elements/form/InputElement";
-import { GroupAutocomplete } from "@webiny/app-security-access-management/components/GroupAutocomplete";
+} from "@webiny/app-admin/ui/elements/form/InputElement.js";
+import { GroupAutocomplete } from "@webiny/app-security-access-management/components/GroupAutocomplete/index.js";
 
 export class GroupAutocompleteElement extends InputElement {
     public override render(

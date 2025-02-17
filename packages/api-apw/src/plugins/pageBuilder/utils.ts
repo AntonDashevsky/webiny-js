@@ -6,9 +6,9 @@ import {
     ApwWorkflowScope,
     PageWithWorkflow,
     WorkflowScopeTypes
-} from "~/types";
-import { workflowByCreatedOnDesc, workflowByPrecedenceDesc } from "~/plugins/utils";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
+} from "~/types.js";
+import { workflowByCreatedOnDesc, workflowByPrecedenceDesc } from "~/plugins/utils.js";
+import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
 
 const isWorkflowApplicable = (page: PageWithWorkflow, workflow: ApwWorkflow) => {
     const application = workflow.app;

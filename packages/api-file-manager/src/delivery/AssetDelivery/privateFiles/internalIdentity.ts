@@ -1,4 +1,4 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
+import { SecurityIdentity } from "@webiny/api-security/types.js";
 
 /**
  * This identity is used to bypass the current behavior of FLP. Even when using `withoutAuthorization`,

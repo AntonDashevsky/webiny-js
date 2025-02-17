@@ -1,9 +1,9 @@
 import React from "react";
-import { INSERT_UNORDERED_LIST_COMMAND, REMOVE_LIST_COMMAND } from "~/commands";
-import { useRichTextEditor } from "~/hooks/useRichTextEditor";
+import { INSERT_UNORDERED_LIST_COMMAND, REMOVE_LIST_COMMAND } from "~/commands/index.js";
+import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
 import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { $isListNode, ListNode } from "@webiny/lexical-nodes";
-import { useCurrentElement } from "~/hooks/useCurrentElement";
+import { useCurrentElement } from "~/hooks/useCurrentElement.js";
 
 export const BulletListAction = () => {
     const { editor } = useRichTextEditor();

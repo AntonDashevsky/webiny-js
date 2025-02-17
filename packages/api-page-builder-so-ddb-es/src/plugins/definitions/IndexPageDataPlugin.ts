@@ -1,5 +1,5 @@
 import { Plugin, PluginsContainer } from "@webiny/plugins";
-import { Page } from "@webiny/api-page-builder/types";
+import { Page } from "@webiny/api-page-builder/types.js";
 
 interface ApplyPageDataParams<TPage, TData = Record<string, any>> {
     data: TData;

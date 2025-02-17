@@ -1,17 +1,17 @@
 import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import type { Context } from "~/types";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
-import { getErrorProperties } from "@webiny/tasks/utils";
-import type { ICmsEntryZipper, ICmsEntryZipperConfig } from "~/tasks/utils/cmsEntryZipper";
-import { CmsEntryZipperExecuteContinueResult } from "~/tasks/utils/cmsEntryZipper";
+import type { Context } from "~/types.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { getErrorProperties } from "@webiny/tasks/utils/index.js";
+import type { ICmsEntryZipper, ICmsEntryZipperConfig } from "~/tasks/utils/cmsEntryZipper/index.js";
+import { CmsEntryZipperExecuteContinueResult } from "~/tasks/utils/cmsEntryZipper/index.js";
 import type {
     IExportContentEntries,
     IExportContentEntriesInput,
     IExportContentEntriesOutput
-} from "~/tasks/domain/abstractions/ExportContentEntries";
-import { createCmsEntryFetcher } from "~/tasks/utils/cmsEntryFetcher/createCmsEntryFetcher";
+} from "~/tasks/domain/abstractions/ExportContentEntries.js";
+import { createCmsEntryFetcher } from "~/tasks/utils/cmsEntryFetcher/createCmsEntryFetcher.js";
 import type { IContentEntryTraverser } from "@webiny/api-headless-cms";
-import { WEBINY_EXPORT_ENTRIES_EXTENSION } from "~/tasks/constants";
+import { WEBINY_EXPORT_ENTRIES_EXTENSION } from "~/tasks/constants.js";
 
 export interface IExportContentEntriesConfig {
     createCmsEntryZipper(config: Pick<ICmsEntryZipperConfig, "fetcher">): ICmsEntryZipper;

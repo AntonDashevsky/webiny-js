@@ -3,9 +3,9 @@ import {
     ListItemText as UiListItemText,
     ListItemTextPrimary,
     ListItemTextSecondary
-} from "@webiny/ui/List";
+} from "@webiny/ui/List/index.js";
 import { useSecurity } from "@webiny/app-security";
-import { FolderLevelPermissionsTarget } from "~/types";
+import { FolderLevelPermissionsTarget } from "~/types.js";
 
 interface ListItemTextProps {
     target: FolderLevelPermissionsTarget;

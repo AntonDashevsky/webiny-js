@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import BlocksByCategoriesDataList from "./BlocksByCategoriesDataList";
-import PageBlocksDataList from "./PageBlocksDataList";
-import { useBlocksPermissions } from "~/hooks/permissions";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
+import BlocksByCategoriesDataList from "./BlocksByCategoriesDataList.js";
+import PageBlocksDataList from "./PageBlocksDataList.js";
+import { useBlocksPermissions } from "~/hooks/permissions/index.js";
 
 export interface CreatableItem {
     createdBy?: {

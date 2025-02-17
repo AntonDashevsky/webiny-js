@@ -1,4 +1,4 @@
-import { createSettingsGraphQL } from "~/graphql/settings";
+import { createSettingsGraphQL } from "~/graphql/settings.js";
 
 export const createGraphQL = () => {
     return [createSettingsGraphQL()];

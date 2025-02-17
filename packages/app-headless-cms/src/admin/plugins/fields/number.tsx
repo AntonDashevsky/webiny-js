@@ -1,9 +1,9 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { CmsModelFieldTypePlugin } from "~/types";
-import { i18n } from "@webiny/app/i18n";
-import { Input } from "@webiny/ui/Input";
-import PredefinedValuesDynamicFieldset from "./PredefinedValuesDynamicFieldset";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { CmsModelFieldTypePlugin } from "~/types.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import PredefinedValuesDynamicFieldset from "./PredefinedValuesDynamicFieldset.js";
 import { ReactComponent as FloatIcon } from "@material-design-icons/svg/outlined/looks_3.svg";
 import { Bind } from "@webiny/form";
 

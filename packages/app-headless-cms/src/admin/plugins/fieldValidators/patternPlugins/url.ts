@@ -1,4 +1,4 @@
-import { CmsModelFieldRegexValidatorExpressionPlugin } from "~/types";
+import { CmsModelFieldRegexValidatorExpressionPlugin } from "~/types.js";
 
 const plugin: CmsModelFieldRegexValidatorExpressionPlugin = {
     type: "cms-model-field-regex-validator-expression",

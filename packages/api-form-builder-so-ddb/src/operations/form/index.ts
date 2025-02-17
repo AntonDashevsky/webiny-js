@@ -13,22 +13,22 @@ import type {
     FormBuilderStorageOperationsPublishFormParams,
     FormBuilderStorageOperationsUnpublishFormParams,
     FormBuilderStorageOperationsUpdateFormParams
-} from "@webiny/api-form-builder/types";
-import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+} from "@webiny/api-form-builder/types.js";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
+import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
 import { createEntityWriteBatch } from "@webiny/db-dynamodb";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
 import { createIdentifier, parseIdentifier } from "@webiny/utils";
 import type { PluginsContainer } from "@webiny/plugins";
 import type {
     FormBuilderFormCreateGSIPartitionKeyParams,
     FormBuilderFormCreatePartitionKeyParams,
     FormBuilderFormStorageOperations
-} from "~/types";
-import { FormDynamoDbFieldPlugin } from "~/plugins/FormDynamoDbFieldPlugin";
-import { decodeCursor, encodeCursor } from "@webiny/db-dynamodb/utils/cursor";
-import { getClean } from "@webiny/db-dynamodb/utils/get";
+} from "~/types.js";
+import { FormDynamoDbFieldPlugin } from "~/plugins/FormDynamoDbFieldPlugin.js";
+import { decodeCursor, encodeCursor } from "@webiny/db-dynamodb/utils/cursor.js";
+import { getClean } from "@webiny/db-dynamodb/utils/get.js";
 
 type DbRecord<T = any> = T & {
     PK: string;

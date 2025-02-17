@@ -1,9 +1,9 @@
 import { useMemo, useState, useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import dotPropImmutable from "dot-prop-immutable";
-import pick from "lodash/pick";
-import debounce from "lodash/debounce";
-import { LIST_PAGES } from "~/graphql/workflow.gql";
+import pick from "lodash/pick.js";
+import debounce from "lodash/debounce.js";
+import { LIST_PAGES } from "~/graphql/workflow.gql.js";
 import { BindComponentRenderProp } from "@webiny/form";
 
 interface UsePbPagesResult {

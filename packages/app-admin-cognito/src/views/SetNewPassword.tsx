@@ -1,17 +1,17 @@
 import React from "react";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { Input } from "@webiny/ui/Input";
-import { Grid, Cell } from "@webiny/ui/Grid";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { View } from "~/components/View";
-import { alignRight, errorMessage } from "~/components/StyledComponents";
-import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { View } from "~/components/View.js";
+import { alignRight, errorMessage } from "~/components/StyledComponents.js";
+import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
 import {
     useSetNewPassword,
     UseSetNewPasswordCallableParams
-} from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword";
+} from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword.js";
 
 export const SetNewPassword = () => {
     const { changeState } = useAuthenticator();

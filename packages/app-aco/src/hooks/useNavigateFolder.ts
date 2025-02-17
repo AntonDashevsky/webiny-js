@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateFolderContext } from "~/contexts/navigateFolder";
+import { NavigateFolderContext } from "~/contexts/navigateFolder.js";
 
 export const useNavigateFolder = () => {
     const context = useContext(NavigateFolderContext);

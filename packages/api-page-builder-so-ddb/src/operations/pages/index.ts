@@ -15,10 +15,10 @@ import type {
     PageStorageOperationsPublishParams,
     PageStorageOperationsUnpublishParams,
     PageStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types";
-import { getClean } from "@webiny/db-dynamodb/utils/get";
-import type { Entity } from "@webiny/db-dynamodb/toolbox";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
+} from "@webiny/api-page-builder/types.js";
+import { getClean } from "@webiny/db-dynamodb/utils/get.js";
+import type { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
 import type { QueryAllParams } from "@webiny/db-dynamodb";
 import {
     createEntityWriteBatch,
@@ -30,7 +30,7 @@ import {
     queryOneClean,
     sortItems
 } from "@webiny/db-dynamodb";
-import { PageDynamoDbFieldPlugin } from "~/plugins/definitions/PageDynamoDbFieldPlugin";
+import { PageDynamoDbFieldPlugin } from "~/plugins/definitions/PageDynamoDbFieldPlugin.js";
 import type { PluginsContainer } from "@webiny/plugins";
 import {
     createLatestPartitionKey,
@@ -41,7 +41,7 @@ import {
     createPublishedSortKey,
     createRevisionPartitionKey,
     createRevisionSortKey
-} from "~/operations/pages/keys";
+} from "~/operations/pages/keys.js";
 
 const GSI1_INDEX = "GSI1";
 

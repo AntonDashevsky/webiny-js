@@ -3,10 +3,10 @@ import {
     type GroupsTeamsAuthorizerConfig
 } from "@webiny/api-security";
 
-export { createIdentityType } from "./createIdentityType";
-export { createAuthenticator } from "./createAuthenticator";
-export type { AuthenticatorConfig } from "./createAuthenticator";
-export { createOkta } from "./createOkta";
+export { createIdentityType } from "./createIdentityType.js";
+export { createAuthenticator } from "./createAuthenticator.js";
+export type { AuthenticatorConfig } from "./createAuthenticator.js";
+export { createOkta } from "./createOkta.js";
 
 export { createGroupsTeamsAuthorizer, type GroupsTeamsAuthorizerConfig };
 

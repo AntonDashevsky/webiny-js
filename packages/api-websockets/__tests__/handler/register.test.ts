@@ -16,7 +16,7 @@ describe("handler register", () => {
 
         await import(
             /* webpackChunkName: "TestingRegisterWebsocketsHandler" */
-            "~/handler/register"
+            "~/handler/register.js"
         );
 
         const result = registry.getHandler(event, context);

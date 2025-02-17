@@ -1,15 +1,15 @@
 import React, { useCallback } from "react";
 import { Form } from "@webiny/form";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { SimpleFormContent } from "@webiny/app-admin/components/SimpleForm";
+import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { validation } from "@webiny/validation";
-import { Select } from "@webiny/ui/Select";
-import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog";
-import { useBlock } from "~/blockEditor/hooks/useBlock";
-import { useBlockCategories } from "~/blockEditor/hooks/useBlockCategories";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
-import { BlockAtomType } from "~/blockEditor/state";
+import { Select } from "@webiny/ui/Select/index.js";
+import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog/index.js";
+import { useBlock } from "~/blockEditor/hooks/useBlock.js";
+import { useBlockCategories } from "~/blockEditor/hooks/useBlockCategories.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
+import { BlockAtomType } from "~/blockEditor/state/index.js";
 
 export interface BlockSettingsModalProps {
     open: boolean;

@@ -1,6 +1,6 @@
 import React from "react";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
 
 export const CellCreated = () => {
     const { useTableRow } = ContentEntryListConfig.Browser.Table.Column;

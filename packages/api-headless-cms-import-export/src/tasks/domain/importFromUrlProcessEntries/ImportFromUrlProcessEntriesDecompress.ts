@@ -1,15 +1,15 @@
-import type { ICompressedFileReader, IDecompressor } from "~/tasks/utils/decompressor";
+import type { ICompressedFileReader, IDecompressor } from "~/tasks/utils/decompressor/index.js";
 import type {
     IImportFromUrlProcessEntriesDecompress,
     IImportFromUrlProcessEntriesDecompressRunParams,
     IImportFromUrlProcessEntriesDecompressRunResult
-} from "./abstractions/ImportFromUrlProcessEntriesDecompress";
+} from "./abstractions/ImportFromUrlProcessEntriesDecompress.js";
 import type {
     IImportFromUrlProcessEntriesInput,
     IImportFromUrlProcessEntriesOutput
-} from "./abstractions/ImportFromUrlProcessEntries";
-import { getFilePath } from "~/tasks/utils/helpers/getFilePath";
-import type { Context } from "~/types";
+} from "./abstractions/ImportFromUrlProcessEntries.js";
+import { getFilePath } from "~/tasks/utils/helpers/getFilePath.js";
+import type { Context } from "~/types.js";
 import { WebinyError } from "@webiny/error";
 
 export interface IImportFromUrlProcessEntriesDecompressParams {

@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { providerList } from "./providers";
+import { providerList } from "./providers.js";
 
 const getHostname = (url: string): string | null => {
     const match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);

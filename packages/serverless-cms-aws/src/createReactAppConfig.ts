@@ -1,6 +1,6 @@
 import path from "path";
 import invariant from "invariant";
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
+import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
 import { BuildAppConfigOverrides, createBuildApp, createWatchApp } from "@webiny/project-utils";
 import { Configuration as WebpackConfig } from "webpack";
 import { PulumiAppModule } from "@webiny/pulumi";

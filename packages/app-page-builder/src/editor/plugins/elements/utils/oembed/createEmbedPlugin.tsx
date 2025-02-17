@@ -1,13 +1,13 @@
 import * as React from "react";
-import OEmbed, { OEmbedProps } from "../../../../components/OEmbed";
+import OEmbed, { OEmbedProps } from "../../../../components/OEmbed.js";
 import {
     PbEditorElement,
     PbEditorPageElementPlugin,
     PbEditorPageElementAdvancedSettingsPlugin,
     DisplayMode,
     OnCreateActions
-} from "~/types";
-import { createInitialPerDeviceSettingValue } from "../../../elementSettings/elementSettingsUtils";
+} from "~/types.js";
+import { createInitialPerDeviceSettingValue } from "../../../elementSettings/elementSettingsUtils.js";
 
 interface EmbedPluginConfigRenderCallableParams {
     element: PbEditorElement;

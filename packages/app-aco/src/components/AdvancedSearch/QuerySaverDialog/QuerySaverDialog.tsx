@@ -1,17 +1,17 @@
 import React, { useEffect, useMemo } from "react";
 
 import { Form } from "@webiny/form";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button";
-import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { QuerySaverDialogFormData, QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter";
+import { QuerySaverDialogFormData, QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
 
-import { FilterDTO } from "../domain";
+import { FilterDTO } from "../domain/index.js";
 
-import { DialogContainer } from "./QuerySaverDialog.styled";
+import { DialogContainer } from "./QuerySaverDialog.styled.js";
 
 interface QuerySaverDialogProps {
     onClose: () => void;

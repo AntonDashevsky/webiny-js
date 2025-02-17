@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IconPicker } from "@webiny/app-admin";
-import { Icon } from "@webiny/app-admin/components/IconPicker/types";
-import { HiddenDiv } from "~/editor/components/HiddenDiv";
+import { Icon } from "@webiny/app-admin/components/IconPicker/types.js";
+import { HiddenDiv } from "~/editor/components/HiddenDiv.js";
 
 interface OnMarkup {
     (params: { icon: Icon; width: number | undefined; markup: string }): void;

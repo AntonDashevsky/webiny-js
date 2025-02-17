@@ -1,11 +1,11 @@
 import React from "react";
 import { Wcp } from "@webiny/app-admin";
 import { DeleteFolder, EditFolder, SetFolderPermissions } from "@webiny/app-aco";
-import { FileManagerViewConfig as FileManagerConfig } from "~/index";
-import { FileManagerRenderer } from "./FileManagerView";
-import { FilterByType } from "./filters/FilterByType";
-import { ActionDelete, ActionEdit, ActionMove } from "~/components/BulkActions";
-import { Name, Tags, Aliases, AccessControl } from "~/components/fields";
+import { FileManagerViewConfig as FileManagerConfig } from "~/index.js";
+import { FileManagerRenderer } from "./FileManagerView/index.js";
+import { FilterByType } from "./filters/FilterByType.js";
+import { ActionDelete, ActionEdit, ActionMove } from "~/components/BulkActions/index.js";
+import { Name, Tags, Aliases, AccessControl } from "~/components/fields/index.js";
 import {
     CellActions,
     CellAuthor,
@@ -18,10 +18,10 @@ import {
     DeleteFile,
     EditFile,
     MoveFile
-} from "~/components/Table";
-import { DefaultRenderer } from "~/modules/ThumbnailRenderers/DefaultRenderer";
-import { ImageRenderer } from "~/modules/ThumbnailRenderers/ImageRenderer";
-import { FileActions } from "~/modules/FileManagerRenderer/FileActions";
+} from "~/components/Table/index.js";
+import { DefaultRenderer } from "~/modules/ThumbnailRenderers/DefaultRenderer.js";
+import { ImageRenderer } from "~/modules/ThumbnailRenderers/ImageRenderer.js";
+import { FileActions } from "~/modules/FileManagerRenderer/FileActions/index.js";
 
 const { Browser, FileDetails } = FileManagerConfig;
 
