@@ -3,3 +3,5 @@
 - ref / makeDecoratable
 - call it sidebar or nav or menu?
 - mobile version with drawer?
+- storybook fixed-related rendering issues 🤨
+- check icons diff

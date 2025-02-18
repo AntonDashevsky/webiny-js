@@ -65,14 +65,14 @@ const SidebarRoot = React.forwardRef<
                             : "wby-right-0 group-data-[collapsible=offcanvas]:wby-right-[calc(var(--sidebar-width)*-1)]",
                         variant === "floating" || variant === "inset"
                             ? "wby-p-2 group-data-[collapsible=icon]:wby-w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
-                            : "group-data-[collapsible=icon]:wby-w-[--sidebar-width-icon] group-data-[side=left]:wby-border-r group-data-[side=right]:wby-border-l",
+                            : "group-data-[collapsible=icon]:wby-w-[--sidebar-width-icon] group-data-[side=left]:wby-border-r-px group-data-[side=right]:wby-border-l-px",
                         className
                     )}
                     {...props}
                 >
                     <div
                         data-sidebar="sidebar"
-                        className="wby-flex wby-h-full wby-w-full wby-flex-col wby-bg-sidebar group-data-[variant=floating]:wby-rounded-lg group-data-[variant=floating]:wby-border group-data-[variant=floating]:wby-border-sidebar-border group-data-[variant=floating]:wby-shadow"
+                        className="wby-flex wby-h-full wby-w-full wby-py-xs wby-flex-col wby-bg-sidebar group-data-[variant=floating]:wby-rounded-lg group-data-[variant=floating]:wby-border group-data-[variant=floating]:wby-border-sidebar-border group-data-[variant=floating]:wby-shadow"
                     >
                         {children}
                     </div>

@@ -1,26 +1,32 @@
 import * as React from "react";
 import { makeDecoratable, withStaticProps } from "~/utils";
 import { SidebarRoot } from "./components/SidebarRoot";
-import { SidebarTrigger } from "./components/SidebarTrigger";
 import { SidebarContent } from "./components/SidebarContent";
 import { SidebarSeparator } from "./components/SidebarSeparator";
 import { SidebarMenuItem } from "./components/SidebarMenuItem";
 import { SidebarGroup } from "./components/SidebarGroup";
 import { SidebarProvider } from "./components/SidebarProvider";
 import { SidebarMenu } from "./components/SidebarMenu";
+import { SidebarHeader } from "~/Sidebar/components/SidebarHeader";
+import { SidebarIcon } from "~/Sidebar/components/SidebarIcon";
 
 interface SidebarProps
-    extends React.ComponentPropsWithoutRef<typeof SidebarRoot>,
-        React.ComponentPropsWithoutRef<typeof SidebarProvider>,
-        React.ComponentPropsWithoutRef<typeof SidebarContent> {
-    trigger?: React.ReactNode;
+    extends Omit<React.ComponentPropsWithoutRef<typeof SidebarRoot>, "title">,
+        Omit<React.ComponentPropsWithoutRef<typeof SidebarProvider>, "title">,
+        Omit<React.ComponentPropsWithoutRef<typeof SidebarContent>, "title"> {
+    title?: React.ReactNode;
+    icon?: React.ReactNode;
     children: React.ReactNode;
 }
 
 const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, SidebarProps>(
     (props, ref) => {
-        const { rootProps, triggerProps, contentProps } = React.useMemo(() => {
+        const { headerProps, rootProps, contentProps } = React.useMemo(() => {
             const {
+                // Header props.
+                title,
+                icon,
+
                 // Provider props.
                 defaultOpen,
                 open,
@@ -31,28 +37,24 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
                 variant,
                 collapsible,
 
-                // Trigger props.
-                trigger,
-
                 // Content props.
                 ...rest
             } = props;
 
             return {
+                headerProps: {
+                    title,
+                    icon
+                },
                 providerProps: {
                     defaultOpen,
                     open,
-                    onOpenChange,
+                    onOpenChange
                 },
                 rootProps: {
                     side,
                     variant,
                     collapsible
-                },
-                triggerProps: {
-                    // Temporary fix. We need this because `ref` doesn't get passed to components
-                    // that are decorated with `makeDecoratable`. This will be fixed in the future.
-                    children: <div className={"wby-inline-block"}>{trigger}</div>
                 },
                 contentProps: rest
             };
@@ -61,11 +63,9 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
         return (
             <SidebarProvider>
                 <SidebarRoot {...rootProps}>
-                    {triggerProps.children && <SidebarTrigger {...triggerProps} asChild />}
+                    <SidebarHeader {...headerProps} />
                     <SidebarContent {...contentProps} ref={ref}>
-                        <SidebarMenu>
-                        {props.children}
-                        </SidebarMenu>
+                        <SidebarMenu>{props.children}</SidebarMenu>
                     </SidebarContent>
                 </SidebarRoot>
             </SidebarProvider>
@@ -80,7 +80,8 @@ const DecoratableSidebar = makeDecoratable("Sidebar", SidebarBase);
 const Sidebar = withStaticProps(DecoratableSidebar, {
     Separator: SidebarSeparator,
     Group: SidebarGroup,
-    Item: SidebarMenuItem
+    Item: SidebarMenuItem,
+    Icon: SidebarIcon
 });
 
 export { Sidebar };

@@ -1,34 +1,30 @@
 import React from "react";
-import { Button } from "~/Button";
-import { cn } from "~/utils";
+import { IconButton } from "~/Button";
 import { useSidebar } from "./SidebarProvider";
-import { ReactComponent as PanelLeft } from "@material-design-icons/svg/outlined/support.svg";
+import { ReactComponent as PanelLeft } from "@material-design-icons/svg/outlined/view_sidebar.svg";
+import {Icon} from "~/Icon";
 
 const SidebarTrigger = React.forwardRef<
-    React.ElementRef<typeof Button>,
-    React.ComponentProps<typeof Button>
->(({ className, onClick, ...props }, ref) => {
+    React.ElementRef<typeof IconButton>,
+    React.ComponentProps<typeof IconButton>
+>(({ className, onClick, ...props }) => {
     const { toggleSidebar } = useSidebar();
 
     return (
-        <Button
-            ref={ref}
+        <Icon
+            icon={<PanelLeft />}
             data-sidebar="trigger"
-            variant="ghost"
+            color="neutral-strong"
+            label={"Toggle Sidebar"}
             size="md"
-            className={cn("wby-h-7 wby-w-7", className)}
-            onClick={event => {
-                onClick?.(event);
-                toggleSidebar();
-            }}
-            {...props}
-            text={
-                <>
-                    <PanelLeft />
-                    <span className="wby-sr-only">Toggle Sidebar</span>
-                </>
-            }
-        ></Button>
+            onClick={toggleSidebar}
+            // onClick={event => {
+            //     onClick?.(event);
+            //     console.log("woot?");
+            //     toggleSidebar();
+            // }}
+            // {...props}
+        ></Icon>
     );
 });
 SidebarTrigger.displayName = "SidebarTrigger";
