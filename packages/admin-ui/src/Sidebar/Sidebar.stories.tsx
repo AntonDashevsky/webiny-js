@@ -65,7 +65,10 @@ export const Default: Story = {
                 <Sidebar.Item
                     icon={<Sidebar.Item.Icon label="Publishing Workflows" element={<ApwIcon />} />}
                     content={"Publishing Workflows"}
-                />
+                >
+                    <Sidebar.Item content={"Workflows"} />
+                    <Sidebar.Item content={"Content Reviews"} />
+                </Sidebar.Item>
                 <Sidebar.Item
                     icon={
                         <Sidebar.Item.Icon label="Tenant manager" element={<TenantManagerIcon />} />

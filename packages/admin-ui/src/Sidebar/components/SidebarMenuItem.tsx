@@ -1,24 +1,68 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { cn, withStaticProps } from "~/utils";
 import { SidebarMenuButton } from "./SidebarMenuButton";
 import { SidebarMenuItemIcon } from "./SidebarMenuItemIcon";
-import { Collapsible } from "~/Collapsible";
+import { SidebarMenuSub } from "./SidebarMenuSub";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "~/Collapsible";
+import { SidebarMenuSubItem } from "./SidebarMenuSubItem";
+import { Icon } from "~/Icon";
+import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
 
-interface SidebarMenuItemProps extends React.ComponentProps<"li"> {
+interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content"> {
+    content: React.ReactNode;
     icon?: React.ReactNode;
 }
 
-const SidebarMenuItemBase = ({ className, icon, ...props }: SidebarMenuItemProps) => {
+const SidebarMenuItemBase = ({ content, icon, className, children, ...props }: SidebarMenuItemProps) => {
+    const sidebarMenuButton = useMemo(() => {
+        if (!children) {
+            return <SidebarMenuButton icon={icon}>{content}</SidebarMenuButton>;
+        }
+
+        return (
+            <Collapsible defaultOpen className="wby-group/collapsible">
+                <CollapsibleTrigger asChild>
+                    <SidebarMenuButton
+                        icon={icon}
+                        className={
+                            "group-data-[state=open]/collapsible:wby-font-semibold group-data-[state=open]/collapsible:wby-bg-neutral-dimmed"
+                        }
+                    >
+                        {content}
+                        <Icon
+                            size={"sm"}
+                            className={
+                                "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/collapsible:wby-rotate-180"
+                            }
+                            color={"neutral-strong"}
+                            data-role={"open-close-indicator"}
+                            label={"Open/close"}
+                            icon={<KeyboardArrowRightIcon />}
+                        />
+                    </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                    <SidebarMenuSub>
+                        {React.Children.map(children, child => {
+                            if (React.isValidElement(child)) {
+                                return <SidebarMenuSubItem content={child} />;
+                            }
+                            return child;
+                        })}
+                    </SidebarMenuSub>
+                </CollapsibleContent>
+            </Collapsible>
+        );
+    }, [children, icon, content]);
+
     return (
-        <Collapsible defaultOpen className="wby-group/collapsible">
-            <li
-                data-sidebar="menu-item"
-                className={cn("wby-group/menu-item wby-relative wby-px-sm", className)}
-                {...props}
-            >
-                <SidebarMenuButton icon={icon}>{props.content}</SidebarMenuButton>
-            </li>
-        </Collapsible>
+        <li
+            {...props}
+            data-sidebar="menu-item"
+            className={cn("wby-group/menu-item wby-relative wby-px-xs-plus", className)}
+        >
+            {sidebarMenuButton}
+        </li>
     );
 };
 

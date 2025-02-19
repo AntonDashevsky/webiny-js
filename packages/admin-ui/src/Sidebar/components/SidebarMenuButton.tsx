@@ -2,11 +2,9 @@ import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "~/utils";
-// import { Tooltip } from "~/Tooltip";
-import { useSidebar } from "./SidebarProvider";
 
 const sidebarMenuButtonVariants = cva(
-    "wby-peer/menu-button wby-flex wby-w-full wby-items-center wby-gap-sm wby-overflow-hidden wby-rounded-md wby-text-neutral-primary wby-p-2 wby-text-left wby-text-md wby-outline-none wby-ring-sidebar-ring wby-transition-[width,height,padding] hover:wby-bg-sidebar-accent hover:wby-text-sidebar-accent-foreground focus-visible:wby-ring-2 active:wby-bg-sidebar-accent active:wby-text-sidebar-accent-foreground disabled:wby-pointer-events-none disabled:wby-opacity-50 group--has-[[data-sidebar=menu-action]]/menu-item:wby-pr-8 aria-disabled:wby-pointer-events-none aria-disabled:wby-opacity-50 data-[active=true]:wby-bg-sidebar-accent data-[active=true]:wby-font-medium data-[active=true]:wby-text-sidebar-accent-foreground data-[state=open]:hover:wby-bg-sidebar-accent data-[state=open]:hover:wby-text-sidebar-accent-foreground group--data-[collapsible=icon]:!wby-size-8 group--data-[collapsible=icon]:!wby-p-2 [&>span:last-child]:wby-truncate [&>svg]:wby-size-4 [&>svg]:wby-shrink-0",
+    "wby-peer/menu-button wby-flex wby-w-full wby-items-center wby-gap-sm wby-overflow-hidden wby-rounded-md wby-text-neutral-primary wby-px-sm wby-py-xs-plus wby-text-left wby-text-md wby-outline-none wby-ring-sidebar-ring wby-transition-[width,height,padding] hover:wby-bg-sidebar-accent hover:wby-text-sidebar-accent-foreground focus-visible:wby-ring-2 active:wby-bg-sidebar-accent active:wby-text-sidebar-accent-foreground disabled:wby-pointer-events-none disabled:wby-opacity-50 group--has-[[data-sidebar=menu-action]]/menu-item:wby-pr-8 aria-disabled:wby-pointer-events-none aria-disabled:wby-opacity-50 data-[active=true]:wby-bg-sidebar-accent data-[active=true]:wby-font-medium data-[active=true]:wby-text-sidebar-accent-foreground data-[state=open]:hover:wby-bg-sidebar-accent data-[state=open]:hover:wby-text-sidebar-accent-foreground group--data-[collapsible=icon]:!wby-size-8 group--data-[collapsible=icon]:!wby-p-2 [&>span:last-child]:wby-truncate [&>svg]:wby-size-4 [&>svg]:wby-shrink-0",
     {
         variants: {
             variant: {
@@ -31,9 +29,7 @@ type SidebarMenuButtonProps = React.ComponentProps<"button"> & {
     asChild?: boolean;
     isActive?: boolean;
     icon?: React.ReactNode;
-    // tooltip?: string | React.ComponentProps<typeof TooltipContent>;
 } & VariantProps<typeof sidebarMenuButtonVariants>;
-
 
 const SidebarMenuButton = ({
     asChild = false,
@@ -47,9 +43,8 @@ const SidebarMenuButton = ({
     ...props
 }: SidebarMenuButtonProps) => {
     const Comp = asChild ? Slot : "button";
-    const { isMobile, state } = useSidebar();
 
-    const button = (
+    return (
         <Comp
             data-sidebar="menu-button"
             data-size={size}
@@ -57,33 +52,9 @@ const SidebarMenuButton = ({
             className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
             {...props}
         >
-
             {icon} {children}
         </Comp>
     );
-
-    // if (!tooltip) {
-    //     return button;
-    // }
-    //
-    // if (typeof tooltip === "string") {
-    //     tooltip = {
-    //         children: tooltip
-    //     };
-    // }
-
-    return button;
-    // return (
-    //     <Tooltip>
-    //         <TooltipTrigger asChild>{button}</TooltipTrigger>
-    //         <TooltipContent
-    //             side="right"
-    //             align="center"
-    //             hidden={state !== "collapsed" || isMobile}
-    //             {...tooltip}
-    //         />
-    //     </Tooltip>
-    // );
 };
 
 export { SidebarMenuButton };

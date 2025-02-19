@@ -5,8 +5,8 @@ const SidebarMenuSub = ({ className, ...props }: React.ComponentProps<"ul">) => 
     <ul
         data-sidebar="menu-sub"
         className={cn(
-            "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5",
-            "group-data-[collapsible=icon]:hidden",
+            "wby-mx-3.5 wby-flex wby-min-w-0 wby-translate-x-px wby-flex-col wby-gap-1 wby-border-l wby-border-sidebar-border wby-px-2.5 wby-py-0.5",
+            "group-data-[collapsible=icon]:wby-hidden",
             className
         )}
         {...props}

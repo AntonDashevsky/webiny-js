@@ -5,3 +5,5 @@
 - mobile version with drawer?
 - storybook fixed-related rendering issues 🤨
 - check icons diff
+- config api
+- hover/active/focus states
