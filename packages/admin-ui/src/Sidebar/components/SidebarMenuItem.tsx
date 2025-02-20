@@ -45,7 +45,7 @@ const SidebarMenuItemBase = ({ content, icon, className, children, ...props }: S
                     <SidebarMenuSub>
                         {React.Children.map(children, child => {
                             if (React.isValidElement(child)) {
-                                return <SidebarMenuSubItem content={child} />;
+                                return <SidebarMenuSubItem {...child.props}/>;
                             }
                             return child;
                         })}

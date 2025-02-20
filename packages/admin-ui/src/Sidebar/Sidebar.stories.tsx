@@ -10,6 +10,8 @@ import { ReactComponent as PageBuilderIcon } from "@material-design-icons/svg/ou
 import { ReactComponent as ApwIcon } from "@material-design-icons/svg/outlined/account_tree.svg";
 import { ReactComponent as TenantManagerIcon } from "@material-design-icons/svg/outlined/domain.svg";
 import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outlined/settings.svg";
+import { ReactComponent as ArticleIcon } from "@material-design-icons/svg/outlined/article.svg";
+
 import wbyLogo from "./stories/wby-logo.png";
 
 const meta: Meta<typeof Sidebar> = {
@@ -26,7 +28,7 @@ type Story = StoryObj<typeof Sidebar>;
 export const Default: Story = {
     args: {
         title: "Webiny",
-        icon: <Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"}/>} label={"Webiny"}/>,
+        icon: <Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} label={"Webiny"} />,
         children: (
             <>
                 <Sidebar.Item
@@ -66,8 +68,19 @@ export const Default: Story = {
                     icon={<Sidebar.Item.Icon label="Publishing Workflows" element={<ApwIcon />} />}
                     content={"Publishing Workflows"}
                 >
-                    <Sidebar.Item content={"Workflows"} />
-                    <Sidebar.Item content={"Content Reviews"} />
+                    <Sidebar.Item
+                        content={"Content Reviews"}
+                        icon={
+                            <Sidebar.Item.Icon
+                                element={<ArticleIcon />}
+                                label={"Content Reviews"}
+                            />
+                        }
+                    />
+                    <Sidebar.Item
+                        content={"Workflows"}
+                        icon={<Sidebar.Item.Icon element={<ArticleIcon />} label={"Workflows"} />}
+                    />
                 </Sidebar.Item>
                 <Sidebar.Item
                     icon={
