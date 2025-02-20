@@ -48,7 +48,7 @@ const SidebarMenuSubItem = ({
                     <SidebarMenuSub>
                         {React.Children.map(children, child => {
                             if (React.isValidElement(child)) {
-                                return <SidebarMenuSubItem {...child.props} lvl={2}/>;
+                                return <SidebarMenuSubItem {...child.props} lvl={2} />;
                             }
                             return child;
                         })}
@@ -58,17 +58,18 @@ const SidebarMenuSubItem = ({
         );
     }, [children, icon, content]);
 
-    const indentation = Array.from({ length: lvl }, () => (
-        <div className={"wby-ml-md"}>
-            <Separator
-                key={lvl}
-                orientation={"vertical"}
-                margin={"none"}
-                variant={"strong"}
-                className={"wby-h-xl wby-ml-px"}
-            />
-        </div>
-    ));
+    const indentation = useMemo(() => {
+        return Array.from({ length: lvl }, (_, index) => (
+            <div className={"wby-ml-md"} key={lvl + index}>
+                <Separator
+                    orientation={"vertical"}
+                    margin={"none"}
+                    variant={"strong"}
+                    className={"wby-h-xl wby-ml-px"}
+                />
+            </div>
+        ));
+    }, [lvl]);
 
     return (
         <li
@@ -76,9 +77,7 @@ const SidebarMenuSubItem = ({
             data-sidebar="menu-sub-item"
             className={cn("wby-group/menu-item wby-relative wby-flex ", className)}
         >
-            <div className={"wby-gap-x-xs wby-flex wby-mr-sm"}>
-                {indentation}
-            </div>
+            <div className={"wby-gap-x-xs wby-flex wby-mr-sm"}>{indentation}</div>
 
             {sidebarMenuSubButton}
         </li>
