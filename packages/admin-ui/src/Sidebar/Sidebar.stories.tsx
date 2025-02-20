@@ -42,7 +42,12 @@ export const Default: Story = {
                 <Sidebar.Item
                     icon={<Sidebar.Item.Icon label="Headless CMS" element={<CmsIcon />} />}
                     content={"Headless CMS"}
-                />
+                >
+                    <Sidebar.Item content={"Content Models"} >
+                        <Sidebar.Item content={"Groups"} />
+                        <Sidebar.Item content={"Models"} />
+                    </Sidebar.Item>
+                </Sidebar.Item>
                 <Sidebar.Item
                     icon={<Sidebar.Item.Icon label="Page Builder" element={<PageBuilderIcon />} />}
                     content={"Page Builder"}

@@ -85,26 +85,3 @@ const Sidebar = withStaticProps(DecoratableSidebar, {
 });
 
 export { Sidebar };
-
-
-// <Sidebar>
-//     <SidebarContent>
-//         <SidebarGroup>
-//             <SidebarGroupLabel>Projects</SidebarGroupLabel>
-//             <SidebarGroupContent>
-//                 <SidebarMenu>
-//                     {projects.map((project) => (
-//                         <SidebarMenuItem key={project.name}>
-//                             <SidebarMenuButton asChild>
-//                                 <a href={project.url}>
-//                                     <project.icon />
-//                                     <span>{project.name}</span>
-//                                 </a>
-//                             </SidebarMenuButton>
-//                         </SidebarMenuItem>
-//                     ))}
-//                 </SidebarMenu>
-//             </SidebarGroupContent>
-//         </SidebarGroup>
-//     </SidebarContent>
-// </Sidebar>

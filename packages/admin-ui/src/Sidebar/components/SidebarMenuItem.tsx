@@ -13,7 +13,13 @@ interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content
     icon?: React.ReactNode;
 }
 
-const SidebarMenuItemBase = ({ content, icon, className, children, ...props }: SidebarMenuItemProps) => {
+const SidebarMenuItemBase = ({
+    content,
+    icon,
+    className,
+    children,
+    ...props
+}: SidebarMenuItemProps) => {
     const sidebarMenuButton = useMemo(() => {
         if (!children) {
             return <SidebarMenuButton icon={icon}>{content}</SidebarMenuButton>;
@@ -22,12 +28,7 @@ const SidebarMenuItemBase = ({ content, icon, className, children, ...props }: S
         return (
             <Collapsible defaultOpen className="wby-group/collapsible">
                 <CollapsibleTrigger asChild>
-                    <SidebarMenuButton
-                        icon={icon}
-                        className={
-                            "group-data-[state=open]/collapsible:wby-font-semibold group-data-[state=open]/collapsible:wby-bg-neutral-dimmed"
-                        }
-                    >
+                    <SidebarMenuButton icon={icon}>
                         {content}
                         <Icon
                             size={"sm"}
@@ -45,7 +46,7 @@ const SidebarMenuItemBase = ({ content, icon, className, children, ...props }: S
                     <SidebarMenuSub>
                         {React.Children.map(children, child => {
                             if (React.isValidElement(child)) {
-                                return <SidebarMenuSubItem {...child.props}/>;
+                                return <SidebarMenuSubItem {...child.props} />;
                             }
                             return child;
                         })}

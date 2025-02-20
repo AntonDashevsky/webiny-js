@@ -6,4 +6,6 @@
 - storybook fixed-related rendering issues 🤨
 - check icons diff
 - config api
-- hover/active/focus states
+- active/focus states
+- what opens the sidebar?
+- both avatar and icon for main icon
