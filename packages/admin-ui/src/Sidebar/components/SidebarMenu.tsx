@@ -6,7 +6,7 @@ const SidebarMenu = React.forwardRef<HTMLUListElement, React.ComponentProps<"ul"
         <ul
             ref={ref}
             data-sidebar="menu"
-            className={cn("wby-flex wby-w-full wby-min-w-0 wby-flex-col wby-gap-y-sm", className)}
+            className={cn("wby-flex wby-w-full wby-min-w-0 wby-flex-col wby-gap-y-xs", className)}
             {...props}
         />
     )
