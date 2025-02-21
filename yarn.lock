@@ -15028,7 +15028,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/admin-ui@npm:0.0.0, @webiny/admin-ui@workspace:packages/admin-ui":
+"@webiny/admin-ui@npm:0.0.0, @webiny/admin-ui@workspace:^, @webiny/admin-ui@workspace:packages/admin-ui":
   version: 0.0.0-use.local
   resolution: "@webiny/admin-ui@workspace:packages/admin-ui"
   dependencies:
@@ -16757,6 +16757,7 @@ __metadata:
     "@rmwc/provider": "npm:14.3.5"
     "@types/react": "npm:18.2.79"
     "@types/react-helmet": "npm:^6.1.11"
+    "@webiny/admin-ui": "workspace:^"
     "@webiny/app": "npm:0.0.0"
     "@webiny/app-admin": "npm:0.0.0"
     "@webiny/app-plugin-admin-welcome-screen": "npm:0.0.0"
@@ -17586,7 +17587,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/app-serverless-cms@npm:0.0.0, @webiny/app-serverless-cms@workspace:packages/app-serverless-cms":
+"@webiny/app-serverless-cms@npm:0.0.0, @webiny/app-serverless-cms@workspace:^, @webiny/app-serverless-cms@workspace:packages/app-serverless-cms":
   version: 0.0.0-use.local
   resolution: "@webiny/app-serverless-cms@workspace:packages/app-serverless-cms"
   dependencies:
@@ -19682,6 +19683,7 @@ __metadata:
     core-js: "npm:3.39.0"
     cross-env: "npm:^5.2.1"
     cross-fetch: "npm:^3.1.5"
+    menus: "npm:1.0.0"
     prop-types: "npm:^15.8.1"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -33408,6 +33410,15 @@ __metadata:
   checksum: 10/72b6b80699777d000f03db6e15fdabcd4afe77feb45be51fe195cb230c64a368fcfcfbb976375eac3283bd8193d6b1a67ac3081cae07f64fca73f1aa568d59e3
   languageName: node
   linkType: hard
+
+"menus@npm:1.0.0, menus@workspace:extensions/menus":
+  version: 0.0.0-use.local
+  resolution: "menus@workspace:extensions/menus"
+  dependencies:
+    "@webiny/app-serverless-cms": "workspace:^"
+    react: "npm:18.2.0"
+  languageName: unknown
+  linkType: soft
 
 "meow@npm:^8.0.0, meow@npm:^8.1.2":
   version: 8.1.2

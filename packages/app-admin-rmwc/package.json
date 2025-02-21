@@ -14,6 +14,7 @@
     "@rmwc/base": "14.3.5",
     "@rmwc/provider": "14.3.5",
     "@types/react": "18.2.79",
+    "@webiny/admin-ui": "workspace:^",
     "@webiny/app": "0.0.0",
     "@webiny/app-admin": "0.0.0",
     "@webiny/app-plugin-admin-welcome-screen": "0.0.0",
