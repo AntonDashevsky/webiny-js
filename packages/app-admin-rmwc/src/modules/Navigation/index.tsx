@@ -35,10 +35,6 @@ import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outli
 import wbyLogo from "./stories/wby-logo.png";
 import { AdminConfig } from "@webiny/app-admin/config/AdminConfig";
 
-const AutoWidthDrawer = styled(Drawer)`
-    width: auto;
-`;
-
 interface NavigationContext {
     visible: boolean;
 
@@ -133,6 +129,7 @@ export const NavigationImpl = () => {
         return (
             <div>
                 <Sidebar
+                    collapsible={'icon'}
                     title={"Webiny"}
                     icon={
                         <Sidebar.Icon

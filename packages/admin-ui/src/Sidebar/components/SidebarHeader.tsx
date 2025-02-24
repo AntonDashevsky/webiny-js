@@ -17,7 +17,7 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
                 >
                     <div className={"wby-flex wby-items-center wby-gap-x-sm"}>
                         {icon}
-                        <span className={"wby-text-md wby-font-semibold"}>{title}</span>
+                        <span className={"wby-text-md wby-font-semibold wby-truncate"}>{title}</span>
                     </div>
 
                     <SidebarTrigger />

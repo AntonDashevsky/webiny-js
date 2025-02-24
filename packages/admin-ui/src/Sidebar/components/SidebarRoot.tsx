@@ -41,7 +41,7 @@ const SidebarRoot = React.forwardRef<
         return (
             <div
                 ref={ref}
-                className="wby-group wby-peer wby-hidden md:wby-block wby-text-sidebar-foreground"
+                className="wby-group wby-peer wby-hidden md:wby-block wby-text-sidebar-foreground wby-border-r-sm wby-border-neutral-dimmed"
                 data-state={state}
                 data-collapsible={state === "collapsed" ? collapsible : ""}
                 data-variant={variant}

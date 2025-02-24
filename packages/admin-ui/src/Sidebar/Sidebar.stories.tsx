@@ -13,12 +13,21 @@ import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outli
 import { ReactComponent as ArticleIcon } from "@material-design-icons/svg/outlined/article.svg";
 
 import wbyLogo from "./stories/wby-logo.png";
+import { SidebarProvider } from "~/Sidebar/components/SidebarProvider";
 
 const meta: Meta<typeof Sidebar> = {
     title: "Components/Sidebar",
     component: Sidebar,
     tags: ["autodocs"],
-    argTypes: {}
+    argTypes: {},
+    render: args => (
+        <>
+            <SidebarProvider>
+                <Sidebar {...args} collapsible={"icon"} />
+                <main className={"wby-bg-white wby-p-8"}>Main content goes here.</main>
+            </SidebarProvider>
+        </>
+    )
 };
 
 export default meta;
@@ -43,7 +52,7 @@ export const Default: Story = {
                     icon={<Sidebar.Item.Icon label="Headless CMS" element={<CmsIcon />} />}
                     content={"Headless CMS"}
                 >
-                    <Sidebar.Item content={"Content Models"} >
+                    <Sidebar.Item content={"Content Models"}>
                         <Sidebar.Item content={"Groups"} />
                         <Sidebar.Item content={"Models"} />
                     </Sidebar.Item>

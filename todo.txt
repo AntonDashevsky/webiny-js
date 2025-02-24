@@ -1,11 +1,2 @@
-- separator - use existing comp?
-- sidebar input - use existing comp?
-- ref / makeDecoratable
-- call it sidebar or nav or menu?
-- mobile version with drawer?
-- storybook fixed-related rendering issues 🤨
-- check icons diff
-- config api
-- active/focus states
-- what opens the sidebar?
-- both avatar and icon for main icon
+- pavel
+  - menu.item is coming from where?

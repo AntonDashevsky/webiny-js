@@ -7,8 +7,9 @@ import { SidebarMenuItem } from "./components/SidebarMenuItem";
 import { SidebarGroup } from "./components/SidebarGroup";
 import { SidebarProvider } from "./components/SidebarProvider";
 import { SidebarMenu } from "./components/SidebarMenu";
-import { SidebarHeader } from "~/Sidebar/components/SidebarHeader";
-import { SidebarIcon } from "~/Sidebar/components/SidebarIcon";
+import { SidebarHeader } from "./components/SidebarHeader";
+import { SidebarIcon } from "./components/SidebarIcon";
+import { SidebarInset } from "./components/SidebarInset";
 
 interface SidebarProps
     extends Omit<React.ComponentPropsWithoutRef<typeof SidebarRoot>, "title">,
@@ -61,14 +62,12 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
         }, [props]);
 
         return (
-            <SidebarProvider>
                 <SidebarRoot {...rootProps}>
                     <SidebarHeader {...headerProps} />
                     <SidebarContent {...contentProps} ref={ref}>
                         <SidebarMenu>{props.children}</SidebarMenu>
                     </SidebarContent>
                 </SidebarRoot>
-            </SidebarProvider>
         );
     }
 );
@@ -81,7 +80,8 @@ const Sidebar = withStaticProps(DecoratableSidebar, {
     Separator: SidebarSeparator,
     Group: SidebarGroup,
     Item: SidebarMenuItem,
-    Icon: SidebarIcon
+    Icon: SidebarIcon,
+    Inset: SidebarInset
 });
 
 export { Sidebar };
