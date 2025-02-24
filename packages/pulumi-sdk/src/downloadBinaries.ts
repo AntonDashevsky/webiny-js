@@ -15,7 +15,7 @@ import { downloadFile } from "./downloadFile.js";
 // @see https://github.com/pulumi/pulumi/issues/6847
 const getPulumiVersion = () => {
     const pkgJsonPath = findUp.sync("node_modules/@pulumi/pulumi/package.json");
-    const { version } = readJsonSync(pkgJsonPath);
+    const { version } = readJsonSync(pkgJsonPath!);
     return semver.clean(version);
 };
 

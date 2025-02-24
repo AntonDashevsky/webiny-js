@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
 import { useHandler } from "~tests/useHandler";
 import { createTable } from "~/createTable";

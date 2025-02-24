@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { WebsocketsTransport } from "~/transport/WebsocketsTransport";
 import { GenericRecord } from "@webiny/api/types";
 

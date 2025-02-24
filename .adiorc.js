@@ -1,8 +1,8 @@
-const get = require("lodash/get");
-const getWorkspaces = require("get-yarn-workspaces");
-const path = require("path");
+import path from "path";
+import get from "lodash/get.js";
+import getWorkspaces from "get-yarn-workspaces";
 
-module.exports = {
+export default {
     parser: {
         plugins: ["jsx", "classProperties", "dynamicImport", "throwExpressions", "typescript"]
     },

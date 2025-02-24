@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { mdbid } from "@webiny/utils";
 import useGqlHandler from "~tests/utils/useGqlHandler";
 import testFiles from "./data";

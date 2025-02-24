@@ -1,10 +1,10 @@
-const { marshall } = require("@webiny/aws-sdk/client-dynamodb");
-const {
+import { marshall } from "@webiny/aws-sdk/client-dynamodb";
+import {
     PutCommand,
     UpdateCommand,
     DeleteCommand,
     BatchWriteCommand
-} = require("@webiny/aws-sdk/client-dynamodb");
+} from "@webiny/aws-sdk/client-dynamodb";
 
 const streamTableName = process.env.DB_TABLE_ELASTICSEARCH;
 
@@ -22,11 +22,11 @@ const createMarshalledObject = target => {
     });
 };
 
-const createDynamoStreamEvent = (...records) => {
+export const createDynamoStreamEvent = (...records) => {
     return { Records: records };
 };
 
-const createDynamoStreamRecord = (eventName, data = {}) => {
+export const createDynamoStreamRecord = (eventName, data = {}) => {
     const { Keys = {}, NewImage = {}, OldImage = {} } = data;
     // Return an event mock with completely random data, except the Keys, NewImage and OldImage which we use in
     // the real Lambda to synchronize with Elasticsearch.
@@ -130,7 +130,7 @@ const processBatchWrite = async (documentClient, handler, params) => {
     await handler(createDynamoStreamEvent(...records));
 };
 
-const processing = {
+export const processing = {
     put: processPut,
     update: processPut,
     delete: processDelete,
@@ -141,7 +141,7 @@ const processing = {
  * @param command {PutCommand|UpdateCommand|DeleteCommand|BatchWriteCommand}
  * @returns {string|null}
  */
-const getCommandName = command => {
+export const getCommandName = command => {
     if (!command) {
         return null;
     }
@@ -155,11 +155,4 @@ const getCommandName = command => {
         return "batchWrite";
     }
     return null;
-};
-
-module.exports = {
-    processing,
-    getCommandName,
-    createDynamoStreamEvent,
-    createDynamoStreamRecord
 };

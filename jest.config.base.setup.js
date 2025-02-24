@@ -1,3 +1,5 @@
+import { jest } from "@jest/globals";
+
 // The `jest.config.base.setup.js` file is run by Jest before running the actual test suite.
 // By being able to access the `jest` object, we can globally apply the settings we need.
 

@@ -1,4 +1,4 @@
-import packageJson from "@webiny/project-utils/package.json" assert { type: "json" };
+import packageJson from "@webiny/project-utils/package.json" with { type: "json" };
 import { getProject } from "@webiny/cli/utils/index.js";
 import { isEnabled } from "@webiny/telemetry/cli.js";
 import { globalConfig } from "@webiny/global-config";

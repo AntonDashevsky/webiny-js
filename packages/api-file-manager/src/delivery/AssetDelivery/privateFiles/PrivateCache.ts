@@ -1,4 +1,4 @@
-import { parse, stringify } from "cache-control-parser";
+import * as cacheControlParser from "cache-control-parser";
 import { Asset, AssetOutputStrategy, AssetReply } from "~/delivery/index.js";
 
 export class PrivateCache implements AssetOutputStrategy {
@@ -13,10 +13,10 @@ export class PrivateCache implements AssetOutputStrategy {
 
         reply.setHeaders(headers => {
             headers.set("cache-control", (value = "") => {
-                const cacheControl = parse(value);
+                const cacheControl = cacheControlParser.parse(value);
                 cacheControl["private"] = true;
                 cacheControl["public"] = false;
-                return stringify(cacheControl);
+                return cacheControlParser.stringify(cacheControl);
             });
             return headers;
         });

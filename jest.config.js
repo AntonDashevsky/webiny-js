@@ -1,7 +1,11 @@
-const fs = require("fs");
-const path = require("path");
-const findUp = require("find-up");
-const { blueBright } = require("chalk");
+import "tsx";
+import fs from "fs";
+import path from "path";
+import findUp from "find-up";
+import chalk from "chalk";
+import * as dotenv from "dotenv";
+
+const { blueBright } = chalk;
 
 function sanitizeEsIndexName(name) {
     if (!name) {
@@ -13,30 +17,6 @@ function sanitizeEsIndexName(name) {
     }
 
     return name;
-}
-
-// Sanitize ElasticsearchPrefix
-const esIndexPrefix = sanitizeEsIndexName(process.env.ELASTIC_SEARCH_INDEX_PREFIX);
-
-if (esIndexPrefix) {
-    process.env.ELASTIC_SEARCH_INDEX_PREFIX = esIndexPrefix;
-    process.stdout.write(`\nES index prefix: ${blueBright(esIndexPrefix)}\n\n`);
-}
-
-// Loads environment variables defined in the project root ".env" file.
-const { parsed } = require("dotenv").config({ path: path.join(__dirname, ".env") });
-if (parsed) {
-    ["WCP_PROJECT_ID", "WCP_PROJECT_ENVIRONMENT", "WCP_PROJECT_LICENSE"].forEach(key => {
-        delete parsed[key];
-        delete process.env[key];
-    });
-
-    console.log('The following environment variables were included from the root ".env" file:');
-    console.log(
-        Object.keys(parsed).reduce((current, item) => {
-            return current + `‣ ${item}\n`;
-        }, "")
-    );
 }
 
 const createPackageJestConfigPath = pkg => {
@@ -59,12 +39,23 @@ const hasPackageJestConfig = pkg => {
     return !!createPackageJestConfigPath(pkg);
 };
 
-const getPackageJestSetup = pkg => {
+const importConfig = async configPath => {
+    return import(configPath)
+        .then(m => m.default ?? m)
+        .then(config => {
+            if (typeof config === "function") {
+                return config();
+            }
+            return config;
+        });
+};
+
+const getPackageJestSetup = async pkg => {
     const setupPath = createPackageJestSetupPath(pkg);
     if (!setupPath) {
         return null;
     }
-    return require(setupPath);
+    return await importConfig(setupPath);
 };
 
 const getPackageNameFromPath = value => {
@@ -77,46 +68,75 @@ const getPackageNameFromPath = value => {
     return path.dirname(packageJson).split("/").pop();
 };
 
-const jestConfig = process.argv.findIndex(arg => arg.endsWith("jest.config.js"));
-// This parameter is used by Webstorm, when running a particular test file.
-const runByPath = process.argv.findIndex(arg => arg === "--runTestsByPath");
-const isIntellij = process.argv.some(param => param.endsWith("jest-intellij-reporter.js"));
+export default async () => {
+    // Sanitize ElasticsearchPrefix
+    const esIndexPrefix = sanitizeEsIndexName(process.env.ELASTIC_SEARCH_INDEX_PREFIX);
 
-let packageName = "";
-if (jestConfig > -1) {
-    packageName = getPackageNameFromPath(process.argv[jestConfig + 1]);
-} else if (runByPath > -1) {
-    // Find the package this test file belongs to.
-    packageName = getPackageNameFromPath(process.argv[runByPath + 1]);
-} else if (isIntellij) {
-    const target = process.argv.find(param => param.includes("/packages/"));
-    packageName = getPackageNameFromPath(target);
-}
+    if (esIndexPrefix) {
+        process.env.ELASTIC_SEARCH_INDEX_PREFIX = esIndexPrefix;
+        process.stdout.write(`\nES index prefix: ${blueBright(esIndexPrefix)}\n\n`);
+    }
 
-if (packageName.includes("packages")) {
-    packageName = path.resolve(packageName);
-} else {
-    packageName = path.resolve("packages", packageName);
-}
+    // Loads environment variables defined in the project root ".env" file.
+    const { parsed } = dotenv.config({ path: path.join(import.meta.dirname, ".env") });
+    if (parsed) {
+        ["WCP_PROJECT_ID", "WCP_PROJECT_ENVIRONMENT", "WCP_PROJECT_LICENSE"].forEach(key => {
+            delete parsed[key];
+            delete process.env[key];
+        });
 
-const packageRoot = packageName.replace(/\\/g, "/");
+        console.log('The following environment variables were included from the root ".env" file:');
+        console.log(
+            Object.keys(parsed).reduce((current, item) => {
+                return current + `‣ ${item}\n`;
+            }, "")
+        );
+    }
 
-const hasConfig = hasPackageJestConfig(packageRoot);
-const setup = getPackageJestSetup(packageRoot);
+    const jestConfig = process.argv.findIndex(arg => arg.endsWith("jest.config.js"));
+    // This parameter is used by Webstorm, when running a particular test file.
+    const runByPath = process.argv.findIndex(arg => arg === "--runTestsByPath");
+    const isIntellij = process.argv.some(param => param.endsWith("jest-intellij-reporter.js"));
 
-if (!hasConfig && !setup) {
-    throw new Error(`${packageName} is missing a jest.config.js or a jest.setup.js file!`);
-}
+    let packageName = "";
+    if (jestConfig > -1) {
+        packageName = getPackageNameFromPath(process.argv[jestConfig + 1]);
+    } else if (runByPath > -1) {
+        // Find the package this test file belongs to.
+        packageName = getPackageNameFromPath(process.argv[runByPath + 1]);
+    } else if (isIntellij) {
+        const target = process.argv.find(param => param.includes("/packages/"));
+        packageName = getPackageNameFromPath(target);
+    }
 
-const project = hasConfig ? require(createPackageJestConfigPath(packageRoot)) : setup;
-if (runByPath > -1) {
-    project.testMatch = [process.argv[runByPath + 1]];
-}
+    if (packageName.includes("packages")) {
+        packageName = path.resolve(packageName);
+    } else {
+        packageName = path.resolve("packages", packageName);
+    }
 
-module.exports = {
-    projects: [project],
-    modulePathIgnorePatterns: ["dist"],
-    testTimeout: 30000,
-    watchman: false,
-    workerIdleMemoryLimit: "512MB"
+    const packageRoot = packageName.replace(/\\/g, "/");
+
+    const hasConfig = hasPackageJestConfig(packageRoot);
+    const setup = await getPackageJestSetup(packageRoot);
+
+    if (!hasConfig && !setup) {
+        throw new Error(`${packageName} is missing a jest.config.js or a jest.setup.js file!`);
+    }
+
+    const project = hasConfig
+        ? await importConfig(createPackageJestConfigPath(packageRoot))
+        : setup;
+
+    if (runByPath > -1) {
+        project.testMatch = [process.argv[runByPath + 1]];
+    }
+
+    return {
+        projects: [project],
+        modulePathIgnorePatterns: ["dist"],
+        testTimeout: 30000,
+        watchman: false,
+        workerIdleMemoryLimit: "512MB"
+    };
 };

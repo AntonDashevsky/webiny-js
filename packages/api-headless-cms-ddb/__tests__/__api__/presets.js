@@ -1,8 +1,8 @@
-const path = require("path");
+import { resolve } from "path";
 
-module.exports = [
+export default [
     {
-        setupFiles: [path.resolve(__dirname, "setupFile.js")],
-        setupFilesAfterEnv: [path.resolve(__dirname, "setupAfterEnv.js")]
+        setupFiles: [resolve(import.meta.dirname, "setupFile.js")],
+        setupFilesAfterEnv: [resolve(import.meta.dirname, "setupAfterEnv.js")]
     }
 ];

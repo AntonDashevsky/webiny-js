@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { mockCreateGetWcpProjectEnvironment } from "./wcp/aacl/mocks/mockCreateGetWcpProjectEnvironment";
 import { mockCreateGetWcpProjectLicense } from "./wcp/aacl/mocks/mockCreateGetWcpProjectLicense";
 import useGqlHandler from "./useGqlHandler";

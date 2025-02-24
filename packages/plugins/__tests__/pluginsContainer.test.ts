@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { PluginsContainer } from "~/index";
 
 const mockPlugins = [

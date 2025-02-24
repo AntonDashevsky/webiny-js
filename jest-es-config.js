@@ -1,4 +1,4 @@
-module.exports = () => {
+export default () => {
     return {
         esVersion: "7.6.0",
         clusterName: "test-cluster",

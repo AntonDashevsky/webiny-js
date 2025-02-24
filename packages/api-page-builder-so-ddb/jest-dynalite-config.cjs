@@ -1,4 +1,4 @@
-const { createDynaliteTables } = require("../../jest.config.base");
+const { createDynaliteTables } = require("../../dynalite.cjs");
 
 module.exports = createDynaliteTables({
     data: [

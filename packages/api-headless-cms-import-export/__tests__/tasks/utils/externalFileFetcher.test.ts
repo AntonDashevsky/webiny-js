@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { ExternalFileFetcher } from "~/tasks/utils/externalFileFetcher";
 import type { GenericRecord } from "@webiny/api/types";
 

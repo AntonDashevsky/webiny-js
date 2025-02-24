@@ -1,4 +1,4 @@
-const getStorageOps = app => {
+export const getStorageOps = app => {
     const storageOps = global["__storageOps"];
 
     if (typeof storageOps === "undefined") {
@@ -15,14 +15,12 @@ const getStorageOps = app => {
     return appStorageOps();
 };
 
-const setStorageOps = (app, factory) => {
+export const setStorageOps = (app, factory) => {
     const storageOps = global["__storageOps"] || {};
     storageOps[app] = factory;
     global["__storageOps"] = storageOps;
 };
 
-const clearStorageOps = () => {
+export const clearStorageOps = () => {
     delete global["__storageOps"];
 };
-
-module.exports = { setStorageOps, getStorageOps, clearStorageOps };

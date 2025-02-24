@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { RefPresenter } from "./RefPresenter.js";
 import { EntriesGatewayInterface } from "../adapters/index.js";
 import { EntryReference, EntryRepository } from "../domain/index.js";

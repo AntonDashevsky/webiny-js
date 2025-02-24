@@ -1,6 +1,6 @@
 import path from "path";
 import rspack from "@rspack/core";
-import packageJson from "@webiny/project-utils/package.json" assert { type: "json" };
+import packageJson from "@webiny/project-utils/package.json" with { type: "json" };
 import { getOutput, getEntry } from "../../utils.js";
 import { TsCheckerRspackPlugin } from "ts-checker-rspack-plugin";
 import { createSwcConfig } from "./createSwcConfig.js";

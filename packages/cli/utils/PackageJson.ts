@@ -5,7 +5,7 @@ export class PackageJson {
     private readonly filePath: string;
     private readonly json: Record<string, any>;
 
-    static async fromFile(filePath: string) {
+    static fromFile(filePath: string) {
         return new PackageJson(filePath, readJson(filePath));
     }
 

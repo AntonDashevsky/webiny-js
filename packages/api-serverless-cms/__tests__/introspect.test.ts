@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { useGraphQlHandler } from "./handlers/graphQlHandler";
 import { PathType } from "~tests/handlers/types";
 

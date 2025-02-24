@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { useGraphQlHandler } from "./utils/useGraphQlHandler";
 import { assignRecordLifecycleEvents, tracker } from "./mocks/lifecycle.mock";
 import { createMockAcoApp } from "~tests/mocks/app";

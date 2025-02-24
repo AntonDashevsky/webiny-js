@@ -1,12 +1,8 @@
-const { getDocumentClient } = require("@webiny/aws-sdk/client-dynamodb");
-const {
-    processing,
-    getCommandName,
-    createDynamoStreamEvent,
-    createDynamoStreamRecord
-} = require("./processing");
+import { getDocumentClient as getBaseDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
+import { processing, getCommandName } from "./processing.js";
+export { createDynamoStreamEvent, createDynamoStreamRecord } from "./processing.js";
 
-const simulateStream = (documentClient, handler) => {
+export const simulateStream = (documentClient, handler) => {
     const originalSend = documentClient["send"];
     documentClient.send = async (...params) => {
         const [command] = params;
@@ -30,10 +26,10 @@ const simulateStream = (documentClient, handler) => {
 
 let documentClient = null;
 
-const getClient = (params = {}, forceNew = false) => {
+export const getDocumentClient = (params = {}, forceNew = false) => {
     let client = documentClient;
     if (!client || forceNew) {
-        client = getDocumentClient({
+        client = getBaseDocumentClient({
             endpoint: process.env.MOCK_DYNAMODB_ENDPOINT || "http://localhost:8001",
             tls: false,
             region: "local",
@@ -47,11 +43,4 @@ const getClient = (params = {}, forceNew = false) => {
     documentClient = client;
 
     return documentClient;
-};
-
-module.exports = {
-    getDocumentClient: getClient,
-    simulateStream,
-    createDynamoStreamEvent,
-    createDynamoStreamRecord
 };

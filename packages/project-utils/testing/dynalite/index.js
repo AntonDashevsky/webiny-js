@@ -1,8 +1,9 @@
-const { logger } = require("../logger");
-const { clearStorageOps } = require("../environment");
+// import "tsx";
+import { logger } from "../logger.js";
+import { clearStorageOps } from "../environment/index.js";
 let setupInitiated = false;
 
-module.exports.setupDynalite = packageRoot => {
+export const setupDynalite = async packageRoot => {
     if (setupInitiated) {
         return;
     }
@@ -11,7 +12,7 @@ module.exports.setupDynalite = packageRoot => {
 
     setupInitiated = true;
 
-    const jestDynalite = require("jest-dynalite");
+    const jestDynalite = await import("jest-dynalite").then(m => m.default ?? m);
     /**
      * Must be a root of this package.
      */

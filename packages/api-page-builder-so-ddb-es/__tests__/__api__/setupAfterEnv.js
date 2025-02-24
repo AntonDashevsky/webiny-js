@@ -1,3 +1,4 @@
-const path = require("path");
-const { setupDynalite } = require("@webiny/project-utils/testing/dynalite");
-setupDynalite(path.resolve(__dirname, "../../"));
+import { resolve } from "path";
+import { setupDynalite } from "@webiny/project-utils/testing/dynalite/index.js";
+
+await setupDynalite(resolve(import.meta.dirname, "../../"));

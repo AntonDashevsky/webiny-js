@@ -8,23 +8,21 @@ const { createFormBuilderStorageOperations } = require("../../dist/index");
 const { setStorageOps } = require("@webiny/project-utils/testing/environment");
 const { getDocumentClient } = require("@webiny/project-utils/testing/dynamodb");
 
-module.exports = () => {
-    setStorageOps("formBuilder", () => {
-        return {
-            storageOperations: createFormBuilderStorageOperations({
+setStorageOps("formBuilder", () => {
+    return {
+        storageOperations: createFormBuilderStorageOperations({
+            table: process.env.DB_TABLE,
+            documentClient: getDocumentClient(),
+            plugins: [...dynamoDbPlugins()]
+        }),
+        plugins: [
+            ...dbPlugins({
                 table: process.env.DB_TABLE,
-                documentClient: getDocumentClient(),
-                plugins: [...dynamoDbPlugins()]
+                driver: new DynamoDbDriver({
+                    documentClient: getDocumentClient()
+                })
             }),
-            plugins: [
-                ...dbPlugins({
-                    table: process.env.DB_TABLE,
-                    driver: new DynamoDbDriver({
-                        documentClient: getDocumentClient()
-                    })
-                }),
-                ...dynamoDbPlugins()
-            ]
-        };
-    });
-};
+            ...dynamoDbPlugins()
+        ]
+    };
+});

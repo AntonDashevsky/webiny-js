@@ -2,7 +2,7 @@ import { recordMocks } from "./mocks/record.mock";
 import { userMock } from "~tests/mocks/user.mock";
 import { useGraphQlHandler } from "./utils/useGraphQlHandler";
 import { createMockAcoApp } from "~tests/mocks/app";
-
+import { jest } from "@jest/globals";
 jest.setTimeout(500000);
 
 describe("`search` CRUD", () => {

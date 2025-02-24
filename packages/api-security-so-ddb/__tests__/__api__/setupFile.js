@@ -1,15 +1,13 @@
-const { getDocumentClient } = require("@webiny/project-utils/testing/dynamodb");
-const { setStorageOps } = require("@webiny/project-utils/testing/environment");
-const { createStorageOperations } = require("@webiny/api-security-so-ddb");
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
+import { setStorageOps } from "@webiny/project-utils/testing/environment/index.js";
+import { createStorageOperations } from "@webiny/api-security-so-ddb";
 
-module.exports = async () => {
-    setStorageOps("security", () => {
-        return {
-            storageOperations: createStorageOperations({
-                documentClient: getDocumentClient(),
-                table: process.env.DB_TABLE
-            }),
-            plugins: []
-        };
-    });
-};
+setStorageOps("security", () => {
+    return {
+        storageOperations: createStorageOperations({
+            documentClient: getDocumentClient(),
+            table: process.env.DB_TABLE
+        }),
+        plugins: []
+    };
+});

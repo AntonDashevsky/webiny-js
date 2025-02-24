@@ -1,7 +1,7 @@
-const { pino } = require("pino");
-const pinoPretty = require("pino-pretty");
+import { pino } from "pino";
+import pinoPretty from "pino-pretty";
 
-const createPinoLogger = () => {
+export const createPinoLogger = () => {
     return pino(
         { level: "silent" },
         pinoPretty({
@@ -10,9 +10,4 @@ const createPinoLogger = () => {
     );
 };
 
-const logger = createPinoLogger();
-
-module.exports = {
-    createPinoLogger,
-    logger
-};
+export const logger = createPinoLogger();

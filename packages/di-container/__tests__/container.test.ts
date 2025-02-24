@@ -1,5 +1,5 @@
 import { Container, Abstraction, createImplementation, createDecorator } from "~/index";
-
+import { jest } from "@jest/globals";
 // Mock implementations for testing
 interface ILogger {
     log(...args: unknown[]): void;

@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { createHandler } from "~/handler/handler";
 import { WebsocketsEventRoute } from "~/handler/types";
 import { createMockLambdaContext } from "~tests/mocks/lambdaContext";

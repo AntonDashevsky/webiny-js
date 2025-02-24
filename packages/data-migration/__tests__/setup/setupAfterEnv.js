@@ -1,7 +1,4 @@
-/**
- * NOTE: this file will be auto-detected by jest.config.base.js in the root of the repo!
- */
-const path = require("path");
-const { setupDynalite } = require("@webiny/project-utils/testing/dynalite");
+import { resolve } from "path";
+import { setupDynalite } from "@webiny/project-utils/testing/dynalite/index.js";
 
-setupDynalite(path.resolve(__dirname, "../../"));
+await setupDynalite(resolve(import.meta.dirname, "../../"));

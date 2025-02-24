@@ -1,7 +1,7 @@
 import { createHandler } from "~/fastify";
 import { createRoute } from "~/plugins/RoutePlugin";
-import { FastifyInstance } from "fastify";
-
+import type { FastifyInstance } from "fastify";
+import { jest } from "@jest/globals";
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 describe("benchmark", () => {

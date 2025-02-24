@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { useGraphQLHandler } from "~tests/helpers/useGraphQLHandler";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { IWebsocketsConnectionRegistryData, WebsocketsConnectionRegistry } from "~/registry";

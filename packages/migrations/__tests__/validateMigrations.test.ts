@@ -1,4 +1,5 @@
-import {
+import { jest } from "@jest/globals";
+import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
     assertNotError,
     createDdbEsMigrationHandler,
     createDdbMigrationHandler,

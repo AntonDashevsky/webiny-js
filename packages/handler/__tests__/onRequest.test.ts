@@ -1,6 +1,7 @@
 import { createHandler } from "~/fastify";
 import { createRoute } from "~/plugins/RoutePlugin";
 import { createHandlerOnRequest } from "~/plugins/HandlerOnRequestPlugin";
+import { jest } from "@jest/globals";
 
 jest.setTimeout(5000);
 

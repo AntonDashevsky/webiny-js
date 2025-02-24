@@ -2,7 +2,7 @@ import path from "path";
 import webpack from "webpack";
 import WebpackBar from "webpackbar";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import packageJson from "@webiny/project-utils/package.json" assert { type: "json" };
+import packageJson from "@webiny/project-utils/package.json" with { type: "json" };
 import { getOutput, getEntry } from "./utils.js";
 
 export default async options => {

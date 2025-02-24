@@ -1,3 +1,4 @@
+import { jest } from "@jest/globals";
 import { mockCreateGetWcpProjectEnvironment } from "./mocks/mockCreateGetWcpProjectEnvironment";
 import { mockCreateGetWcpProjectLicense } from "./mocks/mockCreateGetWcpProjectLicense";
 

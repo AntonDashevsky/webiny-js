@@ -1,11 +1,12 @@
-const path = require("path");
-const fs = require("fs");
-const getYarnWorkspaces = require("get-yarn-workspaces");
-const loadJsonFile = require("load-json-file");
+import path from "path";
+import fs from "fs";
+import getYarnWorkspaces from "get-yarn-workspaces";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+import { PackageJson } from "@webiny/cli/utils/PackageJson.js";
 
 const getAllPackages = targetKeywords => {
-    const yargs = require("yargs");
-    const { storage = "ddb" } = yargs.argv;
+    const { storage = "ddb" } = yargs(hideBin(process.argv));
 
     if (!storage) {
         throw Error(`Missing required --storage parameter!`);
@@ -21,24 +22,21 @@ const getAllPackages = targetKeywords => {
         .filter(pkg => pkg.match(/\/packages\//) !== null);
 
     // Find packages that match the given sets of tags.
-    const packageJsons = packages
-        .map(pkg => {
-            const json = loadJsonFile.sync(pkg + "/package.json");
-            return {
-                path: pkg,
-                name: json.name,
-                keywords: json.keywords || []
-            };
-        })
-        .filter(pkg => {
-            for (const set of targetKeywords) {
-                if (set.every(tag => pkg.keywords.includes(tag))) {
-                    return true;
-                }
-            }
-            return false;
-        });
+    const packageJsons = [];
+    for (const pkg of packages) {
+        const pkgJson = PackageJson.fromFile(pkg + "/package.json");
+        const { name, keywords = [] } = pkgJson.getJson();
 
+        for (const set of targetKeywords) {
+            if (set.every(tag => keywords.includes(tag))) {
+                packageJsons.push({
+                    path: pkg,
+                    name,
+                    keywords
+                });
+            }
+        }
+    }
     // Now we need to filter based on the required storage type, but also use fallback, if possible.
     const results = [];
 
@@ -65,7 +63,7 @@ const removeEmptyPreset = preset => {
     return true;
 };
 
-const getPackagesPresets = targetKeywords => {
+const getPackagesPresets = async targetKeywords => {
     if (!targetKeywords || targetKeywords.length === 0) {
         throw new Error(`You must pass keywords to search for in the packages.`);
     }
@@ -91,7 +89,7 @@ const getPackagesPresets = targetKeywords => {
          * We expect presets file to contain an array of presets.
          * We do not check for the actual contents of the presets arrays since they can be quite different per package.
          */
-        const presets = require(presetsPath);
+        const presets = await import(presetsPath).then(m => m.default ?? m);
         if (Array.isArray(presets) === false) {
             throw new Error(`Presets in package "${pkg.name}" must be defined as an array.`);
         } else if (presets.length === 0) {
@@ -103,6 +101,6 @@ const getPackagesPresets = targetKeywords => {
     return items;
 };
 
-module.exports = (...targetKeywords) => {
+export const getPresets = async (...targetKeywords) => {
     return getPackagesPresets(targetKeywords);
 };

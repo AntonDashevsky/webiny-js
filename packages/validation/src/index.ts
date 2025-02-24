@@ -24,7 +24,8 @@ import timeGte from "./validators/timeGte.js";
 import timeLte from "./validators/timeLte.js";
 import slug from "./validators/slug.js";
 
-const validation = new Validation();
+export const validation = new Validation();
+
 validation.setValidator("creditCard", creditCard);
 validation.setValidator("email", email);
 validation.setValidator("eq", eq);
@@ -49,4 +50,4 @@ validation.setValidator("timeGte", timeGte);
 validation.setValidator("timeLte", timeLte);
 validation.setValidator("slug", slug);
 
-export { validation, Validation, ValidationError };
+export { Validation, ValidationError };

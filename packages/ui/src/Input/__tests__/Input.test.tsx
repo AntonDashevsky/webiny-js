@@ -1,7 +1,8 @@
+/**
+* @jest-environment jsdom
+*/
 import React from "react";
-import { Input } from "../index.js";
-import { cleanup, render } from "@testing-library/react";
-
+import { jest } from "@jest/globals";
 afterEach(cleanup);
 
 interface SetupProps {

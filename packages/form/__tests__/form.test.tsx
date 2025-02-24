@@ -1,7 +1,8 @@
 /**
- * @jest-environment jsdom
- */
+* @jest-environment jsdom
+*/
 import React from "react";
+import { jest } from "@jest/globals";
 import { render, screen, waitFor, fireEvent, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {

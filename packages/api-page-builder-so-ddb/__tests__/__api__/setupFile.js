@@ -1,27 +1,25 @@
-const dbPlugins = require("@webiny/handler-db").default;
-const { DynamoDbDriver } = require("@webiny/db-dynamodb");
+import dbPlugins from "@webiny/handler-db";
+import { DynamoDbDriver } from "@webiny/db-dynamodb";
 /**
  * For this to work it must load plugins that have already been built
  */
-const { createStorageOperations } = require("../../dist/index");
-const { setStorageOps } = require("@webiny/project-utils/testing/environment");
-const { getDocumentClient } = require("@webiny/project-utils/testing/dynamodb");
+import { createStorageOperations } from "../../dist";
+import { setStorageOps } from "@webiny/project-utils/testing/environment/index.js";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
 
-module.exports = () => {
-    setStorageOps("pageBuilder", () => {
-        return {
-            storageOperations: createStorageOperations({
-                documentClient: getDocumentClient(),
-                table: table => ({ ...table, name: process.env.DB_TABLE })
-            }),
-            plugins: [
-                dbPlugins({
-                    table: process.env.DB_TABLE,
-                    driver: new DynamoDbDriver({
-                        documentClient: getDocumentClient()
-                    })
+setStorageOps("pageBuilder", () => {
+    return {
+        storageOperations: createStorageOperations({
+            documentClient: getDocumentClient(),
+            table: table => ({ ...table, name: process.env.DB_TABLE })
+        }),
+        plugins: [
+            dbPlugins({
+                table: process.env.DB_TABLE,
+                driver: new DynamoDbDriver({
+                    documentClient: getDocumentClient()
                 })
-            ]
-        };
-    });
-};
+            })
+        ]
+    };
+});
