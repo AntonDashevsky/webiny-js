@@ -24,14 +24,18 @@ const SidebarMenuSubItem = ({
 }: SidebarMenuSubItemProps) => {
     const sidebarMenuSubButton = useMemo(() => {
         if (!children) {
-            return <SidebarMenuSubButton icon={icon}>{content}</SidebarMenuSubButton>;
+            return (
+                <SidebarMenuSubButton icon={icon}>
+                    <span>{content}</span>
+                </SidebarMenuSubButton>
+            );
         }
 
         return (
             <Collapsible defaultOpen className="wby-group/collapsible">
                 <CollapsibleTrigger asChild>
                     <SidebarMenuButton icon={icon}>
-                        {content}
+                        <span>{content}</span>
                         <Icon
                             size={"sm"}
                             className={
