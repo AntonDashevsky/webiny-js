@@ -1,23 +1,23 @@
 import React from "react";
 import { Icon, type IconProps } from "~/Icon";
+import { useSidebar } from "./SidebarProvider";
 
 interface SidebarIconProps extends Omit<IconProps, "icon"> {
     element?: React.ReactNode;
 }
 
 const SidebarIcon = ({ element, ...props }: SidebarIconProps) => {
-    return <Icon icon={element} size={"lg"} color={"neutral-strong"} {...props} />;
-};
-
-/*const SidebarIcon = ({ element }: SidebarIconProps) => {
+    const { toggleSidebar } = useSidebar();
     return (
-        <Avatar
-            size={"sm"}
-            image={<Avatar.Image src={element} alt="@webiny" />}
-            fallback={<Avatar.Fallback delayMs={0}>W</Avatar.Fallback>}
+        <Icon
+            icon={element}
+            size={"lg"}
+            color={"neutral-strong"}
+            className={"wby-cursor-pointer"}
+            onClick={toggleSidebar}
+            {...props}
         />
     );
 };
-*/
 
 export { SidebarIcon, type SidebarIconProps };

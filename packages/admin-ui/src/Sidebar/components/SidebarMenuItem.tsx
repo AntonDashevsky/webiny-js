@@ -30,7 +30,7 @@ const SidebarMenuItemBase = ({
         }
 
         return (
-            <Collapsible className="wby-group/collapsible">
+            <Collapsible defaultOpen className="wby-group/collapsible">
                 <CollapsibleTrigger asChild>
                     <SidebarMenuButton icon={icon}>
                         <span>{content}</span>
