@@ -1,11 +1,10 @@
 import React, { useMemo } from "react";
-import { SidebarMenuSubButton } from "./SidebarMenuSubButton";
-import { Separator } from "~/Separator";
 import { cn } from "~/utils";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "~/Collapsible";
-import { SidebarMenuButton } from "~/Sidebar/components/SidebarMenuButton";
+import { SidebarMenuSubButton } from "./SidebarMenuSubButton";
+import { SidebarMenuSubItemIndentation } from "./SidebarMenuSubItemIndentation";
+import { SidebarMenuSub } from "./SidebarMenuSub";
 import { Icon } from "~/Icon";
-import { SidebarMenuSub } from "~/Sidebar/components/SidebarMenuSub";
 import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
 
 interface SidebarMenuSubItemProps extends Omit<React.ComponentProps<"li">, "content"> {
@@ -25,29 +24,35 @@ const SidebarMenuSubItem = ({
     const sidebarMenuSubButton = useMemo(() => {
         if (!children) {
             return (
-                <SidebarMenuSubButton icon={icon}>
-                    <span>{content}</span>
-                </SidebarMenuSubButton>
+                <>
+                    <SidebarMenuSubItemIndentation lvl={lvl} />
+                    <SidebarMenuSubButton icon={icon}>
+                        <span>{content}</span>
+                    </SidebarMenuSubButton>
+                </>
             );
         }
 
         return (
-            <Collapsible defaultOpen className="wby-group/collapsible">
-                <CollapsibleTrigger asChild>
-                    <SidebarMenuButton icon={icon}>
-                        <span>{content}</span>
-                        <Icon
-                            size={"sm"}
-                            className={
-                                "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/collapsible:wby-rotate-180"
-                            }
-                            color={"neutral-strong"}
-                            data-role={"open-close-indicator"}
-                            label={"Open/close"}
-                            icon={<KeyboardArrowRightIcon />}
-                        />
-                    </SidebarMenuButton>
-                </CollapsibleTrigger>
+            <Collapsible defaultOpen className="wby-group/collapsible wby-w-full">
+                <div className={"wby-flex wby-items-center"}>
+                    <SidebarMenuSubItemIndentation lvl={lvl} />
+                    <CollapsibleTrigger asChild>
+                        <SidebarMenuSubButton icon={icon}>
+                            <span>{content}</span>
+                            <Icon
+                                size={"sm"}
+                                className={
+                                    "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/collapsible:wby-rotate-180"
+                                }
+                                color={"neutral-strong"}
+                                data-role={"open-close-indicator"}
+                                label={"Open/close"}
+                                icon={<KeyboardArrowRightIcon />}
+                            />
+                        </SidebarMenuSubButton>
+                    </CollapsibleTrigger>
+                </div>
                 <CollapsibleContent>
                     <SidebarMenuSub>
                         {React.Children.map(children, child => {
@@ -60,29 +65,14 @@ const SidebarMenuSubItem = ({
                 </CollapsibleContent>
             </Collapsible>
         );
-    }, [children, icon, content]);
-
-    const indentation = useMemo(() => {
-        return Array.from({ length: lvl }, (_, index) => (
-            <div className={"wby-ml-md"} key={lvl + index}>
-                <Separator
-                    orientation={"vertical"}
-                    margin={"none"}
-                    variant={"strong"}
-                    className={"wby-h-xl wby-ml-px"}
-                />
-            </div>
-        ));
-    }, [lvl]);
+    }, [children, icon, content, lvl]);
 
     return (
         <li
             {...props}
             data-sidebar="menu-sub-item"
-            className={cn("wby-group/menu-item wby-relative wby-flex ", className)}
+            className={cn("wby-group/menu-item wby-relative wby-flex", className)}
         >
-            <div className={"wby-gap-x-xs wby-flex wby-mr-sm"}>{indentation}</div>
-
             {sidebarMenuSubButton}
         </li>
     );

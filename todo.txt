@@ -11,3 +11,4 @@
 - both avatar and icon for main icon
 - expanding / collapsing sidebar - can we do something with text breaking into multiple
     lines and making the animation weird? Right now we have "wby-h-xl wby-whitespace-nowrap" in place.
+- remove mobile-related styles
