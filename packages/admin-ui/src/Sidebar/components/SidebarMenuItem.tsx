@@ -22,14 +22,18 @@ const SidebarMenuItemBase = ({
 }: SidebarMenuItemProps) => {
     const sidebarMenuButton = useMemo(() => {
         if (!children) {
-            return <SidebarMenuButton icon={icon}>{content}</SidebarMenuButton>;
+            return (
+                <SidebarMenuButton icon={icon}>
+                    <span>{content}</span>
+                </SidebarMenuButton>
+            );
         }
 
         return (
-            <Collapsible defaultOpen className="wby-group/collapsible">
+            <Collapsible className="wby-group/collapsible">
                 <CollapsibleTrigger asChild>
                     <SidebarMenuButton icon={icon}>
-                        {content}
+                        <span>{content}</span>
                         <Icon
                             size={"sm"}
                             className={

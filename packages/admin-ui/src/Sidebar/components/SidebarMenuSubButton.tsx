@@ -31,7 +31,7 @@ const SidebarMenuSubButton = ({
                 className
             )}
         >
-            {icon} {children}
+            {icon} <span>{children}</span>
         </Comp>
     );
 };

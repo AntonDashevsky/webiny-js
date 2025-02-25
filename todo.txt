@@ -9,3 +9,5 @@
 - active/focus states
 - what opens the sidebar?
 - both avatar and icon for main icon
+- expanding / collapsing sidebar - can we do something with text breaking into multiple
+    lines and making the animation weird? Right now we have "wby-h-xl wby-whitespace-nowrap" in place.
