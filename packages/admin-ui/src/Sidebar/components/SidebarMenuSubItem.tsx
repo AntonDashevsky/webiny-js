@@ -38,7 +38,10 @@ const SidebarMenuSubItem = ({
         }
 
         return (
-            <Collapsible defaultOpen className="wby-group/collapsiblex wby-w-full">
+            <Collapsible
+                defaultOpen
+                className="wby-w-full [&[data-state=open]_[data-sidebar=menu-sub-item-expanded-indicator]]:wby-rotate-180"
+            >
                 <div className={"wby-flex wby-items-center"}>
                     <SidebarMenuSubItemIndentation lvl={lvl} />
                     <CollapsibleTrigger asChild>
@@ -46,11 +49,9 @@ const SidebarMenuSubItem = ({
                             <span>{content}</span>
                             <Icon
                                 size={"sm"}
-                                className={
-                                    "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/collapsiblex:wby-rotate-180"
-                                }
+                                className={"wby-ml-auto wby-transition-transform wby-duration-200"}
                                 color={"neutral-strong"}
-                                data-role={"open-close-indicator"}
+                                data-sidebar={"menu-sub-item-expanded-indicator"}
                                 label={"Open/close"}
                                 icon={<KeyboardArrowRightIcon />}
                             />
