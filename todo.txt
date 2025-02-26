@@ -1,14 +1,12 @@
-- separator - use existing comp?
-- sidebar input - use existing comp?
 - ref / makeDecoratable
-- call it sidebar or nav or menu?
-- mobile version with drawer?
 - storybook fixed-related rendering issues 🤨
 - check icons diff
 - config api
 - active/focus states
-- what opens the sidebar?
 - both avatar and icon for main icon
 - expanding / collapsing sidebar - can we do something with text breaking into multiple
     lines and making the animation weird? Right now we have "wby-h-xl wby-whitespace-nowrap" in place.
 - remove mobile-related styles
+- isActive
+- directly use collapsieble, no need fro separa comp
+- auto opened items / cookies?

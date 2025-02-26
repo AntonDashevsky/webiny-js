@@ -7,9 +7,9 @@ export interface SidebarMenuSubItemIndentationProps extends Omit<React.Component
 
 const SidebarMenuSubItemIndentation = ({ lvl }: SidebarMenuSubItemIndentationProps) => {
     return (
-        <div className={"wby-gap-x-xs wby-flex wby-mr-sm"}>
+        <div data-sidebar="indentation" className={"wby-gap-x-xs wby-flex wby-mr-sm"}>
             {Array.from({ length: lvl }, (_, index) => (
-                <div data-sidebar={"indentation"} className={"wby-ml-md"} key={lvl + index}>
+                <div data-sidebar={"indentation-element"} className={"wby-ml-md"} key={lvl + index}>
                     <Separator
                         orientation={"vertical"}
                         margin={"none"}

@@ -1,6 +1,8 @@
 import React from "react";
-import { SidebarTrigger } from "./SidebarTrigger";
 import { Separator } from "~/Separator";
+import { IconButton } from "~/Button";
+import { useSidebar } from "./SidebarProvider";
+import { ReactComponent as ToggleSidebarIcon } from "@material-design-icons/svg/outlined/chrome_reader_mode.svg";
 
 interface SidebarHeaderProps extends Omit<React.ComponentProps<"div">, "title"> {
     icon?: React.ReactNode;
@@ -8,6 +10,8 @@ interface SidebarHeaderProps extends Omit<React.ComponentProps<"div">, "title"> 
 }
 
 const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
+    const { toggleSidebar } = useSidebar();
+
     return (
         <div>
             <div className={"wby-px-xs-plus wby-transition-[width,height,padding]"}>
@@ -24,7 +28,13 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
                         </span>
                     </div>
 
-                    <SidebarTrigger />
+                    <IconButton
+                        icon={<ToggleSidebarIcon />}
+                        data-sidebar="trigger"
+                        size="xs"
+                        variant={"ghost"}
+                        onClick={toggleSidebar}
+                    />
                 </div>
             </div>
             <div className={"wby-px-sm wby-py-xs"}>

@@ -13,7 +13,8 @@ const SidebarMenuSubButton = ({
     icon,
     isActive,
     className,
-    children
+    children,
+    ...props
 }: SidebarMenuSubButtonProps) => {
     const Comp = asChild ? Slot : "button";
 
@@ -23,7 +24,7 @@ const SidebarMenuSubButton = ({
             data-active={isActive}
             className={cn(
                 "wby-flex wby-w-full wby-text-md wby-text-neutral-primary wby-cursor-pointer wby-items-center wby-gap-sm",
-                "wby-rounded-md wby-p-xs-plus wby-outline-none",
+                "wby-rounded-md wby-p-xs-plus wby-pr-sm wby-outline-none",
                 "wby-h-xl wby-whitespace-nowrap",
                 "wby-overflow-hidden",
                 "hover:wby-bg-neutral-dimmed hover:!wby-no-underline",
@@ -35,6 +36,7 @@ const SidebarMenuSubButton = ({
                 "group-data-[collapsible=icon]:wby-hidden",
                 className
             )}
+            {...props}
         >
             {icon} {children}
         </Comp>

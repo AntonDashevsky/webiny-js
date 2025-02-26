@@ -32,9 +32,9 @@ const SidebarMenuSubItem = ({
                 </>
             );
         }
-
+        // group/collapsible [&[data-state=open]>button>svg:first-child]:rotate-90
         return (
-            <Collapsible defaultOpen className="wby-group/collapsible wby-w-full">
+            <Collapsible defaultOpen className="wby-group/collapsiblex wby-w-full">
                 <div className={"wby-flex wby-items-center"}>
                     <SidebarMenuSubItemIndentation lvl={lvl} />
                     <CollapsibleTrigger asChild>
@@ -43,7 +43,7 @@ const SidebarMenuSubItem = ({
                             <Icon
                                 size={"sm"}
                                 className={
-                                    "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/collapsible:wby-rotate-180"
+                                    "wby-ml-auto wby-transition-transform 11 wby-duration-200 group-data-[state=open]/collapsiblex:wby-rotate-180"
                                 }
                                 color={"neutral-strong"}
                                 data-role={"open-close-indicator"}
