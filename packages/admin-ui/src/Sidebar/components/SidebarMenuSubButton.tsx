@@ -22,8 +22,15 @@ const SidebarMenuSubButton = ({
             data-sidebar="menu-sub-button"
             data-active={isActive}
             className={cn(
-                "wby-flex wby-w-full wby-text-md wby-text-neutral-primary wby-cursor-pointer wby-items-center wby-gap-sm wby-overflow-hidden wby-rounded-md wby-p-xs-plus wby-outline-none wby-ring-sidebar-ring hover:wby-bg-neutral-dimmed hover:!wby-no-underline",
-                "focus-visible:wby-ring-2 disabled:wby-pointer-events-none disabled:wby-opacity-50 aria-disabled:wby-pointer-events-none aria-disabled:wby-opacity-50 [&>span:last-child]:wby-truncate [&>svg]:wby-shrink-0 [&>svg]:wby-text-sidebar-accent-foreground",
+                "wby-flex wby-w-full wby-text-md wby-text-neutral-primary wby-cursor-pointer wby-items-center wby-gap-sm",
+                "wby-rounded-md wby-p-xs-plus wby-outline-none",
+                "wby-h-xl wby-whitespace-nowrap",
+                "wby-overflow-hidden",
+                "hover:wby-bg-neutral-dimmed hover:!wby-no-underline",
+                "focus-visible:wby-ring-2",
+                "disabled:wby-pointer-events-none disabled:wby-opacity-50",
+                "aria-disabled:wby-pointer-events-none aria-disabled:wby-opacity-50",
+                "[&>span]:wby-truncate [&>svg]:wby-shrink-0 [&>svg]:wby-text-sidebar-accent-foreground",
                 "data-[active=true]:wby-bg-sidebar-accent data-[active=true]:wby-text-sidebar-accent-foreground",
                 "group-data-[collapsible=icon]:wby-hidden",
                 className

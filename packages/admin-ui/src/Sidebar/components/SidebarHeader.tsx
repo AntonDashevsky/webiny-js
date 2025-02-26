@@ -10,15 +10,11 @@ interface SidebarHeaderProps extends Omit<React.ComponentProps<"div">, "title"> 
 const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
     return (
         <div>
-            <div
-                className={
-                    "wby-px-xs-plus group-data-[collapsible=icon]:!wby-px-xxs  wby-transition-[width,height,padding]"
-                }
-            >
+            <div className={"wby-px-xs-plus wby-transition-[width,height,padding]"}>
                 <div
                     data-sidebar="header"
                     className={
-                        "wby-flex wby-justify-between wby-items-center wby-gap-sm wby-py-xs-plus wby-px-sm wby-overflow-x-hidden"
+                        "wby-flex wby-justify-between wby-items-center wby-gap-sm wby-py-xs-plus wby-px-xs wby-overflow-x-hidden"
                     }
                 >
                     <div className={"wby-flex wby-items-center wby-gap-x-sm"}>
