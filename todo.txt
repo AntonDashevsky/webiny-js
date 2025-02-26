@@ -9,6 +9,5 @@
 - kreso questions
 - action
 - footer
-- collapsiblex
 - submenu item not in line with the above one
 - active item - what's up with hover?
