@@ -16,6 +16,10 @@ import { ContentEntry } from "~/admin/views/contentEntries/ContentEntry";
 import { ContentEntryEditorConfig as BaseContentEntryEditorConfig } from "./admin/config/contentEntries";
 import { SingletonContentEntry } from "~/admin/views/contentEntries/ContentEntry/SingletonContentEntry";
 import { useSingletonContentEntry } from "~/admin/views/contentEntries/hooks/useSingletonContentEntry";
+import {
+    ContentEntryFormMeta,
+    ContentEntryFormTitle
+} from "~/admin/views/contentEntries/ContentEntry/FullScreenContentEntry/FullScreenContentEntryHeaderLeft";
 
 export const ContentEntryEditorConfig = Object.assign(BaseContentEntryEditorConfig, {
     ContentEntry: Object.assign(ContentEntry, {
@@ -23,7 +27,10 @@ export const ContentEntryEditorConfig = Object.assign(BaseContentEntryEditorConf
         DefaultLayout,
         ContentEntryForm: Object.assign(BaseContentEntryForm, {
             useContentEntryForm,
-            Header: ContentEntryFormHeader
+            Header: Object.assign(ContentEntryFormHeader, {
+                Title: ContentEntryFormTitle,
+                Meta: ContentEntryFormMeta
+            })
         }),
         ContentEntryFormPreview
     }),
