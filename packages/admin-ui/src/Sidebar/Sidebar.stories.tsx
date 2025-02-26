@@ -66,7 +66,7 @@ export const Default: Story = {
                         content={"Blocks"}
                     >
                         <Sidebar.Item content={"Blocks"} />
-                        <Sidebar.Item content={"Categories"} active={true} />
+                        <Sidebar.Item content={"Categories (active)"} active={true} />
                     </Sidebar.Item>
                     <Sidebar.Item
                         icon={<Sidebar.Item.Icon label="Pages" element={<Settings />} />}
@@ -75,7 +75,7 @@ export const Default: Story = {
                         <Sidebar.Item content={"Categories"} />
                         <Sidebar.Item content={"Menus"} />
                         <Sidebar.Item content={"Pages"} />
-                        <Sidebar.Item content={"Templates"} />
+                        <Sidebar.Item content={"Templates"} disabled={true} />
                     </Sidebar.Item>
                 </Sidebar.Item>
                 <Sidebar.Item
@@ -97,6 +97,7 @@ export const Default: Story = {
                     />
                 </Sidebar.Item>
                 <Sidebar.Item
+                    disabled={true}
                     icon={
                         <Sidebar.Item.Icon label="Tenant manager" element={<TenantManagerIcon />} />
                     }
@@ -104,7 +105,7 @@ export const Default: Story = {
                 />
                 <Sidebar.Item
                     icon={<Sidebar.Item.Icon label="Settings" element={<SettingsIcon />} />}
-                    content={"Settings"}
+                    content={"Settings (active)"}
                     active={true}
                 />
             </>

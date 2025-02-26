@@ -11,6 +11,7 @@ interface SidebarMenuSubItemProps extends Omit<React.ComponentProps<"li">, "cont
     content: React.ReactNode;
     icon?: React.ReactNode;
     active?: boolean;
+    disabled?: boolean;
     lvl?: number;
 }
 
@@ -18,6 +19,7 @@ const SidebarMenuSubItem = ({
     content,
     icon,
     active,
+    disabled,
     children,
     className,
     lvl = 1,
@@ -28,7 +30,7 @@ const SidebarMenuSubItem = ({
             return (
                 <>
                     <SidebarMenuSubItemIndentation lvl={lvl} />
-                    <SidebarMenuSubButton icon={icon} active={active}>
+                    <SidebarMenuSubButton icon={icon} active={active} disabled={disabled}>
                         <span>{content}</span>
                     </SidebarMenuSubButton>
                 </>

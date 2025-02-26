@@ -29,10 +29,10 @@ const SidebarMenuSubButton = ({
                 "wby-overflow-hidden",
                 "hover:wby-bg-neutral-dimmed hover:!wby-no-underline",
                 "focus-visible:wby-bg-neutral-dimmed",
-                "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold",
-                "disabled:wby-pointer-events-none disabled:wby-opacity-50",
-                "aria-disabled:wby-pointer-events-none aria-disabled:wby-opacity-50",
-                "[&>span]:wby-truncate [&>svg]:wby-shrink-0 [&>svg]:wby-text-sidebar-accent-foreground",
+                "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
+                "disabled:wby-pointer-events-none disabled:wby-text-neutral-disabled",
+                "aria-disabled:wby-pointer-events-none disabled:wby-text-neutral-disabled",
+                "[&>span:last-child]:wby-truncate [&>svg]:wby-shrink-0",
                 "group-data-[collapsible=icon]:wby-hidden",
                 className
             )}

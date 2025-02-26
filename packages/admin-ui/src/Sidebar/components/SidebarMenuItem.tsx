@@ -12,12 +12,14 @@ interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content
     content: React.ReactNode;
     icon?: React.ReactNode;
     active?: boolean;
+    disabled?: boolean;
 }
 
 const SidebarMenuItemBase = ({
     content,
     icon,
     active,
+    disabled,
     className,
     children,
     ...props
@@ -25,7 +27,7 @@ const SidebarMenuItemBase = ({
     const sidebarMenuButton = useMemo(() => {
         if (!children) {
             return (
-                <SidebarMenuButton icon={icon} active={active}>
+                <SidebarMenuButton icon={icon} active={active} disabled={disabled}>
                     <span>{content}</span>
                 </SidebarMenuButton>
             );
