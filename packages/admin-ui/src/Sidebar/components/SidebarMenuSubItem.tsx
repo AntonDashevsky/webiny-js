@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { cn } from "~/utils";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "~/Collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible";
 import { SidebarMenuSubButton } from "./SidebarMenuSubButton";
 import { SidebarMenuSubItemIndentation } from "./SidebarMenuSubItemIndentation";
 import { SidebarMenuSub } from "./SidebarMenuSub";
@@ -10,12 +10,14 @@ import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons
 interface SidebarMenuSubItemProps extends Omit<React.ComponentProps<"li">, "content"> {
     content: React.ReactNode;
     icon?: React.ReactNode;
+    active?: boolean;
     lvl?: number;
 }
 
 const SidebarMenuSubItem = ({
     content,
     icon,
+    active,
     children,
     className,
     lvl = 1,
@@ -26,13 +28,13 @@ const SidebarMenuSubItem = ({
             return (
                 <>
                     <SidebarMenuSubItemIndentation lvl={lvl} />
-                    <SidebarMenuSubButton icon={icon}>
+                    <SidebarMenuSubButton icon={icon} active={active}>
                         <span>{content}</span>
                     </SidebarMenuSubButton>
                 </>
             );
         }
-        // group/collapsible [&[data-state=open]>button>svg:first-child]:rotate-90
+
         return (
             <Collapsible defaultOpen className="wby-group/collapsiblex wby-w-full">
                 <div className={"wby-flex wby-items-center"}>
@@ -43,7 +45,7 @@ const SidebarMenuSubItem = ({
                             <Icon
                                 size={"sm"}
                                 className={
-                                    "wby-ml-auto wby-transition-transform 11 wby-duration-200 group-data-[state=open]/collapsiblex:wby-rotate-180"
+                                    "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/collapsiblex:wby-rotate-180"
                                 }
                                 color={"neutral-strong"}
                                 data-role={"open-close-indicator"}

@@ -66,7 +66,7 @@ export const Default: Story = {
                         content={"Blocks"}
                     >
                         <Sidebar.Item content={"Blocks"} />
-                        <Sidebar.Item content={"Categories"} />
+                        <Sidebar.Item content={"Categories"} active={true} />
                     </Sidebar.Item>
                     <Sidebar.Item
                         icon={<Sidebar.Item.Icon label="Pages" element={<Settings />} />}
@@ -105,6 +105,7 @@ export const Default: Story = {
                 <Sidebar.Item
                     icon={<Sidebar.Item.Icon label="Settings" element={<SettingsIcon />} />}
                     content={"Settings"}
+                    active={true}
                 />
             </>
         )

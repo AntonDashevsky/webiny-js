@@ -3,7 +3,7 @@ import { cn, withStaticProps } from "~/utils";
 import { SidebarMenuButton } from "./SidebarMenuButton";
 import { SidebarMenuItemIcon } from "./SidebarMenuItemIcon";
 import { SidebarMenuSub } from "./SidebarMenuSub";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "~/Collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible";
 import { SidebarMenuSubItem } from "./SidebarMenuSubItem";
 import { Icon } from "~/Icon";
 import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
@@ -11,11 +11,13 @@ import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons
 interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content"> {
     content: React.ReactNode;
     icon?: React.ReactNode;
+    active?: boolean;
 }
 
 const SidebarMenuItemBase = ({
     content,
     icon,
+    active,
     className,
     children,
     ...props
@@ -23,7 +25,7 @@ const SidebarMenuItemBase = ({
     const sidebarMenuButton = useMemo(() => {
         if (!children) {
             return (
-                <SidebarMenuButton icon={icon}>
+                <SidebarMenuButton icon={icon} active={active}>
                     <span>{content}</span>
                 </SidebarMenuButton>
             );
