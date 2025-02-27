@@ -32,7 +32,7 @@ const SidebarMenuButton = ({
                 "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
                 "disabled:wby-pointer-events-none disabled:wby-text-neutral-disabled",
                 "aria-disabled:wby-pointer-events-none disabled:wby-text-neutral-disabled",
-                "group-data-[state=open]/collapsible:wby-font-semibold group-data-[state=open]/collapsible:[&>svg]:wby-fill-neutral-xstrong",
+                "group-data-[state=open]/menu-item-collapsible:wby-font-semibold group-data-[state=open]/menu-item-collapsible:[&>svg]:wby-fill-neutral-xstrong",
                 "[&>span:last-child]:wby-truncate [&>svg]:wby-shrink-0",
                 className
             )}

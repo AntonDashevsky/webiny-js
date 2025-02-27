@@ -6,8 +6,9 @@
     lines and making the animation weird? Right now we have "wby-h-xl wby-whitespace-nowrap" in place.
 - remove mobile-related styles
 - auto opened items / cookies?
-- kreso questions
 - action
 - footer
 - submenu item not in line with the above one
 - active item - what's up with hover?
+- data=icon remove
+- chapter title / group label

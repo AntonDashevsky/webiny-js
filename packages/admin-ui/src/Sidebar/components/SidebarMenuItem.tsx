@@ -36,14 +36,14 @@ const SidebarMenuItemBase = ({
         return (
             <Collapsible
                 defaultOpen
-                className="wby-w-full [&[data-state=open]_[data-sidebar=menu-item-expanded-indicator]]:wby-rotate-180"
+                className="wby-w-full wby-group/menu-item-collapsible"
             >
                 <CollapsibleTrigger asChild>
                     <SidebarMenuButton icon={icon}>
                         <span>{content}</span>
                         <Icon
                             size={"sm"}
-                            className={"wby-ml-auto wby-transition-transform wby-duration-200"}
+                            className={"wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/menu-item-collapsible:wby-rotate-180"}
                             color={"neutral-strong"}
                             data-sidebar={"menu-item-expanded-indicator"}
                             label={"Open/close"}
