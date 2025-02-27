@@ -10,6 +10,7 @@ import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons
 interface SidebarMenuSubItemProps extends Omit<React.ComponentProps<"li">, "content"> {
     content: React.ReactNode;
     icon?: React.ReactNode;
+    variant?: "group-label"
     active?: boolean;
     disabled?: boolean;
     lvl?: number;
@@ -18,6 +19,7 @@ interface SidebarMenuSubItemProps extends Omit<React.ComponentProps<"li">, "cont
 const SidebarMenuSubItem = ({
     content,
     icon,
+    variant,
     active,
     disabled,
     children,
@@ -25,12 +27,15 @@ const SidebarMenuSubItem = ({
     lvl = 1,
     ...props
 }: SidebarMenuSubItemProps) => {
+    const nextLevel = lvl + 1;
+    const buttonProps = { icon, active, disabled, variant };
+
     const sidebarMenuSubButton = useMemo(() => {
         if (!children) {
             return (
                 <>
-                    <SidebarMenuSubItemIndentation lvl={lvl} />
-                    <SidebarMenuSubButton icon={icon} active={active} disabled={disabled}>
+                    <SidebarMenuSubItemIndentation lvl={lvl} variant={variant} />
+                    <SidebarMenuSubButton {...buttonProps}>
                         <span>{content}</span>
                     </SidebarMenuSubButton>
                 </>
@@ -42,11 +47,13 @@ const SidebarMenuSubItem = ({
                 <div className={"wby-flex wby-items-center"}>
                     <SidebarMenuSubItemIndentation lvl={lvl} />
                     <CollapsibleTrigger asChild>
-                        <SidebarMenuSubButton icon={icon}>
+                        <SidebarMenuSubButton {...buttonProps}>
                             <span>{content}</span>
                             <Icon
                                 size={"sm"}
-                                className={"wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/menu-sub-item-collapsible:wby-rotate-180"}
+                                className={
+                                    "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/menu-sub-item-collapsible:wby-rotate-180"
+                                }
                                 color={"neutral-strong"}
                                 data-sidebar={"menu-sub-item-expanded-indicator"}
                                 label={"Open/close"}
@@ -59,7 +66,7 @@ const SidebarMenuSubItem = ({
                     <SidebarMenuSub>
                         {React.Children.map(children, child => {
                             if (React.isValidElement(child)) {
-                                return <SidebarMenuSubItem {...child.props} lvl={2} />;
+                                return <SidebarMenuSubItem {...child.props} lvl={nextLevel} />;
                             }
                             return child;
                         })}

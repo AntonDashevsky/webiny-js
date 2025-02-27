@@ -1,11 +1,23 @@
 import React from "react";
 import { Separator } from "~/Separator";
 
-export interface SidebarMenuSubItemIndentationProps extends Omit<React.ComponentProps<"li">, "content"> {
+import { cva, type VariantProps } from "~/utils";
+
+const separatorVariants = cva(["wby-h-xl wby-ml-px"], {
+    variants: {
+        variant: {
+            "group-label": "wby-h-[38px]"
+        }
+    }
+});
+
+export interface SidebarMenuSubItemIndentationProps
+    extends Omit<React.ComponentProps<"li">, "content">,
+        VariantProps<typeof separatorVariants> {
     lvl: number;
 }
 
-const SidebarMenuSubItemIndentation = ({ lvl }: SidebarMenuSubItemIndentationProps) => {
+const SidebarMenuSubItemIndentation = ({ lvl, variant }: SidebarMenuSubItemIndentationProps) => {
     return (
         <div data-sidebar="indentation" className={"wby-gap-x-xs wby-flex wby-mr-sm"}>
             {Array.from({ length: lvl }, (_, index) => (
@@ -14,7 +26,7 @@ const SidebarMenuSubItemIndentation = ({ lvl }: SidebarMenuSubItemIndentationPro
                         orientation={"vertical"}
                         margin={"none"}
                         variant={"strong"}
-                        className={"wby-h-xl wby-ml-px"}
+                        className={separatorVariants({ variant })}
                     />
                 </div>
             ))}

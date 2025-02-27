@@ -11,6 +11,7 @@ import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons
 interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content"> {
     content: React.ReactNode;
     icon?: React.ReactNode;
+    variant?: "group-label"
     active?: boolean;
     disabled?: boolean;
 }
@@ -18,32 +19,34 @@ interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content
 const SidebarMenuItemBase = ({
     content,
     icon,
+    variant,
     active,
     disabled,
     className,
     children,
     ...props
 }: SidebarMenuItemProps) => {
+    const buttonProps = { icon, active, disabled, variant };
+
     const sidebarMenuButton = useMemo(() => {
         if (!children) {
             return (
-                <SidebarMenuButton icon={icon} active={active} disabled={disabled}>
+                <SidebarMenuButton {...buttonProps}>
                     <span>{content}</span>
                 </SidebarMenuButton>
             );
         }
 
         return (
-            <Collapsible
-                defaultOpen
-                className="wby-w-full wby-group/menu-item-collapsible"
-            >
+            <Collapsible defaultOpen className="wby-w-full wby-group/menu-item-collapsible">
                 <CollapsibleTrigger asChild>
-                    <SidebarMenuButton icon={icon}>
+                    <SidebarMenuButton {...buttonProps}>
                         <span>{content}</span>
                         <Icon
                             size={"sm"}
-                            className={"wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/menu-item-collapsible:wby-rotate-180"}
+                            className={
+                                "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/menu-item-collapsible:wby-rotate-180"
+                            }
                             color={"neutral-strong"}
                             data-sidebar={"menu-item-expanded-indicator"}
                             label={"Open/close"}

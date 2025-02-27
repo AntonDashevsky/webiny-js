@@ -52,31 +52,22 @@ export const Default: Story = {
                     icon={<Sidebar.Item.Icon label="Headless CMS" element={<CmsIcon />} />}
                     content={"Headless CMS"}
                 >
-                    <Sidebar.Item content={"Content Models"}>
-                        <Sidebar.Item content={"Groups"} />
-                        <Sidebar.Item content={"Models"} />
-                    </Sidebar.Item>
+                    <Sidebar.Item content={"Content Models"} variant={"group-label"} />
+                    <Sidebar.Item content={"Groups"} />
+                    <Sidebar.Item content={"Models"} />
                 </Sidebar.Item>
                 <Sidebar.Item
                     icon={<Sidebar.Item.Icon label="Page Builder" element={<PageBuilderIcon />} />}
                     content={"Page Builder"}
                 >
-                    <Sidebar.Item
-                        icon={<Sidebar.Item.Icon label="Blocks" element={<CreditCard />} />}
-                        content={"Blocks"}
-                    >
-                        <Sidebar.Item content={"Blocks"} />
-                        <Sidebar.Item content={"Categories (active)"} active={true} />
-                    </Sidebar.Item>
-                    <Sidebar.Item
-                        icon={<Sidebar.Item.Icon label="Pages" element={<Settings />} />}
-                        content={"Pages"}
-                    >
-                        <Sidebar.Item content={"Categories"} />
-                        <Sidebar.Item content={"Menus"} />
-                        <Sidebar.Item content={"Pages"} />
-                        <Sidebar.Item content={"Templates"} disabled={true} />
-                    </Sidebar.Item>
+                    <Sidebar.Item content={"Blocks"} variant={"group-label"} />
+                    <Sidebar.Item content={"Blocks"} />
+                    <Sidebar.Item content={"Categories (active)"} active={true} />
+                    <Sidebar.Item content={"Pages"} variant={"group-label"} />
+                    <Sidebar.Item content={"Categories"} />
+                    <Sidebar.Item content={"Menus"} />
+                    <Sidebar.Item content={"Pages"} />
+                    <Sidebar.Item content={"Templates"} disabled={true} />
                 </Sidebar.Item>
                 <Sidebar.Item
                     icon={<Sidebar.Item.Icon label="Publishing Workflows" element={<ApwIcon />} />}

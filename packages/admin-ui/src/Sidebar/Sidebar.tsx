@@ -4,7 +4,6 @@ import { SidebarRoot } from "./components/SidebarRoot";
 import { SidebarContent } from "./components/SidebarContent";
 import { SidebarSeparator } from "./components/SidebarSeparator";
 import { SidebarMenuItem } from "./components/SidebarMenuItem";
-import { SidebarGroup } from "./components/SidebarGroup";
 import { SidebarMenu } from "./components/SidebarMenu";
 import { SidebarHeader } from "./components/SidebarHeader";
 import { SidebarIcon } from "./components/SidebarIcon";
@@ -63,7 +62,6 @@ const DecoratableSidebar = makeDecoratable("Sidebar", SidebarBase);
 
 const Sidebar = withStaticProps(DecoratableSidebar, {
     Separator: SidebarSeparator,
-    Group: SidebarGroup,
     Item: SidebarMenuItem,
     Icon: SidebarIcon
 });
