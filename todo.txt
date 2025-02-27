@@ -8,7 +8,6 @@
 - auto opened items / cookies?
 - action
 - footer
-- submenu item not in line with the above one
 - active item - what's up with hover?
 - data=icon remove
 - chapter title / group label
