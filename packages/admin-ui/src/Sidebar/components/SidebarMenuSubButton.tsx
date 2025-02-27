@@ -32,7 +32,6 @@ const SidebarMenuSubButton = ({
                 "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
                 "disabled:wby-pointer-events-none disabled:wby-text-neutral-disabled",
                 "aria-disabled:wby-pointer-events-none disabled:wby-text-neutral-disabled",
-                "group-data-[state=open]/menu-sub-item-collapsible:wby-font-semibold group-data-[state=open]/menu-sub-item-collapsible:[&>svg]:wby-fill-neutral-xstrong",
                 "[&>span:last-child]:wby-truncate [&>svg]:wby-shrink-0",
                 "group-data-[collapsible=icon]:wby-hidden",
                 className
