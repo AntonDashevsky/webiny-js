@@ -121,6 +121,7 @@ export const Default: Story = {
                         element={
                             <DropdownMenu trigger={<MoreVertIcon />} className={"wby-w-[225px]"}>
                                 <DropdownMenu.Item
+                                    disabled={true}
                                     content={
                                         <>
                                             Webiny 5.43.0 <Tag variant={"accent"} content={"WCP "} />
