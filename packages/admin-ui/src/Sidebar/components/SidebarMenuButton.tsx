@@ -10,7 +10,7 @@ const variants = cva(
         "hover:wby-bg-neutral-dimmed hover:!wby-no-underline",
         "focus-visible:wby-bg-neutral-dimmed",
         "data-[variant=group-label]:wby-opacity-30",
-        "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-pointer-events-none",
+        "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
         "disabled:wby-pointer-events-none disabled:wby-text-neutral-disabled",
         "aria-disabled:wby-pointer-events-none disabled:wby-text-neutral-disabled",
         "[&>span:last-child]:wby-truncate [&>svg]:wby-shrink-0"
@@ -29,12 +29,14 @@ interface SidebarMenuButtonProps
         VariantProps<typeof variants> {
     active?: boolean;
     icon?: React.ReactNode;
+    action?: React.ReactNode;
 }
 
 const SidebarMenuButton = ({
     variant,
     active,
     icon,
+    action,
     className,
     children,
     ...props
@@ -47,7 +49,7 @@ const SidebarMenuButton = ({
             className={cn(variants({ variant }), className)}
             {...props}
         >
-            {icon} {children}
+            {icon} {children} {action}
         </button>
     );
 };

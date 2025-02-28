@@ -1,16 +1,18 @@
 - ref / makeDecoratable
 - storybook fixed-related rendering issues 🤨
-- config api
 - both avatar and icon for main icon
 - expanding / collapsing sidebar - can we do something with text breaking into multiple
     lines and making the animation weird? Right now we have "wby-h-xl wby-whitespace-nowrap" in place.
 - remove mobile-related styles
 - auto opened items / cookies?
 - action
-- footer
-- active item - what's up with hover?
 - data=icon remove
-- chapter title / group label
+- DBL CHECK ICONS (fm?)
+- dbl check those namespace comps.. too much ?
+
+- footer
+-footer item / should it have hover fx?
+
 
 KRESO CALL
 1. link to pages / forms
@@ -21,9 +23,6 @@ KRESO CALL
 4. publishing workflows parent item bold only when nothing is selceted in children
 5. avatar instead of icon for Webiny logo?
 6. only level zero is bold
-7. use simpler version for aDMin ui (no multi levels of collapsing!)
-8. footer dropdown is a go!
-9. fm link, where should we go ?
 10. wcp v
 
 - WCP LABEL / VERZIJA

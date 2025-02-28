@@ -7,6 +7,7 @@ import { SidebarMenuItem } from "./components/SidebarMenuItem";
 import { SidebarMenu } from "./components/SidebarMenu";
 import { SidebarHeader } from "./components/SidebarHeader";
 import { SidebarIcon } from "./components/SidebarIcon";
+import { SidebarFooter } from "./components/SidebarFooter";
 
 interface SidebarProps
     extends Omit<React.ComponentPropsWithoutRef<typeof SidebarRoot>, "title">,
@@ -14,6 +15,7 @@ interface SidebarProps
     title?: React.ReactNode;
     icon?: React.ReactNode;
     children: React.ReactNode;
+    footer?: React.ReactNode;
 }
 
 const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, SidebarProps>(
@@ -51,6 +53,9 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
                 <SidebarContent {...contentProps} ref={ref}>
                     <SidebarMenu>{props.children}</SidebarMenu>
                 </SidebarContent>
+                <SidebarFooter>
+                    <SidebarMenu>{props.footer}</SidebarMenu>
+                </SidebarFooter>
             </SidebarRoot>
         );
     }

@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { cn, withStaticProps } from "~/utils";
 import { SidebarMenuButton } from "./SidebarMenuButton";
 import { SidebarMenuItemIcon } from "./SidebarMenuItemIcon";
+import { SidebarMenuItemAction } from "./SidebarMenuItemAction";
 import { SidebarMenuSub } from "./SidebarMenuSub";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible";
 import { SidebarMenuSubItem } from "./SidebarMenuSubItem";
@@ -11,6 +12,7 @@ import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons
 interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content"> {
     content: React.ReactNode;
     icon?: React.ReactNode;
+    action?: React.ReactNode;
     variant?: "group-label"
     active?: boolean;
     disabled?: boolean;
@@ -19,6 +21,7 @@ interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content
 const SidebarMenuItemBase = ({
     content,
     icon,
+    action,
     variant,
     active,
     disabled,
@@ -33,6 +36,7 @@ const SidebarMenuItemBase = ({
             return (
                 <SidebarMenuButton {...buttonProps}>
                     <span>{content}</span>
+                    {action}
                 </SidebarMenuButton>
             );
         }
@@ -80,7 +84,8 @@ const SidebarMenuItemBase = ({
 };
 
 const SidebarMenuItem = withStaticProps(SidebarMenuItemBase, {
-    Icon: SidebarMenuItemIcon
+    Icon: SidebarMenuItemIcon,
+    Action: SidebarMenuItemAction
 });
 
 export { SidebarMenuItem, type SidebarMenuItemProps };
