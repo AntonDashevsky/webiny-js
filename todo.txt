@@ -1,29 +1,32 @@
+MH
 - ref / makeDecoratable
 - storybook fixed-related rendering issues 🤨
-- both avatar and icon for main icon
+- avatar or icon for sidebar icon?
+- remove mobile-related styles
+
+-------
+- footer
+- action
+- button in button issue
+-------
+
+- coll state - icons should be active if something in the section is clicked (even nested link)
+- coll state - links to useful pages
+- publishing workflows is highlighted but when I click on Workflows, it's no longer active, but Workflows is highlighted
+- only level zero is bold
+- [K] root items expanders/collapsers - can they also be a link to dashboard
+
+SH
+- [K] confirm - footer item / should it have hover fx?
+- remove data=icon
+- dbl check those namespace comps.. too much ?
+- auto opened items / cookies?
+
+
+CH
+- [K] webiny version / wcp logo
 - expanding / collapsing sidebar - can we do something with text breaking into multiple
     lines and making the animation weird? Right now we have "wby-h-xl wby-whitespace-nowrap" in place.
-- remove mobile-related styles
-- auto opened items / cookies?
-- action
-- data=icon remove
-- DBL CHECK ICONS (fm?)
-- dbl check those namespace comps.. too much ?
 
-- footer
--footer item / should it have hover fx?
-
-
-KRESO CALL
-1. link to pages / forms
-  - sidebar collapzsed state - route to exising routes for v0
-  - if I don't have groups / models, redirect first item in the list, like model list (what Leo said)
-2. in collapsed state, icons should still be active if I'm in the route... like if I click on HCMS and I'm on dashboard, .. the same is if I click on nested item, when collapsed the icon should still be active
-3. Publishing workflows is highlighted but when I click on Workflows, it's no longer active, but Workflows is highlighted
-4. publishing workflows parent item bold only when nothing is selceted in children
-5. avatar instead of icon for Webiny logo?
-6. only level zero is bold
-10. wcp v
-
-- WCP LABEL / VERZIJA
-- icons for different apps, what to use?
+::: RESOLVE WITH 2ND PR :::
+- [K] icons check (FM icon?)
