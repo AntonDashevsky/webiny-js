@@ -3,13 +3,6 @@ MH
 - storybook fixed-related rendering issues 🤨
 - avatar or icon for sidebar icon?
 - remove mobile-related styles
-
--------
-- footer
-- action
-- button in button issue
--------
-
 - coll state - icons should be active if something in the section is clicked (even nested link)
 - coll state - links to useful pages
 - publishing workflows is highlighted but when I click on Workflows, it's no longer active, but Workflows is highlighted
@@ -22,11 +15,10 @@ SH
 - dbl check those namespace comps.. too much ?
 - auto opened items / cookies?
 
-
 CH
-- [K] webiny version / wcp logo
 - expanding / collapsing sidebar - can we do something with text breaking into multiple
     lines and making the animation weird? Right now we have "wby-h-xl wby-whitespace-nowrap" in place.
 
 ::: RESOLVE WITH 2ND PR :::
 - [K] icons check (FM icon?)
+- [K] webiny version / wcp logo
