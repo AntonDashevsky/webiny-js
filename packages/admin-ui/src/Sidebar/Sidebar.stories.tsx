@@ -1,14 +1,10 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { BrowserRouter, Route, Routes, Link, useLocation } from "@webiny/react-router";
+import { BrowserRouter, Route, Routes, useLocation } from "@webiny/react-router";
 import { ReactComponent as AuditLogsIcon } from "@material-design-icons/svg/outlined/assignment.svg";
 import { ReactComponent as FormBuilderIcon } from "@material-design-icons/svg/outlined/check_box.svg";
 import { ReactComponent as CmsIcon } from "@material-design-icons/svg/outlined/web.svg";
 import { ReactComponent as PageBuilderIcon } from "@material-design-icons/svg/outlined/table_chart.svg";
-import { ReactComponent as ApwIcon } from "@material-design-icons/svg/outlined/account_tree.svg";
-import { ReactComponent as TenantManagerIcon } from "@material-design-icons/svg/outlined/domain.svg";
-import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outlined/settings.svg";
-import { ReactComponent as ArticleIcon } from "@material-design-icons/svg/outlined/article.svg";
 import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";
 import { ReactComponent as ChatIcon } from "@material-design-icons/svg/outlined/chat.svg";
 import { ReactComponent as GithubIcon } from "@material-design-icons/svg/outlined/gite.svg";
@@ -38,9 +34,7 @@ export const Default: Story = {
     render: () => (
         <BrowserRouter>
             <Routes>
-                <Route path={"*"}>
-                    <SidebarComponent />
-                </Route>
+                <Route path={"*"} element={<SidebarComponent />} />
             </Routes>
         </BrowserRouter>
     )
@@ -49,6 +43,7 @@ export const Default: Story = {
 const SidebarComponent = () => {
     const { hash } = useLocation();
 
+    console.log('heš', hash);
     return (
         <SidebarProvider>
             <Sidebar
@@ -57,7 +52,7 @@ const SidebarComponent = () => {
                 footer={
                     <Sidebar.Item
                         icon={<Sidebar.Item.Icon label="Settings" element={<InfoIcon />} />}
-                        content={"Support"}
+                        text={"Support"}
                         action={
                             <Sidebar.Item.Action
                                 element={
@@ -70,24 +65,23 @@ const SidebarComponent = () => {
                                             content={
                                                 <>
                                                     Webiny 5.43.0{" "}
-                                                    <Tag variant={"accent"} content={"WCP "} />
+                                                    <Tag variant={"neutral-light"} content={"WCP"} />
                                                 </>
                                             }
                                         />
                                         <DropdownMenu.Separator />
-                                        <DropdownMenu.Item
-                                            content={"API Playground"}
-                                            icon={<ApiPlaygroundIcon />}
-                                        />
-                                        <DropdownMenu.Item
-                                            content={"Documentation"}
-                                            icon={<DocsIcon />}
-                                        />
-                                        <DropdownMenu.Item
-                                            content={"GitHub"}
-                                            icon={<GithubIcon />}
-                                        />
-                                        <DropdownMenu.Item content={"Slack"} icon={<ChatIcon />} />
+                                        <DropdownMenu.Item icon={<ApiPlaygroundIcon />}>
+                                            API Playground
+                                        </DropdownMenu.Item>
+                                        <DropdownMenu.Item icon={<DocsIcon />}>
+                                            Documentation
+                                        </DropdownMenu.Item>
+                                        <DropdownMenu.Item icon={<GithubIcon />}>
+                                            GitHub
+                                        </DropdownMenu.Item>
+                                        <DropdownMenu.Item icon={<ChatIcon />}>
+                                            Slack
+                                        </DropdownMenu.Item>
                                     </DropdownMenu>
                                 }
                             />
@@ -96,72 +90,61 @@ const SidebarComponent = () => {
                 }
             >
                 <Sidebar.Item
+                    text={"Audit Logs"}
+                    to={"#audit-logs"}
                     active={hash === "#audit-logs"}
                     icon={<Sidebar.Item.Icon label="Audit Logs" element={<AuditLogsIcon />} />}
-                    content={<Link to={"#audit-logs"}>Audit Logs</Link>}
                 />
-                <Sidebar.Item
+                <Sidebar.Link
+                    text={"Form Builder"}
+                    to={"#form-builder"}
                     active={hash === "#form-builder"}
                     icon={<Sidebar.Item.Icon label="Form Builder" element={<FormBuilderIcon />} />}
-                    content={<Link to={"#form-builder"}>Form Builder</Link>}
                 />
                 <Sidebar.Item
+                    text={"File Manager"}
+                    onClick={() => {
+                        alert("File Manager clicked");
+                    }}
                     icon={<Sidebar.Item.Icon label="File Manager" element={<FileManagerIcon />} />}
-                    content={"File Manager"}
                 />
                 <Sidebar.Item
+                    text={"Headless CMS"}
+                    to={"#cms"}
+                    active={hash === "#cms"}
                     icon={<Sidebar.Item.Icon label="Headless CMS" element={<CmsIcon />} />}
-                    content={"Headless CMS"}
                 >
-                    <Sidebar.Item content={"Content Models"} variant={"group-label"} />
-                    <Sidebar.Item content={"Groups"} />
-                    <Sidebar.Item content={"Models"} />
+                    <Sidebar.Item text={"Content Models"} variant={"group-label"} />
+                    <Sidebar.Item
+                        text={"Groups"}
+                        to={"#cms-groups"}
+                        active={hash === "#cms-groups"}
+                    />
+                    <Sidebar.Item
+                        text={"Models"}
+                        to={"#cms-models"}
+                        active={hash === "#cms-models"}
+                    />
                 </Sidebar.Item>
                 <Sidebar.Item
+                    text={"Page Builder"}
+                    to={"#page-builder"}
+                    active={hash === "#page-builder"}
                     icon={<Sidebar.Item.Icon label="Page Builder" element={<PageBuilderIcon />} />}
-                    content={"Page Builder"}
                 >
-                    <Sidebar.Item content={"Blocks"} variant={"group-label"} />
-                    <Sidebar.Item content={"Blocks"} />
-                    <Sidebar.Item content={"Categories (active)"} active={true} />
-                    <Sidebar.Item content={"Pages"} variant={"group-label"} />
-                    <Sidebar.Item content={"Categories"} />
-                    <Sidebar.Item content={"Menus"} />
-                    <Sidebar.Item content={"Pages"} />
-                    <Sidebar.Item content={"Templates"} disabled={true} />
-                </Sidebar.Item>
-                <Sidebar.Item
-                    icon={<Sidebar.Item.Icon label="Publishing Workflows" element={<ApwIcon />} />}
-                    content={"Publishing Workflows"}
-                >
+                    <Sidebar.Item text={"Blocks"} variant={"group-label"} />
                     <Sidebar.Item
-                        content={"Content Reviews"}
-                        icon={
-                            <Sidebar.Item.Icon
-                                element={<ArticleIcon />}
-                                label={"Content Reviews"}
-                            />
-                        }
+                        text={"Blocks"}
+                        to={"#pb-blocks"}
+                        active={hash === "#pb-blocks"}
                     />
                     <Sidebar.Item
-                        content={"Workflows"}
-                        icon={<Sidebar.Item.Icon element={<ArticleIcon />} label={"Workflows"} />}
+                        text={"Categories"}
+                        to={"#pb-blocks-categories"}
+                        active={hash === "#pb-blocks-categories"}
                     />
                 </Sidebar.Item>
-                <Sidebar.Item
-                    disabled={true}
-                    icon={
-                        <Sidebar.Item.Icon label="Tenant manager" element={<TenantManagerIcon />} />
-                    }
-                    content={"Tenant manager"}
-                />
-                <Sidebar.Item
-                    icon={<Sidebar.Item.Icon label="Settings" element={<SettingsIcon />} />}
-                    content={"Settings (active)"}
-                    active={true}
-                />
             </Sidebar>
-            <main className={"wby-bg-white wby-p-8"}>Main content goes here.</main>
         </SidebarProvider>
     );
 };

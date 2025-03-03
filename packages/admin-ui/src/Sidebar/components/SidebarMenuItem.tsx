@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import {cn, makeDecoratable, withStaticProps} from "~/utils";
+import { cn, makeDecoratable, withStaticProps } from "~/utils";
 import { SidebarMenuButton } from "./SidebarMenuButton";
 import { SidebarMenuItemIcon } from "./SidebarMenuItemIcon";
 import { SidebarMenuItemAction } from "./SidebarMenuItemAction";
@@ -8,35 +8,32 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/r
 import { SidebarMenuSubItem } from "./SidebarMenuSubItem";
 import { Icon } from "~/Icon";
 import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
+import { LinkProps, To } from "@webiny/react-router";
 
-interface SidebarMenuItemProps extends Omit<React.ComponentProps<"li">, "content"> {
-    content: React.ReactNode;
+export interface SidebarMenuItemBaseProps {
+    text: string;
+    className?: string;
+    children?: React.ReactNode;
+    onClick?: React.MouseEventHandler;
     icon?: React.ReactNode;
     action?: React.ReactNode;
-    variant?: "group-label"
+    variant?: "group-label";
     active?: boolean;
     disabled?: boolean;
 }
 
-const SidebarMenuItemBase = ({
-    content,
-    icon,
-    action,
-    variant,
-    active,
-    disabled,
-    className,
-    children,
-    ...props
-}: SidebarMenuItemProps) => {
-    const buttonProps = { icon, active, disabled, variant };
+export type SidebarMenuItemButtonProps = SidebarMenuItemBaseProps & { to?: never };
+export type SidebarMenuItemLinkProps = SidebarMenuItemBaseProps & LinkProps & { to: To };
 
+type SidebarMenuItemProps = SidebarMenuItemButtonProps | SidebarMenuItemLinkProps;
+
+const SidebarMenuItemBase = ({ children, className, ...buttonProps }: SidebarMenuItemProps) => {
     const sidebarMenuButton = useMemo(() => {
         if (!children) {
             return (
                 <SidebarMenuButton {...buttonProps}>
-                    <span>{content}</span>
-                    {action}
+                    <span>{buttonProps.text}</span>
+                    {buttonProps.action}
                 </SidebarMenuButton>
             );
         }
@@ -45,7 +42,7 @@ const SidebarMenuItemBase = ({
             <Collapsible defaultOpen className="wby-w-full wby-group/menu-item-collapsible">
                 <CollapsibleTrigger asChild>
                     <SidebarMenuButton {...buttonProps}>
-                        <span>{content}</span>
+                        <span>{buttonProps.text}</span>
                         <Icon
                             size={"sm"}
                             className={
@@ -70,11 +67,10 @@ const SidebarMenuItemBase = ({
                 </CollapsibleContent>
             </Collapsible>
         );
-    }, [children, icon, content]);
+    }, [children, buttonProps]);
 
     return (
         <li
-            {...props}
             data-sidebar="menu-item"
             className={cn("wby-group/menu-item wby-relative wby-px-xs-plus", className)}
         >
@@ -83,7 +79,7 @@ const SidebarMenuItemBase = ({
     );
 };
 
-const DecoratableSidebarMenuItem = makeDecoratable("SidebarMenuItem", SidebarMenuItemBase)
+const DecoratableSidebarMenuItem = makeDecoratable("SidebarMenuItem", SidebarMenuItemBase);
 
 const SidebarMenuItem = withStaticProps(DecoratableSidebarMenuItem, {
     Icon: SidebarMenuItemIcon,

@@ -3,6 +3,7 @@ import { makeDecoratable, withStaticProps } from "~/utils";
 import { SidebarRoot } from "./components/SidebarRoot";
 import { SidebarContent } from "./components/SidebarContent";
 import { SidebarMenuItem } from "./components/SidebarMenuItem";
+import { SidebarMenuLink } from "./components/SidebarMenuLink";
 import { SidebarMenu } from "./components/SidebarMenu";
 import { SidebarHeader } from "./components/SidebarHeader";
 import { SidebarIcon } from "./components/SidebarIcon";
@@ -62,6 +63,7 @@ const DecoratableSidebar = makeDecoratable("Sidebar", SidebarBase);
 
 const Sidebar = withStaticProps(DecoratableSidebar, {
     Item: SidebarMenuItem,
+    Link: SidebarMenuLink,
     Icon: SidebarIcon
 });
 

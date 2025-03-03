@@ -1,9 +1,14 @@
 MH
+- LINKS!!!
 - coll state - icons should be active if something in the section is clicked (even nested link)
 - coll state - links to useful pages
 - publishing workflows is highlighted but when I click on Workflows, it's no longer active, but Workflows is highlighted
 - [K] only level zero is bold (wait for Kreso to update docs)
 - [K] root items expanders/collapsers - can they also be a link to dashboard
+- sidebar.link?
+- remove defaultOpen
+- refactor <span>{content}... ???
+- refactor a styles?
 
 SH
 - storybook: fix sb-related rendering issues 🤨
