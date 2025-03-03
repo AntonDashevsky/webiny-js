@@ -13,7 +13,7 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
     const { toggleSidebar } = useSidebar();
 
     return (
-        <div>
+        <>
             <div className={"wby-px-xs-plus wby-transition-[width,height,padding]"}>
                 <div
                     data-sidebar="header"
@@ -40,7 +40,7 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
             <div className={"wby-px-sm wby-py-xs"}>
                 <Separator variant={"subtle"} margin={"xs"} />
             </div>
-        </div>
+        </>
     );
 };
 

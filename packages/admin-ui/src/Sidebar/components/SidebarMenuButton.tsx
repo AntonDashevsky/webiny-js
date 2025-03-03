@@ -45,8 +45,8 @@ const SidebarMenuButton = ({
     ...props
 }: SidebarMenuButtonProps) => {
     // The following three attributes are required for the trigger to act as a button.
-    // We can't use the default button element here because the content of the trigger
-    // can also contain one or more buttons.
+    // We can't use the default button element here because the content of the button
+    // can also contain a button, which is not allowed in HTML.
     const divAsButtonProps = useMemo<React.HTMLAttributes<HTMLDivElement>>(() => {
         let tabIndex = 0;
         if (variant === "group-label" || disabled) {
