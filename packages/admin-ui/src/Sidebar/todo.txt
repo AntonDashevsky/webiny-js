@@ -1,5 +1,4 @@
 MH
-- avatar or icon for sidebar icon?
 - remove mobile-related styles
 - coll state - icons should be active if something in the section is clicked (even nested link)
 - coll state - links to useful pages

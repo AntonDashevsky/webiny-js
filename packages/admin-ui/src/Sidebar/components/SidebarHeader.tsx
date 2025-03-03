@@ -10,7 +10,7 @@ interface SidebarHeaderProps extends Omit<React.ComponentProps<"div">, "title"> 
 }
 
 const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
-    const { toggleSidebar } = useSidebar();
+    const { toggleSidebar, open } = useSidebar();
 
     return (
         <>
@@ -28,13 +28,15 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
                         </span>
                     </div>
 
-                    <IconButton
-                        icon={<ToggleSidebarIcon />}
-                        data-sidebar="trigger"
-                        size="xs"
-                        variant={"ghost"}
-                        onClick={toggleSidebar}
-                    />
+                    {open && (
+                        <IconButton
+                            icon={<ToggleSidebarIcon />}
+                            data-sidebar="trigger"
+                            size="xs"
+                            variant={"ghost"}
+                            onClick={toggleSidebar}
+                        />
+                    )}
                 </div>
             </div>
             <div className={"wby-px-sm wby-py-xs"}>
