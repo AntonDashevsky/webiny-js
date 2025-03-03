@@ -2,7 +2,6 @@ import * as React from "react";
 import { makeDecoratable, withStaticProps } from "~/utils";
 import { SidebarRoot } from "./components/SidebarRoot";
 import { SidebarContent } from "./components/SidebarContent";
-import { SidebarSeparator } from "./components/SidebarSeparator";
 import { SidebarMenuItem } from "./components/SidebarMenuItem";
 import { SidebarMenu } from "./components/SidebarMenu";
 import { SidebarHeader } from "./components/SidebarHeader";
@@ -18,55 +17,52 @@ interface SidebarProps
     footer?: React.ReactNode;
 }
 
-const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, SidebarProps>(
-    (props, ref) => {
-        const { headerProps, rootProps, contentProps } = React.useMemo(() => {
-            const {
-                // Header props.
+const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, SidebarProps>(props => {
+    const { headerProps, rootProps, contentProps } = React.useMemo(() => {
+        const {
+            // Header props.
+            title,
+            icon,
+
+            // Root props.
+            side,
+            collapsible,
+
+            // Content props.
+            ...rest
+        } = props;
+
+        return {
+            headerProps: {
                 title,
-                icon,
-
-                // Root props.
+                icon
+            },
+            rootProps: {
                 side,
-                collapsible,
+                collapsible
+            },
+            contentProps: rest
+        };
+    }, [props]);
 
-                // Content props.
-                ...rest
-            } = props;
-
-            return {
-                headerProps: {
-                    title,
-                    icon
-                },
-                rootProps: {
-                    side,
-                    collapsible
-                },
-                contentProps: rest
-            };
-        }, [props]);
-
-        return (
-            <SidebarRoot {...rootProps}>
-                <SidebarHeader {...headerProps} />
-                <SidebarContent {...contentProps} ref={ref}>
-                    <SidebarMenu>{props.children}</SidebarMenu>
-                </SidebarContent>
-                <SidebarFooter>
-                    <SidebarMenu>{props.footer}</SidebarMenu>
-                </SidebarFooter>
-            </SidebarRoot>
-        );
-    }
-);
+    return (
+        <SidebarRoot {...rootProps}>
+            <SidebarHeader {...headerProps} />
+            <SidebarContent {...contentProps}>
+                <SidebarMenu>{props.children}</SidebarMenu>
+            </SidebarContent>
+            <SidebarFooter>
+                <SidebarMenu>{props.footer}</SidebarMenu>
+            </SidebarFooter>
+        </SidebarRoot>
+    );
+});
 
 SidebarBase.displayName = "Sidebar";
 
 const DecoratableSidebar = makeDecoratable("Sidebar", SidebarBase);
 
 const Sidebar = withStaticProps(DecoratableSidebar, {
-    Separator: SidebarSeparator,
     Item: SidebarMenuItem,
     Icon: SidebarIcon
 });

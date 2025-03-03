@@ -1,16 +1,15 @@
 import React from "react";
-import { cn } from "~/utils";
 
-const SidebarMenu = React.forwardRef<HTMLUListElement, React.ComponentProps<"ul">>(
-    ({ className, ...props }, ref) => (
-        <ul
-            ref={ref}
-            data-sidebar="menu"
-            className={cn("wby-flex wby-w-full wby-min-w-0 wby-flex-col wby-gap-y-xs", className)}
-            {...props}
-        />
-    )
+export interface SidebarMenuProps {
+    children: React.ReactNode;
+}
+
+const SidebarMenu = (props: SidebarMenuProps) => (
+    <ul
+        data-sidebar="menu"
+        className={"wby-flex wby-w-full wby-min-w-0 wby-flex-col wby-gap-y-xs"}
+        {...props}
+    />
 );
-SidebarMenu.displayName = "SidebarMenu";
 
 export { SidebarMenu };

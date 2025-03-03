@@ -1,6 +1,4 @@
 MH
-- ref / makeDecoratable
-- storybook fixed-related rendering issues 🤨
 - avatar or icon for sidebar icon?
 - remove mobile-related styles
 - coll state - icons should be active if something in the section is clicked (even nested link)
@@ -10,6 +8,7 @@ MH
 - [K] root items expanders/collapsers - can they also be a link to dashboard
 
 SH
+- storybook fixed-related rendering issues 🤨
 - [K] confirm - footer item / should it have hover fx?
 - remove data=icon
 - dbl check those namespace comps.. too much ?
