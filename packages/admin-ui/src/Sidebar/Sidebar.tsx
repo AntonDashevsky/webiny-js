@@ -17,7 +17,7 @@ interface SidebarProps
     footer?: React.ReactNode;
 }
 
-const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, SidebarProps>(props => {
+const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, SidebarProps>((props, ref) => {
     const { headerProps, rootProps, contentProps } = React.useMemo(() => {
         const {
             // Header props.
@@ -46,7 +46,7 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
     }, [props]);
 
     return (
-        <SidebarRoot {...rootProps}>
+        <SidebarRoot {...rootProps} ref={ref}>
             <SidebarHeader {...headerProps} />
             <SidebarContent {...contentProps}>
                 <SidebarMenu>{props.children}</SidebarMenu>

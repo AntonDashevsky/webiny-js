@@ -9,7 +9,7 @@ const SidebarRoot = React.forwardRef<
         collapsible?: "offcanvas" | "icon" | "none";
     }
 >(({ side = "left", collapsible = "offcanvas", className, children, ...props }, ref) => {
-    const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
+    const { state } = useSidebar();
 
     if (collapsible === "none") {
         return (
@@ -63,5 +63,7 @@ const SidebarRoot = React.forwardRef<
         </div>
     );
 });
+
+SidebarRoot.displayName = "SidebarRoot";
 
 export { SidebarRoot };
