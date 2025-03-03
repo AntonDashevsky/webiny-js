@@ -11,7 +11,7 @@ const variants = cva(
         "focus-visible:wby-bg-neutral-dimmed",
         "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
         "[&>span:last-child]:wby-truncate [&>svg]:wby-shrink-0",
-        "group-data-[collapsible=icon]:wby-hidden"
+        "group-data-[state=collapsed]:wby-hidden"
     ],
     {
         variants: {

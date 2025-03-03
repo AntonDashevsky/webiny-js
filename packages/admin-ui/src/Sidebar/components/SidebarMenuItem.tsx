@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { cn, withStaticProps } from "~/utils";
+import {cn, makeDecoratable, withStaticProps} from "~/utils";
 import { SidebarMenuButton } from "./SidebarMenuButton";
 import { SidebarMenuItemIcon } from "./SidebarMenuItemIcon";
 import { SidebarMenuItemAction } from "./SidebarMenuItemAction";
@@ -83,7 +83,9 @@ const SidebarMenuItemBase = ({
     );
 };
 
-const SidebarMenuItem = withStaticProps(SidebarMenuItemBase, {
+const DecoratableSidebarMenuItem = makeDecoratable("SidebarMenuItem", SidebarMenuItemBase)
+
+const SidebarMenuItem = withStaticProps(DecoratableSidebarMenuItem, {
     Icon: SidebarMenuItemIcon,
     Action: SidebarMenuItemAction
 });

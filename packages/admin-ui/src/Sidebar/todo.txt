@@ -1,5 +1,4 @@
 MH
-- remove mobile-related styles
 - coll state - icons should be active if something in the section is clicked (even nested link)
 - coll state - links to useful pages
 - publishing workflows is highlighted but when I click on Workflows, it's no longer active, but Workflows is highlighted
@@ -7,9 +6,8 @@ MH
 - [K] root items expanders/collapsers - can they also be a link to dashboard
 
 SH
-- storybook fixed-related rendering issues 🤨
+- storybook: fix sb-related rendering issues 🤨
 - [K] confirm - footer item / should it have hover fx?
-- remove data=icon
 - dbl check those namespace comps.. too much ?
 - auto opened items / cookies?
 

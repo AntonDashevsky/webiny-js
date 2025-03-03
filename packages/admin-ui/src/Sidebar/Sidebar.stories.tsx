@@ -30,7 +30,7 @@ const meta: Meta<typeof Sidebar> = {
     render: args => (
         <>
             <SidebarProvider>
-                <Sidebar {...args} collapsible={"icon"} />
+                <Sidebar {...args} />
                 <main className={"wby-bg-white wby-p-8"}>Main content goes here.</main>
             </SidebarProvider>
         </>
@@ -44,7 +44,7 @@ type Story = StoryObj<typeof Sidebar>;
 export const Default: Story = {
     args: {
         title: "Webiny",
-        icon: <Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} label={"Webiny"} />,
+        icon: <Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} />,
         children: (
             <>
                 <Sidebar.Item

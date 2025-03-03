@@ -26,7 +26,6 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
 
             // Root props.
             side,
-            collapsible,
 
             // Content props.
             ...rest
@@ -39,7 +38,6 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
             },
             rootProps: {
                 side,
-                collapsible
             },
             contentProps: rest
         };
