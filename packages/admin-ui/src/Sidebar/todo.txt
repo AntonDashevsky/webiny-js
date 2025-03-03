@@ -10,6 +10,7 @@ SH
 - [K] confirm - footer item / should it have hover fx?
 - dbl check those namespace comps.. too much ?
 - auto opened items / cookies?
+- footer - focused state space/enter does not trigger dropdown
 
 CH
 - expanding / collapsing sidebar - can we do something with text breaking into multiple
