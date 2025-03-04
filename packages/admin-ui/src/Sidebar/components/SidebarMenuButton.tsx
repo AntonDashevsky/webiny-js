@@ -10,9 +10,9 @@ const variants = cva(
         "!wby-no-underline wby-text-neutral-primary wby-cursor-pointer wby-px-sm wby-py-xs-plus wby-text-left",
         "wby-text-md wby-outline-none wby-transition-[width,height,padding]",
         "wby-whitespace-nowrap wby-overflow-hidden",
-        "hover:wby-bg-neutral-dimmed",
-        "focus:wby-bg-neutral-dimmed focus:wby-ring-none focus:wby-ring-transparent",
-        "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
+        "hover:wby-bg-neutral-dark/5",
+        "focus:wby-bg-neutral-dark/5 focus:wby-ring-none focus:wby-ring-transparent",
+        "data-[active=true]:wby-bg-neutral-dark/5 data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
         "group-data-[state=open]/menu-item-collapsible:!wby-font-semibold",
     ],
     {

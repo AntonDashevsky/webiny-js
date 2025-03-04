@@ -7,9 +7,10 @@ MH
 - storybook: fix sb-related rendering issues 🤨
 
 SH
-- dbl check those namespace comps.. too much ?
+- dbl check those namespace comps... too much ?
 
 CH/NTH
+- improve collapsing of sidebar (clicking on header chevron briefly shows the expand icon that's shown on hover)
 - dropdown positioning (footer)
 - test more than 1 level of nesting
 - action on collapsibles (an additional action with the chevron)?

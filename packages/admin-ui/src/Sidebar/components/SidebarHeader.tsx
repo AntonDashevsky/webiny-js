@@ -29,7 +29,7 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
                         </span>
                         <IconButton
                             className={
-                                "wby-absolute wby-right-[-10px] wby-hidden group-hover:wby-flex group-data-[state=expanded]:wby-hidden group-[.transitioning]:!wby-hidden"
+                                "wby-absolute wby-right-[-10px] wby-hidden group-data-[state=collapsed]:group-[:not(.transitioning)]:group-hover:wby-flex"
                             }
                             icon={<AbsToggleSidebarIcon />}
                             data-sidebar="trigger"
