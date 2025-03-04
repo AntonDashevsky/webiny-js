@@ -13,6 +13,13 @@ interface SidebarHeaderProps extends Omit<React.ComponentProps<"div">, "title"> 
 const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
     const { toggleSidebar, open } = useSidebar();
 
+    // We needed this to ensure smooth transition when closing the sidebar. Basically, when clicking
+    // on the sidebar, for a super brief amount of time, users would still see the "expand" icon,
+    // which should not be the case. This state is used to prevent that.
+    // It's kind of a hack because I've tried multiple CSS classes-based approaches, and could not get
+    // it to work properly. To improve this and making look less hacky, I'd actually move this feature
+    // into the `useSidebar` hook and have it be centralized there. Wanted to do it but I've already
+    // spent a ton of time on this, so I decided to just leave it.
     const [closingInProgress, setClosingInProgress] = React.useState(false);
 
     return (
