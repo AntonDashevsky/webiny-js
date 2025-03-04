@@ -1,5 +1,5 @@
 import React from "react";
-import { cva } from "~/utils";
+import { cn, cva } from "~/utils";
 import { Link } from "@webiny/react-router";
 import type { SidebarMenuItemProps } from "~/Sidebar/components/SidebarMenuItem";
 import { DivButton } from "~/Sidebar/components/DivButton";
@@ -27,9 +27,10 @@ const variants = cva(
     }
 );
 
-type SidebarMenuButtonBaseProps = Omit<SidebarMenuItemProps, "className" | "children">;
+type SidebarMenuButtonBaseProps = Omit<SidebarMenuItemProps, "children">;
 
 const SidebarMenuButton = ({
+    className,
     onClick,
     variant,
     active,
@@ -66,7 +67,7 @@ const SidebarMenuButton = ({
     // We can't use the default button element here because the content of the button
     // can also contain a button, which is not allowed in HTML.
     return (
-        <div className={"wby-flex wby-items-center wby-w-full"}>
+        <div className={cn("wby-flex wby-items-center wby-w-full", className)}>
             {content}
             <div className={"wby-absolute wby-right-[10px]"}>{action}</div>
         </div>
