@@ -47,7 +47,7 @@ const SidebarComponent = () => {
         <SidebarProvider>
             <Sidebar
                 title={"Webiny"}
-                icon={<Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} />}
+                icon={<Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} label={"Webiny"}/>}
                 footer={
                     <Sidebar.Item
                         icon={<Sidebar.Item.Icon label="Settings" element={<InfoIcon />} />}
