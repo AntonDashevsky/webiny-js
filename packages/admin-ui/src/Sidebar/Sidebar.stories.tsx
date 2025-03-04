@@ -47,46 +47,41 @@ const SidebarComponent = () => {
         <SidebarProvider>
             <Sidebar
                 title={"Webiny"}
-                icon={<Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} label={"Webiny"}/>}
+                icon={
+                    <Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} label={"Webiny"} />
+                }
                 footer={
-                    <Sidebar.Item
-                        icon={<Sidebar.Item.Icon label="Settings" element={<InfoIcon />} />}
-                        text={"Support"}
-                        action={
-                            <Sidebar.Item.Action
-                                element={
-                                    <DropdownMenu
-                                        trigger={<MoreVertIcon />}
-                                        className={"wby-w-[225px]"}
-                                    >
-
-                                        <DropdownMenu.Item
-                                            content={"API Playground"}
-                                            icon={<ApiPlaygroundIcon />}
-                                        />
-                                        <DropdownMenu.Item
-                                            content={"Documentation"}
-                                            icon={<DocsIcon />}
-                                        />
-                                        <DropdownMenu.Item
-                                            content={"GitHub"}
-                                            icon={<GithubIcon />}
-                                        />
-                                        <DropdownMenu.Item content={"Slack"} icon={<ChatIcon />} />
-                                        <DropdownMenu.Separator />
-                                        <DropdownMenu.Item
-                                            content={
-                                                <div className={"flex wby-items-center"}>
-                                                    Webiny 5.43.0
-                                                    <Tag variant={"accent"} content={"WCP "} className={"wby-ml-sm-extra"}/>
-                                                </div>
-                                            }
-                                        />
-                                    </DropdownMenu>
-                                }
+                    <DropdownMenu
+                        trigger={
+                            <Sidebar.Item
+                                icon={<Sidebar.Item.Icon label="Settings" element={<InfoIcon />} />}
+                                text={"Support"}
+                                action={<Sidebar.Item.Action element={<MoreVertIcon />} />}
                             />
                         }
-                    />
+                        className={"wby-w-[225px]"}
+                    >
+                        <DropdownMenu.Item
+                            content={"API Playground"}
+                            icon={<ApiPlaygroundIcon />}
+                        />
+                        <DropdownMenu.Item content={"Documentation"} icon={<DocsIcon />} />
+                        <DropdownMenu.Item content={"GitHub"} icon={<GithubIcon />} />
+                        <DropdownMenu.Item content={"Slack"} icon={<ChatIcon />} />
+                        <DropdownMenu.Separator />
+                        <DropdownMenu.Item
+                            content={
+                                <div className={"flex wby-items-center"}>
+                                    Webiny 5.43.0
+                                    <Tag
+                                        variant={"accent"}
+                                        content={"WCP "}
+                                        className={"wby-ml-sm-extra"}
+                                    />
+                                </div>
+                            }
+                        />
+                    </DropdownMenu>
                 }
             >
                 <Sidebar.Link
