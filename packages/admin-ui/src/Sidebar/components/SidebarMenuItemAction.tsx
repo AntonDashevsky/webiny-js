@@ -6,7 +6,15 @@ interface SidebarMenuItemActionProps extends Omit<IconButtonProps, "icon"> {
 }
 
 const SidebarMenuItemAction = ({ element, ...props }: SidebarMenuItemActionProps) => {
-    return <IconButton icon={element} size={"xs"} variant={"ghost"} className={"wby-ml-auto"} {...props} />;
+    return (
+        <IconButton
+            icon={element}
+            size={"xs"}
+            variant={"ghost"}
+            className={"wby-ml-auto group-data-[state=collapsed]:wby-hidden"}
+            {...props}
+        />
+    );
 };
 
 export { SidebarMenuItemAction, type SidebarMenuItemActionProps };
