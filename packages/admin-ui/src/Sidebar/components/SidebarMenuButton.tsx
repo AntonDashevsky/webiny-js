@@ -13,7 +13,7 @@ const variants = cva(
         "hover:wby-bg-neutral-dark/5",
         "focus:wby-bg-neutral-dark/5 focus:wby-ring-none focus:wby-ring-transparent",
         "data-[active=true]:wby-bg-neutral-dark/5 data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
-        "group-data-[state=open]/menu-item-collapsible:!wby-font-semibold",
+        "group-data-[state=open]/menu-item-collapsible:!wby-font-semibold"
     ],
     {
         variants: {

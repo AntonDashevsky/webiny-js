@@ -14,7 +14,7 @@ const variants = cva(
         "focus:wby-bg-neutral-dark/5 focus:wby-ring-none focus:wby-ring-transparent",
         "data-[active=true]:wby-bg-neutral-dark/5 data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
         "group-data-[state=collapsed]:wby-hidden",
-        "group-data-[state=open]/menu-sub-item-collapsible:!wby-font-semibold",
+        "group-data-[state=open]/menu-sub-item-collapsible:!wby-font-semibold"
     ],
     {
         variants: {
@@ -50,7 +50,6 @@ const SidebarMenuSubButton = ({
         className: variants({ variant, disabled }),
         onClick
     };
-
 
     const content = to ? (
         <Link {...sharedProps} to={to} {...linkProps}>

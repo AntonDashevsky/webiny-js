@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon, type IconProps } from "~/Icon";
-import {makeDecoratable} from "@webiny/react-composition";
+import { makeDecoratable } from "@webiny/react-composition";
 
 interface SidebarMenuItemIconProps extends Omit<IconProps, "icon"> {
     element?: React.ReactNode;
