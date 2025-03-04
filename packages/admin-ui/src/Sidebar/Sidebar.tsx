@@ -18,7 +18,7 @@ interface SidebarProps
     footer?: React.ReactNode;
 }
 
-const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, SidebarProps>((props, ref) => {
+const SidebarBase = (props: SidebarProps) => {
     const { headerProps, rootProps, contentProps } = React.useMemo(() => {
         const {
             // Header props.
@@ -38,14 +38,14 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
                 icon
             },
             rootProps: {
-                side,
+                side
             },
             contentProps: rest
         };
     }, [props]);
 
     return (
-        <SidebarRoot {...rootProps} ref={ref}>
+        <SidebarRoot {...rootProps}>
             <SidebarHeader {...headerProps} />
             <SidebarContent {...contentProps}>
                 <SidebarMenu>{props.children}</SidebarMenu>
@@ -55,9 +55,7 @@ const SidebarBase = React.forwardRef<React.ElementRef<typeof SidebarRoot>, Sideb
             </SidebarFooter>
         </SidebarRoot>
     );
-});
-
-SidebarBase.displayName = "Sidebar";
+};
 
 const DecoratableSidebar = makeDecoratable("Sidebar", SidebarBase);
 

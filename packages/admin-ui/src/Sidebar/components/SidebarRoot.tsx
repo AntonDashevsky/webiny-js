@@ -1,18 +1,39 @@
-import * as React from "react";
+import React, { useEffect, useRef } from "react";
 import { cn } from "~/utils";
 import { useSidebar } from "./SidebarProvider";
 
-const SidebarRoot = React.forwardRef<
-    HTMLDivElement,
-    React.ComponentProps<"div"> & {
-        side?: "left" | "right";
-    }
->(({ side = "left", className, children, ...props }, ref) => {
+interface SidebarRootProps extends React.ComponentProps<"div"> {
+    side?: "left" | "right";
+}
+
+const SidebarRoot = ({ side = "left", className, children, ...props }: SidebarRootProps) => {
     const { state } = useSidebar();
+
+    const elementRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const element = elementRef.current!;
+
+        const handleTransitionStart = () => {
+            element.classList.add("transitioning");
+        };
+
+        const handleTransitionEnd = () => {
+            element.classList.remove("transitioning");
+        };
+
+        element.addEventListener("transitionstart", handleTransitionStart);
+        element.addEventListener("transitionend", handleTransitionEnd);
+
+        return () => {
+            element.removeEventListener("transitionstart", handleTransitionStart);
+            element.removeEventListener("transitionend", handleTransitionEnd);
+        };
+    }, [elementRef.current]);
 
     return (
         <div
-            ref={ref}
+            ref={elementRef}
             className="wby-group wby-peer wby-hidden md:wby-block wby-border-r-sm wby-border-neutral-dimmed"
             data-state={state}
             data-side={side}
@@ -40,10 +61,14 @@ const SidebarRoot = React.forwardRef<
                     {children}
                 </div>
             </div>
+            <div
+                data-sidebar={"extra-hover-area"}
+                className={
+                    "wby-absolute wby-top-0 wby-left-[--sidebar-width-icon] wby-h-full wby-w-xl wby-hidden group-data-[state=collapsed]:wby-block"
+                }
+            />
         </div>
     );
-});
+};
 
-SidebarRoot.displayName = "SidebarRoot";
-
-export { SidebarRoot };
+export { SidebarRoot, type SidebarRootProps };

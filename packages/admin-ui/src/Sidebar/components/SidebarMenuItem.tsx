@@ -49,7 +49,7 @@ const SidebarMenuItemBase = ({ children, className, ...buttonProps }: SidebarMen
         );
 
         return (
-            <Collapsible defaultOpen className="wby-w-full wby-group/menu-item-collapsible">
+            <Collapsible className="wby-w-full wby-group/menu-item-collapsible">
                 <SidebarMenuButton {...buttonProps} action={chevron} />
                 <CollapsibleContent>
                     <SidebarMenuSub>

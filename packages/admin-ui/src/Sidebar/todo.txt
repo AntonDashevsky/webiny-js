@@ -3,21 +3,19 @@ MH
     - dbl check styles
 - coll state - links to useful pages
 - publishing workflows is highlighted but when I click on Workflows, it's no longer active, but Workflows is highlighted
-- remove defaultOpen
 - dbl check indentation markers
-- expander
 - storybook: fix sb-related rendering issues 🤨
 
 SH
-- dropdown positioning (footer)
-- [K] confirm - footer item / should it have hover fx?
 - dbl check those namespace comps.. too much ?
-- auto opened items / cookies?
-- footer - focused state space/enter does not trigger dropdown
+
+CH/NTH
+- dropdown positioning (footer)
 - test more than 1 level of nesting
 - action on collapsibles (an additional action with the chevron)?
-
-CH
+- footer - focused state space/enter does not trigger dropdown
+- auto opened items / cookies?
+- defaultOpen
 - expanding / collapsing sidebar - can we do something with text breaking into multiple
     lines and making the animation weird? Right now we have "wby-h-xl wby-whitespace-nowrap" in place.
 

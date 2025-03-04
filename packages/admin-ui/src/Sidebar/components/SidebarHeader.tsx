@@ -3,6 +3,7 @@ import { Separator } from "~/Separator";
 import { IconButton } from "~/Button";
 import { useSidebar } from "./SidebarProvider";
 import { ReactComponent as ToggleSidebarIcon } from "@material-design-icons/svg/outlined/chrome_reader_mode.svg";
+import { ReactComponent as AbsToggleSidebarIcon } from "@material-design-icons/svg/outlined/keyboard_double_arrow_right.svg";
 
 interface SidebarHeaderProps extends Omit<React.ComponentProps<"div">, "title"> {
     icon?: React.ReactNode;
@@ -14,7 +15,7 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
 
     return (
         <>
-            <div className={"wby-px-xs-plus wby-transition-[width,height,padding]"}>
+            <div className={"wby-px-xs-plus"}>
                 <div
                     data-sidebar="header"
                     className={
@@ -26,6 +27,16 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
                         <span className={"wby-text-md wby-font-semibold wby-truncate"}>
                             {title}
                         </span>
+                        <IconButton
+                            className={
+                                "wby-absolute wby-right-[-10px] wby-hidden group-hover:wby-flex group-data-[state=expanded]:wby-hidden group-[.transitioning]:!wby-hidden"
+                            }
+                            icon={<AbsToggleSidebarIcon />}
+                            data-sidebar="trigger"
+                            size="xs"
+                            variant={"secondary"}
+                            onClick={toggleSidebar}
+                        />
                     </div>
 
                     {open && (

@@ -52,7 +52,7 @@ const SidebarMenuSubItem = ({
         );
 
         return (
-            <Collapsible defaultOpen className="wby-w-full wby-group/menu-sub-item-collapsible">
+            <Collapsible className="wby-w-full wby-group/menu-sub-item-collapsible">
                 <div className={"wby-flex wby-items-center"}>
                     <SidebarMenuSubItemIndentation lvl={lvl} />
                     <SidebarMenuSubButton {...buttonProps} action={chevron} />
