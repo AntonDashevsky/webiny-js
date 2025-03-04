@@ -1,10 +1,8 @@
 MH
 - coll state - icons should be active if something in the section is clicked (even nested link)
-    - dbl check styles
-- coll state - links to useful pages
-- publishing workflows is highlighted but when I click on Workflows, it's no longer active, but Workflows is highlighted
 - dbl check indentation markers
 - storybook: fix sb-related rendering issues 🤨
+- footer - dropdown shown when collapsing
 
 SH
 - dbl check those namespace comps... too much ?
