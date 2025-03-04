@@ -11,6 +11,7 @@ SH
 
 CH/NTH
 - improve collapsing of sidebar (clicking on header chevron briefly shows the expand icon that's shown on hover)
+  - actually, the issue has been addressed, but there's still a refactor we could do
 - dropdown positioning (footer)
 - test more than 1 level of nesting
 - action on collapsibles (an additional action with the chevron)?
