@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { cn } from "~/utils";
 import { useSidebar } from "./SidebarProvider";
 
@@ -10,32 +10,6 @@ const SidebarRoot = ({ side = "left", className, children, ...props }: SidebarRo
     const { state } = useSidebar();
 
     const elementRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const element = elementRef.current!;
-
-        const handleTransitionStart = (e: TransitionEvent) => {
-            if (e.propertyName !== "width") {
-                return;
-            }
-            element.classList.add("transitioning");
-        };
-
-        const handleTransitionEnd = (e: TransitionEvent) => {
-            if (e.propertyName !== "width") {
-                return;
-            }
-            element.classList.remove("transitioning");
-        };
-
-        element.addEventListener("transitionstart", handleTransitionStart);
-        element.addEventListener("transitionend", handleTransitionEnd);
-
-        return () => {
-            element.removeEventListener("transitionstart", handleTransitionStart);
-            element.removeEventListener("transitionend", handleTransitionEnd);
-        };
-    }, [elementRef.current]);
 
     return (
         <div
