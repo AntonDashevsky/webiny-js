@@ -4,7 +4,7 @@ import { makeDecoratable } from "@webiny/react-composition";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "~/utils";
 
-const iconVariants = cva("", {
+const iconVariants = cva("wby-shrink-0", {
     variants: {
         size: {
             xs: "wby-size-sm-extra",
