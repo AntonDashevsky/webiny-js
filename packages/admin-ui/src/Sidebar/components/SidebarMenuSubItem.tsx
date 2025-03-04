@@ -4,7 +4,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/r
 import { SidebarMenuSubButton } from "./SidebarMenuSubButton";
 import { SidebarMenuSubItemIndentation } from "./SidebarMenuSubItemIndentation";
 import { SidebarMenuSub } from "./SidebarMenuSub";
-import { Icon } from "~/Icon";
+import { IconButton } from "~/Button";
 import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
 import { LinkProps, To } from "@webiny/react-router";
 import { type SidebarMenuItemBaseProps } from "~/Sidebar/components/SidebarMenuItem";
@@ -31,30 +31,31 @@ const SidebarMenuSubItem = ({
             return (
                 <>
                     <SidebarMenuSubItemIndentation lvl={lvl} variant={buttonProps.variant} />
-                    <SidebarMenuSubButton {...buttonProps}>{buttonProps.text}</SidebarMenuSubButton>
+                    <SidebarMenuSubButton {...buttonProps} />
                 </>
             );
         }
+
+        const chevron = (
+            <CollapsibleTrigger asChild>
+                <IconButton
+                    variant={"ghost"}
+                    size={"xs"}
+                    className={
+                        "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/menu-sub-item-collapsible:wby-rotate-180"
+                    }
+                    color={"neutral-strong"}
+                    data-sidebar={"menu-item-expanded-indicator"}
+                    icon={<KeyboardArrowRightIcon />}
+                />
+            </CollapsibleTrigger>
+        );
 
         return (
             <Collapsible defaultOpen className="wby-w-full wby-group/menu-sub-item-collapsible">
                 <div className={"wby-flex wby-items-center"}>
                     <SidebarMenuSubItemIndentation lvl={lvl} />
-                    <CollapsibleTrigger asChild>
-                        <SidebarMenuSubButton {...buttonProps}>
-                            {buttonProps.text}
-                            <Icon
-                                size={"sm"}
-                                className={
-                                    "wby-ml-auto wby-transition-transform wby-duration-200 group-data-[state=open]/menu-sub-item-collapsible:wby-rotate-180"
-                                }
-                                color={"neutral-strong"}
-                                data-sidebar={"menu-sub-item-expanded-indicator"}
-                                label={"Open/close"}
-                                icon={<KeyboardArrowRightIcon />}
-                            />
-                        </SidebarMenuSubButton>
-                    </CollapsibleTrigger>
+                    <SidebarMenuSubButton {...buttonProps} action={chevron} />
                 </div>
                 <CollapsibleContent>
                     <SidebarMenuSub>

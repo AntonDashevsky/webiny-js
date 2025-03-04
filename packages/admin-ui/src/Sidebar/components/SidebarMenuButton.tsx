@@ -6,14 +6,14 @@ import { DivButton } from "~/Sidebar/components/DivButton";
 
 const variants = cva(
     [
-        "wby-peer/menu-button wby-flex wby-w-full wby-items-center wby-gap-sm wby-rounded-md",
+        "wby-flex wby-w-full wby-items-center wby-gap-sm wby-rounded-md",
         "!wby-no-underline wby-text-neutral-primary wby-cursor-pointer wby-px-sm wby-py-xs-plus wby-text-left",
         "wby-text-md wby-outline-none wby-transition-[width,height,padding]",
         "wby-whitespace-nowrap wby-overflow-hidden",
         "hover:wby-bg-neutral-dimmed",
         "focus:wby-bg-neutral-dimmed focus:wby-ring-none focus:wby-ring-transparent",
         "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
-        "[&>span:last-child]:wby-truncate [&>svg]:wby-shrink-0"
+        "group-data-[state=open]/menu-item-collapsible:!wby-font-semibold",
     ],
     {
         variants: {
@@ -27,7 +27,7 @@ const variants = cva(
     }
 );
 
-type SidebarMenuButtonBaseProps = Omit<SidebarMenuItemProps, "className">;
+type SidebarMenuButtonBaseProps = Omit<SidebarMenuItemProps, "className" | "children">;
 
 const SidebarMenuButton = ({
     onClick,
@@ -36,9 +36,9 @@ const SidebarMenuButton = ({
     disabled,
     icon,
     action,
-    children,
+    text,
     to,
-    ...maybeLinkProps
+    ...linkProps
 }: SidebarMenuButtonBaseProps) => {
     const sharedProps = {
         "data-sidebar": "menu-button",
@@ -47,21 +47,29 @@ const SidebarMenuButton = ({
         onClick
     };
 
-    if (to) {
-        return (
-            <Link {...sharedProps} {...maybeLinkProps} to={to}>
-                {icon} {children} {action}
-            </Link>
-        );
-    }
+    const content = to ? (
+        <Link {...sharedProps} to={to} {...linkProps}>
+            {icon}
+            {text}
+        </Link>
+    ) : (
+        <DivButton
+            {...sharedProps}
+            disabled={disabled}
+            tabIndex={variant === "group-label" ? -1 : undefined}
+        >
+            {icon}
+            {text}
+        </DivButton>
+    );
 
     // We can't use the default button element here because the content of the button
     // can also contain a button, which is not allowed in HTML.
-    const tabIndex = variant === "group-label" ? -1 : undefined;
     return (
-        <DivButton {...sharedProps} disabled={disabled} tabIndex={tabIndex}>
-            {icon} {children} {action}
-        </DivButton>
+        <div className={"wby-flex wby-items-center wby-w-full"}>
+            {content}
+            <div className={"wby-absolute wby-right-[10px]"}>{action}</div>
+        </div>
     );
 };
 

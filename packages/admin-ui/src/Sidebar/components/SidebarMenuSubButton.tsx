@@ -13,7 +13,8 @@ const variants = cva(
         "hover:wby-bg-neutral-dimmed",
         "focus:wby-bg-neutral-dimmed focus:wby-ring-none focus:wby-ring-transparent",
         "data-[active=true]:wby-bg-neutral-dimmed data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
-        "group-data-[state=collapsed]:wby-hidden"
+        "group-data-[state=collapsed]:wby-hidden",
+        "group-data-[state=open]/menu-sub-item-collapsible:!wby-font-semibold",
     ],
     {
         variants: {
@@ -30,7 +31,7 @@ const variants = cva(
     }
 );
 
-type SidebarMenuSubButtonProps = Omit<SidebarMenuItemProps, "className">;
+type SidebarMenuSubButtonProps = Omit<SidebarMenuItemProps, "className" | "children">;
 
 const SidebarMenuSubButton = ({
     onClick,
@@ -39,9 +40,9 @@ const SidebarMenuSubButton = ({
     disabled,
     icon,
     action,
-    children,
+    text,
     to,
-    ...maybeLinkProps
+    ...linkProps
 }: SidebarMenuSubButtonProps) => {
     const sharedProps = {
         "data-sidebar": "menu-button",
@@ -50,21 +51,30 @@ const SidebarMenuSubButton = ({
         onClick
     };
 
-    if (to) {
-        return (
-            <Link {...sharedProps} {...maybeLinkProps} to={to}>
-                {icon} {children} {action}
-            </Link>
-        );
-    }
+
+    const content = to ? (
+        <Link {...sharedProps} to={to} {...linkProps}>
+            {icon}
+            {text}
+        </Link>
+    ) : (
+        <DivButton
+            {...sharedProps}
+            disabled={disabled}
+            tabIndex={variant === "group-label" ? -1 : undefined}
+        >
+            {icon}
+            {text}
+        </DivButton>
+    );
 
     // We can't use the default button element here because the content of the button
     // can also contain a button, which is not allowed in HTML.
-    const tabIndex = variant === "group-label" ? -1 : undefined;
     return (
-        <DivButton {...sharedProps} disabled={disabled} tabIndex={tabIndex}>
-            {icon} {children} {action}
-        </DivButton>
+        <div className={"wby-flex wby-items-center wby-w-full"}>
+            {content}
+            <div className={"wby-absolute wby-right-[10px]"}>{action}</div>
+        </div>
     );
 };
 
