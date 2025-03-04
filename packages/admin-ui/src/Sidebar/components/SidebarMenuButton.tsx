@@ -21,7 +21,7 @@ const variants = cva(
                 "group-label": "!wby-text-neutral-muted wby-uppercase"
             },
             disabled: {
-                true: "wby-pointer-events-none wby-text-neutral-disabled"
+                true: "wby-pointer-events-none !wby-text-neutral-disabled"
             }
         }
     }

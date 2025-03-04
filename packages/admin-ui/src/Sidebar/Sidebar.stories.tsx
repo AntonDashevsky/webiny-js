@@ -143,6 +143,34 @@ const SidebarComponent = () => {
                         to={"#pb-blocks-categories"}
                         active={hash === "#pb-blocks-categories"}
                     />
+
+                    <Sidebar.Link
+                        to={"#pb-pages"}
+                        text={"Pages"}
+                        variant={"group-label"}
+                        active={hash === `#pb-pages`}
+                    />
+                    <Sidebar.Link
+                        to={"#pb-pages-categories"}
+                        text={"Categories"}
+                        active={hash === `#pb-pages-categories`}
+                    />
+                    <Sidebar.Link
+                        to={"#pb-pages-menus"}
+                        text={"Menus"}
+                        active={hash === `#pb-pages-menus`}
+                    />
+                    <Sidebar.Link
+                        to={"#pb-pages-pages"}
+                        text={"Pages"}
+                        active={hash === `#pb-pages-pages`}
+                    />
+                    <Sidebar.Link
+                        to={"#pb-pages-templates"}
+                        text={"Templates"}
+                        disabled={true}
+                        active={hash === `#pb-pages-templates`}
+                    />
                 </Sidebar.Link>
             </Sidebar>
         </SidebarProvider>

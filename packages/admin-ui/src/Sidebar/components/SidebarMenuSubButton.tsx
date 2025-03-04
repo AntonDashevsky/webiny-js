@@ -25,7 +25,7 @@ const variants = cva(
                 ]
             },
             disabled: {
-                true: "wby-pointer-events-none wby-text-neutral-disabled"
+                true: "wby-pointer-events-none !wby-text-neutral-disabled"
             }
         }
     }
