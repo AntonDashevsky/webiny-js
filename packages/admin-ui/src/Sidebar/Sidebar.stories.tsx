@@ -22,7 +22,12 @@ import { Tag } from "~/Tag";
 const meta: Meta<typeof Sidebar> = {
     title: "Components/Sidebar",
     component: Sidebar,
-    tags: ["autodocs"],
+
+    // We removed this because in the "all stories" view, the menu gets visually
+    // broken because of the fixed positioning of the sidebar. This is not a problem
+    // when the story is viewed in isolation.
+    // tags: ["autodocs"],
+
     argTypes: {}
 };
 
@@ -30,7 +35,7 @@ export default meta;
 
 type Story = StoryObj<typeof Sidebar>;
 
-export const Default: Story = {
+export const MainMenu: Story = {
     render: () => (
         <BrowserRouter>
             <Routes>

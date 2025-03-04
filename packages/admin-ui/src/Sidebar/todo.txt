@@ -1,7 +1,6 @@
 MH
 - coll state - icons should be active if something in the section is clicked (even nested link)
 - dbl check indentation markers
-- storybook: fix sb-related rendering issues 🤨
 
 CH/NTH
 - dbl check those namespace comps... too much ?
