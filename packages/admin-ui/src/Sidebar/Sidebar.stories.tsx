@@ -43,7 +43,6 @@ export const Default: Story = {
 const SidebarComponent = () => {
     const { hash } = useLocation();
 
-    console.log('heš', hash);
     return (
         <SidebarProvider>
             <Sidebar
@@ -60,28 +59,29 @@ const SidebarComponent = () => {
                                         trigger={<MoreVertIcon />}
                                         className={"wby-w-[225px]"}
                                     >
+
                                         <DropdownMenu.Item
-                                            disabled={true}
+                                            content={"API Playground"}
+                                            icon={<ApiPlaygroundIcon />}
+                                        />
+                                        <DropdownMenu.Item
+                                            content={"Documentation"}
+                                            icon={<DocsIcon />}
+                                        />
+                                        <DropdownMenu.Item
+                                            content={"GitHub"}
+                                            icon={<GithubIcon />}
+                                        />
+                                        <DropdownMenu.Item content={"Slack"} icon={<ChatIcon />} />
+                                        <DropdownMenu.Separator />
+                                        <DropdownMenu.Item
                                             content={
-                                                <>
-                                                    Webiny 5.43.0{" "}
-                                                    <Tag variant={"neutral-light"} content={"WCP"} />
-                                                </>
+                                                <div className={"flex wby-items-center"}>
+                                                    Webiny 5.43.0
+                                                    <Tag variant={"accent"} content={"WCP "} className={"wby-ml-sm-extra"}/>
+                                                </div>
                                             }
                                         />
-                                        <DropdownMenu.Separator />
-                                        <DropdownMenu.Item icon={<ApiPlaygroundIcon />}>
-                                            API Playground
-                                        </DropdownMenu.Item>
-                                        <DropdownMenu.Item icon={<DocsIcon />}>
-                                            Documentation
-                                        </DropdownMenu.Item>
-                                        <DropdownMenu.Item icon={<GithubIcon />}>
-                                            GitHub
-                                        </DropdownMenu.Item>
-                                        <DropdownMenu.Item icon={<ChatIcon />}>
-                                            Slack
-                                        </DropdownMenu.Item>
                                     </DropdownMenu>
                                 }
                             />
@@ -89,7 +89,7 @@ const SidebarComponent = () => {
                     />
                 }
             >
-                <Sidebar.Item
+                <Sidebar.Link
                     text={"Audit Logs"}
                     to={"#audit-logs"}
                     active={hash === "#audit-logs"}
@@ -108,42 +108,42 @@ const SidebarComponent = () => {
                     }}
                     icon={<Sidebar.Item.Icon label="File Manager" element={<FileManagerIcon />} />}
                 />
-                <Sidebar.Item
+                <Sidebar.Link
                     text={"Headless CMS"}
                     to={"#cms"}
                     active={hash === "#cms"}
                     icon={<Sidebar.Item.Icon label="Headless CMS" element={<CmsIcon />} />}
                 >
                     <Sidebar.Item text={"Content Models"} variant={"group-label"} />
-                    <Sidebar.Item
+                    <Sidebar.Link
                         text={"Groups"}
                         to={"#cms-groups"}
                         active={hash === "#cms-groups"}
                     />
-                    <Sidebar.Item
+                    <Sidebar.Link
                         text={"Models"}
                         to={"#cms-models"}
                         active={hash === "#cms-models"}
                     />
-                </Sidebar.Item>
-                <Sidebar.Item
+                </Sidebar.Link>
+                <Sidebar.Link
                     text={"Page Builder"}
                     to={"#page-builder"}
                     active={hash === "#page-builder"}
                     icon={<Sidebar.Item.Icon label="Page Builder" element={<PageBuilderIcon />} />}
                 >
                     <Sidebar.Item text={"Blocks"} variant={"group-label"} />
-                    <Sidebar.Item
+                    <Sidebar.Link
                         text={"Blocks"}
                         to={"#pb-blocks"}
                         active={hash === "#pb-blocks"}
                     />
-                    <Sidebar.Item
+                    <Sidebar.Link
                         text={"Categories"}
                         to={"#pb-blocks-categories"}
                         active={hash === "#pb-blocks-categories"}
                     />
-                </Sidebar.Item>
+                </Sidebar.Link>
             </Sidebar>
         </SidebarProvider>
     );

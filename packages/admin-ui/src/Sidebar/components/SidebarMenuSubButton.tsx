@@ -1,7 +1,8 @@
-import React, { useMemo } from "react";
-import { cva } from "~/utils";
-import type { SidebarMenuItemProps } from "~/Sidebar/components/SidebarMenuItem";
+import React from "react";
 import { Link } from "@webiny/react-router";
+import { cva } from "~/utils";
+import type { SidebarMenuItemProps } from "./SidebarMenuItem";
+import { DivButton } from "./DivButton";
 
 const variants = cva(
     [
@@ -49,31 +50,6 @@ const SidebarMenuSubButton = ({
         onClick
     };
 
-    // The following three attributes are required for the trigger to act as a button.
-    // We can't use the default button element here because the content of the button
-    // can also contain a button, which is not allowed in HTML.
-    const divAsButtonProps = useMemo<React.HTMLAttributes<HTMLDivElement>>(() => {
-        if (!to) {
-            return {};
-        }
-
-        let tabIndex = 0;
-        if (variant === "group-label" || disabled) {
-            tabIndex = -1;
-        }
-
-        return {
-            role: "button",
-            tabIndex,
-            onKeyDown: e => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    e.currentTarget.click();
-                }
-            }
-        };
-    }, [to, variant, disabled]);
-
     if (to) {
         return (
             <Link {...sharedProps} {...maybeLinkProps} to={to}>
@@ -82,10 +58,13 @@ const SidebarMenuSubButton = ({
         );
     }
 
+    // We can't use the default button element here because the content of the button
+    // can also contain a button, which is not allowed in HTML.
+    const tabIndex = variant === "group-label" ? -1 : undefined;
     return (
-        <div {...sharedProps} {...divAsButtonProps}>
+        <DivButton {...sharedProps} disabled={disabled} tabIndex={tabIndex}>
             {icon} {children} {action}
-        </div>
+        </DivButton>
     );
 };
 
