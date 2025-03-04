@@ -19,7 +19,7 @@ const variants = cva(
         variants: {
             variant: {
                 "group-label": [
-                    "wby-uppercase wby-font-semibold wby-text-neutral-muted wby-text-sm ",
+                    "wby-uppercase wby-font-semibold !wby-text-neutral-muted wby-text-sm",
                     "wby-pt-md wby-pb-xs-plus wby-pointer-events-none"
                 ]
             },

@@ -6,8 +6,8 @@ MH
 - [K] root items expanders/collapsers - can they also be a link to dashboard
 - remove defaultOpen
 - refactor <span>{content}... ???
-- refactor a styles?
 - chevron icon btn
+- dbl check indentation markers
 - expander
 
 SH

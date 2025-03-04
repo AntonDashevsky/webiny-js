@@ -18,7 +18,7 @@ const variants = cva(
     {
         variants: {
             variant: {
-                "group-label": "wby-text-neutral-muted wby-uppercase"
+                "group-label": "!wby-text-neutral-muted wby-uppercase"
             },
             disabled: {
                 true: "wby-pointer-events-none wby-text-neutral-disabled"
