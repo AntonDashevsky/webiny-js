@@ -19,7 +19,7 @@ interface SidebarProps
 }
 
 const SidebarBase = (props: SidebarProps) => {
-    const { headerProps, rootProps, contentProps } = React.useMemo(() => {
+    const { headerProps, rootProps, footerProps, contentProps } = React.useMemo(() => {
         const {
             // Header props.
             title,
@@ -27,6 +27,9 @@ const SidebarBase = (props: SidebarProps) => {
 
             // Root props.
             side,
+
+            // Footer props.
+            footer,
 
             // Content props.
             ...rest
@@ -40,6 +43,9 @@ const SidebarBase = (props: SidebarProps) => {
             rootProps: {
                 side
             },
+            footerProps: {
+                footer
+            },
             contentProps: rest
         };
     }, [props]);
@@ -51,7 +57,7 @@ const SidebarBase = (props: SidebarProps) => {
                 <SidebarMenu>{props.children}</SidebarMenu>
             </SidebarContent>
             <SidebarFooter>
-                <SidebarMenu>{props.footer}</SidebarMenu>
+                <SidebarMenu>{footerProps.footer}</SidebarMenu>
             </SidebarFooter>
         </SidebarRoot>
     );
