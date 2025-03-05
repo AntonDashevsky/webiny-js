@@ -1,5 +1,5 @@
 /* storybook-overrides.css */
-.sb-show-main.sb-main-centered #storybook-root {
+.sb-show-main.sb-main-centered #storybook-root.component-sidebar {
     margin: 0;
     padding: 0;
 }

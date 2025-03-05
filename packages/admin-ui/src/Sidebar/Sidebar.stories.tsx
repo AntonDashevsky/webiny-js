@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { BrowserRouter, Route, Routes, useLocation } from "@webiny/react-router";
 import { ReactComponent as AuditLogsIcon } from "@material-design-icons/svg/outlined/assignment.svg";
@@ -47,6 +47,21 @@ export const MainMenu: Story = {
 
 const SidebarComponent = () => {
     const { hash } = useLocation();
+
+    // Sidebar is fixed-positioned, so we had to apply these in order
+    // for it to look good in a Storybook environment.
+    useEffect(() => {
+        const sbRoot = document.getElementById("storybook-root");
+        if (sbRoot) {
+            sbRoot.classList.add("component-sidebar");
+        }
+
+        return () => {
+            if (sbRoot) {
+                sbRoot.classList.remove("component-sidebar");
+            }
+        };
+    }, []);
 
     return (
         <SidebarProvider>
