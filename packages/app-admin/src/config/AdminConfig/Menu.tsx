@@ -15,7 +15,7 @@ export interface MenuProps {
 export const MenuItem = makeDecoratable(
     "MenuItem",
     ({ label }: { label: string; path?: string }) => {
-        return <Sidebar.Item content={label} />;
+        return <Sidebar.Item text={label} />;
     }
 );
 

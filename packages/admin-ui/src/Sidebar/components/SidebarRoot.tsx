@@ -14,7 +14,7 @@ const SidebarRoot = ({ side = "left", className, children, ...props }: SidebarRo
     return (
         <div
             ref={elementRef}
-            className="wby-group wby-peer wby-block wby-border-r-sm wby-border-neutral-dimmed"
+            className="wby-group wby-peer wby-block wby-border-r-sm wby-border-neutral-dimmed wby-bg-neutral-dimmed"
             data-state={state}
             data-sidebar={"root"}
             data-side={side}

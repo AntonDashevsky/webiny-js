@@ -69,7 +69,7 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
                 </div>
             </div>
             <div className={"wby-px-sm wby-py-xs"}>
-                <Separator variant={"subtle"} margin={"xs"} />
+                <Separator variant={"subtle"} margin={"none"} className={"wby-mb-px"} />
             </div>
         </>
     );

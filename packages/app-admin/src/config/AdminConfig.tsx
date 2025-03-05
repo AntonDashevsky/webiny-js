@@ -3,6 +3,7 @@ import { createConfigurableComponent } from "@webiny/react-properties";
 import { Menu } from "./AdminConfig/Menu";
 import { Theme } from "./AdminConfig/Theme";
 import { createProvider } from "@webiny/app";
+import { withStaticProps } from "@webiny/admin-ui";
 
 const base = createConfigurableComponent<AdminConfig>("AdminConfig");
 
@@ -29,7 +30,7 @@ export const AdminConfigProvider = createProvider(Original => {
     };
 });
 
-export const AdminConfig = Object.assign(base.Config, {
+export const AdminConfig = withStaticProps(base.Config, {
     Theme,
     Menu,
     use: useAdminConfig

@@ -113,11 +113,12 @@ const SidebarProvider = ({
                         ...style
                     } as React.CSSProperties
                 }
+                {...props}
                 className={cn(
                     "wby-group/sidebar-wrapper wby-flex wby-min-h-svh wby-w-full wby-bg-neutral-light",
                     className
                 )}
-                {...props}
+
             >
                 {children}
             </div>

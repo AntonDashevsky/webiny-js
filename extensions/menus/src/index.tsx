@@ -17,8 +17,6 @@ export const Extension = () => {
                     element={<Menu.Item label={"Forms"} path={"/form-builder/forms"} />}
                 />
 
-
-
                 {/* 💡 Page Builder */}
                 <Menu name={"pb"} element={<Menu.Item label={"Page Builder"} />} />
 
