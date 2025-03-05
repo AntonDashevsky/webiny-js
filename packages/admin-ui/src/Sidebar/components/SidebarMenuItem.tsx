@@ -49,9 +49,12 @@ const SidebarMenuItemBase = ({ children, className, ...buttonProps }: SidebarMen
         );
 
         return (
-            <Collapsible className="wby-w-full wby-group/menu-item-collapsible [&:has([data-active=true])>:first-child_svg]:!wby-fill-neutral-xstrong">
+            <Collapsible className={cn("wby-w-full wby-group/menu-item-collapsible")}>
                 <SidebarMenuButton {...buttonProps} action={chevron} />
-                <CollapsibleContent forceMount className={"wby-hidden data-[state=open]:!wby-block"}>
+                <CollapsibleContent
+                    forceMount
+                    className={"wby-hidden data-[state=open]:!wby-block"}
+                >
                     <SidebarMenuSub>
                         {React.Children.map(children, child => {
                             if (React.isValidElement(child)) {
@@ -68,7 +71,15 @@ const SidebarMenuItemBase = ({ children, className, ...buttonProps }: SidebarMen
     return (
         <li
             data-sidebar="menu-item"
-            className={cn("wby-group/menu-item wby-relative wby-px-xs-plus", className)}
+            className={cn(
+                "wby-group/menu-item wby-relative wby-px-xs-plus",
+
+                // When the sidebar is collapsed, this ensures that the sidebar menu item is highlighted
+                // if it contains an active child (no matter how deep in the hierarchy).
+                "group-data-[state=collapsed]:[&:has([data-active=true])_[data-sidebar=menu-button]_svg]:!wby-fill-neutral-xstrong",
+                "group-data-[state=collapsed]:[&:has([data-active=true])_[data-sidebar=menu-button]]:!wby-bg-neutral-dark/5",
+                className
+            )}
         >
             {sidebarMenuButton}
         </li>
