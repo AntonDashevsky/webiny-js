@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "~/utils";
 const separatorVariants = cva(["wby-h-xl wby-ml-px"], {
     variants: {
         variant: {
-            "group-label": "wby-h-[38px]"
+            "group-label": "!wby-h-[38px]"
         }
     }
 });
