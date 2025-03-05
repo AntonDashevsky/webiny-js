@@ -1,112 +1,193 @@
+import React, { useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Sidebar } from "./Sidebar";
-import React from "react";
-import { ReactComponent as CreditCard } from "@material-design-icons/svg/outlined/credit_score.svg";
-import { ReactComponent as Settings } from "@material-design-icons/svg/outlined/settings.svg";
+import { BrowserRouter, Route, Routes, useLocation } from "@webiny/react-router";
 import { ReactComponent as AuditLogsIcon } from "@material-design-icons/svg/outlined/assignment.svg";
 import { ReactComponent as FormBuilderIcon } from "@material-design-icons/svg/outlined/check_box.svg";
 import { ReactComponent as CmsIcon } from "@material-design-icons/svg/outlined/web.svg";
 import { ReactComponent as PageBuilderIcon } from "@material-design-icons/svg/outlined/table_chart.svg";
-import { ReactComponent as ApwIcon } from "@material-design-icons/svg/outlined/account_tree.svg";
-import { ReactComponent as TenantManagerIcon } from "@material-design-icons/svg/outlined/domain.svg";
-import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outlined/settings.svg";
-import { ReactComponent as ArticleIcon } from "@material-design-icons/svg/outlined/article.svg";
+import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";
+import { ReactComponent as ChatIcon } from "@material-design-icons/svg/outlined/chat.svg";
+import { ReactComponent as GithubIcon } from "@material-design-icons/svg/outlined/gite.svg";
+import { ReactComponent as DocsIcon } from "@material-design-icons/svg/outlined/summarize.svg";
+import { ReactComponent as ApiPlaygroundIcon } from "@material-design-icons/svg/outlined/swap_horiz.svg";
+import { ReactComponent as MoreVertIcon } from "@material-design-icons/svg/outlined/more_vert.svg";
+import { ReactComponent as FileManagerIcon } from "@material-design-icons/svg/outlined/insert_drive_file.svg";
 
 import wbyLogo from "./stories/wby-logo.png";
+import { Sidebar } from "./Sidebar";
 import { SidebarProvider } from "~/Sidebar/components/SidebarProvider";
+import { DropdownMenu } from "~/DropdownMenu";
+import { Tag } from "~/Tag";
 
 const meta: Meta<typeof Sidebar> = {
     title: "Components/Sidebar",
     component: Sidebar,
-    tags: ["autodocs"],
-    argTypes: {},
-    render: args => (
-        <>
-            <SidebarProvider>
-                <Sidebar {...args} collapsible={"icon"} />
-                <main className={"wby-bg-white wby-p-8"}>Main content goes here.</main>
-            </SidebarProvider>
-        </>
-    )
+
+    // We removed this because in the "all stories" view, the menu gets visually
+    // broken because of the fixed positioning of the sidebar. This is not a problem
+    // when the story is viewed in isolation.
+    // tags: ["autodocs"],
+
+    argTypes: {}
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Sidebar>;
 
-export const Default: Story = {
-    args: {
-        title: "Webiny",
-        icon: <Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} label={"Webiny"} />,
-        children: (
-            <>
-                <Sidebar.Item
-                    icon={<Sidebar.Item.Icon label="Audit Logs" element={<AuditLogsIcon />} />}
-                    content={"Audit Logs"}
-                />
-                <Sidebar.Item
-                    icon={<Sidebar.Item.Icon label="Form Builder" element={<FormBuilderIcon />} />}
-                    content={"Form Builder"}
-                />
-                <Sidebar.Item
-                    icon={<Sidebar.Item.Icon label="Headless CMS" element={<CmsIcon />} />}
-                    content={"Headless CMS"}
-                >
-                    <Sidebar.Item content={"Content Models"}>
-                        <Sidebar.Item content={"Groups"} />
-                        <Sidebar.Item content={"Models"} />
-                    </Sidebar.Item>
-                </Sidebar.Item>
-                <Sidebar.Item
-                    icon={<Sidebar.Item.Icon label="Page Builder" element={<PageBuilderIcon />} />}
-                    content={"Page Builder"}
-                >
-                    <Sidebar.Item
-                        icon={<Sidebar.Item.Icon label="Blocks" element={<CreditCard />} />}
-                        content={"Blocks"}
-                    >
-                        <Sidebar.Item content={"Blocks"} />
-                        <Sidebar.Item content={"Categories"} />
-                    </Sidebar.Item>
-                    <Sidebar.Item
-                        icon={<Sidebar.Item.Icon label="Pages" element={<Settings />} />}
-                        content={"Pages"}
-                    >
-                        <Sidebar.Item content={"Categories"} />
-                        <Sidebar.Item content={"Menus"} />
-                        <Sidebar.Item content={"Pages"} />
-                        <Sidebar.Item content={"Templates"} />
-                    </Sidebar.Item>
-                </Sidebar.Item>
-                <Sidebar.Item
-                    icon={<Sidebar.Item.Icon label="Publishing Workflows" element={<ApwIcon />} />}
-                    content={"Publishing Workflows"}
-                >
-                    <Sidebar.Item
-                        content={"Content Reviews"}
-                        icon={
-                            <Sidebar.Item.Icon
-                                element={<ArticleIcon />}
-                                label={"Content Reviews"}
+export const MainMenu: Story = {
+    render: () => (
+        <BrowserRouter>
+            <Routes>
+                <Route path={"*"} element={<SidebarComponent />} />
+            </Routes>
+        </BrowserRouter>
+    )
+};
+
+const SidebarComponent = () => {
+    const { hash } = useLocation();
+
+    // Sidebar is fixed-positioned, so we had to apply these in order
+    // for it to look good in a Storybook environment.
+    useEffect(() => {
+        const sbRoot = document.getElementById("storybook-root");
+        if (sbRoot) {
+            sbRoot.classList.add("component-sidebar");
+        }
+
+        return () => {
+            if (sbRoot) {
+                sbRoot.classList.remove("component-sidebar");
+            }
+        };
+    }, []);
+
+    return (
+        <SidebarProvider>
+            <Sidebar
+                title={"Webiny"}
+                icon={
+                    <Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} label={"Webiny"} />
+                }
+                footer={
+                    <DropdownMenu
+                        trigger={
+                            <Sidebar.Item
+                                icon={<Sidebar.Item.Icon label="Settings" element={<InfoIcon />} />}
+                                text={"Support"}
+                                action={<Sidebar.Item.Action element={<MoreVertIcon />} />}
                             />
                         }
-                    />
-                    <Sidebar.Item
-                        content={"Workflows"}
-                        icon={<Sidebar.Item.Icon element={<ArticleIcon />} label={"Workflows"} />}
-                    />
-                </Sidebar.Item>
-                <Sidebar.Item
-                    icon={
-                        <Sidebar.Item.Icon label="Tenant manager" element={<TenantManagerIcon />} />
-                    }
-                    content={"Tenant manager"}
+                        className={"wby-w-[225px]"}
+                    >
+                        <DropdownMenu.Item
+                            content={"API Playground"}
+                            icon={<ApiPlaygroundIcon />}
+                        />
+                        <DropdownMenu.Item content={"Documentation"} icon={<DocsIcon />} />
+                        <DropdownMenu.Item content={"GitHub"} icon={<GithubIcon />} />
+                        <DropdownMenu.Item content={"Slack"} icon={<ChatIcon />} />
+                        <DropdownMenu.Separator />
+                        <DropdownMenu.Item
+                            content={
+                                <div className={"flex wby-items-center"}>
+                                    Webiny 5.43.0
+                                    <Tag
+                                        variant={"accent"}
+                                        content={"WCP "}
+                                        className={"wby-ml-sm-extra"}
+                                    />
+                                </div>
+                            }
+                        />
+                    </DropdownMenu>
+                }
+            >
+                <Sidebar.Link
+                    text={"Audit Logs"}
+                    to={"#audit-logs"}
+                    active={hash === "#audit-logs"}
+                    icon={<Sidebar.Item.Icon label="Audit Logs" element={<AuditLogsIcon />} />}
+                />
+                <Sidebar.Link
+                    text={"Form Builder"}
+                    to={"#form-builder"}
+                    active={hash === "#form-builder"}
+                    icon={<Sidebar.Item.Icon label="Form Builder" element={<FormBuilderIcon />} />}
                 />
                 <Sidebar.Item
-                    icon={<Sidebar.Item.Icon label="Settings" element={<SettingsIcon />} />}
-                    content={"Settings"}
+                    text={"File Manager"}
+                    onClick={() => {
+                        alert("File Manager clicked");
+                    }}
+                    icon={<Sidebar.Item.Icon label="File Manager" element={<FileManagerIcon />} />}
                 />
-            </>
-        )
-    }
+                <Sidebar.Link
+                    text={"Headless CMS"}
+                    to={"#cms"}
+                    active={hash === "#cms"}
+                    icon={<Sidebar.Item.Icon label="Headless CMS" element={<CmsIcon />} />}
+                >
+                    <Sidebar.Item text={"Content Models"} variant={"group-label"} />
+                    <Sidebar.Link
+                        text={"Groups"}
+                        to={"#cms-groups"}
+                        active={hash === "#cms-groups"}
+                    />
+                    <Sidebar.Link
+                        text={"Models"}
+                        to={"#cms-models"}
+                        active={hash === "#cms-models"}
+                    />
+                </Sidebar.Link>
+                <Sidebar.Link
+                    text={"Page Builder"}
+                    to={"#page-builder"}
+                    active={hash === "#page-builder"}
+                    icon={<Sidebar.Item.Icon label="Page Builder" element={<PageBuilderIcon />} />}
+                >
+                    <Sidebar.Item text={"Blocks"} variant={"group-label"} />
+                    <Sidebar.Link
+                        text={"Blocks"}
+                        to={"#pb-blocks"}
+                        active={hash === "#pb-blocks"}
+                    />
+                    <Sidebar.Link
+                        text={"Categories"}
+                        to={"#pb-blocks-categories"}
+                        active={hash === "#pb-blocks-categories"}
+                    />
+
+                    <Sidebar.Link
+                        to={"#pb-pages"}
+                        text={"Pages"}
+                        variant={"group-label"}
+                        active={hash === `#pb-pages`}
+                    />
+                    <Sidebar.Link
+                        to={"#pb-pages-categories"}
+                        text={"Categories"}
+                        active={hash === `#pb-pages-categories`}
+                    />
+                    <Sidebar.Link
+                        to={"#pb-pages-menus"}
+                        text={"Menus"}
+                        active={hash === `#pb-pages-menus`}
+                    />
+                    <Sidebar.Link
+                        to={"#pb-pages-pages"}
+                        text={"Pages"}
+                        active={hash === `#pb-pages-pages`}
+                    />
+                    <Sidebar.Link
+                        to={"#pb-pages-templates"}
+                        text={"Templates"}
+                        disabled={true}
+                        active={hash === `#pb-pages-templates`}
+                    />
+                </Sidebar.Link>
+            </Sidebar>
+        </SidebarProvider>
+    );
 };

@@ -1,5 +1,7 @@
 /* storybook-overrides.css */
-.sb-show-main.sb-main-centered #storybook-root {
+/* Sidebar component is fixed-positioned, so we had to apply these
+ in order for it to look good in a Storybook environment. */
+.sb-show-main.sb-main-centered #storybook-root.component-sidebar {
     margin: 0;
     padding: 0;
 }
