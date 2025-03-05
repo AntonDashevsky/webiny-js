@@ -6634,20 +6634,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-symbols/svg-500@npm:^0.28.2":
-  version: 0.28.2
-  resolution: "@material-symbols/svg-500@npm:0.28.2"
-  checksum: 10/63952304189bfbc93e00ac8e47dfb39001ee4bf4b2dcebd0ca1bd4edd6789b9579301f2e405e3fc9e7dbe1744a52954d24b41a8352e4c3c0f4158a30143c0322
-  languageName: node
-  linkType: hard
-
-"@material-symbols/svg-700@npm:^0.28.2":
-  version: 0.28.2
-  resolution: "@material-symbols/svg-700@npm:0.28.2"
-  checksum: 10/8ea5a13da89ee1fa4ff20da1b15c5eda4693cb4e4aaf1349ac31c6471093cc112dd85bbac39ff2e89c758fd6bac5853cbf2c268c33de663bb67f729d1fe790eb
-  languageName: node
-  linkType: hard
-
 "@material/animation@npm:^14.0.0":
   version: 14.0.0
   resolution: "@material/animation@npm:14.0.0"
@@ -15050,8 +15036,6 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:^6.0.0"
     "@fortawesome/react-fontawesome": "npm:^0.1.17"
     "@material-design-icons/svg": "npm:^0.14.13"
-    "@material-symbols/svg-500": "npm:^0.28.2"
-    "@material-symbols/svg-700": "npm:^0.28.2"
     "@radix-ui/react-accessible-icon": "npm:^1.1.0"
     "@radix-ui/react-accordion": "npm:^1.2.2"
     "@radix-ui/react-avatar": "npm:^1.1.0"
