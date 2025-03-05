@@ -49,9 +49,9 @@ const SidebarMenuItemBase = ({ children, className, ...buttonProps }: SidebarMen
         );
 
         return (
-            <Collapsible className="wby-w-full wby-group/menu-item-collapsible [&:has([data-active=true])>:first-child]:!wby-opacity-20">
+            <Collapsible className="wby-w-full wby-group/menu-item-collapsible [&:has([data-active=true])>:first-child_svg]:!wby-fill-neutral-xstrong">
                 <SidebarMenuButton {...buttonProps} action={chevron} />
-                <CollapsibleContent forceMount>
+                <CollapsibleContent forceMount className={"wby-hidden data-[state=open]:!wby-block"}>
                     <SidebarMenuSub>
                         {React.Children.map(children, child => {
                             if (React.isValidElement(child)) {
