@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Separator } from "~/Separator";
 import { IconButton } from "~/Button";
 import { useSidebar } from "./SidebarProvider";
