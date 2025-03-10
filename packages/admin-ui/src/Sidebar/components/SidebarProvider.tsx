@@ -118,7 +118,6 @@ const SidebarProvider = ({
                     "wby-group/sidebar-wrapper wby-flex wby-min-h-svh wby-w-full wby-bg-neutral-light",
                     className
                 )}
-
             >
                 {children}
             </div>
