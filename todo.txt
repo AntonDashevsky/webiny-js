@@ -1,3 +1,5 @@
 - below wby logo horizontal bar not vsible
 - group if click/path is not provided?
 - sidebar rerenders?
+- settings not last?
+- routes
