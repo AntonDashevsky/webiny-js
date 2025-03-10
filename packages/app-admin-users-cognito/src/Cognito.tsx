@@ -1,5 +1,5 @@
 import React, { Fragment, memo } from "react";
-import { Plugin, AddMenu as Menu, AddUserMenuItem, AddRoute, Layout } from "@webiny/app-admin";
+import { Plugin, AddUserMenuItem, AddRoute, Layout } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
 import { Permission } from "~/plugins/constants";
@@ -13,6 +13,9 @@ import installation from "./plugins/installation";
 import permissionRenderer from "./plugins/permissionRenderer";
 import cognito from "./plugins/cognito";
 import { CognitoLogin, CognitoProps } from "./CognitoLogin";
+import { AdminConfig } from "@webiny/app-admin";
+
+const { Menu } = AdminConfig;
 
 const ACCOUNT_ROUTE = "/account";
 
@@ -32,15 +35,16 @@ const CognitoIdP = (props: CognitoProps) => {
                             <UsersView />
                         </Layout>
                     </AddRoute>
-                    <Menu name={"settings"}>
-                        <Menu name={"cognito.adminUsers"} label={"Admin Users"}>
-                            <Menu
-                                name={"cognito.adminUsers.users"}
-                                label={"Users"}
-                                path={"/admin-users"}
-                            />
-                        </Menu>
-                    </Menu>
+                    <Menu
+                        name={"cognito.settings"}
+                        parent={"settings"}
+                        element={<Menu.Item label={"Admin Users"} />}
+                    />
+                    <Menu
+                        name={"cognito.settings.adminUsers"}
+                        parent={"settings"}
+                        element={<Menu.Item label={"Users"} path={"/admin-users"} />}
+                    />
                 </HasPermission>
                 <AddRoute path={ACCOUNT_ROUTE}>
                     <Layout title={"User Account"}>

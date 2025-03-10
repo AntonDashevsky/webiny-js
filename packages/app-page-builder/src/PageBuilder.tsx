@@ -119,7 +119,7 @@ const PageBuilderMenu = () => {
                     element={<Menu.Item label={"Page Builder"} />}
                 />
                 <Menu
-                    name="pb.websiteSettings"
+                    name="pb.settings.website"
                     parent={"settings"}
                     element={
                         <Menu.Item label={"Website"} path={"/settings/page-builder/website"} />

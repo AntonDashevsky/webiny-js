@@ -18,24 +18,23 @@ export const Route = makeDecoratable(
     ({ name, path, element, remove, before, after }: RouteProps) => {
         const getId = useIdGenerator("Route");
 
+        console.log("new route", name, path);
         const placeAfter = after !== undefined ? getId(after) : undefined;
         const placeBefore = before !== undefined ? getId(before) : undefined;
 
         return (
-            <>
-                <Property
-                    id={getId(name)}
-                    name={"routes"}
-                    remove={remove}
-                    array={true}
-                    before={placeBefore}
-                    after={placeAfter}
-                >
-                    <Property id={getId(name, "name")} name={"name"} value={name} />
-                    <Property id={getId(name, "path")} name={"path"} value={path} />
-                    <Property id={getId(name, "element")} name={"element"} value={element} />
-                </Property>
-            </>
+            <Property
+                id={getId(name)}
+                name={"routes"}
+                remove={remove}
+                array={true}
+                before={placeBefore}
+                after={placeAfter}
+            >
+                <Property id={getId(name, "name")} name={"name"} value={name} />
+                <Property id={getId(name, "path")} name={"path"} value={path} />
+                <Property id={getId(name, "element")} name={"element"} value={element} />
+            </Property>
         );
     }
 );

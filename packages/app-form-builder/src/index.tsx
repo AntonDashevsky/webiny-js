@@ -1,9 +1,11 @@
 import React, { lazy, Suspense } from "react";
-import { AddMenu, AddRoute, Layout, Plugin } from "@webiny/app-admin";
+import { AddRoute, AdminConfig, Layout, Plugin } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
-import { ReactComponent as FormsIcon } from "~/admin/icons/round-ballot-24px.svg";
 import { CircularProgress } from "@webiny/ui/Progress";
 import FormsSettings from "./admin/views/Settings/FormsSettings";
+import { ReactComponent as FormsIcon } from "@material-design-icons/svg/outlined/check_box.svg";
+
+const { Menu } = AdminConfig;
 
 const FormEditor = lazy(
     () =>
@@ -24,6 +26,7 @@ interface LoaderProps {
     label: string;
     children: React.ReactNode;
 }
+
 const Loader = ({ children, label, ...props }: LoaderProps) => (
     <Suspense fallback={<CircularProgress label={label} />}>
         {React.cloneElement(children as unknown as React.ReactElement, props)}
@@ -34,15 +37,16 @@ export const FormBuilder = () => {
     return (
         <Plugin>
             <HasPermission name={"fb.form"}>
-                <AddMenu name="formBuilder" label={"Form Builder"} icon={<FormsIcon />}>
-                    <AddMenu name="formBuilder.forms" label={"Forms"}>
-                        <AddMenu
-                            name="formBuilder.forms.forms"
-                            label={"Forms"}
-                            path="/form-builder/forms"
+                <Menu
+                    name="fb"
+                    element={
+                        <Menu.Item
+                            label={"Form Builder"}
+                            icon={<FormsIcon />}
+                            path={"/form-builder/forms"}
                         />
-                    </AddMenu>
-                </AddMenu>
+                    }
+                />
                 <AddRoute exact path={"/form-builder/forms/:id"}>
                     <Loader label={"Loading editor..."}>
                         <FormEditor />
@@ -62,15 +66,22 @@ export const FormBuilder = () => {
                         <FormsSettings />
                     </Layout>
                 </AddRoute>
-                <AddMenu name={"settings"}>
-                    <AddMenu name={"settings.formBuilder"} label={"Form Builder"}>
-                        <AddMenu
-                            name={"settings.formBuilder.recaptcha"}
+
+                <Menu
+                    name="fb.settings"
+                    parent={"settings"}
+                    element={<Menu.Item label={"Form Builder"} />}
+                />
+                <Menu
+                    name="fb.settings.recaptcha"
+                    parent={"settings"}
+                    element={
+                        <Menu.Item
                             label={"reCAPTCHA"}
                             path={"/settings/form-builder/recaptcha"}
                         />
-                    </AddMenu>
-                </AddMenu>
+                    }
+                />
             </HasPermission>
         </Plugin>
     );

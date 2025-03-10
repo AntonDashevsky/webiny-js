@@ -3,3 +3,6 @@
 - sidebar rerenders?
 - settings not last?
 - routes
+- $first / $last
+- admin config provider always around menu?
+- footer

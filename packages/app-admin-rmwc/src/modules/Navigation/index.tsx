@@ -106,8 +106,9 @@ const SidebarMenuItems = (props: MenusProps) => {
 
 export const NavigationImpl = () => {
     return function Navigation() {
-        const { menus } = AdminConfig.use();
+        const { menus, routes } = AdminConfig.use();
 
+        console.log('menus, routes', menus, routes);
         return (
             <Sidebar
                 title={"Webiny"}
@@ -284,6 +285,7 @@ const SortedMenuItems: HigherOrderComponent<MenuItemsProps> = MenuItems => {
 };
 
 export const Navigation = () => {
+
     return (
         <Fragment>
             <Provider hoc={NavigationProvider} />

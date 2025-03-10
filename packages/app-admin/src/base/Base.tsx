@@ -14,24 +14,44 @@ import { AdminConfig } from "~/config/AdminConfig";
 import { ReactComponent as DashboardIcon } from "@material-design-icons/svg/outlined/space_dashboard.svg";
 import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outlined/settings.svg";
 
-const { Menu } = AdminConfig;
+const { Menu, Route } = AdminConfig;
 
 const BaseExtension = () => {
     plugins.register([uiLayoutPlugin]);
 
+    const { routes } = AdminConfig.use();
+    const cfggg = AdminConfig.use();
+
+    console.log('CFGGGG', cfggg);
+
     return (
         <Plugin>
-            <Menu
-                name={"home"}
-                element={<Menu.Item label={"Home"} icon={<DashboardIcon />} path={"/"} />}
-            />
-            <Menu
-                name={"settings"}
-                after={"$last"}
-                element={<Menu.Item label={"Settings"} icon={<SettingsIcon />} path={"/settings"} />}
-            />
+            <AdminConfig>
+                <Menu
+                    name={"home"}
+                    after={"$last"}
+                    element={<Menu.Item label={"Home"} icon={<DashboardIcon />} path={"/"} />}
+                />
+                <Menu
+                    name={"settings"}
+                    before={"$first"}
+                    element={
+                        <Menu.Item label={"Settings"} icon={<SettingsIcon />} path={"/settings"} />
+                    }
+                />
+
+                <AdminConfig.Route
+                    name={"home"}
+                    path={"/"}
+                    element={
+                        <Layout title={"Welcome!"}>
+                            <Dashboard />
+                        </Layout>
+                    }
+                />
+            </AdminConfig>
+
             {/* ------------ OLD CONFIGURATIONS ------------ */}
-            <AddMenu name={"settings"} label={"Settings"} icon={<SettingsIcon />} pin={"last"} />
             <HasPermission name={"fm.file"}>
                 <FileManager>
                     {({ showFileManager }) => (
@@ -74,11 +94,7 @@ const BaseExtension = () => {
                 tags={["footer"]}
             />
             <AddMenu name={"version"} tags={["footer"]} element={<Version />} pin={"last"} />
-            <AddRoute path={"/"}>
-                <Layout title={"Welcome!"}>
-                    <Dashboard />
-                </Layout>
-            </AddRoute>
+
             <AddRoute path={"*"}>
                 <Layout title={"Not Accessible"}>
                     <NotFound />

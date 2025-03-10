@@ -58,5 +58,8 @@ export default {
         experimentalAdminOmniSearch: true,
         newWatchCommand: true,
         experimentalDynamicPages: false
+    },
+    env: {
+        ELASTICSEARCH_SHARED_INDEXES: true
     }
 };

@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { ReactComponent as Icon } from "@material-symbols/svg-400/outlined/quick_reference_all.svg";
 
-import { AddMenu, AddRoute, Layout, Plugin, useWcp } from "@webiny/app-admin";
+import { AddRoute, Layout, Plugin, useWcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { AcoProvider } from "@webiny/app-aco";
 
@@ -11,6 +11,9 @@ import { LogsModule } from "~/views/Logs/LogsModule";
 import { AuditLogsPermissions } from "~/plugins/permissionRenderer";
 import AuditLogsView from "~/views/Logs/Logs";
 import { LOCAL_STORAGE_LATEST_VISITED_FOLDER } from "~/constants";
+import { AdminConfig } from "@webiny/app-admin";
+
+const { Menu } = AdminConfig;
 
 export const AuditLogs = () => {
     const client = useApolloClient();
@@ -29,9 +32,12 @@ export const AuditLogs = () => {
             <LogsModule />
             <Plugin>
                 <HasPermission any={["al.*"]}>
-                    <AddMenu name="auditLogs" label={`Audit Logs`} icon={<Icon />}>
-                        <AddMenu name={"auditLogs.logs"} label={`Logs`} path="/audit-logs" />
-                    </AddMenu>
+                    <Menu
+                        name="auditLogs"
+                        element={
+                            <Menu.Item label={"Audit Logs"} icon={<Icon />} path="/audit-logs" />
+                        }
+                    />
                     <AddRoute exact path={"/audit-logs"}>
                         <Layout title={"Audit Logs - Logs"}>
                             <AuditLogsListWithConfig>

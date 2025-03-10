@@ -1,12 +1,15 @@
 import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
-import { AddMenu, AddRoute, Layout, Plugins, useWcp } from "@webiny/app-admin";
+import { AddRoute, Layout, Plugins, useWcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { Permission } from "~/plugins/constants";
 import { Groups } from "~/ui/views/Groups";
 import { Teams } from "~/ui/views/Teams";
 import { ApiKeys } from "~/ui/views/ApiKeys";
 import accessManagementPlugins from "./plugins";
+import { AdminConfig } from "@webiny/app-admin";
+
+const { Menu } = AdminConfig;
 
 /**
  * TODO @ts-refactor
@@ -51,34 +54,40 @@ export const AccessManagementExtension = () => {
                 </AddRoute>
             </HasPermission>
             <HasPermission any={[Permission.Groups, Permission.ApiKeys, Permission.Teams]}>
-                <AddMenu name={"settings"}>
-                    <AddMenu name={"settings.accessManagement"} label={"Access Management"}>
-                        <HasPermission name={Permission.Groups}>
-                            <AddMenu
-                                name={"settings.accessManagement.roles"}
-                                label={"Roles"}
-                                path={"/access-management/roles"}
-                            />
-                        </HasPermission>
-                        {teams && (
-                            <HasPermission name={Permission.Teams}>
-                                <AddMenu
-                                    name={"settings.accessManagement.teams"}
-                                    label={"Teams"}
-                                    path={"/access-management/teams"}
-                                />
-                            </HasPermission>
-                        )}
+                <Menu
+                    name={"security.settings"}
+                    parent={"settings"}
+                    element={<Menu.Item label={"Access Management"} />}
+                />
 
-                        <HasPermission name={Permission.ApiKeys}>
-                            <AddMenu
-                                name={"settings.accessManagement.apiKeys"}
-                                label={"API Keys"}
-                                path={"/access-management/api-keys"}
-                            />
-                        </HasPermission>
-                    </AddMenu>
-                </AddMenu>
+                <HasPermission name={Permission.Groups}>
+                    <Menu
+                        name={"security.roles"}
+                        parent={"settings"}
+                        element={<Menu.Item label={"Roles"} path={"/access-management/roles"} />}
+                    />
+                </HasPermission>
+                {teams && (
+                    <HasPermission name={Permission.Teams}>
+                        <Menu
+                            name={"security.teams"}
+                            parent={"settings"}
+                            element={
+                                <Menu.Item label={"Teams"} path={"/access-management/teams"} />
+                            }
+                        />
+                    </HasPermission>
+                )}
+
+                <HasPermission name={Permission.ApiKeys}>
+                    <Menu
+                        name={"security.apiKeys"}
+                        parent={"settings"}
+                        element={
+                            <Menu.Item label={"API Keys"} path={"/access-management/api-keys"} />
+                        }
+                    />
+                </HasPermission>
             </HasPermission>
         </Plugins>
     );

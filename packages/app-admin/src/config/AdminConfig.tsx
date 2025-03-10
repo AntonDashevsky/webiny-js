@@ -12,11 +12,9 @@ export const AdminWithConfig = Object.assign(base.WithConfig, {
     displayName: "AdminWithConfig"
 });
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface AdminConfig {
     menus: MenuConfig[];
     routes: RouteConfig[];
-    // Add properties here. At the moment, we don't have any.
 }
 
 function useAdminConfig() {
