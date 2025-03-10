@@ -1,5 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import {
+    AdminConfig,
     Brand as BrandSpec,
     Compose,
     HigherOrderComponent,
@@ -31,6 +32,7 @@ import { ReactComponent as DocsIcon } from "@material-design-icons/svg/outlined/
 import { ReactComponent as ApiPlaygroundIcon } from "@material-design-icons/svg/outlined/swap_horiz.svg";
 import { ReactComponent as MoreVertIcon } from "@material-design-icons/svg/outlined/more_vert.svg";
 import { ReactComponent as FileManagerIcon } from "@material-design-icons/svg/outlined/insert_drive_file.svg";
+import type { MenuConfig } from "@webiny/app-admin/config/AdminConfig/Menu";
 
 interface NavigationContext {
     visible: boolean;
@@ -68,16 +70,43 @@ interface NavigationProviderProps {
 const NavigationProvider = (Component: React.ComponentType<NavigationProviderProps>) => {
     return function NavigationProvider(props: NavigationProviderProps) {
         return (
-            <SidebarProvider>
+            <SidebarProvider defaultOpen>
                 <Component {...props} />
             </SidebarProvider>
         );
     };
 };
 
+export interface MenusProps {
+    menus: MenuConfig[];
+    parent?: string;
+}
+
+const SidebarMenuItems = (props: MenusProps) => {
+    const { menus, parent = null } = props;
+    return menus
+        .filter(m => m.parent === parent)
+        .map(m => {
+            if (!React.isValidElement(m.element)) {
+                return null;
+            }
+
+            const hasChildMenus = menus.some(menu => menu.parent === m.name);
+            if (hasChildMenus) {
+                return React.cloneElement(
+                    m.element,
+                    { key: m.parent + m.name },
+                    <SidebarMenuItems menus={menus} parent={m.name} />
+                );
+            }
+
+            return m.element;
+        });
+};
+
 export const NavigationImpl = () => {
     return function Navigation() {
-        const { hash } = useLocation();
+        const { menus } = AdminConfig.use();
 
         return (
             <Sidebar
@@ -119,10 +148,17 @@ export const NavigationImpl = () => {
                     </DropdownMenu>
                 }
             >
+                {<SidebarMenuItems menus={menus} />}
+                {/*<Sidebar.Link
+                    text={"Home"}
+                    to={"/"}
+                    active={pathname === "/"}
+                    icon={<Sidebar.Item.Icon label="Dashboard" element={<DashboardIcon />} />}
+                />
                 <Sidebar.Link
                     text={"Audit Logs"}
-                    to={"#audit-logs"}
-                    active={hash === "#audit-logs"}
+                    to={"/audit-logs"}
+                    active={pathname === "/audit-logs"}
                     icon={<Sidebar.Item.Icon label="Audit Logs" element={<AuditLogsIcon />} />}
                 />
                 <Sidebar.Link
@@ -201,7 +237,7 @@ export const NavigationImpl = () => {
                         disabled={true}
                         active={hash === `#pb-pages-templates`}
                     />
-                </Sidebar.Link>
+                </Sidebar.Link>*/}
             </Sidebar>
         );
         // const { menuItems } = useAdminNavigation();

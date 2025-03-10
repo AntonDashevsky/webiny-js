@@ -1,6 +1,6 @@
 import React, { Fragment, useMemo } from "react";
 import { HasPermission } from "@webiny/app-security";
-import { Plugins, AddMenu as Menu, createProviderPlugin } from "@webiny/app-admin";
+import { Plugins, createProviderPlugin } from "@webiny/app-admin";
 import { Global, css } from "@emotion/react";
 import { PageBuilderProvider as ContextProvider } from "./contexts/PageBuilder";
 import { ReactComponent as PagesIcon } from "./admin/assets/table_chart-24px.svg";
@@ -23,6 +23,9 @@ import { AddImageLinkComponent } from "~/elementDecorators/AddImageLinkComponent
 import { PageTemplatesPreview } from "./dataInjection/preview/PageTemplatesPreview";
 import { PagesPreview } from "~/dataInjection/preview/PagesPreview";
 import { IfDynamicPagesEnabled } from "~/IfDynamicPagesEnabled";
+import { AdminConfig } from "@webiny/app-admin";
+
+const { Menu } = AdminConfig;
 
 export type { EditorProps };
 export { EditorRenderer };
@@ -49,63 +52,79 @@ const PageBuilderMenu = () => {
     return (
         <>
             <HasPermission any={["pb.menu", "pb.category", "pb.page", "pb.template", "pb.block"]}>
-                <Menu name="pageBuilder" label={"Page Builder"} icon={<PagesIcon />}>
-                    <Menu name="pageBuilder.pages" label={"Pages"}>
-                        <HasPermission name={"pb.category"}>
-                            <Menu
-                                name="pageBuilder.pages.categories"
-                                label={"Categories"}
-                                path="/page-builder/categories"
-                            />
-                        </HasPermission>
-                        <HasPermission name={"pb.page"}>
-                            <Menu
-                                name="pageBuilder.pages.pages"
-                                label={"Pages"}
-                                path="/page-builder/pages"
-                            />
-                        </HasPermission>
-                        <HasPermission name={"pb.template"}>
-                            <Menu
-                                name="pageBuilder.pages.pageTemplates"
-                                label={"Templates"}
-                                path="/page-builder/page-templates"
-                            />
-                        </HasPermission>
-                        <HasPermission name={"pb.menu"}>
-                            <Menu
-                                name="pageBuilder.pages.menus"
-                                label={"Menus"}
-                                path="/page-builder/menus"
-                            />
-                        </HasPermission>
-                    </Menu>
-                    <Menu name="pageBuilder.blocks" label={"Blocks"}>
-                        <HasPermission name={"pb.block"}>
-                            <Menu
-                                name="pageBuilder.blocks.categories"
-                                label={"Categories"}
-                                path="/page-builder/block-categories"
-                            />
-                            <Menu
-                                name="pageBuilder.blocks.pageBlocks"
-                                label={"Blocks"}
-                                path="/page-builder/page-blocks"
-                            />
-                        </HasPermission>
-                    </Menu>
-                </Menu>
+                <Menu
+                    name="pb"
+                    element={
+                        <Menu.Item
+                            label={"Page Builder"}
+                            icon={<PagesIcon />}
+                            path={"/page-builder/pages"}
+                        />
+                    }
+                />
+            </HasPermission>
+
+            <HasPermission any={["pb.menu", "pb.category", "pb.page", "pb.template", "pb.block"]}>
+                <Menu name="pb.pagesLabel" parent="pb" element={<Menu.Item label={"Pages"} />} />
+            </HasPermission>
+            <HasPermission name={"pb.category"}>
+                <Menu
+                    name="pb.categories"
+                    parent={"pb"}
+                    element={<Menu.Item label={"Categories"} path={"/page-builder/categories"} />}
+                />
+            </HasPermission>
+            <HasPermission name={"pb.page"}>
+                <Menu
+                    name="pb.pages"
+                    parent={"pb"}
+                    element={<Menu.Item label={"Pages"} path={"/page-builder/pages"} />}
+                />
+            </HasPermission>
+            <HasPermission name={"pb.template"}>
+                <Menu
+                    name="pb.templates"
+                    parent={"pb"}
+                    element={
+                        <Menu.Item label={"Templates"} path={"/page-builder/page-templates"} />
+                    }
+                />
+            </HasPermission>
+            <HasPermission name={"pb.menu"}>
+                <Menu
+                    name="pb.menus"
+                    parent={"pb"}
+                    element={<Menu.Item label={"Menus"} path={"/page-builder/menus"} />}
+                />
+            </HasPermission>
+            <HasPermission any={["pb.block"]}>
+                <Menu name="pb.blocksLabel" parent="pb" element={<Menu.Item label={"Blocks"} />} />
+                <Menu
+                    name="pb.blocks.categories"
+                    parent={"pb"}
+                    element={
+                        <Menu.Item label={"Categories"} path={"/page-builder/block-categories"} />
+                    }
+                />
+                <Menu
+                    name="pb.blocks.pageBlocks"
+                    parent={"pb"}
+                    element={<Menu.Item label={"Blocks"} path={"/page-builder/page-blocks"} />}
+                />
             </HasPermission>
             <HasPermission name={"pb.settings"}>
-                <Menu name={"settings"}>
-                    <Menu name={"settings.pageBuilder"} label={"Page Builder"}>
-                        <Menu
-                            name={"settings.pageBuilder.website"}
-                            label={"Website"}
-                            path={"/settings/page-builder/website"}
-                        />
-                    </Menu>
-                </Menu>
+                <Menu
+                    name="pb.settings"
+                    parent="settings"
+                    element={<Menu.Item label={"Page Builder"} />}
+                />
+                <Menu
+                    name="pb.websiteSettings"
+                    parent={"settings"}
+                    element={
+                        <Menu.Item label={"Website"} path={"/settings/page-builder/website"} />
+                    }
+                />
             </HasPermission>
         </>
     );

@@ -1,13 +1,13 @@
 import * as React from "react";
 import { makeDecoratable, withStaticProps } from "~/utils";
 import { SidebarRoot } from "./components/SidebarRoot";
-import { SidebarContent } from "./components/SidebarContent";
-import { SidebarMenuItem } from "./components/SidebarMenuItem";
-import { SidebarMenuLink } from "./components/SidebarMenuLink";
-import { SidebarMenu } from "./components/SidebarMenu";
 import { SidebarHeader } from "./components/SidebarHeader";
+import { SidebarContent } from "./components/SidebarContent";
 import { SidebarIcon } from "./components/SidebarIcon";
 import { SidebarFooter } from "./components/SidebarFooter";
+import { SidebarMenuItem } from "./components/items/SidebarMenuItem";
+import { SidebarMenuLink } from "./components/items/SidebarMenuLink";
+import { SidebarMenuRoot } from "./components/items/SidebarMenuRoot";
 
 interface SidebarProps
     extends Omit<React.ComponentPropsWithoutRef<typeof SidebarRoot>, "title">,
@@ -54,10 +54,10 @@ const SidebarBase = (props: SidebarProps) => {
         <SidebarRoot {...rootProps}>
             <SidebarHeader {...headerProps} />
             <SidebarContent {...contentProps}>
-                <SidebarMenu>{props.children}</SidebarMenu>
+                <SidebarMenuRoot>{props.children}</SidebarMenuRoot>
             </SidebarContent>
             <SidebarFooter>
-                <SidebarMenu>{footerProps.footer}</SidebarMenu>
+                <SidebarMenuRoot>{footerProps.footer}</SidebarMenuRoot>
             </SidebarFooter>
         </SidebarRoot>
     );

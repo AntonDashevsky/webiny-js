@@ -1,6 +1,6 @@
 import React from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Menu } from "./AdminConfig/Menu";
+import { Menu, type MenuConfig } from "./AdminConfig/Menu";
 import { Theme } from "./AdminConfig/Theme";
 import { createProvider } from "@webiny/app";
 import { withStaticProps } from "@webiny/admin-ui";
@@ -13,6 +13,7 @@ export const AdminWithConfig = Object.assign(base.WithConfig, {
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface AdminConfig {
+    menus: MenuConfig[];
     // Add properties here. At the moment, we don't have any.
 }
 

@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { ReactComponent as FileIcon } from "@material-design-icons/svg/filled/insert_drive_file.svg";
-import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outlined/settings.svg";
 import { Plugin } from "@webiny/app";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
@@ -11,12 +10,27 @@ import { ReactComponent as GithubIcon } from "~/assets/icons/github-brands.svg";
 import { FileManager } from "~/base/ui/FileManager";
 import { uiLayoutPlugin } from "~/plugins/uiLayoutRenderer";
 import { Version } from "~/base/Version";
+import { AdminConfig } from "~/config/AdminConfig";
+import { ReactComponent as DashboardIcon } from "@material-design-icons/svg/outlined/space_dashboard.svg";
+import { ReactComponent as SettingsIcon } from "@material-design-icons/svg/outlined/settings.svg";
+
+const { Menu } = AdminConfig;
 
 const BaseExtension = () => {
     plugins.register([uiLayoutPlugin]);
 
     return (
         <Plugin>
+            <Menu
+                name={"home"}
+                element={<Menu.Item label={"Home"} icon={<DashboardIcon />} path={"/"} />}
+            />
+            <Menu
+                name={"settings"}
+                after={"$last"}
+                element={<Menu.Item label={"Settings"} icon={<SettingsIcon />} path={"/settings"} />}
+            />
+            {/* ------------ OLD CONFIGURATIONS ------------ */}
             <AddMenu name={"settings"} label={"Settings"} icon={<SettingsIcon />} pin={"last"} />
             <HasPermission name={"fm.file"}>
                 <FileManager>

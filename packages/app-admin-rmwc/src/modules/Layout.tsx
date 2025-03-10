@@ -9,7 +9,6 @@ const RMWCLayout = () => {
     return function RMWCLayout({ title, children }: LayoutProps) {
         const { identity } = useSecurity();
 
-        console.log("identity", identity);
         return (
             <>
                 {title ? <Helmet title={title} /> : null}

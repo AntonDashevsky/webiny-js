@@ -1,28 +1,24 @@
 import React from "react";
+import { cn, cva } from "~/utils";
 import { Link } from "@webiny/react-router";
-import { cva } from "~/utils";
-import type { SidebarMenuItemProps } from "./SidebarMenuItem";
+import type { SidebarMenuItemProps } from "./SidebarMenuRootItem";
 import { DivButton } from "./DivButton";
 
 const variants = cva(
     [
-        "wby-flex wby-w-full wby-cursor-pointer wby-items-center wby-gap-sm",
-        "wby-text-md wby-text-neutral-primary !wby-no-underline",
-        "wby-rounded-md wby-p-xs-plus wby-pr-sm wby-outline-none",
+        "wby-flex wby-w-full wby-items-center wby-gap-sm wby-rounded-md",
+        "!wby-no-underline wby-text-neutral-primary wby-cursor-pointer wby-px-sm wby-py-xs-plus wby-text-left",
+        "wby-text-md wby-outline-none wby-transition-[width,height,padding]",
         "wby-whitespace-nowrap wby-overflow-hidden",
         "hover:wby-bg-neutral-dark/5",
         "focus:wby-bg-neutral-dark/5 focus:wby-ring-none focus:wby-ring-transparent",
         "data-[active=true]:wby-bg-neutral-dark/5 data-[active=true]:wby-font-semibold data-[active=true]:wby-pointer-events-none",
-        "group-data-[state=collapsed]:wby-hidden",
-        "group-data-[state=open]/menu-sub-item-collapsible:!wby-font-semibold"
+        "group-data-[state=open]/menu-item-collapsible:!wby-font-semibold"
     ],
     {
         variants: {
             variant: {
-                "group-label": [
-                    "wby-uppercase wby-font-semibold !wby-text-neutral-muted wby-text-sm",
-                    "wby-pt-md wby-pb-xs-plus wby-pointer-events-none"
-                ]
+                "group-label": "!wby-text-neutral-muted wby-uppercase"
             },
             disabled: {
                 true: "wby-pointer-events-none !wby-text-neutral-disabled"
@@ -31,9 +27,10 @@ const variants = cva(
     }
 );
 
-type SidebarMenuSubButtonProps = Omit<SidebarMenuItemProps, "className" | "children">;
+type SidebarMenuButtonBaseProps = Omit<SidebarMenuItemProps, "children">;
 
-const SidebarMenuSubButton = ({
+const SidebarMenuRootButton = ({
+    className,
     onClick,
     variant,
     active,
@@ -43,7 +40,7 @@ const SidebarMenuSubButton = ({
     text,
     to,
     ...linkProps
-}: SidebarMenuSubButtonProps) => {
+}: SidebarMenuButtonBaseProps) => {
     const sharedProps = {
         "data-sidebar": "menu-button",
         "data-active": active,
@@ -70,11 +67,11 @@ const SidebarMenuSubButton = ({
     // We can't use the default button element here because the content of the button
     // can also contain a button, which is not allowed in HTML.
     return (
-        <div className={"wby-flex wby-items-center wby-w-full"}>
+        <div className={cn("wby-flex wby-items-center wby-w-full", className)}>
             {content}
             <div className={"wby-absolute wby-right-[10px]"}>{action}</div>
         </div>
     );
 };
 
-export { SidebarMenuSubButton };
+export { SidebarMenuRootButton };

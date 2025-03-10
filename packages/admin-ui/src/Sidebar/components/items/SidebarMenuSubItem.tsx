@@ -6,31 +6,20 @@ import { SidebarMenuSubItemIndentation } from "./SidebarMenuSubItemIndentation";
 import { SidebarMenuSub } from "./SidebarMenuSub";
 import { IconButton } from "~/Button";
 import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
-import { LinkProps, To } from "@webiny/react-router";
-import { type SidebarMenuItemBaseProps } from "~/Sidebar/components/SidebarMenuItem";
+import { useSidebarMenu } from "./SidebarMenuProvider";
+import { type SidebarMenuItemProps } from "./SidebarMenuItem";
 
-export interface SidebarMenuSubItemBaseProps extends SidebarMenuItemBaseProps {
-    lvl?: number;
-}
-
-export type SidebarMenuSubItemButtonProps = SidebarMenuSubItemBaseProps & { to?: never };
-export type SidebarMenuSubItemLinkProps = SidebarMenuSubItemBaseProps & LinkProps & { to: To };
-
-type SidebarMenuSubItemProps = SidebarMenuSubItemButtonProps | SidebarMenuSubItemLinkProps;
-
-const SidebarMenuSubItem = ({
-    children,
-    className,
-    lvl = 1,
-    ...buttonProps
-}: SidebarMenuSubItemProps) => {
-    const nextLevel = lvl + 1;
+const SidebarMenuSubItem = ({ children, className, ...buttonProps }: SidebarMenuItemProps) => {
+    const { currentLevel } = useSidebarMenu();
 
     const sidebarMenuSubButton = useMemo(() => {
         if (!children) {
             return (
                 <>
-                    <SidebarMenuSubItemIndentation lvl={lvl} variant={buttonProps.variant} />
+                    <SidebarMenuSubItemIndentation
+                        lvl={currentLevel}
+                        variant={buttonProps.variant}
+                    />
                     <SidebarMenuSubButton {...buttonProps} />
                 </>
             );
@@ -54,22 +43,18 @@ const SidebarMenuSubItem = ({
         return (
             <Collapsible className="wby-w-full wby-group/menu-sub-item-collapsible">
                 <div className={"wby-flex wby-items-center"}>
-                    <SidebarMenuSubItemIndentation lvl={lvl} variant={buttonProps.variant} />
+                    <SidebarMenuSubItemIndentation
+                        lvl={currentLevel}
+                        variant={buttonProps.variant}
+                    />
                     <SidebarMenuSubButton {...buttonProps} action={chevron} />
                 </div>
                 <CollapsibleContent>
-                    <SidebarMenuSub>
-                        {React.Children.map(children, child => {
-                            if (React.isValidElement(child)) {
-                                return <SidebarMenuSubItem {...child.props} lvl={nextLevel} />;
-                            }
-                            return child;
-                        })}
-                    </SidebarMenuSub>
+                    <SidebarMenuSub>{children}</SidebarMenuSub>
                 </CollapsibleContent>
             </Collapsible>
         );
-    }, [children, buttonProps, lvl]);
+    }, [children, buttonProps, currentLevel]);
 
     return (
         <li
@@ -80,4 +65,5 @@ const SidebarMenuSubItem = ({
         </li>
     );
 };
-export { SidebarMenuSubItem, type SidebarMenuSubItemProps };
+
+export { SidebarMenuSubItem };
