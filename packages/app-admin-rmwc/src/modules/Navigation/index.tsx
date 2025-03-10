@@ -108,7 +108,6 @@ export const NavigationImpl = () => {
     return function Navigation() {
         const { menus, routes } = AdminConfig.use();
 
-        console.log('menus, routes', menus, routes);
         return (
             <Sidebar
                 title={"Webiny"}
