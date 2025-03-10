@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Separator } from "~/Separator";
 import { IconButton } from "~/Button";
 import { useSidebar } from "./SidebarProvider";
@@ -69,7 +69,7 @@ const SidebarHeader = ({ title, icon }: SidebarHeaderProps) => {
                 </div>
             </div>
             <div className={"wby-px-sm wby-py-xs"}>
-                <Separator variant={"subtle"} margin={"xs"} />
+                <Separator variant={"subtle"} margin={"none"} className={"wby-mb-px"} />
             </div>
         </>
     );
