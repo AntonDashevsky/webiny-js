@@ -7,6 +7,7 @@ import installation from "./plugins/installation";
 import permissionRenderer from "./plugins/permissionRenderer";
 import { FileManagerSettings } from "./views/FileManagerSettings";
 import { AdminConfig } from "@webiny/app-admin";
+import { RouterConfig } from "@webiny/app/config/RouterConfig";
 
 const { Menu, Route } = AdminConfig;
 
@@ -16,15 +17,17 @@ export const SettingsModule = () => {
     return (
         <Plugin>
             <HasPermission name={"fm.settings"}>
-                <Route
-                    name={"settings.fm.general"}
-                    path={"/settings/file-manager/general"}
-                    element={
-                        <Layout title={"File Manager - General Settings"}>
-                            <FileManagerSettings />
-                        </Layout>
-                    }
-                />
+                <RouterConfig>
+                    <Route
+                        name={"settings.fm.general"}
+                        path={"/settings/file-manager/general"}
+                        element={
+                            <Layout title={"File Manager - General Settings"}>
+                                <FileManagerSettings />
+                            </Layout>
+                        }
+                    />
+                </RouterConfig>
                 <Menu
                     parent={"settings"}
                     name={"settings.fm"}

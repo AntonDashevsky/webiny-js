@@ -17,10 +17,6 @@ interface AdminConfig {
     routes: RouteConfig[];
 }
 
-function useAdminConfig() {
-    return base.useConfig();
-}
-
 export const AdminConfigProvider = createProvider(Original => {
     return function AdminConfigProvider({ children }) {
         return (
@@ -35,5 +31,5 @@ export const AdminConfig = withStaticProps(base.Config, {
     Theme,
     Menu,
     Route,
-    use: useAdminConfig
+    use: base.useConfig
 });

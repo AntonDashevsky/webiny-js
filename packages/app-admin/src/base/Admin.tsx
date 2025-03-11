@@ -13,17 +13,11 @@ import { UserMenuProvider } from "./ui/UserMenu";
 import { NavigationProvider } from "./ui/Navigation";
 import { createDialogsProvider } from "~/components/Dialogs/DialogsContext";
 import { DefaultIcons, IconPickerConfigProvider } from "~/components/IconPicker/config";
-import {AdminConfig, AdminConfigProvider} from "~/config/AdminConfig";
+import { AdminConfigProvider } from "~/config/AdminConfig";
 
 export interface AdminProps {
     createApolloClient: ApolloClientFactory;
     children?: React.ReactNode;
-}
-
-const RegisterRoutes = () => {
-    const cfg = AdminConfig.use()
-    console.log('cfgcfgcfgcfg, cfg', cfg)
-    return null;
 }
 
 export const Admin = ({ children, createApolloClient }: AdminProps) => {
@@ -54,7 +48,6 @@ export const Admin = ({ children, createApolloClient }: AdminProps) => {
                     >
                         <Base />
                         <DefaultIcons />
-                        <RegisterRoutes/>
                         {children}
                     </App>
                 </WcpProvider>

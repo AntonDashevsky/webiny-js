@@ -7,15 +7,16 @@ import { useLocation } from "@webiny/react-router";
 export interface MenuProps {
     name: string;
     parent?: string | null;
+    tags?: string[];
     element?: React.ReactElement;
     remove?: boolean;
     before?: string;
     after?: string;
 }
 
-export type MenuConfig = Pick<MenuProps, "name" | "parent" | "element">;
+export type MenuConfig = Pick<MenuProps, "name" | "parent" | "tags" | "element">;
 
-export interface MenuItemProps {
+export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
     label: string;
     path?: string;
     onClick?: () => void;
@@ -40,7 +41,7 @@ export const MenuItem = makeDecoratable(
         }
 
         if (onClick) {
-            return <Sidebar.Item {...sharedProps} />;
+            return <Sidebar.Item {...sharedProps} onClick={onClick} />;
         }
 
         // If not click nor path was assigned, we treat this as a group label.
@@ -50,7 +51,7 @@ export const MenuItem = makeDecoratable(
 
 const MenuBase = makeDecoratable(
     "Menu",
-    ({ name, parent = null, element, remove, before, after }: MenuProps) => {
+    ({ name, parent = null, tags = [], element, remove, before, after }: MenuProps) => {
         const getId = useIdGenerator("Menu");
 
         const placeAfter = after !== undefined ? getId(after) : undefined;
@@ -65,10 +66,10 @@ const MenuBase = makeDecoratable(
                     array={true}
                     before={placeBefore}
                     after={placeAfter}
-
                 >
                     <Property id={getId(name, "name")} name={"name"} value={name} />
                     <Property id={getId(name, "parent")} name={"parent"} value={parent} />
+                    <Property id={getId(name, "tags")} name={"tags"} value={tags} />
                     <Property id={getId(name, "element")} name={"element"} value={element} />
                 </Property>
             </>
