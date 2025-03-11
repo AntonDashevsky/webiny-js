@@ -3,7 +3,6 @@ import { createProviderPlugin } from "@webiny/app-admin";
 import { RMWCProvider } from "@rmwc/provider";
 import { Layout } from "./modules/Layout";
 import { Navigation } from "./modules/Navigation";
-import { Brand } from "./modules/Brand";
 import { UserMenu } from "~/modules/UserMenu";
 import { Overlays } from "./modules/Overlays";
 import { NotFound } from "./modules/NotFound";
@@ -26,7 +25,6 @@ export const RMWC = () => {
             <Layout />
             <Dashboard />
             <NotFound />
-            <Brand />
             <Navigation />
             <UserMenu />
             <Overlays />

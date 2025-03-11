@@ -51,9 +51,7 @@ const RMWCLayout = () => {
                             </div>
                         }
                     />
-                    <div>
-                        <div>{children}</div>
-                    </div>
+                    {children}
                 </div>
             </>
         );
