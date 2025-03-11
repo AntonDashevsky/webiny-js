@@ -4,6 +4,8 @@
 - admin config provider always around menu?
 - useNavigation
 - footer visuals ... dropdown menus links
+- top right menu
+- security issue with admin config
 
 - P:
 - admin logo / title API
