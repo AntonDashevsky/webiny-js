@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { Compose, LayoutProps, LayoutRenderer, Navigation } from "@webiny/app-admin";
-import { Avatar, Button, IconButton, Separator } from "@webiny/admin-ui";
+import { Avatar, Button, IconButton } from "@webiny/admin-ui";
 import { useSecurity } from "@webiny/app-security";
 import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
 import { HeaderBar } from "@webiny/admin-ui";

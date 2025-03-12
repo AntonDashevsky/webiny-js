@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
 import { HeaderBar } from "./HeaderBar";
 import React from "react";
+import { Button, IconButton } from "~/Button";
+import { Avatar } from "~/Avatar";
 
 const meta: Meta<typeof HeaderBar> = {
     title: "Components/HeaderBar",
@@ -21,31 +24,29 @@ type Story = StoryObj<typeof HeaderBar>;
 
 export const Default: Story = {
     args: {
-        showCloseButton: true,
-        children: "This is an headerBar. Play around with different properties to see how it looks."
-    },
-    argTypes: {
-        type: {
-            control: "select",
-            options: ["info", "success", "warning", "danger"]
-        },
-        variant: {
-            control: "select",
-            options: ["strong", "subtle"]
-        }
-    }
-};
-
-export const Info: Story = {
-    args: {
-        ...Default.args,
-        type: "info",
-        children: (
-            <>
-                This type of notification is suitable for general usage where there’s no need for
-                accent. And <a href={"#"}>this thing here</a> is a short link.
-            </>
+        right: (
+            <div className={"wby-flex wby-gap-x-sm"}>
+                <Button variant={"ghost"} size={"md"} text={"Root tenant"} />
+                <div
+                    className={
+                        "wby-flex wby-items-center wby-rounded-md wby-gap-xxs wby-py-xs wby-px-xs wby-bg-neutral-light"
+                    }
+                >
+                    <Avatar
+                        size={"sm"}
+                        variant={"strong"}
+                        image={<Avatar.Image src={"https://i.pravatar.cc/300"} />}
+                        fallback={<Avatar.Fallback delayMs={0}>W</Avatar.Fallback>}
+                    />
+                    <IconButton
+                        variant={"ghost"}
+                        size={"xs"}
+                        color={"neutral-strong"}
+                        icon={<KeyboardArrowRightIcon />}
+                        onClick={() => console.log("clicked")}
+                    />
+                </div>
+            </div>
         )
     }
 };
-
