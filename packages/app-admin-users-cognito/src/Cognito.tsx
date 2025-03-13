@@ -1,5 +1,5 @@
 import React, { Fragment, memo } from "react";
-import { Plugin, AddUserMenuItem, AddRoute, Layout } from "@webiny/app-admin";
+import { Plugin, AddUserMenuItem, Layout } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
 import { Permission } from "~/plugins/constants";
@@ -8,14 +8,15 @@ import { Account } from "~/ui/views/Account";
 import { UserInfo } from "./plugins/userMenu/userInfo";
 import { AccountDetails } from "./plugins/userMenu/accountDetails";
 import { SignOut } from "./plugins/userMenu/signOut";
-
 import installation from "./plugins/installation";
 import permissionRenderer from "./plugins/permissionRenderer";
 import cognito from "./plugins/cognito";
 import { CognitoLogin, CognitoProps } from "./CognitoLogin";
 import { AdminConfig } from "@webiny/app-admin";
+import { RouterConfig } from "@webiny/app/config/RouterConfig";
 
 const { Menu } = AdminConfig;
+const { Route } = RouterConfig;
 
 const ACCOUNT_ROUTE = "/account";
 
@@ -30,27 +31,41 @@ const CognitoIdP = (props: CognitoProps) => {
             />
             <Plugin>
                 <HasPermission name={Permission.Users}>
-                    <AddRoute path={"/admin-users"}>
-                        <Layout title={"Admin Users"}>
-                            <UsersView />
-                        </Layout>
-                    </AddRoute>
-                    <Menu
-                        name={"cognito.settings"}
-                        parent={"settings"}
-                        element={<Menu.Item label={"Admin Users"} />}
-                    />
-                    <Menu
-                        name={"cognito.settings.adminUsers"}
-                        parent={"settings"}
-                        element={<Menu.Item label={"Users"} path={"/admin-users"} />}
-                    />
+                    <RouterConfig>
+                        <Route
+                            name={"cognito.users"}
+                            path={"/admin-users"}
+                            element={
+                                <Layout title={"Admin Users"}>
+                                    <UsersView />
+                                </Layout>
+                            }
+                        />
+                    </RouterConfig>
+                    <AdminConfig>
+                        <Menu
+                            name={"cognito.settings"}
+                            parent={"settings"}
+                            element={<Menu.Item label={"Admin Users"} />}
+                        />
+                        <Menu
+                            name={"cognito.settings.adminUsers"}
+                            parent={"settings"}
+                            element={<Menu.Item label={"Users"} path={"/admin-users"} />}
+                        />
+                    </AdminConfig>
                 </HasPermission>
-                <AddRoute path={ACCOUNT_ROUTE}>
-                    <Layout title={"User Account"}>
-                        <Account />
-                    </Layout>
-                </AddRoute>
+                <AdminConfig>
+                    <Route
+                        name={"cognito.account"}
+                        path={ACCOUNT_ROUTE}
+                        element={
+                            <Layout title={"User Account"}>
+                                <Account />
+                            </Layout>
+                        }
+                    />
+                </AdminConfig>
                 <AddUserMenuItem element={<UserInfo accountRoute={ACCOUNT_ROUTE} />} />
                 <AddUserMenuItem element={<AccountDetails accountRoute={ACCOUNT_ROUTE} />} />
                 <AddUserMenuItem element={<SignOut />} />

@@ -5,17 +5,24 @@
 - useNavigation
 - footer visuals ... dropdown menus links
 - top right menu
+- locales selector
 - security issue with admin config
 
-- P:
+## PAVEL
+- tags for header/footer??
+- footer dropdown menus / adding links 🤦‍
+- max stack exceed CMS menus
 - admin logo / title API
-- footer
 - group if click/path is not provided?
+  - in general, how to specify a chapter? API question
 - $first / $last
 - router in app, exposed via Admin cfg
+- packages/app-admin-rmwc/src/modules/Layout.tsx
 - AdminConfig.use
+- Missing <SecurityProvider> in the component hierarchy!
+  - packages/app-security-access-management/src/index.tsx:32
 - withStaticProps / where to put?
-- tags for header/footer??
+- packages/app-admin/src/base/ui/Navigation.tsx:38 - LEGACYPLUGIN
 - makes sense to export route from admin config and auto wrap it with routerConfig? Avoid this:
   ```
   <AdminConfig>

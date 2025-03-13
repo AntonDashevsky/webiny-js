@@ -58,21 +58,19 @@ const MenuBase = makeDecoratable(
         const placeBefore = before !== undefined ? getId(before) : undefined;
 
         return (
-            <>
-                <Property
-                    id={getId(name)}
-                    name={"menus"}
-                    remove={remove}
-                    array={true}
-                    before={placeBefore}
-                    after={placeAfter}
-                >
-                    <Property id={getId(name, "name")} name={"name"} value={name} />
-                    <Property id={getId(name, "parent")} name={"parent"} value={parent} />
-                    <Property id={getId(name, "tags")} name={"tags"} value={tags} />
-                    <Property id={getId(name, "element")} name={"element"} value={element} />
-                </Property>
-            </>
+            <Property
+                id={getId(name)}
+                name={"menus"}
+                remove={remove}
+                array={true}
+                before={placeBefore}
+                after={placeAfter}
+            >
+                <Property id={getId(name, "name")} name={"name"} value={name} />
+                <Property id={getId(name, "parent")} name={"parent"} value={parent} />
+                <Property id={getId(name, "tags")} name={"tags"} value={tags} />
+                <Property id={getId(name, "element")} name={"element"} value={element} />
+            </Property>
         );
     }
 );

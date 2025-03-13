@@ -1,14 +1,17 @@
 import React, { memo } from "react";
 import { ApolloClient } from "apollo-client";
 import { plugins } from "@webiny/plugins";
-import { Plugins, AddMenu, AddRoute, Layout } from "@webiny/app-admin";
-import { ReactComponent as InfoIcon } from "./assets/graphql.svg";
+import { Layout, Plugins } from "@webiny/app-admin";
 import Playground from "./plugins/Playground";
 import playgroundPlugins from "./plugins";
+import { RouterConfig } from "@webiny/app/config/RouterConfig";
+
+const { Route } = RouterConfig;
 
 interface CreateApolloClientParams {
     uri: string;
 }
+
 interface GraphQLPlaygroundProps {
     createApolloClient(params: CreateApolloClientParams): ApolloClient<any>;
 }
@@ -18,18 +21,17 @@ const GraphQLPlaygroundExtension = ({ createApolloClient }: GraphQLPlaygroundPro
 
     return (
         <Plugins>
-            <AddMenu
-                name={"apiPlayground"}
-                label={"API Playground"}
-                path={"/api-playground"}
-                icon={<InfoIcon />}
-                tags={["footer"]}
-            />
-            <AddRoute exact path={"/api-playground"}>
-                <Layout title={"API Playground"}>
-                    <Playground createApolloClient={createApolloClient} />
-                </Layout>
-            </AddRoute>
+            <RouterConfig>
+                <Route
+                    name={'apiPlayground'}
+                    path={"/api-playground"}
+                    element={
+                        <Layout title={"API Playground"}>
+                            <Playground createApolloClient={createApolloClient} />
+                        </Layout>
+                    }
+                />
+            </RouterConfig>
         </Plugins>
     );
 };

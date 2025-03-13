@@ -14,7 +14,7 @@ const SidebarRoot = ({ side = "left", className, children, ...props }: SidebarRo
     return (
         <div
             ref={elementRef}
-            className="wby-group wby-peer wby-block wby-border-r-sm wby-border-neutral-dimmed wby-bg-neutral-dimmed"
+            className="wby-group wby-peer wby-block wby-border-r-sm wby-border-neutral-dimmed wby-bg-neutral-light"
             data-state={state}
             data-sidebar={"root"}
             data-side={side}
@@ -37,7 +37,7 @@ const SidebarRoot = ({ side = "left", className, children, ...props }: SidebarRo
             >
                 <div
                     data-sidebar="sidebar"
-                    className="wby-flex wby-h-full wby-w-full wby-py-xs wby-flex-col wby-bg-sidebar group-data-[variant=floating]:wby-rounded-lg group-data-[variant=floating]:wby-border group-data-[variant=floating]:wby-border-sidebar-border group-data-[variant=floating]:wby-shadow"
+                    className="wby-flex wby-h-full wby-w-full wby-py-xs wby-flex-col"
                 >
                     {children}
                 </div>

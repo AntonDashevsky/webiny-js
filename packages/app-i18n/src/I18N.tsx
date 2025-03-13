@@ -3,12 +3,13 @@ import { plugins } from "@webiny/plugins";
 import { Provider, Plugins } from "@webiny/app-admin";
 import { I18NProvider as ContextProvider } from "./contexts/I18N";
 import { HasPermission } from "@webiny/app-security";
-import { AddRoute } from "@webiny/app-admin";
 import { Layout } from "@webiny/app-admin";
 import { LocalesView } from "./admin/views/locales";
 import i18nPlugins from "./admin/plugins";
 import { AdminConfig } from "@webiny/app-admin";
+import { RouterConfig } from "@webiny/app/config/RouterConfig";
 
+const { Route } = RouterConfig;
 const { Menu } = AdminConfig;
 
 interface I18NProviderProps {
@@ -37,21 +38,30 @@ const I18NExtension = () => {
             <Provider hoc={I18NProviderHOC} />
             <Plugins>
                 <HasPermission name={"i18n.locale"}>
-                    <AddRoute exact path={"/i18n/locales"}>
-                        <Layout title={"I18N - Locales"}>
-                            <LocalesView />
-                        </Layout>
-                    </AddRoute>
-                    <Menu
-                        name="settings.i18n"
-                        parent={"settings"}
-                        element={<Menu.Item label={"Languages"} />}
-                    />
-                    <Menu
-                        name="settings.i18n.locales"
-                        parent={"settings"}
-                        element={<Menu.Item label={"Locales"} path={"/i18n/locales"} />}
-                    />
+                    <RouterConfig>
+                        <Route
+                            name={"i18n.locales"}
+                            exact
+                            path={"/i18n/locales"}
+                            element={
+                                <Layout title={"I18N - Locales"}>
+                                    <LocalesView />
+                                </Layout>
+                            }
+                        />
+                    </RouterConfig>
+                    <AdminConfig>
+                        <Menu
+                            name="i18n.settings"
+                            parent={"settings"}
+                            element={<Menu.Item label={"Languages"} />}
+                        />
+                        <Menu
+                            name="i18n.settings.locales"
+                            parent={"settings"}
+                            element={<Menu.Item label={"Locales"} path={"/i18n/locales"} />}
+                        />
+                    </AdminConfig>
                 </HasPermission>
             </Plugins>
         </Fragment>

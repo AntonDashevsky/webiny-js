@@ -145,7 +145,7 @@ export const App = ({ decorators, ...props }: AppProps) => {
     return (
         <CompositionProvider decorators={decorators}>
             <RouterWithConfig>
-                <AppBase decorators={decorators} {...props} />;
+                <AppBase decorators={decorators} {...props} />
             </RouterWithConfig>
         </CompositionProvider>
     );

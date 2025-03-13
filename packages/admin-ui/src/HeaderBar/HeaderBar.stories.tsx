@@ -11,7 +11,7 @@ const meta: Meta<typeof HeaderBar> = {
     argTypes: {},
     decorators: [
         Story => (
-            <div className="wby-w-[700px]">
+            <div className="wby-bg-[#f4f4f4] wby-h-[500px] wby-w-[1000px]  wby-rounded-[5px] wby-px-[50px] wby-content-center">
                 <Story />
             </div>
         )

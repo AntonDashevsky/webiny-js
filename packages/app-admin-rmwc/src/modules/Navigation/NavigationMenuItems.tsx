@@ -16,15 +16,14 @@ export const NavigationMenuItems = (props: MenusProps) => {
         }
 
         const whereTags = where.tags || [];
+        const menuTags = menu.tags || [];
+
         if (whereTags.length > 0) {
             // If not all tags are present, return false.
-            const menuTags = menu.tags || [];
-            if (!whereTags.every(tag => menuTags.includes(tag))) {
-                return false;
-            }
+            return whereTags.every(tag => menuTags.includes(tag));
         }
 
-        return true;
+        return menuTags.length === 0;
     });
 
     return filteredMenus.map(m => {

@@ -5,7 +5,8 @@ import { Property, useIdGenerator } from "@webiny/react-properties";
 export interface RouteProps {
     name: string;
     path: string;
-    element?: React.ReactElement;
+    exact?: boolean;
+    element: React.ReactElement;
     remove?: boolean;
     before?: string;
     after?: string;
@@ -15,7 +16,7 @@ export type RouteConfig = Pick<RouteProps, "name" | "path" | "element">;
 
 export const Route = makeDecoratable(
     "Route",
-    ({ name, path, element, remove, before, after }: RouteProps) => {
+    ({ name, path, element, exact, remove, before, after }: RouteProps) => {
         const getId = useIdGenerator("Route");
 
         const placeAfter = after !== undefined ? getId(after) : undefined;
@@ -32,6 +33,7 @@ export const Route = makeDecoratable(
             >
                 <Property id={getId(name, "name")} name={"name"} value={name} />
                 <Property id={getId(name, "path")} name={"path"} value={path} />
+                <Property id={getId(name, "exact")} name={"exact"} value={exact} />
                 <Property id={getId(name, "element")} name={"element"} value={element} />
             </Property>
         );

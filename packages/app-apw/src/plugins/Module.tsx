@@ -1,6 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import { AddMenu as Menu, AddRoute } from "@webiny/app-admin";
-import { ReactComponent as ApwIcon } from "~/assets/icons/account_tree_24dp.svg";
 import { SecureRoute } from "@webiny/app-security";
 import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
 import Helmet from "react-helmet";
@@ -8,6 +6,12 @@ import { PublishingWorkflowsView } from "~/views/publishingWorkflows";
 import { ContentReviewDashboard } from "~/views/contentReviewDashboard";
 import { CircularProgress } from "@webiny/ui/Progress";
 import { usePermission } from "~/hooks/usePermission";
+import { AdminConfig } from "@webiny/app-admin";
+import { RouterConfig } from "@webiny/app/config/RouterConfig";
+import { ReactComponent as ApwIcon } from "@material-design-icons/svg/outlined/account_tree.svg";
+
+const { Route } = RouterConfig;
+const { Menu } = AdminConfig;
 
 const ContentReviewEditor = lazy(
     () =>
@@ -20,6 +24,7 @@ const ContentReviewEditor = lazy(
 interface LoaderProps {
     children: React.ReactElement;
 }
+
 const Loader = ({ children, ...props }: LoaderProps) => (
     <Suspense fallback={<CircularProgress />}>{React.cloneElement(children, props)}</Suspense>
 );
@@ -31,57 +36,73 @@ export const Module = () => {
 
     return (
         <>
-            <Menu label={"Publishing Workflows"} name={"apw"} icon={<ApwIcon />}>
+            <AdminConfig>
+                <Menu
+                    name={"apw"}
+                    element={
+                        <Menu.Item
+                            icon={<ApwIcon />}
+                            label={"Publishing Workflows"}
+                            path={"/apw/content-reviews"}
+                        />
+                    }
+                />
+
                 <Menu
                     name={"apw.contentReviews"}
-                    label={"Content Reviews"}
-                    path={"/apw/content-reviews"}
+                    parent={"apw"}
+                    element={<Menu.Item label={"Content Reviews"} path={"/apw/content-reviews"} />}
                 />
                 {manageWorkflows && (
                     <Menu
                         name={"apw.publishingWorkflows"}
-                        label={"Workflows"}
-                        path={"/apw/publishing-workflows"}
+                        parent={"apw"}
+                        element={
+                            <Menu.Item label={"Workflows"} path={"/apw/publishing-workflows"} />
+                        }
                     />
                 )}
-            </Menu>
-            {manageWorkflows && (
-                <AddRoute
+            </AdminConfig>
+            <RouterConfig>
+                {manageWorkflows && (
+                    <Route
+                        name={"apw.publishingWorkflows"}
+                        exact
+                        path={"/apw/publishing-workflows"}
+                        element={
+                            <SecureRoute permission={"apw.publishingWorkflows"}>
+                                <AdminLayout>
+                                    <Helmet title={"APW - Publishing workflows"} />
+                                    <PublishingWorkflowsView />
+                                </AdminLayout>
+                            </SecureRoute>
+                        }
+                    />
+                )}
+                <Route
                     exact
-                    path={"/apw/publishing-workflows"}
-                    render={() => (
-                        <SecureRoute permission={"apw.publishingWorkflows"}>
-                            <AdminLayout>
-                                <Helmet title={"APW - Publishing workflows"} />
-                                <PublishingWorkflowsView />
-                            </AdminLayout>
-                        </SecureRoute>
-                    )}
-                />
-            )}
-            <AddRoute
-                exact
-                path={"/apw/content-reviews"}
-                render={() => (
-                    <>
+                    name={"apw.contentReviews"}
+                    path={"/apw/content-reviews"}
+                    element={
                         <AdminLayout>
                             <Helmet title={"APW - Content Reviews"} />
                             <ContentReviewDashboard />
                         </AdminLayout>
-                    </>
-                )}
-            />
-            <AddRoute
-                path={"/apw/content-reviews/:contentReviewId"}
-                render={() => (
-                    <>
-                        <Helmet title={"APW - Content review editor"} />
-                        <Loader>
-                            <ContentReviewEditor />
-                        </Loader>
-                    </>
-                )}
-            />
+                    }
+                />
+                <Route
+                    name={"apw.contentReviewEditor"}
+                    path={"/apw/content-reviews/:contentReviewId"}
+                    element={
+                        <>
+                            <Helmet title={"APW - Content review editor"} />
+                            <Loader>
+                                <ContentReviewEditor />
+                            </Loader>
+                        </>
+                    }
+                />
+            </RouterConfig>
         </>
     );
 };

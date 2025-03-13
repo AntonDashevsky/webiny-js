@@ -1,13 +1,15 @@
 import React from "react";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
-import { AddRoute, Layout } from "@webiny/app-admin";
+import { Layout } from "@webiny/app-admin";
 import TenantDataList from "./TenantDataList";
 import TenantForm from "./TenantForm";
 import { Plugins } from "@webiny/app-admin";
 import { IsRootTenant } from "~/components/IsRootTenant";
-import { AdminConfig } from "@webiny/app-admin";
 import { ReactComponent as TenantManagerIcon } from "@material-design-icons/svg/outlined/domain.svg";
+import { AdminConfig } from "@webiny/app-admin";
+import { RouterConfig } from "@webiny/app/config/RouterConfig";
 
+const { Route } = RouterConfig;
 const { Menu } = AdminConfig;
 
 export const TenantsView = () => {
@@ -27,16 +29,31 @@ export const TenantsModule = () => {
     return (
         <Plugins>
             <IsRootTenant>
-                <Menu
-                    name={"tenantManager"}
-                    element={<Menu.Item icon={<TenantManagerIcon/>} label={"Tenant Manager"} path={"/tenants"} />}
-                />
+                <AdminConfig>
+                    <Menu
+                        name={"tenantManager"}
+                        element={
+                            <Menu.Item
+                                icon={<TenantManagerIcon />}
+                                label={"Tenant Manager"}
+                                path={"/tenants"}
+                            />
+                        }
+                    />
+                </AdminConfig>
 
-                <AddRoute exact path={"/tenants"}>
-                    <Layout title={"Tenant Manager - Tenants"}>
-                        <TenantsView />
-                    </Layout>
-                </AddRoute>
+                <RouterConfig>
+                    <Route
+                        name={"tenantManager.tenants"}
+                        exact
+                        path={"/tenants"}
+                        element={
+                            <Layout title={"Tenant Manager - Tenants"}>
+                                <TenantsView />
+                            </Layout>
+                        }
+                    />
+                </RouterConfig>
             </IsRootTenant>
         </Plugins>
     );

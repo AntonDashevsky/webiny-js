@@ -15,7 +15,7 @@ const RMWCLayout = () => {
                 {title ? <Helmet title={title} /> : null}
                 <Navigation />
 
-                <div className={"wby-w-full"}>
+                <div className={"wby-w-full wby-bg-white"}>
                     <HeaderBar
                         right={
                             <div className={"wby-flex wby-gap-x-sm"}>

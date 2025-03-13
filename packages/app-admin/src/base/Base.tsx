@@ -28,21 +28,21 @@ const BaseExtension = () => {
     return (
         <Plugin>
             <HasPermission name={"fm.file"}>
-                <FileManager>
-                    {({ showFileManager }) => (
-                        <Menu
-                            name={"fm"}
-                            element={
+                <Menu
+                    name={"fm"}
+                    element={
+                        <FileManager>
+                            {({ showFileManager }) => (
                                 <Menu.Item
                                     label={"File Manager"}
                                     icon={<FileManagerIcon />}
                                     onClick={showFileManager}
                                     data-testid={"admin-drawer-footer-menu-file-manager"}
                                 />
-                            }
-                        />
-                    )}
-                </FileManager>
+                            )}
+                        </FileManager>
+                    }
+                />
             </HasPermission>
 
             <AdminConfig>
