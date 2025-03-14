@@ -18,7 +18,7 @@ import {
 import { Routes as SortRoutes } from "./core/Routes";
 import { DebounceRender } from "./core/DebounceRender";
 import { PluginsProvider } from "./core/Plugins";
-import { RouterConfig, RouterWithConfig } from "~/config/RouterConfig";
+import {RouterConfig, RouterWithConfig, useRouterConfig} from "~/config/RouterConfig";
 
 interface State {
     plugins: JSX.Element[];
@@ -67,7 +67,6 @@ export const AppBase = ({
     providers = [],
     children
 }: AppProps) => {
-    const routerConfig = RouterConfig.use();
 
     const [state, setState] = useState<State>({
         plugins: [],
@@ -110,13 +109,14 @@ export const AppBase = ({
 
     const AppRouter = useMemo(() => {
         return function AppRouter() {
+            const routerConfig = RouterConfig.useRouterConfig();
             const combinedRoutes = [...routes, ...routerConfig.routes].map(r => {
                 return <Route path={r.path} element={r.element} key={r.path} />;
             });
 
             return <SortRoutes key={routes.length} routes={combinedRoutes} />;
         };
-    }, [routes, routerConfig]);
+    }, [routes]);
 
     const Providers = useMemo(() => {
         return compose(...(state.providers || []))(({ children }: ProviderProps) => {
@@ -133,7 +133,9 @@ export const AppBase = ({
                 <Providers>
                     <PluginsProvider>{state.plugins}</PluginsProvider>
                     <DebounceRender wait={debounceRender}>
+            <RouterWithConfig>
                         <AppRouter />
+            </RouterWithConfig>
                     </DebounceRender>
                 </Providers>
             </BrowserRouter>
@@ -144,9 +146,7 @@ export const AppBase = ({
 export const App = ({ decorators, ...props }: AppProps) => {
     return (
         <CompositionProvider decorators={decorators}>
-            <RouterWithConfig>
                 <AppBase decorators={decorators} {...props} />
-            </RouterWithConfig>
         </CompositionProvider>
     );
 };

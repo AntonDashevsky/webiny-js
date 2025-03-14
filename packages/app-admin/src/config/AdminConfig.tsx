@@ -20,9 +20,9 @@ interface AdminConfig {
 export const AdminConfigProvider = createProvider(Original => {
     return function AdminConfigProvider({ children }) {
         return (
-            <AdminWithConfig>
-                <Original>{children}</Original>
-            </AdminWithConfig>
+            <Original>
+                <AdminWithConfig>{children}</AdminWithConfig>
+            </Original>
         );
     };
 });

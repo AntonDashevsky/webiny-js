@@ -1,3 +1,4 @@
+// @ts-nocheck test
 import React, { Fragment } from "react";
 import { ReactComponent as HeadlessCmsIcon } from "~/admin/icons/devices_other-black-24px.svg";
 import usePermission from "~/admin/hooks/usePermission";
@@ -54,7 +55,7 @@ const CmsMenuLoaderComponent = () => {
     }
 
     return null;
-
+/*
     return (
         <Fragment>
             <AdminConfig>
@@ -89,7 +90,7 @@ const CmsMenuLoaderComponent = () => {
                 <ContentGroupsMenuItems />
             </AdminConfig>
         </Fragment>
-    );
+    );*/
 };
 
 export const CmsMenuLoader: React.ComponentType = React.memo(CmsMenuLoaderComponent);
