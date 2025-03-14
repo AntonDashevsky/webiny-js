@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import { Plugin } from "@webiny/app";
 import { plugins } from "@webiny/plugins";
 import { HasPermission } from "@webiny/app-security";
 import { Dashboard, Layout, NotFound } from "~/index";
@@ -15,18 +14,16 @@ import { ReactComponent as ApiPlaygroundIcon } from "@material-design-icons/svg/
 import { ReactComponent as SlackIcon } from "@material-design-icons/svg/outlined/numbers.svg";
 import { ReactComponent as DocsIcon } from "@material-design-icons/svg/outlined/summarize.svg";
 import { ReactComponent as GithubIcon } from "@material-design-icons/svg/outlined/route.svg";
-import { RouterConfig } from "@webiny/app/config/RouterConfig";
 import { DropdownMenu } from "@webiny/admin-ui";
 import { Link } from "@webiny/admin-ui/Link";
 
-const { Menu } = AdminConfig;
-const { Route } = RouterConfig;
+const { Menu, Route } = AdminConfig;
 
 const BaseExtension = () => {
     plugins.register([uiLayoutPlugin]);
 
     return (
-        <Plugin>
+        <AdminConfig>
             <HasPermission name={"fm.file"}>
                 <Menu
                     name={"fm"}
@@ -44,98 +41,93 @@ const BaseExtension = () => {
                     }
                 />
             </HasPermission>
+            <Menu
+                name={"home"}
+                before={"$first"}
+                element={<Menu.Item label={"Home"} icon={<DashboardIcon />} path={"/"} />}
+            />
+            <Menu
+                name={"settings"}
+                after={"$last"}
+                element={
+                    <Menu.Item label={"Settings"} icon={<SettingsIcon />} path={"/settings"} />
+                }
+            />
 
-            <AdminConfig>
-                <Menu
-                    name={"home"}
-                    after={"$last"}
-                    element={<Menu.Item label={"Home"} icon={<DashboardIcon />} path={"/"} />}
-                />
-                <Menu
-                    name={"settings"}
-                    before={"$first"}
-                    element={
-                        <Menu.Item label={"Settings"} icon={<SettingsIcon />} path={"/settings"} />
-                    }
-                />
 
-                <Menu
-                    name={"support"}
-                    tags={["footer"]}
-                    element={
-                        <DropdownMenu
-                            className={"wby-w-[225px]"}
-                            trigger={<Menu.Item icon={<InfoIcon />} label={"Support"} />}
-                        >
-                            <DropdownMenu.Item
-                                content={<Link to={"/api-playground"}>API Playground</Link>}
-                                icon={<ApiPlaygroundIcon />}
-                            />
-                            <DropdownMenu.Item
-                                content={
-                                    <Link
-                                        to={"https://www.webiny.com/docs"}
-                                        rel={"noopener noreferrer"}
-                                        target={"_blank"}
-                                    >
-                                        Documentation
-                                    </Link>
-                                }
-                                icon={<DocsIcon />}
-                            />
-                            <DropdownMenu.Item
-                                content={
-                                    <Link
-                                        to={"https://github.com/webiny/webiny-js"}
-                                        rel={"noopener noreferrer"}
-                                        target={"_blank"}
-                                    >
-                                        GitHub
-                                    </Link>
-                                }
-                                icon={<GithubIcon />}
-                            />
-                            <DropdownMenu.Item
-                                content={
-                                    <Link
-                                        to={"https://www.webiny.com/slack"}
-                                        rel={"noopener noreferrer"}
-                                        target={"_blank"}
-                                    >
-                                        Slack
-                                    </Link>
-                                }
-                                icon={<SlackIcon />}
-                            />
-                            <DropdownMenu.Separator />
-                            <DropdownMenu.Item content={<WebinyVersion />} readOnly />
-                        </DropdownMenu>
-                    }
-                />
-            </AdminConfig>
+            <Menu
+                name={"support"}
+                tags={["footer"]}
+                element={
+                    <DropdownMenu
+                        className={"wby-w-[225px]"}
+                        trigger={<Menu.Item icon={<InfoIcon />} label={"Support"} />}
+                    >
+                        <DropdownMenu.Item
+                            content={<Link to={"/api-playground"}>API Playground</Link>}
+                            icon={<ApiPlaygroundIcon />}
+                        />
+                        <DropdownMenu.Item
+                            content={
+                                <Link
+                                    to={"https://www.webiny.com/docs"}
+                                    rel={"noopener noreferrer"}
+                                    target={"_blank"}
+                                >
+                                    Documentation
+                                </Link>
+                            }
+                            icon={<DocsIcon />}
+                        />
+                        <DropdownMenu.Item
+                            content={
+                                <Link
+                                    to={"https://github.com/webiny/webiny-js"}
+                                    rel={"noopener noreferrer"}
+                                    target={"_blank"}
+                                >
+                                    GitHub
+                                </Link>
+                            }
+                            icon={<GithubIcon />}
+                        />
+                        <DropdownMenu.Item
+                            content={
+                                <Link
+                                    to={"https://www.webiny.com/slack"}
+                                    rel={"noopener noreferrer"}
+                                    target={"_blank"}
+                                >
+                                    Slack
+                                </Link>
+                            }
+                            icon={<SlackIcon />}
+                        />
+                        <DropdownMenu.Separator />
+                        <DropdownMenu.Item content={<WebinyVersion />} readOnly />
+                    </DropdownMenu>
+                }
+            />
+            <Route
+                name={"home"}
+                path={"/"}
+                element={
+                    <Layout title={"Welcome!"}>
+                        <Dashboard />
+                    </Layout>
+                }
+            />
 
-            <RouterConfig>
-                <Route
-                    name={"home"}
-                    path={"/"}
-                    element={
-                        <Layout title={"Welcome!"}>
-                            <Dashboard />
-                        </Layout>
-                    }
-                />
-
-                <Route
-                    name={"default"}
-                    path={"*"}
-                    element={
-                        <Layout title={"Not Accessible"}>
-                            <NotFound />
-                        </Layout>
-                    }
-                />
-            </RouterConfig>
-        </Plugin>
+            <Route
+                name={"default"}
+                path={"*"}
+                element={
+                    <Layout title={"Not Accessible"}>
+                        <NotFound />
+                    </Layout>
+                }
+            />
+        </AdminConfig>
     );
 };
 

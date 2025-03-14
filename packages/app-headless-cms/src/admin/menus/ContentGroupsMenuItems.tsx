@@ -76,7 +76,7 @@ export const ContentGroupsMenuItems = () => {
             {groups.map(group => {
                 return (
                     <HasContentEntryPermissions key={group.id} group={group}>
-                        <AdminConfig>
+                        <>
                             <Menu
                                 name={group.id}
                                 tags={["headlessCMS"]}
@@ -111,7 +111,7 @@ export const ContentGroupsMenuItems = () => {
                                         />
                                     </HasContentEntryPermissions>
                                 ))}
-                        </AdminConfig>
+                        </>
                     </HasContentEntryPermissions>
                 );
             })}

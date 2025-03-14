@@ -54,43 +54,39 @@ const CmsMenuLoaderComponent = () => {
         return null;
     }
 
-    return null;
-/*
     return (
         <Fragment>
-            <AdminConfig>
-                <Menu
-                    name={"headlessCMS"}
-                    after={"home"}
-                    element={
-                        <Menu.Item label={"Headless CMS"} icon={<HeadlessCmsIcon />} path={"asd"} />
-                    }
-                />
+            <Menu
+                name={"headlessCMS"}
+                after={"home"}
+                element={
+                    <Menu.Item label={"Headless CMS"} icon={<HeadlessCmsIcon />} path={"asd"} />
+                }
+            />
 
-                <Menu
-                    name={"headlessCMS"}
-                    after={"home"}
-                    element={
-                        <Menu.Item label={"Headless CMS"} icon={<HeadlessCmsIcon />} path={"asd"} />
-                    }
-                />
+            <Menu
+                name={"headlessCMS"}
+                after={"home"}
+                element={
+                    <Menu.Item label={"Headless CMS"} icon={<HeadlessCmsIcon />} path={"asd"} />
+                }
+            />
 
-                {(canCreateContentModels || canCreateContentModelGroups) && (
-                    <>
-                        <Menu
-                            name={"headlessCMS.contentModels"}
-                            parent={"headlessCMS"}
-                            element={<Menu.Item label={"Content Models"} />}
-                        />
+            {(canCreateContentModels || canCreateContentModelGroups) && (
+                <>
+                    <Menu
+                        name={"headlessCMS.contentModels"}
+                        parent={"headlessCMS"}
+                        element={<Menu.Item label={"Content Models"} />}
+                    />
 
-                        <CmsContentModelsMenu canAccess={canCreateContentModels} />
-                        <CmsContentGroupsMenu canAccess={canCreateContentModelGroups} />
-                    </>
-                )}
-                <ContentGroupsMenuItems />
-            </AdminConfig>
+                    <CmsContentModelsMenu canAccess={canCreateContentModels} />
+                    <CmsContentGroupsMenu canAccess={canCreateContentModelGroups} />
+                </>
+            )}
+            <ContentGroupsMenuItems />
         </Fragment>
-    );*/
+    );
 };
 
 export const CmsMenuLoader: React.ComponentType = React.memo(CmsMenuLoaderComponent);

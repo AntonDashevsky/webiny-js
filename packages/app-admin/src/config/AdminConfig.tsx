@@ -1,10 +1,11 @@
 import React from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
 import { Menu, type MenuConfig } from "./AdminConfig/Menu";
-import { Route, type RouteConfig } from "./AdminConfig/Route";
+import { Route } from "./AdminConfig/Route";
 import { Theme } from "./AdminConfig/Theme";
 import { createProvider } from "@webiny/app";
 import { withStaticProps } from "@webiny/admin-ui";
+import type { RouteConfig } from "@webiny/app/config/RouterConfig/Route";
 
 const base = createConfigurableComponent<AdminConfig>("AdminConfig");
 
@@ -19,6 +20,7 @@ interface AdminConfig {
 
 export const AdminConfigProvider = createProvider(Original => {
     return function AdminConfigProvider({ children }) {
+        console.log("AdminConfigProvider is rendering!")
         return (
             <Original>
                 <AdminWithConfig>{children}</AdminWithConfig>

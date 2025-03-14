@@ -4,7 +4,9 @@ import { MenuData, MenuUpdater, Tags } from "~/index";
 
 export interface NavigationContext {
     menuItems: MenuData[];
+
     setMenu(id: string, update: MenuUpdater): void;
+
     removeMenu(id: string): void;
 }
 
