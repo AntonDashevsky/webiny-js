@@ -1,6 +1,6 @@
 import { createBlueGreenApp } from "@webiny/serverless-cms-aws";
 
-const cert = process.env.WEBINY_BG_CERT_ARN;
+const cert = process.env.WEBINY_BG_CERT_ARN as string;
 
 export default createBlueGreenApp({
     pulumiResourceNamePrefix: "wby-",
