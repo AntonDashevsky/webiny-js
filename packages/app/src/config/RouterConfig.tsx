@@ -1,6 +1,5 @@
 import { createConfigurableComponent } from "@webiny/react-properties";
 import { Route, type RouteConfig } from "./RouterConfig/Route";
-import { withStaticProps } from "~/utils";
 
 const base = createConfigurableComponent<RouterConfig>("RouterConfig");
 
@@ -20,7 +19,7 @@ export const useRouterConfig = () => {
     };
 };
 
-export const RouterConfig = withStaticProps(base.Config, {
+export const RouterConfig = Object.assign(base.Config, {
     Route,
     useRouterConfig
 });

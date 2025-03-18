@@ -8,4 +8,3 @@ export * from "./getTenantId";
 export * from "./isLocalhost";
 export * from "./isPrerendering";
 export * from "./legacyPluginToReactComponent";
-export * from "./withStaticProps";
