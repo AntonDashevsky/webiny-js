@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { ReactComponent as Icon } from "@material-symbols/svg-400/outlined/quick_reference_all.svg";
 
-import { Layout, Plugin, useWcp } from "@webiny/app-admin";
+import { Layout, useWcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { AcoProvider } from "@webiny/app-aco";
 
@@ -33,20 +33,14 @@ export const AuditLogs = () => {
     return (
         <>
             <LogsModule />
-            <Plugin>
+            <AdminConfig>
                 <HasPermission any={["al.*"]}>
-                    <AdminConfig>
-                        <Menu
-                            name="auditLogs"
-                            element={
-                                <Menu.Link
-                                    label={"Audit Logs"}
-                                    icon={<Icon />}
-                                    path="/audit-logs"
-                                />
-                            }
-                        />
-                    </AdminConfig>
+                    <Menu
+                        name="auditLogs"
+                        element={
+                            <Menu.Link label={"Audit Logs"} icon={<Icon />} path="/audit-logs" />
+                        }
+                    />
                     <RouterConfig>
                         <Route
                             name={"auditLogs"}
@@ -70,7 +64,8 @@ export const AuditLogs = () => {
                         />
                     </RouterConfig>
                 </HasPermission>
-            </Plugin>
+            </AdminConfig>
+
             <AuditLogsPermissions />
         </>
     );

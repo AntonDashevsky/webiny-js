@@ -67,9 +67,9 @@ const App = (props: AdminProps) => {
             <HeadlessCMS createApolloClient={createApolloClient} />
             <AdvancedPublishingWorkflow />
             <TenantManager />
-            {/*<AuditLogs />*/}
-            {/*<MailerSettings />*/}
-            {/*<TrashBinConfigs />*/}
+            <AuditLogs />
+            <MailerSettings />
+            <TrashBinConfigs />
             <DynamicPages />
             {props.children}
         </BaseAdmin>

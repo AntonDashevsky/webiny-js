@@ -50,7 +50,7 @@ const PageBuilderProviderPlugin = createProviderPlugin(Component => {
 
 const PageBuilderMenu = () => {
     return (
-        <>
+        <AdminConfig>
             <HasPermission any={["pb.menu", "pb.category", "pb.page", "pb.template", "pb.block"]}>
                 <Menu
                     name="pb"
@@ -126,7 +126,7 @@ const PageBuilderMenu = () => {
                     }
                 />
             </HasPermission>
-        </>
+        </AdminConfig>
     );
 };
 
@@ -159,8 +159,8 @@ export const PageBuilder = () => {
             <PagesModule />
             <PageBuilderProviderPlugin />
             <EditorRendererPlugin />
+            <PageBuilderMenu />
             <Plugins>
-                <PageBuilderMenu />
                 <WebsiteSettings />
                 <DefaultOnPagePublish />
                 <DefaultOnPageUnpublish />
