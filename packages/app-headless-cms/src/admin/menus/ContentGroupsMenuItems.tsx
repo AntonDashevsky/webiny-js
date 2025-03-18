@@ -68,7 +68,7 @@ export const ContentGroupsMenuItems = () => {
     }
 
     return (
-        <>
+        <AdminConfig>
             {groups.map(group => {
                 return (
                     <HasContentEntryPermissions key={group.id} group={group}>
@@ -111,6 +111,6 @@ export const ContentGroupsMenuItems = () => {
                     </HasContentEntryPermissions>
                 );
             })}
-        </>
+        </AdminConfig>
     );
 };
