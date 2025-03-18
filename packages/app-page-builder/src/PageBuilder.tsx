@@ -55,7 +55,7 @@ const PageBuilderMenu = () => {
                 <Menu
                     name="pb"
                     element={
-                        <Menu.Item
+                        <Menu.Link
                             label={"Page Builder"}
                             icon={<PagesIcon />}
                             path={"/page-builder/pages"}
@@ -65,20 +65,20 @@ const PageBuilderMenu = () => {
             </HasPermission>
 
             <HasPermission any={["pb.menu", "pb.category", "pb.page", "pb.template", "pb.block"]}>
-                <Menu name="pb.pagesLabel" parent="pb" element={<Menu.Item label={"Pages"} />} />
+                <Menu name="pb.pagesLabel" parent="pb" element={<Menu.Group label={"Pages"} />} />
             </HasPermission>
             <HasPermission name={"pb.category"}>
                 <Menu
                     name="pb.categories"
                     parent={"pb"}
-                    element={<Menu.Item label={"Categories"} path={"/page-builder/categories"} />}
+                    element={<Menu.Link label={"Categories"} path={"/page-builder/categories"} />}
                 />
             </HasPermission>
             <HasPermission name={"pb.page"}>
                 <Menu
                     name="pb.pages"
                     parent={"pb"}
-                    element={<Menu.Item label={"Pages"} path={"/page-builder/pages"} />}
+                    element={<Menu.Link label={"Pages"} path={"/page-builder/pages"} />}
                 />
             </HasPermission>
             <HasPermission name={"pb.template"}>
@@ -86,7 +86,7 @@ const PageBuilderMenu = () => {
                     name="pb.templates"
                     parent={"pb"}
                     element={
-                        <Menu.Item label={"Templates"} path={"/page-builder/page-templates"} />
+                        <Menu.Link label={"Templates"} path={"/page-builder/page-templates"} />
                     }
                 />
             </HasPermission>
@@ -94,35 +94,35 @@ const PageBuilderMenu = () => {
                 <Menu
                     name="pb.menus"
                     parent={"pb"}
-                    element={<Menu.Item label={"Menus"} path={"/page-builder/menus"} />}
+                    element={<Menu.Link label={"Menus"} path={"/page-builder/menus"} />}
                 />
             </HasPermission>
             <HasPermission any={["pb.block"]}>
-                <Menu name="pb.blocksLabel" parent="pb" element={<Menu.Item label={"Blocks"} />} />
+                <Menu name="pb.blocksLabel" parent="pb" element={<Menu.Group label={"Blocks"} />} />
                 <Menu
                     name="pb.blocks.categories"
                     parent={"pb"}
                     element={
-                        <Menu.Item label={"Categories"} path={"/page-builder/block-categories"} />
+                        <Menu.Link label={"Categories"} path={"/page-builder/block-categories"} />
                     }
                 />
                 <Menu
                     name="pb.blocks.pageBlocks"
                     parent={"pb"}
-                    element={<Menu.Item label={"Blocks"} path={"/page-builder/page-blocks"} />}
+                    element={<Menu.Link label={"Blocks"} path={"/page-builder/page-blocks"} />}
                 />
             </HasPermission>
             <HasPermission name={"pb.settings"}>
                 <Menu
                     name="pb.settings"
                     parent="settings"
-                    element={<Menu.Item label={"Page Builder"} />}
+                    element={<Menu.Group label={"Page Builder"} />}
                 />
                 <Menu
                     name="pb.settings.website"
                     parent={"settings"}
                     element={
-                        <Menu.Item label={"Website"} path={"/settings/page-builder/website"} />
+                        <Menu.Link label={"Website"} path={"/settings/page-builder/website"} />
                     }
                 />
             </HasPermission>

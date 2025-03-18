@@ -44,16 +44,15 @@ const BaseExtension = () => {
             <Menu
                 name={"home"}
                 before={"$first"}
-                element={<Menu.Item label={"Home"} icon={<DashboardIcon />} path={"/"} />}
+                element={<Menu.Link label={"Home"} icon={<DashboardIcon />} path={"/"} />}
             />
             <Menu
                 name={"settings"}
                 after={"$last"}
                 element={
-                    <Menu.Item label={"Settings"} icon={<SettingsIcon />} path={"/settings"} />
+                    <Menu.Link label={"Settings"} icon={<SettingsIcon />} path={"/settings"} />
                 }
             />
-
 
             <Menu
                 name={"support"}

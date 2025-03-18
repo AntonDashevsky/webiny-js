@@ -27,13 +27,13 @@ export const SettingsModule = () => {
                 <Menu
                     parent={"settings"}
                     name={"settings.fm"}
-                    element={<Menu.Item label={"File Manager"} />}
+                    element={<Menu.Group label={"File Manager"} />}
                 />
                 <Menu
                     parent={"settings"}
                     name={"settings.fm.general"}
                     element={
-                        <Menu.Item label={"General"} path={"/settings/file-manager/general"} />
+                        <Menu.Link label={"General"} path={"/settings/file-manager/general"} />
                     }
                 />
             </HasPermission>

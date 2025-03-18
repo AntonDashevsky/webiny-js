@@ -41,12 +41,12 @@ const MailerSettings = () => {
                 <Menu
                     name={"mailer.settings"}
                     parent={"settings"}
-                    element={<Menu.Item label={"Mailer"} />}
+                    element={<Menu.Group label={"Mailer"} />}
                 />
                 <Menu
                     name={"mailer.settings.general"}
                     parent={"settings"}
-                    element={<Menu.Item label={"Settings"} path={"/mailer/settings"} />}
+                    element={<Menu.Link label={"Settings"} path={"/mailer/settings"} />}
                 />
             </AdminConfig>
             <RouterConfig>

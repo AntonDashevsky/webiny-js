@@ -37,7 +37,7 @@ export const Module = () => {
             <Menu
                 name={"apw"}
                 element={
-                    <Menu.Item
+                    <Menu.Link
                         icon={<ApwIcon />}
                         label={"Publishing Workflows"}
                         path={"/apw/content-reviews"}
@@ -48,13 +48,13 @@ export const Module = () => {
             <Menu
                 name={"apw.contentReviews"}
                 parent={"apw"}
-                element={<Menu.Item label={"Content Reviews"} path={"/apw/content-reviews"} />}
+                element={<Menu.Link label={"Content Reviews"} path={"/apw/content-reviews"} />}
             />
             {manageWorkflows && (
                 <Menu
                     name={"apw.publishingWorkflows"}
                     parent={"apw"}
-                    element={<Menu.Item label={"Workflows"} path={"/apw/publishing-workflows"} />}
+                    element={<Menu.Link label={"Workflows"} path={"/apw/publishing-workflows"} />}
                 />
             )}
             {manageWorkflows && (

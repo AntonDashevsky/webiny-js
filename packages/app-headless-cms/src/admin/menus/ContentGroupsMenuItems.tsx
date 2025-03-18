@@ -79,7 +79,7 @@ export const ContentGroupsMenuItems = () => {
                                 name={group.id}
                                 parent={"headlessCMS"}
                                 element={
-                                    <Menu.Item label={group.name} icon={<Icon group={group} />} />
+                                    <Menu.Group label={group.name} icon={<Icon group={group} />} />
                                 }
                             />
 
@@ -87,7 +87,7 @@ export const ContentGroupsMenuItems = () => {
                                 <Menu
                                     parent={"headlessCMS"}
                                     name={`${group.id}-empty`}
-                                    element={<Menu.Item label={"Nothing to show"} />}
+                                    element={<Menu.Group label={"Nothing to show"} />}
                                 />
                             )}
                             {group.contentModels.length > 0 &&
@@ -101,7 +101,7 @@ export const ContentGroupsMenuItems = () => {
                                             parent={"headlessCMS"}
                                             name={contentModel.modelId}
                                             element={
-                                                <Menu.Item
+                                                <Menu.Link
                                                     label={contentModel.name}
                                                     path={`/cms/content-entries/${contentModel.modelId}`}
                                                 />

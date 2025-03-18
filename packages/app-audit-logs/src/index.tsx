@@ -39,7 +39,7 @@ export const AuditLogs = () => {
                         <Menu
                             name="auditLogs"
                             element={
-                                <Menu.Item
+                                <Menu.Link
                                     label={"Audit Logs"}
                                     icon={<Icon />}
                                     path="/audit-logs"

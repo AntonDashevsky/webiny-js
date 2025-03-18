@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { makeDecoratable } from "~/index";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import { Sidebar, withStaticProps } from "@webiny/admin-ui";
@@ -16,36 +16,67 @@ export interface MenuProps {
 
 export type MenuConfig = Pick<MenuProps, "name" | "parent" | "tags" | "element">;
 
-export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface BaseMenuItemProps {
     label: string;
-    path?: string;
-    onClick?: () => void;
     icon?: React.ReactNode;
     action?: React.ReactNode;
     children?: React.ReactNode;
 }
 
-export const MenuItem = makeDecoratable(
-    "MenuItem",
-    ({ label, path, icon, action, children, onClick }: MenuItemProps) => {
-        const location = useLocation();
-        const sharedProps = {
+export interface MenuItemProps
+    extends BaseMenuItemProps,
+        Omit<React.HTMLAttributes<HTMLButtonElement>, "onClick"> {
+    onClick?: () => void;
+}
+
+export interface MenuGroupProps
+    extends BaseMenuItemProps,
+        Omit<React.HTMLAttributes<HTMLDivElement>, "onClick"> {
+    onClick?: () => void;
+}
+
+export interface MenuLinkProps extends BaseMenuItemProps, React.HTMLAttributes<HTMLAnchorElement> {
+    path: string;
+}
+
+export const MenuItem = makeDecoratable("MenuItem", ({ label, icon, ...rest }: MenuItemProps) => {
+    const mappedProps = useMemo(() => {
+        return {
             text: label,
             icon: icon ? <Sidebar.Item.Icon label={label} element={icon} /> : null,
-            action,
-            children
+            ...rest
         };
+    }, [label, icon, rest]);
 
-        if (path) {
-            return <Sidebar.Item {...sharedProps} to={path} active={location.pathname === path} />;
-        }
+    return <Sidebar.Item {...mappedProps} />;
+});
 
-        if (onClick) {
-            return <Sidebar.Item {...sharedProps} onClick={onClick} />;
-        }
+export const MenuGroup = makeDecoratable("MenuItem", ({ label, icon, ...rest }: MenuGroupProps) => {
+    const mappedProps = useMemo(() => {
+        return {
+            text: label,
+            icon: icon ? <Sidebar.Item.Icon label={label} element={icon} /> : null,
+            ...rest
+        };
+    }, [label, icon, rest]);
+    return <Sidebar.Item {...mappedProps} variant={"group-label"} />;
+});
 
-        // If not click nor path was assigned, we treat this as a group label.
-        return <Sidebar.Item {...sharedProps} variant={"group-label"} />;
+export const MenuLink = makeDecoratable(
+    "MenuLink",
+    ({ label, icon, path, ...rest }: MenuLinkProps) => {
+        const location = useLocation();
+
+        const mappedProps = useMemo(() => {
+            return {
+                text: label,
+                icon: icon ? <Sidebar.Item.Icon label={label} element={icon} /> : null,
+                to: path,
+                ...rest
+            };
+        }, [label, icon, rest]);
+
+        return <Sidebar.Item {...mappedProps} active={location.pathname === mappedProps.to} />;
     }
 );
 
@@ -76,5 +107,7 @@ const MenuBase = makeDecoratable(
 );
 
 export const Menu = withStaticProps(MenuBase, {
-    Item: MenuItem
+    Item: MenuItem,
+    Link: MenuLink,
+    Group: MenuGroup
 });

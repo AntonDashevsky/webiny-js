@@ -1,23 +1,23 @@
-- below wby logo horizontal bar not vsible
 - sidebar rerenders?
 - routes
-- useNavigation
 - footer visuals ... dropdown menus links
 - top right menu
 - locales selector
-- DELETE - packages/app-admin/src/base/ui/Navigation.tsx:38 - LEGACYPLUGIN
-- group if click/path is not provided? - `<Menu.Group label={"Admin Users"}/>`
-- Menu.Link
 - Menu.Support
 - Tenant.Name/Logo
 - footer componente (zamaskirani tags)
-    - plus support dropodown menu
-- $first / $last - ping Pavel
+  - plus support dropodown menu
 - chevron not in middle
-
+- decorate sidebar items
+- rmwc folder rename
+- user menu
+- hcms menu bug
+- packages/app-apw/src/plugins/cms/MenuGroupRenderer.tsx:11
+- remove .use from useage
+- 
 ## PAVEL
+
 - ✅ tags for header/footer??
-- ✅ max stack exceed CMS menus
 - ✅ admin logo / title API
 - ✅ router in app, exposed via Admin cfg
 - ✅ packages/app-admin-rmwc/src/modules/Layout.tsx
