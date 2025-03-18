@@ -129,15 +129,15 @@ interface IconButtonProps
 }
 
 const DecoratableIconButton = ({
-                                   className,
-                                   variant,
-                                   size,
-                                   icon,
-                                   iconSize,
-                                   asChild = false,
-                                   disabled,
-                                   ...props
-                               }: IconButtonProps) => {
+    className,
+    variant,
+    size,
+    icon,
+    iconSize,
+    asChild = false,
+    disabled,
+    ...props
+}: IconButtonProps) => {
     const Comp = asChild ? Slot : "button";
     return (
         <span className={cn(iconButtonWrapperVariants({ disabled }))}>

@@ -4,20 +4,16 @@ import {
     Compose,
     UserMenuHandle,
     UserMenuHandleRenderer as UserMenuHandleRendererSpec,
-    UserMenuRenderer as UserMenuRendererSpec,
-    UserMenuItems,
     UserMenuItemRenderer as UserMenuItemRendererSpec,
-    useUserMenuItem,
-    useUserMenu
+    UserMenuItems,
+    UserMenuRenderer as UserMenuRendererSpec,
+    useUserMenu,
+    useUserMenuItem
 } from "@webiny/app-admin";
-import { Menu } from "@webiny/ui/Menu";
-import { List, ListItem, ListItemGraphic } from "@webiny/ui/List";
-import { Icon } from "@webiny/ui/Icon";
+import { Avatar, DropdownMenu, IconButton } from "@webiny/admin-ui";
 import { Link } from "@webiny/react-router";
 import { useSecurity } from "@webiny/app-security";
-import { Avatar } from "@webiny/ui/Avatar";
-import { Image } from "@webiny/app/components";
-import { TopAppBarActionItem } from "@webiny/ui/TopAppBar";
+import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
 
 const UserMenuRendererImpl = () => {
     return function UserMenu() {
@@ -29,11 +25,9 @@ const UserMenuRendererImpl = () => {
         }
 
         return (
-            <Menu anchor={"topEnd"} handle={<TopAppBarActionItem icon={<UserMenuHandle />} />}>
-                <List data-testid="logged-in-user-menu-list">
-                    <UserMenuItems menuItems={menuItems} />
-                </List>
-            </Menu>
+            <DropdownMenu trigger={<UserMenuHandle />} data-testid={"logged-in-user-menu-list"}>
+                <UserMenuItems menuItems={menuItems} />
+            </DropdownMenu>
         );
     };
 };
@@ -48,29 +42,35 @@ const UserMenuHandleRendererImpl = () => {
 
         const profile = identity.profile;
 
-        if (!profile) {
-            return (
-                <Avatar
-                    data-testid="logged-in-user-menu-avatar"
-                    src={undefined}
-                    alt={identity.displayName}
-                    fallbackText={identity.displayName}
-                    renderImage={props => <Image {...props} transform={{ width: 100 }} />}
-                />
-            );
-        }
-
-        const { firstName, lastName, avatar, gravatar } = profile;
+        const { firstName, lastName, avatar } = profile || {};
         const fullName = `${firstName} ${lastName}`;
 
         return (
-            <Avatar
-                data-testid="logged-in-user-menu-avatar"
-                src={avatar ? avatar.src : gravatar}
-                alt={fullName}
-                fallbackText={fullName}
-                renderImage={props => <Image {...props} transform={{ width: 100 }} />}
-            />
+            <div className={"wby-flex wby-gap-x-sm wby-cursor-pointer"}>
+                <div
+                    data-testid="logged-in-user-menu-avatar"
+                    className={
+                        "wby-flex wby-items-center wby-rounded-md wby-gap-xxs wby-py-xs wby-px-xs wby-bg-neutral-light"
+                    }
+                >
+                    <Avatar
+                        size={"sm"}
+                        variant={"strong"}
+                        image={<Avatar.Image src={avatar?.src} />}
+                        fallback={
+                            <Avatar.Fallback className={"wby-uppercase"} delayMs={0}>
+                                {fullName[0]}
+                            </Avatar.Fallback>
+                        }
+                    />
+                    <IconButton
+                        variant={"ghost"}
+                        size={"xs"}
+                        color={"neutral-strong"}
+                        icon={<KeyboardArrowRightIcon />}
+                    />
+                </div>
+            </div>
         );
     };
 };
@@ -91,21 +91,18 @@ const UserMenuItemRendererImpl = () => {
 
         if (path) {
             return (
-                <Link to={path} className={linkStyles}>
-                    <ListItem>
-                        <ListItemGraphic>{icon ? <Icon icon={icon} /> : null}</ListItemGraphic>
-                        {label}
-                    </ListItem>
-                </Link>
+                <DropdownMenu.Item
+                    icon={icon}
+                    content={
+                        <Link to={path} className={linkStyles}>
+                            {label}
+                        </Link>
+                    }
+                />
             );
         }
 
-        return (
-            <ListItem onClick={onClick}>
-                <ListItemGraphic>{icon ? <Icon icon={icon} /> : null}</ListItemGraphic>
-                {label}
-            </ListItem>
-        );
+        return <DropdownMenu.Item onClick={onClick} icon={icon} content={label} />;
     };
 };
 

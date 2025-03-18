@@ -44,7 +44,7 @@ export const AdvancedPublishingWorkflow = () => {
                 <ApwOnEntryPublish />
             </ContentEntryEditorConfig>
 
-                <Module />
+            <Module />
 
             <Plugins>
                 <DefaultBar />

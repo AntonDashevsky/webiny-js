@@ -5,7 +5,7 @@ export {
     createProvider,
     Plugin,
     RoutePlugin,
-    useApp,
+    useApp
 } from "@webiny/app";
 
 export type {

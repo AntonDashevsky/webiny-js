@@ -60,7 +60,11 @@ const CmsMenuLoaderComponent = () => {
                 name={"headlessCMS"}
                 after={"home"}
                 element={
-                    <Menu.Link label={"Headless CMS"} icon={<HeadlessCmsIcon />} path={"/cms/content-models"} />
+                    <Menu.Link
+                        label={"Headless CMS"}
+                        icon={<HeadlessCmsIcon />}
+                        path={"/cms/content-models"}
+                    />
                 }
             />
 

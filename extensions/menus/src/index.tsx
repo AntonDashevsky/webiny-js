@@ -20,22 +20,22 @@ export const Extension = () => {
     return (
         <>
             {/*<AdminConfig>*/}
-                {/*<Project.Logo = img.src */}
-                {/*    <Project.Title = webin*/}
+            {/*<Project.Logo = img.src */}
+            {/*    <Project.Title = webin*/}
 
-                {/*// >>>or<<< set propsa*/}
-                {/*<Tenant.Name value={"Webiny"} element={<>Webiny</>} />*/}
-                {/*<Tenant.Logo src={"https://..."} element={<MyCompanyIcon/>} />*/}
+            {/*// >>>or<<< set propsa*/}
+            {/*<Tenant.Name value={"Webiny"} element={<>Webiny</>} />*/}
+            {/*<Tenant.Logo src={"https://..."} element={<MyCompanyIcon/>} />*/}
 
-                {/*<Menu.Footer */}
-                {/*    name={"cognito.settings"}*/}
-                {/*    parent={"settings"}*/}
-                {/*    element={<Menu.Link label={"Admin Users"} path={'/'} />}*/}
-                {/*/>*/}
+            {/*<Menu.Footer */}
+            {/*    name={"cognito.settings"}*/}
+            {/*    parent={"settings"}*/}
+            {/*    element={<Menu.Link label={"Admin Users"} path={'/'} />}*/}
+            {/*/>*/}
 
-                {/*/!*<Menu.Support element={AKO HOCU OVERRIDAT} label={MOJ CUSTOM LABEL}>*!/*/}
-                {/*    <Menu.Support.Item name={'slack'} remove={true} />*/}
-                {/*/!*</Menu.Support>*!/*/}
+            {/*/!*<Menu.Support element={AKO HOCU OVERRIDAT} label={MOJ CUSTOM LABEL}>*!/*/}
+            {/*    <Menu.Support.Item name={'slack'} remove={true} />*/}
+            {/*/!*</Menu.Support>*!/*/}
             {/*</AdminConfig>*/}
         </>
     );

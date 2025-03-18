@@ -1,15 +1,17 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { Compose, LayoutProps, LayoutRenderer, Navigation } from "@webiny/app-admin";
-import { Avatar, Button, IconButton } from "@webiny/admin-ui";
-import { useSecurity } from "@webiny/app-security";
-import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
+import {
+    Compose,
+    LayoutProps,
+    LayoutRenderer,
+    Navigation,
+    LocaleSelector,
+    UserMenu
+} from "@webiny/app-admin";
 import { HeaderBar } from "@webiny/admin-ui";
 
-const UILayout = () => {
-    return function UILayout({ title, children }: LayoutProps) {
-        const { identity } = useSecurity();
-
+const AdminUiLayout = () => {
+    return function AdminUiLayout({ title, children }: LayoutProps) {
         return (
             <>
                 {title ? <Helmet title={title} /> : null}
@@ -18,43 +20,13 @@ const UILayout = () => {
                 <div className={"wby-w-full wby-bg-white"}>
                     <HeaderBar
                         right={
-                            <div className={"wby-flex wby-gap-x-sm"}>
-                                <Button variant={"ghost"} size={"md"} text={"Root tenant"} />
-                                <div
-                                    className={
-                                        "wby-flex wby-items-center wby-rounded-md wby-gap-xxs wby-py-xs wby-px-xs wby-bg-neutral-light"
-                                    }
-                                >
-                                    <Avatar
-                                        size={"sm"}
-                                        variant={"strong"}
-                                        image={
-                                            <Avatar.Image src={identity!.profile?.avatar?.src} />
-                                        }
-                                        fallback={
-                                            <Avatar.Fallback
-                                                className={"wby-uppercase"}
-                                                delayMs={0}
-                                            >
-                                                {identity!.displayName[0]}
-                                            </Avatar.Fallback>
-                                        }
-                                    />
-                                    <IconButton
-                                        variant={"ghost"}
-                                        size={"xs"}
-                                        color={"neutral-strong"}
-                                        icon={<KeyboardArrowRightIcon />}
-                                        onClick={() => console.log("clicked")}
-                                    />
-                                </div>
-                            </div>
+                            <>
+                                <LocaleSelector />
+                                <UserMenu />
+                            </>
                         }
                     />
-                    <div className={"wby-relative"}>
-                        {children}
-                    </div>
-
+                    <main className={"wby-relative"}>{children}</main>
                 </div>
             </>
         );
@@ -62,5 +34,5 @@ const UILayout = () => {
 };
 
 export const Layout = () => {
-    return <Compose component={LayoutRenderer} with={UILayout} />;
+    return <Compose component={LayoutRenderer} with={AdminUiLayout} />;
 };

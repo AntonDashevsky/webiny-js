@@ -5,7 +5,6 @@ import { HasPermission } from "@webiny/app-security";
 import { Permission } from "~/plugins/constants";
 import { UsersView } from "~/ui/views/Users/UsersView";
 import { Account } from "~/ui/views/Account";
-import { UserInfo } from "./plugins/userMenu/userInfo";
 import { AccountDetails } from "./plugins/userMenu/accountDetails";
 import { SignOut } from "./plugins/userMenu/signOut";
 import installation from "./plugins/installation";
@@ -59,7 +58,6 @@ const CognitoIdP = (props: CognitoProps) => {
                         </Layout>
                     }
                 />
-                <AddUserMenuItem element={<UserInfo accountRoute={ACCOUNT_ROUTE} />} />
                 <AddUserMenuItem element={<AccountDetails accountRoute={ACCOUNT_ROUTE} />} />
                 <AddUserMenuItem element={<SignOut />} />
             </AdminConfig>

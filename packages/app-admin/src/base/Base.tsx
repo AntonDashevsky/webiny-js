@@ -52,7 +52,11 @@ const BaseExtension = () => {
                     name={"settings"}
                     after={"$last"}
                     element={
-                        <Menu.Link label={"Settings"} icon={<SettingsIcon />} path={"/settings"} />
+                        <Menu.Link
+                            label={"Settings"}
+                            icon={<SettingsIcon />}
+                            path={"/access-management/roles"}
+                        />
                     }
                 />
 

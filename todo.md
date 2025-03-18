@@ -1,28 +1,22 @@
-
-- footer visuals ... dropdown menus links
-- top right menu
 - locales selector
-- Menu.Support
-- Tenant.Name/Logo
-- footer componente (zamaskirani tags)
-    - plus support dropodown menu
-- decorate sidebar items
-- user menu
-- hcms menu bug
-- packages/app-apw/src/plugins/cms/MenuGroupRenderer.tsx:11
-- No routes matched location "/"  Error Component Stack
 
 ## SH / Next PR
+- No routes matched location "/"  Error Component Stack
+- hcms menu bug
+- what's this for? packages/app-apw/src/plugins/cms/MenuGroupRenderer.tsx:11
 - sidebar rerenders?
   - layout component not used?
   - secureRoute wrapping layout also kills sidebar?
   - gotta implement ls-based storing of open/closed state
   - HasPermissions instead of SecureRoute helps!
-  
-## PAVEL
-
-- ✅ tags for header/footer??
-- ✅ admin logo / title API
-- ✅ router in app, exposed via Admin cfg
-- ✅ packages/app-admin-rmwc/src/modules/Layout.tsx
+- Menu.Support
+- Tenant.Name/Logo
+- footer componente (zamaskirani tags)
+  - plus support dropodown menu
+- decorate sidebar items
+- placeholders cleanup in app-admin-ui
 - withStaticProps / where to put?
+- top app bar menu items via config (packages/app-admin/src/base/ui/UserMenu.tsx)
+- DropdownMenu icon=<svg...> or icon=<Item.Icon src={<Svg
+- dropdown links .... not clickable the whole zone.. prolly revisit and do the same thing as with the sidebar
+- kreso locale selctor

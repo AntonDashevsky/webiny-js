@@ -20,7 +20,8 @@ const variants = cva(
         "wby-px-xs-plus wby-outline-none wby-transition-colors",
         "[&_svg]:wby-fill-neutral-xstrong [&_svg]:wby-pointer-events-none [&_svg]:wby-size-md [&_svg]:wby-shrink-0",
         "data-[disabled]:wby-pointer-events-none data-[disabled]:wby-text-neutral-disabled",
-        "focus:wby-bg-neutral-dimmed"
+        "focus:wby-bg-neutral-dimmed",
+        "[&_a]:!wby-no-underline [&_a]:!wby-text-neutral-primary"
     ],
     {
         variants: {
