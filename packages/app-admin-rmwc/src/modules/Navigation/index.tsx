@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import {
-    AdminConfig,
+    useAdminConfig,
     Compose,
     NavigationRenderer as NavigationSpec,
     Provider
@@ -26,7 +26,7 @@ const NavigationProvider = (Component: React.ComponentType<NavigationProviderPro
 
 export const NavigationImpl = () => {
     return function Navigation() {
-        const { menus } = AdminConfig.use();
+        const { menus } = useAdminConfig();
 
         const title = "Webiny";
         const icon = (

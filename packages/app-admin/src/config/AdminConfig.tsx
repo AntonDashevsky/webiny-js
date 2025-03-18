@@ -5,7 +5,6 @@ import { Route } from "./AdminConfig/Route";
 import { Theme } from "./AdminConfig/Theme";
 import { createProvider } from "@webiny/app";
 import { withStaticProps } from "@webiny/admin-ui";
-import type { RouteConfig } from "@webiny/app/config/RouterConfig/Route";
 
 const base = createConfigurableComponent<AdminConfig>("AdminConfig");
 
@@ -15,7 +14,6 @@ export const AdminWithConfig = Object.assign(base.WithConfig, {
 
 interface AdminConfig {
     menus: MenuConfig[];
-    routes: RouteConfig[];
 }
 
 export const AdminConfigProvider = createProvider(Original => {
@@ -28,9 +26,18 @@ export const AdminConfigProvider = createProvider(Original => {
     };
 });
 
+export const useAdminConfig = () => {
+    const baseConfig = base.useConfig();
+
+    return {
+        menus: baseConfig.menus ?? []
+    };
+};
+
+
 export const AdminConfig = withStaticProps(base.Config, {
     Theme,
     Menu,
     Route,
-    use: base.useConfig
+    useAdminConfig
 });
