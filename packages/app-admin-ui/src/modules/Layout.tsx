@@ -6,8 +6,8 @@ import { useSecurity } from "@webiny/app-security";
 import { ReactComponent as KeyboardArrowRightIcon } from "@material-design-icons/svg/outlined/keyboard_arrow_down.svg";
 import { HeaderBar } from "@webiny/admin-ui";
 
-const RMWCLayout = () => {
-    return function RMWCLayout({ title, children }: LayoutProps) {
+const UILayout = () => {
+    return function UILayout({ title, children }: LayoutProps) {
         const { identity } = useSecurity();
 
         return (
@@ -59,5 +59,5 @@ const RMWCLayout = () => {
 };
 
 export const Layout = () => {
-    return <Compose component={LayoutRenderer} with={RMWCLayout} />;
+    return <Compose component={LayoutRenderer} with={UILayout} />;
 };

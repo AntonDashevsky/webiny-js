@@ -1,5 +1,5 @@
 {
-  "name": "@webiny/app-admin-rmwc",
+  "name": "@webiny/app-admin-ui",
   "version": "0.0.0",
   "main": "index.js",
   "repository": {
@@ -11,7 +11,6 @@
   "dependencies": {
     "@emotion/styled": "11.10.6",
     "@material-design-icons/svg": "^0.14.13",
-    "@rmwc/base": "14.3.5",
     "@types/react": "18.2.79",
     "@webiny/admin-ui": "workspace:^",
     "@webiny/app": "0.0.0",

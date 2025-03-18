@@ -1,14 +1,13 @@
 import React from "react";
 import { Provider } from "@webiny/app-admin";
 import { DialogContainer } from "./Dialog";
-import { Portal } from "@rmwc/base";
 
 interface OverlaysProps {
     children?: React.ReactNode;
 }
 
 /**
- * Dialogs, Menus and Snackbars require a container to be rendered, and we want to place it outside of
+ * Dialogs require a container to be rendered, and we want to place it outside of
  * any other views that are constructed by developers. We need these 2 containers to always be
  * present, even if there is no <Layout> mounted.
  */
@@ -17,7 +16,6 @@ const OverlaysHOC = (Component: React.ComponentType<OverlaysProps>) => {
         return (
             <Component>
                 {children}
-                <Portal />
                 <DialogContainer />
             </Component>
         );

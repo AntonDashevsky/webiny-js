@@ -5,9 +5,8 @@
 - Menu.Support
 - Tenant.Name/Logo
 - footer componente (zamaskirani tags)
-  - plus support dropodown menu
+    - plus support dropodown menu
 - decorate sidebar items
-- rmwc folder rename
 - user menu
 - hcms menu bug
 - packages/app-apw/src/plugins/cms/MenuGroupRenderer.tsx:11
@@ -19,6 +18,4 @@
 - ✅ admin logo / title API
 - ✅ router in app, exposed via Admin cfg
 - ✅ packages/app-admin-rmwc/src/modules/Layout.tsx
-- ✅ AdminConfig.use
-- ✅ Missing <SecurityProvider> in the component hierarchy!
 - withStaticProps / where to put?

@@ -6,7 +6,7 @@ import { Overlays } from "./modules/Overlays";
 import { NotFound } from "./modules/NotFound";
 import { Dashboard } from "./modules/Dashboard";
 
-export const RMWC = () => {
+export const AdminUI = () => {
     return (
         <Fragment>
             <Layout />
