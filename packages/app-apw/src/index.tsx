@@ -1,5 +1,5 @@
 import React from "react";
-import { AdminConfig, Compose, Plugins, useWcp } from "@webiny/app-admin";
+import { Compose, Plugins, useWcp } from "@webiny/app-admin";
 /**
  * Plugins for "page builder"
  */
@@ -43,9 +43,9 @@ export const AdvancedPublishingWorkflow = () => {
                 <ApwOnEntryDelete />
                 <ApwOnEntryPublish />
             </ContentEntryEditorConfig>
-            <AdminConfig>
+
                 <Module />
-            </AdminConfig>
+
             <Plugins>
                 <DefaultBar />
                 <DecoratePagePublishActions />

@@ -106,6 +106,7 @@ const SidebarProvider = ({
     return (
         <SidebarContext.Provider value={contextValue}>
             <div
+                data-sidebar={"provider"}
                 style={
                     {
                         "--sidebar-width": SIDEBAR_WIDTH,
@@ -115,7 +116,7 @@ const SidebarProvider = ({
                 }
                 {...props}
                 className={cn(
-                    "wby-group/sidebar-wrapper wby-flex wby-min-h-svh wby-w-full wby-bg-neutral-light",
+                    "wby-group/sidebar-wrapper wby-flex wby-min-h-svh wby-w-full",
                     className
                 )}
             >

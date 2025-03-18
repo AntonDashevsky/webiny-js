@@ -1,4 +1,4 @@
-- sidebar rerenders?
+
 - footer visuals ... dropdown menus links
 - top right menu
 - locales selector
@@ -10,8 +10,15 @@
 - user menu
 - hcms menu bug
 - packages/app-apw/src/plugins/cms/MenuGroupRenderer.tsx:11
-- scrollbars
-  No routes matched location "/"  Error Component Stack
+- No routes matched location "/"  Error Component Stack
+
+## SH / Next PR
+- sidebar rerenders?
+  - layout component not used?
+  - secureRoute wrapping layout also kills sidebar?
+  - gotta implement ls-based storing of open/closed state
+  - HasPermissions instead of SecureRoute helps!
+  
 ## PAVEL
 
 - ✅ tags for header/footer??

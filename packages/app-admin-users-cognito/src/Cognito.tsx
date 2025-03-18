@@ -41,7 +41,7 @@ const CognitoIdP = (props: CognitoProps) => {
                     <Menu
                         name={"cognito.settings"}
                         parent={"settings"}
-                        element={<Menu.Link label={"Admin Users"} path={"/"} />}
+                        element={<Menu.Group label={"Admin Users"} />}
                     />
                     <Menu
                         name={"cognito.settings.adminUsers"}
@@ -49,6 +49,7 @@ const CognitoIdP = (props: CognitoProps) => {
                         element={<Menu.Link label={"Users"} path={"/admin-users"} />}
                     />
                 </HasPermission>
+
                 <Route
                     name={"cognito.account"}
                     path={ACCOUNT_ROUTE}

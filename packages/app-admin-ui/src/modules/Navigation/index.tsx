@@ -17,7 +17,7 @@ interface NavigationProviderProps {
 const NavigationProvider = (Component: React.ComponentType<NavigationProviderProps>) => {
     return function NavigationProvider(props: NavigationProviderProps) {
         return (
-            <SidebarProvider defaultOpen>
+            <SidebarProvider>
                 <Component {...props} />
             </SidebarProvider>
         );
@@ -47,9 +47,9 @@ export const NavigationImpl = () => {
 
 export const Navigation = () => {
     return (
-        <Fragment>
+        <>
             <Provider hoc={NavigationProvider} />
             <Compose component={NavigationSpec} with={NavigationImpl} />
-        </Fragment>
+        </>
     );
 };

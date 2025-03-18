@@ -60,7 +60,7 @@ const CmsMenuLoaderComponent = () => {
                 name={"headlessCMS"}
                 after={"home"}
                 element={
-                    <Menu.Link label={"Headless CMS"} icon={<HeadlessCmsIcon />} path={"asd"} />
+                    <Menu.Link label={"Headless CMS"} icon={<HeadlessCmsIcon />} path={"/cms/content-models"} />
                 }
             />
 
@@ -69,7 +69,7 @@ const CmsMenuLoaderComponent = () => {
                     <Menu
                         name={"headlessCMS.contentModels"}
                         parent={"headlessCMS"}
-                        element={<Menu.Link label={"Content Models"} />}
+                        element={<Menu.Group label={"Content Models"} />}
                     />
 
                     <CmsContentModelsMenu canAccess={canCreateContentModels} />

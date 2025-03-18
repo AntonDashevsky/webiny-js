@@ -68,7 +68,6 @@ export const ContentGroupsMenuItems = () => {
         return null;
     }
 
-    console.log("groups N", groups);
     return (
         <>
             {groups.map(group => {

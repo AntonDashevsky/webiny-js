@@ -51,7 +51,10 @@ const UILayout = () => {
                             </div>
                         }
                     />
-                    {children}
+                    <div className={"wby-relative"}>
+                        {children}
+                    </div>
+
                 </div>
             </>
         );

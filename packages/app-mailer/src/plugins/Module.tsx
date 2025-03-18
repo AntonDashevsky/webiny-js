@@ -1,14 +1,11 @@
 import React, { lazy, Suspense } from "react";
-import { AdminConfig, Plugins } from "@webiny/app-admin";
-import { SecureRoute } from "@webiny/app-security";
-import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
+import { AdminConfig, Plugins, Layout } from "@webiny/app-admin";
+import { HasPermission } from "@webiny/app-security";
 import Helmet from "react-helmet";
 import { usePermission } from "~/hooks/usePermission";
 import { CircularProgress } from "@webiny/ui/Progress";
-import { RouterConfig } from "@webiny/app/config/RouterConfig";
 
-const { Menu } = AdminConfig;
-const { Route } = RouterConfig;
+const { Menu, Route } = AdminConfig;
 
 const Settings = lazy(
     () =>
@@ -36,8 +33,21 @@ const MailerSettings = () => {
     }
 
     return (
-        <>
+        <HasPermission name={"mailer.settings"}>
             <AdminConfig>
+                <Route
+                    name={"mailer.settings"}
+                    exact
+                    path={"/mailer/settings"}
+                    element={
+                        <Layout>
+                            <Helmet title={"Mailer - Settings"} />
+                            <Loader>
+                                <Settings />
+                            </Loader>
+                        </Layout>
+                    }
+                />
                 <Menu
                     name={"mailer.settings"}
                     parent={"settings"}
@@ -49,24 +59,7 @@ const MailerSettings = () => {
                     element={<Menu.Link label={"Settings"} path={"/mailer/settings"} />}
                 />
             </AdminConfig>
-            <RouterConfig>
-                <Route
-                    name={"mailer.settings"}
-                    exact
-                    path={"/mailer/settings"}
-                    element={
-                        <SecureRoute permission={"mailer.settings"}>
-                            <AdminLayout>
-                                <Helmet title={"Mailer - Settings"} />
-                                <Loader>
-                                    <Settings />
-                                </Loader>
-                            </AdminLayout>
-                        </SecureRoute>
-                    }
-                />
-            </RouterConfig>
-        </>
+        </HasPermission>
     );
 };
 
