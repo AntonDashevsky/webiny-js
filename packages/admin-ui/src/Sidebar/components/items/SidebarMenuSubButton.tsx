@@ -72,7 +72,7 @@ const SidebarMenuSubButton = ({
     return (
         <div className={"wby-flex wby-items-center wby-w-full"}>
             {content}
-            <div className={"wby-absolute wby-right-[10px]"}>{action}</div>
+            <div className={"wby-flex wby-absolute wby-right-[10px]"}>{action}</div>
         </div>
     );
 };

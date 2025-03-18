@@ -69,7 +69,7 @@ const SidebarMenuRootButton = ({
     return (
         <div className={cn("wby-flex wby-items-center wby-w-full", className)}>
             {content}
-            <div className={"wby-absolute wby-right-[10px]"}>{action}</div>
+            <div className={"wby-flex wby-absolute wby-right-[10px]"}>{action}</div>
         </div>
     );
 };

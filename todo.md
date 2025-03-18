@@ -1,5 +1,4 @@
 - sidebar rerenders?
-- routes
 - footer visuals ... dropdown menus links
 - top right menu
 - locales selector
@@ -7,7 +6,6 @@
 - Tenant.Name/Logo
 - footer componente (zamaskirani tags)
   - plus support dropodown menu
-- chevron not in middle
 - decorate sidebar items
 - rmwc folder rename
 - user menu
