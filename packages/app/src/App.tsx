@@ -1,11 +1,4 @@
-import React, {
-    createContext,
-    useContext,
-    useMemo,
-    useState,
-    useCallback,
-    FunctionComponentElement
-} from "react";
+import React, { createContext, useContext, useMemo, useState, useCallback } from "react";
 import { BrowserRouter, RouteProps, Route } from "@webiny/react-router";
 import {
     CompositionProvider,

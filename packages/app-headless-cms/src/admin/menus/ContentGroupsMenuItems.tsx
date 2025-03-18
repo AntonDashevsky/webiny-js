@@ -7,7 +7,6 @@ import {
 } from "~/admin/viewsGraphql";
 import useQuery from "~/admin/hooks/useQuery";
 import usePermission from "~/admin/hooks/usePermission";
-import { NothingToShow } from "./NothingToShowElement";
 import { CmsGroup, CmsModel } from "~/types";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { AdminConfig } from "@webiny/app-admin";
