@@ -1,5 +1,3 @@
-- locales selector
-
 ## SH / Next PR
 - No routes matched location "/"  Error Component Stack
 - hcms menu bug
@@ -14,9 +12,9 @@
 - footer componente (zamaskirani tags)
   - plus support dropodown menu
 - decorate sidebar items
-- placeholders cleanup in app-admin-ui
 - withStaticProps / where to put?
 - top app bar menu items via config (packages/app-admin/src/base/ui/UserMenu.tsx)
+  - user menu okta/a0 - kill AddUserMenu
 - DropdownMenu icon=<svg...> or icon=<Item.Icon src={<Svg
 - dropdown links .... not clickable the whole zone.. prolly revisit and do the same thing as with the sidebar
 - kreso locale selctor
