@@ -13,7 +13,6 @@
 - footer componente (zamaskirani tags)
   - plus support dropodown menu
 - decorate sidebar items
-- withStaticProps / where to put?
 - top app bar menu items via config (packages/app-admin/src/base/ui/UserMenu.tsx)
   - user menu okta/a0 - kill AddUserMenu
 - DropdownMenu icon=<svg...> or icon=<Item.Icon src={<Svg
