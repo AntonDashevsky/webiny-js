@@ -26,8 +26,6 @@ interface State {
 }
 
 interface AppContext extends State {
-    addRoute(route: JSX.Element): void;
-
     addProvider(hoc: Decorator<GenericComponent<ProviderProps>>): void;
 
     addPlugin(plugin: React.ReactNode): void;
@@ -72,8 +70,6 @@ export const AppBase = ({
         providers
     });
 
-    const addRoute = useCallback((route: FunctionComponentElement<RouteProps>) => {}, []);
-
     const addProvider = useCallback((component: HigherOrderComponent<any, any>) => {
         setState(state => {
             if (state.providers.findIndex(m => m === component) > -1) {
@@ -99,7 +95,6 @@ export const AppBase = ({
     const appContext = useMemo(
         () => ({
             ...state,
-            addRoute,
             addProvider,
             addPlugin
         }),

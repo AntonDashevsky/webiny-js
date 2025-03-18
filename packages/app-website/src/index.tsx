@@ -6,7 +6,6 @@ export {
     Plugin,
     RoutePlugin,
     useApp,
-    AddRoute
 } from "@webiny/app";
 
 export type {

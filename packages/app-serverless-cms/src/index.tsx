@@ -9,8 +9,6 @@ export {
     useNavigation,
     useTags,
     AddLogo,
-    AddMenu,
-    AddRoute,
     AddUserMenuItem,
     Dashboard,
     DashboardRenderer,

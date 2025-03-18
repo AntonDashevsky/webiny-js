@@ -55,15 +55,7 @@ const CmsMenuLoaderComponent = () => {
     }
 
     return (
-        <Fragment>
-            <Menu
-                name={"headlessCMS"}
-                after={"home"}
-                element={
-                    <Menu.Item label={"Headless CMS"} icon={<HeadlessCmsIcon />} path={"asd"} />
-                }
-            />
-
+        <>
             <Menu
                 name={"headlessCMS"}
                 after={"home"}
@@ -85,7 +77,7 @@ const CmsMenuLoaderComponent = () => {
                 </>
             )}
             <ContentGroupsMenuItems />
-        </Fragment>
+        </>
     );
 };
 

@@ -13,6 +13,7 @@
 - footer componente (zamaskirani tags)
     - plus support dropodown menu
 - $first / $last - ping Pavel
+- chevron not in middle
 
 ## PAVEL
 - ✅ tags for header/footer??

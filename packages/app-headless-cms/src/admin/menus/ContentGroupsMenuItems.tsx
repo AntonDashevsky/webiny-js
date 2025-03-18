@@ -10,11 +10,8 @@ import usePermission from "~/admin/hooks/usePermission";
 import { NothingToShow } from "./NothingToShowElement";
 import { CmsGroup, CmsModel } from "~/types";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-
 import { AdminConfig } from "@webiny/app-admin";
-import { RouterConfig } from "@webiny/app/config/RouterConfig";
 
-const { Route } = RouterConfig;
 const { Menu } = AdminConfig;
 
 interface HasContentEntryPermissionsProps {
@@ -71,6 +68,7 @@ export const ContentGroupsMenuItems = () => {
         return null;
     }
 
+    console.log("groups N", groups);
     return (
         <>
             {groups.map(group => {
@@ -79,7 +77,7 @@ export const ContentGroupsMenuItems = () => {
                         <>
                             <Menu
                                 name={group.id}
-                                tags={["headlessCMS"]}
+                                parent={"headlessCMS"}
                                 element={
                                     <Menu.Item label={group.name} icon={<Icon group={group} />} />
                                 }
@@ -87,9 +85,9 @@ export const ContentGroupsMenuItems = () => {
 
                             {group.contentModels.length === 0 && (
                                 <Menu
-                                    parent={group.id}
+                                    parent={"headlessCMS"}
                                     name={`${group.id}-empty`}
-                                    element={<NothingToShow />}
+                                    element={<Menu.Item label={"Nothing to show"} />}
                                 />
                             )}
                             {group.contentModels.length > 0 &&
@@ -100,7 +98,7 @@ export const ContentGroupsMenuItems = () => {
                                         contentModel={contentModel}
                                     >
                                         <Menu
-                                            parent={group.id}
+                                            parent={"headlessCMS"}
                                             name={contentModel.modelId}
                                             element={
                                                 <Menu.Item
