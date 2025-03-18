@@ -20,7 +20,6 @@ interface AdminConfig {
 
 export const AdminConfigProvider = createProvider(Original => {
     return function AdminConfigProvider({ children }) {
-        console.log("AdminConfigProvider is rendering!")
         return (
             <Original>
                 <AdminWithConfig>{children}</AdminWithConfig>

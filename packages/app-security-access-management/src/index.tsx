@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
 import { Layout, useWcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
@@ -20,21 +20,13 @@ export default () => [];
 const AccessManagementExtension = () => {
     plugins.register(accessManagementPlugins());
 
-    console.log("AccessManagementExtension rendering!");
+    const { getProject } = useWcp();
 
-    // const { getProject } = useWcp();
-    //
-    // const project = getProject();
+    const project = getProject();
     let teams = false;
-    // if (project) {
-    //     teams = project.package.features.advancedAccessControlLayer.options.teams;
-    // }
-
-    useEffect(() => {
-        return () => {
-            console.log("Unmounting AccessManagementExtension!");
-        };
-    }, []);
+    if (project) {
+        teams = project.package.features.advancedAccessControlLayer.options.teams;
+    }
 
     return (
         <AdminConfig>
