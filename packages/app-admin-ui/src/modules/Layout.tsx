@@ -19,7 +19,7 @@ const AdminUiLayout = () => {
 
                 <div className={"wby-w-full wby-bg-white"}>
                     <HeaderBar
-                        right={
+                        end={
                             <>
                                 <LocaleSelector />
                                 <UserMenu />

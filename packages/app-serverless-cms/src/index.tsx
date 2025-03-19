@@ -48,9 +48,6 @@ export type {
     ProviderProps,
     LayoutProps,
     LoginScreenProps,
-    MenuContext,
-    MenuData,
-    MenuProps,
     UserMenuItemsProps,
     UserMenuItemProps,
     UserMenuItemData
