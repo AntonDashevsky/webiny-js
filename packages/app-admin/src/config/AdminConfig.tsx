@@ -4,7 +4,6 @@ import { Menu, type MenuConfig } from "./AdminConfig/Menu";
 import { Route } from "./AdminConfig/Route";
 import { Theme } from "./AdminConfig/Theme";
 import { createProvider } from "@webiny/app";
-import { withStaticProps } from "@webiny/admin-ui";
 
 const base = createConfigurableComponent<AdminConfig>("AdminConfig");
 
