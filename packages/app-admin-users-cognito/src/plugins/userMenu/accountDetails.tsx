@@ -40,11 +40,7 @@ export const AccountDetails = ({ accountRoute }: AccountDetailsProps) => {
     return (
         <DropdownMenu.Item
             icon={<AccountIcon />}
-            content={
-                <Link to={accountRoute}>
-                    Account details
-                </Link>
-            }
+            content={<Link to={accountRoute}>Account details</Link>}
         />
     );
 };
