@@ -5,11 +5,12 @@ import { DropdownMenuSubRoot } from "~/DropdownMenu/components/DropdownMenuSubRo
 import { DropdownMenuSubTrigger } from "~/DropdownMenu/components/DropdownMenuSubTrigger";
 import { DropdownMenuPortal } from "~/DropdownMenu/components/DropdownMenuPortal";
 import { DropdownMenuSubContent } from "~/DropdownMenu/components/DropdownMenuSubContent";
+import { Link, LinkProps } from "@webiny/react-router";
 
-interface DropdownMenuItemProps
-    extends Omit<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>, "content"> {
+interface DropdownMenuLinkProps extends Omit<LinkProps, "content"> {
     icon?: React.ReactNode;
     readOnly?: boolean;
+    disabled?: boolean;
     content?: React.ReactNode;
 }
 
@@ -35,14 +36,15 @@ const variants = cva(
     }
 );
 
-const DropdownMenuItemBase = React.forwardRef<
+const DropdownMenuLinkBase = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Item>,
-    DropdownMenuItemProps
->(({ className, icon, content, readOnly, children, ...props }, ref) => {
+    DropdownMenuLinkProps
+>(({ className, icon, content, readOnly, children, ...linkProps }, ref) => {
     if (children) {
         return (
             <DropdownMenuSubRoot>
                 <DropdownMenuSubTrigger>
+                    {/* We don't allow sub menu opener items to be links. */}
                     {icon}
                     <span>{content}</span>
                 </DropdownMenuSubTrigger>
@@ -54,28 +56,25 @@ const DropdownMenuItemBase = React.forwardRef<
     }
 
     return (
-        <DropdownMenuPrimitive.Item
-            ref={ref}
-            className={cn(variants({ readOnly }), className)}
-            {...props}
-        >
-            <div
+        <DropdownMenuPrimitive.Item ref={ref} className={cn(variants({ readOnly }), className)}>
+            <Link
+                {...linkProps}
                 className={cn(
                     "wby-flex wby-px-sm wby-py-xs-plus wby-gap-sm-extra wby-items-center wby-text-md wby-rounded-sm wby-transition-colors",
                     {
-                        "[&_svg]:wby-fill-neutral-disabled": props.disabled
+                        "[&_svg]:wby-fill-neutral-disabled": linkProps.disabled
                     }
                 )}
             >
                 {icon}
                 <span>{content}</span>
-            </div>
+            </Link>
         </DropdownMenuPrimitive.Item>
     );
 });
 
-DropdownMenuItemBase.displayName = DropdownMenuPrimitive.Item.displayName;
+DropdownMenuLinkBase.displayName = DropdownMenuPrimitive.Item.displayName;
 
-const DropdownMenuItem = makeDecoratable("DropdownMenuItem", DropdownMenuItemBase);
+const DropdownMenuLink = makeDecoratable("DropdownMenuLink", DropdownMenuLinkBase);
 
-export { DropdownMenuItem, type DropdownMenuItemProps };
+export { DropdownMenuLink, type DropdownMenuLinkProps };

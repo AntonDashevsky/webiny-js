@@ -4,6 +4,7 @@ import { Property, useIdGenerator } from "@webiny/react-properties";
 import { MenuItem } from "./Menu/MenuItem";
 import { MenuLink } from "./Menu/MenuLink";
 import { MenuGroup } from "./Menu/MenuGroup";
+import { SupportMenu } from "./Menu/SupportMenu";
 
 export interface MenuProps {
     name: string;
@@ -60,5 +61,6 @@ export const Menu = Object.assign(DecoratableMenu, {
     Item: MenuItem,
     Link: MenuLink,
     Group: MenuGroup,
-    Footer: DecoratableFooterMenu
+    Footer: DecoratableFooterMenu,
+    Support: SupportMenu
 });
