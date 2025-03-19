@@ -1,3 +1,4 @@
+// TODO (next PR): revisit this file and refresh it with the latest changes.
 import React, { useCallback, useEffect, useState } from "react";
 import get from "lodash/get";
 import { useUi } from "@webiny/app/hooks/useUi";
