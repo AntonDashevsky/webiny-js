@@ -58,9 +58,8 @@ const BaseExtension = () => {
                 }
             />
 
-            <Menu
+            <Menu.Footer
                 name={"support"}
-                tags={["footer"]}
                 element={
                     <DropdownMenu
                         className={"wby-w-[225px]"}

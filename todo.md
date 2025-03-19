@@ -8,10 +8,9 @@
   - secureRoute wrapping layout also kills sidebar?
   - gotta implement ls-based storing of open/closed state
   - HasPermissions instead of SecureRoute helps!
-- Menu.Support
 - Tenant.Name/Logo
 - footer componente (zamaskirani tags)
-  - plus support dropodown menu
+  - plus support dropodown menu (- Menu.Support)
 - decorate sidebar items
 - top app bar menu items via config (packages/app-admin/src/base/ui/UserMenu.tsx)
   - user menu okta/a0 - kill AddUserMenu
@@ -41,24 +40,13 @@ import { ReactComponent as DashboardIcon } from "@material-design-icons/svg/outl
 export const Extension = () => {
     return (
         <>
-            {/*<AdminConfig>*/}
-            {/*<Project.Logo = img.src */}
-            {/*    <Project.Title = webin*/}
-
             {/*// >>>or<<< set propsa*/}
             {/*<Tenant.Name value={"Webiny"} element={<>Webiny</>} />*/}
             {/*<Tenant.Logo src={"https://..."} element={<MyCompanyIcon/>} />*/}
 
-            {/*<Menu.Footer */}
-            {/*    name={"cognito.settings"}*/}
-            {/*    parent={"settings"}*/}
-            {/*    element={<Menu.Link label={"Admin Users"} path={'/'} />}*/}
-            {/*/>*/}
-
             {/*/!*<Menu.Support element={AKO HOCU OVERRIDAT} label={MOJ CUSTOM LABEL}>*!/*/}
             {/*    <Menu.Support.Item name={'slack'} remove={true} />*/}
             {/*/!*</Menu.Support>*!/*/}
-            {/*</AdminConfig>*/}
         </>
     );
 };
@@ -81,35 +69,6 @@ export const Extension = () => {
 7. ddown menu item - readonly
 
 ## Concerns
-
 - bring back AddMenu
 - packages/app-apw/src/plugins/cms/MenuGroupRenderer.tsx
 - 64 to 45
-
-```
-<AdminConfig>
-    <IsRootTenant>
-        <Menu
-            name={"tenantManager"}
-            element={
-                <Menu.Link
-                    icon={<TenantManagerIcon/>}
-                    label={"Tenant Manager"}
-                    path={"/tenants"}
-                />
-            }
-        />
-
-        <Route
-            name={"tenantManager.tenants"}
-            exact
-            path={"/tenants"}
-            element={
-                <Layout title={"Tenant Manager - Tenants"}>
-                    <TenantsView/>
-                </Layout>
-            }
-        />
-    </IsRootTenant>
-</AdminConfig>
-```
