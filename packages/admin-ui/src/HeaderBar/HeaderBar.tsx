@@ -3,20 +3,22 @@ import { makeDecoratable } from "~/utils";
 import { Separator } from "~/Separator";
 
 interface HeaderBarProps {
-    left?: React.ReactNode;
-    right?: React.ReactNode;
+    start?: React.ReactNode;
+    middle?: React.ReactNode;
+    end?: React.ReactNode;
 }
 
-const HeaderBarBase = ({ left, right }: HeaderBarProps) => {
+const HeaderBarBase = ({ start, middle, end }: HeaderBarProps) => {
     return (
         <>
             <div
                 className={
-                    "wby-flex wby-justify-between wby-items-center wby-py-xs-plus wby-px-sm wby-bg-white wby-w-full"
+                    "wby-grid wby-grid-cols-[1fr_auto_1fr] wby-items-center wby-w-full wby-py-xs-plus wby-px-sm wby-bg-white"
                 }
             >
-                <div>{left}</div>
-                <div>{right}</div>
+                <div className="wby-justify-self-start">{start}</div>
+                <div className="wby-justify-self-center">{middle}</div>
+                <div className="wby-justify-self-end">{end}</div>
             </div>
             <Separator margin={"none"} variant={"subtle"} />
         </>
