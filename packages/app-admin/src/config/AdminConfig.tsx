@@ -34,7 +34,7 @@ export const useAdminConfig = () => {
     };
 };
 
-export const AdminConfig = withStaticProps(base.Config, {
+export const AdminConfig = Object.assign(base.Config, {
     Theme,
     Menu,
     Route,

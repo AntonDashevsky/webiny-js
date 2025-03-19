@@ -6,6 +6,8 @@ export interface MenusProps {
     where?: { tags?: string[]; parent?: string };
 }
 
+// This component is called recursively to render root and nested menu items.
+// The menu items are defined via AdminConfig.
 export const NavigationMenuItems = (props: MenusProps) => {
     const { menus: allMenus, where = {} } = props;
     const filteredMenus = allMenus.filter(menu => {

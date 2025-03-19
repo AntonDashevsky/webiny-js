@@ -12,7 +12,7 @@ const HeaderBarBase = ({ left, right }: HeaderBarProps) => {
         <>
             <div
                 className={
-                    "wby-flex wby-justify-between wby-py-xs-plus wby-px-sm wby-bg-white wby-w-full"
+                    "wby-flex wby-justify-between wby-items-center wby-py-xs-plus wby-px-sm wby-bg-white wby-w-full"
                 }
             >
                 <div>{left}</div>

@@ -13,7 +13,7 @@ export const WebinyVersion = () => {
             return null;
         }
 
-        return <Tag variant={"accent"} content={"WCP "} className={"wby-ml-sm-extra"} />;
+        return <Tag variant={"accent"} content={"WCP"} className={"wby-ml-sm-extra"} />;
     }, []);
 
     return (

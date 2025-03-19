@@ -1,5 +1,4 @@
-// @ts-nocheck test
-import React, { Fragment } from "react";
+import React from "react";
 import { ReactComponent as HeadlessCmsIcon } from "~/admin/icons/devices_other-black-24px.svg";
 import usePermission from "~/admin/hooks/usePermission";
 import { ContentGroupsMenuItems } from "./ContentGroupsMenuItems";
