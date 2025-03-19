@@ -9,8 +9,7 @@
   - gotta implement ls-based storing of open/closed state
   - HasPermissions instead of SecureRoute helps!
 - Tenant.Name/Logo
-- footer componente (zamaskirani tags)
-  - plus support dropodown menu (- Menu.Support)
+- plus support dropodown menu (- Menu.Support)
 - decorate sidebar items
 - top app bar menu items via config (packages/app-admin/src/base/ui/UserMenu.tsx)
   - user menu okta/a0 - kill AddUserMenu

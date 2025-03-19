@@ -58,6 +58,14 @@ const BaseExtension = () => {
                 }
             />
 
+                <Menu.Support
+                    name={'api-playground'}
+                    label={"API Playground"}
+                    icon={<FileManagerIcon />}
+                    onClick={showFileManager}
+                    data-testid={"admin-drawer-footer-menu-file-manager"}
+                />
+
             <Menu.Footer
                 name={"support"}
                 element={
