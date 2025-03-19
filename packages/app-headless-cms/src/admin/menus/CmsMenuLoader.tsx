@@ -54,7 +54,7 @@ const CmsMenuLoaderComponent = () => {
     }
 
     return (
-        <AdminConfig>
+        <>
             <Menu
                 name={"headlessCMS"}
                 after={"home"}
@@ -80,7 +80,7 @@ const CmsMenuLoaderComponent = () => {
                 </>
             )}
             <ContentGroupsMenuItems />
-        </AdminConfig>
+        </>
     );
 };
 

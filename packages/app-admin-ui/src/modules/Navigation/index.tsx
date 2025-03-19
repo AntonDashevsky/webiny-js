@@ -28,6 +28,7 @@ export const NavigationImpl = () => {
     return function Navigation() {
         const { menus } = useAdminConfig();
 
+        // TODO (next PR): These will be registered via config API.
         const title = "Webiny";
         const icon = (
             <Sidebar.Icon element={<img src={wbyLogo} alt={"Webiny"} />} label={"Webiny"} />
