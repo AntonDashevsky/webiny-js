@@ -16,6 +16,7 @@ export * from "./DropdownMenu";
 export * from "./DynamicFieldset";
 export * from "./FormComponent";
 export * from "./Grid";
+export * from "./HeaderBar";
 export * from "./Heading";
 export * from "./Icon";
 export * from "./IconPicker";

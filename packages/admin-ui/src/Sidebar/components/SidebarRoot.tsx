@@ -37,7 +37,7 @@ const SidebarRoot = ({ side = "left", className, children, ...props }: SidebarRo
             >
                 <div
                     data-sidebar="sidebar"
-                    className="wby-flex wby-h-full wby-w-full wby-py-xs wby-flex-col wby-bg-sidebar group-data-[variant=floating]:wby-rounded-lg group-data-[variant=floating]:wby-border group-data-[variant=floating]:wby-border-sidebar-border group-data-[variant=floating]:wby-shadow"
+                    className="wby-flex wby-h-full wby-w-full wby-py-xs wby-flex-col"
                 >
                     {children}
                 </div>
