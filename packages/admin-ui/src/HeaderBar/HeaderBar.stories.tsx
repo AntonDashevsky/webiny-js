@@ -4,11 +4,11 @@ import { HeaderBar } from "./HeaderBar";
 import React from "react";
 import { Button, IconButton } from "~/Button";
 import { Avatar } from "~/Avatar";
+import { Text } from "~/Text";
 
 const meta: Meta<typeof HeaderBar> = {
     title: "Components/HeaderBar",
     component: HeaderBar,
-    argTypes: {},
     decorators: [
         Story => (
             <div className="wby-bg-[#f4f4f4] wby-h-[500px] wby-w-[1000px]  wby-rounded-[5px] wby-px-[50px] wby-content-center">
@@ -47,6 +47,13 @@ export const Default: Story = {
                     />
                 </div>
             </div>
+        ),
+        left: (
+            <Text
+                size={"sm"}
+                className={"wby-text-neutral-dimmed"}
+                text={"Headless CMS / Articles / The best article ever"}
+            />
         )
     }
 };
