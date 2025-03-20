@@ -38,12 +38,12 @@ export const Menus = React.memo(() => {
             </HasPermission>
             <Menu
                 name={"home"}
-                before={"$first"}
+                pin={"start"}
                 element={<Menu.Link label={"Home"} icon={<DashboardIcon />} path={"/"} />}
             />
             <Menu
                 name={"settings"}
-                after={"$last"}
+                pin={"end"}
                 element={
                     <Menu.Link
                         label={"Settings"}
@@ -105,7 +105,7 @@ export const Menus = React.memo(() => {
 
             <Menu.Support
                 name={"webiny-version"}
-                after={"$last"}
+                pin={"end"}
                 element={
                     <>
                         <DropdownMenu.Separator />

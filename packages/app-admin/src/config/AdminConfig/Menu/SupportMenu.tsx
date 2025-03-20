@@ -10,15 +10,23 @@ export interface SupportMenuProps {
     remove?: boolean;
     before?: string;
     after?: string;
+    pin?: "start" | "end";
 }
 
 export type SupportMenuConfig = Pick<SupportMenuProps, "name" | "element">;
 
-const BaseSupportMenu = ({ name, element, remove, before, after }: SupportMenuProps) => {
+const BaseSupportMenu = ({ name, element, remove, before, after, pin }: SupportMenuProps) => {
     const getId = useIdGenerator("Menu");
 
-    const placeAfter = after !== undefined ? getId(after) : undefined;
-    const placeBefore = before !== undefined ? getId(before) : undefined;
+    let placeAfter = after !== undefined ? getId(after) : undefined;
+    let placeBefore = before !== undefined ? getId(before) : undefined;
+    if (pin) {
+        if (pin === "start") {
+            placeBefore = "$first";
+        } else {
+            placeAfter = "$last";
+        }
+    }
 
     return (
         <Property

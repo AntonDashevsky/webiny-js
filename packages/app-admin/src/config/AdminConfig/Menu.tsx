@@ -12,6 +12,7 @@ export interface MenuProps {
     tags?: string[];
     element?: React.ReactElement;
     remove?: boolean;
+    pin?: "start" | "end";
     before?: string;
     after?: string;
 }
@@ -24,13 +25,21 @@ const BaseMenu = ({
     tags = [],
     element,
     remove,
+    pin,
     before,
     after
 }: MenuProps) => {
     const getId = useIdGenerator("Menu");
 
-    const placeAfter = after !== undefined ? getId(after) : undefined;
-    const placeBefore = before !== undefined ? getId(before) : undefined;
+    let placeAfter = after !== undefined ? getId(after) : undefined;
+    let placeBefore = before !== undefined ? getId(before) : undefined;
+    if (pin) {
+        if (pin === "start") {
+            placeBefore = "$first";
+        } else {
+            placeAfter = "$last";
+        }
+    }
 
     return (
         <Property
