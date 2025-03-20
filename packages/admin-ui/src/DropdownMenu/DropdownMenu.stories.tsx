@@ -280,9 +280,18 @@ export const WithOnOpenChange: Story = {
         },
         children: (
             <>
-                <Item icon={<Item.Icon element={<CreditCard />} label={"Billing"}/>} text={"Billing"} />
-                <Item icon={<Item.Icon element={<Settings />} label={"Settings"}/>} text={"Settings"} />
-                <Item icon={<Item.Icon element={<Keyboard />} label={"Keyboard shortcuts"}/>} text={"Keyboard shortcuts"} />
+                <Item
+                    icon={<Item.Icon element={<CreditCard />} label={"Billing"} />}
+                    text={"Billing"}
+                />
+                <Item
+                    icon={<Item.Icon element={<Settings />} label={"Settings"} />}
+                    text={"Settings"}
+                />
+                <Item
+                    icon={<Item.Icon element={<Keyboard />} label={"Keyboard shortcuts"} />}
+                    text={"Keyboard shortcuts"}
+                />
             </>
         )
     },

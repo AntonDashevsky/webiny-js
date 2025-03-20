@@ -4,7 +4,7 @@ import { cn, makeDecoratable } from "~/utils";
 import { ReactComponent as Check } from "@material-design-icons/svg/outlined/check.svg";
 
 export interface DropdownMenuItemProps
-    extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>{
+    extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem> {
     text?: React.ReactNode;
 }
 

@@ -79,7 +79,12 @@ export const ContentGroupsMenuItems = () => {
                                 element={
                                     <Menu.Group
                                         text={group.name}
-                                        icon={<Menu.Group.Icon label={group.name} element={<Icon group={group} />} />}
+                                        icon={
+                                            <Menu.Group.Icon
+                                                label={group.name}
+                                                element={<Icon group={group} />}
+                                            />
+                                        }
                                     />
                                 }
                             />

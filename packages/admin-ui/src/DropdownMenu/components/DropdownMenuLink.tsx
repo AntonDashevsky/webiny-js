@@ -10,8 +10,7 @@ const DropdownMenuLinkBase = (props: DropdownMenuItemLinkProps) => {
 const DecoratableDropdownMenuLink = makeDecoratable("DropdownMenuLink", DropdownMenuLinkBase);
 
 const DropdownMenuLink = withStaticProps(DecoratableDropdownMenuLink, {
-    Icon: DropdownMenuItemIcon,
+    Icon: DropdownMenuItemIcon
 });
 
 export { DropdownMenuLink };
-

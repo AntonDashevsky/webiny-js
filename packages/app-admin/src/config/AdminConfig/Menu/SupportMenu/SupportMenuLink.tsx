@@ -9,7 +9,7 @@ const SupportMenuLinkBase = (props: DropdownMenuLinkProps) => {
 const DecoratableSupportMenuLink = makeDecoratable("SupportMenuLink", SupportMenuLinkBase);
 
 const SupportMenuLink = Object.assign(DecoratableSupportMenuLink, {
-    Icon: DropdownMenu.Link.Icon,
+    Icon: DropdownMenu.Link.Icon
 });
 
 export { SupportMenuLink };

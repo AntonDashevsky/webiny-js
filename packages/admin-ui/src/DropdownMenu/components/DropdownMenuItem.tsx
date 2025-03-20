@@ -98,4 +98,9 @@ const DropdownMenuItem = Object.assign(DecoratableDropdownMenuItem, {
     Icon: DropdownMenuItemIcon
 });
 
-export { DropdownMenuItem, type DropdownMenuItemProps, DropdownMenuItemButtonProps, DropdownMenuItemLinkProps };
+export {
+    DropdownMenuItem,
+    type DropdownMenuItemProps,
+    DropdownMenuItemButtonProps,
+    DropdownMenuItemLinkProps
+};

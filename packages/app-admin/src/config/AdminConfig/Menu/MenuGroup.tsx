@@ -14,4 +14,3 @@ const MenuGroup = Object.assign(DecoratableMenuGroup, {
 });
 
 export { MenuGroup };
-

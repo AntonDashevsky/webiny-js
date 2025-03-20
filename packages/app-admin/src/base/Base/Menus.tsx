@@ -28,7 +28,12 @@ export const Menus = React.memo(() => {
                             {({ showFileManager }) => (
                                 <Menu.Item
                                     text={"File Manager"}
-                                    icon={<Menu.Item.Icon label="File Manager" element={<FileManagerIcon />} />}
+                                    icon={
+                                        <Menu.Item.Icon
+                                            label="File Manager"
+                                            element={<FileManagerIcon />}
+                                        />
+                                    }
                                     onClick={() => showFileManager()}
                                     data-testid={"admin-drawer-footer-menu-file-manager"}
                                 />
