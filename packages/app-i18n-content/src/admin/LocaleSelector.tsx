@@ -32,30 +32,27 @@ export const LocaleSelector = BaseLocaleSelector.createDecorator(() => {
         }
 
         return (
-            // TODO: remove this `div` once the Select component starts supporting
-            // TODO: hiding of the "clear selection" button.
-            <div className={"[&_button>span]:!wby-hidden"}>
-                <Select
-                    value={currentLocale}
-                    onValueChange={value => {
-                        setCurrentLocale(value, "content");
-                        window.location.reload();
-                    }}
-                    size={"md"}
-                    variant={"ghost"}
-                    options={[
-                        {
-                            label: "Locale",
-                            options: [
-                                ...localeList.map(locale => ({
-                                    value: locale.code,
-                                    label: locale.code
-                                }))
-                            ]
-                        }
-                    ]}
-                />
-            </div>
+            <Select
+                displayResetAction={false}
+                value={currentLocale}
+                onValueChange={value => {
+                    setCurrentLocale(value, "content");
+                    window.location.reload();
+                }}
+                size={"md"}
+                variant={"ghost"}
+                options={[
+                    {
+                        label: "Locale",
+                        options: [
+                            ...localeList.map(locale => ({
+                                value: locale.code,
+                                label: locale.code
+                            }))
+                        ]
+                    }
+                ]}
+            />
         );
     };
 });
