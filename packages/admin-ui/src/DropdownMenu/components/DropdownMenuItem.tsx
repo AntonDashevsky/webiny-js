@@ -1,16 +1,17 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn, cva, makeDecoratable } from "~/utils";
-import { DropdownMenuSubRoot } from "~/DropdownMenu/components/DropdownMenuSubRoot";
-import { DropdownMenuSubTrigger } from "~/DropdownMenu/components/DropdownMenuSubTrigger";
-import { DropdownMenuPortal } from "~/DropdownMenu/components/DropdownMenuPortal";
-import { DropdownMenuSubContent } from "~/DropdownMenu/components/DropdownMenuSubContent";
+import { DropdownMenuSubRoot } from "./DropdownMenuSubRoot";
+import { DropdownMenuSubTrigger } from "./DropdownMenuSubTrigger";
+import { DropdownMenuPortal } from "./DropdownMenuPortal";
+import { DropdownMenuSubContent } from "./DropdownMenuSubContent";
+import { DropdownMenuItemIcon } from "./DropdownMenuItemIcon";
 
 interface DropdownMenuItemProps
-    extends Omit<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>, "content"> {
+    extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> {
     icon?: React.ReactNode;
     readOnly?: boolean;
-    content?: React.ReactNode;
+    text?: React.ReactNode;
 }
 
 const variants = cva(
@@ -38,13 +39,13 @@ const variants = cva(
 const DropdownMenuItemBase = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Item>,
     DropdownMenuItemProps
->(({ className, icon, content, readOnly, children, ...props }, ref) => {
+>(({ className, icon, text, readOnly, children, ...props }, ref) => {
     if (children) {
         return (
             <DropdownMenuSubRoot>
                 <DropdownMenuSubTrigger>
                     {icon}
-                    <span>{content}</span>
+                    <span>{text}</span>
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                     <DropdownMenuSubContent>{children}</DropdownMenuSubContent>
@@ -68,7 +69,7 @@ const DropdownMenuItemBase = React.forwardRef<
                 )}
             >
                 {icon}
-                <span>{content}</span>
+                <span>{text}</span>
             </div>
         </DropdownMenuPrimitive.Item>
     );
@@ -76,6 +77,10 @@ const DropdownMenuItemBase = React.forwardRef<
 
 DropdownMenuItemBase.displayName = DropdownMenuPrimitive.Item.displayName;
 
-const DropdownMenuItem = makeDecoratable("DropdownMenuItem", DropdownMenuItemBase);
+const DecoratableDropdownMenuItem = makeDecoratable("DropdownMenuItem", DropdownMenuItemBase);
+
+const DropdownMenuItem = Object.assign(DecoratableDropdownMenuItem, {
+    Icon: DropdownMenuItemIcon
+});
 
 export { DropdownMenuItem, type DropdownMenuItemProps };

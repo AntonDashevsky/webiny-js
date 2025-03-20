@@ -1,20 +1,15 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { makeDecoratable } from "~/index";
 import { DropdownMenu, DropdownMenuItemProps } from "@webiny/admin-ui";
-import { type BaseSupportMenuItemProps } from "./types";
 
-export type SupportMenuItemProps = BaseSupportMenuItemProps & DropdownMenuItemProps;
-
-const SupportMenuItemBase = ({ label, icon, ...itemProps }: SupportMenuItemProps) => {
-    const mappedProps = useMemo(() => {
-        return {
-            ...itemProps,
-            icon,
-            content: label
-        };
-    }, [label, itemProps]);
-
-    return <DropdownMenu.Item {...mappedProps} />;
+const SupportMenuItemBase = (props: DropdownMenuItemProps) => {
+    return <DropdownMenu.Item {...props} />;
 };
 
-export const SupportMenuItem = makeDecoratable("SupportMenuItem", SupportMenuItemBase);
+export const DecoratableSupportMenuItem = makeDecoratable("SupportMenuItem", SupportMenuItemBase);
+
+const SupportMenuItem = Object.assign(DecoratableSupportMenuItem, {
+    Icon: DropdownMenu.Item.Icon,
+});
+
+export { SupportMenuItem };

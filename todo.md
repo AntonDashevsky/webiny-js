@@ -1,11 +1,8 @@
 ## MH
-- <Menu.Support.Link `to` instead of `path`
-- refactor Dropdown.Link / Dropdown.Item
-- target={"\_blank"} on menu.link
-- dropdown links .... not clickable the whole zone.. prolly revisit and do the same thing as with the sidebar
 ---------------
 
 ## NEXT PR
+- group variant removal?
 - top app bar menu items via config (packages/app-admin/src/base/ui/UserMenu.tsx)
   - user menu okta/a0 - kill AddUserMenu
   - icons on user menu

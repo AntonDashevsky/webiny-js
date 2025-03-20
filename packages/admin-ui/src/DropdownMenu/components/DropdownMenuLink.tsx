@@ -6,12 +6,13 @@ import { DropdownMenuSubTrigger } from "~/DropdownMenu/components/DropdownMenuSu
 import { DropdownMenuPortal } from "~/DropdownMenu/components/DropdownMenuPortal";
 import { DropdownMenuSubContent } from "~/DropdownMenu/components/DropdownMenuSubContent";
 import { Link, LinkProps } from "@webiny/react-router";
+import { DropdownMenuItemIcon } from "~/DropdownMenu/components/DropdownMenuItemIcon";
 
-interface DropdownMenuLinkProps extends Omit<LinkProps, "content"> {
+interface DropdownMenuLinkProps extends LinkProps {
     icon?: React.ReactNode;
     readOnly?: boolean;
     disabled?: boolean;
-    content?: React.ReactNode;
+    text?: React.ReactNode;
 }
 
 const variants = cva(
@@ -39,14 +40,14 @@ const variants = cva(
 const DropdownMenuLinkBase = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Item>,
     DropdownMenuLinkProps
->(({ className, icon, content, readOnly, children, ...linkProps }, ref) => {
+>(({ className, icon, text, readOnly, children, ...linkProps }, ref) => {
     if (children) {
         return (
             <DropdownMenuSubRoot>
                 <DropdownMenuSubTrigger>
                     {/* We don't allow sub menu opener items to be links. */}
                     {icon}
-                    <span>{content}</span>
+                    <span>{text}</span>
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                     <DropdownMenuSubContent>{children}</DropdownMenuSubContent>
@@ -67,7 +68,7 @@ const DropdownMenuLinkBase = React.forwardRef<
                 )}
             >
                 {icon}
-                <span>{content}</span>
+                <span>{text}</span>
             </Link>
         </DropdownMenuPrimitive.Item>
     );
@@ -75,6 +76,10 @@ const DropdownMenuLinkBase = React.forwardRef<
 
 DropdownMenuLinkBase.displayName = DropdownMenuPrimitive.Item.displayName;
 
-const DropdownMenuLink = makeDecoratable("DropdownMenuLink", DropdownMenuLinkBase);
+const DecoratableDropdownMenuLink = makeDecoratable("DropdownMenuLink", DropdownMenuLinkBase);
+
+const DropdownMenuLink = Object.assign(DecoratableDropdownMenuLink, {
+    Icon: DropdownMenuItemIcon
+});
 
 export { DropdownMenuLink, type DropdownMenuLinkProps };

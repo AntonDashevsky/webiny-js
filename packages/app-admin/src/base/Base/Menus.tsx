@@ -27,9 +27,9 @@ export const Menus = React.memo(() => {
                         <FileManager>
                             {({ showFileManager }) => (
                                 <Menu.Item
-                                    label={"File Manager"}
-                                    icon={<FileManagerIcon />}
-                                    onClick={showFileManager}
+                                    text={"File Manager"}
+                                    icon={<Menu.Item.Icon label="File Manager" element={<FileManagerIcon />} />}
+                                    onClick={() => showFileManager()}
                                     data-testid={"admin-drawer-footer-menu-file-manager"}
                                 />
                             )}
@@ -40,16 +40,22 @@ export const Menus = React.memo(() => {
             <Menu
                 name={"home"}
                 pin={"start"}
-                element={<Menu.Link label={"Home"} icon={<DashboardIcon />} path={"/"} />}
+                element={
+                    <Menu.Link
+                        to={"/"}
+                        text={"Home"}
+                        icon={<Menu.Link.Icon label="Home" element={<DashboardIcon />} />}
+                    />
+                }
             />
             <Menu
                 name={"settings"}
                 pin={"end"}
                 element={
                     <Menu.Link
-                        label={"Settings"}
-                        icon={<SettingsIcon />}
-                        path={"/access-management/roles"}
+                        text={"Settings"}
+                        icon={<Menu.Link.Icon label="Settings" element={<SettingsIcon />} />}
+                        to={"/access-management/roles"}
                     />
                 }
             />
@@ -58,8 +64,13 @@ export const Menus = React.memo(() => {
                 name={"api-playground"}
                 element={
                     <Menu.Support.Link
-                        label={"API Playground"}
-                        icon={<ApiPlaygroundIcon />}
+                        text={"API Playground"}
+                        icon={
+                            <Menu.Support.Link.Icon
+                                label="API Playground"
+                                element={<ApiPlaygroundIcon />}
+                            />
+                        }
                         to={"/api-playground"}
                     />
                 }
@@ -69,8 +80,8 @@ export const Menus = React.memo(() => {
                 name={"docs"}
                 element={
                     <Menu.Support.Link
-                        label={"Documentation"}
-                        icon={<DocsIcon />}
+                        text={"Documentation"}
+                        icon={<Menu.Support.Link.Icon label="Docs" element={<DocsIcon />} />}
                         to={"https://www.webiny.com/docs"}
                         rel={"noopener noreferrer"}
                         target={"_blank"}
@@ -82,8 +93,8 @@ export const Menus = React.memo(() => {
                 name={"github"}
                 element={
                     <Menu.Support.Link
-                        label={"GitHub"}
-                        icon={<GithubIcon />}
+                        text={"GitHub"}
+                        icon={<Menu.Support.Link.Icon label="GitHub" element={<GithubIcon />} />}
                         to={"https://github.com/webiny/webiny-js"}
                         rel={"noopener noreferrer"}
                         target={"_blank"}
@@ -95,8 +106,8 @@ export const Menus = React.memo(() => {
                 name={"slack"}
                 element={
                     <Menu.Support.Link
-                        label={"Slack"}
-                        icon={<SlackIcon />}
+                        text={"Slack"}
+                        icon={<Menu.Support.Link.Icon label="Slack" element={<SlackIcon />} />}
                         to={"https://www.webiny.com/slack"}
                         rel={"noopener noreferrer"}
                         target={"_blank"}
@@ -110,7 +121,7 @@ export const Menus = React.memo(() => {
                 element={
                     <>
                         <DropdownMenu.Separator />
-                        <DropdownMenu.Item content={<WebinyVersion />} readOnly />
+                        <DropdownMenu.Item text={<WebinyVersion />} readOnly />
                     </>
                 }
             />
@@ -122,8 +133,8 @@ export const Menus = React.memo(() => {
                         className={"wby-w-[225px]"}
                         trigger={
                             <Menu.Item
-                                icon={<InfoIcon />}
-                                label={"Support"}
+                                text={"Support"}
+                                icon={<Menu.Item.Icon label="Support" element={<InfoIcon />} />}
                                 action={<Menu.Item.Action element={<MoreIcon />} />}
                             />
                         }
