@@ -12,6 +12,7 @@ import { ReactComponent as ApiPlaygroundIcon } from "@material-design-icons/svg/
 import { ReactComponent as SlackIcon } from "@material-design-icons/svg/outlined/numbers.svg";
 import { ReactComponent as DocsIcon } from "@material-design-icons/svg/outlined/summarize.svg";
 import { ReactComponent as GithubIcon } from "@material-design-icons/svg/outlined/route.svg";
+import { ReactComponent as MoreIcon } from "@material-design-icons/svg/outlined/more_vert.svg";
 import { DropdownMenu } from "@webiny/admin-ui";
 
 const { Menu } = AdminConfig;
@@ -119,7 +120,13 @@ export const Menus = React.memo(() => {
                 element={
                     <DropdownMenu
                         className={"wby-w-[225px]"}
-                        trigger={<Menu.Item icon={<InfoIcon />} label={"Support"} />}
+                        trigger={
+                            <Menu.Item
+                                icon={<InfoIcon />}
+                                label={"Support"}
+                                action={<Menu.Item.Action element={<MoreIcon />} />}
+                            />
+                        }
                     >
                         <SupportMenuItems />
                     </DropdownMenu>

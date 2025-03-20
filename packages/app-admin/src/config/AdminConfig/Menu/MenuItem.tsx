@@ -21,4 +21,8 @@ const MenuLinkBase = ({ label, icon, ...rest }: MenuItemProps) => {
     return <Sidebar.Item {...mappedProps} />;
 };
 
-export const MenuItem = makeDecoratable("MenuItem", MenuLinkBase);
+const DecoratableMenuItem = makeDecoratable("MenuItem", MenuLinkBase);
+
+export const MenuItem = Object.assign(DecoratableMenuItem, {
+    Action: Sidebar.Item.Action
+});
