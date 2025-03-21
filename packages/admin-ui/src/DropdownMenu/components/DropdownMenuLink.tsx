@@ -3,7 +3,9 @@ import { DropdownMenuItem, type DropdownMenuItemLinkProps } from "./DropdownMenu
 import { makeDecoratable, withStaticProps } from "~/utils";
 import { DropdownMenuItemIcon } from "./DropdownMenuItemIcon";
 
-const DropdownMenuLinkBase = (props: DropdownMenuItemLinkProps) => {
+export type DropdownMenuLinkProps = DropdownMenuItemLinkProps;
+
+const DropdownMenuLinkBase = (props: DropdownMenuLinkProps) => {
     return <DropdownMenuItem {...props} />;
 };
 
@@ -13,4 +15,4 @@ const DropdownMenuLink = withStaticProps(DecoratableDropdownMenuLink, {
     Icon: DropdownMenuItemIcon
 });
 
-export { DropdownMenuLink };
+export { DropdownMenuLink, type DropdownMenuItemLinkProps };

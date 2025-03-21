@@ -19,6 +19,3 @@
 - decorate sidebar items
 - 45px
 - bc Leo
-- check icons
-  - packages/app-admin-ui/src/modules/Navigation/wby-logo.png
-  - packages/app-admin-ui/src/modules/Dashboard/icons/twitter.svg

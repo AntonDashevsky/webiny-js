@@ -80,7 +80,7 @@ export const ApwMenusRoutes = () => {
                             <Menu.Link.Icon element={<ApwIcon />} label={"Publishing Workflows"} />
                         }
                         text={"Publishing Workflows"}
-                        path={"/apw/content-reviews"}
+                        to={"/apw/content-reviews"}
                     />
                 }
             />

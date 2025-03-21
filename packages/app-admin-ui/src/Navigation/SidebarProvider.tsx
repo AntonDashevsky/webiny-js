@@ -1,5 +1,5 @@
 import React from "react";
-import { SidebarProvider as AdminUiSidebar } from "@webiny/admin-ui"
+import { SidebarProvider as AdminUiSidebar } from "@webiny/admin-ui";
 
 interface NavigationProviderProps {
     children?: React.ReactNode;

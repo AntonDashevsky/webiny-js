@@ -32,4 +32,3 @@ export const Layout = LayoutRenderer.createDecorator(() => {
         );
     };
 });
-
