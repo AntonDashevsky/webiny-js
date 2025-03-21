@@ -5,6 +5,7 @@
     { "path": "../aws-sdk" },
     { "path": "../cli-plugin-deploy-pulumi" },
     { "path": "../pulumi" },
+    { "path": "../wcp" },
     { "path": "../utils" },
     { "path": "../api-page-builder" },
     { "path": "../feature-flags" }
@@ -22,6 +23,8 @@
       "@webiny/cli-plugin-deploy-pulumi": ["../cli-plugin-deploy-pulumi/src"],
       "@webiny/pulumi/*": ["../pulumi/src/*"],
       "@webiny/pulumi": ["../pulumi/src"],
+      "@webiny/wcp/*": ["../wcp/src/*"],
+      "@webiny/wcp": ["../wcp/src"],
       "@webiny/utils/*": ["../utils/src/*"],
       "@webiny/utils": ["../utils/src"],
       "@webiny/api-page-builder/*": ["../api-page-builder/src/*"],
