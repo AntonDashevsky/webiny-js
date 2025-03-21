@@ -21,7 +21,7 @@ import { HandlerResultPlugin } from "./plugins/HandlerResultPlugin";
 import { HandlerErrorPlugin } from "./plugins/HandlerErrorPlugin";
 import { ModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin";
 import { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin";
-import { ResponseHeaders } from "~/ResponseHeaders";
+import { ResponseHeaders, StandardHeaders } from "~/ResponseHeaders";
 import { ModifyResponseHeadersPlugin } from "~/plugins/ModifyResponseHeadersPlugin";
 import { SetDefaultHeaders } from "./PreHandler/SetDefaultHeaders";
 import { PreHandler } from "./PreHandler/PreHandler";
@@ -38,7 +38,8 @@ const modifyResponseHeaders = (app: FastifyInstance, request: Request, reply: Re
         ModifyResponseHeadersPlugin.type
     );
 
-    const headers = ResponseHeaders.create(reply.getHeaders());
+    const replyHeaders = reply.getHeaders() as StandardHeaders;
+    const headers = ResponseHeaders.create(replyHeaders);
 
     modifyHeaders.forEach(plugin => {
         plugin.modify(request, headers);
@@ -76,13 +77,13 @@ export const createHandler = (params: CreateHandlerParams) => {
     };
 
     const throwOnDefinedRoute = (
-        type: Uppercase<HTTPMethods> | "ALL",
+        type: HTTPMethods | "ALL",
         path: string,
         options?: RouteMethodOptions
     ): void => {
         if (type === "ALL") {
             const all = Object.keys(definedRoutes).find(k => {
-                const key = k.toUpperCase() as Uppercase<HTTPMethods>;
+                const key = k.toUpperCase() as HTTPMethods;
                 const routes = definedRoutes[key];
                 return routes.includes(path);
             });
@@ -118,7 +119,7 @@ export const createHandler = (params: CreateHandlerParams) => {
     };
 
     const addDefinedRoute = (input: HTTPMethods, path: string): void => {
-        const type = input.toUpperCase() as Uppercase<HTTPMethods>;
+        const type = input.toUpperCase() as HTTPMethods;
         if (!definedRoutes[type]) {
             return;
         } else if (definedRoutes[type].includes(path)) {
@@ -140,7 +141,7 @@ export const createHandler = (params: CreateHandlerParams) => {
      * We need to register routes in our system to output headers later on, and disallow route overriding.
      */
     app.addHook("onRoute", route => {
-        const method = route.method as Uppercase<HTTPMethods> | Uppercase<HTTPMethods>[];
+        const method = route.method as HTTPMethods | HTTPMethods[];
         if (Array.isArray(method)) {
             for (const m of method) {
                 addDefinedRoute(m, route.path);
@@ -315,7 +316,7 @@ export const createHandler = (params: CreateHandlerParams) => {
         return payload;
     });
 
-    app.setErrorHandler<WebinyError>(async (error, request, reply) => {
+    app.setErrorHandler<WebinyError>(async (error, _, reply) => {
         return reply
             .status(500)
             .headers({
