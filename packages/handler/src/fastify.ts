@@ -37,10 +37,7 @@ const modifyResponseHeaders = (app: FastifyInstance, request: Request, reply: Re
     const modifyHeaders = app.webiny.plugins.byType<ModifyResponseHeadersPlugin>(
         ModifyResponseHeadersPlugin.type
     );
-    /**
-     * We will use ts-expect-error to suppress the error, as we are sure that headers will be ok.
-     */
-    // @ts-expect-error
+
     const headers = ResponseHeaders.create(reply.getHeaders());
 
     modifyHeaders.forEach(plugin => {
