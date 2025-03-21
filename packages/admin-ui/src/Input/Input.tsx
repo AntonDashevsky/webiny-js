@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo } from "react";
 import { makeDecoratable } from "~/utils";
-import { InputPrimitive, InputPrimitiveProps } from "./InputPrimitive";
+import { InputPrimitive, type InputPrimitiveProps } from "./InputPrimitive";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
     FormComponentNote,
-    FormComponentProps
+    type FormComponentProps
 } from "~/FormComponent";
 
 type InputProps = InputPrimitiveProps & FormComponentProps;
@@ -50,4 +50,4 @@ const DecoratableInput = ({
 };
 const Input = makeDecoratable("Input", DecoratableInput);
 
-export { Input };
+export { Input, type InputProps };
