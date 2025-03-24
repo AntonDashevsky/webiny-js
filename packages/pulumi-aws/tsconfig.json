@@ -6,6 +6,7 @@
     { "path": "../cli-plugin-deploy-pulumi" },
     { "path": "../pulumi" },
     { "path": "../utils" },
+    { "path": "../wcp" },
     { "path": "../api-page-builder" },
     { "path": "../feature-flags" }
   ],
@@ -24,6 +25,8 @@
       "@webiny/pulumi": ["../pulumi/src"],
       "@webiny/utils/*": ["../utils/src/*"],
       "@webiny/utils": ["../utils/src"],
+      "@webiny/wcp/*": ["../wcp/src/*"],
+      "@webiny/wcp": ["../wcp/src"],
       "@webiny/api-page-builder/*": ["../api-page-builder/src/*"],
       "@webiny/api-page-builder": ["../api-page-builder/src"],
       "@webiny/feature-flags/*": ["../feature-flags/src/*"],

@@ -6,6 +6,7 @@
     { "path": "../cli-plugin-deploy-pulumi/tsconfig.build.json" },
     { "path": "../pulumi/tsconfig.build.json" },
     { "path": "../utils/tsconfig.build.json" },
+    { "path": "../wcp/tsconfig.build.json" },
     { "path": "../api-page-builder/tsconfig.build.json" },
     { "path": "../feature-flags/tsconfig.build.json" }
   ],
