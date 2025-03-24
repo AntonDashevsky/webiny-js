@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
-import { Layout, useWcp } from "@webiny/app-admin";
+import { Layout, Wcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { Permission } from "~/plugins/constants";
 import { Groups } from "~/ui/views/Groups";
@@ -10,12 +10,6 @@ import accessManagementPlugins from "./plugins";
 import { AdminConfig } from "@webiny/app-admin";
 
 const { Menu, Route } = AdminConfig;
-
-/**
- * TODO @ts-refactor
- * Find out why is there empty default export
- */
-export default () => [];
 
 const AccessManagementExtension = () => {
     plugins.register(accessManagementPlugins());
@@ -42,7 +36,7 @@ const AccessManagementExtension = () => {
                     }
                 />
             </HasPermission>
-            {teams && (
+            <Wcp.CanUseTeams>
                 <HasPermission name={Permission.Teams}>
                     <Route
                         name={"security.teams"}
@@ -55,7 +49,7 @@ const AccessManagementExtension = () => {
                         }
                     />
                 </HasPermission>
-            )}
+            </Wcp.CanUseTeams>
             <HasPermission name={Permission.ApiKeys}>
                 <Route
                     name={"security.apiKeys"}
@@ -83,7 +77,7 @@ const AccessManagementExtension = () => {
                     element={<Menu.Link text={"Roles"} to={"/access-management/roles"} />}
                 />
             </HasPermission>
-            {teams && (
+            <Wcp.CanUseTeams>
                 <HasPermission name={Permission.Teams}>
                     <Menu
                         name={"security.teams"}
@@ -91,7 +85,7 @@ const AccessManagementExtension = () => {
                         element={<Menu.Link text={"Teams"} to={"/access-management/teams"} />}
                     />
                 </HasPermission>
-            )}
+            </Wcp.CanUseTeams>
 
             <HasPermission name={Permission.ApiKeys}>
                 <Menu

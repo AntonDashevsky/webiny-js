@@ -2,8 +2,6 @@ import React, { useCallback, useMemo, useState } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import orderBy from "lodash/orderBy";
 import { i18n } from "@webiny/app/i18n";
-import { useSecurity } from "@webiny/app-security";
-import { Tooltip } from "@webiny/ui/Tooltip";
 import { Image } from "@webiny/app/components";
 import {
     DataList,
@@ -18,8 +16,7 @@ import {
     DataListModalOverlay,
     ListItemTextPrimary
 } from "@webiny/ui/List";
-import { ButtonPrimary } from "@webiny/ui/Button";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
 import { Avatar } from "@webiny/ui/Avatar";
 import { Cell, Grid } from "@webiny/ui/Grid";
 import { Select } from "@webiny/ui/Select";
@@ -27,9 +24,12 @@ import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
+import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
+import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
 import { DELETE_USER, LIST_USERS } from "./graphql";
 import { deserializeSorters } from "../utils";
 import { UserItem } from "~/UserItem";
+import { DeleteAction } from "./components/DeleteAction";
 
 const t = i18n.ns("app-identity/admin/users/data-list");
 
@@ -59,7 +59,6 @@ interface FilterUsersCallable {
 const UsersDataList = () => {
     const [filter, setFilter] = useState("");
     const [sort, setSort] = useState<string>(SORTERS[0].sorter);
-    const { identity } = useSecurity();
     const { history } = useRouter();
     const { showSnackbar } = useSnackbar();
     const { showConfirmation } = useConfirmationDialog({
@@ -162,7 +161,10 @@ const UsersDataList = () => {
             }
             modalOverlay={usersDataListModalOverlay}
             modalOverlayAction={
-                <DataListModalOverlayAction data-testid={"default-data-list.filter"} />
+                <DataListModalOverlayAction
+                    icon={<FilterIcon />}
+                    data-testid={"default-data-list.filter"}
+                />
             }
         >
             {({ data }: { data: UserItem[] }) => (
