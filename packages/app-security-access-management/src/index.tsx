@@ -14,14 +14,6 @@ const { Menu, Route } = AdminConfig;
 const AccessManagementExtension = () => {
     plugins.register(accessManagementPlugins());
 
-    const { getProject } = useWcp();
-
-    const project = getProject();
-    let teams = false;
-    if (project) {
-        teams = project.package.features.advancedAccessControlLayer.options.teams;
-    }
-
     return (
         <AdminConfig>
             <HasPermission name={Permission.Groups}>

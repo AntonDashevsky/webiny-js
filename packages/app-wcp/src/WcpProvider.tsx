@@ -65,7 +65,7 @@ const projectFromLocalStorage = () => {
     try {
         const localData = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (localData) {
-            return JSON.parse(localData);
+            return JSON.parse(localData) as ILicense;
         }
     } catch {}
 
@@ -83,7 +83,7 @@ export const WcpProvider = ({ children, loader }: WcpProviderProps) => {
         );
     }
 
-    const [project, setProject] = useState<WcpProject | null | undefined>(projectFromLocalStorage);
+    const [project, setProject] = useState<ILicense | undefined>(projectFromLocalStorage);
 
     useQuery<GetWcpProjectGqlResponse>(GET_WCP_PROJECT, {
         skip: project !== undefined,
@@ -93,7 +93,7 @@ export const WcpProvider = ({ children, loader }: WcpProviderProps) => {
             }
         },
         onCompleted: response => {
-            setProject(response.wcp.getProject.data);
+            setProject(new ReactLicense(License.fromLicenseDto(response.wcp.getProject.data)));
             localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(response.wcp.getProject.data));
         }
     });

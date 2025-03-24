@@ -1,8 +1,7 @@
 import React, { useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { ReactComponent as Icon } from "@material-symbols/svg-400/outlined/quick_reference_all.svg";
-
-import { AddMenu, AddRoute, Layout, Plugin, useWcp } from "@webiny/app-admin";
+import { Layout, Plugin, useWcp } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { AcoProvider } from "@webiny/app-aco";
 
