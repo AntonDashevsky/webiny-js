@@ -18534,6 +18534,7 @@ __metadata:
   dependencies:
     "@material-design-icons/svg": "npm:^0.14.13"
     "@webiny/cli": "npm:0.0.0"
+    rimraf: "npm:^6.0.1"
   languageName: unknown
   linkType: soft
 
