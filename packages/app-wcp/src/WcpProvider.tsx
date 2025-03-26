@@ -3,7 +3,7 @@ import { WcpContextProvider } from "./contexts";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { GetWcpProjectGqlResponse } from "~/types";
-import { ILicense } from "@webiny/wcp/types";
+import { DecryptedWcpProjectLicense, ILicense } from "@webiny/wcp/types";
 import { License, NullLicense } from "@webiny/wcp";
 import { ReactLicense } from "./ReactLicense";
 
@@ -65,7 +65,8 @@ const projectFromLocalStorage = () => {
     try {
         const localData = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (localData) {
-            return JSON.parse(localData) as ILicense;
+            const parsedData = JSON.parse(localData) as DecryptedWcpProjectLicense;
+            return new ReactLicense(License.fromLicenseDto(parsedData));
         }
     } catch {}
 
@@ -86,7 +87,6 @@ export const WcpProvider = ({ children, loader }: WcpProviderProps) => {
     const [project, setProject] = useState<ILicense | undefined>(projectFromLocalStorage);
 
     useQuery<GetWcpProjectGqlResponse>(GET_WCP_PROJECT, {
-        skip: project !== undefined,
         context: {
             headers: {
                 "x-tenant": "root"
