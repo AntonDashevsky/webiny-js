@@ -4,8 +4,8 @@ import { EntriesGatewayInterface } from "../adapters/index.js";
 import { EntryReference, EntryRepository } from "../domain/index.js";
 
 const mockGateway: EntriesGatewayInterface = {
-    list: jest.fn(),
-    get: jest.fn()
+    list: jest.fn() as EntriesGatewayInterface["list"],
+    get: jest.fn() as EntriesGatewayInterface["get"]
 };
 
 const createMockGateway = ({
@@ -50,10 +50,10 @@ describe("RefPresenter", () => {
     const gateway = createMockGateway({
         list: jest.fn().mockImplementation(() => {
             return Promise.resolve([entry1, entry2, entry3]);
-        }),
+        }) as EntriesGatewayInterface["list"],
         get: jest.fn().mockImplementation(() => {
             return Promise.resolve(entry1);
-        })
+        }) as EntriesGatewayInterface["get"]
     });
 
     let presenter: RefPresenter;
