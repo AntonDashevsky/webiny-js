@@ -1,7 +1,7 @@
-import { IGetDescendantFoldersRepository } from "./IGetDescendantFoldersRepository";
-import { ListCache } from "../cache";
-import { Folder } from "../Folder";
-import { ROOT_FOLDER } from "~/constants";
+import { IGetDescendantFoldersRepository } from "./IGetDescendantFoldersRepository.js";
+import { ListCache } from "../cache/index.js";
+import { Folder } from "../Folder.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export class GetDescendantFoldersRepository implements IGetDescendantFoldersRepository {
     private readonly cache: ListCache<Folder>;

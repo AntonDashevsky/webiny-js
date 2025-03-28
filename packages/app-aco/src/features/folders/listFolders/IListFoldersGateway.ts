@@ -1,4 +1,4 @@
-import { FolderGqlDto } from "./FolderGqlDto";
+import { FolderGqlDto } from "./FolderGqlDto.js";
 
 export interface ListFoldersGatewayParams {
     type: string;

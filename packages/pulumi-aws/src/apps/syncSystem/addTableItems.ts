@@ -1,7 +1,7 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 import type { PulumiApp } from "@webiny/pulumi";
-import type { SyncSystemDynamo } from "./SyncSystemDynamo";
+import type { SyncSystemDynamo } from "./SyncSystemDynamo.js";
 
 export interface IAddTableItemsParams {
     app: PulumiApp;

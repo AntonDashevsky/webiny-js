@@ -3,7 +3,7 @@ import { CompositionScope } from "@webiny/app-admin";
 import { ModelProvider, Fields } from "@webiny/app-headless-cms-common";
 import { Bind, BindPrefix } from "@webiny/form";
 import styled from "@emotion/styled";
-import { useFolderModel, useGetFolderExtensionsFields } from "~/features";
+import { useFolderModel, useGetFolderExtensionsFields } from "~/features/index.js";
 
 const HideEmptyCells = styled.div`
     .mdc-layout-grid {

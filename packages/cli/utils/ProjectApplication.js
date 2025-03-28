@@ -53,7 +53,10 @@ export class ProjectApplication {
                 absolute: projectAppRootPath,
                 workspace: projectAppWorkspacePath
             },
-            config: applicationConfig,
+            config: {
+                ...applicationConfig,
+                getPlugins: () => (applicationConfig.getPlugins ? applicationConfig.getPlugins : [])
+            },
             project,
             getPackages: async () => {
                 const webinyConfigs = await glob(

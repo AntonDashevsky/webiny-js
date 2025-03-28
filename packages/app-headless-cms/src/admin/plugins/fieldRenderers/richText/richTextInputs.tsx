@@ -1,22 +1,22 @@
 import React, { useMemo } from "react";
-import get from "lodash/get";
-import { i18n } from "@webiny/app/i18n";
-import { CmsModelField, CmsModelFieldRendererPlugin } from "~/types";
+import get from "lodash/get.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { CmsModelField, CmsModelFieldRendererPlugin } from "~/types.js";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import DynamicSection from "../DynamicSection";
-import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor";
-import { IconButton } from "@webiny/ui/Button";
+import DynamicSection from "../DynamicSection.js";
+import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/index.js";
+import { IconButton } from "@webiny/ui/Button/index.js";
 import { plugins } from "@webiny/plugins";
 import styled from "@emotion/styled";
-import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput";
-import { modelHasLexicalField } from "~/admin/plugins/fieldRenderers/lexicalText/utils";
+import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput.js";
+import { modelHasLexicalField } from "~/admin/plugins/fieldRenderers/lexicalText/utils.js";
 import {
     isLegacyRteFieldSaved,
     modelHasLegacyRteField
-} from "~/admin/plugins/fieldRenderers/richText/utils";
+} from "~/admin/plugins/fieldRenderers/richText/utils.js";
 import { useForm } from "@webiny/form";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/rich-text");
 

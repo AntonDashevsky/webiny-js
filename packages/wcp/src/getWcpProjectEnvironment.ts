@@ -1,5 +1,5 @@
-import { WcpProjectEnvironment } from "~/types";
-import { decrypt } from "~/encryption";
+import { WcpProjectEnvironment } from "~/types.js";
+import { decrypt } from "~/encryption.js";
 
 export function getWcpProjectEnvironment(): WcpProjectEnvironment | null {
     if (process.env.WCP_PROJECT_ENVIRONMENT) {

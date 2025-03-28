@@ -1,8 +1,8 @@
 import React from "react";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
-import { usePagesPermissions } from "~/hooks/permissions";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
-import { ChangePageStatus } from "./ChangePageStatus";
+import { ChangePageStatus } from "./ChangePageStatus.js";
 
 export const SecureChangePageStatus = () => {
     const { page } = usePage();

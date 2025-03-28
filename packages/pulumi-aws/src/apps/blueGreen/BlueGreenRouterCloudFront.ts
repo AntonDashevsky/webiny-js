@@ -1,8 +1,8 @@
 import * as aws from "@pulumi/aws";
 import type { PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
-import type { GetCachePolicyResult } from "@pulumi/aws/cloudfront/getCachePolicy";
-import type { GetOriginRequestPolicyResult } from "@pulumi/aws/cloudfront/getOriginRequestPolicy";
+import type { GetCachePolicyResult } from "@pulumi/aws/cloudfront/getCachePolicy.js";
+import type { GetOriginRequestPolicyResult } from "@pulumi/aws/cloudfront/getOriginRequestPolicy.js";
 import { BlueGreenRouterApiGateway } from "./BlueGreenRouterApiGateway.js";
 import { BlueGreenRouterCloudFrontStore } from "./BlueGreenRouterCloudFrontStore.js";
 import { buildHandlerFunction } from "./functions/buildHandlerFunction.js";

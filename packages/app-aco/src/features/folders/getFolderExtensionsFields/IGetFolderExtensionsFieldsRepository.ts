@@ -1,4 +1,4 @@
-import { CmsModelField } from "@webiny/app-headless-cms-common/types";
+import { CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
 
 export interface IGetFolderExtensionsFieldsRepository {
     execute: () => CmsModelField | undefined;

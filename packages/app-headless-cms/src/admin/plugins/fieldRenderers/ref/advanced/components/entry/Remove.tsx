@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import React, { useCallback } from "react";
-import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
 import { useConfirmationDialog } from "@webiny/app-admin";
-import { ButtonLink } from "./elements/ButtonLink";
+import { ButtonLink } from "./elements/ButtonLink.js";
 import { useForm } from "@webiny/form";
 
 const Text = styled("span")({

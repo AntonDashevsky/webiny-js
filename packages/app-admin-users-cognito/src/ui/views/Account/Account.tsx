@@ -23,7 +23,7 @@ import { useSecurity } from "@webiny/app-security";
 import { View } from "@webiny/app/components/View.js";
 import { CenteredView, useSnackbar } from "@webiny/app-admin";
 import type { SecurityIdentity } from "@webiny/app-security/types.js";
-import { Alert } from "@webiny/ui/Alert";
+import { Alert } from "@webiny/ui/Alert/index.js";
 
 const t = i18n.ns("app-security-admin-users/account-form");
 

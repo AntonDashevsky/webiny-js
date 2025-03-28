@@ -1,4 +1,4 @@
-import { type CliContext } from "@webiny/cli/types";
+import { type CliContext } from "@webiny/cli/types.js";
 
 export const setMustRefreshBeforeDeploy = (context: CliContext) => {
     return context.localStorage.set("watch-command-must-refresh-before-deploy", true);

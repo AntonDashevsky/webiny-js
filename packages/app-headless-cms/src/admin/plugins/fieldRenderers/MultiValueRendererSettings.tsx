@@ -2,10 +2,10 @@ import React from "react";
 import type {
     CmsModelField,
     CmsModelFieldRendererSettingsProps
-} from "@webiny/app-headless-cms-common/types";
+} from "@webiny/app-headless-cms-common/types/index.js";
 import { Bind } from "@webiny/form";
-import { Cell } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
+import { Cell } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
 
 interface IMultiValueRendererSettings {
     addValueButtonLabel: string;

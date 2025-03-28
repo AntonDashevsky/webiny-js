@@ -1,14 +1,14 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { filterSchema } from "~/filter/filter.gql";
-import { createFoldersSchema } from "~/folder/folder.gql";
-import { appGql } from "~/apps/app.gql";
-import { AcoContext } from "~/types";
+import { filterSchema } from "~/filter/filter.gql.js";
+import { createFoldersSchema } from "~/folder/folder.gql.js";
+import { appGql } from "~/apps/app.gql.js";
+import { AcoContext } from "~/types.js";
 import { ContextPlugin } from "@webiny/api";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import type { CmsModel } from "@webiny/api-headless-cms/types";
-import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords";
-import { createGraphQLSchemaPluginFromFieldPlugins } from "@webiny/api-headless-cms/utils/getSchemaFromFieldPlugins";
-import { FOLDER_MODEL_ID } from "~/folder/folder.model";
+import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords.js";
+import { createGraphQLSchemaPluginFromFieldPlugins } from "@webiny/api-headless-cms/utils/getSchemaFromFieldPlugins.js";
+import { FOLDER_MODEL_ID } from "~/folder/folder.model.js";
 
 const emptyResolver = () => ({});
 

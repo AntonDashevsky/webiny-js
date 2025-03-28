@@ -1,20 +1,20 @@
-import isEqual from "lodash/isEqual";
-import { validateOrGetDefaultDbSort } from "@webiny/app-aco/sorting";
+import isEqual from "lodash/isEqual.js";
+import { validateOrGetDefaultDbSort } from "@webiny/app-aco/sorting.js";
 import { useGetDescendantFolders } from "@webiny/app-aco";
-import { ListMeta } from "@webiny/app-aco/types";
+import { ListMeta } from "@webiny/app-aco/types.js";
 import { useSecurity } from "@webiny/app-security";
-import { FileItem } from "@webiny/app-admin/types";
+import { FileItem } from "@webiny/app-admin/types.js";
 import { useStateIfMounted } from "@webiny/app-admin";
-import { Loading, LoadingActions } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { Loading, LoadingActions } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 import {
     ListFilesQueryVariables,
     ListFilesSort,
     ListFilesWhereLocation,
     ListFilesWhereQueryVariables
-} from "~/modules/FileManagerApiProvider/graphql";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
-import { getScopeWhereParams, State } from "./state";
-import { ROOT_FOLDER } from "~/constants";
+} from "~/modules/FileManagerApiProvider/graphql.js";
+import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import { getScopeWhereParams, State } from "./state.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 const toTypeInput = (value: string) => {
     return value.replace("*", "");

@@ -1,6 +1,6 @@
 import { ILoadingRepository } from "@webiny/app-utils";
-import { LoadingActionsEnum } from "~/types";
-import { IListFoldersUseCase } from "./IListFoldersUseCase";
+import { LoadingActionsEnum } from "~/types.js";
+import { IListFoldersUseCase } from "./IListFoldersUseCase.js";
 
 export class ListFoldersUseCaseWithLoading implements IListFoldersUseCase {
     private loadingRepository: ILoadingRepository;

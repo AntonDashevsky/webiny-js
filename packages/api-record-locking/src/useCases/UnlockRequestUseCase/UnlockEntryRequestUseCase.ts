@@ -2,13 +2,13 @@ import WebinyError from "@webiny/error";
 import type {
     IUnlockEntryRequestUseCase,
     IUnlockEntryRequestUseCaseExecuteParams
-} from "~/abstractions/IUnlockEntryRequestUseCase";
-import type { IGetIdentity, IRecordLockingLockRecord, IRecordLockingModelManager } from "~/types";
-import { RecordLockingLockRecordActionType } from "~/types";
-import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
+} from "~/abstractions/IUnlockEntryRequestUseCase.js";
+import type { IGetIdentity, IRecordLockingLockRecord, IRecordLockingModelManager } from "~/types.js";
+import { RecordLockingLockRecordActionType } from "~/types.js";
+import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
 import { createIdentifier } from "@webiny/utils";
-import type { ConvertEntryToLockRecordCb } from "~/useCases/types";
+import type { ConvertEntryToLockRecordCb } from "~/useCases/types.js";
 
 export interface IUnlockEntryRequestUseCaseParams {
     getLockRecordUseCase: IGetLockRecordUseCase;

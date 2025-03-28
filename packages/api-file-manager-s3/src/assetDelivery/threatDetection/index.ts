@@ -1,2 +1,2 @@
-export * from "./createThreatDetectionEventHandler";
-export * from "./createThreatDetectionPluginLoader";
+export * from "./createThreatDetectionEventHandler.js";
+export * from "./createThreatDetectionPluginLoader.js";

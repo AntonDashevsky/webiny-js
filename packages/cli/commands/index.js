@@ -6,13 +6,14 @@ import upgrade from "./upgrade/index.js";
 export const createCommands = async (yargs, context) => {
     context.plugins.register(about, run, telemetry, upgrade);
 
-    try {
-        const wcp = await import("./wcp/index.js");
-        context.plugins.register(wcp);
-    } catch (e) {
-        console.log(e);
-        // Skip WCP command
-    }
+    // TODO: @esm
+    // try {
+    //     const wcp = await import("./wcp/index.js");
+    //     context.plugins.register(wcp);
+    // } catch (e) {
+    //     console.log(e);
+    //     // Skip WCP command
+    // }
 
     await context.loadUserPlugins();
 

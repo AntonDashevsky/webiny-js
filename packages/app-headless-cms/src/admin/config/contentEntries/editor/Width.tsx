@@ -1,6 +1,6 @@
 import React from "react";
 import { Property } from "@webiny/react-properties";
-import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel";
+import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel.js";
 
 export interface WidthProps {
     value: string;

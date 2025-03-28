@@ -1,6 +1,6 @@
-import { UpdateFolder } from "./UpdateFolder";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory";
-import { Folder } from "../Folder";
+import { UpdateFolder } from "./UpdateFolder.js";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
+import { Folder } from "../Folder.js";
 
 describe("UpdateFolder", () => {
     const type = "abc";

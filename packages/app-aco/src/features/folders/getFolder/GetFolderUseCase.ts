@@ -1,5 +1,5 @@
-import { GetFolderParams, IGetFolderUseCase } from "./IGetFolderUseCase";
-import { IGetFolderRepository } from "./IGetFolderRepository";
+import { GetFolderParams, IGetFolderUseCase } from "./IGetFolderUseCase.js";
+import { IGetFolderRepository } from "./IGetFolderRepository.js";
 
 export class GetFolderUseCase implements IGetFolderUseCase {
     private repository: IGetFolderRepository;

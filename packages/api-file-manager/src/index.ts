@@ -1,14 +1,14 @@
 import { ContextPlugin } from "@webiny/api";
-import { FileManagerConfig } from "~/createFileManager";
-import { FileManagerContext } from "~/types";
-import { FileManagerContextSetup } from "./FileManagerContextSetup";
-import { setupAssetDelivery, AssetDeliveryParams } from "./delivery/setupAssetDelivery";
-import { createGraphQLSchemaPlugin } from "./graphql";
-import { applyThreatScanning } from "./enterprise/applyThreatScanning";
+import { FileManagerConfig } from "~/createFileManager/index.js";
+import { FileManagerContext } from "~/types.js";
+import { FileManagerContextSetup } from "./FileManagerContextSetup.js";
+import { setupAssetDelivery, AssetDeliveryParams } from "./delivery/setupAssetDelivery.js";
+import { createGraphQLSchemaPlugin } from "./graphql/index.js";
+import { applyThreatScanning } from "./enterprise/applyThreatScanning.js";
 
-export * from "./modelModifier/CmsModelModifier";
-export * from "./plugins";
-export * from "./delivery";
+export * from "./modelModifier/CmsModelModifier.js";
+export * from "./plugins/index.js";
+export * from "./delivery/index.js";
 
 export const createFileManagerContext = ({
     storageOperations

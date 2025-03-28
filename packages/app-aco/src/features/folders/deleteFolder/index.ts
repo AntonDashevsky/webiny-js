@@ -1,1 +1,1 @@
-export * from "./useDeleteFolder";
+export * from "./useDeleteFolder.js";

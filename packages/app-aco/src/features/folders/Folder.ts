@@ -1,4 +1,4 @@
-import { CmsIdentity, FolderPermission } from "~/types";
+import { CmsIdentity, FolderPermission } from "~/types.js";
 
 export interface FolderData {
     id?: string;

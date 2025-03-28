@@ -99,6 +99,7 @@ const onFail = context => (msg, error, yargs) => {
 
     await createCommands(builder, context);
 
+    console.log("Run command");
     // Enable help and run the CLI.
     builder.help(true).argv;
 })();

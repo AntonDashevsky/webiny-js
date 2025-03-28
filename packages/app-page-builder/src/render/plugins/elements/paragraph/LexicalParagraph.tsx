@@ -2,12 +2,12 @@ import React from "react";
 import {
     elementInputs,
     ParagraphRenderer
-} from "@webiny/app-page-builder-elements/renderers/paragraph";
+} from "@webiny/app-page-builder-elements/renderers/paragraph.js";
 import { usePageElements, useRenderer } from "@webiny/app-page-builder-elements";
-import { assignStyles } from "@webiny/app-page-builder-elements/utils";
+import { assignStyles } from "@webiny/app-page-builder-elements/utils/index.js";
 import { isValidLexicalData, LexicalHtmlRenderer } from "@webiny/lexical-editor";
 import { ComponentDecorator, CompositionScope } from "@webiny/app";
-import type { Renderer } from "@webiny/app-page-builder-elements/types";
+import type { Renderer } from "@webiny/app-page-builder-elements/types.js";
 
 export const LexicalParagraphDecorator: ComponentDecorator<Renderer> = Original => {
     return function LexicalParagraphRenderer(props) {

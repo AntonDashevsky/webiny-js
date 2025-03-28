@@ -3,10 +3,10 @@ import * as pulumi from "@pulumi/pulumi";
 import {
     createCorePulumiApp as baseCreateCorePulumiApp,
     CreateCorePulumiAppParams as BaseCreateCorePulumiAppParams
-} from "~/apps/core/createCorePulumiApp";
+} from "~/apps/core/createCorePulumiApp.js";
 import { isResourceOfType, PulumiAppParam } from "@webiny/pulumi";
-import { getAwsRegion } from "~/apps/awsUtils";
-import { configureS3BucketMalwareProtection } from "~/enterprise/core/configureS3BucketMalwareProtection";
+import { getAwsRegion } from "~/apps/awsUtils.js";
+import { configureS3BucketMalwareProtection } from "~/enterprise/core/configureS3BucketMalwareProtection.js";
 import { License } from "@webiny/wcp";
 
 export type CorePulumiApp = ReturnType<typeof createCorePulumiApp>;

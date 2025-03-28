@@ -1,8 +1,8 @@
-import type { Context } from "~/types";
-import type { IndexManager } from "~/settings";
-import { listIndexes } from "./listIndexes";
-import { createIndexFactory } from "~/tasks/createIndexes/createIndex";
-import { listCreateElasticsearchIndexTaskPlugin } from "~/tasks/createIndexes/listCreateElasticsearchIndexTaskPlugin";
+import type { Context } from "~/types.js";
+import type { IndexManager } from "~/settings/index.js";
+import { listIndexes } from "./listIndexes.js";
+import { createIndexFactory } from "~/tasks/createIndexes/createIndex.js";
+import { listCreateElasticsearchIndexTaskPlugin } from "~/tasks/createIndexes/listCreateElasticsearchIndexTaskPlugin.js";
 
 export interface IOnBeforeTriggerParams {
     indexManager: IndexManager;

@@ -1,4 +1,4 @@
-import { FolderDto } from "./FolderDto";
+import { FolderDto } from "./FolderDto.js";
 
 export interface GetDescendantFoldersParams {
     id: string;

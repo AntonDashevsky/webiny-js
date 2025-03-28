@@ -1,12 +1,12 @@
 import React from "react";
-import get from "lodash/get";
-import { CmsModelFieldRendererPlugin } from "~/types";
-import { Input } from "@webiny/ui/Input";
-import { i18n } from "@webiny/app/i18n";
+import get from "lodash/get.js";
+import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import DynamicSection from "../DynamicSection";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";
+import DynamicSection from "../DynamicSection.js";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");
 

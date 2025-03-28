@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { Action, IPreHandler } from "~/PreHandler/IPreHandler";
+import { Action, IPreHandler } from "~/PreHandler/IPreHandler.js";
 
 export class PreHandler implements IPreHandler {
     private readonly handlers: IPreHandler[];

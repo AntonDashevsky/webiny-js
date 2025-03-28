@@ -1,4 +1,4 @@
-import type { CliCommandScaffoldTemplate, PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { CliCommandScaffoldTemplate, PackageJson } from "@webiny/cli-plugin-scaffold/types.js";
 import fs from "fs";
 import path from "path";
 import util from "util";
@@ -10,7 +10,7 @@ import Case from "case";
 import { replaceInPath } from "replace-in-path";
 import WebinyError from "@webiny/error";
 import validateNpmPackageName from "validate-npm-package-name";
-import { getProject, log } from "@webiny/cli/utils";
+import { getProject, log } from "@webiny/cli/utils/index.js";
 
 const ncp = util.promisify(ncpBase.ncp);
 

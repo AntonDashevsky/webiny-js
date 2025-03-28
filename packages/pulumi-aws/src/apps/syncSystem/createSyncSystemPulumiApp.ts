@@ -1,9 +1,9 @@
 import { createPulumiApp, PulumiAppParam } from "@webiny/pulumi";
-import { SyncSystemDynamo } from "./SyncSystemDynamo";
-import { DEFAULT_PROD_ENV_NAMES } from "~/constants";
-import { SyncSystemSQS } from "./SyncSystemSQS";
-import { SyncSystemLambda } from "./SyncSystemLambda";
-import { addTableItems } from "./addTableItems";
+import { SyncSystemDynamo } from "./SyncSystemDynamo.js";
+import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
+import { SyncSystemSQS } from "./SyncSystemSQS.js";
+import { SyncSystemLambda } from "./SyncSystemLambda.js";
+import { addTableItems } from "./addTableItems.js";
 
 export type SyncSystemPulumiApp = ReturnType<typeof createSyncSystemPulumiApp>;
 

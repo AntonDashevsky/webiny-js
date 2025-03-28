@@ -2,18 +2,18 @@ import WebinyError from "@webiny/error";
 import type {
     IUnlockEntryUseCase,
     IUnlockEntryUseCaseExecuteParams
-} from "~/abstractions/IUnlockEntryUseCase";
+} from "~/abstractions/IUnlockEntryUseCase.js";
 import type {
     IGetIdentity,
     IHasRecordLockingAccessCallable,
     IRecordLockingLockRecord,
     IRecordLockingModelManager
-} from "~/types";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
-import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
-import { validateSameIdentity } from "~/utils/validateSameIdentity";
+} from "~/types.js";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
+import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
+import { validateSameIdentity } from "~/utils/validateSameIdentity.js";
 import { NotAuthorizedError } from "@webiny/api-security";
-import type { IKickOutCurrentUserUseCase } from "~/abstractions/IKickOutCurrentUserUseCase";
+import type { IKickOutCurrentUserUseCase } from "~/abstractions/IKickOutCurrentUserUseCase.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 
 export interface IUnlockEntryUseCaseParams {

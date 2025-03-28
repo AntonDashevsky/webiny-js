@@ -1,8 +1,8 @@
-import { IGetFolderModelGateway } from "./IGetFolderModelGateway";
-import { GetFolderModelRepository } from "./GetFolderModelRepository";
-import { GetFolderModelUseCase } from "./GetFolderModelUseCase";
-import { IGetFolderModelUseCase } from "./IGetFolderModelUseCase";
-import { IGetFolderModelRepository } from "./IGetFolderModelRepository";
+import { IGetFolderModelGateway } from "./IGetFolderModelGateway.js";
+import { GetFolderModelRepository } from "./GetFolderModelRepository.js";
+import { GetFolderModelUseCase } from "./GetFolderModelUseCase.js";
+import { IGetFolderModelUseCase } from "./IGetFolderModelUseCase.js";
+import { IGetFolderModelRepository } from "./IGetFolderModelRepository.js";
 
 interface IGetFolderModelInstance {
     useCase: IGetFolderModelUseCase;

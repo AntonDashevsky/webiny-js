@@ -2,10 +2,10 @@ import type {
     IListAllLockRecordsUseCase,
     IListAllLockRecordsUseCaseExecuteParams,
     IListAllLockRecordsUseCaseExecuteResponse
-} from "~/abstractions/IListAllLockRecordsUseCase";
-import type { IRecordLockingModelManager } from "~/types";
-import { convertWhereCondition } from "~/utils/convertWhereCondition";
-import type { ConvertEntryToLockRecordCb } from "~/useCases/types";
+} from "~/abstractions/IListAllLockRecordsUseCase.js";
+import type { IRecordLockingModelManager } from "~/types.js";
+import { convertWhereCondition } from "~/utils/convertWhereCondition.js";
+import type { ConvertEntryToLockRecordCb } from "~/useCases/types.js";
 
 export interface IListAllLockRecordsUseCaseParams {
     getManager(): Promise<IRecordLockingModelManager>;

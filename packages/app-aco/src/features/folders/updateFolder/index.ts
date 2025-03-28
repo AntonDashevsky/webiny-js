@@ -1,1 +1,1 @@
-export * from "./useUpdateFolder";
+export * from "./useUpdateFolder.js";

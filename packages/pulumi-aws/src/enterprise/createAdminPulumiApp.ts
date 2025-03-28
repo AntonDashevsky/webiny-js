@@ -2,6 +2,6 @@
 // We're simply reexporting everything from the base Admin Pulumi app.
 export {
     createAdminPulumiApp,
-    CreateAdminPulumiAppParams,
-    AdminPulumiApp
+    type CreateAdminPulumiAppParams,
+    type AdminPulumiApp
 } from "~/apps/admin/createAdminPulumiApp.js";

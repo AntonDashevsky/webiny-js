@@ -1,5 +1,5 @@
 import * as aws from "@pulumi/aws";
-import { ApiPulumiApp, CoreOutput } from "~/index";
+import { ApiPulumiApp, CoreOutput } from "~/index.js";
 
 export const handleGuardDutyEvents = (app: ApiPulumiApp) => {
     const core = app.getModule(CoreOutput);

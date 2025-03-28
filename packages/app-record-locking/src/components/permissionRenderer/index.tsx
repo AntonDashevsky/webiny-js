@@ -1,8 +1,8 @@
 import React from "react";
-import { AccordionItem } from "@webiny/ui/Accordion";
-import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import { AccordionItem } from "@webiny/ui/Accordion/index.js";
+import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
 import { ReactComponent as Icon } from "../assets/lock.svg";
-import { RecordLockingPermissions } from "./RecordLockingPermissions";
+import { RecordLockingPermissions } from "./RecordLockingPermissions.js";
 
 export const recordLockingPermissionRenderer: AdminAppPermissionRendererPlugin = {
     type: "admin-app-permissions-renderer",

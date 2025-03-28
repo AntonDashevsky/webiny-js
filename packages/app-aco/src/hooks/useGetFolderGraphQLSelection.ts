@@ -1,5 +1,5 @@
 import { createFieldsList } from "@webiny/app-headless-cms-common";
-import { useFolderModel } from "~/features";
+import { useFolderModel } from "~/features/index.js";
 
 export const useGetFolderGraphQLSelection = () => {
     const model = useFolderModel();

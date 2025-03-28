@@ -8,7 +8,7 @@ import type {
     CreateCmsEntryOptionsInput,
     UpdateCmsEntryInput,
     UpdateCmsEntryOptionsInput
-} from "~/types";
+} from "~/types/index.js";
 import { parseIdentifier } from "@webiny/utils";
 
 export class DefaultCmsModelManager implements CmsModelManager {

@@ -1,4 +1,4 @@
-import type { CmsModelField as BaseModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModelField as BaseModelField } from "@webiny/api-headless-cms/types/index.js";
 import {
     type CmsModelField,
     FolderCmsModelModifierPlugin,

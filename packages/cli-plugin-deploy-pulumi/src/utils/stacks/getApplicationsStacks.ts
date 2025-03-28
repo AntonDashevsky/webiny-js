@@ -1,11 +1,11 @@
 import path from "path";
 import fs from "fs";
 import glob from "fast-glob";
-import { getProject } from "@webiny/cli/utils";
-import { GracefulError, splitStackName } from "~/utils";
-import type { IStack } from "./Stack";
-import { createStack } from "./Stack";
-import type { NonEmptyArray } from "@webiny/cli/types";
+import { getProject } from "@webiny/cli/utils/index.js";
+import { GracefulError, splitStackName } from "~/utils/index.js";
+import type { IStack } from "./Stack.js";
+import { createStack } from "./Stack.js";
+import type { NonEmptyArray } from "@webiny/cli/types.js";
 
 export interface IGetStacksParams {
     folders: string[];

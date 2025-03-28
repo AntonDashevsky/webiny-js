@@ -1,7 +1,7 @@
 import { createAssetDeliveryPluginLoader } from "@webiny/api-file-manager";
-import { PluginFactory } from "@webiny/plugins/types";
-import { createThreatDetectionPluginLoader } from "~/assetDelivery/threatDetection";
-import type { AssetDeliveryParams } from "~/assetDelivery/types";
+import { PluginFactory } from "@webiny/plugins/types.js";
+import { createThreatDetectionPluginLoader } from "~/assetDelivery/threatDetection/index.js";
+import type { AssetDeliveryParams } from "~/assetDelivery/types.js";
 
 export const createAssetDelivery = (params: AssetDeliveryParams): PluginFactory[] => {
     return [

@@ -1,4 +1,4 @@
-import type { FileManagerContext } from "~/types";
+import type { FileManagerContext } from "~/types.js";
 import { decorateContext } from "@webiny/api";
 
 export const applyThreatScanning = (context: FileManagerContext["fileManager"]) => {

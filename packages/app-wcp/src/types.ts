@@ -1,4 +1,4 @@
-import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
+import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types.js";
 
 export type WcpProject = DecryptedWcpProjectLicense;
 

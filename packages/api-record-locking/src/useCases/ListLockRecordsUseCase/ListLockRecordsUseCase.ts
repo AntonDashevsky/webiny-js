@@ -2,8 +2,8 @@ import type {
     IListLockRecordsUseCase,
     IListLockRecordsUseCaseExecuteParams,
     IListLockRecordsUseCaseExecuteResponse
-} from "~/abstractions/IListLockRecordsUseCase";
-import type { IGetIdentity } from "~/types";
+} from "~/abstractions/IListLockRecordsUseCase.js";
+import type { IGetIdentity } from "~/types.js";
 
 export interface IListLockRecordsUseCaseParams {
     listAllLockRecordsUseCase: IListLockRecordsUseCase;

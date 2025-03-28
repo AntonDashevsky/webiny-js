@@ -1,13 +1,13 @@
-export * from "./createCoreApp";
-export * from "./createApiApp";
-export * from "./createAdminApp";
-export * from "./createAdminAppConfig";
-export * from "./createReactApp";
-export * from "./createReactAppConfig";
-export * from "./createWebsiteApp";
-export * from "./react/plugins";
-export * from "./createWebsiteAppConfig";
+export * from "./createCoreApp.js";
+export * from "./createApiApp.js";
+export * from "./createAdminApp.js";
+export * from "./createAdminAppConfig.js";
+export * from "./createReactApp.js";
+export * from "./createReactAppConfig.js";
+export * from "./createWebsiteApp.js";
+export * from "./react/plugins/index.js";
+export * from "./createWebsiteAppConfig.js";
 
 //
 
-export * from "./createBlueGreenApp";
+export * from "./createBlueGreenApp.js";

@@ -1,8 +1,8 @@
-import singleObjectInline from "./singleObjectInline";
-import singleObjectAccordion from "./singleObjectAccordion";
-import multipleObjects from "./multipleObjects";
-import multipleObjectsAccordion from "./multipleObjectsAccordion";
-import { MultiValueItemContainer } from "./MultiValueItemContainer";
+import singleObjectInline from "./singleObjectInline.js";
+import singleObjectAccordion from "./singleObjectAccordion.js";
+import multipleObjects from "./multipleObjects.js";
+import multipleObjectsAccordion from "./multipleObjectsAccordion.js";
+import { MultiValueItemContainer } from "./MultiValueItemContainer.js";
 
 export const Components = {
     MultiValueItemContainer

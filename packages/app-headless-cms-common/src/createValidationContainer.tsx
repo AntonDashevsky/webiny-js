@@ -1,5 +1,5 @@
 import React from "react";
-import { useModelField } from "./ModelFieldProvider";
+import { useModelField } from "./ModelFieldProvider/index.js";
 
 declare global {
     // eslint-disable-next-line

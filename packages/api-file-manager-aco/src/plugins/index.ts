@@ -1,1 +1,1 @@
-export * from "./createFmFileFolderModelModifier";
+export * from "./createFmFileFolderModelModifier.js";

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { WcpContext } from "~/contexts";
+import { WcpContext } from "~/contexts/index.js";
 
 export function useWcp() {
     const context = useContext(WcpContext);

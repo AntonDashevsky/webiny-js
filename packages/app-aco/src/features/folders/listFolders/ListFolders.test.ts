@@ -1,5 +1,5 @@
-import { ListFolders } from "./ListFolders";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory";
+import { ListFolders } from "./ListFolders.js";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 
 describe("ListFolders", () => {
     const type = "abc";

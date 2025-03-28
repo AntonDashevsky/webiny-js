@@ -1,11 +1,11 @@
-import type { Manager } from "~/tasks/Manager";
-import type { IndexManager } from "~/settings";
+import type { Manager } from "~/tasks/Manager.js";
+import type { IndexManager } from "~/settings/index.js";
 import type { ITaskResponseResult } from "@webiny/tasks";
-import type { IElasticsearchCreateIndexesTaskInput } from "./types";
-import { listIndexes } from "./listIndexes";
-import { createIndexFactory } from "./createIndex";
-import type { Context } from "~/types";
-import { listCreateElasticsearchIndexTaskPlugin } from "./listCreateElasticsearchIndexTaskPlugin";
+import type { IElasticsearchCreateIndexesTaskInput } from "./types.js";
+import { listIndexes } from "./listIndexes.js";
+import { createIndexFactory } from "./createIndex.js";
+import type { Context } from "~/types.js";
+import { listCreateElasticsearchIndexTaskPlugin } from "./listCreateElasticsearchIndexTaskPlugin.js";
 
 export class CreateIndexesTaskRunner {
     private readonly manager: Manager<IElasticsearchCreateIndexesTaskInput>;

@@ -1,2 +1,2 @@
-export * from "./useListFolders";
-export * from "./FolderDto";
+export * from "./useListFolders.js";
+export * from "./FolderDto.js";

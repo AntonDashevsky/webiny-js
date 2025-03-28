@@ -1,1 +1,1 @@
-export * from "./createCmsFolderModelModifier";
+export * from "./createCmsFolderModelModifier.js";

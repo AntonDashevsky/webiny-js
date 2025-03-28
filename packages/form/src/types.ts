@@ -1,6 +1,6 @@
 import React from "react";
-import { Validator } from "@webiny/validation/types";
-import { FormInvalidFields, InvalidFormFields } from "~/FormPresenter";
+import { Validator } from "@webiny/validation/types.js";
+import { FormInvalidFields, InvalidFormFields } from "~/FormPresenter.js";
 
 export { FormInvalidFields };
 

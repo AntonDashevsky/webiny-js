@@ -1,18 +1,18 @@
 import { createFolderFieldDecoratorFactory } from "@webiny/app-aco";
-import { BulkAction, BulkActionConfig } from "./BulkAction";
-import { Filter, FilterConfig } from "./Filter";
-import { FiltersToWhere, FiltersToWhereConverter } from "./FiltersToWhere";
-import { FilterByTags } from "./FilterByTags";
-import { FolderAction, FolderActionConfig } from "./FolderAction";
-import { FileAction, FileActionConfig } from "./FileAction";
-import { Table, TableConfig } from "./Table";
-import { BulkEditField, BulkEditFieldConfig } from "./BulkEditField";
-import { Action } from "./Grid/Action";
-import { Thumbnail } from "./Grid/Thumbnail";
-import { GridConfig } from "./Grid";
-import { ActionButton } from "~/components/Grid/ActionButton";
-import { File } from "~/components/Grid/File";
-import { shouldDecorateFolderField } from "./FolderFieldDecorator";
+import { BulkAction, BulkActionConfig } from "./BulkAction.js";
+import { Filter, FilterConfig } from "./Filter.js";
+import { FiltersToWhere, FiltersToWhereConverter } from "./FiltersToWhere.js";
+import { FilterByTags } from "./FilterByTags.js";
+import { FolderAction, FolderActionConfig } from "./FolderAction.js";
+import { FileAction, FileActionConfig } from "./FileAction.js";
+import { Table, TableConfig } from "./Table/index.js";
+import { BulkEditField, BulkEditFieldConfig } from "./BulkEditField.js";
+import { Action } from "./Grid/Action.js";
+import { Thumbnail } from "./Grid/Thumbnail.js";
+import { GridConfig } from "./Grid/index.js";
+import { ActionButton } from "~/components/Grid/ActionButton.js";
+import { File } from "~/components/Grid/File.js";
+import { shouldDecorateFolderField } from "./FolderFieldDecorator.js";
 
 export interface BrowserConfig {
     bulkActions: BulkActionConfig[];

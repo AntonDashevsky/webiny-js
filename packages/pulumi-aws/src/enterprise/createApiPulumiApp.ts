@@ -4,8 +4,8 @@ import { License } from "@webiny/wcp";
 import {
     createApiPulumiApp as baseCreateApiPulumiApp,
     CreateApiPulumiAppParams as BaseCreateApiPulumiAppParams
-} from "~/apps/api/createApiPulumiApp";
-import { handleGuardDutyEvents } from "~/enterprise/api/handleGuardDutyEvents";
+} from "~/apps/api/createApiPulumiApp.js";
+import { handleGuardDutyEvents } from "~/enterprise/api/handleGuardDutyEvents.js";
 
 export type ApiPulumiApp = ReturnType<typeof createApiPulumiApp>;
 

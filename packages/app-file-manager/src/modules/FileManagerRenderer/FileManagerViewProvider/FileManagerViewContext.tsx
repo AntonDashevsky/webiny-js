@@ -1,19 +1,19 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import omit from "lodash/omit";
+import omit from "lodash/omit.js";
 import { useShiftKey, useStateIfMounted } from "@webiny/app-admin";
-import { FileItem } from "@webiny/app-admin/types";
-import { FileTag } from "~/types";
-import { useFileManagerApi } from "~/index";
-import { initializeState, State } from "./state";
-import { FolderItem, ListMeta, ListSearchRecordsSort } from "@webiny/app-aco/types";
-import { UploadOptions } from "@webiny/app/types";
-import { sortTableItems } from "@webiny/app-aco/sorting";
+import { FileItem } from "@webiny/app-admin/types.js";
+import { FileTag } from "~/types.js";
+import { useFileManagerApi } from "~/index.js";
+import { initializeState, State } from "./state.js";
+import { FolderItem, ListMeta, ListSearchRecordsSort } from "@webiny/app-aco/types.js";
+import { UploadOptions } from "@webiny/app/types.js";
+import { sortTableItems } from "@webiny/app-aco/sorting.js";
 import { useListFolders, useNavigateFolder } from "@webiny/app-aco";
-import { ListFilesQueryVariables } from "~/modules/FileManagerApiProvider/graphql";
-import { useListFiles } from "./useListFiles";
-import { useTags } from "./useTags";
-import { setSelection } from "./setSelection";
-import { ROOT_FOLDER } from "~/constants";
+import { ListFilesQueryVariables } from "~/modules/FileManagerApiProvider/graphql.js";
+import { useListFiles } from "./useListFiles.js";
+import { useTags } from "./useTags.js";
+import { setSelection } from "./setSelection.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 type PublicState = Omit<State, "activeTags">;
 

@@ -1,4 +1,4 @@
-import type { IGetFolderExtensionsFieldsUseCase } from "./IGetFolderExtensionsFieldsUseCase";
+import type { IGetFolderExtensionsFieldsUseCase } from "./IGetFolderExtensionsFieldsUseCase.js";
 
 export class GetFolderExtensionsFieldsUseCaseWithNamespaceAndModelId
     implements IGetFolderExtensionsFieldsUseCase

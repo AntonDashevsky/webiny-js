@@ -1,13 +1,13 @@
 import React from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { FieldElement } from "./FieldElement";
-import { FieldElementError } from "./FieldElementError";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { FieldElement } from "./FieldElement.js";
+import { FieldElementError } from "./FieldElementError.js";
 import type {
     CmsEditorContentModel,
     CmsModelField,
     CmsEditorFieldsLayout,
     BindComponent
-} from "~/types";
+} from "~/types/index.js";
 
 interface FieldsProps {
     Bind: BindComponent;

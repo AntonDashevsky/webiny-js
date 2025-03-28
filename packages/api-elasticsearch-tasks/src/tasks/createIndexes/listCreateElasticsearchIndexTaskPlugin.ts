@@ -1,5 +1,5 @@
-import { CreateElasticsearchIndexTaskPlugin } from "~/tasks/createIndexes/CreateElasticsearchIndexTaskPlugin";
-import type { Context } from "~/types";
+import { CreateElasticsearchIndexTaskPlugin } from "~/tasks/createIndexes/CreateElasticsearchIndexTaskPlugin.js";
+import type { Context } from "~/types.js";
 import type { PluginsContainer } from "@webiny/plugins";
 
 export const listCreateElasticsearchIndexTaskPlugin = <C extends Context = Context>(

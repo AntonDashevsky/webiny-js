@@ -5,7 +5,7 @@ import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CREATE_USER, LIST_USERS, READ_USER, UPDATE_USER } from "~/ui/views/Users/graphql.js";
 import { useWcp } from "@webiny/app-admin";
-import omit from "lodash/omit";
+import omit from "lodash/omit.js";
 
 export type UseUserForm = ReturnType<typeof useUserForm>;
 

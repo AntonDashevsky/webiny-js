@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useWcp } from "@webiny/app-wcp";
-import { GetFolderLevelPermission } from "./GetFolderLevelPermission";
-import { FolderPermissionName } from "./FolderPermissionName";
-import { useFoldersType } from "~/hooks";
+import { GetFolderLevelPermission } from "./GetFolderLevelPermission.js";
+import { FolderPermissionName } from "./FolderPermissionName.js";
+import { useFoldersType } from "~/hooks/index.js";
 
 export const useGetFolderLevelPermission = (permissionName: FolderPermissionName) => {
     const type = useFoldersType();

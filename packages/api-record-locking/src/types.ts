@@ -7,13 +7,13 @@ import {
     CmsIdentity,
     CmsModel,
     CmsModelManager
-} from "@webiny/api-headless-cms/types";
-import { Topic } from "@webiny/pubsub/types";
+} from "@webiny/api-headless-cms/types/index.js";
+import { Topic } from "@webiny/pubsub/types.js";
 import {
     Context as IWebsocketsContext,
     IWebsocketsContextObject
-} from "@webiny/api-websockets/types";
-import { SecurityPermission } from "@webiny/api-security/types";
+} from "@webiny/api-websockets/types.js";
+import { SecurityPermission } from "@webiny/api-security/types.js";
 
 export { CmsError, CmsEntry };
 

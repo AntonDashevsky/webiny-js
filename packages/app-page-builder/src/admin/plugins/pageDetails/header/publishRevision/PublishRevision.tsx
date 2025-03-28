@@ -1,15 +1,15 @@
 import React from "react";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import { i18n } from "@webiny/app/i18n";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as PublishIcon } from "@material-design-icons/svg/round/publish.svg";
 import { ReactComponent as UnpublishIcon } from "@material-design-icons/svg/round/settings_backup_restore.svg";
 import { makeDecoratable } from "@webiny/app-admin";
-import { usePagesPermissions } from "~/hooks/permissions";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
-import { usePage } from "~/admin/views/Pages/PageDetails";
-import { usePublishRevisionHandler } from "../../pageRevisions/usePublishRevisionHandler";
+import { usePage } from "~/admin/views/Pages/PageDetails.js";
+import { usePublishRevisionHandler } from "../../pageRevisions/usePublishRevisionHandler.js";
 
 const t = i18n.ns("app-headless-cms/app-page-builder/page-details/header/publish");
 

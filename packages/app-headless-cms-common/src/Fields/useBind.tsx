@@ -1,10 +1,10 @@
 import React, { useRef, cloneElement } from "react";
-import { Validator } from "@webiny/validation/types";
+import { Validator } from "@webiny/validation/types.js";
 import { useForm } from "@webiny/form";
-import { createValidators } from "~/createValidators";
-import { BindComponent, CmsModelField } from "~/types";
-import { useModelField } from "~/ModelFieldProvider";
-import { createValidationContainer } from "~/createValidationContainer";
+import { createValidators } from "~/createValidators.js";
+import { BindComponent, CmsModelField } from "~/types/index.js";
+import { useModelField } from "~/ModelFieldProvider/index.js";
+import { createValidationContainer } from "~/createValidationContainer.js";
 
 interface UseBindProps {
     Bind: BindComponent;

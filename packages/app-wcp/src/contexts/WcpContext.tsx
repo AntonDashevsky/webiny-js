@@ -1,5 +1,5 @@
 import React from "react";
-import type { ILicense } from "@webiny/wcp/types";
+import type { ILicense } from "@webiny/wcp/types.js";
 import { NullLicense } from "@webiny/wcp";
 
 export type WcpContext = ILicense;

@@ -1,7 +1,7 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import { Action, IPreHandler } from "~/PreHandler/IPreHandler";
-import { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin";
-import { stringifyError } from "~/stringifyError";
+import { Action, IPreHandler } from "~/PreHandler/IPreHandler.js";
+import { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin.js";
+import { stringifyError } from "~/stringifyError.js";
 
 export class ProcessHandlerOnRequestPlugins implements IPreHandler {
     private readonly plugins: HandlerOnRequestPlugin[];

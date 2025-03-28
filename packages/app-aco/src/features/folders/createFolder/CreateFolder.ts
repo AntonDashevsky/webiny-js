@@ -1,10 +1,10 @@
 import { loadingRepositoryFactory } from "@webiny/app-utils";
-import { ICreateFolderUseCase } from "./ICreateFolderUseCase";
-import { ICreateFolderGateway } from "./ICreateFolderGateway";
-import { CreateFolderRepository } from "./CreateFolderRepository";
-import { CreateFolderUseCase } from "./CreateFolderUseCase";
-import { CreateFolderUseCaseWithLoading } from "./CreateFolderUseCaseWithLoading";
-import { folderCacheFactory } from "../cache";
+import { ICreateFolderUseCase } from "./ICreateFolderUseCase.js";
+import { ICreateFolderGateway } from "./ICreateFolderGateway.js";
+import { CreateFolderRepository } from "./CreateFolderRepository.js";
+import { CreateFolderUseCase } from "./CreateFolderUseCase.js";
+import { CreateFolderUseCaseWithLoading } from "./CreateFolderUseCaseWithLoading.js";
+import { folderCacheFactory } from "../cache/index.js";
 
 export class CreateFolder {
     public static getInstance(type: string, gateway: ICreateFolderGateway): ICreateFolderUseCase {

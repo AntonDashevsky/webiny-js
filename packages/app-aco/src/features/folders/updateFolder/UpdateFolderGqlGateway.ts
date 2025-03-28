@@ -1,9 +1,9 @@
 import ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IUpdateFolderGateway } from "./IUpdateFolderGateway";
-import { FolderDto } from "./FolderDto";
-import { AcoError, FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+import { IUpdateFolderGateway } from "./IUpdateFolderGateway.js";
+import { FolderDto } from "./FolderDto.js";
+import { AcoError, FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface UpdateFolderResponse {
     aco: {

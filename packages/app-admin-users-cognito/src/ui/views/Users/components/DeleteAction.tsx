@@ -1,8 +1,8 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
-import { UserItem } from "~/UserItem";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
+import { UserItem } from "~/UserItem.js";
 import { useSecurity } from "@webiny/app-security";
 
 const t = i18n.ns("app-identity/admin/users/data-list");

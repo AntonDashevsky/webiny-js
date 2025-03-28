@@ -1,5 +1,5 @@
 import React from "react";
-import { ValidationIndicators } from "~/admin/views/contentEntries/ValidationIndicators";
+import { ValidationIndicators } from "~/admin/views/contentEntries/ValidationIndicators.js";
 
 export interface ValidationIndicatorsProps {
     className?: string;

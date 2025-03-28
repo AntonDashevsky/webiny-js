@@ -1,8 +1,8 @@
-import type { IStackOutput } from "~/utils";
-import { getStackOutput } from "~/utils";
-import { getApplicationsStacks } from "./getApplicationsStacks";
-import type { IStack } from "./Stack";
-import type { Context, NonEmptyArray } from "~/types";
+import type { IStackOutput } from "~/utils/index.js";
+import { getStackOutput } from "~/utils/index.js";
+import { getApplicationsStacks } from "./getApplicationsStacks.js";
+import type { IStack } from "./Stack.js";
+import type { Context, NonEmptyArray } from "~/types.js";
 
 export interface IGetStacksOutputParams {
     folders: NonEmptyArray<string>;

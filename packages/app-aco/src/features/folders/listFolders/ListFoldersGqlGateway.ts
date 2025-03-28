@@ -1,8 +1,8 @@
 import ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IListFoldersGateway, ListFoldersGatewayParams } from "./IListFoldersGateway";
-import { AcoError, FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+import { IListFoldersGateway, ListFoldersGatewayParams } from "./IListFoldersGateway.js";
+import { AcoError, FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface ListFoldersResponse {
     aco: {

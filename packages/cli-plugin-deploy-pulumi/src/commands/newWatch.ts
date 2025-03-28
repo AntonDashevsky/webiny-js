@@ -1,17 +1,17 @@
-import { Context, IUserCommandInput, ProjectApplication } from "~/types";
+import { Context, IUserCommandInput, ProjectApplication } from "~/types.js";
 import chalk from "chalk";
 import path from "path";
-import { getProject, getProjectApplication } from "@webiny/cli/utils";
-import get from "lodash/get";
-import merge from "lodash/merge";
+import { getProject, getProjectApplication } from "@webiny/cli/utils/index.js";
+import get from "lodash/get.js";
+import merge from "lodash/merge.js";
 import type inspectorType from "inspector";
-import { getDeploymentId, loadEnvVariables, runHook, setMustRefreshBeforeDeploy } from "~/utils";
-import { getIotEndpoint } from "./newWatch/getIotEndpoint";
-import { listLambdaFunctions } from "./newWatch/listLambdaFunctions";
-import { listPackages } from "./newWatch/listPackages";
-import { PackagesWatcher } from "./newWatch/watchers/PackagesWatcher";
-import { initInvocationForwarding } from "./newWatch/initInvocationForwarding";
-import { replaceLambdaFunctions } from "./newWatch/replaceLambdaFunctions";
+import { getDeploymentId, loadEnvVariables, runHook, setMustRefreshBeforeDeploy } from "~/utils/index.js";
+import { getIotEndpoint } from "./newWatch/getIotEndpoint.js";
+import { listLambdaFunctions } from "./newWatch/listLambdaFunctions.js";
+import { listPackages } from "./newWatch/listPackages.js";
+import { PackagesWatcher } from "./newWatch/watchers/PackagesWatcher.js";
+import { initInvocationForwarding } from "./newWatch/initInvocationForwarding.js";
+import { replaceLambdaFunctions } from "./newWatch/replaceLambdaFunctions.js";
 
 // Do not allow watching "prod" and "production" environments. On the Pulumi CLI side, the command
 // is still in preview mode, so it's definitely not wise to use it on production environments.

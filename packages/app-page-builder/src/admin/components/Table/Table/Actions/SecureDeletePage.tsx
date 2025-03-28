@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
-import { usePagesPermissions } from "~/hooks/permissions";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
-import { DeletePage } from "./DeletePage";
+import { DeletePage } from "./DeletePage.js";
 
 export const SecureDeletePage = () => {
     const { page } = usePage();

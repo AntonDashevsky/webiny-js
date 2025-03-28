@@ -5,7 +5,7 @@ import { HeadlessCmsActionsAcoCell } from "~/components/HeadlessCmsActionsAcoCel
 import { HeadlessCmsContentEntry } from "~/components/HeadlessCmsContentEntry/index.js";
 import { useWcp } from "@webiny/app-wcp";
 import { plugins } from "@webiny/plugins";
-import { recordLockingPermissionRenderer } from "~/components/permissionRenderer";
+import { recordLockingPermissionRenderer } from "~/components/permissionRenderer/index.js";
 
 export * from "~/components/RecordLockingProvider.js";
 export * from "~/hooks/index.js";

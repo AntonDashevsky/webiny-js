@@ -1,6 +1,6 @@
-import { DeleteFolder } from "./DeleteFolder";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory";
-import { Folder } from "../Folder";
+import { DeleteFolder } from "./DeleteFolder.js";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
+import { Folder } from "../Folder.js";
 
 describe("DeleteFolder", () => {
     const type = "abc";

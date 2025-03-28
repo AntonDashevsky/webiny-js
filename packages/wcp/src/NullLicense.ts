@@ -1,5 +1,5 @@
-import { WCP_FEATURE_LABEL } from "~/index";
-import type { ILicense, WcpProject } from "~/types";
+import { WCP_FEATURE_LABEL } from "~/index.js";
+import type { ILicense, WcpProject } from "~/types.js";
 
 export class NullLicense implements ILicense {
     getRawLicense() {

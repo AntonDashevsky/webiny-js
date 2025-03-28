@@ -1,1 +1,1 @@
-export * from "./useGetFolderLevelPermission";
+export * from "./useGetFolderLevelPermission.js";

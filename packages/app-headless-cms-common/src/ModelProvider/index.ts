@@ -1,2 +1,2 @@
-export * from "./ModelContext";
-export * from "./useModel";
+export * from "./ModelContext.js";
+export * from "./useModel.js";

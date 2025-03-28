@@ -1,7 +1,7 @@
 import ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IGetFolderGateway } from "./IGetFolderGateway";
-import { FolderItem, AcoError } from "~/types";
+import { IGetFolderGateway } from "./IGetFolderGateway.js";
+import { FolderItem, AcoError } from "~/types.js";
 
 export interface GetFolderResponse {
     aco: {

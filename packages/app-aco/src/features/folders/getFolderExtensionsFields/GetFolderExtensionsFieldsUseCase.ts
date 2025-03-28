@@ -1,5 +1,5 @@
-import type { IGetFolderExtensionsFieldsUseCase } from "./IGetFolderExtensionsFieldsUseCase";
-import type { IGetFolderExtensionsFieldsRepository } from "./IGetFolderExtensionsFieldsRepository";
+import type { IGetFolderExtensionsFieldsUseCase } from "./IGetFolderExtensionsFieldsUseCase.js";
+import type { IGetFolderExtensionsFieldsRepository } from "./IGetFolderExtensionsFieldsRepository.js";
 
 export class GetFolderExtensionsFieldsUseCase implements IGetFolderExtensionsFieldsUseCase {
     private repository: IGetFolderExtensionsFieldsRepository;

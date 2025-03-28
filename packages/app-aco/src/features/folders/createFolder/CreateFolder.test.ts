@@ -1,5 +1,5 @@
-import { CreateFolder } from "./CreateFolder";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory";
+import { CreateFolder } from "./CreateFolder.js";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 
 describe("CreateFolder", () => {
     const type = "abc";

@@ -1,6 +1,6 @@
 import * as aws from "@pulumi/aws";
-import type { CreateSyncSystemPulumiAppParams as BaseCreateSyncSystemPulumiAppParams } from "~/apps/syncSystem/createSyncSystemPulumiApp";
-import { createSyncSystemPulumiApp as baseCreateSyncSystemPulumiApp } from "~/apps/syncSystem/createSyncSystemPulumiApp";
+import type { CreateSyncSystemPulumiAppParams as BaseCreateSyncSystemPulumiAppParams } from "~/apps/syncSystem/createSyncSystemPulumiApp.js";
+import { createSyncSystemPulumiApp as baseCreateSyncSystemPulumiApp } from "~/apps/syncSystem/createSyncSystemPulumiApp.js";
 import type { PulumiAppParam } from "@webiny/pulumi";
 import { isResourceOfType } from "@webiny/pulumi";
 

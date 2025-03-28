@@ -1,5 +1,5 @@
 import * as aws from "@pulumi/aws";
-import type { QueueArgs } from "@pulumi/aws/sqs";
+import type { QueueArgs } from "@pulumi/aws/sqs/index.js";
 import type { PulumiApp } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
 

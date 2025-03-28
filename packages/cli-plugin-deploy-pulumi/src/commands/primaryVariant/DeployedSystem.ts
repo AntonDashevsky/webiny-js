@@ -1,6 +1,6 @@
-import type { IStackOutput } from "~/utils";
-import { GracefulError } from "~/utils";
-import type { IStack } from "~/utils/stacks/Stack";
+import type { IStackOutput } from "~/utils/index.js";
+import { GracefulError } from "~/utils/index.js";
+import type { IStack } from "~/utils/stacks/Stack.js";
 
 export interface IDeployedSystem {
     readonly env: string;

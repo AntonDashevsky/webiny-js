@@ -1,10 +1,10 @@
 import React, { Fragment, useCallback, useMemo } from "react";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Select } from "@webiny/ui/Select";
-import { i18n } from "@webiny/app/i18n";
-import { gridNoPaddingClass, PermissionInfo } from "@webiny/app-admin/components/Permissions";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Select } from "@webiny/ui/Select/index.js";
+import { i18n } from "@webiny/app/i18n/index.js";
+import { gridNoPaddingClass, PermissionInfo } from "@webiny/app-admin/components/Permissions/index.js";
 import { Form } from "@webiny/form";
-import { RecordLockingSecurityPermission } from "~/types";
+import { RecordLockingSecurityPermission } from "~/types.js";
 
 const t = i18n.ns("app-record-locking/components/permissionRenderer");
 

@@ -1,7 +1,7 @@
-import type { Context, NonEmptyArray } from "~/types";
-import { getDeployedSystems } from "./getDeployedSystems";
-import { createConnectionSystem } from "./ConnectionSystem";
-import type { IExecuteSetPrimaryVariantCommandParams } from "./types";
+import type { Context, NonEmptyArray } from "~/types.js";
+import { getDeployedSystems } from "./getDeployedSystems.js";
+import { createConnectionSystem } from "./ConnectionSystem.js";
+import type { IExecuteSetPrimaryVariantCommandParams } from "./types.js";
 
 const folders: NonEmptyArray<string> = ["apps/core", "apps/api"];
 

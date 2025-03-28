@@ -1,8 +1,8 @@
-import { IUpdateFolderRepository } from "./IUpdateFolderRepository";
-import { ListCache } from "../cache";
-import { Folder } from "../Folder";
-import { IUpdateFolderGateway } from "./IUpdateFolderGateway";
-import { FolderDto } from "./FolderDto";
+import { IUpdateFolderRepository } from "./IUpdateFolderRepository.js";
+import { ListCache } from "../cache/index.js";
+import { Folder } from "../Folder.js";
+import { IUpdateFolderGateway } from "./IUpdateFolderGateway.js";
+import { FolderDto } from "./FolderDto.js";
 
 export class UpdateFolderRepository implements IUpdateFolderRepository {
     private cache: ListCache<Folder>;

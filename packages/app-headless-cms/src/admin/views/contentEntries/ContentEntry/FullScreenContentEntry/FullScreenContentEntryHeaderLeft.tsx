@@ -2,16 +2,16 @@ import React from "react";
 import { ReactComponent as BackIcon } from "@material-design-icons/svg/round/arrow_back.svg";
 import { useNavigateFolder } from "@webiny/app-aco";
 import { makeDecoratable } from "@webiny/react-composition";
-import { IconButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
 import {
     EntryMeta,
     EntryTitle,
     EntryVersion,
     TitleWrapper,
     EntryName
-} from "./FullScreenContentEntry.styled";
+} from "./FullScreenContentEntry.styled.js";
 
 export const ContentEntryFormMeta = makeDecoratable("ContentEntryFormMeta", () => {
     const { entry, contentModel } = useContentEntry();

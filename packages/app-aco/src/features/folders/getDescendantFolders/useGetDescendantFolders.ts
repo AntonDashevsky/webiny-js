@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import { GetDescendantFolders } from "./GetDescendantFolders";
-import { useFoldersType } from "~/hooks";
+import { GetDescendantFolders } from "./GetDescendantFolders.js";
+import { useFoldersType } from "~/hooks/index.js";
 
 export const useGetDescendantFolders = () => {
     const type = useFoldersType();

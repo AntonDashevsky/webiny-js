@@ -1,4 +1,4 @@
-import { GetFolderModel } from "./GetFolderModel";
+import { GetFolderModel } from "./GetFolderModel.js";
 
 describe("GetFolderModel", () => {
     const folderModel = {

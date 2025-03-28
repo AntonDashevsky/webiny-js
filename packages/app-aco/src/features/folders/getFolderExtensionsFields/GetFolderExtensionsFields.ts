@@ -1,10 +1,10 @@
-import type { IGetFolderExtensionsFieldsUseCase } from "./IGetFolderExtensionsFieldsUseCase";
-import { GetFolderExtensionsFieldsRepository } from "./GetFolderExtensionsFieldsRepository";
+import type { IGetFolderExtensionsFieldsUseCase } from "./IGetFolderExtensionsFieldsUseCase.js";
+import { GetFolderExtensionsFieldsRepository } from "./GetFolderExtensionsFieldsRepository.js";
 
-import { GetFolderExtensionsFieldsUseCase } from "./GetFolderExtensionsFieldsUseCase";
-import { GetFolderExtensionsFieldsUseCaseWithNamespace } from "./GetFolderExtensionsFieldsUseCaseWithNamespace";
-import { GetFolderExtensionsFieldsUseCaseWithNamespaceAndModelId } from "./GetFolderExtensionsFieldsUseCaseWithNamespaceAndModelId";
-import type { CmsModel } from "@webiny/app-headless-cms-common/types";
+import { GetFolderExtensionsFieldsUseCase } from "./GetFolderExtensionsFieldsUseCase.js";
+import { GetFolderExtensionsFieldsUseCaseWithNamespace } from "./GetFolderExtensionsFieldsUseCaseWithNamespace.js";
+import { GetFolderExtensionsFieldsUseCaseWithNamespaceAndModelId } from "./GetFolderExtensionsFieldsUseCaseWithNamespaceAndModelId.js";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 
 export class GetFolderExtensionsFields {
     public static getInstance(

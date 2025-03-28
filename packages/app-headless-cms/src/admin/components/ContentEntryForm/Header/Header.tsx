@@ -7,7 +7,7 @@ import { ContentFormOptionsMenu } from "./ContentFormOptionsMenu/index.js";
 import { RevisionSelector } from "~/admin/components/ContentEntryForm/Header/RevisionSelector/index.js";
 import styled from "@emotion/styled";
 import { Helmet } from "react-helmet";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
 
 const ToolbarGrid = styled.div`
     padding: 15px;

@@ -6,9 +6,9 @@ import {
     UpdateFunctionCodeCommand,
     UpdateFunctionConfigurationCommand
 } from "@webiny/aws-sdk/client-lambda";
-import { getStackExport } from "~/utils";
-import { type listLambdaFunctions } from "./listLambdaFunctions";
-import type { Context } from "~/types";
+import { getStackExport } from "~/utils/index.js";
+import { type listLambdaFunctions } from "./listLambdaFunctions.js";
+import type { Context } from "~/types.js";
 
 const WATCH_MODE_NOTE_IN_DESCRIPTION = " (💡 local development mode, redeploy to remove)";
 const DEFAULT_INCREASE_TIMEOUT = 120;

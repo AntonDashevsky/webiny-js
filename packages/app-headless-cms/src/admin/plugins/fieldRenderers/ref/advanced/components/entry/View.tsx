@@ -1,7 +1,7 @@
 import React from "react";
-import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { ReactComponent as ViewIcon } from "@material-design-icons/svg/outlined/visibility.svg";
-import { ButtonLink } from "./elements/ButtonLink";
+import { ButtonLink } from "./elements/ButtonLink.js";
 
 const createEntryUrl = (entry: CmsReferenceContentEntry) => {
     const folderId = entry.wbyAco_location?.folderId || "";

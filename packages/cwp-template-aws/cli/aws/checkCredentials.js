@@ -1,4 +1,4 @@
-import { STS } from "@webiny/aws-sdk/client-sts/index.js";
+import { STS } from "@webiny/aws-sdk/client-sts";
 import chalk from "chalk";
 
 const { green } = chalk;

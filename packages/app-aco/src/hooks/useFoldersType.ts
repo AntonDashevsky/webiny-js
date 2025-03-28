@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { FoldersContext } from "~/contexts/folders";
+import { FoldersContext } from "~/contexts/folders.js";
 
 export const useFoldersType = () => {
     const foldersContext = useContext(FoldersContext);

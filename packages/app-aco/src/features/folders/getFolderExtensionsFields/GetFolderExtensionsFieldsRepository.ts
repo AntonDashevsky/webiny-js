@@ -1,5 +1,5 @@
-import type { IGetFolderExtensionsFieldsRepository } from "./IGetFolderExtensionsFieldsRepository";
-import type { CmsModel } from "@webiny/app-headless-cms-common/types";
+import type { IGetFolderExtensionsFieldsRepository } from "./IGetFolderExtensionsFieldsRepository.js";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 
 export class GetFolderExtensionsFieldsRepository implements IGetFolderExtensionsFieldsRepository {
     private model: CmsModel;

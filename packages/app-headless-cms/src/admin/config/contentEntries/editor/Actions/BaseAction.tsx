@@ -1,6 +1,6 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel";
+import { IsApplicableToCurrentModel } from "~/admin/config/IsApplicableToCurrentModel.js";
 
 export interface BaseActionConfig<T extends string> {
     name: string;

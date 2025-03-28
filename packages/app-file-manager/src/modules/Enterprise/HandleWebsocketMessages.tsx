@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import { IncomingGenericData, useWebsockets } from "@webiny/app-websockets";
 import { useSnackbar } from "@webiny/app-admin";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 
 const Bold = styled.span`
     font-weight: bold;

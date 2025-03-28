@@ -4,7 +4,7 @@ import {
     FolderCmsModelModifierPlugin,
     type IFolderModelFieldsModifier
 } from "@webiny/api-aco";
-import { CmsModelField as BaseModelField } from "@webiny/api-headless-cms/types";
+import { CmsModelField as BaseModelField } from "@webiny/api-headless-cms/types/index.js";
 
 export class FolderModelFieldsModifier implements IFolderModelFieldsModifier {
     private fields: BaseModelField[] = [];

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import { CircularProgress } from "@webiny/ui/Progress";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks";
-import { RevisionListDrawer } from "./RevisionListDrawer";
-import { FullScreenContentEntryHeaderLeft } from "./FullScreenContentEntryHeaderLeft";
-import * as FSE from "./FullScreenContentEntry.styled";
-import { FullScreenContentEntryProvider } from "./useFullScreenContentEntry";
-import { ContentEntryEditorConfig } from "~/ContentEntryEditorConfig";
-import { cmsLegacyEntryEditor } from "~/utils/cmsLegacyEntryEditor";
-import { useContentEntryEditorConfig } from "~/admin/config/contentEntries";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
+import { RevisionListDrawer } from "./RevisionListDrawer/index.js";
+import { FullScreenContentEntryHeaderLeft } from "./FullScreenContentEntryHeaderLeft.js";
+import * as FSE from "./FullScreenContentEntry.styled.js";
+import { FullScreenContentEntryProvider } from "./useFullScreenContentEntry.js";
+import { ContentEntryEditorConfig } from "~/ContentEntryEditorConfig.js";
+import { cmsLegacyEntryEditor } from "~/utils/cmsLegacyEntryEditor.js";
+import { useContentEntryEditorConfig } from "~/admin/config/contentEntries/index.js";
 
 const { ContentEntry } = ContentEntryEditorConfig;
 

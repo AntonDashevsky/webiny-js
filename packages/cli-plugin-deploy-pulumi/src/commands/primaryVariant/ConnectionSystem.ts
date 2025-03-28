@@ -1,6 +1,6 @@
 import ora from "ora";
-import type { IDeployedSystem } from "./DeployedSystem";
-import type { Context } from "~/types";
+import type { IDeployedSystem } from "./DeployedSystem.js";
+import type { Context } from "~/types.js";
 
 export interface IConnectionSystem {
     readonly context: Context;

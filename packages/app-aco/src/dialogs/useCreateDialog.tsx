@@ -2,17 +2,17 @@ import React, { useCallback, useState } from "react";
 import slugify from "slugify";
 import { useSnackbar } from "@webiny/app-admin";
 import { Bind, GenericFormData, useForm } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid";
-import { Input } from "@webiny/ui/Input";
-import { Typography } from "@webiny/ui/Typography";
+import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 import { validation } from "@webiny/validation";
 
-import { Extensions, FolderTree } from "~/components";
+import { Extensions, FolderTree } from "~/components/index.js";
 import { useDialogs } from "@webiny/app-admin";
-import { DialogFoldersContainer } from "~/dialogs/styled";
-import { useCreateFolder } from "~/features";
-import { ROOT_FOLDER } from "~/constants";
-import { FolderItem } from "~/types";
+import { DialogFoldersContainer } from "~/dialogs/styled.js";
+import { useCreateFolder } from "~/features/index.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import { FolderItem } from "~/types.js";
 
 interface ShowDialogParams {
     currentParentId?: string | null;

@@ -1,8 +1,8 @@
 import type {
     IKickOutCurrentUserUseCase,
     IKickOutCurrentUserUseCaseExecuteParams
-} from "~/abstractions/IKickOutCurrentUserUseCase";
-import type { IGetIdentity, IGetWebsocketsContextCallable } from "~/types";
+} from "~/abstractions/IKickOutCurrentUserUseCase.js";
+import type { IGetIdentity, IGetWebsocketsContextCallable } from "~/types.js";
 import { parseIdentifier } from "@webiny/utils";
 
 export interface IKickOutCurrentUserUseCaseParams {

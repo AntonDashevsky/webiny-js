@@ -1,5 +1,5 @@
-import { GetFolderExtensionsFields } from "./GetFolderExtensionsFields";
-import type { CmsModel } from "@webiny/app-headless-cms-common/types";
+import { GetFolderExtensionsFields } from "./GetFolderExtensionsFields.js";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 
 describe("GetFolderExtensionsFields", () => {
     const model = {

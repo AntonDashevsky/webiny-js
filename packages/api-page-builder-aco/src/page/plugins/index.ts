@@ -1,1 +1,1 @@
-export * from "./createPbPageFolderModelModifier";
+export * from "./createPbPageFolderModelModifier.js";

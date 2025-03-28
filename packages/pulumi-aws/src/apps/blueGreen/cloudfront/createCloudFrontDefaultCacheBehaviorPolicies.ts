@@ -1,6 +1,6 @@
 import * as aws from "@pulumi/aws";
-import type { GetCachePolicyResult } from "@pulumi/aws/cloudfront/getCachePolicy";
-import type { GetOriginRequestPolicyResult } from "@pulumi/aws/cloudfront/getOriginRequestPolicy";
+import type { GetCachePolicyResult } from "@pulumi/aws/cloudfront/getCachePolicy.js";
+import type { GetOriginRequestPolicyResult } from "@pulumi/aws/cloudfront/getOriginRequestPolicy.js";
 
 export interface ICreateCloudFrontDefaultCacheBehaviorPoliciesOutput {
     disableCachingCachePolicyId: GetCachePolicyResult;

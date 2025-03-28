@@ -1,4 +1,4 @@
-import { IUserCommandInput } from "~/types";
+import { IUserCommandInput } from "~/types.js";
 
 const disallowedVariants = ["none", "empty", "blank"];
 

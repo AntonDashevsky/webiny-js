@@ -1,9 +1,9 @@
 import { Compose, LocaleSelector, useWcp } from "@webiny/app-admin";
 import React, { Fragment, memo } from "react";
-import { AddTenantFormField } from "./components/AddTenantFormField";
-import { CurrentTenantWidget } from "./components/CurrentTenantWidget";
-import { DomainsModule } from "./modules/domains";
-import { TenantsModule } from "./modules/tenants";
+import { AddTenantFormField } from "./components/AddTenantFormField.js";
+import { CurrentTenantWidget } from "./components/CurrentTenantWidget.js";
+import { DomainsModule } from "./modules/domains/index.js";
+import { TenantsModule } from "./modules/tenants/index.js";
 
 const TenantIndicator = (LocaleSelector: React.ComponentType) => {
     return function TenantIndicator() {
@@ -44,6 +44,6 @@ const TenantManagerExtension = () => {
 
 export const TenantManager: React.ComponentType = memo(TenantManagerExtension);
 
-export { useCurrentTenant } from "./hooks/useCurrentTenant";
-export { IsRootTenant, IsNotRootTenant, IsTenant } from "./components/IsRootTenant";
+export { useCurrentTenant } from "./hooks/useCurrentTenant.js";
+export { IsRootTenant, IsNotRootTenant, IsTenant } from "./components/IsRootTenant.js";
 export { AddTenantFormField, CurrentTenantWidget };

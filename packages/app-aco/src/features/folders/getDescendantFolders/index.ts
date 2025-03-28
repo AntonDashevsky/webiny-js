@@ -1,1 +1,1 @@
-export * from "./useGetDescendantFolders";
+export * from "./useGetDescendantFolders.js";

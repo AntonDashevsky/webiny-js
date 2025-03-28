@@ -2,7 +2,7 @@ import path from "path";
 import { Worker } from "worker_threads";
 import { compress, decompress } from "@webiny/utils/compression/gzip.js";
 import mqtt from "mqtt";
-import type { listLambdaFunctions } from "~/commands/newWatch/listLambdaFunctions";
+import type { listLambdaFunctions } from "~/commands/newWatch/listLambdaFunctions.js";
 
 const WEBINY_WATCH_FN_INVOCATION_EVENT = "webiny.watch.functionInvocation";
 const WEBINY_WATCH_FN_INVOCATION_RESULT_EVENT = "webiny.watch.functionInvocationResult";

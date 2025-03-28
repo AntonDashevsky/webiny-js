@@ -12,16 +12,17 @@ export default {
              * Imports of those packages will fail, and it is ok to continue with process execution.
              */
             try {
+                // TODO: @esm
                 const modules = await Promise.allSettled([
                     import("@webiny/cli-plugin-deploy-pulumi"),
-                    import("@webiny/cli-plugin-dependencies"),
+                    // import("@webiny/cli-plugin-dependencies"),
                     import("@webiny/cwp-template-aws/cli"),
                     import("@webiny/cli-plugin-workspaces"),
-                    import("@webiny/cli-plugin-scaffold"),
-                    import("@webiny/cli-plugin-extensions"),
-                    import("@webiny/cli-plugin-scaffold-extensions"),
-                    import("@webiny/cli-plugin-scaffold-workspaces"),
-                    import("@webiny/cli-plugin-scaffold-ci")
+                    // import("@webiny/cli-plugin-scaffold"),
+                    // import("@webiny/cli-plugin-extensions"),
+                    // import("@webiny/cli-plugin-scaffold-extensions"),
+                    // import("@webiny/cli-plugin-scaffold-workspaces"),
+                    // import("@webiny/cli-plugin-scaffold-ci")
                 ]);
 
                 // console.log(modules);
@@ -39,6 +40,8 @@ export default {
                                 return null;
                             }
                         }
+
+                        console.log(m);
                         return null;
                     })
                     .filter(Boolean);

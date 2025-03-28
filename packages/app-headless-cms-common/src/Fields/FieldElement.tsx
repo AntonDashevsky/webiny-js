@@ -1,13 +1,13 @@
 import React from "react";
-import get from "lodash/get";
+import get from "lodash/get.js";
 import { makeDecoratable } from "@webiny/app-admin";
-import { i18n } from "@webiny/app/i18n";
-import Label from "./Label";
-import { useBind } from "./useBind";
-import { useRenderPlugins } from "./useRenderPlugins";
-import { ModelFieldProvider, useModelField } from "../ModelFieldProvider";
-import { CmsModelField, CmsEditorContentModel, BindComponent } from "~/types";
-import { ErrorBoundary } from "./ErrorBoundary";
+import { i18n } from "@webiny/app/i18n/index.js";
+import Label from "./Label.js";
+import { useBind } from "./useBind.js";
+import { useRenderPlugins } from "./useRenderPlugins.js";
+import { ModelFieldProvider, useModelField } from "../ModelFieldProvider/index.js";
+import { CmsModelField, CmsEditorContentModel, BindComponent } from "~/types/index.js";
+import { ErrorBoundary } from "./ErrorBoundary.js";
 
 const t = i18n.ns("app-headless-cms/admin/components/content-form");
 

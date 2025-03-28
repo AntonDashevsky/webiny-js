@@ -1,1 +1,1 @@
-export * from "./useGetFolderExtensionsFields";
+export * from "./useGetFolderExtensionsFields.js";

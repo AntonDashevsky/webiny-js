@@ -1,26 +1,26 @@
 import React, { useCallback, useState } from "react";
-import { IconButton } from "@webiny/ui/Button";
-import { Icon } from "@webiny/ui/Icon";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Icon } from "@webiny/ui/Icon/index.js";
 import { ReactComponent as MoreVerticalIcon } from "~/admin/assets/more_vert.svg";
 import { ReactComponent as HomeIcon } from "~/admin/assets/round-home-24px.svg";
 import { ReactComponent as GridViewIcon } from "@material-design-icons/svg/outlined/grid_view.svg";
-import { ListItemGraphic } from "@webiny/ui/List";
-import { MenuItem, Menu } from "@webiny/ui/Menu";
-import { CreatePageTemplateDialog } from "~/admin/views/PageTemplates/CreatePageTemplateDialog";
-import { usePageBuilderSettings } from "~/admin/hooks/usePageBuilderSettings";
+import { ListItemGraphic } from "@webiny/ui/List/index.js";
+import { MenuItem, Menu } from "@webiny/ui/Menu/index.js";
+import { CreatePageTemplateDialog } from "~/admin/views/PageTemplates/CreatePageTemplateDialog.js";
+import { usePageBuilderSettings } from "~/admin/hooks/usePageBuilderSettings/index.js";
 import { css } from "emotion";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import classNames from "classnames";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import { plugins } from "@webiny/plugins";
-import { PbPageData, PbPageDetailsHeaderRightOptionsMenuItemPlugin, PbPageTemplate } from "~/types";
+import { PbPageData, PbPageDetailsHeaderRightOptionsMenuItemPlugin, PbPageTemplate } from "~/types.js";
 import { SecureView } from "@webiny/app-security";
-import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
+import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
-import { useTemplatesPermissions } from "~/hooks/permissions";
-import { PreviewPage } from "./PreviewPage";
-import { DuplicatePage } from "./DuplicatePage";
-import { useCreatePageTemplateFromPage } from "~/features";
+import { useTemplatesPermissions } from "~/hooks/permissions/index.js";
+import { PreviewPage } from "./PreviewPage.js";
+import { DuplicatePage } from "./DuplicatePage/index.js";
+import { useCreatePageTemplateFromPage } from "~/features/index.js";
 
 const menuStyles = css({
     width: 250,

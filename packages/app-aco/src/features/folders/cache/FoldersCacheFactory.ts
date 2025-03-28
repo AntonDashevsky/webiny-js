@@ -1,5 +1,5 @@
-import { Folder } from "../Folder";
-import { ListCache } from "~/features/folders/cache/ListCache";
+import { Folder } from "../Folder.js";
+import { ListCache } from "~/features/folders/cache/ListCache.js";
 
 export class FoldersCacheFactory {
     private cache: Map<string, ListCache<Folder>> = new Map();

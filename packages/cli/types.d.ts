@@ -38,7 +38,7 @@ interface Project {
     config: {
         appAliases: {
             [key: string]: string;
-        }
+        };
         [key: string]: any;
     };
     /**
@@ -73,6 +73,7 @@ export interface IProjectApplicationConfigCli {
 export interface IProjectApplicationConfig {
     appAliases?: Record<string, string>;
     cli?: IProjectApplicationConfigCli;
+    getPlugins?: () => Promise<PluginCollection[]>;
     [key: string]: unknown;
 }
 

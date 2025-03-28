@@ -1,12 +1,12 @@
-import { createPulumiCommand, notify, runHook } from "~/utils";
-import { BeforeDeployPlugin } from "~/plugins";
-import { PackagesBuilder } from "./buildPackages/PackagesBuilder";
-import { pulumiLoginSelectStack } from "./deploy/pulumiLoginSelectStack";
-import { executeDeploy } from "./deploy/executeDeploy";
-import { executePreview } from "./deploy/executePreview";
-import { executeRefresh } from "~/commands/deploy/executeRefresh";
+import { createPulumiCommand, notify, runHook } from "~/utils/index.js";
+import { BeforeDeployPlugin } from "~/plugins/index.js";
+import { PackagesBuilder } from "./buildPackages/PackagesBuilder.js";
+import { pulumiLoginSelectStack } from "./deploy/pulumiLoginSelectStack.js";
+import { executeDeploy } from "./deploy/executeDeploy.js";
+import { executePreview } from "./deploy/executePreview.js";
+import { executeRefresh } from "~/commands/deploy/executeRefresh.js";
 import { setTimeout } from "node:timers/promises";
-import type { CliContext } from "@webiny/cli/types";
+import type { CliContext } from "@webiny/cli/types.js";
 
 export interface IDeployParams {
     _: string[];

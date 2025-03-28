@@ -1,16 +1,16 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { IconButton } from "@webiny/ui/Button";
-import { Tooltip } from "@webiny/ui/Tooltip";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as EditIcon } from "../../../../assets/edit.svg";
-import { CREATE_PAGE } from "~/admin/graphql/pages";
-import * as GQLCache from "~/admin/views/Pages/cache";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { i18n } from "@webiny/app/i18n";
+import { CREATE_PAGE } from "~/admin/graphql/pages.js";
+import * as GQLCache from "~/admin/views/Pages/cache.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import { i18n } from "@webiny/app/i18n/index.js";
 import { useMutation } from "@apollo/react-hooks";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
-import { usePage } from "~/admin/views/Pages/PageDetails";
+import { usePage } from "~/admin/views/Pages/PageDetails.js";
 import { makeDecoratable } from "@webiny/react-composition";
 
 const t = i18n.ns("app-headless-cms/app-page-builder/page-details/header/edit");

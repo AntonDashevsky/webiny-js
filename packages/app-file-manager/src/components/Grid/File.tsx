@@ -5,12 +5,12 @@ import React, { Fragment } from "react";
 // @ts-expect-error
 import LazyLoad from "react-lazy-load";
 import { makeDecoratable } from "@webiny/app-admin";
-import { TimeAgo } from "@webiny/ui/TimeAgo";
-import { Typography } from "@webiny/ui/Typography";
+import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
 
 import { ReactComponent as SelectedMarker } from "@material-design-icons/svg/filled/check_circle.svg";
 
-import { FileItem } from "@webiny/app-admin/types";
+import { FileItem } from "@webiny/app-admin/types.js";
 
 import {
     FileBody,
@@ -21,8 +21,8 @@ import {
     FileLabel,
     FilePreview,
     FileWrapper
-} from "./styled";
-import { useFileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+} from "./styled.js";
+import { useFileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
 
 export interface FileProps {
     file: FileItem;

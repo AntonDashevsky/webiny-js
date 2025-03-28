@@ -1,1 +1,1 @@
-export * from "@webiny/app-headless-cms-common/Fields/useRenderPlugins";
+export * from "@webiny/app-headless-cms-common/Fields/useRenderPlugins.js";

@@ -1,5 +1,5 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import { Action, IPreHandler } from "./IPreHandler";
+import { Action, IPreHandler } from "./IPreHandler.js";
 
 export class IfNotOptionsRequest implements IPreHandler {
     private readonly handlers: IPreHandler[];

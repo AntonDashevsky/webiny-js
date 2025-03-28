@@ -6,7 +6,7 @@ import {
     useGetFolderLevelPermission,
     useListFolders,
     useUpdateFolder
-} from "~/features";
+} from "~/features/index.js";
 
 /**
  * Custom hook to manage folder operations.

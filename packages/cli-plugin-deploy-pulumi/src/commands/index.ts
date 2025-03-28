@@ -1,9 +1,9 @@
-import { red } from "chalk";
-import type { CliCommandPlugin } from "@webiny/cli/types";
-import type { IUserCommandInput } from "~/types";
-import { regions } from "@webiny/cli/regions";
-import { attachPrimaryVariantCommands } from "~/commands/attachPrimaryVariantCommands";
-import { validateVariantName } from "~/utils";
+import chalk from "chalk";
+import type { CliCommandPlugin } from "@webiny/cli/types.js";
+import type { IUserCommandInput } from "~/types.js";
+import { regions } from "@webiny/cli/regions.js";
+import { attachPrimaryVariantCommands } from "~/commands/attachPrimaryVariantCommands.js";
+import { validateVariantName } from "~/utils/index.js";
 
 const validateRegion = (args: Pick<IUserCommandInput, "region">): boolean => {
     const { region: input } = args;
@@ -28,6 +28,7 @@ export const commands: CliCommandPlugin[] = [
         type: "cli-command",
         name: "cli-command-deployment",
         async create({ yargs, context }) {
+            console.log("Create deployment commands");
             yargs.example("$0 deploy api --env=dev", "");
             yargs.example("$0 build api --env=dev", "");
             yargs.example("$0 destroy api --env=dev", "");
@@ -127,7 +128,7 @@ export const commands: CliCommandPlugin[] = [
                                 [
                                     "Please confirm you want to use local Pulumi state files with",
                                     "your production deployment by appending",
-                                    `${red(
+                                    `${chalk.red(
                                         "--allow-local-state-files"
                                     )} to the command. Learn more: https://webiny.link/state-files-production.`
                                 ].join(" ")
@@ -402,15 +403,17 @@ export const commands: CliCommandPlugin[] = [
                             if (!folder) {
                                 if (!confirmDestroyEnv) {
                                     throw new Error(
-                                        `Please confirm complete project destruction by appending ${red(
+                                        `Please confirm complete project destruction by appending ${chalk.red(
                                             `--confirm-destroy-env=${args.env}`
                                         )} to the command.`
                                     );
                                 } else if (confirmDestroyEnv !== args.env) {
                                     throw new Error(
-                                        `The ${red(
+                                        `The ${chalk.red(
                                             `--confirm-destroy-env`
-                                        )} option value must match the ${red("env")} option value.`
+                                        )} option value must match the ${chalk.red(
+                                            "env"
+                                        )} option value.`
                                     );
                                 }
                                 /**
@@ -420,15 +423,15 @@ export const commands: CliCommandPlugin[] = [
                                     return true;
                                 } else if (!confirmDestroyVariant) {
                                     throw new Error(
-                                        `Please confirm complete project destruction by appending ${red(
+                                        `Please confirm complete project destruction by appending ${chalk.red(
                                             `--confirm-destroy-variant=${args.variant}`
                                         )} to the command.`
                                     );
                                 } else if (confirmDestroyVariant !== args.variant) {
                                     throw new Error(
-                                        `The ${red(
+                                        `The ${chalk.red(
                                             `--confirm-destroy-variant`
-                                        )} option value must match the ${red(
+                                        )} option value must match the ${chalk.red(
                                             "variant"
                                         )} option value.`
                                     );

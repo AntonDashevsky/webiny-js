@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
-import { usePage } from "~/admin/views/Pages/hooks/usePage";
-import { usePagesPermissions } from "~/hooks/permissions";
-import { EditPage } from "./EditPage";
+import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
+import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { EditPage } from "./EditPage.js";
 
 export const SecureEditPage = () => {
     const { page } = usePage();

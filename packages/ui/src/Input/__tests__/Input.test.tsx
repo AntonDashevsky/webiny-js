@@ -4,7 +4,7 @@
 import React from "react";
 import { jest } from "@jest/globals";
 import { cleanup, render } from "@testing-library/react";
-import { Input } from "../index";
+import { Input } from "../index.js";
 
 afterEach(cleanup);
 

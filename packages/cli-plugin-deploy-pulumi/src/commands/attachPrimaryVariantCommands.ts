@@ -1,7 +1,7 @@
 import type yargs from "yargs";
-import type { Context } from "~/types";
-import { executeSetPrimaryVariantCommand } from "./primaryVariant/executeSetPrimaryVariantCommand";
-import { validateVariantName } from "~/utils";
+import type { Context } from "~/types.js";
+import { executeSetPrimaryVariantCommand } from "./primaryVariant/executeSetPrimaryVariantCommand.js";
+import { validateVariantName } from "~/utils/index.js";
 
 export interface IPrimaryVariantCommand {
     yargs: typeof yargs;

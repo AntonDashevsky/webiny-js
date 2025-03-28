@@ -1,6 +1,6 @@
-import { GetFolderLevelPermission } from "./GetFolderLevelPermission";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory";
-import { Folder } from "../Folder";
+import { GetFolderLevelPermission } from "./GetFolderLevelPermission.js";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
+import { Folder } from "../Folder.js";
 
 describe("GetFolderLevelPermission", () => {
     const type = "abc";

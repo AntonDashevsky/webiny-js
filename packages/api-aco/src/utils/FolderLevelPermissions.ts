@@ -1,10 +1,10 @@
-import { Authentication } from "@webiny/api-authentication/types";
-import { SecurityPermission, Team } from "@webiny/api-security/types";
-import { Folder, ListFoldersParams } from "~/folder/folder.types";
+import { Authentication } from "@webiny/api-authentication/types.js";
+import { SecurityPermission, Team } from "@webiny/api-security/types.js";
+import { Folder, ListFoldersParams } from "~/folder/folder.types.js";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { ListFoldersRepository } from "~/utils/ListFoldersRepository";
-import { ListMeta } from "~/types";
-import { folderCacheFactory } from "~/utils/FoldersCacheFactory";
+import { ListFoldersRepository } from "~/utils/ListFoldersRepository.js";
+import { ListMeta } from "~/types.js";
+import { folderCacheFactory } from "~/utils/FoldersCacheFactory.js";
 
 export type FolderAccessLevel = "owner" | "viewer" | "editor" | "public";
 

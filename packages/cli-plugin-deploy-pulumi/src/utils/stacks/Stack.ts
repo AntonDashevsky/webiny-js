@@ -1,4 +1,4 @@
-import type { IStackOutput } from "~/utils";
+import type { IStackOutput } from "~/utils/index.js";
 
 export interface IStack<T extends IStackOutput | undefined = undefined> {
     readonly app: string;

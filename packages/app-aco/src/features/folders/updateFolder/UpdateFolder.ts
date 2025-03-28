@@ -1,11 +1,11 @@
 import { loadingRepositoryFactory } from "@webiny/app-utils";
-import { IUpdateFolderUseCase } from "./IUpdateFolderUseCase";
-import { IUpdateFolderGateway } from "./IUpdateFolderGateway";
-import { UpdateFolderRepository } from "./UpdateFolderRepository";
-import { UpdateFolderUseCase } from "./UpdateFolderUseCase";
-import { UpdateFolderUseCaseWithLoading } from "./UpdateFolderUseCaseWithLoading";
-import { UpdateFolderUseCaseWithoutInheritedPermissions } from "./UpdateFolderUseCaseWithoutInheritedPermissions";
-import { folderCacheFactory } from "../cache";
+import { IUpdateFolderUseCase } from "./IUpdateFolderUseCase.js";
+import { IUpdateFolderGateway } from "./IUpdateFolderGateway.js";
+import { UpdateFolderRepository } from "./UpdateFolderRepository.js";
+import { UpdateFolderUseCase } from "./UpdateFolderUseCase.js";
+import { UpdateFolderUseCaseWithLoading } from "./UpdateFolderUseCaseWithLoading.js";
+import { UpdateFolderUseCaseWithoutInheritedPermissions } from "./UpdateFolderUseCaseWithoutInheritedPermissions.js";
+import { folderCacheFactory } from "../cache/index.js";
 
 export class UpdateFolder {
     public static getInstance(type: string, gateway: IUpdateFolderGateway): IUpdateFolderUseCase {

@@ -2,12 +2,12 @@ import React from "react";
 import {
     elementInputs,
     HeadingRenderer
-} from "@webiny/app-page-builder-elements/renderers/heading";
+} from "@webiny/app-page-builder-elements/renderers/heading.js";
 import { usePageElements, useRenderer } from "@webiny/app-page-builder-elements";
-import { assignStyles } from "@webiny/app-page-builder-elements/utils";
+import { assignStyles } from "@webiny/app-page-builder-elements/utils/index.js";
 import { isValidLexicalData, LexicalHtmlRenderer } from "@webiny/lexical-editor";
 import { ComponentDecorator, CompositionScope } from "@webiny/app";
-import type { Renderer } from "@webiny/app-page-builder-elements/types";
+import type { Renderer } from "@webiny/app-page-builder-elements/types.js";
 
 export const LexicalHeadingDecorator: ComponentDecorator<Renderer> = Original => {
     return function LexicalHeadingRenderer(props) {

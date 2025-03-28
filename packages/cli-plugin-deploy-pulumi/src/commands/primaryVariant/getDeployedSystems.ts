@@ -1,7 +1,7 @@
-import { getApplicationsStacksOutput } from "~/utils/stacks";
-import { GracefulError } from "~/utils";
-import type { Context, NonEmptyArray } from "~/types";
-import { createDeployedSystemFactory, IDeployedSystem } from "./DeployedSystem";
+import { getApplicationsStacksOutput } from "~/utils/stacks/index.js";
+import { GracefulError } from "~/utils/index.js";
+import type { Context, NonEmptyArray } from "~/types.js";
+import { createDeployedSystemFactory, IDeployedSystem } from "./DeployedSystem.js";
 import ora from "ora";
 
 export interface IGetStacksParams {

@@ -1,13 +1,13 @@
-import { ErrorResponse, ListResponse } from "@webiny/handler-graphql/responses";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
+import { ErrorResponse, ListResponse } from "@webiny/handler-graphql/responses.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
 
-import { createFolderTypeDefs, CreateFolderTypeDefsParams } from "./createFolderTypeDefs";
-import { ensureAuthentication } from "~/utils/ensureAuthentication";
-import { resolve } from "~/utils/resolve";
-import { compress } from "~/utils/compress";
+import { createFolderTypeDefs, CreateFolderTypeDefsParams } from "./createFolderTypeDefs.js";
+import { ensureAuthentication } from "~/utils/ensureAuthentication.js";
+import { resolve } from "~/utils/resolve.js";
+import { compress } from "~/utils/compress.js";
 
-import { AcoContext, Folder } from "~/types";
-import { FOLDER_MODEL_ID } from "~/folder/folder.model";
+import { AcoContext, Folder } from "~/types.js";
+import { FOLDER_MODEL_ID } from "~/folder/folder.model.js";
 
 export const createFoldersSchema = (params: CreateFolderTypeDefsParams) => {
     const folderGraphQL = new GraphQLSchemaPlugin<AcoContext>({

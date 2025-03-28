@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { WcpContextProvider } from "./contexts";
+import { WcpContextProvider } from "./contexts/index.js";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { GetWcpProjectGqlResponse } from "~/types";
-import { ILicense } from "@webiny/wcp/types";
+import { GetWcpProjectGqlResponse } from "~/types.js";
+import { ILicense } from "@webiny/wcp/types.js";
 import { License, NullLicense } from "@webiny/wcp";
-import { ReactLicense } from "./ReactLicense";
+import { ReactLicense } from "./ReactLicense.js";
 
 export const GET_WCP_PROJECT = gql`
     query GetWcpProject {

@@ -1,13 +1,13 @@
 import path from "path";
-import { getProject, getProjectApplication, sendEvent } from "@webiny/cli/utils";
-import type { ICreateProjectApplicationWorkspaceCallable } from "./createProjectApplicationWorkspace";
-import { createProjectApplicationWorkspace } from "./createProjectApplicationWorkspace";
-import { login } from "./login";
-import { loadEnvVariables } from "./loadEnvVariables";
-import { getPulumi } from "./getPulumi";
-import { measureDuration } from "./measureDuration";
-import { GracefulPulumiError } from "./GracefulPulumiError";
-import type { Context, IPulumi, IUserCommandInput, ProjectApplication } from "~/types";
+import { getProject, getProjectApplication, sendEvent } from "@webiny/cli/utils/index.js";
+import type { ICreateProjectApplicationWorkspaceCallable } from "./createProjectApplicationWorkspace.js";
+import { createProjectApplicationWorkspace } from "./createProjectApplicationWorkspace.js";
+import { login } from "./login.js";
+import { loadEnvVariables } from "./loadEnvVariables.js";
+import { getPulumi } from "./getPulumi.js";
+import { measureDuration } from "./measureDuration.js";
+import { GracefulPulumiError } from "./GracefulPulumiError.js";
+import type { Context, IPulumi, IUserCommandInput, ProjectApplication } from "~/types.js";
 
 export interface ICreatePulumiCommandParamsCommandParams<
     T extends IUserCommandInput = IUserCommandInput

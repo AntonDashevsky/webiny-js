@@ -1,6 +1,6 @@
 import React, { ErrorInfo } from "react";
-import type { CmsModelField } from "~/types";
-import { FieldElementError } from "./FieldElementError";
+import type { CmsModelField } from "~/types/index.js";
+import { FieldElementError } from "./FieldElementError.js";
 
 type State =
     | {
