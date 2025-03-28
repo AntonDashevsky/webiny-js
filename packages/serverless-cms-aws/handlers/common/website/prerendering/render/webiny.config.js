@@ -1,8 +1,14 @@
-import { createWatchPackage, createBuildPackage } from "@webiny/project-utils";
+const createBuildFunction = require("../../../../createBuildFunction");
+const createWatchFunction = require("../../../../createWatchFunction");
 
-export default {
+const rspack = config => {
+    config.externals.push("@sparticuz/chromium");
+    return config;
+};
+
+module.exports = {
     commands: {
-        build: createBuildPackage({ cwd: import.meta.dirname }),
-        watch: createWatchPackage({ cwd: import.meta.dirname })
+        build: createBuildFunction({ cwd: __dirname, overrides: { rspack } }),
+        watch: createWatchFunction({ cwd: __dirname, overrides: { rspack } })
     }
 };

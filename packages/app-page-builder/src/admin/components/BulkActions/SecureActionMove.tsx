@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useFolders } from "@webiny/app-aco";
+import { useGetFolderLevelPermission } from "@webiny/app-aco";
 import { observer } from "mobx-react-lite";
 import { PageListConfig } from "~/admin/config/pages/index.js";
 import { ActionMove as ActionMoveBase } from "~/admin/components/BulkActions/index.js";
@@ -7,13 +7,14 @@ import { ActionMove as ActionMoveBase } from "~/admin/components/BulkActions/ind
 export const SecureActionMove = observer(() => {
     const { useWorker } = PageListConfig.Browser.BulkAction;
     const worker = useWorker();
-    const { folderLevelPermissions: flp } = useFolders();
+    const { getFolderLevelPermission: canManageContent } =
+        useGetFolderLevelPermission("canManageContent");
 
     const canMoveAll = useMemo(() => {
         return worker.items.every(item => {
-            return flp.canManageContent(item.location?.folderId);
+            return canManageContent(item.location?.folderId);
         });
-    }, [worker.items]);
+    }, [worker.items, canManageContent]);
 
     if (!canMoveAll) {
         return null;

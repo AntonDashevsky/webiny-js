@@ -9,14 +9,14 @@ import {
 } from "@minoru/react-dnd-treeview";
 import { useSnackbar } from "@webiny/app-admin";
 import { DndProvider } from "react-dnd";
-import { Node } from "../Node/index.js";
-import { NodePreview } from "../NodePreview/index.js";
-import { Placeholder } from "../Placeholder/index.js";
-import { createInitialOpenList, createTreeData } from "./utils.js";
-import { useFolders } from "~/hooks/index.js";
-import { ROOT_FOLDER } from "~/constants.js";
-import { DndFolderItemData, FolderItem } from "~/types.js";
-import { FolderProvider } from "~/contexts/folder.js";
+import { Node } from "../Node";
+import { NodePreview } from "../NodePreview";
+import { Placeholder } from "../Placeholder";
+import { createInitialOpenList, createTreeData } from "./utils";
+import { useGetFolderLevelPermission, useUpdateFolder } from "~/features";
+import { ROOT_FOLDER } from "~/constants";
+import { DndFolderItemData, FolderItem } from "~/types";
+import { FolderProvider } from "~/contexts/folder";
 
 interface ListProps {
     folders: FolderItem[];
@@ -33,7 +33,9 @@ export const List = ({
     hiddenFolderIds,
     enableActions
 }: ListProps) => {
-    const { updateFolder, folderLevelPermissions: flp } = useFolders();
+    const { updateFolder } = useUpdateFolder();
+    const { getFolderLevelPermission: canManageStructure } =
+        useGetFolderLevelPermission("canManageStructure");
     const { showSnackbar } = useSnackbar();
     const [treeData, setTreeData] = useState<NodeModel<DndFolderItemData>[]>([]);
     const [initialOpenList, setInitialOpenList] = useState<undefined | InitialOpen>();
@@ -67,13 +69,10 @@ export const List = ({
 
             setTreeData(newTree);
 
-            await updateFolder(
-                {
-                    ...item,
-                    parentId: dropTargetId !== ROOT_FOLDER ? (dropTargetId as string) : null
-                },
-                { refetchFoldersList: true }
-            );
+            await updateFolder({
+                ...item,
+                parentId: dropTargetId !== ROOT_FOLDER ? (dropTargetId as string) : null
+            });
         } catch (error) {
             // If an error occurred, revert the tree back to its previous state
             setTreeData(oldTree);
@@ -98,9 +97,9 @@ export const List = ({
     const canDrag = useCallback(
         (folderId: string) => {
             const isRootFolder = folderId === ROOT_FOLDER;
-            return !isRootFolder && flp.canManageStructure(folderId);
+            return !isRootFolder && canManageStructure(folderId);
         },
-        [flp.canManageStructure]
+        [canManageStructure]
     );
 
     return (

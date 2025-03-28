@@ -1,13 +1,14 @@
 import { ContextPlugin } from "@webiny/api";
-import { FileManagerConfig } from "~/createFileManager/index.js";
-import { FileManagerContext } from "~/types.js";
-import { FileManagerContextSetup } from "./FileManagerContextSetup.js";
-import { setupAssetDelivery, AssetDeliveryParams } from "./delivery/setupAssetDelivery.js";
-import { createGraphQLSchemaPlugin } from "./graphql/index.js";
+import { FileManagerConfig } from "~/createFileManager";
+import { FileManagerContext } from "~/types";
+import { FileManagerContextSetup } from "./FileManagerContextSetup";
+import { setupAssetDelivery, AssetDeliveryParams } from "./delivery/setupAssetDelivery";
+import { createGraphQLSchemaPlugin } from "./graphql";
+import { applyThreatScanning } from "./enterprise/applyThreatScanning";
 
-export * from "./modelModifier/CmsModelModifier.js";
-export * from "./plugins/index.js";
-export * from "./delivery/index.js";
+export * from "./modelModifier/CmsModelModifier";
+export * from "./plugins";
+export * from "./delivery";
 
 export const createFileManagerContext = ({
     storageOperations
@@ -15,6 +16,10 @@ export const createFileManagerContext = ({
     const plugin = new ContextPlugin<FileManagerContext>(async context => {
         const fmContext = new FileManagerContextSetup(context);
         context.fileManager = await fmContext.setupContext(storageOperations);
+
+        if (context.wcp.canUseFileManagerThreatDetection()) {
+            context.fileManager = applyThreatScanning(context.fileManager);
+        }
     });
 
     plugin.name = "file-manager.createContext";

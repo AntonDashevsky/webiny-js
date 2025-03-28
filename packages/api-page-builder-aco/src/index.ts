@@ -1,15 +1,16 @@
 import { ContextPlugin } from "@webiny/api";
-import { getAncestorFoldersByPage } from "~/page/getAncestorFoldersByPage.js";
-import { createImportExportPageHooks, createPageHooks } from "~/page/hooks/index.js";
-import { createPageProcessors } from "~/page/processors/index.js";
-import { getSearchablePageContent } from "~/utils/getSearchableContent.js";
-import { PageSearchProcessor, PbAcoContext } from "~/types.js";
-import { createApp } from "~/app.js";
-import { PageBuilderCrudDecorators } from "~/utils/PageBuilderCrudDecorators.js";
-import { createPbPageWbyAcoLocationGqlField } from "~/page/graphql/createPbPageWbyAcoLocationGqlField.js";
+import { getAncestorFoldersByPage } from "~/page/getAncestorFoldersByPage";
+import { createImportExportPageHooks, createPageHooks } from "~/page/hooks";
+import { createPageProcessors } from "~/page/processors";
+import { getSearchablePageContent } from "~/utils/getSearchableContent";
+import { PageSearchProcessor, PbAcoContext } from "~/types";
+import { createApp } from "~/app";
+import { PageBuilderCrudDecorators } from "~/utils/PageBuilderCrudDecorators";
+import { createPbPageWbyAcoLocationGqlField } from "~/page/graphql/createPbPageWbyAcoLocationGqlField";
 
-export * from "./createAppModifier.js";
-export * from "./plugins/index.js";
+export * from "./createAppModifier";
+export * from "./plugins";
+export * from "./page/plugins";
 
 const setupContext = async (context: PbAcoContext): Promise<void> => {
     const pageSearchProcessors: PageSearchProcessor[] = [];

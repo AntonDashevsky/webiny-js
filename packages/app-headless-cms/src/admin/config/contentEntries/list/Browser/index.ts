@@ -1,10 +1,12 @@
-import { AdvancedSearch, AdvancedSearchConfig } from "./AdvancedSearch/index.js";
-import { BulkAction, BulkActionConfig } from "./BulkAction.js";
-import { EntryAction, EntryActionConfig } from "./EntryAction.js";
-import { Filter, FilterConfig } from "./Filter.js";
-import { FiltersToWhere, FiltersToWhereConverter } from "./FiltersToWhere.js";
-import { FolderAction, type FolderActionConfig } from "./FolderAction.js";
-import { Table, TableConfig } from "./Table/index.js";
+import { createFolderFieldDecoratorFactory } from "@webiny/app-aco";
+import { AdvancedSearch, AdvancedSearchConfig } from "./AdvancedSearch";
+import { BulkAction, BulkActionConfig } from "./BulkAction";
+import { EntryAction, EntryActionConfig } from "./EntryAction";
+import { Filter, FilterConfig } from "./Filter";
+import { FiltersToWhere, FiltersToWhereConverter } from "./FiltersToWhere";
+import { FolderAction, FolderActionConfig } from "./FolderAction";
+import { Table, TableConfig } from "./Table";
+import { shouldDecorateFolderField } from "./FolderFieldDecorator";
 
 export interface BrowserConfig {
     advancedSearch: AdvancedSearchConfig;
@@ -22,6 +24,19 @@ export const Browser = {
     EntryAction,
     Filter,
     FiltersToWhere,
-    FolderAction,
-    Table
+    Folder: {
+        ExtensionField: {
+            createDecorator: createFolderFieldDecoratorFactory({
+                scope: "cms",
+                shouldDecorate: shouldDecorateFolderField
+            })
+        },
+        Action: FolderAction
+    },
+    Table,
+    /**
+     * @deprecated
+     * Use `Browser.Folder.Action` instead
+     */
+    FolderAction
 };

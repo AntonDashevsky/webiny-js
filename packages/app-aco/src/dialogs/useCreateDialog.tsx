@@ -2,17 +2,17 @@ import React, { useCallback, useState } from "react";
 import slugify from "slugify";
 import { useSnackbar } from "@webiny/app-admin";
 import { Bind, GenericFormData, useForm } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid";
+import { Input } from "@webiny/ui/Input";
+import { Typography } from "@webiny/ui/Typography";
 import { validation } from "@webiny/validation";
 
-import { FolderTree } from "~/components/index.js";
+import { Extensions, FolderTree } from "~/components";
 import { useDialogs } from "@webiny/app-admin";
-import { DialogFoldersContainer } from "~/dialogs/styled.js";
-import { useFolders } from "~/hooks/index.js";
-import { ROOT_FOLDER } from "~/constants.js";
-import { FolderItem } from "~/types.js";
+import { DialogFoldersContainer } from "~/dialogs/styled";
+import { useCreateFolder } from "~/features";
+import { ROOT_FOLDER } from "~/constants";
+import { FolderItem } from "~/types";
 
 interface ShowDialogParams {
     currentParentId?: string | null;
@@ -48,40 +48,43 @@ const FormComponent = ({ currentParentId = null }: FormComponentProps) => {
     };
 
     return (
-        <Grid>
-            <Cell span={12}>
-                <Bind name={"title"} validators={validation.create("required")}>
-                    {bind => <Input {...bind} label={"Title"} onBlur={generateSlug} />}
-                </Bind>
-            </Cell>
-            <Cell span={12}>
-                <Bind name={"slug"} validators={validation.create("required,slug")}>
-                    <Input label={"Slug"} />
-                </Bind>
-            </Cell>
-            <Cell span={12}>
-                <Typography use="body1">{"Parent folder"}</Typography>
-                <DialogFoldersContainer>
-                    <Bind name={"parentId"} defaultValue={parentId}>
-                        {({ onChange }) => (
-                            <FolderTree
-                                focusedFolderId={parentId || ROOT_FOLDER}
-                                onFolderClick={folder => {
-                                    setParentId(folder.id);
-                                    onChange(folder.id === ROOT_FOLDER ? null : folder.id);
-                                }}
-                            />
-                        )}
+        <>
+            <Grid>
+                <Cell span={12}>
+                    <Bind name={"title"} validators={validation.create("required")}>
+                        {bind => <Input {...bind} label={"Title"} onBlur={generateSlug} />}
                     </Bind>
-                </DialogFoldersContainer>
-            </Cell>
-        </Grid>
+                </Cell>
+                <Cell span={12}>
+                    <Bind name={"slug"} validators={validation.create("required,slug")}>
+                        <Input label={"Slug"} />
+                    </Bind>
+                </Cell>
+                <Cell span={12}>
+                    <Typography use="body1">{"Parent folder"}</Typography>
+                    <DialogFoldersContainer>
+                        <Bind name={"parentId"} defaultValue={parentId}>
+                            {({ onChange }) => (
+                                <FolderTree
+                                    focusedFolderId={parentId || ROOT_FOLDER}
+                                    onFolderClick={folder => {
+                                        setParentId(folder.id);
+                                        onChange(folder.id === ROOT_FOLDER ? null : folder.id);
+                                    }}
+                                />
+                            )}
+                        </Bind>
+                    </DialogFoldersContainer>
+                </Cell>
+            </Grid>
+            <Extensions />
+        </>
     );
 };
 
 export const useCreateDialog = (): UseCreateDialogResponse => {
     const dialogs = useDialogs();
-    const { createFolder } = useFolders();
+    const { createFolder } = useCreateFolder();
     const { showSnackbar } = useSnackbar();
 
     const onAccept = useCallback(async (data: FolderItem) => {

@@ -11,7 +11,6 @@ jest.mock("@webiny/api-wcp/utils", () => {
 
     return {
         ...actual,
-        getWcpProjectEnvironment: mockCreateGetWcpProjectEnvironment(),
         wcpFetch: () => ({ error: false })
     };
 });
@@ -22,6 +21,7 @@ jest.mock("@webiny/wcp", () => {
 
     return {
         ...actual,
+        getWcpProjectEnvironment: mockCreateGetWcpProjectEnvironment(),
         getWcpProjectLicense: mockCreateGetWcpProjectLicense(license => {
             license.package.features.advancedAccessControlLayer.enabled = true;
         })

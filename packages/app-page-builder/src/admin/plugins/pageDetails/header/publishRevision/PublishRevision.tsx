@@ -1,21 +1,22 @@
 import React from "react";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { IconButton } from "@webiny/ui/Button";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import { i18n } from "@webiny/app/i18n";
 import { ReactComponent as PublishIcon } from "@material-design-icons/svg/round/publish.svg";
 import { ReactComponent as UnpublishIcon } from "@material-design-icons/svg/round/settings_backup_restore.svg";
 import { makeDecoratable } from "@webiny/app-admin";
-import { usePagesPermissions } from "~/hooks/permissions/index.js";
-import { useFolders } from "@webiny/app-aco";
-import { usePage } from "~/admin/views/Pages/PageDetails.js";
-import { usePublishRevisionHandler } from "../../pageRevisions/usePublishRevisionHandler.js";
+import { usePagesPermissions } from "~/hooks/permissions";
+import { useGetFolderLevelPermission } from "@webiny/app-aco";
+import { usePage } from "~/admin/views/Pages/PageDetails";
+import { usePublishRevisionHandler } from "../../pageRevisions/usePublishRevisionHandler";
 
 const t = i18n.ns("app-headless-cms/app-page-builder/page-details/header/publish");
 
 const PublishRevision = () => {
     const { canPublish, canUnpublish, hasPermissions } = usePagesPermissions();
-    const { folderLevelPermissions: flp } = useFolders();
+    const { getFolderLevelPermission: canManageContent } =
+        useGetFolderLevelPermission("canManageContent");
     const { page } = usePage();
 
     const { publishRevision, unpublishRevision } = usePublishRevisionHandler();
@@ -45,7 +46,7 @@ const PublishRevision = () => {
     });
 
     const folderId = page.wbyAco_location?.folderId;
-    if (!hasPermissions() || !flp.canManageContent(folderId)) {
+    if (!hasPermissions() || !canManageContent(folderId)) {
         return null;
     }
 

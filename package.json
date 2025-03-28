@@ -196,6 +196,9 @@
     "**/*.{js,ts,tsx}": [
       "prettier --write",
       "eslint --max-warnings=0 --no-ignore"
+    ],
+    "**/package.json": [
+      "yarn webiny verify-dependencies"
     ]
   },
   "yargs": {
@@ -233,6 +236,7 @@
     ]
   },
   "resolutions": {
+    "@babel/runtime": "^7.26.0",
     "systeminformation": "^5.23.18",
     "@emotion/react": "11.10.8",
     "@octokit/rest": "^20.0.2",

@@ -1,26 +1,34 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import omit from "lodash/omit.js";
+import omit from "lodash/omit";
 import { useShiftKey, useStateIfMounted } from "@webiny/app-admin";
-import { FileItem } from "@webiny/app-admin/types.js";
-import { FileTag } from "~/types.js";
-import { useFileManagerApi } from "~/index.js";
-import { initializeState, State } from "./state.js";
-import { FolderItem, ListMeta, ListSearchRecordsSort } from "@webiny/app-aco/types.js";
-import { UploadOptions } from "@webiny/app/types.js";
-import { sortTableItems } from "@webiny/app-aco/sorting.js";
-import { useFolders, useNavigateFolder } from "@webiny/app-aco";
-import { ListFilesQueryVariables } from "~/modules/FileManagerApiProvider/graphql.js";
-import { useListFiles } from "./useListFiles.js";
-import { useTags } from "./useTags.js";
-import { setSelection } from "./setSelection.js";
-import { ROOT_FOLDER } from "~/constants.js";
+import { FileItem } from "@webiny/app-admin/types";
+import { FileTag } from "~/types";
+import { useFileManagerApi } from "~/index";
+import { initializeState, State } from "./state";
+import { FolderItem, ListMeta, ListSearchRecordsSort } from "@webiny/app-aco/types";
+import { UploadOptions } from "@webiny/app/types";
+import { sortTableItems } from "@webiny/app-aco/sorting";
+import { useListFolders, useNavigateFolder } from "@webiny/app-aco";
+import { ListFilesQueryVariables } from "~/modules/FileManagerApiProvider/graphql";
+import { useListFiles } from "./useListFiles";
+import { useTags } from "./useTags";
+import { setSelection } from "./setSelection";
+import { ROOT_FOLDER } from "~/constants";
 
 type PublicState = Omit<State, "activeTags">;
+
+export interface UpdateFileOptions {
+    localUpdate?: boolean;
+}
+
+export interface DeleteFileOptions {
+    localDelete?: boolean;
+}
 
 export interface FileManagerViewContext<TFileItem extends FileItem = FileItem> extends PublicState {
     accept: string[];
     createFile: (data: TFileItem) => Promise<TFileItem | undefined>;
-    deleteFile: (id: string) => Promise<void>;
+    deleteFile: (id: string, options?: DeleteFileOptions) => Promise<void>;
     files: FileItem[];
     folderId: string;
     folders: FolderItem[];
@@ -59,7 +67,11 @@ export interface FileManagerViewContext<TFileItem extends FileItem = FileItem> e
     };
     toggleSelected: (file: TFileItem) => void;
     deselectAll: () => void;
-    updateFile: (id: string, data: Partial<TFileItem>) => Promise<void>;
+    updateFile: (
+        id: string,
+        data: Partial<TFileItem>,
+        options?: UpdateFileOptions
+    ) => Promise<void>;
     uploadFile: (file: File, options?: UploadFileOptions) => Promise<TFileItem | undefined>;
 }
 
@@ -106,7 +118,7 @@ export const FileManagerViewProvider = ({ children, ...props }: FileManagerViewP
     const shiftKeyPressed = useShiftKey();
     const modifiers = { scope: props.scope, own: props.own, accept: props.accept };
     const fileManager = useFileManagerApi();
-    const { folders: originalFolders, loading: foldersLoading } = useFolders();
+    const { folders: originalFolders, loading: foldersLoading } = useListFolders();
     const { currentFolderId = ROOT_FOLDER, navigateToFolder } = useNavigateFolder();
     const tags = useTags(modifiers);
     const [state, setState] = useStateIfMounted(initializeState());
@@ -255,11 +267,18 @@ export const FileManagerViewProvider = ({ children, ...props }: FileManagerViewP
         return newFile;
     };
 
-    const updateFile = async (id: string, data: Partial<FileItem>) => {
+    const updateFile = async (
+        id: string,
+        data: Partial<FileItem>,
+        options: UpdateFileOptions = {}
+    ) => {
         const file = files.find(file => file.id === id);
+
         if (!file) {
             return;
         }
+
+        const { localUpdate = false } = options;
 
         const newTags = data.tags?.filter(tag => !tags.tags.some(t => t.tag === tag));
 
@@ -271,7 +290,9 @@ export const FileManagerViewProvider = ({ children, ...props }: FileManagerViewP
             data.tags = [...(data.tags || []), props.scope];
         }
 
-        await fileManager.updateFile(id, data);
+        if (!localUpdate) {
+            await fileManager.updateFile(id, data);
+        }
 
         if (newTags) {
             tags.addTags(newTags);
@@ -279,6 +300,7 @@ export const FileManagerViewProvider = ({ children, ...props }: FileManagerViewP
 
         setFiles(files => {
             const index = files.findIndex(file => file.id === id);
+
             if (index === -1) {
                 return files;
             }
@@ -296,8 +318,12 @@ export const FileManagerViewProvider = ({ children, ...props }: FileManagerViewP
         });
     };
 
-    const deleteFile = async (id: string) => {
-        await fileManager.deleteFile(id);
+    const deleteFile = async (id: string, options: DeleteFileOptions = {}) => {
+        const { localDelete = false } = options;
+
+        if (!localDelete) {
+            await fileManager.deleteFile(id);
+        }
 
         setFiles(files => {
             const index = files.findIndex(file => file.id === id);

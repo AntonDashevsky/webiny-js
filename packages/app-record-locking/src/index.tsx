@@ -4,6 +4,8 @@ import { RecordLockingProvider as RecordLockingProviderComponent } from "~/compo
 import { HeadlessCmsActionsAcoCell } from "~/components/HeadlessCmsActionsAcoCell.js";
 import { HeadlessCmsContentEntry } from "~/components/HeadlessCmsContentEntry/index.js";
 import { useWcp } from "@webiny/app-wcp";
+import { plugins } from "@webiny/plugins";
+import { recordLockingPermissionRenderer } from "~/components/permissionRenderer";
 
 export * from "~/components/RecordLockingProvider.js";
 export * from "~/hooks/index.js";
@@ -23,11 +25,12 @@ const RecordLockingHoc = (Component: React.ComponentType<RecordLockingProviderPr
 };
 
 export const RecordLocking = () => {
-    const { canUseRecordLocking } = useWcp();
+    const wcp = useWcp();
 
-    if (!canUseRecordLocking()) {
+    if (!wcp.canUseRecordLocking()) {
         return null;
     }
+    plugins.register(recordLockingPermissionRenderer);
 
     return (
         <>

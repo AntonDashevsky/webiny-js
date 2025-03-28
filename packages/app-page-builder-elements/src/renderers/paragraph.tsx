@@ -1,9 +1,8 @@
 import React from "react";
-import { createRenderer } from "~/createRenderer.js";
-import { useRenderer } from "~/hooks/useRenderer.js";
-import { ElementInput } from "~/inputs/ElementInput.js";
-import { isJson } from "~/renderers/isJson.js";
-import { isHtml } from "~/renderers/isHtml.js";
+import { createRenderer } from "~/createRenderer";
+import { useRenderer } from "~/hooks/useRenderer";
+import { ElementInput } from "~/inputs/ElementInput";
+import { isJson } from "~/renderers/isJson";
 
 export const elementInputs = {
     text: ElementInput.create<string>({
@@ -26,7 +25,7 @@ export const ParagraphRenderer = createRenderer<unknown, typeof elementInputs>(
         const inputs = getInputValues<typeof elementInputs>();
         const content = inputs.text || "";
 
-        if (isJson(content) || !isHtml(content)) {
+        if (isJson(content)) {
             return null;
         }
 

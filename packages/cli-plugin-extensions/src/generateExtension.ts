@@ -6,14 +6,9 @@ import WebinyError from "@webiny/error";
 import fs from "node:fs";
 import fsAsync from "node:fs/promises";
 import { setTimeout } from "node:timers/promises";
-
-/**
- * TODO: rewrite cli into typescript
- */
-// @ts-expect-error
-import { getProject, log } from "@webiny/cli/utils/index.js";
-import { ExtensionCommandGenerateParams } from "./types.js";
-import { runYarnInstall } from "@webiny/cli-plugin-scaffold/utils/index.js";
+import { getProject, log } from "@webiny/cli/utils";
+import { ExtensionCommandGenerateParams } from "./types";
+import { runYarnInstall } from "@webiny/cli-plugin-scaffold/utils";
 import chalk from "chalk";
 import { Extension } from "~/extensions/Extension.js";
 import type { CliContext } from "@webiny/cli/types.js";

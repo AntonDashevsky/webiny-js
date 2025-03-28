@@ -1,30 +1,33 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     ILockEntryUseCase,
     ILockEntryUseCaseExecuteParams
-} from "~/abstractions/ILockEntryUseCase.js";
-import {
+} from "~/abstractions/ILockEntryUseCase";
+import type {
     IRecordLockingLockRecord,
     IRecordLockingLockRecordValues,
     IRecordLockingModelManager
-} from "~/types.js";
-import { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked.js";
-import { convertEntryToLockRecord } from "~/utils/convertEntryToLockRecord.js";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
+} from "~/types";
+import type { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
 import { NotFoundError } from "@webiny/handler-graphql";
+import type { ConvertEntryToLockRecordCb } from "~/useCases/types";
 
 export interface ILockEntryUseCaseParams {
     isEntryLockedUseCase: IIsEntryLockedUseCase;
     getManager(): Promise<IRecordLockingModelManager>;
+    convert: ConvertEntryToLockRecordCb;
 }
 
 export class LockEntryUseCase implements ILockEntryUseCase {
     private readonly isEntryLockedUseCase: IIsEntryLockedUseCase;
     private readonly getManager: () => Promise<IRecordLockingModelManager>;
+    private readonly convert: ConvertEntryToLockRecordCb;
 
     public constructor(params: ILockEntryUseCaseParams) {
         this.isEntryLockedUseCase = params.isEntryLockedUseCase;
         this.getManager = params.getManager;
+        this.convert = params.convert;
     }
 
     public async execute(
@@ -54,7 +57,7 @@ export class LockEntryUseCase implements ILockEntryUseCase {
                 type: params.type,
                 actions: []
             });
-            return convertEntryToLockRecord(entry);
+            return this.convert(entry);
         } catch (ex) {
             throw new WebinyError(
                 `Could not lock entry: ${ex.message}`,

@@ -3,20 +3,10 @@ import {
     createAssetDeliveryConfig
 } from "@webiny/api-file-manager";
 import { S3 } from "@webiny/aws-sdk/client-s3";
-import { S3AssetResolver } from "~/assetDelivery/s3/S3AssetResolver.js";
-import { S3OutputStrategy } from "~/assetDelivery/s3/S3OutputStrategy.js";
-import { SharpTransform } from "~/assetDelivery/s3/SharpTransform.js";
-
-export type AssetDeliveryParams = Parameters<typeof createBaseAssetDelivery>[0] & {
-    imageResizeWidths?: number[];
-    /**
-     * BE CAREFUL!
-     * Setting this to more than 1 hour may cause your URLs to still expire before the desired expiration time.
-     * @see https://repost.aws/knowledge-center/presigned-url-s3-bucket-expiration
-     */
-    presignedUrlTtl?: number;
-    assetStreamingMaxSize?: number;
-};
+import { S3AssetResolver } from "~/assetDelivery/s3/S3AssetResolver";
+import { S3OutputStrategy } from "~/assetDelivery/s3/S3OutputStrategy";
+import { SharpTransform } from "~/assetDelivery/s3/SharpTransform";
+import type { AssetDeliveryParams } from "~/assetDelivery/types";
 
 export const assetDeliveryConfig = (params: AssetDeliveryParams) => {
     const bucket = process.env.S3_BUCKET as string;

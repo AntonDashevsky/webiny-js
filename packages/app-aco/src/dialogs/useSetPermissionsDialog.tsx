@@ -2,15 +2,15 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin";
 import { GenericFormData, useBind } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Cell, Grid } from "@webiny/ui/Grid";
 
-import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete.js";
-import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection.js";
-import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql.js";
+import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete";
+import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection";
+import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql";
 
 import { useDialogs } from "@webiny/app-admin";
-import { useFolders } from "~/hooks/index.js";
-import { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
+import { useUpdateFolder } from "~/features";
+import { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
 
 interface ShowDialogParams {
     folder: FolderItem;
@@ -115,14 +115,14 @@ const FormComponent = ({ folder }: FormComponentProps) => {
 
 export const useSetPermissionsDialog = (): UseSetPermissionsDialogResponse => {
     const dialogs = useDialogs();
-    const { updateFolder } = useFolders();
+    const { updateFolder } = useUpdateFolder();
     const { showSnackbar } = useSnackbar();
 
     const onAccept = useCallback(async (folder: FolderItem, data: Partial<FolderItem>) => {
         const updateData = { ...folder, ...data };
 
         try {
-            await updateFolder(updateData, { refetchFoldersList: true });
+            await updateFolder(updateData);
             showSnackbar("Folder permissions updated successfully!");
         } catch (error) {
             showSnackbar(error.message);

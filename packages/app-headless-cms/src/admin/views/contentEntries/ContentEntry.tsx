@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { Tab, Tabs } from "@webiny/ui/Tabs/index.js";
-import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Tab, Tabs } from "@webiny/ui/Tabs";
+import { Elevation } from "@webiny/ui/Elevation";
+import { CircularProgress } from "@webiny/ui/Progress";
 import { makeDecoratable } from "@webiny/app";
-import { RevisionsList } from "./ContentEntry/RevisionsList/RevisionsList.js";
-import { useContentEntry } from "./hooks/useContentEntry.js";
-import { Header } from "~/admin/components/ContentEntryForm/Header/index.js";
-import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm.js";
-import { usePersistEntry } from "~/admin/hooks/usePersistEntry.js";
+import { RevisionsList } from "./ContentEntry/RevisionsList/RevisionsList";
+import { useContentEntry } from "./hooks/useContentEntry";
+import { Header } from "~/admin/components/ContentEntryForm/Header";
+import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
+import { usePersistEntry } from "~/admin/hooks/usePersistEntry";
+import { FormValidation } from "@webiny/form";
+import { ValidationIndicators } from "./ValidationIndicators";
 
 const DetailsContainer = styled("div")({
     height: "calc(100% - 10px)",
@@ -25,7 +27,6 @@ const RenderBlock = styled("div")({
     zIndex: 0,
     backgroundColor: "var(--mdc-theme-background)",
     height: "100%",
-    /*overflow: "scroll",*/
     padding: 25
 });
 
@@ -46,6 +47,7 @@ declare global {
 
 export const ContentEntry = makeDecoratable("ContentEntry", () => {
     const { loading, entry, activeTab, setActiveTab } = useContentEntry();
+    const [invalidFields, setInvalidFields] = useState<FormValidation | undefined>(undefined);
     const { persistEntry } = usePersistEntry({ addItemToListCache: true });
 
     return (
@@ -59,11 +61,17 @@ export const ContentEntry = makeDecoratable("ContentEntry", () => {
                     >
                         <RenderBlock>
                             <Elevation z={2} className={elevationStyles}>
+                                {invalidFields ? (
+                                    <ValidationIndicators invalidFields={invalidFields} />
+                                ) : null}
                                 {loading && <CircularProgress />}
                                 <ContentEntryForm
                                     entry={entry}
                                     persistEntry={persistEntry}
                                     header={<Header />}
+                                    onInvalidFields={invalidFields =>
+                                        setInvalidFields(invalidFields)
+                                    }
                                 />
                             </Elevation>
                         </RenderBlock>

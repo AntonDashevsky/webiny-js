@@ -1,10 +1,10 @@
-import { GenericRecord } from "@webiny/cli/types.js";
+import { GenericRecord } from "@webiny/api/types";
 import {
     IDeleteOperationParams,
     IInsertOperationParams,
     IModifyOperationParams,
     IOperations
-} from "~/types.js";
+} from "~/types";
 
 export enum OperationType {
     INSERT = "INSERT",

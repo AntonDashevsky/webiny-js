@@ -1,22 +1,24 @@
-import { CmsEntry, IRecordLockingIdentity } from "~/types.js";
-import {
+import type {
+    CmsEntry,
+    IRecordLockingIdentity,
     IRecordLockingLockRecord,
     IRecordLockingLockRecordAction,
-    IRecordLockingLockRecordActionType,
     IRecordLockingLockRecordApprovedAction,
     IRecordLockingLockRecordDeniedAction,
     IRecordLockingLockRecordEntryType,
     IRecordLockingLockRecordObject,
     IRecordLockingLockRecordRequestedAction,
     IRecordLockingLockRecordValues
-} from "~/types.js";
-import { removeLockRecordDatabasePrefix } from "~/utils/lockRecordDatabaseId.js";
-import { calculateExpiresOn } from "~/utils/calculateExpiresOn.js";
+} from "~/types";
+import { RecordLockingLockRecordActionType } from "~/types";
+import { removeLockRecordDatabasePrefix } from "~/utils/lockRecordDatabaseId";
+import { calculateExpiresOn } from "~/utils/calculateExpiresOn";
 
 export const convertEntryToLockRecord = (
-    entry: CmsEntry<IRecordLockingLockRecordValues>
+    entry: CmsEntry<IRecordLockingLockRecordValues>,
+    timeout: number
 ): IRecordLockingLockRecord => {
-    return new HeadlessCmsLockRecord(entry);
+    return new HeadlessCmsLockRecord(entry, timeout);
 };
 
 export type IHeadlessCmsLockRecordParams = Pick<
@@ -66,14 +68,14 @@ export class HeadlessCmsLockRecord implements IRecordLockingLockRecord {
         return this._actions;
     }
 
-    public constructor(input: IHeadlessCmsLockRecordParams) {
+    public constructor(input: IHeadlessCmsLockRecordParams, timeout: number) {
         this._id = removeLockRecordDatabasePrefix(input.entryId);
         this._targetId = input.values.targetId;
         this._type = input.values.type;
         this._lockedBy = input.createdBy;
         this._lockedOn = new Date(input.createdOn);
         this._updatedOn = new Date(input.savedOn);
-        this._expiresOn = calculateExpiresOn(input);
+        this._expiresOn = calculateExpiresOn(input, timeout);
         this._actions = input.values.actions;
     }
 
@@ -103,7 +105,7 @@ export class HeadlessCmsLockRecord implements IRecordLockingLockRecord {
         }
         return this._actions.find(
             (action): action is IRecordLockingLockRecordRequestedAction =>
-                action.type === IRecordLockingLockRecordActionType.requested
+                action.type === RecordLockingLockRecordActionType.requested
         );
     }
 
@@ -113,7 +115,7 @@ export class HeadlessCmsLockRecord implements IRecordLockingLockRecord {
         }
         return this._actions.find(
             (action): action is IRecordLockingLockRecordApprovedAction =>
-                action.type === IRecordLockingLockRecordActionType.approved
+                action.type === RecordLockingLockRecordActionType.approved
         );
     }
 
@@ -123,7 +125,7 @@ export class HeadlessCmsLockRecord implements IRecordLockingLockRecord {
         }
         return this._actions.find(
             (action): action is IRecordLockingLockRecordDeniedAction =>
-                action.type === IRecordLockingLockRecordActionType.denied
+                action.type === RecordLockingLockRecordActionType.denied
         );
     }
 }

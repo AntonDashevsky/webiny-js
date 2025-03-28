@@ -1,11 +1,20 @@
-import type { CreateAdminPulumiAppParams } from "@webiny/pulumi-aws";
-import type { PluginCollection } from "@webiny/plugins/types.js";
+import { createAdminPulumiApp, CreateAdminPulumiAppParams } from "@webiny/pulumi-aws";
+import { uploadAppToS3 } from "./react/plugins";
+import { PluginCollection } from "@webiny/plugins/types";
+import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed";
 
 export interface CreateAdminAppParams extends CreateAdminPulumiAppParams {
     plugins?: PluginCollection;
 }
 
 export function createAdminApp(projectAppParams: CreateAdminAppParams = {}) {
+    const builtInPlugins = [
+        uploadAppToS3({ folder: "apps/admin" }),
+        ...createEnsureApiDeployedPlugins("admin")
+    ];
+
+    const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
+
     return {
         id: "admin",
         name: "Admin",
@@ -16,27 +25,7 @@ export function createAdminApp(projectAppParams: CreateAdminAppParams = {}) {
                 deploy: false
             }
         },
-        async getPulumi() {
-            // eslint-disable-next-line import/dynamic-import-chunkname
-            const { createAdminPulumiApp } = await import("@webiny/pulumi-aws");
-
-            return createAdminPulumiApp(projectAppParams);
-        },
-        async getPlugins() {
-            // eslint-disable-next-line import/dynamic-import-chunkname
-            const { uploadAppToS3 } = await import("./react/plugins/index.js");
-
-            // eslint-disable-next-line import/dynamic-import-chunkname
-            const { ensureApiDeployedBeforeBuild } = await import("./admin/plugins/index.js");
-
-            const builtInPlugins = [
-                uploadAppToS3({ folder: "apps/admin" }),
-                ensureApiDeployedBeforeBuild
-            ];
-
-            const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
-
-            return [builtInPlugins, customPlugins];
-        }
+        pulumi: createAdminPulumiApp(projectAppParams),
+        plugins: [builtInPlugins, customPlugins]
     };
 }

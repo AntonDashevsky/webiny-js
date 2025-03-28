@@ -1,20 +1,20 @@
-import isEqual from "lodash/isEqual.js";
-import { validateOrGetDefaultDbSort } from "@webiny/app-aco/sorting.js";
-import { useFolders } from "@webiny/app-aco";
-import { ListMeta } from "@webiny/app-aco/types.js";
+import isEqual from "lodash/isEqual";
+import { validateOrGetDefaultDbSort } from "@webiny/app-aco/sorting";
+import { useGetDescendantFolders } from "@webiny/app-aco";
+import { ListMeta } from "@webiny/app-aco/types";
 import { useSecurity } from "@webiny/app-security";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { FileItem } from "@webiny/app-admin/types";
 import { useStateIfMounted } from "@webiny/app-admin";
-import { Loading, LoadingActions } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { Loading, LoadingActions } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
 import {
     ListFilesQueryVariables,
     ListFilesSort,
     ListFilesWhereLocation,
     ListFilesWhereQueryVariables
-} from "~/modules/FileManagerApiProvider/graphql.js";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
-import { getScopeWhereParams, State } from "./state.js";
-import { ROOT_FOLDER } from "~/constants.js";
+} from "~/modules/FileManagerApiProvider/graphql";
+import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
+import { getScopeWhereParams, State } from "./state";
+import { ROOT_FOLDER } from "~/constants";
 
 const toTypeInput = (value: string) => {
     return value.replace("*", "");
@@ -47,7 +47,7 @@ const defaultMeta: ListMeta = {
 export function useListFiles({ modifiers, folderId, state }: UseListFilesParams) {
     const { identity } = useSecurity();
     const fileManager = useFileManagerApi();
-    const { getDescendantFolders } = useFolders();
+    const { getDescendantFolders } = useGetDescendantFolders();
     const [meta, setMeta] = useStateIfMounted<ListMeta>(defaultMeta);
     const [files, setFiles] = useStateIfMounted<FileItem[]>([]);
     const [loading, setLoading] = useStateIfMounted<Loading<LoadingActions>>({});

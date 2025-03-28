@@ -1,15 +1,15 @@
 import { Compose, LocaleSelector, useWcp } from "@webiny/app-admin";
 import React, { Fragment, memo } from "react";
-import { AddTenantFormField } from "./components/AddTenantFormField.js";
-import { CurrentTenant } from "./components/CurrentTenant.js";
-import { DomainsModule } from "./modules/domains/index.js";
-import { TenantsModule } from "./modules/tenants/index.js";
+import { AddTenantFormField } from "./components/AddTenantFormField";
+import { CurrentTenantWidget } from "./components/CurrentTenantWidget";
+import { DomainsModule } from "./modules/domains";
+import { TenantsModule } from "./modules/tenants";
 
 const TenantIndicator = (LocaleSelector: React.ComponentType) => {
     return function TenantIndicator() {
         return (
             <Fragment>
-                <CurrentTenant />
+                <CurrentTenantWidget />
                 <LocaleSelector />
             </Fragment>
         );
@@ -28,8 +28,8 @@ const TenantManagerExtension = () => {
 
     mounted++;
 
-    const { canUseFeature } = useWcp();
-    if (!canUseFeature("multiTenancy")) {
+    const wcp = useWcp();
+    if (!wcp.canUseFeature("multiTenancy")) {
         return null;
     }
 
@@ -44,6 +44,6 @@ const TenantManagerExtension = () => {
 
 export const TenantManager: React.ComponentType = memo(TenantManagerExtension);
 
-export { useCurrentTenant } from "./hooks/useCurrentTenant.js";
-export { IsRootTenant, IsNotRootTenant, IsTenant } from "./components/IsRootTenant.js";
-export { AddTenantFormField };
+export { useCurrentTenant } from "./hooks/useCurrentTenant";
+export { IsRootTenant, IsNotRootTenant, IsTenant } from "./components/IsRootTenant";
+export { AddTenantFormField, CurrentTenantWidget };

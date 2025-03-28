@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { IconButton } from "@webiny/ui/Button";
+import { Tooltip } from "@webiny/ui/Tooltip";
 import { ReactComponent as DeleteIcon } from "~/admin/assets/delete.svg";
-import { usePagesPermissions } from "~/hooks/permissions/index.js";
-import { useDeletePage } from "~/admin/views/Pages/hooks/useDeletePage.js";
-import { useFolders } from "@webiny/app-aco";
+import { usePagesPermissions } from "~/hooks/permissions";
+import { useDeletePage } from "~/admin/views/Pages/hooks/useDeletePage";
+import { useGetFolderLevelPermission } from "@webiny/app-aco";
 import { makeDecoratable } from "@webiny/react-composition";
-import { usePage } from "~/admin/views/Pages/PageDetails.js";
+import { usePage } from "~/admin/views/Pages/PageDetails";
 
 export interface DeletePageProps {
     onDelete?: () => void;
@@ -15,14 +15,15 @@ export interface DeletePageProps {
 const DeletePage = makeDecoratable("DeletePage", (props: DeletePageProps) => {
     const { onDelete } = props;
     const { page } = usePage();
-    const { folderLevelPermissions: flp } = useFolders();
+    const { getFolderLevelPermission: canManageContent } =
+        useGetFolderLevelPermission("canManageContent");
     const { canDelete: pagesCanDelete } = usePagesPermissions();
     const { openDialogDeletePage } = useDeletePage({ page, onDelete });
 
     const folderId = page.wbyAco_location?.folderId;
     const canDelete = useMemo(() => {
-        return pagesCanDelete(page.createdBy?.id) && flp.canManageContent(folderId);
-    }, [flp, folderId]);
+        return pagesCanDelete(page.createdBy?.id) && canManageContent(folderId);
+    }, [canManageContent, folderId]);
 
     if (!canDelete) {
         return null;

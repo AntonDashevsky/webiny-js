@@ -1,9 +1,10 @@
-import { createAuthenticator, AuthenticatorConfig } from "~/createAuthenticator.js";
 import { createGroupsTeamsAuthorizer, GroupsTeamsAuthorizerConfig } from "@webiny/api-security";
-import { createIdentityType } from "~/createIdentityType.js";
-import { extendTenancy } from "./extendTenancy.js";
-import { createAdminUsersHooks } from "./createAdminUsersHooks.js";
-import { Context } from "~/types.js";
+import { createExternalIdpAdminUserHooksPlugin } from "@webiny/api-admin-users/createExternalIdpAdminUserHooks";
+import { createAuthenticator, AuthenticatorConfig } from "~/createAuthenticator";
+import { createIdentityType } from "~/createIdentityType";
+import { extendTenancy } from "./extendTenancy";
+
+import { Context } from "~/types";
 
 export interface CreateOktaConfig<TContext extends Context = Context>
     extends AuthenticatorConfig,
@@ -31,6 +32,6 @@ export const createOkta = <TContext extends Context = Context>(
             name: graphQLIdentityType
         }),
         extendTenancy(),
-        createAdminUsersHooks()
+        createExternalIdpAdminUserHooksPlugin()
     ];
 };

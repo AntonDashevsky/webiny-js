@@ -1,42 +1,44 @@
 import path from "path";
-import {
-    createProjectApplicationWorkspace,
-    ICreateProjectApplicationWorkspaceCallable
-} from "./createProjectApplicationWorkspace.js";
-import { login } from "./login.js";
-import { loadEnvVariables } from "./loadEnvVariables.js";
-import { getPulumi } from "./getPulumi.js";
-import { measureDuration } from "./measureDuration.js";
-import { GracefulPulumiError } from "./GracefulPulumiError.js";
-import type { ProjectApplication } from "@webiny/cli/types.js";
-import { Context, IPulumi, IUserCommandInput } from "~/types.js";
+import { getProject, getProjectApplication, sendEvent } from "@webiny/cli/utils";
+import type { ICreateProjectApplicationWorkspaceCallable } from "./createProjectApplicationWorkspace";
+import { createProjectApplicationWorkspace } from "./createProjectApplicationWorkspace";
+import { login } from "./login";
+import { loadEnvVariables } from "./loadEnvVariables";
+import { getPulumi } from "./getPulumi";
+import { measureDuration } from "./measureDuration";
+import { GracefulPulumiError } from "./GracefulPulumiError";
+import type { Context, IPulumi, IUserCommandInput, ProjectApplication } from "~/types";
 
-export interface ICreatePulumiCommandParamsCommandParams {
-    inputs: IUserCommandInput;
+export interface ICreatePulumiCommandParamsCommandParams<
+    T extends IUserCommandInput = IUserCommandInput
+> {
+    inputs: T;
     context: Context;
     getDuration: () => string;
     pulumi: IPulumi;
     projectApplication: ProjectApplication;
 }
 
-export interface ICreatePulumiCommandParamsCommand {
-    (params: ICreatePulumiCommandParamsCommandParams): Promise<unknown>;
+export interface ICreatePulumiCommandParamsCommand<
+    T extends IUserCommandInput = IUserCommandInput
+> {
+    (params: ICreatePulumiCommandParamsCommandParams<T>): Promise<unknown>;
 }
 
-export interface ICreatePulumiCommandParams {
+export interface ICreatePulumiCommandParams<T extends IUserCommandInput = IUserCommandInput> {
     name: string;
-    command: ICreatePulumiCommandParamsCommand;
+    command: ICreatePulumiCommandParamsCommand<T>;
     createProjectApplicationWorkspace?: ICreateProjectApplicationWorkspaceCallable | boolean;
     telemetry?: boolean;
 }
 
-export const createPulumiCommand = ({
+export const createPulumiCommand = <T extends IUserCommandInput = IUserCommandInput>({
     name,
     command,
     createProjectApplicationWorkspace: createProjectApplicationWorkspaceParam,
     telemetry
-}: ICreatePulumiCommandParams) => {
-    return async (params: IUserCommandInput, context: Context) => {
+}: ICreatePulumiCommandParams<T>) => {
+    return async (params: T, context: Context) => {
         const { getProject, sendEvent } = await import("@webiny/cli/utils");
         // If folder not specified, that means we want to deploy the whole project (all project applications).
         // For that, we look if there are registered plugins that perform that.

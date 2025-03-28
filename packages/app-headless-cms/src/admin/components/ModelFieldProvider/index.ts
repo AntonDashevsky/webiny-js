@@ -1,2 +1,1 @@
-export * from "./ModelFieldContext.js";
-export * from "./useModelField.js";
+export * from "@webiny/app-headless-cms-common/ModelFieldProvider";

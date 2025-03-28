@@ -10,7 +10,6 @@ import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import { WebpackManifestPlugin } from "webpack-manifest-plugin";
 import InterpolateHtmlPlugin from "react-dev-utils/InterpolateHtmlPlugin";
 import getCSSModuleLocalIdent from "react-dev-utils/getCSSModuleLocalIdent";
-import getClientEnvironment from "./env.js";
 import ESLintPlugin from "eslint-webpack-plugin";
 import ModuleNotFoundPlugin from "react-dev-utils/ModuleNotFoundPlugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
@@ -18,6 +17,7 @@ import WebpackBar from "webpackbar";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { getProjectApplication } from "@webiny/cli/utils";
 import { createResolve } from "../../resolve.js";
+import getClientEnvironment from "./env.js";
 
 const resolve = createResolve(import.meta.url);
 

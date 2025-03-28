@@ -1,11 +1,12 @@
-import { createPulumiCommand, notify, runHook } from "~/utils/index.js";
-import { BeforeDeployPlugin } from "~/plugins/BeforeDeployPlugin.js";
-import { PackagesBuilder } from "./buildPackages/PackagesBuilder.js";
-import { pulumiLoginSelectStack } from "./deploy/pulumiLoginSelectStack.js";
-import { executeDeploy } from "./deploy/executeDeploy.js";
-import { executePreview } from "./deploy/executePreview.js";
+import { createPulumiCommand, notify, runHook } from "~/utils";
+import { BeforeDeployPlugin } from "~/plugins";
+import { PackagesBuilder } from "./buildPackages/PackagesBuilder";
+import { pulumiLoginSelectStack } from "./deploy/pulumiLoginSelectStack";
+import { executeDeploy } from "./deploy/executeDeploy";
+import { executePreview } from "./deploy/executePreview";
+import { executeRefresh } from "~/commands/deploy/executeRefresh";
 import { setTimeout } from "node:timers/promises";
-import { CliContext } from "@webiny/cli/types.js";
+import type { CliContext } from "@webiny/cli/types";
 
 export interface IDeployParams {
     _: string[];
@@ -86,6 +87,10 @@ export const deployCommand = (params: IDeployParams, context: CliContext) => {
             }
 
             console.log();
+
+            // A Pulumi refresh might be executed before the deploy. For example,
+            // this is needed if the user run the watch command prior to the deploy.
+            await executeRefresh(commandParams);
 
             if (inputs.preview) {
                 await executePreview(commandParams);

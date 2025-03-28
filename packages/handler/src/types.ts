@@ -1,7 +1,12 @@
 import "@fastify/cookie";
-import type { FastifyRequest, FastifyReply, HTTPMethods, RouteHandlerMethod } from "fastify";
-export type { FastifyInstance, HTTPMethods } from "fastify";
-import type { ClientContext } from "@webiny/handler-client/types.js";
+import {
+    FastifyRequest,
+    FastifyReply,
+    HTTPMethods as BaseHttpMethods,
+    RouteHandlerMethod
+} from "fastify";
+export { FastifyInstance } from "fastify";
+import { ClientContext } from "@webiny/handler-client/types";
 
 export interface RouteMethodOptions {
     override?: boolean;
@@ -15,7 +20,10 @@ export interface RouteMethod {
 export type Request = FastifyRequest;
 export type Reply = FastifyReply;
 
-export type DefinedContextRoutes = Record<Uppercase<HTTPMethods>, string[]>;
+export type HTTPMethods = Uppercase<BaseHttpMethods>;
+
+export type DefinedContextRoutes = Record<HTTPMethods, string[]>;
+
 export interface ContextRoutes {
     defined: DefinedContextRoutes;
     onGet: RouteMethod;

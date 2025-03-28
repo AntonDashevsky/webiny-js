@@ -1,10 +1,8 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import orderBy from "lodash/orderBy.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { useSecurity } from "@webiny/app-security";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { Image } from "@webiny/app/components/index.js";
+import orderBy from "lodash/orderBy";
+import { i18n } from "@webiny/app/i18n";
+import { Image } from "@webiny/app/components";
 import {
     DataList,
     ScrollList,
@@ -16,21 +14,21 @@ import {
     ListItemGraphic,
     DataListModalOverlayAction,
     DataListModalOverlay
-} from "@webiny/ui/List/index.js";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { Avatar } from "@webiny/ui/Avatar/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
+} from "@webiny/ui/List";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
+import { Avatar } from "@webiny/ui/Avatar";
+import { Cell, Grid } from "@webiny/ui/Grid";
+import { Select } from "@webiny/ui/Select";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import SearchUI from "@webiny/app-admin/components/SearchUI";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { DELETE_USER, LIST_USERS } from "./graphql.js";
-import { deserializeSorters } from "../utils.js";
-import { UserItem } from "~/UserItem.js";
+import { DELETE_USER, LIST_USERS } from "./graphql";
+import { deserializeSorters } from "../utils";
+import { UserItem } from "~/UserItem";
+import { DeleteAction } from "./components/DeleteAction";
 
 const t = i18n.ns("app-identity/admin/users/data-list");
 
@@ -60,7 +58,6 @@ interface FilterUsersCallable {
 const UsersDataList = () => {
     const [filter, setFilter] = useState("");
     const [sort, setSort] = useState<string>(SORTERS[0].sorter);
-    const { identity } = useSecurity();
     const { history } = useRouter();
     const { showSnackbar } = useSnackbar();
     const { showConfirmation } = useConfirmationDialog({
@@ -196,21 +193,7 @@ const UsersDataList = () => {
 
                             <ListItemMeta>
                                 <ListActions>
-                                    {identity && identity.id !== item.id ? (
-                                        <DeleteIcon
-                                            onClick={() => deleteItem(item)}
-                                            data-testid={"default-data-list.delete"}
-                                        />
-                                    ) : (
-                                        <Tooltip
-                                            placement={"bottom"}
-                                            content={
-                                                <span>{t`You can't delete your own user account.`}</span>
-                                            }
-                                        >
-                                            <DeleteIcon disabled />
-                                        </Tooltip>
-                                    )}
+                                    <DeleteAction item={item} onClick={() => deleteItem(item)} />
                                 </ListActions>
                             </ListItemMeta>
                         </ListItem>

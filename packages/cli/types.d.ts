@@ -35,7 +35,12 @@ interface Project {
     /**
      * Configurations.
      */
-    config: Record<string, any>;
+    config: {
+        appAliases: {
+            [key: string]: string;
+        }
+        [key: string]: any;
+    };
     /**
      * Root path of the project.
      */
@@ -187,7 +192,7 @@ export interface CliContext {
      * Only trivial data should be passed here, specific to the current project.
      */
     localStorage: {
-        set: (key: string, value: string) => Record<string, any>;
+        set: (key: string, value: any) => Record<string, any>;
         get: (key: string) => any;
     };
 }

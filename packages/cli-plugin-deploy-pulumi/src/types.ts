@@ -2,8 +2,9 @@ export {
     CliContext as Context,
     ProjectApplication,
     IProjectApplicationPackage,
-    Project
-} from "@webiny/cli/types.js";
+    Project,
+    NonEmptyArray
+} from "@webiny/cli/types";
 
 import type { Pulumi } from "@webiny/pulumi-sdk";
 
@@ -20,12 +21,14 @@ export interface IUserCommandInput {
     telemetry?: boolean;
     logs?: boolean;
     json?: boolean;
+    file?: string;
     build?: boolean;
     deploy?: boolean;
     package?: string;
     preview?: boolean;
     inspect?: boolean;
     depth?: number;
+    function?: string | string[];
     allowProduction?: boolean;
     increaseTimeout?: number;
     deploymentLogs?: boolean;

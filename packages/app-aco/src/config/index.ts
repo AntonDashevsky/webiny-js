@@ -1,1 +1,2 @@
-export * from "./AcoConfig.js";
+export * from "./AcoConfig";
+export * from "./folder/createFolderFieldDecoratorFactory";
