@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable } from "~/index";
-import { Property, useIdGenerator } from "@webiny/react-properties";
+import { ConnectToProperties, Property, useIdGenerator } from "@webiny/react-properties";
 import { TenantName } from "./Tenant/TenantName";
 import { TenantLogo } from "./Tenant/TenantLogo";
 
@@ -17,9 +17,11 @@ const BaseTenant = ({ children }: TenantProps) => {
     const getId = useIdGenerator("Tenant");
 
     return (
-        <Property id={getId("tenant")} name={"tenant"}>
-            {children}
-        </Property>
+        <ConnectToProperties name={"AdminConfig"}>
+            <Property id={getId("tenant")} name={"tenant"}>
+                {children}
+            </Property>
+        </ConnectToProperties>
     );
 };
 

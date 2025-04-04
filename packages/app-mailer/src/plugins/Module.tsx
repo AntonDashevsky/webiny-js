@@ -33,8 +33,8 @@ const MailerSettings = () => {
     }
 
     return (
-        <HasPermission name={"mailer.settings"}>
-            <AdminConfig>
+        <AdminConfig>
+            <HasPermission name={"mailer.settings"}>
                 <Route
                     name={"mailer.settings"}
                     exact
@@ -58,8 +58,8 @@ const MailerSettings = () => {
                     parent={"settings"}
                     element={<Menu.Link text={"Settings"} to={"/mailer/settings"} />}
                 />
-            </AdminConfig>
-        </HasPermission>
+            </HasPermission>
+        </AdminConfig>
     );
 };
 

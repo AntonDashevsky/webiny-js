@@ -5,13 +5,13 @@ import {
     GenericComponent,
     compose,
     Decorator,
-    HigherOrderComponent,
     DecoratorsCollection
 } from "@webiny/react-composition";
 import { Routes as SortRoutes } from "./core/Routes";
 import { DebounceRender } from "./core/DebounceRender";
 import { PluginsProvider } from "./core/Plugins";
-import { RouterWithConfig, useRouterConfig } from "~/config/RouterConfig";
+import { RouterWithConfig, useRouterConfig } from "./config/RouterConfig";
+import { AppContainer } from "./AppContainer";
 
 interface State {
     plugins: JSX.Element[];
@@ -63,7 +63,7 @@ export const AppBase = ({
         providers
     });
 
-    const addProvider = useCallback((component: HigherOrderComponent<any, any>) => {
+    const addProvider = useCallback((component: Decorator<any>) => {
         setState(state => {
             if (state.providers.findIndex(m => m === component) > -1) {
                 return state;
@@ -116,16 +116,18 @@ export const AppBase = ({
     return (
         <AppContext.Provider value={appContext}>
             {children}
-            <BrowserRouter>
-                <Providers>
-                    <PluginsProvider>{state.plugins}</PluginsProvider>
-                    <DebounceRender wait={debounceRender}>
-                        <RouterWithConfig>
-                            <AppRouter />
-                        </RouterWithConfig>
-                    </DebounceRender>
-                </Providers>
-            </BrowserRouter>
+            <AppContainer>
+                <BrowserRouter>
+                    <Providers>
+                        <PluginsProvider>{state.plugins}</PluginsProvider>
+                        <DebounceRender wait={debounceRender}>
+                            <RouterWithConfig>
+                                <AppRouter />
+                            </RouterWithConfig>
+                        </DebounceRender>
+                    </Providers>
+                </BrowserRouter>
+            </AppContainer>
         </AppContext.Provider>
     );
 };

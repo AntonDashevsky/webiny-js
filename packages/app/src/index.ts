@@ -9,6 +9,7 @@ export type { HigherOrderComponent, ComposeProps, ComposableFC } from "@webiny/r
 
 // App framework
 export * from "./App";
+export * from "./AppContainer";
 export type { AppProps } from "./App";
 export * from "./core/Plugins";
 export * from "./core/Plugin";

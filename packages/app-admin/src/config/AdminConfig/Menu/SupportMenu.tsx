@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable } from "~/index";
-import { Property, useIdGenerator } from "@webiny/react-properties";
+import { ConnectToProperties, Property, useIdGenerator } from "@webiny/react-properties";
 import { SupportMenuItem } from "./SupportMenu/SupportMenuItem";
 import { SupportMenuLink } from "./SupportMenu/SupportMenuLink";
 
@@ -29,17 +29,19 @@ const BaseSupportMenu = ({ name, element, remove, before, after, pin }: SupportM
     }
 
     return (
-        <Property
-            id={getId(name)}
-            name={"supportMenus"}
-            remove={remove}
-            array={true}
-            before={placeBefore}
-            after={placeAfter}
-        >
-            <Property id={getId(name, "name")} name={"name"} value={name} />
-            <Property id={getId(name, "element")} name={"element"} value={element} />
-        </Property>
+        <ConnectToProperties name={"AdminConfig"}>
+            <Property
+                id={getId(name)}
+                name={"supportMenus"}
+                remove={remove}
+                array={true}
+                before={placeBefore}
+                after={placeAfter}
+            >
+                <Property id={getId(name, "name")} name={"name"} value={name} />
+                <Property id={getId(name, "element")} name={"element"} value={element} />
+            </Property>
+        </ConnectToProperties>
     );
 };
 

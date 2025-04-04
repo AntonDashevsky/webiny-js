@@ -1,14 +1,14 @@
 import React from "react";
-import { createConfigurableComponent } from "@webiny/react-properties";
+import { AppContainer, Plugin } from "@webiny/app";
 import { Menu, type MenuConfig } from "./AdminConfig/Menu";
 import { Tenant, TenantConfig } from "./AdminConfig/Tenant";
 import type { SupportMenuConfig } from "./AdminConfig/Menu/SupportMenu";
 import type { UserMenuConfig } from "./AdminConfig/Menu/UserMenu";
 import { Route } from "./AdminConfig/Route";
 import { Theme } from "./AdminConfig/Theme";
-import { createProvider } from "@webiny/app";
+import { createAdminConfig } from "./createAdminConfig";
 
-const base = createConfigurableComponent<AdminConfig>("AdminConfig");
+const base = createAdminConfig<AdminConfig>();
 
 export const AdminWithConfig = Object.assign(base.WithConfig, {
     displayName: "AdminWithConfig"
@@ -21,12 +21,22 @@ interface AdminConfig {
     tenant: TenantConfig;
 }
 
-export const AdminConfigProvider = createProvider(Original => {
+export const AdminConfigProvider = AppContainer.createDecorator(Original => {
     return function AdminConfigProvider({ children }) {
         return (
-            <Original>
-                <AdminWithConfig>{children}</AdminWithConfig>
-            </Original>
+            <>
+                {/* Wrap the entire app with an AdminConfig provider, and apply all public configs. */}
+                <Original>
+                    <AdminWithConfig>
+                        <base.ApplyPublicConfig />
+                        {children}
+                    </AdminWithConfig>
+                </Original>
+                {/* Once the app fully renders (after the LoginScreen), apply protected configs. */}
+                <Plugin>
+                    <base.ApplyProtectedConfig />
+                </Plugin>
+            </>
         );
     };
 });
@@ -42,7 +52,24 @@ export const useAdminConfig = () => {
     };
 };
 
-export const AdminConfig = Object.assign(base.Config, {
+export interface PublicProps {
+    children: React.ReactNode;
+}
+
+export const Public = ({ children }: PublicProps) => {
+    return <base.PublicConfig>{children}</base.PublicConfig>;
+};
+
+export interface PrivateProps {
+    children: React.ReactNode;
+}
+
+export const Private = ({ children }: PrivateProps) => {
+    return <base.PrivateConfig>{children}</base.PrivateConfig>;
+};
+
+export const AdminConfig = Object.assign(Private, {
+    Public,
     Theme,
     Menu,
     Route,

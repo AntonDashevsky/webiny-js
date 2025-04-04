@@ -10,7 +10,6 @@ import { createAdminUiStateProvider } from "./providers/AdminUiStateProvider";
 import { createUiProviders } from "./providers/UiProviders";
 import { createDialogsProvider } from "~/components/Dialogs/DialogsContext";
 import { DefaultIcons, IconPickerConfigProvider } from "~/components/IconPicker/config";
-import { AdminConfigProvider } from "~/config/AdminConfig";
 
 export interface AdminProps {
     createApolloClient: ApolloClientFactory;
@@ -36,7 +35,6 @@ export const Admin = ({ children, createApolloClient }: AdminProps) => {
                             UiStateProvider,
                             DialogsProvider,
                             IconPickerConfigProvider,
-                            AdminConfigProvider,
                             AdminUiStateProvider
                         ]}
                     >

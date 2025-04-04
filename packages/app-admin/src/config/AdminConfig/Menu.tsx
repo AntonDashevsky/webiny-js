@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable } from "~/index";
-import { Property, useIdGenerator } from "@webiny/react-properties";
+import { ConnectToProperties, Property, useIdGenerator } from "@webiny/react-properties";
 import { MenuItem } from "./Menu/MenuItem";
 import { MenuLink } from "./Menu/MenuLink";
 import { MenuGroup } from "./Menu/MenuGroup";
@@ -43,19 +43,21 @@ const BaseMenu = ({
     }
 
     return (
-        <Property
-            id={getId(name)}
-            name={"menus"}
-            remove={remove}
-            array={true}
-            before={placeBefore}
-            after={placeAfter}
-        >
-            <Property id={getId(name, "name")} name={"name"} value={name} />
-            <Property id={getId(name, "parent")} name={"parent"} value={parent} />
-            <Property id={getId(name, "tags")} name={"tags"} value={tags} />
-            <Property id={getId(name, "element")} name={"element"} value={element} />
-        </Property>
+        <ConnectToProperties name={"AdminConfig"}>
+            <Property
+                id={getId(name)}
+                name={"menus"}
+                remove={remove}
+                array={true}
+                before={placeBefore}
+                after={placeAfter}
+            >
+                <Property id={getId(name, "name")} name={"name"} value={name} />
+                <Property id={getId(name, "parent")} name={"parent"} value={parent} />
+                <Property id={getId(name, "tags")} name={"tags"} value={tags} />
+                <Property id={getId(name, "element")} name={"element"} value={element} />
+            </Property>
+        </ConnectToProperties>
     );
 };
 

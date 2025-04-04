@@ -28,12 +28,12 @@ const TenantNameLogoBase = () => {
 
     const { image, name } = currentTenant;
     return (
-        <AdminConfig>
+        <AdminConfig.Public>
             <Tenant>
                 {image && <Tenant.Logo element={<img src={currentTenant.image.src} />} />}
                 <Tenant.Name value={name} />
             </Tenant>
-        </AdminConfig>
+        </AdminConfig.Public>
     );
 };
 

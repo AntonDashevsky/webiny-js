@@ -5,12 +5,12 @@ import wbyLogo from "./Tenant/wby-logo.png";
 export const Tenant = React.memo(() => {
     const { Tenant } = AdminConfig;
     return (
-        <AdminConfig>
+        <AdminConfig.Public>
             <Tenant>
                 <Tenant.Name value={"Webiny"} />
                 <Tenant.Logo element={<img src={wbyLogo} alt={"Webiny"} />} />
             </Tenant>
-        </AdminConfig>
+        </AdminConfig.Public>
     );
 });
 
