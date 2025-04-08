@@ -8,11 +8,13 @@ import {
     lambdaEdgeWarning,
     renderWebsite,
     telemetryNoLongerNewUser,
-    ensureApiDeployedBeforeBuild
+    ensureApiDeployedBeforeBuild,
+    IRenderWebsiteParams
 } from "~/website/plugins";
 import { uploadAppToS3 } from "~/react/plugins";
 
 export interface CreateWebsiteAppParams extends CreateWebsitePulumiAppParams {
+    renderWebsiteAfterDeploy?: (params: IRenderWebsiteParams) => boolean;
     plugins?: PluginCollection;
 }
 
@@ -21,7 +23,7 @@ export function createWebsiteApp(projectAppParams: CreateWebsiteAppParams = {}) 
         uploadAppToS3({ folder: "apps/website" }),
         generateCommonHandlers,
         lambdaEdgeWarning,
-        renderWebsite,
+        renderWebsite({ prerender: projectAppParams.renderWebsiteAfterDeploy ?? (() => true) }),
         telemetryNoLongerNewUser,
         ensureApiDeployedBeforeBuild
     ];
