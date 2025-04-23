@@ -12,13 +12,14 @@ Checkboxes allow users to select multiple items from a list of individual items,
 
 ```jsx
 import React, { useState } from "react";
+
 import { CheckboxGroup } from "@webiny/admin-ui";
 
 const CheckboxGroupExample = () => {
     const [selectedValues, setSelectedValues] = useState<string[]>(["value-2"]);
 
     return (
-        <div className={"wby-my-xxl"}>
+        <div>
             <CheckboxGroup
                 label="Select your preferences"
                 description="Choose one or more options."
@@ -47,13 +48,14 @@ export default CheckboxGroupExample;
 `// Code for a Checkbox Group
 
 import React, { useState } from "react";
+
 import { CheckboxGroup } from "@webiny/admin-ui";
 
 const CheckboxGroupExample = () => {
     const [selectedValues, setSelectedValues] = useState<string[]>(["value-2"]);
 
     return (
-        <div className={"wby-my-xxl"}>
+        <div>
             <CheckboxGroup
                 label="Select your preferences"
                 description="Choose one or more options."
