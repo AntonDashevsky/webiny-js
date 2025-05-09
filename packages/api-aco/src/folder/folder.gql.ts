@@ -7,7 +7,6 @@ import { resolve } from "~/utils/resolve";
 import { compress } from "~/utils/compress";
 
 import { AcoContext, Folder } from "~/types";
-import type { FolderLevelPermission } from "~/flp/flp.types";
 import { FOLDER_MODEL_ID } from "~/folder/folder.model";
 
 export const createFoldersSchema = (params: CreateFolderTypeDefsParams) => {
@@ -55,29 +54,41 @@ export const createFoldersSchema = (params: CreateFolderTypeDefsParams) => {
                 listFoldersCompressed: async (_, args: any, context) => {
                     return resolve(async () => {
                         ensureAuthentication(context);
+
                         const [entries] = await context.aco.folder.list(args);
+                        const foldersPromises = entries.map(folder => {
+                            const { folderLevelPermissions: flp } = context.aco;
 
-                        const folders = entries.map(folder => ({
-                            ...folder,
-                            hasNonInheritedPermissions:
-                                context.aco.folderLevelPermissions.permissionsIncludeNonInheritedPermissions(
-                                    folder.permissions
-                                ),
-                            canManageStructure:
-                                context.aco.folderLevelPermissions.canManageFolderStructure(
-                                    folder as unknown as FolderLevelPermission
-                                ),
-                            canManagePermissions:
-                                context.aco.folderLevelPermissions.canManageFolderPermissions(
-                                    folder as unknown as FolderLevelPermission
-                                ),
-                            canManageContent:
-                                context.aco.folderLevelPermissions.canManageFolderContent(
-                                    folder as unknown as FolderLevelPermission
-                                )
-                        }));
+                            const canManageStructure = flp.canManageFolderStructure(folder);
+                            const canManagePermissions = flp.canManageFolderPermissions(folder);
+                            const canManageContent = flp.canManageFolderContent(folder);
+                            const hasNonInheritedPermissions =
+                                flp.permissionsIncludeNonInheritedPermissions(folder.permissions);
 
-                        return compress(folders);
+                            return Promise.all([
+                                canManageStructure,
+                                canManagePermissions,
+                                canManageContent,
+                                hasNonInheritedPermissions
+                            ]).then(
+                                ([
+                                    canManageStructure,
+                                    canManagePermissions,
+                                    canManageContent,
+                                    hasNonInheritedPermissions
+                                ]) => {
+                                    return {
+                                        ...folder,
+                                        canManageStructure,
+                                        canManagePermissions,
+                                        canManageContent,
+                                        hasNonInheritedPermissions
+                                    };
+                                }
+                            );
+                        });
+
+                        return Promise.all(foldersPromises).then(compress);
                     });
                 },
                 getFolderHierarchy: async (_, args: any, context) => {
