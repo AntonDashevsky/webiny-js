@@ -4,21 +4,27 @@ import { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
 import { SecurityContext } from "@webiny/api-security/types";
 import { AdminUsersContext } from "@webiny/api-admin-users/types";
 import { FileManagerContext } from "@webiny/api-file-manager/types";
+import { Context as TasksContext } from "@webiny/tasks/types";
 import { CmsContext, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
-import {
+import type {
     AcoSearchRecordCrud,
     AcoSearchRecordCrudBase,
     AcoSearchRecordStorageOperations,
     GenericSearchData,
     SearchRecord
 } from "~/record/record.types";
-import { AcoFolderCrud, AcoFolderStorageOperations } from "~/folder/folder.types";
-import { AcoFilterCrud, AcoFilterStorageOperations } from "~/filter/filter.types";
-import { FolderLevelPermissions } from "~/utils/FolderLevelPermissions";
+import type { AcoFolderCrud, AcoFolderStorageOperations } from "~/folder/folder.types";
+import type { AcoFilterCrud, AcoFilterStorageOperations } from "~/filter/filter.types";
+import type {
+    AcoFolderLevelPermissionsCrud,
+    AcoFolderLevelPermissionsStorageOperations
+} from "~/flp/flp.types";
+import { FolderLevelPermissions } from "~/flp";
 
 export * from "./filter/filter.types";
 export * from "./folder/folder.types";
 export * from "./record/record.types";
+export * from "./flp/flp.types";
 
 export interface User {
     id: string;
@@ -54,6 +60,7 @@ export interface AdvancedContentOrganisation {
     folder: AcoFolderCrud;
     search: AcoSearchRecordCrud;
     filter: AcoFilterCrud;
+    flp: AcoFolderLevelPermissionsCrud;
     folderLevelPermissions: FolderLevelPermissions;
     apps: IAcoApps;
     registerApp: (params: IAcoAppRegisterParams) => Promise<IAcoApp>;
@@ -68,9 +75,12 @@ export interface CreateAcoParams {
     folderLevelPermissions: FolderLevelPermissions;
 }
 
-export type AcoStorageOperations = AcoFolderStorageOperations &
-    AcoSearchRecordStorageOperations &
-    AcoFilterStorageOperations;
+export interface AcoStorageOperations {
+    folder: AcoFolderStorageOperations;
+    search: AcoSearchRecordStorageOperations;
+    filter: AcoFilterStorageOperations;
+    flp: AcoFolderLevelPermissionsStorageOperations;
+}
 
 export interface AcoContext
     extends BaseContext,
@@ -79,7 +89,8 @@ export interface AcoContext
         SecurityContext,
         AdminUsersContext,
         CmsContext,
-        FileManagerContext {
+        FileManagerContext,
+        TasksContext {
     aco: AdvancedContentOrganisation;
 }
 
