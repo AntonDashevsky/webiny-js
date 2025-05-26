@@ -1,0 +1,45 @@
+import React, { useEffect, useMemo } from "react";
+import { observer } from "mobx-react-lite";
+import { DocumentElement } from "~/sdk/types";
+import { PreviewElementRendererPresenter } from "./PreviewElementRenderer.presenter";
+import { LiveElementRenderer } from "../LiveElementRenderer";
+import { useElementSlotDepth } from "~/react/components/ElementSlotDepthProvider";
+import { useElementIndex } from "~/react/components/ElementIndexProvider";
+
+interface PreviewElementRendererProps {
+    element: DocumentElement;
+}
+
+export const PreviewElementRenderer = observer((props: PreviewElementRendererProps) => {
+    const depth = useElementSlotDepth();
+    const index = useElementIndex();
+
+    const presenter = useMemo(() => {
+        const presenter = new PreviewElementRendererPresenter();
+        presenter.init(props.element);
+        return presenter;
+    }, [props.element.id]);
+
+    useEffect(() => {
+        return () => presenter.dispose();
+    }, []);
+
+    const element = presenter.vm.element;
+
+    if (!element) {
+        return null;
+    }
+
+    return (
+        <div
+            onMouseEnter={presenter.onMouseEnter}
+            data-element-id={element.id}
+            data-depth={depth}
+            data-parent-index={index}
+            data-parent-id={element.parent?.id}
+            data-parent-slot={element.parent?.slot}
+        >
+            <LiveElementRenderer element={element} />
+        </div>
+    );
+});

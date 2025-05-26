@@ -51,3 +51,4 @@ lerna.json
 .normalizedFigmaExport.json
 .normalizedPrimitivesFigmaExport.json
 packages/tasks/tpl/*
+nextjs/.next
