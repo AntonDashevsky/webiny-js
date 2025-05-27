@@ -55,7 +55,10 @@ export class PreviewSdk implements IContentSdk {
     }
 
     registerComponentGroup(group: ComponentGroup) {
-        this.messenger.send("preview.componentGroup.register", group);
+        this.messenger.send("preview.componentGroup.register", {
+            ...group,
+            filter: group.filter?.toString()
+        });
     }
 
     resolveElement(element: DocumentElement): ResolvedComponent | null {

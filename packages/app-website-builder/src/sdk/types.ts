@@ -26,11 +26,13 @@ export type ComponentGroupItem = {
 
 export type ComponentGroup = {
     name: string;
-    items: ComponentGroupItem[];
+    label: string;
+    filter?: (component: ComponentManifest) => boolean;
 };
 
 export type ComponentManifest = {
     name: string;
+    group?: string;
     label?: string;
     image?: string;
     inputs?: ComponentInput[];

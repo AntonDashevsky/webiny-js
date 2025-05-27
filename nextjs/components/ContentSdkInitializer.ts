@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { contentSdk } from "@webiny/app-website-builder/react/index.js";
+import { ComponentManifest } from "@webiny/app-website-builder/sdk/types";
 
 export const ContentSdkInitializer = React.memo(() => {
     contentSdk.init({
@@ -13,27 +14,19 @@ export const ContentSdkInitializer = React.memo(() => {
         }
 
         contentSdk.preview.registerComponentGroup({
-            name: "Layout",
-            items: [
-                {
-                    name: "Webiny/Text"
-                },
-                {
-                    name: "Webiny/BlockRef"
-                }
-            ]
+            name: "basic",
+            label: "Basic"
         });
 
         contentSdk.preview.registerComponentGroup({
-            name: "Custom",
-            items: [
-                {
-                    name: "Custom/Hero-1"
-                },
-                {
-                    name: "Custom/Sales-1"
-                }
-            ]
+            name: "ecommerce",
+            label: "eCommerce"
+        });
+
+        contentSdk.preview.registerComponentGroup({
+            name: "custom",
+            label: "Custom",
+            filter: (component: ComponentManifest) => !component.group
         });
     };
 

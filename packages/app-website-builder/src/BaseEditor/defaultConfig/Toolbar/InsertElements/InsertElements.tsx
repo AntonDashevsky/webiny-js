@@ -43,15 +43,41 @@ const GroupComponent = ({ item }: { item: ComponentGroupItem }) => {
     );
 };
 
+type WithItems<T> = T & { items: ComponentManifest[] };
+
+const getComponentFilter = (group: ComponentGroup): ((cmp: ComponentManifest) => boolean) => {
+    if (group.name === "custom") {
+        return cmp => !cmp.group;
+    }
+
+    if (group.filter) {
+        return new Function(`return ${group.filter}`)();
+    }
+
+    return cmp => cmp.group === group.name;
+};
+
 const ElementPalette = () => {
-    const groups = useSelectFromEditor<Record<string, ComponentGroup>>(state => {
-        return state.componentGroups ?? {};
+    const groups = useSelectFromEditor<WithItems<ComponentGroup>[]>(state => {
+        const groups = Object.values(state.componentGroups);
+        const components = Object.values(state.components).filter(item => !item.hideFromToolbar);
+
+        return groups.map(group => {
+            const filter = getComponentFilter(group);
+
+            return {
+                ...group,
+                items: components.filter(filter)
+            };
+        });
     });
+
+    console.log("groups", groups);
 
     return (
         <Accordion>
-            {Object.values(groups).map(group => (
-                <Accordion.Item key={group.name} title={group.name}>
+            {groups.map(group => (
+                <Accordion.Item key={group.name} title={group.label}>
                     <div className="wby-flex wby-flex-col wby-gap-sm wby-p-sm wby-justify-start">
                         {group.items.map(item => {
                             return (

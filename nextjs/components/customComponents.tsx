@@ -39,6 +39,7 @@ export const customComponents = [
     createComponent(TextComponent, {
         name: "Webiny/Text",
         label: "Text",
+        group: "basic",
         image: "https://material-icons.github.io/material-icons/svg/text_fields/outline.svg",
         inputs: [
             {
@@ -51,11 +52,13 @@ export const customComponents = [
     createComponent(BlockRefComponent, {
         name: "Webiny/BlockRef",
         label: "Block Reference",
+        group: "basic",
         canHaveChildren: true
     }),
     createComponent(Hero_1, {
         name: "Custom/Hero-1",
-        label: "Hero #1"
+        label: "Hero #1",
+        group: "ecommerce"
     }),
     createComponent(Contact_Sales, {
         name: "Custom/Sales-1",

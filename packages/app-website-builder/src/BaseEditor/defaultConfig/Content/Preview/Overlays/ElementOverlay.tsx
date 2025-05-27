@@ -11,8 +11,6 @@ import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument"
 interface ElementOverlayProps {
     elementId: string;
     isSelected: boolean;
-    isFirst: boolean;
-    index: number;
     isHighlighted: boolean;
     previewBox: Box;
     editorBox: Box;
@@ -26,8 +24,6 @@ export const ElementOverlay = React.memo(
         elementId,
         isSelected,
         isHighlighted,
-        isFirst,
-        index,
         children
     }: ElementOverlayProps) => {
         const editor = useDocumentEditor();
@@ -82,7 +78,7 @@ export const ElementOverlay = React.memo(
                                 opacity: isDragging ? 0.3 : 1
                             }}
                         >
-                            {isHighlighted || isSelected ? (
+                            {(isHighlighted && !dnd) || isSelected ? (
                                 <div
                                     className={cn(
                                         "wby-absolute wby-text-sm wby-pointer-events-none wby-text-neutral-light wby-p-xs",
