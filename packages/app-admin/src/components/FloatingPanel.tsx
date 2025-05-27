@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import Draggable, { type DraggableEventHandler } from "react-draggable";
 import { Resizable, ResizableProps } from "react-resizable";
 import styled from "@emotion/styled";
-import { Elevation } from "@webiny/ui/Elevation";
 import { useKeyHandler } from "~/hooks";
 
 const PanelRoot = styled.div`
@@ -63,30 +62,37 @@ export const FloatingPanel = ({ dragHandle, shortcut, children }: FloatingPanelP
     };
 
     return createPortal(
-        <PanelRoot>
-            <Draggable handle={dragHandle} onStop={onDragStop} position={position}>
-                <Resizable
-                    width={size.width}
-                    height={size.height}
-                    onResize={onResize}
-                    handle={<ResizeHandle />}
-                >
-                    <div
-                        style={{
-                            border: "2px solid var(--mdc-theme-primary)",
-                            display: isVisible ? "block" : "none",
-                            position: "relative",
-                            width: size.width + "px",
-                            height: size.height + "px"
-                        }}
+        <>
+            <div
+                className={"wby-absolute wby-top-0 wby-left-0 wby-w-full wby-h-full"}
+                style={{
+                    pointerEvents: isVisible ? "auto" : "none"
+                }}
+            />
+            <PanelRoot>
+                <Draggable handle={dragHandle} onStop={onDragStop} position={position}>
+                    <Resizable
+                        width={size.width}
+                        height={size.height}
+                        onResize={onResize}
+                        handle={<ResizeHandle />}
                     >
-                        <Elevation z={5} style={{ height: "inherit" }}>
-                            {children(size)}
-                        </Elevation>
-                    </div>
-                </Resizable>
-            </Draggable>
-        </PanelRoot>,
+                        <div
+                            className={
+                                "wby-bg-neutral-base wby-relative wby-border-sm wby-border-accent-default"
+                            }
+                            style={{
+                                display: isVisible ? "block" : "none",
+                                width: size.width + "px",
+                                height: size.height + "px"
+                            }}
+                        >
+                            <div className={"floating-panel"}>{children(size)}</div>
+                        </div>
+                    </Resizable>
+                </Draggable>
+            </PanelRoot>
+        </>,
         document.body
     );
 };

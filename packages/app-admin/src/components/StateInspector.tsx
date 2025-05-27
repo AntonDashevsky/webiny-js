@@ -1,6 +1,6 @@
 import React from "react";
 import Editor from "@monaco-editor/react";
-import { Tab, Tabs } from "@webiny/ui/Tabs";
+import { Tabs } from "@webiny/admin-ui";
 import { FloatingPanel } from "~/components";
 
 const monacoTheme = "vs-light";
@@ -14,19 +14,29 @@ interface StateInspectorProps {
 
 export const StateInspector = (props: StateInspectorProps) => {
     return (
-        <FloatingPanel shortcut={props.shortcut} dragHandle={".mdc-tab-scroller"}>
+        <FloatingPanel shortcut={props.shortcut} dragHandle={".floating-panel"}>
             {({ height }) => (
-                <Tabs>
-                    <Tab label={props.title}>
-                        <Editor
-                            theme={monacoTheme}
-                            height={height - 48}
-                            defaultLanguage={"json"}
-                            value={JSON.stringify(props.state, null, 2)}
-                            options={monacoOptions}
+                <Tabs
+                    size="md"
+                    spacing="sm"
+                    separator={true}
+                    tabs={[
+                        <Tabs.Tab
+                            key="panel"
+                            value="panel"
+                            trigger={props.title}
+                            content={
+                                <Editor
+                                    theme={monacoTheme}
+                                    height={height - 76}
+                                    defaultLanguage={"json"}
+                                    value={JSON.stringify(props.state, null, 2)}
+                                    options={monacoOptions}
+                                />
+                            }
                         />
-                    </Tab>
-                </Tabs>
+                    ]}
+                />
             )}
         </FloatingPanel>
     );
