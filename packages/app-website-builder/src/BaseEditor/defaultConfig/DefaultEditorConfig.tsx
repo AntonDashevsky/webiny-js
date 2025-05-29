@@ -3,10 +3,9 @@ import { ReactComponent as TouchIcon } from "@webiny/icons/touch_app.svg";
 // TODO: import { Breadcrumbs } from "./Content/Breadcrumbs";
 import { Background } from "./Content/Background";
 import { EditorConfig } from "~/BaseEditor/config";
-// import { AddElement } from "./Toolbar/AddElement";
 // import { Navigator } from "./Toolbar/Navigator";
 // import { Saving } from "./Toolbar/Saving/Saving";
-import { ElementActions } from "./Sidebar/ElementSettings/ElementActions";
+// import { ElementActions } from "./Sidebar/ElementSettings/ElementActions";
 import { InfoMessage } from "./Sidebar/InfoMessage";
 // import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { StyleSettingsGroup } from "./Sidebar/StyleSettings/StyleSettingsGroup";
@@ -16,6 +15,8 @@ import { PageOptionsDropdown } from "./TopBar/DropdownActions/PageOptionsDropdow
 import { Preview } from "./Content/Preview";
 import { InsertElements } from "./Toolbar/InsertElements";
 import { CommandHandlers } from "~/BaseEditor/commandHandlers";
+import { ElementInputRenderers } from "./Inputs";
+import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 
 const { Ui } = EditorConfig;
 
@@ -35,6 +36,7 @@ export const DefaultEditorConfig = React.memo(() => {
         <>
             <EditorConfig>
                 <CommandHandlers />
+                <ElementInputRenderers />
                 <Ui.TopBar.Action name={"dropdownActions"} element={<PageOptionsDropdown />} />
                 {/*<Ui.Content.Element name={"breadcrumbs"} element={<Breadcrumbs />} />*/}
                 <Ui.Content.Element name={"background"} element={<Background />} />
@@ -51,8 +53,8 @@ export const DefaultEditorConfig = React.memo(() => {
                     element={<Saving />}
                 />*/}
                 {/* Sidebar Groups */}
-                <Ui.Sidebar.Group name={"style"} element={<StyleSettingsGroup />} />
                 <Ui.Sidebar.Group name={"element"} element={<ElementSettingsGroup />} />
+                <Ui.Sidebar.Group name={"style"} element={<StyleSettingsGroup />} />
                 {/* Style Settings Tab */}
                 {/*<Ui.Sidebar.Element
                     name={"styleSettings"}
@@ -75,7 +77,7 @@ export const DefaultEditorConfig = React.memo(() => {
                     element={<ClickToActivate />}
                 />
                 {/* This element renders element actions. */}
-                <Ui.Sidebar.Element
+                {/*<Ui.Sidebar.Element
                     name={"elementActions"}
                     group={"element"}
                     element={
@@ -83,9 +85,9 @@ export const DefaultEditorConfig = React.memo(() => {
                             <ElementActions />
                         </Ui.OnActiveElement>
                     }
-                />
+                />*/}
                 {/* This element renders element properties. */}
-                {/*<Ui.Sidebar.Element
+                <Ui.Sidebar.Element
                     name={"elementSettings"}
                     group={"element"}
                     element={
@@ -93,7 +95,7 @@ export const DefaultEditorConfig = React.memo(() => {
                             <ElementSettings />
                         </Ui.OnActiveElement>
                     }
-                />*/}
+                />
             </EditorConfig>
         </>
     );

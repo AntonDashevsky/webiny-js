@@ -12,7 +12,7 @@ interface DropBoxProps {
     onDrop: (event: DropEvent) => void;
 }
 
-export const DropBox = ({ box, onDrop }: DropBoxProps) => {
+export const DropBox = React.memo(({ box, onDrop }: DropBoxProps) => {
     const isDragging = useIsDragging();
 
     const canAcceptItem = (item: any) => {
@@ -70,4 +70,4 @@ export const DropBox = ({ box, onDrop }: DropBoxProps) => {
             />
         </div>
     );
-};
+});

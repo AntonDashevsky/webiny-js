@@ -88,7 +88,6 @@ export const ElementOverlay = React.memo(
                                     style={{ top: -24, left: -2 }}
                                 >
                                     {componentName}
-                                    {/* ({element.id}) (isFirst: {isFirst.toString()}, index: {index.toString()})*/}
                                 </div>
                             ) : null}
                             {children}

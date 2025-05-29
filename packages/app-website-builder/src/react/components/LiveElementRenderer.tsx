@@ -10,6 +10,10 @@ interface LiveElementRendererProps {
 export const LiveElementRenderer = ({ element }: LiveElementRendererProps) => {
     const { id } = element;
 
+    if (!element || !element.component) {
+        return null;
+    }
+
     const resolvedElement = contentSdk.resolveElement(element);
 
     if (!resolvedElement) {
@@ -17,13 +21,12 @@ export const LiveElementRenderer = ({ element }: LiveElementRendererProps) => {
     }
 
     const { component: Component, inputs, styles, manifest } = resolvedElement;
-    const canHaveChildren = manifest?.canHaveChildren;
 
     return (
         //  TODO: Figure out proper styles application.
         <div style={{ position: "relative", ...styles } as React.CSSProperties}>
             <Component {...inputs}>
-                {canHaveChildren ? (
+                {manifest?.acceptsChildren ? (
                     <ElementSlot
                         parentId={id}
                         slot={"children"}

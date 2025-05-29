@@ -15,7 +15,21 @@ export const KeyboardShortcuts = () => {
         }
     }, []);
 
+    const deactivateElement = useCallback(() => {
+        editor.executeCommand(Commands.DeselectElement);
+    }, []);
+
     useEffect(() => {
+        // @ts-ignore 123
+        window["selectElement"] = (id: string) => {
+            editor.executeCommand(Commands.SelectElement, { id });
+        };
+
+        addKeyHandler("Escape", e => {
+            e.preventDefault();
+            deactivateElement();
+        });
+
         addKeyHandler("Backspace", e => {
             e.preventDefault();
             deleteActiveElement();

@@ -26,8 +26,14 @@ const DeleteElement = createCommand<{
     id: string;
 }>("DELETE_ELEMENT");
 
+const SelectElement = createCommand<{ id: string }>("SELECT_ELEMENT");
+
+const DeselectElement = createCommand<never>("DESELECT_ELEMENT");
+
 export const Commands = {
     CreateElement,
     DeleteElement,
-    MoveElement
+    MoveElement,
+    SelectElement,
+    DeselectElement
 };

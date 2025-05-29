@@ -24,6 +24,10 @@ export type ComponentGroupItem = {
     item?: DocumentElementTemplate;
 };
 
+export type SerializedComponentGroup = ComponentGroup & {
+    filter?: string;
+};
+
 export type ComponentGroup = {
     name: string;
     label: string;
@@ -37,20 +41,9 @@ export type ComponentManifest = {
     image?: string;
     inputs?: ComponentInput[];
     defaultStyles?: { [key: string]: SerializableCSSStyleDeclaration };
-    canHaveChildren?: boolean;
+    acceptsChildren?: boolean;
     defaultChildren?: DocumentElement[];
     hideFromToolbar?: boolean;
-};
-
-export type ComponentInput = {
-    name: string;
-    label?: string;
-    defaultValue?: any;
-    type: string;
-    required?: boolean;
-    subFields?: ComponentInput[];
-    helperText?: string;
-    hideFromUi?: boolean;
 };
 
 export type ElementComponent = {
@@ -149,3 +142,102 @@ export type DisplayMode = {
     minWidth: number;
     maxWidth: number;
 };
+
+// Input types
+
+// inputTypes.ts
+export type BaseInput<T = any> = {
+    name: string;
+    label?: string;
+    defaultValue?: T;
+    required?: boolean;
+    helperText?: string;
+    hideFromUi?: boolean;
+    renderer?: string;
+};
+
+// Discriminated union per input type
+export type TextInput = BaseInput<string> & {
+    type: "text";
+};
+
+export type LongTextInput = BaseInput<string> & {
+    type: "longText";
+};
+
+export type NumberInput = BaseInput<number> & {
+    type: "number";
+};
+
+export type BooleanInput = BaseInput<boolean> & {
+    type: "boolean";
+};
+
+export type ColorInput = BaseInput<string> & {
+    type: "color";
+};
+
+export type FileInput = BaseInput<string> & {
+    type: "file";
+    allowedFileTypes: string[];
+};
+
+export type DateTimeInput = BaseInput<string> & {
+    type: "datetime";
+};
+
+export type RichTextInput = BaseInput<string> & {
+    type: "richText";
+};
+
+export type SelectInput = BaseInput<string> & {
+    type: "select";
+    options: { label: string; value: string }[];
+};
+
+export type RadioInput = BaseInput<string> & {
+    type: "radio";
+    options: { label: string; value: string }[];
+};
+
+export type ObjectInput = BaseInput<Record<string, any>> & {
+    type: "object";
+    subFields: ComponentInput[];
+};
+
+export type PrimitiveItemType = "text" | "number" | "file" | "date";
+
+// Base shared list input fields
+type BaseListInput = BaseInput<any[]> & {
+    type: "list";
+};
+
+// A list of primitives — allowed with `itemType`
+type PrimitiveListInput = BaseListInput & {
+    itemType: PrimitiveItemType;
+    subFields?: never;
+};
+
+// A list of objects — allowed with `subFields`
+type ObjectListInput = BaseListInput & {
+    subFields: ComponentInput[];
+    itemType?: never;
+};
+
+// The new, type-safe ListInput
+export type ListInput = PrimitiveListInput | ObjectListInput;
+
+// Union of all input types
+export type ComponentInput =
+    | TextInput
+    | LongTextInput
+    | NumberInput
+    | BooleanInput
+    | ColorInput
+    | FileInput
+    | DateTimeInput
+    | RichTextInput
+    | SelectInput
+    | RadioInput
+    | ObjectInput
+    | ListInput;

@@ -19,7 +19,7 @@ export const Layout = makeDecoratable("SidebarLayout", () => {
                 spacing={"md"}
                 separator={true}
                 value={activeGroup}
-                defaultValue={"style"}
+                defaultValue={"element"}
                 onValueChange={setActiveGroup}
                 tabs={[<Sidebar.Elements group="groups" key={"groups"} />]}
             />

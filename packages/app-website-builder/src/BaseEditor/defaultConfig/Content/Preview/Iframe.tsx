@@ -10,7 +10,7 @@ interface IframeProps {
     onConnected: (messenger: Messenger) => void;
 }
 
-export const Iframe = (props: IframeProps) => {
+export const Iframe = React.memo((props: IframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
 
     const previewWidth = useResponsiveContainer(() => {
@@ -49,4 +49,6 @@ export const Iframe = (props: IframeProps) => {
             </div>
         </div>
     );
-};
+});
+
+Iframe.displayName = "Iframe";

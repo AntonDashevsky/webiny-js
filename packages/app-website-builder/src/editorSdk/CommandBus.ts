@@ -66,10 +66,10 @@ export class CommandBus {
         this.middleware.push(mw);
     }
 
-    async execute<T>(command: Command<T>, payload: T) {
+    async execute<T>(command: Command<T>, payload?: T) {
         const list = this.handlers.get(command.type) ?? [];
 
-        const runHandlers = async (p: T) => {
+        const runHandlers = async (p?: T) => {
             const control: CommandHandlerControl = {
                 stop: () => INTERNAL_STOP
             };
@@ -83,11 +83,11 @@ export class CommandBus {
         };
 
         const composed = this.middleware.reduceRight(
-            (next, mw) => async (p: T) => mw(command.type, p, next),
+            (next, mw) => async (p?: T) => mw(command.type, p, next),
             runHandlers
         );
 
-        console.log("Execute command", command.type, payload);
+        console.log("[Execute Command]", command.type, payload);
         await composed(payload);
     }
 }

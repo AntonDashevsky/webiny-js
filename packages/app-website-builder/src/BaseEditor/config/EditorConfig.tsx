@@ -10,9 +10,11 @@ import { OnActiveElement } from "./OnActiveElement";
 import { NoActiveElement } from "./NoActiveElement";
 import { ElementProperties, ElementProperty } from "./ElementProperty";
 import { ElementAction, ElementActions } from "./ElementAction";
+import { ElementInput, ElementInputConfig } from "./ElementInput";
 
 interface EditorConfig {
     elements: ElementConfig[];
+    inputRenderers: ElementInputConfig[];
 }
 
 const base = createConfigurableComponent<EditorConfig>("DocumentEditorConfig");
@@ -32,6 +34,7 @@ export const EditorConfig = Object.assign(base.Config, {
         OnActiveElement,
         NoActiveElement
     },
+    ElementInput,
     /**
      * Define a new element property.
      */
@@ -59,5 +62,5 @@ export const EditorWithConfig = Object.assign(base.WithConfig, { displayName: "E
 export function useEditorConfig() {
     const config = base.useConfig();
 
-    return { elements: config.elements || [] };
+    return { elements: config.elements || [], inputRenderers: config.inputRenderers || [] };
 }

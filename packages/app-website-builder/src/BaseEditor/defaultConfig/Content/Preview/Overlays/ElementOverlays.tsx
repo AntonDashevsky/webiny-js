@@ -108,8 +108,6 @@ export const ElementOverlays = observer(() => {
                 .map(box => (
                     <Fragment key={box.id}>
                         <ElementOverlay
-                            isFirst={box.parentIndex === 0}
-                            index={box.parentIndex}
                             elementId={box.id}
                             isSelected={selectedElement === box.id}
                             isHighlighted={highlightedElement === box.id}

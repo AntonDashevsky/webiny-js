@@ -1,8 +1,16 @@
 import React from "react";
-import { createComponent } from "@webiny/app-website-builder/react/index.js";
+import {
+    createComponent,
+    createDateInput,
+    createTagsInput,
+    createTextInput
+} from "@webiny/app-website-builder/react/index.js";
 import { Root } from "@components/library/Root";
 import Hero_1 from "./library/Hero-1";
 import Contact_Sales from "./library/Contact_Sales";
+import SingleColumnWithImages from "@components/library/SingleColumnWithImages";
+import SingleColumn from "./library/SingleColumn";
+import Stats from "@components/library/Stats";
 
 const TextComponent = ({ text }: { text: string }) => <p className={"p-6"}>{text}</p>;
 
@@ -33,7 +41,7 @@ const BlockRefComponent = ({
 export const customComponents = [
     createComponent(Root, {
         name: "Webiny/Root",
-        canHaveChildren: true,
+        acceptsChildren: true,
         hideFromToolbar: true
     }),
     createComponent(TextComponent, {
@@ -53,15 +61,56 @@ export const customComponents = [
         name: "Webiny/BlockRef",
         label: "Block Reference",
         group: "basic",
-        canHaveChildren: true
+        acceptsChildren: true
     }),
     createComponent(Hero_1, {
-        name: "Custom/Hero-1",
+        name: "Ecommerce/Hero-1",
         label: "Hero #1",
         group: "ecommerce"
     }),
     createComponent(Contact_Sales, {
-        name: "Custom/Sales-1",
-        label: "Contact Sales #1"
+        name: "Ecommerce/Sales-1",
+        label: "Contact Sales #1",
+        group: "ecommerce"
+    }),
+    createComponent(SingleColumnWithImages, {
+        name: "Blog/SingleColumnWithImages",
+        label: "Single Column With Images"
+    }),
+    createComponent(SingleColumn, {
+        name: "Blog/SingleColumn",
+        label: "Single Column",
+        inputs: [
+            createTextInput({
+                name: "title",
+                label: "Title",
+                defaultValue: "",
+                required: true
+            }),
+            createTagsInput({
+                name: "tags",
+                label: "Tags",
+                defaultValue: [],
+                required: true
+            }),
+            createDateInput({
+                name: "publishedOn",
+                label: "Published on",
+                defaultValue: "",
+                required: true
+            })
+        ]
+    }),
+    createComponent(Stats, {
+        name: "Kibo/Stats",
+        label: "Stats #1",
+        inputs: [
+            createTextInput({
+                name: "title",
+                label: "Title",
+                defaultValue: "",
+                required: true
+            })
+        ]
     })
 ];

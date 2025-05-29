@@ -5,6 +5,10 @@ import { $removeElementReferenceFromParent } from "./$removeElementReferenceFrom
 export function $deleteElement(editor: Editor, id: string) {
     const elementToDelete = $getElementById(editor, id);
 
+    if (!elementToDelete) {
+        return;
+    }
+
     editor.updateDocument(state => {
         // Remove the reference to the element from its parent element.
         if (elementToDelete.parent) {
@@ -21,7 +25,6 @@ export function $deleteElement(editor: Editor, id: string) {
             .forEach(element => {
                 $deleteElement(editor, element.id);
             });
-
 
         // Delete the element itself.
         delete state.elements[id];

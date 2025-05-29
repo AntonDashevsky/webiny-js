@@ -1,5 +1,5 @@
-import { ComponentResolver } from "~/sdk/ComponentResolver.js";
-import { documentStore } from "~/sdk/DocumentStore.js";
+import { ComponentResolver } from "./ComponentResolver.js";
+import { documentStore } from "./DocumentStore.js";
 import type {
     Component,
     ComponentGroup,
@@ -7,13 +7,14 @@ import type {
     IContentSdk,
     Page,
     ResolvedComponent
-} from "~/sdk/types.js";
+} from "./types.js";
 import { Messenger, MessageOrigin } from "./messenger";
 import { logger } from "./Logger";
 import { PreviewViewport } from "./PreviewViewport";
 import { ViewportManager } from "./ViewportManager";
 import { componentRegistry } from "./ComponentRegistry";
-import { PreviewMouseReporter } from "~/sdk/PreviewMouseReporter";
+import { PreviewMouseReporter } from "./PreviewMouseReporter";
+import { functionConverter } from "./FunctionConverter";
 
 export class PreviewSdk implements IContentSdk {
     public readonly messenger: Messenger;
@@ -57,7 +58,7 @@ export class PreviewSdk implements IContentSdk {
     registerComponentGroup(group: ComponentGroup) {
         this.messenger.send("preview.componentGroup.register", {
             ...group,
-            filter: group.filter?.toString()
+            filter: group.filter ? functionConverter.serialize(group.filter) : undefined
         });
     }
 

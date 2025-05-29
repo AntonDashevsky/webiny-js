@@ -5,6 +5,7 @@ import { $createElement } from "~/editorSdk/utils";
 
 export const CreateElement = () => {
     const editor = useDocumentEditor();
+
     useEffect(() => {
         return editor.registerCommandHandler(Commands.CreateElement, payload => {
             $createElement(editor, payload);

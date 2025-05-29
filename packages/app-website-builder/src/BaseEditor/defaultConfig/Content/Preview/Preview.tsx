@@ -3,12 +3,12 @@ import { Messenger } from "~/sdk/messenger";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { AddressBar } from "./AddressBar";
 import { Iframe } from "./Iframe";
-import {
-    ComponentGroup,
+import type {
     ComponentManifest,
     EditorViewportInfo,
     BoxesData,
-    PreviewViewportData
+    PreviewViewportData,
+    SerializedComponentGroup
 } from "~/sdk/types";
 import { mousePositionTracker } from "./MousePositionTracker";
 import { HoverManager } from "./HoverManager";
@@ -152,7 +152,7 @@ export const Preview = () => {
             });
         });
 
-        messenger.on("preview.componentGroup.register", (group: ComponentGroup) => {
+        messenger.on("preview.componentGroup.register", (group: SerializedComponentGroup) => {
             editor.updateEditor(state => {
                 if (!state.componentGroups) {
                     state.componentGroups = {};

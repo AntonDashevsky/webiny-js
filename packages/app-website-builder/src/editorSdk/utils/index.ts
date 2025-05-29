@@ -1,4 +1,5 @@
 export * from "./$selectElement";
+export * from "./$deselectElement";
 export * from "./$getElementById";
 export * from "./$getActiveElementId";
 export * from "./$deleteElement";

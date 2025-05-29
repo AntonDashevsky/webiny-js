@@ -2,7 +2,7 @@ import { autorun } from "mobx";
 import { useCallback, useEffect, useState } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { DocumentElement } from "~/sdk/types";
-import { $selectElement } from "~/editorSdk/utils";
+import { Commands } from "../commands";
 
 export const useActiveElement = () => {
     const [activeElement, setActiveElement] = useState<DocumentElement | null>(null);
@@ -25,7 +25,7 @@ export const useActiveElement = () => {
 
     const setActiveElementId = useCallback(
         (id: string | null) => {
-            $selectElement(editor, id);
+            editor.executeCommand(Commands.SelectElement, { id });
         },
         [editor]
     );

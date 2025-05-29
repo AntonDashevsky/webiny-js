@@ -1,9 +1,9 @@
-import type {
+import {
     ComponentGroup,
     ComponentManifest,
     Document,
     EditorViewportData,
-    PreviewViewportData
+    PreviewViewportData, SerializedComponentGroup
 } from "~/sdk/types.js";
 import { CommandBus, type Command, CommandHandler, CommandPriority } from "./CommandBus.js";
 import { type StateChangeListener, StateWithHistory } from "./StateWithHistory.js";
@@ -21,7 +21,7 @@ export type EditorState = {
     highlightedElement: string | null;
     showOverlays: boolean;
     components: Record<string, ComponentManifest>;
-    componentGroups: Record<string, ComponentGroup>;
+    componentGroups: Record<string, SerializedComponentGroup>;
     [key: string]: any;
 };
 
@@ -62,7 +62,7 @@ export class Editor<TDocument extends Document = Document> {
         return this.commandBus.register(command, handler, priority);
     }
 
-    executeCommand<T>(command: Command<T>, payload: T) {
+    executeCommand<T>(command: Command<T>, payload?: T) {
         return this.commandBus.execute(command, payload);
     }
 

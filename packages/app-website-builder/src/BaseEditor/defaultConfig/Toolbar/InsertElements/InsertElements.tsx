@@ -1,10 +1,11 @@
 import React from "react";
 import { Accordion, Tabs, Icon } from "@webiny/admin-ui";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import type { ComponentGroup, ComponentGroupItem, ComponentManifest } from "~/sdk/types";
+import type { ComponentGroupItem, ComponentManifest } from "~/sdk/types";
 import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";
 import { ReactComponent as InsertIcon } from "@webiny/icons/add_circle_outline.svg";
 import { Draggable } from "~/BaseEditor/components/Draggable";
+import { useComponentGroups } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/useComponentGroups";
 
 export const InsertElements = () => {
     return (
@@ -43,36 +44,9 @@ const GroupComponent = ({ item }: { item: ComponentGroupItem }) => {
     );
 };
 
-type WithItems<T> = T & { items: ComponentManifest[] };
-
-const getComponentFilter = (group: ComponentGroup): ((cmp: ComponentManifest) => boolean) => {
-    if (group.name === "custom") {
-        return cmp => !cmp.group;
-    }
-
-    if (group.filter) {
-        return new Function(`return ${group.filter}`)();
-    }
-
-    return cmp => cmp.group === group.name;
-};
 
 const ElementPalette = () => {
-    const groups = useSelectFromEditor<WithItems<ComponentGroup>[]>(state => {
-        const groups = Object.values(state.componentGroups);
-        const components = Object.values(state.components).filter(item => !item.hideFromToolbar);
-
-        return groups.map(group => {
-            const filter = getComponentFilter(group);
-
-            return {
-                ...group,
-                items: components.filter(filter)
-            };
-        });
-    });
-
-    console.log("groups", groups);
+    const groups = useComponentGroups();
 
     return (
         <Accordion>

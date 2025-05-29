@@ -1,5 +1,5 @@
 import deepEqual from "deep-equal";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { reaction, IReactionDisposer } from "mobx";
 
 type Equals<T> = (a: T, b: T) => boolean;
@@ -16,9 +16,12 @@ export function useSelectFromState<TState, T>(
     equals: Equals<T> = deepEqual
 ): T {
     // Pull the initial slice synchronously
-    const state = getState();
+    const initialValue = useMemo(() => selector(getState()), deps);
+    const [value, setValue] = useState<T>(initialValue);
 
-    const [value, setValue] = useState<T>(() => selector(state));
+    useEffect(() => {
+        setValue(selector(getState())); // reset state on dep change
+    }, deps);
 
     useEffect(() => {
         // reaction tracks selector(doc) and only fires when newVal !== oldVal
@@ -45,7 +48,7 @@ export function useSelectFromState<TState, T>(
             // clean up when the component unmounts
             disposer();
         };
-    }, [selector, equals, ...deps]);
+    }, [getState, selector, equals, ...deps]);
 
     return value;
 }
