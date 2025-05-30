@@ -19,6 +19,7 @@
       "apps/api/pageBuilder/export/*",
       "extensions/theme",
       "nextjs",
+      "nextjs-pages-router",
       "scripts/buildPackages",
       "scripts/prepublishOnly"
     ]

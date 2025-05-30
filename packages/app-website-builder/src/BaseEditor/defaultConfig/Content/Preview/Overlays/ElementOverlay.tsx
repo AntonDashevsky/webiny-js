@@ -54,45 +54,41 @@ export const ElementOverlay = React.memo(
         return (
             <Draggable type="ELEMENT" item={{ id: elementId }}>
                 {({ isDragging, dragRef }) => (
-                    <>
-                        <div
-                            className={cn(
-                                "wby-absolute wby-box-border wby-text-right",
-                                "data-[state=hover]:wby-border-md data-[state=hover]:wby-border-success-default",
-                                "data-[state=active]:wby-border-md data-[state=active]:wby-border-accent-default"
-                            )}
-                            onClick={onClick}
-                            data-state={
-                                isSelected ? "active" : isHighlighted && !dnd ? "hover" : null
-                            }
-                            data-element-id={elementId}
-                            data-role={"element-overlay"}
-                            ref={dragRef}
-                            style={{
-                                zIndex: 100 + previewBox.depth,
-                                top: previewBox.top,
-                                left: previewBox.left,
-                                width: previewBox.width,
-                                height: previewBox.height,
-                                pointerEvents,
-                                opacity: isDragging ? 0.3 : 1
-                            }}
-                        >
-                            {(isHighlighted && !dnd) || isSelected ? (
-                                <div
-                                    className={cn(
-                                        "wby-absolute wby-text-sm wby-pointer-events-none wby-text-neutral-light wby-p-xs",
-                                        isHighlighted ? "wby-bg-success-default" : undefined,
-                                        isSelected ? "wby-bg-primary-default" : undefined
-                                    )}
-                                    style={{ top: -24, left: -2 }}
-                                >
-                                    {componentName}
-                                </div>
-                            ) : null}
-                            {children}
-                        </div>
-                    </>
+                    <div
+                        className={cn(
+                            "wby-absolute wby-box-border wby-text-right",
+                            "data-[state=hover]:wby-border-md data-[state=hover]:wby-border-success-default",
+                            "data-[state=active]:wby-border-md data-[state=active]:wby-border-accent-default"
+                        )}
+                        onClick={onClick}
+                        data-state={isSelected ? "active" : isHighlighted && !dnd ? "hover" : null}
+                        data-element-id={elementId}
+                        data-role={"element-overlay"}
+                        ref={dragRef}
+                        style={{
+                            zIndex: 100 + previewBox.depth,
+                            top: previewBox.top,
+                            left: previewBox.left,
+                            width: previewBox.width,
+                            height: previewBox.height,
+                            pointerEvents,
+                            opacity: isDragging ? 0.3 : 1
+                        }}
+                    >
+                        {(isHighlighted && !dnd) || isSelected ? (
+                            <div
+                                className={cn(
+                                    "wby-absolute wby-text-sm wby-pointer-events-none wby-text-neutral-light wby-p-xs",
+                                    isHighlighted ? "wby-bg-success-default" : undefined,
+                                    isSelected ? "wby-bg-primary-default" : undefined
+                                )}
+                                style={{ top: -24, left: -2 }}
+                            >
+                                {componentName}
+                            </div>
+                        ) : null}
+                        {children}
+                    </div>
                 )}
             </Draggable>
         );

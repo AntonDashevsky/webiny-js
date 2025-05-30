@@ -2,6 +2,7 @@ import type { Document } from "~/sdk/types";
 
 export default {
     properties: {
+        id: "12345678",
         title: "Page 1",
         path: "/page-1"
     },
@@ -30,7 +31,7 @@ export default {
                     porttitor quam nec ante tempor, sit amet tristique dui accumsan. Suspendisse
                     egestas molestie sagittis. Nulla facilisi. Vestibulum laoreet nibh ipsum, ut
                     bibendum libero tempor sed. Vestibulum id nunc at erat scelerisque tempor eget
-                    id augue. Mauris congue sed dui vel posuere.`
+                    id augue. Mauris congue sed dui vel posuere1.`
                 }
             },
             styles: {
@@ -41,7 +42,6 @@ export default {
                     position: "relative",
                     flexShrink: 0,
                     boxSizing: "border-box",
-                    marginTop: "20px",
                     lineHeight: "normal",
                     height: "auto"
                 }

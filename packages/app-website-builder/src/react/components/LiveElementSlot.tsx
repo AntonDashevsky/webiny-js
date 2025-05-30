@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { ElementRenderer } from "./ElementRenderer";
 import { ElementSlotProps } from "./ElementSlot";

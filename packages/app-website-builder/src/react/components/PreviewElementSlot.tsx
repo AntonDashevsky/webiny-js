@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { LiveElementSlot } from "./LiveElementSlot";
 import { useElementSlotDepth } from "~/react/components/ElementSlotDepthProvider";

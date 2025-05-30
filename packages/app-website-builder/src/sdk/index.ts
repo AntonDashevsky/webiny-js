@@ -5,4 +5,5 @@ export * from "./Environment.js";
 export * from "./DocumentStore.js";
 export * from "./Logger.js";
 export * from "./FunctionConverter.js";
-export * from "./createInput";
+export * from "./createInput.js";
+export * from "./MouseTracker.js";

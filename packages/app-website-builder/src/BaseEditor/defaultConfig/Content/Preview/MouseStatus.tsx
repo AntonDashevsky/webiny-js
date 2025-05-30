@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { mousePositionTracker } from "./MousePositionTracker";
+import { mouseTracker } from "~/sdk";
 
 export const MouseStatus = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        return mousePositionTracker.onChange(setPosition);
+        return mouseTracker.subscribe(setPosition);
     }, []);
 
     return (

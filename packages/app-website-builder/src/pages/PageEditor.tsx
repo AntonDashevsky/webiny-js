@@ -6,7 +6,7 @@ import { EditorStateDebugger } from "./EditorStateDebugger";
 
 export const PageEditor = () => {
     return (
-        <DocumentEditor document={emptyPage}>
+        <DocumentEditor document={mockPage1}>
             {/*<EditorConfig>
                 <EditorConfig.Ui.Content.Element
                     name={"debugger"}

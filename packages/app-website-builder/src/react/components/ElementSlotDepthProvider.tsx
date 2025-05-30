@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const ElementSlotDepthContext = React.createContext<number>(0);

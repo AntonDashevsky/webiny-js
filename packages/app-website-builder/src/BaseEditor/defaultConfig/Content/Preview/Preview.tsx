@@ -10,7 +10,6 @@ import type {
     PreviewViewportData,
     SerializedComponentGroup
 } from "~/sdk/types";
-import { mousePositionTracker } from "./MousePositionTracker";
 import { HoverManager } from "./HoverManager";
 import { DropZoneManager } from "./DropZoneManager";
 import { DropZoneManagerProvider } from "./DropZoneManagerProvider";
@@ -18,6 +17,8 @@ import { MouseStatus } from "~/BaseEditor/defaultConfig/Content/Preview/MouseSta
 import { Boxes } from "~/BaseEditor/hooks/Boxes";
 import { ScrollTracker } from "~/BaseEditor/defaultConfig/Content/Preview/ScrollTracker";
 import { KeyboardShortcuts } from "./KeyboardShortcuts";
+import { ViewportManager } from "~/sdk/ViewportManager";
+import { mouseTracker } from "~/sdk";
 
 export const Preview = () => {
     const editor = useDocumentEditor();
@@ -61,11 +62,15 @@ export const Preview = () => {
     );
 
     const hoverManager = useMemo(() => {
-        return new HoverManager(mousePositionTracker, () => {
+        return new HoverManager(mouseTracker, () => {
             const editorState = editor.getEditorState().read();
             return new Boxes(editorState.boxes.editor).filter(box => box.id !== "root");
         });
-    }, [mousePositionTracker]);
+    }, [mouseTracker]);
+
+    const viewportManager = useMemo(() => {
+        return new ViewportManager();
+    }, []);
 
     const scrollTracker = useMemo(() => {
         return new ScrollTracker(window, e => {
@@ -80,26 +85,26 @@ export const Preview = () => {
     }, []);
 
     const dropzoneManager = useMemo(() => {
-        return new DropZoneManager(mousePositionTracker);
-    }, [mousePositionTracker]);
+        return new DropZoneManager(mouseTracker);
+    }, [mouseTracker]);
 
     // Start various trackers
     useEffect(() => {
-        mousePositionTracker.start();
+        mouseTracker.start();
         scrollTracker.start();
         dropzoneManager.start();
 
         return () => {
             dropzoneManager.stop();
-            mousePositionTracker.stop();
+            mouseTracker.stop();
             scrollTracker.stop();
         };
-    }, [dropzoneManager, scrollTracker, mousePositionTracker]);
+    }, [dropzoneManager, scrollTracker, mouseTracker]);
 
     // Update mouse position while dragging
     useEffect(() => {
         const setMousePositionFromDrag = (e: DragEvent) => {
-            mousePositionTracker.setPosition(e.clientX, e.clientY);
+            mouseTracker.setPosition(e.clientX, e.clientY);
         };
 
         window.addEventListener("dragover", setMousePositionFromDrag);
@@ -172,7 +177,7 @@ export const Preview = () => {
             const globalX = x + iframeBox.left;
             const globalY = y + iframeBox.top;
 
-            mousePositionTracker.setPosition(globalX, globalY);
+            mouseTracker.setPosition(globalX, globalY);
         });
 
         messenger.on("preview.element.enter", ({ id }) => {
@@ -206,7 +211,7 @@ export const Preview = () => {
         <>
             <DropZoneManagerProvider dropzoneManager={dropzoneManager}>
                 <AddressBar />
-                <Iframe onConnected={onConnected} />
+                <Iframe viewportManager={viewportManager} onConnected={onConnected} />
             </DropZoneManagerProvider>
             <MouseStatus />
             <KeyboardShortcuts />

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const ElementIndexContext = React.createContext<number>(0);

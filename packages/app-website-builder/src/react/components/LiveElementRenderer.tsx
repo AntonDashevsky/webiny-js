@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import type { DocumentElement } from "~/sdk/types";
 import { contentSdk } from "~/sdk";
@@ -20,6 +21,8 @@ export const LiveElementRenderer = ({ element }: LiveElementRendererProps) => {
         return null;
     }
 
+    const elementIds = element.component.inputs.children ?? [];
+
     const { component: Component, inputs, styles, manifest } = resolvedElement;
 
     return (
@@ -27,11 +30,7 @@ export const LiveElementRenderer = ({ element }: LiveElementRendererProps) => {
         <div style={{ position: "relative", ...styles } as React.CSSProperties}>
             <Component {...inputs}>
                 {manifest?.acceptsChildren ? (
-                    <ElementSlot
-                        parentId={id}
-                        slot={"children"}
-                        elements={element.component.inputs.children ?? []}
-                    />
+                    <ElementSlot parentId={id} slot={"children"} elements={elementIds} />
                 ) : null}
             </Component>
         </div>

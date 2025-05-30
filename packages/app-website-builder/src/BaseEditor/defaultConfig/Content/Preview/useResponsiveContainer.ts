@@ -1,28 +1,24 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDisplayMode } from "~/BaseEditor/hooks/useDisplayMode";
+import { ViewportManager } from "~/sdk/ViewportManager";
 
 /**
  * Calculate the real width of the preview container, taking into account the current display mode
- * and thee actual container size. If the display mode width is larger than the available space, return the
+ * and actual container size. If the display mode width is larger than the available space, return the
  * width of the available space.
  */
-export const useResponsiveContainer = (getter: () => HTMLDivElement | null) => {
+export const useResponsiveContainer = (viewportManager: ViewportManager) => {
     const [containerWidth, setContainerWidth] = useState(0);
 
     useEffect(() => {
         const updateContainerWidth = () => {
-            const container = getter();
-            const width = container ? container.clientWidth : 0;
+            const width = document.body.clientWidth - 600;
             setContainerWidth(width);
         };
 
-        window.addEventListener("resize", updateContainerWidth, { passive: true });
-
         updateContainerWidth();
 
-        return () => {
-            window.removeEventListener("resize", updateContainerWidth);
-        };
+        return viewportManager.onViewportChangeEnd(updateContainerWidth);
     }, []);
 
     const { displayMode } = useDisplayMode();

@@ -14,9 +14,8 @@ export class ContentSdk implements IContentSdk {
         this.live = new LiveSdk();
 
         const isPreview = environment.isPreview() && environment.isClient();
-
         if (isPreview) {
-            this.preview = new PreviewSdk();
+            this.preview = new PreviewSdk(this.live);
             this.active = this.preview;
         } else {
             this.active = this.live;

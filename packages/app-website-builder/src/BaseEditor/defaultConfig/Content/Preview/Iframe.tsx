@@ -5,20 +5,21 @@ import { ConnectEditorToPreview } from "~/DocumentEditor/ConnectEditorToPreview"
 import { Messenger } from "~/sdk/messenger";
 import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Preview/useResponsiveContainer";
 import { OverlayLoader } from "@webiny/admin-ui";
+import type { ViewportManager } from "~/sdk/ViewportManager";
 
 interface IframeProps {
+    viewportManager: ViewportManager;
     onConnected: (messenger: Messenger) => void;
 }
 
 export const Iframe = React.memo((props: IframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
 
-    const previewWidth = useResponsiveContainer(() => {
-        return document.querySelector(`[data-role="responsive-container"]`);
-    });
+    const previewWidth = useResponsiveContainer(props.viewportManager);
 
     const previewUrl = useSelectFromEditor<string>(state => {
-        const iframeUrl = "http://localhost:3000/page-1?wb.preview=true";
+        const iframeUrl =
+            "http://localhost:3000/page-1?preview.document=page&preview.page=/page-1:12345678";
         return state.previewUrl ?? iframeUrl;
     });
 

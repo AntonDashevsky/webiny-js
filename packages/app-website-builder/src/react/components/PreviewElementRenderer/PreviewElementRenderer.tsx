@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import { DocumentElement } from "~/sdk/types";
@@ -21,9 +22,12 @@ export const PreviewElementRenderer = observer((props: PreviewElementRendererPro
     }, [props.element.id]);
 
     useEffect(() => {
-        return () => presenter.dispose();
+        return () => {
+            presenter.dispose();
+        };
     }, []);
 
+    // const vm = presenter.vm;
     const element = presenter.vm.element;
 
     if (!element) {

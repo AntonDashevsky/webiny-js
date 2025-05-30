@@ -1,3 +1,4 @@
+"use client";
 import { ComponentResolver } from "./ComponentResolver.js";
 import { documentStore } from "./DocumentStore.js";
 import type {
@@ -13,21 +14,22 @@ import { logger } from "./Logger";
 import { PreviewViewport } from "./PreviewViewport";
 import { ViewportManager } from "./ViewportManager";
 import { componentRegistry } from "./ComponentRegistry";
-import { PreviewMouseReporter } from "./PreviewMouseReporter";
+import { mouseTracker } from "./MouseTracker";
 import { functionConverter } from "./FunctionConverter";
 
 export class PreviewSdk implements IContentSdk {
+    private initialized = false;
     public readonly messenger: Messenger;
     private positionReportingEnabled = false;
     private previewViewport: PreviewViewport | null = null;
-    private mouseReporter: PreviewMouseReporter;
+    private liveSdk: IContentSdk;
 
-    constructor() {
+    constructor(liveSdk: IContentSdk) {
+        this.liveSdk = liveSdk;
         const source = new MessageOrigin(window, window.location.origin);
         const target = new MessageOrigin(window.parent, this.getReferrerOrigin());
 
         this.messenger = new Messenger(source, target, "wb.editor.*");
-        this.mouseReporter = new PreviewMouseReporter(window);
 
         componentRegistry.onRegister(reg => {
             this.messenger.send("preview.component.register", reg.component.manifest);
@@ -35,6 +37,12 @@ export class PreviewSdk implements IContentSdk {
     }
 
     public init(): void {
+        if (this.initialized) {
+            return;
+        }
+
+        this.initialized = true;
+
         logger.info("Preview SDK initialized!");
 
         this.setupListeners();
@@ -42,13 +50,21 @@ export class PreviewSdk implements IContentSdk {
         this.messenger.send("preview.ready", true);
     }
 
-    public async getPage(): Promise<Page | null> {
+    public async getPage(path: string): Promise<Page | null> {
+        const search = new URLSearchParams(window.location.search);
+
+        const previewPage = search.get("preview.page");
+
+        if (!previewPage || !previewPage.startsWith(path)) {
+            return this.liveSdk.getPage(path);
+        }
+
         await documentStore.waitForDocument();
         return documentStore.getDocument();
     }
 
     public async listPages(): Promise<Page[]> {
-        return [];
+        return this.liveSdk.listPages();
     }
 
     registerComponent(component: Component): void {
@@ -138,8 +154,9 @@ export class PreviewSdk implements IContentSdk {
             }
         });
 
-        this.mouseReporter.subscribe((x, y) => {
-            this.messenger.send("preview.mouse.move", { x, y });
+        mouseTracker.start();
+        mouseTracker.subscribe(position => {
+            this.messenger.send("preview.mouse.move", position);
         });
 
         // Enable position reporting by default
@@ -151,6 +168,7 @@ export class PreviewSdk implements IContentSdk {
 
     private reportBoxes(): void {
         if (!this.messenger || !this.previewViewport) {
+            logger.warn("No messenger or preview viewport. Skipping position reporting.");
             return;
         }
 

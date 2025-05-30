@@ -1,5 +1,5 @@
+"use client";
 import React from "react";
-import { observer } from "mobx-react-lite";
 import { environment } from "~/sdk";
 import { LiveElementSlot } from "./LiveElementSlot";
 import { PreviewElementSlot } from "./PreviewElementSlot";
@@ -13,7 +13,7 @@ export interface ElementSlotProps {
     elements: string[];
 }
 
-export const ElementSlot = observer((props: ElementSlotProps) => {
+export const ElementSlot = (props: ElementSlotProps) => {
     const isPreview = environment.isPreview() && environment.isClient();
 
     if (isPreview) {
@@ -21,4 +21,4 @@ export const ElementSlot = observer((props: ElementSlotProps) => {
     } else {
         return <LiveElementSlot {...props} />;
     }
-});
+};

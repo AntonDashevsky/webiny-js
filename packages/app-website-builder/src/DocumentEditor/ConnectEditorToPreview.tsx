@@ -11,7 +11,11 @@ type ConnectEditorToPreviewProps = {
     ) => void;
 };
 
-export function ConnectEditorToPreview({ iframeRef, onConnected, loader }: ConnectEditorToPreviewProps) {
+export function ConnectEditorToPreview({
+    iframeRef,
+    onConnected,
+    loader
+}: ConnectEditorToPreviewProps) {
     const messengerRef = useRef<Messenger | null>(null);
     const [connected, setConnected] = useState(false);
 

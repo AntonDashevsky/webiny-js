@@ -42,6 +42,7 @@ export class LiveSdk implements IContentSdk {
     }
 
     getPage(path: string): Promise<Page | null> {
+        console.log("LiveSDK.getPage", path );
         return this.dataProvider.getPage(path);
     }
 

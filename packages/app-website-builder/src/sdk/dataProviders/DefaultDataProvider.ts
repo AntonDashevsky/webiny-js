@@ -1,6 +1,6 @@
 import type { IDataProvider, Page } from "~/sdk/types.js";
 import { logger } from "../Logger";
-import mockPage1 from "../mocks/mockPage1";
+import mockPage1 from "~/DocumentEditor/mocks/mockPage1";
 
 interface DefaultDataProviderConfig {
     apiKey: string;

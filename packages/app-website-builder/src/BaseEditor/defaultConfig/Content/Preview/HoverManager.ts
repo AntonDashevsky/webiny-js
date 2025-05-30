@@ -15,11 +15,15 @@ export class HoverManager {
 
     onHoverChange(cb: HoverCallback): () => void {
         this.callbacks.add(cb);
-        if (!this.running) this.start();
+        if (!this.running) {
+            this.start();
+        }
 
         return () => {
             this.callbacks.delete(cb);
-            if (this.callbacks.size === 0) this.stop();
+            if (this.callbacks.size === 0) {
+                this.stop();
+            }
         };
     }
 
