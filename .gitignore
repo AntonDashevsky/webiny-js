@@ -52,3 +52,4 @@ lerna.json
 .normalizedPrimitivesFigmaExport.json
 packages/tasks/tpl/*
 nextjs/.next
+nextjs-pages-router/.next
