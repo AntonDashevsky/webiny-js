@@ -19,7 +19,7 @@ export const Iframe = React.memo((props: IframeProps) => {
 
     const previewUrl = useSelectFromEditor<string>(state => {
         const iframeUrl =
-            "http://localhost:3000/page-1?preview.document=page&preview.page=/page-1:12345678";
+            "http://localhost:3000/page-1?preview.document.type=page&preview.document.id=12345678&preview.document.path=/page-1";
         return state.previewUrl ?? iframeUrl;
     });
 

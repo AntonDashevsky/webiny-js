@@ -6,17 +6,19 @@ import { PreviewElementRendererPresenter } from "./PreviewElementRenderer.presen
 import { LiveElementRenderer } from "../LiveElementRenderer";
 import { useElementSlotDepth } from "~/react/components/ElementSlotDepthProvider";
 import { useElementIndex } from "~/react/components/ElementIndexProvider";
+import { useDocumentStore } from "../DocumentStoreProvider";
 
 interface PreviewElementRendererProps {
     element: DocumentElement;
 }
 
 export const PreviewElementRenderer = observer((props: PreviewElementRendererProps) => {
+    const documentStore = useDocumentStore();
     const depth = useElementSlotDepth();
     const index = useElementIndex();
 
     const presenter = useMemo(() => {
-        const presenter = new PreviewElementRendererPresenter();
+        const presenter = new PreviewElementRendererPresenter(documentStore);
         presenter.init(props.element);
         return presenter;
     }, [props.element.id]);

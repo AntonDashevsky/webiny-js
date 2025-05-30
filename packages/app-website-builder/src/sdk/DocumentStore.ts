@@ -2,7 +2,7 @@ import { applyPatch as jsonPatchApply, Operation } from "fast-json-patch";
 import { makeAutoObservable, runInAction, observable } from "mobx";
 import type { Document } from "~/sdk/types";
 
-class DocumentStore {
+export class DocumentStore {
     private document: Document | null = null;
     private documentReady = false;
     private readyResolvers: (() => void)[] = [];
@@ -61,5 +61,3 @@ class DocumentStore {
         });
     }
 }
-
-export const documentStore = new DocumentStore();

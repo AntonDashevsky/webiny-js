@@ -1,6 +1,5 @@
 "use client";
 import { ComponentResolver } from "./ComponentResolver.js";
-import { documentStore } from "./DocumentStore.js";
 import type {
     Component,
     ComponentGroup,
@@ -16,6 +15,34 @@ import { ViewportManager } from "./ViewportManager";
 import { componentRegistry } from "./ComponentRegistry";
 import { mouseTracker } from "./MouseTracker";
 import { functionConverter } from "./FunctionConverter";
+import { documentStoreManager } from "~/sdk/DocumentStoreManager";
+import { DocumentStore } from "~/sdk/DocumentStore";
+
+interface PreviewDocumentProps {
+    id: string;
+    [key: string]: string;
+}
+
+class PreviewDocument {
+    public readonly props: Record<string, string>;
+
+    constructor(props: PreviewDocumentProps) {
+        this.props = props;
+    }
+
+    matches(params: Record<string, string>) {
+        for (const [key, value] of Object.entries(params)) {
+            if (this.props[key] !== value) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    getId() {
+        return this.props.id;
+    }
+}
 
 export class PreviewSdk implements IContentSdk {
     private initialized = false;
@@ -23,11 +50,17 @@ export class PreviewSdk implements IContentSdk {
     private positionReportingEnabled = false;
     private previewViewport: PreviewViewport | null = null;
     private liveSdk: IContentSdk;
+    private documentStore: DocumentStore;
+    private previewDocument: PreviewDocument;
 
     constructor(liveSdk: IContentSdk) {
         this.liveSdk = liveSdk;
         const source = new MessageOrigin(window, window.location.origin);
         const target = new MessageOrigin(window.parent, this.getReferrerOrigin());
+
+        this.previewDocument = this.getPreviewDocument();
+
+        this.documentStore = documentStoreManager.getStore(this.previewDocument.getId());
 
         this.messenger = new Messenger(source, target, "wb.editor.*");
 
@@ -51,16 +84,12 @@ export class PreviewSdk implements IContentSdk {
     }
 
     public async getPage(path: string): Promise<Page | null> {
-        const search = new URLSearchParams(window.location.search);
-
-        const previewPage = search.get("preview.page");
-
-        if (!previewPage || !previewPage.startsWith(path)) {
+        if (this.previewDocument.matches({ type: "page", path })) {
             return this.liveSdk.getPage(path);
         }
 
-        await documentStore.waitForDocument();
-        return documentStore.getDocument();
+        await this.documentStore.waitForDocument();
+        return this.documentStore.getDocument();
     }
 
     public async listPages(): Promise<Page[]> {
@@ -97,7 +126,7 @@ export class PreviewSdk implements IContentSdk {
         }
 
         this.messenger.on("document.set", data => {
-            documentStore.setDocument(data);
+            this.documentStore.setDocument(data);
 
             if (!this.positionReportingEnabled) {
                 // Initialize position reporting
@@ -108,14 +137,14 @@ export class PreviewSdk implements IContentSdk {
         });
 
         this.messenger.on("element.set", data => {
-            documentStore.updateElement(data.id, data.patch);
+            this.documentStore.updateElement(data.id, data.patch);
             setTimeout(() => {
                 this.reportBoxes();
             }, 20);
         });
 
         this.messenger.on("document.patch", patch => {
-            documentStore.applyPatch(patch);
+            this.documentStore.applyPatch(patch);
             setTimeout(() => {
                 this.reportBoxes();
             }, 20);
@@ -177,5 +206,26 @@ export class PreviewSdk implements IContentSdk {
             boxes: this.previewViewport.getBoxes(),
             viewport: this.previewViewport.getViewport()
         });
+    }
+
+    private getPreviewDocument() {
+        const search = new URLSearchParams(window.location.search);
+        const result: Record<string, string> = {};
+        const prefix = "preview.document";
+
+        for (const [key, value] of search.entries()) {
+            if (key.startsWith(prefix + ".")) {
+                const strippedKey = key.slice(prefix.length + 1); // +1 for the dot
+                result[strippedKey] = value;
+            }
+        }
+
+        if (!result.id) {
+            throw new Error(
+                "Preview document ID is required! Pass a `preview.document.id` query parameter."
+            );
+        }
+
+        return new PreviewDocument(result as PreviewDocumentProps);
     }
 }

@@ -1,7 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import { contentSdk } from "~/react/index.js";
-import { documentStore } from "~/sdk/DocumentStore.js";
+import { contentSdk, DocumentStoreProvider } from "~/react/index.js";
 import type { Component, Document } from "~/sdk/types.js";
 import { ElementRenderer } from "./ElementRenderer";
 
@@ -17,13 +16,11 @@ export const DocumentRenderer = ({ document, components }: DocumentRendererProps
         components.forEach(blueprint => contentSdk.registerComponent(blueprint));
     }, []);
 
-    useMemo(() => {
-        documentStore.setDocument(document);
-    }, [document]);
-
     return (
         <div data-role={"document-renderer"}>
-            <ElementRenderer id={rootId} />
+            <DocumentStoreProvider id={document.properties.id}>
+                <ElementRenderer id={rootId} />
+            </DocumentStoreProvider>
         </div>
     );
 };

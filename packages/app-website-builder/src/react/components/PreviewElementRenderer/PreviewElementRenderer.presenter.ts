@@ -1,15 +1,17 @@
 "use client";
 import set from "lodash/set";
 import { autorun, makeAutoObservable, observable, runInAction, toJS } from "mobx";
-import { documentStore, contentSdk, type PreviewSdk } from "~/sdk/index.js";
+import { contentSdk, DocumentStore, type PreviewSdk } from "~/sdk/index.js";
 import type { DocumentElement } from "~/sdk/types.js";
 
 export class PreviewElementRendererPresenter {
     private element: DocumentElement;
     private listeners: Array<() => void> = [];
+    private documentStore: DocumentStore;
     private preview: PreviewSdk;
 
-    constructor() {
+    constructor(documentStore: DocumentStore) {
+        this.documentStore = documentStore;
         this.element = observable({}) as DocumentElement;
         this.preview = contentSdk.preview!;
         makeAutoObservable(this);
@@ -45,7 +47,7 @@ export class PreviewElementRendererPresenter {
 
         this.listeners.push(
             autorun(() => {
-                const newData = documentStore.getElement(id);
+                const newData = this.documentStore.getElement(id);
 
                 runInAction(() => {
                     if (!newData) {
