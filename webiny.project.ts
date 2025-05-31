@@ -59,6 +59,6 @@ export default {
     featureFlags: {
         experimentalDynamicPages: false,
         newWatchCommand: true,
-        rspack: true
+        rspack: false
     }
 };
