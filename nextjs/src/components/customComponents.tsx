@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import {
     createComponent,
     createDateInput,
     createTagsInput,
-    createTextInput
+    createTextInput,
+    createBooleanInput,
+    createLongTextInput
 } from "@webiny/app-website-builder/react/index.js";
 import { Root } from "@components/library/Root";
 import Hero_1 from "./library/Hero-1";
@@ -12,18 +15,22 @@ import SingleColumnWithImages from "@components/library/SingleColumnWithImages";
 import SingleColumn from "./library/SingleColumn";
 import Stats from "@components/library/Stats";
 
-const TextComponent = ({ text }: { text: string }) => <p className={"p-6"}>{text}</p>;
+const TextComponent = ({ text, flag }: { text: string; flag: boolean }) => (
+    <p className={`p-6 ${flag ? "font-bold" : ""}`}>{text}</p>
+);
 
 const BlockRefComponent = ({
     blockId,
+    title,
     children
 }: {
+    title: string;
     blockId: string;
     children: React.ReactNode;
 }) => {
     return (
         <div className={"p-6"}>
-            <h2>50-50 Block</h2>
+            <h2>{title || "Split Block"}</h2>
             <div style={{ display: "flex", flexDirection: "row", gap: 8, padding: 5 }}>
                 <div style={{ flexBasis: "50%", textAlign: "justify" }}>
                     Nunc maximus elementum luctus. In hac habitasse platea dictumst. Vivamus
@@ -50,18 +57,32 @@ export const customComponents = [
         group: "basic",
         image: "https://material-icons.github.io/material-icons/svg/text_fields/outline.svg",
         inputs: [
-            {
+            createLongTextInput({
                 name: "text",
-                type: "richText",
+                label: "Text",
                 defaultValue: "Default text"
-            }
+            }),
+            createBooleanInput({
+                name: "flag",
+                label: "Popular post",
+                description: "I make text bold. Or not...",
+                defaultValue: false
+            })
         ]
     }),
     createComponent(BlockRefComponent, {
         name: "Webiny/BlockRef",
         label: "Block Reference",
         group: "basic",
-        acceptsChildren: true
+        acceptsChildren: true,
+        inputs: [
+            createTextInput({
+                name: "title",
+                label: "Title",
+                defaultValue: "",
+                required: true
+            })
+        ]
     }),
     createComponent(Hero_1, {
         name: "Ecommerce/Hero-1",
@@ -87,7 +108,7 @@ export const customComponents = [
                 defaultValue: "",
                 required: true
             }),
-            createTagsInput({
+            /*createTagsInput({
                 name: "tags",
                 label: "Tags",
                 defaultValue: [],
@@ -98,7 +119,7 @@ export const customComponents = [
                 label: "Published on",
                 defaultValue: "",
                 required: true
-            })
+            })*/
         ]
     }),
     createComponent(Stats, {

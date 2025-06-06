@@ -1,28 +1,9 @@
 "use client";
 import React from "react";
-import { contentSdk, registerComponentGroup } from "@webiny/app-website-builder/react/index.js";
-import { ComponentManifest } from "@webiny/app-website-builder/sdk/types";
+import { initContentSdk } from "@components/initContentSdk";
 
 export const ContentSdkInitializer = React.memo(() => {
-    contentSdk.init({
-        apiKey: "123"
-    });
-
-    registerComponentGroup({
-        name: "basic",
-        label: "Basic"
-    });
-
-    registerComponentGroup({
-        name: "ecommerce",
-        label: "eCommerce"
-    });
-
-    registerComponentGroup({
-        name: "custom",
-        label: "Custom",
-        filter: (component: ComponentManifest) => !component.group
-    });
+    initContentSdk();
 
     return null;
 });

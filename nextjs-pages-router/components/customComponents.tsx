@@ -2,6 +2,7 @@ import React from "react";
 import {
     createComponent,
     createDateInput,
+    createRichTextInput,
     createTagsInput,
     createTextInput
 } from "@webiny/app-website-builder/react/index.js";
@@ -50,11 +51,10 @@ export const customComponents = [
         group: "basic",
         image: "https://material-icons.github.io/material-icons/svg/text_fields/outline.svg",
         inputs: [
-            {
+            createRichTextInput({
                 name: "text",
-                type: "richText",
                 defaultValue: "Default text"
-            }
+            })
         ]
     }),
     createComponent(BlockRefComponent, {

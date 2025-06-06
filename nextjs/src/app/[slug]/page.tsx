@@ -1,6 +1,6 @@
 import React from "react";
-import { contentSdk } from "@webiny/app-website-builder/react/index";
 import { PageContent } from "@components/PageContent";
+import { contentSdk } from "@webiny/app-website-builder/react";
 
 export async function generateStaticParams() {
     const pages = await contentSdk.listPages();

@@ -66,7 +66,7 @@ module.exports = {
         devDependencies: true,
         peerDependencies: true
     },
-    ignoreDirs: ["node_modules/", "dist/", "build/"],
+    ignoreDirs: ["node_modules/", "dist/", "build/", "nextjs", "nextjs-pages-router"],
     packages: getWorkspaces().map(pkg =>
         pkg.replace(/\//g, path.sep).replace(process.cwd() + path.sep, "")
     )
