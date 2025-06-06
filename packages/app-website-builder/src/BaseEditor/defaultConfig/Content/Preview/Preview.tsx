@@ -122,7 +122,7 @@ export const Preview = () => {
     }, []);
 
     const onConnected = useCallback((messenger: Messenger) => {
-        messenger.send("document.set", editor.getDocumentState().read());
+        messenger.send("document.set", editor.getDocumentState().toJson());
 
         messenger.on("preview.viewport.change.start", () => {
             editor.updateEditor(state => {

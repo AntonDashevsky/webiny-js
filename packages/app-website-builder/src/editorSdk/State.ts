@@ -19,7 +19,7 @@ export class State<TState extends GenericRecord = GenericRecord> implements ISta
         this.activeState = initialState;
         makeAutoObservable(this, {
             // @ts-ignore 123
-            activeState: observable.ref
+            activeState: observable
         });
     }
 
@@ -37,7 +37,7 @@ export class State<TState extends GenericRecord = GenericRecord> implements ISta
     }
 
     setState(setter: (state: MutableState<TState>) => TState) {
-        this.activeState = setter(this.activeState);
+        this.activeState = observable(setter(this.activeState));
     }
 
     toJson() {
@@ -48,7 +48,7 @@ export class State<TState extends GenericRecord = GenericRecord> implements ISta
         scheduleMicroTask(() => {
             runInAction(() => {
                 if (this.pendingState) {
-                    this.activeState = this.pendingState;
+                    this.activeState = observable(this.pendingState);
                     this.pendingState = undefined;
                 }
             });

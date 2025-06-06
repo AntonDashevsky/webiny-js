@@ -1,11 +1,12 @@
-import { toJS } from "mobx";
 import type { ComponentRegistry } from "~/sdk/ComponentRegistry.js";
-import {
-    type DocumentElement,
-    type ResolvedComponent,
-    SerializableCSSStyleDeclaration
+import type {
+    DocumentBindings,
+    DocumentElement,
+    DocumentState,
+    ResolvedComponent
 } from "~/sdk/types";
 import { logger } from "./Logger";
+import { BindingsResolver } from "./BindingsResolver";
 
 export class ComponentResolver {
     private components: ComponentRegistry;
@@ -14,7 +15,12 @@ export class ComponentResolver {
         this.components = registry;
     }
 
-    resolve(element: DocumentElement): ResolvedComponent | null {
+    resolve(
+        element: DocumentElement,
+        state: DocumentState,
+        bindings: DocumentBindings,
+        displayMode: string
+    ): ResolvedComponent[] | null {
         const componentName = element.component.name;
         const blueprint = this.components.get(componentName);
 
@@ -23,17 +29,14 @@ export class ComponentResolver {
             return null;
         }
 
-        return {
+        const bindingsResolver = new BindingsResolver(state, bindings, displayMode);
+        const instances = bindingsResolver.resolveElement(element);
+
+        return instances.map(instance => ({
             component: blueprint.component,
-            inputs: element.component.inputs,
             manifest: blueprint.manifest,
-            styles: this.resolveStyles(element)
-        };
-    }
-
-    private resolveStyles(element: DocumentElement): SerializableCSSStyleDeclaration {
-        const styles = element.styles?.["large"];
-
-        return styles ? toJS(styles) : {};
+            styles: instance.styles,
+            inputs: instance.component.inputs
+        }));
     }
 }

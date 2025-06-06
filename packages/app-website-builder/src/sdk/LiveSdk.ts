@@ -3,7 +3,9 @@ import { ComponentResolver } from "~/sdk/ComponentResolver.js";
 import { logger } from "~/sdk/Logger.js";
 import type {
     Component,
+    DocumentBindings,
     DocumentElement,
+    DocumentState,
     IContentSdk,
     IDataProvider,
     Page,
@@ -11,6 +13,7 @@ import type {
 } from "~/sdk/types.js";
 import { NullDataProvider } from "./dataProviders/NullDataProvider.js";
 import { DefaultDataProvider } from "./dataProviders/DefaultDataProvider.js";
+import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 
 export type LiveSdkConfig = {
     apiKey: string;
@@ -41,9 +44,12 @@ export class LiveSdk implements IContentSdk {
         logger.debug("Live SDK initialized!");
     }
 
-    getPage(path: string): Promise<Page | null> {
-        console.log("LiveSDK.getPage", path );
-        return this.dataProvider.getPage(path);
+    async getPage(path: string): Promise<Page | null> {
+        const page = await this.dataProvider.getPage(path);
+        if (page) {
+            documentStoreManager.getStore(page.properties.id).setDocument(page);
+        }
+        return page;
     }
 
     listPages(): Promise<Page[]> {
@@ -54,7 +60,17 @@ export class LiveSdk implements IContentSdk {
         componentRegistry.register(blueprint);
     }
 
-    resolveElement(element: DocumentElement): ResolvedComponent | null {
-        return new ComponentResolver(componentRegistry).resolve(element);
+    resolveElement(
+        element: DocumentElement,
+        state: DocumentState,
+        bindings: DocumentBindings,
+        displayMode: string
+    ): ResolvedComponent[] | null {
+        return new ComponentResolver(componentRegistry).resolve(
+            element,
+            state,
+            bindings,
+            displayMode
+        );
     }
 }

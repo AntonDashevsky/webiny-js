@@ -1,9 +1,10 @@
 "use client";
-import { ComponentResolver } from "./ComponentResolver.js";
 import type {
     Component,
     ComponentGroup,
+    DocumentBindings,
     DocumentElement,
+    DocumentState,
     IContentSdk,
     Page,
     ResolvedComponent
@@ -84,7 +85,7 @@ export class PreviewSdk implements IContentSdk {
     }
 
     public async getPage(path: string): Promise<Page | null> {
-        if (this.previewDocument.matches({ type: "page", path })) {
+        if (!this.previewDocument.matches({ type: "page", path })) {
             return this.liveSdk.getPage(path);
         }
 
@@ -107,8 +108,13 @@ export class PreviewSdk implements IContentSdk {
         });
     }
 
-    resolveElement(element: DocumentElement): ResolvedComponent | null {
-        return new ComponentResolver(componentRegistry).resolve(element);
+    resolveElement(
+        element: DocumentElement,
+        state: DocumentState,
+        bindings: DocumentBindings,
+        displayMode: string
+    ): ResolvedComponent[] | null {
+        return this.liveSdk.resolveElement(element, state, bindings, displayMode);
     }
 
     private getReferrerOrigin(): string {

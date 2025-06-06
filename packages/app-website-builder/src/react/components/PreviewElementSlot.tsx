@@ -18,7 +18,7 @@ export const PreviewElementSlot = ({ parentId, slot, elements }: ElementSlotProp
     if (!elements.length) {
         return (
             <div
-                style={{ height: 100 }}
+                style={{ height: 100, width: "inherit" }}
                 data-role={"element-slot"}
                 data-parent-id={parentId}
                 data-parent-slot={slot}

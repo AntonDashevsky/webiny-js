@@ -1,18 +1,25 @@
 "use client";
 import React, { useContext, useMemo } from "react";
-import { DocumentStore } from "~/sdk";
+import type { Document } from "~/sdk/types";
 import { documentStoreManager } from "~/sdk/DocumentStoreManager";
+import { DocumentStore } from "~/sdk";
 
 const DocumentStoreContext = React.createContext<DocumentStore | undefined>(undefined);
 
 export const DocumentStoreProvider = ({
     id,
+    document,
     children
 }: {
     id: string;
+    document?: Document;
     children: React.ReactNode;
 }) => {
     const store = useMemo(() => documentStoreManager.getStore(id), [id]);
+
+    if (document) {
+        store.setDocument(document);
+    }
 
     return <DocumentStoreContext.Provider value={store}>{children}</DocumentStoreContext.Provider>;
 };

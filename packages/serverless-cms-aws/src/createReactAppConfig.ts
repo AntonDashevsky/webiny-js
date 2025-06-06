@@ -81,6 +81,7 @@ export interface PulumiOutputToEnvModifier<T extends PulumiOutput = PulumiOutput
 export interface ReactAppConfig {
     seal(): { commands: ReactAppCommands };
     webpack(modifier: WebpackConfigModifier): void;
+    rspack(modifier: WebpackConfigModifier): void;
     babel(modifier: BabelConfigModifier): void;
     entry(modifier: EntryModifier): void;
     customEnv(modifier: CustomEnvModifier): void;
@@ -125,6 +126,7 @@ function createEnvModifierFromMap(
 
 function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
     const webpackModifiers: WebpackConfigModifier[] = [];
+    const rspackModifiers: WebpackConfigModifier[] = [];
     const babelModifiers: BabelConfigModifier[] = [];
     const commandsModifiers: ReactAppCommandsModifier[] = [];
     const customEnvModifiers: CustomEnvModifier[] = [];
@@ -162,6 +164,9 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
             webpack(config) {
                 return webpackModifiers.reduce((config, modifier) => modifier(config), config);
             },
+            rspack(config) {
+                return rspackModifiers.reduce((config, modifier) => modifier(config), config);
+            },
             babel(config) {
                 return babelModifiers.reduce((config, modifier) => modifier(config), config);
             }
@@ -194,6 +199,9 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
         },
         webpack(modifier) {
             webpackModifiers.push(modifier);
+        },
+        rspack(modifier) {
+            rspackModifiers.push(modifier);
         },
         customEnv(modifier: CustomEnvModifier) {
             customEnvModifiers.push(modifier);

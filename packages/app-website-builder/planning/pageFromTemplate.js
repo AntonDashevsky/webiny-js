@@ -104,7 +104,7 @@ const pageFromTemplate = {
       /**
        * A referenced block exposes inputs that we're binding to.
        */
-      'component.inputs.inputs.ABYOgFjTQhR.text': {
+      'component.inputs.ABYOgFjTQhR.text': {
         type: 'expression',
         expression: '$state.products.$current.name',
       },

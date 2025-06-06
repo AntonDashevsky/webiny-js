@@ -16,7 +16,7 @@ export const ElementRenderer = observer((props: ElementRendererProps) => {
     const element = documentStore.getElement(props.id);
 
     if (!element) {
-        return null;
+        return <div>Missing element component {props.id}</div>;
     }
 
     if (isPreview) {

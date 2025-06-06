@@ -1,7 +1,21 @@
 export type ElementMap = Record<string, DocumentElement>;
 
+export type StaticBinding = { type: "static"; value: string | number | boolean };
+
+export type ExpressionBinding = { type: "expression"; value: string };
+
+export type DocumentState = Record<string, any>;
+
+type DocumentElementBindings = {
+    [key: string]: Array<StaticBinding | ExpressionBinding>;
+};
+
+export type DocumentBindings = Record<string, DocumentElementBindings>;
+
 export type Document = {
     properties: Record<string, any>;
+    state: DocumentState;
+    bindings: DocumentBindings;
     elements: ElementMap;
 };
 
@@ -11,6 +25,10 @@ export type ResolvedComponent<TComponent = any> = {
     manifest?: ComponentManifest;
     styles: SerializableCSSStyleDeclaration;
 };
+
+export type ResolvedElement = Omit<DocumentElement, "styles"> & {
+    styles: SerializableCSSStyleDeclaration;
+}
 
 export type Component = {
     component: any;
@@ -68,10 +86,7 @@ export type DocumentElement = {
 
 export type SerializableCSSStyleDeclaration = Partial<Record<keyof CSSStyleDeclaration, string>>;
 
-export type Page = {
-    properties: Record<string, any>;
-    elements: Record<string, any>;
-};
+export type Page = Document;
 
 export type Box = {
     depth: number;
@@ -131,14 +146,16 @@ export interface IEnvironment {
 
 export interface IContentSdk extends IDataProvider {
     registerComponent(component: Component): void;
-    resolveElement(element: DocumentElement): ResolvedComponent | null;
+    resolveElement(
+        element: DocumentElement,
+        state: DocumentState,
+        bindings: DocumentBindings,
+        displayMode: string
+    ): ResolvedComponent[] | null;
 }
 
 export type DisplayMode = {
     name: string;
-    title: string;
-    description: string;
-    icon: React.ReactNode;
     minWidth: number;
     maxWidth: number;
 };
@@ -148,84 +165,82 @@ export type DisplayMode = {
 // inputTypes.ts
 export type BaseInput<T = any> = {
     name: string;
+    type: string;
+    dataType: string;
     label?: string;
+    description?: string;
+    helperText?: string;
     defaultValue?: T;
     required?: boolean;
-    helperText?: string;
     hideFromUi?: boolean;
     renderer?: string;
+    list?: boolean;
 };
 
 // Discriminated union per input type
 export type TextInput = BaseInput<string> & {
     type: "text";
+    dataType: "text";
+};
+
+export type TagsInput = BaseInput<string[]> & {
+    type: "text";
+    dataType: "text";
 };
 
 export type LongTextInput = BaseInput<string> & {
     type: "longText";
+    dataType: "text";
 };
 
 export type NumberInput = BaseInput<number> & {
     type: "number";
+    dataType: "number";
 };
 
 export type BooleanInput = BaseInput<boolean> & {
     type: "boolean";
+    dataType: "boolean";
 };
 
 export type ColorInput = BaseInput<string> & {
     type: "color";
+    dataType: "text";
 };
 
 export type FileInput = BaseInput<string> & {
     type: "file";
+    dataType: "text";
     allowedFileTypes: string[];
 };
 
 export type DateTimeInput = BaseInput<string> & {
     type: "datetime";
+    dataType: "datetime";
 };
 
 export type RichTextInput = BaseInput<string> & {
     type: "richText";
+    dataType: "json";
 };
 
 export type SelectInput = BaseInput<string> & {
     type: "select";
+    dataType: "text";
     options: { label: string; value: string }[];
 };
 
 export type RadioInput = BaseInput<string> & {
     type: "radio";
+    dataType: "text";
     options: { label: string; value: string }[];
 };
 
 export type ObjectInput = BaseInput<Record<string, any>> & {
     type: "object";
-    subFields: ComponentInput[];
+    dataType: "object";
+    fields: ComponentInput[];
 };
-
-export type PrimitiveItemType = "text" | "number" | "file" | "date";
-
-// Base shared list input fields
-type BaseListInput = BaseInput<any[]> & {
-    type: "list";
-};
-
-// A list of primitives — allowed with `itemType`
-type PrimitiveListInput = BaseListInput & {
-    itemType: PrimitiveItemType;
-    subFields?: never;
-};
-
-// A list of objects — allowed with `subFields`
-type ObjectListInput = BaseListInput & {
-    subFields: ComponentInput[];
-    itemType?: never;
-};
-
-// The new, type-safe ListInput
-export type ListInput = PrimitiveListInput | ObjectListInput;
 
 // Union of all input types
 export type ComponentInput =
@@ -239,5 +254,5 @@ export type ComponentInput =
     | RichTextInput
     | SelectInput
     | RadioInput
-    | ObjectInput
-    | ListInput;
+    | TagsInput
+    | ObjectInput;

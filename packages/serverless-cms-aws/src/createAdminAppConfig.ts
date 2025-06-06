@@ -52,6 +52,19 @@ export const createAdminAppConfig = (modifier?: ReactAppConfigModifier) => {
             return config;
         });
 
+        config.rspack(config => {
+            traverseLoaders(config.module?.rules, (loader: any) => {
+                if (loader.loader && loader.loader.includes("postcss-loader")) {
+                    loader.options.postcssOptions.plugins = [
+                        ...loader.options.postcssOptions.plugins,
+                        tailwindcss({ config: require.resolve("@webiny/admin-ui/tailwind.config") })
+                    ];
+                }
+            });
+
+            return config;
+        });
+
         if (modifier) {
             modifier(baseParams);
         }

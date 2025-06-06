@@ -20,7 +20,7 @@ import { Commands } from "~/BaseEditor";
 const OverlayContainer = styled("div")({
     overflow: "hidden",
     position: "absolute",
-    zIndex: 1000
+    zIndex: 20
 });
 
 const filterVisibleBoxes = (viewport: PreviewViewportInfo) => {

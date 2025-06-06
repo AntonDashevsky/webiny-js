@@ -7,3 +7,4 @@ export * from "./Logger.js";
 export * from "./FunctionConverter.js";
 export * from "./createInput.js";
 export * from "./MouseTracker.js";
+export * from "./ViewportManager.js";

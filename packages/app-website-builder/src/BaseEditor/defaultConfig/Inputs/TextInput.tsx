@@ -1,12 +1,15 @@
 import React from "react";
-import type { TextInput } from "~/sdk/types";
+import { Textarea } from "@webiny/admin-ui";
+import { ElementInputRendererProps } from "~/BaseEditor";
 
-interface ElementInputProps<T> {
-    value: T;
-    onChange: (value: T) => void;
-    componentInput: TextInput;
-}
-
-export const TextInputRenderer = ({ value, onChange, componentInput }: ElementInputProps<string>) => {
-    return <span>Webiny/Text</span>;
+export const TextInputRenderer = ({ value, onChange, input }: ElementInputRendererProps) => {
+    return (
+        <Textarea
+            value={value}
+            onChange={onChange}
+            label={input.label}
+            description={input.description}
+            note={input.helperText}
+        />
+    );
 };

@@ -1,5 +1,12 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
+import type { ComponentInput } from "~/sdk/types";
+
+export interface ElementInputRendererProps {
+    value: any;
+    onChange: (value: any) => void;
+    input: ComponentInput;
+}
 
 export interface RendererProps {
     name: string;
@@ -20,7 +27,7 @@ const Renderer = (props: RendererProps) => {
 
 export interface ElementInputConfig {
     name: string;
-    component: React.ComponentType;
+    component: React.ComponentType<ElementInputRendererProps>;
 }
 
 export const ElementInput = {

@@ -6,7 +6,13 @@ import { ReactComponent as LaptopIcon } from "@webiny/icons/laptop_mac.svg";
 import { ReactComponent as TabletIcon } from "@webiny/icons/tablet_mac.svg";
 import { ReactComponent as MobileIcon } from "@webiny/icons/phone_iphone.svg";
 
-const DISPLAY_MODES: DisplayMode[] = [
+export type EditorDisplayMode = DisplayMode & {
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+};
+
+const DISPLAY_MODES: EditorDisplayMode[] = [
     {
         name: "desktop",
         title: "Desktop",
@@ -24,18 +30,18 @@ const DISPLAY_MODES: DisplayMode[] = [
         maxWidth: 991
     },
     {
-        name: "mobile-landscape",
+        name: "mobileLandscape",
         title: "Mobile Landscape",
         description: `Styles added here will apply at 767px and down, unless they're edited at a smaller breakpoint.`,
-        icon: <MobileIcon className={"wby-rotate-90"}/>,
+        icon: <MobileIcon className={"wby-rotate-90"} />,
         minWidth: 0,
         maxWidth: 767
     },
     {
-        name: "mobile-portrait",
+        name: "mobilePortrait",
         title: "Mobile Portrait",
         description: `Styles added here will apply at 478px and down.`,
-        icon: <MobileIcon  />,
+        icon: <MobileIcon />,
         minWidth: 0,
         maxWidth: 478
     }

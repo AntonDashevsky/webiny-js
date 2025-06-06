@@ -3,31 +3,28 @@ const { BaseAppBundler } = require("./BaseAppBundler");
 const { createRspackConfig } = require("./rspack/createRspackConfig");
 const rspack = require("@rspack/core");
 const { getProjectApplication } = require("@webiny/cli/utils");
+const path = require("path");
+const TailwindSuppressor = require("./rspack/TailwindSuppressor");
 
 class RspackBundler extends BaseAppBundler {
     constructor(params) {
         super();
         this.params = params;
+        this.tailwindSuppressor = new TailwindSuppressor();
     }
 
     build() {
-        return new Promise(async (resolve, reject) => {
-            let projectApplication;
-            try {
-                projectApplication = getProjectApplication({ cwd: this.params.cwd });
-            } catch {
-                // No need to do anything.
-            }
+        this.tailwindSuppressor.enable();
+        process.env.NODE_ENV = "production";
 
-            const rspackConfig = createRspackConfig({
-                ...this.params,
-                projectApplication,
-                production: true
-            });
+        return new Promise(async (resolve, reject) => {
+            const rspackConfig = this.getRspackConfig("production");
 
             const compiler = rspack(rspackConfig);
 
             return compiler.run(async (err, stats) => {
+                this.tailwindSuppressor.disable();
+
                 let messages = {};
 
                 if (err) {
@@ -70,36 +67,48 @@ class RspackBundler extends BaseAppBundler {
         });
     }
 
-    watch() {
-        return new Promise(async (resolve, reject) => {
-            let projectApplication;
-            try {
-                projectApplication = getProjectApplication({ cwd: this.params.cwd });
-            } catch {
-                // No need to do anything.
-            }
+    async watch() {
+        this.tailwindSuppressor.enable();
 
-            const rspackConfig = createRspackConfig({
-                ...this.params,
-                projectApplication,
-                production: false
-            });
+        if (!("REACT_APP_DEBUG" in process.env)) {
+            process.env.REACT_APP_DEBUG = "true";
+        }
 
-            console.log("Compiling...");
+        process.env.NODE_ENV = "development";
+        process.env.ESLINT_NO_UNUSED_VARS = "0";
 
-            const compiler = rspack(rspackConfig);
+        const rspackConfig = this.getRspackConfig("development");
+        const RspackDevServer = require("./rspack/RspackDevServer");
 
-            return compiler.watch({}, async (err, stats) => {
-                if (err) {
-                    return reject(err);
-                }
+        const compiler = rspack(rspackConfig);
 
-                if (!stats.hasErrors()) {
-                    console.log("Compiled successfully.");
-                } else {
-                    console.log(stats.toString("errors-warnings"));
-                }
-            });
+        const devServer = new RspackDevServer(compiler, { paths: this.getPaths() });
+
+        await devServer.start();
+    }
+
+    getPaths() {
+        const { cwd, overrides } = this.params;
+
+        const appIndexJs = overrides.entry || path.resolve(cwd, "src", "index.tsx");
+
+        return require("./webpack/config/paths")({ appIndexJs, cwd });
+    }
+
+    getRspackConfig(env) {
+        const paths = this.getPaths();
+
+        let projectApplication;
+        try {
+            projectApplication = getProjectApplication({ cwd: this.params.cwd });
+        } catch {
+            // No need to do anything.
+        }
+
+        return createRspackConfig(paths, {
+            ...this.params,
+            projectApplication,
+            env
         });
     }
 }

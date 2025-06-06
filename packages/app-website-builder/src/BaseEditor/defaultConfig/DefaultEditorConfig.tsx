@@ -17,6 +17,7 @@ import { InsertElements } from "./Toolbar/InsertElements";
 import { CommandHandlers } from "~/BaseEditor/commandHandlers";
 import { ElementInputRenderers } from "./Inputs";
 import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
+import { DocumentStateEditor } from "./DocumentStateEditor";
 
 const { Ui } = EditorConfig;
 
@@ -95,6 +96,11 @@ export const DefaultEditorConfig = React.memo(() => {
                             <ElementSettings />
                         </Ui.OnActiveElement>
                     }
+                />
+                <Ui.Sidebar.Element
+                    name={"stateEditor"}
+                    group={"element"}
+                    element={<DocumentStateEditor />}
                 />
             </EditorConfig>
         </>

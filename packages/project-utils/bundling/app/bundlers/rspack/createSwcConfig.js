@@ -3,7 +3,19 @@ const createSwcConfig = cwd => {
     return {
         jsc: {
             parser: {
-                syntax: "typescript"
+                syntax: "typescript",
+                tsx: true,
+                jsx: true
+            },
+            experimental: {
+                plugins: [
+                    [
+                        "@swc/plugin-emotion",
+                        {
+                            autoLabel: "dev-only"
+                        }
+                    ]
+                ]
             },
             baseUrl: cwd,
             paths: {
@@ -15,9 +27,7 @@ const createSwcConfig = cwd => {
             type: "commonjs"
         },
         env: {
-            "env": {
-                "targets": "> 0.25%, not dead"
-            }
+            targets: "> 0.25%, not dead"
         }
     };
 };

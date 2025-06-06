@@ -6,6 +6,36 @@ export default {
         title: "Page 1",
         path: "/page-1"
     },
+    state: {
+        list: [
+            { text: "Fist dynamic text", popular: false },
+            { text: "Second dynamic text", popular: true }
+        ]
+    },
+    bindings: {
+        "4ETOAnHNei7": {
+            $repeat: [
+                {
+                    type: "expression",
+                    value: "$state.list"
+                }
+            ],
+            "component.inputs.text": [
+                {
+                    type: "static",
+                    value: `Nunc maximus elementum luctus. In hac habitasse platea dictumst. Vivamus
+                    porttitor quam nec ante tempor, sit amet tristique dui accumsan. Suspendisse
+                    egestas molestie sagittis. Nulla facilisi. Vestibulum laoreet nibh ipsum, ut
+                    bibendum libero tempor sed. Vestibulum id nunc at erat scelerisque tempor eget
+                    id augue. Mauris congue sed dui vel posuere1.`
+                },
+                {
+                    type: "expression",
+                    value: "$.text"
+                }
+            ]
+        }
+    },
     elements: {
         root: {
             type: "Webiny/Element",
@@ -25,18 +55,22 @@ export default {
                 slot: "children"
             },
             component: {
-                name: "Webiny/Text",
-                inputs: {
-                    text: `Nunc maximus elementum luctus. In hac habitasse platea dictumst. Vivamus
-                    porttitor quam nec ante tempor, sit amet tristique dui accumsan. Suspendisse
-                    egestas molestie sagittis. Nulla facilisi. Vestibulum laoreet nibh ipsum, ut
-                    bibendum libero tempor sed. Vestibulum id nunc at erat scelerisque tempor eget
-                    id augue. Mauris congue sed dui vel posuere1.`
-                }
+                name: "Webiny/Text"
             },
             styles: {
-                large: {
+                desktop: {
                     color: "#006700",
+                    display: "flex",
+                    flexDirection: "column",
+                    position: "relative",
+                    flexShrink: 0,
+                    boxSizing: "border-box",
+                    lineHeight: "normal",
+                    height: "auto"
+                },
+                mobilePortrait: {
+                    color: "#ea2a73",
+                    fontWeight: "bold",
                     display: "flex",
                     flexDirection: "column",
                     position: "relative",

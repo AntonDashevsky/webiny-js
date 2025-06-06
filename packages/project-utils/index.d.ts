@@ -23,6 +23,7 @@ export interface BuildAppConfigOverrides {
     entry?: string;
     openBrowser?: boolean;
     webpack?: (config: WebpackConfig) => WebpackConfig;
+    rspack?: (config: WebpackConfig) => WebpackConfig;
     babel?: (config: BabelConfig) => BabelConfig;
 }
 // Build commands - apps.

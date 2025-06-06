@@ -37,6 +37,10 @@ export const ElementOverlay = React.memo(
                     return "";
                 }
                 const component = state.components[element.component.name];
+                if (!component) {
+                    console.log("Missing component", element.component.name);
+                    return "";
+                }
 
                 return component.label ?? component.name;
             },

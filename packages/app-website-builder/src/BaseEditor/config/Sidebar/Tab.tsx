@@ -4,6 +4,7 @@ import { Tabs } from "@webiny/admin-ui";
 
 export const TabContainer = styled("div")({
     display: "flex",
+    position: "relative",
     flexDirection: "column",
     height: "calc(100vh - 44px - 49px)", // Subtract top-bar and tab-header height
     overflowY: "auto",

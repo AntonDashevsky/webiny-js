@@ -11,7 +11,7 @@ export class DocumentStore {
         makeAutoObservable(this);
     }
 
-    setDocument(doc: { properties: any; elements: Record<string, any> }) {
+    setDocument(doc: Document) {
         runInAction(() => {
             this.document = observable(doc);
             this.documentReady = true;
