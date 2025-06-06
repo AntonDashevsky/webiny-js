@@ -1,2 +1,4 @@
-export * from "./FoldersCacheFactory.js";
-export * from "./ListCache.js";
+export * from "./FoldersCacheFactory";
+export * from "./ListCache";
+export * from "./LoadedCache";
+export * from "./LoadedFoldersCacheFactory";

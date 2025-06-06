@@ -1,4 +1,8 @@
-import { CmsFieldTypePlugins, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import {
+    CmsFieldTypePlugins,
+    CmsModel,
+    CmsModelField
+} from "@webiny/api-headless-cms/types/index.js";
 import { renderFields } from "@webiny/api-headless-cms/utils/renderFields.js";
 import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields.js";
 
@@ -84,6 +88,9 @@ export const createFolderTypeDefs = (params: CreateFolderTypeDefsParams): string
         ${inputCreateFields.map(f => f.typeDefs).join("\n")}
         
         input FolderCreateInput {
+             # Pass an ID if you want to create a folder with a specific ID.
+             id: ID  
+             
              ${inputCreateFields.map(f => f.fields).join("\n")}
         }
                 
@@ -93,7 +100,16 @@ export const createFolderTypeDefs = (params: CreateFolderTypeDefsParams): string
         
         input FoldersListWhereInput {
             type: String!
-            parentId: String
+            parentId: ID
+            parentId_in: [ID]
+            path: String
+            path_not: String
+            path_contains: String
+            path_not_contains: String
+            path_in: [String]
+            path_not_in: [String]
+            path_startsWith: String
+            path_not_startsWith: String
             createdBy: ID
         }
         
@@ -110,6 +126,16 @@ export const createFolderTypeDefs = (params: CreateFolderTypeDefsParams): string
 
         type FoldersListCompressedResponse {
             data: CompressedResponse
+            error: AcoError
+        }
+        
+        type FoldersHierarchyData {
+            parents: [Folder]
+            siblings: [Folder]
+        }
+
+        type FoldersHierarchyResponse {
+            data: FoldersHierarchyData
             error: AcoError
         }
 
@@ -151,7 +177,7 @@ export const createFolderTypeDefs = (params: CreateFolderTypeDefsParams): string
                 after: String
                 sort: AcoSort
             ): FoldersListCompressedResponse
-
+            getFolderHierarchy(type: String!, id: ID!): FoldersHierarchyResponse
             listFolderLevelPermissionsTargets: FolderLevelPermissionsTargetsListResponse
         }
 

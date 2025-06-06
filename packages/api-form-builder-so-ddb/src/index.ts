@@ -1,19 +1,20 @@
-import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters/index.js";
-import formSubmissionFields from "~/operations/submission/fields.js";
-import formFields from "~/operations/form/fields.js";
+import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters";
+import formSubmissionFields from "~/operations/submission/fields";
+import formFields from "~/operations/form/fields";
 import WebinyError from "@webiny/error";
-import { FormBuilderStorageOperationsFactory, ENTITIES } from "~/types.js";
-import { createTable } from "~/definitions/table.js";
-import { createFormEntity } from "~/definitions/form.js";
-import { createSubmissionEntity } from "~/definitions/submission.js";
-import { createSystemEntity } from "~/definitions/system.js";
-import { createSettingsEntity } from "~/definitions/settings.js";
-import { createSystemStorageOperations } from "~/operations/system/index.js";
-import { createSubmissionStorageOperations } from "~/operations/submission/index.js";
-import { createSettingsStorageOperations } from "~/operations/settings/index.js";
-import { createFormStorageOperations } from "~/operations/form/index.js";
+import { FormBuilderStorageOperationsFactory, ENTITIES } from "~/types";
+import { createTable } from "~/definitions/table";
+import { createFormEntity } from "~/definitions/form";
+import { createSubmissionEntity } from "~/definitions/submission";
+import { createSystemEntity } from "~/definitions/system";
+import { createSettingsEntity } from "~/definitions/settings";
+import { createSystemStorageOperations } from "~/operations/system";
+import { createSubmissionStorageOperations } from "~/operations/submission";
+import { createSettingsStorageOperations } from "~/operations/settings";
+import { createFormStorageOperations } from "~/operations/form";
 import { PluginsContainer } from "@webiny/plugins";
-import { FormDynamoDbFieldPlugin, FormSubmissionDynamoDbFieldPlugin } from "~/plugins/index.js";
+import { FormDynamoDbFieldPlugin, FormSubmissionDynamoDbFieldPlugin } from "~/plugins";
+import { CompressorPlugin } from "@webiny/api";
 
 const reservedFields = ["PK", "SK", "index", "data", "TYPE", "__type", "GSI1_PK", "GSI1_SK"];
 
@@ -26,7 +27,7 @@ const isReserved = (name: string): void => {
     });
 };
 
-export * from "./plugins/index.js";
+export * from "./plugins";
 
 export const createFormBuilderStorageOperations: FormBuilderStorageOperationsFactory = params => {
     const { attributes, table: tableName, documentClient, plugins: userPlugins } = params;
@@ -92,7 +93,8 @@ export const createFormBuilderStorageOperations: FormBuilderStorageOperationsFac
         beforeInit: async context => {
             const types: string[] = [
                 FormDynamoDbFieldPlugin.type,
-                FormSubmissionDynamoDbFieldPlugin.type
+                FormSubmissionDynamoDbFieldPlugin.type,
+                CompressorPlugin.type
             ];
             for (const type of types) {
                 plugins.mergeByType(context.plugins, type);

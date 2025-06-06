@@ -1,10 +1,10 @@
-import packageJson from "@webiny/project-utils/package.json" with { type: "json" };
-import { getProject } from "@webiny/cli/utils/index.js";
-import { isEnabled } from "@webiny/telemetry/cli.js";
-import { globalConfig } from "@webiny/global-config";
-import { isCI } from "ci-info";
+const { version } = require("@webiny/project-utils/package.json");
+const { getProject } = require("@webiny/cli/utils");
+const { isEnabled } = require("@webiny/telemetry/cli");
+const { globalConfig } = require("@webiny/global-config");
+const { isCI } = require("ci-info");
 
-export const applyDefaults = () => {
+const applyDefaults = () => {
     let telemetry;
     const config = getProject().config;
     if (config.cli && "telemetry" in config.cli) {
@@ -40,7 +40,7 @@ export const applyDefaults = () => {
     }
 
     if (!("REACT_APP_WEBINY_VERSION" in process.env)) {
-        process.env.REACT_APP_WEBINY_VERSION = process.env.WEBINY_VERSION || packageJson.version;
+        process.env.REACT_APP_WEBINY_VERSION = process.env.WEBINY_VERSION || version;
     }
 
     // This variable is for backwards compatibility with projects created prior to 5.29.0 release.
@@ -49,4 +49,6 @@ export const applyDefaults = () => {
     }
 };
 
-export default { applyDefaults };
+module.exports = {
+    applyDefaults
+};

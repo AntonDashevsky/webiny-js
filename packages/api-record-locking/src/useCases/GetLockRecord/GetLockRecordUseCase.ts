@@ -1,24 +1,28 @@
 import type {
     IGetLockRecordUseCase,
     IGetLockRecordUseCaseExecuteParams
-} from "~/abstractions/IGetLockRecordUseCase.js";
-import type { IRecordLockingLockRecord, IRecordLockingModelManager } from "~/types.js";
+} from "~/abstractions/IGetLockRecordUseCase";
+import type { IRecordLockingLockRecord, IRecordLockingModelManager } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
 import { createIdentifier } from "@webiny/utils";
-import type { ConvertEntryToLockRecordCb } from "~/useCases/types.js";
+import type { ConvertEntryToLockRecordCb } from "~/useCases/types";
+import type { Security } from "@webiny/api-security/types";
 
 export interface IGetLockRecordUseCaseParams {
     getManager(): Promise<IRecordLockingModelManager>;
+    getSecurity(): Pick<Security, "withoutAuthorization">;
     convert: ConvertEntryToLockRecordCb;
 }
 
 export class GetLockRecordUseCase implements IGetLockRecordUseCase {
     private readonly getManager: IGetLockRecordUseCaseParams["getManager"];
+    private readonly getSecurity: IGetLockRecordUseCaseParams["getSecurity"];
     private readonly convert: ConvertEntryToLockRecordCb;
 
     public constructor(params: IGetLockRecordUseCaseParams) {
         this.getManager = params.getManager;
+        this.getSecurity = params.getSecurity;
         this.convert = params.convert;
     }
 
@@ -30,10 +34,13 @@ export class GetLockRecordUseCase implements IGetLockRecordUseCase {
             id: recordId,
             version: 1
         });
+        const security = this.getSecurity();
         try {
             const manager = await this.getManager();
-            const result = await manager.get(id);
-            return this.convert(result);
+            return await security.withoutAuthorization(async () => {
+                const result = await manager.get(id);
+                return this.convert(result);
+            });
         } catch (ex) {
             if (ex instanceof NotFoundError) {
                 return null;

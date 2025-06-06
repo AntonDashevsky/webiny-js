@@ -1,15 +1,15 @@
-import { Context, IPulumi, IUserCommandInput } from "~/types.js";
-import { measureDuration } from "~/utils/index.js";
+import { Context, IPulumi, IUserCommandInput } from "~/types";
+import { measureDuration } from "~/utils";
 import ora from "ora";
 import { isCI } from "ci-info";
-import { getMustRefreshBeforeDeploy } from "~/utils/index.js";
+import { getMustRefreshBeforeDeploy, unsetMustRefreshBeforeDeploy } from "~/utils";
 import {
     createEnvConfiguration,
     withEnv,
     withEnvVariant,
     withProjectName,
     withRegion
-} from "~/utils/env/index.js";
+} from "~/utils/env";
 
 export interface IExecuteRefreshParams {
     inputs: IUserCommandInput;
@@ -56,6 +56,8 @@ export const executeRefresh = async ({ inputs, context, pulumi }: IExecuteRefres
             spinner.start();
             await subprocess;
         }
+
+        unsetMustRefreshBeforeDeploy(context);
 
         const message = `Pulumi state refreshed in ${getDeploymentDuration()}.`;
 

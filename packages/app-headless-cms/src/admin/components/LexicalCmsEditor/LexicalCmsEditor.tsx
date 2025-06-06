@@ -1,8 +1,7 @@
 import React, { useCallback } from "react";
 import { StaticToolbar } from "@webiny/lexical-editor";
-import { RichTextEditorProps } from "@webiny/lexical-editor/types.js";
-import { CompositionScope } from "@webiny/react-composition";
-import { LexicalEditor } from "@webiny/app-admin/components/LexicalEditor/index.js";
+import { RichTextEditorProps } from "@webiny/lexical-editor/types";
+import { LexicalEditor } from "@webiny/app-admin/components/LexicalEditor";
 
 const placeholderStyles: React.CSSProperties = { position: "absolute", top: 40, left: 25 };
 
@@ -20,11 +19,7 @@ const styles: React.CSSProperties = {
     maxHeight: 350
 };
 
-const toolbar = (
-    <CompositionScope name={"cms"}>
-        <StaticToolbar />
-    </CompositionScope>
-);
+const toolbar = <StaticToolbar />;
 
 export const LexicalCmsEditor = (props: Omit<RichTextEditorProps, "theme">) => {
     const onChange = useCallback(

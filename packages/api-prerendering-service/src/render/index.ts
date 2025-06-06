@@ -1,7 +1,12 @@
 import renderUrl, { File } from "./renderUrl.js";
 import { join } from "path";
 import { S3, PutObjectCommandInput } from "@webiny/aws-sdk/client-s3";
-import { getStorageFolder, getRenderUrl, getIsNotFoundPage, isMultiTenancyEnabled } from "~/utils/index.js";
+import {
+    getStorageFolder,
+    getRenderUrl,
+    getIsNotFoundPage,
+    isMultiTenancyEnabled
+} from "~/utils/index.js";
 import { Context, HandlerPayload, RenderHookPlugin } from "./types.js";
 import { PrerenderingServiceStorageOperations, Render, TagPathLink } from "~/types.js";
 import omit from "lodash/omit.js";
@@ -56,7 +61,8 @@ export default (params: RenderParams) => {
             const settings = await storageOperations.getSettings();
 
             for (const args of handlerArgs) {
-                const { tenant, path, locale } = args;
+                const { tenant, path, locale, groupId } = args;
+                console.log("Rendering item", args);
 
                 const bucketRoot = isMultiTenant ? tenant : "";
 
@@ -118,6 +124,7 @@ export default (params: RenderParams) => {
                     tenant,
                     path,
                     locale,
+                    groupId: groupId ?? tenant,
                     tags: args.tags,
                     files: files.map(item => omit(item, ["body"]))
                 };

@@ -52,6 +52,12 @@ const parentIdField = () =>
         type: "text"
     });
 
+const pathField = () =>
+    createModelField({
+        label: "Path",
+        type: "text"
+    });
+
 const permissionsField = () =>
     createModelField({
         label: "Permissions",
@@ -104,12 +110,27 @@ const permissionsField = () =>
                             {
                                 label: "Public",
                                 value: "public"
+                            },
+                            {
+                                label: "No Access",
+                                value: "no-access"
                             }
                         ]
                     }
                 }
             ],
             layout: [["target"], ["level"]]
+        }
+    });
+
+const extensionsField = () =>
+    createModelField({
+        label: "Extensions",
+        fieldId: "extensions",
+        type: "object",
+        settings: {
+            layout: [],
+            fields: []
         }
     });
 
@@ -127,6 +148,14 @@ export const createFolderModel = () => {
             // flp: true
         },
         titleFieldId: "title",
-        fields: [titleField(), slugField(), typeField(), parentIdField(), permissionsField()]
+        fields: [
+            titleField(),
+            slugField(),
+            typeField(),
+            parentIdField(),
+            pathField(),
+            permissionsField(),
+            extensionsField()
+        ]
     });
 };

@@ -11,6 +11,11 @@ import { FolderAccessLevel, FolderLevelPermissionsTarget, FolderPermission } fro
 
 const TARGET_LEVELS = [
     {
+        id: "no-access",
+        label: "No Access",
+        description: "Cannot view or modify content"
+    },
+    {
         id: "viewer",
         label: "Viewer",
         description: "Can view content, but not modify it"
@@ -78,13 +83,19 @@ export const ListItemMeta = ({
         return TARGET_LEVELS.find(level => level.id === permission.level)!;
     }, [permission.level]);
 
-    const disabledReason = useMemo(() => {
+    const { isListDisabled, isRemovePermissionDisabled, tooltipMessage } = useMemo(() => {
+        let message = null;
+        let disabled = false;
+        let removePermissionDisabled = false;
+
         if (permission.inheritedFrom?.startsWith("parent:")) {
-            return "Inherited from parent folder.";
+            message = "Inherited from parent folder.";
+            disabled = false; // Still allow interaction, just inform user
+            removePermissionDisabled = true;
         }
 
         if (identity!.id === target.id) {
-            let message = "You can't change your own permissions.";
+            message = "You can't change your own permissions.";
             if (permission.inheritedFrom?.startsWith("team:")) {
                 const team = targetsList.find(t => t.target === permission.inheritedFrom);
                 message += " Access to this folder is managed by a team";
@@ -93,33 +104,38 @@ export const ListItemMeta = ({
                 }
                 message += ".";
             }
-            return message;
+            disabled = true;
+            removePermissionDisabled = true;
         }
 
-        return null;
-    }, [permission]);
+        return {
+            isListDisabled: disabled,
+            isRemovePermissionDisabled: removePermissionDisabled,
+            tooltipMessage: message
+        };
+    }, [permission, identity, target, targetsList]);
 
     const handle = useMemo(() => {
         let handle = (
-            <StyledHandle disabled={!!disabledReason}>
+            <StyledHandle disabled={isListDisabled}>
                 <Typography use="body1">{currentLevel.label}</Typography>
                 <More />
             </StyledHandle>
         );
 
-        if (disabledReason) {
-            handle = <Tooltip content={disabledReason}>{handle}</Tooltip>;
+        if (tooltipMessage) {
+            handle = <Tooltip content={tooltipMessage}>{handle}</Tooltip>;
         }
 
         return handle;
-    }, [disabledReason, currentLevel.label]);
+    }, [tooltipMessage, isListDisabled, currentLevel.label]);
 
     return (
         <UiListItemMeta>
             <ListActions>
                 <Menu
                     handle={handle}
-                    disabled={!!disabledReason}
+                    disabled={isListDisabled}
                     // Should prevent first item from being autofocused, but it doesn't. 🤷‍
                     focusOnOpen={false}
                     // This is needed because the z-index value is set in `packages/app-admin/src/components/Dialogs/styled.tsx`
@@ -134,6 +150,7 @@ export const ListItemMeta = ({
                                     onUpdatePermission({
                                         permission: {
                                             ...permission,
+                                            inheritedFrom: undefined, // Reset inherited permissions to allow user-defined changes
                                             level: level.id as FolderAccessLevel
                                         }
                                     });
@@ -150,8 +167,11 @@ export const ListItemMeta = ({
                         </StyledMenuItem>
                     ))}
                     <MenuDivider />
-                    <MenuItem onClick={() => onRemoveAccess({ permission })}>
-                        Remove access
+                    <MenuItem
+                        onClick={() => onRemoveAccess({ permission })}
+                        disabled={isRemovePermissionDisabled}
+                    >
+                        Remove permission
                     </MenuItem>
                 </Menu>
             </ListActions>

@@ -1,14 +1,13 @@
 import React, { useMemo } from "react";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { useGetFolderLevelPermission, useListFolders } from "~/features/index.js";
-import { CreateButton } from "./ButtonCreate/index.js";
-import { Empty } from "./Empty/index.js";
-import { Loader } from "./Loader/index.js";
-import { List } from "./List/index.js";
-import { Container } from "./styled.js";
-import { FolderItem } from "~/types.js";
-import { ROOT_FOLDER } from "~/constants.js";
-import { AcoWithConfig } from "~/config/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { useGetFolderHierarchy, useGetFolderLevelPermission } from "~/features";
+import { CreateButton } from "./ButtonCreate";
+import { Loader } from "./Loader";
+import { List } from "./List";
+import { Container } from "./styled";
+import { FolderItem } from "~/types";
+import { ROOT_FOLDER } from "~/constants";
+import { AcoWithConfig } from "~/config";
 
 export { Loader };
 
@@ -29,7 +28,7 @@ export const FolderTree = ({
     onFolderClick,
     rootFolderLabel
 }: FolderTreeProps) => {
-    const { loading, folders } = useListFolders();
+    const { folders, getIsFolderLoading } = useGetFolderHierarchy();
     const { getFolderLevelPermission: canManageStructure } =
         useGetFolderLevelPermission("canManageStructure");
 
@@ -47,7 +46,7 @@ export const FolderTree = ({
     }, [folders]);
 
     const renderList = () => {
-        if (loading.INIT || loading.LIST) {
+        if (getIsFolderLoading()) {
             return <Loader />;
         }
 
@@ -66,26 +65,17 @@ export const FolderTree = ({
             }
         }
 
-        if (localFolders.length > 0) {
-            return (
-                <AcoWithConfig>
-                    <List
-                        folders={localFolders}
-                        onFolderClick={onFolderClick}
-                        focusedFolderId={focusedFolderId}
-                        hiddenFolderIds={hiddenFolderIds}
-                        enableActions={enableActions}
-                    />
-                    {enableCreate && createButton}
-                </AcoWithConfig>
-            );
-        }
-
         return (
-            <>
-                <Empty />
-                {createButton}
-            </>
+            <AcoWithConfig>
+                <List
+                    folders={localFolders}
+                    onFolderClick={onFolderClick}
+                    focusedFolderId={focusedFolderId}
+                    hiddenFolderIds={hiddenFolderIds}
+                    enableActions={enableActions}
+                />
+                {enableCreate && createButton}
+            </AcoWithConfig>
         );
     };
     return <Container>{renderList()}</Container>;

@@ -1,23 +1,23 @@
 import React, { useEffect, useCallback, useState } from "react";
-import get from "lodash/get.js";
+import get from "lodash/get";
 import { useApolloClient } from "@apollo/react-hooks";
 import { plugins } from "@webiny/plugins";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import SaveDialog from "./SaveDialog.js";
-import createElementPlugin from "~/admin/utils/createElementPlugin.js";
-import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
-import { CREATE_PAGE_ELEMENT } from "~/admin/graphql/pages.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import SaveDialog from "./SaveDialog";
+import createElementPlugin from "~/admin/utils/createElementPlugin";
+import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
+import { CREATE_PAGE_ELEMENT } from "~/admin/graphql/pages";
 import {
     PbEditorPageElementPlugin,
     PbEditorPageElementSaveActionPlugin,
     PbEditorElement as BasePbEditorElement,
     PbElement,
     PbEditorElement
-} from "~/types.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { removeElementId } from "~/editor/helpers.js";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
+} from "~/types";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { addElementId, removeElementId } from "~/editor/helpers";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
 
 interface PbEditorElementWithSource extends PbEditorElement {
     source: string;
@@ -58,10 +58,12 @@ const SaveAction = ({ children }: { children: React.ReactElement }) => {
 
     const onSubmit = async (formData: SaveElementFormData | SaveBlockFormData) => {
         const pbElement = (await getElementTree({ element })) as PbElement;
-        const newContent = pluginOnSave(removeElementId(pbElement));
 
         if (formData.type === "block") {
-            // We can create a new block, or update an existing one.
+            // We need to create new element IDs when saving a block.
+            const newContent = pluginOnSave(addElementId(pbElement));
+
+            // We can create a new block or update an existing one.
             try {
                 if (formData.overwrite) {
                     await updateBlock({
@@ -89,6 +91,9 @@ const SaveAction = ({ children }: { children: React.ReactElement }) => {
                 </span>
             );
         } else {
+            // When saving a simple element, we remove all element IDs.
+            const newContent = pluginOnSave(removeElementId(pbElement));
+
             const { data: res } = await client.mutate({
                 mutation: CREATE_PAGE_ELEMENT,
                 variables: {

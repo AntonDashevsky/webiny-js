@@ -1,9 +1,11 @@
-import { buildApp } from "./buildApp.js";
-import { prepareOptions } from "../../utils.js";
+module.exports = config => async options => {
+    const { prepareOptions } = require("../../utils");
+    const { applyDefaults } = require("./utils");
+    const { AppBundler } = require("./bundlers/AppBundler");
 
-export const createBuildApp = config => async options => {
+    applyDefaults();
     const preparedOptions = prepareOptions({ config, options });
-    return buildApp(preparedOptions);
-};
+    const bundler = new AppBundler(preparedOptions);
 
-export default createBuildApp;
+    return bundler.build();
+};

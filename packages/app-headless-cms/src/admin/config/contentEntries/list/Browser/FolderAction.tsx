@@ -1,11 +1,10 @@
 import React from "react";
-import { CompositionScope } from "@webiny/react-composition";
-import { AcoConfig, type FolderActionConfig } from "@webiny/app-aco";
-import { useModel } from "~/admin/hooks/index.js";
+import { AcoConfig, FolderActionConfig } from "@webiny/app-aco";
+import { useModel } from "~/admin/hooks";
 
 const { Folder } = AcoConfig;
 
-export type { FolderActionConfig };
+export { FolderActionConfig };
 
 export interface FolderActionProps extends React.ComponentProps<typeof AcoConfig.Folder.Action> {
     modelIds?: string[];
@@ -19,11 +18,9 @@ const BaseFolderAction = ({ modelIds = [], ...props }: FolderActionProps) => {
     }
 
     return (
-        <CompositionScope name={"cms"}>
-            <AcoConfig>
-                <Folder.Action {...props} />
-            </AcoConfig>
-        </CompositionScope>
+        <AcoConfig>
+            <Folder.Action {...props} />
+        </AcoConfig>
     );
 };
 

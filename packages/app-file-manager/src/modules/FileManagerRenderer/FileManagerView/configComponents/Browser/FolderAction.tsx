@@ -1,20 +1,17 @@
 import React from "react";
-import { CompositionScope } from "@webiny/react-composition";
-import { AcoConfig, type FolderActionConfig } from "@webiny/app-aco";
+import { AcoConfig, FolderActionConfig } from "@webiny/app-aco";
 
 const { Folder } = AcoConfig;
 
-export type { FolderActionConfig };
+export { FolderActionConfig };
 
 type FolderActionProps = React.ComponentProps<typeof AcoConfig.Folder.Action>;
 
 const BaseFolderAction = (props: FolderActionProps) => {
     return (
-        <CompositionScope name={"fm"}>
-            <AcoConfig>
-                <Folder.Action {...props} />
-            </AcoConfig>
-        </CompositionScope>
+        <AcoConfig>
+            <Folder.Action {...props} />
+        </AcoConfig>
     );
 };
 

@@ -1,16 +1,18 @@
 import { createWebsitePulumiApp, CreateWebsitePulumiAppParams } from "@webiny/pulumi-aws";
-import { PluginCollection } from "@webiny/plugins/types.js";
+import { PluginCollection } from "@webiny/plugins/types";
 import {
     generateCommonHandlers,
     lambdaEdgeWarning,
     renderWebsite,
-    telemetryNoLongerNewUser
-} from "./website/plugins/index.js";
-import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed.js";
+    telemetryNoLongerNewUser,
+    IRenderWebsiteParams
+} from "./website/plugins";
+import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed";
 
-import { uploadAppToS3 } from "./react/plugins/index.js";
+import { uploadAppToS3 } from "./react/plugins";
 
 export interface CreateWebsiteAppParams extends CreateWebsitePulumiAppParams {
+    renderWebsiteAfterDeploy?: (params: IRenderWebsiteParams) => boolean;
     plugins?: PluginCollection;
 }
 
@@ -19,7 +21,7 @@ export function createWebsiteApp(projectAppParams: CreateWebsiteAppParams = {}) 
         uploadAppToS3({ folder: "apps/website" }),
         generateCommonHandlers,
         lambdaEdgeWarning,
-        renderWebsite,
+        renderWebsite({ prerender: projectAppParams.renderWebsiteAfterDeploy ?? (() => true) }),
         telemetryNoLongerNewUser,
         ...createEnsureApiDeployedPlugins("website")
     ];

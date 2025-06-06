@@ -1,20 +1,23 @@
 import React from "react";
-import { AddTranslatableItemsContext } from "./AddTranslatableItemsContext.js";
-import { SaveTranslatableValues } from "~/translations/ExtractTranslatableValues/SaveTranslatableValues.js";
-import { PageEditorConfig } from "~/pageEditor/index.js";
+import { AddTranslatableItemsContext } from "./AddTranslatableItemsContext";
+import { SaveTranslatableValues } from "~/translations/ExtractTranslatableValues/SaveTranslatableValues";
+import { PageEditorConfig } from "~/pageEditor";
 import {
     createElementRendererInputsDecorator,
-    CreateTranslatableItem
-} from "~/translations/ExtractTranslatableValues/CollectElementValues.js";
+    CreateTranslatableItems,
+    NewTranslatableItem
+} from "~/translations/ExtractTranslatableValues/CollectElementValues";
 
-interface ExtractTranslatableValuesProps {
-    createTranslatableItem: CreateTranslatableItem;
+export interface ExtractTranslatableValuesProps {
+    createTranslatableItems: CreateTranslatableItems;
 }
 
+export type { NewTranslatableItem, CreateTranslatableItems };
+
 export const ExtractTranslatableValues = ({
-    createTranslatableItem
+    createTranslatableItems
 }: ExtractTranslatableValuesProps) => {
-    const CollectElementValues = createElementRendererInputsDecorator(createTranslatableItem);
+    const CollectElementValues = createElementRendererInputsDecorator(createTranslatableItems);
 
     return (
         <>

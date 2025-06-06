@@ -1,27 +1,24 @@
-import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters/index.js";
-import formElasticsearchFields from "./operations/form/elasticsearchFields.js";
-import submissionElasticsearchFields from "./operations/submission/elasticsearchFields.js";
+import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters";
+import formElasticsearchFields from "./operations/form/elasticsearchFields";
+import submissionElasticsearchFields from "./operations/submission/elasticsearchFields";
 import WebinyError from "@webiny/error";
-import { ENTITIES, FormBuilderStorageOperationsFactory } from "~/types.js";
-import { createTable } from "~/definitions/table.js";
-import { createFormEntity } from "~/definitions/form.js";
-import { createSubmissionEntity } from "~/definitions/submission.js";
-import { createSystemEntity } from "~/definitions/system.js";
-import { createSettingsEntity } from "~/definitions/settings.js";
-import { createSystemStorageOperations } from "~/operations/system/index.js";
-import { createSubmissionStorageOperations } from "~/operations/submission/index.js";
-import { createSettingsStorageOperations } from "~/operations/settings/index.js";
-import { createFormStorageOperations } from "~/operations/form/index.js";
-import { createElasticsearchTable } from "~/definitions/tableElasticsearch.js";
+import { ENTITIES, FormBuilderStorageOperationsFactory } from "~/types";
+import { createTable } from "~/definitions/table";
+import { createFormEntity } from "~/definitions/form";
+import { createSubmissionEntity } from "~/definitions/submission";
+import { createSystemEntity } from "~/definitions/system";
+import { createSettingsEntity } from "~/definitions/settings";
+import { createSystemStorageOperations } from "~/operations/system";
+import { createSubmissionStorageOperations } from "~/operations/submission";
+import { createSettingsStorageOperations } from "~/operations/settings";
+import { createFormStorageOperations } from "~/operations/form";
+import { createElasticsearchTable } from "~/definitions/tableElasticsearch";
 import { PluginsContainer } from "@webiny/plugins";
-import { createElasticsearchEntity } from "~/definitions/elasticsearch.js";
-import {
-    CompressionPlugin,
-    ElasticsearchQueryBuilderOperatorPlugin
-} from "@webiny/api-elasticsearch";
-import { elasticsearchIndexPlugins } from "~/elasticsearch/indices/index.js";
-import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex.js";
-import { FormBuilderContext } from "@webiny/api-form-builder/types.js";
+import { createElasticsearchEntity } from "~/definitions/elasticsearch";
+import { ElasticsearchQueryBuilderOperatorPlugin } from "@webiny/api-elasticsearch";
+import { elasticsearchIndexPlugins } from "~/elasticsearch/indices";
+import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex";
+import { FormBuilderContext } from "@webiny/api-form-builder/types";
 import {
     FormDynamoDbFieldPlugin,
     FormElasticsearchBodyModifierPlugin,
@@ -33,8 +30,9 @@ import {
     SubmissionElasticsearchFieldPlugin,
     SubmissionElasticsearchQueryModifierPlugin,
     SubmissionElasticsearchSortModifierPlugin
-} from "~/plugins/index.js";
-import { createIndexTaskPlugin } from "~/tasks/createIndexTaskPlugin.js";
+} from "~/plugins";
+import { createIndexTaskPlugin } from "~/tasks/createIndexTaskPlugin";
+import { CompressorPlugin } from "@webiny/api";
 
 const reservedFields = ["PK", "SK", "index", "data", "TYPE", "__type", "GSI1_PK", "GSI1_SK"];
 
@@ -47,7 +45,7 @@ const isReserved = (name: string): void => {
     });
 };
 
-export * from "./plugins/index.js";
+export * from "./plugins";
 
 export const createFormBuilderStorageOperations: FormBuilderStorageOperationsFactory = params => {
     const {
@@ -161,8 +159,6 @@ export const createFormBuilderStorageOperations: FormBuilderStorageOperationsFac
             });
 
             const types: string[] = [
-                // Elasticsearch
-                CompressionPlugin.type,
                 ElasticsearchQueryBuilderOperatorPlugin.type,
                 // Form Builder
                 FormDynamoDbFieldPlugin.type,
@@ -174,7 +170,8 @@ export const createFormBuilderStorageOperations: FormBuilderStorageOperationsFac
                 SubmissionElasticsearchBodyModifierPlugin.type,
                 SubmissionElasticsearchFieldPlugin.type,
                 SubmissionElasticsearchQueryModifierPlugin.type,
-                SubmissionElasticsearchSortModifierPlugin.type
+                SubmissionElasticsearchSortModifierPlugin.type,
+                CompressorPlugin.type
             ];
             for (const type of types) {
                 plugins.mergeByType(context.plugins, type);

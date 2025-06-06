@@ -1,3 +1,4 @@
-export * from "~/commands/image.js";
-export * from "~/commands/list.js";
-export * from "~/commands/quote.js";
+export * from "~/commands/image";
+export * from "~/commands/list";
+export * from "~/commands/quote";
+export * from "~/commands/toolbar";

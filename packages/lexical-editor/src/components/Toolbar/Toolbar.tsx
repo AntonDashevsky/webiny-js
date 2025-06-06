@@ -9,12 +9,13 @@ import {
 import { createPortal } from "react-dom";
 import { mergeRegister } from "@lexical/utils";
 import "./Toolbar.css";
-import { getDOMRangeRect } from "~/utils/getDOMRangeRect.js";
-import { setFloatingElemPosition } from "~/utils/setFloatingElemPosition.js";
-import { useLexicalEditorConfig } from "~/components/LexicalEditorConfig/LexicalEditorConfig.js";
-import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection.js";
-import { useRichTextEditor } from "~/hooks/index.js";
-import { isChildOfFloatingToolbar } from "~/utils/isChildOfFloatingToolbar.js";
+import { getDOMRangeRect } from "~/utils/getDOMRangeRect";
+import { setFloatingElemPosition } from "~/utils/setFloatingElemPosition";
+import { useLexicalEditorConfig } from "~/components/LexicalEditorConfig/LexicalEditorConfig";
+import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection";
+import { useRichTextEditor } from "~/hooks";
+import { isChildOfFloatingToolbar } from "~/utils/isChildOfFloatingToolbar";
+import { HIDE_FLOATING_TOOLBAR } from "~/commands";
 
 interface FloatingToolbarProps {
     anchorElem: HTMLElement;
@@ -126,6 +127,17 @@ const FloatingToolbar: FC<FloatingToolbarProps> = ({ anchorElem, editor }) => {
                     updateTextFormatFloatingToolbar();
                 });
             }),
+
+            editor.registerCommand(
+                HIDE_FLOATING_TOOLBAR,
+                () => {
+                    setTimeout(() => {
+                        setIsVisible(false);
+                    }, 10);
+                    return true;
+                },
+                COMMAND_PRIORITY_LOW
+            ),
 
             editor.registerCommand(
                 SELECTION_CHANGE_COMMAND,

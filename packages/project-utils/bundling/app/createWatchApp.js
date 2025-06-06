@@ -1,9 +1,11 @@
-import { watchApp } from "./watchApp.js";
-import { prepareOptions } from "../../utils.js";
+module.exports = config => async options => {
+    const { prepareOptions } = require("../../utils");
+    const { applyDefaults } = require("./utils");
+    const { AppBundler } = require("./bundlers/AppBundler");
 
-export const createWatchApp = config => async options => {
+    applyDefaults();
     const preparedOptions = prepareOptions({ config, options });
-    return watchApp(preparedOptions);
-};
+    const bundler = new AppBundler(preparedOptions);
 
-export default createWatchApp;
+    return bundler.watch();
+};

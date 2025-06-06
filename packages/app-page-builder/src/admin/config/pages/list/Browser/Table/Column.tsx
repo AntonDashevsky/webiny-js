@@ -1,21 +1,18 @@
 import React from "react";
-import { CompositionScope } from "@webiny/react-composition";
-import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import { TableItem } from "~/types.js";
+import { AcoConfig, TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
+import { TableItem } from "~/types";
 
 const { Table } = AcoConfig;
 
-export type { ColumnConfig };
+export { ColumnConfig };
 
 type ColumnProps = React.ComponentProps<typeof AcoConfig.Table.Column>;
 
-const BaseColumn = (props: ColumnProps) => {
+const BaseColumn: React.FC<ColumnProps> = props => {
     return (
-        <CompositionScope name={"pb.page"}>
-            <AcoConfig>
-                <Table.Column {...props} />
-            </AcoConfig>
-        </CompositionScope>
+        <AcoConfig>
+            <Table.Column {...props} />
+        </AcoConfig>
     );
 };
 
@@ -23,3 +20,5 @@ export const Column = Object.assign(BaseColumn, {
     useTableRow: Table.Column.createUseTableRow<TableItem>(),
     isFolderRow: Table.Column.isFolderRow
 });
+
+Column["displayName"] = "Column";

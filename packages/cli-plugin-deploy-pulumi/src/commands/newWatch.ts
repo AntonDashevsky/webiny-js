@@ -5,7 +5,12 @@ import { getProject, getProjectApplication } from "@webiny/cli/utils/index.js";
 import get from "lodash/get.js";
 import merge from "lodash/merge.js";
 import type inspectorType from "inspector";
-import { getDeploymentId, loadEnvVariables, runHook, setMustRefreshBeforeDeploy } from "~/utils/index.js";
+import {
+    getDeploymentId,
+    loadEnvVariables,
+    runHook,
+    setMustRefreshBeforeDeploy
+} from "~/utils/index.js";
 import { getIotEndpoint } from "./newWatch/getIotEndpoint.js";
 import { listLambdaFunctions } from "./newWatch/listLambdaFunctions.js";
 import { listPackages } from "./newWatch/listPackages.js";
@@ -181,6 +186,7 @@ export const newWatch = async (inputs: IUserCommandInput, context: Context) => {
     });
     const sessionId = new Date().getTime();
     const increaseTimeout = inputs.increaseTimeout;
+    const localExecutionHandshakeTimeout = inputs.increaseHandshakeTimeout || 5; // Default to 5 seconds.
 
     // We want to ensure a Pulumi refresh is made before the next deploy.
     setMustRefreshBeforeDeploy(context);
@@ -196,7 +202,8 @@ export const newWatch = async (inputs: IUserCommandInput, context: Context) => {
         iotEndpointTopic,
         sessionId,
         functionsList,
-        increaseTimeout
+        increaseTimeout,
+        localExecutionHandshakeTimeout
     });
 
     let inspector: typeof inspectorType | undefined = undefined;
