@@ -4,15 +4,14 @@ import React from "react";
  */
 // eslint-disable-next-line react/no-deprecated
 import { render } from "react-dom";
-import ErrorOverlay from "./ErrorOverlay";
-import { ServerError, ServerParseError } from "apollo-link-http-common";
 
 interface CreateErrorOverlayParams {
-    query: string;
-    networkError: Error | ServerError | ServerParseError;
+    element: React.ReactElement;
+    closeable?: boolean;
 }
+
 const createErrorOverlay = (params: CreateErrorOverlayParams): void => {
-    const { query, networkError } = params;
+    const { element } = params;
     // If the element already present in DOM, return immediately.
     if (document.getElementById("overlay-root")) {
         return;
@@ -24,7 +23,7 @@ const createErrorOverlay = (params: CreateErrorOverlayParams): void => {
     const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
     body.appendChild(container);
     // Mount the ErrorOverlay component into root element.
-    render(<ErrorOverlay query={query} networkError={networkError} />, container);
+    render(element, container);
 };
 
 export default createErrorOverlay;
