@@ -8,6 +8,7 @@ import { createModel } from "../../helpers/createModel";
 import { createFields } from "~/operations/entry/filtering/createFields";
 import { filter } from "~/operations/entry/filtering";
 import { getSearchableFields } from "@webiny/api-headless-cms/crud/contentEntry/searchableFields";
+import { searchableJsonFilterCreate } from "~/operations/entry/filtering/plugins/searchableJsonFilterCreate";
 
 describe("filtering", () => {
     let plugins: PluginsContainer;
@@ -15,7 +16,7 @@ describe("filtering", () => {
     let fields: Record<string, Field>;
 
     beforeEach(() => {
-        plugins = createPluginsContainer();
+        plugins = createPluginsContainer([searchableJsonFilterCreate()]);
         model = createModel();
         fields = createFields({
             plugins,
@@ -416,5 +417,45 @@ describe("filtering", () => {
             }
         });
         expect(resultsRed).toHaveLength(3);
+    });
+
+    it("should filter by nested keys in a JSON", async () => {
+        const records = createEntries(10);
+
+        const singleResult = filter({
+            items: records,
+            where: {
+                settings: {
+                    general: {
+                        title: "Settings title #3"
+                    }
+                }
+            },
+            plugins,
+            fields
+        });
+
+        expect(singleResult).toHaveLength(1);
+
+        expect(singleResult[0]).toMatchObject({
+            values: {
+                title: `Title modeled entry ${String(3).padStart(5, "t")}`
+            }
+        });
+
+        const multipleResults = filter({
+            items: records,
+            where: {
+                settings: {
+                    general: {
+                        title_startsWith: "Settings title"
+                    }
+                }
+            },
+            plugins,
+            fields
+        });
+
+        expect(multipleResults).toHaveLength(10);
     });
 });

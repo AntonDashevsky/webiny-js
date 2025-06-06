@@ -10,6 +10,7 @@ import { createObjectField } from "./object";
 import { createDynamicZoneField } from "~/graphqlFields/dynamicZone";
 import { CmsModelFieldToGraphQLPlugin } from "~/types";
 import { createJsonField } from "~/graphqlFields/json";
+import { createSearchableJsonField } from "~/graphqlFields/searchableJson";
 
 export const createGraphQLFields = (): CmsModelFieldToGraphQLPlugin<any>[] => [
     createTextField(),
@@ -20,6 +21,7 @@ export const createGraphQLFields = (): CmsModelFieldToGraphQLPlugin<any>[] => [
     createLongTextField(),
     createRichTextField(),
     createJsonField(),
+    createSearchableJsonField(),
     createFileField(),
     createObjectField(),
     createDynamicZoneField()

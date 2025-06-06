@@ -91,7 +91,12 @@ export const createEntry = (index = 0) => {
                         number: index
                     }
                 }
-            ]
+            ],
+            settings: {
+                general: {
+                    title: `Settings title #${index}`
+                }
+            }
         }
     } as unknown as CmsEntry<Values>;
 };
