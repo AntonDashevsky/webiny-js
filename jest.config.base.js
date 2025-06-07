@@ -27,7 +27,7 @@ export default async ({ path }, presets = []) => {
 
     const tsEsmPreset = createJsWithTsEsmPreset({
         isolatedModules: true,
-        diagnostics: false,
+        diagnostics: false
     });
 
     const merged = merge.all([

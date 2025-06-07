@@ -1,7 +1,6 @@
 import "tsx";
-import fs from "fs";
+import fs from "fs-extra";
 import path from "path";
-import findUp from "find-up";
 import chalk from "chalk";
 import * as dotenv from "dotenv";
 
@@ -58,17 +57,75 @@ const getPackageJestSetup = async pkg => {
     return await importConfig(setupPath);
 };
 
-const getPackageNameFromPath = value => {
-    if (!value.includes(".") && !value.includes("/")) {
-        return value;
+const getPackageMetaFromPackageJson = pkgJson => {
+    return {
+        packageName: pkgJson.getJson().name,
+        packageRoot: path.dirname(pkgJson.getLocation())
+    };
+};
+
+const getPackageMetaFromPath = async value => {
+    const { PackageJson } = await import("@webiny/cli/utils/PackageJson.js");
+
+    // The exact test file path usually happens when we run tests via IDE.
+    const request = path.resolve(value);
+
+    if (fs.existsSync(request)) {
+        const pkgJson = await PackageJson.findClosest(request);
+        const stat = fs.lstatSync(request);
+
+        const testMatch = stat.isFile() ? [request] : [`${request}/**/*.test.[jt]s?(x)`];
+
+        return { ...getPackageMetaFromPackageJson(pkgJson), testMatch };
     }
-    const packageJson = findUp.sync("package.json", {
-        cwd: value.includes(".") ? path.dirname(value) : value
-    });
-    return path.dirname(packageJson).split("/").pop();
+
+    // `yarn test api-headless-cms`
+    if (!value.includes(".") && !value.includes("/")) {
+        // Means we're testing a package from `packages` folder.
+        const request = path.resolve("packages", value);
+        const pkgJson = await PackageJson.findClosest(request);
+
+        return {
+            ...getPackageMetaFromPackageJson(pkgJson),
+            testMatch: [`${request}/**/*.test.[jt]s?(x)`]
+        };
+    }
+
+    // For all other use cases, we simply assume it's a relative path from project root.
+    //E.g., packages/validation, scripts/cjsToEsm
+    const pkgJson = await PackageJson.findClosest(request);
+    return {
+        ...getPackageMetaFromPackageJson(pkgJson),
+        testMatch: [`${request}/**/*.test.[jt]s?(x)`]
+    };
+};
+
+const getPackageMeta = async () => {
+    const argv = process.argv;
+    // This parameter is used by Webstorm, when running a particular test file.
+    const jestConfigJs = process.argv.findIndex(arg => arg === "jest.config.js");
+    const runByPath = process.argv.findIndex(arg => arg === "--runTestsByPath");
+    const isIntellij = process.argv.some(param => param.endsWith("jest-intellij-reporter.js"));
+
+    if (jestConfigJs > -1) {
+        return getPackageMetaFromPath(process.argv[jestConfigJs + 1]);
+    }
+
+    if (runByPath > -1) {
+        // Find the package this test file belongs to.
+        return getPackageMetaFromPath(process.argv[runByPath + 1]);
+    }
+
+    if (isIntellij) {
+        const target = process.argv.find(param => param.includes("/packages/"));
+        return getPackageMetaFromPath(target);
+    }
+
+    throw new Error(`Unable to parse package to test!`, argv.slice(1));
 };
 
 export default async () => {
+    const argv = process.argv;
     // Sanitize ElasticsearchPrefix
     const esIndexPrefix = sanitizeEsIndexName(process.env.ELASTIC_SEARCH_INDEX_PREFIX);
 
@@ -93,44 +150,25 @@ export default async () => {
         );
     }
 
-    const jestConfig = process.argv.findIndex(arg => arg.endsWith("jest.config.js"));
-    // This parameter is used by Webstorm, when running a particular test file.
-    const runByPath = process.argv.findIndex(arg => arg === "--runTestsByPath");
-    const isIntellij = process.argv.some(param => param.endsWith("jest-intellij-reporter.js"));
+    const packageMeta = await getPackageMeta();
 
-    let packageName = "";
-    if (jestConfig > -1) {
-        packageName = getPackageNameFromPath(process.argv[jestConfig + 1]);
-    } else if (runByPath > -1) {
-        // Find the package this test file belongs to.
-        packageName = getPackageNameFromPath(process.argv[runByPath + 1]);
-    } else if (isIntellij) {
-        const target = process.argv.find(param => param.includes("/packages/"));
-        packageName = getPackageNameFromPath(target);
-    }
-
-    if (packageName.includes("packages")) {
-        packageName = path.resolve(packageName);
-    } else {
-        packageName = path.resolve("packages", packageName);
-    }
-
-    const packageRoot = packageName.replace(/\\/g, "/");
-
-    const hasConfig = hasPackageJestConfig(packageRoot);
-    const setup = await getPackageJestSetup(packageRoot);
+    const hasConfig = hasPackageJestConfig(packageMeta.packageRoot);
+    const setup = await getPackageJestSetup(packageMeta.packageRoot);
 
     if (!hasConfig && !setup) {
-        throw new Error(`${packageName} is missing a jest.config.js or a jest.setup.js file!`);
+        throw new Error(
+            `${packageMeta.packageName} is missing a jest.config.js or a jest.setup.js file!`
+        );
     }
 
     const project = hasConfig
-        ? await importConfig(createPackageJestConfigPath(packageRoot))
+        ? await importConfig(createPackageJestConfigPath(packageMeta.packageRoot))
         : setup;
 
-    if (runByPath > -1) {
-        project.testMatch = [process.argv[runByPath + 1]];
-    }
+    project.rootDir = process.cwd();
+    project.testMatch = packageMeta.testMatch.map(match => {
+        return match.replace(process.cwd(), "<rootDir>");
+    });
 
     return {
         projects: [project],
