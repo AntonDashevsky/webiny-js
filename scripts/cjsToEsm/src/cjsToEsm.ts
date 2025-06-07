@@ -1,9 +1,11 @@
 import * as fs from "fs";
 import * as path from "path";
-import { Project, type SourceFile } from "ts-morph";
+import { Project, type SourceFile, SyntaxKind, StringLiteral } from "ts-morph";
 import findUp from "find-up";
 import { getFilesUsingGlob } from "./getFilesUsingGlob.js";
 import { PackageJson } from "./PackageJson.js";
+import { convertTypeOnlyImports } from "./convertTypeOnlyImports";
+import { getPackages } from "./getPackages";
 
 // Function to check if a path is a directory
 const isDirectory = (filePath: string): boolean => {
@@ -78,11 +80,11 @@ class LocalImportPath {
 
         if (isDirectory(absImportRequest)) {
             // Ensure directory imports use "index.js"
-            return importPath + "/index.js";
+            return !importPath.endsWith("/index.js") ? `${importPath}/index.js` : importPath;
         }
 
         // Ensure module imports use ".js"
-        return importPath + ".js";
+        return importPath.endsWith(".js") ? importPath : `${importPath}.js`;
     }
 }
 
@@ -188,20 +190,66 @@ async function updateImports(sourceFile: SourceFile, sourceRoot: string) {
             declaration.setModuleSpecifier(await packagePath.resolve(importPath));
         }
     }
+
+    // Handle dynamic import(...) expressions using ts-morph
+    const importCalls = sourceFile.getDescendantsOfKind(SyntaxKind.ImportKeyword);
+
+    for (const importCall of importCalls) {
+        const callExpression = importCall.getFirstAncestorByKind(SyntaxKind.CallExpression);
+        if (!callExpression) {
+            continue;
+        }
+
+        const [arg] = callExpression.getArguments();
+
+        // Only handle string literals
+        if (!arg || !arg.compilerNode || arg.getKind() !== SyntaxKind.StringLiteral) {
+            continue;
+        }
+
+        const literalArg = arg as StringLiteral;
+        const importPath = literalArg.getLiteralText();
+
+        if (!importPath) {
+            continue;
+        }
+
+        let resolvedPath: string;
+
+        if (
+            importPath.startsWith("../") ||
+            importPath.startsWith("./") ||
+            importPath.startsWith("~/")
+        ) {
+            resolvedPath = localPath.resolve(importPath);
+        } else {
+            resolvedPath = await packagePath.resolve(importPath);
+        }
+
+        // Replace only the string value, keeping webpack comments if any
+        literalArg.replaceWithText(`"${resolvedPath}"`);
+    }
 }
 
 /**
  * Main function to process all files in the root directory
  */
-export async function cjsToEsm(rootDir: string) {
+export async function cjsToEsm(rootDir?: string) {
     const project = new Project();
 
     // Get all .js, .ts, and .tsx files in the directory using glob
-    const files = getFilesUsingGlob(rootDir).sort();
+    const files = rootDir
+        ? getFilesUsingGlob(rootDir).sort()
+        : getFilesUsingGlob(await getPackages());
+
+    const sourceFiles = project.addSourceFilesAtPaths(files);
 
     // Add each file to the ts-morph project and process it
-    for (const filePath of files) {
-        const sourceFile = project.addSourceFileAtPath(filePath);
+    console.log("Converting CJS to ESM...");
+    for (const sourceFile of sourceFiles) {
+        const filePath = sourceFile.getFilePath();
+        console.log(filePath);
+
         const closestPackageJson = findUp.sync("package.json", {
             cwd: path.dirname(filePath)
         })!;
@@ -212,6 +260,7 @@ export async function cjsToEsm(rootDir: string) {
 
         try {
             await updateImports(sourceFile, sourceRoot);
+            await convertTypeOnlyImports(sourceFile);
         } catch (err) {
             console.error("Error transforming file", filePath);
             console.error(err);
