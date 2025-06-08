@@ -1,7 +1,7 @@
-module.exports = config => async options => {
-    const { prepareOptions } = require("../../utils");
-    const { applyDefaults } = require("./utils");
-    const { AppBundler } = require("./bundlers/AppBundler");
+export const createBuildApp = config => async options => {
+    const { prepareOptions } = await import("../../utils.js");
+    const { applyDefaults } = await import("./utils.js");
+    const { AppBundler } = await import("./bundlers/AppBundler.js");
 
     applyDefaults();
     const preparedOptions = prepareOptions({ config, options });

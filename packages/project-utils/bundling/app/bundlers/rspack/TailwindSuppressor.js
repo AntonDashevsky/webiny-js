@@ -1,4 +1,4 @@
-module.exports = class TailwindSuppressor {
+export class TailwindSuppressor {
     twMessages = ["Source path:", "Setting up new context", "Active contexts", "Potential classes"];
     originalLog = console.log;
     originalTime = console.time;
@@ -36,4 +36,4 @@ module.exports = class TailwindSuppressor {
         console.time = this.originalTime;
         console.timeEnd = this.originalTimeEnd;
     }
-};
+}

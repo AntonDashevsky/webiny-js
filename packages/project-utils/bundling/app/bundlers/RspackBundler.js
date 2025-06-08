@@ -1,13 +1,14 @@
-const path = require("path");
-const fs = require("fs-extra");
-const rspack = require("@rspack/core");
-const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
-const { BaseAppBundler } = require("./BaseAppBundler");
-const { createRspackConfig } = require("./rspack/createRspackConfig");
-const { getProjectApplication } = require("@webiny/cli/utils");
-const TailwindSuppressor = require("./rspack/TailwindSuppressor");
+import path from "path";
+import fs from "fs-extra";
+import { rspack } from "@rspack/core";
+import formatWebpackMessages from "react-dev-utils/formatWebpackMessages.js";
+import { getProjectApplication } from "@webiny/cli/utils";
+import { BaseAppBundler } from "./BaseAppBundler.js";
+import { createRspackConfig } from "./rspack/createRspackConfig.js";
+import { TailwindSuppressor } from "./rspack/TailwindSuppressor.js";
+import createPaths from "./webpack/config/paths.js";
 
-class RspackBundler extends BaseAppBundler {
+export class RspackBundler extends BaseAppBundler {
     constructor(params) {
         super();
         this.params = params;
@@ -15,7 +16,7 @@ class RspackBundler extends BaseAppBundler {
 
         const { cwd, overrides } = params;
         const appIndexJs = overrides.entry || path.resolve(cwd, "src", "index.tsx");
-        this.paths = require("./webpack/config/paths")({ appIndexJs, cwd });
+        this.paths = createPaths({ appIndexJs, cwd });
     }
 
     build() {
@@ -24,12 +25,12 @@ class RspackBundler extends BaseAppBundler {
         process.env.NODE_ENV = "production";
 
         return new Promise(async (resolve, reject) => {
-            const rspackConfig = this.getRspackConfig("production");
-
+            const rspackConfig = await this.getRspackConfig("production");
             const compiler = rspack(rspackConfig);
 
             this.emptyBuildDir();
-            return compiler.run(async (err, stats) => {
+
+            compiler.run((err, stats) => {
                 this.tailwindSuppressor.disable();
 
                 let messages = {};
@@ -56,16 +57,13 @@ class RspackBundler extends BaseAppBundler {
                 }
 
                 if (Array.isArray(messages.errors) && messages.errors.length) {
-                    // Only keep the first error. Others are often indicative
-                    // of the same problem, but confuse the reader with noise.
                     if (messages.errors.length > 1) {
                         messages.errors.length = 1;
                     }
 
                     const errorMessages = messages.errors.join("\n\n");
                     console.error(errorMessages);
-                    reject(new Error(errorMessages));
-                    return;
+                    return reject(new Error(errorMessages));
                 }
 
                 console.log("Compiled successfully.");
@@ -85,10 +83,9 @@ class RspackBundler extends BaseAppBundler {
         process.env.ESLINT_NO_UNUSED_VARS = "0";
 
         const rspackConfig = this.getRspackConfig("development");
-        const RspackDevServer = require("./rspack/RspackDevServer");
-
         const compiler = rspack(rspackConfig);
 
+        const { RspackDevServer } = await import("./rspack/RspackDevServer.js");
         const devServer = new RspackDevServer(compiler, { paths: this.paths });
 
         this.emptyBuildDir();
@@ -96,25 +93,21 @@ class RspackBundler extends BaseAppBundler {
     }
 
     emptyBuildDir() {
-        // Remove all content but keep the directory so that
-        // if you're in it, you don't end up in Trash
         fs.emptyDirSync(this.paths.appBuild);
     }
 
-    getRspackConfig(env) {
+    async getRspackConfig(env) {
         let projectApplication;
         try {
             projectApplication = getProjectApplication({ cwd: this.params.cwd });
         } catch {
-            // No need to do anything.
+            // Silent catch
         }
 
-        return createRspackConfig(this.paths, {
+        return await createRspackConfig(this.paths, {
             ...this.params,
             projectApplication,
             env
         });
     }
 }
-
-module.exports = { RspackBundler };

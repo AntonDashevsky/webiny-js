@@ -1,9 +1,9 @@
-const { applyDefaults } = require("../../utils");
+import { applyDefaults } from "../../utils.js";
 
-const createRspackConfig = (paths, options) => {
+export const createRspackConfig = async (paths, options) => {
     applyDefaults();
 
-    const configFactory = require("./config/rspack.config");
+    const configFactory = await import("./config/rspack.config.js");
 
     // Generate configuration
     let config = configFactory(options.env, { paths, options });
@@ -14,5 +14,3 @@ const createRspackConfig = (paths, options) => {
 
     return config;
 };
-
-module.exports = { createRspackConfig };

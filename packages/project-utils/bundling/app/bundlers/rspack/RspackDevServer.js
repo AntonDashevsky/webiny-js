@@ -1,9 +1,10 @@
-const chalk = require("react-dev-utils/chalk");
-const { choosePort, prepareUrls } = require("react-dev-utils/WebpackDevServerUtils");
-const clearConsole = require("react-dev-utils/clearConsole");
-const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
+import { PackageJson } from "@webiny/cli/utils/PackageJson.js";
+import chalk from "react-dev-utils/chalk.js";
+import { choosePort, prepareUrls } from "react-dev-utils/WebpackDevServerUtils.js";
+import clearConsole from "react-dev-utils/clearConsole.js";
+import formatWebpackMessages from "react-dev-utils/formatWebpackMessages.js";
 
-module.exports = class RspackDevServer {
+export class RspackDevServer {
     constructor(compiler, options = {}) {
         this.isInteractive = process.stdout.isTTY;
         this.compiler = compiler;
@@ -11,7 +12,7 @@ module.exports = class RspackDevServer {
     }
 
     async start() {
-        const createDevServerConfig = require("./config/devServer.config");
+        const createDevServerConfig = await import("./config/devServer.config.js");
 
         const host = this.getHost();
         const port = await this.getPort(host);
@@ -29,7 +30,7 @@ module.exports = class RspackDevServer {
             paths: this.options.paths
         });
 
-        const { RspackDevServer } = require("@rspack/dev-server");
+        const { RspackDevServer } = await import("@rspack/dev-server");
 
         console.log(chalk.cyan("Starting the development server...\n"));
 
@@ -104,7 +105,7 @@ module.exports = class RspackDevServer {
                 console.log(chalk.green("Compiled successfully!"));
             }
             if (isSuccessful && (this.isInteractive || isFirstCompile)) {
-                this.printInstructions(this.getAppName(), urls);
+                this.printInstructions(await this.getAppName(), urls);
             }
             isFirstCompile = false;
 
@@ -140,7 +141,8 @@ module.exports = class RspackDevServer {
     }
 
     getAppName() {
-        return require(this.options.paths.appPackageJson).name;
+        const pkgJson = PackageJson.fromFile(this.options.paths.appPackageJson);
+        return pkgJson.getJson().name;
     }
 
     printInstructions(appName, urls) {

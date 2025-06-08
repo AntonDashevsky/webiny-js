@@ -1,5 +1,5 @@
 // See https://swc.rs/docs/configuration/swcrc.
-const createSwcConfig = cwd => {
+export const createSwcConfig = cwd => {
     return {
         jsc: {
             parser: {
@@ -31,5 +31,3 @@ const createSwcConfig = cwd => {
         }
     };
 };
-
-module.exports = { createSwcConfig };

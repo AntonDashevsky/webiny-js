@@ -27,7 +27,7 @@ export const createRspackConfig = async params => {
     let rspackConfig = {
         watch,
         entry: [
-            sourceMaps && require.resolve("source-map-support/register"),
+            sourceMaps && import.meta.resolve("source-map-support/register"),
             path.resolve(entry)
         ].filter(Boolean),
         target: "node",
@@ -92,7 +92,11 @@ export const createRspackConfig = async params => {
                  */
                 {
                     test: /\.css$/,
-                    loader: require.resolve("null-loader")
+                    use: [
+                        {
+                            loader: path.resolve("./nullLoader.js")
+                        }
+                    ]
                 }
             ]
         },

@@ -1,6 +1,4 @@
-import { featureFlags } from "@webiny/feature-flags";
 import { RspackBundler } from "./RspackBundler.js";
-import { WebpackBundler } from "./WebpackBundler.js";
 import { BaseFunctionBundler } from "./BaseFunctionBundler.js";
 
 export class FunctionBundler extends BaseFunctionBundler {
@@ -9,22 +7,18 @@ export class FunctionBundler extends BaseFunctionBundler {
         this.params = params;
     }
 
-    build() {
-        const BundlerClass = this.getBundlerClass();
+    async build() {
+        const BundlerClass = await this.getBundlerClass();
         const bundler = new BundlerClass(this.params);
         return bundler.build();
     }
 
-    watch() {
-        const Bundler = this.getBundlerClass();
+    async watch() {
+        const Bundler = await this.getBundlerClass();
         return new Bundler(this.params).watch();
     }
 
-    getBundlerClass() {
-        if (featureFlags.rspack) {
-            return RspackBundler;
-        }
-
-        return WebpackBundler;
+    async getBundlerClass() {
+        return RspackBundler;
     }
 }

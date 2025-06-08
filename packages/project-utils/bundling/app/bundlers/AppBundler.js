@@ -1,32 +1,24 @@
-const { BaseAppBundler } = require("./BaseAppBundler");
+import { BaseAppBundler } from "./BaseAppBundler";
 
-class AppBundler extends BaseAppBundler {
+export class AppBundler extends BaseAppBundler {
     constructor(params) {
         super();
         this.params = params;
     }
 
-    build() {
-        const BundlerClass = this.getBundlerClass();
+    async build() {
+        const BundlerClass = await this.getBundlerClass();
         const bundler = new BundlerClass(this.params);
         return bundler.build();
     }
 
-    watch() {
+    async watch() {
         const Bundler = this.getBundlerClass();
         return new Bundler(this.params).watch();
     }
 
-    getBundlerClass() {
-        const { featureFlags } = require("@webiny/feature-flags");
-        if (featureFlags.rspack) {
-            const { RspackBundler } = require("./RspackBundler");
-            return RspackBundler;
-        }
-
-        const { WebpackBundler } = require("./WebpackBundler");
-        return WebpackBundler;
+    async getBundlerClass() {
+        const { RspackBundler } = await import("./RspackBundler.js");
+        return RspackBundler;
     }
 }
-
-module.exports = { AppBundler };

@@ -1,11 +1,11 @@
-class BaseAppBundler {
+export class BaseAppBundler {
     bundlerConfig = {};
 
-    build() {
+    async build() {
         throw new Error("Method not implemented.");
     }
 
-    watch() {
+    async watch() {
         throw new Error("Method not implemented.");
     }
 
@@ -21,5 +21,3 @@ class BaseAppBundler {
         return this.bundlerConfig;
     }
 }
-
-module.exports = { BaseAppBundler };

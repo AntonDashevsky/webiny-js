@@ -1,8 +1,4 @@
-"use strict";
-
-const fs = require("fs");
-
-module.exports = function ({ host, port, https, allowedHost, paths }) {
+export default function ({ host, port, https, allowedHost, paths }) {
     let server = {};
     if (https) {
         server = {
@@ -35,18 +31,6 @@ module.exports = function ({ host, port, https, allowedHost, paths }) {
         historyApiFallback: {
             disableDotRule: true
         },
-        allowedHosts: allowedHost ? [allowedHost] : undefined,
-        setupMiddlewares: (middlewares, devServer) => {
-            return [
-                ...middlewares,
-                () => {
-                    const { app } = devServer;
-                    if (fs.existsSync(paths.proxySetup)) {
-                        // This registers user provided middleware for proxy reasons
-                        require(paths.proxySetup)(app);
-                    }
-                }
-            ];
-        }
+        allowedHosts: allowedHost ? [allowedHost] : undefined
     };
-};
+}

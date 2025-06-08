@@ -1,11 +1,11 @@
 export class BaseFunctionBundler {
     bundlerConfig = {};
 
-    build() {
+    async build() {
         throw new Error("Method not implemented.");
     }
 
-    watch() {
+    async watch() {
         throw new Error("Method not implemented.");
     }
 

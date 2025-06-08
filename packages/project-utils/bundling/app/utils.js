@@ -1,10 +1,10 @@
-const { version } = require("@webiny/project-utils/package.json");
-const { getProject } = require("@webiny/cli/utils");
-const { isEnabled } = require("@webiny/telemetry/cli");
-const { globalConfig } = require("@webiny/global-config");
-const { isCI } = require("ci-info");
+import { version } from "@webiny/project-utils/package.json";
+import { getProject } from "@webiny/cli/utils";
+import { isEnabled } from "@webiny/telemetry/cli";
+import { globalConfig } from "@webiny/global-config";
+import { isCI } from "ci-info";
 
-const applyDefaults = () => {
+export const applyDefaults = () => {
     let telemetry;
     const config = getProject().config;
     if (config.cli && "telemetry" in config.cli) {
@@ -47,8 +47,4 @@ const applyDefaults = () => {
     if ("WEBINY_MULTI_TENANCY" in process.env) {
         process.env.REACT_APP_WEBINY_MULTI_TENANCY = process.env.WEBINY_MULTI_TENANCY;
     }
-};
-
-module.exports = {
-    applyDefaults
 };
