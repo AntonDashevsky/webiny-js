@@ -1,5 +1,6 @@
 import * as aws from "@pulumi/aws";
-import { createPulumiApp, PulumiAppParam } from "@webiny/pulumi";
+import type { PulumiAppParam } from "@webiny/pulumi";
+import { createPulumiApp } from "@webiny/pulumi";
 import { CoreCognito } from "./CoreCognito.js";
 import { CoreDynamo } from "./CoreDynamo.js";
 import { ElasticSearch } from "./CoreElasticSearch.js";
@@ -16,7 +17,6 @@ import {
 } from "~/utils/addServiceManifestTableItem.js";
 import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
 import * as random from "@pulumi/random";
-import { featureFlags } from "@webiny/feature-flags";
 import { LogDynamo } from "./LogDynamo.js";
 import { getEnvVariableWebinyVariant } from "~/env/variant.js";
 import { getEnvVariableWebinyEnv } from "~/env/env.js";
@@ -95,6 +95,7 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
         path: "apps/core",
         config: projectAppParams,
         program: async app => {
+            const { featureFlags } = await import("@webiny/feature-flags");
             const deploymentId = new random.RandomId("deploymentId", { byteLength: 8 });
 
             let searchEngineType: "openSearch" | "elasticSearch" | null = null;
