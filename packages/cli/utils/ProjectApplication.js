@@ -55,7 +55,9 @@ export class ProjectApplication {
             },
             config: {
                 ...applicationConfig,
-                getPlugins: () => (applicationConfig.getPlugins ? applicationConfig.getPlugins : [])
+                getPlugins: async () => {
+                    return applicationConfig.getPlugins ? applicationConfig.getPlugins() : [];
+                }
             },
             project,
             getPackages: async () => {
