@@ -2,6 +2,8 @@ import * as fs from "fs";
 import * as path from "path";
 import { Project, type SourceFile, SyntaxKind, StringLiteral } from "ts-morph";
 import findUp from "find-up";
+import pLimit from "p-limit";
+import cliProgress from "cli-progress";
 import { getFilesUsingGlob } from "./getFilesUsingGlob.js";
 import { PackageJson } from "./PackageJson.js";
 import { convertTypeOnlyImports } from "./convertTypeOnlyImports";
@@ -244,28 +246,59 @@ export async function cjsToEsm(rootDir?: string) {
 
     const sourceFiles = project.addSourceFilesAtPaths(files);
 
-    // Add each file to the ts-morph project and process it
-    console.log("Converting CJS to ESM...");
-    for (const sourceFile of sourceFiles) {
-        const filePath = sourceFile.getFilePath();
-        console.log(filePath);
-
-        const closestPackageJson = findUp.sync("package.json", {
-            cwd: path.dirname(filePath)
-        })!;
-
-        const packageRoot = path.dirname(closestPackageJson);
-        const hasSrcDir = fs.existsSync(packageRoot + "/src");
-        const sourceRoot = [packageRoot, hasSrcDir ? "src" : undefined].filter(Boolean).join("/");
-
-        try {
-            await updateImports(sourceFile, sourceRoot);
-            await convertTypeOnlyImports(sourceFile);
-        } catch (err) {
-            console.error("Error transforming file", filePath);
-            console.error(err);
-            process.exit(1);
+    const progressBar = new cliProgress.SingleBar(
+        {},
+        {
+            format: " {bar} {percentage}% | {duration_formatted} | {value}/{total}",
+            barCompleteChar: "\u2588",
+            barIncompleteChar: "\u2591"
         }
+    );
+    progressBar.start(sourceFiles.length, 0);
+
+    const limit = pLimit(4);
+
+    const failedTransforms: Array<{ filePath: string; err: Error }> = [];
+
+    await Promise.all(
+        sourceFiles.map(sourceFile => {
+            return limit(async () => {
+                const filePath = sourceFile.getFilePath();
+
+                const closestPackageJson = findUp.sync("package.json", {
+                    cwd: path.dirname(filePath)
+                })!;
+
+                const packageRoot = path.dirname(closestPackageJson);
+                const hasSrcDir = fs.existsSync(packageRoot + "/src");
+                const sourceRoot = [packageRoot, hasSrcDir ? "src" : undefined]
+                    .filter(Boolean)
+                    .join("/");
+
+                try {
+                    await updateImports(sourceFile, sourceRoot);
+                    await convertTypeOnlyImports(sourceFile);
+                    progressBar.increment();
+                } catch (err) {
+                    // Store and ignore error.
+                    failedTransforms.push({ filePath, err });
+                    // Revert changes.
+                    await sourceFile.refreshFromFileSystem();
+                }
+            });
+        })
+    ).finally(() => {
+        progressBar.stop();
+    });
+
+    if (failedTransforms.length > 0) {
+        console.log("Transform encountered the following errors:");
+        failedTransforms.forEach(({ filePath, err }) => {
+            console.log("File: " + filePath);
+            console.log(`----- ${filePath.replace(process.cwd(), "")} -----`);
+            console.log(err);
+            console.log("--------------------------------------\n");
+        });
     }
 
     // Save all the changes

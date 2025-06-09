@@ -1,130 +1,133 @@
 import { Project } from "ts-morph";
 import { convertTypeOnlyImports } from "./convertTypeOnlyImports";
 
-const createTestProjectWithImports = (files: Record<string, string>) => {
+function setupTestProject(
+    fileContent: string,
+    dependencies: Record<string, string> = {},
+    entryName = "src/index.ts"
+) {
     const project = new Project({ useInMemoryFileSystem: true });
+    const entryFile = project.createSourceFile(entryName, fileContent);
 
-    // Add each file to the project
-    for (const [filePath, content] of Object.entries(files)) {
-        project.createSourceFile(filePath, content);
+    for (const [path, code] of Object.entries(dependencies)) {
+        project.createSourceFile(path, code);
     }
 
-    return project;
-};
-
-const applyConversion = async (entryCode: string, dependencies: Record<string, string> = {}): Promise<string> => {
-    const files = {
-        "test.ts": entryCode,
-        ...dependencies
-    };
-
-    const project = createTestProjectWithImports(files);
-    const sourceFile = project.getSourceFileOrThrow("test.ts");
-
-    await convertTypeOnlyImports(sourceFile);
-    return sourceFile.getFullText();
-};
+    return { project, entryFile };
+}
 
 describe("convertTypeOnlyImports", () => {
-    it("converts full type-only import", async () => {
-        const result = await applyConversion(
-            `
-            import { MyType } from "./types";
-            const x: MyType = { foo: "bar" };
-        `,
-            {
-                "types.ts": `export type MyType = { foo: string };`
-            }
-        );
-        expect(result).toContain('import type { MyType } from "./types";');
-    });
-
     it("splits mixed imports", async () => {
-        const result = await applyConversion(
-            `
-            import { MyType, doSomething } from "./utils";
-            const x: MyType = { foo: "bar" };
-            doSomething(x);
-        `,
+        const { entryFile } = setupTestProject(
+            `import { A, B } from "./utils";
+            const a: A = {};
+            console.log(B);`,
             {
-                "utils.ts": `
-                    export type MyType = { foo: string };
-                    export function doSomething(arg: any): void {}
+                "src/utils.ts": `
+                    export type A = { value: string };
+                    export const B = 123;
                 `
             }
         );
-        expect(result).toContain('import { doSomething } from "./utils";');
-        expect(result).toContain('import type { MyType } from "./utils";');
+
+        await convertTypeOnlyImports(entryFile);
+        const output = entryFile.getText();
+        expect(output).toContain('import { B } from "./utils";');
+        expect(output).toContain('import type { A } from "./utils";');
     });
 
-    it("leaves value-only imports untouched", async () => {
-        const result = await applyConversion(
-            `
-            import { doSomething } from "./utils";
-            doSomething();
-        `,
+    it("removes full type import and avoids empty import", async () => {
+        const { entryFile } = setupTestProject(
+            `import { A, B } from "./types";\nconst a: A = {};\nconst b: B = {};`,
             {
-                "utils.ts": `
-                    export function doSomething(): void {}
+                "src/types.ts": `
+                    export type A = { a: number };
+                    export interface B { b: string }
                 `
             }
         );
-        expect(result).toContain('import { doSomething } from "./utils";');
-        expect(result).not.toContain('import type');
+
+        await convertTypeOnlyImports(entryFile);
+        const output = entryFile.getText();
+        expect(output.trim()).toBe(
+            'import type { A, B } from "./types";\n\nconst a: A = {};\nconst b: B = {};'
+        );
     });
 
-    it("converts full type-only export", async () => {
-        const result = await applyConversion(
-            `
-            export { MyType } from "./types";
-        `,
+    it("preserves value-only imports", async () => {
+        const { entryFile } = setupTestProject(
+            `import { A, B } from "./values";\nconsole.log(A, B);`,
             {
-                "types.ts": `export type MyType = { foo: string };`
+                "src/values.ts": `
+                    export const A = 1;
+                    export function B() {}
+                `
             }
         );
-        expect(result).toContain('export type { MyType } from "./types";');
+
+        await convertTypeOnlyImports(entryFile);
+        const output = entryFile.getText();
+        expect(output).toContain('import { A, B } from "./values";');
+        expect(output).not.toContain("import type");
     });
 
     it("splits mixed exports", async () => {
-        const result = await applyConversion(
-            `
-            export { MyType, doSomething } from "./utils";
-        `,
-            {
-                "utils.ts": `
-                    export type MyType = { foo: string };
-                    export function doSomething(): void {}
+        const { entryFile } = setupTestProject(`export { A, B } from "./mod";`, {
+            "src/mod.ts": `
+                    export interface A { x: number }
+                    export const B = () => {};
                 `
-            }
-        );
-        expect(result).toContain('export { doSomething } from "./utils";');
-        expect(result).toContain('export type { MyType } from "./utils";');
+        });
+
+        await convertTypeOnlyImports(entryFile);
+        const output = entryFile.getText();
+        expect(output).toContain('export { B } from "./mod";');
+        expect(output).toContain('export type { A } from "./mod";');
     });
 
-    it("leaves value-only exports untouched", async () => {
-        const result = await applyConversion(
-            `
-            export { doSomething } from "./utils";
-        `,
-            {
-                "utils.ts": `
-                    export function doSomething(): void {}
+    it("removes full type-only re-export correctly", async () => {
+        const { entryFile } = setupTestProject(`export { A, B } from "./types";`, {
+            "src/types.ts": `
+                    export type A = number;
+                    export interface B { b: string }
                 `
-            }
-        );
-        expect(result).toContain('export { doSomething } from "./utils";');
-        expect(result).not.toContain('export type');
+        });
+
+        await convertTypeOnlyImports(entryFile);
+        const output = entryFile.getText();
+        expect(output).toContain('export type { A, B } from "./types";');
+        expect(output).not.toContain("export {");
     });
 
-    it("converts unused type re-export", async () => {
-        const result = await applyConversion(
+    it("does not convert value exports", async () => {
+        const { entryFile } = setupTestProject(`export { A, B } from "./values";`, {
+            "src/values.ts": `
+                    export const A = 1;
+                    export function B() {}
+                `
+        });
+
+        await convertTypeOnlyImports(entryFile);
+        const output = entryFile.getText();
+        expect(output).toContain('export { A, B } from "./values";');
+        expect(output).not.toContain("export type");
+    });
+
+    it("preserves already correct mixed exports", async () => {
+        const { entryFile } = setupTestProject(
             `
-            export { MyType } from "./types";
+        export { something, type SomethingType } from "./mod";
         `,
             {
-                "types.ts": `export type MyType = { bar: number };`
+                "src/mod.ts": `
+                export function something() {}
+                export interface SomethingType {}
+            `
             }
         );
-        expect(result).toContain('export type { MyType } from "./types";');
+
+        await convertTypeOnlyImports(entryFile);
+        const output = entryFile.getText();
+        expect(output).toContain('export { something, type SomethingType } from "./mod";');
     });
 });

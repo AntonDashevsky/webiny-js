@@ -63,6 +63,6 @@ export default {
         experimentalAdminOmniSearch: true,
         experimentalDynamicPages: false,
         newWatchCommand: true,
-        rspack: false
+        rspack: true
     }
 };

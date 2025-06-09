@@ -1,25 +1,17 @@
-import { type SourceFile, SyntaxKind, ImportSpecifier, ExportSpecifier, Node } from "ts-morph";
+import {
+    type SourceFile,
+    SyntaxKind,
+    ImportSpecifier,
+    ExportSpecifier,
+    Node,
+    Symbol as MorphSymbol
+} from "ts-morph";
+
+const symbolTypeCache = new WeakMap<MorphSymbol, boolean>();
 
 export async function convertTypeOnlyImports(sourceFile: SourceFile): Promise<void> {
-    const typeUsageKinds = new Set([
-        SyntaxKind.TypeReference,
-        SyntaxKind.TypeAliasDeclaration,
-        SyntaxKind.InterfaceDeclaration,
-        SyntaxKind.HeritageClause,
-        SyntaxKind.Parameter,
-        SyntaxKind.TypeParameter,
-        SyntaxKind.TypeLiteral,
-        SyntaxKind.PropertySignature,
-        SyntaxKind.AsExpression,
-        SyntaxKind.TypeAssertionExpression
-    ]);
-
-    const languageService = sourceFile.getProject().getLanguageService();
-
-    // ----------------------------
-    // Convert Import Declarations
-    // ----------------------------
     const importDeclarations = sourceFile.getImportDeclarations();
+    const exportDeclarations = sourceFile.getExportDeclarations();
 
     for (const importDecl of importDeclarations) {
         if (importDecl.isTypeOnly()) {
@@ -32,28 +24,26 @@ export async function convertTypeOnlyImports(sourceFile: SourceFile): Promise<vo
         }
 
         const typeOnlyImports: ImportSpecifier[] = [];
+        const valueOnlyImports: ImportSpecifier[] = [];
 
         for (const namedImport of namedImports) {
-            const nameNode = namedImport.getNameNode();
-            const importName = nameNode.getText();
+            const symbol = getAliasedSymbolSafe(namedImport.getNameNode());
+            if (!symbol) {
+                valueOnlyImports.push(namedImport);
+                continue;
+            }
 
-            const references = languageService.findReferencesAsNodes(nameNode).filter(ref => {
-                return ref.getSourceFile().getFilePath() === sourceFile.getFilePath();
-            });
+            let isType = symbolTypeCache.get(symbol);
+            if (isType === undefined) {
+                const declarations = symbol.getDeclarations();
+                isType = declarations.every((decl) => isTypeDeclaration(decl));
+                symbolTypeCache.set(symbol, isType);
+            }
 
-            const externalUsages = references.filter(ref => {
-                const parent = ref.getParent();
-                return parent && parent.getKind() !== SyntaxKind.ImportSpecifier;
-            });
-
-            if (
-                externalUsages.length > 0 &&
-                externalUsages.every(ref => {
-                    const parent = ref.getParent();
-                    return parent && typeUsageKinds.has(parent.getKind());
-                })
-            ) {
+            if (isType) {
                 typeOnlyImports.push(namedImport);
+            } else {
+                valueOnlyImports.push(namedImport);
             }
         }
 
@@ -61,41 +51,27 @@ export async function convertTypeOnlyImports(sourceFile: SourceFile): Promise<vo
             continue;
         }
 
-        if (typeOnlyImports.length === namedImports.length) {
-            importDecl.setIsTypeOnly(true);
-        } else {
-            const valueImportTexts = namedImports
-                .filter(i => {
-                    return !typeOnlyImports.includes(i);
-                })
-                .map(i => {
-                    return i.getText();
-                });
+        const moduleSpecifier = importDecl.getModuleSpecifierValue();
+        const childIndex = importDecl.getChildIndex();
+        const typeImportTexts = typeOnlyImports.map((spec) => getSpecifierText(spec));
+        const valueImportTexts = valueOnlyImports.map((spec) => getSpecifierText(spec));
 
-            const typeImportTexts = typeOnlyImports.map(i => {
-                return i.getText();
-            });
+        importDecl.remove();
 
-            importDecl.getNamedImports().forEach(i => {
-                i.remove();
-            });
-
-            if (valueImportTexts.length > 0) {
-                importDecl.addNamedImports(valueImportTexts);
-            }
-
-            sourceFile.insertImportDeclaration(importDecl.getChildIndex(), {
-                moduleSpecifier: importDecl.getModuleSpecifierValue(),
-                namedImports: typeImportTexts,
-                isTypeOnly: true
+        if (valueImportTexts.length > 0) {
+            sourceFile.insertImportDeclaration(childIndex, {
+                moduleSpecifier,
+                namedImports: valueImportTexts,
+                isTypeOnly: false
             });
         }
-    }
 
-    // ----------------------------
-    // Convert Export Declarations
-    // ----------------------------
-    const exportDeclarations = sourceFile.getExportDeclarations();
+        sourceFile.insertImportDeclaration(childIndex, {
+            moduleSpecifier,
+            namedImports: typeImportTexts,
+            isTypeOnly: true
+        });
+    }
 
     for (const exportDecl of exportDeclarations) {
         if (exportDecl.isTypeOnly()) {
@@ -107,42 +83,48 @@ export async function convertTypeOnlyImports(sourceFile: SourceFile): Promise<vo
             continue;
         }
 
-        const typeOnlyExports: ExportSpecifier[] = [];
-
-        for (const exportSpec of namedExports) {
-            const nameNode = exportSpec.getNameNode();
-            const exportName = nameNode.getText();
-
-            const references = languageService.findReferencesAsNodes(nameNode).filter(ref => {
-                return ref.getSourceFile().getFilePath() === sourceFile.getFilePath();
-            });
-
-            const externalUsages = references.filter(ref => {
-                const parent = ref.getParent();
-                return parent && parent.getKind() !== SyntaxKind.ExportSpecifier;
-            });
-
-            let treatAsType = false;
-
-            if (externalUsages.length === 0) {
-                const symbol = nameNode.getSymbol();
-                const aliasedSymbol = symbol?.getAliasedSymbol();
-                const declarations = aliasedSymbol?.getDeclarations() ?? [];
-
-                if (declarations.length > 0) {
-                    treatAsType = declarations.every(decl => {
-                        return isTypeDeclaration(decl);
-                    });
-                }
-            } else {
-                treatAsType = externalUsages.every(ref => {
-                    const parent = ref.getParent();
-                    return parent && typeUsageKinds.has(parent.getKind());
-                });
+        const allAlreadyCorrect = namedExports.every((spec) => {
+            const isExplicitType = spec.getText().startsWith("type ");
+            const symbol = getAliasedSymbolSafe(spec.getNameNode());
+            if (!symbol) {
+                return !isExplicitType;
             }
 
-            if (treatAsType) {
+            let isType = symbolTypeCache.get(symbol);
+            if (isType === undefined) {
+                const declarations = symbol.getDeclarations();
+                isType = declarations.every((decl) => isTypeDeclaration(decl));
+                symbolTypeCache.set(symbol, isType);
+            }
+
+            return isType === isExplicitType;
+        });
+
+        if (allAlreadyCorrect) {
+            continue;
+        }
+
+        const typeOnlyExports: ExportSpecifier[] = [];
+        const valueOnlyExports: ExportSpecifier[] = [];
+
+        for (const exportSpec of namedExports) {
+            const symbol = getAliasedSymbolSafe(exportSpec.getNameNode());
+            if (!symbol) {
+                valueOnlyExports.push(exportSpec);
+                continue;
+            }
+
+            let isType = symbolTypeCache.get(symbol);
+            if (isType === undefined) {
+                const declarations = symbol.getDeclarations();
+                isType = declarations.every((decl) => isTypeDeclaration(decl));
+                symbolTypeCache.set(symbol, isType);
+            }
+
+            if (isType) {
                 typeOnlyExports.push(exportSpec);
+            } else {
+                valueOnlyExports.push(exportSpec);
             }
         }
 
@@ -150,31 +132,35 @@ export async function convertTypeOnlyImports(sourceFile: SourceFile): Promise<vo
             continue;
         }
 
-        const valueExports = namedExports.filter(e => {
-            return !typeOnlyExports.includes(e);
-        });
+        const moduleSpecifier = exportDecl.getModuleSpecifierValue();
+        const childIndex = exportDecl.getChildIndex();
+        const typeExportTexts = typeOnlyExports.map((spec) => getSpecifierText(spec));
+        const valueExportTexts = valueOnlyExports.map((spec) => getSpecifierText(spec));
 
-        const valueExportTexts = valueExports.map(e => {
-            return e.getText();
-        });
-
-        const typeExportTexts = typeOnlyExports.map(e => {
-            return e.getText();
-        });
-
-        namedExports.forEach(e => {
-            e.remove();
-        });
+        exportDecl.remove();
 
         if (valueExportTexts.length > 0) {
-            exportDecl.addNamedExports(valueExportTexts);
+            sourceFile.insertExportDeclaration(childIndex, {
+                moduleSpecifier,
+                namedExports: valueExportTexts,
+                isTypeOnly: false
+            });
         }
 
-        sourceFile.insertExportDeclaration(exportDecl.getChildIndex(), {
-            moduleSpecifier: exportDecl.getModuleSpecifierValue(),
+        sourceFile.insertExportDeclaration(childIndex, {
+            moduleSpecifier,
             namedExports: typeExportTexts,
             isTypeOnly: true
         });
+    }
+}
+
+function getAliasedSymbolSafe(node: Node): MorphSymbol | undefined {
+    try {
+        const symbol = node.getSymbol();
+        return symbol?.getAliasedSymbol() ?? symbol;
+    } catch {
+        return undefined;
     }
 }
 
@@ -188,4 +174,10 @@ function isTypeDeclaration(decl: Node): boolean {
         (kind === SyntaxKind.EnumDeclaration &&
             decl.getFirstChildByKind(SyntaxKind.ConstKeyword) !== undefined)
     );
+}
+
+function getSpecifierText(spec: ImportSpecifier | ExportSpecifier): string {
+    const alias = spec.getAliasNode();
+    const name = spec.getName();
+    return alias ? `${name} as ${alias.getText()}` : name;
 }
