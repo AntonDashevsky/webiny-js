@@ -1,6 +1,6 @@
 import React from "react";
 import { InputElement } from "./InputElement.js";
-import { FormFieldElementRenderProps } from "~/ui/elements/form/FormFieldElement.js";
+import { type FormFieldElementRenderProps } from "~/ui/elements/form/FormFieldElement.js";
 import { Input } from "@webiny/ui/Input/index.js";
 
 export class PasswordElement extends InputElement {

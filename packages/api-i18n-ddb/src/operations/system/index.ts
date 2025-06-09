@@ -1,6 +1,6 @@
 import { SystemStorageOperations } from "./SystemStorageOperations.js";
 import {
-    SystemStorageOperationsProviderPluginParams,
+    type SystemStorageOperationsProviderPluginParams,
     SystemStorageOperationsProviderPlugin
 } from "@webiny/api-i18n/plugins/SystemStorageOperationsProviderPlugin.js";
 

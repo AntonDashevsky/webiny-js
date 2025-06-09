@@ -1,6 +1,6 @@
-import { PbContext } from "~/types";
-import { GetModel } from "~/translations/GetModel";
-import { TranslatableCollectionDTO } from "./mappers/TranslatableCollectionDTO";
+import { type PbContext } from "~/types.js";
+import { GetModel } from "~/translations/GetModel.js";
+import { type TranslatableCollectionDTO } from "./mappers/TranslatableCollectionDTO.js";
 
 export class DeleteTranslatableCollectionRepository {
     private readonly context: PbContext;

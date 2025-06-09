@@ -1,23 +1,23 @@
 import React from "react";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
-import { AddTemplateButton } from "./AddTemplate";
-import { TemplateIcon } from "./TemplateIcon";
-import { TemplateProvider } from "./TemplateProvider";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
+import { AddTemplateButton } from "./AddTemplate.js";
+import { TemplateIcon } from "./TemplateIcon.js";
+import { TemplateProvider } from "./TemplateProvider.js";
 import {
-    BindComponentRenderProp,
-    CmsDynamicZoneTemplate,
-    CmsModelFieldRendererProps,
-    CmsModel,
-    CmsModelField,
-    CmsDynamicZoneTemplateWithTypename
-} from "~/types";
-import { Fields } from "~/admin/components/ContentEntryForm/Fields";
-import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue";
+    type BindComponentRenderProp,
+    type CmsDynamicZoneTemplate,
+    type CmsModelFieldRendererProps,
+    type CmsModel,
+    type CmsModelField,
+    type CmsDynamicZoneTemplateWithTypename
+} from "~/types.js";
+import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
+import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue.js";
 import {
     ParentValueIndexProvider,
     ModelFieldProvider
-} from "~/admin/components/ModelFieldProvider";
+} from "~/admin/components/ModelFieldProvider/index.js";
 import { makeDecoratable, useConfirmationDialog } from "@webiny/app-admin";
 
 type GetBind = CmsModelFieldRendererProps["getBind"];

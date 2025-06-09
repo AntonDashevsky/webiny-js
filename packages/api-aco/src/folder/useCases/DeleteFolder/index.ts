@@ -1,13 +1,13 @@
-import { Topic } from "@webiny/pubsub/types";
+import { type Topic } from "@webiny/pubsub/types.js";
 import {
     type AcoFolderStorageOperations,
     type OnFolderAfterDeleteTopicParams,
     type OnFolderBeforeDeleteTopicParams
-} from "~/folder/folder.types";
-import { DeleteFolder } from "./DeleteFolder";
-import { DeleteFolderWithEvents } from "./DeleteFolderWithEvents";
-import { DeleteFolderWithFolderLevelPermissions } from "./DeleteFolderWithFolderLevelPermissions";
-import { FolderLevelPermissions } from "~/flp";
+} from "~/folder/folder.types.js";
+import { DeleteFolder } from "./DeleteFolder.js";
+import { DeleteFolderWithEvents } from "./DeleteFolderWithEvents.js";
+import { DeleteFolderWithFolderLevelPermissions } from "./DeleteFolderWithFolderLevelPermissions.js";
+import { type FolderLevelPermissions } from "~/flp/index.js";
 
 export interface DeleteFolderUseCasesTopics {
     onFolderBeforeDelete: Topic<OnFolderBeforeDeleteTopicParams>;

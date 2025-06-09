@@ -6,7 +6,7 @@ import { TrashBinListConfig } from "~/Presentation/configs/index.js";
 import { useTrashBin } from "~/Presentation/hooks/index.js";
 import { getEntriesLabel } from "../BulkActions/index.js";
 import { RestoreItemsReportMessage } from "~/Presentation/components/BulkActions/RestoreItems/RestoreItemsReportMessage.js";
-import { TrashBinItemDTO } from "~/Domain/index.js";
+import { type TrashBinItemDTO } from "~/Domain/index.js";
 
 export const BulkActionsRestoreItems = observer(() => {
     const { restoreItem, onItemAfterRestore, getRestoredItemById, restoreBulkAction } =

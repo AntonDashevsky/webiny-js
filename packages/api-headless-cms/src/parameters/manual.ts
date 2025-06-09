@@ -4,8 +4,8 @@
 import WebinyError from "@webiny/error";
 import {
     CmsParametersPlugin,
-    CmsParametersPluginResponseLocale,
-    CmsParametersPluginResponseType
+    type CmsParametersPluginResponseLocale,
+    type CmsParametersPluginResponseType
 } from "~/plugins/CmsParametersPlugin.js";
 
 export interface ManualPluginParams {

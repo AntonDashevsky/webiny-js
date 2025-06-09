@@ -3,16 +3,16 @@ import { useQuery } from "@apollo/react-hooks";
 import debounce from "lodash/debounce.js";
 
 import { useRouter } from "@webiny/react-router";
-import { OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
+import { type OnSortingChange, type Sorting } from "@webiny/ui/DataTable/index.js";
 import { useAcoList, createSort } from "@webiny/app-aco";
-import { ListMeta, SearchRecordItem } from "@webiny/app-aco/types.js";
+import { type ListMeta, type SearchRecordItem } from "@webiny/app-aco/types.js";
 
 import {
-    Entry,
+    type Entry,
     transformCmsContentEntriesToRecordEntries
 } from "~/utils/transformCmsContentEntriesToRecordEntries.js";
 import { LIST_USERS } from "~/graphql.js";
-import { AuditLog, User } from "~/types.js";
+import { type AuditLog, type User } from "~/types.js";
 
 interface UpdateSearchCallableParams {
     search: string;

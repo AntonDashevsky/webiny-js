@@ -1,7 +1,7 @@
 import React from "react";
 import camelCase from "lodash/camelCase.js";
 import { plugins } from "@webiny/plugins";
-import { PbEditorPageElementSettingsPlugin } from "~/types.js";
+import { type PbEditorPageElementSettingsPlugin } from "~/types.js";
 import { EditorConfig } from "~/editor/config/index.js";
 import { useElementSettings } from "~/editor/plugins/elementSettings/hooks/useElementSettings.js";
 

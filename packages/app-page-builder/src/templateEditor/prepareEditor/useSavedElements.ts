@@ -2,8 +2,8 @@ import { useQuery } from "@apollo/react-hooks";
 import get from "lodash/get.js";
 import {
     LIST_PAGE_ELEMENTS,
-    ListPageElementsQueryResponse,
-    ListPageElementsQueryResponseData
+    type ListPageElementsQueryResponse,
+    type ListPageElementsQueryResponseData
 } from "~/admin/graphql/pages.js";
 import createElementPlugin from "~/admin/utils/createElementPlugin.js";
 

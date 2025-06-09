@@ -1,4 +1,4 @@
-import WebinyError from "@webiny/error";
+import type WebinyError from "@webiny/error";
 
 const IGNORED_ES_SEARCH_EXCEPTIONS = [
     "index_not_found_exception",

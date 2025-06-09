@@ -1,8 +1,8 @@
 import React from "react";
 import mime from "mime/lite.js";
 
-import SupportedFileTypes, { SupportedFileTypesProps } from "./SupportedFileTypes.js";
-import ListStatus, { ListStatusProps } from "./ListStatus.js";
+import SupportedFileTypes, { type SupportedFileTypesProps } from "./SupportedFileTypes.js";
+import ListStatus, { type ListStatusProps } from "./ListStatus.js";
 
 import { BottomInfoBarInner, BottomInfoBarWrapper } from "./styled.js";
 

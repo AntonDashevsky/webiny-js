@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useMemo } from "react";
+import React, { type ReactNode, useContext, useMemo } from "react";
 import { AcoAppContext } from "~/contexts/app.js";
 
 interface FoldersContext {

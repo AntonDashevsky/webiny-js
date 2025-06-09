@@ -24,7 +24,7 @@ import { ReactComponent as MoreVerticalIcon } from "../../../icons/more_vert.svg
 import { ReactComponent as PublishIcon } from "../../../icons/publish.svg";
 import { ReactComponent as UnpublishIcon } from "../../../icons/unpublish.svg";
 import { useRevision } from "./useRevision.js";
-import { FbFormModel, FbRevisionModel } from "~/types.js";
+import { type FbFormModel, type FbRevisionModel } from "~/types.js";
 import { usePermission } from "~/hooks/usePermission.js";
 
 const primaryColor = css({ color: "var(--mdc-theme-primary)" });

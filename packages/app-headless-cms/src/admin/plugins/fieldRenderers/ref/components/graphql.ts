@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import { CmsErrorResponse } from "~/types.js";
-import { CmsReferenceContentEntry } from "./types.js";
+import { type CmsErrorResponse } from "~/types.js";
+import { type CmsReferenceContentEntry } from "./types.js";
 
 const fields = `
 data {

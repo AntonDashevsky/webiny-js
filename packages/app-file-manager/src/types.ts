@@ -1,10 +1,10 @@
-import * as React from "react";
-import { Plugin } from "@webiny/plugins/types.js";
-import { SecurityPermission } from "@webiny/app-security/types.js";
-import { FileItem } from "@webiny/app-admin/types.js";
-import { FolderTableItem, RecordTableItem } from "@webiny/app-aco/types.js";
+import type * as React from "react";
+import { type Plugin } from "@webiny/plugins/types.js";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
+import { type FolderTableItem, type RecordTableItem } from "@webiny/app-aco/types.js";
 
-export { FileInput } from "./modules/FileManagerApiProvider/graphql.js";
+export type { FileInput } from "./modules/FileManagerApiProvider/graphql.js";
 
 export type PermissionRendererPluginRenderFunctionType = (props: {
     value: SecurityPermission;

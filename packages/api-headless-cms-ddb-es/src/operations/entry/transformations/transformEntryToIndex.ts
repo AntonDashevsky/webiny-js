@@ -1,8 +1,8 @@
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import {
-    CmsEntry,
-    CmsStorageEntry,
-    StorageOperationsCmsModel
+    type CmsEntry,
+    type CmsStorageEntry,
+    type StorageOperationsCmsModel
 } from "@webiny/api-headless-cms/types/index.js";
 import { prepareEntryToIndex } from "~/helpers/index.js";
 

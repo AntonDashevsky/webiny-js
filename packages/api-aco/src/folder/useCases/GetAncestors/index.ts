@@ -1,5 +1,5 @@
-import { GetAncestors } from "./GetAncestors";
-import type { IListFolders } from "~/folder/useCases/ListFolders/IListFolders";
+import { GetAncestors } from "./GetAncestors.js";
+import type { IListFolders } from "~/folder/useCases/ListFolders/IListFolders.js";
 
 interface GetAncestorsUseCasesParams {
     listFoldersUseCase: IListFolders;

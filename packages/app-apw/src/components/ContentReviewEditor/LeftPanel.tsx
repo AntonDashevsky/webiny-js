@@ -2,11 +2,11 @@ import React from "react";
 import styled from "@emotion/styled";
 import { List } from "@webiny/ui/List/index.js";
 import {
-    ApwContentReviewStatus,
-    ApwContentReviewStep,
+    type ApwContentReviewStatus,
+    type ApwContentReviewStep,
     ApwContentReviewStepStatus,
     ApwWorkflowStepTypes,
-    CreatedBy
+    type CreatedBy
 } from "~/types.js";
 import { formatDate } from "~/utils.js";
 import { PanelBox } from "./Styled.js";

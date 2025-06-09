@@ -1,5 +1,5 @@
-import { UIElement } from "~/ui/UIElement.js";
-import { FormFieldElement, FormFieldElementConfig } from "./FormFieldElement.js";
+import { type UIElement } from "~/ui/UIElement.js";
+import { FormFieldElement, type FormFieldElementConfig } from "./FormFieldElement.js";
 import { FileManagerElementRenderer } from "./FileManagerElement/FileManagerElementRenderer.js";
 import { EmptyStateElement } from "./FileManagerElement/EmptyStateElement.js";
 

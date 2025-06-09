@@ -1,10 +1,10 @@
-import React, { useState, useCallback, SyntheticEvent } from "react";
+import React, { useState, useCallback, type SyntheticEvent } from "react";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { BlockTitle, blockTitleWrapper, TitleInputWrapper, TitleWrapper } from "./Styled.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { BlockAtomType } from "~/blockEditor/state/index.js";
+import { type BlockAtomType } from "~/blockEditor/state/index.js";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
 import { useBlock } from "~/blockEditor/hooks/useBlock.js";
 

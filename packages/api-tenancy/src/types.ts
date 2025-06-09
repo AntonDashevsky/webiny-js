@@ -1,7 +1,7 @@
-import { DbContext } from "@webiny/handler-db/types.js";
-import { Topic } from "@webiny/pubsub/types.js";
-import { WcpContext } from "@webiny/api-wcp/types.js";
-import { Context as BaseContext } from "@webiny/handler/types.js";
+import { type DbContext } from "@webiny/handler-db/types.js";
+import { type Topic } from "@webiny/pubsub/types.js";
+import { type WcpContext } from "@webiny/api-wcp/types.js";
+import { type Context as BaseContext } from "@webiny/handler/types.js";
 
 export interface TenantDomain {
     fqdn: string;

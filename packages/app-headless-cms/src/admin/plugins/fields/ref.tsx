@@ -1,17 +1,17 @@
 import React, { useCallback, useMemo } from "react";
 import {
     LIST_CONTENT_MODELS,
-    ListCmsModelsQueryResponse,
+    type ListCmsModelsQueryResponse,
     withoutBeingDeletedModels
 } from "../../viewsGraphql.js";
 import { validation, ValidationError } from "@webiny/validation";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { CmsModel, CmsModelFieldTypePlugin } from "~/types.js";
+import { type CmsModel, type CmsModelFieldTypePlugin } from "~/types.js";
 import { ReactComponent as RefIcon } from "./icons/round-link-24px.svg";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { Bind, BindComponentRenderProp, useForm } from "@webiny/form";
+import { Bind, type BindComponentRenderProp, useForm } from "@webiny/form";
 import { useModel, useQuery } from "~/admin/hooks/index.js";
 import { renderInfo } from "./ref/renderInfo.js";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";

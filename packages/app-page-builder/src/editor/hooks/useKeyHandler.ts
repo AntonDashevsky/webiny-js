@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from "react";
+import React, { type SyntheticEvent } from "react";
 import isHotkey from "is-hotkey";
 import { getNanoid } from "../helpers.js";
 

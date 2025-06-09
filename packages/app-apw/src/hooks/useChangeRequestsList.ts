@@ -3,10 +3,10 @@ import { useNavigate } from "@webiny/react-router";
 import { useQuery } from "@apollo/react-hooks";
 import {
     LIST_CHANGE_REQUESTS_QUERY,
-    ListChangeRequestsQueryResponse,
-    ListChangeRequestsQueryVariables
+    type ListChangeRequestsQueryResponse,
+    type ListChangeRequestsQueryVariables
 } from "~/graphql/changeRequest.gql.js";
-import { ApwChangeRequest } from "~/types.js";
+import { type ApwChangeRequest } from "~/types.js";
 import { useChangeRequestStep } from "./useChangeRequest.js";
 
 const serializeSorters = (data: any) => {

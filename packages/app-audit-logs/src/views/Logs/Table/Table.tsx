@@ -2,11 +2,11 @@ import React, { forwardRef, useMemo } from "react";
 import { format, addMinutes } from "date-fns";
 
 import { ReactComponent as PreviewIcon } from "@material-design-icons/svg/outlined/visibility.svg";
-import { Columns, DataTable, OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
+import { type Columns, DataTable, type OnSortingChange, type Sorting } from "@webiny/ui/DataTable/index.js";
 import { IconButton } from "@webiny/ui/Button/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
-import { Entry } from "~/utils/transformCmsContentEntriesToRecordEntries.js";
+import { type Entry } from "~/utils/transformCmsContentEntriesToRecordEntries.js";
 import { Text } from "~/components/Text.js";
 import {
     ActionWrapper,
@@ -16,7 +16,7 @@ import {
     appColumn,
     previewColumn
 } from "./styled.js";
-import { ActionType } from "~/types.js";
+import { type ActionType } from "~/types.js";
 
 type ActionProps = {
     label: string;

@@ -1,10 +1,10 @@
 import { createTaskDefinition } from "@webiny/tasks";
 import { createDeleteEntry, createListDeletedEntries } from "~/useCases/index.js";
 import {
-    HcmsBulkActionsContext,
-    IEmptyTrashBinsInput,
-    IEmptyTrashBinsOutput,
-    IEmptyTrashBinsTaskParams
+    type HcmsBulkActionsContext,
+    type IEmptyTrashBinsInput,
+    type IEmptyTrashBinsOutput,
+    type IEmptyTrashBinsTaskParams
 } from "~/types.js";
 
 const calculateDateTimeString = () => {

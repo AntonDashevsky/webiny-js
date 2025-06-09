@@ -1,11 +1,11 @@
-import { IdValue } from "apollo-utilities";
+import { type IdValue } from "apollo-utilities";
 import { invariant } from "ts-invariant";
 
 import {
-    ReadStoreContext,
-    FragmentMatcherInterface,
-    PossibleTypesMap,
-    IntrospectionResultData
+    type ReadStoreContext,
+    type FragmentMatcherInterface,
+    type PossibleTypesMap,
+    type IntrospectionResultData
 } from "apollo-cache-inmemory";
 
 export class IntrospectionFragmentMatcher implements FragmentMatcherInterface {

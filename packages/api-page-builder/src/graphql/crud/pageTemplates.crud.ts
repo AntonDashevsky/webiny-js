@@ -2,29 +2,29 @@ import zod from "zod";
 import uniqid from "uniqid";
 
 import {
-    OnPageTemplateAfterCreateTopicParams,
-    OnPageTemplateAfterDeleteTopicParams,
-    OnPageTemplateAfterUpdateTopicParams,
-    OnPageTemplateBeforeCreateTopicParams,
-    OnPageTemplateBeforeDeleteTopicParams,
-    OnPageTemplateBeforeUpdateTopicParams,
-    PageBuilderContextObject,
-    PageBuilderStorageOperations,
-    PageTemplate,
-    PageTemplateInput,
-    PageTemplatesCrud,
-    PageTemplateStorageOperationsListParams,
-    PageBlockVariable,
-    PbContext,
-    PbPageElement,
-    Page,
-    PageContentWithTemplate
+    type OnPageTemplateAfterCreateTopicParams,
+    type OnPageTemplateAfterDeleteTopicParams,
+    type OnPageTemplateAfterUpdateTopicParams,
+    type OnPageTemplateBeforeCreateTopicParams,
+    type OnPageTemplateBeforeDeleteTopicParams,
+    type OnPageTemplateBeforeUpdateTopicParams,
+    type PageBuilderContextObject,
+    type PageBuilderStorageOperations,
+    type PageTemplate,
+    type PageTemplateInput,
+    type PageTemplatesCrud,
+    type PageTemplateStorageOperationsListParams,
+    type PageBlockVariable,
+    type PbContext,
+    type PbPageElement,
+    type Page,
+    type PageContentWithTemplate
 } from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import { mdbid } from "@webiny/utils";
-import { PageTemplatesPermissions } from "~/graphql/crud/permissions/PageTemplatesPermissions.js";
+import { type PageTemplatesPermissions } from "~/graphql/crud/permissions/PageTemplatesPermissions.js";
 import { dynamicData } from "~/graphql/crud/dynamicData.validation.js";
 
 const createSchema = zod.object({

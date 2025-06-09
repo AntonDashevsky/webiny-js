@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { ExtendedTransportSettings, TransportSettings } from "~/types.js";
+import { type ExtendedTransportSettings, type TransportSettings } from "~/types.js";
 import { decrypt, encrypt } from "./password.js";
-import { CmsEntry } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsEntry } from "@webiny/api-headless-cms/types/index.js";
 
 interface TransformValuesFromEntryParams {
     entry: CmsEntry<TransportSettings>;

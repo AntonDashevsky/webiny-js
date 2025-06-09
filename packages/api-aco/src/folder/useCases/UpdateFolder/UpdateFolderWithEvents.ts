@@ -1,6 +1,6 @@
-import type { UpdateFolderUseCasesTopics } from "./index";
-import type { AcoFolderStorageOperations, Folder, UpdateFolderParams } from "~/folder/folder.types";
-import type { IUpdateFolder } from "~/folder/useCases/UpdateFolder/IUpdateFolder";
+import type { UpdateFolderUseCasesTopics } from "./index.js";
+import type { AcoFolderStorageOperations, Folder, UpdateFolderParams } from "~/folder/folder.types.js";
+import type { IUpdateFolder } from "~/folder/useCases/UpdateFolder/IUpdateFolder.js";
 
 export class UpdateFolderWithEvents implements IUpdateFolder {
     private topics: UpdateFolderUseCasesTopics;

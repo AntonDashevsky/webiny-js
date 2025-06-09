@@ -1,5 +1,5 @@
-import { ITaskResponseResult, TaskDataStatus } from "@webiny/tasks";
-import { IExportPagesControllerTaskParams, PageExportTask } from "../types.js";
+import { type ITaskResponseResult, TaskDataStatus } from "@webiny/tasks";
+import { type IExportPagesControllerTaskParams, PageExportTask } from "../types.js";
 import { CombineZippedPages } from "~/export/pages/controller/CombineZippedPages.js";
 
 export const ZIP_PAGES_WAIT_TIME = 5;

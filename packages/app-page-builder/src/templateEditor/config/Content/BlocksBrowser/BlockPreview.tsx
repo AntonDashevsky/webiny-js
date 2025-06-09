@@ -10,7 +10,7 @@ import { ReactComponent as EditIcon } from "@material-design-icons/svg/round/edi
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/round/delete.svg";
 import * as Styled from "./StyledComponents.js";
 import kebabCase from "lodash/kebabCase.js";
-import { PbEditorBlockPlugin } from "~/types.js";
+import { type PbEditorBlockPlugin } from "~/types.js";
 import { useCallback } from "react";
 
 interface BlockPreviewProps {

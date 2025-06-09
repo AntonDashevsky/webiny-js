@@ -5,9 +5,9 @@ import { useBind } from "@webiny/form";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
 import {
-    PbButtonElementClickHandlerVariable,
-    PbPageElementActionTypePlugin,
-    PbButtonElementClickHandlerPlugin
+    type PbButtonElementClickHandlerVariable,
+    type PbPageElementActionTypePlugin,
+    type PbButtonElementClickHandlerPlugin
 } from "~/types.js";
 import SelectField from "../../components/SelectField.js";
 import Wrapper from "../../components/Wrapper.js";

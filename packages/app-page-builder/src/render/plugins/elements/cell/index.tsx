@@ -1,4 +1,4 @@
-import { PbRenderElementPlugin } from "~/types.js";
+import { type PbRenderElementPlugin } from "~/types.js";
 import { createCell } from "@webiny/app-page-builder-elements/renderers/cell.js";
 
 export default (): PbRenderElementPlugin => {

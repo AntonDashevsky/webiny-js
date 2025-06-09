@@ -1,10 +1,10 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Element as BaseElement, ElementProps as BaseElementProps } from "../Element.js";
+import { Element as BaseElement, type ElementProps as BaseElementProps } from "../Element.js";
 import { Layout } from "./Layout.js";
 import {
     Elements as BaseElements,
-    ElementsProps as BaseElementsProps
+    type ElementsProps as BaseElementsProps
 } from "~/editor/config/Elements.js";
 import { DrawersProvider } from "./Drawers/DrawersProvider.js";
 import { DrawerTrigger } from "./Drawers/DrawerTrigger.js";

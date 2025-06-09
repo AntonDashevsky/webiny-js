@@ -1,7 +1,7 @@
 import { LocalesStorageOperations } from "./LocalesStorageOperations.js";
 import {
     LocalesStorageOperationsProviderPlugin,
-    LocalesStorageOperationsProviderPluginParams
+    type LocalesStorageOperationsProviderPluginParams
 } from "@webiny/api-i18n/plugins/LocalesStorageOperationsProviderPlugin.js";
 import fields from "./fields.js";
 

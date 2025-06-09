@@ -6,16 +6,16 @@ import { imageCreatedEditorAction } from "./imageCreatedEditorAction.js";
 import { CreateElementActionEvent } from "../../../recoil/actions/index.js";
 import { ReactComponent as ImageIcon } from "./round-image-24px.svg";
 import {
-    PbEditorPageElementPlugin,
-    PbEditorPageElementStyleSettingsPlugin,
-    PbEditorEventActionPlugin,
+    type PbEditorPageElementPlugin,
+    type PbEditorPageElementStyleSettingsPlugin,
+    type PbEditorEventActionPlugin,
     DisplayMode,
-    PbEditorElementPluginArgs,
-    PbEditorElement
+    type PbEditorElementPluginArgs,
+    type PbEditorElement
 } from "~/types.js";
-import { Plugin } from "@webiny/plugins/types.js";
+import { type Plugin } from "@webiny/plugins/types.js";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
-import { Element } from "@webiny/app-page-builder-elements/types.js";
+import { type Element } from "@webiny/app-page-builder-elements/types.js";
 import { PeImage } from "~/editor/plugins/elements/image/PeImage.js";
 
 const PreviewBox = styled("div")({

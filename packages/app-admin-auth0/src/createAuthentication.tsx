@@ -1,26 +1,26 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { setContext } from "apollo-link-context";
-import ApolloClient from "apollo-client";
-import { DocumentNode } from "graphql";
+import type ApolloClient from "apollo-client";
+import { type DocumentNode } from "graphql";
 import { useApolloClient } from "@apollo/react-hooks";
 import {
     useAuth0,
     Auth0Provider,
-    Auth0ProviderOptions,
-    LogoutOptions,
-    Auth0ContextInterface,
-    AppState,
-    User
+    type Auth0ProviderOptions,
+    type LogoutOptions,
+    type Auth0ContextInterface,
+    type AppState,
+    type User
 } from "@auth0/auth0-react";
 import { plugins } from "@webiny/plugins";
 import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin.js";
 import { useSecurity } from "@webiny/app-serverless-cms";
 import { useTenancy, withTenant } from "@webiny/app-tenancy";
-import { SecurityPermission } from "@webiny/app-security/types.js";
-import { useRouter, UseHistory } from "@webiny/react-router";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
+import { useRouter, type UseHistory } from "@webiny/react-router";
 import {
     createGetIdentityData,
-    GetIdentityDataCallable,
+    type GetIdentityDataCallable,
     LOGIN_MT,
     LOGIN_ST
 } from "./createGetIdentityData/index.js";

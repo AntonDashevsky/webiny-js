@@ -3,7 +3,7 @@ import { css } from "emotion";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { PublishRevision, EditRevision, DeleteForm, RevisionSelector } from "./HeaderComponents/index.js";
-import { FbFormDetailsPluginRenderParams, FbRevisionModel } from "~/types.js";
+import { type FbFormDetailsPluginRenderParams, type FbRevisionModel } from "~/types.js";
 
 const headerTitle = css({
     "&.mdc-layout-grid": {

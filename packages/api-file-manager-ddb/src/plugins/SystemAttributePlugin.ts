@@ -1,6 +1,6 @@
 import {
     AttributePlugin,
-    AttributePluginParams
+    type AttributePluginParams
 } from "@webiny/db-dynamodb/plugins/definitions/AttributePlugin.js";
 
 export class SystemAttributePlugin extends AttributePlugin {

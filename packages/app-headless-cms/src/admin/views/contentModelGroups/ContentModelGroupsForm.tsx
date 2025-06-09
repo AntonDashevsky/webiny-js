@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import styled from "@emotion/styled";
 import isEmpty from "lodash/isEmpty.js";
 import get from "lodash/get.js";
-import { Form, FormRenderPropParams } from "@webiny/form";
+import { Form, type FormRenderPropParams } from "@webiny/form";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
@@ -26,14 +26,14 @@ import * as GQL from "./graphql.js";
 import usePermission from "../../hooks/usePermission.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import {
-    CmsGroup,
-    CreateCmsGroupMutationResponse,
-    CreateCmsGroupMutationVariables,
-    GetCmsGroupQueryResponse,
-    GetCmsGroupQueryVariables,
-    ListCmsGroupsQueryResponse,
-    UpdateCmsGroupMutationResponse,
-    UpdateCmsGroupMutationVariables
+    type CmsGroup,
+    type CreateCmsGroupMutationResponse,
+    type CreateCmsGroupMutationVariables,
+    type GetCmsGroupQueryResponse,
+    type GetCmsGroupQueryVariables,
+    type ListCmsGroupsQueryResponse,
+    type UpdateCmsGroupMutationResponse,
+    type UpdateCmsGroupMutationVariables
 } from "./graphql.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/form");

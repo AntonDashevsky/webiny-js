@@ -1,9 +1,9 @@
 import {
-    CmsEntry,
-    CmsEntryValues,
-    CmsModelManager,
-    UpdateCmsEntryInput,
-    UpdateCmsEntryOptionsInput
+    type CmsEntry,
+    type CmsEntryValues,
+    type CmsModelManager,
+    type UpdateCmsEntryInput,
+    type UpdateCmsEntryOptionsInput
 } from "~/types/index.js";
 import { WebinyError } from "@webiny/error";
 import { CMS_MODEL_SINGLETON_TAG } from "~/constants.js";

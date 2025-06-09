@@ -5,7 +5,7 @@ import { Form } from "@webiny/form";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import { CheckboxGroup, Checkbox } from "@webiny/ui/Checkbox/index.js";
 import { Radio, RadioGroup } from "@webiny/ui/Radio/index.js";
-import { I18NSecurityPermission } from "@webiny/app-i18n/types.js";
+import { type I18NSecurityPermission } from "@webiny/app-i18n/types.js";
 
 const t = i18n.ns("app-i18n/admin/plugins/permissionRenderer");
 

@@ -1,8 +1,8 @@
 import {
-    IGenericData,
-    IWebsocketsAction,
-    IWebsocketsActions,
-    IWebsocketsActionsTriggerParams
+    type IGenericData,
+    type IWebsocketsAction,
+    type IWebsocketsActions,
+    type IWebsocketsActionsTriggerParams
 } from "./types.js";
 
 export class WebsocketsAction<

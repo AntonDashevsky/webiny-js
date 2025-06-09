@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import { DropDestination, FbFormModelField } from "~/types.js";
+import { type DropDestination, type FbFormModelField } from "~/types.js";
 
 interface FormStepContextParams {
     editingField: FbFormModelField | null;

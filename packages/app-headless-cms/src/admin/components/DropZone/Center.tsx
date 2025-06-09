@@ -1,6 +1,6 @@
-import React, { CSSProperties } from "react";
+import React, { type CSSProperties } from "react";
 import styled from "@emotion/styled";
-import { Droppable, DroppableProps, OnDropCallable } from "./../Droppable.js";
+import { Droppable, type DroppableProps, type OnDropCallable } from "./../Droppable.js";
 
 interface DroppableFlags {
     isOver: boolean;

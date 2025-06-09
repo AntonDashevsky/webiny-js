@@ -1,6 +1,6 @@
-import { Request } from "@webiny/handler/types.js";
-import { DynamoDBDocument, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb";
-import { AssetRequest, AssetRequestResolver } from "~/delivery/index.js";
+import { type Request } from "@webiny/handler/types.js";
+import { type DynamoDBDocument, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb";
+import { AssetRequest, type AssetRequestResolver } from "~/delivery/index.js";
 
 export class AliasAssetRequestResolver implements AssetRequestResolver {
     private documentClient: DynamoDBDocument;

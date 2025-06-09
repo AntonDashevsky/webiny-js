@@ -1,6 +1,6 @@
-import React from "react";
+import type React from "react";
 import { useSecurity } from "~/hooks/useSecurity.js";
-import { SecureRouteErrorPlugin } from "~/types.js";
+import { type SecureRouteErrorPlugin } from "~/types.js";
 import { plugins } from "@webiny/plugins";
 
 interface SecureRouteProps {

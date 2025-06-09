@@ -1,4 +1,4 @@
-import { Meta } from "../../Models/index.js";
+import { type Meta } from "../../Models/index.js";
 
 export interface IMetaRepository {
     get: () => Meta;

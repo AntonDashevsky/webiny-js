@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Chips, Chip } from "@webiny/ui/Chips/index.js";
-import { FilterDTO } from "~/components/AdvancedSearch/domain/index.js";
+import { type FilterDTO } from "~/components/AdvancedSearch/domain/index.js";
 import { CloseIcon, EditIcon } from "./SelectedFilter.styled.js";
 
 interface SelectedFilterProps {

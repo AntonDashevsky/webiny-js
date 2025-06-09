@@ -4,10 +4,10 @@ import { useNavigate } from "@webiny/react-router";
 import { useQuery } from "@apollo/react-hooks";
 import {
     LIST_CONTENT_REVIEWS_QUERY,
-    ListContentReviewsQueryResponse,
-    ListContentReviewsQueryVariables
+    type ListContentReviewsQueryResponse,
+    type ListContentReviewsQueryVariables
 } from "~/graphql/contentReview.gql.js";
-import { ApwContentReview, ApwContentReviewListItem, ApwContentReviewStatus } from "~/types.js";
+import { type ApwContentReview, type ApwContentReviewListItem, type ApwContentReviewStatus } from "~/types.js";
 
 const BASE_URL = "/apw/content-reviews";
 

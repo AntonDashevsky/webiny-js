@@ -1,9 +1,9 @@
 import {
-    ApiEndpoint,
-    CmsFieldTypePlugins,
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldToGraphQLPlugin
+    type ApiEndpoint,
+    type CmsFieldTypePlugins,
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldToGraphQLPlugin
 } from "~/types/index.js";
 import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";

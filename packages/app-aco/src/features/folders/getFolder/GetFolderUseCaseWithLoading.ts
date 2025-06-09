@@ -1,5 +1,5 @@
-import { GetFolderParams, IGetFolderUseCase } from "./IGetFolderUseCase.js";
-import { ILoadingRepository } from "@webiny/app-utils";
+import { type GetFolderParams, type IGetFolderUseCase } from "./IGetFolderUseCase.js";
+import { type ILoadingRepository } from "@webiny/app-utils";
 import { LoadingActionsEnum } from "~/types.js";
 
 export class GetFolderUseCaseWithLoading implements IGetFolderUseCase {

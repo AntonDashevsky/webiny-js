@@ -4,9 +4,9 @@ import debounce from "lodash/debounce.js";
 import omit from "lodash/omit.js";
 import { PAGE_BUILDER_LIST_LINK } from "~/admin/constants/index.js";
 import { createSort, useAcoList } from "@webiny/app-aco";
-import { PbPageDataItem, TableItem } from "~/types.js";
-import { FolderItem, ListMeta, SearchRecordItem } from "@webiny/app-aco/types.js";
-import { OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
+import { type PbPageDataItem, type TableItem } from "~/types.js";
+import { type FolderItem, type ListMeta, type SearchRecordItem } from "@webiny/app-aco/types.js";
+import { type OnSortingChange, type Sorting } from "@webiny/ui/DataTable/index.js";
 
 interface UpdateSearchCallableParams {
     search: string;

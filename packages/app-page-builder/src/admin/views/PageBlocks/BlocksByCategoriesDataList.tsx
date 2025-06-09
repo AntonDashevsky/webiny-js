@@ -32,7 +32,7 @@ import { ReactComponent as UploadFileIcon } from "@webiny/app-admin/assets/icons
 import { Icon } from "~/admin/utils/createBlockCategoryPlugin.js";
 import { OptionsMenu } from "~/admin/components/OptionsMenu.js";
 
-import { PbBlockCategory } from "~/types.js";
+import { type PbBlockCategory } from "~/types.js";
 import { LIST_PAGE_CATEGORIES } from "./graphql.js";
 import useImportBlock from "~/admin/views/PageBlocks/hooks/useImportBlock.js";
 import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog.js";

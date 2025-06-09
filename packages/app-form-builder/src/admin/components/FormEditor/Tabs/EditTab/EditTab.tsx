@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { EditContainer } from "./Styled.js";
 import { useFormEditor } from "~/admin/components/FormEditor/index.js";
-import { FbFormStep } from "~/types.js";
+import { type FbFormStep } from "~/types.js";
 
 import { EditFormStepDialog } from "./FormStep/EditFormStepDialog.js";
 

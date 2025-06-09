@@ -1,5 +1,5 @@
-import { PbContext } from "~/graphql/types";
-import { DeleteTranslatableCollectionRepository } from "~/translations/translatableCollection/repository/DeleteTranslatableCollectionRepository";
+import { type PbContext } from "~/graphql/types.js";
+import { DeleteTranslatableCollectionRepository } from "~/translations/translatableCollection/repository/DeleteTranslatableCollectionRepository.js";
 
 export interface DeleteTranslatableCollectionParams {
     collectionId: string;

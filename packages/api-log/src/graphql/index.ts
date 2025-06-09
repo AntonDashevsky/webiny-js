@@ -1,4 +1,4 @@
-import { Plugin } from "@webiny/plugins/types.js";
+import { type Plugin } from "@webiny/plugins/types.js";
 import { createGraphQlPlugin } from "~/graphql/plugin.js";
 
 export interface ICreateGraphQlParams {

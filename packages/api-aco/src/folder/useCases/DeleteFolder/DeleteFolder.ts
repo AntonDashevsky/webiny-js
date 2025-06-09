@@ -1,5 +1,5 @@
-import type { IDeleteFolder } from "./IDeleteFolder";
-import type { AcoFolderStorageOperations, DeleteFolderParams } from "~/folder/folder.types";
+import type { IDeleteFolder } from "./IDeleteFolder.js";
+import type { AcoFolderStorageOperations, DeleteFolderParams } from "~/folder/folder.types.js";
 
 export class DeleteFolder implements IDeleteFolder {
     private readonly deleteOperation: AcoFolderStorageOperations["deleteFolder"];

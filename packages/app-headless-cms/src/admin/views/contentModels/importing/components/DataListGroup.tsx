@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { DataListModels } from "./Model/index.js";
-import { ImportGroupData, ImportModelData } from "../types.js";
+import { type ImportGroupData, type ImportModelData } from "../types.js";
 
 const Container = styled("div")({
     marginTop: "10px",

@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { FileItem } from "@webiny/app-admin/types.js";
-import { EditFileUsingUrlRepository } from "./EditFileUsingUrlRepository.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
+import { type EditFileUsingUrlRepository } from "./EditFileUsingUrlRepository.js";
 import { LOADING_STATE } from "./Loading.js";
 
 const loadingLabels: Record<LOADING_STATE, string> = {

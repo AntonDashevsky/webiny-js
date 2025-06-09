@@ -1,4 +1,4 @@
-import { EventActionCallable, EventActionHandlerCallableArgs, PbPageTemplate } from "~/types.js";
+import { type EventActionCallable, type EventActionHandlerCallableArgs, type PbPageTemplate } from "~/types.js";
 
 export interface TemplateEditorEventActionCallableState {
     template: PbPageTemplate;

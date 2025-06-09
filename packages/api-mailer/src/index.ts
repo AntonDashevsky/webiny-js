@@ -1,7 +1,7 @@
-import { PluginCollection } from "@webiny/plugins/types.js";
+import { type PluginCollection } from "@webiny/plugins/types.js";
 import { createMailerContext as createMailerContextPlugin } from "~/context.js";
 import { createDummyTransport } from "~/transports/createDummyTransport.js";
-import { createSmtpTransport, SmtpTransportConfig } from "~/transports/createSmtpTransport.js";
+import { createSmtpTransport, type SmtpTransportConfig } from "~/transports/createSmtpTransport.js";
 import { createTransport } from "~/plugins/index.js";
 import { createSettingsModel } from "~/crud/settings/model.js";
 import { createGraphQL } from "~/graphql/index.js";

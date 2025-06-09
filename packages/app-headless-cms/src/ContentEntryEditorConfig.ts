@@ -1,20 +1,20 @@
-import * as DzField from "~/admin/plugins/fieldRenderers/dynamicZone";
-import { Components as ObjectField } from "~/admin/plugins/fieldRenderers/object";
-import { ContentEntryForm as BaseContentEntryForm } from "./admin/components/ContentEntryForm/ContentEntryForm";
-import { Header as ContentEntryFormHeader } from "./admin/components/ContentEntryForm/Header";
-import { ContentEntryFormPreview } from "./admin/components/ContentEntryForm/ContentEntryFormPreview";
-import { useContentEntryForm } from "./admin/components/ContentEntryForm/useContentEntryForm";
-import { DefaultLayout } from "~/admin/components/ContentEntryForm/DefaultLayout";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks";
-import { ContentEntry } from "~/admin/views/contentEntries/ContentEntry";
-import { ContentEntryEditorConfig as BaseContentEntryEditorConfig } from "./admin/config/contentEntries";
-import { SingletonContentEntry } from "~/admin/views/contentEntries/ContentEntry/SingletonContentEntry";
-import { useSingletonContentEntry } from "~/admin/views/contentEntries/hooks/useSingletonContentEntry";
+import * as DzField from "~/admin/plugins/fieldRenderers/dynamicZone/index.js";
+import { Components as ObjectField } from "~/admin/plugins/fieldRenderers/object/index.js";
+import { ContentEntryForm as BaseContentEntryForm } from "./admin/components/ContentEntryForm/ContentEntryForm.js";
+import { Header as ContentEntryFormHeader } from "./admin/components/ContentEntryForm/Header/index.js";
+import { ContentEntryFormPreview } from "./admin/components/ContentEntryForm/ContentEntryFormPreview.js";
+import { useContentEntryForm } from "./admin/components/ContentEntryForm/useContentEntryForm.js";
+import { DefaultLayout } from "~/admin/components/ContentEntryForm/DefaultLayout.js";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
+import { ContentEntry } from "~/admin/views/contentEntries/ContentEntry.js";
+import { ContentEntryEditorConfig as BaseContentEntryEditorConfig } from "./admin/config/contentEntries/index.js";
+import { SingletonContentEntry } from "~/admin/views/contentEntries/ContentEntry/SingletonContentEntry.js";
+import { useSingletonContentEntry } from "~/admin/views/contentEntries/hooks/useSingletonContentEntry.js";
 import {
     ContentEntryFormMeta,
     ContentEntryFormTitle
-} from "~/admin/views/contentEntries/ContentEntry/FullScreenContentEntry/FullScreenContentEntryHeaderLeft";
-import { SingleValueItemContainer } from "~/admin/plugins/fieldRenderers/dynamicZone/SingleValueDynamicZone";
+} from "~/admin/views/contentEntries/ContentEntry/FullScreenContentEntry/FullScreenContentEntryHeaderLeft.js";
+import { SingleValueItemContainer } from "~/admin/plugins/fieldRenderers/dynamicZone/SingleValueDynamicZone.js";
 
 export const ContentEntryEditorConfig = Object.assign(BaseContentEntryEditorConfig, {
     ContentEntry: Object.assign(ContentEntry, {

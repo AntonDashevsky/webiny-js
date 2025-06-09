@@ -3,12 +3,12 @@ import { useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import {
     IMPORT_PAGES,
-    ImportPagesMutationResponse,
-    ImportPagesMutationVariables
+    type ImportPagesMutationResponse,
+    type ImportPagesMutationVariables
 } from "~/admin/graphql/pageImportExport.gql.js";
 import useImportPageDialog from "~/editor/plugins/defaultBar/components/ImportButton/page/useImportPageDialog.js";
 import useImportPageLoadingDialog from "~/editor/plugins/defaultBar/components/ImportButton/page/useImportPageLoadingDialog.js";
-import { PbCategory } from "~/types.js";
+import { type PbCategory } from "~/types.js";
 
 interface UseImportPageParams {
     setLoading: () => void;

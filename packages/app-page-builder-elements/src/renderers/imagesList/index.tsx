@@ -1,7 +1,7 @@
 import React from "react";
 import {
-    ImagesListComponent as RenderImagesListComponent,
-    Image
+    type ImagesListComponent as RenderImagesListComponent,
+    type Image
 } from "~/renderers/imagesList/types.js";
 import { createRenderer } from "~/createRenderer.js";
 import { useRenderer } from "~/hooks/useRenderer.js";

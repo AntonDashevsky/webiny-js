@@ -4,7 +4,7 @@ import { plugins } from "@webiny/plugins";
 import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Form, FormOnSubmit } from "@webiny/form";
+import { Form, type FormOnSubmit } from "@webiny/form";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
 import { ButtonPrimary } from "@webiny/ui/Button/index.js";

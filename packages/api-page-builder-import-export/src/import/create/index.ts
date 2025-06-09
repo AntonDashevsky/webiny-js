@@ -1,5 +1,5 @@
-import { ImportExportTask, PbImportExportContext } from "~/types.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type ImportExportTask, type PbImportExportContext } from "~/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { createRawEventHandler } from "@webiny/handler-aws";
 import { blocksHandler } from "~/import/create/blocksHandler.js";
 import { formsHandler } from "~/import/create/formsHandler.js";

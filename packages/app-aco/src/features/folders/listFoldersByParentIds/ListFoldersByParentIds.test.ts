@@ -1,7 +1,7 @@
-import { ListFoldersByParentIds } from "./ListFoldersByParentIds";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory";
-import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory";
-import { ROOT_FOLDER } from "~/constants";
+import { ListFoldersByParentIds } from "./ListFoldersByParentIds.js";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
+import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 describe("ListFoldersByParentIds", () => {
     const type = "abc";

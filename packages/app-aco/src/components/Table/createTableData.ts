@@ -1,5 +1,5 @@
-import { FolderTableItem, RecordTableItem } from "~/table.types.js";
-import { FolderItem } from "~/types.js";
+import { type FolderTableItem, type RecordTableItem } from "~/table.types.js";
+import { type FolderItem } from "~/types.js";
 
 type Result<T> = Array<RecordTableItem & T>;
 

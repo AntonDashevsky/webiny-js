@@ -1,23 +1,23 @@
 import {
-    FbForm,
-    FormBuilderStorageOperationsCreateFormFromParams,
-    FormBuilderStorageOperationsCreateFormParams,
-    FormBuilderStorageOperationsDeleteFormParams,
-    FormBuilderStorageOperationsDeleteFormRevisionParams,
-    FormBuilderStorageOperationsGetFormParams,
-    FormBuilderStorageOperationsListFormRevisionsParams,
-    FormBuilderStorageOperationsListFormRevisionsParamsWhere,
-    FormBuilderStorageOperationsListFormsParams,
-    FormBuilderStorageOperationsListFormsResponse,
-    FormBuilderStorageOperationsPublishFormParams,
-    FormBuilderStorageOperationsUnpublishFormParams,
-    FormBuilderStorageOperationsUpdateFormParams
+    type FbForm,
+    type FormBuilderStorageOperationsCreateFormFromParams,
+    type FormBuilderStorageOperationsCreateFormParams,
+    type FormBuilderStorageOperationsDeleteFormParams,
+    type FormBuilderStorageOperationsDeleteFormRevisionParams,
+    type FormBuilderStorageOperationsGetFormParams,
+    type FormBuilderStorageOperationsListFormRevisionsParams,
+    type FormBuilderStorageOperationsListFormRevisionsParamsWhere,
+    type FormBuilderStorageOperationsListFormsParams,
+    type FormBuilderStorageOperationsListFormsResponse,
+    type FormBuilderStorageOperationsPublishFormParams,
+    type FormBuilderStorageOperationsUnpublishFormParams,
+    type FormBuilderStorageOperationsUpdateFormParams
 } from "@webiny/api-form-builder/types.js";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
-import { Client } from "@elastic/elasticsearch";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { type Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
+import { type Client } from "@elastic/elasticsearch";
+import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
 import WebinyError from "@webiny/error";
-import { createEntityWriteBatch, getClean, IPutParamsItem, put } from "@webiny/db-dynamodb";
+import { createEntityWriteBatch, getClean, type IPutParamsItem, put } from "@webiny/db-dynamodb";
 import { configurations } from "~/configurations.js";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
 import fields from "./fields.js";
@@ -25,9 +25,9 @@ import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
 import { parseIdentifier, zeroPad } from "@webiny/utils";
 import { createElasticsearchBody, createFormElasticType } from "./elasticsearchBody.js";
 import { decodeCursor, encodeCursor } from "@webiny/api-elasticsearch";
-import { PluginsContainer } from "@webiny/plugins";
-import { FormBuilderFormCreateKeyParams, FormBuilderFormStorageOperations } from "~/types.js";
-import { ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types.js";
+import { type PluginsContainer } from "@webiny/plugins";
+import { type FormBuilderFormCreateKeyParams, type FormBuilderFormStorageOperations } from "~/types.js";
+import { type ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types.js";
 
 export type DbRecord<T = any> = T & {
     PK: string;

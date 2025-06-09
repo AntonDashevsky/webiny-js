@@ -1,7 +1,7 @@
 import {
-    CmsModelField,
-    CmsModelFieldToGraphQLCreateResolver,
-    CmsModelFieldToGraphQLPlugin
+    type CmsModelField,
+    type CmsModelFieldToGraphQLCreateResolver,
+    type CmsModelFieldToGraphQLPlugin
 } from "~/types/index.js";
 import { createGraphQLInputField } from "./helpers.js";
 

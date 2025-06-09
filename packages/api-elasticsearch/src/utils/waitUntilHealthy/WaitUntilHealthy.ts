@@ -1,19 +1,19 @@
-import { Client } from "~/client.js";
+import { type Client } from "~/client.js";
 import { ElasticsearchCatHealth } from "~/operations/ElasticsearchCatHealth.js";
 import { ElasticsearchCatNodes } from "~/operations/ElasticsearchCatNodes.js";
 import {
     ElasticsearchCatClusterHealthStatus,
-    IElasticsearchCatHealthResponse,
-    IElasticsearchCatNodesResponse
+    type IElasticsearchCatHealthResponse,
+    type IElasticsearchCatNodesResponse
 } from "~/operations/types.js";
 import { UnhealthyClusterError } from "~/utils/waitUntilHealthy/UnhealthyClusterError.js";
 import {
-    ClusterHealthReason,
+    type ClusterHealthReason,
     createClusterHealthStatusReason,
     createMemoryReason,
     createProcessorReason,
-    MemoryReason,
-    ProcessorReason
+    type MemoryReason,
+    type ProcessorReason
 } from "./reason/index.js";
 import { WaitingHealthyClusterAbortedError } from "./WaitingHealthyClusterAbortedError.js";
 

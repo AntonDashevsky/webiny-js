@@ -1,16 +1,16 @@
 import {
-    OnPageElementAfterCreateTopicParams,
-    OnPageElementAfterDeleteTopicParams,
-    OnPageElementAfterUpdateTopicParams,
-    OnPageElementBeforeCreateTopicParams,
-    OnPageElementBeforeDeleteTopicParams,
-    OnPageElementBeforeUpdateTopicParams,
-    PageBuilderContextObject,
-    PageBuilderStorageOperations,
-    PageElement,
-    PageElementsCrud,
-    PageElementStorageOperationsListParams,
-    PbContext
+    type OnPageElementAfterCreateTopicParams,
+    type OnPageElementAfterDeleteTopicParams,
+    type OnPageElementAfterUpdateTopicParams,
+    type OnPageElementBeforeCreateTopicParams,
+    type OnPageElementBeforeDeleteTopicParams,
+    type OnPageElementBeforeUpdateTopicParams,
+    type PageBuilderContextObject,
+    type PageBuilderStorageOperations,
+    type PageElement,
+    type PageElementsCrud,
+    type PageElementStorageOperationsListParams,
+    type PbContext
 } from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
@@ -20,7 +20,7 @@ import {
     createPageElementsUpdateValidation
 } from "~/graphql/crud/pageElements/validation.js";
 import { createZodError, mdbid, removeUndefinedValues } from "@webiny/utils";
-import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions.js";
+import { type PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions.js";
 
 export interface CreatePageElementsCrudParams {
     context: PbContext;

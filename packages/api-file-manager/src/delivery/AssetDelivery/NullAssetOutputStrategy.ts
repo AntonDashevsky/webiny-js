@@ -1,4 +1,4 @@
-import { AssetOutputStrategy, AssetReply } from "~/delivery/index.js";
+import { type AssetOutputStrategy, type AssetReply } from "~/delivery/index.js";
 import { NullAssetReply } from "./NullAssetReply.js";
 
 export class NullAssetOutputStrategy implements AssetOutputStrategy {

@@ -1,11 +1,11 @@
-import type { Context as ContextInterface } from "~/types";
+import type { Context as ContextInterface } from "~/types.js";
 import { PluginsContainer } from "@webiny/plugins";
-import type { PluginCollection } from "@webiny/plugins/types";
-import { Benchmark } from "~/Benchmark";
-import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin";
-import type { ICompressor } from "@webiny/utils/compression/Compressor";
-import { createDefaultCompressor } from "@webiny/utils/compression";
-import { CompressorPlugin } from "~/plugins/CompressorPlugin";
+import type { PluginCollection } from "@webiny/plugins/types.js";
+import { Benchmark } from "~/Benchmark.js";
+import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin.js";
+import type { ICompressor } from "@webiny/utils/compression/Compressor.js";
+import { createDefaultCompressor } from "@webiny/utils/compression/index.js";
+import { CompressorPlugin } from "~/plugins/CompressorPlugin.js";
 
 interface Waiter {
     targets: string[];

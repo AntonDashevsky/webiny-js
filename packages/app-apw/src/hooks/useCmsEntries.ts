@@ -3,14 +3,14 @@ import dotPropImmutable from "dot-prop-immutable";
 import debounce from "lodash/debounce.js";
 import {
     LIST_LATEST_CMS_ENTRIES,
-    ListLatestCmsEntriesQueryResponse,
-    ListLatestCmsEntriesQueryVariables,
+    type ListLatestCmsEntriesQueryResponse,
+    type ListLatestCmsEntriesQueryVariables,
     SEARCH_CMS_ENTRIES,
-    SearchCmsEntriesQueryResponse,
-    SearchCmsEntriesQueryVariables
+    type SearchCmsEntriesQueryResponse,
+    type SearchCmsEntriesQueryVariables
 } from "~/graphql/workflow.gql.js";
-import { BindComponentRenderProp } from "@webiny/form";
-import { CmsEntry, CmsModel } from "~/types.js";
+import { type BindComponentRenderProp } from "@webiny/form";
+import { type CmsEntry, type CmsModel } from "~/types.js";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import { useQueryLocale } from "@webiny/app-headless-cms/admin/hooks/index.js";
 

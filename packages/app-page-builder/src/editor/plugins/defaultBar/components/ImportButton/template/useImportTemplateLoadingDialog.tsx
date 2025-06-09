@@ -10,7 +10,7 @@ import { LoadingDialog } from "../styledComponents.js";
 import {
     GET_TEMPLATE_IMPORT_EXPORT_TASK,
     LIST_TEMPLATE_IMPORT_EXPORT_SUB_TASKS,
-    GetTemplateImportExportTaskResponse
+    type GetTemplateImportExportTaskResponse
 } from "~/admin/graphql/templateImportExport.gql.js";
 import { ImportExportTaskStatus } from "~/types.js";
 

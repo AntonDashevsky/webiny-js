@@ -12,7 +12,7 @@ import { usePageBuilder } from "~/hooks/usePageBuilder.js";
 import { ReactComponent as FileDownloadIcon } from "~/editor/assets/icons/file_download_black_24dp.svg";
 import ExportPageLoadingDialogContent from "./ExportPageLoadingDialogContent.js";
 import useExportPage from "./useExportPage.js";
-import { PbListPagesWhereInput } from "~/admin/graphql/types.js";
+import { type PbListPagesWhereInput } from "~/admin/graphql/types.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/exportPageButton");
 

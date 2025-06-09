@@ -1,32 +1,32 @@
-import { DbContext } from "@webiny/handler-db/types.js";
-import { SecurityContext, SecurityPermission } from "@webiny/api-security/types.js";
-import { TenancyContext } from "@webiny/api-tenancy/types.js";
-import { I18NContext } from "@webiny/api-i18n/types.js";
-import { Topic } from "@webiny/pubsub/types.js";
-import { FlushEvent, QueueAddJob, RenderEvent } from "@webiny/api-prerendering-service/types.js";
-import { Context as BaseContext } from "@webiny/handler/types.js";
+import { type DbContext } from "@webiny/handler-db/types.js";
+import { type SecurityContext, type SecurityPermission } from "@webiny/api-security/types.js";
+import { type TenancyContext } from "@webiny/api-tenancy/types.js";
+import { type I18NContext } from "@webiny/api-i18n/types.js";
+import { type Topic } from "@webiny/pubsub/types.js";
+import { type FlushEvent, type QueueAddJob, type RenderEvent } from "@webiny/api-prerendering-service/types.js";
+import { type Context as BaseContext } from "@webiny/handler/types.js";
 
 import {
-    BlockCategory,
-    Category,
-    CreatedBy,
-    DefaultSettings,
-    DynamicDocument,
-    Menu,
-    Page,
-    PageBlock,
-    PageElement,
-    PageSettings,
-    PageSpecialType,
-    PageStatus,
-    PageTemplate,
-    PageTemplateInput,
-    Settings,
-    System
+    type BlockCategory,
+    type Category,
+    type CreatedBy,
+    type DefaultSettings,
+    type DynamicDocument,
+    type Menu,
+    type Page,
+    type PageBlock,
+    type PageElement,
+    type PageSettings,
+    type PageSpecialType,
+    type PageStatus,
+    type PageTemplate,
+    type PageTemplateInput,
+    type Settings,
+    type System
 } from "~/types.js";
-import { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types.js";
-import { FileManagerContext } from "@webiny/api-file-manager/types.js";
-import { DataSourcesContext } from "~/dataSources/types.js";
+import { type PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types.js";
+import { type FileManagerContext } from "@webiny/api-file-manager/types.js";
+import { type DataSourcesContext } from "~/dataSources/types.js";
 
 // CRUD types.
 export interface ListPagesParamsWhere {

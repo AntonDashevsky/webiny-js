@@ -5,7 +5,7 @@ import { ReactComponent as AccordionIcon } from "@material-design-icons/svg/fill
 import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
 import { createElement } from "~/editor/helpers.js";
 import Accordion from "./Accordion.js";
-import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
+import { type PbEditorPageElementPlugin, type PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

@@ -1,5 +1,5 @@
-import { PageTemplate } from "@webiny/api-page-builder/types.js";
-import { File, FileManagerContext } from "@webiny/api-file-manager/types.js";
+import { type PageTemplate } from "@webiny/api-page-builder/types.js";
+import { type File, type FileManagerContext } from "@webiny/api-file-manager/types.js";
 import Zipper from "~/export/zipper.js";
 import { extractFilesFromData } from "~/export/utils.js";
 

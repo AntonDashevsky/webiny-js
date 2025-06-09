@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { PbPageTemplateWithContent } from "@webiny/app-page-builder/types.js";
+import { type PbPageTemplateWithContent } from "@webiny/app-page-builder/types.js";
 import { RenderPluginsLoader } from "@webiny/app-page-builder/admin/index.js";
 import { Content } from "@webiny/app-page-builder-elements";
 import {

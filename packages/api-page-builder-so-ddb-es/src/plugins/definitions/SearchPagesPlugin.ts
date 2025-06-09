@@ -1,5 +1,5 @@
-import { Plugin, PluginsContainer } from "@webiny/plugins";
-import { ElasticsearchBoolQueryConfig, Sort as esSort } from "@webiny/api-elasticsearch/types.js";
+import { Plugin, type PluginsContainer } from "@webiny/plugins";
+import { type ElasticsearchBoolQueryConfig, type Sort as esSort } from "@webiny/api-elasticsearch/types.js";
 
 interface ModifyQueryArgs {
     query: ElasticsearchBoolQueryConfig;

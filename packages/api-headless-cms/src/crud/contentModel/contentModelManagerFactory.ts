@@ -1,4 +1,4 @@
-import { CmsModel, CmsContext, ModelManagerPlugin, CmsModelManager } from "~/types/index.js";
+import { type CmsModel, type CmsContext, type ModelManagerPlugin, type CmsModelManager } from "~/types/index.js";
 
 const defaultName = "content-model-manager-default";
 

@@ -1,10 +1,10 @@
-import { ClientContext } from "@webiny/handler-client/types.js";
+import { type ClientContext } from "@webiny/handler-client/types.js";
 import { ContextPlugin } from "@webiny/api";
 import WebinyError from "@webiny/error";
-import { PrerenderingServiceClientArgs, PrerenderingServiceClientContext } from "./types.js";
-import { HandlerPayload as RenderHandlerEvent } from "../render/types.js";
-import { HandlerArgs as FlushHandlerEvent } from "../flush/types.js";
-import { QueueAddJobEvent } from "~/queue/add/types.js";
+import { type PrerenderingServiceClientArgs, type PrerenderingServiceClientContext } from "./types.js";
+import { type HandlerPayload as RenderHandlerEvent } from "../render/types.js";
+import { type HandlerArgs as FlushHandlerEvent } from "../flush/types.js";
+import { type QueueAddJobEvent } from "~/queue/add/types.js";
 
 export default (configuration: PrerenderingServiceClientArgs) => {
     return new ContextPlugin<ClientContext & PrerenderingServiceClientContext>(context => {

@@ -1,14 +1,14 @@
 import {
-    IWebsocketsSubscription,
-    IWebsocketsSubscriptionCallback
+    type IWebsocketsSubscription,
+    type IWebsocketsSubscriptionCallback
 } from "./IWebsocketsSubscriptionManager.js";
 import {
-    IGenericData,
-    IWebsocketsManagerCloseEvent,
-    IWebsocketsManagerErrorEvent,
-    IWebsocketsManagerMessageEvent,
-    IWebsocketsManagerOpenEvent,
-    WebsocketsCloseCode
+    type IGenericData,
+    type IWebsocketsManagerCloseEvent,
+    type IWebsocketsManagerErrorEvent,
+    type IWebsocketsManagerMessageEvent,
+    type IWebsocketsManagerOpenEvent,
+    type WebsocketsCloseCode
 } from "./types.js";
 
 export interface IWebsocketManagerSendData<T extends IGenericData = IGenericData>

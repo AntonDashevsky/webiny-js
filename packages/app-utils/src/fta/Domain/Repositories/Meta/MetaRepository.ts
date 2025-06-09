@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { decodeCursor, encodeCursor } from "@webiny/utils";
-import { IMetaRepository } from "./IMetaRepository.js";
-import { Meta, MetaDTO, MetaMapper } from "~/fta/Domain/Models/Meta/index.js";
+import { type IMetaRepository } from "./IMetaRepository.js";
+import { Meta, type MetaDTO, MetaMapper } from "~/fta/Domain/Models/Meta/index.js";
 
 export class MetaRepository implements IMetaRepository {
     private meta: Meta;

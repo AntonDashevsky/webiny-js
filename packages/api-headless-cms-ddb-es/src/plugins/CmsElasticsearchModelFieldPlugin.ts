@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { CmsModelFieldType } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsModelFieldType } from "@webiny/api-headless-cms/types/index.js";
 
 /**
  * A plugin which allows you to map a custom GraphQL field to an Elasticsearch field.

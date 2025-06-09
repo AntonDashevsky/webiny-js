@@ -10,7 +10,7 @@ import { List, ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import * as SF from "@webiny/app-admin/components/SimpleForm/index.js";
-import { CmsEditorFormSettingsPlugin } from "~/types.js";
+import { type CmsEditorFormSettingsPlugin } from "~/types.js";
 import { listItem, ListItemTitle, listStyle, Title, TitleContent } from "./FormSettingsStyled.js";
 import { useModelEditor } from "~/admin/hooks/index.js";
 

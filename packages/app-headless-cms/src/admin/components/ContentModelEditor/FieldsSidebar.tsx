@@ -1,9 +1,9 @@
-import React, { DragEventHandler } from "react";
+import React, { type DragEventHandler } from "react";
 import { plugins } from "@webiny/plugins";
 import styled from "@emotion/styled";
 import { Icon } from "@webiny/ui/Icon/index.js";
 import Draggable from "../Draggable.js";
-import { CmsModelFieldTypePlugin } from "~/types.js";
+import { type CmsModelFieldTypePlugin } from "~/types.js";
 
 const FieldContainer = styled("div")({
     padding: "10px 15px",

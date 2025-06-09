@@ -1,11 +1,11 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import {
-    GetFolderHierarchyGatewayParams,
-    IGetFolderHierarchyGateway
-} from "./IGetFolderHierarchyGateway";
-import { AcoError, FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+    type GetFolderHierarchyGatewayParams,
+    type IGetFolderHierarchyGateway
+} from "./IGetFolderHierarchyGateway.js";
+import { type AcoError, type FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 interface GetFolderHierarchyResponseData {
     parents: FolderItem[];

@@ -18,19 +18,19 @@ import {
     CREATE_CATEGORY,
     UPDATE_CATEGORY,
     LIST_CATEGORIES,
-    GetCategoryQueryResponse,
-    GetCategoryQueryVariables,
-    UpdateCategoryMutationResponse,
-    UpdateCategoryMutationVariables,
-    CreateCategoryMutationResponse,
-    CreateCategoryMutationVariables
+    type GetCategoryQueryResponse,
+    type GetCategoryQueryVariables,
+    type UpdateCategoryMutationResponse,
+    type UpdateCategoryMutationVariables,
+    type CreateCategoryMutationResponse,
+    type CreateCategoryMutationVariables
 } from "./graphql.js";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { categoryUrlValidator } from "./validators.js";
 import { plugins } from "@webiny/plugins";
-import { PbCategory, PbPageLayoutPlugin } from "~/types.js";
+import { type PbCategory, type PbPageLayoutPlugin } from "~/types.js";
 import { Select } from "@webiny/ui/Select/index.js";
 import pick from "lodash/pick.js";
 import get from "lodash/get.js";

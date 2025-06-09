@@ -1,7 +1,7 @@
 import get from "lodash/get.js";
 import kebabCase from "lodash/kebabCase.js";
 import camelCase from "lodash/camelCase.js";
-import { PbRenderElementStylePlugin } from "../../../../types.js";
+import { type PbRenderElementStylePlugin } from "../../../../types.js";
 import { applyPerDeviceStyleWithFallback } from "../../../utils.js";
 
 const borderRadiusSides = ["top-left", "top-right", "bottom-left", "bottom-right"];

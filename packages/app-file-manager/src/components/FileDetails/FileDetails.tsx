@@ -4,8 +4,8 @@ import noop from "lodash/noop.js";
 // @ts-expect-error This package has no types.
 import { useHotkeys } from "react-hotkeyz";
 import styled from "@emotion/styled";
-import { FileItem } from "@webiny/app-admin/types.js";
-import { Form, FormOnSubmit } from "@webiny/form";
+import { type FileItem } from "@webiny/app-admin/types.js";
+import { Form, type FormOnSubmit } from "@webiny/form";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
 import { DrawerRight, DrawerContent } from "@webiny/ui/Drawer/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";

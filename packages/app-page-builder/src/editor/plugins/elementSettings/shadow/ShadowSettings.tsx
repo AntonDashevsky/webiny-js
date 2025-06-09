@@ -9,7 +9,7 @@ import Wrapper from "../components/Wrapper.js";
 import { BaseColorPickerComponent } from "../components/ColorPicker.js";
 import { ContentWrapper, classes } from "../components/StyledComponents.js";
 import Accordion from "../components/Accordion.js";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 
 const DATA_NAMESPACE = "data.settings.shadow";
 

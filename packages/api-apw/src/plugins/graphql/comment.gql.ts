@@ -1,6 +1,6 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
 import { ErrorResponse, ListResponse } from "@webiny/handler-graphql";
-import { ApwContext, ApwCommentListParams } from "~/types.js";
+import { type ApwContext, type ApwCommentListParams } from "~/types.js";
 import resolve from "~/utils/resolve.js";
 import { onByFields, dateTimeFieldsSorters } from "./utils.js";
 

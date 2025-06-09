@@ -6,9 +6,9 @@ import {
     NotFoundResponse,
     Response
 } from "@webiny/handler-graphql/responses.js";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
 import { sanitizeFormSubmissionData, flattenSubmissionMeta } from "~/plugins/crud/utils/index.js";
-import { FormBuilderContext, FbFormField } from "~/types.js";
+import { type FormBuilderContext, type FbFormField } from "~/types.js";
 import { mdbid } from "@webiny/utils";
 
 const plugin: GraphQLSchemaPlugin<FormBuilderContext> = {

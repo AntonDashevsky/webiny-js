@@ -1,15 +1,15 @@
 import { AsyncLocalStorage } from "async_hooks";
 import minimatch from "minimatch";
 import { createTopic } from "@webiny/pubsub";
-import { AaclPermission } from "@webiny/api-wcp/types.js";
-import { Identity } from "@webiny/api-authentication/types.js";
+import { type AaclPermission } from "@webiny/api-wcp/types.js";
+import { type Identity } from "@webiny/api-authentication/types.js";
 import { createAuthentication } from "@webiny/api-authentication/createAuthentication.js";
 import {
-    Authorizer,
-    Security,
-    SecurityPermission,
-    SecurityConfig,
-    AuthenticationToken
+    type Authorizer,
+    type Security,
+    type SecurityPermission,
+    type SecurityConfig,
+    type AuthenticationToken
 } from "./types.js";
 import { createApiKeysMethods } from "~/createSecurity/createApiKeysMethods.js";
 import { createGroupsMethods } from "~/createSecurity/createGroupsMethods.js";

@@ -1,4 +1,4 @@
-import React, { ErrorInfo } from "react";
+import React, { type ErrorInfo } from "react";
 import type { CmsModelField } from "~/types/index.js";
 import { FieldElementError } from "./FieldElementError.js";
 

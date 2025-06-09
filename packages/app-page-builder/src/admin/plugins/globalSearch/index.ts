@@ -1,4 +1,4 @@
-import { AdminGlobalSearchPlugin } from "@webiny/app-admin/types.js";
+import { type AdminGlobalSearchPlugin } from "@webiny/app-admin/types.js";
 
 // Additional sections in global search.
 

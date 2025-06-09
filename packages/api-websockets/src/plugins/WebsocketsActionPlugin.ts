@@ -1,9 +1,9 @@
 import { Plugin } from "@webiny/plugins";
-import { GenericRecord } from "@webiny/api/types.js";
+import { type GenericRecord } from "@webiny/api/types.js";
 import {
-    IWebsocketsActionPluginCallable,
-    IWebsocketsActionPluginCallableParams,
-    WebsocketsActionPluginCallableResponse
+    type IWebsocketsActionPluginCallable,
+    type IWebsocketsActionPluginCallableParams,
+    type WebsocketsActionPluginCallableResponse
 } from "./abstrations/IWebsocketsActionPlugin.js";
 
 export class WebsocketsActionPlugin<T extends GenericRecord = GenericRecord> extends Plugin {

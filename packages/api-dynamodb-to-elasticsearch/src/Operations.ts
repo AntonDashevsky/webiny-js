@@ -1,9 +1,9 @@
-import { GenericRecord } from "@webiny/api/types.js";
+import { type GenericRecord } from "@webiny/api/types.js";
 import {
-    IDeleteOperationParams,
-    IInsertOperationParams,
-    IModifyOperationParams,
-    IOperations
+    type IDeleteOperationParams,
+    type IInsertOperationParams,
+    type IModifyOperationParams,
+    type IOperations
 } from "~/types.js";
 
 export enum OperationType {

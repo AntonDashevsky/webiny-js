@@ -1,4 +1,4 @@
-import { TrashBinIdentity, TrashBinLocation } from "~/types.js";
+import { type TrashBinIdentity, type TrashBinLocation } from "~/types.js";
 
 export interface TrashBinItemDTO {
     id: string;

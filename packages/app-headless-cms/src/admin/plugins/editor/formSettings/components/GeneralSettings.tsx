@@ -3,7 +3,7 @@ import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Tags } from "@webiny/ui/Tags/index.js";
 import { validation } from "@webiny/validation";
-import { BindComponent } from "@webiny/form";
+import { type BindComponent } from "@webiny/form";
 import GroupSelect from "./GroupSelect.js";
 import { IconPicker } from "~/admin/components/IconPicker.js";
 

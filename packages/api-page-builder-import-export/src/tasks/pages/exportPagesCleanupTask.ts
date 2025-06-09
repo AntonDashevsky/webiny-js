@@ -1,6 +1,6 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import { IExportPagesCleanupInput, PageExportTask } from "~/export/pages/types.js";
-import { PbImportExportContext } from "~/graphql/types.js";
+import { type IExportPagesCleanupInput, PageExportTask } from "~/export/pages/types.js";
+import { type PbImportExportContext } from "~/graphql/types.js";
 
 export const createExportPagesCleanupTask = () => {
     return createPrivateTaskDefinition<PbImportExportContext, IExportPagesCleanupInput>({

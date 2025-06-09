@@ -1,7 +1,7 @@
-import { IDeleteFolderRepository } from "./IDeleteFolderRepository.js";
-import { ListCache } from "../cache/index.js";
-import { Folder } from "../Folder.js";
-import { IDeleteFolderGateway } from "./IDeleteFolderGateway.js";
+import { type IDeleteFolderRepository } from "./IDeleteFolderRepository.js";
+import { type ListCache } from "../cache/index.js";
+import { type Folder } from "../Folder.js";
+import { type IDeleteFolderGateway } from "./IDeleteFolderGateway.js";
 
 export class DeleteFolderRepository implements IDeleteFolderRepository {
     private cache: ListCache<Folder>;

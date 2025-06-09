@@ -1,6 +1,6 @@
 import {
     ApolloCacheObjectIdPlugin,
-    ApolloCacheObject
+    type ApolloCacheObject
 } from "@webiny/app/plugins/ApolloCacheObjectIdPlugin.js";
 
 export interface PageBuilderObject extends ApolloCacheObject {

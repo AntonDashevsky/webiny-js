@@ -1,15 +1,15 @@
 import {
-    Condition,
-    ConditionDTO,
-    Field,
-    FieldDTO,
-    Predefined,
-    PredefinedDTO,
-    Type,
-    FieldType,
-    Value,
-    Settings,
-    SettingsDTO
+    type Condition,
+    type ConditionDTO,
+    type Field,
+    type FieldDTO,
+    type Predefined,
+    type PredefinedDTO,
+    type Type,
+    type FieldType,
+    type Value,
+    type Settings,
+    type SettingsDTO
 } from "./Field.js";
 
 export class FieldMapper {

@@ -1,13 +1,13 @@
-import { I18NContext } from "@webiny/api-i18n/types.js";
-import { FileStorage } from "./storage/FileStorage.js";
-import { TenancyContext } from "@webiny/api-tenancy/types.js";
-import { SecurityContext, SecurityPermission } from "@webiny/api-security/types.js";
-import { Context } from "@webiny/api/types.js";
-import { FileLifecycleEvents } from "./types/file.lifecycle.js";
-import { CreatedBy, File } from "./types/file.js";
-import { Topic } from "@webiny/pubsub/types.js";
-import { CmsContext, CmsEntryListSort } from "@webiny/api-headless-cms/types/index.js";
-import { Context as TasksContext } from "@webiny/tasks/types.js";
+import { type I18NContext } from "@webiny/api-i18n/types.js";
+import { type FileStorage } from "./storage/FileStorage.js";
+import { type TenancyContext } from "@webiny/api-tenancy/types.js";
+import { type SecurityContext, type SecurityPermission } from "@webiny/api-security/types.js";
+import { type Context } from "@webiny/api/types.js";
+import { type FileLifecycleEvents } from "./types/file.lifecycle.js";
+import { type CreatedBy, type File } from "./types/file.js";
+import { type Topic } from "@webiny/pubsub/types.js";
+import { type CmsContext, type CmsEntryListSort } from "@webiny/api-headless-cms/types/index.js";
+import { type Context as TasksContext } from "@webiny/tasks/types.js";
 
 export * from "./types/file.lifecycle.js";
 export * from "./types/file.js";

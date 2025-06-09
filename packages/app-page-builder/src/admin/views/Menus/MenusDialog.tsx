@@ -7,7 +7,7 @@ import {
     DialogTitle,
     DialogContent,
     DialogActions,
-    DialogOnClose
+    type DialogOnClose
 } from "@webiny/ui/Dialog/index.js";
 import {
     List,
@@ -18,7 +18,7 @@ import {
 } from "@webiny/ui/List/index.js";
 import { ButtonDefault } from "@webiny/ui/Button/index.js";
 import { LIST_MENUS } from "./graphql.js";
-import { PbMenu } from "~/types.js";
+import { type PbMenu } from "~/types.js";
 
 const narrowDialog = css({
     ".mdc-dialog__surface": {

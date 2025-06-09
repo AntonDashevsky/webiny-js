@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import debounce from "lodash/debounce.js";
-import { PbEditorElementTree } from "~/types.js";
+import { type PbEditorElementTree } from "~/types.js";
 import { useEventActionHandler } from "~/editor/index.js";
-import { PageEditorEventActionCallableState } from "~/pageEditor/types.js";
+import { type PageEditorEventActionCallableState } from "~/pageEditor/types.js";
 import { useSaveTranslatableCollection } from "~/translations/index.js";
 import { ToggleSaveRevisionStateActionEvent } from "~/pageEditor/config/eventActions/saveRevision/index.js";
 import {
-    TranslatableItem,
+    type TranslatableItem,
     useTranslations
 } from "~/translations/ExtractTranslatableValues/TranslationContext.js";
 

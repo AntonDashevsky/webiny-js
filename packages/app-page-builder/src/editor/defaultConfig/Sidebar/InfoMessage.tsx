@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { type ReactElement } from "react";
 import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography/index.js";
 

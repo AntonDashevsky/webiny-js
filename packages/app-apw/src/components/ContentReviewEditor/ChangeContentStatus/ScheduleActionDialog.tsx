@@ -12,7 +12,7 @@ import { Box, Stack } from "~/components/Layout.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import styled from "@emotion/styled";
 import { Form } from "@webiny/form";
-import { BindComponent } from "@webiny/form";
+import { type BindComponent } from "@webiny/form";
 import { useContentReviewId } from "~/hooks/useContentReviewId.js";
 
 import { validation } from "@webiny/validation";

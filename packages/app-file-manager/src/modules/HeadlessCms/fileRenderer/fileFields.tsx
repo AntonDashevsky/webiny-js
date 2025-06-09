@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import dotProp from "dot-prop-immutable";
 import {
-    BindComponentRenderProp,
-    CmsModelFieldRendererPlugin,
-    CmsModelFieldRendererProps
+    type BindComponentRenderProp,
+    type CmsModelFieldRendererPlugin,
+    type CmsModelFieldRendererProps
 } from "@webiny/app-headless-cms/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { FileManager } from "@webiny/app-admin/components/index.js";
@@ -12,7 +12,7 @@ import { imageWrapperStyles } from "./utils.js";
 import { File } from "./File.js";
 import { EditFileUsingUrl } from "~/components/EditFileUsingUrl/index.js";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/file");
 

@@ -1,5 +1,5 @@
-import { Topic } from "@webiny/pubsub/types.js";
-import { OnEntryBeforeCreateTopicParams, CmsContext } from "~/types/index.js";
+import { type Topic } from "@webiny/pubsub/types.js";
+import { type OnEntryBeforeCreateTopicParams, type CmsContext } from "~/types/index.js";
 import { markLockedFields } from "./markLockedFields.js";
 
 interface AssignBeforeEntryCreateParams {

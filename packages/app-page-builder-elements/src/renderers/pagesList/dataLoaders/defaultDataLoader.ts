@@ -1,4 +1,4 @@
-import { DataLoader } from "~/renderers/pagesList/types.js";
+import { type DataLoader } from "~/renderers/pagesList/types.js";
 
 export const LIST_PUBLISHED_PAGES = /* GraphQL */ `
     query ListPublishedPages(

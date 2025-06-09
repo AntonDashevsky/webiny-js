@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
 import { createSubscriptionHooks } from "~/subscriptions/index.js";
-import { AuditLogsContext } from "~/types.js";
+import { type AuditLogsContext } from "~/types.js";
 import { createAcoAuditLogsContext } from "~/app/index.js";
 
 export const createAuditLogs = () => {

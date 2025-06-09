@@ -1,26 +1,26 @@
-import { ApolloClient } from "apollo-client";
+import { type ApolloClient } from "apollo-client";
 import {
     CREATE_PAGE_BLOCK,
-    CreatePageBlockMutationResponse,
-    CreatePageBlockMutationVariables,
+    type CreatePageBlockMutationResponse,
+    type CreatePageBlockMutationVariables,
     DELETE_PAGE_BLOCK,
-    DeletePageBlockMutationResponse,
-    DeletePageBlockMutationVariables,
+    type DeletePageBlockMutationResponse,
+    type DeletePageBlockMutationVariables,
     GET_PAGE_BLOCK,
-    GetPageBlockQueryResponse,
-    GetPageBlockQueryVariables,
+    type GetPageBlockQueryResponse,
+    type GetPageBlockQueryVariables,
     LIST_PAGE_BLOCKS,
-    ListPageBlocksQueryResponse,
-    ListPageBlocksQueryVariables,
+    type ListPageBlocksQueryResponse,
+    type ListPageBlocksQueryVariables,
     UPDATE_PAGE_BLOCK,
-    UpdatePageBlockMutationResponse,
-    UpdatePageBlockMutationVariables
+    type UpdatePageBlockMutationResponse,
+    type UpdatePageBlockMutationVariables
 } from "~/admin/views/PageBlocks/graphql.js";
-import { PbPageBlock } from "~/types.js";
+import { type PbPageBlock } from "~/types.js";
 import {
-    BlockGatewayInterface,
-    CreatePageBlockInput,
-    UpdatePageBlockInput
+    type BlockGatewayInterface,
+    type CreatePageBlockInput,
+    type UpdatePageBlockInput
 } from "./BlockGatewayInterface.js";
 import { decompress } from "~/admin/components/useDecompress.js";
 

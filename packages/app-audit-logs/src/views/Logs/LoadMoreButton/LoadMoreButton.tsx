@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { type ReactElement } from "react";
 
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ButtonPrimary } from "@webiny/ui/Button/index.js";

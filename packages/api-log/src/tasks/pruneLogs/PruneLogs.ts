@@ -1,16 +1,16 @@
-import { ITaskResponse, ITaskResponseResult } from "@webiny/tasks";
-import { IPruneLogsInput, IPruneLogsOutput } from "~/tasks/pruneLogs/types.js";
+import { type ITaskResponse, type ITaskResponseResult } from "@webiny/tasks";
+import { type IPruneLogsInput, type IPruneLogsOutput } from "~/tasks/pruneLogs/types.js";
 import { create } from "~/db/index.js";
 import {
-    ILoggerCrudListLogsCallable,
-    ILoggerCrudListLogsResponse,
-    ILoggerLog,
-    IPruneLogsStoredValue
+    type ILoggerCrudListLogsCallable,
+    type ILoggerCrudListLogsResponse,
+    type ILoggerLog,
+    type IPruneLogsStoredValue
 } from "~/types.js";
 import { batchWriteAll } from "@webiny/db-dynamodb";
-import { DynamoDbLoggerKeys } from "~/logger/index.js";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { IStore } from "@webiny/db";
+import { type DynamoDbLoggerKeys } from "~/logger/index.js";
+import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { type IStore } from "@webiny/db";
 import { createStoreKey } from "~/utils/storeKey.js";
 
 const getDate = (input: string | undefined, reduceSeconds = 60): Date => {

@@ -1,29 +1,22 @@
-import { Plugin } from "@webiny/plugins/types.js";
-import { I18NContext, I18NLocale } from "@webiny/api-i18n/types.js";
-import { Context, GenericRecord } from "@webiny/api/types.js";
-import { GraphQLFieldResolver, GraphQLRequestBody, Resolvers } from "@webiny/handler-graphql/types.js";
-import { processRequestBody } from "@webiny/handler-graphql";
-import { SecurityPermission } from "@webiny/api-security/types.js";
-import { DbContext } from "@webiny/handler-db/types.js";
-import { Topic } from "@webiny/pubsub/types.js";
-import { CmsModelConverterCallable } from "~/utils/converters/ConverterCollection.js";
-import { HeadlessCmsExport, HeadlessCmsImport } from "~/export/types.js";
-import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
-import { CmsModelToAstConverter } from "~/utils/contentModelAst/CmsModelToAstConverter.js";
-import { CmsModelFieldToGraphQLPlugin } from "./plugins.js";
-import { CmsEntryContext } from "./context.js";
-import { CmsModelField, CmsModelFieldValidation, CmsModelUpdateInput } from "./modelField.js";
-import { CmsModel, CmsModelCreateFromInput, CmsModelCreateInput } from "./model.js";
-import { CmsGroup } from "./modelGroup.js";
-import { CmsIdentity } from "./identity.js";
-import { ISingletonModelManager } from "~/modelManager/index.js";
-
-export interface CmsError {
-    message: string;
-    code: string;
-    data: GenericRecord;
-    stack?: string;
-}
+import { type Plugin } from "@webiny/plugins/types.js";
+import { type I18NContext, type I18NLocale } from "@webiny/api-i18n/types.js";
+import { type Context, type GenericRecord } from "@webiny/api/types.js";
+import { type GraphQLFieldResolver, type GraphQLRequestBody, type Resolvers } from "@webiny/handler-graphql/types.js";
+import { type processRequestBody } from "@webiny/handler-graphql";
+import { type SecurityPermission } from "@webiny/api-security/types.js";
+import { type DbContext } from "@webiny/handler-db/types.js";
+import { type Topic } from "@webiny/pubsub/types.js";
+import { type CmsModelConverterCallable } from "~/utils/converters/ConverterCollection.js";
+import { type HeadlessCmsExport, type HeadlessCmsImport } from "~/export/types.js";
+import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { type CmsModelToAstConverter } from "~/utils/contentModelAst/CmsModelToAstConverter.js";
+import { type CmsModelFieldToGraphQLPlugin } from "./plugins.js";
+import { type CmsEntryContext } from "./context.js";
+import { type CmsModelField, type CmsModelFieldValidation, type CmsModelUpdateInput } from "./modelField.js";
+import { type CmsModel, type CmsModelCreateFromInput, type CmsModelCreateInput } from "./model.js";
+import { type CmsGroup } from "./modelGroup.js";
+import { type CmsIdentity } from "./identity.js";
+import { type ISingletonModelManager } from "~/modelManager/index.js";
 
 export interface CmsError {
     message: string;

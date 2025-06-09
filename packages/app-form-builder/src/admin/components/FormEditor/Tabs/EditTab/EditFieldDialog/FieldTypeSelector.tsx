@@ -3,7 +3,7 @@ import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { css } from "emotion";
-import { FbBuilderFieldPlugin } from "~/types.js";
+import { type FbBuilderFieldPlugin } from "~/types.js";
 const fieldTypeBox = css({
     width: 150,
     height: 150,

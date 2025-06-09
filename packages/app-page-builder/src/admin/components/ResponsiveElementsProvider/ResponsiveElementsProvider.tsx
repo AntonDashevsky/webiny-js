@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Theme } from "@webiny/app-theme/types.js";
+import { type Theme } from "@webiny/app-theme/types.js";
 import { usePageBuilder } from "~/hooks/usePageBuilder.js";
 import { mediaToContainer } from "./mediaToContainer.js";
 import { PageElementsProvider } from "~/contexts/PageBuilder/PageElementsProvider.js";

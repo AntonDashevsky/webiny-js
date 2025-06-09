@@ -1,7 +1,7 @@
-import { createCrud, CreateCrudParams } from "./crud.js";
+import { createCrud, type CreateCrudParams } from "./crud.js";
 import graphql from "./graphql.js";
 import { createTranslations, createTranslationsGraphQl } from "~/translations/createTranslations.js";
-import { PluginCollection } from "@webiny/plugins/types.js";
+import { type PluginCollection } from "@webiny/plugins/types.js";
 import { createDataSourcesContext } from "~/dataSources/context/createDataSourcesContext.js";
 import { createDataSourcesSchema } from "~/dataSources/graphql/createDataSourcesSchema.js";
 

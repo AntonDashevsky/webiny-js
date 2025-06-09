@@ -12,7 +12,7 @@ import FormSubmissionDialog from "./FormSubmissionDialog.js";
 import { ReactComponent as ImportExport } from "./icons/round-cloud_download-24px.svg";
 import Block from "../Block.js";
 import { useSubmissions } from "./useSubmissions.js";
-import { FbFormSubmissionData } from "~/types.js";
+import { type FbFormSubmissionData } from "~/types.js";
 
 const t = i18n.namespace("FormsApp.FormsDataList");
 

@@ -1,6 +1,6 @@
 import { renderField } from "~/utils/renderFields.js";
 import { renderInputField } from "~/utils/renderInputFields.js";
-import { ApiEndpoint, CmsFieldTypePlugins, CmsModel, CmsModelField } from "~/types/index.js";
+import { type ApiEndpoint, type CmsFieldTypePlugins, type CmsModel, type CmsModelField } from "~/types/index.js";
 
 interface TypeFromFieldParams {
     typeOfType: "type" | "input";

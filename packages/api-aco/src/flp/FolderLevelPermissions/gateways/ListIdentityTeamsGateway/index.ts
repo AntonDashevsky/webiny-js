@@ -1,2 +1,2 @@
-export * from "./IListIdentityTeamsGateway";
-export * from "./ListIdentityTeamsGatewayFromContext";
+export * from "./IListIdentityTeamsGateway.js";
+export * from "./ListIdentityTeamsGatewayFromContext.js";

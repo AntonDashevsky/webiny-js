@@ -1,22 +1,22 @@
 import {
-    CmsContext,
-    CmsEntry,
-    CmsModel,
-    CreateCmsEntryInput,
-    CreateCmsEntryOptionsInput
+    type CmsContext,
+    type CmsEntry,
+    type CmsModel,
+    type CreateCmsEntryInput,
+    type CreateCmsEntryOptionsInput
 } from "~/types/index.js";
 import { getDate } from "~/utils/date.js";
 import { getIdentity } from "~/utils/identity.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
-import { Tenant } from "@webiny/api-tenancy/types.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
 import { mapAndCleanUpdatedInputData } from ".//mapAndCleanUpdatedInputData.js";
 import { validateModelEntryDataOrThrow } from "../entryDataValidation.js";
 import { referenceFieldsMapping } from "../referenceFieldsMapping.js";
 import { createIdentifier, parseIdentifier } from "@webiny/utils";
 import WebinyError from "@webiny/error";
 import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses.js";
-import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
 
 type CreateEntryRevisionFromDataParams = {
     sourceId: string;

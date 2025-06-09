@@ -1,5 +1,5 @@
 import sanitizeFilename from "sanitize-filename";
-import { PresignedPostPayloadData } from "~/types.js";
+import { type PresignedPostPayloadData } from "~/types.js";
 import { FileExtension } from "~/utils/FileExtension.js";
 
 export class FileKey {

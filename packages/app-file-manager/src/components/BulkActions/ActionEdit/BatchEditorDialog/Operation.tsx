@@ -6,7 +6,7 @@ import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
 
 import { FieldRenderer } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/FieldRenderer.js";
-import { OperationFormData } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter.js";
+import { type OperationFormData } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter.js";
 
 export interface OperationProps {
     operation: OperationFormData;

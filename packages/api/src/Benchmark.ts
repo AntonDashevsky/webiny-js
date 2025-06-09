@@ -1,10 +1,10 @@
 import {
-    Benchmark as BenchmarkInterface,
-    BenchmarkEnableOnCallable,
-    BenchmarkMeasurement,
-    BenchmarkMeasureOptions,
-    BenchmarkOutputCallable,
-    BenchmarkRuns
+    type Benchmark as BenchmarkInterface,
+    type BenchmarkEnableOnCallable,
+    type BenchmarkMeasurement,
+    type BenchmarkMeasureOptions,
+    type BenchmarkOutputCallable,
+    type BenchmarkRuns
 } from "~/types.js";
 
 enum BenchmarkState {

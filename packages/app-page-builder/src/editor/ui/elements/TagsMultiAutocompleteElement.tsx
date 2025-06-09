@@ -1,8 +1,8 @@
 import React from "react";
 import {
     FormFieldElement,
-    FormFieldElementConfig,
-    FormFieldElementRenderProps
+    type FormFieldElementConfig,
+    type FormFieldElementRenderProps
 } from "@webiny/app-admin/ui/elements/form/FormFieldElement.js";
 import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete.js";
 

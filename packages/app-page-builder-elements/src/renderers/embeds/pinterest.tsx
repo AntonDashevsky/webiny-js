@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Element, Renderer } from "~/types.js";
+import { type Element, type Renderer } from "~/types.js";
 import { createRenderer } from "~/createRenderer.js";
 import { useRenderer } from "~/hooks/useRenderer.js";
 

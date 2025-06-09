@@ -9,16 +9,16 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { plugins } from "@webiny/plugins";
 import {
-    PbEditorElement,
-    PbEditorPageElementSettingsRenderComponentProps,
-    PbEditorResponsiveModePlugin
+    type PbEditorElement,
+    type PbEditorPageElementSettingsRenderComponentProps,
+    type PbEditorResponsiveModePlugin
 } from "../../../../types.js";
 import {
     activeElementAtom,
     elementWithChildrenByIdSelector,
     uiAtom
 } from "../../../recoil/modules/index.js";
-import useUpdateHandlers, { PostModifyElementArgs } from "../useUpdateHandlers.js";
+import useUpdateHandlers, { type PostModifyElementArgs } from "../useUpdateHandlers.js";
 // Icons
 import { ReactComponent as LinkIcon } from "../../../assets/icons/link.svg";
 // Components

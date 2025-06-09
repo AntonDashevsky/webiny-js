@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { ApwWorkflow, CmsEntry, CmsModel } from "~/types.js";
+import { type ApwWorkflow, type CmsEntry, type CmsModel } from "~/types.js";
 
 interface ErrorResponse {
     message: string;

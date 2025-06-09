@@ -21,7 +21,7 @@ import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/fil
 import { ReactComponent as LoginIcon } from "~/assets/login_black_24dp.svg";
 import { useTenantsList } from "./hooks/useTenantsList.js";
 import { useTenancy } from "@webiny/app-tenancy";
-import { TenantItem } from "~/types.js";
+import { type TenantItem } from "~/types.js";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

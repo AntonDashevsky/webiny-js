@@ -1,6 +1,6 @@
-import { CmsContext, CmsEntry, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsContext, type CmsEntry, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { entryFieldFromStorageTransform } from "@webiny/api-headless-cms";
-import { ApwBaseFields } from "~/types.js";
+import { type ApwBaseFields } from "~/types.js";
 import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues.js";
 
 interface Transformer {

@@ -1,5 +1,5 @@
-import { SecurityPermission } from "@webiny/app-security/types.js";
-import { RichTextEditorProps } from "@webiny/ui/RichTextEditor/index.js";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
+import { type RichTextEditorProps } from "@webiny/ui/RichTextEditor/index.js";
 
 export interface CreatedBy {
     /**

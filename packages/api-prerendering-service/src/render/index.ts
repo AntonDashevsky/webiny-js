@@ -1,14 +1,14 @@
-import renderUrl, { File } from "./renderUrl.js";
+import renderUrl, { type File } from "./renderUrl.js";
 import { join } from "path";
-import { S3, PutObjectCommandInput } from "@webiny/aws-sdk/client-s3";
+import { S3, type PutObjectCommandInput } from "@webiny/aws-sdk/client-s3";
 import {
     getStorageFolder,
     getRenderUrl,
     getIsNotFoundPage,
     isMultiTenancyEnabled
 } from "~/utils/index.js";
-import { Context, HandlerPayload, RenderHookPlugin } from "./types.js";
-import { PrerenderingServiceStorageOperations, Render, TagPathLink } from "~/types.js";
+import { type Context, type HandlerPayload, type RenderHookPlugin } from "./types.js";
+import { type PrerenderingServiceStorageOperations, type Render, type TagPathLink } from "~/types.js";
 import omit from "lodash/omit.js";
 import { EventPlugin } from "@webiny/handler";
 

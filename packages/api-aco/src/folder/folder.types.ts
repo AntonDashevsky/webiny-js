@@ -1,5 +1,5 @@
-import { type FolderPermission, ListMeta, ListSort, User } from "~/types";
-import { Topic } from "@webiny/pubsub/types";
+import { type FolderPermission, type ListMeta, type ListSort, type User } from "~/types.js";
+import { type Topic } from "@webiny/pubsub/types.js";
 
 export interface Folder {
     id: string;

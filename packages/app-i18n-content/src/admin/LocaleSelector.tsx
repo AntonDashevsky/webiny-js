@@ -6,7 +6,7 @@ import { css } from "emotion";
 import { useSecurity } from "@webiny/app-security";
 import { ReactComponent as DoneIcon } from "./assets/done-24px.svg";
 import { ReactComponent as TranslateIcon } from "./assets/round-translate-24px.svg";
-import { I18NSecurityPermission } from "@webiny/app-i18n/types.js";
+import { type I18NSecurityPermission } from "@webiny/app-i18n/types.js";
 
 const menuList = css({
     width: 160,

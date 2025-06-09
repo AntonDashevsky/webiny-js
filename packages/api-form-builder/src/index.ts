@@ -5,7 +5,7 @@ import validators from "./plugins/validators/index.js";
 import formsGraphQL from "./plugins/graphql/form.js";
 import formSettingsGraphQL from "./plugins/graphql/formSettings.js";
 import formBuilderPrerenderingPlugins from "~/plugins/prerenderingHooks/index.js";
-import { FormBuilderStorageOperations } from "~/types.js";
+import { type FormBuilderStorageOperations } from "~/types.js";
 
 export interface CreateFormBuilderParams {
     storageOperations: FormBuilderStorageOperations;

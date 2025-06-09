@@ -4,7 +4,7 @@ import { createLowerCasePatternValidator } from "./lowerCase.js";
 import { createUpperCasePatternValidator } from "./upperCase.js";
 import { createLowerCaseSpacePatternValidator } from "./lowerCaseSpace.js";
 import { createUpperCaseSpacePatternValidator } from "./upperCaseSpace.js";
-import { CmsModelFieldPatternValidatorPlugin } from "~/types/index.js";
+import { type CmsModelFieldPatternValidatorPlugin } from "~/types/index.js";
 
 export const createPatternValidatorPlugins = (): CmsModelFieldPatternValidatorPlugin[] => {
     return [

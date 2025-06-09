@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useTemplate } from "./useTemplate.js";
-import { PbDataSource } from "~/types.js";
+import { type PbDataSource } from "~/types.js";
 
 export interface DataSourceUpdater {
     (config: PbDataSource["config"]): PbDataSource["config"];

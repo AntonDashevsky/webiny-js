@@ -1,9 +1,9 @@
 import * as React from "react";
-import { PagesListComponent, PagesListPage } from "./../types.js";
-import { LinkComponent } from "~/types.js";
+import { type PagesListComponent, type PagesListPage } from "./../types.js";
+import { type LinkComponent } from "~/types.js";
 import { DefaultLinkComponent } from "~/renderers/components/index.js";
 import styled from "@emotion/styled";
-import { CSSObject } from "@emotion/react";
+import { type CSSObject } from "@emotion/react";
 import { usePageElements } from "~/hooks/usePageElements.js";
 
 declare global {

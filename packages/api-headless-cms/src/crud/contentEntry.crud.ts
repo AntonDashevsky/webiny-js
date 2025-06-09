@@ -2,65 +2,65 @@ import { parseIdentifier } from "@webiny/utils";
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
 import {
-    CmsContext,
-    CmsEntry,
-    CmsEntryContext,
-    CmsEntryGetParams,
-    CmsEntryListParams,
-    CmsEntryListWhere,
-    CmsEntryMeta,
-    CmsEntryValues,
-    CmsModel,
-    CmsStorageEntry,
-    CreateCmsEntryInput,
-    CreateCmsEntryOptionsInput,
-    EntryBeforeListTopicParams,
-    HeadlessCmsStorageOperations,
-    OnEntryAfterCreateTopicParams,
-    OnEntryAfterDeleteMultipleTopicParams,
-    OnEntryAfterDeleteTopicParams,
-    OnEntryAfterMoveTopicParams,
-    OnEntryAfterPublishTopicParams,
-    OnEntryAfterRepublishTopicParams,
-    OnEntryAfterRestoreFromBinTopicParams,
-    OnEntryAfterUnpublishTopicParams,
-    OnEntryAfterUpdateTopicParams,
-    OnEntryBeforeCreateTopicParams,
-    OnEntryBeforeDeleteMultipleTopicParams,
-    OnEntryBeforeDeleteTopicParams,
-    OnEntryBeforeGetTopicParams,
-    OnEntryBeforeMoveTopicParams,
-    OnEntryBeforePublishTopicParams,
-    OnEntryBeforeRepublishTopicParams,
-    OnEntryBeforeRestoreFromBinTopicParams,
-    OnEntryBeforeUnpublishTopicParams,
-    OnEntryBeforeUpdateTopicParams,
-    OnEntryCreateErrorTopicParams,
-    OnEntryCreateRevisionErrorTopicParams,
-    OnEntryDeleteErrorTopicParams,
-    OnEntryDeleteMultipleErrorTopicParams,
-    OnEntryMoveErrorTopicParams,
-    OnEntryPublishErrorTopicParams,
-    OnEntryRepublishErrorTopicParams,
-    OnEntryRestoreFromBinErrorTopicParams,
-    OnEntryRevisionAfterCreateTopicParams,
-    OnEntryRevisionAfterDeleteTopicParams,
-    OnEntryRevisionBeforeCreateTopicParams,
-    OnEntryRevisionBeforeDeleteTopicParams,
-    OnEntryRevisionDeleteErrorTopicParams,
-    OnEntryUnpublishErrorTopicParams,
-    OnEntryUpdateErrorTopicParams
+    type CmsContext,
+    type CmsEntry,
+    type CmsEntryContext,
+    type CmsEntryGetParams,
+    type CmsEntryListParams,
+    type CmsEntryListWhere,
+    type CmsEntryMeta,
+    type CmsEntryValues,
+    type CmsModel,
+    type CmsStorageEntry,
+    type CreateCmsEntryInput,
+    type CreateCmsEntryOptionsInput,
+    type EntryBeforeListTopicParams,
+    type HeadlessCmsStorageOperations,
+    type OnEntryAfterCreateTopicParams,
+    type OnEntryAfterDeleteMultipleTopicParams,
+    type OnEntryAfterDeleteTopicParams,
+    type OnEntryAfterMoveTopicParams,
+    type OnEntryAfterPublishTopicParams,
+    type OnEntryAfterRepublishTopicParams,
+    type OnEntryAfterRestoreFromBinTopicParams,
+    type OnEntryAfterUnpublishTopicParams,
+    type OnEntryAfterUpdateTopicParams,
+    type OnEntryBeforeCreateTopicParams,
+    type OnEntryBeforeDeleteMultipleTopicParams,
+    type OnEntryBeforeDeleteTopicParams,
+    type OnEntryBeforeGetTopicParams,
+    type OnEntryBeforeMoveTopicParams,
+    type OnEntryBeforePublishTopicParams,
+    type OnEntryBeforeRepublishTopicParams,
+    type OnEntryBeforeRestoreFromBinTopicParams,
+    type OnEntryBeforeUnpublishTopicParams,
+    type OnEntryBeforeUpdateTopicParams,
+    type OnEntryCreateErrorTopicParams,
+    type OnEntryCreateRevisionErrorTopicParams,
+    type OnEntryDeleteErrorTopicParams,
+    type OnEntryDeleteMultipleErrorTopicParams,
+    type OnEntryMoveErrorTopicParams,
+    type OnEntryPublishErrorTopicParams,
+    type OnEntryRepublishErrorTopicParams,
+    type OnEntryRestoreFromBinErrorTopicParams,
+    type OnEntryRevisionAfterCreateTopicParams,
+    type OnEntryRevisionAfterDeleteTopicParams,
+    type OnEntryRevisionBeforeCreateTopicParams,
+    type OnEntryRevisionBeforeDeleteTopicParams,
+    type OnEntryRevisionDeleteErrorTopicParams,
+    type OnEntryUnpublishErrorTopicParams,
+    type OnEntryUpdateErrorTopicParams
 } from "~/types/index.js";
 import { validateModelEntryData } from "./contentEntry/entryDataValidation.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { createTopic } from "@webiny/pubsub";
 import { assignBeforeEntryCreate } from "./contentEntry/beforeCreate.js";
 import { assignBeforeEntryUpdate } from "./contentEntry/beforeUpdate.js";
 import { assignAfterEntryDelete } from "./contentEntry/afterDelete.js";
-import { Tenant } from "@webiny/api-tenancy/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
 import { entryFromStorageTransform, entryToStorageTransform } from "~/utils/entryStorage.js";
 import { getSearchableFields } from "./contentEntry/searchableFields.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
 import { filterAsync } from "~/utils/filterAsync.js";
 import { isEntryLevelEntryMetaField, pickEntryMetaFields } from "~/constants.js";
 import {
@@ -72,7 +72,7 @@ import {
     createUpdateEntryData,
     mapAndCleanUpdatedInputData
 } from "./contentEntry/entryDataFactories/index.js";
-import { AccessControl } from "./AccessControl/AccessControl.js";
+import { type AccessControl } from "./AccessControl/AccessControl.js";
 import {
     deleteEntryUseCases,
     getEntriesByIdsUseCases,

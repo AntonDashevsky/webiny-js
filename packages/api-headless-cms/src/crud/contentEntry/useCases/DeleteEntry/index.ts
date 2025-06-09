@@ -7,17 +7,17 @@ import { MoveEntryToBinOperation } from "./MoveEntryToBinOperation.js";
 import { MoveEntryToBinOperationWithEvents } from "./MoveEntryToBinOperationWithEvents.js";
 import { TransformEntryDelete } from "./TransformEntryDelete.js";
 import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin.js";
-import { Topic } from "@webiny/pubsub/types.js";
+import { type Topic } from "@webiny/pubsub/types.js";
 import {
-    CmsContext,
-    CmsEntryStorageOperations,
-    OnEntryAfterDeleteTopicParams,
-    OnEntryBeforeDeleteTopicParams,
-    OnEntryDeleteErrorTopicParams
+    type CmsContext,
+    type CmsEntryStorageOperations,
+    type OnEntryAfterDeleteTopicParams,
+    type OnEntryBeforeDeleteTopicParams,
+    type OnEntryDeleteErrorTopicParams
 } from "~/types/index.js";
-import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
-import { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions/index.js";
+import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import { type IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions/index.js";
 
 export interface DeleteEntryUseCasesTopics {
     onEntryBeforeDelete: Topic<OnEntryBeforeDeleteTopicParams>;

@@ -1,4 +1,4 @@
-import { CompressedValue, ContentCompressionPlugin } from "./ContentCompressionPlugin.js";
+import { type CompressedValue, ContentCompressionPlugin } from "./ContentCompressionPlugin.js";
 import { compress as gzip, decompress as ungzip } from "@webiny/utils/compression/gzip.js";
 
 const GZIP_COMPRESSION = "gzip";

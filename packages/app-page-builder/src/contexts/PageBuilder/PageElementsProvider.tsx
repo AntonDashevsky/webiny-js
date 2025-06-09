@@ -23,11 +23,11 @@ import { createVisibility } from "@webiny/app-page-builder-elements/modifiers/st
 import { createWidth } from "@webiny/app-page-builder-elements/modifiers/styles/width.js";
 
 import { usePageBuilder } from "~/hooks/usePageBuilder.js";
-import { Theme } from "@webiny/app-theme/types.js";
+import { type Theme } from "@webiny/app-theme/types.js";
 
 import { plugins } from "@webiny/plugins";
-import { PbRenderElementPlugin } from "~/types.js";
-import { ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache.js";
+import { type PbRenderElementPlugin } from "~/types.js";
+import { type ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache.js";
 
 interface PageElementsProviderProps {
     theme?: Theme;

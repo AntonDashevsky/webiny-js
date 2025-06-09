@@ -1,6 +1,6 @@
-import { Plugin, PluginsContainer } from "@webiny/plugins";
-import { PbUpdatePayload } from "~/types.js";
-import { Page } from "@webiny/api-page-builder/types.js";
+import { Plugin, type PluginsContainer } from "@webiny/plugins";
+import { type PbUpdatePayload } from "~/types.js";
+import { type Page } from "@webiny/api-page-builder/types.js";
 
 interface ModifyPayloadParams<T extends PbUpdatePayload = PbUpdatePayload, P extends Page = Page> {
     plugins: PluginsContainer;

@@ -1,5 +1,5 @@
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Element, ElementConfig } from "./Element.js";
+import { Element, type ElementConfig } from "./Element.js";
 import { TopBar } from "./TopBar/TopBar.js";
 import { Layout } from "./Layout.js";
 import { Content } from "./Content/Content.js";

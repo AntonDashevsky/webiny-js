@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, RouteProps } from "@webiny/react-router";
+import { Route, type RouteProps } from "@webiny/react-router";
 import { useApp } from "~/App.js";
 import { makeDecoratable } from "@webiny/react-composition";
 

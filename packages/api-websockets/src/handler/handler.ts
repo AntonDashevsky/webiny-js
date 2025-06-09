@@ -1,4 +1,4 @@
-import WebinyError from "@webiny/error";
+import type WebinyError from "@webiny/error";
 import { createHandler as createBaseHandler } from "@webiny/handler";
 import { registerDefaultPlugins } from "@webiny/handler-aws/plugins/index.js";
 import { execute } from "@webiny/handler-aws/execute.js";
@@ -6,10 +6,10 @@ import { PluginsContainer } from "@webiny/plugins";
 import { createWebsocketsRoutePlugins } from "~/runner/routes/index.js";
 import { WebsocketsEventValidator } from "~/validator/index.js";
 import { WebsocketsResponse } from "~/response/index.js";
-import { Context } from "~/types.js";
+import { type Context } from "~/types.js";
 import { WebsocketsRunner } from "~/runner/index.js";
-import { PluginCollection } from "@webiny/plugins/types.js";
-import { HandlerCallable, HandlerParams } from "./types.js";
+import { type PluginCollection } from "@webiny/plugins/types.js";
+import { type HandlerCallable, type HandlerParams } from "./types.js";
 import { getEventValues } from "./headers.js";
 
 const url = "/webiny-websockets";

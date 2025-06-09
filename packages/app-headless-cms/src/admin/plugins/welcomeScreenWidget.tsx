@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@webiny/react-router";
-import { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types.js";
+import { type AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types.js";
 import { ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { css } from "emotion";
 

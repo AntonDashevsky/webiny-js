@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { IDeleteEntryOperation } from "../../abstractions/index.js";
-import { CmsEntryStorageOperationsDeleteParams, CmsModel } from "~/types/index.js";
-import { DeleteEntryUseCasesTopics } from "./index.js";
+import { type IDeleteEntryOperation } from "../../abstractions/index.js";
+import { type CmsEntryStorageOperationsDeleteParams, type CmsModel } from "~/types/index.js";
+import { type DeleteEntryUseCasesTopics } from "./index.js";
 
 export class DeleteEntryOperationWithEvents implements IDeleteEntryOperation {
     private topics: DeleteEntryUseCasesTopics;

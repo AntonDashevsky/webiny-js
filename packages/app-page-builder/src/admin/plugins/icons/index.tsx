@@ -1,10 +1,10 @@
 import React from "react";
-import { IconName, library } from "@fortawesome/fontawesome-svg-core";
+import { type IconName, library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
-import { PbIcon, PbIconsPlugin } from "~/types.js";
-import { IconPrefix } from "@fortawesome/fontawesome-common-types";
+import { type PbIcon, type PbIconsPlugin } from "~/types.js";
+import { type IconPrefix } from "@fortawesome/fontawesome-common-types";
 
 const createSvg = (icon: string[]): React.ReactElement => {
     return (

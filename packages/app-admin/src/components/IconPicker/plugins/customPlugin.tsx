@@ -5,13 +5,13 @@ import styled from "@emotion/styled";
 
 import { ButtonSecondary } from "@webiny/ui/Button/index.js";
 
-import { FileManager, FileManagerFileItem } from "~/base/ui/FileManager.js";
+import { FileManager, type FileManagerFileItem } from "~/base/ui/FileManager.js";
 import { IconPickerTab } from "../IconPickerTab.js";
 import { useIcon } from "../index.js";
 import { useIconPicker } from "../IconPickerPresenterProvider.js";
 import { IconPickerConfig } from "../config/index.js";
-import { ListCustomIconsQueryResponse, LIST_CUSTOM_ICONS } from "./graphql.js";
-import { Icon } from "../types.js";
+import { type ListCustomIconsQueryResponse, LIST_CUSTOM_ICONS } from "./graphql.js";
+import { type Icon } from "../types.js";
 
 const AddButton = styled(ButtonSecondary)`
     &.mdc-button {

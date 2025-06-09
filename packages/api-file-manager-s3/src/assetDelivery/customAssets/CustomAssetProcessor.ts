@@ -1,4 +1,4 @@
-import { Asset, AssetProcessor, AssetRequest } from "@webiny/api-file-manager";
+import { type Asset, type AssetProcessor, type AssetRequest } from "@webiny/api-file-manager";
 import { CustomAsset } from "./CustomAsset.js";
 
 /**

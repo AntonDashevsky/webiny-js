@@ -1,4 +1,4 @@
-import { MoveElementActionArgsType } from "./types.js";
+import { type MoveElementActionArgsType } from "./types.js";
 import { BaseEventAction } from "../../eventActions/index.js";
 
 export class MoveElementActionEvent extends BaseEventAction<MoveElementActionArgsType> {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LinkComponent } from "~/types.js";
+import { type LinkComponent } from "~/types.js";
 
 export const DefaultLinkComponent: LinkComponent = props => {
     return <a rel={"noreferrer"} {...props} />;

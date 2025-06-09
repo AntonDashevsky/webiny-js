@@ -4,12 +4,12 @@ import set from "lodash/set.js";
 import Cell from "./Cell.js";
 import {
     DisplayMode,
-    PbEditorPageElementPlugin,
-    PbEditorPageElementSaveActionPlugin,
-    PbEditorElement,
-    PbEditorElementPluginArgs
+    type PbEditorPageElementPlugin,
+    type PbEditorPageElementSaveActionPlugin,
+    type PbEditorElement,
+    type PbEditorElementPluginArgs
 } from "~/types.js";
-import { Plugin } from "@webiny/plugins/types.js";
+import { type Plugin } from "@webiny/plugins/types.js";
 import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
 import { createElement } from "~/editor/helpers.js";
 

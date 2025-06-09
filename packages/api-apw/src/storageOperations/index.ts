@@ -1,12 +1,12 @@
-import { CmsContext, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
-import { ApwStorageOperations } from "~/types.js";
+import { type CmsContext, type HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import { type ApwStorageOperations } from "~/types.js";
 import { createReviewerStorageOperations } from "./reviewerStorageOperations.js";
 import { createWorkflowStorageOperations } from "./workflowStorageOperations.js";
 import { createContentReviewStorageOperations } from "./contentReviewStorageOperations.js";
 import { createChangeRequestStorageOperations } from "./changeRequestStorageOperations.js";
 import { createCommentStorageOperations } from "~/storageOperations/commentStorageOperations.js";
 import { createApwModels } from "./models/index.js";
-import { Security } from "@webiny/api-security/types.js";
+import { type Security } from "@webiny/api-security/types.js";
 
 export interface CreateApwStorageOperationsParams {
     cms: HeadlessCms;

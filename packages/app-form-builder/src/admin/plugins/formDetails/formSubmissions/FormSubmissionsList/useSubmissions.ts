@@ -3,10 +3,10 @@ import { useCallback, useReducer } from "react";
 import debounce from "lodash/debounce.js";
 import get from "lodash/get.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { FbFormModel } from "~/types.js";
+import { type FbFormModel } from "~/types.js";
 import {
-    ExportFormSubmissionsMutationResponse,
-    ExportFormSubmissionsMutationVariables,
+    type ExportFormSubmissionsMutationResponse,
+    type ExportFormSubmissionsMutationVariables,
     EXPORT_FORM_SUBMISSIONS,
     LIST_FORM_SUBMISSIONS
 } from "~/admin/graphql.js";

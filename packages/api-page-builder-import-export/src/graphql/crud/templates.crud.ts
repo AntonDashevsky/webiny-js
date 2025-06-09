@@ -3,17 +3,17 @@ import { createTopic } from "@webiny/pubsub";
 import { ContextPlugin } from "@webiny/api";
 import {
     ImportExportTaskStatus,
-    TemplatesImportExportCrud,
-    PbImportExportContext,
-    OnTemplatesBeforeExportTopicParams,
-    OnTemplatesAfterExportTopicParams,
-    OnTemplatesBeforeImportTopicParams,
-    OnTemplatesAfterImportTopicParams
+    type TemplatesImportExportCrud,
+    type PbImportExportContext,
+    type OnTemplatesBeforeExportTopicParams,
+    type OnTemplatesAfterExportTopicParams,
+    type OnTemplatesBeforeImportTopicParams,
+    type OnTemplatesAfterImportTopicParams
 } from "~/types.js";
 import { invokeHandlerClient } from "~/client.js";
-import { Payload as CreateHandlerPayload } from "~/import/create/index.js";
+import { type Payload as CreateHandlerPayload } from "~/import/create/index.js";
 import { initialStats } from "~/import/utils/index.js";
-import { Payload as ExportTemplatesProcessHandlerPayload } from "~/export/process/index.js";
+import { type Payload as ExportTemplatesProcessHandlerPayload } from "~/export/process/index.js";
 import { zeroPad } from "@webiny/utils";
 import { PageTemplatesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PageTemplatesPermissions.js";
 

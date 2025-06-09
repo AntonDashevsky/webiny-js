@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
-    BindComponentRenderProp,
-    CmsContentEntry,
-    CmsModelFieldRendererProps,
-    CmsModel
+    type BindComponentRenderProp,
+    type CmsContentEntry,
+    type CmsModelFieldRendererProps,
+    type CmsModel
 } from "~/types.js";
 import { Options } from "./Options.js";
 import { useReferences } from "../hooks/useReferences.js";
@@ -11,10 +11,10 @@ import { Entry } from "./Entry.js";
 import { ReferencesDialog } from "./ReferencesDialog.js";
 import styled from "@emotion/styled";
 import { useQuery, useModelFieldGraphqlContext } from "~/admin/hooks/index.js";
-import { ListCmsModelsQueryResponse } from "~/admin/viewsGraphql.js";
+import { type ListCmsModelsQueryResponse } from "~/admin/viewsGraphql.js";
 import * as GQL from "~/admin/viewsGraphql.js";
 import { useSnackbar } from "@webiny/app-admin";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { type CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { Loader } from "./Loader.js";
 import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog.js";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";

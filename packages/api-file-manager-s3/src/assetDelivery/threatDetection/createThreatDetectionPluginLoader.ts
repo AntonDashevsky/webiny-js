@@ -1,4 +1,4 @@
-import { PluginFactory } from "@webiny/plugins/types.js";
+import { type PluginFactory } from "@webiny/plugins/types.js";
 import { createConditionalPluginFactory } from "@webiny/api";
 
 export const createThreatDetectionPluginLoader = (cb: PluginFactory) => {

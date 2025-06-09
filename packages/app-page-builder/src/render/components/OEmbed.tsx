@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import { css } from "emotion";
 import get from "lodash/get.js";
-import { PbElement } from "~/types.js";
+import { type PbElement } from "~/types.js";
 
 export interface OEmbedPropsInitCallableParams {
     props: OEmbedProps;

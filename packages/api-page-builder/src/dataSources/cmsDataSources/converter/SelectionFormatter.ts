@@ -1,4 +1,4 @@
-import { Fragment, GraphQLSelection } from "./types.js";
+import { type Fragment, type GraphQLSelection } from "./types.js";
 
 export class SelectionFormatter {
     /**

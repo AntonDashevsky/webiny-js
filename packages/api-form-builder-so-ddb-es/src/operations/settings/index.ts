@@ -1,14 +1,14 @@
 import {
-    FormBuilderStorageOperationsCreateSettingsParams,
-    FormBuilderStorageOperationsDeleteSettingsParams,
-    FormBuilderStorageOperationsGetSettingsParams,
-    FormBuilderStorageOperationsUpdateSettingsParams,
-    Settings
+    type FormBuilderStorageOperationsCreateSettingsParams,
+    type FormBuilderStorageOperationsDeleteSettingsParams,
+    type FormBuilderStorageOperationsGetSettingsParams,
+    type FormBuilderStorageOperationsUpdateSettingsParams,
+    type Settings
 } from "@webiny/api-form-builder/types.js";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
+import { type Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
 import {
-    FormBuilderSettingsStorageOperations,
-    FormBuilderSettingsStorageOperationsCreatePartitionKeyParams
+    type FormBuilderSettingsStorageOperations,
+    type FormBuilderSettingsStorageOperationsCreatePartitionKeyParams
 } from "~/types.js";
 import WebinyError from "@webiny/error";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";

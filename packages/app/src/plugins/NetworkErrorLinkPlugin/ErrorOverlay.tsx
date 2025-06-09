@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { IconButton } from "@webiny/ui/Button";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "../../i18n";
-import { OverlayWrapper } from "./StyledComponents";
+import { IconButton } from "@webiny/ui/Button/index.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "../../i18n/index.js";
+import { OverlayWrapper } from "./StyledComponents.js";
 import { ReactComponent as CloseIcon } from "./assets/close_24px.svg";
 
 const t = i18n.ns("app/graphql/error-overlay");

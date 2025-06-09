@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 
-import { Field, FieldMapper, FieldRaw, FilterDTO, FilterRepository } from "./domain/index.js";
+import { Field, FieldMapper, type FieldRaw, type FilterDTO, type FilterRepository } from "./domain/index.js";
 
 import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter.js";
 

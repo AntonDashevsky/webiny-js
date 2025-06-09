@@ -1,4 +1,4 @@
-import { CmsModelFieldToElasticsearchPlugin } from "~/types.js";
+import { type CmsModelFieldToElasticsearchPlugin } from "~/types.js";
 
 export const createJsonIndexing = (): CmsModelFieldToElasticsearchPlugin => {
     return {

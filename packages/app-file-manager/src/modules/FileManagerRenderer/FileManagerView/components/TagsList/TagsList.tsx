@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Loader } from "@webiny/app-aco";
 import { Empty } from "./Empty.js";
 import { Tag } from "./Tag.js";
-import { TagItem } from "@webiny/app-aco/types.js";
+import { type TagItem } from "@webiny/app-aco/types.js";
 import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 import { TagListWrapper, TagsFilterSelect, TagsTitle } from "./styled.js";
 

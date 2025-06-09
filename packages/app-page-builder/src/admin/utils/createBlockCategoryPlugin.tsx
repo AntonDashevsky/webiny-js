@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { type IconProp } from "@fortawesome/fontawesome-svg-core";
 import { plugins } from "@webiny/plugins";
-import { PbEditorBlockCategoryPlugin, PbBlockCategory } from "~/types.js";
+import { type PbEditorBlockCategoryPlugin, type PbBlockCategory } from "~/types.js";
 
 interface IconProps {
     category: PbBlockCategory;

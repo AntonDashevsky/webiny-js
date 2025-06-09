@@ -13,9 +13,9 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
 import CustomSection from "./CustomSection.js";
 import { useSecurity } from "@webiny/app-security";
-import { SecurityPermission } from "@webiny/app-security/types.js";
-import { PageBuilderSecurityPermission } from "~/types.js";
-import { AaclPermission } from "@webiny/app-admin";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
+import { type PageBuilderSecurityPermission } from "~/types.js";
+import { type AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-page-builder/admin/plugins/permissionRenderer");
 

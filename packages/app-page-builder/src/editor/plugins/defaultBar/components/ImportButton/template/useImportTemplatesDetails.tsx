@@ -5,8 +5,8 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { Link } from "@webiny/react-router";
 import { ShowDetails } from "../styledComponents.js";
-import { ListTemplateImportExportSubTasksResponse } from "~/admin/graphql/templateImportExport.gql.js";
-import { PageBuilderImportExportSubTask } from "~/types.js";
+import { type ListTemplateImportExportSubTasksResponse } from "~/admin/graphql/templateImportExport.gql.js";
+import { type PageBuilderImportExportSubTask } from "~/types.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importTemplate");
 

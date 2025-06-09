@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import get from "lodash/get.js";
 import { merge, set } from "dot-prop-immutable";
 import cloneDeep from "lodash/cloneDeep.js";
-import { MutationUpdaterFn } from "apollo-client";
+import { type MutationUpdaterFn } from "apollo-client";
 import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
 import { GET_PAGE, UNPUBLISH_PAGE } from "~/admin/graphql/pages.js";
-import { UnpublishPageOptions } from "~/admin/contexts/AdminPageBuilder.js";
-import { PageStatus, PbPageData } from "~/types.js";
+import { type UnpublishPageOptions } from "~/admin/contexts/AdminPageBuilder.js";
+import { PageStatus, type PbPageData } from "~/types.js";
 
 const getUpdateCache =
     (page: Pick<PbPageData, "id">): MutationUpdaterFn<any> =>

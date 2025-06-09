@@ -10,13 +10,13 @@ import { Switch } from "@webiny/ui/Switch/index.js";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { ReactComponent as HandleIcon } from "../../../../icons/round-drag_indicator-24px.svg";
 import { validation } from "@webiny/validation";
-import { FormRenderPropParams } from "@webiny/form/types.js";
-import { FieldOption } from "./types.js";
-import { DragEndEvent } from "@dnd-kit/core";
+import { type FormRenderPropParams } from "@webiny/form/types.js";
+import { type FieldOption } from "./types.js";
+import { type DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import {
     SortableContainerContextProvider,
-    FieldOptionWithId
+    type FieldOptionWithId
 } from "./OptionsListComponents/OptionsListItem.js";
 
 const OptionListItem = styled("li")({

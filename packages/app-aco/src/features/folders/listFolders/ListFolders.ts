@@ -1,11 +1,11 @@
-import { LoadingRepository, loadingRepositoryFactory } from "@webiny/app-utils";
-import { IListFoldersUseCase } from "./IListFoldersUseCase.js";
-import { IListFoldersGateway } from "./IListFoldersGateway.js";
+import { type LoadingRepository, loadingRepositoryFactory } from "@webiny/app-utils";
+import { type IListFoldersUseCase } from "./IListFoldersUseCase.js";
+import { type IListFoldersGateway } from "./IListFoldersGateway.js";
 import { ListFoldersRepository } from "./ListFoldersRepository.js";
 import { ListFoldersUseCaseWithLoading } from "./ListFoldersUseCaseWithLoading.js";
 import { ListFoldersUseCase } from "./ListFoldersUseCase.js";
-import { folderCacheFactory, ListCache } from "../cache/index.js";
-import { Folder } from "../Folder.js";
+import { folderCacheFactory, type ListCache } from "../cache/index.js";
+import { type Folder } from "../Folder.js";
 
 interface IListFoldersInstance {
     useCase: IListFoldersUseCase;

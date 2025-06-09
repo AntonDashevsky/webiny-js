@@ -1,13 +1,13 @@
 import { ErrorResponse, NotFoundResponse, Response } from "@webiny/handler-graphql";
-import type { Resolvers } from "@webiny/handler-graphql/types";
-import type { PbContext } from "~/graphql/types";
-import { GqlTranslatedCollectionMapper } from "~/translations/translatedCollection/graphql/mappers/GqlTranslatedCollectionMapper";
-import { SaveTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/SaveTranslatedCollectionUseCase";
-import { GetOrCreateTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/GetOrCreateTranslatedCollectionUseCase";
+import type { Resolvers } from "@webiny/handler-graphql/types.js";
+import type { PbContext } from "~/graphql/types.js";
+import { GqlTranslatedCollectionMapper } from "~/translations/translatedCollection/graphql/mappers/GqlTranslatedCollectionMapper.js";
+import { SaveTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/SaveTranslatedCollectionUseCase.js";
+import { GetOrCreateTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/GetOrCreateTranslatedCollectionUseCase.js";
 import {
     DeleteTranslatedCollectionUseCase,
     GetTranslatableCollectionUseCase
-} from "~/translations";
+} from "~/translations/index.js";
 
 interface GetTranslatedCollectionParams {
     collectionId: string;

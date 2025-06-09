@@ -8,7 +8,7 @@ import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/S
 import { ScrollList, ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
-import { GenericFormData } from "@webiny/form";
+import { type GenericFormData } from "@webiny/form";
 import { ReactComponent as SearchIcon } from "~/editor/assets/icons/search.svg";
 import {
     SimpleForm,
@@ -29,7 +29,7 @@ import {
     TitleContent
 } from "./SearchBlocksStyled.js";
 import * as Styled from "./StyledComponents.js";
-import { PbEditorBlockCategoryPlugin, PbEditorBlockPlugin } from "~/types.js";
+import { type PbEditorBlockCategoryPlugin, type PbEditorBlockPlugin } from "~/types.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
 import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";

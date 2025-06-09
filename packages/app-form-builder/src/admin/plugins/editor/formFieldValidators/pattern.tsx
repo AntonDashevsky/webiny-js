@@ -5,8 +5,8 @@ import { Select } from "@webiny/ui/Select/index.js";
 import { plugins } from "@webiny/plugins";
 import { validation } from "@webiny/validation";
 import {
-    FbBuilderFormFieldPatternValidatorPlugin,
-    FbBuilderFormFieldValidatorPlugin
+    type FbBuilderFormFieldPatternValidatorPlugin,
+    type FbBuilderFormFieldValidatorPlugin
 } from "~/types.js";
 
 const plugin: FbBuilderFormFieldValidatorPlugin = {

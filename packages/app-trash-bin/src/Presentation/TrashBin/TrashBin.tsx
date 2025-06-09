@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import {
     loadingRepositoryFactory,
     metaRepositoryFactory,
-    Sorting,
+    type Sorting,
     sortRepositoryFactory
 } from "@webiny/app-utils";
 import { TrashBinProvider } from "../hooks/index.js";
@@ -15,14 +15,14 @@ import {
     SortingRepositoryWithDefaults,
     trashBinItemsRepositoryFactory,
     TrashBinItemsRepositoryWithLoading,
-    ITrashBinItemMapper,
-    TrashBinItemDTO
+    type ITrashBinItemMapper,
+    type TrashBinItemDTO
 } from "~/Domain/index.js";
 import {
-    ITrashBinBulkActionsGateway,
-    ITrashBinDeleteItemGateway,
-    ITrashBinListGateway,
-    ITrashBinRestoreItemGateway
+    type ITrashBinBulkActionsGateway,
+    type ITrashBinDeleteItemGateway,
+    type ITrashBinListGateway,
+    type ITrashBinRestoreItemGateway
 } from "~/Gateways/index.js";
 import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers.js";
 

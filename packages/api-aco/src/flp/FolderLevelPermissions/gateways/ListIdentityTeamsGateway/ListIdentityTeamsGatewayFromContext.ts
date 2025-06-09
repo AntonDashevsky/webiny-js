@@ -1,5 +1,5 @@
-import type { AcoContext } from "~/types";
-import type { IListIdentityTeamsGateway } from "./IListIdentityTeamsGateway";
+import type { AcoContext } from "~/types.js";
+import type { IListIdentityTeamsGateway } from "./IListIdentityTeamsGateway.js";
 
 export class ListIdentityTeamsGatewayFromContext implements IListIdentityTeamsGateway {
     private context: AcoContext;

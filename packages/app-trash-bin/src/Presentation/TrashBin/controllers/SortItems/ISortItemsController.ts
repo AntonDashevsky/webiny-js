@@ -1,4 +1,4 @@
-import { OnSortingChange } from "@webiny/ui/DataTable/index.js";
+import { type OnSortingChange } from "@webiny/ui/DataTable/index.js";
 
 export interface ISortItemsController {
     execute: OnSortingChange;

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Accordion } from "@webiny/ui/Accordion/index.js";
-import { CmsDynamicZoneTemplate } from "~/types.js";
+import { type CmsDynamicZoneTemplate } from "~/types.js";
 import { AddTemplateIcon, AddTemplateButton } from "./AddTemplate.js";
 import { DynamicZoneTemplate } from "./DynamicZoneTemplate.js";
 import { useModelField, useModelFieldEditor } from "~/admin/hooks/index.js";

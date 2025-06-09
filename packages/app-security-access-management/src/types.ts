@@ -1,4 +1,4 @@
-import { SecurityPermission } from "@webiny/app-security/types.js";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
 
 export interface Group {
     id: string;

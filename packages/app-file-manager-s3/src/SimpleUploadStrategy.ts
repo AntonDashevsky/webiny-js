@@ -1,6 +1,6 @@
-import { UploadedFile, UploadOptions } from "@webiny/app/types.js";
+import { type UploadedFile, type UploadOptions } from "@webiny/app/types.js";
 import { GET_PRE_SIGNED_POST_PAYLOAD } from "./graphql.js";
-import { FileUploadStrategy } from "~/index.js";
+import { type FileUploadStrategy } from "~/index.js";
 
 declare global {
     interface File {

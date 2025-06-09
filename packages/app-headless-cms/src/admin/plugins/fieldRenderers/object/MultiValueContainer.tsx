@@ -4,8 +4,8 @@ import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
 import { Cell } from "@webiny/ui/Grid/index.js";
 import { useConfirmationDialog } from "@webiny/app-admin";
 import {
-    BindComponentRenderProp,
-    CmsModelFieldRendererProps
+    type BindComponentRenderProp,
+    type CmsModelFieldRendererProps
 } from "@webiny/app-headless-cms-common/types/index.js";
 import { MultiValueItemContainer } from "~/admin/plugins/fieldRenderers/object/MultiValueItemContainer.js";
 import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";

@@ -1,22 +1,22 @@
 import WebinyError from "@webiny/error";
 import {
-    Category,
-    CategoryStorageOperationsCreateParams,
-    CategoryStorageOperationsDeleteParams,
-    CategoryStorageOperationsGetParams,
-    CategoryStorageOperationsListParams,
-    CategoryStorageOperationsUpdateParams
+    type Category,
+    type CategoryStorageOperationsCreateParams,
+    type CategoryStorageOperationsDeleteParams,
+    type CategoryStorageOperationsGetParams,
+    type CategoryStorageOperationsListParams,
+    type CategoryStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types.js";
-import { Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
 import { CategoryDataLoader } from "./dataLoader.js";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
 import { CategoryDynamoDbElasticFieldPlugin } from "~/plugins/definitions/CategoryDynamoDbElasticFieldPlugin.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import { createPartitionKey, createSortKey } from "~/operations/category/keys.js";
-import { CategoryStorageOperations } from "~/types.js";
+import { type CategoryStorageOperations } from "~/types.js";
 import { deleteItem, put } from "@webiny/db-dynamodb";
 
 const createType = (): string => {

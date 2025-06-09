@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
-import { PbContext } from "@webiny/api-page-builder/types.js";
-import { FormBuilderContext } from "~/types.js";
+import { type PbContext } from "@webiny/api-page-builder/types.js";
+import { type FormBuilderContext } from "~/types.js";
 
 export default () => {
     return new ContextPlugin<FormBuilderContext & PbContext>(

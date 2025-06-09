@@ -9,18 +9,18 @@ import {
 } from "./FormRender/functions/index.js";
 
 import {
-    FormLayoutComponent as FormLayoutComponentType,
-    FormData,
-    FormDataField,
-    FormRenderComponentDataField,
-    FormSubmission,
-    FormSubmissionResponse,
-    FormLayoutComponentProps,
-    CreateFormParams,
-    FormDataFieldsLayout,
-    FormSubmissionFieldValues,
-    CreateFormParamsFormLayoutComponent,
-    CreateFormParamsValidator
+    type FormLayoutComponent as FormLayoutComponentType,
+    type FormData,
+    type FormDataField,
+    type FormRenderComponentDataField,
+    type FormSubmission,
+    type FormSubmissionResponse,
+    type FormLayoutComponentProps,
+    type CreateFormParams,
+    type FormDataFieldsLayout,
+    type FormSubmissionFieldValues,
+    type CreateFormParamsFormLayoutComponent,
+    type CreateFormParamsValidator
 } from "./types.js";
 
 interface FieldValidator {

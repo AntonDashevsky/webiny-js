@@ -1,5 +1,5 @@
-import { ICacheKey } from "./types.js";
-import { createCacheKey as createCacheKeyValue, ICacheKeyKeys } from "@webiny/utils";
+import { type ICacheKey } from "./types.js";
+import { createCacheKey as createCacheKeyValue, type ICacheKeyKeys } from "@webiny/utils";
 
 class CacheKey implements ICacheKey {
     private readonly key: string;

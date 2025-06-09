@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { I18NContext } from "@webiny/api-i18n/types.js";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { type I18NContext } from "@webiny/api-i18n/types.js";
+import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 
 export const getDocumentClient = (context: I18NContext): DynamoDBDocument => {
     const driver = context.db?.driver as unknown as { documentClient?: DynamoDBDocument };

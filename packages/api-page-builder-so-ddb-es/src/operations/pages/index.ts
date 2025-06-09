@@ -33,11 +33,11 @@ import {
     getClean,
     put,
     queryAll,
-    QueryAllParams,
+    type QueryAllParams,
     queryOne,
     sortItems
 } from "@webiny/db-dynamodb";
-import { SearchPagesPlugin } from "~/plugins/definitions/SearchPagesPlugin.js";
+import { type SearchPagesPlugin } from "~/plugins/definitions/SearchPagesPlugin.js";
 import { getESLatestPageData, getESPublishedPageData } from "./helpers.js";
 import type { PluginsContainer } from "@webiny/plugins";
 import {

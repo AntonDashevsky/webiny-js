@@ -1,9 +1,9 @@
-import type { Folder, ListFoldersParams } from "~/folder/folder.types";
-import type { IListFolders } from "./IListFolders";
-import { FolderLevelPermissions } from "~/flp";
-import type { FolderPermission } from "~/flp/flp.types";
-import { ROOT_FOLDER } from "~/constants";
-import type { ListMeta } from "~/types";
+import type { Folder, ListFoldersParams } from "~/folder/folder.types.js";
+import type { IListFolders } from "./IListFolders.js";
+import { type FolderLevelPermissions } from "~/flp/index.js";
+import type { FolderPermission } from "~/flp/flp.types.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import type { ListMeta } from "~/types.js";
 
 export class ListFoldersWithFolderLevelPermissions implements IListFolders {
     private flpCatalog: Map<string, FolderPermission[]> = new Map();

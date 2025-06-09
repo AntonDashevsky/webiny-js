@@ -9,8 +9,8 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { Box, Columns, Stack } from "~/components/Layout.js";
 import styled from "@emotion/styled";
 import { useChangeRequestDialog } from "./useChangeRequestDialog.js";
-import { Form, FormOnSubmit } from "@webiny/form";
-import { BindComponent } from "@webiny/form";
+import { Form, type FormOnSubmit } from "@webiny/form";
+import { type BindComponent } from "@webiny/form";
 import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId.js";
 import { useChangeRequest } from "~/hooks/useChangeRequest.js";
 import { validation } from "@webiny/validation";
@@ -18,7 +18,7 @@ import { RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/inde
 import { FileManager } from "@webiny/app-admin/components/index.js";
 import { ApwFile } from "./ApwFile.js";
 import { generateAlphaNumericId } from "@webiny/utils";
-import { ApwChangeRequest } from "~/types.js";
+import { type ApwChangeRequest } from "~/types.js";
 
 const t = i18n.ns("app-apw/content-review/editor/change-request");
 

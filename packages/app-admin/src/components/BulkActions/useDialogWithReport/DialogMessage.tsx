@@ -3,7 +3,7 @@ import { ReactComponent as ErrorIcon } from "@material-design-icons/svg/round/er
 import { ReactComponent as SuccessIcon } from "@material-design-icons/svg/round/check_circle.svg";
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { List, ListItemText, ListItemTextPrimary, ListItemTextSecondary } from "@webiny/ui/List/index.js";
-import { ShowResultsDialogParams } from "./index.js";
+import { type ShowResultsDialogParams } from "./index.js";
 
 import { ListItem, ListItemGraphic, MessageContainer } from "./useDialogWithReport.styled.js";
 

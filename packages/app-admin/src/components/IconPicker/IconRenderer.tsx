@@ -3,7 +3,7 @@ import { toJS } from "mobx";
 
 import { makeDecoratable, createVoidComponent } from "@webiny/react-composition";
 
-import { Icon } from "./types.js";
+import { type Icon } from "./types.js";
 
 export const IconRenderer = makeDecoratable("IconPickerIcon", createVoidComponent());
 

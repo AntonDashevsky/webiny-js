@@ -1,10 +1,10 @@
 import {
-    FbFormModel,
-    FbFormModelField,
-    FbFormStep,
-    DropTarget,
-    DropDestination,
-    DropSource
+    type FbFormModel,
+    type FbFormModelField,
+    type FbFormStep,
+    type DropTarget,
+    type DropDestination,
+    type DropSource
 } from "~/types.js";
 import getFieldPosition from "./getFieldPosition.js";
 

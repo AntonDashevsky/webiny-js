@@ -6,7 +6,6 @@ import pLimit from "p-limit";
 import cliProgress from "cli-progress";
 import { getFilesUsingGlob } from "./getFilesUsingGlob.js";
 import { PackageJson } from "./PackageJson.js";
-import { convertTypeOnlyImports } from "./convertTypeOnlyImports";
 import { getPackages } from "./getPackages";
 
 // Function to check if a path is a directory
@@ -277,7 +276,6 @@ export async function cjsToEsm(rootDir?: string) {
 
                 try {
                     await updateImports(sourceFile, sourceRoot);
-                    await convertTypeOnlyImports(sourceFile);
                     progressBar.increment();
                 } catch (err) {
                     // Store and ignore error.

@@ -6,7 +6,7 @@ import { Switch } from "@webiny/ui/Switch/index.js";
 import { ReactComponent as EditIcon } from "../../icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "../../icons/delete.svg";
 import { useFormEditor } from "../../Context/index.js";
-import { FbFormModelField } from "~/types.js";
+import { type FbFormModelField } from "~/types.js";
 
 const FieldContainer = styled("div")({
     display: "flex",

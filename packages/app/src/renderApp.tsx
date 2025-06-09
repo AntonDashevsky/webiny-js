@@ -1,4 +1,4 @@
-import ReactDOMClient, { Root } from "react-dom/client";
+import ReactDOMClient, { type Root } from "react-dom/client";
 
 export const renderApp = (app: JSX.Element): Root => {
     const container = document.getElementById("root")!;

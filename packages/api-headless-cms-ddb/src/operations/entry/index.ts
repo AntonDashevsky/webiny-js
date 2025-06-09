@@ -23,9 +23,9 @@ import {
     cleanupItems,
     createEntityWriteBatch,
     queryAll,
-    QueryAllParams,
+    type QueryAllParams,
     queryOne,
-    QueryOneParams
+    type QueryOneParams
 } from "@webiny/db-dynamodb";
 import type { PluginsContainer } from "@webiny/plugins";
 import { decodeCursor, encodeCursor } from "@webiny/utils/cursor.js";

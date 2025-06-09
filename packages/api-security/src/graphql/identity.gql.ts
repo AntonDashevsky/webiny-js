@@ -1,7 +1,7 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
-import { SecurityContext } from "~/types.js";
-import { TenancyContext } from "@webiny/api-tenancy/types.js";
+import { type SecurityContext } from "~/types.js";
+import { type TenancyContext } from "@webiny/api-tenancy/types.js";
 
 type Context = SecurityContext & TenancyContext;
 

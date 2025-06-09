@@ -12,14 +12,14 @@ import {
     GetDefaultPermissionsWithTeams,
     GetFolderPermission,
     ListFolderPermissions
-} from "./useCases";
+} from "./useCases/index.js";
 import type {
     AcoContext,
     AcoFolderLevelPermissionsCrud,
     FolderLevelPermission,
     FolderPermission,
     ListFlpsParams
-} from "~/types";
+} from "~/types.js";
 import {
     GetIdentityGatewayFromContext,
     GetWcpGatewayFromContext,
@@ -31,7 +31,7 @@ import {
     IsAuthorizationEnabledGatewayFromContext,
     ListIdentityTeamsGatewayFromContext,
     ListPermissionsGatewayFromContext
-} from "./gateways";
+} from "./gateways/index.js";
 
 interface CreateFolderLevelPermissionsParams {
     context: AcoContext;

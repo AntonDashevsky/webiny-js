@@ -2,10 +2,10 @@ import dotPropImmutable from "dot-prop-immutable";
 import { useQuery } from "@apollo/react-hooks";
 import {
     LIST_COMMENTS_QUERY,
-    ListCommentsQueryResponse,
-    ListCommentsQueryVariables
+    type ListCommentsQueryResponse,
+    type ListCommentsQueryVariables
 } from "~/graphql/comment.gql.js";
-import { ApwComment } from "~/types.js";
+import { type ApwComment } from "~/types.js";
 import { useCurrentChangeRequestId } from "~/hooks/useCurrentChangeRequestId.js";
 
 interface UseCommentsListResult {

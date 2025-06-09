@@ -1,11 +1,11 @@
 import { PB_PAGE_TYPE, ROOT_FOLDER } from "~/contants.js";
 
 import {
-    CreateSearchRecordParams,
-    UpdateSearchRecordParams
+    type CreateSearchRecordParams,
+    type UpdateSearchRecordParams
 } from "@webiny/api-aco/record/record.types.js";
-import { Page } from "@webiny/api-page-builder/types.js";
-import { PbAcoContext, PbPageRecordData, PbCreatePayload, PbUpdatePayload } from "~/types.js";
+import { type Page } from "@webiny/api-page-builder/types.js";
+import { type PbAcoContext, type PbPageRecordData, type PbCreatePayload, type PbUpdatePayload } from "~/types.js";
 import {
     PageBuilderAcoModifyCreatePayloadPlugin,
     PageBuilderAcoModifyUpdatePayloadPlugin

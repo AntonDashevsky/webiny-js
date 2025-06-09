@@ -1,6 +1,6 @@
-import { FileManagerContext } from "~/types.js";
+import { type FileManagerContext } from "~/types.js";
 import WebinyError from "@webiny/error";
-import { FilePhysicalStoragePlugin } from "~/plugins/FilePhysicalStoragePlugin.js";
+import { type FilePhysicalStoragePlugin } from "~/plugins/FilePhysicalStoragePlugin.js";
 
 export type Result = Record<string, any>;
 

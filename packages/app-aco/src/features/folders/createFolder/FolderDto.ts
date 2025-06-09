@@ -1,4 +1,4 @@
-import { FolderPermission } from "~/types.js";
+import { type FolderPermission } from "~/types.js";
 
 export interface FolderDto {
     title: string;

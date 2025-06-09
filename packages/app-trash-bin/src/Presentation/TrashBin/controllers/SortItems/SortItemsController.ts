@@ -1,7 +1,7 @@
-import { OnSortingChange } from "@webiny/ui/DataTable/index.js";
-import { ColumnSorting, SortingMapper } from "@webiny/app-utils";
-import { IListItemsUseCase, ISortItemsUseCase } from "~/UseCases/index.js";
-import { ISortItemsController } from "./ISortItemsController.js";
+import { type OnSortingChange } from "@webiny/ui/DataTable/index.js";
+import { type ColumnSorting, SortingMapper } from "@webiny/app-utils";
+import { type IListItemsUseCase, type ISortItemsUseCase } from "~/UseCases/index.js";
+import { type ISortItemsController } from "./ISortItemsController.js";
 
 export class SortItemsController implements ISortItemsController {
     private listItemsUseCaseFactory: () => IListItemsUseCase;

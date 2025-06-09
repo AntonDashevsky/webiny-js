@@ -1,10 +1,10 @@
-import { ITaskResponseResult } from "@webiny/tasks";
-import { IImportPagesControllerInputMeta, IImportPagesProcessPagesTaskParams } from "./types.js";
+import { type ITaskResponseResult } from "@webiny/tasks";
+import { type IImportPagesControllerInputMeta, type IImportPagesProcessPagesTaskParams } from "./types.js";
 import { importPage } from "./process/importPage.js";
 import { mockSecurity } from "~/mockSecurity.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
-import { ImportData } from "~/types.js";
-import { Page } from "@webiny/api-page-builder/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import { type ImportData } from "~/types.js";
+import { type Page } from "@webiny/api-page-builder/types.js";
 
 interface ImportPageParams extends Pick<IImportPagesProcessPagesTaskParams, "context"> {
     identity: SecurityIdentity;

@@ -1,5 +1,5 @@
 import React, { useEffect, createElement, useCallback } from "react";
-import MediumEditor, { CoreOptions } from "medium-editor";
+import MediumEditor, { type CoreOptions } from "medium-editor";
 import { css } from "emotion";
 import merge from "lodash/merge.js";
 import dotProp from "dot-prop-immutable";

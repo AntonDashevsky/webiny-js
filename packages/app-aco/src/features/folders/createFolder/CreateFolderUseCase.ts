@@ -1,5 +1,5 @@
-import { CreateFolderParams, ICreateFolderUseCase } from "./ICreateFolderUseCase.js";
-import { ICreateFolderRepository } from "./ICreateFolderRepository.js";
+import { type CreateFolderParams, type ICreateFolderUseCase } from "./ICreateFolderUseCase.js";
+import { type ICreateFolderRepository } from "./ICreateFolderRepository.js";
 import { Folder } from "../Folder.js";
 
 export class CreateFolderUseCase implements ICreateFolderUseCase {

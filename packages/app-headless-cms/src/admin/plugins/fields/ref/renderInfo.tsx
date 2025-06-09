@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { CmsModel as BaseCmsModel, CmsModelField } from "~/types.js";
+import { type CmsModel as BaseCmsModel, type CmsModelField } from "~/types.js";
 import { useQuery } from "~/admin/hooks/index.js";
 import {
     LIST_REFERENCED_MODELS,
-    ListReferencedModelsQueryResult
+    type ListReferencedModelsQueryResult
 } from "~/admin/plugins/fields/ref/graphql.js";
 import styled from "@emotion/styled";
 import { useSnackbar } from "@webiny/app-admin";

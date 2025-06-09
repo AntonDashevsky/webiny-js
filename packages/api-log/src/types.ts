@@ -1,8 +1,8 @@
-import { TenancyContext } from "@webiny/api-tenancy/types.js";
-import { I18NContext } from "@webiny/api-i18n/types.js";
-import { Context as HandlerContext } from "@webiny/handler/types.js";
-import { Context as TasksContext, ITask } from "@webiny/tasks/types.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type TenancyContext } from "@webiny/api-tenancy/types.js";
+import { type I18NContext } from "@webiny/api-i18n/types.js";
+import { type Context as HandlerContext } from "@webiny/handler/types.js";
+import { type Context as TasksContext, type ITask } from "@webiny/tasks/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 
 export interface ILoggerLogCallableOptions {
     tenant?: string;

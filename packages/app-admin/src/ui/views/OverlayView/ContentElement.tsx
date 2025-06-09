@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { UIElement, UiElementRenderProps } from "~/ui/UIElement.js";
+import { UIElement, type UiElementRenderProps } from "~/ui/UIElement.js";
 
 const ContentWrapper = styled("div")({
     width: "100%",

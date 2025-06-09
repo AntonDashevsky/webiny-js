@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Droppable, IsVisibleCallable } from "../Droppable.js";
-import { DragSource } from "~/types.js";
+import { Droppable, type IsVisibleCallable } from "../Droppable.js";
+import { type DragSource } from "~/types.js";
 
 const InnerDivVertical = styled("div")({
     position: "absolute",

@@ -7,12 +7,12 @@ import get from "lodash/get.js";
 import { plugins } from "@webiny/plugins";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { Switch } from "@webiny/ui/Switch/index.js";
-import { Form, FormOnSubmit } from "@webiny/form";
-import { Validator } from "@webiny/validation/types.js";
+import { Form, type FormOnSubmit } from "@webiny/form";
+import { type Validator } from "@webiny/validation/types.js";
 import {
-    PbEditorElement,
-    PbEditorPageElementSettingsRenderComponentProps,
-    PbEditorResponsiveModePlugin
+    type PbEditorElement,
+    type PbEditorPageElementSettingsRenderComponentProps,
+    type PbEditorResponsiveModePlugin
 } from "~/types.js";
 import {
     activeElementAtom,

@@ -1,5 +1,5 @@
 import { createPageUpdateValidation, createPageSettingsUpdateValidation } from "./pages/validation.js";
-import { PbContext } from "~/graphql/types.js";
+import { type PbContext } from "~/graphql/types.js";
 import { ContextPlugin } from "@webiny/api";
 import { createZodError } from "@webiny/utils";
 

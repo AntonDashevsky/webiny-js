@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { Form } from "@webiny/form";
-import { Validator } from "@webiny/validation/types.js";
+import { type Validator } from "@webiny/validation/types.js";
 import { makeDecoratable } from "@webiny/react-composition";
 import InputField from "~/editor/plugins/elementSettings/components/InputField.js";
 import { Typography } from "@webiny/ui/Typography/index.js";

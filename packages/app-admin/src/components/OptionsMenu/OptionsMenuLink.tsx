@@ -1,4 +1,4 @@
-import React, { HTMLAttributeAnchorTarget } from "react";
+import React, { type HTMLAttributeAnchorTarget } from "react";
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { ListItemGraphic } from "@webiny/ui/List/index.js";
 import { MenuItem } from "@webiny/ui/Menu/index.js";

@@ -1,4 +1,4 @@
-import { DragObjectWithTypeWithTarget } from "../../../components/Droppable.js";
+import { type DragObjectWithTypeWithTarget } from "../../../components/Droppable.js";
 
 export interface DropElementActionArgsType {
     source: DragObjectWithTypeWithTarget;

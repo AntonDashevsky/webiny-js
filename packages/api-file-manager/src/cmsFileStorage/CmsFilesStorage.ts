@@ -1,19 +1,19 @@
 import omit from "lodash/omit.js";
-import { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
-import { Security } from "@webiny/api-security/types.js";
+import { type CmsEntry, type CmsModel, type HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import { type Security } from "@webiny/api-security/types.js";
 import {
-    File,
-    FileManagerAliasesStorageOperations,
-    FileManagerFilesStorageOperations,
-    FileManagerFilesStorageOperationsCreateBatchParams,
-    FileManagerFilesStorageOperationsCreateParams,
-    FileManagerFilesStorageOperationsDeleteParams,
-    FileManagerFilesStorageOperationsGetParams,
-    FileManagerFilesStorageOperationsListParams,
-    FileManagerFilesStorageOperationsListResponse,
-    FileManagerFilesStorageOperationsTagsParams,
-    FileManagerFilesStorageOperationsTagsResponse,
-    FileManagerFilesStorageOperationsUpdateParams
+    type File,
+    type FileManagerAliasesStorageOperations,
+    type FileManagerFilesStorageOperations,
+    type FileManagerFilesStorageOperationsCreateBatchParams,
+    type FileManagerFilesStorageOperationsCreateParams,
+    type FileManagerFilesStorageOperationsDeleteParams,
+    type FileManagerFilesStorageOperationsGetParams,
+    type FileManagerFilesStorageOperationsListParams,
+    type FileManagerFilesStorageOperationsListResponse,
+    type FileManagerFilesStorageOperationsTagsParams,
+    type FileManagerFilesStorageOperationsTagsResponse,
+    type FileManagerFilesStorageOperationsUpdateParams
 } from "~/types.js";
 import { ListFilesWhereProcessor } from "~/cmsFileStorage/ListFilesWhereProcessor.js";
 import { ListTagsWhereProcessor } from "~/cmsFileStorage/ListTagsWhereProcessor.js";

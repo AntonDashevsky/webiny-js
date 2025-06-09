@@ -1,6 +1,6 @@
 import { registry } from "@webiny/handler-aws/registry.js";
 import { createSourceHandler } from "@webiny/handler-aws";
-import { HandlerParams, IWebsocketsIncomingEvent } from "./types.js";
+import { type HandlerParams, type IWebsocketsIncomingEvent } from "./types.js";
 
 const handler = createSourceHandler<IWebsocketsIncomingEvent, HandlerParams>({
     name: "handler-webiny-websockets",

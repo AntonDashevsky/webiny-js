@@ -1,4 +1,4 @@
-import { Asset, AssetReply } from "@webiny/api-file-manager";
+import { type Asset, AssetReply } from "@webiny/api-file-manager";
 import { ResponseHeaders } from "@webiny/handler";
 
 export class S3StreamAssetReply extends AssetReply {

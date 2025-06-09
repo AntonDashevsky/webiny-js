@@ -1,6 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
+import { type ILoadingRepository } from "@webiny/app-utils";
 import { LoadingActionsEnum } from "~/types.js";
-import { DeleteFolderParams, IDeleteFolderUseCase } from "./IDeleteFolderUseCase.js";
+import { type DeleteFolderParams, type IDeleteFolderUseCase } from "./IDeleteFolderUseCase.js";
 
 export class DeleteFolderUseCaseWithLoading implements IDeleteFolderUseCase {
     private loadingRepository: ILoadingRepository;

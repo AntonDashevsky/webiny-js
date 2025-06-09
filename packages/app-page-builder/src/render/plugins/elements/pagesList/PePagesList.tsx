@@ -1,7 +1,7 @@
-import { PbPageElementPagesListComponentPlugin } from "~/types.js";
+import { type PbPageElementPagesListComponentPlugin } from "~/types.js";
 import {
     createPagesList,
-    PagesListRenderer
+    type PagesListRenderer
 } from "@webiny/app-page-builder-elements/renderers/pagesList/index.js";
 import React, { useMemo } from "react";
 import { plugins } from "@webiny/plugins";

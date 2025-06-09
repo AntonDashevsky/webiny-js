@@ -8,8 +8,8 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import { ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Switch } from "@webiny/ui/Switch/index.js";
-import { BindComponent, CmsModelField } from "~/types.js";
-import { BindComponentRenderProp, FormAPI, useForm } from "@webiny/form";
+import { type BindComponent, type CmsModelField } from "~/types.js";
+import { type BindComponentRenderProp, type FormAPI, useForm } from "@webiny/form";
 import { useModelField } from "~/admin/hooks/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/dynamic-fieldset-predefined-values");

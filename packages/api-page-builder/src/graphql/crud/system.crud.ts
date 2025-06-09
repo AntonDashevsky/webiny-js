@@ -4,15 +4,15 @@ import { preparePageData } from "./install/welcomeToWebinyPageData.js";
 import { notFoundPageData } from "./install/notFoundPageData.js";
 import { savePageAssets } from "./install/utils/savePageAssets.js";
 import {
-    Category,
-    OnSystemAfterInstallTopicParams,
-    OnSystemBeforeInstallTopicParams,
-    Page,
-    PageBuilderContextObject,
-    PageBuilderStorageOperations,
-    PbContext,
-    System,
-    SystemCrud
+    type Category,
+    type OnSystemAfterInstallTopicParams,
+    type OnSystemBeforeInstallTopicParams,
+    type Page,
+    type PageBuilderContextObject,
+    type PageBuilderStorageOperations,
+    type PbContext,
+    type System,
+    type SystemCrud
 } from "~/types.js";
 import { createTopic } from "@webiny/pubsub";
 

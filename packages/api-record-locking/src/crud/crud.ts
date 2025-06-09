@@ -1,35 +1,35 @@
 import { WebinyError } from "@webiny/error";
 import {
-    Context,
-    IGetIdentity,
-    IGetWebsocketsContextCallable,
-    IHasRecordLockingAccessCallable,
-    IRecordLocking,
-    IRecordLockingLockRecordValues,
-    IRecordLockingModelManager,
-    OnEntryAfterLockTopicParams,
-    OnEntryAfterUnlockRequestTopicParams,
-    OnEntryAfterUnlockTopicParams,
-    OnEntryBeforeLockTopicParams,
-    OnEntryBeforeUnlockRequestTopicParams,
-    OnEntryBeforeUnlockTopicParams,
-    OnEntryLockErrorTopicParams,
-    OnEntryUnlockErrorTopicParams,
-    OnEntryUnlockRequestErrorTopicParams,
-    RecordLockingSecurityPermission
+    type Context,
+    type IGetIdentity,
+    type IGetWebsocketsContextCallable,
+    type IHasRecordLockingAccessCallable,
+    type IRecordLocking,
+    type IRecordLockingLockRecordValues,
+    type IRecordLockingModelManager,
+    type OnEntryAfterLockTopicParams,
+    type OnEntryAfterUnlockRequestTopicParams,
+    type OnEntryAfterUnlockTopicParams,
+    type OnEntryBeforeLockTopicParams,
+    type OnEntryBeforeUnlockRequestTopicParams,
+    type OnEntryBeforeUnlockTopicParams,
+    type OnEntryLockErrorTopicParams,
+    type OnEntryUnlockErrorTopicParams,
+    type OnEntryUnlockRequestErrorTopicParams,
+    type RecordLockingSecurityPermission
 } from "~/types.js";
 import { RECORD_LOCKING_MODEL_ID } from "./model.js";
-import { IGetLockRecordUseCaseExecute } from "~/abstractions/IGetLockRecordUseCase.js";
-import { IIsEntryLockedUseCaseExecute } from "~/abstractions/IIsEntryLocked.js";
-import { ILockEntryUseCaseExecute } from "~/abstractions/ILockEntryUseCase.js";
-import { IUnlockEntryUseCaseExecute } from "~/abstractions/IUnlockEntryUseCase.js";
+import { type IGetLockRecordUseCaseExecute } from "~/abstractions/IGetLockRecordUseCase.js";
+import { type IIsEntryLockedUseCaseExecute } from "~/abstractions/IIsEntryLocked.js";
+import { type ILockEntryUseCaseExecute } from "~/abstractions/ILockEntryUseCase.js";
+import { type IUnlockEntryUseCaseExecute } from "~/abstractions/IUnlockEntryUseCase.js";
 import { createUseCases } from "~/useCases/index.js";
-import { IUnlockEntryRequestUseCaseExecute } from "~/abstractions/IUnlockEntryRequestUseCase.js";
+import { type IUnlockEntryRequestUseCaseExecute } from "~/abstractions/IUnlockEntryRequestUseCase.js";
 import { createTopic } from "@webiny/pubsub";
-import { IListAllLockRecordsUseCaseExecute } from "~/abstractions/IListAllLockRecordsUseCase.js";
-import { IListLockRecordsUseCaseExecute } from "~/abstractions/IListLockRecordsUseCase.js";
-import { IUpdateEntryLockUseCaseExecute } from "~/abstractions/IUpdateEntryLockUseCase.js";
-import { IGetLockedEntryLockRecordUseCaseExecute } from "~/abstractions/IGetLockedEntryLockRecordUseCase.js";
+import { type IListAllLockRecordsUseCaseExecute } from "~/abstractions/IListAllLockRecordsUseCase.js";
+import { type IListLockRecordsUseCaseExecute } from "~/abstractions/IListLockRecordsUseCase.js";
+import { type IUpdateEntryLockUseCaseExecute } from "~/abstractions/IUpdateEntryLockUseCase.js";
+import { type IGetLockedEntryLockRecordUseCaseExecute } from "~/abstractions/IGetLockedEntryLockRecordUseCase.js";
 import { getTimeout as baseGetTimeout } from "~/utils/getTimeout.js";
 
 interface Params {

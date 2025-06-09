@@ -20,7 +20,7 @@ import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
 import { useLocalesList } from "./hooks/useLocalesList.js";
-import { I18NLocaleItem } from "~/types.js";
+import { type I18NLocaleItem } from "~/types.js";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

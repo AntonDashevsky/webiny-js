@@ -1,11 +1,11 @@
 import React from "react";
-import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon, type FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 import { AccordionItem } from "@webiny/ui/Accordion/index.js";
 import { Bind } from "@webiny/form";
 import {
-    CmsDynamicZoneTemplate,
-    CmsModelFieldValidatorConfig,
-    CmsModelFieldValidatorPlugin
+    type CmsDynamicZoneTemplate,
+    type CmsModelFieldValidatorConfig,
+    type CmsModelFieldValidatorPlugin
 } from "~/types.js";
 import { ValidatorsList } from "~/admin/components/FieldEditor/EditFieldDialog/ValidatorsList.js";
 import { createValidators } from "~/utils/createValidators.js";

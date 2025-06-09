@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { PbEditorElement, PbEditorElementTree } from "~/types.js";
+import { type PbEditorElement, type PbEditorElementTree } from "~/types.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
 

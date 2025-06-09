@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { DragLayerMonitor, useDragLayer } from "react-dnd";
+import { type DragLayerMonitor, useDragLayer } from "react-dnd";
 
 const layerStyles: React.CSSProperties = {
     position: "fixed",

@@ -1,10 +1,10 @@
-import { IMetaRepository } from "@webiny/app-utils";
-import { ITrashBinItemMapper } from "~/Domain/index.js";
+import { type IMetaRepository } from "@webiny/app-utils";
+import { type ITrashBinItemMapper } from "~/Domain/index.js";
 import {
-    ITrashBinBulkActionsGateway,
-    ITrashBinDeleteItemGateway,
-    ITrashBinListGateway,
-    ITrashBinRestoreItemGateway
+    type ITrashBinBulkActionsGateway,
+    type ITrashBinDeleteItemGateway,
+    type ITrashBinListGateway,
+    type ITrashBinRestoreItemGateway
 } from "~/Gateways/index.js";
 import { TrashBinItemsRepository } from "./TrashBinItemsRepository.js";
 

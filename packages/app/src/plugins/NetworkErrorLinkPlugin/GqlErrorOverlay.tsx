@@ -1,9 +1,9 @@
 import React from "react";
-import get from "lodash/get";
-import { Typography } from "@webiny/ui/Typography";
-import { i18n } from "../../i18n";
-import { Pre } from "./StyledComponents";
-import ErrorOverlay from "./ErrorOverlay";
+import get from "lodash/get.js";
+import { Typography } from "@webiny/ui/Typography/index.js";
+import { i18n } from "../../i18n/index.js";
+import { Pre } from "./StyledComponents.js";
+import ErrorOverlay from "./ErrorOverlay.js";
 
 const t = i18n.ns("app/graphql/error-overlay");
 

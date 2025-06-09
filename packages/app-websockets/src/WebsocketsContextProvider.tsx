@@ -3,11 +3,11 @@ import { useTenancy } from "@webiny/app-tenancy";
 import { useI18N } from "@webiny/app-i18n";
 import { useSecurity } from "@webiny/app-security";
 import {
-    IncomingGenericData,
-    IWebsocketsContext,
-    IWebsocketsContextSendCallable,
-    IWebsocketsManagerCloseEvent,
-    IWebsocketsManagerErrorEvent,
+    type IncomingGenericData,
+    type IWebsocketsContext,
+    type IWebsocketsContextSendCallable,
+    type IWebsocketsManagerCloseEvent,
+    type IWebsocketsManagerErrorEvent,
     WebsocketsCloseCode
 } from "~/types.js";
 import {
@@ -17,7 +17,7 @@ import {
     createWebsocketsManager,
     createWebsocketsSubscriptionManager
 } from "./domain/index.js";
-import { IGenericData, IWebsocketsManager } from "./domain/types.js";
+import { type IGenericData, type IWebsocketsManager } from "./domain/types.js";
 import { getUrl } from "./utils/getUrl.js";
 
 export interface IWebsocketsContextProviderProps {

@@ -12,7 +12,7 @@ import {
     SimpleButton
 } from "../../elementSettings/components/StyledComponents.js";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { BindComponent } from "@webiny/form";
+import { type BindComponent } from "@webiny/form";
 
 const autoCompleteStyle = css({
     "& .mdc-text-field": {

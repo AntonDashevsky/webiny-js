@@ -4,7 +4,7 @@ import { Input } from "@webiny/ui/Input/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
 import { plugins } from "@webiny/plugins";
 import { validation } from "@webiny/validation";
-import { CmsModelFieldValidatorPlugin, CmsModelFieldRegexValidatorExpressionPlugin } from "~/types.js";
+import { type CmsModelFieldValidatorPlugin, type CmsModelFieldRegexValidatorExpressionPlugin } from "~/types.js";
 import { useForm, Bind } from "@webiny/form";
 
 const PatternSettings = () => {

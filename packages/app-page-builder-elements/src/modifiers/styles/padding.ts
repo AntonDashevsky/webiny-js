@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types.js";
+import { type ElementStylesModifier } from "~/types.js";
 
 const padding: ElementStylesModifier = ({ element, theme }) => {
     const { padding } = element.data.settings || {};

@@ -21,7 +21,7 @@ import { ReactComponent as AddIcon } from "~/admin/icons/add.svg";
 import { ReactComponent as EditIcon } from "~/admin/icons/edit.svg";
 import { ReactComponent as UnpublishIcon } from "~/admin/icons/unpublish.svg";
 import { ReactComponent as DeleteIcon } from "~/admin/icons/delete.svg";
-import { CmsContentEntryRevision } from "~/types.js";
+import { type CmsContentEntryRevision } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { useRevision } from "./useRevision.js";
 import { usePermission } from "~/admin/hooks/usePermission.js";

@@ -7,14 +7,14 @@ import { Editor as PbEditor } from "~/admin/components/Editor.js";
 import { EditorLoadingScreen } from "~/admin/components/EditorLoadingScreen.js";
 import {
     LIST_PAGE_ELEMENTS,
-    ListPageElementsQueryResponse,
-    ListPageElementsQueryResponseData
+    type ListPageElementsQueryResponse,
+    type ListPageElementsQueryResponseData
 } from "~/admin/graphql/pages.js";
 import createElementPlugin from "~/admin/utils/createElementPlugin.js";
 import { createStateInitializer } from "./createStateInitializer.js";
-import { BlockWithContent } from "~/blockEditor/state/index.js";
+import { type BlockWithContent } from "~/blockEditor/state/index.js";
 import { createElement } from "~/editor/helpers.js";
-import { PbEditorElementTree } from "~/types.js";
+import { type PbEditorElementTree } from "~/types.js";
 import elementVariablePlugins from "~/blockEditor/plugins/elementVariables/index.js";
 import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
 import { DefaultBlockEditorConfig } from "~/blockEditor/config/DefaultBlockEditorConfig.js";

@@ -7,7 +7,7 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import styled from "@emotion/styled";
 import { useSecurity } from "@webiny/app-security";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { FolderAccessLevel, FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
+import { type FolderAccessLevel, type FolderLevelPermissionsTarget, type FolderPermission } from "~/types.js";
 
 const TARGET_LEVELS = [
     {

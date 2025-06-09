@@ -12,18 +12,18 @@ import {
 } from "./functions/index.js";
 
 import {
-    FormRenderPropsType,
-    FbFormRenderComponentProps,
-    FormSubmitResponseType,
-    FbFormSubmissionData,
-    FbFormFieldValidatorPlugin,
-    FbFormModelField,
-    FormRenderFbFormModelField,
-    FbFormModel,
-    FbFormLayout
+    type FormRenderPropsType,
+    type FbFormRenderComponentProps,
+    type FormSubmitResponseType,
+    type FbFormSubmissionData,
+    type FbFormFieldValidatorPlugin,
+    type FbFormModelField,
+    type FormRenderFbFormModelField,
+    type FbFormModel,
+    type FbFormLayout
 } from "~/types.js";
 import { FbFormLayoutPlugin } from "~/plugins/index.js";
-import { ReCaptchaComponent } from "./components/createReCaptchaComponent.js";
+import { type ReCaptchaComponent } from "./components/createReCaptchaComponent.js";
 
 declare global {
     // eslint-disable-next-line

@@ -9,7 +9,7 @@ import { ReactComponent as DeleteIcon } from "../../../../icons/delete.svg";
 import * as queries from "../../../../graphql.js";
 import { removeFormFromListCache } from "~/admin/views/cache.js";
 import { usePermission } from "~/hooks/usePermission.js";
-import { FbRevisionModel } from "~/types.js";
+import { type FbRevisionModel } from "~/types.js";
 
 interface DeleteRevisionProps {
     form: FbRevisionModel;

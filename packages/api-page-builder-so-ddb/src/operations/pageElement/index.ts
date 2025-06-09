@@ -1,21 +1,21 @@
 import {
-    PageElement,
-    PageElementStorageOperations,
-    PageElementStorageOperationsCreateParams,
-    PageElementStorageOperationsDeleteParams,
-    PageElementStorageOperationsGetParams,
-    PageElementStorageOperationsListParams,
-    PageElementStorageOperationsUpdateParams
+    type PageElement,
+    type PageElementStorageOperations,
+    type PageElementStorageOperationsCreateParams,
+    type PageElementStorageOperationsDeleteParams,
+    type PageElementStorageOperationsGetParams,
+    type PageElementStorageOperationsListParams,
+    type PageElementStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types.js";
-import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
 import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
 import WebinyError from "@webiny/error";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
 import { PageElementDynamoDbFieldPlugin } from "~/plugins/definitions/PageElementDynamoDbFieldPlugin.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

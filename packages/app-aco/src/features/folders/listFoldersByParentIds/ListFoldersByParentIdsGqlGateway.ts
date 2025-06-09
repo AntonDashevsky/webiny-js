@@ -1,11 +1,11 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import {
-    IListFoldersByParentIdsGateway,
-    ListFoldersByParentIdsGatewayParams
-} from "./IListFoldersByParentIdsGateway";
-import { AcoError, FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
+    type IListFoldersByParentIdsGateway,
+    type ListFoldersByParentIdsGatewayParams
+} from "./IListFoldersByParentIdsGateway.js";
+import { type AcoError, type FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface ListFoldersByParentIdsResponse {
     aco: {

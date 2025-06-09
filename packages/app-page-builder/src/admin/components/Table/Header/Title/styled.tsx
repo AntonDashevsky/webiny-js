@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Typography, TypographyProps } from "@webiny/ui/Typography/index.js";
+import { Typography, type TypographyProps } from "@webiny/ui/Typography/index.js";
 
 export const Name = styled(Typography)<TypographyProps>`
     padding-left: 16px;

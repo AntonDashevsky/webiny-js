@@ -1,5 +1,5 @@
-import { IListItemsController } from "./IListItemsController.js";
-import { IListItemsUseCase } from "~/UseCases/index.js";
+import { type IListItemsController } from "./IListItemsController.js";
+import { type IListItemsUseCase } from "~/UseCases/index.js";
 
 export class ListItemsController implements IListItemsController {
     private readonly useCaseFactory: () => IListItemsUseCase;

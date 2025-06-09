@@ -1,4 +1,4 @@
-import { PbContext } from "~/types.js";
+import { type PbContext } from "~/types.js";
 import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection.js";
 import { GetTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/GetTranslatedCollectionUseCase.js";
 import { GetOrCreateTranslatableCollectionUseCase } from "~/translations/translatableCollection/useCases/GetOrCreateTranslatableCollectionUseCase.js";

@@ -1,7 +1,7 @@
 import { ContextPlugin } from "@webiny/api";
-import { CreateApwContextParams } from "~/scheduler/types.js";
+import { type CreateApwContextParams } from "~/scheduler/types.js";
 import { decodeToken, TOKEN_PREFIX } from "~/scheduler/handlers/utils.js";
-import { ApwContext } from "~/types.js";
+import { type ApwContext } from "~/types.js";
 
 export const createCustomAuth = ({ storageOperations }: CreateApwContextParams) => {
     return new ContextPlugin<ApwContext>(({ security }) => {

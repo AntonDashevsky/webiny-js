@@ -1,7 +1,7 @@
 import React from "react";
 import { createProvider } from "@webiny/app";
 import { ThemeLoader as ThemeLoaderComponent } from "~/components/ThemeLoader.js";
-import { ThemeSource } from "~/types.js";
+import { type ThemeSource } from "~/types.js";
 
 interface ThemeLoaderParams {
     themes: ThemeSource[];

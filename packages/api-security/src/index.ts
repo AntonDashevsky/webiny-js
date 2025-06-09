@@ -1,11 +1,11 @@
 import { ContextPlugin } from "@webiny/api";
-import { TenancyContext } from "@webiny/api-tenancy/types.js";
-import { WcpContext } from "@webiny/api-wcp/types.js";
+import { type TenancyContext } from "@webiny/api-tenancy/types.js";
+import { type WcpContext } from "@webiny/api-wcp/types.js";
 import {
-    SecurityAuthenticationPlugin,
-    SecurityAuthorizationPlugin,
-    SecurityContext,
-    SecurityStorageOperations
+    type SecurityAuthenticationPlugin,
+    type SecurityAuthorizationPlugin,
+    type SecurityContext,
+    type SecurityStorageOperations
 } from "./types.js";
 import graphqlPlugins from "./graphql/index.js";
 import gqlInterfaces from "./graphql/interfaces.gql.js";
@@ -13,8 +13,8 @@ import { createSecurity } from "~/createSecurity.js";
 import { attachGroupInstaller } from "~/installation/groups.js";
 import {
     applyMultiTenancyGraphQLPlugins,
-    MultiTenancyAppConfig,
-    MultiTenancyGraphQLConfig
+    type MultiTenancyAppConfig,
+    type MultiTenancyGraphQLConfig
 } from "~/enterprise/multiTenancy/index.js";
 import { SecurityRolePlugin } from "~/plugins/SecurityRolePlugin.js";
 import { SecurityTeamPlugin } from "~/plugins/SecurityTeamPlugin.js";

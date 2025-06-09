@@ -1,5 +1,5 @@
-import { IListEntriesOperation } from "../../abstractions/index.js";
-import { CmsEntryStorageOperationsListParams, CmsModel } from "~/types/index.js";
+import { type IListEntriesOperation } from "../../abstractions/index.js";
+import { type CmsEntryStorageOperationsListParams, type CmsModel } from "~/types/index.js";
 
 export class ListEntriesOperationNotDeleted implements IListEntriesOperation {
     private listEntries: IListEntriesOperation;

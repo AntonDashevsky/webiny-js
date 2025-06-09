@@ -3,7 +3,7 @@ import { plugins } from "@webiny/plugins";
 import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
 import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
 import { useCurrentBlockElement } from "~/editor/hooks/useCurrentBlockElement.js";
-import { PbBlockEditorCreateVariablePlugin } from "~/types.js";
+import { type PbBlockEditorCreateVariablePlugin } from "~/types.js";
 
 interface CreateVariableActionPropsType {
     children: React.ReactElement;

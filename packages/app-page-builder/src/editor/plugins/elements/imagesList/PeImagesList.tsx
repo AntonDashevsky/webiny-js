@@ -1,8 +1,8 @@
-import { PbPageElementImagesListComponentPlugin } from "~/types.js";
+import { type PbPageElementImagesListComponentPlugin } from "~/types.js";
 import { createImagesList } from "@webiny/app-page-builder-elements/renderers/imagesList/index.js";
 import { plugins } from "@webiny/plugins";
 import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue.js";
-import { Element } from "@webiny/app-page-builder-elements/types.js";
+import { type Element } from "@webiny/app-page-builder-elements/types.js";
 import React from "react";
 
 const ImagesList = createImagesList({

@@ -1,6 +1,6 @@
-import { FileItem } from "@webiny/app-admin/types.js";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
-import { IUpdateFile } from "./EditFileUsingUrlRepository.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
+import { type useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import { type IUpdateFile } from "./EditFileUsingUrlRepository.js";
 
 type FileManagerApi = ReturnType<typeof useFileManagerApi>;
 

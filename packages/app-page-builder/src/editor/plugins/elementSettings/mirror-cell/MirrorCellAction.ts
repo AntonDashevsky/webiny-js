@@ -4,7 +4,7 @@ import { plugins } from "@webiny/plugins";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import { activeElementAtom, elementByIdSelector } from "~/editor/recoil/modules/index.js";
 import { MirrorCellActionEvent } from "~/editor/recoil/actions/mirrorCell/index.js";
-import { PbEditorPageElementPlugin } from "~/types.js";
+import { type PbEditorPageElementPlugin } from "~/types.js";
 
 interface MirrorCellActionPropsType {
     children: React.ReactElement;

@@ -1,5 +1,5 @@
 import React from "react";
-import { PbPageDetailsPlugin } from "~/types.js";
+import { type PbPageDetailsPlugin } from "~/types.js";
 import Header from "./Header.js";
 import RevisionSelector from "./revisionSelector/RevisionSelector.js";
 import PublishRevision from "./publishRevision/PublishRevision.js";

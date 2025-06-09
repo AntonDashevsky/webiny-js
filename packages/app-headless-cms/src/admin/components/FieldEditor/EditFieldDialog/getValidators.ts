@@ -1,11 +1,11 @@
 import { plugins } from "@webiny/plugins";
 import {
-    CmsModelField,
-    CmsEditorFieldTypePlugin,
-    CmsModelFieldValidatorPlugin,
-    CmsModelFieldValidatorsGroup,
-    CmsModelFieldValidatorConfig,
-    CmsModelFieldValidatorsFactory
+    type CmsModelField,
+    type CmsEditorFieldTypePlugin,
+    type CmsModelFieldValidatorPlugin,
+    type CmsModelFieldValidatorsGroup,
+    type CmsModelFieldValidatorConfig,
+    type CmsModelFieldValidatorsFactory
 } from "~/types.js";
 import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
 

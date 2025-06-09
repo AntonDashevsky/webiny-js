@@ -1,10 +1,10 @@
-import { Field, FieldConfig } from "./Field.js";
+import { Field, type FieldConfig } from "./Field.js";
 import { createScopedFieldDecorator } from "./FieldDecorator.js";
 import { Width } from "./Width.js";
 import { GroupFields } from "./GroupFields.js";
-import { Action, ActionConfig } from "./Action.js";
+import { Action, type ActionConfig } from "./Action.js";
 import { ActionButton } from "~/components/FileDetails/components/ActionButton.js";
-import { Thumbnail, ThumbnailConfig } from "./Thumbnail.js";
+import { Thumbnail, type ThumbnailConfig } from "./Thumbnail.js";
 
 export interface FileDetailsConfig {
     actions: ActionConfig[];

@@ -1,9 +1,10 @@
-import React, { ReactElement } from "react";
-import { Plugin } from "@webiny/plugins/types.js";
-import { ApolloClient } from "apollo-client";
-import { ItemProps, MenuProps, SectionProps } from "~/plugins/MenuPlugin.js";
+import {type ReactElement} from "react";
+import type React from "react";
+import { type Plugin } from "@webiny/plugins/types.js";
+import { type ApolloClient } from "apollo-client";
+import { type ItemProps, type MenuProps, type SectionProps } from "~/plugins/MenuPlugin.js";
 
-export { Icon } from "~/components/IconPicker/types.js";
+export type { Icon } from "~/components/IconPicker/types.js";
 
 export type AdminGlobalSearchPlugin = Plugin & {
     type: "admin-global-search";
@@ -73,7 +74,7 @@ export type AdminAppPermissionRendererPlugin = Plugin & {
     render(params: any): ReactElement;
 };
 
-import { SecurityPermission } from "@webiny/app-security/types.js";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
 
 /**
  * Represents a file as we receive from the GraphQL API.

@@ -1,7 +1,7 @@
 import React from "react";
 import get from "lodash/get.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { type CmsModelFieldRendererPlugin } from "~/types.js";
 import { Select } from "@webiny/ui/Select/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");

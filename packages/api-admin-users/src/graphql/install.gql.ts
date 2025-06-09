@@ -1,5 +1,5 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
-import { AdminUsersContext } from "~/types.js";
+import { type AdminUsersContext } from "~/types.js";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
 
 export default new GraphQLSchemaPlugin<AdminUsersContext>({

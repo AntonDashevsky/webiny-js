@@ -1,6 +1,6 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import { UPDATE_FLP_TASK_ID } from "~/flp/tasks";
-import { type AcoContext, type IUpdateFlpTaskInput, type IUpdateFlpTaskParams } from "~/types";
+import { UPDATE_FLP_TASK_ID } from "~/flp/tasks/index.js";
+import { type AcoContext, type IUpdateFlpTaskInput, type IUpdateFlpTaskParams } from "~/types.js";
 
 class UpdateFlpTask {
     public init = () => {
@@ -14,7 +14,7 @@ class UpdateFlpTask {
                 const { response, isAborted, input, context, isCloseToTimeout } = params;
 
                 const { UpdateFlp } = await import(
-                    /* webpackChunkName: "UpdateFlp" */ "../useCases/UpdateFlp"
+                    /* webpackChunkName: "UpdateFlp" */ "../useCases/UpdateFlp.js"
                 );
 
                 const useCase = new UpdateFlp({

@@ -1,4 +1,4 @@
-import { IRecordLockingError, IRecordLockingLockRecord, IRecordLockingMeta } from "~/types.js";
+import { type IRecordLockingError, type IRecordLockingLockRecord, type IRecordLockingMeta } from "~/types.js";
 
 export interface IRecordLockingListLockRecordsParamsWhere {
     id_in?: string[];

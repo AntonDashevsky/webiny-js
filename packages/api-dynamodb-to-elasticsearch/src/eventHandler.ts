@@ -1,7 +1,7 @@
 import { createDynamoDBEventHandler, timerFactory } from "@webiny/handler-aws";
-import { Context } from "~/types";
-import { OperationsBuilder } from "~/OperationsBuilder";
-import { executeWithRetry } from "~/executeWithRetry";
+import { type Context } from "~/types.js";
+import { OperationsBuilder } from "~/OperationsBuilder.js";
+import { executeWithRetry } from "~/executeWithRetry.js";
 
 /**
  * Also, we need to set the maximum running time for the Lambda Function.

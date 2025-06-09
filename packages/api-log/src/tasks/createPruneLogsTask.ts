@@ -1,7 +1,7 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context, IPruneLogsInput, IPruneLogsOutput } from "~/tasks/pruneLogs/types.js";
+import { type Context, type IPruneLogsInput, type IPruneLogsOutput } from "~/tasks/pruneLogs/types.js";
 import { LogType } from "~/types.js";
-import { NonEmptyArray } from "@webiny/api/types.js";
+import { type NonEmptyArray } from "@webiny/api/types.js";
 import { PRUNE_LOGS_TASK } from "./constants.js";
 
 export const createPruneLogsTask = () => {

@@ -1,6 +1,6 @@
 import { loadingRepositoryFactory } from "@webiny/app-utils";
-import { ICreateFolderUseCase } from "./ICreateFolderUseCase.js";
-import { ICreateFolderGateway } from "./ICreateFolderGateway.js";
+import { type ICreateFolderUseCase } from "./ICreateFolderUseCase.js";
+import { type ICreateFolderGateway } from "./ICreateFolderGateway.js";
 import { CreateFolderRepository } from "./CreateFolderRepository.js";
 import { CreateFolderUseCase } from "./CreateFolderUseCase.js";
 import { CreateFolderUseCaseWithLoading } from "./CreateFolderUseCaseWithLoading.js";

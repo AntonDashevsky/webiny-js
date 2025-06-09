@@ -2,14 +2,14 @@ import React from "react";
 import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase.js";
 import { IconRenderer } from "@webiny/app-page-builder-elements/renderers/icon.js";
-import { Element } from "@webiny/app-page-builder-elements/types.js";
+import { type Element } from "@webiny/app-page-builder-elements/types.js";
 import {
-    PbEditorPageElementPlugin,
-    PbEditorPageElementStyleSettingsPlugin,
+    type PbEditorPageElementPlugin,
+    type PbEditorPageElementStyleSettingsPlugin,
     DisplayMode,
-    PbEditorElementPluginArgs,
-    PbEditorElement,
-    PbElementDataIconV2
+    type PbEditorElementPluginArgs,
+    type PbEditorElement,
+    type PbElementDataIconV2
 } from "~/types.js";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
 // Icons

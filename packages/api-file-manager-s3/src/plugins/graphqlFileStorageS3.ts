@@ -1,12 +1,12 @@
 import { S3 } from "@webiny/aws-sdk/client-s3";
 import pMap from "p-map";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
-import { FileManagerContext } from "@webiny/api-file-manager/types.js";
+import { type FileManagerContext } from "@webiny/api-file-manager/types.js";
 import { getPresignedPostPayload } from "~/utils/getPresignedPostPayload.js";
 import WebinyError from "@webiny/error";
 import { checkPermissions } from "~/plugins/checkPermissions.js";
-import { PresignedPostPayloadData } from "~/types.js";
+import { type PresignedPostPayloadData } from "~/types.js";
 import { CreateMultiPartUploadUseCase } from "~/multiPartUpload/CreateMultiPartUploadUseCase.js";
 import { CompleteMultiPartUploadUseCase } from "~/multiPartUpload/CompleteMultiPartUploadUseCase.js";
 import { createFileNormalizerFromContext } from "~/utils/createFileNormalizerFromContext.js";

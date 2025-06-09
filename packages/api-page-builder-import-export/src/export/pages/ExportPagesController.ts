@@ -1,5 +1,5 @@
-import { IExportPagesControllerTaskParams } from "./types.js";
-import { ITaskResponseResult } from "@webiny/tasks";
+import { type IExportPagesControllerTaskParams } from "./types.js";
+import { type ITaskResponseResult } from "@webiny/tasks";
 import { ProcessZipPagesTasks } from "./controller/ProcessZipPagesTasks.js";
 import { CreateZipPagesTasks } from "./controller/CreateZipPagesTasks.js";
 

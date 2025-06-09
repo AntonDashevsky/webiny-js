@@ -8,9 +8,9 @@ import merge from "lodash/merge.js";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import {
     DisplayMode,
-    PbEditorElement,
-    PbEditorGridPresetPluginType,
-    PbEditorPageElementSettingsRenderComponentProps
+    type PbEditorElement,
+    type PbEditorGridPresetPluginType,
+    type PbEditorPageElementSettingsRenderComponentProps
 } from "~/types.js";
 import { useEventActionHandler } from "~/editor/index.js";
 import { createElement } from "~/editor/helpers.js";

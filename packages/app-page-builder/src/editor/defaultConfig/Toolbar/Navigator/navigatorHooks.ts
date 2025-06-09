@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { useDrag, useDrop, DragSourceMonitor } from "react-dnd";
+import { useDrag, useDrop, type DragSourceMonitor } from "react-dnd";
 import { elementByIdSelector, rootElementAtom } from "~/editor/recoil/modules/index.js";
-import { MoveBlockActionArgsType } from "~/editor/recoil/actions/moveBlock/types.js";
+import { type MoveBlockActionArgsType } from "~/editor/recoil/actions/moveBlock/types.js";
 import { MoveBlockActionEvent } from "~/editor/recoil/actions/index.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { DraggableItem } from "~/editor/components/Draggable.js";
-import { PbEditorElement, CollectedProps, DragObjectWithType } from "~/types.js";
+import { type DraggableItem } from "~/editor/components/Draggable.js";
+import { type PbEditorElement, type CollectedProps, type DragObjectWithType } from "~/types.js";
 
 export const BLOCK = "block";
 

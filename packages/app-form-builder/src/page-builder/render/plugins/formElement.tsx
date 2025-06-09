@@ -1,5 +1,5 @@
 import React from "react";
-import { PbRenderElementPlugin } from "@webiny/app-page-builder/types.js";
+import { type PbRenderElementPlugin } from "@webiny/app-page-builder/types.js";
 import FormElementComponent from "./FormElementComponent.js";
 
 const plugin: PbRenderElementPlugin = {

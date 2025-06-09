@@ -1,24 +1,24 @@
 import invariant from "invariant";
 import { customAlphabet } from "nanoid";
 import { set } from "dot-prop-immutable";
-import { DragObjectWithTypeWithTarget as BaseDragObjectWithTypeWithTarget } from "./components/Droppable.js";
+import { type DragObjectWithTypeWithTarget as BaseDragObjectWithTypeWithTarget } from "./components/Droppable.js";
 import { plugins } from "@webiny/plugins";
 import {
-    PbBlockVariable,
-    PbEditorBlockPlugin,
-    PbEditorElement,
-    PbEditorElementTree,
-    PbEditorPageElementPlugin,
-    PbEditorPageElementSettingsPlugin,
-    PbEditorPageElementStyleSettingsPlugin,
-    PbElement
+    type PbBlockVariable,
+    type PbEditorBlockPlugin,
+    type PbEditorElement,
+    type PbEditorElementTree,
+    type PbEditorPageElementPlugin,
+    type PbEditorPageElementSettingsPlugin,
+    type PbEditorPageElementStyleSettingsPlugin,
+    type PbElement
 } from "~/types.js";
 import {
     CreateElementActionEvent,
     DeleteElementActionEvent,
     UpdateDocumentActionEvent,
     updateElementAction,
-    UpdateElementActionArgsType
+    type UpdateElementActionArgsType
 } from "~/editor/recoil/actions/index.js";
 import { AfterDropElementActionEvent } from "~/editor/recoil/actions/afterDropElement/index.js";
 import { executeAction } from "~/editor/recoil/eventActions/index.js";

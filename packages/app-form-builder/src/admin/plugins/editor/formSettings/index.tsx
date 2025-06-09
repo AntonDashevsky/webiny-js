@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormSettingsPluginType } from "~/types.js";
+import { type FormSettingsPluginType } from "~/types.js";
 import GeneralSettings from "./components/GeneralSettings.js";
 import TermsOfServiceSettings from "./components/TermsOfServiceSettings.js";
 import ReCaptchaSettings from "./components/ReCaptchaSettings.js";

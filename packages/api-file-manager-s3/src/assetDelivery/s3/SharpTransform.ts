@@ -1,10 +1,10 @@
 import sharp from "sharp";
-import { S3 } from "@webiny/aws-sdk/client-s3";
+import { type S3 } from "@webiny/aws-sdk/client-s3";
 import {
-    Asset,
-    AssetRequest,
-    AssetRequestOptions,
-    AssetTransformationStrategy
+    type Asset,
+    type AssetRequest,
+    type AssetRequestOptions,
+    type AssetTransformationStrategy
 } from "@webiny/api-file-manager";
 import { WidthCollection } from "./transformation/WidthCollection.js";
 import * as utils from "./transformation/utils.js";

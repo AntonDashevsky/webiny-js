@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { ImagesListComponent } from "../types.js";
+import { type ImagesListComponent } from "../types.js";
 
 /**
  * Package react-columned does not have types.

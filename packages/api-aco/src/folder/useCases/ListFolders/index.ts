@@ -1,7 +1,7 @@
-import type { AcoFolderStorageOperations } from "~/folder/folder.types";
-import { ListFolders } from "./ListFolders";
-import { ListFoldersWithFolderLevelPermissions } from "./ListFoldersWithFolderLevelPermissions";
-import { FolderLevelPermissions } from "~/flp";
+import type { AcoFolderStorageOperations } from "~/folder/folder.types.js";
+import { ListFolders } from "./ListFolders.js";
+import { ListFoldersWithFolderLevelPermissions } from "./ListFoldersWithFolderLevelPermissions.js";
+import { type FolderLevelPermissions } from "~/flp/index.js";
 
 interface ListFoldersUseCasesParams {
     listOperation: AcoFolderStorageOperations["listFolders"];

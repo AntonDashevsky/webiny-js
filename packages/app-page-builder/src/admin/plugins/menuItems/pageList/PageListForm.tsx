@@ -9,8 +9,8 @@ import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete.
 import { CategoriesAutocomplete } from "~/admin/components/CategoriesAutocomplete.js";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { validation } from "@webiny/validation";
-import { FormOnSubmit } from "@webiny/form/types.js";
-import { MenuTreeItem } from "~/admin/views/Menus/types.js";
+import { type FormOnSubmit } from "@webiny/form/types.js";
+import { type MenuTreeItem } from "~/admin/views/Menus/types.js";
 import { css } from "emotion";
 
 const menuPageFormStyle = css({

@@ -2,11 +2,11 @@ import invariant from "invariant";
 import { plugins } from "@webiny/plugins";
 import { getNanoid, prefixElementIdsRecursively, generateBlockVariableIds } from "~/editor/helpers.js";
 import {
-    PbEditorBlockPlugin,
-    PbEditorElement,
-    PbElement,
-    PbBlockVariable,
-    PbEditorPageElementVariableRendererPlugin
+    type PbEditorBlockPlugin,
+    type PbEditorElement,
+    type PbElement,
+    type PbBlockVariable,
+    type PbEditorPageElementVariableRendererPlugin
 } from "~/types.js";
 import omit from "lodash/omit.js";
 

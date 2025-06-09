@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import { useSignedIn } from "@webiny/app-cognito-authenticator/hooks/useSignedIn.js";
 
 interface SignedInProps {

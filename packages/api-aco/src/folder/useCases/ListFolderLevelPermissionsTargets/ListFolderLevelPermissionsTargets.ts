@@ -1,11 +1,11 @@
-import type { IListFolderLevelPermissionsTargets } from "./IListFolderLevelPermissionsTargets";
-import type { IListAdminUsersGateway } from "./IListAdminUsersGateway";
-import type { IListTeamsGateway } from "./IListTeamsGateway";
+import type { IListFolderLevelPermissionsTargets } from "./IListFolderLevelPermissionsTargets.js";
+import type { IListAdminUsersGateway } from "./IListAdminUsersGateway.js";
+import type { IListTeamsGateway } from "./IListTeamsGateway.js";
 import { validation } from "@webiny/validation";
 import type {
     FolderLevelPermissionsTarget,
     FolderLevelPermissionsTargetListMeta
-} from "~/folder/folder.types";
+} from "~/folder/folder.types.js";
 
 export class ListFolderLevelPermissionsTargets implements IListFolderLevelPermissionsTargets {
     private listAdminUsersGateway: IListAdminUsersGateway;

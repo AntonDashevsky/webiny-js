@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ReactComponent as LinkIcon } from "./round-link-24px.svg";
 import LinkForm from "./LinkForm.js";
-import { PbMenuItemPlugin } from "../../../../types.js";
+import { type PbMenuItemPlugin } from "../../../../types.js";
 
 const plugin: PbMenuItemPlugin = {
     name: "pb-menu-item-link",

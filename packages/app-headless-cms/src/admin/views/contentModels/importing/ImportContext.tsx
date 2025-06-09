@@ -2,17 +2,17 @@ import React, { useCallback, useState } from "react";
 import { useApolloClient } from "~/admin/hooks/index.js";
 import {
     IMPORT_STRUCTURE,
-    ImportStructureResponse,
-    ImportStructureVariables,
-    ImportStructureVariablesGroup,
-    ImportStructureVariablesModel,
+    type ImportStructureResponse,
+    type ImportStructureVariables,
+    type ImportStructureVariablesGroup,
+    type ImportStructureVariablesModel,
     VALIDATE_IMPORT_STRUCTURE,
-    ValidateImportStructureResponse
+    type ValidateImportStructureResponse
 } from "~/admin/views/contentModels/importing/graphql.js";
-import { CmsGroup, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
-import { ImportAction, ImportGroupData, ImportModelData } from "./types.js";
+import { type CmsGroup, type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import { ImportAction, type ImportGroupData, type ImportModelData } from "./types.js";
 import { useSnackbar } from "@webiny/app-admin";
-import { FetchResult } from "apollo-link";
+import { type FetchResult } from "apollo-link";
 
 const parseFileData = (input: string) => {
     let data: Record<string, any> = {};

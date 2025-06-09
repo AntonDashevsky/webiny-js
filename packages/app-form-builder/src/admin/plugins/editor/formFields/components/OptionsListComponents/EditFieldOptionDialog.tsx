@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { Form, FormOnSubmit } from "@webiny/form";
+import { Form, type FormOnSubmit } from "@webiny/form";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";

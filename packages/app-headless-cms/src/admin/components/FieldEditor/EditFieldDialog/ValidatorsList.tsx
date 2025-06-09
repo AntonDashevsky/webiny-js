@@ -8,10 +8,10 @@ import { Form, Bind } from "@webiny/form";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { validation } from "@webiny/validation";
 import { Input } from "@webiny/ui/Input/index.js";
-import { CmsModelFieldValidator, CmsModelFieldValidatorPlugin } from "~/types.js";
-import { Validator } from "@webiny/validation/types.js";
+import { type CmsModelFieldValidator, type CmsModelFieldValidatorPlugin } from "~/types.js";
+import { type Validator } from "@webiny/validation/types.js";
 import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
-import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
+import { type CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
 import styled from "@emotion/styled";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 

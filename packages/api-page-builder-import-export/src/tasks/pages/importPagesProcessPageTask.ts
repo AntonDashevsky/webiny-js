@@ -1,8 +1,8 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import { PbImportExportContext } from "~/graphql/types.js";
+import { type PbImportExportContext } from "~/graphql/types.js";
 import {
-    IImportPagesProcessPagesInput,
-    IImportPagesProcessPagesOutput,
+    type IImportPagesProcessPagesInput,
+    type IImportPagesProcessPagesOutput,
     PageImportTask
 } from "~/import/pages/types.js";
 

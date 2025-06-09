@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { type CmsModelFieldRendererPlugin } from "~/types.js";
 import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
 import { FieldSettings } from "./FieldSettings.js";
 import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue.js";

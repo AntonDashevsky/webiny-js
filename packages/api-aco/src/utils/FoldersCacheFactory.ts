@@ -1,4 +1,4 @@
-import { Folder } from "~/folder/folder.types.js";
+import { type Folder } from "~/folder/folder.types.js";
 import { ListCache } from "~/utils/ListCache.js";
 
 export class FoldersCacheFactory {

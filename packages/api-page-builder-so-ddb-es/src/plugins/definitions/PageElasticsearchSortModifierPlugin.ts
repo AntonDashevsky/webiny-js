@@ -1,6 +1,6 @@
 import {
     ElasticsearchSortModifierPlugin,
-    ModifySortParams as BaseModifySortParams
+    type ModifySortParams as BaseModifySortParams
 } from "@webiny/api-elasticsearch";
 
 export interface ModifySortParams extends BaseModifySortParams {

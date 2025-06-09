@@ -1,9 +1,9 @@
-import { MailerContext } from "~/types.js";
+import { type MailerContext } from "~/types.js";
 import {
-    OnEntryAfterCreateTopicParams,
-    OnEntryAfterUpdateTopicParams,
-    OnEntryCreateErrorTopicParams,
-    OnEntryUpdateErrorTopicParams
+    type OnEntryAfterCreateTopicParams,
+    type OnEntryAfterUpdateTopicParams,
+    type OnEntryCreateErrorTopicParams,
+    type OnEntryUpdateErrorTopicParams
 } from "@webiny/api-headless-cms/types/index.js";
 import { SETTINGS_MODEL_ID } from "~/crud/settings/model.js";
 

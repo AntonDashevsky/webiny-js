@@ -1,6 +1,6 @@
 import { ColumnsVisibilityPresenter } from "./ColumnsVisibilityPresenter.js";
-import { IColumnsVisibilityGateway } from "../gateways/index.js";
-import { ColumnConfig } from "~/config/table/Column.js";
+import { type IColumnsVisibilityGateway } from "../gateways/index.js";
+import { type ColumnConfig } from "~/config/table/Column.js";
 import { Column, ColumnsPresenter, ColumnsRepository } from "../Columns/index.js";
 import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository.js";
 import { ColumnsVisibilityDecorator } from "./ColumnsVisibilityDecorator.js";

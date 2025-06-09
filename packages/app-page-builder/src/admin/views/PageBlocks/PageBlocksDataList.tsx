@@ -15,8 +15,8 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog.js";
 
-import { PbPageBlock } from "~/types.js";
-import { CreatableItem } from "./PageBlocks.js";
+import { type PbPageBlock } from "~/types.js";
+import { type CreatableItem } from "./PageBlocks.js";
 import { PreviewBlock } from "~/admin/components/PreviewBlock.js";
 import { ResponsiveElementsProvider } from "~/admin/components/ResponsiveElementsProvider/index.js";
 import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";

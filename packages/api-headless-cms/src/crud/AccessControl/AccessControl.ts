@@ -1,12 +1,12 @@
 import { NotAuthorizedError } from "@webiny/api-security";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import {
-    CmsEntry,
-    CmsEntryPermission,
-    CmsGroup,
-    CmsGroupPermission,
-    CmsModel,
-    CmsModelPermission
+    type CmsEntry,
+    type CmsEntryPermission,
+    type CmsGroup,
+    type CmsGroupPermission,
+    type CmsModel,
+    type CmsModelPermission
 } from "~/types/index.js";
 
 export interface AccessControlParams {

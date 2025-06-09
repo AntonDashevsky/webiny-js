@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { type ReactElement } from "react";
 
 import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
 import { i18n } from "@webiny/app/i18n/index.js";

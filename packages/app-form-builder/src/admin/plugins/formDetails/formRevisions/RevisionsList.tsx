@@ -4,7 +4,7 @@ import Revision from "./Revision.js";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { css } from "emotion";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { FbFormModel, FbRevisionModel } from "~/types.js";
+import { type FbFormModel, type FbRevisionModel } from "~/types.js";
 
 const listWrapper = css({
     margin: 25,

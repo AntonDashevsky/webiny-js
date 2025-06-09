@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as LongTextIcon } from "./icons/round-notes.svg";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
-import { CmsModelFieldTypePlugin } from "~/types.js";
+import { type CmsModelFieldTypePlugin } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Bind } from "@webiny/form";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Droppable, { DroppableIsVisiblePropType, DroppableOnDropPropType } from "../Droppable.js";
+import Droppable, { type DroppableIsVisiblePropType, type DroppableOnDropPropType } from "../Droppable.js";
 import styled from "@emotion/styled";
 
 const InnerDiv = styled("div")({

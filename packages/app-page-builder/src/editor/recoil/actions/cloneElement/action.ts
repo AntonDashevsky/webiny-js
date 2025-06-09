@@ -1,7 +1,7 @@
 import { UpdateElementActionEvent } from "../index.js";
-import { EventActionCallable, EventActionHandlerCallableState, PbEditorElement } from "~/types.js";
-import { CloneElementActionArgsType } from "../cloneElement/types.js";
-import { getIdGenerator, IdGenerator, randomIdGenerator } from "./idGenerator.js";
+import { type EventActionCallable, type EventActionHandlerCallableState, type PbEditorElement } from "~/types.js";
+import { type CloneElementActionArgsType } from "../cloneElement/types.js";
+import { getIdGenerator, type IdGenerator, randomIdGenerator } from "./idGenerator.js";
 
 export const cloneElement = async (
     state: EventActionHandlerCallableState,

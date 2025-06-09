@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction } from "react";
-import { ApolloQueryResult } from "apollo-client/core/types.js";
-import { FetchResult } from "apollo-link";
-import { Loading, LoadingActions } from "~/types.js";
+import { type Dispatch, type SetStateAction } from "react";
+import { type ApolloQueryResult } from "apollo-client/core/types.js";
+import { type FetchResult } from "apollo-link";
+import { type Loading, type LoadingActions } from "~/types.js";
 
 /**
  * A simple wrapper for Apollo fetching operations that handles the `loading` state as side effect.

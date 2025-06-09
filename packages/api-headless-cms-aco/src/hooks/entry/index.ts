@@ -2,7 +2,7 @@ import { onEntryBeforeRestoreFromBinHook } from "~/hooks/entry/onEntryBeforeRest
 
 export { onEntryBeforeRestoreFromBinHook } from "./onEntryBeforeRestoreFromBin.hook.js";
 
-import { HcmsAcoContext } from "~/types.js";
+import { type HcmsAcoContext } from "~/types.js";
 
 export const createEntryHooks = (context: HcmsAcoContext) => {
     onEntryBeforeRestoreFromBinHook(context);

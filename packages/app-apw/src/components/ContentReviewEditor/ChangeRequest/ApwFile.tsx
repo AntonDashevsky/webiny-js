@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import * as Ui from "@webiny/ui/ImageUpload/index.js";
 import { Image } from "@webiny/app/components/index.js";
-import { ApwMediaFile } from "~/types.js";
+import { type ApwMediaFile } from "~/types.js";
 import { createRenderImagePreview, imagePlugins } from "./utils.js";
-import { FileManagerFileItem } from "@webiny/app-admin";
+import { type FileManagerFileItem } from "@webiny/app-admin";
 
 const imageContainerStyle = { width: 184, height: 187 };
 

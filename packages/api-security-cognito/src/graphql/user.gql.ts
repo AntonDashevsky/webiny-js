@@ -1,5 +1,5 @@
 import { ErrorResponse, NotFoundResponse, Response } from "@webiny/handler-graphql/responses.js";
-import { AdminUsersContext } from "@webiny/api-admin-users/types.js";
+import { type AdminUsersContext } from "@webiny/api-admin-users/types.js";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
 
 export interface CreateUserGraphQlPluginsParams {

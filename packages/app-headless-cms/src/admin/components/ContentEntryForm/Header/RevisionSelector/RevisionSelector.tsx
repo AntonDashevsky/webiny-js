@@ -7,7 +7,7 @@ import { MenuItem } from "@webiny/ui/Menu/index.js";
 import { ReactComponent as DownButton } from "@material-design-icons/svg/round/arrow_drop_down.svg";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
 import { statuses as statusLabels } from "~/admin/constants.js";
-import { CmsContentEntryRevision } from "~/types.js";
+import { type CmsContentEntryRevision } from "~/types.js";
 
 import { Button, Menu } from "./RevisionSelector.styles.js";
 

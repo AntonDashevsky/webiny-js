@@ -1,5 +1,5 @@
-import { ListPagesParamsWhere, PbContext } from "../../types.js";
-import { Menu } from "~/types.js";
+import { type ListPagesParamsWhere, type PbContext } from "../../types.js";
+import { type Menu } from "~/types.js";
 
 const applyCleanup = async (items: Menu["items"]) => {
     if (!Array.isArray(items)) {

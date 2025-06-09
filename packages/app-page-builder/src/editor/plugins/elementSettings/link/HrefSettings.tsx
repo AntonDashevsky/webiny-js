@@ -8,7 +8,7 @@ import { withActiveElement } from "~/editor/components/index.js";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
-import { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types.js";
+import { type PbEditorPageElementSettingsRenderComponentProps, type PbEditorElement } from "~/types.js";
 // Components
 import Accordion from "../components/Accordion.js";
 import Wrapper from "../components/Wrapper.js";

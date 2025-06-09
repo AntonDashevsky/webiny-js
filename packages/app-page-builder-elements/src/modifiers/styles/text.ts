@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types.js";
+import { type ElementStylesModifier } from "~/types.js";
 import { type CSSObject } from "@emotion/react";
 import { getTypographyStyleById } from "~/utils/index.js";
 

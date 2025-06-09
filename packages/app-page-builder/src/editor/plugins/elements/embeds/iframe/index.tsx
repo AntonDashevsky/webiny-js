@@ -5,8 +5,8 @@ import styled from "@emotion/styled";
 import { ReactComponent as IFrameIcon } from "./iframe-icon.svg";
 import {
     DisplayMode,
-    PbEditorPageElementPlugin,
-    PbEditorPageElementStyleSettingsPlugin
+    type PbEditorPageElementPlugin,
+    type PbEditorPageElementStyleSettingsPlugin
 } from "~/types.js";
 import { createInitialPerDeviceSettingValue } from "../../../elementSettings/elementSettingsUtils.js";
 

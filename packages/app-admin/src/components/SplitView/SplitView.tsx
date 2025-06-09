@@ -1,15 +1,15 @@
 import * as React from "react";
 import classSet from "classnames";
-import { CellProps } from "@webiny/ui/Grid/index.js";
+import { type CellProps } from "@webiny/ui/Grid/index.js";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import { getClasses } from "@webiny/ui/Helpers/index.js";
 import {
     Panel,
-    PanelProps,
+    type PanelProps,
     PanelGroup,
     PanelResizeHandle,
-    PanelGroupProps
+    type PanelGroupProps
 } from "~/components/ResizablePanels/index.js";
 
 const grid = css({

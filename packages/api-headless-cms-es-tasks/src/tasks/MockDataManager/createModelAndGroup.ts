@@ -1,5 +1,5 @@
-import { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import { Context } from "~/types.js";
+import { type CmsGroup, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type Context } from "~/types.js";
 import { createGroupData } from "./group.js";
 import { createCarsModel } from "./model.js";
 import { createIndex } from "~/utils/index.js";

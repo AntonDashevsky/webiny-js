@@ -9,7 +9,7 @@ import { useIcon } from "../index.js";
 import { IconPickerTab } from "../IconPickerTab.js";
 import { useIconPicker } from "../IconPickerPresenterProvider.js";
 import { IconPickerConfig } from "../config/index.js";
-import { Icon } from "../types.js";
+import { type Icon } from "../types.js";
 
 const StyledColorPicker = styled.div`
     [data-role="color-picker-swatch"] {

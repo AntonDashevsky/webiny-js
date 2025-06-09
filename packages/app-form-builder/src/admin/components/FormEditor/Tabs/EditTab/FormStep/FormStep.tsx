@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FbFormModelField, FbFormStep } from "~/types.js";
+import { type FbFormModelField, type FbFormStep } from "~/types.js";
 import { RowHandle, StyledAccordion, StyledAccordionItem, Wrapper } from "../Styled.js";
 
 import { Icon } from "@webiny/ui/Icon/index.js";

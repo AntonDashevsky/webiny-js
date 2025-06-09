@@ -1,4 +1,4 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsModelField } from "@webiny/api-headless-cms/types/index.js";
 import {
     ENTRY_META_FIELDS,
     isDateTimeEntryMetaField,

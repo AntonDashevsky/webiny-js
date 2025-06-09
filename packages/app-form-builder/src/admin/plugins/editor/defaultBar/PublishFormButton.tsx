@@ -8,8 +8,8 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { useFormEditor } from "~/admin/components/FormEditor/index.js";
 import {
     PUBLISH_REVISION,
-    PublishRevisionMutationResponse,
-    PublishRevisionMutationVariables
+    type PublishRevisionMutationResponse,
+    type PublishRevisionMutationVariables
 } from "~/admin/graphql.js";
 import { usePermission } from "~/hooks/usePermission.js";
 

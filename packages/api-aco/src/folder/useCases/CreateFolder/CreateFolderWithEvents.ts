@@ -1,6 +1,6 @@
-import type { ICreateFolder } from "./ICreateFolder";
-import type { CreateFolderUseCasesTopics } from "./index";
-import type { CreateFolderParams } from "~/folder/folder.types";
+import type { ICreateFolder } from "./ICreateFolder.js";
+import type { CreateFolderUseCasesTopics } from "./index.js";
+import type { CreateFolderParams } from "~/folder/folder.types.js";
 
 export class CreateFolderWithEvents implements ICreateFolder {
     private topics: CreateFolderUseCasesTopics;

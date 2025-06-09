@@ -1,20 +1,20 @@
 import React, { useCallback, useEffect, useMemo, useReducer } from "react";
 import get from "lodash/get.js";
 import pick from "lodash/pick.js";
-import { ApolloClient } from "apollo-client";
+import { type ApolloClient } from "apollo-client";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import {
     GET_CONTENT_MODEL,
-    GetCmsModelQueryResponse,
-    GetCmsModelQueryVariables,
+    type GetCmsModelQueryResponse,
+    type GetCmsModelQueryVariables,
     UPDATE_CONTENT_MODEL,
-    UpdateCmsModelMutationResponse,
-    UpdateCmsModelMutationVariables
+    type UpdateCmsModelMutationResponse,
+    type UpdateCmsModelMutationVariables
 } from "~/admin/graphql/contentModels.js";
 import { LIST_MENU_CONTENT_GROUPS_MODELS } from "~/admin/viewsGraphql.js";
-import { CmsModel, CmsModelField } from "~/types.js";
-import { FetchResult } from "apollo-link";
+import { type CmsModel, type CmsModelField } from "~/types.js";
+import { type FetchResult } from "apollo-link";
 import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
 import { createHashing } from "@webiny/app/utils/index.js";
 

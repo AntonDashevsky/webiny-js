@@ -1,5 +1,5 @@
 import React from "react";
-import { CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types/index.js";
+import { type CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types/index.js";
 import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 

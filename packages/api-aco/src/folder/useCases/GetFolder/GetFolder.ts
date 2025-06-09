@@ -1,5 +1,5 @@
-import type { IGetFolder } from "./IGetFolder";
-import type { AcoFolderStorageOperations, Folder, GetFolderParams } from "~/folder/folder.types";
+import type { IGetFolder } from "./IGetFolder.js";
+import type { AcoFolderStorageOperations, Folder, GetFolderParams } from "~/folder/folder.types.js";
 
 export class GetFolder implements IGetFolder {
     private readonly getOperation: AcoFolderStorageOperations["getFolder"];

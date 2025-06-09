@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { usePagesPermissions } from "~/hooks/permissions/index.js";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
 
-import { EditRevisionMenuOption, EditRevisionMenuOptionProps } from "./EditRevisionMenuOption.js";
+import { EditRevisionMenuOption, type EditRevisionMenuOptionProps } from "./EditRevisionMenuOption.js";
 
 export const SecureEditRevisionMenuOption = (props: EditRevisionMenuOptionProps) => {
     const { page } = props;

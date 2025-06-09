@@ -6,7 +6,7 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as InsightsIcon } from "@material-symbols/svg-400/outlined/insights.svg";
 import GoogleAnalyticsEventDynamicFieldset from "./components/GoogleAnalyticsEventDynamicFieldset.js";
-import { FbEditorTrigger } from "~/types.js";
+import { type FbEditorTrigger } from "~/types.js";
 
 const t = i18n.namespace("FormsApp.Editor.GoogleAnalyticsEventTriggerSettings");
 

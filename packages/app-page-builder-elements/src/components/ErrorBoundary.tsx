@@ -1,5 +1,5 @@
-import React, { ErrorInfo } from "react";
-import { Element as ElementType } from "~/types.js";
+import React, { type ErrorInfo } from "react";
+import { type Element as ElementType } from "~/types.js";
 
 type State =
     | {

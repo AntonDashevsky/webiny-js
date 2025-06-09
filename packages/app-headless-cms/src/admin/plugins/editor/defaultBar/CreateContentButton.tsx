@@ -7,8 +7,8 @@ import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as ViewListIcon } from "~/admin/icons/view_list.svg";
 import {
     GET_CONTENT_MODEL,
-    GetCmsModelQueryResponse,
-    GetCmsModelQueryVariables
+    type GetCmsModelQueryResponse,
+    type GetCmsModelQueryVariables
 } from "~/admin/graphql/contentModels.js";
 import { useModelEditor } from "~/admin/hooks/index.js";
 

@@ -12,7 +12,7 @@ import { SignOut } from "./plugins/userMenu/signOut.js";
 import installation from "./plugins/installation.js";
 import permissionRenderer from "./plugins/permissionRenderer/index.js";
 import cognito from "./plugins/cognito.js";
-import { CognitoLogin, CognitoProps } from "./CognitoLogin.js";
+import { CognitoLogin, type CognitoProps } from "./CognitoLogin.js";
 
 const ACCOUNT_ROUTE = "/account";
 

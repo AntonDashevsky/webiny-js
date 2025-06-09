@@ -1,9 +1,9 @@
 import gql from "graphql-tag";
 import { plugins } from "@webiny/plugins";
 import {
-    PbPageSettingsFieldsPlugin,
-    PbPageData,
-    PbErrorResponse
+    type PbPageSettingsFieldsPlugin,
+    type PbPageData,
+    type PbErrorResponse
 } from "@webiny/app-page-builder/types.js";
 
 /**

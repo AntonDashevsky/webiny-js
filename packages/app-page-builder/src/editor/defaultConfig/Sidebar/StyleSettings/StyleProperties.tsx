@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { ElementProperties, ElementProperty } from "~/editor/config/ElementProperty.js";
 import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin.js";
 import { useActiveElement } from "~/editor/index.js";
-import { Element } from "@webiny/app-page-builder-elements/types.js";
+import { type Element } from "@webiny/app-page-builder-elements/types.js";
 import { getPropertyName } from "../BackwardsCompatibility/StyleSettingsAdapter.js";
 
 export const StyleProperties = () => {

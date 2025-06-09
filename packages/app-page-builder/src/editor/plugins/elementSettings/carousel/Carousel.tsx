@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import { useRecoilValue } from "recoil";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 import { createElement } from "~/editor/helpers.js";
 import { moveInPlace, useSortableList } from "~/hooks/useSortableList.js";
 import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";

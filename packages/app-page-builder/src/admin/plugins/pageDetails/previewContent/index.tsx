@@ -1,8 +1,8 @@
 import React from "react";
 import { renderPlugins } from "@webiny/app/plugins/index.js";
 import {
-    PbPageDetailsRevisionContentPlugin,
-    PbPageDetailsRevisionContentPreviewPlugin
+    type PbPageDetailsRevisionContentPlugin,
+    type PbPageDetailsRevisionContentPreviewPlugin
 } from "~/types.js";
 import { Tab } from "@webiny/ui/Tabs/index.js";
 import styled from "@emotion/styled";

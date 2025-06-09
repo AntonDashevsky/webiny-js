@@ -1,9 +1,9 @@
-import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
-import type { IGetIdentity, IRecordLockingLockRecord } from "~/types";
+import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
+import type { IGetIdentity, IRecordLockingLockRecord } from "~/types.js";
 import type {
     IGetLockedEntryLockRecordUseCase,
     IGetLockedEntryLockRecordUseCaseExecuteParams
-} from "~/abstractions/IGetLockedEntryLockRecordUseCase";
+} from "~/abstractions/IGetLockedEntryLockRecordUseCase.js";
 
 export interface IGetLockedEntryLockRecordUseCaseParams {
     getLockRecordUseCase: IGetLockRecordUseCase;

@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { IColumnsVisibilityRepository } from "./IColumnsVisibilityRepository.js";
-import { IColumnsRepository } from "../Columns/index.js";
+import { type IColumnsVisibilityRepository } from "./IColumnsVisibilityRepository.js";
+import { type IColumnsRepository } from "../Columns/index.js";
 
 export class ColumnsVisibilityDecorator implements IColumnsRepository {
     private columnsVisibilityRepository: IColumnsVisibilityRepository;

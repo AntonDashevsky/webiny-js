@@ -20,17 +20,17 @@ import {
     CREATE_BLOCK_CATEGORY,
     UPDATE_BLOCK_CATEGORY,
     LIST_BLOCK_CATEGORIES,
-    GetBlockCategoryQueryResponse,
-    GetBlockCategoryQueryVariables,
-    UpdateBlockCategoryMutationResponse,
-    UpdateBlockCategoryMutationVariables,
-    CreateBlockCategoryMutationResponse,
-    CreateBlockCategoryMutationVariables
+    type GetBlockCategoryQueryResponse,
+    type GetBlockCategoryQueryVariables,
+    type UpdateBlockCategoryMutationResponse,
+    type UpdateBlockCategoryMutationVariables,
+    type CreateBlockCategoryMutationResponse,
+    type CreateBlockCategoryMutationVariables
 } from "./graphql.js";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { Input } from "@webiny/ui/Input/index.js";
-import { PbBlockCategory } from "~/types.js";
+import { type PbBlockCategory } from "~/types.js";
 import pick from "lodash/pick.js";
 import get from "lodash/get.js";
 import set from "lodash/set.js";

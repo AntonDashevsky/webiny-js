@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import {
-    CallbackParams,
+    type CallbackParams,
     makeDecoratable,
     useButtons,
     useDialogWithReport,
@@ -8,7 +8,7 @@ import {
 } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import { useCms, useContentEntriesList, useModel } from "~/admin/hooks/index.js";
-import { CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
+import { type CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
 import merge from "lodash/merge.js";
 
 export interface BulkActionConfig {

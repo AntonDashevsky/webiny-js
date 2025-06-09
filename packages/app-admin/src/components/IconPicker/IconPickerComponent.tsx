@@ -7,10 +7,10 @@ import { Menu } from "@webiny/ui/Menu/index.js";
 import { Tabs } from "@webiny/ui/Tabs/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import { FormComponentProps } from "@webiny/ui/types.js";
+import { type FormComponentProps } from "@webiny/ui/types.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { IconPickerPresenter } from "./IconPickerPresenter.js";
+import { type IconPickerPresenter } from "./IconPickerPresenter.js";
 import { IconProvider, IconRenderer } from "./IconRenderer.js";
 import {
     IconPickerWrapper,
@@ -24,7 +24,7 @@ import {
 import { IconPickerTabRenderer } from "./IconPickerTab.js";
 import { IconPickerPresenterProvider } from "./IconPickerPresenterProvider.js";
 import { IconTypeProvider } from "./config/IconType.js";
-import { Icon, ICON_PICKER_SIZE } from "./types.js";
+import { type Icon, type ICON_PICKER_SIZE } from "./types.js";
 
 export interface IconPickerProps extends FormComponentProps<Icon | undefined> {
     label?: string;

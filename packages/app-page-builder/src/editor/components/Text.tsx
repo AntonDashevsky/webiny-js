@@ -1,5 +1,5 @@
 import React from "react";
-import { CoreOptions } from "medium-editor";
+import { type CoreOptions } from "medium-editor";
 
 import { PeText } from "./Text/PeText.js";
 

@@ -1,4 +1,4 @@
-import { Context } from "@webiny/api/types.js";
+import { type Context } from "@webiny/api/types.js";
 import { FileNormalizer } from "~/utils/FileNormalizer.js";
 import { createModifierFromPlugins, FileUploadModifierPlugin } from "~/utils/FileUploadModifier.js";
 

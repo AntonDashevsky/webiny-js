@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import get from "lodash/get.js";
 import { useTenancy } from "@webiny/app-tenancy/hooks/useTenancy.js";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
-import { PbPageData } from "~/types.js";
+import { type PbPageData } from "~/types.js";
 
 const DATA_FIELDS = /* GraphQL */ `
     {

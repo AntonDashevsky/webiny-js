@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useRouter } from "@webiny/react-router";
-import { CmsModel } from "@webiny/app-headless-cms/types.js";
+import { type CmsModel } from "@webiny/app-headless-cms/types.js";
 import { CreatePageTemplateDialog } from "@webiny/app-page-builder/admin/views/PageTemplates/CreatePageTemplateDialog.js";
 import { CreateTemplateDialog } from "~/admin/PageTemplateDialog/CreateTemplateDialog.js";
 import { useCreateDynamicPageTemplate } from "~/features/pageTemplate/createDynamicTemplate/useCreateDynamicTemplate.js";

@@ -9,8 +9,8 @@ import { PageListConfig } from "~/admin/config/pages/index.js";
 import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList.js";
 import { RowIcon, RowText, RowTitle } from "./Cells.styled.js";
 
-import { FolderTableItem } from "@webiny/app-aco/types.js";
-import { PbPageTableItem } from "~/types.js";
+import { type FolderTableItem } from "@webiny/app-aco/types.js";
+import { type PbPageTableItem } from "~/types.js";
 
 interface FolderCellNameProps {
     folder: FolderTableItem;

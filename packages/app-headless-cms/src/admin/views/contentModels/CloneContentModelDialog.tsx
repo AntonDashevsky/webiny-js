@@ -12,16 +12,16 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { ButtonDefault } from "@webiny/ui/Button/index.js";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { addModelToGroupCache, addModelToListCache } from "./cache.js";
-import { CmsModel } from "~/types.js";
+import { type CmsModel } from "~/types.js";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import {
     CREATE_CONTENT_MODEL_FROM,
     LIST_MENU_CONTENT_GROUPS_MODELS,
-    CreateCmsModelFromMutationResponse,
-    CreateCmsModelFromMutationVariables,
-    ListMenuCmsGroupsQueryResponse
+    type CreateCmsModelFromMutationResponse,
+    type CreateCmsModelFromMutationVariables,
+    type ListMenuCmsGroupsQueryResponse
 } from "../../viewsGraphql.js";
-import { CmsGroupOption } from "~/admin/views/contentModels/types.js";
+import { type CmsGroupOption } from "~/admin/views/contentModels/types.js";
 import { Dialog } from "~/admin/components/Dialog.js";
 import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator.js";
 import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator.js";

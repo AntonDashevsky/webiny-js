@@ -1,4 +1,4 @@
-import { CmsFieldTypePlugins, CmsModel, CmsModelField, CmsModelFieldDefinition } from "~/types/index.js";
+import { type CmsFieldTypePlugins, type CmsModel, type CmsModelField, type CmsModelFieldDefinition } from "~/types/index.js";
 import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 
 interface RenderInputFieldsParams {

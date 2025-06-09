@@ -1,4 +1,4 @@
-import { IndexManager } from "~/settings/index.js";
+import { type IndexManager } from "~/settings/index.js";
 
 export const createIndexFactory = (manager: IndexManager) => {
     return {

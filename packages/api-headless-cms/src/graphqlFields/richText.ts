@@ -1,4 +1,4 @@
-import { CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
+import { type CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
 import { createGraphQLInputField } from "./helpers.js";
 import { createRichTextResolver } from "~/graphqlFields/richText/richTextResolver.js";
 

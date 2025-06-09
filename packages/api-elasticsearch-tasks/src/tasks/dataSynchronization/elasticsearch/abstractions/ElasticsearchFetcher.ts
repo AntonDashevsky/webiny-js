@@ -1,4 +1,4 @@
-import { PrimitiveValue } from "@webiny/api-elasticsearch/types.js";
+import { type PrimitiveValue } from "@webiny/api-elasticsearch/types.js";
 
 export interface IElasticsearchFetcherFetchResponseItem {
     PK: string;

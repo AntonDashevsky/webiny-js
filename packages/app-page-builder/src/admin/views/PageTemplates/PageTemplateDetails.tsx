@@ -11,8 +11,8 @@ import { ReactComponent as AddIcon } from "@material-design-icons/svg/filled/add
 import { ReactComponent as EditIcon } from "@material-design-icons/svg/round/edit.svg";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/round/delete.svg";
 
-import { CreatableItem } from "./PageTemplates.js";
-import { PbPageTemplate } from "~/types.js";
+import { type CreatableItem } from "./PageTemplates.js";
+import { type PbPageTemplate } from "~/types.js";
 import { useListPageTemplates } from "~/features/index.js";
 import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview.js";
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Input, InputProps } from "./Input.js";
+import { Input, type InputProps } from "./Input.js";
 import {
     getCurrentLocalTime,
     getDefaultFieldValue

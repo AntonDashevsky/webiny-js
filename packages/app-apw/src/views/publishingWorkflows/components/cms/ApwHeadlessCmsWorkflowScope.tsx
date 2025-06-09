@@ -7,8 +7,8 @@ import { ApwWorkflowApplications, ApwWorkflowScopeTypes } from "~/types.js";
 import { Box, Stack } from "~/components/Layout.js";
 import { validation } from "@webiny/validation";
 import { Select } from "@webiny/ui/Select/Select.js";
-import { HigherOrderComponent } from "@webiny/app-admin";
-import { WorkflowScopeProps } from "~/views/publishingWorkflows/components/WorkflowScope.js";
+import { type HigherOrderComponent } from "@webiny/app-admin";
+import { type WorkflowScopeProps } from "~/views/publishingWorkflows/components/WorkflowScope.js";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/form/cms");
 

@@ -2,7 +2,7 @@ import React from "react";
 import get from "lodash/get.js";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
-import { CmsModelField, CmsModelFieldTypePlugin } from "~/types.js";
+import { type CmsModelField, type CmsModelFieldTypePlugin } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as DateTimeIcon } from "./icons/schedule-black-24px.svg";
 import { useModel, useModelField } from "~/admin/hooks/index.js";

@@ -1,9 +1,9 @@
-import { ApiEndpoint, CmsContext, HeadlessCmsStorageOperations } from "~/types/index.js";
+import { type ApiEndpoint, type CmsContext, type HeadlessCmsStorageOperations } from "~/types/index.js";
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { GraphQLRequestBody } from "@webiny/handler-graphql/types.js";
+import { type GraphQLRequestBody } from "@webiny/handler-graphql/types.js";
 import { processRequestBody } from "@webiny/handler-graphql";
-import { CmsParametersPlugin, CmsParametersPluginResponse } from "~/plugins/CmsParametersPlugin.js";
+import { CmsParametersPlugin, type CmsParametersPluginResponse } from "~/plugins/CmsParametersPlugin.js";
 import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
 import { createSystemCrud } from "~/crud/system.crud.js";
 import { createModelGroupsCrud } from "~/crud/contentModelGroup.crud.js";

@@ -1,5 +1,5 @@
 import dotPropImmutable from "dot-prop-immutable";
-import { useQuery, useMutation, MutationTuple } from "@apollo/react-hooks";
+import { useQuery, useMutation, type MutationTuple } from "@apollo/react-hooks";
 import cloneDeep from "lodash/cloneDeep.js";
 import {
     CREATE_CHANGE_REQUEST_MUTATION,
@@ -7,19 +7,19 @@ import {
     LIST_CHANGE_REQUESTS_QUERY,
     DELETE_CHANGE_REQUEST_MUTATION,
     UPDATE_CHANGE_REQUEST_MUTATION,
-    GetChangeRequestQueryResponse,
-    GetChangeRequestQueryVariables,
-    CreateChangeRequestMutationResponse,
-    CreateChangeRequestMutationVariables,
-    UpdateChangeRequestMutationResponse,
-    UpdateChangeRequestMutationVariables,
-    DeleteChangeRequestMutationResponse,
-    DeleteChangeRequestMutationVariables
+    type GetChangeRequestQueryResponse,
+    type GetChangeRequestQueryVariables,
+    type CreateChangeRequestMutationResponse,
+    type CreateChangeRequestMutationVariables,
+    type UpdateChangeRequestMutationResponse,
+    type UpdateChangeRequestMutationVariables,
+    type DeleteChangeRequestMutationResponse,
+    type DeleteChangeRequestMutationVariables
 } from "~/graphql/changeRequest.gql.js";
 import { useSnackbar } from "@webiny/app-admin";
 import { useNavigate } from "@webiny/react-router";
 import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId.js";
-import { ApwChangeRequest } from "~/types.js";
+import { type ApwChangeRequest } from "~/types.js";
 import { GET_CONTENT_REVIEW_QUERY } from "~/graphql/contentReview.gql.js";
 
 interface UseChangeRequestParams {

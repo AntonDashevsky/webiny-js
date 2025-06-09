@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
+import { type AdminInstallationPlugin } from "@webiny/app-admin/types.js";
 import { Alert } from "@webiny/ui/Alert/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index.js";

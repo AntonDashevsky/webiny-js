@@ -1,14 +1,14 @@
 import React, { useMemo, useEffect, useRef } from "react";
 
 import { observer } from "mobx-react-lite";
-import { FormAPI } from "@webiny/form";
+import { type FormAPI } from "@webiny/form";
 import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
 
-import { BatchEditorDialogPresenter, BatchEditorFormData } from "./BatchEditorDialogPresenter.js";
+import { BatchEditorDialogPresenter, type BatchEditorFormData } from "./BatchEditorDialogPresenter.js";
 import { BatchEditor } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditor.js";
 import { ActionEditFormContainer, DialogContainer } from "../ActionEdit.styled.js";
-import { BatchDTO, FieldDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { type BatchDTO, type FieldDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
 
 interface BatchEditorDialogProps {
     fields: FieldDTO[];

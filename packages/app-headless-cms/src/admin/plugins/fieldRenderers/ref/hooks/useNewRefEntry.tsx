@@ -1,5 +1,5 @@
 import React from "react";
-import { CmsModelField } from "~/types.js";
+import { type CmsModelField } from "~/types.js";
 import MissingEntryHelpText, {
     ReferenceMultipleModelsHelpText
 } from "../components/MissingEntryHelpText.js";

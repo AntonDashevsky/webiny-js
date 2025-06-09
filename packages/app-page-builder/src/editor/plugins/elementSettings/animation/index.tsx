@@ -1,5 +1,5 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
+import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
 import AnimationSettings from "./AnimationSettings.js";
 
 export default {

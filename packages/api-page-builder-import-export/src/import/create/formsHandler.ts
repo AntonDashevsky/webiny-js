@@ -1,10 +1,10 @@
-import { ImportExportTaskStatus, PbImportExportContext } from "~/types.js";
+import { ImportExportTaskStatus, type PbImportExportContext } from "~/types.js";
 import { initialStats } from "~/import/utils/index.js";
 import { invokeHandlerClient } from "~/client.js";
-import { Payload as ProcessPayload } from "../process/index.js";
+import { type Payload as ProcessPayload } from "../process/index.js";
 import { mockSecurity } from "~/mockSecurity.js";
 import { zeroPad } from "@webiny/utils";
-import { Configuration, Payload, Response } from "~/import/create/index.js";
+import { type Configuration, type Payload, type Response } from "~/import/create/index.js";
 import { extractAndUploadZipFileContents } from "~/import/utils/extractAndUploadZipFileContents.js";
 
 export const formsHandler = async (

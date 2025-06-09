@@ -1,7 +1,7 @@
-import { DbContext } from "@webiny/handler-db/types.js";
-import { IWebsocketsContextObject } from "./context/abstractions/IWebsocketsContext.js";
-import { SecurityContext, SecurityPermission } from "@webiny/api-security/types.js";
-import { I18NContext } from "@webiny/api-i18n/types.js";
+import { type DbContext } from "@webiny/handler-db/types.js";
+import { type IWebsocketsContextObject } from "./context/abstractions/IWebsocketsContext.js";
+import { type SecurityContext, type SecurityPermission } from "@webiny/api-security/types.js";
+import { type I18NContext } from "@webiny/api-i18n/types.js";
 
 export type { IWebsocketsContextObject };
 

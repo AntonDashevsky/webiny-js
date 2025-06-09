@@ -5,8 +5,8 @@ import formElement from "../../../page-builder/render/plugins/formElement.js";
 import FormElement from "./components/FormElement.js";
 import { ReactComponent as FormLogo } from "./components/icons/round-description-24px.svg";
 import {
-    PbEditorPageElementAdvancedSettingsPlugin,
-    PbEditorPageElementPlugin,
+    type PbEditorPageElementAdvancedSettingsPlugin,
+    type PbEditorPageElementPlugin,
     OnCreateActions
 } from "@webiny/app-page-builder/types.js";
 

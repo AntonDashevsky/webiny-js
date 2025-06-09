@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
 import { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/index.js";
-import { PluginsContainer } from "@webiny/plugins";
-import { ElasticsearchQuerySearchValuePlugins } from "../types.js";
+import { type PluginsContainer } from "@webiny/plugins";
+import { type ElasticsearchQuerySearchValuePlugins } from "../types.js";
 
 interface Params {
     plugins: PluginsContainer;

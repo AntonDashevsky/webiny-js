@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { AcoContext, type IUpdateFlpTaskInput } from "~/types";
-import { UPDATE_FLP_TASK_ID } from "../tasks";
-import { UpdateFlp } from "~/flp/useCases";
+import { type AcoContext, type IUpdateFlpTaskInput } from "~/types.js";
+import { UPDATE_FLP_TASK_ID } from "../tasks/index.js";
+import { UpdateFlp } from "~/flp/useCases/index.js";
 
 export const onFolderAfterUpdateFlpHook = (context: AcoContext) => {
     context.aco.folder.onFolderAfterUpdate.subscribe(async ({ folder }) => {

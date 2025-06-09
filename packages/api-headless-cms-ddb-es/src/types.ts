@@ -1,18 +1,18 @@
-import { Plugin, PluginCollection } from "@webiny/plugins/types.js";
+import { type Plugin, type PluginCollection } from "@webiny/plugins/types.js";
 import {
-    CmsContext as BaseCmsContext,
-    CmsEntry,
-    CmsEntryStorageOperations as BaseCmsEntryStorageOperations,
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldToGraphQLPlugin,
-    CmsModelFieldType,
-    HeadlessCmsStorageOperations as BaseHeadlessCmsStorageOperations
+    type CmsContext as BaseCmsContext,
+    type CmsEntry,
+    type CmsEntryStorageOperations as BaseCmsEntryStorageOperations,
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldToGraphQLPlugin,
+    type CmsModelFieldType,
+    type HeadlessCmsStorageOperations as BaseHeadlessCmsStorageOperations
 } from "@webiny/api-headless-cms/types/index.js";
-import { AttributeDefinition, Entity, Table, TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Client } from "@elastic/elasticsearch";
-import { PluginsContainer } from "@webiny/plugins";
+import { type AttributeDefinition, type Entity, type Table, type TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
+import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { type Client } from "@elastic/elasticsearch";
+import { type PluginsContainer } from "@webiny/plugins";
 
 /**
  * A definition of the entry that is being prepared for the Elasticsearch.

@@ -1,6 +1,6 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import { DELETE_FLP_TASK_ID } from "~/flp/tasks";
-import { type AcoContext, type IDeleteFlpTaskInput, type IDeleteFlpTaskParams } from "~/types";
+import { DELETE_FLP_TASK_ID } from "~/flp/tasks/index.js";
+import { type AcoContext, type IDeleteFlpTaskInput, type IDeleteFlpTaskParams } from "~/types.js";
 
 class DeleteFlpTask {
     public init = () => {
@@ -14,7 +14,7 @@ class DeleteFlpTask {
                 const { response, isAborted, input, context, isCloseToTimeout } = params;
 
                 const { DeleteFlp } = await import(
-                    /* webpackChunkName: "DeleteFlp" */ "../useCases/DeleteFlp"
+                    /* webpackChunkName: "DeleteFlp" */ "../useCases/DeleteFlp.js"
                 );
 
                 const useCase = new DeleteFlp(context);

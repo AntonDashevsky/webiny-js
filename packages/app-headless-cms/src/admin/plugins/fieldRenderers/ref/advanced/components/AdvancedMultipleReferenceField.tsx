@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styled from "@emotion/styled";
 import * as GQL from "~/admin/viewsGraphql.js";
-import { ListCmsModelsQueryResponse, withoutBeingDeletedModels } from "~/admin/viewsGraphql.js";
+import { type ListCmsModelsQueryResponse, withoutBeingDeletedModels } from "~/admin/viewsGraphql.js";
 import {
-    BindComponentRenderProp,
-    CmsContentEntry,
-    CmsModel,
-    CmsModelFieldRendererProps
+    type BindComponentRenderProp,
+    type CmsContentEntry,
+    type CmsModel,
+    type CmsModelFieldRendererProps
 } from "~/types.js";
 import { Options } from "./Options.js";
 import { useReferences } from "../hooks/useReferences.js";
@@ -14,7 +14,7 @@ import { Entry } from "./Entry.js";
 import { ReferencesDialog } from "./ReferencesDialog.js";
 import { useModelFieldGraphqlContext, useQuery } from "~/admin/hooks/index.js";
 import { useSnackbar } from "@webiny/app-admin";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { type CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { AbsoluteLoader as Loader } from "./Loader.js";
 import { parseIdentifier } from "@webiny/utils";
 import { Entries } from "./Entries.js";

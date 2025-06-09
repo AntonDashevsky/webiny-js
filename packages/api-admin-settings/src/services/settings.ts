@@ -1,10 +1,10 @@
 import {
-    AdminSettings,
-    AdminSettingsContext,
-    AdminSettingsService,
-    AdminSettingsVariant
+    type AdminSettings,
+    type AdminSettingsContext,
+    type AdminSettingsService,
+    type AdminSettingsVariant
 } from "~/types.js";
-import { StorageOperationsService } from "~/storage/types.js";
+import { type StorageOperationsService } from "~/storage/types.js";
 import WebinyError from "@webiny/error";
 
 interface Params {

@@ -1,4 +1,4 @@
-import { PbBlockEditorCreateVariablePlugin } from "~/types.js";
+import { type PbBlockEditorCreateVariablePlugin } from "~/types.js";
 
 export default {
     name: "pb-block-editor-create-variable-image",

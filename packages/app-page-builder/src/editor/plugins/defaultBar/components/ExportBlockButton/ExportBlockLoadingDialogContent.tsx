@@ -5,7 +5,7 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import {
     GET_BLOCK_IMPORT_EXPORT_TASK,
-    GetBlockImportExportTaskResponse
+    type GetBlockImportExportTaskResponse
 } from "~/admin/graphql/blockImportExport.gql.js";
 import { LoadingDialog } from "~/editor/plugins/defaultBar/components/ImportButton/styledComponents.js";
 import ProgressBar from "~/editor/plugins/defaultBar/components/ImportButton/ProgressBar.js";

@@ -7,9 +7,9 @@ import { useReferences } from "./useReferences.js";
 import { renderItem, renderListItemOptions } from "./renderItem.js";
 import { NewEntryButton } from "./NewEntryButton.js";
 import { useNewRefEntry } from "../hooks/useNewRefEntry.js";
-import { CmsModelField } from "~/types.js";
-import { BindComponentRenderProp } from "@webiny/form";
-import { OptionItem } from "./types.js";
+import { type CmsModelField } from "~/types.js";
+import { type BindComponentRenderProp } from "@webiny/form";
+import { type OptionItem } from "./types.js";
 import { useModels } from "~/admin/hooks/index.js";
 import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog.js";
 

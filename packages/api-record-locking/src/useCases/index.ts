@@ -3,29 +3,29 @@ import type {
     IGetWebsocketsContextCallable,
     IHasRecordLockingAccessCallable,
     IRecordLockingModelManager
-} from "~/types";
-import { GetLockRecordUseCase } from "./GetLockRecord/GetLockRecordUseCase";
-import { IsEntryLockedUseCase } from "./IsEntryLocked/IsEntryLockedUseCase";
-import { LockEntryUseCase } from "./LockEntryUseCase/LockEntryUseCase";
-import { UnlockEntryUseCase } from "./UnlockEntryUseCase/UnlockEntryUseCase";
-import { UnlockEntryRequestUseCase } from "./UnlockRequestUseCase/UnlockEntryRequestUseCase";
-import { ListAllLockRecordsUseCase } from "./ListAllLockRecordsUseCase/ListAllLockRecordsUseCase";
-import { ListLockRecordsUseCase } from "./ListLockRecordsUseCase/ListLockRecordsUseCase";
-import { UpdateEntryLockUseCase } from "~/useCases/UpdateEntryLock/UpdateEntryLockUseCase";
-import { KickOutCurrentUserUseCase } from "./KickOutCurrentUser/KickOutCurrentUserUseCase";
-import { GetLockedEntryLockRecordUseCase } from "~/useCases/GetLockedEntryLockRecord/GetLockedEntryLockRecordUseCase";
-import type { IListAllLockRecordsUseCase } from "~/abstractions/IListAllLockRecordsUseCase";
-import type { IListLockRecordsUseCase } from "~/abstractions/IListLockRecordsUseCase";
-import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
-import type { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked";
-import type { IGetLockedEntryLockRecordUseCase } from "~/abstractions/IGetLockedEntryLockRecordUseCase";
-import type { ILockEntryUseCase } from "~/abstractions/ILockEntryUseCase";
-import type { IUpdateEntryLockUseCase } from "~/abstractions/IUpdateEntryLockUseCase";
-import type { IUnlockEntryUseCase } from "~/abstractions/IUnlockEntryUseCase";
-import type { IUnlockEntryRequestUseCase } from "~/abstractions/IUnlockEntryRequestUseCase";
-import { convertEntryToLockRecord as baseConvertEntryToLockRecord } from "~/utils/convertEntryToLockRecord";
-import { ConvertEntryToLockRecordCb } from "~/useCases/types";
-import type { Security } from "@webiny/api-security/types";
+} from "~/types.js";
+import { GetLockRecordUseCase } from "./GetLockRecord/GetLockRecordUseCase.js";
+import { IsEntryLockedUseCase } from "./IsEntryLocked/IsEntryLockedUseCase.js";
+import { LockEntryUseCase } from "./LockEntryUseCase/LockEntryUseCase.js";
+import { UnlockEntryUseCase } from "./UnlockEntryUseCase/UnlockEntryUseCase.js";
+import { UnlockEntryRequestUseCase } from "./UnlockRequestUseCase/UnlockEntryRequestUseCase.js";
+import { ListAllLockRecordsUseCase } from "./ListAllLockRecordsUseCase/ListAllLockRecordsUseCase.js";
+import { ListLockRecordsUseCase } from "./ListLockRecordsUseCase/ListLockRecordsUseCase.js";
+import { UpdateEntryLockUseCase } from "~/useCases/UpdateEntryLock/UpdateEntryLockUseCase.js";
+import { KickOutCurrentUserUseCase } from "./KickOutCurrentUser/KickOutCurrentUserUseCase.js";
+import { GetLockedEntryLockRecordUseCase } from "~/useCases/GetLockedEntryLockRecord/GetLockedEntryLockRecordUseCase.js";
+import type { IListAllLockRecordsUseCase } from "~/abstractions/IListAllLockRecordsUseCase.js";
+import type { IListLockRecordsUseCase } from "~/abstractions/IListLockRecordsUseCase.js";
+import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase.js";
+import type { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked.js";
+import type { IGetLockedEntryLockRecordUseCase } from "~/abstractions/IGetLockedEntryLockRecordUseCase.js";
+import type { ILockEntryUseCase } from "~/abstractions/ILockEntryUseCase.js";
+import type { IUpdateEntryLockUseCase } from "~/abstractions/IUpdateEntryLockUseCase.js";
+import type { IUnlockEntryUseCase } from "~/abstractions/IUnlockEntryUseCase.js";
+import type { IUnlockEntryRequestUseCase } from "~/abstractions/IUnlockEntryRequestUseCase.js";
+import { convertEntryToLockRecord as baseConvertEntryToLockRecord } from "~/utils/convertEntryToLockRecord.js";
+import { type ConvertEntryToLockRecordCb } from "~/useCases/types.js";
+import type { Security } from "@webiny/api-security/types.js";
 
 export interface ICreateUseCasesParams {
     getTimeout: () => number;

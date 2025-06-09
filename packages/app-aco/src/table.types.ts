@@ -1,4 +1,4 @@
-import { CmsIdentity, FolderItem, GenericSearchData, Location } from "~/types.js";
+import { type CmsIdentity, type FolderItem, type GenericSearchData, type Location } from "~/types.js";
 
 export interface SearchRecordItem<TData extends GenericSearchData = GenericSearchData> {
     id: string;

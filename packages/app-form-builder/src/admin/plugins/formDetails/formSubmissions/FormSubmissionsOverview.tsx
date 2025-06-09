@@ -2,7 +2,7 @@ import * as React from "react";
 import Block from "./Block.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import styled from "@emotion/styled";
-import { FbFormModel } from "~/types.js";
+import { type FbFormModel } from "~/types.js";
 
 interface FormSubmissionsOverviewProps {
     form: FbFormModel;

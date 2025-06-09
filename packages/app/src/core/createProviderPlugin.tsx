@@ -1,5 +1,5 @@
 import React from "react";
-import { GenericComponent, Decorator } from "@webiny/react-composition";
+import { type GenericComponent, type Decorator } from "@webiny/react-composition";
 import { Provider } from "./Provider.js";
 
 /**

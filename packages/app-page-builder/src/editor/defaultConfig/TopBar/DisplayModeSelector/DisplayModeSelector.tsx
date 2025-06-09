@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { IconButton } from "@webiny/ui/Button/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
-import { DisplayMode } from "~/types.js";
+import { type DisplayMode } from "~/types.js";
 import { useDisplayMode } from "~/editor/index.js";
 
 const classes = {

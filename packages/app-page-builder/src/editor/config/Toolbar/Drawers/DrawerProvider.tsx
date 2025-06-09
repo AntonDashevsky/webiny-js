@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Drawer, useDrawers } from "./DrawersProvider.js";
+import { type Drawer, useDrawers } from "./DrawersProvider.js";
 
 export interface DrawerContext {
     isOpen: boolean;

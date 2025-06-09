@@ -1,4 +1,4 @@
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 import { selectorFamily } from "recoil";
 import { elementsAtom } from "../elementsAtom.js";
 

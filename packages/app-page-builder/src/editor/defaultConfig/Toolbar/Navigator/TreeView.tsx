@@ -12,7 +12,7 @@ import CollapsableList from "./CollapsableList.js";
 import DragBlockIndicator from "./DragBlockIndicator.js";
 import { BLOCK, useMoveBlock, useSortableList } from "./navigatorHooks.js";
 import { NavigatorContext } from "./NavigatorDrawer.js";
-import { PbEditorElementTree } from "~/types.js";
+import { type PbEditorElementTree } from "~/types.js";
 
 const elementIdStyle = css`
     text-transform: none;

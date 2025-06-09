@@ -1,11 +1,11 @@
 import {
-    IGenericData,
-    IWebsocketsConnection,
-    IWebsocketsConnectionFactory,
-    IWebsocketsConnectProtocol,
-    IWebsocketsManagerMessageEvent,
-    IWebsocketsSubscriptionManager,
-    WebsocketsCloseCode,
+    type IGenericData,
+    type IWebsocketsConnection,
+    type IWebsocketsConnectionFactory,
+    type IWebsocketsConnectProtocol,
+    type IWebsocketsManagerMessageEvent,
+    type IWebsocketsSubscriptionManager,
+    type WebsocketsCloseCode,
     WebsocketsReadyState
 } from "./types.js";
 

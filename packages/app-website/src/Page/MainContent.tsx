@@ -1,5 +1,5 @@
 import { makeDecoratable } from "@webiny/app";
-import { Page, PageProps } from "@webiny/app-page-builder-elements";
+import { Page, type PageProps } from "@webiny/app-page-builder-elements";
 import React from "react";
 
 type MainContentProps = Omit<PageProps, "layout" | "layoutProps">;

@@ -5,7 +5,7 @@ import { ListItemText } from "./UsersTeamsSelection/ListItemText.js";
 import { ListItemMeta } from "./UsersTeamsSelection/ListItemMeta.js";
 import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography/index.js";
-import { FolderLevelPermissionsTarget, FolderPermission } from "~/types.js";
+import { type FolderLevelPermissionsTarget, type FolderPermission } from "~/types.js";
 
 interface UsersTeamsSelectionProps {
     targetsList: FolderLevelPermissionsTarget[];

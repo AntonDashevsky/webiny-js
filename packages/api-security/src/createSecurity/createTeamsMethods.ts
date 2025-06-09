@@ -9,13 +9,13 @@ import { createTopic } from "@webiny/pubsub";
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
 import {
-    GetTeamParams,
-    ListTeamsParams,
-    PermissionsTenantLink,
-    Security,
-    SecurityConfig,
-    Team,
-    TeamInput
+    type GetTeamParams,
+    type ListTeamsParams,
+    type PermissionsTenantLink,
+    type Security,
+    type SecurityConfig,
+    type Team,
+    type TeamInput
 } from "~/types.js";
 import NotAuthorizedError from "../NotAuthorizedError.js";
 import {

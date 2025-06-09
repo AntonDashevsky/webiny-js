@@ -2,7 +2,7 @@ import React from "react";
 import { EditorConfig } from "~/editor/index.js";
 import { useActiveElement } from "~/editor/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 import { useInputBinding } from "./useInputBinding.js";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
 

@@ -1,4 +1,4 @@
-import { GenericRecord } from "@webiny/app/types.js";
+import { type GenericRecord } from "@webiny/app/types.js";
 
 export interface TranslatableCollectionInputDto {
     collectionId: string;

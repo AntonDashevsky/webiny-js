@@ -1,9 +1,9 @@
 import {
     ApplicationGraphQL,
-    ApplicationGraphQLBody,
-    ApwSettings,
-    ApplicationGraphQLGetUrlParams,
-    ApwScheduleActionData
+    type ApplicationGraphQLBody,
+    type ApwSettings,
+    type ApplicationGraphQLGetUrlParams,
+    type ApwScheduleActionData
 } from "./ApplicationGraphQL.js";
 import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types.js";
 import WebinyError from "@webiny/error";

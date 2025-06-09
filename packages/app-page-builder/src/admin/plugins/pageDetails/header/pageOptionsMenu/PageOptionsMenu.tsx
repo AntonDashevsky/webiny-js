@@ -13,7 +13,7 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import classNames from "classnames";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import { plugins } from "@webiny/plugins";
-import { PbPageData, PbPageDetailsHeaderRightOptionsMenuItemPlugin, PbPageTemplate } from "~/types.js";
+import { type PbPageData, type PbPageDetailsHeaderRightOptionsMenuItemPlugin, type PbPageTemplate } from "~/types.js";
 import { SecureView } from "@webiny/app-security";
 import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";

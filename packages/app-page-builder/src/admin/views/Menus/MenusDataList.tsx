@@ -26,7 +26,7 @@ import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/fil
 import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
-import { PbMenu } from "~/types.js";
+import { type PbMenu } from "~/types.js";
 import { useMenusPermissions } from "~/hooks/permissions/index.js";
 
 const t = i18n.ns("app-page-builder/admin/menus/data-list");

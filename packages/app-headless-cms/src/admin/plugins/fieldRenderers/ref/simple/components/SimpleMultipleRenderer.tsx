@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from "react";
-import { BindComponentRenderProp, CmsModelField } from "~/types.js";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { type BindComponentRenderProp, type CmsModelField } from "~/types.js";
+import { type CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { useContentModels } from "./useContentModels.js";
 import { useReferences } from "./useReferences.js";
-import { AddItemParams, RemoveItemParams, SimpleItems } from "./SimpleItems.js";
+import { type AddItemParams, type RemoveItemParams, SimpleItems } from "./SimpleItems.js";
 
 interface SimpleMultipleRendererProps {
     bind: BindComponentRenderProp<CmsReferenceValue[] | undefined | null>;

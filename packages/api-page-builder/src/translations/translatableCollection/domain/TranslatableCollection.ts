@@ -1,4 +1,4 @@
-import { TranslatableItem } from "./TranslatableItem.js";
+import { type TranslatableItem } from "./TranslatableItem.js";
 
 export interface TranslatableCollectionProps {
     collectionId: string;

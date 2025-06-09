@@ -5,16 +5,16 @@ import { ReactComponent as PublishIcon } from "../../../../icons/publish.svg";
 import { ReactComponent as UnpublishIcon } from "../../../../icons/unpublish.svg";
 import {
     PUBLISH_REVISION,
-    PublishRevisionMutationResponse,
-    PublishRevisionMutationVariables,
+    type PublishRevisionMutationResponse,
+    type PublishRevisionMutationVariables,
     UNPUBLISH_REVISION,
-    UnpublishRevisionMutationResponse,
-    UnpublishRevisionMutationVariable
+    type UnpublishRevisionMutationResponse,
+    type UnpublishRevisionMutationVariable
 } from "~/admin/graphql.js";
 import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
 import { useApolloClient } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { FbRevisionModel } from "~/types.js";
+import { type FbRevisionModel } from "~/types.js";
 import { usePermission } from "~/hooks/usePermission.js";
 
 interface PublishRevisionProps {

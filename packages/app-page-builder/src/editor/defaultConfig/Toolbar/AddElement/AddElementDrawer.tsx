@@ -16,11 +16,11 @@ import {
 import Draggable from "~/editor/components/Draggable.js";
 import { usePageBuilder } from "~/hooks/usePageBuilder.js";
 import {
-    PbEditorElement,
-    PbEditorPageElementGroupPlugin,
-    PbEditorPageElementPlugin
+    type PbEditorElement,
+    type PbEditorPageElementGroupPlugin,
+    type PbEditorPageElementPlugin
 } from "~/types.js";
-import { DropElementActionArgsType } from "~/editor/recoil/actions/dropElement/types.js";
+import { type DropElementActionArgsType } from "~/editor/recoil/actions/dropElement/types.js";
 import Accordion from "~/editor/plugins/elementSettings/components/Accordion.js";
 import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton.js";
 import { useDrawer } from "~/editor/config/Toolbar/Drawers/DrawerProvider.js";

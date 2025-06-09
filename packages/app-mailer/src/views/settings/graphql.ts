@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { ApiError, TransportSettings, ValidationErrors } from "~/types.js";
+import { type ApiError, type TransportSettings, type ValidationErrors } from "~/types.js";
 
 const SETTINGS_FIELDS = `
     {

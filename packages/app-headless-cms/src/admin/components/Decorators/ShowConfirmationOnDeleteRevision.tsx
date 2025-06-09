@@ -6,8 +6,8 @@ import { useContentEntry } from "~/admin/views/contentEntries/hooks/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { EntryRevisionDeletedSnackbarMessage } from "./ShowConfirmationOnDeleteRevision/EntryRevisionDeletedSnackbarMessage.js";
 import {
-    DeleteEntryRevisionParams,
-    DeleteEntryRevisionResponse
+    type DeleteEntryRevisionParams,
+    type DeleteEntryRevisionResponse
 } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
 
 type GetEntry = ReturnType<typeof useContentEntry>["getEntry"];

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IconPicker } from "@webiny/app-admin";
-import { Icon } from "@webiny/app-admin/components/IconPicker/types.js";
+import { type Icon } from "@webiny/app-admin/components/IconPicker/types.js";
 import { HiddenDiv } from "~/editor/components/HiddenDiv.js";
 
 interface OnMarkup {

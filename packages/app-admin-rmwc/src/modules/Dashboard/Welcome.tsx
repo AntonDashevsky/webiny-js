@@ -20,7 +20,7 @@ import { ReactComponent as SlackIcon } from "./icons/slack.svg";
 import { ReactComponent as TwitterIcon } from "./icons/twitter.svg";
 import { ReactComponent as TextbookIcon } from "./icons/textbook.svg";
 import { ReactComponent as LaptopIcon } from "./icons/laptop.svg";
-import { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types.js";
+import { type AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types.js";
 
 const linkStyle = css({
     textDecoration: "none",

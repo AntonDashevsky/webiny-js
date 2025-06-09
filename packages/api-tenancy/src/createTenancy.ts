@@ -1,8 +1,8 @@
 import { createTopic } from "@webiny/pubsub";
-import { Tenant, TenancyStorageOperations, Tenancy } from "./types.js";
+import { type Tenant, type TenancyStorageOperations, type Tenancy } from "./types.js";
 import { createSystemMethods } from "~/createTenancy/createSystemMethods.js";
 import { createTenantsMethods } from "~/createTenancy/createTenantsMethods.js";
-import { Topic } from "@webiny/pubsub/types.js";
+import { type Topic } from "@webiny/pubsub/types.js";
 
 export interface TenancyConfig {
     tenant: string | null;

@@ -1,5 +1,5 @@
 import React from "react";
-import { PbEditorPageElementVariableRendererPlugin } from "~/types.js";
+import { type PbEditorPageElementVariableRendererPlugin } from "~/types.js";
 import MultipleImageVariableInput from "~/editor/plugins/elementSettings/variable/MultipleImageVariableInput.js";
 import { useElementVariables } from "~/editor/hooks/useElementVariableValue.js";
 

@@ -1,7 +1,7 @@
 import {
-    CmsEntryStorageOperationsGetPreviousRevisionParams,
-    CmsModel,
-    CmsStorageEntry
+    type CmsEntryStorageOperationsGetPreviousRevisionParams,
+    type CmsModel,
+    type CmsStorageEntry
 } from "~/types/index.js";
 
 export interface IGetPreviousRevisionByEntryId {

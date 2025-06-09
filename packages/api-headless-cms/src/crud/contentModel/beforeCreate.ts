@@ -1,14 +1,14 @@
 import WebinyError from "@webiny/error";
 import camelCase from "lodash/camelCase.js";
 import {
-    CmsContext,
-    CmsModel,
-    HeadlessCmsStorageOperations,
-    OnModelBeforeCreateFromTopicParams,
-    OnModelBeforeCreateTopicParams
+    type CmsContext,
+    type CmsModel,
+    type HeadlessCmsStorageOperations,
+    type OnModelBeforeCreateFromTopicParams,
+    type OnModelBeforeCreateTopicParams
 } from "~/types/index.js";
-import { Topic } from "@webiny/pubsub/types.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type Topic } from "@webiny/pubsub/types.js";
+import { type PluginsContainer } from "@webiny/plugins";
 import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
 import { validateModel } from "./validateModel.js";
 import { validateExistingModelId, validateModelIdAllowed } from "./validate/modelId.js";

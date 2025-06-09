@@ -1,4 +1,4 @@
-import { execute, IExecuteParams } from "~/execute.js";
+import { execute, type IExecuteParams } from "~/execute.js";
 import { NotEnoughRemainingTimeError } from "~/NotEnoughRemainingTimeError.js";
 import pRetry from "p-retry";
 import { getNumberEnvVariable } from "./helpers/getNumberEnvVariable.js";

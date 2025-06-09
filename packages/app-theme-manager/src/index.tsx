@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { ThemesModule } from "./modules/themes/index.js";
-import { ThemeSource } from "~/types.js";
+import { type ThemeSource } from "~/types.js";
 export type { ThemeSource } from "~/types.js";
 export { AddTheme } from "./components/AddTheme.js";
 export { createThemeLoader } from "./website/createThemeLoader.js";

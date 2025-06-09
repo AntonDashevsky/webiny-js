@@ -1,18 +1,18 @@
 import { NotAuthorizedError } from "@webiny/api-security";
 import WebinyError from "@webiny/error";
 import {
-    OnSystemAfterInstallTopicParams,
-    OnSystemBeforeInstallTopicParams,
-    CmsContext,
-    CmsSystem,
-    CmsSystemContext,
-    HeadlessCmsStorageOperations,
-    OnSystemInstallErrorTopicParams
+    type OnSystemAfterInstallTopicParams,
+    type OnSystemBeforeInstallTopicParams,
+    type CmsContext,
+    type CmsSystem,
+    type CmsSystemContext,
+    type HeadlessCmsStorageOperations,
+    type OnSystemInstallErrorTopicParams
 } from "~/types/index.js";
-import { Tenant } from "@webiny/api-tenancy/types.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { createTopic } from "@webiny/pubsub";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
 
 const initialContentModelGroup = {
     name: "Ungrouped",

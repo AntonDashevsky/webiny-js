@@ -1,5 +1,5 @@
-import { SidebarAtomType } from "../sidebarAtom.js";
-import { EventActionHandlerMutationActionCallable } from "~/types.js";
+import { type SidebarAtomType } from "../sidebarAtom.js";
+import { type EventActionHandlerMutationActionCallable } from "~/types.js";
 
 export const highlightSidebarTabMutation: EventActionHandlerMutationActionCallable<
     SidebarAtomType,

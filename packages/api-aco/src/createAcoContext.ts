@@ -1,20 +1,20 @@
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { Tenant } from "@webiny/api-tenancy/types";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { createAcoHooks } from "~/createAcoHooks";
-import { createAcoStorageOperations } from "~/createAcoStorageOperations";
-import { AcoContext, CreateAcoParams, IAcoAppRegisterParams } from "~/types";
-import { createFolderCrudMethods } from "~/folder/folder.crud";
-import { createSearchRecordCrudMethods } from "~/record/record.crud";
-import { AcoApps } from "./apps";
-import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model";
-import { AcoAppRegisterPlugin } from "~/plugins";
-import { CmsEntriesCrudDecorators } from "~/utils/decorators/CmsEntriesCrudDecorators";
-import { createFilterCrudMethods } from "~/filter/filter.crud";
-import { createFlpCrudMethods, FolderLevelPermissions } from "~/flp";
+import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { createAcoHooks } from "~/createAcoHooks.js";
+import { createAcoStorageOperations } from "~/createAcoStorageOperations.js";
+import { type AcoContext, type CreateAcoParams, type IAcoAppRegisterParams } from "~/types.js";
+import { createFolderCrudMethods } from "~/folder/folder.crud.js";
+import { createSearchRecordCrudMethods } from "~/record/record.crud.js";
+import { AcoApps } from "./apps/index.js";
+import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model.js";
+import { AcoAppRegisterPlugin } from "~/plugins/index.js";
+import { CmsEntriesCrudDecorators } from "~/utils/decorators/CmsEntriesCrudDecorators.js";
+import { createFilterCrudMethods } from "~/filter/filter.crud.js";
+import { createFlpCrudMethods, FolderLevelPermissions } from "~/flp/index.js";
 
 interface CreateAcoContextParams {
     useFolderLevelPermissions?: boolean;

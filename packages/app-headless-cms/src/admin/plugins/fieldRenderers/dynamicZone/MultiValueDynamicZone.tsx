@@ -11,13 +11,13 @@ import { TemplateIcon } from "./TemplateIcon.js";
 import { ParentFieldProvider, useModelField } from "~/admin/hooks/index.js";
 import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
 import {
-    BindComponent,
-    BindComponentRenderProp,
-    CmsDynamicZoneTemplate,
-    CmsModelFieldRendererProps,
-    CmsModel,
-    CmsModelField,
-    CmsDynamicZoneTemplateWithTypename
+    type BindComponent,
+    type BindComponentRenderProp,
+    type CmsDynamicZoneTemplate,
+    type CmsModelFieldRendererProps,
+    type CmsModel,
+    type CmsModelField,
+    type CmsDynamicZoneTemplateWithTypename
 } from "~/types.js";
 import { makeDecoratable } from "@webiny/react-composition";
 import { TemplateProvider } from "~/admin/plugins/fieldRenderers/dynamicZone/TemplateProvider.js";

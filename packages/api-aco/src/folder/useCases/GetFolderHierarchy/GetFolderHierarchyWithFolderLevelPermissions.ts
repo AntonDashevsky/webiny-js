@@ -1,7 +1,7 @@
-import type { FolderPermission } from "~/flp/flp.types";
-import { FolderLevelPermissions } from "~/flp";
-import type { IGetFolderHierarchy } from "./IGetFolderHierarchy";
-import type { Folder, GetFolderHierarchyParams } from "~/folder/folder.types";
+import type { FolderPermission } from "~/flp/flp.types.js";
+import { type FolderLevelPermissions } from "~/flp/index.js";
+import type { IGetFolderHierarchy } from "./IGetFolderHierarchy.js";
+import type { Folder, GetFolderHierarchyParams } from "~/folder/folder.types.js";
 
 export class GetFolderHierarchyWithFolderLevelPermissions implements IGetFolderHierarchy {
     private flpCatalog: Map<string, FolderPermission[]> = new Map();

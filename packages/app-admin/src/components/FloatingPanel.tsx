@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Draggable, { type DraggableEventHandler } from "react-draggable";
-import { Resizable, ResizableProps } from "react-resizable";
+import { Resizable, type ResizableProps } from "react-resizable";
 import styled from "@emotion/styled";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { useKeyHandler } from "~/hooks/index.js";

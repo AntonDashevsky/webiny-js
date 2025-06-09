@@ -1,6 +1,6 @@
-import { Topic } from "@webiny/pubsub/types.js";
-import { OnGroupBeforeDeleteTopicParams, HeadlessCmsStorageOperations } from "~/types/index.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type Topic } from "@webiny/pubsub/types.js";
+import { type OnGroupBeforeDeleteTopicParams, type HeadlessCmsStorageOperations } from "~/types/index.js";
+import { type PluginsContainer } from "@webiny/plugins";
 import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin.js";
 import WebinyError from "@webiny/error";
 

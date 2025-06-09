@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useParentBlock } from "@webiny/app-page-builder-elements/renderers/block.js";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 
 export function useElementVariables(element: PbEditorElement | null) {
     const block = useParentBlock() as PbEditorElement | null;

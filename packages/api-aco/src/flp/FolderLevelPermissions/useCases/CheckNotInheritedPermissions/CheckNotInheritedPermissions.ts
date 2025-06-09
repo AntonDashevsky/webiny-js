@@ -1,5 +1,5 @@
-import type { ICheckNotInheritedPermissions } from "./ICheckNotInheritedPermissions";
-import type { FolderPermission } from "~/flp/flp.types";
+import type { ICheckNotInheritedPermissions } from "./ICheckNotInheritedPermissions.js";
+import type { FolderPermission } from "~/flp/flp.types.js";
 
 export class CheckNotInheritedPermissions implements ICheckNotInheritedPermissions {
     execute(permissions?: FolderPermission[]) {

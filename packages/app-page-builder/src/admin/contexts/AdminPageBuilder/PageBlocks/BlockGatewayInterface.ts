@@ -1,4 +1,4 @@
-import { PbPageBlock } from "~/types.js";
+import { type PbPageBlock } from "~/types.js";
 
 export type CreatePageBlockInput = Pick<PbPageBlock, "name" | "blockCategory" | "content">;
 export type UpdatePageBlockInput = Pick<PbPageBlock, "id"> & CreatePageBlockInput;

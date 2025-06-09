@@ -1,9 +1,9 @@
-import ApolloClient from "apollo-client";
-import { DocumentNode } from "graphql";
-import { FileItem } from "@webiny/app-admin/types.js";
-import { IGetFileByUrl } from "./EditFileUsingUrlRepository.js";
+import type ApolloClient from "apollo-client";
+import { type DocumentNode } from "graphql";
+import { type FileItem } from "@webiny/app-admin/types.js";
+import { type IGetFileByUrl } from "./EditFileUsingUrlRepository.js";
 import { getFileByUrlQuery } from "./getFileByUrl.graphql.js";
-import { useFileModel } from "~/hooks/useFileModel.js";
+import { type useFileModel } from "~/hooks/useFileModel.js";
 
 export class GetFileByUrl implements IGetFileByUrl {
     private client: ApolloClient<unknown>;

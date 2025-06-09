@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import noop from "lodash/noop.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { ApwContentReviewStep, ApwContentReviewStepStatus } from "~/types.js";
+import { type ApwContentReviewStep, ApwContentReviewStepStatus } from "~/types.js";
 import { Box, Columns, Stack } from "~/components/Layout.js";
 import {
     BadgeBox,

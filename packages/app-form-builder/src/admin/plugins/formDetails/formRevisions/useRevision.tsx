@@ -4,14 +4,14 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { useHandlers } from "@webiny/app/hooks/useHandlers.js";
 import {
     CREATE_REVISION_FROM,
-    CreateRevisionFromMutationResponse,
-    CreateRevisionFromMutationVariables,
+    type CreateRevisionFromMutationResponse,
+    type CreateRevisionFromMutationVariables,
     DELETE_REVISION,
     PUBLISH_REVISION,
     UNPUBLISH_REVISION
 } from "~/admin/graphql.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { FbRevisionModel } from "~/types.js";
+import { type FbRevisionModel } from "~/types.js";
 import {
     removeRevisionFromFormCache,
     updateLatestRevisionInListCache,

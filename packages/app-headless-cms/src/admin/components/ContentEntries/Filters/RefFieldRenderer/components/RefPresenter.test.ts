@@ -1,7 +1,7 @@
 import { jest } from "@jest/globals";
 import { RefPresenter } from "./RefPresenter.js";
-import { EntriesGatewayInterface } from "../adapters/index.js";
-import { EntryReference, EntryRepository } from "../domain/index.js";
+import { type EntriesGatewayInterface } from "../adapters/index.js";
+import { type EntryReference, EntryRepository } from "../domain/index.js";
 
 const mockGateway: EntriesGatewayInterface = {
     list: jest.fn() as EntriesGatewayInterface["list"],

@@ -1,4 +1,4 @@
-import { PbContext } from "~/types.js";
+import { type PbContext } from "~/types.js";
 import { GetTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/GetTranslatedCollectionRepository.js";
 import type { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection.js";
 

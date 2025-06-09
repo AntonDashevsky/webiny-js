@@ -8,8 +8,8 @@ import { SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index
 import { validation } from "@webiny/validation";
 import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
-import { Validator } from "@webiny/validation/types.js";
-import { PbPageTemplate } from "~/types.js";
+import { type Validator } from "@webiny/validation/types.js";
+import { type PbPageTemplate } from "~/types.js";
 
 const narrowDialog = css`
     & .mdc-dialog__surface {

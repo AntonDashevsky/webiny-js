@@ -16,13 +16,13 @@ import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import {
     GET_SETTINGS_QUERY,
     SAVE_SETTINGS_MUTATION,
-    SaveSettingsMutationResponse,
-    SaveSettingsMutationVariables,
-    SettingsQueryResponse
+    type SaveSettingsMutationResponse,
+    type SaveSettingsMutationVariables,
+    type SettingsQueryResponse
 } from "./graphql.js";
-import { TransportSettings, ValidationError } from "~/types.js";
+import { type TransportSettings, type ValidationError } from "~/types.js";
 import { Alert } from "@webiny/ui/Alert/index.js";
-import { Validator } from "@webiny/validation/types.js";
+import { type Validator } from "@webiny/validation/types.js";
 import dotPropImmutable from "dot-prop-immutable";
 
 const displayErrors = (errors?: ValidationError[]) => {

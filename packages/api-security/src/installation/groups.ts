@@ -1,4 +1,4 @@
-import { Security, Group } from "~/types.js";
+import { type Security, type Group } from "~/types.js";
 
 export const attachGroupInstaller = (security: Security): void => {
     const createdGroups: Group[] = [];

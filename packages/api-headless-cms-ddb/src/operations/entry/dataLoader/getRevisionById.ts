@@ -1,9 +1,9 @@
 import DataLoader from "dataloader";
 import { batchReadAll } from "@webiny/db-dynamodb";
-import { CmsStorageEntry } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsStorageEntry } from "@webiny/api-headless-cms/types/index.js";
 import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup.js";
 import { createPartitionKey, createRevisionSortKey } from "~/operations/entry/keys.js";
-import { DataLoaderParams } from "./types.js";
+import { type DataLoaderParams } from "./types.js";
 import { parseIdentifier } from "@webiny/utils";
 import { createBatchScheduleFn } from "./createBatchScheduleFn.js";
 

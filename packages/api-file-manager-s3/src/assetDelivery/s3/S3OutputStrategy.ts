@@ -1,5 +1,5 @@
-import { Asset, AssetOutputStrategy, AssetReply } from "@webiny/api-file-manager";
-import { GetObjectCommand, getSignedUrl, S3 } from "@webiny/aws-sdk/client-s3";
+import { type Asset, type AssetOutputStrategy, type AssetReply } from "@webiny/api-file-manager";
+import { GetObjectCommand, getSignedUrl, type S3 } from "@webiny/aws-sdk/client-s3";
 import { S3RedirectAssetReply } from "~/assetDelivery/s3/S3RedirectAssetReply.js";
 import { S3StreamAssetReply } from "~/assetDelivery/s3/S3StreamAssetReply.js";
 

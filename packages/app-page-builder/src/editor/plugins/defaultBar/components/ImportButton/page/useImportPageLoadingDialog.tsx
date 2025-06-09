@@ -8,12 +8,12 @@ import ProgressBar from "../ProgressBar.js";
 import { LoadingDialog } from "../styledComponents.js";
 import {
     GET_PAGES_IMPORT_TASK,
-    GetPagesImportTaskResponse,
-    GetPagesImportTaskResponseDataStats,
-    GetPagesImportTaskVariables,
+    type GetPagesImportTaskResponse,
+    type GetPagesImportTaskResponseDataStats,
+    type GetPagesImportTaskVariables,
     LIST_IMPORTED_PAGES,
-    ListImportedPagesResponse,
-    ListImportedPagesVariables
+    type ListImportedPagesResponse,
+    type ListImportedPagesVariables
 } from "~/admin/graphql/pageImportExport.gql.js";
 import { PbTaskStatus } from "~/admin/graphql/types.js";
 import ImportPagesDetails from "./useImportPagesDetails.js";

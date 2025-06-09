@@ -3,29 +3,29 @@ import { createTopic } from "@webiny/pubsub";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { ContextPlugin } from "@webiny/api";
 import {
-    ExportPagesParams,
-    OnPagesAfterExportTopicParams,
-    OnPagesAfterImportTopicParams,
-    OnPagesBeforeExportTopicParams,
-    OnPagesBeforeImportTopicParams,
-    PbExportPagesTaskData,
-    PbImportExportContext,
-    PbImportPagesTaskData,
-    PbImportPagesTaskStats
+    type ExportPagesParams,
+    type OnPagesAfterExportTopicParams,
+    type OnPagesAfterImportTopicParams,
+    type OnPagesBeforeExportTopicParams,
+    type OnPagesBeforeImportTopicParams,
+    type PbExportPagesTaskData,
+    type PbImportExportContext,
+    type PbImportPagesTaskData,
+    type PbImportPagesTaskStats
 } from "~/types.js";
 import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions.js";
 import {
-    IExportPagesControllerInput,
-    IExportPagesControllerOutput,
-    IExportPagesZipPagesInput,
-    IExportPagesZipPagesOutput,
+    type IExportPagesControllerInput,
+    type IExportPagesControllerOutput,
+    type IExportPagesZipPagesInput,
+    type IExportPagesZipPagesOutput,
     PageExportTask
 } from "~/export/pages/types.js";
 import {
-    IImportPagesControllerInput,
-    IImportPagesControllerOutput,
-    IImportPagesProcessPagesInput,
-    IImportPagesProcessPagesOutput,
+    type IImportPagesControllerInput,
+    type IImportPagesControllerOutput,
+    type IImportPagesProcessPagesInput,
+    type IImportPagesProcessPagesOutput,
     PageImportTask
 } from "~/import/pages/types.js";
 

@@ -1,5 +1,5 @@
 import { Plugin as BasePlugin } from "@webiny/plugins";
-import { Transport, MailerContext, TransportSettings } from "~/types.js";
+import { type Transport, type MailerContext, type TransportSettings } from "~/types.js";
 
 interface TransportParams {
     settings: TransportSettings | null;

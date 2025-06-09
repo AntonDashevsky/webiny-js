@@ -2,7 +2,7 @@ import WebinyError from "@webiny/error";
 
 import { AUDIT } from "~/config.js";
 import { getAuditConfig } from "~/utils/getAuditConfig.js";
-import { AuditLogsContext } from "~/types.js";
+import { type AuditLogsContext } from "~/types.js";
 
 export const onUserAfterCreateHook = (context: AuditLogsContext) => {
     context.adminUsers.onUserAfterCreate.subscribe(async ({ user }) => {

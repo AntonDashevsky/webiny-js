@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { type IconProp } from "@fortawesome/fontawesome-svg-core";
 
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { ButtonDefault } from "@webiny/ui/Button/index.js";
@@ -10,7 +10,7 @@ import { List, ListItem } from "@webiny/ui/List/index.js";
 import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { useModels } from "@webiny/app-headless-cms";
-import { CmsModel } from "@webiny/app-headless-cms/types.js";
+import { type CmsModel } from "@webiny/app-headless-cms/types.js";
 
 import { ReactComponent as ArrowRightIcon } from "@material-design-icons/svg/round/keyboard_arrow_right.svg";
 import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";

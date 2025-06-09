@@ -1,7 +1,7 @@
 import { PluginsContainer } from "@webiny/plugins";
-import { CompressionPlugin, type ICompressedValue } from "./CompressionPlugin";
-import { createGzipCompression } from "./plugins/GzipCompression";
-import { createJsonpackCompression } from "./plugins/JsonpackCompression";
+import { CompressionPlugin, type ICompressedValue } from "./CompressionPlugin.js";
+import { createGzipCompression } from "./plugins/GzipCompression.js";
+import { createJsonpackCompression } from "./plugins/JsonpackCompression.js";
 
 export interface ICompressorParams {
     plugins: PluginsContainer;

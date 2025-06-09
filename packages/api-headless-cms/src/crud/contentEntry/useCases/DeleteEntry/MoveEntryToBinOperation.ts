@@ -1,8 +1,8 @@
-import { IMoveEntryToBinOperation } from "~/crud/contentEntry/abstractions/index.js";
+import { type IMoveEntryToBinOperation } from "~/crud/contentEntry/abstractions/index.js";
 import {
-    CmsEntryStorageOperations,
-    CmsEntryStorageOperationsMoveToBinParams,
-    CmsModel
+    type CmsEntryStorageOperations,
+    type CmsEntryStorageOperationsMoveToBinParams,
+    type CmsModel
 } from "~/types/index.js";
 
 export class MoveEntryToBinOperation implements IMoveEntryToBinOperation {

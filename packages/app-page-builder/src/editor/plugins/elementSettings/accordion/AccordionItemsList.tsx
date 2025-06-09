@@ -13,7 +13,7 @@ import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
 import { ReactComponent as DragIndicatorIcon } from "~/editor/defaultConfig/Toolbar/Navigator/assets/drag_indicator_24px.svg";
 import { ReactComponent as DeleteIcon } from "~/editor/assets/icons/delete.svg";
 import { createElement } from "~/editor/helpers.js";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 
 const accordionStyles = css`
     .accordion-content {

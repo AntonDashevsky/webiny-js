@@ -4,11 +4,11 @@ import { Drawer, DrawerContent, DrawerHeader } from "@webiny/ui/Drawer/index.js"
 import {
     Brand as BrandSpec,
     Compose,
-    HigherOrderComponent,
-    MenuData,
+    type HigherOrderComponent,
+    type MenuData,
     MenuItemRenderer,
     MenuItems,
-    MenuItemsProps,
+    type MenuItemsProps,
     NavigationRenderer as NavigationSpec,
     Provider,
     useNavigation as useAdminNavigation

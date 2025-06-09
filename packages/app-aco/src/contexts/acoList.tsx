@@ -4,23 +4,23 @@ import pick from "lodash/pick.js";
 import { useStateIfMounted } from "@webiny/app-admin";
 import { useSecurity } from "@webiny/app-security";
 import {
-    FolderItem,
-    GenericSearchData,
-    ListMeta,
-    ListSearchRecordsQueryVariables,
-    ListSearchRecordsSort,
-    SearchRecordItem
-} from "~/types";
-import { useAcoApp, useNavigateFolder } from "~/hooks";
+    type FolderItem,
+    type GenericSearchData,
+    type ListMeta,
+    type ListSearchRecordsQueryVariables,
+    type ListSearchRecordsSort,
+    type SearchRecordItem
+} from "~/types.js";
+import { useAcoApp, useNavigateFolder } from "~/hooks/index.js";
 import {
     useGetDescendantFolders,
     useGetFolderHierarchy,
     useListFoldersByParentIds
-} from "~/features";
-import { FoldersContext } from "~/contexts/folders";
-import { SearchRecordsContext } from "~/contexts/records";
-import { sortTableItems, validateOrGetDefaultDbSort } from "~/sorting";
-import { ROOT_FOLDER } from "~/constants";
+} from "~/features/index.js";
+import { FoldersContext } from "~/contexts/folders.js";
+import { SearchRecordsContext } from "~/contexts/records.js";
+import { sortTableItems, validateOrGetDefaultDbSort } from "~/sorting.js";
+import { ROOT_FOLDER } from "~/constants.js";
 
 export interface AcoListContextData<T> {
     folders: FolderItem[];

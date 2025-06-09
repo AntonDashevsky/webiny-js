@@ -2,10 +2,11 @@
  * Nodemailer docs
  * https://nodemailer.com/about/
  */
-import { Transport } from "~/types.js";
+import { type Transport } from "~/types.js";
 import WebinyError from "@webiny/error";
-import nodemailer, { Transporter } from "nodemailer";
-import SMTPTransport, { Options } from "nodemailer/lib/smtp-transport/index.js";
+import nodemailer, { type Transporter } from "nodemailer";
+import {type Options} from "nodemailer/lib/smtp-transport/index.js";
+import type SMTPTransport from "nodemailer/lib/smtp-transport/index.js";
 
 export type SmtpTransportConfig = Options;
 

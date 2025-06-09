@@ -1,4 +1,4 @@
-import { CmsModel, CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
+import { type CmsModel, type CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
 
 export const modelHasLegacyRteField = (model: CmsModel): boolean => {
     return model.fields.some(isLegacyRteField);

@@ -1,5 +1,5 @@
-import { CmsIdentity, FolderPermission } from "~/types.js";
-import { Folder } from "../Folder.js";
+import { type CmsIdentity, type FolderPermission } from "~/types.js";
+import { type Folder } from "../Folder.js";
 import { ROOT_FOLDER } from "~/constants.js";
 
 export interface FolderDto {

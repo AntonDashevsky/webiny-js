@@ -10,8 +10,8 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { useQuery } from "@apollo/react-hooks";
 import {
     GET_FORM_REVISIONS,
-    GetFormRevisionsQueryResponse,
-    GetFormRevisionsQueryVariables
+    type GetFormRevisionsQueryResponse,
+    type GetFormRevisionsQueryVariables
 } from "~/admin/graphql.js";
 import { useFormEditor } from "~/admin/components/FormEditor/index.js";
 

@@ -10,7 +10,7 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 
 import { ReactComponent as SelectedMarker } from "@material-design-icons/svg/filled/check_circle.svg";
 
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 
 import {
     FileBody,

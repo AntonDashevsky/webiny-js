@@ -1,18 +1,18 @@
 import WebinyError from "@webiny/error";
 import { NotAuthorizedError } from "@webiny/api-security";
 import {
-    OnSystemBeforeInstallTopic,
-    OnSystemAfterInstallTopic,
-    FormBuilder,
-    FormBuilderContext,
-    Settings,
-    System,
-    SystemCRUD
+    type OnSystemBeforeInstallTopic,
+    type OnSystemAfterInstallTopic,
+    type FormBuilder,
+    type FormBuilderContext,
+    type Settings,
+    type System,
+    type SystemCRUD
 } from "~/types.js";
-import { Tenant } from "@webiny/api-tenancy/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
 import { createTopic } from "@webiny/pubsub";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
 
 interface CreateSystemCrudParams {
     getIdentity: () => SecurityIdentity;

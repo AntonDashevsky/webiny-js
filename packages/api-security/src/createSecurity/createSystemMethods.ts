@@ -1,10 +1,10 @@
 import WebinyError from "@webiny/error";
 import {
-    ErrorEvent,
-    InstallEvent,
-    Security,
-    SecurityConfig,
-    System as SystemRecord
+    type ErrorEvent,
+    type InstallEvent,
+    type Security,
+    type SecurityConfig,
+    type System as SystemRecord
 } from "../types.js";
 import { createTopic } from "@webiny/pubsub";
 

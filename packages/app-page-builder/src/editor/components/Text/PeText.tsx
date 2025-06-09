@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo } from "react";
 import get from "lodash/get.js";
-import { CoreOptions } from "medium-editor";
+import { type CoreOptions } from "medium-editor";
 import { makeDecoratable } from "@webiny/react-composition";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 import useUpdateHandlers from "../../plugins/elementSettings/useUpdateHandlers.js";
 import ReactMediumEditor from "../../components/MediumEditor/index.js";
 import { applyFallbackDisplayMode } from "../../plugins/elementSettings/elementSettingsUtils.js";

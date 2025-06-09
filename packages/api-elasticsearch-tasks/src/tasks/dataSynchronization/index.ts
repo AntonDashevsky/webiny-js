@@ -1,9 +1,9 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context, IElasticsearchTaskConfig } from "~/types.js";
+import { type Context, type IElasticsearchTaskConfig } from "~/types.js";
 import {
-    IDataSynchronizationInput,
-    IDataSynchronizationManager,
-    IDataSynchronizationOutput
+    type IDataSynchronizationInput,
+    type IDataSynchronizationManager,
+    type IDataSynchronizationOutput
 } from "~/tasks/dataSynchronization/types.js";
 
 export const DATA_SYNCHRONIZATION_TASK = "dataSynchronization";

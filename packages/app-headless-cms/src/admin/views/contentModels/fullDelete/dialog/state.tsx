@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { IFullyDeleteModelState } from "../types.js";
 import { FullyDeleteModelStateStatus } from "../types.js";
 import type { CmsErrorResponse, CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
-import { IDeleteCmsModelTask } from "~/admin/viewsGraphql.js";
+import { type IDeleteCmsModelTask } from "~/admin/viewsGraphql.js";
 
 const defaultState: IFullyDeleteModelState = {
     confirmation: "",

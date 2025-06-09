@@ -1,7 +1,7 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { ContextPlugin } from "@webiny/handler";
-import { TenancyContext } from "@webiny/api-tenancy/types.js";
+import { type TenancyContext } from "@webiny/api-tenancy/types.js";
 
 interface Config {
     name: string;

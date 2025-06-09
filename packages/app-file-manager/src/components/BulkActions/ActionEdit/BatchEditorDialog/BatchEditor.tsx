@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 
 import { observer } from "mobx-react-lite";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import { Form, FormAPI, FormOnSubmit } from "@webiny/form";
+import { Form, type FormAPI, type FormOnSubmit } from "@webiny/form";
 import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
 
 import { AddOperation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/AddOperation.js";
 import { Operation } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/Operation.js";
 import {
-    BatchEditorDialogViewModel,
-    BatchEditorFormData
+    type BatchEditorDialogViewModel,
+    type BatchEditorFormData
 } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter.js";
 import { BatchEditorContainer } from "~/components/BulkActions/ActionEdit/ActionEdit.styled.js";
 

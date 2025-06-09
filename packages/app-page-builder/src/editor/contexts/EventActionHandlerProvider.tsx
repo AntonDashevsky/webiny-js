@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef } from "react";
 import {
-    Snapshot,
+    type Snapshot,
     useGotoRecoilSnapshot,
     useRecoilCallback,
     useRecoilSnapshot,
@@ -20,28 +20,28 @@ import {
     elementByIdSelector,
     activeElementAtom,
     highlightElementAtom,
-    SidebarAtomType,
-    RootElementAtom,
-    UiAtomType
+    type SidebarAtomType,
+    type RootElementAtom,
+    type UiAtomType
 } from "../recoil/modules/index.js";
 
-import { PbState } from "../recoil/modules/types.js";
-import { EventAction } from "~/editor/recoil/eventActions/index.js";
+import { type PbState } from "../recoil/modules/types.js";
+import { type EventAction } from "~/editor/recoil/eventActions/index.js";
 import {
-    EventActionHandlerCallableArgs,
-    EventActionCallable,
-    EventActionHandlerActionCallableResponse,
-    EventActionHandlerConfig,
-    PbConfigPluginType,
-    PbConfigType,
-    PbEditorElement,
-    EventActionHandler,
-    EventActionHandlerTarget,
-    EventActionHandlerCallableState,
-    GetElementTreeProps,
-    PbEditorElementTree
+    type EventActionHandlerCallableArgs,
+    type EventActionCallable,
+    type EventActionHandlerActionCallableResponse,
+    type EventActionHandlerConfig,
+    type PbConfigPluginType,
+    type PbConfigType,
+    type PbEditorElement,
+    type EventActionHandler,
+    type EventActionHandlerTarget,
+    type EventActionHandlerCallableState,
+    type GetElementTreeProps,
+    type PbEditorElementTree
 } from "~/types.js";
-import { composeAsync, composeSync, AsyncProcessor, SyncProcessor } from "@webiny/utils/compose.js";
+import { composeAsync, composeSync, type AsyncProcessor, type SyncProcessor } from "@webiny/utils/compose.js";
 import { UpdateElementTreeActionEvent, UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
 
 type ListType = Map<symbol, EventActionCallable>;

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import { IRecordLockingError, IRecordLockingIdentity } from "~/types.js";
+import { type IRecordLockingError, type IRecordLockingIdentity } from "~/types.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
 import { useRecordLocking, usePermission } from "~/hooks/index.js";
 import { useRouter } from "@webiny/react-router";

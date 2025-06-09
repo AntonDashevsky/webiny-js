@@ -4,8 +4,8 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { ShowDetails } from "../styledComponents.js";
-import { ListBlockImportExportSubTasksResponse } from "~/admin/graphql/blockImportExport.gql.js";
-import { PageBuilderImportExportSubTask } from "~/types.js";
+import { type ListBlockImportExportSubTasksResponse } from "~/admin/graphql/blockImportExport.gql.js";
+import { type PageBuilderImportExportSubTask } from "~/types.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importBlock");
 

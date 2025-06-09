@@ -1,4 +1,4 @@
-import { ENTITIES, SecurityStorageParams } from "~/types.js";
+import { ENTITIES, type SecurityStorageParams } from "~/types.js";
 import type {
     ApiKey,
     Group,

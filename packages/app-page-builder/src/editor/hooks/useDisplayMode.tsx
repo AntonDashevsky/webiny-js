@@ -2,11 +2,11 @@ import React, { useCallback, useMemo } from "react";
 import {
     setDisplayModeMutation,
     setPagePreviewDimensionMutation,
-    PagePreviewDimension
+    type PagePreviewDimension
 } from "~/editor/recoil/modules/index.js";
 import { plugins } from "@webiny/plugins";
 import { useUI } from "~/editor/hooks/useUI.js";
-import { DisplayMode, PbEditorResponsiveModePlugin } from "~/types.js";
+import { type DisplayMode, type PbEditorResponsiveModePlugin } from "~/types.js";
 import { usePageBuilder } from "~/hooks/usePageBuilder.js";
 
 export type DisplayModeConfig = PbEditorResponsiveModePlugin["config"];

@@ -2,9 +2,9 @@ import React from "react";
 import { DateTimeWithoutTimezone } from "../../fieldRenderers/dateTime/DateTimeWithoutTimezone.js";
 import { DateTimeWithTimezone } from "../../fieldRenderers/dateTime/DateTimeWithTimezone.js";
 import { Time } from "../../fieldRenderers/dateTime/Time.js";
-import { CmsModelField } from "~/types.js";
+import { type CmsModelField } from "~/types.js";
 import { DateOnly } from "~/admin/plugins/fieldRenderers/dateTime/DateOnly.js";
-import { BindComponentRenderProp } from "@webiny/form";
+import { type BindComponentRenderProp } from "@webiny/form";
 
 export const createInputField = (field: CmsModelField, bind: BindComponentRenderProp) => {
     const type = field.settings ? field.settings.type : null;

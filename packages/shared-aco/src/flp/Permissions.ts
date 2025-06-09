@@ -1,4 +1,4 @@
-import type { FolderLevelPermission, FolderPermission } from "~/flp/flp.types";
+import type { FolderLevelPermission, FolderPermission } from "~/flp/flp.types.js";
 
 export class Permissions {
     public static create(

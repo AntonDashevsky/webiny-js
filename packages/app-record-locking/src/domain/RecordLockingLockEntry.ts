@@ -1,10 +1,10 @@
 import { WebinyError } from "@webiny/error";
 import {
-    IRecordLockingLockEntry,
-    IRecordLockingLockEntryParams,
-    IRecordLockingLockEntryResult
+    type IRecordLockingLockEntry,
+    type IRecordLockingLockEntryParams,
+    type IRecordLockingLockEntryResult
 } from "~/domain/abstractions/IRecordLockingLockEntry.js";
-import { IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
+import { type IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
 
 interface Params {
     client: IRecordLockingClient;

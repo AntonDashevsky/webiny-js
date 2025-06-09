@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { GenericComponent, Decorator, useApp } from "~/index.js";
+import { type GenericComponent, type Decorator, useApp } from "~/index.js";
 
 export interface ProviderProps {
     hoc: Decorator<GenericComponent>;

@@ -2,13 +2,13 @@ import React, { useCallback, useMemo, useState } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { createRecordLocking } from "~/domain/RecordLocking.js";
 import {
-    IFetchLockedEntryLockRecordParams,
-    IFetchLockRecordParams,
-    IPossiblyRecordLockingRecord,
-    IRecordLockingContext,
-    IRecordLockingError,
-    IUnlockEntryParams,
-    IUpdateEntryLockParams
+    type IFetchLockedEntryLockRecordParams,
+    type IFetchLockRecordParams,
+    type IPossiblyRecordLockingRecord,
+    type IRecordLockingContext,
+    type IRecordLockingError,
+    type IUnlockEntryParams,
+    type IUpdateEntryLockParams
 } from "~/types.js";
 import { useStateIfMounted } from "@webiny/app-admin";
 

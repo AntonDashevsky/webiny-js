@@ -1,8 +1,8 @@
 import { resolve, resolveList } from "~/utils/resolve.js";
-import { Context } from "~/types.js";
+import { type Context } from "~/types.js";
 import {
     createGraphQLSchemaPlugin,
-    IGraphQLSchemaPlugin,
+    type IGraphQLSchemaPlugin,
     NotFoundError
 } from "@webiny/handler-graphql";
 import { renderFields } from "@webiny/api-headless-cms/utils/renderFields.js";

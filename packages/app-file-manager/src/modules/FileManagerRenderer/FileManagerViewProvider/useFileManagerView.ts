@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FileManagerViewContext } from "./FileManagerViewContext.js";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 
 export function useFileManagerView<TFileItem extends FileItem = FileItem>() {
     const context = useContext<FileManagerViewContext<TFileItem>>(

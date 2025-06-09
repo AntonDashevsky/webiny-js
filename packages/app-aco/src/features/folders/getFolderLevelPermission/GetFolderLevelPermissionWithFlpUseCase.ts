@@ -1,8 +1,8 @@
 import {
-    GetFolderLevelPermissionParams,
-    IGetFolderLevelPermissionUseCase
+    type GetFolderLevelPermissionParams,
+    type IGetFolderLevelPermissionUseCase
 } from "./IGetFolderLevelPermissionUseCase.js";
-import { IGetFolderLevelPermissionRepository } from "./IGetFolderLevelPermissionRepository.js";
+import { type IGetFolderLevelPermissionRepository } from "./IGetFolderLevelPermissionRepository.js";
 
 export class GetFolderLevelPermissionWithFlpUseCase implements IGetFolderLevelPermissionUseCase {
     private repository: IGetFolderLevelPermissionRepository;

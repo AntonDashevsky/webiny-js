@@ -2,9 +2,9 @@ import { makeAutoObservable, runInAction } from "mobx";
 import {
     Feedback,
     Filter,
-    FilterDTO,
+    type FilterDTO,
     FilterMapper,
-    FilterRepository
+    type FilterRepository
 } from "~/components/AdvancedSearch/domain/index.js";
 
 export interface AdvancedSearchPresenterInterface {

@@ -1,9 +1,9 @@
 import { ListResponse, ListErrorResponse } from "@webiny/handler-graphql/responses.js";
 import {
-    CmsEntryMeta,
-    CmsEntryResolverFactory as ResolverFactory,
-    CmsEntry,
-    CmsEntryListParams
+    type CmsEntryMeta,
+    type CmsEntryResolverFactory as ResolverFactory,
+    type CmsEntry,
+    type CmsEntryListParams
 } from "~/types/index.js";
 
 type ResolveListDeleted = ResolverFactory<any, CmsEntryListParams>;

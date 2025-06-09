@@ -8,7 +8,7 @@ import { useStateWithCallback } from "@webiny/app-admin/hooks/index.js";
 import PageTemplatesDataList from "./PageTemplatesDataList.js";
 import { PageTemplateDetails } from "./PageTemplateDetails.js";
 import { CreatePageTemplateDialog } from "./CreatePageTemplateDialog.js";
-import { PbPageTemplate } from "~/types.js";
+import { type PbPageTemplate } from "~/types.js";
 import { useTemplatesPermissions } from "~/hooks/permissions/index.js";
 import { useCreatePageTemplate, useDeletePageTemplate } from "~/features/index.js";
 

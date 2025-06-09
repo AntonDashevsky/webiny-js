@@ -7,7 +7,7 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CREATE_TENANT, GET_TENANT, UPDATE_TENANT, LIST_TENANTS } from "~/graphql/index.js";
-import { TenantItem } from "~/types.js";
+import { type TenantItem } from "~/types.js";
 
 const t = i18n.ns("app-tenant-manager/tenants/form");
 

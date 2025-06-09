@@ -2,7 +2,7 @@ import React, { Fragment, useCallback } from "react";
 import {
     Compose,
     BrandRenderer,
-    HigherOrderComponent,
+    type HigherOrderComponent,
     useTags,
     Logo,
     AddLogo

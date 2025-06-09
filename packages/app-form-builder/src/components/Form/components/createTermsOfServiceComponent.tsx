@@ -1,7 +1,7 @@
-import React from "react";
-import { OutputBlockData } from "@editorjs/editorjs";
+import type React from "react";
+import { type OutputBlockData } from "@editorjs/editorjs";
 import { termsOfServiceEnabled } from "./../functions/index.js";
-import { FbFormModel, FbFormRenderComponentProps } from "~/types.js";
+import { type FbFormModel, type FbFormRenderComponentProps } from "~/types.js";
 
 interface CreateTermsOfServiceComponentArgs {
     props: FbFormRenderComponentProps;

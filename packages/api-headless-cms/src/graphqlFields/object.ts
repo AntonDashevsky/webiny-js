@@ -1,11 +1,11 @@
 import upperFirst from "lodash/upperFirst.js";
 import lodashUpperFirst from "lodash/upperFirst.js";
 import {
-    CmsFieldTypePlugins,
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldToGraphQLPlugin,
-    CmsModelObjectField
+    type CmsFieldTypePlugins,
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldToGraphQLPlugin,
+    type CmsModelObjectField
 } from "~/types/index.js";
 import { createTypeFromFields } from "~/utils/createTypeFromFields.js";
 

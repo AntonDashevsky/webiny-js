@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CmsEditorFormSettingsPlugin } from "~/types.js";
+import { type CmsEditorFormSettingsPlugin } from "~/types.js";
 import GeneralSettings from "./components/GeneralSettings.js";
 import { ReactComponent as SettingsIcon } from "./icons/round-settings-24px.svg";
 

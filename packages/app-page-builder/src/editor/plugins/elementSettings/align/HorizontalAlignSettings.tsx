@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
+import { type PbEditorElement, type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { IconButton } from "@webiny/ui/Button/index.js";
 import { ContentWrapper } from "../components/StyledComponents.js";

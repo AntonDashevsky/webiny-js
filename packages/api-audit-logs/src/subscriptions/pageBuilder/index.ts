@@ -38,7 +38,7 @@ import {
 import { onMenuAfterCreateHook, onMenuAfterUpdateHook, onMenuAfterDeleteHook } from "./menus.js";
 import { onSettingsAfterUpdateHook } from "./settings.js";
 
-import { AuditLogsContext } from "~/types.js";
+import { type AuditLogsContext } from "~/types.js";
 
 export const createPageBuilderHooks = (context: AuditLogsContext) => {
     onBlockAfterCreateHook(context);

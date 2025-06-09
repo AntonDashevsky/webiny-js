@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Browser, BrowserConfig } from "./Browser";
+import { Browser, type BrowserConfig } from "./Browser/index.js";
 import { CompositionScope } from "@webiny/react-composition";
 
 const base = createConfigurableComponent<TrashBinListConfig>("TrashBinListConfig");

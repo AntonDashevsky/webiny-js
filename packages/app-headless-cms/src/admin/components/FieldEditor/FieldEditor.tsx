@@ -9,8 +9,8 @@ import EditFieldDialog from "./EditFieldDialog.js";
 import Field from "./Field.js";
 import { rowHandle, fieldHandle, fieldContainer, Row, RowContainer } from "./Styled.js";
 import { useModelFieldEditor } from "./useModelFieldEditor.js";
-import { FieldEditorProvider, IsVisibleCallable } from "./FieldEditorContext.js";
-import { CmsModelField, CmsEditorFieldsLayout, CmsModelFieldTypePlugin, DragSource } from "~/types.js";
+import { FieldEditorProvider, type IsVisibleCallable } from "./FieldEditorContext.js";
+import { type CmsModelField, type CmsEditorFieldsLayout, type CmsModelFieldTypePlugin, type DragSource } from "~/types.js";
 import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider/index.js";
 
 const t = i18n.namespace("app-headless-cms/admin/components/editor");

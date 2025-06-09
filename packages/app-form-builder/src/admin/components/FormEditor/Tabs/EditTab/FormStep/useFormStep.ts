@@ -1,14 +1,14 @@
 import { useCallback, useContext } from "react";
 import {
-    DropDestination,
-    DropSource,
-    DropTarget,
-    FbFormModelField,
-    FbFormStep,
-    DropPosition
+    type DropDestination,
+    type DropSource,
+    type DropTarget,
+    type FbFormModelField,
+    type FbFormStep,
+    type DropPosition
 } from "~/types.js";
 import { useFormEditor } from "~/admin/components/FormEditor/index.js";
-import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable.js";
+import { type DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import { FormStepContext } from "./FormStepContext/FormStepContext.js";
 

@@ -1,6 +1,6 @@
 import { WebinyError } from "@webiny/error";
-import { Client } from "~/client.js";
-import { IElasticsearchCatHealthResponse } from "./types.js";
+import { type Client } from "~/client.js";
+import { type IElasticsearchCatHealthResponse } from "./types.js";
 import { stripConnectionFromException } from "~/operations/stripConnectionFromException.js";
 
 export class ElasticsearchCatHealth {

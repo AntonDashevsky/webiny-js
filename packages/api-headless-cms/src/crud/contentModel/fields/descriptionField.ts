@@ -1,4 +1,4 @@
-import { CmsModelField } from "~/types/index.js";
+import { type CmsModelField } from "~/types/index.js";
 import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 import { getApplicableFieldById } from "./getApplicableFieldById.js";
 

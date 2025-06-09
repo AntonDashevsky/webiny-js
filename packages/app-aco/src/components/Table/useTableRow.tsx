@@ -1,5 +1,5 @@
-import React, { Context, createContext, ReactNode, useContext } from "react";
-import { DefaultData } from "@webiny/ui/DataTable/index.js";
+import React, { type Context, createContext, type ReactNode, useContext } from "react";
+import { type DefaultData } from "@webiny/ui/DataTable/index.js";
 
 export interface TableRowContextData<T> {
     row: T;

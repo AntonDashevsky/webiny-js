@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
 import {
-    CmsReferenceContentEntry,
-    CmsReferenceValue
+    type CmsReferenceContentEntry,
+    type CmsReferenceValue
 } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { Image } from "./entry/Image.js";
 import { ModelName } from "./entry/ModelName.js";
@@ -16,7 +16,7 @@ import { Select } from "./entry/Select.js";
 import { Remove } from "./entry/Remove.js";
 import { MoveUp } from "./entry/MoveUp.js";
 import { MoveDown } from "./entry/MoveDown.js";
-import { CmsModel } from "~/types.js";
+import { type CmsModel } from "~/types.js";
 
 const Container = styled("div")({
     width: "100%",

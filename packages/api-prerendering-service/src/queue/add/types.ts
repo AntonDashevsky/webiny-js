@@ -1,3 +1,3 @@
-import { QueueAddJob } from "~/types.js";
+import { type QueueAddJob } from "~/types.js";
 
 export type QueueAddJobEvent = QueueAddJob | QueueAddJob[];

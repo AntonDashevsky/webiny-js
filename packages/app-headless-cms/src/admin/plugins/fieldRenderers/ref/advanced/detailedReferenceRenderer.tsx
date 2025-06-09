@@ -1,5 +1,5 @@
 import React from "react";
-import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { type CmsModelFieldRendererPlugin } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { AdvancedSingleReferenceField } from "./components/AdvancedSingleReferenceField.js";
 

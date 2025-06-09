@@ -3,7 +3,7 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery } from "@apollo/react-hooks";
 import {
     GET_TEMPLATE_IMPORT_EXPORT_TASK,
-    GetTemplateImportExportTaskResponse
+    type GetTemplateImportExportTaskResponse
 } from "~/admin/graphql/templateImportExport.gql.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";

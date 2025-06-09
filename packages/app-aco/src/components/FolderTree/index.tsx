@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
-import { Tooltip } from "@webiny/ui/Tooltip";
-import { useGetFolderHierarchy, useGetFolderLevelPermission } from "~/features";
-import { CreateButton } from "./ButtonCreate";
-import { Loader } from "./Loader";
-import { List } from "./List";
-import { Container } from "./styled";
-import { FolderItem } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
-import { AcoWithConfig } from "~/config";
+import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { useGetFolderHierarchy, useGetFolderLevelPermission } from "~/features/index.js";
+import { CreateButton } from "./ButtonCreate/index.js";
+import { Loader } from "./Loader/index.js";
+import { List } from "./List/index.js";
+import { Container } from "./styled.js";
+import { type FolderItem } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import { AcoWithConfig } from "~/config/index.js";
 
 export { Loader };
 

@@ -4,12 +4,12 @@ import { useNavigate } from "@webiny/react-router";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ContentEntryEditorConfig } from "@webiny/app-headless-cms";
 import { useApolloClient } from "@apollo/react-hooks";
-import { ShowConfirmationOnAccept, useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { ApwContentReviewContent, ApwContentTypes } from "~/types.js";
+import { type ShowConfirmationOnAccept, useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
+import { type ApwContentReviewContent, ApwContentTypes } from "~/types.js";
 import {
     CREATE_CONTENT_REVIEW_MUTATION,
-    CreateApwContentReviewMutationVariables,
-    CreateContentReviewMutationResponse
+    type CreateApwContentReviewMutationVariables,
+    type CreateContentReviewMutationResponse
 } from "~/graphql/contentReview.gql.js";
 import { IS_REVIEW_REQUIRED_QUERY } from "../graphql.js";
 import { routePaths } from "~/utils.js";

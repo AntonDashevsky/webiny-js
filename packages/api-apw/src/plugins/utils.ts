@@ -1,15 +1,15 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types/index.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import {
-    ApwChangeRequest,
-    ApwContentReview,
-    ApwContentReviewCrud,
-    ApwContentReviewStep,
+    type ApwChangeRequest,
+    type ApwContentReview,
+    type ApwContentReviewCrud,
+    type ApwContentReviewStep,
     ApwContentReviewStepStatus,
-    ApwContext,
-    ApwReviewerCrud,
-    ApwWorkflow,
-    ApwWorkflowStep,
+    type ApwContext,
+    type ApwReviewerCrud,
+    type ApwWorkflow,
+    type ApwWorkflowStep,
     ApwWorkflowStepTypes,
     WorkflowScopeTypes
 } from "~/types.js";

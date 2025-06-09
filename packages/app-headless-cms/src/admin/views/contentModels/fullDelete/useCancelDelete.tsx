@@ -1,4 +1,4 @@
-import { CmsModel } from "~/types.js";
+import { type CmsModel } from "~/types.js";
 import { useApolloClient } from "~/admin/hooks/index.js";
 import type {
     ICancelDeleteCmsModelMutationResponse,

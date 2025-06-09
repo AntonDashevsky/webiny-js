@@ -1,6 +1,6 @@
 import React from "react";
 
-import { OEmbed, OEmbedProps } from "./components/OEmbed.js";
+import { OEmbed, type OEmbedProps } from "./components/OEmbed.js";
 import { createRenderer } from "~/createRenderer.js";
 import { useRenderer } from "~/hooks/useRenderer.js";
 

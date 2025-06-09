@@ -1,5 +1,5 @@
-import { EventActionCallable } from "~/types.js";
-import { MoveElementActionArgsType } from "./types.js";
+import { type EventActionCallable } from "~/types.js";
+import { type MoveElementActionArgsType } from "./types.js";
 import { updateElementAction } from "~/editor/recoil/actions/index.js";
 import { addElementToParent, removeElementFromParent } from "~/editor/helpers.js";
 import { executeAction } from "~/editor/recoil/eventActions/index.js";

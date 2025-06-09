@@ -1,11 +1,11 @@
 import { Plugin } from "@webiny/plugins";
 import {
-    ApwChangeRequest,
-    ApwContentReview,
-    ApwContentTypes,
-    ApwContext,
-    ApwReviewerWithEmail,
-    ApwWorkflow
+    type ApwChangeRequest,
+    type ApwContentReview,
+    type ApwContentTypes,
+    type ApwContext,
+    type ApwReviewerWithEmail,
+    type ApwWorkflow
 } from "~/types.js";
 
 export interface ApwCommentNotificationCbParams {

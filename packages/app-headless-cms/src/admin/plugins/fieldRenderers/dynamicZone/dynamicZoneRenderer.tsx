@@ -2,12 +2,12 @@ import React from "react";
 import { css } from "emotion";
 import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
 import {
-    BindComponent,
-    BindComponentRenderProp,
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldRendererPlugin,
-    CmsModelFieldRendererProps
+    type BindComponent,
+    type BindComponentRenderProp,
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldRendererPlugin,
+    type CmsModelFieldRendererProps
 } from "~/types.js";
 import { SingleValueDynamicZone } from "./SingleValueDynamicZone.js";
 import { MultiValueDynamicZone } from "./MultiValueDynamicZone.js";

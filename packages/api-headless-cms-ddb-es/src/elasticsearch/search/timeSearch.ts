@@ -1,6 +1,6 @@
 import {
     CmsEntryElasticsearchQueryBuilderValueSearchPlugin,
-    TransformCallable
+    type TransformCallable
 } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin.js";
 
 const transform: TransformCallable = params => {

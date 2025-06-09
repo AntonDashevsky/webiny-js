@@ -1,5 +1,5 @@
 import React from "react";
-import { Element as ElementType, RendererMeta } from "~/types.js";
+import { type Element as ElementType, type RendererMeta } from "~/types.js";
 import { usePageElements } from "~/hooks/usePageElements.js";
 import ErrorBoundary from "./ErrorBoundary.js";
 import { makeDecoratable } from "@webiny/react-composition";

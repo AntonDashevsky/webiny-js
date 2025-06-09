@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import styled from "@emotion/styled";
 import { createRenderer, useRenderer, Elements } from "@webiny/app-page-builder-elements";
-import { Element } from "@webiny/app-page-builder-elements/types.js";
+import { type Element } from "@webiny/app-page-builder-elements/types.js";
 import { useRecoilValue } from "recoil";
 import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
 import { register } from "swiper/element/bundle";

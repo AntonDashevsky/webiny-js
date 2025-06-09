@@ -1,16 +1,16 @@
 import React, { useEffect, useMemo, useRef } from "react";
-import { DecoratableComponent, GenericComponent, createDecorator } from "@webiny/app-admin";
+import { type DecoratableComponent, type GenericComponent, createDecorator } from "@webiny/app-admin";
 import {
     EventActionHandlerProvider,
-    EventActionHandlerProviderProps,
-    GetCallableState
+    type EventActionHandlerProviderProps,
+    type GetCallableState
 } from "~/editor/contexts/EventActionHandlerProvider.js";
 import { usePage } from "~/pageEditor/hooks/usePage.js";
 import { useRevisions } from "~/pageEditor/hooks/useRevisions.js";
-import { TemplateModeAtomType, useTemplateMode } from "~/pageEditor/hooks/useTemplateMode.js";
-import { PageAtomType, RevisionsAtomType } from "~/pageEditor/state/index.js";
-import { PageEditorEventActionCallableState } from "~/pageEditor/types.js";
-import { PbEditorElementTree } from "~/types.js";
+import { type TemplateModeAtomType, useTemplateMode } from "~/pageEditor/hooks/useTemplateMode.js";
+import { type PageAtomType, type RevisionsAtomType } from "~/pageEditor/state/index.js";
+import { type PageEditorEventActionCallableState } from "~/pageEditor/types.js";
+import { type PbEditorElementTree } from "~/types.js";
 
 type ProviderProps = EventActionHandlerProviderProps<PageEditorEventActionCallableState>;
 

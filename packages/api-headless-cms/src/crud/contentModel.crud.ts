@@ -1,34 +1,34 @@
 import WebinyError from "@webiny/error";
 import {
-    CmsContext,
-    CmsEntryValues,
-    CmsModel,
-    CmsModelContext,
-    CmsModelFieldToGraphQLPlugin,
-    CmsModelGroup,
-    CmsModelManager,
-    CmsModelUpdateInput,
-    HeadlessCmsStorageOperations,
-    ICmsModelListParams,
-    OnModelAfterCreateFromTopicParams,
-    OnModelAfterCreateTopicParams,
-    OnModelAfterDeleteTopicParams,
-    OnModelAfterUpdateTopicParams,
-    OnModelBeforeCreateFromTopicParams,
-    OnModelBeforeCreateTopicParams,
-    OnModelBeforeDeleteTopicParams,
-    OnModelBeforeUpdateTopicParams,
-    OnModelCreateErrorTopicParams,
-    OnModelCreateFromErrorParams,
-    OnModelDeleteErrorTopicParams,
-    OnModelInitializeParams,
-    OnModelUpdateErrorTopicParams
+    type CmsContext,
+    type CmsEntryValues,
+    type CmsModel,
+    type CmsModelContext,
+    type CmsModelFieldToGraphQLPlugin,
+    type CmsModelGroup,
+    type CmsModelManager,
+    type CmsModelUpdateInput,
+    type HeadlessCmsStorageOperations,
+    type ICmsModelListParams,
+    type OnModelAfterCreateFromTopicParams,
+    type OnModelAfterCreateTopicParams,
+    type OnModelAfterDeleteTopicParams,
+    type OnModelAfterUpdateTopicParams,
+    type OnModelBeforeCreateFromTopicParams,
+    type OnModelBeforeCreateTopicParams,
+    type OnModelBeforeDeleteTopicParams,
+    type OnModelBeforeUpdateTopicParams,
+    type OnModelCreateErrorTopicParams,
+    type OnModelCreateFromErrorParams,
+    type OnModelDeleteErrorTopicParams,
+    type OnModelInitializeParams,
+    type OnModelUpdateErrorTopicParams
 } from "~/types/index.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { contentModelManagerFactory } from "./contentModel/contentModelManagerFactory.js";
-import { Tenant } from "@webiny/api-tenancy/types.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { createTopic } from "@webiny/pubsub";
 import { assignModelBeforeCreate } from "./contentModel/beforeCreate.js";
 import { assignModelBeforeUpdate } from "./contentModel/beforeUpdate.js";
@@ -45,7 +45,7 @@ import { createCacheKey, createMemoryCache } from "~/utils/index.js";
 import { ensureTypeTag } from "./contentModel/ensureTypeTag.js";
 import { listModelsFromDatabase } from "~/crud/contentModel/listModelsFromDatabase.js";
 import { filterAsync } from "~/utils/filterAsync.js";
-import { AccessControl } from "./AccessControl/AccessControl.js";
+import { type AccessControl } from "./AccessControl/AccessControl.js";
 import {
     CmsModelFieldToAstConverterFromPlugins,
     CmsModelToAstConverter

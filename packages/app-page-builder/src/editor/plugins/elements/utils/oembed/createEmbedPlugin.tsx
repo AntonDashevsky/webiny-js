@@ -1,9 +1,9 @@
 import * as React from "react";
-import OEmbed, { OEmbedProps } from "../../../../components/OEmbed.js";
+import OEmbed, { type OEmbedProps } from "../../../../components/OEmbed.js";
 import {
-    PbEditorElement,
-    PbEditorPageElementPlugin,
-    PbEditorPageElementAdvancedSettingsPlugin,
+    type PbEditorElement,
+    type PbEditorPageElementPlugin,
+    type PbEditorPageElementAdvancedSettingsPlugin,
     DisplayMode,
     OnCreateActions
 } from "~/types.js";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Element, ElementProps } from "./Element.js";
+import { Element, type ElementProps } from "./Element.js";
 import { Elements } from "./Elements.js";
 import { IconButton } from "./IconButton.js";
 import { makeDecoratable } from "@webiny/react-composition";

@@ -1,7 +1,7 @@
-import { IWebsocketsConnectionRegistry, IWebsocketsConnectionRegistryData } from "~/registry/index.js";
-import { IWebsocketsTransportSendConnection, IWebsocketsTransportSendData } from "~/transport/index.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
-import { GenericRecord } from "@webiny/api/types.js";
+import { type IWebsocketsConnectionRegistry, type IWebsocketsConnectionRegistryData } from "~/registry/index.js";
+import { type IWebsocketsTransportSendConnection, type IWebsocketsTransportSendData } from "~/transport/index.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import { type GenericRecord } from "@webiny/api/types.js";
 
 export type IWebsocketsIdentity = Pick<SecurityIdentity, "id" | "displayName" | "type">;
 

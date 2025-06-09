@@ -1,20 +1,20 @@
-import { ApolloClient } from "apollo-client";
+import { type ApolloClient } from "apollo-client";
 
 import {
-    CreateFilterPayload,
-    CreateFilterResponse,
-    CreateFilterVariables,
-    DeleteFilterResponse,
-    DeleteFilterVariables,
-    GetFilterQueryVariables,
-    GetFilterResponse,
-    ListFiltersQueryVariables,
-    ListFiltersResponse,
-    UpdateFilterPayload,
-    UpdateFilterResponse,
-    UpdateFilterVariables
+    type CreateFilterPayload,
+    type CreateFilterResponse,
+    type CreateFilterVariables,
+    type DeleteFilterResponse,
+    type DeleteFilterVariables,
+    type GetFilterQueryVariables,
+    type GetFilterResponse,
+    type ListFiltersQueryVariables,
+    type ListFiltersResponse,
+    type UpdateFilterPayload,
+    type UpdateFilterResponse,
+    type UpdateFilterVariables
 } from "./filters.types.js";
-import { FiltersGatewayInterface } from "./FiltersGatewayInterface.js";
+import { type FiltersGatewayInterface } from "./FiltersGatewayInterface.js";
 import {
     CREATE_FILTER,
     DELETE_FILTER,

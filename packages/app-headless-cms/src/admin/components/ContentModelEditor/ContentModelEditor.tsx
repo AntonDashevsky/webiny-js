@@ -16,7 +16,7 @@ import { PreviewTab } from "./PreviewTab.js";
 import Header from "./Header.js";
 import DragPreview from "../DragPreview.js";
 import { useModelEditor } from "./useModelEditor.js";
-import { CmsEditorFieldsLayout, CmsModelField } from "~/types.js";
+import { type CmsEditorFieldsLayout, type CmsModelField } from "~/types.js";
 import { ContentEntryEditorWithConfig } from "~/admin/config/contentEntries/index.js";
 import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
 import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext.js";

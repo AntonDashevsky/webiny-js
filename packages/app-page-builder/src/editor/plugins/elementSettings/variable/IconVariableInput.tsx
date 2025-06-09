@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { useVariable } from "~/hooks/useVariable.js";
 import { IconPicker } from "@webiny/app-admin/components/IconPicker/index.js";
-import { ICON_PICKER_SIZE, Icon } from "@webiny/app-admin/components/IconPicker/types.js";
+import { ICON_PICKER_SIZE, type Icon } from "@webiny/app-admin/components/IconPicker/types.js";
 import { useIconMarkup } from "~/editor/plugins/elementSettings/hooks/useIconMarkup.js";
 
 const Wrapper = styled.div`

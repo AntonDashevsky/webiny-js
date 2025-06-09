@@ -2,15 +2,15 @@ import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
 import fs from "fs-extra";
-import { PbImportExportContext } from "~/graphql/types.js";
-import { FileUploadsData } from "~/types.js";
+import { type PbImportExportContext } from "~/graphql/types.js";
+import { type FileUploadsData } from "~/types.js";
 import { INSTALL_EXTRACT_DIR } from "~/import/constants.js";
 import { s3Stream } from "~/export/s3Stream.js";
 import { uploadAssets } from "~/import/utils/uploadAssets.js";
 import { updateFilesInData } from "~/import/utils/updateFilesInData.js";
 import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles.js";
 import { deleteS3Folder } from "~/import/utils/deleteS3Folder.js";
-import { ExportedTemplateData } from "~/export/process/exporters/PageTemplateExporter.js";
+import { type ExportedTemplateData } from "~/export/process/exporters/PageTemplateExporter.js";
 
 interface ImportTemplateParams {
     key: string;

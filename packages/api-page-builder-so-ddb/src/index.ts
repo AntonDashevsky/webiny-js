@@ -1,43 +1,43 @@
-import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters";
+import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters/index.js";
 import { PluginsContainer } from "@webiny/plugins";
 
-import { ENTITIES, StorageOperationsFactory } from "~/types";
-import { createTable } from "~/definitions/table";
+import { ENTITIES, type StorageOperationsFactory } from "~/types.js";
+import { createTable } from "~/definitions/table.js";
 
-import { createCategoryEntity } from "~/definitions/categoryEntity";
-import { createCategoryDynamoDbFields } from "~/operations/category/fields";
-import { createCategoryStorageOperations } from "~/operations/category";
+import { createCategoryEntity } from "~/definitions/categoryEntity.js";
+import { createCategoryDynamoDbFields } from "~/operations/category/fields.js";
+import { createCategoryStorageOperations } from "~/operations/category/index.js";
 
-import { createMenuEntity } from "~/definitions/menuEntity";
-import { createMenuDynamoDbFields } from "~/operations/menu/fields";
-import { createMenuStorageOperations } from "~/operations/menu";
+import { createMenuEntity } from "~/definitions/menuEntity.js";
+import { createMenuDynamoDbFields } from "~/operations/menu/fields.js";
+import { createMenuStorageOperations } from "~/operations/menu/index.js";
 
-import { createPageElementEntity } from "~/definitions/pageElementEntity";
-import { createPageElementDynamoDbFields } from "~/operations/pageElement/fields";
-import { createPageElementStorageOperations } from "~/operations/pageElement";
+import { createPageElementEntity } from "~/definitions/pageElementEntity.js";
+import { createPageElementDynamoDbFields } from "~/operations/pageElement/fields.js";
+import { createPageElementStorageOperations } from "~/operations/pageElement/index.js";
 
-import { createSettingsEntity } from "~/definitions/settingsEntity";
-import { createSettingsStorageOperations } from "~/operations/settings";
+import { createSettingsEntity } from "~/definitions/settingsEntity.js";
+import { createSettingsStorageOperations } from "~/operations/settings/index.js";
 
-import { createSystemEntity } from "~/definitions/systemEntity";
-import { createSystemStorageOperations } from "~/operations/system";
+import { createSystemEntity } from "~/definitions/systemEntity.js";
+import { createSystemStorageOperations } from "~/operations/system/index.js";
 
-import { createPageEntity } from "~/definitions/pageEntity";
-import { createPageFields } from "~/operations/pages/fields";
-import { createPageStorageOperations } from "~/operations/pages";
+import { createPageEntity } from "~/definitions/pageEntity.js";
+import { createPageFields } from "~/operations/pages/fields.js";
+import { createPageStorageOperations } from "~/operations/pages/index.js";
 
-import { createBlockCategoryEntity } from "~/definitions/blockCategoryEntity";
-import { createBlockCategoryDynamoDbFields } from "~/operations/blockCategory/fields";
-import { createBlockCategoryStorageOperations } from "~/operations/blockCategory";
+import { createBlockCategoryEntity } from "~/definitions/blockCategoryEntity.js";
+import { createBlockCategoryDynamoDbFields } from "~/operations/blockCategory/fields.js";
+import { createBlockCategoryStorageOperations } from "~/operations/blockCategory/index.js";
 
-import { createPageBlockEntity } from "~/definitions/pageBlockEntity";
-import { createPageBlockDynamoDbFields } from "~/operations/pageBlock/fields";
-import { createPageBlockStorageOperations } from "~/operations/pageBlock";
+import { createPageBlockEntity } from "~/definitions/pageBlockEntity.js";
+import { createPageBlockDynamoDbFields } from "~/operations/pageBlock/fields.js";
+import { createPageBlockStorageOperations } from "~/operations/pageBlock/index.js";
 
-import { createPageTemplateEntity } from "~/definitions/pageTemplateEntity";
-import { createPageTemplateDynamoDbFields } from "~/operations/pageTemplate/fields";
-import { createPageTemplateStorageOperations } from "~/operations/pageTemplate";
-import { PbContext } from "@webiny/api-page-builder/graphql/types";
+import { createPageTemplateEntity } from "~/definitions/pageTemplateEntity.js";
+import { createPageTemplateDynamoDbFields } from "~/operations/pageTemplate/fields.js";
+import { createPageTemplateStorageOperations } from "~/operations/pageTemplate/index.js";
+import { type PbContext } from "@webiny/api-page-builder/graphql/types.js";
 import {
     BlockCategoryDynamoDbFieldPlugin,
     CategoryDynamoDbFieldPlugin,
@@ -46,10 +46,10 @@ import {
     PageDynamoDbFieldPlugin,
     PageElementDynamoDbFieldPlugin,
     PageTemplateDynamoDbFieldPlugin
-} from "~/plugins";
+} from "~/plugins/index.js";
 import { CompressorPlugin } from "@webiny/api";
 
-export * from "./plugins";
+export * from "./plugins/index.js";
 
 export const createStorageOperations: StorageOperationsFactory = params => {
     const { documentClient, table, attributes, plugins: userPlugins } = params;

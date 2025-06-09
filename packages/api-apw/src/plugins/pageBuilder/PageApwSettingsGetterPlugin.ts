@@ -1,5 +1,5 @@
 import { ContentApwSettingsPlugin } from "~/ContentApwSettingsPlugin.js";
-import { ApwContentTypes, PageWithWorkflow } from "~/types.js";
+import { ApwContentTypes, type PageWithWorkflow } from "~/types.js";
 import set from "lodash/set.js";
 
 export class PageApwSettingsGetterPlugin extends ContentApwSettingsPlugin {

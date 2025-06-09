@@ -6,11 +6,11 @@ import set from "lodash/set.js";
 import get from "lodash/get.js";
 import { plugins } from "@webiny/plugins";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { Form, FormOnSubmit } from "@webiny/form";
+import { Form, type FormOnSubmit } from "@webiny/form";
 import {
-    PbEditorPageElementSettingsRenderComponentProps,
-    PbEditorElement,
-    PbEditorResponsiveModePlugin
+    type PbEditorPageElementSettingsRenderComponentProps,
+    type PbEditorElement,
+    type PbEditorResponsiveModePlugin
 } from "~/types.js";
 import { useEventActionHandler } from "../../../hooks/useEventActionHandler.js";
 import { UpdateElementActionEvent } from "../../../recoil/actions/index.js";
@@ -25,7 +25,7 @@ import { classes } from "../components/StyledComponents.js";
 import Accordion from "../components/Accordion.js";
 import Wrapper from "../components/Wrapper.js";
 import SpacingPicker from "../components/SpacingPicker.js";
-import { Validator } from "@webiny/validation/types.js";
+import { type Validator } from "@webiny/validation/types.js";
 
 const rightCellStyle = css({
     justifySelf: "end"

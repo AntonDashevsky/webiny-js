@@ -10,7 +10,7 @@ import { useContentEntry } from "./hooks/useContentEntry.js";
 import { Header } from "~/admin/components/ContentEntryForm/Header/index.js";
 import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm.js";
 import { usePersistEntry } from "~/admin/hooks/usePersistEntry.js";
-import { FormValidation } from "@webiny/form";
+import { type FormValidation } from "@webiny/form";
 import { ValidationIndicators } from "./ValidationIndicators.js";
 
 const DetailsContainer = styled("div")({

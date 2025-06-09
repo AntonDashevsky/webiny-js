@@ -1,7 +1,7 @@
-import { useRecoilState, SetterOrUpdater } from "recoil";
+import { useRecoilState, type SetterOrUpdater } from "recoil";
 import { highlightElementAtom } from "~/editor/recoil/modules/index.js";
 import { useElementById } from "~/editor/hooks/useElementById.js";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 
 export function useHighlightElement(): [PbEditorElement | null, SetterOrUpdater<string | null>] {
     const [highlightedElementId, setHighlightedElement] = useRecoilState(highlightElementAtom);

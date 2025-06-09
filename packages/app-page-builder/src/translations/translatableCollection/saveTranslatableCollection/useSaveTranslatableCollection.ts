@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { TranslatableCollection } from "~/translations/translatableCollection/TranslatableCollection.js";
+import { type TranslatableCollection } from "~/translations/translatableCollection/TranslatableCollection.js";
 import { SaveTranslatableCollectionGqlGateway } from "~/translations/translatableCollection/saveTranslatableCollection/SaveTranslatableCollectionGqlGateway.js";
 import { SaveTranslatableCollectionRepository } from "~/translations/translatableCollection/saveTranslatableCollection/SaveTranslatableCollectionRepository.js";
 import { translatedCollectionCache } from "~/translations/translatedCollection/translatedCollectionCache.js";

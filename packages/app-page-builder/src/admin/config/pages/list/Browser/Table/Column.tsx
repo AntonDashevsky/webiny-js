@@ -1,10 +1,10 @@
 import React from "react";
-import { AcoConfig, TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import { TableItem } from "~/types";
+import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
+import { type TableItem } from "~/types.js";
 
 const { Table } = AcoConfig;
 
-export { ColumnConfig };
+export type { ColumnConfig };
 
 type ColumnProps = React.ComponentProps<typeof AcoConfig.Table.Column>;
 

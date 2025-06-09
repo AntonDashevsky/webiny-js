@@ -1,13 +1,13 @@
 import { createTopic } from "@webiny/pubsub";
 import {
-    ApwCommentCrud,
-    CreateApwParams,
-    OnCommentBeforeCreateTopicParams,
-    OnCommentAfterCreateTopicParams,
-    OnCommentBeforeUpdateTopicParams,
-    OnCommentAfterUpdateTopicParams,
-    OnCommentBeforeDeleteTopicParams,
-    OnCommentAfterDeleteTopicParams
+    type ApwCommentCrud,
+    type CreateApwParams,
+    type OnCommentBeforeCreateTopicParams,
+    type OnCommentAfterCreateTopicParams,
+    type OnCommentBeforeUpdateTopicParams,
+    type OnCommentAfterUpdateTopicParams,
+    type OnCommentBeforeDeleteTopicParams,
+    type OnCommentAfterDeleteTopicParams
 } from "~/types.js";
 
 export function createCommentMethods({ storageOperations }: CreateApwParams): ApwCommentCrud {

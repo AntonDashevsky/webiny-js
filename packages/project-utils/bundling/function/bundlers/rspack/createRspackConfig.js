@@ -94,7 +94,7 @@ export const createRspackConfig = async params => {
                     test: /\.css$/,
                     use: [
                         {
-                            loader: path.resolve("./nullLoader.js")
+                            loader: path.resolve(import.meta.dirname, "nullLoader.js")
                         }
                     ]
                 }

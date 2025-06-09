@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import React, { useCallback } from "react";
 import {
-    CmsReferenceContentEntry,
-    CmsReferenceValue
+    type CmsReferenceContentEntry,
+    type CmsReferenceValue
 } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { ReactComponent as SelectedIcon } from "./assets/selected.svg";
 

@@ -1,15 +1,15 @@
 import {
-    IGenericData,
-    IWebsocketsConnection,
-    IWebsocketsManager,
-    IWebsocketsManagerCloseEvent,
-    IWebsocketsManagerErrorEvent,
-    IWebsocketsManagerMessageEvent,
-    IWebsocketsManagerOpenEvent,
-    IWebsocketManagerSendData,
-    IWebsocketsSubscription,
-    IWebsocketsSubscriptionCallback,
-    WebsocketsCloseCode
+    type IGenericData,
+    type IWebsocketsConnection,
+    type IWebsocketsManager,
+    type IWebsocketsManagerCloseEvent,
+    type IWebsocketsManagerErrorEvent,
+    type IWebsocketsManagerMessageEvent,
+    type IWebsocketsManagerOpenEvent,
+    type IWebsocketManagerSendData,
+    type IWebsocketsSubscription,
+    type IWebsocketsSubscriptionCallback,
+    type WebsocketsCloseCode
 } from "./types.js";
 
 export class WebsocketsManager implements IWebsocketsManager {

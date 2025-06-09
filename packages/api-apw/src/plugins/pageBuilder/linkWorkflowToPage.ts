@@ -1,9 +1,9 @@
 import set from "lodash/set.js";
 import {
-    AdvancedPublishingWorkflow,
-    ApwOnPageBeforeCreateFromTopicParams,
-    ApwOnPageBeforeCreateTopicParams,
-    ApwOnPageBeforeUpdateTopicParams,
+    type AdvancedPublishingWorkflow,
+    type ApwOnPageBeforeCreateFromTopicParams,
+    type ApwOnPageBeforeCreateTopicParams,
+    type ApwOnPageBeforeUpdateTopicParams,
     ApwWorkflowApplications
 } from "~/types.js";
 import {
@@ -13,7 +13,7 @@ import {
     shouldUpdatePages,
     updatePageSettings
 } from "./utils.js";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
+import { type PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
 
 interface LinkWorkflowToPageParams {
     apw: AdvancedPublishingWorkflow;

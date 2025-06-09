@@ -1,5 +1,5 @@
 import React, { Fragment, memo } from "react";
-import { ApolloClient } from "apollo-client";
+import { type ApolloClient } from "apollo-client";
 import { plugins } from "@webiny/plugins";
 import { Plugins, Provider } from "@webiny/app-admin";
 import { ApolloCacheObjectIdPlugin } from "@webiny/app";

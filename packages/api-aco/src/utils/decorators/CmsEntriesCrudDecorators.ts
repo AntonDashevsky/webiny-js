@@ -1,8 +1,8 @@
-import { AcoContext } from "~/types";
-import { ROOT_FOLDER } from "~/constants";
-import { ListEntriesFactory } from "./ListEntriesFactory";
-import { FilterEntriesByFolderFactory } from "./FilterEntriesByFolderFactory";
-import { decorateIfModelAuthorizationEnabled } from "./decorateIfModelAuthorizationEnabled";
+import { type AcoContext } from "~/types.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import { ListEntriesFactory } from "./ListEntriesFactory.js";
+import { FilterEntriesByFolderFactory } from "./FilterEntriesByFolderFactory.js";
+import { decorateIfModelAuthorizationEnabled } from "./decorateIfModelAuthorizationEnabled.js";
 
 type Context = Pick<AcoContext, "aco" | "cms">;
 

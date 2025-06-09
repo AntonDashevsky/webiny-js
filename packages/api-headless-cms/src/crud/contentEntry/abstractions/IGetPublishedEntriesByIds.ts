@@ -1,7 +1,7 @@
 import {
-    CmsEntryStorageOperationsGetPublishedByIdsParams,
-    CmsModel,
-    CmsStorageEntry
+    type CmsEntryStorageOperationsGetPublishedByIdsParams,
+    type CmsModel,
+    type CmsStorageEntry
 } from "~/types/index.js";
 
 export interface IGetPublishedEntriesByIds {

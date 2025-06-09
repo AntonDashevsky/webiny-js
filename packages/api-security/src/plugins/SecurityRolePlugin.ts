@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { SecurityPermission, SecurityRole } from "~/types.js";
+import { type SecurityPermission, type SecurityRole } from "~/types.js";
 
 export interface SecurityRolePluginParams {
     id: string;

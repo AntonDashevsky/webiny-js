@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { AcoAppMode, AcoModel } from "~/types.js";
+import { type AcoAppMode, type AcoModel } from "~/types.js";
 import { ERROR_FIELD } from "./common.js";
 
 export const createMoveRecord = (model: AcoModel, mode: AcoAppMode) => {

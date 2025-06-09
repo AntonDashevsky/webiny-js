@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Image } from "@webiny/app/components/Image.js";
 import * as Ui from "@webiny/ui/ImageUpload/index.js";
-import { FileManager, FileManagerFileItem } from "~/index.js";
-import { FormComponentProps } from "@webiny/ui/types.js";
+import { FileManager, type FileManagerFileItem } from "~/index.js";
+import { type FormComponentProps } from "@webiny/ui/types.js";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 import styled from "@emotion/styled";
 import { useCallback } from "react";

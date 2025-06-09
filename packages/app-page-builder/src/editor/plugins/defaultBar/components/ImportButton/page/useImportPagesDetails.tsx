@@ -4,7 +4,7 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { Link } from "@webiny/react-router";
 import { ShowDetails } from "../styledComponents.js";
-import { ListImportedPagesResponse } from "~/admin/graphql/pageImportExport.gql.js";
+import { type ListImportedPagesResponse } from "~/admin/graphql/pageImportExport.gql.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importPage");
 

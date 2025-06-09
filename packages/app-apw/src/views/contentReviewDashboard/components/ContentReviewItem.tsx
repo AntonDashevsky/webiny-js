@@ -7,7 +7,7 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { ContentReviewBy } from "./ContentReviewSubmittedInfo.js";
 import { ContentReviewStatus } from "./ContentReviewStatus.js";
 import { LatestComment } from "./LatestComment.js";
-import { ApwContentReviewListItem } from "~/types.js";
+import { type ApwContentReviewListItem } from "~/types.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/datalist");
 

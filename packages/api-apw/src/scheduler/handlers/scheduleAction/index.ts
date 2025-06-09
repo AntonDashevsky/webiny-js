@@ -1,7 +1,7 @@
 /**
  * This logic/file should be moved somewhere else as it is relying on AWS specific stuff.
  */
-import { ApwScheduleActionStorageOperations } from "~/scheduler/types.js";
+import { type ApwScheduleActionStorageOperations } from "~/scheduler/types.js";
 import {
     isDateTimeInNextCentury,
     moveDateTimeToNextCentury,

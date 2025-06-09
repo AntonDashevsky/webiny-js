@@ -4,7 +4,7 @@ import type {
     IImportFromUrlProcessAssetsInput,
     IImportFromUrlProcessAssetsOutput
 } from "~/tasks/domain/importFromUrlProcessAssets/abstractions/ImportFromUrlProcessAssets.js";
-import { CmsImportExportFileType, Context } from "~/types.js";
+import { CmsImportExportFileType, type Context } from "~/types.js";
 import type { IFileFetcher } from "~/tasks/utils/fileFetcher/index.js";
 import type {
     ICompressedFileReader,

@@ -1,7 +1,7 @@
 import React from "react";
 import mime from "mime";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 import { FileManagerViewConfig, useFile, useFileDetails, useFileManagerApi } from "~/index.js";
 import { useDeleteFile } from "~/hooks/useDeleteFile.js";
 

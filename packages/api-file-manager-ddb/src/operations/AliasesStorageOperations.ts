@@ -9,7 +9,7 @@ import {
     createEntityWriteBatch,
     createStandardEntity,
     createTable,
-    DbItem,
+    type DbItem,
     queryAll
 } from "@webiny/db-dynamodb";
 

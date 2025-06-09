@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { Plugin } from "@webiny/plugins";
-import { SearchBody } from "elastic-ts";
+import { type SearchBody } from "elastic-ts";
 
 export interface ModifyBodyParams {
     body: SearchBody;

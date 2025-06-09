@@ -1,4 +1,4 @@
-import { SecurityIdentity } from "~/types.js";
+import { type SecurityIdentity } from "~/types.js";
 
 type IdentityInput = SecurityIdentity | null | undefined;
 

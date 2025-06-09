@@ -1,5 +1,5 @@
-import { Context as TaskContext, ITaskResponseDoneResultOutput } from "@webiny/tasks";
-import { Context as LoggerContext, LogType } from "~/types.js";
+import { type Context as TaskContext, type ITaskResponseDoneResultOutput } from "@webiny/tasks";
+import { type Context as LoggerContext, type LogType } from "~/types.js";
 
 export interface IPruneLogsInput {
     tenant?: string;

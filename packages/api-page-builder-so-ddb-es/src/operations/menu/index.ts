@@ -1,21 +1,21 @@
 import {
-    Menu,
-    MenuStorageOperations,
-    MenuStorageOperationsCreateParams,
-    MenuStorageOperationsDeleteParams,
-    MenuStorageOperationsGetParams,
-    MenuStorageOperationsListParams,
-    MenuStorageOperationsUpdateParams
+    type Menu,
+    type MenuStorageOperations,
+    type MenuStorageOperationsCreateParams,
+    type MenuStorageOperationsDeleteParams,
+    type MenuStorageOperationsGetParams,
+    type MenuStorageOperationsListParams,
+    type MenuStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types.js";
-import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
 import WebinyError from "@webiny/error";
 import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
 import { MenuDynamoDbElasticFieldPlugin } from "~/plugins/definitions/MenuDynamoDbElasticFieldPlugin.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

@@ -1,4 +1,4 @@
-import { ApwChangeRequest, ApwContentReviewCrud, LifeCycleHookCallbackParams } from "~/types.js";
+import { type ApwChangeRequest, type ApwContentReviewCrud, type LifeCycleHookCallbackParams } from "~/types.js";
 import {
     extractContentReviewIdAndStep,
     updateContentReview,

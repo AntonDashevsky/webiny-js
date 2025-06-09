@@ -1,8 +1,8 @@
-import { IManager } from "~/types.js";
-import { ITaskResponse, ITaskResponseResult } from "@webiny/tasks/response/abstractions/index.js";
-import { IndexManager } from "~/settings/index.js";
-import { IIndexManager } from "~/settings/types.js";
-import { IElasticsearchEnableIndexingTaskInput } from "~/tasks/enableIndexing/types.js";
+import { type IManager } from "~/types.js";
+import { type ITaskResponse, type ITaskResponseResult } from "@webiny/tasks/response/abstractions/index.js";
+import { type IndexManager } from "~/settings/index.js";
+import { type IIndexManager } from "~/settings/types.js";
+import { type IElasticsearchEnableIndexingTaskInput } from "~/tasks/enableIndexing/types.js";
 
 export class EnableIndexingTaskRunner {
     private readonly manager: IManager<IElasticsearchEnableIndexingTaskInput>;

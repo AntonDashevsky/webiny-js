@@ -1,6 +1,6 @@
 import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters/index.js";
 import dynamoDbPlugins from "./dynamoDb/index.js";
-import { ENTITIES, StorageOperationsFactory } from "~/types.js";
+import { ENTITIES, type StorageOperationsFactory } from "~/types.js";
 import { createTable } from "~/definitions/table.js";
 import { createSystemEntity } from "~/definitions/system.js";
 import { createGroupEntity } from "~/definitions/group.js";

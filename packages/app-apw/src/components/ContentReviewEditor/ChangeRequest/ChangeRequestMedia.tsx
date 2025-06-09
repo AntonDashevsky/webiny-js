@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { IconButton } from "@webiny/ui/Button/index.js";
 import { ReactComponent as OpenInFullIcon } from "~/assets/icons/open_in_full_24dp.svg";
-import { ApwMediaFile } from "~/types.js";
+import { type ApwMediaFile } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 
 const t = i18n.ns("app-apw/content-reviews/editor/steps/changeRequest");

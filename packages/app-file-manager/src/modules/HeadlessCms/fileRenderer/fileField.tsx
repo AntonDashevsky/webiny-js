@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import {
-    CmsModelFieldRendererPlugin,
-    CmsModelFieldRendererProps
+    type CmsModelFieldRendererPlugin,
+    type CmsModelFieldRendererProps
 } from "@webiny/app-headless-cms/types.js";
 import { FileManager } from "@webiny/app-admin/components/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";

@@ -15,7 +15,7 @@ import {
     SimpleFormContent
 } from "@webiny/app-admin/components/SimpleForm/index.js";
 import LocaleCodesAutoComplete from "../components/LocaleCodesAutoComplete.js";
-import { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
+import { type AdminInstallationPlugin } from "@webiny/app-admin/types.js";
 
 const t = i18n.ns("app-i18n/admin/installation");
 

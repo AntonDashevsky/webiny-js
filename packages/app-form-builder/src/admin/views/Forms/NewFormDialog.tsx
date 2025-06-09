@@ -6,8 +6,8 @@ import { Form } from "@webiny/form";
 import { Input } from "@webiny/ui/Input/index.js";
 import {
     CREATE_FORM,
-    CreateFormMutationResponse,
-    CreateFormMutationVariables
+    type CreateFormMutationResponse,
+    type CreateFormMutationVariables
 } from "../../graphql.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
@@ -20,7 +20,7 @@ import {
     DialogTitle,
     DialogContent,
     DialogActions,
-    DialogOnClose
+    type DialogOnClose
 } from "@webiny/ui/Dialog/index.js";
 import { ButtonDefault } from "@webiny/ui/Button/index.js";
 import { addFormToListCache } from "../cache.js";

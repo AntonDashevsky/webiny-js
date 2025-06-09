@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 
 import { i18n } from "@webiny/app/i18n/index.js";
-import { Bind, GenericFormData } from "@webiny/form";
+import { Bind, type GenericFormData } from "@webiny/form";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { useDialogs } from "@webiny/app-admin";
 import { FolderTree } from "~/components/index.js";

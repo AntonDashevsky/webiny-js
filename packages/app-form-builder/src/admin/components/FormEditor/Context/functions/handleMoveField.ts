@@ -1,4 +1,4 @@
-import { FbFormModel, FbFormModelField, DropTarget, DropSource, DropDestination } from "~/types.js";
+import { type FbFormModel, type FbFormModelField, type DropTarget, type DropSource, type DropDestination } from "~/types.js";
 import moveField from "./handleMoveField/moveField.js";
 import moveFieldBetween from "./handleMoveField/moveFieldBetween.js";
 

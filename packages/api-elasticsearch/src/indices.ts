@@ -1,5 +1,5 @@
-import { ElasticsearchIndexPlugin } from "~/plugins/definition/ElasticsearchIndexPlugin.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type ElasticsearchIndexPlugin } from "~/plugins/definition/ElasticsearchIndexPlugin.js";
+import { type PluginsContainer } from "@webiny/plugins";
 import WebinyError from "@webiny/error";
 
 interface IndicesPluginsParams {

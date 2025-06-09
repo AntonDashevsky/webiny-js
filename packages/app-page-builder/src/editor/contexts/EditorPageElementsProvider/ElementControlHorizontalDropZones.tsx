@@ -1,7 +1,7 @@
 import React from "react";
 import { useRenderer } from "@webiny/app-page-builder-elements";
 import { DropElementActionEvent } from "~/editor/recoil/actions/index.js";
-import Droppable, { DragObjectWithTypeWithTarget } from "~/editor/components/Droppable.js";
+import Droppable, { type DragObjectWithTypeWithTarget } from "~/editor/components/Droppable.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";

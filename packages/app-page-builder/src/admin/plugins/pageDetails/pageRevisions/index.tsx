@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Tab } from "@webiny/ui/Tabs/index.js";
-import { PbPageDetailsRevisionContentPlugin } from "~/types.js";
+import { type PbPageDetailsRevisionContentPlugin } from "~/types.js";
 import RevisionsList from "./RevisionsList.js";
 
 const plugin: PbPageDetailsRevisionContentPlugin = {

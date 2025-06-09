@@ -1,5 +1,5 @@
-import { PluginsContainer } from "@webiny/plugins";
-import { CmsEntryListParams, CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type PluginsContainer } from "@webiny/plugins";
+import { type CmsEntryListParams, type CmsEntryListWhere, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { createModelFields } from "./fields.js";
 import { createFullTextSearchFields } from "./fullTextSearchFields.js";
 import { createInitialQuery } from "./initialQuery.js";
@@ -8,7 +8,7 @@ import { createQueryModifierPluginList } from "./plugins/queryModifier.js";
 import { createSortModifierPluginList } from "./plugins/sortModifier.js";
 import { createBodyModifierPluginList } from "./plugins/bodyModifier.js";
 import { createElasticsearchSort } from "./sort.js";
-import { PrimitiveValue, SearchBody, BoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import { type PrimitiveValue, type SearchBody, type BoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
 import { createExecFiltering } from "./filtering/index.js";
 import { assignMinimumShouldMatchToQuery } from "./assignMinimumShouldMatchToQuery.js";
 

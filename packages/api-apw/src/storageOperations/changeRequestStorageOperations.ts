@@ -1,9 +1,9 @@
-import { ApwChangeRequestStorageOperations } from "./types.js";
-import { CreateApwStorageOperationsParams } from "~/storageOperations/index.js";
+import { type ApwChangeRequestStorageOperations } from "./types.js";
+import { type CreateApwStorageOperationsParams } from "~/storageOperations/index.js";
 import { baseFields } from "~/utils/pickEntryFieldValues.js";
 import { getFieldValues, getTransformer } from "~/utils/fieldResolver.js";
 import WebinyError from "@webiny/error";
-import { ApwChangeRequest } from "~/types.js";
+import { type ApwChangeRequest } from "~/types.js";
 
 export const createChangeRequestStorageOperations = (
     params: CreateApwStorageOperationsParams

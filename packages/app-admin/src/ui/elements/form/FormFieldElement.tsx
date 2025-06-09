@@ -1,8 +1,8 @@
-import React from "react";
-import { FormRenderPropParams, FormAPI } from "@webiny/form";
-import { UIElement, UIElementConfig } from "~/ui/UIElement.js";
-import { FormElementRenderProps } from "~/ui/elements/form/FormElement.js";
-import { Validator } from "@webiny/validation/types.js";
+import type React from "react";
+import { type FormRenderPropParams, type FormAPI } from "@webiny/form";
+import { UIElement, type UIElementConfig } from "~/ui/UIElement.js";
+import { type FormElementRenderProps } from "~/ui/elements/form/FormElement.js";
+import { type Validator } from "@webiny/validation/types.js";
 
 export interface FormFieldElementConfig<TRenderProps = FormRenderPropParams>
     extends UIElementConfig<TRenderProps> {

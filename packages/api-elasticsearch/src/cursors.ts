@@ -1,4 +1,4 @@
-import { PrimitiveValue } from "~/types.js";
+import { type PrimitiveValue } from "~/types.js";
 
 /**
  * Encode a received cursor value into something that can be passed on to the user.

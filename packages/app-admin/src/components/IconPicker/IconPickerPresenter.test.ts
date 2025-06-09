@@ -1,6 +1,6 @@
 import { IconPickerPresenter } from "./IconPickerPresenter.js";
 import { IconRepository } from "./IconRepository.js";
-import { Icon } from "./types.js";
+import { type Icon } from "./types.js";
 
 const mockIconTypes = [{ name: "icon" }, { name: "emoji" }, { name: "custom" }];
 

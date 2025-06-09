@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as TextIcon } from "./icons/round-text_fields-24px.svg";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { CmsModelFieldTypePlugin } from "~/types.js";
+import { type CmsModelFieldTypePlugin } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import PredefinedValuesDynamicFieldset from "./PredefinedValuesDynamicFieldset.js";

@@ -10,9 +10,9 @@ import {
 import { Form } from "@webiny/form";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
-import { SecurityPermission } from "@webiny/app-security/types.js";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
 import { useSecurity } from "@webiny/app-security";
-import { AaclPermission } from "@webiny/app-admin";
+import { type AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-security-admin-users/plugins/permissionRenderer");
 

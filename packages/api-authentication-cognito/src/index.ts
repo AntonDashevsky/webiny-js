@@ -1,6 +1,6 @@
-import { AuthenticationContext, Identity } from "@webiny/api-authentication/types.js";
+import { type AuthenticationContext, type Identity } from "@webiny/api-authentication/types.js";
 import { ContextPlugin } from "@webiny/api";
-import { createAuthenticator, Config as CognitoConfig } from "@webiny/api-cognito-authenticator";
+import { createAuthenticator, type Config as CognitoConfig } from "@webiny/api-cognito-authenticator";
 
 export type GetIdentity<TIdentity extends Identity = Identity> = (params: {
     identityType: string;

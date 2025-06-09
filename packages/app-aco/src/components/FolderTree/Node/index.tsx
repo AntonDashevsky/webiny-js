@@ -3,14 +3,14 @@ import { ReactComponent as ArrowRight } from "@material-symbols/svg-400/rounded/
 import { ReactComponent as Folder } from "@material-symbols/svg-400/rounded/folder-fill.svg";
 import { ReactComponent as FolderShared } from "@material-symbols/svg-400/rounded/folder_shared-fill.svg";
 import { ReactComponent as HomeIcon } from "@material-design-icons/svg/filled/home.svg";
-import { NodeModel, useDragOver } from "@minoru/react-dnd-treeview";
-import { MenuActions } from "../MenuActions";
-import { Container, ArrowIcon, FolderIcon, Text, Content, LoaderContainer } from "./styled";
-import { DndFolderItemData, FolderItem } from "~/types";
+import { type NodeModel, useDragOver } from "@minoru/react-dnd-treeview";
+import { MenuActions } from "../MenuActions/index.js";
+import { Container, ArrowIcon, FolderIcon, Text, Content, LoaderContainer } from "./styled.js";
+import { type DndFolderItemData, type FolderItem } from "~/types.js";
 import { parseIdentifier } from "@webiny/utils";
-import { ROOT_FOLDER } from "~/constants";
-import { useFolder } from "~/hooks";
-import { CircularProgress } from "@webiny/ui/Progress";
+import { ROOT_FOLDER } from "~/constants.js";
+import { useFolder } from "~/hooks/index.js";
+import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
 type NodeProps = {
     node: NodeModel<DndFolderItemData>;

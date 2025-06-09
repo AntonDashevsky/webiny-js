@@ -4,7 +4,7 @@ import { ReactComponent as Icon } from "@material-symbols/svg-400/outlined/quick
 import { i18n } from "@webiny/app/i18n/index.js";
 import { plugins } from "@webiny/plugins";
 import { AccordionItem } from "@webiny/ui/Accordion/index.js";
-import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
+import { type AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
 
 import { AuditLogsPermissions as AuditLogsPermissionsComponent } from "./AuditLogsPermissions.js";
 

@@ -1,16 +1,16 @@
 import { autorun, toJS } from "mobx";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { GenericRecord } from "@webiny/app/types.js";
+import { type GenericRecord } from "@webiny/app/types.js";
 import { useApolloClient } from "@apollo/react-hooks";
-import { PbDataSource } from "~/types.js";
+import { type PbDataSource } from "~/types.js";
 import { dataSourceCache } from "~/features/dataSource/loadDataSource/dataSourceCache.js";
 import {
     DataRequest,
-    IResolveDataSourceRepository
+    type IResolveDataSourceRepository
 } from "~/features/dataSource/loadDataSource/IResolveDataSourceRepository.js";
 import { ResolveDataSourceRepository } from "~/features/dataSource/loadDataSource/ResolveDataSourceRepository.js";
 import { ResolveDataSourceGqlGateway } from "~/features/dataSource/loadDataSource/ResolveDataSourceGqlGateway.js";
-import { Decorator } from "@webiny/react-composition";
+import { type Decorator } from "@webiny/react-composition";
 import { ResolveDataSourceMockGateway } from "~/features/dataSource/loadDataSource/ResolveDataSourceMockGateway.js";
 
 interface DataSourceLoaderVm {

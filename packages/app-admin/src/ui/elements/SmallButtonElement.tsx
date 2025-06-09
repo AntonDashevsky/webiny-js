@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonDefault, ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import { ButtonElement, ButtonElementConfig } from "~/ui/elements/ButtonElement.js";
-import { UiElementRenderProps } from "@webiny/ui-composer/UIElement.js";
+import { ButtonElement, type ButtonElementConfig } from "~/ui/elements/ButtonElement.js";
+import { type UiElementRenderProps } from "@webiny/ui-composer/UIElement.js";
 
 const BUTTONS = {
     default: ButtonDefault,

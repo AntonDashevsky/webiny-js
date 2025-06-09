@@ -1,10 +1,10 @@
 import acceptLanguageParser from "accept-language-parser";
 import {
-    ContextI18NGetLocales,
-    I18NContext,
-    I18NContextObject,
-    I18NLocale,
-    LocaleKeys
+    type ContextI18NGetLocales,
+    type I18NContext,
+    type I18NContextObject,
+    type I18NLocale,
+    type LocaleKeys
 } from "~/types.js";
 import { ContextPlugin } from "@webiny/api";
 import { NotAuthorizedError } from "@webiny/api-security";

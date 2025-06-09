@@ -1,25 +1,25 @@
 import WebinyError from "@webiny/error";
 import {
-    IWebsocketsEvent,
-    IWebsocketsEventData,
-    IWebsocketsEventRequestContext,
-    IWebsocketsIncomingEvent,
+    type IWebsocketsEvent,
+    type IWebsocketsEventData,
+    type IWebsocketsEventRequestContext,
+    type IWebsocketsIncomingEvent,
     WebsocketsEventRequestContextEventType,
-    WebsocketsEventRoute
+    type WebsocketsEventRoute
 } from "~/handler/types.js";
-import { Context } from "~/types.js";
-import { IWebsocketsEventValidator } from "~/validator/index.js";
-import { IWebsocketsRunner, IWebsocketsRunnerResponse } from "./abstractions/IWebsocketsRunner.js";
-import { IWebsocketsRoutePluginCallableParams, WebsocketsRoutePlugin } from "~/plugins/index.js";
+import { type Context } from "~/types.js";
+import { type IWebsocketsEventValidator } from "~/validator/index.js";
+import { type IWebsocketsRunner, type IWebsocketsRunnerResponse } from "./abstractions/IWebsocketsRunner.js";
+import { type IWebsocketsRoutePluginCallableParams, WebsocketsRoutePlugin } from "~/plugins/index.js";
 import { middleware } from "~/utils/middleware.js";
-import { IWebsocketsConnectionRegistry } from "~/registry/index.js";
+import { type IWebsocketsConnectionRegistry } from "~/registry/index.js";
 import {
-    IWebsocketsResponse,
-    IWebsocketsResponseErrorResult,
-    IWebsocketsResponseOkResult
+    type IWebsocketsResponse,
+    type IWebsocketsResponseErrorResult,
+    type IWebsocketsResponseOkResult
 } from "~/response/index.js";
-import { IWebsocketsTransportSendConnection } from "~/transport/index.js";
-import { IWebsocketsIdentity } from "~/context/index.js";
+import { type IWebsocketsTransportSendConnection } from "~/transport/index.js";
+import { type IWebsocketsIdentity } from "~/context/index.js";
 
 type MiddlewareParams<C extends Context = Context> = Pick<
     IWebsocketsRoutePluginCallableParams<C>,

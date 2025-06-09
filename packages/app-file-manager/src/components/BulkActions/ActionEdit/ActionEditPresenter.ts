@@ -2,12 +2,12 @@ import { makeAutoObservable } from "mobx";
 
 import {
     Batch,
-    BatchDTO,
+    type BatchDTO,
     BatchMapper,
     Field,
-    FieldDTO,
+    type FieldDTO,
     FieldMapper,
-    FieldRaw
+    type FieldRaw
 } from "~/components/BulkActions/ActionEdit/domain/index.js";
 
 function isBulkEditableField(field: FieldRaw) {

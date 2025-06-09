@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AutoComplete, AutoCompleteProps } from "@webiny/ui/AutoComplete/index.js";
+import { AutoComplete, type AutoCompleteProps } from "@webiny/ui/AutoComplete/index.js";
 import gql from "graphql-tag";
 import get from "lodash/get.js";
 import { useQuery } from "@apollo/react-hooks";

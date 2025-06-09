@@ -8,11 +8,11 @@ import { useActiveChangeRequestId } from "~/hooks/useCurrentChangeRequestId.js";
 import {
     GET_CONTENT_REVIEW_QUERY,
     PROVIDE_SIGN_OFF_MUTATION,
-    ProvideSignOffMutationResponse,
-    ProvideSignOffMutationVariables,
+    type ProvideSignOffMutationResponse,
+    type ProvideSignOffMutationVariables,
     RETRACT_SIGN_OFF_MUTATION,
-    RetractSignOffMutationResponse,
-    RetractSignOffMutationVariables
+    type RetractSignOffMutationResponse,
+    type RetractSignOffMutationVariables
 } from "~/graphql/contentReview.gql.js";
 
 interface UseStepSignOffResult {

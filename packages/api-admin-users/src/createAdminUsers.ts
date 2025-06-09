@@ -1,16 +1,16 @@
 import { createTopic } from "@webiny/pubsub";
 import WebinyError from "@webiny/error";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types.js";
+import { type SecurityIdentity, type SecurityPermission } from "@webiny/api-security/types.js";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { mdbid } from "@webiny/utils";
 import { NotFoundError } from "@webiny/handler-graphql";
 import {
-    AdminUser,
-    AdminUsers,
-    AdminUsersStorageOperations,
-    CreatedBy,
-    CreateUserInput,
-    System
+    type AdminUser,
+    type AdminUsers,
+    type AdminUsersStorageOperations,
+    type CreatedBy,
+    type CreateUserInput,
+    type System
 } from "./types.js";
 import { createUserLoaders } from "./createAdminUsers/users.loaders.js";
 import { attachUserValidation } from "./createAdminUsers/users.validation.js";

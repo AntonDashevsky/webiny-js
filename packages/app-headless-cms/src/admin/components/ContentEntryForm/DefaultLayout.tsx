@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Bind } from "@webiny/form";
-import { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import { type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
 
 export interface DefaultLayoutProps extends React.HTMLAttributes<HTMLDivElement> {

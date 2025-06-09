@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 import { addElementId } from "~/editor/helpers.js";
 import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
 

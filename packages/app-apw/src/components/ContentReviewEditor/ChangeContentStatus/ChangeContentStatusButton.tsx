@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Stack } from "~/components/Layout.js";
 import { ButtonIcon, ButtonPrimary, ButtonDefault } from "@webiny/ui/Button/index.js";
 import { ReactComponent as CheckIcon } from "~/assets/icons/check_24dp.svg";
-import { ApwContentReview, ApwContentReviewStatus } from "~/types.js";
+import { type ApwContentReview, ApwContentReviewStatus } from "~/types.js";
 
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";

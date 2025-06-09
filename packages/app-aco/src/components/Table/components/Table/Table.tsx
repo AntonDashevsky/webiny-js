@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import { DefaultData, OnSortingChange, Sorting } from "@webiny/ui/DataTable/index.js";
+import { type DefaultData, type OnSortingChange, type Sorting } from "@webiny/ui/DataTable/index.js";
 import { Column, ColumnsPresenter, columnsRepositoryFactory } from "./Columns/index.js";
 import {
     ColumnsVisibilityDecorator,

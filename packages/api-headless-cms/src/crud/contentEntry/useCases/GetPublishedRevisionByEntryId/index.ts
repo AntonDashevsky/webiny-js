@@ -1,6 +1,6 @@
 import { GetPublishedRevisionByEntryId } from "./GetPublishedRevisionByEntryId.js";
 import { GetPublishedRevisionByEntryIdNotDeleted } from "./GetPublishedRevisionByEntryIdNotDeleted.js";
-import { CmsEntryStorageOperations } from "~/types/index.js";
+import { type CmsEntryStorageOperations } from "~/types/index.js";
 
 interface GetPublishedRevisionByEntryIdUseCasesParams {
     operation: CmsEntryStorageOperations["getPublishedRevisionByEntryId"];

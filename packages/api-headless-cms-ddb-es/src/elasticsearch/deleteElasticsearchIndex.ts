@@ -1,5 +1,5 @@
-import { Client } from "@elastic/elasticsearch";
-import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type Client } from "@elastic/elasticsearch";
+import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { configurations } from "~/configurations.js";
 
 interface DeleteElasticsearchIndexParams {

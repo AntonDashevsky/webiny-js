@@ -11,7 +11,7 @@ import {
     onWorkflowAfterDeleteHook
 } from "./workflows.js";
 
-import { AuditLogsContext } from "~/types.js";
+import { type AuditLogsContext } from "~/types.js";
 
 export const createApwHooks = (context: AuditLogsContext) => {
     if (!context.apw) {

@@ -4,15 +4,15 @@ import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
 import { DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
 import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { CmsContentEntry, CmsModel } from "~/types.js";
+import { type CmsContentEntry, type CmsModel } from "~/types.js";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
 import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
 import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm.js";
 import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import {
     GET_CONTENT_MODEL,
-    GetCmsModelQueryResponse,
-    GetCmsModelQueryVariables
+    type GetCmsModelQueryResponse,
+    type GetCmsModelQueryVariables
 } from "~/admin/graphql/contentModels.js";
 import { useCms } from "~/admin/hooks/index.js";
 import { FullWidthDialog } from "./dialog/Dialog.js";
@@ -26,7 +26,7 @@ import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { usePersistEntry } from "~/admin/hooks/usePersistEntry.js";
 import {
     AcoAppContext,
-    AcoAppProviderContext,
+    type AcoAppProviderContext,
     createAppFromModel
 } from "@webiny/app-aco/contexts/app.js";
 import { DialogsProvider } from "@webiny/app-admin";

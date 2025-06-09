@@ -10,7 +10,7 @@ import { SaveBlockActionEvent } from "~/blockEditor/config/eventActions/saveBloc
 import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";
 import { DisplayMode } from "~/types.js";
 import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
-import { UpdatePageBlockInput } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlockGatewayInterface.js";
+import { type UpdatePageBlockInput } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlockGatewayInterface.js";
 
 const SpinnerWrapper = styled.div`
     position: relative;

@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as CloneIcon } from "../../../assets/icons/round-queue-24px.svg";
 import Action from "../components/Action.js";
 import CloneAction from "./CloneAction.js";
-import { PbEditorPageElementSettingsPlugin } from "../../../../types.js";
+import { type PbEditorPageElementSettingsPlugin } from "../../../../types.js";
 
 export default {
     name: "pb-editor-page-element-settings-clone",

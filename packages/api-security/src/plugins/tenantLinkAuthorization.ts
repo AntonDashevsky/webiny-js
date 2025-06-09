@@ -1,6 +1,6 @@
-import { PermissionsTenantLink, SecurityContext } from "~/types.js";
+import { type PermissionsTenantLink, type SecurityContext } from "~/types.js";
 import { ContextPlugin } from "@webiny/api";
-import { TenancyContext } from "@webiny/api-tenancy/types.js";
+import { type TenancyContext } from "@webiny/api-tenancy/types.js";
 import { getPermissionsFromSecurityGroupsForLocale } from "~/utils/getPermissionsFromSecurityGroupsForLocale.js";
 
 type Context = SecurityContext & TenancyContext;

@@ -1,10 +1,10 @@
 import WebinyError from "@webiny/error";
 import {
-    CmsContext,
-    CmsEntry,
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldToGraphQLPlugin
+    type CmsContext,
+    type CmsEntry,
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldToGraphQLPlugin
 } from "~/types/index.js";
 import { createTypeName } from "~/utils/createTypeName.js";
 import { parseIdentifier } from "@webiny/utils";

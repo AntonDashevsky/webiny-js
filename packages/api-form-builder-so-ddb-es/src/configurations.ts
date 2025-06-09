@@ -5,8 +5,8 @@ import {
     isSharedElasticsearchIndex
 } from "@webiny/api-elasticsearch";
 import { FormElasticsearchIndexPlugin } from "~/plugins/index.js";
-import { ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types.js";
-import { FormBuilderContext } from "@webiny/api-form-builder/types.js";
+import { type ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types.js";
+import { type FormBuilderContext } from "@webiny/api-form-builder/types.js";
 
 export interface ConfigurationsElasticsearch {
     index: string;

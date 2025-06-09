@@ -1,4 +1,4 @@
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 import { useElementById } from "~/editor/index.js";
 
 export const useIsElementChildOfType = (element: PbEditorElement | null, elementType: string) => {

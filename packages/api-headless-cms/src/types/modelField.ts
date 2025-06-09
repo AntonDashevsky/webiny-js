@@ -1,5 +1,5 @@
-import { CmsModel } from "./model.js";
-import { GenericRecord } from "@webiny/api/types.js";
+import { type CmsModel } from "./model.js";
+import { type GenericRecord } from "@webiny/api/types.js";
 
 export type CmsModelFieldType =
     | "boolean"

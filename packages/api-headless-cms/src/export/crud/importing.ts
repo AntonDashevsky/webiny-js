@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { HeadlessCmsImport, ValidCmsGroupResult, ValidCmsModelResult } from "~/export/types.js";
-import { CmsContext } from "~/types/index.js";
+import { type HeadlessCmsImport, type ValidCmsGroupResult, type ValidCmsModelResult } from "~/export/types.js";
+import { type CmsContext } from "~/types/index.js";
 import { importData } from "./imports/importData.js";
 import { validateInput } from "./imports/validateInput.js";
 

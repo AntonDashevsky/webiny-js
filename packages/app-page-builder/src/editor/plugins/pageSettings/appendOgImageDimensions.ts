@@ -1,7 +1,7 @@
 import {
-    PageBuilderFormDataFileItem,
-    PageBuilderFormDataSettings,
-    PageBuilderFormDataSettingsSocialMeta
+    type PageBuilderFormDataFileItem,
+    type PageBuilderFormDataSettings,
+    type PageBuilderFormDataSettingsSocialMeta
 } from "~/types.js";
 
 const OG_IMAGE_DIMENSIONS_PROPERTIES = ["og:image:width", "og:image:height"];

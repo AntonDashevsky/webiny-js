@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types.js";
+import { type ElementStylesModifier } from "~/types.js";
 
 const width: ElementStylesModifier = ({ theme, element }) => {
     const { width } = element.data.settings || {};

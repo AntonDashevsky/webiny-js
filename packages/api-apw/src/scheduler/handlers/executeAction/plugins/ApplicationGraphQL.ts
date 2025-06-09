@@ -1,6 +1,6 @@
 import { Plugin } from "@webiny/plugins/Plugin.js";
-import { ApwScheduleActionData } from "~/scheduler/types.js";
-import { ApwSettings } from "~/scheduler/handlers/utils.js";
+import { type ApwScheduleActionData } from "~/scheduler/types.js";
+import { type ApwSettings } from "~/scheduler/handlers/utils.js";
 
 export type { ApwScheduleActionData, ApwSettings };
 

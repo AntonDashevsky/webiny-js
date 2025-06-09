@@ -4,7 +4,7 @@ import { ElementControlsOverlay } from "./ElementControlsOverlay.js";
 import { ElementControlHorizontalDropZones } from "./ElementControlHorizontalDropZones.js";
 import { DropElementActionEvent } from "~/editor/recoil/actions/index.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import Droppable, { DragObjectWithTypeWithTarget } from "~/editor/components/Droppable.js";
+import Droppable, { type DragObjectWithTypeWithTarget } from "~/editor/components/Droppable.js";
 import { useRecoilValue } from "recoil";
 import { uiAtom } from "~/editor/recoil/modules/index.js";
 import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin.js";

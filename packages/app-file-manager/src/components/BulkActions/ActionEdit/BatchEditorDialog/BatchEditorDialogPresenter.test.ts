@@ -1,9 +1,9 @@
 import { jest } from "@jest/globals";
 import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter.js";
 import {
-    BatchDTO,
-    FieldDTO,
-    OperatorDTO,
+    type BatchDTO,
+    type FieldDTO,
+    type OperatorDTO,
     OperatorType
 } from "~/components/BulkActions/ActionEdit/domain/index.js";
 

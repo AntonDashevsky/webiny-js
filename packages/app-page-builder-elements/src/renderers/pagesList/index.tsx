@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
-    DataLoader,
-    DataLoaderResult,
-    PagesListComponent as RenderPagesListComponent
+    type DataLoader,
+    type DataLoaderResult,
+    type PagesListComponent as RenderPagesListComponent
 } from "~/renderers/pagesList/types.js";
 import { createRenderer } from "~/createRenderer.js";
 import { useRenderer } from "~/hooks/useRenderer.js";

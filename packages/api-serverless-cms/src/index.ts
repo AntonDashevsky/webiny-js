@@ -1,23 +1,23 @@
-import { ClientContext } from "@webiny/handler-client/types.js";
-import { TenancyContext } from "@webiny/api-tenancy/types.js";
-import { SecurityContext } from "@webiny/api-security/types.js";
-import { I18NContext } from "@webiny/api-i18n/types.js";
-import { I18NContentContext } from "@webiny/api-i18n-content/types.js";
-import { PbContext } from "@webiny/api-page-builder/graphql/types.js";
-import { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types.js";
-import { FileManagerContext } from "@webiny/api-file-manager/types.js";
-import { FormBuilderContext } from "@webiny/api-form-builder/types.js";
-import { CmsContext } from "@webiny/api-headless-cms/types/index.js";
-import { AcoContext } from "@webiny/api-aco/types.js";
-import { PbAcoContext } from "@webiny/api-page-builder-aco/types.js";
-import { ContextPluginCallable, createContextPlugin as baseCreateContextPlugin } from "@webiny/api";
+import { type ClientContext } from "@webiny/handler-client/types.js";
+import { type TenancyContext } from "@webiny/api-tenancy/types.js";
+import { type SecurityContext } from "@webiny/api-security/types.js";
+import { type I18NContext } from "@webiny/api-i18n/types.js";
+import { type I18NContentContext } from "@webiny/api-i18n-content/types.js";
+import { type PbContext } from "@webiny/api-page-builder/graphql/types.js";
+import { type PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types.js";
+import { type FileManagerContext } from "@webiny/api-file-manager/types.js";
+import { type FormBuilderContext } from "@webiny/api-form-builder/types.js";
+import { type CmsContext } from "@webiny/api-headless-cms/types/index.js";
+import { type AcoContext } from "@webiny/api-aco/types.js";
+import { type PbAcoContext } from "@webiny/api-page-builder-aco/types.js";
+import { type ContextPluginCallable, createContextPlugin as baseCreateContextPlugin } from "@webiny/api";
 import {
     createGraphQLSchemaPlugin as baseCreateGraphQLSchemaPlugin,
-    GraphQLSchemaPluginConfig
+    type GraphQLSchemaPluginConfig
 } from "@webiny/handler-graphql";
 import { createSecurityRolePlugin, createSecurityTeamPlugin } from "@webiny/api-security";
-import { MailerContext } from "@webiny/api-mailer/types.js";
-import { Context as LoggerContext } from "@webiny/api-log/types.js";
+import { type MailerContext } from "@webiny/api-mailer/types.js";
+import { type Context as LoggerContext } from "@webiny/api-log/types.js";
 
 export interface Context
     extends ClientContext,

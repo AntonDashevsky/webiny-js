@@ -1,8 +1,8 @@
-import { Client, createIndex as baseCreateIndex } from "@webiny/api-elasticsearch";
-import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type Client, createIndex as baseCreateIndex } from "@webiny/api-elasticsearch";
+import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { configurations } from "@webiny/api-headless-cms-ddb-es/configurations.js";
 import { CmsEntryElasticsearchIndexPlugin } from "@webiny/api-headless-cms-ddb-es/plugins/index.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 
 export interface ICreateIndexParams {
     client: Client;

@@ -1,13 +1,13 @@
-import { Stream, Readable } from "stream";
+import { Stream, type Readable } from "stream";
 import {
     S3,
-    ListObjectsOutput,
-    DeleteObjectOutput,
-    HeadObjectOutput,
+    type ListObjectsOutput,
+    type DeleteObjectOutput,
+    type HeadObjectOutput,
     getSignedUrl,
     GetObjectCommand,
     PutObjectCommand,
-    PutObjectCommandInput
+    type PutObjectCommandInput
 } from "@webiny/aws-sdk/client-s3";
 import { Upload } from "@webiny/aws-sdk/lib-storage";
 

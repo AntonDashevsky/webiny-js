@@ -1,5 +1,5 @@
-import { ToggleSaveRevisionStateActionArgsType } from "./types.js";
-import { PageEventActionCallable } from "~/pageEditor/types.js";
+import { type ToggleSaveRevisionStateActionArgsType } from "./types.js";
+import { type PageEventActionCallable } from "~/pageEditor/types.js";
 
 export const toggleSaveRevisionStateAction: PageEventActionCallable<
     ToggleSaveRevisionStateActionArgsType

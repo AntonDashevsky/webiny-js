@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useSnackbar } from "@webiny/app-admin";
-import { Bind, GenericFormData } from "@webiny/form";
+import { Bind, type GenericFormData } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
@@ -11,7 +11,7 @@ import { ROOT_FOLDER } from "~/constants.js";
 import { useDialogs } from "@webiny/app-admin";
 import { DialogFoldersContainer } from "~/dialogs/styled.js";
 import { useUpdateFolder } from "~/features/index.js";
-import { FolderItem } from "~/types.js";
+import { type FolderItem } from "~/types.js";
 
 interface ShowDialogParams {
     folder: FolderItem;

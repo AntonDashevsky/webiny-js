@@ -2,10 +2,10 @@ import { makeAutoObservable } from "mobx";
 
 import {
     Batch,
-    BatchDTO,
-    FieldDTO,
-    OperationDTO,
-    OperatorDTO
+    type BatchDTO,
+    type FieldDTO,
+    type OperationDTO,
+    type OperatorDTO
 } from "~/components/BulkActions/ActionEdit/domain/index.js";
 import type { FormInvalidFields } from "@webiny/form";
 

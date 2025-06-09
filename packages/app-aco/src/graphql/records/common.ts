@@ -1,4 +1,4 @@
-import { AcoModel, AcoModelField } from "~/types.js";
+import { type AcoModel, type AcoModelField } from "~/types.js";
 import { plugins } from "@webiny/plugins";
 
 export const ERROR_FIELD = /* GraphQL */ `

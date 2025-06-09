@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
 import get from "lodash/get.js";
 import { LoginScreenRenderer, useTenancy, useTags } from "@webiny/app-serverless-cms";
-import { createAuthentication, CreateAuthenticationConfig } from "./createAuthentication.js";
+import { createAuthentication, type CreateAuthenticationConfig } from "./createAuthentication.js";
 import { UserMenuModule } from "~/modules/userMenu/index.js";
 import { AppClientModule } from "~/modules/appClient/index.js";
 import { NotAuthorizedError } from "./components/index.js";

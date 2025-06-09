@@ -1,4 +1,4 @@
-import { PageTemplate } from "@webiny/api-page-builder/types.js";
+import { type PageTemplate } from "@webiny/api-page-builder/types.js";
 
 export type PrimaryPKParams = Pick<PageTemplate, "id" | "tenant" | "locale">;
 export type GSI1Params = Pick<PageTemplate, "tenant" | "locale">;

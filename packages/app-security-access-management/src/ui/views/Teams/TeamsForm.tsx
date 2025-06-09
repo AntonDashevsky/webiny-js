@@ -23,7 +23,7 @@ import isEmpty from "lodash/isEmpty.js";
 import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { GroupsMultiAutocomplete } from "~/components/GroupsMultiAutocomplete/index.js";
-import { Team } from "~/types.js";
+import { type Team } from "~/types.js";
 import { Alert } from "@webiny/ui/Alert/index.js";
 
 const t = i18n.ns("app-security/admin/teams/form");

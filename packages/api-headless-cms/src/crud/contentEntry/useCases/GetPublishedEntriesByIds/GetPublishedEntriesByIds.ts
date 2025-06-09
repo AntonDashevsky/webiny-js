@@ -1,8 +1,8 @@
-import { IGetPublishedEntriesByIds } from "../../abstractions/index.js";
+import { type IGetPublishedEntriesByIds } from "../../abstractions/index.js";
 import {
-    CmsEntryStorageOperations,
-    CmsEntryStorageOperationsGetPublishedByIdsParams,
-    CmsModel
+    type CmsEntryStorageOperations,
+    type CmsEntryStorageOperationsGetPublishedByIdsParams,
+    type CmsModel
 } from "~/types/index.js";
 
 export class GetPublishedEntriesByIds implements IGetPublishedEntriesByIds {

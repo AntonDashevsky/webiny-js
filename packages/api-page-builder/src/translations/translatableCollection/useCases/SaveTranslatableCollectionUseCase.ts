@@ -1,6 +1,6 @@
-import { PbContext } from "~/graphql/types.js";
+import { type PbContext } from "~/graphql/types.js";
 import { UpdateTranslatableCollectionRepository } from "~/translations/translatableCollection/repository/UpdateTranslatableCollectionRepository.js";
-import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
+import { type TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
 import { GetOrCreateTranslatableCollectionUseCase } from "~/translations/translatableCollection/useCases/GetOrCreateTranslatableCollectionUseCase.js";
 import { CreateTranslatableCollectionRepository } from "~/translations/translatableCollection/repository/CreateTranslatableCollectionRepository.js";
 import { Identifier } from "~/translations/Identifier.js";

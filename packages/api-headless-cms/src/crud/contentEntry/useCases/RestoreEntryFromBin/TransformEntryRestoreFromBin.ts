@@ -1,8 +1,8 @@
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { entryFromStorageTransform, entryToStorageTransform } from "~/utils/entryStorage.js";
 import { getDate } from "~/utils/date.js";
 import { getIdentity } from "~/utils/identity.js";
-import { CmsContext, CmsEntry, CmsEntryStorageOperationsMoveToBinParams, CmsModel } from "~/types/index.js";
+import { type CmsContext, type CmsEntry, type CmsEntryStorageOperationsMoveToBinParams, type CmsModel } from "~/types/index.js";
 
 export class TransformEntryRestoreFromBin {
     private context: CmsContext;

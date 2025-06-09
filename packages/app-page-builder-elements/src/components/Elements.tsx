@@ -1,5 +1,5 @@
 import React from "react";
-import { Element as ElementType } from "~/types.js";
+import { type Element as ElementType } from "~/types.js";
 import { Element } from "./Element.js";
 import { useRenderer } from "~/hooks/useRenderer.js";
 

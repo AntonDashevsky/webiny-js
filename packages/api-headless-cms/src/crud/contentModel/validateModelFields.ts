@@ -1,17 +1,17 @@
 import gql from "graphql-tag";
 import WebinyError from "@webiny/error";
 import {
-    CmsContext,
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldToGraphQLPlugin,
-    CmsModelFieldToGraphQLPluginValidateChildFieldsValidate,
-    CmsModelLockedFieldPlugin,
-    LockedField
+    type CmsContext,
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldToGraphQLPlugin,
+    type CmsModelFieldToGraphQLPluginValidateChildFieldsValidate,
+    type CmsModelLockedFieldPlugin,
+    type LockedField
 } from "~/types/index.js";
 import { createManageSDL } from "~/graphql/schema/createManageSDL.js";
 import { createFieldStorageId } from "./createFieldStorageId.js";
-import { GraphQLError } from "graphql";
+import { type GraphQLError } from "graphql";
 import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 import { getContentModelTitleFieldId } from "./fields/titleField.js";
 import { getContentModelDescriptionFieldId } from "./fields/descriptionField.js";
@@ -19,7 +19,7 @@ import { getContentModelImageFieldId } from "./fields/imageField.js";
 import {
     CmsGraphQLSchemaPlugin,
     CmsGraphQLSchemaSorterPlugin,
-    ICmsGraphQLSchemaPlugin
+    type ICmsGraphQLSchemaPlugin
 } from "~/plugins/index.js";
 import { buildSchemaPlugins } from "~/graphql/buildSchemaPlugins.js";
 import { createExecutableSchema } from "~/graphql/createExecutableSchema.js";

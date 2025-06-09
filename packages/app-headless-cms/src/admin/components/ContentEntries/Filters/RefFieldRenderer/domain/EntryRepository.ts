@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { EntryDTO, EntryReference } from "./Entry.js";
-import { EntriesGatewayInterface } from "../adapters/index.js";
+import { type EntryDTO, type EntryReference } from "./Entry.js";
+import { type EntriesGatewayInterface } from "../adapters/index.js";
 import { EntryMapper } from "./EntryMapper.js";
 import { Loading } from "./Loading.js";
 

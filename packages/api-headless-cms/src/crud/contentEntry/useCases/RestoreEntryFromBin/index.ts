@@ -1,14 +1,14 @@
-import { Topic } from "@webiny/pubsub/types.js";
+import { type Topic } from "@webiny/pubsub/types.js";
 import {
-    CmsContext,
-    CmsEntryStorageOperations,
-    OnEntryAfterRestoreFromBinTopicParams,
-    OnEntryBeforeRestoreFromBinTopicParams,
-    OnEntryRestoreFromBinErrorTopicParams
+    type CmsContext,
+    type CmsEntryStorageOperations,
+    type OnEntryAfterRestoreFromBinTopicParams,
+    type OnEntryBeforeRestoreFromBinTopicParams,
+    type OnEntryRestoreFromBinErrorTopicParams
 } from "~/types/index.js";
-import { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions/index.js";
-import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions/index.js";
+import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { RestoreEntryFromBinOperation } from "./RestoreEntryFromBinOperation.js";
 import { RestoreEntryFromBinOperationWithEvents } from "./RestoreEntryFromBinOperationWithEvents.js";
 import { TransformEntryRestoreFromBin } from "./TransformEntryRestoreFromBin.js";

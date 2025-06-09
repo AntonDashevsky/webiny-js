@@ -1,6 +1,6 @@
-import { PbErrorResponse, PbPageData, PbPageDataItem, PbPageTableItem } from "~/types.js";
-import { SearchRecordItem } from "@webiny/app-aco/table.types.js";
-import { Location } from "@webiny/app-aco/types.js";
+import { type PbErrorResponse, type PbPageData, type PbPageDataItem, type PbPageTableItem } from "~/types.js";
+import { type SearchRecordItem } from "@webiny/app-aco/table.types.js";
+import { type Location } from "@webiny/app-aco/types.js";
 
 export type PageItem = PbPageTableItem | PbPageData | SearchRecordItem<PbPageDataItem>;
 

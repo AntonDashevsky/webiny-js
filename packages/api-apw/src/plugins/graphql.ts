@@ -5,7 +5,7 @@ import commentSchema from "./graphql/comment.gql.js";
 import changeRequestedSchema from "./graphql/changeRequest.gql.js";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
 import { ContextPlugin } from "@webiny/api";
-import { ApwContext } from "~/types.js";
+import { type ApwContext } from "~/types.js";
 
 const emptyResolver = () => ({});
 

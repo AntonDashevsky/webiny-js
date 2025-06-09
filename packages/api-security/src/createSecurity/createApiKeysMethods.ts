@@ -4,7 +4,7 @@ import { createZodError, mdbid } from "@webiny/utils";
 import { NotAuthorizedError } from "~/index.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
-import { ApiKey, ApiKeyInput, ApiKeyPermission, Security, SecurityConfig } from "~/types.js";
+import { type ApiKey, type ApiKeyInput, type ApiKeyPermission, type Security, type SecurityConfig } from "~/types.js";
 import zod from "zod";
 
 const apiKeyModelValidation = zod.object({

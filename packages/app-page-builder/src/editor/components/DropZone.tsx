@@ -1,8 +1,8 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Center } from "./DropZone/Center.js";
-import { Horizontal, HorizontalPropsType } from "./DropZone/Horizontal.js";
-import { Vertical, VerticalPropsType } from "./DropZone/Vertical.js";
+import { Horizontal, type HorizontalPropsType } from "./DropZone/Horizontal.js";
+import { Vertical, type VerticalPropsType } from "./DropZone/Vertical.js";
 
 export default {
     Above: makeDecoratable("Dropzone.Above", (props: HorizontalPropsType) => {

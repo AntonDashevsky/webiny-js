@@ -1,10 +1,10 @@
-import { UploadOptions } from "@webiny/app/types.js";
+import { type UploadOptions } from "@webiny/app/types.js";
 import gql from "graphql-tag";
 import {
-    CompleteUploadParams,
-    CreateUploadParams,
-    MultiPartUpload,
-    MultiPartUploadAPI
+    type CompleteUploadParams,
+    type CreateUploadParams,
+    type MultiPartUpload,
+    type MultiPartUploadAPI
 } from "~/MultiPartUploadAPI.js";
 
 export class MultiPartUploadGraphQLAPI implements MultiPartUploadAPI {

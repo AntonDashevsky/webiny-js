@@ -1,4 +1,4 @@
-import { CmsContentEntryStatusType, CmsIdentity, CmsModel } from "~/types.js";
+import { type CmsContentEntryStatusType, type CmsIdentity, type CmsModel } from "~/types.js";
 
 export interface OptionItem {
     id: string;

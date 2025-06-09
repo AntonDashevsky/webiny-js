@@ -1,13 +1,13 @@
 import dotProp from "dot-prop-immutable";
 import {
     GET_FORM_REVISIONS,
-    GetFormRevisionsQueryResponse,
-    GetFormRevisionsQueryVariables,
+    type GetFormRevisionsQueryResponse,
+    type GetFormRevisionsQueryVariables,
     LIST_FORMS,
-    ListFormsQueryResponse
+    type ListFormsQueryResponse
 } from "../graphql.js";
-import { DataProxy } from "apollo-cache";
-import { FbRevisionModel } from "~/types.js";
+import { type DataProxy } from "apollo-cache";
+import { type FbRevisionModel } from "~/types.js";
 
 // Replace existing "latest" revision with the new revision
 export const updateLatestRevisionInListCache = (

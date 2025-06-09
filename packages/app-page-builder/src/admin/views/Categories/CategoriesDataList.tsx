@@ -26,7 +26,7 @@ import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { PbCategory } from "~/types.js";
+import { type PbCategory } from "~/types.js";
 import { useCategoriesPermissions } from "~/hooks/permissions/index.js";
 
 const t = i18n.ns("app-page-builder/admin/categories/data-list");

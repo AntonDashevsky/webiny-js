@@ -1,10 +1,10 @@
-import { GenericRecord } from "@webiny/app/types.js";
+import { type GenericRecord } from "@webiny/app/types.js";
 import {
-    IGenericData,
-    IWebsocketsManagerCloseEvent,
-    IWebsocketsManagerErrorEvent,
-    IWebsocketsManagerMessageEvent,
-    IWebsocketsManagerOpenEvent
+    type IGenericData,
+    type IWebsocketsManagerCloseEvent,
+    type IWebsocketsManagerErrorEvent,
+    type IWebsocketsManagerMessageEvent,
+    type IWebsocketsManagerOpenEvent
 } from "./types.js";
 
 export type IWebsocketManagerEvent = "open" | "close" | "error" | "message";

@@ -1,12 +1,12 @@
 import {
-    CmsContext,
-    CmsDynamicZoneTemplate,
-    CmsEntry,
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldValidation,
-    CmsModelFieldValidatorPlugin,
-    CmsModelFieldValidatorValidateParams
+    type CmsContext,
+    type CmsDynamicZoneTemplate,
+    type CmsEntry,
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldValidation,
+    type CmsModelFieldValidatorPlugin,
+    type CmsModelFieldValidatorValidateParams
 } from "~/types/index.js";
 import WebinyError from "@webiny/error";
 import camelCase from "lodash/camelCase.js";

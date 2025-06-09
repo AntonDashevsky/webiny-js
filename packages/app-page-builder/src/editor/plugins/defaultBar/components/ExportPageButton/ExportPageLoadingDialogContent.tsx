@@ -3,15 +3,15 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery } from "@apollo/react-hooks";
 import {
     GET_PAGE_EXPORT_TASK,
-    GetPageExportTaskResponse,
-    GetPageExportTaskVariables
+    type GetPageExportTaskResponse,
+    type GetPageExportTaskVariables
 } from "~/admin/graphql/pageImportExport.gql.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { LoadingDialog } from "../ImportButton/styledComponents.js";
 import ProgressBar from "../ImportButton/ProgressBar.js";
 import useExportPageDialog from "./useExportPageDialog.js";
-import { ImportExportTaskStatus, PbErrorResponse } from "~/types.js";
+import { ImportExportTaskStatus, type PbErrorResponse } from "~/types.js";
 import { PbTaskStatus } from "~/admin/graphql/types.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importPage");

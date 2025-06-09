@@ -4,7 +4,7 @@ import get from "lodash/get.js";
 import set from "lodash/set.js";
 import merge from "lodash/merge.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types.js";
+import { type PbEditorPageElementSettingsRenderComponentProps, type PbEditorElement } from "~/types.js";
 import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
 import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
 import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";

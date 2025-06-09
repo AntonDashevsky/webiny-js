@@ -25,7 +25,7 @@ import * as GQL from "./graphql.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
 import { deserializeSorters } from "../utils.js";
-import { ApiKey } from "~/types.js";
+import { type ApiKey } from "~/types.js";
 
 const t = i18n.ns("app-security/admin/groups/data-list");
 

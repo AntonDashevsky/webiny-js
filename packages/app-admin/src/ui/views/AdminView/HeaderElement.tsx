@@ -7,7 +7,7 @@ import { HeaderSectionLeftElement } from "./HeaderSectionLeftElement.js";
 import { HeaderSectionCenterElement } from "./HeaderSectionCenterElement.js";
 import { HeaderSectionRightElement } from "./HeaderSectionRightElement.js";
 import Hamburger from "./components/Hamburger.js";
-import { UIRenderer, UIRenderParams } from "~/ui/UIRenderer.js";
+import { UIRenderer, type UIRenderParams } from "~/ui/UIRenderer.js";
 
 enum ElementID {
     MenuButton = "headerMenuButton",

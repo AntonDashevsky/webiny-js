@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as EmbedsIcon } from "./embeds.svg";
-import { PbEditorPageElementGroupPlugin } from "~/types.js";
+import { type PbEditorPageElementGroupPlugin } from "~/types.js";
 
 export default {
     name: "pb-editor-element-group-embeds",

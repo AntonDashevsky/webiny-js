@@ -6,8 +6,8 @@ import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { PermissionSelector, PermissionSelectorWrapper } from "./PermissionSelector.js";
 import { useCmsData } from "./useCmsData.js";
-import { BindComponent } from "@webiny/form/types.js";
-import { CmsSecurityPermission } from "~/types.js";
+import { type BindComponent } from "@webiny/form/types.js";
+import { type CmsSecurityPermission } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

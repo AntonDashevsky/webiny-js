@@ -4,9 +4,9 @@ import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import camelCase from "lodash/camelCase.js";
 import { useFormEditor } from "../../../Context/index.js";
 import { validation } from "@webiny/validation";
-import { Validator } from "@webiny/validation/types.js";
-import { FbFormModelField } from "~/types.js";
-import { FormRenderPropParams } from "@webiny/form/types.js";
+import { type Validator } from "@webiny/validation/types.js";
+import { type FbFormModelField } from "~/types.js";
+import { type FormRenderPropParams } from "@webiny/form/types.js";
 
 interface GeneralTabProps {
     field: FbFormModelField;

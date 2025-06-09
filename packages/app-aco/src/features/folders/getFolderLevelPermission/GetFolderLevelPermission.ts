@@ -1,8 +1,8 @@
-import { IGetFolderLevelPermissionUseCase } from "./IGetFolderLevelPermissionUseCase.js";
+import { type IGetFolderLevelPermissionUseCase } from "./IGetFolderLevelPermissionUseCase.js";
 import { GetFolderLevelPermissionRepository } from "./GetFolderLevelPermissionRepository.js";
 import { GetFolderLevelPermissionWithFlpUseCase } from "./GetFolderLevelPermissionWithFlpUseCase.js";
 import { GetFolderLevelPermissionUseCase } from "./GetFolderLevelPermissionUseCase.js";
-import { FolderPermissionName } from "./FolderPermissionName.js";
+import { type FolderPermissionName } from "./FolderPermissionName.js";
 import { folderCacheFactory } from "../cache/index.js";
 
 export class GetFolderLevelPermission {

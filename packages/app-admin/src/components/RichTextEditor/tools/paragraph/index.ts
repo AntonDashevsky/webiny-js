@@ -1,6 +1,6 @@
-import { API, PasteEvent } from "@editorjs/editorjs";
-import { Alignment, ALIGNMENTS, TextAlign, ALIGNMENT_ICONS } from "../utils.js";
-import { HTMLPasteEventDetail } from "@editorjs/editorjs/types/tools/paste-events.js";
+import { type API, type PasteEvent } from "@editorjs/editorjs";
+import { type Alignment, ALIGNMENTS, TextAlign, ALIGNMENT_ICONS } from "../utils.js";
+import { type HTMLPasteEventDetail } from "@editorjs/editorjs/types/tools/paste-events.js";
 
 /**
  * @typedef {object} ParagraphConfig

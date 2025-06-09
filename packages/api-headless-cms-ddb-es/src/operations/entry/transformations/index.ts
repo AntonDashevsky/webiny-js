@@ -1,11 +1,11 @@
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import {
-    CmsEntry,
-    CmsStorageEntry,
-    StorageOperationsCmsModel
+    type CmsEntry,
+    type CmsStorageEntry,
+    type StorageOperationsCmsModel
 } from "@webiny/api-headless-cms/types/index.js";
 import { transformEntryKeys } from "./transformEntryKeys.js";
-import { CmsIndexEntry } from "~/types.js";
+import { type CmsIndexEntry } from "~/types.js";
 import { transformEntryToIndex } from "~/operations/entry/transformations/transformEntryToIndex.js";
 import { CmsEntryElasticsearchValuesModifier } from "~/plugins/index.js";
 import { modifyEntryValues as modifyEntryValuesCallable } from "~/operations/entry/transformations/modifyEntryValues.js";

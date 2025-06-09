@@ -1,4 +1,4 @@
-import { Asset, AssetTransformationStrategy, AssetRequest } from "~/delivery/index.js";
+import { type Asset, type AssetTransformationStrategy, type AssetRequest } from "~/delivery/index.js";
 
 export class PassthroughAssetTransformationStrategy implements AssetTransformationStrategy {
     transform(assetRequest: AssetRequest, asset: Asset): Promise<Asset> {

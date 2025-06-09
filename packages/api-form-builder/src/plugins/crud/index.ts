@@ -1,4 +1,4 @@
-import { FormBuilderContext, FormBuilderStorageOperations } from "~/types.js";
+import { type FormBuilderContext, type FormBuilderStorageOperations } from "~/types.js";
 import { ContextPlugin } from "@webiny/api";
 import { createSystemCrud } from "~/plugins/crud/system.crud.js";
 import { createSettingsCrud } from "~/plugins/crud/settings.crud.js";

@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import styled from "@emotion/styled";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { UIElement, UIElementConfig, UiElementRenderProps } from "~/ui/UIElement.js";
+import { UIElement, type UIElementConfig, type UiElementRenderProps } from "~/ui/UIElement.js";
 
 const FormContainerWrapper = styled("div")({
     position: "relative",

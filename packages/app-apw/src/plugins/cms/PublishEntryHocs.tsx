@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "@webiny/react-router";
-import { HigherOrderComponent } from "@webiny/app-admin";
+import { type HigherOrderComponent } from "@webiny/app-admin";
 import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { ListItemGraphic } from "@webiny/ui/List/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";

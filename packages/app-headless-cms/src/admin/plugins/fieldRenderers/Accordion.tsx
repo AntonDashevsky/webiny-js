@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useRef } from "react";
+import React, { type ReactElement, useEffect, useRef } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import classNames from "classnames";

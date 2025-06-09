@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";
 import { ReactComponent as AddIcon } from "@material-design-icons/svg/round/add_circle_outline.svg";
 import { Typography } from "@webiny/ui/Typography/index.js";
-import { CmsDynamicZoneTemplate, CmsDynamicZoneTemplateWithTypename } from "~/types.js";
+import { type CmsDynamicZoneTemplate, type CmsDynamicZoneTemplateWithTypename } from "~/types.js";
 import { TemplateGallery } from "./TemplateGallery.js";
 import { IconButton, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { useTemplateTypename } from "~/admin/plugins/fieldRenderers/dynamicZone/useTemplateTypename.js";

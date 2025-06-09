@@ -1,6 +1,6 @@
-import { ApolloClient } from "apollo-client";
+import { type ApolloClient } from "apollo-client";
 import {
-    FiltersGatewayInterface,
+    type FiltersGatewayInterface,
     FiltersGraphQLGateway
 } from "~/components/AdvancedSearch/gateways/index.js";
 import { FilterRepository } from "./FilterRepository.js";

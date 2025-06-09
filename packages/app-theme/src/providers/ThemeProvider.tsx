@@ -2,7 +2,7 @@ import * as React from "react";
 import { useCallback, useState } from "react";
 import { plugins } from "@webiny/plugins";
 import { ThemePlugin } from "~/index.js";
-import { Theme } from "~/types.js";
+import { type Theme } from "~/types.js";
 export interface ThemeContext {
     theme: Theme | undefined;
     loadThemeFromPlugins(): void;

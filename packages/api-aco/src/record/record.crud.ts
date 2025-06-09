@@ -1,17 +1,17 @@
 import { createTopic } from "@webiny/pubsub";
 import {
-    CreateAcoParams,
-    OnSearchRecordAfterMoveTopicParams,
-    OnSearchRecordBeforeMoveTopicParams
+    type CreateAcoParams,
+    type OnSearchRecordAfterMoveTopicParams,
+    type OnSearchRecordBeforeMoveTopicParams
 } from "~/types.js";
 import {
-    AcoSearchRecordCrud,
-    OnSearchRecordAfterCreateTopicParams,
-    OnSearchRecordAfterDeleteTopicParams,
-    OnSearchRecordAfterUpdateTopicParams,
-    OnSearchRecordBeforeCreateTopicParams,
-    OnSearchRecordBeforeDeleteTopicParams,
-    OnSearchRecordBeforeUpdateTopicParams
+    type AcoSearchRecordCrud,
+    type OnSearchRecordAfterCreateTopicParams,
+    type OnSearchRecordAfterDeleteTopicParams,
+    type OnSearchRecordAfterUpdateTopicParams,
+    type OnSearchRecordBeforeCreateTopicParams,
+    type OnSearchRecordBeforeDeleteTopicParams,
+    type OnSearchRecordBeforeUpdateTopicParams
 } from "./record.types.js";
 
 export const createSearchRecordCrudMethods = ({

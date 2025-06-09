@@ -1,7 +1,7 @@
 import {
-    CmsFieldTypePlugins,
-    CmsModel,
-    CmsModelField
+    type CmsFieldTypePlugins,
+    type CmsModel,
+    type CmsModelField
 } from "@webiny/api-headless-cms/types/index.js";
 import { renderFields } from "@webiny/api-headless-cms/utils/renderFields.js";
 import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields.js";

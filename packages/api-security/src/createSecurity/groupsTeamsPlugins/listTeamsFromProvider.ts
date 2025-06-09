@@ -1,4 +1,4 @@
-import { SecurityConfig } from "~/types.js";
+import { type SecurityConfig } from "~/types.js";
 
 export interface ListTeamsFromPluginsParams {
     teamsProvider?: SecurityConfig["teamsProvider"];

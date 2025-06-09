@@ -10,7 +10,7 @@ import {
     DialogContent,
     DialogTitle
 } from "@webiny/ui/Dialog/index.js";
-import { Form, FormOnSubmit } from "@webiny/form";
+import { Form, type FormOnSubmit } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
 import { Tab, Tabs } from "@webiny/ui/Tabs/index.js";
 import GeneralTab from "./EditFieldDialog/GeneralTab.js";
@@ -18,7 +18,7 @@ import ValidatorsTab from "./EditFieldDialog/ValidatorsTab.js";
 import FieldTypeSelector from "./EditFieldDialog/FieldTypeSelector.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { useFormEditor } from "../../Context/index.js";
-import { FbBuilderFieldPlugin, FbFormModelField } from "~/types.js";
+import { type FbBuilderFieldPlugin, type FbFormModelField } from "~/types.js";
 
 const t = i18n.namespace("FormEditor.EditFieldDialog");
 

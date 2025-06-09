@@ -9,10 +9,10 @@ import React, {
 } from "react";
 import { generateId } from "@webiny/utils";
 import { createProvider, createVoidComponent, makeDecoratable, Plugins } from "@webiny/app";
-import { AddMenu as Menu, createEmptyMenu, MenuData, MenuProps, MenuUpdater, Tags } from "~/index.js";
+import { AddMenu as Menu, createEmptyMenu, type MenuData, type MenuProps, type MenuUpdater, Tags } from "~/index.js";
 import { plugins } from "@webiny/plugins";
-import { AdminMenuPlugin } from "~/types.js";
-import { ItemProps, SectionProps } from "~/plugins/MenuPlugin.js";
+import { type AdminMenuPlugin } from "~/types.js";
+import { type ItemProps, type SectionProps } from "~/plugins/MenuPlugin.js";
 
 export interface NavigationContext {
     menuItems: MenuData[];

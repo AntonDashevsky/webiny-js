@@ -1,8 +1,8 @@
-import { ListSort } from "~/types.js";
+import { type ListSort } from "~/types.js";
 import {
-    CmsEntryListSort,
-    CmsEntryListSortAsc,
-    CmsEntryListSortDesc
+    type CmsEntryListSort,
+    type CmsEntryListSortAsc,
+    type CmsEntryListSortDesc
 } from "@webiny/api-headless-cms/types/index.js";
 
 export const createListSort = (sort?: ListSort): CmsEntryListSort | undefined => {

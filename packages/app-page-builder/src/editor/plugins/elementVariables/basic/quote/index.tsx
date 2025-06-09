@@ -1,6 +1,6 @@
 import React from "react";
 import { set } from "dot-prop-immutable";
-import { PbEditorPageElementVariableRendererPlugin } from "~/types.js";
+import { type PbEditorPageElementVariableRendererPlugin } from "~/types.js";
 import { RichVariableInput } from "~/editor/plugins/elementSettings/variable/RichVariableInput.js";
 import { useElementVariables } from "~/editor/hooks/useElementVariableValue.js";
 

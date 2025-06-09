@@ -3,11 +3,11 @@ import fs from "fs-extra";
 import path from "path";
 import loadJson from "load-json-file";
 import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles.js";
-import { FileUploadsData } from "~/types.js";
+import { type FileUploadsData } from "~/types.js";
 import { s3Stream } from "~/export/s3Stream.js";
 import { deleteS3Folder } from "~/import/utils/deleteS3Folder.js";
 import { INSTALL_EXTRACT_DIR } from "~/import/constants.js";
-import { ExportedFormData } from "~/export/process/exporters/FormExporter.js";
+import { type ExportedFormData } from "~/export/process/exporters/FormExporter.js";
 
 interface ImportFormParams {
     key: string;

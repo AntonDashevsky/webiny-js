@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { CmsModel, CmsSecurityPermission } from "~/types.js";
+import { type CmsModel, type CmsSecurityPermission } from "~/types.js";
 
 export interface ContentEntriesContext {
     contentModel: CmsModel;

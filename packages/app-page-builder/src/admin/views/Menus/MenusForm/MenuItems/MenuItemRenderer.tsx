@@ -12,7 +12,7 @@ import { rowHandle, fieldContainer, Row, RowContainer, FolderTreeItemWrapper } f
 import { ReactComponent as EditIcon } from "./icons/round-edit-24px.svg";
 import { ReactComponent as DeleteIcon } from "./icons/round-delete-24px.svg";
 import { ReactComponent as HandleIcon } from "./icons/round-drag_indicator-24px.svg";
-import { TreeItemComponentProps, MenuTreeItem } from "~/admin/views/Menus/types.js";
+import { type TreeItemComponentProps, type MenuTreeItem } from "~/admin/views/Menus/types.js";
 export interface NodeRendererDefaultProps {
     editItem: (item: MenuTreeItem) => void;
     deleteItem: (item: MenuTreeItem) => void;

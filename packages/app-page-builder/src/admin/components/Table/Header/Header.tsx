@@ -7,8 +7,8 @@ import { TableActions } from "~/admin/components/Table/Header/TableActions/index
 import { Title } from "~/admin/components/Table/Header/Title/index.js";
 
 import { Container, Divider, WrapperActions } from "./styled.js";
-import { PbPageDataItem } from "~/types.js";
-import { SearchRecordItem } from "@webiny/app-aco/types.js";
+import { type PbPageDataItem } from "~/types.js";
+import { type SearchRecordItem } from "@webiny/app-aco/types.js";
 
 export interface HeaderProps {
     title?: string;

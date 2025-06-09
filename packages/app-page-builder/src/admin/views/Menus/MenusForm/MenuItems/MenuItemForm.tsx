@@ -5,8 +5,8 @@ import uniqid from "uniqid";
 import { useHandlers } from "@webiny/app/hooks/useHandlers.js";
 import { plugins } from "@webiny/plugins";
 import findObject from "./findObject.js";
-import { PbMenuItemPlugin } from "~/types.js";
-import { MenuTreeItem } from "~/admin/views/Menus/types.js";
+import { type PbMenuItemPlugin } from "~/types.js";
+import { type MenuTreeItem } from "~/admin/views/Menus/types.js";
 
 interface MenuItemFormProps {
     currentMenuItem: MenuTreeItem;

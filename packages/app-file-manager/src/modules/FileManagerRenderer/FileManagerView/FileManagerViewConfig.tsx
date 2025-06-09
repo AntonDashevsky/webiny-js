@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Browser, BrowserConfig } from "./configComponents/Browser";
-import { FileDetails, FileDetailsConfig } from "./configComponents/FileDetails";
-import { getThumbnailRenderer } from "./getThumbnailRenderer";
+import { Browser, type BrowserConfig } from "./configComponents/Browser/index.js";
+import { FileDetails, type FileDetailsConfig } from "./configComponents/FileDetails/index.js";
+import { getThumbnailRenderer } from "./getThumbnailRenderer.js";
 import { CompositionScope } from "@webiny/react-composition";
 
 const base = createConfigurableComponent<FileManagerViewConfigData>("FileManagerView");

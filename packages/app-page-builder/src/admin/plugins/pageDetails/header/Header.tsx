@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { renderPlugins } from "@webiny/app/plugins/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { ReactComponent as OpenInNew } from "@material-design-icons/svg/round/open_in_new.svg";
-import { PbPageData } from "~/types.js";
+import { type PbPageData } from "~/types.js";
 import { usePreviewPage } from "~/admin/hooks/usePreviewPage.js";
 
 const HeaderTitle = styled.div`

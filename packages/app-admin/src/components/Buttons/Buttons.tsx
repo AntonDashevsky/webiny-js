@@ -4,10 +4,10 @@ import {
     ButtonPrimary as BaseButtonPrimary,
     ButtonSecondary as BaseButtonSecondary,
     IconButton as BaseIconButton,
-    ButtonProps as BaseButtonProps,
-    IconButtonProps as BaseIconButtonProps
+    type ButtonProps as BaseButtonProps,
+    type IconButtonProps as BaseIconButtonProps
 } from "@webiny/ui/Button/index.js";
-import { Tooltip, TooltipProps } from "@webiny/ui/Tooltip/index.js";
+import { Tooltip, type TooltipProps } from "@webiny/ui/Tooltip/index.js";
 
 import { ButtonsProvider } from "./useButtons.js";
 import { ButtonContainer } from "./Buttons.styles.js";

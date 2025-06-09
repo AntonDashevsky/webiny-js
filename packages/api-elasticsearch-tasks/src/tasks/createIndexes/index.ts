@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context, IElasticsearchTaskConfig } from "~/types.js";
-import { IElasticsearchCreateIndexesTaskInput } from "~/tasks/createIndexes/types.js";
+import { type Context, type IElasticsearchTaskConfig } from "~/types.js";
+import { type IElasticsearchCreateIndexesTaskInput } from "~/tasks/createIndexes/types.js";
 import { CreateIndexesTaskRunner } from "./CreateIndexesTaskRunner.js";
 
 export const createIndexesTaskDefinition = (params?: IElasticsearchTaskConfig) => {
@@ -41,12 +41,12 @@ export const createIndexesTaskDefinition = (params?: IElasticsearchTaskConfig) =
         async onBeforeTrigger({ context }) {
             // Let's create a new index for the tasks first.
             const { IndexManager } = await import(
-                /* webpackChunkName: "IndexManager" */ "~/settings"
+                /* webpackChunkName: "IndexManager" */ "~/settings/index.js"
             );
             const indexManager = new IndexManager(context.elasticsearch, {});
             const { OnBeforeTrigger } = await import(
                 /* webpackChunkName: "OnBeforeTrigger" */
-                "./OnBeforeTrigger"
+                "./OnBeforeTrigger.js"
             );
 
             const onBeforeTrigger = new OnBeforeTrigger({

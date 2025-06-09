@@ -1,4 +1,4 @@
-import { IRecordLockingGetLockRecordParams, IRecordLockingLockRecord } from "~/types.js";
+import { type IRecordLockingGetLockRecordParams, type IRecordLockingLockRecord } from "~/types.js";
 
 export type IGetLockRecordUseCaseExecuteParams = IRecordLockingGetLockRecordParams;
 

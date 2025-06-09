@@ -1,6 +1,6 @@
 import React from "react";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { CmsModelFieldTypePlugin } from "~/types.js";
+import { type CmsModelFieldTypePlugin } from "~/types.js";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { ReactComponent as NotesIcon } from "@material-design-icons/svg/outlined/text_snippet.svg";
 import { Input } from "@webiny/ui/Input/index.js";

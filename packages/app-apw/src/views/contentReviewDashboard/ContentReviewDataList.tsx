@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import { DataList, DataListModalOverlayAction, List, ListItem } from "@webiny/ui/List/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { ApwContentReviewListItem } from "~/types.js";
+import { type ApwContentReviewListItem } from "~/types.js";
 import { ContentReviewListItem } from "./components/ContentReviewItem.js";
 import { useContentReviewsList } from "~/hooks/useContentReviewsList.js";
 import { ContentReviewsFilterModal } from "./components/ContentReviewsFilterOverlay.js";

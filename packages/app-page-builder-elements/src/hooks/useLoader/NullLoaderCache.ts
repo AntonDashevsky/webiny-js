@@ -1,4 +1,4 @@
-import { ILoaderCache } from "./ILoaderCache.js";
+import { type ILoaderCache } from "./ILoaderCache.js";
 
 export class NullLoaderCache implements ILoaderCache {
     read() {

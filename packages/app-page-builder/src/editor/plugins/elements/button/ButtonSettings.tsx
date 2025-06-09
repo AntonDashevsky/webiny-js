@@ -3,7 +3,7 @@ import { css } from "emotion";
 import startCase from "lodash/startCase.js";
 import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements.js";
 import { IconPicker } from "@webiny/app-admin/components/IconPicker/index.js";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
+import { type PbEditorElement, type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
 // Components
 import { ICON_PICKER_SIZE } from "@webiny/app-admin/components/IconPicker/types.js";
 import Accordion from "../../elementSettings/components/Accordion.js";

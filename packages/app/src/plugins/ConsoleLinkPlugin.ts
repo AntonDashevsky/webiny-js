@@ -1,6 +1,6 @@
-import { ApolloLink, FetchResult as BaseFetchResult } from "apollo-link";
+import { ApolloLink, type FetchResult as BaseFetchResult } from "apollo-link";
 import { ApolloLinkPlugin } from "./ApolloLinkPlugin.js";
-import { OperationDefinitionNode } from "graphql/language/ast.js";
+import { type OperationDefinitionNode } from "graphql/language/ast.js";
 
 interface Log {
     args: any[];

@@ -1,5 +1,5 @@
-import { API, HTMLPasteEvent } from "@editorjs/editorjs";
-import { ALIGNMENTS, ALIGNMENT_ICONS, TextAlign, Alignment } from "../utils.js";
+import { type API, type HTMLPasteEvent } from "@editorjs/editorjs";
+import { ALIGNMENTS, ALIGNMENT_ICONS, TextAlign, type Alignment } from "../utils.js";
 
 interface Typography {
     [key: string]: {

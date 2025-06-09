@@ -1,5 +1,5 @@
 import { IconRepository } from "./IconRepository.js";
-import { IconPackProviderInterface as IconPackProvider, IconType } from "./config/index.js";
+import { type IconPackProviderInterface as IconPackProvider, type IconType } from "./config/index.js";
 
 class IconRepositoryFactory {
     private cache: Map<string, IconRepository> = new Map();

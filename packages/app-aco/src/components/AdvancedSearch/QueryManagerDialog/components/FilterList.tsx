@@ -9,7 +9,7 @@ import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { Menu, MenuItem } from "@webiny/ui/Menu/index.js";
 
 import { ListActions } from "../QueryManagerDialog.styled.js";
-import { QueryManagerFilter } from "../QueryManagerDialog.js";
+import { type QueryManagerFilter } from "../QueryManagerDialog.js";
 import { Description } from "~/components/AdvancedSearch/QueryManagerDialog/components/Description.js";
 
 type filterCallback = (filterId: string) => void;

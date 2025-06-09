@@ -2,7 +2,7 @@ import React from "react";
 import { CompositionScope } from "@webiny/app-admin";
 import { ParagraphRenderer } from "@webiny/app-page-builder-elements/renderers/paragraph.js";
 import type { Element } from "@webiny/app-page-builder-elements/types.js";
-import { MediumEditorOptions, PbEditorElement } from "~/types.js";
+import { type MediumEditorOptions, type PbEditorElement } from "~/types.js";
 import { useActiveElementId } from "~/editor/index.js";
 import { ActiveParagraphRenderer } from "./ActiveParagraphRenderer.js";
 

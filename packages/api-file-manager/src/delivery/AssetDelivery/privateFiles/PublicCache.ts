@@ -1,5 +1,5 @@
 import * as cacheControlParser from "cache-control-parser";
-import { Asset, AssetOutputStrategy, AssetReply } from "~/delivery/index.js";
+import { type Asset, type AssetOutputStrategy, type AssetReply } from "~/delivery/index.js";
 
 export class PublicCache implements AssetOutputStrategy {
     private strategy: AssetOutputStrategy;

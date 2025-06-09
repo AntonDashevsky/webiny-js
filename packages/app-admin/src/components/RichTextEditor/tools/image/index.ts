@@ -1,8 +1,8 @@
-import { API } from "@editorjs/editorjs";
+import { type API } from "@editorjs/editorjs";
 import Ui from "./ui.js";
 import Tunes from "./tunes.js";
 import svgs from "./svgs.js";
-import { Tune } from "./types.js";
+import { type Tune } from "./types.js";
 
 interface File {
     src: string;

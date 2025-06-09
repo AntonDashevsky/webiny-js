@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { plugins } from "@webiny/plugins";
 import { generateId } from "@webiny/utils";
 import { AddQuerySelectionPlugin } from "@webiny/app/plugins/AddQuerySelectionPlugin.js";
-import { DocumentNode } from "graphql";
+import { type DocumentNode } from "graphql";
 
 interface Props {
     operationName: string;

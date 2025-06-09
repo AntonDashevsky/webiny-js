@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
 import zod from "zod";
-import { Topic } from "@webiny/pubsub/types.js";
-import { OnTransportBeforeSendParams } from "~/types.js";
-import { SafeParseReturnType } from "zod/lib/types.js";
+import { type Topic } from "@webiny/pubsub/types.js";
+import { type OnTransportBeforeSendParams } from "~/types.js";
+import { type SafeParseReturnType } from "zod/lib/types.js";
 
 const requiredString = zod.string();
 const requiredEmail = requiredString.email();

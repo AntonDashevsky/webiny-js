@@ -1,15 +1,15 @@
 import {
-    I18NContext,
-    I18NSystem,
-    I18NSystemStorageOperations,
-    OnSystemAfterInstallTopicParams,
-    OnSystemBeforeInstallTopicParams,
-    SystemCRUD
+    type I18NContext,
+    type I18NSystem,
+    type I18NSystemStorageOperations,
+    type OnSystemAfterInstallTopicParams,
+    type OnSystemBeforeInstallTopicParams,
+    type SystemCRUD
 } from "~/types.js";
 import WebinyError from "@webiny/error";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { createTopic } from "@webiny/pubsub";
-import { Tenant } from "@webiny/api-tenancy/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
 
 interface CreateSystemCrudParams {
     context: I18NContext;

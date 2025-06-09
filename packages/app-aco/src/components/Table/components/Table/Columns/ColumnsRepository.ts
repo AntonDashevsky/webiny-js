@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { ColumnDTO } from "./Column.js";
-import { IColumnsRepository } from "./IColumnsRepository.js";
+import { type ColumnDTO } from "./Column.js";
+import { type IColumnsRepository } from "./IColumnsRepository.js";
 
 export class ColumnsRepository implements IColumnsRepository {
     private readonly columns: ColumnDTO[];

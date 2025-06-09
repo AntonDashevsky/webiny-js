@@ -8,13 +8,13 @@
  *
  */
 
-import { CmsModelFieldToElasticsearchPlugin } from "~/types.js";
+import { type CmsModelFieldToElasticsearchPlugin } from "~/types.js";
 import {
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldToGraphQLPlugin
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldToGraphQLPlugin
 } from "@webiny/api-headless-cms/types/index.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import { getFieldIdentifiers } from "~/helpers/index.js";
 
 interface ProcessToIndex {

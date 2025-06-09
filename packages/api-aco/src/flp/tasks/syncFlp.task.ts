@@ -1,12 +1,12 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { SYNC_FLP_TASK_ID, UPDATE_FLP_TASK_ID } from "~/flp/tasks";
+import { SYNC_FLP_TASK_ID, UPDATE_FLP_TASK_ID } from "~/flp/tasks/index.js";
 import {
     type AcoContext,
     type ISyncFlpTaskInput,
     type ISyncFlpTaskParams,
     type IUpdateFlpTaskInput
-} from "~/types";
-import { PB_PAGE_TYPE, FM_FILE_TYPE } from "~/constants";
+} from "~/types.js";
+import { PB_PAGE_TYPE, FM_FILE_TYPE } from "~/constants.js";
 
 class SyncFlpTask {
     public init = () => {

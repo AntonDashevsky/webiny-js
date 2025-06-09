@@ -4,17 +4,17 @@ import React, {
     useMemo,
     useState,
     useCallback,
-    FunctionComponentElement,
-    ReactElement
+    type FunctionComponentElement,
+    type ReactElement
 } from "react";
-import { BrowserRouter, RouteProps, Route } from "@webiny/react-router";
+import { BrowserRouter, type RouteProps, Route } from "@webiny/react-router";
 import {
     CompositionProvider,
-    GenericComponent,
+    type GenericComponent,
     compose,
-    Decorator,
-    HigherOrderComponent,
-    DecoratorsCollection
+    type Decorator,
+    type HigherOrderComponent,
+    type DecoratorsCollection
 } from "@webiny/react-composition";
 import { Routes as SortRoutes } from "./core/Routes.js";
 import { DebounceRender } from "./core/DebounceRender.js";

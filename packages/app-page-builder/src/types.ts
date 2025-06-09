@@ -1,19 +1,20 @@
-import React, { ComponentType, ReactElement, ReactNode } from "react";
-import { DragObjectWithTypeWithTarget } from "./editor/components/Droppable.js";
-import { BaseEventAction, EventAction } from "./editor/recoil/eventActions/index.js";
-import { PbState } from "./editor/recoil/modules/types.js";
-import { GenericRecord, Plugin } from "@webiny/app/types.js";
-import { BindComponent } from "@webiny/form";
-import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
-import { Icon } from "@webiny/app-admin/components/IconPicker/types.js";
-import { FormAPI, FormOnSubmit, FormSetValue, GenericFormData } from "@webiny/form/types.js";
-import { CoreOptions } from "medium-editor";
-import { MenuTreeItem } from "~/admin/views/Menus/types.js";
-import { SecurityPermission } from "@webiny/app-security/types.js";
-import { PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types.js";
-import { Theme } from "@webiny/app-theme/types.js";
-import { Renderer } from "@webiny/app-page-builder-elements/types.js";
-import { FolderTableItem, RecordTableItem, SearchRecordItem } from "@webiny/app-aco/table.types.js";
+import {type ComponentType, type ReactElement, type ReactNode} from "react";
+import type React from "react";
+import { type DragObjectWithTypeWithTarget } from "./editor/components/Droppable.js";
+import { type BaseEventAction, type EventAction } from "./editor/recoil/eventActions/index.js";
+import { type PbState } from "./editor/recoil/modules/types.js";
+import { type GenericRecord, type Plugin } from "@webiny/app/types.js";
+import { type BindComponent } from "@webiny/form";
+import { type IconName, type IconPrefix } from "@fortawesome/fontawesome-svg-core";
+import { type Icon } from "@webiny/app-admin/components/IconPicker/types.js";
+import { type FormAPI, type FormOnSubmit, type FormSetValue, type GenericFormData } from "@webiny/form/types.js";
+import { type CoreOptions } from "medium-editor";
+import { type MenuTreeItem } from "~/admin/views/Menus/types.js";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
+import { type PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types.js";
+import { type Theme } from "@webiny/app-theme/types.js";
+import { type Renderer } from "@webiny/app-page-builder-elements/types.js";
+import { type FolderTableItem, type RecordTableItem, type SearchRecordItem } from "@webiny/app-aco/table.types.js";
 import type { SourceType } from "dnd-core";
 
 export type DragObjectWithType = {

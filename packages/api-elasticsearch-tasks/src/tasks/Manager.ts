@@ -1,5 +1,5 @@
-import { DynamoDBDocument, getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
-import { Client, createElasticsearchClient } from "@webiny/api-elasticsearch";
+import { type DynamoDBDocument, getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
+import { type Client, createElasticsearchClient } from "@webiny/api-elasticsearch";
 import { createTable } from "~/definitions/index.js";
 import type { Context, IManager } from "~/types.js";
 import { createEntry } from "~/definitions/entry.js";

@@ -1,5 +1,5 @@
 import React from "react";
-import { PbEditorPageElementSettingsPlugin } from "~/types.js";
+import { type PbEditorPageElementSettingsPlugin } from "~/types.js";
 import { ReactComponent as FavoriteIcon } from "../../../assets/icons/round-favorite-24px.svg";
 import Action from "../components/Action.js";
 import SaveAction from "./SaveAction.js";

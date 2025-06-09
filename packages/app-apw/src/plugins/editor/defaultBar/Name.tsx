@@ -6,7 +6,7 @@ import { IconButton } from "@webiny/ui/Button/index.js";
 import { Box, Columns, Stack } from "~/components/Layout.js";
 import { ReactComponent as LaunchIcon } from "~/assets/icons/launch_24dp.svg";
 import { useCurrentContentReview } from "~/hooks/useContentReview.js";
-import { ApwContentReviewContent, ApwContentTypes } from "~/types.js";
+import { type ApwContentReviewContent, ApwContentTypes } from "~/types.js";
 
 const t = i18n.ns("app-apw/admin/content-reviews/editor");
 

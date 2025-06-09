@@ -1,20 +1,20 @@
 import WebinyError from "@webiny/error";
 import {
-    I18NContext,
-    I18NLocaleData,
-    I18NLocalesStorageOperations,
-    LocalesCRUD,
-    OnLocaleAfterCreateTopicParams,
-    OnLocaleAfterDeleteTopicParams,
-    OnLocaleAfterUpdateTopicParams,
-    OnLocaleBeforeCreateTopicParams,
-    OnLocaleBeforeDeleteTopicParams,
-    OnLocaleBeforeUpdateTopicParams
+    type I18NContext,
+    type I18NLocaleData,
+    type I18NLocalesStorageOperations,
+    type LocalesCRUD,
+    type OnLocaleAfterCreateTopicParams,
+    type OnLocaleAfterDeleteTopicParams,
+    type OnLocaleAfterUpdateTopicParams,
+    type OnLocaleBeforeCreateTopicParams,
+    type OnLocaleBeforeDeleteTopicParams,
+    type OnLocaleBeforeUpdateTopicParams
 } from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
-import { Tenant } from "@webiny/api-tenancy/types.js";
-import { LocalesPermissions } from "./permissions/LocalesPermissions.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
+import { type LocalesPermissions } from "./permissions/LocalesPermissions.js";
 import { IdentityValue } from "@webiny/api-security";
 
 export interface CreateLocalesCrudParams {

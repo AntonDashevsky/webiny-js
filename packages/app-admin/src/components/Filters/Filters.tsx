@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormOnSubmit, FormProps, GenericFormData } from "@webiny/form";
+import { Form, type FormOnSubmit, type FormProps, type GenericFormData } from "@webiny/form";
 
 import { FilterContainer, FiltersContainer, FormContainer } from "./Filters.styled.js";
 

@@ -4,9 +4,9 @@ import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
 import { usePage } from "~/pageEditor/hooks/usePage.js";
-import { UpdatedPage } from "~/pageEditor/config/eventActions/saveRevision/types.js";
+import { type UpdatedPage } from "~/pageEditor/config/eventActions/saveRevision/types.js";
 import { usePageSettings as usePageSettingsState } from "~/pageEditor/config/TopBar/PageSettings/usePageSettings.js";
-import { PbPageData } from "~/types.js";
+import { type PbPageData } from "~/types.js";
 
 export type UsePageSettings = ReturnType<typeof usePageSettings>;
 

@@ -1,6 +1,6 @@
 import path from "path";
-import { S3 } from "@webiny/aws-sdk/client-s3";
-import { Asset, AssetRequest, AssetResolver } from "@webiny/api-file-manager";
+import { type S3 } from "@webiny/aws-sdk/client-s3";
+import { type Asset, type AssetRequest, type AssetResolver } from "@webiny/api-file-manager";
 import { S3AssetMetadataReader } from "~/assetDelivery/s3/S3AssetMetadataReader.js";
 import { S3ContentsReader } from "~/assetDelivery/s3/S3ContentsReader.js";
 import { CustomAsset } from "./CustomAsset.js";

@@ -1,19 +1,19 @@
 import isEqual from "lodash/isEqual.js";
 import { validateOrGetDefaultDbSort } from "@webiny/app-aco/sorting.js";
 import { useGetDescendantFolders } from "@webiny/app-aco";
-import { ListMeta } from "@webiny/app-aco/types.js";
+import { type ListMeta } from "@webiny/app-aco/types.js";
 import { useSecurity } from "@webiny/app-security";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 import { useStateIfMounted } from "@webiny/app-admin";
-import { Loading, LoadingActions } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
+import { type Loading, type LoadingActions } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 import {
-    ListFilesQueryVariables,
-    ListFilesSort,
-    ListFilesWhereLocation,
-    ListFilesWhereQueryVariables
+    type ListFilesQueryVariables,
+    type ListFilesSort,
+    type ListFilesWhereLocation,
+    type ListFilesWhereQueryVariables
 } from "~/modules/FileManagerApiProvider/graphql.js";
 import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
-import { getScopeWhereParams, State } from "./state.js";
+import { getScopeWhereParams, type State } from "./state.js";
 import { ROOT_FOLDER } from "~/constants.js";
 
 const toTypeInput = (value: string) => {

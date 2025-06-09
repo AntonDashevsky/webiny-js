@@ -1,5 +1,5 @@
 import textFieldPlugin from "./../text.js";
-import { FbBuilderFieldPlugin } from "../../../../../types.js";
+import { type FbBuilderFieldPlugin } from "../../../../../types.js";
 
 const plugin: FbBuilderFieldPlugin = {
     type: "form-editor-field-type",

@@ -1,9 +1,9 @@
 import React from "react";
 import { FileManager } from "~/components/index.js";
 import { RichTextEditor as BaseEditor } from "@webiny/lexical-editor";
-import { RichTextEditorProps } from "@webiny/lexical-editor/types.js";
+import { type RichTextEditorProps } from "@webiny/lexical-editor/types.js";
 import { useTheme } from "@webiny/app-theme";
-import { EditorTheme } from "@webiny/lexical-theme";
+import { type EditorTheme } from "@webiny/lexical-theme";
 
 interface LexicalEditorProps extends Omit<RichTextEditorProps, "theme"> {
     theme?: Partial<EditorTheme>;

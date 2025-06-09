@@ -1,10 +1,10 @@
 import React from "react";
 import {
     FormFieldElement,
-    FormFieldElementConfig,
-    FormFieldElementRenderProps
+    type FormFieldElementConfig,
+    type FormFieldElementRenderProps
 } from "~/ui/elements/form/FormFieldElement.js";
-import { UIElement } from "~/ui/UIElement.js";
+import { type UIElement } from "~/ui/UIElement.js";
 import { DynamicFieldset } from "@webiny/ui/DynamicFieldset/index.js";
 import { Grid } from "@webiny/ui/Grid/index.js";
 import { DynamicFieldsetRowElement } from "./DynamicFieldsetElement/DynamicFieldsetRowElement.js";

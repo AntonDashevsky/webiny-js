@@ -3,7 +3,7 @@ import { getAncestorFoldersByPage } from "~/page/getAncestorFoldersByPage.js";
 import { createImportExportPageHooks, createPageHooks } from "~/page/hooks/index.js";
 import { createPageProcessors } from "~/page/processors/index.js";
 import { getSearchablePageContent } from "~/utils/getSearchableContent.js";
-import { PageSearchProcessor, PbAcoContext } from "~/types.js";
+import { type PageSearchProcessor, type PbAcoContext } from "~/types.js";
 import { createApp } from "~/app.js";
 import { PageBuilderCrudDecorators } from "~/utils/PageBuilderCrudDecorators.js";
 import { createPbPageWbyAcoLocationGqlField } from "~/page/graphql/createPbPageWbyAcoLocationGqlField.js";

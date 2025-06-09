@@ -1,34 +1,34 @@
 import slugify from "slugify";
 import { NotFoundError } from "@webiny/handler-graphql";
 import {
-    FbForm,
-    FbFormStats,
-    FormBuilder,
-    FormBuilderContext,
-    FormBuilderStorageOperationsListFormsParams,
-    FormsCRUD,
-    OnFormAfterCreateTopicParams,
-    OnFormAfterDeleteTopicParams,
-    OnFormAfterPublishTopicParams,
-    OnFormAfterUnpublishTopicParams,
-    OnFormAfterUpdateTopicParams,
-    OnFormBeforeCreateTopicParams,
-    OnFormBeforeDeleteTopicParams,
-    OnFormBeforePublishTopicParams,
-    OnFormBeforeUnpublishTopicParams,
-    OnFormBeforeUpdateTopicParams,
-    OnFormRevisionAfterCreateTopicParams,
-    OnFormRevisionAfterDeleteTopicParams,
-    OnFormRevisionBeforeCreateTopicParams,
-    OnFormRevisionBeforeDeleteTopicParams
+    type FbForm,
+    type FbFormStats,
+    type FormBuilder,
+    type FormBuilderContext,
+    type FormBuilderStorageOperationsListFormsParams,
+    type FormsCRUD,
+    type OnFormAfterCreateTopicParams,
+    type OnFormAfterDeleteTopicParams,
+    type OnFormAfterPublishTopicParams,
+    type OnFormAfterUnpublishTopicParams,
+    type OnFormAfterUpdateTopicParams,
+    type OnFormBeforeCreateTopicParams,
+    type OnFormBeforeDeleteTopicParams,
+    type OnFormBeforePublishTopicParams,
+    type OnFormBeforeUnpublishTopicParams,
+    type OnFormBeforeUpdateTopicParams,
+    type OnFormRevisionAfterCreateTopicParams,
+    type OnFormRevisionAfterDeleteTopicParams,
+    type OnFormRevisionBeforeCreateTopicParams,
+    type OnFormRevisionBeforeDeleteTopicParams
 } from "~/types.js";
 import WebinyError from "@webiny/error";
-import { Tenant } from "@webiny/api-tenancy/types.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
 import { createIdentifier, createZodError, mdbid } from "@webiny/utils";
 import { createTopic } from "@webiny/pubsub";
 import { getStatus } from "./utils/index.js";
-import { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions.js";
+import { type FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions.js";
 import { FormCreateDataModel, FormSettingsModel, FormUpdateDataModel } from "./forms.models.js";
 
 export interface CreateFormsCrudParams {

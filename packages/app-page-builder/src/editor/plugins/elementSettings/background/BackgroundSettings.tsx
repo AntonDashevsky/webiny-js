@@ -8,10 +8,10 @@ import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { plugins } from "@webiny/plugins";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload.js";
-import { FileManagerFileItem } from "@webiny/app-admin";
+import { type FileManagerFileItem } from "@webiny/app-admin";
 import {
-    PbEditorPageElementSettingsRenderComponentProps,
-    PbEditorResponsiveModePlugin
+    type PbEditorPageElementSettingsRenderComponentProps,
+    type PbEditorResponsiveModePlugin
 } from "~/types.js";
 import useUpdateHandlers from "../useUpdateHandlers.js";
 // Components

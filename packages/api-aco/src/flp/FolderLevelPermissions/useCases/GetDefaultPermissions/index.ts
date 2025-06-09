@@ -1,3 +1,3 @@
-export * from "./IGetDefaultPermissions";
-export * from "./GetDefaultPermissions";
-export * from "./GetDefaultPermissionsWithTeams";
+export * from "./IGetDefaultPermissions.js";
+export * from "./GetDefaultPermissions.js";
+export * from "./GetDefaultPermissionsWithTeams.js";

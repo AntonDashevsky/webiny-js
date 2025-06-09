@@ -1,8 +1,8 @@
-import { CmsGroup, CmsModel } from "~/types/index.js";
+import { type CmsGroup, type CmsModel } from "~/types/index.js";
 import {
-    CmsImportStructureParamsData,
-    ValidatedCmsGroupResult,
-    ValidatedCmsModelResult
+    type CmsImportStructureParamsData,
+    type ValidatedCmsGroupResult,
+    type ValidatedCmsModelResult
 } from "~/export/types.js";
 import { validateGroups } from "~/export/crud/imports/validateGroups.js";
 import { validateModels } from "~/export/crud/imports/validateModels.js";

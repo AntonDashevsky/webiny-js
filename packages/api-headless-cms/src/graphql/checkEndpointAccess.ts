@@ -1,4 +1,4 @@
-import { CmsContext } from "~/types/index.js";
+import { type CmsContext } from "~/types/index.js";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 export const checkEndpointAccess = async (context: CmsContext): Promise<void> => {

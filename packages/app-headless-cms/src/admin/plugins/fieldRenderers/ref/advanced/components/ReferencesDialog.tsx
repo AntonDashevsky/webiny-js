@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 import { Search } from "./Search.js";
 import { Entry } from "./Entry.js";
 import { DialogActions, DialogContent as BaseDialogContent } from "~/admin/components/Dialog.js";
-import { CmsModelField, CmsModelFieldRendererProps } from "~/types.js";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { type CmsModelField, type CmsModelFieldRendererProps } from "~/types.js";
+import { type CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { useSnackbar } from "@webiny/app-admin";
 import { parseIdentifier } from "@webiny/utils";
@@ -13,7 +13,7 @@ import { useEntries } from "~/admin/plugins/fieldRenderers/ref/advanced/hooks/us
 import { Entries } from "./Entries.js";
 import { Dialog } from "~/admin/plugins/fieldRenderers/ref/components/dialog/Dialog.js";
 import { DialogHeader } from "~/admin/plugins/fieldRenderers/ref/components/dialog/DialogHeader.js";
-import { MultiRefFieldSettings } from "~/admin/plugins/fieldRenderers/ref/advanced/components/AdvancedMultipleReferenceSettings.js";
+import { type MultiRefFieldSettings } from "~/admin/plugins/fieldRenderers/ref/advanced/components/AdvancedMultipleReferenceSettings.js";
 
 const Container = styled("div")({
     width: "100%",

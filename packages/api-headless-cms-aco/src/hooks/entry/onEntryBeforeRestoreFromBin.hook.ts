@@ -1,4 +1,4 @@
-import { HcmsAcoContext } from "~/types.js";
+import { type HcmsAcoContext } from "~/types.js";
 import WebinyError from "@webiny/error";
 import { ROOT_FOLDER } from "@webiny/api-headless-cms/constants.js";
 

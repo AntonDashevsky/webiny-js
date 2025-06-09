@@ -1,7 +1,7 @@
 import React from "react";
 import { useRenderer, Elements, ElementInput } from "@webiny/app-page-builder-elements";
 import { GridRenderer } from "@webiny/app-page-builder-elements/renderers/grid.js";
-import { GenericRecord } from "@webiny/app/types.js";
+import { type GenericRecord } from "@webiny/app/types.js";
 import { DataSourceDataProvider } from "@webiny/app-page-builder/dataInjection/index.js";
 
 const elementInputs = {

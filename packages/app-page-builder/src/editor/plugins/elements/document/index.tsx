@@ -1,6 +1,6 @@
 import React from "react";
 import Document from "./Document.js";
-import { PbEditorPageElementPlugin } from "~/types.js";
+import { type PbEditorPageElementPlugin } from "~/types.js";
 
 export default (): PbEditorPageElementPlugin => {
     return {

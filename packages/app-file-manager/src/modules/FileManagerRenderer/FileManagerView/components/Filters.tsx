@@ -1,5 +1,5 @@
 import React from "react";
-import { Filters as BaseFilters, FiltersOnSubmit } from "@webiny/app-admin";
+import { Filters as BaseFilters, type FiltersOnSubmit } from "@webiny/app-admin";
 import { useFileManagerView, useFileManagerViewConfig } from "~/index.js";
 
 export const Filters = () => {

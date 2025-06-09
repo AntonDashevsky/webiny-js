@@ -1,5 +1,5 @@
 import { plugins } from "@webiny/plugins";
-import { PbEditorPageElementPlugin, PbEditorPageElementSettingsPlugin } from "~/types.js";
+import { type PbEditorPageElementPlugin, type PbEditorPageElementSettingsPlugin } from "~/types.js";
 import { userElementSettingsPlugins } from "../../../helpers.js";
 import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
 import { useMemo } from "react";

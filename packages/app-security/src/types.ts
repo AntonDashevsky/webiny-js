@@ -1,4 +1,4 @@
-import { Plugin } from "@webiny/app/types.js";
+import { type Plugin } from "@webiny/app/types.js";
 
 export type SecureRouteErrorPlugin = Plugin & {
     render(): React.ReactElement;

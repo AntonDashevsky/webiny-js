@@ -1,9 +1,9 @@
 import React from "react";
-import { EmptyStateElement } from "./EmptyStateElement.js";
-import { UIRenderer, UIRenderParams } from "~/ui/UIRenderer.js";
+import { type EmptyStateElement } from "./EmptyStateElement.js";
+import { UIRenderer, type UIRenderParams } from "~/ui/UIRenderer.js";
 import * as Ui from "@webiny/ui/ImageUpload/index.js";
 import { Image } from "@webiny/app/components/index.js";
-import { FileManagerElementRenderProps } from "~/ui/elements/form/FileManagerElement/FileManagerElementRenderer.js";
+import { type FileManagerElementRenderProps } from "~/ui/elements/form/FileManagerElement/FileManagerElementRenderer.js";
 import { AddImageIconWrapper, AddImageWrapper, FilePreviewWrapper, RemoveImage } from "./styled.js";
 import { ReactComponent as AddFileIcon } from "@material-design-icons/svg/outlined/attach_file.svg";
 import { Typography } from "@webiny/ui/Typography/index.js";

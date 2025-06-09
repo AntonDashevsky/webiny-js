@@ -12,21 +12,21 @@ import {
     DialogContent,
     DialogActions,
     DialogCancel,
-    DialogOnClose
+    type DialogOnClose
 } from "@webiny/ui/Dialog/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Switch } from "@webiny/ui/Switch/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Form, FormOnSubmit } from "@webiny/form";
+import { Form, type FormOnSubmit } from "@webiny/form";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
-import { PbEditorBlockCategoryPlugin, PbEditorElement, PbElement } from "~/types.js";
+import { type PbEditorBlockCategoryPlugin, type PbEditorElement, type PbElement } from "~/types.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import {
-    SaveBlockFormData,
-    SaveElementFormData
+    type SaveBlockFormData,
+    type SaveElementFormData
 } from "~/editor/plugins/elementSettings/save/SaveAction.js";
 
 const narrowDialog = css({

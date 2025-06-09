@@ -1,5 +1,5 @@
-import { CmsReferenceContentEntry, OptionItem, OptionItemCollection } from "./types.js";
-import { CmsContentEntryStatusType } from "~/types.js";
+import { type CmsReferenceContentEntry, type OptionItem, type OptionItemCollection } from "./types.js";
+import { type CmsContentEntryStatusType } from "~/types.js";
 
 export const convertReferenceEntryToOption = (entry: CmsReferenceContentEntry): OptionItem => {
     return {

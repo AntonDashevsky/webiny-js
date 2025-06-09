@@ -1,4 +1,4 @@
-import { IGetDescendantFoldersUseCase } from "./IGetDescendantFoldersUseCase.js";
+import { type IGetDescendantFoldersUseCase } from "./IGetDescendantFoldersUseCase.js";
 import { GetDescendantFoldersRepository } from "./GetDescendantFoldersRepository.js";
 import { GetDescendantFoldersUseCase } from "./GetDescendantFoldersUseCase.js";
 import { folderCacheFactory } from "../cache/index.js";

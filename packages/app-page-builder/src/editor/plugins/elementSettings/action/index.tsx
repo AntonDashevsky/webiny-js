@@ -1,5 +1,5 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "~/types.js";
+import { type PbEditorPageElementStyleSettingsPlugin } from "~/types.js";
 import ActionSettings from "./ActionSettings.js";
 import { linkActionType } from "./actionTypes/link.js";
 import { onClickHandlerActionType } from "./actionTypes/onClickHandler.js";

@@ -1,12 +1,12 @@
 import WebinyError from "@webiny/error";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import {
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldToGraphQLPlugin
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldToGraphQLPlugin
 } from "@webiny/api-headless-cms/types/index.js";
-import { CmsModelFieldToElasticsearchPlugin } from "~/types.js";
-import { ModelFieldParent, ModelFields } from "./types.js";
+import { type CmsModelFieldToElasticsearchPlugin } from "~/types.js";
+import { type ModelFieldParent, type ModelFields } from "./types.js";
 import { CmsElasticsearchModelFieldPlugin } from "~/plugins/index.js";
 import {
     ENTRY_META_FIELDS,

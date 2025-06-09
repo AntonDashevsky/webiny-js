@@ -1,4 +1,4 @@
-import { IDataLoader, IDataSource, IDataSourceContext } from "~/dataSources/types.js";
+import { type IDataLoader, type IDataSource, type IDataSourceContext } from "~/dataSources/types.js";
 import { DataLoader } from "~/dataSources/DataLoader.js";
 
 export class DataSourcesContext implements IDataSourceContext {

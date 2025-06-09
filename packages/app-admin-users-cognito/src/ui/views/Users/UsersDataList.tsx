@@ -27,7 +27,7 @@ import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
 import { DELETE_USER, LIST_USERS } from "./graphql.js";
 import { deserializeSorters } from "../utils.js";
-import { UserItem } from "~/UserItem.js";
+import { type UserItem } from "~/UserItem.js";
 import { DeleteAction } from "./components/DeleteAction.js";
 
 const t = i18n.ns("app-identity/admin/users/data-list");

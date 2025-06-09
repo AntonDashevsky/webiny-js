@@ -3,7 +3,7 @@
 import React from "react";
 import { plugins } from "@webiny/plugins";
 import { Routes as ReactRouterRoutes } from "@webiny/react-router";
-import { RoutePlugin } from "../types.js";
+import { type RoutePlugin } from "../types.js";
 
 export const Routes = () => {
     // We cannot call `sort` on the array returned by the `plugins.byType` call - it is read-only.

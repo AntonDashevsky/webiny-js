@@ -1,5 +1,5 @@
-import { HeadlessCmsExportStructure, SanitizedCmsModel } from "~/export/types.js";
-import { CmsContext } from "~/types/index.js";
+import { type HeadlessCmsExportStructure, type SanitizedCmsModel } from "~/export/types.js";
+import { type CmsContext } from "~/types/index.js";
 import { sanitizeGroup, sanitizeModel } from "./sanitize.js";
 
 export const createExportStructureContext = (context: CmsContext): HeadlessCmsExportStructure => {

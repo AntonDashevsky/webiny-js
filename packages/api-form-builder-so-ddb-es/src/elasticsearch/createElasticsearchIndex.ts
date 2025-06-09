@@ -1,7 +1,7 @@
-import { Client } from "@elastic/elasticsearch";
+import { type Client } from "@elastic/elasticsearch";
 import { createIndex } from "@webiny/api-elasticsearch";
 import { FormElasticsearchIndexPlugin } from "~/plugins/FormElasticsearchIndexPlugin.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import { configurations } from "~/configurations.js";
 
 interface CreateElasticsearchIndexParams {

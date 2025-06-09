@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useContentReview } from "~/hooks/useContentReview.js";
 import { useContentReviewId, useCurrentStepId } from "./useContentReviewId.js";
-import { ApwContentReviewStep } from "~/types.js";
+import { type ApwContentReviewStep } from "~/types.js";
 import { useFetchInterval } from "~/hooks/useFetchInterval.js";
 
 interface UseCurrentStepResult {

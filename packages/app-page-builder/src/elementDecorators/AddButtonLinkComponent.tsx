@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import React, { type ComponentProps } from "react";
 import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button.js";
 import { Link } from "@webiny/react-router";
 

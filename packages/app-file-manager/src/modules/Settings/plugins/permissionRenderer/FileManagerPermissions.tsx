@@ -11,7 +11,7 @@ import { Form } from "@webiny/form";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { useSecurity } from "@webiny/app-security";
-import { AaclPermission } from "@webiny/app-admin";
+import { type AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-file-manager/admin/plugins/permissionRenderer");
 

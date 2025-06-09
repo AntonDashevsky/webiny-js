@@ -1,7 +1,7 @@
 import React from "react";
 import get from "lodash/get.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { CmsModelFieldRendererPlugin, CmsModelField } from "~/types.js";
+import { type CmsModelFieldRendererPlugin, type CmsModelField } from "~/types.js";
 import { useForm } from "@webiny/form";
 import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor.js";
 import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils.js";

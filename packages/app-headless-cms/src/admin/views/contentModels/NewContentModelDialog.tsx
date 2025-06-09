@@ -15,12 +15,12 @@ import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";
 import { addModelToGroupCache, addModelToListCache } from "./cache.js";
 import * as GQL from "../../viewsGraphql.js";
 import {
-    CreateCmsModelMutationResponse,
-    CreateCmsModelMutationVariables,
-    ListMenuCmsGroupsQueryResponse
+    type CreateCmsModelMutationResponse,
+    type CreateCmsModelMutationVariables,
+    type ListMenuCmsGroupsQueryResponse
 } from "../../viewsGraphql.js";
-import { CmsModel } from "~/types.js";
-import { CmsGroupOption } from "./types.js";
+import { type CmsModel } from "~/types.js";
+import { type CmsGroupOption } from "./types.js";
 import { Dialog } from "~/admin/components/Dialog.js";
 import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator.js";
 import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator.js";

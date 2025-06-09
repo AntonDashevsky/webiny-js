@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
-import { FileManager, SingleImageUploadProps } from "@webiny/app-admin";
+import { FileManager, type SingleImageUploadProps } from "@webiny/app-admin";
 import { ImageRenderer } from "@webiny/app-page-builder-elements/renderers/image.js";
 import { AddImageIconWrapper, AddImageWrapper } from "@webiny/ui/ImageUpload/styled.js";
 import { ReactComponent as AddImageIcon } from "@webiny/ui/ImageUpload/icons/round-add_photo_alternate-24px.svg";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { PbElement } from "~/types.js";
+import { type PbElement } from "~/types.js";
 
 const RenderBlank = (props: { onClick?: () => void }) => {
     return (

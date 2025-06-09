@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "emotion";
 import { Cell } from "@webiny/ui/Grid/index.js";
 import { IconButton } from "@webiny/ui/Button/index.js";
-import { CmsModelField } from "~/types.js";
+import { type CmsModelField } from "~/types.js";
 
 export const DEFAULT_TIMEZONE = "+01:00";
 

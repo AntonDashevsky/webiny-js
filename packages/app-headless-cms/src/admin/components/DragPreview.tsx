@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useDragLayer, DragSourceMonitor } from "react-dnd";
-import { DragSourceMonitorImpl } from "~/types.js";
+import { useDragLayer, type DragSourceMonitor } from "react-dnd";
+import { type DragSourceMonitorImpl } from "~/types.js";
 
 let subscribedToOffsetChange = false;
 

@@ -13,7 +13,7 @@ import { useTenantThemes } from "~/hooks/useTenantThemes.js";
 import { AddTheme } from "~/components/AddTheme.js";
 import { ThemeLoader } from "~/components/ThemeLoader.js";
 import { useCurrentTheme } from "~/hooks/useCurrentTheme.js";
-import { ThemeSource } from "~/types.js";
+import { type ThemeSource } from "~/types.js";
 
 const { Group, Element } = WebsiteSettingsConfig;
 

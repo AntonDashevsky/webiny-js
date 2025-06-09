@@ -1,5 +1,5 @@
-import DataLoader from "dataloader";
-import { DataLoaderParams } from "./types.js";
+import type DataLoader from "dataloader";
+import { type DataLoaderParams } from "./types.js";
 import { createGetAllEntryRevisions } from "./getAllEntryRevisions.js";
 import { createGetLatestRevisionByEntryId } from "./getLatestRevisionByEntryId.js";
 import { createGetPublishedRevisionByEntryId } from "./getPublishedRevisionByEntryId.js";

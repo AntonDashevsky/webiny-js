@@ -1,6 +1,6 @@
-import { GetFolderHierarchy } from "./GetFolderHierarchy";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory";
-import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory";
+import { GetFolderHierarchy } from "./GetFolderHierarchy.js";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
+import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory.js";
 
 describe("GetFolderHierarchy", () => {
     const type = "abc";

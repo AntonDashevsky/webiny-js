@@ -1,5 +1,5 @@
-import { LIST_CMS_MODELS, ListCmsModelsQueryResponse } from "~/graphql/workflow.gql.js";
-import { CmsModel } from "~/types.js";
+import { LIST_CMS_MODELS, type ListCmsModelsQueryResponse } from "~/graphql/workflow.gql.js";
+import { type CmsModel } from "~/types.js";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import { useState } from "react";
 import { useQueryLocale } from "@webiny/app-headless-cms/admin/hooks/index.js";

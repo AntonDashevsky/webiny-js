@@ -5,7 +5,7 @@ import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ReactComponent as EditIcon } from "../../../../icons/edit.svg";
 import { useRevision } from "../../formRevisions/useRevision.js";
 import { usePermission } from "~/hooks/usePermission.js";
-import { FbRevisionModel } from "~/types.js";
+import { type FbRevisionModel } from "~/types.js";
 
 interface EditRevisionProps {
     revision: FbRevisionModel;

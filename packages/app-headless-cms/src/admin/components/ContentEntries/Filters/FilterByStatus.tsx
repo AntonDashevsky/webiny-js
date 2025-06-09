@@ -4,7 +4,7 @@ import { useBind } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
 import { Select } from "@webiny/ui/Select/index.js";
 
-import { CmsEntryFilterStatusPlugin } from "@webiny/app-headless-cms-common/types/index.js";
+import { type CmsEntryFilterStatusPlugin } from "@webiny/app-headless-cms-common/types/index.js";
 
 const getValidFilterValue = (value: string): string | undefined => {
     if (value === "all" || value === "") {

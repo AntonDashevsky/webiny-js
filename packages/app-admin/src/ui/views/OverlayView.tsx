@@ -3,8 +3,8 @@ import React from "react";
 import Transition from "react-transition-group/esm/Transition.js";
 import type { TransitionStatus } from "react-transition-group/Transition";
 import styled from "@emotion/styled";
-import { UIView, UIViewProps } from "~/ui/UIView.js";
-import { UseOverlayView, useOverlayView } from "./OverlayView/useOverlayView.js";
+import { UIView, type UIViewProps } from "~/ui/UIView.js";
+import { type UseOverlayView, useOverlayView } from "./OverlayView/useOverlayView.js";
 import { HeaderElement } from "./OverlayView/HeaderElement.js";
 import { ContentElement } from "./OverlayView/ContentElement.js";
 

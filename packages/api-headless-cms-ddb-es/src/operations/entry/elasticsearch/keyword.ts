@@ -1,4 +1,4 @@
-import { ModelField } from "./types.js";
+import { type ModelField } from "./types.js";
 
 const noKeywordFields: string[] = ["date", "datetime", "number", "boolean"];
 export const hasKeyword = (field: ModelField): boolean => {

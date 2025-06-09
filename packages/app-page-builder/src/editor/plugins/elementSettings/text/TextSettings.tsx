@@ -7,10 +7,10 @@ import merge from "lodash/merge.js";
 import { plugins } from "@webiny/plugins";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import {
-    PbEditorElement,
-    PbEditorPageElementSettingsRenderComponentProps,
-    PbEditorResponsiveModePlugin,
-    PbThemePlugin
+    type PbEditorElement,
+    type PbEditorPageElementSettingsRenderComponentProps,
+    type PbEditorResponsiveModePlugin,
+    type PbThemePlugin
 } from "~/types.js";
 import {
     activeElementAtom,
@@ -27,7 +27,7 @@ import TextAlignment from "./TextAlignment.js";
 import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
 import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements.js";
 
-import { TypographyStyle } from "@webiny/app-theme/types.js";
+import { type TypographyStyle } from "@webiny/app-theme/types.js";
 
 const classes = {
     grid: css({

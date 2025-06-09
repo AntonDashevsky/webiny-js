@@ -1,8 +1,8 @@
 import {
-    CmsModelAst,
-    CmsModelField,
-    CmsModelFieldAstNode,
-    CmsModelFieldAstNodeField
+    type CmsModelAst,
+    type CmsModelField,
+    type CmsModelFieldAstNode,
+    type CmsModelFieldAstNodeField
 } from "~/types/index.js";
 
 const nodeHasChildren = (node: CmsModelFieldAstNode) => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useOktaAuth } from "@okta/okta-react";
-import OktaSignIn from "@okta/okta-signin-widget";
+import type OktaSignIn from "@okta/okta-signin-widget";
 import styled from "@emotion/styled";
 
 interface OktaSignInWidgetProps {

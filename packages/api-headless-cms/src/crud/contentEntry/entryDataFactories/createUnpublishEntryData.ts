@@ -1,6 +1,6 @@
-import { CmsContext, CmsEntry, CmsModel } from "~/types/index.js";
+import { type CmsContext, type CmsEntry, type CmsModel } from "~/types/index.js";
 import { STATUS_UNPUBLISHED } from "./statuses.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { getIdentity } from "~/utils/identity.js";
 import { getDate } from "~/utils/date.js";
 

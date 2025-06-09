@@ -1,7 +1,7 @@
 /**
  * File is @internal
  */
-import { CmsFieldFilterValueTransformPlugin } from "~/types.js";
+import { type CmsFieldFilterValueTransformPlugin } from "~/types.js";
 import { TimeTransformPlugin } from "@webiny/db-dynamodb/plugins/definitions/TimeTransformPlugin.js";
 import { DateTimeTransformPlugin } from "@webiny/db-dynamodb/plugins/definitions/DateTimeTransformPlugin.js";
 

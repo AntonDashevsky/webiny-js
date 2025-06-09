@@ -1,7 +1,7 @@
 import React from "react";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
-import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { type CmsModelFieldRendererPlugin } from "~/types.js";
 import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
 import { FieldSettings } from "./FieldSettings.js";
 import { ParentFieldProvider } from "~/admin/hooks/index.js";

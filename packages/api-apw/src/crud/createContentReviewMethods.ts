@@ -1,24 +1,24 @@
 import { createTopic } from "@webiny/pubsub";
 import Error from "@webiny/error";
 import {
-    AdvancedPublishingWorkflow,
-    ApwContentReview,
-    ApwContentReviewCrud,
+    type AdvancedPublishingWorkflow,
+    type ApwContentReview,
+    type ApwContentReviewCrud,
     ApwContentReviewStatus,
     ApwContentReviewStepStatus,
-    ApwReviewerCrud,
-    ApwScheduleActionData,
+    type ApwReviewerCrud,
+    type ApwScheduleActionData,
     ApwWorkflowStepTypes,
-    CreateApwContentReviewParams,
-    CreateApwParams,
-    OnContentReviewAfterCreateTopicParams,
-    OnContentReviewAfterDeleteTopicParams,
-    OnContentReviewAfterUpdateTopicParams,
-    OnContentReviewBeforeCreateTopicParams,
-    OnContentReviewBeforeDeleteTopicParams,
-    OnContentReviewBeforeListTopicParams,
-    OnContentReviewBeforeUpdateTopicParams,
-    UpdateApwContentReviewParams
+    type CreateApwContentReviewParams,
+    type CreateApwParams,
+    type OnContentReviewAfterCreateTopicParams,
+    type OnContentReviewAfterDeleteTopicParams,
+    type OnContentReviewAfterUpdateTopicParams,
+    type OnContentReviewBeforeCreateTopicParams,
+    type OnContentReviewBeforeDeleteTopicParams,
+    type OnContentReviewBeforeListTopicParams,
+    type OnContentReviewBeforeUpdateTopicParams,
+    type UpdateApwContentReviewParams
 } from "~/types.js";
 import { getNextStepStatus, hasReviewer } from "~/plugins/utils.js";
 import {
@@ -36,7 +36,7 @@ import {
     INITIAL_CONTENT_REVIEW_CONTENT_SCHEDULE_META
 } from "./utils.js";
 import { getContentApwSettingsPlugin } from "~/utils/contentApwSettingsPlugin.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 
 export interface CreateContentReviewMethodsParams extends CreateApwParams {
     getReviewer: ApwReviewerCrud["get"];

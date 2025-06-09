@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import omit from "lodash/omit.js";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
-import { CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
-import { BatchDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { type CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
+import { type BatchDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
 import { GraphQLInputMapper } from "~/components/BulkActions/ActionEdit/GraphQLInputMapper.js";
 import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 import { getFilesLabel } from "~/components/BulkActions/index.js";

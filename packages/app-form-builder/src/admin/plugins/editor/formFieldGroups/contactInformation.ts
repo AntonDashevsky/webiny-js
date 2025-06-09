@@ -1,4 +1,4 @@
-import { FbEditorFieldGroup } from "../../../../types.js";
+import { type FbEditorFieldGroup } from "../../../../types.js";
 
 const plugin: FbEditorFieldGroup = {
     name: "form-editor-field-group-contact",

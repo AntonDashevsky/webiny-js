@@ -4,8 +4,8 @@ import {
     createEnableIndexingTask,
     createIndexesTaskDefinition
 } from "~/tasks/index.js";
-import { Plugin } from "@webiny/plugins/types.js";
-import { IElasticsearchTaskConfig } from "~/types.js";
+import { type Plugin } from "@webiny/plugins/types.js";
+import { type IElasticsearchTaskConfig } from "~/types.js";
 
 export type CreateElasticsearchBackgroundTasksParams = IElasticsearchTaskConfig;
 

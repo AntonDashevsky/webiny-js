@@ -6,8 +6,8 @@ import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { ButtonSecondary, ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { validation } from "@webiny/validation";
-import { FormOnSubmit } from "@webiny/form/types.js";
-import { MenuTreeItem } from "~/admin/views/Menus/types.js";
+import { type FormOnSubmit } from "@webiny/form/types.js";
+import { type MenuTreeItem } from "~/admin/views/Menus/types.js";
 import { css } from "emotion";
 
 const menuFormStyle = css({

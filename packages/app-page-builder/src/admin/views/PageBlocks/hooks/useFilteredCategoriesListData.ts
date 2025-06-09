@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import orderBy from "lodash/orderBy.js";
 
-import { PbBlockCategory, PbPageBlock } from "~/types.js";
+import { type PbBlockCategory, type PbPageBlock } from "~/types.js";
 
 const useFilteredCategoriesListData = (
     pageBlocksData: PbPageBlock[],

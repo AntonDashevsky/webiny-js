@@ -5,8 +5,8 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { Link } from "@webiny/react-router";
 import { ShowDetails } from "./styledComponents.js";
-import { ListFormImportExportSubTasksResponse } from "~/admin/graphql.js";
-import { FormBuilderImportExportSubTask } from "~/types.js";
+import { type ListFormImportExportSubTasksResponse } from "~/admin/graphql.js";
+import { type FormBuilderImportExportSubTask } from "~/types.js";
 
 const t = i18n.ns("app-form-builder/admin/plugins/editor/defaultBar/importForm");
 

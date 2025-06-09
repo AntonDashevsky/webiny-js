@@ -6,10 +6,10 @@ import styled from "@emotion/styled";
 import {
     GET_FORM,
     GET_FORM_REVISIONS,
-    GetFormRevisionQueryResponse,
-    GetFormRevisionQueryVariables,
-    GetFormRevisionsQueryResponse,
-    GetFormRevisionsQueryVariables
+    type GetFormRevisionQueryResponse,
+    type GetFormRevisionQueryVariables,
+    type GetFormRevisionsQueryResponse,
+    type GetFormRevisionsQueryVariables
 } from "../../graphql.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { Tabs } from "@webiny/ui/Tabs/index.js";

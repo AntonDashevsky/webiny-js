@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { HcmsBulkActionsContext } from "~/types.js";
+import { type HcmsBulkActionsContext } from "~/types.js";
 import { CmsGraphQLSchemaPlugin, isHeadlessCmsReady } from "@webiny/api-headless-cms";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/api-headless-cms/constants.js";
 

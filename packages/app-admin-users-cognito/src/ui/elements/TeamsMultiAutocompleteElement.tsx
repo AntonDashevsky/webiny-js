@@ -1,8 +1,8 @@
 import React from "react";
-import { FormRenderPropParams } from "@webiny/form";
+import { type FormRenderPropParams } from "@webiny/form";
 import {
     InputElement,
-    InputElementRenderProps
+    type InputElementRenderProps
 } from "@webiny/app-admin/ui/elements/form/InputElement.js";
 import { TeamsMultiAutocomplete } from "@webiny/app-security-access-management/components/TeamsMultiAutocomplete/index.js";
 

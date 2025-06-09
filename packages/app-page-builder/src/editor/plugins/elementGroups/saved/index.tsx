@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as SavedIcon } from "@material-design-icons/svg/outlined/favorite_border.svg";
 import { ReactComponent as ContentIcon } from "@material-design-icons/svg/outlined/insights.svg";
-import { PbEditorPageElementGroupPlugin } from "~/types.js";
+import { type PbEditorPageElementGroupPlugin } from "~/types.js";
 import EmptyElementGroupView from "../../../components/EmptyElementGroupView.js";
 
 export default {

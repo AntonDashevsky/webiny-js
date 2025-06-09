@@ -6,12 +6,12 @@ import { useLazyQuery, useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin";
 import { sendEvent } from "@webiny/telemetry/react.js";
 import {
-    GetSettingsQueryResponse,
-    GetSettingsResponseData,
-    UpdateSettingsMutationResponse,
-    UpdateSettingsMutationVariables
+    type GetSettingsQueryResponse,
+    type GetSettingsResponseData,
+    type UpdateSettingsMutationResponse,
+    type UpdateSettingsMutationVariables
 } from "./graphql.js";
-import { PbErrorResponse } from "~/types.js";
+import { type PbErrorResponse } from "~/types.js";
 import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig.js";
 

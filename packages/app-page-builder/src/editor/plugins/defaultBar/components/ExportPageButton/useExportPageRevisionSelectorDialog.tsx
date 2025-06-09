@@ -8,8 +8,8 @@ import { Radio, RadioGroup } from "@webiny/ui/Radio/index.js";
 import { Form } from "@webiny/form";
 import { Alert } from "@webiny/ui/Alert/index.js";
 import { usePageBuilder } from "~/hooks/usePageBuilder.js";
-import { PbElementDataSettingsFormType } from "~/types.js";
-import { PbRevisionType } from "~/contexts/PageBuilder/index.js";
+import { type PbElementDataSettingsFormType } from "~/types.js";
+import { type PbRevisionType } from "~/contexts/PageBuilder/index.js";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/exportPageButton");
 

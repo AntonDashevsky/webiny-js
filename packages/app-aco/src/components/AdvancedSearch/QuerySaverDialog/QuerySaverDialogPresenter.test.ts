@@ -1,7 +1,7 @@
 import {
-    FilterDTO,
-    FilterGroupDTO,
-    FilterGroupFilterDTO,
+    type FilterDTO,
+    type FilterGroupDTO,
+    type FilterGroupFilterDTO,
     Operation
 } from "~/components/AdvancedSearch/domain/index.js";
 import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";

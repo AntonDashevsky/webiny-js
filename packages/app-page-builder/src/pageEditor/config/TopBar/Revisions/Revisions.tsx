@@ -6,7 +6,7 @@ import { ButtonDefault } from "@webiny/ui/Button/index.js";
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { useRevisions } from "~/pageEditor/hooks/useRevisions.js";
-import { RevisionItemAtomType } from "~/pageEditor/state/index.js";
+import { type RevisionItemAtomType } from "~/pageEditor/state/index.js";
 import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
 
 const buttonStyle = css({

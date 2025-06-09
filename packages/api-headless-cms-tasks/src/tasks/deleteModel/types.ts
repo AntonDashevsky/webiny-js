@@ -1,5 +1,5 @@
-import { CmsIdentity } from "@webiny/api-headless-cms/types/index.js";
-import { ITaskResponseDoneResultOutput } from "@webiny/tasks";
+import { type CmsIdentity } from "@webiny/api-headless-cms/types/index.js";
+import { type ITaskResponseDoneResultOutput } from "@webiny/tasks";
 import type { ListValuesResult } from "@webiny/db";
 import type { GenericRecord } from "@webiny/api/types.js";
 

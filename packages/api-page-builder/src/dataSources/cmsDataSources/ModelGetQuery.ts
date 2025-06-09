@@ -1,4 +1,4 @@
-import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { PathsParser } from "./converter/PathsParser.js";
 import { SelectionFormatter } from "./converter/SelectionFormatter.js";
 

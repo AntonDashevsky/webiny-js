@@ -13,7 +13,7 @@ import { Filters } from "~/views/Logs/Filters/index.js";
 import { Table } from "~/views/Logs/Table/index.js";
 import { Preview } from "~/views/Logs/Preview/index.js";
 import { useAuditLogsList } from "~/hooks/index.js";
-import { Entry } from "~/utils/transformCmsContentEntriesToRecordEntries.js";
+import { type Entry } from "~/utils/transformCmsContentEntriesToRecordEntries.js";
 import { MainContainer, Wrapper } from "./styled.js";
 
 const t = i18n.ns("app-audit-logs/views/logs");

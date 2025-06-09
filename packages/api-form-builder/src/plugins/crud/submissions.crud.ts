@@ -2,29 +2,29 @@ import fetch from "node-fetch";
 import pick from "lodash/pick.js";
 import WebinyError from "@webiny/error";
 import {
-    FbForm,
-    FbFormFieldValidatorPlugin,
-    FbFormTriggerHandlerPlugin,
-    FbSubmission,
-    FormBuilder,
-    FormBuilderContext,
-    FormBuilderStorageOperationsListSubmissionsParams,
-    OnFormSubmissionAfterCreate,
-    OnFormSubmissionAfterDelete,
-    OnFormSubmissionAfterUpdate,
-    OnFormSubmissionBeforeCreate,
-    OnFormSubmissionBeforeDelete,
-    OnFormSubmissionBeforeUpdate,
-    OnFormSubmissionsAfterExport,
-    OnFormSubmissionsBeforeExport,
-    SubmissionsCRUD
+    type FbForm,
+    type FbFormFieldValidatorPlugin,
+    type FbFormTriggerHandlerPlugin,
+    type FbSubmission,
+    type FormBuilder,
+    type FormBuilderContext,
+    type FormBuilderStorageOperationsListSubmissionsParams,
+    type OnFormSubmissionAfterCreate,
+    type OnFormSubmissionAfterDelete,
+    type OnFormSubmissionAfterUpdate,
+    type OnFormSubmissionBeforeCreate,
+    type OnFormSubmissionBeforeDelete,
+    type OnFormSubmissionBeforeUpdate,
+    type OnFormSubmissionsAfterExport,
+    type OnFormSubmissionsBeforeExport,
+    type SubmissionsCRUD
 } from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { createTopic } from "@webiny/pubsub";
 import { sanitizeFormSubmissionData } from "~/plugins/crud/utils/sanitizeFormSubmissionData.js";
 import { createZodError, mdbid } from "@webiny/utils";
-import { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions.js";
+import { type FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions.js";
 import { isRecaptchaEnabled } from "~/plugins/crud/utils/isRecaptchaEnabled.js";
 import {
     FormSubmissionCreateDataModel,

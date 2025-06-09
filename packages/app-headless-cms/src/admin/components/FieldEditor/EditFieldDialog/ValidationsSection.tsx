@@ -2,7 +2,7 @@ import React from "react";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { ValidatorsList } from "./ValidatorsList.js";
-import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
+import { type CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
 
 interface ValidatorsSectionProps {
     title: string;

@@ -1,8 +1,8 @@
 import { GetLatestEntriesByIds } from "./GetLatestEntriesByIds.js";
 import { GetLatestEntriesByIdsNotDeleted } from "./GetLatestEntriesByIdsNotDeleted.js";
 import { GetLatestEntriesByIdsSecure } from "./GetLatestEntriesByIdsSecure.js";
-import { CmsEntryStorageOperations } from "~/types/index.js";
-import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { type CmsEntryStorageOperations } from "~/types/index.js";
+import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
 
 interface GetLatestEntriesByIdsUseCasesParams {
     operation: CmsEntryStorageOperations["getLatestByIds"];

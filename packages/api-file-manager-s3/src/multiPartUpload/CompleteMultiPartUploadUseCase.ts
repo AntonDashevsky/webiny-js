@@ -1,7 +1,7 @@
 import {
-    S3,
-    Part,
-    ListPartsOutput,
+    type S3,
+    type Part,
+    type ListPartsOutput,
     ListPartsCommand,
     CompleteMultipartUploadCommand
 } from "@webiny/aws-sdk/client-s3";

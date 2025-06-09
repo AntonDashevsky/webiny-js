@@ -1,5 +1,5 @@
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
-import { Attributes, ENTITIES } from "~/types.js";
+import { Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
+import { type Attributes, ENTITIES } from "~/types.js";
 
 const createEntity = (
     entityName: string,

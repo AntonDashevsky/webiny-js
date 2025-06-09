@@ -1,9 +1,9 @@
 import { IndexSettingsManager } from "~/settings/IndexSettingsManager.js";
 import { DisableIndexing } from "./DisableIndexing.js";
 import { EnableIndexing } from "./EnableIndexing.js";
-import { IElasticsearchIndexingTaskValuesSettings, IIndexSettingsValues } from "~/types.js";
-import { IIndexManager } from "~/settings/types.js";
-import { Client } from "@webiny/api-elasticsearch";
+import { type IElasticsearchIndexingTaskValuesSettings, type IIndexSettingsValues } from "~/types.js";
+import { type IIndexManager } from "~/settings/types.js";
+import { type Client } from "@webiny/api-elasticsearch";
 import { getObjectProperties } from "@webiny/utils";
 
 const defaultIndexSettings: IIndexSettingsValues = {

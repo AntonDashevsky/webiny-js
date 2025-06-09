@@ -4,8 +4,8 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { File } from "./File.js";
 import { FileList, FolderList } from "./styled.js";
-import { FolderItem } from "@webiny/app-aco/types.js";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FolderItem } from "@webiny/app-aco/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 import { Thumbnail } from "./Thumbnail.js";
 import { FileProvider } from "~/contexts/FileProvider.js";
 

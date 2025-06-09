@@ -1,5 +1,5 @@
 import { plugins } from "@webiny/plugins";
-import { CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types/index.js";
+import { type CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types/index.js";
 import { useModel } from "~/admin/components/ModelProvider/index.js";
 import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
 

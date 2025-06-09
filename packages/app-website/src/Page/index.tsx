@@ -5,10 +5,10 @@ import { PageRenderer } from "./PageRenderer.js";
 import {
     GET_SETTINGS,
     GET_PUBLISHED_PAGE,
-    PublishedPageQueryResponse,
-    PublishedPageQueryVariables,
-    SettingsQueryResponse,
-    SettingsQueryResponseData
+    type PublishedPageQueryResponse,
+    type PublishedPageQueryVariables,
+    type SettingsQueryResponse,
+    type SettingsQueryResponseData
 } from "./graphql.js";
 
 declare global {

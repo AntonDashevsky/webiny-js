@@ -1,9 +1,9 @@
-import { ApolloClient } from "apollo-client";
-import { ITrashBinDeleteItemGateway } from "@webiny/app-trash-bin";
-import { CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import { type ApolloClient } from "apollo-client";
+import { type ITrashBinDeleteItemGateway } from "@webiny/app-trash-bin";
+import { type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
 import {
-    CmsEntryDeleteMutationResponse,
-    CmsEntryDeleteMutationVariables,
+    type CmsEntryDeleteMutationResponse,
+    type CmsEntryDeleteMutationVariables,
     createDeleteMutation
 } from "@webiny/app-headless-cms-common";
 

@@ -3,12 +3,12 @@ import classnames from "classnames";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import isEqual from "lodash/isEqual.js";
-import { ChromePicker, ColorState, RGBColor } from "react-color";
+import { ChromePicker, type ColorState, type RGBColor } from "react-color";
 import { Menu } from "@webiny/ui/Menu/index.js";
 import { usePageBuilder } from "../../../hooks/usePageBuilder.js";
 import { ReactComponent as IconPalette } from "../../assets/icons/round-color_lens-24px.svg";
 
-import { Theme } from "@webiny/app-theme/types.js";
+import { type Theme } from "@webiny/app-theme/types.js";
 const ColorPickerStyle = styled("div")({
     display: "flex",
     flexWrap: "wrap",

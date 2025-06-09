@@ -4,8 +4,8 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
 import {
     EXPORT_PAGES,
-    ExportPagesResponse,
-    ExportPagesVariables
+    type ExportPagesResponse,
+    type ExportPagesVariables
 } from "~/admin/graphql/pageImportExport.gql.js";
 import useExportPageDialog from "./useExportPageDialog.js";
 

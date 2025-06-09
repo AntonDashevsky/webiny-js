@@ -1,11 +1,11 @@
 import {
-    MailerContext,
-    Transport,
-    OnTransportAfterSendParams,
-    OnTransportBeforeSendParams,
-    OnTransportErrorParams,
-    TransportSettings,
-    MailerTransporterContext
+    type MailerContext,
+    type Transport,
+    type OnTransportAfterSendParams,
+    type OnTransportBeforeSendParams,
+    type OnTransportErrorParams,
+    type TransportSettings,
+    type MailerTransporterContext
 } from "~/types.js";
 import { createTopic } from "@webiny/pubsub";
 import { attachOnTransportBeforeSend } from "~/crud/transport/onTransportBeforeSend.js";

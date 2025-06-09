@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import { css } from "emotion";
 import { merge } from "dot-prop-immutable";
-import { Form, FormOnSubmit } from "@webiny/form";
+import { Form, type FormOnSubmit } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
 import { withActiveElement } from "../../../components/index.js";
 import {
-    PbEditorElement,
-    PbEditorPageElementSettingsRenderComponentProps,
-    PbPageElementActionTypePlugin
+    type PbEditorElement,
+    type PbEditorPageElementSettingsRenderComponentProps,
+    type PbPageElementActionTypePlugin
 } from "~/types.js";
 import Accordion from "../components/Accordion.js";
 import Wrapper from "../components/Wrapper.js";

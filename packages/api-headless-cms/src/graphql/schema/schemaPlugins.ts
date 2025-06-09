@@ -8,7 +8,7 @@ import { createGraphQLSchemaPluginFromFieldPlugins } from "~/utils/getSchemaFrom
 import {
     CmsGraphQLSchemaSorterPlugin,
     createCmsGraphQLSchemaPlugin,
-    ICmsGraphQLSchemaPlugin
+    type ICmsGraphQLSchemaPlugin
 } from "~/plugins/index.js";
 import { createFieldTypePluginRecords } from "./createFieldTypePluginRecords.js";
 import { CMS_MODEL_SINGLETON_TAG } from "~/constants.js";

@@ -7,7 +7,7 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import { DELETE_TENANT, LIST_TENANTS } from "~/graphql/index.js";
 import { useCurrentTenantId } from "./useCurrentTenantId.js";
-import { TenantItem } from "~/types.js";
+import { type TenantItem } from "~/types.js";
 
 const t = i18n.ns("app-tenant-manager/tenants/data-list");
 

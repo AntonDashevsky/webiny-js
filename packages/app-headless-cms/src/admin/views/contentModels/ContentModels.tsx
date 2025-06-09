@@ -5,7 +5,7 @@ import ContentModelsDataList from "./ContentModelsDataList.js";
 import { css } from "emotion";
 import { useSecurity } from "@webiny/app-security";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { CmsModel, CmsSecurityPermission } from "~/types.js";
+import { type CmsModel, type CmsSecurityPermission } from "~/types.js";
 import { ImportContentModelsDialog } from "./importing/ImportContentModelsDialog.js";
 
 const grid = css({

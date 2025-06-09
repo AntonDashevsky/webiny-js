@@ -1,6 +1,6 @@
 import upperFirst from "lodash/upperFirst.js";
 import camelCase from "lodash/camelCase.js";
-import { CmsDynamicZoneTemplate } from "@webiny/app-headless-cms-common/types/index.js";
+import { type CmsDynamicZoneTemplate } from "@webiny/app-headless-cms-common/types/index.js";
 import { useParentField } from "~/admin/components/ContentEntryForm/ParentValue.js";
 import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
 import { useModel } from "~/admin/components/ModelProvider/index.js";

@@ -20,7 +20,7 @@ import {
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { Title, listItem, ListItemTitle, listStyle, TitleContent } from "./FormSettingsStyled.js";
-import { FbEditorFormSettingsPlugin } from "~/types.js";
+import { type FbEditorFormSettingsPlugin } from "~/types.js";
 
 interface FormSettingsProps {
     onExited: () => void;

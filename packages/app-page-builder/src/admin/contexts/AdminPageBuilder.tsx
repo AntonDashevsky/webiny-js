@@ -1,9 +1,9 @@
 import React, { createContext, useMemo, useRef } from "react";
-import ApolloClient from "apollo-client";
-import { useApolloClient, MutationHookOptions } from "@apollo/react-hooks";
+import type ApolloClient from "apollo-client";
+import { useApolloClient, type MutationHookOptions } from "@apollo/react-hooks";
 import { usePageBuilder } from "~/hooks/usePageBuilder.js";
-import { PageBuilderContext } from "~/contexts/PageBuilder/index.js";
-import { AsyncProcessor, composeAsync } from "@webiny/utils";
+import { type PageBuilderContext } from "~/contexts/PageBuilder/index.js";
+import { type AsyncProcessor, composeAsync } from "@webiny/utils";
 
 export const AdminPageBuilderContext = createContext<AdminPageBuilderContext | undefined>(
     undefined

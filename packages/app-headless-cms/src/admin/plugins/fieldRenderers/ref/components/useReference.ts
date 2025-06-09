@@ -3,14 +3,14 @@ import { useApolloClient, useModelFieldGraphqlContext } from "~/admin/hooks/inde
 import {
     SEARCH_CONTENT_ENTRIES,
     GET_CONTENT_ENTRY,
-    CmsEntryGetQueryResponse,
-    CmsEntryGetQueryVariables,
-    CmsEntrySearchQueryResponse,
-    CmsEntrySearchQueryVariables
+    type CmsEntryGetQueryResponse,
+    type CmsEntryGetQueryVariables,
+    type CmsEntrySearchQueryResponse,
+    type CmsEntrySearchQueryVariables
 } from "./graphql.js";
-import { CmsModelField, CmsModel } from "~/types.js";
-import { BindComponentRenderProp } from "@webiny/form";
-import { OptionItem, OptionItemCollection } from "./types.js";
+import { type CmsModelField, type CmsModel } from "~/types.js";
+import { type BindComponentRenderProp } from "@webiny/form";
+import { type OptionItem, type OptionItemCollection } from "./types.js";
 import {
     convertReferenceEntriesToOptionCollection,
     convertReferenceEntryToOption

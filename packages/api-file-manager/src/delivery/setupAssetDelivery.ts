@@ -1,24 +1,24 @@
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import {
     createHandlerOnRequest,
     createModifyFastifyPlugin,
     createRoute,
     ResponseHeaders
 } from "@webiny/handler";
-import { FileManagerContext } from "~/types.js";
+import { type FileManagerContext } from "~/types.js";
 import { PrivateFilesAssetProcessor } from "./AssetDelivery/privateFiles/PrivateFilesAssetProcessor.js";
 import { PrivateAuthenticatedAuthorizer } from "./AssetDelivery/privateFiles/PrivateAuthenticatedAuthorizer.js";
 import { PrivateFileAssetRequestResolver } from "./AssetDelivery/privateFiles/PrivateFileAssetRequestResolver.js";
 import {
-    Asset,
+    type Asset,
     AssetDeliveryConfigBuilder,
     AssetDeliveryConfigModifierPlugin,
-    AssetRequest,
+    type AssetRequest,
     AliasAssetRequestResolver,
     FilesAssetRequestResolver,
     createAssetDeliveryConfig
 } from "./index.js";
-import { Reply } from "@webiny/handler/types.js";
+import { type Reply } from "@webiny/handler/types.js";
 
 const noCacheHeaders = ResponseHeaders.create({
     "content-type": "application/json",

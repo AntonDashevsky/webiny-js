@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
-import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import { type CmsEntryListWhere, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { createLatestRecordType, createPublishedRecordType } from "../recordType.js";
 import { isSharedElasticsearchIndex } from "@webiny/api-elasticsearch";
 

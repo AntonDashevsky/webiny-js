@@ -1,4 +1,4 @@
-import { ApwContext, ApwReviewerWithEmail, ApwWorkflow, ApwWorkflowStep } from "~/types.js";
+import { type ApwContext, type ApwReviewerWithEmail, type ApwWorkflow, type ApwWorkflowStep } from "~/types.js";
 
 interface GetReviewerIdListParams {
     steps: ApwWorkflowStep[];

@@ -3,14 +3,14 @@ import get from "lodash/get.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     LIST_MENU_CONTENT_GROUPS_MODELS,
-    ListMenuCmsGroupsQueryResponse
+    type ListMenuCmsGroupsQueryResponse
 } from "~/admin/viewsGraphql.js";
 import useQuery from "~/admin/hooks/useQuery.js";
 import usePermission from "~/admin/hooks/usePermission.js";
 import { AddMenu as Menu } from "@webiny/app-admin";
 import { NothingToShow } from "./NothingToShowElement.js";
-import { CmsGroup, CmsModel } from "~/types.js";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { type CmsGroup, type CmsModel } from "~/types.js";
+import { type IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface HasContentEntryPermissionsProps {
     group: CmsGroup;

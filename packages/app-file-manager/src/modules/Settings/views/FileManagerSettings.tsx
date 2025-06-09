@@ -5,7 +5,7 @@ import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { Mutation, Query } from "@apollo/react-components";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { Input } from "@webiny/ui/Input/index.js";
-import graphql, { GetSettingsResponse } from "../graphql.js";
+import graphql, { type GetSettingsResponse } from "../graphql.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import get from "lodash/get.js";
 import { validation } from "@webiny/validation";
@@ -17,8 +17,8 @@ import {
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { CenteredView } from "@webiny/app-admin";
-import { QueryGetSettingsResult, Settings } from "~/types.js";
-import { MutationFunction, MutationResult } from "@apollo/react-common";
+import { type QueryGetSettingsResult, type Settings } from "~/types.js";
+import { type MutationFunction, type MutationResult } from "@apollo/react-common";
 
 function prefixValidator(value: string) {
     if (!value.endsWith("/files/")) {

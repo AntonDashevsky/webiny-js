@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { validation } from "@webiny/validation";
-import { FbBuilderFormFieldValidatorPlugin } from "~/types.js";
+import { type FbBuilderFormFieldValidatorPlugin } from "~/types.js";
 
 const plugin: FbBuilderFormFieldValidatorPlugin = {
     type: "form-editor-field-validator",

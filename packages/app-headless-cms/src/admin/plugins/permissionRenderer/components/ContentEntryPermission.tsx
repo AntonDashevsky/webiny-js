@@ -7,8 +7,8 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
 import { Note } from "./StyledComponents.js";
-import { BindComponent } from "@webiny/form/types.js";
-import { CmsSecurityPermission } from "~/types.js";
+import { type BindComponent } from "@webiny/form/types.js";
+import { type CmsSecurityPermission } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

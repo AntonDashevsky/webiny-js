@@ -1,4 +1,4 @@
-import { flpTasks } from "~/flp";
+import { flpTasks } from "~/flp/index.js";
 
 export const createAcoTasks = () => {
     return [...flpTasks()];

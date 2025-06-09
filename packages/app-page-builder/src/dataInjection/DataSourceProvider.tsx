@@ -1,6 +1,6 @@
 import React, { createContext, useMemo } from "react";
 import { useLoadDataSource } from "~/features/index.js";
-import { PbDataSource } from "~/types.js";
+import { type PbDataSource } from "~/types.js";
 import type { GenericRecord } from "@webiny/app/types.js";
 import { useDynamicDocument } from "./useDynamicDocument.js";
 import { DataSourceDataProvider } from "./DataSourceDataProvider.js";

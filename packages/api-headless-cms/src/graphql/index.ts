@@ -1,6 +1,6 @@
-import { Plugin } from "@webiny/plugins/types.js";
+import { type Plugin } from "@webiny/plugins/types.js";
 import { createSystemSchemaPlugin } from "./system.js";
-import { graphQLHandlerFactory, GraphQLHandlerFactoryParams } from "./graphQLHandlerFactory.js";
+import { graphQLHandlerFactory, type GraphQLHandlerFactoryParams } from "./graphQLHandlerFactory.js";
 import { createBaseSchema } from "~/graphql/schema/baseSchema.js";
 
 export type CreateGraphQLParams = GraphQLHandlerFactoryParams;

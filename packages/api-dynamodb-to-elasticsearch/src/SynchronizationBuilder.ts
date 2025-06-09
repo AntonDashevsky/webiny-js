@@ -1,13 +1,13 @@
 import {
-    Context,
-    IDeleteOperationParams,
-    IInsertOperationParams,
-    IModifyOperationParams,
-    IOperations
+    type Context,
+    type IDeleteOperationParams,
+    type IInsertOperationParams,
+    type IModifyOperationParams,
+    type IOperations
 } from "~/types.js";
 import { Operations } from "~/Operations.js";
-import { executeWithRetry, IExecuteWithRetryParams } from "~/executeWithRetry.js";
-import { ITimer } from "@webiny/handler-aws";
+import { executeWithRetry, type IExecuteWithRetryParams } from "~/executeWithRetry.js";
+import { type ITimer } from "@webiny/handler-aws";
 
 export type ISynchronizationBuilderExecuteWithRetryParams = Omit<
     IExecuteWithRetryParams,

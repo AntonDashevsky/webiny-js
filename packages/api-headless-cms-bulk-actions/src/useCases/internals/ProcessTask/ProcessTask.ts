@@ -1,6 +1,6 @@
 import { Result } from "./Result.js";
-import { IBulkActionOperationTaskParams } from "~/types.js";
-import { IProcessEntry } from "~/abstractions/index.js";
+import { type IBulkActionOperationTaskParams } from "~/types.js";
+import { type IProcessEntry } from "~/abstractions/index.js";
 
 /**
  * The `ProcessTask` class is responsible for processing a batch of entries

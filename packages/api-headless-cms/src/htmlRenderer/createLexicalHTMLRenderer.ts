@@ -1,5 +1,5 @@
 import type { SerializedEditorState } from "@webiny/lexical-converter";
-import { CmsRichTextRendererPlugin, RichTextContents } from "~/plugins/index.js";
+import { CmsRichTextRendererPlugin, type RichTextContents } from "~/plugins/index.js";
 
 const isLexicalContents = (contents: RichTextContents): contents is SerializedEditorState => {
     return contents.hasOwnProperty("root");

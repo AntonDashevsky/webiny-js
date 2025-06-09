@@ -2,7 +2,7 @@ import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Layout } from "./Layout.js";
 import { Elements as BaseElements } from "~/editor/config/Elements.js";
-import { Element as BaseElement, ElementProps as BaseElementProps } from "~/editor/config/Element.js";
+import { Element as BaseElement, type ElementProps as BaseElementProps } from "~/editor/config/Element.js";
 import { createGetId } from "~/editor/config/createGetId.js";
 import { useDebugUtilities } from "~/editor/useDebugUtilities.js";
 import { ElementControls } from "~/editor/contexts/EditorPageElementsProvider/ElementControls.js";

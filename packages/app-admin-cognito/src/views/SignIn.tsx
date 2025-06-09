@@ -10,13 +10,13 @@ import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
 import {
     useSignIn,
-    UseSignInCallableParams
+    type UseSignInCallableParams
 } from "@webiny/app-cognito-authenticator/hooks/useSignIn.js";
 import { View } from "~/components/View.js";
 import { FederatedLogin } from "./FederatedLogin.js";
 import { Divider } from "~/components/Divider.js";
 import { alignRight, alignCenter, errorMessage } from "~/components/StyledComponents.js";
-import { FederatedIdentityProvider } from "~/federatedIdentityProviders.js";
+import { type FederatedIdentityProvider } from "~/federatedIdentityProviders.js";
 
 export interface SignInProps {
     title?: string;

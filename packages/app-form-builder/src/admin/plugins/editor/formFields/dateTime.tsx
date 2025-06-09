@@ -3,7 +3,7 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { Grid, Cell } from "@webiny/ui/Grid/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
 import { ReactComponent as DateIcon } from "@material-design-icons/svg/round/calendar_month.svg";
-import { FbBuilderFieldPlugin } from "~/types.js";
+import { type FbBuilderFieldPlugin } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields");
 

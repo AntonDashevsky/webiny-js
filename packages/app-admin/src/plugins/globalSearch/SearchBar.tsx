@@ -1,9 +1,9 @@
 import * as React from "react";
 import { set } from "dot-prop-immutable";
-import { useRouter, UseRouter } from "@webiny/react-router";
+import { useRouter, type UseRouter } from "@webiny/react-router";
 import Downshift from "downshift";
 import { plugins } from "@webiny/plugins";
-import { AdminGlobalSearchPlugin, AdminGlobalSearchPreventHotkeyPlugin } from "~/types.js";
+import { type AdminGlobalSearchPlugin, type AdminGlobalSearchPreventHotkeyPlugin } from "~/types.js";
 import classnames from "classnames";
 /**
  * Package react-hotkeyz does not have types.

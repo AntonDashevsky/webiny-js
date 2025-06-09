@@ -4,11 +4,11 @@ import cloneDeep from "lodash/cloneDeep.js";
 import pick from "lodash/pick.js";
 import {
     GET_FORM,
-    GetFormQueryResponse,
-    GetFormQueryVariables,
+    type GetFormQueryResponse,
+    type GetFormQueryVariables,
     UPDATE_REVISION,
-    UpdateFormRevisionMutationResponse,
-    UpdateFormRevisionMutationVariables
+    type UpdateFormRevisionMutationResponse,
+    type UpdateFormRevisionMutationVariables
 } from "./graphql.js";
 import { deleteField, moveStep, handleMoveRow, handleMoveField } from "./functions/index.js";
 import moveField from "./functions/handleMoveField/moveField.js";
@@ -16,24 +16,24 @@ import getFieldPosition from "./functions/handleMoveField/getFieldPosition.js";
 import { plugins } from "@webiny/plugins";
 
 import {
-    FbFormModelField,
-    FieldIdType,
-    FieldLayoutPositionType,
-    FbBuilderFieldPlugin,
-    FbFormModel,
-    FbUpdateFormInput,
-    FbErrorResponse,
-    FbFormStep,
-    MoveStepParams,
-    DropTarget,
-    DropDestination,
-    DropSource
+    type FbFormModelField,
+    type FieldIdType,
+    type FieldLayoutPositionType,
+    type FbBuilderFieldPlugin,
+    type FbFormModel,
+    type FbUpdateFormInput,
+    type FbErrorResponse,
+    type FbFormStep,
+    type MoveStepParams,
+    type DropTarget,
+    type DropDestination,
+    type DropSource
 } from "~/types.js";
-import { ApolloClient } from "apollo-client";
+import { type ApolloClient } from "apollo-client";
 import {
-    FormEditorFieldError,
-    FormEditorProviderContext,
-    FormEditorProviderContextState
+    type FormEditorFieldError,
+    type FormEditorProviderContext,
+    type FormEditorProviderContextState
 } from "~/admin/components/FormEditor/Context/index.js";
 import dotProp from "dot-prop-immutable";
 import { useSnackbar } from "@webiny/app-admin";

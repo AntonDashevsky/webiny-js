@@ -2,7 +2,7 @@ import React from "react";
 import { Elements } from "~/components/Elements.js";
 import { createRenderer } from "~/createRenderer.js";
 import { useRenderer } from "~/hooks/useRenderer.js";
-import { Element } from "~/types.js";
+import { type Element } from "~/types.js";
 
 interface Props {
     elements?: Element[];

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { type ChangeEvent, useCallback, useState } from "react";
 import { createRenderer } from "@webiny/app-page-builder-elements";
 import { useDataSource } from "@webiny/app-page-builder/dataInjection/index.js";
 

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { plugins } from "@webiny/plugins";
-import { PbEditorElement, PbEditorPageElementVariableRendererPlugin } from "~/types.js";
+import { type PbEditorElement, type PbEditorPageElementVariableRendererPlugin } from "~/types.js";
 import { useParentBlock } from "~/editor/hooks/useParentBlock.js";
 
 export function useElementVariables(element: PbEditorElement | null) {

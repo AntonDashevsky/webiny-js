@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import { CmsModel } from "~/types.js";
+import { type CmsModel } from "~/types.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { type IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const Title = styled("div")({
     width: "100%",

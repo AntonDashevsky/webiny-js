@@ -18,8 +18,8 @@ import {
     CREATE_MENU,
     UPDATE_MENU,
     LIST_MENUS,
-    GetMenuQueryResponse,
-    GetMenuQueryVariables
+    type GetMenuQueryResponse,
+    type GetMenuQueryVariables
 } from "./graphql.js";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
@@ -33,7 +33,7 @@ import omit from "lodash/omit.js";
 import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { useMenusPermissions } from "~/hooks/permissions/index.js";
-import { PbMenu } from "~/types.js";
+import { type PbMenu } from "~/types.js";
 
 const t = i18n.ns("app-page-builder/admin/menus/form");
 const ButtonWrapper = styled("div")({

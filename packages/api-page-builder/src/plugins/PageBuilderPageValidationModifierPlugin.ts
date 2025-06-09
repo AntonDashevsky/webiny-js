@@ -1,9 +1,9 @@
-import zod from "zod";
+import type zod from "zod";
 import { Plugin } from "@webiny/plugins";
 import {
-    createPageValidation,
-    updatePageValidation,
-    updatePageSettingsValidation
+    type createPageValidation,
+    type updatePageValidation,
+    type updatePageSettingsValidation
 } from "~/graphql/crud/pages/validation.js";
 
 export interface PageBuilderPageValidationModifierPluginParams {

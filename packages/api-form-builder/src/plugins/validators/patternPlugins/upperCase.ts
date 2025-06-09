@@ -1,4 +1,4 @@
-import { FbFormFieldPatternValidatorPlugin } from "~/types.js";
+import { type FbFormFieldPatternValidatorPlugin } from "~/types.js";
 
 const plugin: FbFormFieldPatternValidatorPlugin = {
     type: "fb-form-field-validator-pattern",

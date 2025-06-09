@@ -1,21 +1,21 @@
 import {
-    FormBuilder,
-    FormBuilderContext,
-    OnSettingsAfterCreate,
-    OnSettingsAfterDelete,
-    OnSettingsAfterUpdate,
-    OnSettingsBeforeCreate,
-    OnSettingsBeforeDelete,
-    OnSettingsBeforeUpdate,
-    Settings,
-    SettingsCRUD
+    type FormBuilder,
+    type FormBuilderContext,
+    type OnSettingsAfterCreate,
+    type OnSettingsAfterDelete,
+    type OnSettingsAfterUpdate,
+    type OnSettingsBeforeCreate,
+    type OnSettingsBeforeDelete,
+    type OnSettingsBeforeUpdate,
+    type Settings,
+    type SettingsCRUD
 } from "~/types.js";
 import WebinyError from "@webiny/error";
-import { Tenant } from "@webiny/api-tenancy/types.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
-import { SettingsPermissions } from "./permissions/SettingsPermissions.js";
+import { type SettingsPermissions } from "./permissions/SettingsPermissions.js";
 import { createSettingsValidation, updateSettingsValidation } from "~/plugins/crud/settings.models.js";
 import { createZodError } from "@webiny/utils";
 

@@ -10,7 +10,7 @@ import { alignRight, errorMessage } from "~/components/StyledComponents.js";
 import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
 import {
     useSetNewPassword,
-    UseSetNewPasswordCallableParams
+    type UseSetNewPasswordCallableParams
 } from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword.js";
 
 export const SetNewPassword = () => {

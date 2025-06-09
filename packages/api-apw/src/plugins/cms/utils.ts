@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
-import { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsEntry, type CmsModel, type HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
 import {
-    AdvancedPublishingWorkflow,
-    ApwWorkflow,
+    type AdvancedPublishingWorkflow,
+    type ApwWorkflow,
     ApwWorkflowApplications,
     WorkflowScopeTypes
 } from "~/types.js";

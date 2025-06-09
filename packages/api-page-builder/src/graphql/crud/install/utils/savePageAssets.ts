@@ -1,10 +1,10 @@
 import loadJson from "load-json-file";
 import fs from "fs-extra";
 import path from "path";
-import { File } from "@webiny/api-file-manager/types.js";
+import { type File } from "@webiny/api-file-manager/types.js";
 import downloadInstallationFiles from "./downloadInstallFiles.js";
-import { PbContext } from "~/graphql/types.js";
-import { FileStorageUploadParams } from "@webiny/api-file-manager/storage/FileStorage.js";
+import { type PbContext } from "~/graphql/types.js";
+import { type FileStorageUploadParams } from "@webiny/api-file-manager/storage/FileStorage.js";
 
 /**
  * Type comes from installation/files/data/pagesFilesData.json

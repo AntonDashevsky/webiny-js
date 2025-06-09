@@ -7,8 +7,8 @@ import { ButtonPrimary, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { PagesAutocomplete } from "~/admin/components/PagesAutocomplete.js";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { validation } from "@webiny/validation";
-import { FormOnSubmit } from "@webiny/form/types.js";
-import { MenuTreeItem } from "~/admin/views/Menus/types.js";
+import { type FormOnSubmit } from "@webiny/form/types.js";
+import { type MenuTreeItem } from "~/admin/views/Menus/types.js";
 import { css } from "emotion";
 
 const menuPageFormStyle = css({

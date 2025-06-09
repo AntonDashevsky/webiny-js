@@ -4,7 +4,7 @@ import { useGetFolderLevelPermission } from "@webiny/app-aco";
 
 import {
     DeleteRevisionMenuOption,
-    DeleteRevisionMenuOptionProps
+    type DeleteRevisionMenuOptionProps
 } from "./DeleteRevisionMenuOption.js";
 
 export const SecureDeleteRevisionMenuOption = (props: DeleteRevisionMenuOptionProps) => {

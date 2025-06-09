@@ -1,11 +1,11 @@
 import {
-    FormBuilderStorageOperationsCreateSystemParams,
-    FormBuilderStorageOperationsGetSystemParams,
-    FormBuilderStorageOperationsUpdateSystemParams,
-    System
+    type FormBuilderStorageOperationsCreateSystemParams,
+    type FormBuilderStorageOperationsGetSystemParams,
+    type FormBuilderStorageOperationsUpdateSystemParams,
+    type System
 } from "@webiny/api-form-builder/types.js";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
-import { FormBuilderSystemCreateKeysParams, FormBuilderSystemStorageOperations } from "~/types.js";
+import { type Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
+import { type FormBuilderSystemCreateKeysParams, type FormBuilderSystemStorageOperations } from "~/types.js";
 import WebinyError from "@webiny/error";
 import { getClean, put } from "@webiny/db-dynamodb";
 

@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { AcoContext, Folder } from "~/types.js";
+import { type AcoContext, type Folder } from "~/types.js";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 interface EnsureFolderIsEmptyParams {

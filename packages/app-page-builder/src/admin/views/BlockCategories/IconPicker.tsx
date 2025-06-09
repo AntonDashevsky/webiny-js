@@ -6,12 +6,12 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import { Grid } from "react-virtualized";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
-import { Menu, MenuChildrenFunctionProps } from "@webiny/ui/Menu/index.js";
+import { Menu, type MenuChildrenFunctionProps } from "@webiny/ui/Menu/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
-import { PbIcon, PbIconsPlugin } from "~/types.js";
-import { FormComponentProps } from "@webiny/ui/types.js";
+import { type PbIcon, type PbIconsPlugin } from "~/types.js";
+import { type FormComponentProps } from "@webiny/ui/types.js";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import { GridCellProps } from "react-virtualized/dist/es/Grid";
+import { type GridCellProps } from "react-virtualized/dist/es/Grid";
 
 /**
  * Controls the helper text below the checkbox.

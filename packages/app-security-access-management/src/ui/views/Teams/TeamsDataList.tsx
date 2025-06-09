@@ -16,7 +16,7 @@ import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import { LIST_TEAMS, DELETE_TEAM, ListTeamsResponse } from "./graphql.js";
+import { LIST_TEAMS, DELETE_TEAM, type ListTeamsResponse } from "./graphql.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
@@ -25,7 +25,7 @@ import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
 import { deserializeSorters } from "../utils.js";
-import { Team } from "~/types.js";
+import { type Team } from "~/types.js";
 
 const t = i18n.ns("app-security/admin/teams/data-list");
 

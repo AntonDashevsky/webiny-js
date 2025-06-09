@@ -1,18 +1,18 @@
 import {
-    Context,
-    ILoggerCrud,
-    ILoggerCrudDeleteLogParams,
-    ILoggerCrudDeleteLogResponse,
-    ILoggerCrudDeleteLogsParams,
-    ILoggerCrudGetLogResponse,
-    ILoggerCrudGetLogsParams,
-    ILoggerCrudListLogsParams,
-    ILoggerCrudListLogsResponse,
-    ILoggerLog,
-    ILoggerPruneLogsResponse,
-    ILoggerStorageOperations,
-    ILoggerWithSource,
-    IPruneLogsStoredValue
+    type Context,
+    type ILoggerCrud,
+    type ILoggerCrudDeleteLogParams,
+    type ILoggerCrudDeleteLogResponse,
+    type ILoggerCrudDeleteLogsParams,
+    type ILoggerCrudGetLogResponse,
+    type ILoggerCrudGetLogsParams,
+    type ILoggerCrudListLogsParams,
+    type ILoggerCrudListLogsResponse,
+    type ILoggerLog,
+    type ILoggerPruneLogsResponse,
+    type ILoggerStorageOperations,
+    type ILoggerWithSource,
+    type IPruneLogsStoredValue
 } from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { WebinyError } from "@webiny/error";

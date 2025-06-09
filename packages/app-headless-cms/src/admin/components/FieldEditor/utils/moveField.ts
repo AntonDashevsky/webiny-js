@@ -1,9 +1,9 @@
 import dot from "dot-prop-immutable";
 import {
-    CmsModelField,
-    CmsEditorFieldId,
-    CmsModel as BaseCmsModel,
-    FieldLayoutPosition
+    type CmsModelField,
+    type CmsEditorFieldId,
+    type CmsModel as BaseCmsModel,
+    type FieldLayoutPosition
 } from "~/types.js";
 import getFieldPosition from "./getFieldPosition.js";
 

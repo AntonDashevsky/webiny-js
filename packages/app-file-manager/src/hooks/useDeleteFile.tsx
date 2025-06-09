@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import styled from "@emotion/styled";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 import { useFileManagerView } from "~/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 

@@ -1,6 +1,6 @@
 import { IndexingDisableError } from "~/errors/index.js";
-import { IIndexSettingsValues } from "~/types.js";
-import { IndexSettingsManager } from "./IndexSettingsManager.js";
+import { type IIndexSettingsValues } from "~/types.js";
+import { type IndexSettingsManager } from "./IndexSettingsManager.js";
 
 export class DisableIndexing {
     private readonly settings: IndexSettingsManager;

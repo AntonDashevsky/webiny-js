@@ -1,8 +1,8 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
 import {
-    CmsEntryResolverFactory as ResolverFactory,
-    CreateFromCmsEntryInput,
-    CreateRevisionCmsEntryOptionsInput
+    type CmsEntryResolverFactory as ResolverFactory,
+    type CreateFromCmsEntryInput,
+    type CreateRevisionCmsEntryOptionsInput
 } from "~/types/index.js";
 
 interface ResolveCreateFromArgs {

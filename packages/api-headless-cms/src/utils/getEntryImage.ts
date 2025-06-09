@@ -1,4 +1,4 @@
-import { CmsEntry, CmsModel } from "~/types/index.js";
+import { type CmsEntry, type CmsModel } from "~/types/index.js";
 
 export function getEntryImage(
     model: Pick<CmsModel, "imageFieldId" | "fields">,

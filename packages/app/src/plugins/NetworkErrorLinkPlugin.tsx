@@ -1,14 +1,14 @@
 import React from "react";
-import { ApolloLinkPlugin } from "./ApolloLinkPlugin";
+import { ApolloLinkPlugin } from "./ApolloLinkPlugin.js";
 import { onError } from "apollo-link-error";
 import { type ServerError } from "apollo-link-http-common";
-import { print } from "graphql/language";
-import createErrorOverlay from "./NetworkErrorLinkPlugin/createErrorOverlay";
-import { LocalAwsLambdaTimeoutMessage } from "./NetworkErrorLinkPlugin/LocalAwsLambdaTimeoutMessage";
+import { print } from "graphql/language/index.js";
+import createErrorOverlay from "./NetworkErrorLinkPlugin/createErrorOverlay.js";
+import { LocalAwsLambdaTimeoutMessage } from "./NetworkErrorLinkPlugin/LocalAwsLambdaTimeoutMessage.js";
 import { boolean } from "boolean";
-import { config as appConfig } from "~/config";
-import ErrorOverlay from "~/plugins/NetworkErrorLinkPlugin/ErrorOverlay";
-import GqlErrorOverlay from "./NetworkErrorLinkPlugin/GqlErrorOverlay";
+import { config as appConfig } from "~/config.js";
+import ErrorOverlay from "~/plugins/NetworkErrorLinkPlugin/ErrorOverlay.js";
+import GqlErrorOverlay from "./NetworkErrorLinkPlugin/GqlErrorOverlay.js";
 
 const isLocalAwsLambdaFnInvocationTimeoutError = (error: any): error is ServerError => {
     return error.result && error.result.code === "LOCAL_AWS_LAMBDA_TIMEOUT";

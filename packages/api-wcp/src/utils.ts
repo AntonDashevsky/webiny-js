@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { WcpFetchParams } from "~/createWcp.js";
+import { type WcpFetchParams } from "~/createWcp.js";
 
 export const getWcpProjectLicenseCacheKey = () => {
     // We're dividing an hour into 5-minute blocks. In an hour, that's 12 blocks total.

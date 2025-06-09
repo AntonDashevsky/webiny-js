@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import { AcoContext } from "~/types.js";
+import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type AcoContext } from "~/types.js";
 import { ensureFolderIsEmpty } from "~/folder/ensureFolderIsEmpty.js";
 
 export const onFolderBeforeDeleteHcmsHook = (context: AcoContext) => {

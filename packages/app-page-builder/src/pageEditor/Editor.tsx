@@ -4,31 +4,31 @@ import { plugins } from "@webiny/plugins";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { PageProvider } from "@webiny/app-page-builder-elements/contexts/Page.js";
-import { Page } from "@webiny/app-page-builder-elements/types.js";
+import { type Page } from "@webiny/app-page-builder-elements/types.js";
 import get from "lodash/get.js";
 import { Editor as PbEditor } from "~/admin/components/Editor.js";
 import { createElement } from "~/editor/helpers.js";
 import {
     GET_PAGE,
     CREATE_PAGE_FROM,
-    CreatePageFromMutationResponse,
-    CreatePageFromMutationVariables,
-    GetPageQueryResponse,
-    GetPageQueryVariables
+    type CreatePageFromMutationResponse,
+    type CreatePageFromMutationVariables,
+    type GetPageQueryResponse,
+    type GetPageQueryVariables
 } from "./graphql.js";
 import { EditorLoadingScreen } from "~/admin/components/EditorLoadingScreen.js";
 import {
     LIST_PAGE_ELEMENTS,
-    ListPageElementsQueryResponse,
-    ListPageElementsQueryResponseData
+    type ListPageElementsQueryResponse,
+    type ListPageElementsQueryResponseData
 } from "~/admin/graphql/pages.js";
-import { ListPageBlocksQueryResponse } from "~/admin/views/PageBlocks/graphql.js";
+import { type ListPageBlocksQueryResponse } from "~/admin/views/PageBlocks/graphql.js";
 import { LIST_BLOCK_CATEGORIES } from "~/admin/views/BlockCategories/graphql.js";
 import createElementPlugin from "~/admin/utils/createElementPlugin.js";
 import dotProp from "dot-prop-immutable";
-import { PbErrorResponse, PbBlockCategory } from "~/types.js";
+import { type PbErrorResponse, type PbBlockCategory } from "~/types.js";
 import createBlockCategoryPlugin from "~/admin/utils/createBlockCategoryPlugin.js";
-import { PageWithContent, RevisionsAtomType } from "~/pageEditor/state/index.js";
+import { type PageWithContent, type RevisionsAtomType } from "~/pageEditor/state/index.js";
 import { createStateInitializer } from "./createStateInitializer.js";
 import elementVariableRendererPlugins from "~/editor/plugins/elementVariables/index.js";
 import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";

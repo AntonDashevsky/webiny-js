@@ -11,8 +11,8 @@ import { usePermission } from "~/admin/hooks/index.js";
 
 import { LinkTitle, RowIcon, RowText, RowTitle } from "./Cells.styled.js";
 
-import { FolderTableItem } from "@webiny/app-aco/types.js";
-import { EntryTableItem } from "~/types.js";
+import { type FolderTableItem } from "@webiny/app-aco/types.js";
+import { type EntryTableItem } from "~/types.js";
 
 interface FolderCellNameProps {
     folder: FolderTableItem;

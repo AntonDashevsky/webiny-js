@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { Plugin } from "@webiny/plugins";
-import { Sort } from "elastic-ts";
+import { type Sort } from "elastic-ts";
 
 export interface ModifySortParams {
     sort: Sort;

@@ -1,4 +1,4 @@
-import { PbEditorEventActionPlugin } from "~/types.js";
+import { type PbEditorEventActionPlugin } from "~/types.js";
 import { AfterDropElementActionEvent } from "./event.js";
 import { afterDropElementAction } from "./action.js";
 

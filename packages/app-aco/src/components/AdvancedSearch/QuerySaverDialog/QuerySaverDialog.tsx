@@ -7,9 +7,9 @@ import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 
-import { QuerySaverDialogFormData, QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
+import { type QuerySaverDialogFormData, QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
 
-import { FilterDTO } from "../domain/index.js";
+import { type FilterDTO } from "../domain/index.js";
 
 import { DialogContainer } from "./QuerySaverDialog.styled.js";
 

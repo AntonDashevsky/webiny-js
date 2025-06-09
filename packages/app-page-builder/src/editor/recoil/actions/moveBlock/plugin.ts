@@ -1,6 +1,6 @@
 import { MoveBlockActionEvent } from "./event.js";
 import { moveBlockAction } from "./action.js";
-import { PbEditorEventActionPlugin } from "~/types.js";
+import { type PbEditorEventActionPlugin } from "~/types.js";
 
 export default (): PbEditorEventActionPlugin => {
     return {

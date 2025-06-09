@@ -4,7 +4,7 @@ import { css } from "emotion";
 import isEqual from "lodash/isEqual.js";
 import { Prompt } from "@webiny/react-router";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { Form, FormRenderPropParams } from "@webiny/form";
+import { Form, type FormRenderPropParams } from "@webiny/form";
 import { ButtonDefault, ButtonPrimary, ButtonIcon } from "@webiny/ui/Button/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import {
@@ -23,7 +23,7 @@ import { ReactComponent as WorkflowStepIcon } from "~/assets/icons/workflow-step
 import WorkflowStep from "./components/WorkflowStep.js";
 import Title, { WorkflowFormHeader } from "./components/WorkflowTitle.js";
 import { WorkflowScope } from "./components/WorkflowScope.js";
-import { ApwWorkflow } from "~/types.js";
+import { type ApwWorkflow } from "~/types.js";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/form");
 

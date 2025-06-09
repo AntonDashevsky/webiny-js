@@ -1,10 +1,10 @@
 import {
-    CmsGroupImportResult,
-    CmsModelImportResult,
-    ValidCmsGroupResult,
-    ValidCmsModelResult
+    type CmsGroupImportResult,
+    type CmsModelImportResult,
+    type ValidCmsGroupResult,
+    type ValidCmsModelResult
 } from "~/export/types.js";
-import { CmsContext } from "~/types/index.js";
+import { type CmsContext } from "~/types/index.js";
 import { importGroups } from "./importGroups.js";
 import { importModels } from "./importModels.js";
 

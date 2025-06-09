@@ -7,7 +7,7 @@ import { createI18NHooks } from "./i18n/index.js";
 import { createMailerHooks } from "./mailer/index.js";
 import { createAcoHooks } from "./aco/index.js";
 import { createApwHooks } from "./apw/index.js";
-import { AuditLogsContext } from "~/types.js";
+import { type AuditLogsContext } from "~/types.js";
 
 export const createSubscriptionHooks = (context: AuditLogsContext) => {
     createFormBuilderHooks(context);

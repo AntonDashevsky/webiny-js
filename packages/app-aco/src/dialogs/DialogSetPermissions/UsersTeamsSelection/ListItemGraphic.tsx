@@ -3,7 +3,7 @@ import { Image } from "@webiny/app/components/index.js";
 import { ListItemGraphic as UiListItemGraphic } from "@webiny/ui/List/index.js";
 import { Avatar } from "@webiny/ui/Avatar/index.js";
 import styled from "@emotion/styled";
-import { FolderLevelPermissionsTarget } from "~/types.js";
+import { type FolderLevelPermissionsTarget } from "~/types.js";
 
 interface ListItemGraphicProps {
     target: FolderLevelPermissionsTarget;

@@ -1,7 +1,7 @@
-import { TenancyContext, Tenant } from "@webiny/api-tenancy/types.js";
+import { type TenancyContext, type Tenant } from "@webiny/api-tenancy/types.js";
 import { Response } from "@webiny/handler-graphql";
 import { getDefaultTenant as baseGetDefaultTenant } from "./getDefaultTenant.js";
-import { SecurityContext } from "~/types.js";
+import { type SecurityContext } from "~/types.js";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
 export { getDefaultTenant } from "./getDefaultTenant.js";
 

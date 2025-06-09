@@ -11,10 +11,10 @@ import { Form } from "@webiny/form";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
-import { SecurityPermission } from "@webiny/app-security/types.js";
-import { FormBuilderSecurityPermission } from "~/types.js";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
+import { type FormBuilderSecurityPermission } from "~/types.js";
 import { useSecurity } from "@webiny/app-security";
-import { AaclPermission } from "@webiny/app-admin";
+import { type AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-form-builder/admin/plugins/permissionRenderer");
 

@@ -2,9 +2,9 @@ import {
     marshall as baseMarshall,
     unmarshall as baseUnmarshall
 } from "@webiny/aws-sdk/client-dynamodb";
-import { GenericRecord } from "@webiny/api/types.js";
+import { type GenericRecord } from "@webiny/api/types.js";
 
-import { AttributeValue } from "@webiny/handler-aws/types.js";
+import { type AttributeValue } from "@webiny/handler-aws/types.js";
 
 export interface MarshalledValue {
     [key: string]: AttributeValue;

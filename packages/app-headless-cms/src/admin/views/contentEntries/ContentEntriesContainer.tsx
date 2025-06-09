@@ -6,11 +6,11 @@ import { i18n } from "@webiny/app/i18n/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import {
     GET_CONTENT_MODEL,
-    GetCmsModelQueryResponse,
-    GetCmsModelQueryVariables
+    type GetCmsModelQueryResponse,
+    type GetCmsModelQueryVariables
 } from "~/admin/graphql/contentModels.js";
 import { useQuery } from "../../hooks/index.js";
-import { CmsModel } from "~/types.js";
+import { type CmsModel } from "~/types.js";
 import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-entries");

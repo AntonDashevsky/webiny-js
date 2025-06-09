@@ -10,8 +10,8 @@ import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
 import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons/index.js";
 import {
     CREATE_REVISION_FROM,
-    CreateRevisionFromMutationResponse,
-    CreateRevisionFromMutationVariables,
+    type CreateRevisionFromMutationResponse,
+    type CreateRevisionFromMutationVariables,
     DELETE_FORM
 } from "../../graphql.js";
 import { useApolloClient } from "@apollo/react-hooks";
@@ -45,7 +45,7 @@ import { ExportFormsButton } from "~/admin/plugins/formsDataList/ExportButton/in
 import { OptionsMenu } from "~/admin/components/OptionsMenu.js";
 import { useForms } from "./useForms.js";
 import { deserializeSorters } from "../utils.js";
-import { FbFormModel, FbRevisionModel } from "~/types.js";
+import { type FbFormModel, type FbRevisionModel } from "~/types.js";
 
 const t = i18n.namespace("FormsApp.FormsDataList");
 const rightAlign = css({

@@ -1,4 +1,4 @@
-import { GqlTranslatableItemDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableItemDTO.js";
+import { type GqlTranslatableItemDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableItemDTO.js";
 
 export interface GqlTranslatableCollectionDTO {
     id: string;

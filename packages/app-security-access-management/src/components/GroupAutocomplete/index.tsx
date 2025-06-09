@@ -1,5 +1,5 @@
 import React from "react";
-import { AutoComplete, AutoCompleteProps } from "@webiny/ui/AutoComplete/index.js";
+import { AutoComplete, type AutoCompleteProps } from "@webiny/ui/AutoComplete/index.js";
 import { LIST_GROUPS } from "./graphql.js";
 import { useQuery } from "@apollo/react-hooks";
 

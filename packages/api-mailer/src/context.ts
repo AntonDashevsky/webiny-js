@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { MailerContext } from "./types.js";
+import { type MailerContext } from "./types.js";
 import { createTransporterCrud } from "~/crud/transporter.crud.js";
 import { createSettingsCrud } from "~/crud/settings.crud.js";
 

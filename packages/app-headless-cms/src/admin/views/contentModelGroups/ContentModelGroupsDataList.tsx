@@ -20,7 +20,7 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useApolloClient, useQuery } from "../../hooks/index.js";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
 import * as GQL from "./graphql.js";
-import { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql.js";
+import { type CmsGroupWithModels, type ListCmsGroupsQueryResponse } from "./graphql.js";
 import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Select } from "@webiny/ui/Select/index.js";
@@ -30,7 +30,7 @@ import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/fil
 import { deserializeSorters } from "../utils.js";
 import usePermission from "../../hooks/usePermission.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { CmsGroup } from "~/types.js";
+import { type CmsGroup } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/data-list");
 

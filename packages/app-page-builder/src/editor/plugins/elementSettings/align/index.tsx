@@ -1,5 +1,5 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
+import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
 import HorizontalAlignSettings from "./HorizontalAlignSettings.js";
 import HorizontalAlignFlexSettings from "./HorizontalAlignFlexSettings.js";
 import VerticalAlignSettings from "./VerticalAlignSettings.js";

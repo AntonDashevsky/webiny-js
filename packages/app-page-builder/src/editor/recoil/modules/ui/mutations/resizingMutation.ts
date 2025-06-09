@@ -1,5 +1,5 @@
-import { UiAtomType } from "../../index.js";
-import { EventActionHandlerMutationActionCallable } from "~/types.js";
+import { type UiAtomType } from "../../index.js";
+import { type EventActionHandlerMutationActionCallable } from "~/types.js";
 
 const updateResizeValue: EventActionHandlerMutationActionCallable<UiAtomType, boolean> = (
     state,

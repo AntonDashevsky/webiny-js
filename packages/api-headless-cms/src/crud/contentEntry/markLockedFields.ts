@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { CmsContext, CmsEntry, CmsModel, CmsModelLockedFieldPlugin, LockedField } from "~/types/index.js";
+import { type CmsContext, type CmsEntry, type CmsModel, type CmsModelLockedFieldPlugin, type LockedField } from "~/types/index.js";
 import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
 import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 

@@ -1,4 +1,4 @@
-import { FbFormModel, FbFormStep, DropSource, DropDestination } from "~/types.js";
+import { type FbFormModel, type FbFormStep, type DropSource, type DropDestination } from "~/types.js";
 import moveRow from "./handleMoveRow/moveRow.js";
 import moveRowBetween from "./handleMoveRow/moveRowBetween.js";
 

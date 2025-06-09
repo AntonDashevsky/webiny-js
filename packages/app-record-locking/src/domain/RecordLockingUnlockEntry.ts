@@ -1,13 +1,13 @@
 import { WebinyError } from "@webiny/error";
 import {
-    IRecordLockingUnlockEntry,
-    IRecordLockingUnlockEntryParams,
-    IRecordLockingUnlockEntryResult
+    type IRecordLockingUnlockEntry,
+    type IRecordLockingUnlockEntryParams,
+    type IRecordLockingUnlockEntryResult
 } from "~/domain/abstractions/IRecordLockingUnlockEntry.js";
-import { IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
+import { type IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
 import {
-    RecordLockingUnlockEntryResponse,
-    IRecordLockingUnlockEntryVariables,
+    type RecordLockingUnlockEntryResponse,
+    type IRecordLockingUnlockEntryVariables,
     UNLOCK_ENTRY_MUTATION
 } from "~/domain/graphql/unlockEntry.js";
 

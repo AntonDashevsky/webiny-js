@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import styled from "@emotion/styled";
 
-import Draggable, { BeginDragProps } from "~/admin/components/FormEditor/Draggable.js";
-import { FbFormStep } from "~/types.js";
+import Draggable, { type BeginDragProps } from "~/admin/components/FormEditor/Draggable.js";
+import { type FbFormStep } from "~/types.js";
 import { RowContainer } from "./Styled.js";
 import { Horizontal } from "~/admin/components/FormEditor/DropZone/index.js";
 import { useEditTab } from "./EditFieldDialog/useEditTab.js";

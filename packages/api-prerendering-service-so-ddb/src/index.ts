@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { ENTITIES, PrerenderingServiceFactory, PrerenderingServiceFactoryParams } from "~/types.js";
+import { ENTITIES, type PrerenderingServiceFactory, type PrerenderingServiceFactoryParams } from "~/types.js";
 import { createTable } from "~/definitions/table.js";
 import { createRenderEntity } from "~/definitions/render.js";
 import { createSettingsEntity } from "~/definitions/settings.js";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin";
-import { PbPageTemplateWithContent } from "~/types.js";
+import { type PbPageTemplateWithContent } from "~/types.js";
 import { createElement } from "~/editor/helpers.js";
 import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
 import { useListPageTemplates } from "~/features/index.js";

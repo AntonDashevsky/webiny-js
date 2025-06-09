@@ -17,7 +17,7 @@ import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import { LIST_GROUPS, DELETE_GROUP, ListGroupsResponse } from "./graphql.js";
+import { LIST_GROUPS, DELETE_GROUP, type ListGroupsResponse } from "./graphql.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
@@ -26,7 +26,7 @@ import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
 import { deserializeSorters } from "../utils.js";
-import { Group } from "~/types.js";
+import { type Group } from "~/types.js";
 
 const t = i18n.ns("app-security/admin/roles/data-list");
 

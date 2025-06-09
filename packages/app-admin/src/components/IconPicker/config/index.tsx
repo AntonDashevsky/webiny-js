@@ -5,7 +5,7 @@ import { IconType } from "./IconType.js";
 import { SimpleIconPlugin } from "../plugins/iconsPlugin.js";
 import { EmojiPlugin } from "../plugins/emojisPlugin.js";
 import { CustomIconPlugin } from "../plugins/customPlugin.js";
-import { Icon } from "../types.js";
+import { type Icon } from "../types.js";
 import { createProvider } from "@webiny/app";
 import { Emojis } from "./Emojis.js";
 import { FontAwesomeIcons } from "./FontAwesomeIcons.js";
@@ -33,7 +33,7 @@ interface IconTypeInterface {
     name: string;
 }
 
-export { IconTypeInterface as IconType };
+export type { IconTypeInterface as IconType };
 
 interface IconPickerConfig {
     iconTypes: IconTypeInterface[];

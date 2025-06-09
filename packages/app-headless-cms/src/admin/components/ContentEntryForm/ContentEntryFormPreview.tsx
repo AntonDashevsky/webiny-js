@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { makeDecoratable } from "@webiny/app-admin";
-import { CmsContentEntry, CmsEditorContentModel } from "~/types.js";
+import { type CmsContentEntry, type CmsEditorContentModel } from "~/types.js";
 import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
 import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer.js";
 import { CustomLayout } from "~/admin/components/ContentEntryForm/CustomLayout.js";

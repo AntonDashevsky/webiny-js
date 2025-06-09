@@ -3,7 +3,7 @@ import cloneDeep from "lodash/cloneDeep.js";
 import { useEventActionHandler } from "../../../hooks/useEventActionHandler.js";
 import { activeElementAtom, elementByIdSelector } from "../../../recoil/modules/index.js";
 import { plugins } from "@webiny/plugins";
-import { PbEditorPageElementPlugin, PbEditorElement } from "../../../../types.js";
+import { type PbEditorPageElementPlugin, type PbEditorElement } from "../../../../types.js";
 import { useRecoilValue } from "recoil";
 import { CloneElementActionEvent } from "../../../recoil/actions/cloneElement/index.js";
 

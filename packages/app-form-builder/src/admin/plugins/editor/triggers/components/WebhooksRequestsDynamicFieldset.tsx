@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { ButtonSecondary, ButtonDefault } from "@webiny/ui/Button/index.js";
 import { validation } from "@webiny/validation";
-import { BindComponent } from "@webiny/form";
+import { type BindComponent } from "@webiny/form";
 
 const Fieldset = styled("div")({
     position: "relative",

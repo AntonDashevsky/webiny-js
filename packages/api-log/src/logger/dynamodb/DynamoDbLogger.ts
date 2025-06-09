@@ -1,5 +1,5 @@
-import { ILogger, ILoggerLog, ILoggerLogCallableOptions, LogType } from "~/types.js";
-import { GenericRecord } from "@webiny/api/types.js";
+import { type ILogger, type ILoggerLog, type ILoggerLogCallableOptions, LogType } from "~/types.js";
+import { type GenericRecord } from "@webiny/api/types.js";
 import { mdbid } from "@webiny/utils";
 
 interface IDynamoDbLoggerAddParams<T = GenericRecord> {

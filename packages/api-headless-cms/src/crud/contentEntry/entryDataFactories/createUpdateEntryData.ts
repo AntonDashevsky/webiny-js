@@ -1,16 +1,16 @@
 import {
-    CmsContext,
-    CmsEntry,
-    CmsEntryStatus,
-    CmsModel,
-    UpdateCmsEntryInput,
-    UpdateCmsEntryOptionsInput
+    type CmsContext,
+    type CmsEntry,
+    type CmsEntryStatus,
+    type CmsModel,
+    type UpdateCmsEntryInput,
+    type UpdateCmsEntryOptionsInput
 } from "~/types/index.js";
 import { getDate } from "~/utils/date.js";
 import { getIdentity } from "~/utils/identity.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
-import { Tenant } from "@webiny/api-tenancy/types.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
 import { validateModelEntryDataOrThrow } from "../entryDataValidation.js";
 import { referenceFieldsMapping } from "../referenceFieldsMapping.js";
 import { mapAndCleanUpdatedInputData } from "./mapAndCleanUpdatedInputData.js";

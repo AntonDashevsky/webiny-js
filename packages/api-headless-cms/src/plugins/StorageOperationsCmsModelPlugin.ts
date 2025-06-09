@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { CmsModel, StorageOperationsCmsModel } from "~/types/index.js";
+import { type CmsModel, type StorageOperationsCmsModel } from "~/types/index.js";
 
 export interface StorageOperationsCmsModelPluginCallable {
     (model: CmsModel): StorageOperationsCmsModel;

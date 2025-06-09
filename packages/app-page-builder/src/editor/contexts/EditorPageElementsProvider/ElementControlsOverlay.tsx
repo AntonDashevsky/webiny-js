@@ -1,18 +1,18 @@
 import React, { useCallback, useMemo } from "react";
-import { Element, RendererMeta } from "@webiny/app-page-builder-elements/types.js";
+import { type Element, type RendererMeta } from "@webiny/app-page-builder-elements/types.js";
 import styled from "@emotion/styled";
-import { CSSObject } from "@emotion/react";
+import { type CSSObject } from "@emotion/react";
 import { useActiveElementId } from "~/editor/hooks/useActiveElementId.js";
 import { useRenderer } from "@webiny/app-page-builder-elements";
 import { plugins } from "@webiny/plugins";
 import { useUI } from "~/editor/hooks/useUI.js";
 import { useElementById } from "~/editor/hooks/useElementById.js";
-import { PbEditorElement, PbEditorBlockPlugin } from "~/types.js";
-import { SetterOrUpdater } from "recoil";
+import { type PbEditorElement, type PbEditorBlockPlugin } from "~/types.js";
+import { type SetterOrUpdater } from "recoil";
 import Draggable from "~/editor/components/Draggable.js";
 import { disableDraggingMutation, enableDraggingMutation } from "~/editor/recoil/modules/index.js";
 import { ElementControlsOverlayBorders } from "./ElementControlsOverlay/ElementControlsOverlayBorders.js";
-import { ConnectDragSource } from "react-dnd";
+import { type ConnectDragSource } from "react-dnd";
 import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin.js";
 import { getElementTitle } from "~/editor/contexts/EditorPageElementsProvider/getElementTitle.js";
 

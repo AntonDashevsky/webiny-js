@@ -3,7 +3,7 @@ import { css } from "emotion";
 import classNames from "classnames";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { IconButton } from "@webiny/ui/Button/index.js";
-import { PbEditorPageElementSettingsRenderComponentProps } from "../../../../types.js";
+import { type PbEditorPageElementSettingsRenderComponentProps } from "../../../../types.js";
 // Components
 import { ContentWrapper } from "../components/StyledComponents.js";
 // Icons

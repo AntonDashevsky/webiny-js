@@ -7,7 +7,7 @@ import { Icon } from "@webiny/ui/Icon/index.js";
 import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
 import { ReactComponent as HandleIcon } from "./icons/round-drag_indicator-24px.svg";
 import Draggable from "./Draggable.js";
-import { FbBuilderFieldPlugin, FbEditorFieldGroup, FbFormModelField } from "~/types.js";
+import { type FbBuilderFieldPlugin, type FbEditorFieldGroup, type FbFormModelField } from "~/types.js";
 
 const FieldContainer = styled("div")({
     padding: "10px 15px",

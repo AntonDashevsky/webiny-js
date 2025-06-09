@@ -1,7 +1,7 @@
-import { FilterDTO } from "../domain/index.js";
+import { type FilterDTO } from "../domain/index.js";
 import {
-    CreateFilterPayload,
-    UpdateFilterPayload
+    type CreateFilterPayload,
+    type UpdateFilterPayload
 } from "~/components/AdvancedSearch/gateways/filters.types.js";
 
 export interface FiltersGatewayInterface {

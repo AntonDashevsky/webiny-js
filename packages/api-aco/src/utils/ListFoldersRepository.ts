@@ -1,6 +1,6 @@
 import { folderCacheFactory } from "~/utils/FoldersCacheFactory.js";
-import { Folder, ListFoldersParams } from "~/folder/folder.types.js";
-import { ListMeta } from "~/types.js";
+import { type Folder, type ListFoldersParams } from "~/folder/folder.types.js";
+import { type ListMeta } from "~/types.js";
 
 export interface ListFoldersRepositoryParams {
     gateway: (params: ListFoldersParams) => Promise<[Folder[], ListMeta]>;

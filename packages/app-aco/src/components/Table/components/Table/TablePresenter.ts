@@ -1,4 +1,4 @@
-import { Sorting } from "@webiny/ui/DataTable/index.js";
+import { type Sorting } from "@webiny/ui/DataTable/index.js";
 
 export interface TablePresenterViewModel {
     initialSorting: Sorting;

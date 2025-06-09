@@ -1,6 +1,6 @@
 import { selectorFamily } from "recoil";
 import { elementByIdSelector } from "./elementByIdSelector.js";
-import { PbEditorElement } from "~/types.js";
+import { type PbEditorElement } from "~/types.js";
 
 export const elementWithChildrenByIdSelector = selectorFamily<
     PbEditorElement | null,

@@ -1,7 +1,7 @@
 import React from "react";
 import get from "lodash/get.js";
 import DynamicSection from "../DynamicSection.js";
-import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { type CmsModelFieldRendererPlugin } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
 import { DateTimeWithoutTimezone } from "./DateTimeWithoutTimezone.js";

@@ -4,12 +4,12 @@ import { createCommentMethods } from "./createCommentMethods.js";
 import { createChangeRequestMethods } from "./createChangeRequestMethods.js";
 import { createContentReviewMethods } from "./createContentReviewMethods.js";
 import {
-    AdvancedPublishingWorkflow,
-    ApwContentTypes,
-    ContentGetter,
-    ContentPublisher,
-    ContentUnPublisher,
-    CreateApwParams
+    type AdvancedPublishingWorkflow,
+    type ApwContentTypes,
+    type ContentGetter,
+    type ContentPublisher,
+    type ContentUnPublisher,
+    type CreateApwParams
 } from "~/types.js";
 
 export const createApw = (params: CreateApwParams): AdvancedPublishingWorkflow => {

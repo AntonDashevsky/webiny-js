@@ -8,8 +8,8 @@ import { ReactComponent as File } from "@material-design-icons/svg/outlined/desc
 import { RowIcon, RowText, RowTitle } from "./Cells.styled.js";
 import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
-import { FileTableItem } from "~/types.js";
-import { FolderTableItem } from "@webiny/app-aco/types.js";
+import { type FileTableItem } from "~/types.js";
+import { type FolderTableItem } from "@webiny/app-aco/types.js";
 
 interface DefaultProps {
     onClick: (id: string) => void;

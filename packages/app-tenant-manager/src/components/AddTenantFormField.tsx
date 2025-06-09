@@ -1,7 +1,7 @@
 import React, { Fragment, memo, useMemo } from "react";
 import { AddGraphQLQuerySelection, Compose } from "@webiny/app-admin";
 import { TenantFormFields } from "./TenantFormFields.js";
-import { DocumentNode } from "graphql";
+import { type DocumentNode } from "graphql";
 
 interface AddTenantSettingsFieldProps {
     querySelection: DocumentNode;

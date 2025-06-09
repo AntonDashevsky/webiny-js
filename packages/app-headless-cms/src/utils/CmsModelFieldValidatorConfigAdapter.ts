@@ -1,9 +1,9 @@
 import { plugins } from "@webiny/plugins";
 import {
-    CmsModelField,
-    CmsModelFieldValidatorConfig,
-    CmsModelFieldValidatorConfigAdapter as ICmsModelFieldValidatorConfigAdapter,
-    CmsModelFieldValidatorPlugin
+    type CmsModelField,
+    type CmsModelFieldValidatorConfig,
+    type CmsModelFieldValidatorConfigAdapter as ICmsModelFieldValidatorConfigAdapter,
+    type CmsModelFieldValidatorPlugin
 } from "~/types.js";
 
 function getValidator(name: string) {

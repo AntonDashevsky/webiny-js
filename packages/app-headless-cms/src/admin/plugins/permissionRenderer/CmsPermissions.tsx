@@ -18,9 +18,9 @@ import { ContentEntryPermission } from "./components/ContentEntryPermission.js";
 import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
 import { Link } from "@webiny/react-router";
-import { CmsSecurityPermission } from "~/types.js";
+import { type CmsSecurityPermission } from "~/types.js";
 import { useSecurity } from "@webiny/app-security";
-import { AaclPermission } from "@webiny/app-admin";
+import { type AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

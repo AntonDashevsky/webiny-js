@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { UIView } from "@webiny/app-admin/ui/UIView.js";
-import { FormAPI, GenericFormData } from "@webiny/form";
+import { type FormAPI, type GenericFormData } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement.js";
 import {
     AccordionElement,
-    AccordionItemElement
+    type AccordionItemElement
 } from "@webiny/app-admin/ui/elements/AccordionElement.js";
 import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement.js";
 import { ReactComponent as SecurityIcon } from "~/assets/icons/security-24px.svg";
@@ -15,9 +15,9 @@ import { ReactComponent as SettingsIcon } from "~/assets/icons/settings-24px.svg
 import AvatarImage from "../../components/AvatarImage.js";
 import { GroupsMultiAutocompleteElement } from "~/ui/elements/GroupsMultiAutocompleteElement.js";
 import { TeamsMultiAutocompleteElement } from "~/ui/elements/TeamsMultiAutocompleteElement.js";
-import { UseUserForm, useUserForm } from "~/ui/views/Users/hooks/useUserForm.js";
+import { type UseUserForm, useUserForm } from "~/ui/views/Users/hooks/useUserForm.js";
 import { FormView } from "@webiny/app-admin/ui/views/FormView.js";
-import { FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement.js";
+import { type FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement.js";
 import { config as appConfig } from "@webiny/app/config.js";
 
 const FormWrapper = styled("div")({

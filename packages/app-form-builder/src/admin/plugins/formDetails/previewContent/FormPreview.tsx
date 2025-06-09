@@ -4,7 +4,7 @@ import { Form } from "../../../../components/Form/index.js";
 import { DATA_FIELDS } from "~/components/Form/graphql.js";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { FbErrorResponse, FbFormModel, FbRevisionModel } from "~/types.js";
+import { type FbErrorResponse, type FbFormModel, type FbRevisionModel } from "~/types.js";
 import CircularProgress from "@webiny/ui/Progress/CircularProgress.js";
 
 interface GetFormQueryResponse {

@@ -1,5 +1,5 @@
 import { ErrorResponse, ListErrorResponse, ListResponse, Response } from "@webiny/handler-graphql";
-import { IRecordLockingMeta } from "~/types.js";
+import { type IRecordLockingMeta } from "~/types.js";
 
 export const resolve = async <T>(cb: () => Promise<T>): Promise<Response<T> | ErrorResponse> => {
     try {

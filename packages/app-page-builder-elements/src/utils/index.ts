@@ -4,16 +4,16 @@
 import { type CSSObject } from "@emotion/react";
 
 import {
-    AssignAttributesCallback,
-    AssignStylesCallback,
-    AttributesObject,
-    ElementAttributesCallback,
-    RendererProps,
-    ElementStylesCallback,
-    StylesCallback
+    type AssignAttributesCallback,
+    type AssignStylesCallback,
+    type AttributesObject,
+    type ElementAttributesCallback,
+    type RendererProps,
+    type ElementStylesCallback,
+    type StylesCallback
 } from "~/types.js";
 
-import { StylesObject, ThemeBreakpoints, Typography, TypographyStyle } from "@webiny/theme/types.js";
+import { type StylesObject, type ThemeBreakpoints, type Typography, type TypographyStyle } from "@webiny/theme/types.js";
 
 let usingPageElementsFlag = false;
 

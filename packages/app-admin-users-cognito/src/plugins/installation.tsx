@@ -17,7 +17,7 @@ import {
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm/index.js";
 import { View } from "@webiny/app/components/View.js";
-import { AdminInstallationPlugin } from "@webiny/app-admin/types.js";
+import { type AdminInstallationPlugin } from "@webiny/app-admin/types.js";
 
 const removeGridPadding = css`
     > .mdc-layout-grid {

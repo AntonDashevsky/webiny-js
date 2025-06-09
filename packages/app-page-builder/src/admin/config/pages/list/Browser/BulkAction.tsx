@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef } from "react";
-import { CallbackParams, useButtons, useDialogWithReport, Worker } from "@webiny/app-admin";
+import { type CallbackParams, useButtons, useDialogWithReport, Worker } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList.js";
-import { PbPageDataItem } from "~/types.js";
-import { SearchRecordItem } from "@webiny/app-aco/types.js";
+import { type PbPageDataItem } from "~/types.js";
+import { type SearchRecordItem } from "@webiny/app-aco/types.js";
 
 export interface BulkActionConfig {
     name: string;

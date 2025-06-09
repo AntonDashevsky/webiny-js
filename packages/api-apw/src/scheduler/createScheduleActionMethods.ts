@@ -1,11 +1,11 @@
 import { createZodError, mdbid } from "@webiny/utils";
 import {
     ApwContentTypes,
-    ApwScheduleAction,
-    ApwScheduleActionCrud,
-    ApwScheduleActionData,
+    type ApwScheduleAction,
+    type ApwScheduleActionCrud,
+    type ApwScheduleActionData,
     ApwScheduleActionTypes,
-    CreateScheduleActionParams
+    type CreateScheduleActionParams
 } from "~/scheduler/types.js";
 import zod from "zod";
 /*

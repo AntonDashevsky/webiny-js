@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ApolloClient } from "apollo-client";
+import { type ApolloClient } from "apollo-client";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { DialogsProvider } from "@webiny/app-admin";
-import { AcoApp, AcoAppMode, AcoError, AcoModel, AcoModelField } from "~/types.js";
-import { createGetAppQuery, GetAppResult, GetAppVariables } from "~/graphql/app.gql.js";
+import { type AcoApp, type AcoAppMode, type AcoError, type AcoModel, type AcoModelField } from "~/types.js";
+import { createGetAppQuery, type GetAppResult, type GetAppVariables } from "~/graphql/app.gql.js";
 import { FoldersProvider as FoldersContextProvider } from "./folders.js";
 import { SearchRecordsProvider as SearchRecordsContextProvider } from "./records.js";
 import { DisplayError } from "./DisplayError/index.js";

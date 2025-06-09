@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
-import { FormOnSubmit, FormValidation } from "@webiny/form";
+import { type FormOnSubmit, type FormValidation } from "@webiny/form";
 import { makeDecoratable } from "@webiny/app-admin";
-import { CmsContentEntry } from "~/types.js";
+import { type CmsContentEntry } from "~/types.js";
 import { ModelProvider, useModel } from "~/admin/components/ModelProvider/index.js";
 import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer.js";
 import {
-    ContentEntryFormContext,
+    type ContentEntryFormContext,
     ContentEntryFormProvider,
-    PersistEntry
+    type PersistEntry
 } from "./ContentEntryFormProvider.js";
 import { CustomLayout } from "./CustomLayout.js";
 import { DefaultLayout } from "./DefaultLayout.js";

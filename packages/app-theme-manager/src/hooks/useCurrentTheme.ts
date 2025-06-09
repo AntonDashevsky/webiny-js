@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import get from "lodash/get.js";
-import { DocumentNode } from "graphql";
+import { type DocumentNode } from "graphql";
 import { GET_THEME } from "~/graphql/GET_THEME.js";
 
 // We need to keep track of the queries that have already been executed.

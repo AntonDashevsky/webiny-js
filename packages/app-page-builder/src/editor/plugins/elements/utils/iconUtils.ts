@@ -1,4 +1,4 @@
-import { PostModifyElementArgs } from "../../elementSettings/useUpdateHandlers.js";
+import { type PostModifyElementArgs } from "../../elementSettings/useUpdateHandlers.js";
 
 export const replaceFullIconObject = ({ newElement, newValue }: PostModifyElementArgs): void => {
     // If the icon value has changed, replace `icon.value` with `newValue.value`,

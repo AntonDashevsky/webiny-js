@@ -20,7 +20,7 @@ import {
     TitleContent
 } from "./PageTemplatesDialogStyled.js";
 import * as Styled from "~/templateEditor/config/Content/BlocksBrowser/StyledComponents.js";
-import { PbPageTemplate, PbPageTemplateWithContent } from "~/types.js";
+import { type PbPageTemplate, type PbPageTemplateWithContent } from "~/types.js";
 import { useListPageTemplates } from "~/features/index.js";
 import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview.js";
 

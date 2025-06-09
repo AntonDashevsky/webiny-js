@@ -1,4 +1,4 @@
-import { PbDataBinding } from "~/types.js";
+import { type PbDataBinding } from "~/types.js";
 
 export class ElementInputBinding {
     private binding: PbDataBinding;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IconPickerPresenterInterface } from "./IconPickerPresenter.js";
+import { type IconPickerPresenterInterface } from "./IconPickerPresenter.js";
 
 interface IconPickerPresenterProviderProps {
     presenter: IconPickerPresenterInterface;

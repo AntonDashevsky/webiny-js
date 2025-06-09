@@ -1,5 +1,5 @@
-import { InitialOpen, NodeModel } from "@minoru/react-dnd-treeview";
-import { DndFolderItemData, FolderItem } from "~/types.js";
+import { type InitialOpen, type NodeModel } from "@minoru/react-dnd-treeview";
+import { type DndFolderItemData, type FolderItem } from "~/types.js";
 import { ROOT_FOLDER } from "~/constants.js";
 
 /**

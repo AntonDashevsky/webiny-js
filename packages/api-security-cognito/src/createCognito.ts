@@ -1,12 +1,12 @@
 import { ContextPlugin } from "@webiny/api";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types.js";
+import { type SecurityIdentity, type SecurityPermission } from "@webiny/api-security/types.js";
 import {
     createAuthenticator,
-    Config as CognitoConfig,
-    TokenData
+    type Config as CognitoConfig,
+    type TokenData
 } from "@webiny/api-cognito-authenticator";
 import { createGroupsTeamsAuthorizerHandler } from "@webiny/api-security";
-import { CoreContext } from "~/types.js";
+import { type CoreContext } from "~/types.js";
 import { createAdminUsersHooks } from "./createAdminUsersHooks.js";
 import adminUsersGqlPlugins from "./graphql/user.gql.js";
 import installGqlPlugins from "./graphql/install.gql.js";

@@ -1,11 +1,11 @@
-import { PbContext } from "@webiny/api-page-builder/graphql/types.js";
-import { FormBuilderContext } from "@webiny/api-form-builder/types.js";
-import { AcoContext } from "@webiny/api-aco/types.js";
-import { MailerContext } from "@webiny/api-mailer/types.js";
-import { SecurityContext } from "@webiny/api-security/types.js";
-import { PbImportExportContext } from "@webiny/api-page-builder-import-export/graphql/types.js";
-import { ApwContext } from "@webiny/api-apw/types.js";
-import { Context as BaseContext } from "@webiny/handler/types.js";
+import { type PbContext } from "@webiny/api-page-builder/graphql/types.js";
+import { type FormBuilderContext } from "@webiny/api-form-builder/types.js";
+import { type AcoContext } from "@webiny/api-aco/types.js";
+import { type MailerContext } from "@webiny/api-mailer/types.js";
+import { type SecurityContext } from "@webiny/api-security/types.js";
+import { type PbImportExportContext } from "@webiny/api-page-builder-import-export/graphql/types.js";
+import { type ApwContext } from "@webiny/api-apw/types.js";
+import { type Context as BaseContext } from "@webiny/handler/types.js";
 
 export * from "~/app/types.js";
 

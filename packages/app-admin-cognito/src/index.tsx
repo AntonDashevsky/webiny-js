@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Auth } from "@aws-amplify/auth";
-import { AuthOptions } from "@aws-amplify/auth/lib-esm/types/index.js";
-import ApolloClient from "apollo-client";
+import { type AuthOptions } from "@aws-amplify/auth/lib-esm/types/index.js";
+import type ApolloClient from "apollo-client";
 import { useApolloClient } from "@apollo/react-hooks";
 import { setContext } from "apollo-link-context";
 import { plugins } from "@webiny/plugins";
 import { ApolloLinkPlugin } from "@webiny/app/plugins/ApolloLinkPlugin.js";
-import { SecurityPermission } from "@webiny/app-security/types.js";
-import { CognitoIdToken } from "@webiny/app-cognito-authenticator/types.js";
+import { type SecurityPermission } from "@webiny/app-security/types.js";
+import { type CognitoIdToken } from "@webiny/app-cognito-authenticator/types.js";
 import { Authenticator } from "@webiny/app-cognito-authenticator/Authenticator.js";
 import { useSecurity } from "@webiny/app-security";
 import { config as appConfig } from "@webiny/app/config.js";
@@ -17,7 +17,7 @@ import { ForgotPassword } from "~/views/ForgotPassword.js";
 import { SetNewPassword } from "~/views/SetNewPassword.js";
 import { SignedIn } from "~/views/SignedIn.js";
 import { LoggingIn } from "~/views/LoggingIn.js";
-import { FederatedIdentityProvider } from "~/federatedIdentityProviders.js";
+import { type FederatedIdentityProvider } from "~/federatedIdentityProviders.js";
 import { FederatedProviders } from "~/components/FederatedProviders.js";
 import { View } from "~/components/View.js";
 

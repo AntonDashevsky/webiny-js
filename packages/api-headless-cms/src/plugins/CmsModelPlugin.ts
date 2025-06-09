@@ -5,9 +5,9 @@ import upperFirst from "lodash/upperFirst.js";
 import pluralize from "pluralize";
 import { Plugin } from "@webiny/plugins";
 import {
-    CmsModel as CmsModelBase,
-    CmsModelField as CmsModelFieldBase,
-    CmsModelFieldSettings as BaseCmsModelFieldSettings
+    type CmsModel as CmsModelBase,
+    type CmsModelField as CmsModelFieldBase,
+    type CmsModelFieldSettings as BaseCmsModelFieldSettings
 } from "~/types/index.js";
 import { createFieldStorageId } from "~/crud/contentModel/createFieldStorageId.js";
 import { validateStorageId } from "~/crud/contentModel/validateStorageId.js";

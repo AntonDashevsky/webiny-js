@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { PbDataBinding } from "~/types.js";
+import { type PbDataBinding } from "~/types.js";
 import { useDynamicDocument } from "~/dataInjection/index.js";
 
 export const DeveloperUtilities = () => {

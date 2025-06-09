@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { plugins } from "@webiny/plugins";
 import {
     Admin as BaseAdmin,
-    AdminProps as BaseAdminProps,
+    type AdminProps as BaseAdminProps,
     AppInstaller,
     Provider
 } from "@webiny/app-admin";

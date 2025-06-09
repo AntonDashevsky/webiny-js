@@ -4,7 +4,7 @@ import groupBy from "lodash/groupBy.js";
 import get from "lodash/get.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { Checkbox } from "@webiny/ui/Checkbox/index.js";
-import { GetValueCallable, OnChangeCallable, PermissionSelectorCmsGroup } from "./types.js";
+import { type GetValueCallable, type OnChangeCallable, type PermissionSelectorCmsGroup } from "./types.js";
 
 const groupStyles = css({
     marginLeft: 20

@@ -1,10 +1,10 @@
 import { codeFrameColumns } from "@babel/code-frame";
 import WebinyError from "@webiny/error";
 import { generateSchema } from "./generateSchema.js";
-import { ApiEndpoint, CmsContext } from "~/types/index.js";
-import { Tenant } from "@webiny/api-tenancy/types.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
-import { GraphQLSchema } from "graphql";
+import { type ApiEndpoint, type CmsContext } from "~/types/index.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
+import { type GraphQLSchema } from "graphql";
 import { generateCacheId } from "./getSchema/generateCacheId.js";
 import { generateCacheKey } from "./getSchema/generateCacheKey.js";
 

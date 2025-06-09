@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { AcoWithConfig } from "@webiny/app-aco";
 import {
-    ITrashBinDeleteItemGateway,
-    ITrashBinListGateway,
-    ITrashBinRestoreItemGateway,
-    ITrashBinBulkActionsGateway
+    type ITrashBinDeleteItemGateway,
+    type ITrashBinListGateway,
+    type ITrashBinRestoreItemGateway,
+    type ITrashBinBulkActionsGateway
 } from "~/Gateways/index.js";
-import { ITrashBinItemMapper, TrashBinItemDTO } from "~/Domain/index.js";
+import { type ITrashBinItemMapper, type TrashBinItemDTO } from "~/Domain/index.js";
 import { TrashBinRenderer } from "~/Presentation/TrashBinRenderer/index.js";
 import { CompositionScope } from "@webiny/react-composition";
 import { TrashBinListWithConfig } from "~/Presentation/configs/index.js";

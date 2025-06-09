@@ -1,8 +1,8 @@
-import { IGetEntriesByIds } from "../../abstractions/index.js";
+import { type IGetEntriesByIds } from "../../abstractions/index.js";
 import {
-    CmsEntryStorageOperations,
-    CmsEntryStorageOperationsGetByIdsParams,
-    CmsModel
+    type CmsEntryStorageOperations,
+    type CmsEntryStorageOperationsGetByIdsParams,
+    type CmsModel
 } from "~/types/index.js";
 
 export class GetEntriesByIds implements IGetEntriesByIds {

@@ -2,7 +2,7 @@ import { useSnackbar } from "@webiny/app-admin";
 
 import { useDialogs } from "@webiny/app-admin";
 import { useDeleteFolder } from "~/features/index.js";
-import { FolderItem } from "~/types.js";
+import { type FolderItem } from "~/types.js";
 import { useCallback } from "react";
 
 interface ShowDialogParams {

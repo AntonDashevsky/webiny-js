@@ -20,7 +20,7 @@ import {
 } from "./IconPicker.styles.js";
 import { useIconPicker } from "./IconPickerPresenterProvider.js";
 import { useIconType } from "./config/IconType.js";
-import { Icon, IconPickerGridRow, ICON_PICKER_SIZE } from "./types.js";
+import { type Icon, type IconPickerGridRow, ICON_PICKER_SIZE } from "./types.js";
 
 const COLUMN_COUNT = 8;
 

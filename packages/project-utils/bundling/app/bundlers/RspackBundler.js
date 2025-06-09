@@ -6,7 +6,7 @@ import { getProjectApplication } from "@webiny/cli/utils";
 import { BaseAppBundler } from "./BaseAppBundler.js";
 import { createRspackConfig } from "./rspack/createRspackConfig.js";
 import { TailwindSuppressor } from "./rspack/TailwindSuppressor.js";
-import createPaths from "./webpack/config/paths.js";
+import createPaths from "./rspack/config/paths.js";
 
 export class RspackBundler extends BaseAppBundler {
     constructor(params) {

@@ -13,12 +13,12 @@ import {
 } from "@webiny/app-page-builder/editor/plugins/elementSettings/components/StyledComponents.js";
 import {
     GET_FORM_REVISIONS,
-    GetFormRevisionsQueryResponse,
-    GetFormRevisionsQueryVariables,
+    type GetFormRevisionsQueryResponse,
+    type GetFormRevisionsQueryVariables,
     LIST_FORMS,
-    ListFormsQueryResponse
+    type ListFormsQueryResponse
 } from "./graphql.js";
-import { BindComponent, FormOnSubmit } from "@webiny/form";
+import { type BindComponent, type FormOnSubmit } from "@webiny/form";
 
 const FormOptionsWrapper = styled("div")({
     minHeight: 250

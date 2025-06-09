@@ -9,7 +9,7 @@ import { useBlock } from "~/blockEditor/hooks/useBlock.js";
 import { useBlockCategories } from "~/blockEditor/hooks/useBlockCategories.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
-import { BlockAtomType } from "~/blockEditor/state/index.js";
+import { type BlockAtomType } from "~/blockEditor/state/index.js";
 
 export interface BlockSettingsModalProps {
     open: boolean;

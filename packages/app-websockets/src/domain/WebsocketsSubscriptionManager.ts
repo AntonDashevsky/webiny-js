@@ -1,17 +1,17 @@
 import { generateId } from "@webiny/utils/generateId.js";
 import {
-    IGenericData,
-    IWebsocketsManagerCloseEvent,
-    IWebsocketsManagerErrorEvent,
-    IWebsocketManagerEvent,
-    IWebsocketsManagerMessageEvent,
-    IWebsocketsManagerOpenEvent
+    type IGenericData,
+    type IWebsocketsManagerCloseEvent,
+    type IWebsocketsManagerErrorEvent,
+    type IWebsocketManagerEvent,
+    type IWebsocketsManagerMessageEvent,
+    type IWebsocketsManagerOpenEvent
 } from "./types.js";
 import {
-    IWebsocketsSubscriptionManagerSubscriptions,
-    IWebsocketsSubscription,
-    IWebsocketsSubscriptionCallback,
-    IWebsocketsSubscriptionManager
+    type IWebsocketsSubscriptionManagerSubscriptions,
+    type IWebsocketsSubscription,
+    type IWebsocketsSubscriptionCallback,
+    type IWebsocketsSubscriptionManager
 } from "./abstractions/IWebsocketsSubscriptionManager.js";
 
 export class WebsocketsSubscriptionManager implements IWebsocketsSubscriptionManager {

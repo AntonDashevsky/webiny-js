@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { css } from "emotion";
 import { Bind } from "@webiny/form";
-import { PbEditorElement, PbElement, PbPageElementActionTypePlugin } from "~/types.js";
+import { type PbEditorElement, type PbElement, type PbPageElementActionTypePlugin } from "~/types.js";
 import Wrapper from "../../components/Wrapper.js";
 import SelectField from "../../components/SelectField.js";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";

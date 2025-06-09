@@ -7,13 +7,13 @@ import { CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
 import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { BindComponent } from "@webiny/form";
+import { type BindComponent } from "@webiny/form";
 import { Box, Stack } from "~/components/Layout.js";
 import { ListItemWithCheckbox } from "../ListItemWithCheckbox.js";
 import { usePbCategories } from "~/hooks/usePbCategories.js";
 import { usePbPages } from "~/hooks/usePbPages.js";
 import { validation } from "@webiny/validation";
-import { BindComponentRenderProp } from "@webiny/form";
+import { type BindComponentRenderProp } from "@webiny/form";
 
 const textStyle = css`
     color: var(--mdc-theme-text-secondary-on-background);

@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 
-import { Form, FormOnSubmit, GenericFormData } from "@webiny/form";
+import { Form, type FormOnSubmit, type GenericFormData } from "@webiny/form";
 import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";

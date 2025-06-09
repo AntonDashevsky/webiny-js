@@ -1,7 +1,7 @@
 import React from "react";
 import cloneDeep from "lodash/cloneDeep.js";
 import { plugins } from "@webiny/plugins";
-import { OnCreateActions, PbEditorElement, PbEditorPageElementPlugin } from "~/types.js";
+import { OnCreateActions, type PbEditorElement, type PbEditorPageElementPlugin } from "~/types.js";
 import { PreviewBlock } from "~/admin/components/PreviewBlock.js";
 import Title from "./components/Title.js";
 

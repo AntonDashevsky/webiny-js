@@ -4,7 +4,7 @@ import type {
     IExternalFileFetcherHeadResult
 } from "./abstractions/ExternalFileFetcher.js";
 import { getObjectProperties } from "@webiny/utils";
-import { WebinyError } from "@webiny/error";
+import { type WebinyError } from "@webiny/error";
 
 export interface IGetChecksumHeaderCallable {
     (headers: Headers): string | undefined | null;

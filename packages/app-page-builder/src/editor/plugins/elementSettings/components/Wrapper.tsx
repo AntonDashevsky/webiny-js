@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { type ReactElement } from "react";
 import { Cell, Grid } from "@webiny/ui/Grid/index.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 

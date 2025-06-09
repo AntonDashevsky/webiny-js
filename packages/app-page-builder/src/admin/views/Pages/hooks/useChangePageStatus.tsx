@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useConfirmationDialog } from "@webiny/app-admin";
 import { usePublishRevisionHandler } from "~/admin/plugins/pageDetails/pageRevisions/usePublishRevisionHandler.js";
-import { PbPageTableItem } from "~/types.js";
+import { type PbPageTableItem } from "~/types.js";
 
 interface UseChangePageStatusParams {
     page: PbPageTableItem;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AdvancedSearch as AdvancedSearchComponent, AdvancedSearchProps } from "./AdvancedSearch.js";
+import { AdvancedSearch as AdvancedSearchComponent, type AdvancedSearchProps } from "./AdvancedSearch.js";
 import { AdvancedSearchConfigs } from "./AdvancedSearchConfigs.js";
 import { AcoWithConfig } from "~/config/index.js";
 

@@ -9,7 +9,7 @@ import { ReactComponent as TitleIcon } from "~/admin/icons/title-24px.svg";
 import { ReactComponent as MoreVerticalIcon } from "~/admin/icons/more_vert.svg";
 import { Menu, MenuItem } from "@webiny/ui/Menu/index.js";
 import { plugins } from "@webiny/plugins";
-import { CmsModelField, CmsEditorFieldOptionPlugin, CmsModel } from "~/types.js";
+import { type CmsModelField, type CmsEditorFieldOptionPlugin, type CmsModel } from "~/types.js";
 import { ListItemGraphic } from "@webiny/ui/List/index.js";
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";

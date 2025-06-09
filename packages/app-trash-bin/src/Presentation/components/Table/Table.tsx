@@ -1,7 +1,7 @@
 import React from "react";
 import { Table as AcoTable } from "@webiny/app-aco";
 import { useTrashBin } from "~/Presentation/hooks/index.js";
-import { TrashBinItemDTO } from "~/Domain/index.js";
+import { type TrashBinItemDTO } from "~/Domain/index.js";
 import { LoadingActions } from "~/types.js";
 
 export const Table = () => {

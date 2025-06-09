@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 import { ERROR_FIELDS } from "~/domain/graphql/fields.js";
-import { IRecordLockingError } from "~/types.js";
-import { IRecordLockingIsEntryLockedParams } from "../abstractions/IRecordLockingIsEntryLocked.js";
+import { type IRecordLockingError } from "~/types.js";
+import { type IRecordLockingIsEntryLockedParams } from "../abstractions/IRecordLockingIsEntryLocked.js";
 
 export type IRecordLockingIsEntryLockedVariables = IRecordLockingIsEntryLockedParams;
 

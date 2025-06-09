@@ -1,6 +1,6 @@
 import { setContext } from "apollo-link-context";
 import { ApolloLinkPlugin } from "./ApolloLinkPlugin.js";
-import { ApolloLink } from "apollo-link";
+import { type ApolloLink } from "apollo-link";
 import { getLocaleCode } from "~/utils/index.js";
 
 /**

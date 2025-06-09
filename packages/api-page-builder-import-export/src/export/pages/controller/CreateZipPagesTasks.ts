@@ -1,11 +1,11 @@
-import { ListMeta, ListPagesParams, Page } from "@webiny/api-page-builder/types.js";
+import { type ListMeta, type ListPagesParams, type Page } from "@webiny/api-page-builder/types.js";
 import { ZIP_PAGES_WAIT_TIME } from "./ProcessZipPagesTasks.js";
 import {
-    IExportPagesControllerTaskParams,
-    IExportPagesZipPagesInput,
+    type IExportPagesControllerTaskParams,
+    type IExportPagesZipPagesInput,
     PageExportTask
 } from "~/export/pages/types.js";
-import { ITaskResponseResult } from "@webiny/tasks/types.js";
+import { type ITaskResponseResult } from "@webiny/tasks/types.js";
 
 const PAGES_IN_BATCH = 25;
 

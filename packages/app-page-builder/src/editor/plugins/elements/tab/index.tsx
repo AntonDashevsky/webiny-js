@@ -3,7 +3,7 @@ import kebabCase from "lodash/kebabCase.js";
 import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
 import Tab from "./Tab.js";
 import { createElement } from "~/editor/helpers.js";
-import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
+import { type PbEditorPageElementPlugin, type PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
 
 export default (args: PbEditorElementPluginArgs = {}): PbEditorPageElementPlugin => {
     const defaultSettings = [

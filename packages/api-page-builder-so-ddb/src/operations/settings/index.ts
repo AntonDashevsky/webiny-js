@@ -1,13 +1,13 @@
 import {
-    DefaultSettings,
-    DefaultSettingsCrudOptions,
-    Settings,
-    SettingsStorageOperations,
-    SettingsStorageOperationsCreateParams,
-    SettingsStorageOperationsGetParams,
-    SettingsStorageOperationsUpdateParams
+    type DefaultSettings,
+    type DefaultSettingsCrudOptions,
+    type Settings,
+    type SettingsStorageOperations,
+    type SettingsStorageOperationsCreateParams,
+    type SettingsStorageOperationsGetParams,
+    type SettingsStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types.js";
-import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
 import { getClean } from "@webiny/db-dynamodb/utils/get.js";
 import WebinyError from "@webiny/error";
 import { put } from "@webiny/db-dynamodb";

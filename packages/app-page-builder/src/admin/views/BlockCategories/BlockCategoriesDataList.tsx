@@ -27,7 +27,7 @@ import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
 import SearchUI from "@webiny/app-admin/components/SearchUI.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { PbBlockCategory } from "~/types.js";
+import { type PbBlockCategory } from "~/types.js";
 import { Icon } from "~/admin/utils/createBlockCategoryPlugin.js";
 import { useBlockCategoriesPermissions } from "~/hooks/permissions/index.js";
 

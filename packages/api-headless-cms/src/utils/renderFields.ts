@@ -1,10 +1,10 @@
 import {
-    ApiEndpoint,
-    CmsFieldTypePlugins,
-    CmsModel,
-    CmsModelField,
-    CmsModelFieldDefinition,
-    CmsModelFieldToGraphQLPlugin
+    type ApiEndpoint,
+    type CmsFieldTypePlugins,
+    type CmsModel,
+    type CmsModelField,
+    type CmsModelFieldDefinition,
+    type CmsModelFieldToGraphQLPlugin
 } from "~/types/index.js";
 import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
 

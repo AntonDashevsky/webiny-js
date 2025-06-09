@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FormAPI } from "@webiny/form";
+import { type FormAPI } from "@webiny/form";
 import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
 
 import { SimpleFormFooter } from "./QueryBuilderDrawer.styled.js";

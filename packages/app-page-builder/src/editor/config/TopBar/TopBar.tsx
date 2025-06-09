@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Element as BaseElement, ElementProps as BaseElementProps } from "../Element.js";
-import { Elements as BaseElements, ElementsProps as BaseElementsProps } from "../Elements.js";
+import { Element as BaseElement, type ElementProps as BaseElementProps } from "../Element.js";
+import { Elements as BaseElements, type ElementsProps as BaseElementsProps } from "../Elements.js";
 import { Divider } from "./Divider.js";
 import { Layout } from "./Layout.js";
 import { createGetId } from "~/editor/config/createGetId.js";

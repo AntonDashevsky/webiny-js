@@ -1,8 +1,8 @@
 import lodashSet from "lodash/set.js";
 import {
     ApwContentReviewStatus,
-    ApwContentReviewStepStatus,
-    ApwContext,
+    type ApwContentReviewStepStatus,
+    type ApwContext,
     ApwWorkflowStepTypes
 } from "~/types.js";
 import { getContentReviewStepInitialStatus } from "~/plugins/utils.js";

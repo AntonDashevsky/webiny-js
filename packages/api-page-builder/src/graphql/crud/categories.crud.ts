@@ -1,30 +1,30 @@
 import {
-    CategoriesCrud,
-    Category,
-    CategoryStorageOperationsGetParams,
-    CategoryStorageOperationsListParams,
-    OnCategoryAfterCreateTopicParams,
-    OnCategoryAfterDeleteTopicParams,
-    OnCategoryAfterUpdateTopicParams,
-    OnCategoryBeforeCreateTopicParams,
-    OnCategoryBeforeDeleteTopicParams,
-    OnCategoryBeforeUpdateTopicParams,
-    PageBuilderContextObject,
-    PageBuilderStorageOperations,
-    PbContext
-} from "~/types";
+    type CategoriesCrud,
+    type Category,
+    type CategoryStorageOperationsGetParams,
+    type CategoryStorageOperationsListParams,
+    type OnCategoryAfterCreateTopicParams,
+    type OnCategoryAfterDeleteTopicParams,
+    type OnCategoryAfterUpdateTopicParams,
+    type OnCategoryBeforeCreateTopicParams,
+    type OnCategoryBeforeDeleteTopicParams,
+    type OnCategoryBeforeUpdateTopicParams,
+    type PageBuilderContextObject,
+    type PageBuilderStorageOperations,
+    type PbContext
+} from "~/types.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import {
     createCategoryCreateValidation,
     createCategoryUpdateValidation
-} from "~/graphql/crud/categories/validation";
+} from "~/graphql/crud/categories/validation.js";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { CategoriesPermissions } from "~/graphql/crud/permissions/CategoriesPermissions";
-import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions";
-import { getDate } from "~/graphql/crud/utils/getDate";
-import { getIdentity } from "~/graphql/crud/utils/getIdentity";
+import { type CategoriesPermissions } from "~/graphql/crud/permissions/CategoriesPermissions.js";
+import { type PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions.js";
+import { getDate } from "~/graphql/crud/utils/getDate.js";
+import { getIdentity } from "~/graphql/crud/utils/getIdentity.js";
 
 export interface CreateCategoriesCrudParams {
     context: PbContext;

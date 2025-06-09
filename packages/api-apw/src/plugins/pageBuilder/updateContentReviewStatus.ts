@@ -1,11 +1,11 @@
 import {
-    AdvancedPublishingWorkflow,
+    type AdvancedPublishingWorkflow,
     ApwContentReviewStatus,
-    ApwOnPageBeforePublishTopicParams
+    type ApwOnPageBeforePublishTopicParams
 } from "~/types.js";
 import { INITIAL_CONTENT_REVIEW_CONTENT_SCHEDULE_META } from "~/crud/utils.js";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
-import { Security } from "@webiny/api-security/types.js";
+import { type PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
+import { type Security } from "@webiny/api-security/types.js";
 
 interface UpdateContentReviewStatusParams {
     apw: AdvancedPublishingWorkflow;

@@ -1,11 +1,11 @@
 import { NotFoundError } from "@webiny/handler-graphql";
 import {
-    IGetLatestRevisionByEntryId,
-    IRestoreEntryFromBin,
-    IRestoreEntryFromBinOperation
+    type IGetLatestRevisionByEntryId,
+    type IRestoreEntryFromBin,
+    type IRestoreEntryFromBinOperation
 } from "~/crud/contentEntry/abstractions/index.js";
-import { TransformEntryRestoreFromBin } from "./TransformEntryRestoreFromBin.js";
-import { CmsModel } from "~/types/index.js";
+import { type TransformEntryRestoreFromBin } from "./TransformEntryRestoreFromBin.js";
+import { type CmsModel } from "~/types/index.js";
 import { parseIdentifier } from "@webiny/utils";
 
 export class RestoreEntryFromBin implements IRestoreEntryFromBin {

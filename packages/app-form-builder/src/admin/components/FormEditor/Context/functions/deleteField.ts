@@ -1,4 +1,4 @@
-import { FbFormModelField, FbFormModel, FbFormModelFieldsLayout, FbFormStep } from "~/types.js";
+import { type FbFormModelField, type FbFormModel, type FbFormModelFieldsLayout, type FbFormStep } from "~/types.js";
 
 interface Params {
     field: FbFormModelField;

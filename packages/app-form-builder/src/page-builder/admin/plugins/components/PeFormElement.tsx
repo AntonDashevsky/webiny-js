@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import { FbFormLayoutPlugin } from "~/plugins/index.js";
-import { createForm, FormRenderer } from "@webiny/app-page-builder-elements/renderers/form/index.js";
+import { type FbFormLayoutPlugin } from "~/plugins/index.js";
+import { createForm, type FormRenderer } from "@webiny/app-page-builder-elements/renderers/form/index.js";
 import { plugins } from "@webiny/plugins";
-import { FbFormFieldValidatorPlugin, FbFormTriggerHandlerPlugin } from "~/types.js";
+import { type FbFormFieldValidatorPlugin, type FbFormTriggerHandlerPlugin } from "~/types.js";
 import { BeforeFormRender } from "~/page-builder/components/BeforeFormRender.js";
 import { useApolloClient } from "@apollo/react-hooks";
 import gql from "graphql-tag";

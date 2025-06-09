@@ -1,5 +1,5 @@
-import { EventActionCallable, EventActionHandlerActionCallableResponse } from "~/types.js";
-import { MoveBlockActionArgsType } from "./types.js";
+import { type EventActionCallable, type EventActionHandlerActionCallableResponse } from "~/types.js";
+import { type MoveBlockActionArgsType } from "./types.js";
 import { updateElementAction } from "~/editor/recoil/actions/index.js";
 import { updateBlockPosition } from "~/editor/helpers.js";
 

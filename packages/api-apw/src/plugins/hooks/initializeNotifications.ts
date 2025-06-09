@@ -1,4 +1,4 @@
-import { ApwContext } from "~/types.js";
+import { type ApwContext } from "~/types.js";
 import { attachContentReviewAfterCreate } from "./notifications/contentReviewAfterCreate.js";
 import { attachCommentAfterCreate } from "./notifications/commentAfterCreate.js";
 import { attachChangeRequestAfterCreate } from "./notifications/changeRequestAfterCreate.js";

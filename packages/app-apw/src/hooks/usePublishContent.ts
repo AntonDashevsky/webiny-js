@@ -3,15 +3,15 @@ import { useMutation } from "@apollo/react-hooks";
 import dotPropImmutable from "dot-prop-immutable";
 import {
     DELETE_SCHEDULED_ACTION_MUTATION,
-    DeleteApwContentReviewMutationResponse,
-    DeleteApwContentReviewMutationVariables,
+    type DeleteApwContentReviewMutationResponse,
+    type DeleteApwContentReviewMutationVariables,
     GET_CONTENT_REVIEW_QUERY,
     PUBLISH_CONTENT_MUTATION,
-    PublishContentMutationResponse,
-    PublishContentMutationVariables,
+    type PublishContentMutationResponse,
+    type PublishContentMutationVariables,
     UNPUBLISH_CONTENT_MUTATION,
-    UnPublishContentMutationResponse,
-    UnPublishContentMutationVariables
+    type UnPublishContentMutationResponse,
+    type UnPublishContentMutationVariables
 } from "~/graphql/contentReview.gql.js";
 import { useContentReviewId } from "~/hooks/useContentReviewId.js";
 import { useSnackbar } from "@webiny/app-admin";

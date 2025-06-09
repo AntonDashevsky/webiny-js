@@ -1,8 +1,8 @@
-import { IDeleteEntryOperation } from "../../abstractions/index.js";
+import { type IDeleteEntryOperation } from "../../abstractions/index.js";
 import {
-    CmsEntryStorageOperations,
-    CmsEntryStorageOperationsDeleteParams,
-    CmsModel
+    type CmsEntryStorageOperations,
+    type CmsEntryStorageOperationsDeleteParams,
+    type CmsModel
 } from "~/types/index.js";
 
 export class DeleteEntryOperation implements IDeleteEntryOperation {

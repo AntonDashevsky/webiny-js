@@ -1,5 +1,5 @@
-import { PageTemplateInputDto } from "./PageTemplateInputDto.js";
-import { PbPageTemplateWithContent } from "~/types.js";
+import { type PageTemplateInputDto } from "./PageTemplateInputDto.js";
+import { type PbPageTemplateWithContent } from "~/types.js";
 
 export interface ICreatePageTemplateFromPageGateway {
     execute(

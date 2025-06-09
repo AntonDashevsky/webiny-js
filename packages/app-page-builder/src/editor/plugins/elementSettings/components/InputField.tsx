@@ -5,7 +5,7 @@ import omit from "lodash/omit.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 import { COLORS } from "./StyledComponents.js";
-import { Validation } from "@webiny/form";
+import { type Validation } from "@webiny/form";
 import debounce from "lodash/debounce.js";
 import { useIsMounted } from "@webiny/app-admin";
 

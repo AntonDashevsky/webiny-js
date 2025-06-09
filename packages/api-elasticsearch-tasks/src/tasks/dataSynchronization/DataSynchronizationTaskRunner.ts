@@ -1,9 +1,9 @@
 import {
-    IDataSynchronizationInput,
-    IDataSynchronizationManager,
-    IFactories
+    type IDataSynchronizationInput,
+    type IDataSynchronizationManager,
+    type IFactories
 } from "~/tasks/dataSynchronization/types.js";
-import { IIndexManager } from "~/settings/types.js";
+import { type IIndexManager } from "~/settings/types.js";
 import { ElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchSynchronize.js";
 import { ElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchFetcher.js";
 

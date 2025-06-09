@@ -1,13 +1,13 @@
 import { ContextPlugin } from "@webiny/api";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords.js";
 import { createGraphQLSchemaPluginFromFieldPlugins } from "@webiny/api-headless-cms/utils/getSchemaFromFieldPlugins.js";
 import { createBaseSchema } from "~/graphql/baseSchema.js";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
 import { createFilesSchema } from "~/graphql/filesSchema.js";
 import { getFileByUrl } from "~/graphql/getFileByUrl.js";
-import { FileManagerContext } from "~/types.js";
+import { type FileManagerContext } from "~/types.js";
 
 export const createGraphQLSchemaPlugin = () => {
     return [

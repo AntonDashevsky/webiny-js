@@ -1,8 +1,8 @@
 import chromium from "@sparticuz/chromium";
-import puppeteer, { Browser, Page } from "puppeteer-core";
+import puppeteer, { type Browser, type Page } from "puppeteer-core";
 import extractPeLoaderDataFromHtml from "./extractPeLoaderDataFromHtml.js";
-import { RenderResult, RenderUrlCallableParams } from "./types.js";
-import { TagPathLink } from "~/types.js";
+import { type RenderResult, type RenderUrlCallableParams } from "./types.js";
+import { type TagPathLink } from "~/types.js";
 
 const windowSet = (page: Page, name: string, value: string | boolean) => {
     page.evaluateOnNewDocument(`

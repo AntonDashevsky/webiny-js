@@ -1,2 +1,2 @@
-export * from "./Path";
-export * from "./Permissions";
+export * from "./Path.js";
+export * from "./Permissions.js";

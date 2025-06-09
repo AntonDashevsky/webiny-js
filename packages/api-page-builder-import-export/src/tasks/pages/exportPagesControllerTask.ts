@@ -1,8 +1,8 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { PbImportExportContext } from "~/graphql/types.js";
+import { type PbImportExportContext } from "~/graphql/types.js";
 import {
-    IExportPagesControllerInput,
-    IExportPagesControllerOutput,
+    type IExportPagesControllerInput,
+    type IExportPagesControllerOutput,
     PageExportTask
 } from "~/export/pages/types.js";
 import { ChildTasksCleanup } from "../common/ChildTasksCleanup.js";

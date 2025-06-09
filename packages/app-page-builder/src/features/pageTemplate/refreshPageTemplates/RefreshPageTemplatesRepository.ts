@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { IListPageTemplatesGateway } from "~/features/pageTemplate/listPageTemplates/IListPageTemplatesGateway.js";
-import { PbPageTemplateWithContent } from "~/types.js";
-import { ListCache } from "~/features/ListCache.js";
-import { IRefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/IRefreshPageTemplatesRepository.js";
+import { type IListPageTemplatesGateway } from "~/features/pageTemplate/listPageTemplates/IListPageTemplatesGateway.js";
+import { type PbPageTemplateWithContent } from "~/types.js";
+import { type ListCache } from "~/features/ListCache.js";
+import { type IRefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/IRefreshPageTemplatesRepository.js";
 
 export class RefreshPageTemplatesRepository implements IRefreshPageTemplatesRepository {
     private loader: Promise<void> | undefined = undefined;

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, SyntheticEvent } from "react";
+import React, { useState, useCallback, type SyntheticEvent } from "react";
 import { Input } from "@webiny/ui/Input/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import styled from "@emotion/styled";

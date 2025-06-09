@@ -8,9 +8,9 @@ import { Switch } from "@webiny/ui/Switch/index.js";
 import { useSnackbar, CenteredView } from "@webiny/app-admin";
 import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import graphql, {
-    GetFormSettingsQueryResponse,
-    UpdateFormSettingsMutationResponse,
-    UpdateFormSettingsMutationVariables
+    type GetFormSettingsQueryResponse,
+    type UpdateFormSettingsMutationResponse,
+    type UpdateFormSettingsMutationVariables
 } from "./graphql.js";
 
 import {
@@ -19,7 +19,7 @@ import {
     SimpleFormContent,
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm/index.js";
-import { FbSettings } from "~/types.js";
+import { type FbSettings } from "~/types.js";
 
 const FormsSettings = () => {
     const { showSnackbar } = useSnackbar();

@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { PbDataBinding } from "~/types.js";
+import { type PbDataBinding } from "~/types.js";
 
 export const BindingContext = createContext<PbDataBinding | undefined>(undefined);
 

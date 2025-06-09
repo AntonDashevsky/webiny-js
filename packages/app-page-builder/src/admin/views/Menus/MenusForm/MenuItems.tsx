@@ -11,9 +11,9 @@ import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import MenuItemsList from "./MenuItems/MenuItemsList.js";
 import MenuItemForm from "./MenuItems/MenuItemForm.js";
 import findObject from "./MenuItems/findObject.js";
-import { PbMenuItemPlugin } from "~/types.js";
+import { type PbMenuItemPlugin } from "~/types.js";
 import { Typography } from "@webiny/ui/Typography/index.js";
-import { MenuTreeItem } from "~/admin/views/Menus/types.js";
+import { type MenuTreeItem } from "~/admin/views/Menus/types.js";
 const leftPanel = css({
     padding: 25,
     backgroundColor: "var(--mdc-theme-background)",

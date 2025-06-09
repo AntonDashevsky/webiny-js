@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { type IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const Container = styled("div")({
     width: "100%",

@@ -1,12 +1,12 @@
-import { CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
+import { type CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
 import {
-    BlockCategory,
-    Page,
-    PageBlock,
-    PageTemplate,
-    PageTemplateInput
+    type BlockCategory,
+    type Page,
+    type PageBlock,
+    type PageTemplate,
+    type PageTemplateInput
 } from "@webiny/api-page-builder/types.js";
-import { FileManagerContext, File } from "@webiny/api-file-manager/types.js";
+import { type FileManagerContext, type File } from "@webiny/api-file-manager/types.js";
 import get from "lodash/get.js";
 import Zipper from "./zipper.js";
 

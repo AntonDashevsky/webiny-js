@@ -8,13 +8,13 @@ import { createZodError, mdbid } from "@webiny/utils";
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
 import {
-    GetGroupParams,
-    Group,
-    GroupInput,
-    ListGroupsParams,
-    PermissionsTenantLink,
-    Security,
-    SecurityConfig
+    type GetGroupParams,
+    type Group,
+    type GroupInput,
+    type ListGroupsParams,
+    type PermissionsTenantLink,
+    type Security,
+    type SecurityConfig
 } from "~/types.js";
 import NotAuthorizedError from "../NotAuthorizedError.js";
 import {

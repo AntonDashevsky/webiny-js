@@ -4,7 +4,7 @@
  */
 import graphql from "~/plugins/graphql.js";
 import { createApwPageBuilderContext as createPageBuilder } from "./plugins/context.js";
-import { CreateApwContextParams } from "./scheduler/types.js";
+import { type CreateApwContextParams } from "./scheduler/types.js";
 import { createMailerContext, createMailerGraphQL } from "@webiny/api-mailer";
 import { createAdminSettingsContext } from "@webiny/api-admin-settings";
 

@@ -12,7 +12,7 @@ import {
     ButtonContainer,
     SimpleButton
 } from "../../../elementSettings/components/StyledComponents.js";
-import { PbEditorElementPluginArgs } from "~/types.js";
+import { type PbEditorElementPluginArgs } from "~/types.js";
 import { PeTwitter } from "./PeTwitter.js";
 
 declare global {

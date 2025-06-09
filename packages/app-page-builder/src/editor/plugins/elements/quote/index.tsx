@@ -4,10 +4,10 @@ import Quote from "./Quote.js";
 
 import {
     DisplayMode,
-    PbEditorElement,
-    PbEditorPageElementPlugin,
-    PbEditorTextElementPluginsArgs,
-    PbElement
+    type PbEditorElement,
+    type PbEditorPageElementPlugin,
+    type PbEditorTextElementPluginsArgs,
+    type PbElement
 } from "~/types.js";
 import { createInitialTextValue } from "../utils/textUtils.js";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";

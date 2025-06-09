@@ -1,2 +1,2 @@
-export * from "./CanUseFolderLevelPermissions";
-export * from "./ICanUseFolderPermissions";
+export * from "./CanUseFolderLevelPermissions.js";
+export * from "./ICanUseFolderPermissions.js";

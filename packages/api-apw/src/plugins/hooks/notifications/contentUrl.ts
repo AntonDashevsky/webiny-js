@@ -1,5 +1,5 @@
-import { PluginsContainer } from "@webiny/plugins";
-import { ApwContentUrlPlugin, ApwContentUrlPluginCbParams } from "~/ApwContentUrlPlugin.js";
+import { type PluginsContainer } from "@webiny/plugins";
+import { ApwContentUrlPlugin, type ApwContentUrlPluginCbParams } from "~/ApwContentUrlPlugin.js";
 
 interface Params extends ApwContentUrlPluginCbParams {
     plugins: PluginsContainer;

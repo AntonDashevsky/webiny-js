@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { AcoError, AcoModel } from "~/types.js";
+import { type AcoError, type AcoModel } from "~/types.js";
 
 export interface GraphQlAcoApp {
     id: string;

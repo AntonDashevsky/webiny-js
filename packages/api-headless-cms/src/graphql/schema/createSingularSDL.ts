@@ -1,4 +1,4 @@
-import { ApiEndpoint, CmsFieldTypePlugins, CmsModel } from "~/types/index.js";
+import { type ApiEndpoint, type CmsFieldTypePlugins, type CmsModel } from "~/types/index.js";
 import { renderInputFields } from "~/utils/renderInputFields.js";
 import { renderFields } from "~/utils/renderFields.js";
 import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";

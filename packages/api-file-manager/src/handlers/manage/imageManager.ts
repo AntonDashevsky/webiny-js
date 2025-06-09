@@ -1,5 +1,5 @@
 import { dirname } from "path";
-import { S3 } from "@webiny/aws-sdk/client-s3";
+import { type S3 } from "@webiny/aws-sdk/client-s3";
 import { getObjectParams, getEnvironment } from "~/handlers/utils/index.js";
 import * as newUtils from "./utils.js";
 import * as legacyUtils from "./legacyUtils.js";

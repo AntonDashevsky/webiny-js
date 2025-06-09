@@ -1,6 +1,6 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
-import { FormBuilderContext } from "~/types.js";
+import { type FormBuilderContext } from "~/types.js";
 
 const emptyResolver = () => ({});
 

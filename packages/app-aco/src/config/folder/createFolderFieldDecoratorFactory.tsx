@@ -3,8 +3,8 @@ import {
     Compose,
     createConditionalDecorator,
     CompositionScope,
-    GenericComponent,
-    Decorator
+    type GenericComponent,
+    type Decorator
 } from "@webiny/app-admin";
 import { FieldElement } from "@webiny/app-headless-cms-common";
 

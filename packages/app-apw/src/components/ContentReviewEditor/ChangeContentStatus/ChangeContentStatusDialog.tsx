@@ -10,7 +10,7 @@ import { Box, Columns, Stack } from "~/components/Layout.js";
 import { useContentReviewId } from "~/hooks/useContentReviewId.js";
 import { usePublishContent } from "~/hooks/usePublishContent.js";
 import { ReactComponent as ScheduleIcon } from "~/assets/icons/schedule_24dp.svg";
-import { ScheduleActionType, useScheduleActionDialog } from "./useScheduleActionDialog.js";
+import { type ScheduleActionType, useScheduleActionDialog } from "./useScheduleActionDialog.js";
 
 const t = i18n.ns("app-apw/content-review/editor/change-request");
 

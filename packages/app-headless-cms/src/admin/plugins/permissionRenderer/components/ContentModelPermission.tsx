@@ -6,11 +6,11 @@ import { Select } from "@webiny/ui/Select/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { PermissionSelector, PermissionSelectorWrapper } from "./PermissionSelector.js";
-import { useCmsData, CmsDataCmsModel } from "./useCmsData.js";
+import { useCmsData, type CmsDataCmsModel } from "./useCmsData.js";
 import { Note } from "./StyledComponents.js";
 import ContentModelList from "./ContentModelList.js";
-import { BindComponent } from "@webiny/form/types.js";
-import { CmsSecurityPermission } from "~/types.js";
+import { type BindComponent } from "@webiny/form/types.js";
+import { type CmsSecurityPermission } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, ReactElement } from "react";
+import React, { useEffect, useCallback, type ReactElement } from "react";
 import { IconButton } from "@webiny/ui/Button/index.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";

@@ -1,7 +1,7 @@
 import { parseIdentifier } from "@webiny/utils";
-import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import { IProcessEntry } from "~/abstractions/index.js";
-import { HcmsBulkActionsContext } from "~/types.js";
+import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type IProcessEntry } from "~/abstractions/index.js";
+import { type HcmsBulkActionsContext } from "~/types.js";
 
 class MoveEntryToTrash implements IProcessEntry {
     private readonly context: HcmsBulkActionsContext;

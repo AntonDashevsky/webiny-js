@@ -1,22 +1,22 @@
 import WebinyError from "@webiny/error";
 import {
-    PageTemplate,
-    PageTemplateStorageOperationsCreateParams,
-    PageTemplateStorageOperationsDeleteParams,
-    PageTemplateStorageOperationsGetParams,
-    PageTemplateStorageOperationsListParams,
-    PageTemplateStorageOperationsUpdateParams
+    type PageTemplate,
+    type PageTemplateStorageOperationsCreateParams,
+    type PageTemplateStorageOperationsDeleteParams,
+    type PageTemplateStorageOperationsGetParams,
+    type PageTemplateStorageOperationsListParams,
+    type PageTemplateStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types.js";
-import { Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { queryAll, QueryAllParams, queryOne } from "@webiny/db-dynamodb/utils/query.js";
+import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { queryAll, type QueryAllParams, queryOne } from "@webiny/db-dynamodb/utils/query.js";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
 import { PageTemplateDataLoader } from "./dataLoader.js";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
 import { PageTemplateDynamoDbElasticFieldPlugin } from "~/plugins/definitions/PageTemplateDynamoDbElasticFieldPlugin.js";
-import { PluginsContainer } from "@webiny/plugins";
+import { type PluginsContainer } from "@webiny/plugins";
 import { createGSI1PK, createPrimaryPK } from "./keys.js";
-import { DataContainer, PageTemplateStorageOperations } from "~/types.js";
+import { type DataContainer, type PageTemplateStorageOperations } from "~/types.js";
 import { deleteItem, put } from "@webiny/db-dynamodb";
 
 const createType = (): string => {

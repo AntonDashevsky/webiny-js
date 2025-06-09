@@ -8,10 +8,10 @@ import { Typography } from "@webiny/ui/Typography/index.js";
 import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button/index.js";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { GetBindCallable } from "~/admin/components/ContentEntryForm/useBind.js";
+import { type GetBindCallable } from "~/admin/components/ContentEntryForm/useBind.js";
 import { ParentFieldProvider } from "~/admin/hooks/index.js";
 import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider/index.js";
-import { BindComponent, BindComponentRenderProp, CmsModelField } from "~/types.js";
+import { type BindComponent, type BindComponentRenderProp, type CmsModelField } from "~/types.js";
 import { getMultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");

@@ -5,7 +5,7 @@ import { ReactComponent as TabsIcon } from "@material-design-icons/svg/round/tab
 import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
 import { createElement } from "~/editor/helpers.js";
 import Tabs from "./Tabs.js";
-import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
+import { type PbEditorPageElementPlugin, type PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

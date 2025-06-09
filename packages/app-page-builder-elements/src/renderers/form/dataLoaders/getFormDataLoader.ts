@@ -1,4 +1,4 @@
-import { FormData } from "./../types.js";
+import { type FormData } from "./../types.js";
 import { fetchData } from "./fetchData.js";
 import { GET_PUBLISHED_FORM } from "./graphql.js";
 

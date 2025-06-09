@@ -1,6 +1,6 @@
 import {
-    ElasticsearchQuerySearchValuePlugins,
-    ModelField
+    type ElasticsearchQuerySearchValuePlugins,
+    type ModelField
 } from "~/operations/entry/elasticsearch/types.js";
 
 interface FieldPathFactoryParams {

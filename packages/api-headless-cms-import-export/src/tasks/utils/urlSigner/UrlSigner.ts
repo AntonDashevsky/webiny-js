@@ -2,7 +2,7 @@ import {
     GetObjectCommand,
     getSignedUrl,
     HeadObjectCommand,
-    S3Client
+    type S3Client
 } from "@webiny/aws-sdk/client-s3";
 import type {
     IUrlSigner,

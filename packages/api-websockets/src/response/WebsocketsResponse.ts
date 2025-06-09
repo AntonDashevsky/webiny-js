@@ -1,9 +1,9 @@
 import {
-    IWebsocketsResponse,
-    IWebsocketsResponseErrorParams,
-    IWebsocketsResponseErrorResult,
-    IWebsocketsResponseOkParams,
-    IWebsocketsResponseOkResult
+    type IWebsocketsResponse,
+    type IWebsocketsResponseErrorParams,
+    type IWebsocketsResponseErrorResult,
+    type IWebsocketsResponseOkParams,
+    type IWebsocketsResponseOkResult
 } from "./abstractions/IWebsocketsResponse.js";
 
 export class WebsocketsResponse implements IWebsocketsResponse {

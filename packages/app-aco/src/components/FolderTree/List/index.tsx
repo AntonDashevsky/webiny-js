@@ -1,26 +1,26 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
-    DropOptions,
+    type DropOptions,
     getBackendOptions,
-    InitialOpen,
+    type InitialOpen,
     MultiBackend,
-    NodeModel,
+    type NodeModel,
     Tree
 } from "@minoru/react-dnd-treeview";
 import { useSnackbar } from "@webiny/app-admin";
 import { DndProvider } from "react-dnd";
-import { Node } from "../Node";
-import { NodePreview } from "../NodePreview";
-import { Placeholder } from "../Placeholder";
-import { createInitialOpenList, createTreeData } from "./utils";
+import { Node } from "../Node/index.js";
+import { NodePreview } from "../NodePreview/index.js";
+import { Placeholder } from "../Placeholder/index.js";
+import { createInitialOpenList, createTreeData } from "./utils.js";
 import {
     useGetFolderLevelPermission,
     useListFoldersByParentIds,
     useUpdateFolder
-} from "~/features";
-import { ROOT_FOLDER } from "~/constants";
-import { DndFolderItemData, FolderItem } from "~/types";
-import { FolderProvider } from "~/contexts/folder";
+} from "~/features/index.js";
+import { ROOT_FOLDER } from "~/constants.js";
+import { type DndFolderItemData, type FolderItem } from "~/types.js";
+import { FolderProvider } from "~/contexts/folder.js";
 
 interface ListProps {
     folders: FolderItem[];

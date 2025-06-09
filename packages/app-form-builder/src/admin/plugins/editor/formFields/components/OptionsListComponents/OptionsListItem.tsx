@@ -14,16 +14,16 @@ import {
     PointerSensor,
     KeyboardSensor,
     closestCenter,
-    DragEndEvent,
-    UniqueIdentifier
+    type DragEndEvent,
+    type UniqueIdentifier
 } from "@dnd-kit/core";
 import { sortableKeyboardCoordinates, SortableContext } from "@dnd-kit/sortable";
 
 import { Switch } from "@webiny/ui/Switch/index.js";
 import { ReactComponent as EditIcon } from "../../../../../icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "../../../../../icons/delete.svg";
-import { BindComponent } from "@webiny/form/types.js";
-import { FieldOption } from "~/admin/plugins/editor/formFields/components/types.js";
+import { type BindComponent } from "@webiny/form/types.js";
+import { type FieldOption } from "~/admin/plugins/editor/formFields/components/types.js";
 
 const OptionList = styled("ul")({
     padding: 25,

@@ -5,30 +5,30 @@ import WebinyError from "@webiny/error";
 import { useSecurity } from "@webiny/app-security";
 import {
     CREATE_FILE,
-    CreateFileMutationResponse,
-    CreateFileMutationVariables,
+    type CreateFileMutationResponse,
+    type CreateFileMutationVariables,
     DELETE_FILE,
-    DeleteFileMutationResponse,
-    DeleteFileMutationVariables,
-    FileInput,
+    type DeleteFileMutationResponse,
+    type DeleteFileMutationVariables,
+    type FileInput,
     GET_FILE,
     GET_FILE_SETTINGS,
-    GetFileManagerSettingsQueryResponse,
+    type GetFileManagerSettingsQueryResponse,
     LIST_FILES,
     LIST_TAGS,
-    ListFileTagsQueryResponse,
-    ListFileTagsQueryVariables,
-    ListFilesListFilesResponse,
-    ListFilesQueryResponse,
-    ListFilesQueryVariables,
+    type ListFileTagsQueryResponse,
+    type ListFileTagsQueryVariables,
+    type ListFilesListFilesResponse,
+    type ListFilesQueryResponse,
+    type ListFilesQueryVariables,
     UPDATE_FILE,
-    UpdateFileMutationResponse,
-    UpdateFileMutationVariables,
-    FmError
+    type UpdateFileMutationResponse,
+    type UpdateFileMutationVariables,
+    type FmError
 } from "../graphql.js";
-import { FileItem, FileManagerSecurityPermission } from "@webiny/app-admin/types.js";
+import { type FileItem, type FileManagerSecurityPermission } from "@webiny/app-admin/types.js";
 import { getFileUploader } from "./getFileUploader.js";
-import { Settings } from "~/types.js";
+import { type Settings } from "~/types.js";
 import { useFileModel } from "~/hooks/useFileModel.js";
 import { getFileGraphQLSelection } from "./getFileGraphQLSelection.js";
 

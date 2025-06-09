@@ -1,7 +1,7 @@
 import { ErrorResponse, GraphQLSchemaPlugin } from "@webiny/handler-graphql";
 import { Response, NotFoundResponse } from "@webiny/handler-graphql";
-import { FileManagerContext, FileManagerContextObject, File } from "~/types.js";
-import { Security } from "@webiny/api-security/types.js";
+import { type FileManagerContext, type FileManagerContextObject, type File } from "~/types.js";
+import { type Security } from "@webiny/api-security/types.js";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 export const getFileByUrl = () => {

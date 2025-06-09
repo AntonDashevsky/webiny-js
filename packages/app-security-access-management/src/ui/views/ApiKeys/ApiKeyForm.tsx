@@ -33,7 +33,7 @@ import EmptyView from "@webiny/app-admin/components/EmptyView.js";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { ReactComponent as CopyIcon } from "@material-design-icons/svg/outlined/content_copy.svg";
 import styled from "@emotion/styled";
-import { ApiKey } from "~/types.js";
+import { type ApiKey } from "~/types.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 
 const t = i18n.ns("app-security-admin-users/admin/api-keys/form");

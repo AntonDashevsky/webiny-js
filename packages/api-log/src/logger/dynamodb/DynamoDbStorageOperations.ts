@@ -1,17 +1,17 @@
-import { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
 import {
-    ILoggerCrudDeleteLogParams,
-    ILoggerCrudDeleteLogsParams,
-    ILoggerCrudGetLogsParams,
-    ILoggerCrudListLogsParams,
-    ILoggerCrudListLogsResponse,
-    ILoggerCrudListSort,
-    ILoggerLog,
-    ILoggerStorageOperations,
-    ILoggerStorageOperationsInsertParams,
-    LogType
+    type ILoggerCrudDeleteLogParams,
+    type ILoggerCrudDeleteLogsParams,
+    type ILoggerCrudGetLogsParams,
+    type ILoggerCrudListLogsParams,
+    type ILoggerCrudListLogsResponse,
+    type ILoggerCrudListSort,
+    type ILoggerLog,
+    type ILoggerStorageOperations,
+    type ILoggerStorageOperationsInsertParams,
+    type LogType
 } from "~/types.js";
-import { DynamoDbLoggerKeys } from "./DynamoDbLoggerKeys.js";
+import { type DynamoDbLoggerKeys } from "./DynamoDbLoggerKeys.js";
 import {
     batchReadAll,
     batchWriteAll,
@@ -19,7 +19,7 @@ import {
     getClean,
     queryPerPageClean
 } from "@webiny/db-dynamodb";
-import { GenericRecord } from "@webiny/api/types.js";
+import { type GenericRecord } from "@webiny/api/types.js";
 import { compress, decompress } from "@webiny/utils/compression/gzip.js";
 import { convertAfterToStartKey, convertLastEvaluatedKeyToAfterKey } from "./convertKeys.js";
 

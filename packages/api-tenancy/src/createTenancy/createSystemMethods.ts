@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { Tenancy, TenancyStorageOperations } from "~/types.js";
+import { type Tenancy, type TenancyStorageOperations } from "~/types.js";
 
 interface CreateSystemMethodsParams {
     storageOperations: TenancyStorageOperations;

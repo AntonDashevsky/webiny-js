@@ -1,5 +1,5 @@
-import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
-import { GqlTranslatableCollectionDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableCollectionDTO.js";
+import { type TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
+import { type GqlTranslatableCollectionDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableCollectionDTO.js";
 import { GqlTranslatableItemMapper } from "~/translations/translatableCollection/graphql/GqlTranslatableItemMapper.js";
 
 export class GqlTranslatableCollectionMapper {

@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import {
     Brand,
     Compose,
-    LayoutProps,
+    type LayoutProps,
     LayoutRenderer,
     LocaleSelector,
     Navigation,

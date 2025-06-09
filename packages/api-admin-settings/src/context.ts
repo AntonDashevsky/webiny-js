@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/handler";
-import { AdminSettingsContext } from "~/types.js";
+import { type AdminSettingsContext } from "~/types.js";
 import { createStorageOperations } from "~/storage/index.js";
 import { createSettingsService } from "~/services/settings.js";
 

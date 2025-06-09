@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash/get.js";
-import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { type CmsModelFieldRendererPlugin } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Radio, RadioGroup } from "@webiny/ui/Radio/index.js";
 

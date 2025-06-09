@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "emotion";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
+import { type PbEditorElement, type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
 // Components
 import { IconPicker } from "@webiny/app-admin/components/IconPicker/index.js";
 import { ICON_PICKER_SIZE } from "@webiny/app-admin/components/IconPicker/types.js";

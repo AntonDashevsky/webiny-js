@@ -1,5 +1,5 @@
-import { RenderEvent } from "@webiny/api-prerendering-service/types.js";
-import plugin, { Params } from "@webiny/api-prerendering-service/flush/index.js";
+import { type RenderEvent } from "@webiny/api-prerendering-service/types.js";
+import plugin, { type Params } from "@webiny/api-prerendering-service/flush/index.js";
 import { createEventBridgeEventHandler } from "@webiny/handler-aws";
 
 export default (params: Params) => {

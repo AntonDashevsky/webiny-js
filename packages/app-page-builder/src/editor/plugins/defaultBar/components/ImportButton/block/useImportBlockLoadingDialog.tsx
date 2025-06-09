@@ -10,7 +10,7 @@ import { LoadingDialog } from "../styledComponents.js";
 import {
     GET_BLOCK_IMPORT_EXPORT_TASK,
     LIST_BLOCK_IMPORT_EXPORT_SUB_TASKS,
-    GetBlockImportExportTaskResponse
+    type GetBlockImportExportTaskResponse
 } from "~/admin/graphql/blockImportExport.gql.js";
 import { ImportExportTaskStatus } from "~/types.js";
 

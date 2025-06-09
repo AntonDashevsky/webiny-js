@@ -1,10 +1,10 @@
 import {
     CmsModelFieldConverterPlugin,
-    ConvertParams
+    type ConvertParams
 } from "~/plugins/CmsModelFieldConverterPlugin.js";
-import { CmsEntryValues, CmsModelFieldWithParent } from "~/types/index.js";
-import { ConverterCollection } from "~/utils/converters/ConverterCollection.js";
-import { GenericRecord } from "@webiny/api/types.js";
+import { type CmsEntryValues, type CmsModelFieldWithParent } from "~/types/index.js";
+import { type ConverterCollection } from "~/utils/converters/ConverterCollection.js";
+import { type GenericRecord } from "@webiny/api/types.js";
 
 interface ProcessChildFieldsParams {
     fields: CmsModelFieldWithParent[];

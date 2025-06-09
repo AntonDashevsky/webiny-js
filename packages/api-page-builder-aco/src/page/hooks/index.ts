@@ -5,7 +5,7 @@ import { onPageAfterPublishHook } from "~/page/hooks/onPageAfterPublish.hook.js"
 import { onPageAfterUnpublishHook } from "~/page/hooks/onPageAfterUnpublish.hook.js";
 import { onPageAfterUpdateHook } from "~/page/hooks/onPageAfterUpdate.hook.js";
 
-import { PbAcoContext } from "~/types.js";
+import { type PbAcoContext } from "~/types.js";
 
 export const createPageHooks = (context: PbAcoContext) => {
     onPageAfterCreateHook(context);

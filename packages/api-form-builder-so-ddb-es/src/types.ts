@@ -1,16 +1,16 @@
 import {
-    FormBuilder,
-    FormBuilderContext as BaseFormBuilderContext,
-    FormBuilderFormStorageOperations as BaseFormBuilderFormStorageOperations,
-    FormBuilderSettingsStorageOperations as BaseFormBuilderSettingsStorageOperations,
-    FormBuilderStorageOperations as BaseFormBuilderStorageOperations,
-    FormBuilderSubmissionStorageOperations as BaseFormBuilderSubmissionStorageOperations,
-    FormBuilderSystemStorageOperations as BaseFormBuilderSystemStorageOperations
+    type FormBuilder,
+    type FormBuilderContext as BaseFormBuilderContext,
+    type FormBuilderFormStorageOperations as BaseFormBuilderFormStorageOperations,
+    type FormBuilderSettingsStorageOperations as BaseFormBuilderSettingsStorageOperations,
+    type FormBuilderStorageOperations as BaseFormBuilderStorageOperations,
+    type FormBuilderSubmissionStorageOperations as BaseFormBuilderSubmissionStorageOperations,
+    type FormBuilderSystemStorageOperations as BaseFormBuilderSystemStorageOperations
 } from "@webiny/api-form-builder/types.js";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { AttributeDefinition, Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
-import { Client } from "@elastic/elasticsearch";
-import { PluginCollection } from "@webiny/plugins/types.js";
+import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { type AttributeDefinition, type Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
+import { type Client } from "@elastic/elasticsearch";
+import { type PluginCollection } from "@webiny/plugins/types.js";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

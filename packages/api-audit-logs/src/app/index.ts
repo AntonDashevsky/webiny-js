@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { AuditLogsAcoContext } from "./types.js";
+import { type AuditLogsAcoContext } from "./types.js";
 import { createApp } from "./app.js";
 
 export * from "./createAppModifier.js";

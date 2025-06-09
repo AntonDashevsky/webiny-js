@@ -1,4 +1,4 @@
-import { FbFormTriggerHandlerPlugin } from "~/types.js";
+import { type FbFormTriggerHandlerPlugin } from "~/types.js";
 
 const plugin: FbFormTriggerHandlerPlugin = {
     type: "form-trigger-handler",

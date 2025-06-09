@@ -1,7 +1,7 @@
-import { CmsContext, CmsEntry, CmsModel } from "~/types/index.js";
+import { type CmsContext, type CmsEntry, type CmsModel } from "~/types/index.js";
 import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping.js";
 import { STATUS_PUBLISHED } from "./statuses.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { getIdentity } from "~/utils/identity.js";
 import { getDate } from "~/utils/date.js";
 

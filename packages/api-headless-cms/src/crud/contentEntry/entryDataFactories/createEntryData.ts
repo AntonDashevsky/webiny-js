@@ -1,10 +1,10 @@
 import {
-    CmsContext,
-    CmsEntry,
-    CmsModel,
-    CmsModelField,
-    CreateCmsEntryInput,
-    CreateCmsEntryOptionsInput
+    type CmsContext,
+    type CmsEntry,
+    type CmsModel,
+    type CmsModelField,
+    type CreateCmsEntryInput,
+    type CreateCmsEntryOptionsInput
 } from "~/types/index.js";
 import { getDate } from "~/utils/date.js";
 import { ROOT_FOLDER } from "~/constants.js";
@@ -13,11 +13,11 @@ import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataVali
 import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping.js";
 import { createIdentifier, mdbid } from "@webiny/utils";
 import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses.js";
-import { I18NLocale } from "@webiny/api-i18n/types.js";
-import { SecurityIdentity } from "@webiny/api-security/types.js";
-import { Tenant } from "@webiny/api-tenancy/types.js";
+import { type I18NLocale } from "@webiny/api-i18n/types.js";
+import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import { type Tenant } from "@webiny/api-tenancy/types.js";
 import { getIdentity } from "~/utils/identity.js";
-import { AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
 
 type DefaultValue = boolean | number | string | null;
 

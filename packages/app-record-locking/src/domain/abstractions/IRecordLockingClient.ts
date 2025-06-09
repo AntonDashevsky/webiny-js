@@ -1,5 +1,5 @@
-import { ApolloQueryResult, QueryOptions, MutationOptions } from "apollo-client";
-import { FetchResult } from "apollo-link";
+import { type ApolloQueryResult, type QueryOptions, type MutationOptions } from "apollo-client";
+import { type FetchResult } from "apollo-link";
 
 export interface IRecordLockingClient {
     query<T, R>(params: QueryOptions<R>): Promise<ApolloQueryResult<T>>;

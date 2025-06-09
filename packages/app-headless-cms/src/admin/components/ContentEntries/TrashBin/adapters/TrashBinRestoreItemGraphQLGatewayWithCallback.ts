@@ -1,6 +1,6 @@
-import { CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
+import { type CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
 
-import { ITrashBinRestoreItemGateway } from "@webiny/app-trash-bin";
+import { type ITrashBinRestoreItemGateway } from "@webiny/app-trash-bin";
 
 export class TrashBinRestoreItemGraphQLGatewayWithCallback
     implements ITrashBinRestoreItemGateway<CmsContentEntry>

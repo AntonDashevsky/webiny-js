@@ -1,5 +1,5 @@
-import { Filter, FilterConfig } from "./Filter.js";
-import { FiltersToWhere, FiltersToWhereConverter } from "./FiltersToWhere.js";
+import { Filter, type FilterConfig } from "./Filter.js";
+import { FiltersToWhere, type FiltersToWhereConverter } from "./FiltersToWhere.js";
 
 export interface BrowserConfig {
     filters: FilterConfig[];

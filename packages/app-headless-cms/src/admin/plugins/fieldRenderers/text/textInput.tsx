@@ -3,7 +3,7 @@ import get from "lodash/get.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Input } from "@webiny/ui/Input/index.js";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
-import { CmsModelFieldRendererPlugin } from "~/types.js";
+import { type CmsModelFieldRendererPlugin } from "~/types.js";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");
 

@@ -1,8 +1,8 @@
 import {
-    File,
-    FileManagerFilesStorageOperations,
-    FileManagerFilesStorageOperationsListResponse,
-    FileManagerFilesStorageOperationsTagsResponse
+    type File,
+    type FileManagerFilesStorageOperations,
+    type FileManagerFilesStorageOperationsListResponse,
+    type FileManagerFilesStorageOperationsTagsResponse
 } from "@webiny/api-file-manager/types.js";
 
 /**

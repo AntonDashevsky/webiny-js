@@ -1,4 +1,4 @@
-import { Authentication, Authenticator, Identity } from "~/types.js";
+import { type Authentication, type Authenticator, type Identity } from "~/types.js";
 
 export const createAuthentication = <
     TIdentity extends Identity = Identity

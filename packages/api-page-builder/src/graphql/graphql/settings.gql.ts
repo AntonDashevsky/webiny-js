@@ -1,6 +1,6 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
-import { PbContext } from "~/types.js";
+import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import { type PbContext } from "~/types.js";
 
 export const createSettingsGraphQL = (): GraphQLSchemaPlugin<PbContext> => {
     return {

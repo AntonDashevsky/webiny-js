@@ -1,7 +1,7 @@
-import { createFlpTask } from "./createFlp.task";
-import { updateFlpTask } from "./updateFlp.task";
-import { deleteFlpTask } from "./deleteFlp.task";
-import { syncFlpTask } from "./syncFlp.task";
+import { createFlpTask } from "./createFlp.task.js";
+import { updateFlpTask } from "./updateFlp.task.js";
+import { deleteFlpTask } from "./deleteFlp.task.js";
+import { syncFlpTask } from "./syncFlp.task.js";
 
 export const CREATE_FLP_TASK_ID = "acoCreateFlp";
 export const DELETE_FLP_TASK_ID = "acoDeleteFlp";

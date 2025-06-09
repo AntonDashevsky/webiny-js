@@ -1,7 +1,7 @@
 import { plugins } from "@webiny/plugins";
 import orderBy from "lodash/orderBy.js";
 import merge from "lodash/merge.js";
-import { PbEditorResponsiveModePlugin, PbRenderResponsiveModePlugin, DisplayMode } from "~/types.js";
+import { type PbEditorResponsiveModePlugin, type PbRenderResponsiveModePlugin, type DisplayMode } from "~/types.js";
 
 export const WIDTH_UNIT_OPTIONS = [
     {

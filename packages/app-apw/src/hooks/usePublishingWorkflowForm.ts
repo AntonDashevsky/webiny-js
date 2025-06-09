@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
+import { type Dispatch, type SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
 import isEmpty from "lodash/isEmpty.js";
 import { useNavigate } from "@webiny/react-router";
 import dotPropImmutable from "dot-prop-immutable";
@@ -7,23 +7,23 @@ import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useCurrentApp } from "./useLocationSearch.js";
 import {
     CREATE_WORKFLOW_MUTATION,
-    CreateWorkflowMutationResponse,
-    CreateWorkflowMutationVariables,
+    type CreateWorkflowMutationResponse,
+    type CreateWorkflowMutationVariables,
     GET_WORKFLOW_QUERY,
-    GetWorkflowQueryResponse,
-    GetWorkflowQueryVariables,
+    type GetWorkflowQueryResponse,
+    type GetWorkflowQueryVariables,
     LIST_WORKFLOWS_QUERY,
     UPDATE_WORKFLOW_MUTATION,
-    UpdateWorkflowMutationResponse,
-    UpdateWorkflowMutationVariables
+    type UpdateWorkflowMutationResponse,
+    type UpdateWorkflowMutationVariables
 } from "~/graphql/workflow.gql.js";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import {
-    ApwWorkflow,
-    ApwWorkflowApplications,
+    type ApwWorkflow,
+    type ApwWorkflowApplications,
     ApwWorkflowScopeTypes,
-    ApwWorkflowStep,
+    type ApwWorkflowStep,
     ApwWorkflowStepTypes
 } from "~/types.js";
 import { generateAlphaNumericId } from "@webiny/utils";

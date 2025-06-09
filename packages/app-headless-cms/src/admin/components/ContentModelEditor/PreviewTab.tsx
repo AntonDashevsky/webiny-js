@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "emotion";
 import { Elevation } from "@webiny/ui/Elevation/index.js";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { CmsEditorContentTab } from "~/types.js";
+import { type CmsEditorContentTab } from "~/types.js";
 import { useModelEditor } from "~/admin/hooks/index.js";
 import { ContentEntryFormPreview } from "../ContentEntryForm/ContentEntryFormPreview.js";
 

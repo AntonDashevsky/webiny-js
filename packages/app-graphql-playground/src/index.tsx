@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { ApolloClient } from "apollo-client";
+import { type ApolloClient } from "apollo-client";
 import { plugins } from "@webiny/plugins";
 import { Plugins, AddMenu, AddRoute, Layout } from "@webiny/app-admin";
 import { ReactComponent as InfoIcon } from "./assets/graphql.svg";

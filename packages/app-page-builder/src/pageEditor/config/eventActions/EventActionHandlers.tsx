@@ -8,7 +8,7 @@ import {
 } from "./saveRevision/index.js";
 import { updatePageAction } from "./updatePageAction.js";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
-import { PageEditorEventActionCallableState } from "~/pageEditor/types.js";
+import { type PageEditorEventActionCallableState } from "~/pageEditor/types.js";
 
 export const EventActionHandlers = () => {
     const eventActionHandler = useEventActionHandler<PageEditorEventActionCallableState>();

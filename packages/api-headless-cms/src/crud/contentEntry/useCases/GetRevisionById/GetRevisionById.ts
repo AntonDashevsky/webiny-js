@@ -1,8 +1,8 @@
-import { IGetRevisionById } from "../../abstractions/index.js";
+import { type IGetRevisionById } from "../../abstractions/index.js";
 import {
-    CmsEntryStorageOperations,
-    CmsEntryStorageOperationsGetRevisionParams,
-    CmsModel
+    type CmsEntryStorageOperations,
+    type CmsEntryStorageOperationsGetRevisionParams,
+    type CmsModel
 } from "~/types/index.js";
 
 export class GetRevisionById implements IGetRevisionById {

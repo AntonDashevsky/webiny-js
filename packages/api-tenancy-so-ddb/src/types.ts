@@ -1,11 +1,11 @@
 import {
-    TenancyStorageOperations,
-    TenancyStorageOperations as BaseTenantsStorageOperations
+    type TenancyStorageOperations,
+    type TenancyStorageOperations as BaseTenantsStorageOperations
 } from "@webiny/api-tenancy/types.js";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
-import { TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
-import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
+import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { type Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
+import { type TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
+import { type AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

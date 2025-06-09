@@ -1,5 +1,5 @@
 import get from "lodash/get.js";
-import { PbAcoContext } from "~/types.js";
+import { type PbAcoContext } from "~/types.js";
 
 interface Image {
     id: string;

@@ -1,4 +1,4 @@
-import { File } from "@webiny/api-file-manager/types.js";
+import { type File } from "@webiny/api-file-manager/types.js";
 import get from "lodash/get.js";
 
 const FILE_ID_MAP = {

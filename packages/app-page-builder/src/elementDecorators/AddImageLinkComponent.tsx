@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import React, { type ComponentProps } from "react";
 import { Link } from "@webiny/react-router";
 import { ImageRenderer } from "@webiny/app-page-builder-elements/renderers/image.js";
 

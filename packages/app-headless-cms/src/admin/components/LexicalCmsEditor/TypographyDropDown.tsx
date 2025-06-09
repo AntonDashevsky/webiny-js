@@ -14,8 +14,8 @@ import {
     $isListNode,
     ListNode
 } from "@webiny/lexical-nodes";
-import { TypographyStyle } from "@webiny/theme/types.js";
-import { TypographyValue } from "@webiny/lexical-theme";
+import { type TypographyStyle } from "@webiny/theme/types.js";
+import { type TypographyValue } from "@webiny/lexical-theme";
 import { useTheme } from "@webiny/app-admin";
 
 export const TypographyDropDown = () => {

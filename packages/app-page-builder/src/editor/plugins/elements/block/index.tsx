@@ -3,9 +3,9 @@ import kebabCase from "lodash/kebabCase.js";
 import { Block } from "./Block.js";
 import {
     DisplayMode,
-    PbEditorPageElementPlugin,
-    PbEditorElement,
-    PbEditorElementPluginArgs
+    type PbEditorPageElementPlugin,
+    type PbEditorElement,
+    type PbEditorElementPluginArgs
 } from "~/types.js";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
 

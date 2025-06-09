@@ -2,20 +2,20 @@ import { plugins } from "@webiny/plugins";
 import { SplitView } from "@webiny/app-admin/ui/views/SplitView.js";
 import { ViewElement } from "@webiny/app-admin/ui/elements/ViewElement.js";
 import { OverlayView } from "@webiny/app-admin/ui/views/OverlayView.js";
-import { UsePageSettings, usePageSettings } from "~/pageEditor/hooks/usePageSettings.js";
+import { type UsePageSettings, usePageSettings } from "~/pageEditor/hooks/usePageSettings.js";
 import {
     PageSettingsTabElement,
-    PageSettingsTabElementConfig
+    type PageSettingsTabElementConfig
 } from "~/editor/ui/views/PageSettingsView/PageSettingsTabElement.js";
 import { PageSettingsTabsElement } from "~/editor/ui/views/PageSettingsView/PageSettingsTabsElement.js";
 import { PbEditorPageSettingsPlugin } from "~/plugins/PbEditorPageSettingsPlugin.js";
 import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement.js";
 import {
     FormElement,
-    FormElementRenderProps
+    type FormElementRenderProps
 } from "@webiny/app-admin/ui/elements/form/FormElement.js";
 import { FormView } from "@webiny/app-admin/ui/views/FormView.js";
-import { SplitViewPanelElement } from "@webiny/app-admin/ui/views/SplitView/SplitViewPanelElement.js";
+import { type SplitViewPanelElement } from "@webiny/app-admin/ui/views/SplitView/SplitViewPanelElement.js";
 
 export class PageSettingsView extends OverlayView {
     private _splitView?: SplitView;

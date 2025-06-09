@@ -1,7 +1,7 @@
 import invariant from "invariant";
 import { plugins } from "@webiny/plugins";
 import get from "lodash/get.js";
-import { ImageComponentPlugin, ImageProps } from "~/types.js";
+import { type ImageComponentPlugin, type ImageProps } from "~/types.js";
 
 export const Image = ({ preset: presetName, ...props }: ImageProps) => {
     const plugin = plugins.byName<ImageComponentPlugin>("image-component");

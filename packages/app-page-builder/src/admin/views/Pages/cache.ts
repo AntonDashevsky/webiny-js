@@ -1,9 +1,9 @@
 import dotProp from "dot-prop-immutable";
 import orderBy from "lodash/orderBy.js";
 import get from "lodash/get.js";
-import { PbPageData, PbPageRevision } from "~/types.js";
+import { type PbPageData, type PbPageRevision } from "~/types.js";
 import * as GQL from "~/admin/graphql/pages.js";
-import { DataProxy } from "apollo-cache";
+import { type DataProxy } from "apollo-cache";
 
 interface PageListVariables {
     sort?: string;

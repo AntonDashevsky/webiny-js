@@ -1,6 +1,6 @@
 import { loadingRepositoryFactory } from "@webiny/app-utils";
-import { IGetFolderUseCase } from "./IGetFolderUseCase.js";
-import { IGetFolderGateway } from "./IGetFolderGateway.js";
+import { type IGetFolderUseCase } from "./IGetFolderUseCase.js";
+import { type IGetFolderGateway } from "./IGetFolderGateway.js";
 import { GetFolderRepository } from "./GetFolderRepository.js";
 import { GetFolderUseCase } from "./GetFolderUseCase.js";
 import { GetFolderUseCaseWithLoading } from "./GetFolderUseCaseWithLoading.js";

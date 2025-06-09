@@ -1,11 +1,11 @@
-import { ITask, ITaskResponseResult, ITaskRunParams, TaskDataStatus } from "@webiny/tasks";
-import { IMockDataManagerInput, IMockDataManagerOutput } from "~/tasks/MockDataManager/types.js";
+import { type ITask, type ITaskResponseResult, type ITaskRunParams, TaskDataStatus } from "@webiny/tasks";
+import { type IMockDataManagerInput, type IMockDataManagerOutput } from "~/tasks/MockDataManager/types.js";
 import { calculateAmounts } from "./calculateAmounts.js";
-import { IMockDataCreatorInput } from "~/tasks/MockDataCreator/types.js";
+import { type IMockDataCreatorInput } from "~/tasks/MockDataCreator/types.js";
 import { calculateSeconds, WAIT_MAX_SECONDS } from "./calculateSeconds.js";
 import { MOCK_DATA_CREATOR_TASK_ID } from "~/tasks/createMockDataCreatorTask.js";
 import { createModelAndGroup } from "~/tasks/MockDataManager/createModelAndGroup.js";
-import { Context } from "~/types.js";
+import { type Context } from "~/types.js";
 import { disableIndexing, enableIndexing } from "~/utils/index.js";
 
 export class MockDataManager<

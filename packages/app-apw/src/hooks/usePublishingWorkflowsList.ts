@@ -6,14 +6,14 @@ import { useCurrentWorkflowId } from "./useLocationSearch.js";
 import {
     DELETE_WORKFLOW_MUTATION,
     LIST_WORKFLOWS_QUERY,
-    ListWorkflowQueryResponse,
-    ListWorkflowQueryVariables,
-    DeleteWorkflowMutationVariables,
-    DeleteWorkflowMutationResponse
+    type ListWorkflowQueryResponse,
+    type ListWorkflowQueryVariables,
+    type DeleteWorkflowMutationVariables,
+    type DeleteWorkflowMutationResponse
 } from "~/graphql/workflow.gql.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
 import { i18n } from "@webiny/app/i18n/index.js";
-import { ApwWorkflow, ApwWorkflowApplications } from "~/types.js";
+import { type ApwWorkflow, type ApwWorkflowApplications } from "~/types.js";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/data-list");
 

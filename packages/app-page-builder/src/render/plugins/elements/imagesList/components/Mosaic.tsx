@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Mosaic as UiMosaic } from "@webiny/ui/Mosaic/index.js";
-import Lightbox, { Image } from "react-images";
+import Lightbox, { type Image } from "react-images";
 
 const { useReducer } = React;
 

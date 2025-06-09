@@ -1,6 +1,6 @@
 import { ColumnsPresenter } from "./ColumnsPresenter.js";
 import { Column } from "./Column.js";
-import { ColumnConfig } from "~/config/table/Column.js";
+import { type ColumnConfig } from "~/config/table/Column.js";
 import { ColumnsRepository } from "./ColumnsRepository.js";
 
 describe("ColumnsPresenter", () => {

@@ -1,4 +1,4 @@
-import { FbFormField } from "~/types.js";
+import { type FbFormField } from "~/types.js";
 
 export const sanitizeFormSubmissionData = (fields: FbFormField[], data: { [key: string]: any }) => {
     for (const FieldId in data) {

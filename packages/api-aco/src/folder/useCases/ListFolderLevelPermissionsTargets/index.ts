@@ -1,7 +1,7 @@
-import { ListAdminUsersGatewayFromContext } from "./ListAdminUsersGatewayFromContext";
-import { ListTeamsGatewayFromContext } from "./ListTeamsGatewayFromContext";
-import { ListFolderLevelPermissionsTargets } from "./ListFolderLevelPermissionsTargets";
-import type { AcoContext } from "~/types";
+import { ListAdminUsersGatewayFromContext } from "./ListAdminUsersGatewayFromContext.js";
+import { ListTeamsGatewayFromContext } from "./ListTeamsGatewayFromContext.js";
+import { ListFolderLevelPermissionsTargets } from "./ListFolderLevelPermissionsTargets.js";
+import type { AcoContext } from "~/types.js";
 
 interface GetListFolderLevelPermissionsTargetsParams {
     context: AcoContext;

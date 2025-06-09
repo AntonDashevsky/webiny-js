@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
-import { ApiKeysDataList, ApiKeysDataListProps } from "./ApiKeysDataList.js";
-import { ApiKeyForm, ApiKeyFormProps } from "./ApiKeyForm.js";
+import { ApiKeysDataList, type ApiKeysDataListProps } from "./ApiKeysDataList.js";
+import { ApiKeyForm, type ApiKeyFormProps } from "./ApiKeyForm.js";
 
 export interface ApiKeysProps {
     listProps?: ApiKeysDataListProps;

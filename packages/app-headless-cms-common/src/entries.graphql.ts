@@ -1,16 +1,16 @@
 import gql from "graphql-tag";
 import {
-    CmsContentEntryRevision,
-    CmsContentEntry,
-    CmsEditorContentModel,
-    CmsErrorResponse,
-    CmsMetaResponse,
-    CmsModelField,
-    CmsModel
+    type CmsContentEntryRevision,
+    type CmsContentEntry,
+    type CmsEditorContentModel,
+    type CmsErrorResponse,
+    type CmsMetaResponse,
+    type CmsModelField,
+    type CmsModel
 } from "~/types/index.js";
 import { createFieldsList } from "./createFieldsList.js";
 import { getModelTitleFieldId } from "./getModelTitleFieldId.js";
-import { FormValidationOptions } from "@webiny/form";
+import { type FormValidationOptions } from "@webiny/form";
 import { CMS_MODEL_SINGLETON_TAG } from "./constants.js";
 
 const CONTENT_META_FIELDS = /* GraphQL */ `

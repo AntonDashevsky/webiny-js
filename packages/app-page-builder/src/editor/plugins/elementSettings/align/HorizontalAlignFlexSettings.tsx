@@ -6,7 +6,7 @@ import set from "lodash/set.js";
 import merge from "lodash/merge.js";
 import { Tooltip } from "@webiny/ui/Tooltip/index.js";
 import { IconButton } from "@webiny/ui/Button/index.js";
-import { PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
+import { type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
 import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
 // Components
 import { ContentWrapper } from "../components/StyledComponents.js";

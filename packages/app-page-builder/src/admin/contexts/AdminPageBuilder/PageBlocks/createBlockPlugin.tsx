@@ -1,6 +1,6 @@
 import React from "react";
 import { plugins } from "@webiny/plugins";
-import { PbEditorBlockPlugin, PbPageBlock } from "~/types.js";
+import { type PbEditorBlockPlugin, type PbPageBlock } from "~/types.js";
 import { PreviewBlock } from "~/admin/components/PreviewBlock.js";
 
 export const createBlockPlugin = (pageBlock: PbPageBlock): void => {

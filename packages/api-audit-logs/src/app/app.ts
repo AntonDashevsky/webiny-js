@@ -1,6 +1,6 @@
-import type { AcoContext } from "@webiny/api-aco/types";
-import { IAcoAppRegisterParams, SearchRecord } from "@webiny/api-aco/types";
-import { AUDIT_LOGS_TYPE } from "./contants";
+import type { AcoContext } from "@webiny/api-aco/types.js";
+import { type IAcoAppRegisterParams, type SearchRecord } from "@webiny/api-aco/types.js";
+import { AUDIT_LOGS_TYPE } from "./contants.js";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 const toDate = (value: string | Date) => {

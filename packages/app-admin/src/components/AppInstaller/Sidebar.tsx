@@ -3,7 +3,7 @@ import classSet from "classnames";
 import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography/index.js";
 import signInDivider from "./assets/sign-in-divider.svg";
-import { Installer } from "./useInstaller.js";
+import { type Installer } from "./useInstaller.js";
 import { Brand } from "~/base/ui/Brand.js";
 import { Tags } from "~/base/ui/Tags.js";
 

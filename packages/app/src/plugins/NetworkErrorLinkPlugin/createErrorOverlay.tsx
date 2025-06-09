@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 /**
  * TODO fix with react 19
  */

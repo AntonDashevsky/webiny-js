@@ -1,5 +1,5 @@
 import type { NonEmptyArray } from "@webiny/api/types.js";
-import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/api-headless-cms/constants.js";
 
 const createExportContentEntriesByModel = (models: NonEmptyArray<CmsModel>): string => {

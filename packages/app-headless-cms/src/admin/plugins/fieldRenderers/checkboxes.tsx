@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash/get.js";
-import { CmsModelField, CmsModelFieldRendererPlugin } from "~/types.js";
+import { type CmsModelField, type CmsModelFieldRendererPlugin } from "~/types.js";
 import { i18n } from "@webiny/app/i18n/index.js";
 import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
 

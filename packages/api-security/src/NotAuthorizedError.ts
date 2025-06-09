@@ -1,4 +1,4 @@
-import WebinyError, { ErrorOptions } from "@webiny/error";
+import WebinyError, { type ErrorOptions } from "@webiny/error";
 
 export default class NotAuthorizedError extends WebinyError<any> {
     constructor(params: ErrorOptions<any> = {}) {

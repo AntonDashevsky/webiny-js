@@ -1,9 +1,9 @@
 import WebinyError from "@webiny/error";
-import { CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
+import { type CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
 import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin.js";
-import { CmsFieldFilterValueTransformPlugin } from "~/types.js";
-import { PluginsContainer } from "@webiny/plugins";
-import { Field } from "./types.js";
+import { type CmsFieldFilterValueTransformPlugin } from "~/types.js";
+import { type PluginsContainer } from "@webiny/plugins";
+import { type Field } from "./types.js";
 import { getMappedPlugins } from "./mapPlugins.js";
 import { extractWhereParams } from "./where.js";
 import { transformValue } from "./transform.js";

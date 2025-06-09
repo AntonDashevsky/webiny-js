@@ -1,5 +1,5 @@
-import { GraphQLScalarPlugin } from "@webiny/handler-graphql/types.js";
-import { CmsContext } from "~/types/index.js";
+import { type GraphQLScalarPlugin } from "@webiny/handler-graphql/types.js";
+import { type CmsContext } from "~/types/index.js";
 import {
     AnyScalar,
     DateScalar,
@@ -11,8 +11,8 @@ import {
     RefInputScalar,
     TimeScalar
 } from "@webiny/handler-graphql/builtInTypes/index.js";
-import { GraphQLScalarType } from "graphql";
-import { createCmsGraphQLSchemaPlugin, ICmsGraphQLSchemaPlugin } from "~/plugins/index.js";
+import { type GraphQLScalarType } from "graphql";
+import { createCmsGraphQLSchemaPlugin, type ICmsGraphQLSchemaPlugin } from "~/plugins/index.js";
 
 interface Params {
     context: CmsContext;

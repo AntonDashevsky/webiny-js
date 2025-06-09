@@ -4,7 +4,7 @@ import { ListItemGraphic } from "@webiny/ui/List/index.js";
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { makeDecoratable } from "@webiny/app-admin";
 import { ReactComponent as PublishIcon } from "~/admin/assets/round-publish-24px.svg";
-import { PbPageRevision } from "~/types.js";
+import { type PbPageRevision } from "~/types.js";
 import { useRevision } from "../RevisionsList.js";
 
 export interface PublishPageMenuOptionProps {

@@ -12,8 +12,8 @@ import {
     getHHmmss,
     getHHmm
 } from "./utils.js";
-import { CmsModelField } from "~/types.js";
-import { BindComponentRenderProp } from "@webiny/form";
+import { type CmsModelField } from "~/types.js";
+import { type BindComponentRenderProp } from "@webiny/form";
 import { UTC_TIMEZONES } from "@webiny/utils";
 
 interface State {

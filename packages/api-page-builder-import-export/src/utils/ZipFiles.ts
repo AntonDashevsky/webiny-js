@@ -1,6 +1,6 @@
 import archiver from "archiver";
 import {
-    CompleteMultipartUploadOutput,
+    type CompleteMultipartUploadOutput,
     createS3,
     GetObjectCommand
 } from "@webiny/aws-sdk/client-s3";

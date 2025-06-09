@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import Files, { FilesRenderChildren } from "react-butterfiles";
+import Files, { type FilesRenderChildren } from "react-butterfiles";
 import styled from "@emotion/styled";
 import debounce from "lodash/debounce.js";
 import omit from "lodash/omit.js";
-import { positionValues } from "react-custom-scrollbars";
+import { type positionValues } from "react-custom-scrollbars";
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
 import { observer } from "mobx-react-lite";
@@ -15,14 +15,14 @@ import { OverlayLayout, useSnackbar } from "@webiny/app-admin";
 import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
 import { useI18N } from "@webiny/app-i18n";
 import { useTenancy } from "@webiny/app-tenancy";
-import { ButtonIcon, ButtonPrimary, ButtonProps, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import { Sorting } from "@webiny/ui/DataTable/index.js";
+import { ButtonIcon, ButtonPrimary, type ButtonProps, ButtonSecondary } from "@webiny/ui/Button/index.js";
+import { type Sorting } from "@webiny/ui/DataTable/index.js";
 import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
 import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
 import { outputFileSelectionError } from "./outputFileSelectionError.js";
 import { LeftSidebar } from "./LeftSidebar.js";
 import { useFileManagerApi, useFileManagerViewConfig } from "~/index.js";
-import { FileItem } from "@webiny/app-admin/types.js";
+import { type FileItem } from "@webiny/app-admin/types.js";
 import { BottomInfoBar } from "~/components/BottomInfoBar/index.js";
 import { BulkActions } from "~/components/BulkActions/index.js";
 import { DropFilesHere } from "~/components/DropFilesHere/index.js";
@@ -30,15 +30,15 @@ import { Empty } from "~/components/Empty/index.js";
 import { FileDetails } from "~/components/FileDetails/index.js";
 import { Grid } from "~/components/Grid/index.js";
 import { LayoutSwitch } from "~/components/LayoutSwitch/index.js";
-import { Table, TableProps } from "~/components/Table/index.js";
+import { Table, type TableProps } from "~/components/Table/index.js";
 import { Title } from "~/components/Title/index.js";
 import { UploadStatus } from "~/components/UploadStatus/index.js";
 import { BatchFileUploader } from "~/BatchFileUploader.js";
 import { SearchWidget } from "./components/SearchWidget.js";
 import { Filters } from "./components/Filters.js";
 import { TagsList } from "~/modules/FileManagerRenderer/FileManagerView/components/TagsList/index.js";
-import { ListFilesSort, ListFilesSortItem } from "~/modules/FileManagerApiProvider/graphql.js";
-import { TableItem } from "~/types.js";
+import { type ListFilesSort, type ListFilesSortItem } from "~/modules/FileManagerApiProvider/graphql.js";
+import { type TableItem } from "~/types.js";
 
 const t = i18n.ns("app-admin/file-manager/file-manager-view");
 

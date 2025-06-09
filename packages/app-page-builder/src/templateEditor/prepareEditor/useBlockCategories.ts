@@ -1,8 +1,8 @@
 import {
     LIST_BLOCK_CATEGORIES,
-    ListPageBlocksQueryResponse
+    type ListPageBlocksQueryResponse
 } from "~/admin/views/PageBlocks/graphql.js";
-import { PbBlockCategory } from "~/types.js";
+import { type PbBlockCategory } from "~/types.js";
 import createBlockCategoryPlugin from "~/admin/utils/createBlockCategoryPlugin.js";
 import { useQuery } from "@apollo/react-hooks";
 import get from "lodash/get.js";

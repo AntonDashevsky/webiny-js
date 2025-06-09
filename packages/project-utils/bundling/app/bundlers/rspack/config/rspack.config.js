@@ -18,18 +18,9 @@ import getClientEnvironment from "./env.js";
 import { createSwcConfig } from "../createSwcConfig.js";
 import modulesFactory from "./modules.js";
 
-import process from "process";
-import assert from "assert";
-import buffer from "buffer";
-import crypto from "crypto";
-import pathBrowserify from "path-browserify";
-import vm from "vm-browserify";
-import os from "os-browserify/browser";
-import reactJsxRuntime from "react/jsx-runtime";
-import react from "react";
-import reactDomProfiling from "react-dom/profiling";
-import schedulerTracing from "scheduler/tracing-profiling";
-import reactButterfiles from "@webiny/app/react-butterfiles";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
 
 const imageInlineSizeLimit = parseInt(process.env.IMAGE_INLINE_SIZE_LIMIT || "10000");
 
@@ -39,7 +30,7 @@ const STATIC_FOLDER = "static";
  * @param {string} webpackEnv
  * @param {{ paths: any, options: any }} param1
  */
-export default function createRspackConfig(webpackEnv, { paths, options }) {
+export function createRspackConfig(webpackEnv, { paths, options }) {
     const projectApplication = getProjectApplication({ cwd: options.cwd });
 
     const isEnvDevelopment = webpackEnv === "development";
@@ -85,23 +76,24 @@ export default function createRspackConfig(webpackEnv, { paths, options }) {
                 .map(ext => `.${ext}`)
                 .filter(ext => useTypeScript || !ext.includes("ts")),
             alias: {
-                "~": path.resolve("src"),
-                os,
-                "react/jsx-runtime": reactJsxRuntime,
-                react,
+                os: require.resolve("os-browserify/browser"),
+                "react/jsx-runtime": require.resolve("react/jsx-runtime"),
+                react: require.resolve("react"),
+                // Allows for better profiling with ReactDevTools
                 ...(isEnvProductionProfile && {
-                    "react-dom$": reactDomProfiling,
-                    "scheduler/tracing": schedulerTracing
+                    "react-dom$": require.resolve("react-dom/profiling"),
+                    "scheduler/tracing": require.resolve("scheduler/tracing-profiling")
                 }),
-                "react-butterfiles": reactButterfiles,
+                // This is a temporary fix, until we sort out the `react-butterfiles` dependency.
+                "react-butterfiles": require.resolve("@webiny/app/react-butterfiles"),
                 ...(modules.webpackAliases || {})
             },
             fallback: {
-                assert,
-                buffer,
-                crypto,
-                path: pathBrowserify,
-                vm
+                assert: require.resolve("assert-browserify"),
+                buffer: require.resolve("buffer/"),
+                crypto: require.resolve("crypto-browserify"),
+                path: require.resolve("path-browserify"),
+                vm: require.resolve("vm-browserify")
             }
         },
         module: {

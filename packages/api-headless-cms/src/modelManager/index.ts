@@ -1,4 +1,4 @@
-import { CmsModelManager, ModelManagerPlugin } from "~/types/index.js";
+import { type CmsModelManager, type ModelManagerPlugin } from "~/types/index.js";
 import { DefaultCmsModelManager } from "./DefaultCmsModelManager.js";
 export * from "./SingletonModelManager.js";
 

@@ -1,4 +1,4 @@
-import { RenderHookPlugin } from "@webiny/api-prerendering-service/render/types.js";
+import { type RenderHookPlugin } from "@webiny/api-prerendering-service/render/types.js";
 import { CloudFront } from "@webiny/aws-sdk/client-cloudfront";
 
 // This plugin will issue a cache invalidation request to CloudFront, every time a page has been rendered. This is

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import debounce from "lodash/debounce.js";
 import styled from "@emotion/styled";
-import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import { type CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
 import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
-import { positionValues as PositionValues } from "react-custom-scrollbars";
+import { type positionValues as PositionValues } from "react-custom-scrollbars";
 
 /**
  * Error is on the `overflowX: "hidden !important".

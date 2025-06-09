@@ -1,16 +1,16 @@
 import { Plugin } from "@webiny/plugins";
 import {
-    AssetRequestResolver,
-    AssetResolver,
-    AssetProcessor,
-    AssetOutputStrategy,
-    AssetRequest,
-    Asset,
-    AssetTransformationStrategy,
-    ResponseHeadersSetter,
+    type AssetRequestResolver,
+    type AssetResolver,
+    type AssetProcessor,
+    type AssetOutputStrategy,
+    type AssetRequest,
+    type Asset,
+    type AssetTransformationStrategy,
+    type ResponseHeadersSetter,
     SetResponseHeaders
 } from "~/delivery/index.js";
-import { FileManagerContext } from "~/types.js";
+import { type FileManagerContext } from "~/types.js";
 import { NullRequestResolver } from "~/delivery/AssetDelivery/NullRequestResolver.js";
 import { NullAssetResolver } from "~/delivery/AssetDelivery/NullAssetResolver.js";
 import { NullAssetOutputStrategy } from "./NullAssetOutputStrategy.js";

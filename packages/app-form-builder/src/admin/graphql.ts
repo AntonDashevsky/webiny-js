@@ -1,11 +1,11 @@
 import gql from "graphql-tag";
 import {
-    FbErrorResponse,
-    FbFormModel,
-    FbFormSubmissionData,
-    FbMetaResponse,
-    FbRevisionModel,
-    FormBuilderImportExportSubTask
+    type FbErrorResponse,
+    type FbFormModel,
+    type FbFormSubmissionData,
+    type FbMetaResponse,
+    type FbRevisionModel,
+    type FormBuilderImportExportSubTask
 } from "~/types.js";
 
 const ERROR_FIELDS = `

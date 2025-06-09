@@ -1,13 +1,13 @@
 import React, { useCallback, useMemo } from "react";
-import { FbFormModelField, FbFormStep } from "~/types.js";
-import Draggable, { BeginDragProps } from "~/admin/components/FormEditor/Draggable.js";
+import { type FbFormModelField, type FbFormStep } from "~/types.js";
+import Draggable, { type BeginDragProps } from "~/admin/components/FormEditor/Draggable.js";
 import { RowHandle, Row, RowContainer } from "~/admin/components/FormEditor/Tabs/EditTab/Styled.js";
 
 import { Icon } from "@webiny/ui/Icon/index.js";
 import { ReactComponent as HandleIcon } from "~/admin/components/FormEditor/icons/round-drag_indicator-24px.svg";
 import { Horizontal } from "~/admin/components/FormEditor/DropZone/index.js";
 import { useFormStep } from "~/admin/components/FormEditor/Tabs/EditTab/FormStep/useFormStep.js";
-import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable.js";
+import { type DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable.js";
 import { FormStepRowField } from "./FormStepRowField.js";
 
 export interface FormStepRowProps {

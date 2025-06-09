@@ -1,6 +1,6 @@
 import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
 import { TranslatableItemMapper } from "~/translations/translatableCollection/repository/mappers/TranslatableItemMapper.js";
-import { TranslatableCollectionDTO } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionDTO.js";
+import { type TranslatableCollectionDTO } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionDTO.js";
 
 export class TranslatableCollectionMapper {
     static fromDTO(dto: TranslatableCollectionDTO, id?: string): TranslatableCollection {

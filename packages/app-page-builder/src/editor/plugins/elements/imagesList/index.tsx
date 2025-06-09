@@ -2,10 +2,10 @@ import React from "react";
 import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase.js";
 import {
-    PbEditorPageElementPlugin,
-    PbEditorPageElementAdvancedSettingsPlugin,
+    type PbEditorPageElementPlugin,
+    type PbEditorPageElementAdvancedSettingsPlugin,
     DisplayMode,
-    PbEditorElementPluginArgs,
+    type PbEditorElementPluginArgs,
     OnCreateActions
 } from "~/types.js";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";

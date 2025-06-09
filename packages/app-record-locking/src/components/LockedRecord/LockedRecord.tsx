@@ -5,7 +5,7 @@ import { useRecordLocking } from "~/hooks/index.js";
 import { useContentEntry } from "@webiny/app-headless-cms";
 import { LockedRecordForceUnlock } from "./LockedRecordForceUnlock.js";
 import { ReactComponent as LockIcon } from "@material-design-icons/svg/outlined/lock.svg";
-import { IRecordLockingLockRecord } from "~/types.js";
+import { type IRecordLockingLockRecord } from "~/types.js";
 
 const StyledWrapper = styled("div")({
     width: "50%",

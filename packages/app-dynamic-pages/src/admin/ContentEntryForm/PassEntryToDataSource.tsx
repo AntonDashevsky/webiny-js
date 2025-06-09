@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { makeAutoObservable } from "mobx";
 import { ContentEntryEditorConfig } from "@webiny/app-headless-cms";
-import { CmsContentEntry } from "@webiny/app-headless-cms/types.js";
+import { type CmsContentEntry } from "@webiny/app-headless-cms/types.js";
 import { useLoadDataSource } from "@webiny/app-page-builder/features/index.js";
 import {
-    DataRequest,
-    DataSourceData,
-    IResolveDataSourceRepository
+    type DataRequest,
+    type DataSourceData,
+    type IResolveDataSourceRepository
 } from "@webiny/app-page-builder/features/dataSource/loadDataSource/IResolveDataSourceRepository.js";
 
 type OnChange = NonNullable<React.ComponentProps<typeof ContentEntryForm>["onChange"]>;

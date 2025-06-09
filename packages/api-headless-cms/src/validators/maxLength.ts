@@ -1,5 +1,5 @@
 import { validation } from "@webiny/validation";
-import { CmsModelFieldValidatorPlugin } from "~/types/index.js";
+import { type CmsModelFieldValidatorPlugin } from "~/types/index.js";
 
 export const createMaxLengthValidator = (): CmsModelFieldValidatorPlugin => {
     return {

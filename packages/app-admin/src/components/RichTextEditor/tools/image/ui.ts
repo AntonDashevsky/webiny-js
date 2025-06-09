@@ -1,5 +1,5 @@
-import { API } from "@editorjs/editorjs";
-import { ImageToolConfig, ImageToolData } from "./types.js";
+import { type API } from "@editorjs/editorjs";
+import { type ImageToolConfig, type ImageToolData } from "./types.js";
 
 interface OnSelectFileCallable {
     (): void;

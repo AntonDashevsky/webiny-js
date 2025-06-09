@@ -1,4 +1,4 @@
-import { ApwComment, LifeCycleHookCallbackParams, ListMeta } from "~/types.js";
+import { type ApwComment, type LifeCycleHookCallbackParams, type ListMeta } from "~/types.js";
 
 export const deleteCommentsAfterChangeRequest = ({
     apw

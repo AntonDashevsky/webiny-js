@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { Select } from "@webiny/ui/Select/index.js";
-import { FormComponentProps } from "@webiny/ui/types.js";
+import { type FormComponentProps } from "@webiny/ui/types.js";
 import {
     LIST_MENU_CONTENT_GROUPS_MODELS,
-    ListMenuCmsGroupsQueryResponse
+    type ListMenuCmsGroupsQueryResponse
 } from "~/admin/viewsGraphql.js";
 import { useQuery } from "~/admin/hooks/index.js";
 

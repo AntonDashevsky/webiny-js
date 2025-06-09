@@ -1,8 +1,8 @@
-import { Context } from "@webiny/api/types.js";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types.js";
-import { I18NContext, I18NLocale } from "@webiny/api-i18n/types.js";
-import { TenancyContext, Tenant } from "@webiny/api-tenancy/types.js";
-import { ApwIdentity } from "~/types.js";
+import { type Context } from "@webiny/api/types.js";
+import { type SecurityIdentity, type SecurityPermission } from "@webiny/api-security/types.js";
+import { type I18NContext, type I18NLocale } from "@webiny/api-i18n/types.js";
+import { type TenancyContext, type Tenant } from "@webiny/api-tenancy/types.js";
+import { type ApwIdentity } from "~/types.js";
 
 export interface ListWhere {
     /**
