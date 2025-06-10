@@ -3,7 +3,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import toKebabCase from "lodash/kebabCase.js";
 
-import { createAppModule, PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule, type PulumiApp, type PulumiAppModule } from "@webiny/pulumi";
 import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
 import { CoreOutput, VpcConfig } from "~/apps/index.js";
 import { getAwsAccountId, getAwsRegion } from "../awsUtils.js";

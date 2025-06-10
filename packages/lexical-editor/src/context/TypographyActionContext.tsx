@@ -1,5 +1,5 @@
 import React from "react";
-import { TypographyValue } from "@webiny/lexical-theme";
+import { type TypographyValue } from "@webiny/lexical-theme";
 
 export interface TypographyActionContextProps {
     /*

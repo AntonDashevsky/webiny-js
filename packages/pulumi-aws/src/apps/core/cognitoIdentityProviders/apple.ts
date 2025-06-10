@@ -1,6 +1,6 @@
-import * as pulumi from "@pulumi/pulumi";
-import { IdentityProviderArgs } from "@pulumi/aws/cognito/index.js";
-import { CognitoIdentityProviderConfig } from "./configure.js";
+import type * as pulumi from "@pulumi/pulumi";
+import { type IdentityProviderArgs } from "@pulumi/aws/cognito/index.js";
+import { type CognitoIdentityProviderConfig } from "./configure.js";
 
 export const getAppleIdpConfig = (
     userPoolId: pulumi.Input<string>,

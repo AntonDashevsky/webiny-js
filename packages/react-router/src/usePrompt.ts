@@ -8,7 +8,7 @@
  */
 import { useContext, useEffect, useCallback } from "react";
 import { UNSAFE_NavigationContext as NavigationContext, useLocation } from "react-router-dom";
-import { History, Transition } from "history";
+import { type History, type Transition } from "history";
 
 type Navigator = Pick<History, "go" | "push" | "replace" | "createHref" | "block">;
 

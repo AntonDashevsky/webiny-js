@@ -3,8 +3,8 @@ import {
     $getSelection,
     $isRangeSelection,
     $isNodeSelection,
-    RangeSelection,
-    NodeSelection
+    type RangeSelection,
+    type NodeSelection
 } from "lexical";
 import { useIsMounted } from "./useIsMounted.js";
 import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";

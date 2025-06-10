@@ -13,7 +13,7 @@ import { tagResources } from "~/utils/index.js";
 import { withServiceManifest } from "~/utils/withServiceManifest.js";
 import {
     addServiceManifestTableItem,
-    TableDefinition
+    type TableDefinition
 } from "~/utils/addServiceManifestTableItem.js";
 import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
 import * as random from "@pulumi/random";

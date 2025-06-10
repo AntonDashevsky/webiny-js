@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_EDITOR } from "lexical";
 import {
     ADD_TYPOGRAPHY_COMMAND,
-    TypographyPayload,
+    type TypographyPayload,
     formatToParagraph,
     formatToHeading
 } from "@webiny/lexical-nodes";
-import { HeadingTagType } from "@lexical/rich-text";
+import { type HeadingTagType } from "@lexical/rich-text";
 import { useRichTextEditor } from "~/hooks/index.js";
 
 export const TypographyPlugin = () => {

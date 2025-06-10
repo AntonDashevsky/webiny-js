@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useRichTextEditor } from "~/hooks/index.js";
 import { getSelectedNode } from "~/utils/getSelectedNode.js";
-import { BaseSelection } from "lexical";
+import { type BaseSelection } from "lexical";
 import { $isAutoLinkNode, $isLinkNode, TOGGLE_LINK_COMMAND } from "@webiny/lexical-nodes";
 import { isChildOfLinkEditor } from "~/plugins/FloatingLinkEditorPlugin/isChildOfLinkEditor.js";
 import {

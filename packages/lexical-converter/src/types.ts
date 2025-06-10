@@ -1,4 +1,4 @@
-import { CreateEditorArgs, LexicalNode } from "lexical";
+import { type CreateEditorArgs, type LexicalNode } from "lexical";
 
 export type NodeMapper = (node: LexicalNode) => LexicalNode;
 

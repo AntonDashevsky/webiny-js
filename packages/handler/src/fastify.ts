@@ -1,13 +1,13 @@
-import { PluginCollection, PluginsContainer } from "@webiny/plugins/types.js";
-import fastify, { FastifyInstance, FastifyServerOptions as ServerOptions } from "fastify";
-import { middleware, MiddlewareCallable } from "@webiny/utils";
+import { type PluginCollection, PluginsContainer } from "@webiny/plugins/types.js";
+import fastify, { type FastifyInstance, type FastifyServerOptions as ServerOptions } from "fastify";
+import { middleware, type MiddlewareCallable } from "@webiny/utils";
 import {
-    ContextRoutes,
-    DefinedContextRoutes,
-    HTTPMethods,
-    Reply,
-    Request,
-    RouteMethodOptions
+    type ContextRoutes,
+    type DefinedContextRoutes,
+    type HTTPMethods,
+    type Reply,
+    type Request,
+    type RouteMethodOptions
 } from "~/types.js";
 import { Context } from "~/Context.js";
 import WebinyError from "@webiny/error";
@@ -21,7 +21,7 @@ import { HandlerResultPlugin } from "./plugins/HandlerResultPlugin.js";
 import { HandlerErrorPlugin } from "./plugins/HandlerErrorPlugin.js";
 import { ModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin.js";
 import { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin.js";
-import { ResponseHeaders, StandardHeaders } from "~/ResponseHeaders.js";
+import { ResponseHeaders, type StandardHeaders } from "~/ResponseHeaders.js";
 import { ModifyResponseHeadersPlugin } from "~/plugins/ModifyResponseHeadersPlugin.js";
 import { SetDefaultHeaders } from "./PreHandler/SetDefaultHeaders.js";
 import { PreHandler } from "./PreHandler/PreHandler.js";

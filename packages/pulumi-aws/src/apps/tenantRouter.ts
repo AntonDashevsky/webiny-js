@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { PulumiApp, PulumiAppResource } from "@webiny/pulumi";
+import { type PulumiApp, type PulumiAppResource } from "@webiny/pulumi";
 import { CoreOutput } from "./common/index.js";
 import { LAMBDA_RUNTIME } from "~/constants.js";
 import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";

@@ -1,6 +1,6 @@
-import * as pulumi from "@pulumi/pulumi";
+import type * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { PulumiApp } from "@webiny/pulumi";
+import { type PulumiApp } from "@webiny/pulumi";
 
 export * from "../utils/lambdaEnvVariables.js";
 

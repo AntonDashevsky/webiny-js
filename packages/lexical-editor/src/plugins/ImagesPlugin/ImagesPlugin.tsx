@@ -18,10 +18,10 @@ import {
     DRAGOVER_COMMAND,
     DRAGSTART_COMMAND,
     DROP_COMMAND,
-    LexicalEditor
+    type LexicalEditor
 } from "lexical";
 import { $isImageNode, ImageNode } from "@webiny/lexical-nodes";
-import { ImagePayload, INSERT_IMAGE_COMMAND } from "~/commands/index.js";
+import { type ImagePayload, INSERT_IMAGE_COMMAND } from "~/commands/index.js";
 import { CAN_USE_DOM } from "~/utils/canUseDOM.js";
 import { insertImage } from "~/utils/insertImage.js";
 import { useRichTextEditor } from "~/hooks/index.js";

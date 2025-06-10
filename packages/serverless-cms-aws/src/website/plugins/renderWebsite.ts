@@ -1,5 +1,5 @@
 import { EventBridgeClient, PutEventsCommand } from "@webiny/aws-sdk/client-eventbridge";
-import { CliContext } from "@webiny/cli/types.js";
+import { type CliContext } from "@webiny/cli/types.js";
 import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
 
 export interface IRenderWebsiteParams {

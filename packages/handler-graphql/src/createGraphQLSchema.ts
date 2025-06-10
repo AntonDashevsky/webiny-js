@@ -1,9 +1,9 @@
 import gql from "graphql-tag";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { mergeResolvers } from "@graphql-tools/merge";
-import { GraphQLScalarType } from "graphql/type/definition.js";
-import { GraphQLScalarPlugin, Resolvers, TypeDefs } from "./types.js";
-import { Context } from "@webiny/api/types.js";
+import { type GraphQLScalarType } from "graphql/type/definition.js";
+import { type GraphQLScalarPlugin, type Resolvers, type TypeDefs } from "./types.js";
+import { type Context } from "@webiny/api/types.js";
 import {
     RefInputScalar,
     NumberScalar,
@@ -15,7 +15,7 @@ import {
     LongScalar
 } from "./builtInTypes/index.js";
 import { ResolverDecoration } from "./ResolverDecoration.js";
-import { GraphQLSchemaPlugin } from "~/plugins/index.js";
+import { type GraphQLSchemaPlugin } from "~/plugins/index.js";
 
 export const getSchemaPlugins = (context: Context) => {
     return context.plugins.byType<GraphQLSchemaPlugin>("graphql-schema").filter(pl => {

@@ -1,4 +1,4 @@
-import { LexicalValue } from "~/types.js";
+import { type LexicalValue } from "~/types.js";
 
 const defaultLexicalValue = JSON.stringify({
     root: {

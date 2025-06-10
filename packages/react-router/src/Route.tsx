@@ -3,8 +3,8 @@
  * This component is for backwards compatibility with react-router v5, to avoid codemods on existing Webiny projects.
  */
 import React from "react";
-import { Route as BaseRoute, RouteProps as BaseRouteProps, useLocation } from "react-router-dom";
-import { Location } from "history";
+import { Route as BaseRoute, type RouteProps as BaseRouteProps, useLocation } from "react-router-dom";
+import { type Location } from "history";
 import { makeDecoratable } from "@webiny/react-composition";
 
 export interface RoutePropsRenderParams {

@@ -1,6 +1,6 @@
-import { Action, IPreHandler } from "~/PreHandler/IPreHandler.js";
+import { Action, type IPreHandler } from "~/PreHandler/IPreHandler.js";
 import { stringifyError } from "~/stringifyError.js";
-import { ContextPlugin } from "~/Context.js";
+import { type ContextPlugin } from "~/Context.js";
 import type { Context } from "~/types.js";
 
 export class ProcessContextPlugins implements IPreHandler {

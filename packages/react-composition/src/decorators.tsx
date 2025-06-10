@@ -1,13 +1,13 @@
 import React from "react";
 import { Compose } from "~/Compose.js";
-import { GetDecoratee, GetDecorateeParams } from "~/createDecorator.js";
+import { type GetDecoratee, type GetDecorateeParams } from "~/createDecorator.js";
 import {
-    DecoratableComponent,
-    GenericComponent,
-    Decorator,
-    GenericHook,
-    DecoratableHook,
-    ComponentDecorator
+    type DecoratableComponent,
+    type GenericComponent,
+    type Decorator,
+    type GenericHook,
+    type DecoratableHook,
+    type ComponentDecorator
 } from "~/types.js";
 
 export interface ShouldDecorate<TDecorator = any, TComponent = any> {

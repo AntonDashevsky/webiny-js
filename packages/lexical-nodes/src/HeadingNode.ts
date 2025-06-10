@@ -1,20 +1,20 @@
 import {
-    EditorConfig,
+    type EditorConfig,
     $applyNodeReplacement,
-    LexicalNode,
-    NodeKey,
-    RangeSelection,
-    Spread
+    type LexicalNode,
+    type NodeKey,
+    type RangeSelection,
+    type Spread
 } from "lexical";
 import { addClassNamesToElement } from "@lexical/utils";
 import {
     HeadingNode as BaseHeadingNode,
-    HeadingTagType,
-    SerializedHeadingNode as BaseSerializedHeadingNode
+    type HeadingTagType,
+    type SerializedHeadingNode as BaseSerializedHeadingNode
 } from "@lexical/rich-text";
-import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
-import { ParagraphNode } from "~/ParagraphNode.js";
-import { TypographyStylesNode, ThemeStyleValue, TextNodeThemeStyles } from "~/types.js";
+import { type EditorTheme, type ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import { type ParagraphNode } from "~/ParagraphNode.js";
+import { type TypographyStylesNode, type ThemeStyleValue, type TextNodeThemeStyles } from "~/types.js";
 
 export type SerializeHeadingNode = Spread<
     {

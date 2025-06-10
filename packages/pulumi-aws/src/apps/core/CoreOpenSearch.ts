@@ -9,10 +9,10 @@ import * as aws from "@pulumi/aws";
 import * as random from "@pulumi/random";
 import {
     createAppModule,
-    PulumiApp,
-    PulumiAppResource,
-    PulumiAppResourceConstructor,
-    PulumiAppRemoteResource
+    type PulumiApp,
+    type PulumiAppResource,
+    type PulumiAppResourceConstructor,
+    type PulumiAppRemoteResource
 } from "@webiny/pulumi";
 
 import { getAwsAccountId } from "../awsUtils.js";

@@ -1,4 +1,4 @@
-import { createCommand, LexicalCommand } from "lexical";
+import { createCommand, type LexicalCommand } from "lexical";
 
 export type QuoteCommandPayload = {
     themeStyleId: string;

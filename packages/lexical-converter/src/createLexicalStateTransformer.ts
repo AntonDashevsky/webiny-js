@@ -1,11 +1,11 @@
 import {
-    CreateEditorArgs,
-    LexicalEditor,
-    SerializedEditorState,
+    type CreateEditorArgs,
+    type LexicalEditor,
+    type SerializedEditorState,
     $getRoot,
     $createNodeSelection,
     $isElementNode,
-    LexicalNode
+    type LexicalNode
 } from "lexical";
 import { $generateHtmlFromNodes } from "@lexical/html";
 import { createHeadlessEditor } from "@lexical/headless";

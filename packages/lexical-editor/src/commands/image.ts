@@ -1,5 +1,5 @@
-import { createCommand, LexicalCommand, NodeKey } from "lexical";
-import { ImageNodeProps } from "@webiny/lexical-nodes";
+import { createCommand, type LexicalCommand, type NodeKey } from "lexical";
+import { type ImageNodeProps } from "@webiny/lexical-nodes";
 
 export interface ImagePayload extends ImageNodeProps {
     key?: NodeKey;

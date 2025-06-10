@@ -1,5 +1,5 @@
 import * as aws from "@pulumi/aws";
-import { createAppModule, PulumiApp } from "@webiny/pulumi";
+import { createAppModule, type PulumiApp } from "@webiny/pulumi";
 import { LAMBDA_RUNTIME } from "~/constants.js";
 import * as pulumi from "@pulumi/pulumi";
 import path from "path";

@@ -26,7 +26,6 @@ export default async ({ path }, presets = []) => {
     process.env.JEST_DYNALITE_CONFIG_DIRECTORY = path;
 
     const tsEsmPreset = createJsWithTsEsmPreset({
-        isolatedModules: true,
         diagnostics: false
     });
 

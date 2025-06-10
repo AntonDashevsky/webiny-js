@@ -5,7 +5,7 @@ import type {
 } from "@webiny/aws-sdk/types/index.js";
 import { createHandler as createBaseHandler } from "@webiny/handler";
 import { registerDefaultPlugins } from "~/plugins/index.js";
-import { SNSEventHandler, SNSEventHandlerCallableParams } from "./plugins/SNSEventHandler.js";
+import { SNSEventHandler, type SNSEventHandlerCallableParams } from "./plugins/SNSEventHandler.js";
 import { execute } from "~/execute.js";
 import type { HandlerFactoryParams } from "~/types.js";
 /**

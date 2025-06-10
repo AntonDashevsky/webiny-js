@@ -1,9 +1,9 @@
 import * as aws from "@pulumi/aws";
 import {
     createWebsitePulumiApp as baseCreateWebsitePulumiApp,
-    CreateWebsitePulumiAppParams as BaseCreateWebsitePulumiAppParams
+    type CreateWebsitePulumiAppParams as BaseCreateWebsitePulumiAppParams
 } from "~/apps/website/createWebsitePulumiApp.js";
-import { isResourceOfType, PulumiAppParam } from "@webiny/pulumi";
+import { isResourceOfType, type PulumiAppParam } from "@webiny/pulumi";
 
 export type WebsitePulumiApp = ReturnType<typeof createWebsitePulumiApp>;
 

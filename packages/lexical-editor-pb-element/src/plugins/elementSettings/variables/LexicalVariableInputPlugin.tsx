@@ -5,7 +5,7 @@ import { ButtonPrimary, IconButton } from "@webiny/ui/Button/index.js";
 import { useVariable } from "@webiny/app-page-builder/hooks/useVariable.js";
 import { LexicalEditor } from "~/LexicalEditor.js";
 import styled from "@emotion/styled";
-import { LexicalValue } from "@webiny/lexical-editor/types.js";
+import { type LexicalValue } from "@webiny/lexical-editor/types.js";
 
 const InputWrapper = styled.div`
     display: grid;

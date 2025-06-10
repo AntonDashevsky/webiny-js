@@ -1,5 +1,5 @@
 import * as aws from "@pulumi/aws";
-import { PulumiApp } from "@webiny/pulumi";
+import { type PulumiApp } from "@webiny/pulumi";
 import { ApiOutput } from "~/apps/api/index.js";
 import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
 

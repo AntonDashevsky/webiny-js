@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo } from "react";
 import { useComponent } from "./Context.js";
-import { DecoratableComponent, DecoratableHook, GenericComponent, GenericHook } from "~/types.js";
+import { type DecoratableComponent, type DecoratableHook, type GenericComponent, type GenericHook } from "~/types.js";
 import { withDecoratorFactory, withHookDecoratorFactory } from "~/decorators.js";
 
 const ComposableContext = createContext<string[]>([]);

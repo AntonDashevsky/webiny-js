@@ -1,5 +1,5 @@
 import React, {
-    ComponentType,
+    type ComponentType,
     createContext,
     useCallback,
     useContext,
@@ -8,15 +8,15 @@ import React, {
 } from "react";
 import { useCompositionScope } from "~/CompositionScope.js";
 import {
-    ComposedFunction,
-    ComposeWith,
-    Decoratable,
-    DecoratableComponent,
-    DecoratableHook,
-    Decorator,
-    Enumerable,
-    GenericComponent,
-    GenericHook
+    type ComposedFunction,
+    type ComposeWith,
+    type Decoratable,
+    type DecoratableComponent,
+    type DecoratableHook,
+    type Decorator,
+    type Enumerable,
+    type GenericComponent,
+    type GenericHook
 } from "~/types.js";
 
 export function compose<T>(...fns: Decorator<T>[]) {

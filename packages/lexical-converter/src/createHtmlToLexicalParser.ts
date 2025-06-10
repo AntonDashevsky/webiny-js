@@ -2,7 +2,7 @@ import { createHeadlessEditor } from "@lexical/headless";
 import { $generateNodesFromDOM } from "@lexical/html";
 import { $getRoot, $getSelection } from "lexical";
 import { allNodes } from "@webiny/lexical-nodes";
-import { NodeMapper, ParserConfigurationOptions } from "~/types.js";
+import { type NodeMapper, type ParserConfigurationOptions } from "~/types.js";
 
 const passthroughMapper: NodeMapper = node => node;
 

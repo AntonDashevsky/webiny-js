@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import FormData from "form-data";
 import {
     S3Client,
-    PresignedPostOptions,
+    type PresignedPostOptions,
     HeadObjectCommand
 } from "@webiny/aws-sdk/client-s3";
 import mime from "mime";

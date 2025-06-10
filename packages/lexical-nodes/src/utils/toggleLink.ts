@@ -2,10 +2,10 @@ import {
     $getSelection,
     $isElementNode,
     $isRangeSelection,
-    ElementNode,
-    LexicalNode
+    type ElementNode,
+    type LexicalNode
 } from "lexical";
-import { $createLinkNode, $isLinkNode, LinkAttributes, LinkNode } from "~/LinkNode.js";
+import { $createLinkNode, $isLinkNode, type LinkAttributes, type LinkNode } from "~/LinkNode.js";
 
 /**
  * Generates or updates a LinkNode. It can also delete a LinkNode if the URL is null,

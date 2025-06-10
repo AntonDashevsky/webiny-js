@@ -1,8 +1,8 @@
 import * as aws from "@pulumi/aws";
-import { UserPoolDomainArgs } from "@pulumi/aws/cognito/userPoolDomain.js";
-import { IdentityProviderArgs } from "@pulumi/aws/cognito/index.js";
+import { type UserPoolDomainArgs } from "@pulumi/aws/cognito/userPoolDomain.js";
+import { type IdentityProviderArgs } from "@pulumi/aws/cognito/index.js";
 import * as pulumi from "@pulumi/pulumi";
-import { PulumiApp, PulumiAppResource, PulumiAppResourceConstructor } from "@webiny/pulumi";
+import { type PulumiApp, type PulumiAppResource, type PulumiAppResourceConstructor } from "@webiny/pulumi";
 import { getIdpConfig } from "./getIdpConfig.js";
 import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
 

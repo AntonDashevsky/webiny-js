@@ -1,5 +1,5 @@
 import * as aws from "@pulumi/aws";
-import { createAppModule, PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule, type PulumiApp, type PulumiAppModule } from "@webiny/pulumi";
 
 export type LogDynamo = PulumiAppModule<typeof LogDynamo>;
 

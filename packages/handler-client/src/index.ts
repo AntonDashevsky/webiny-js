@@ -1,5 +1,5 @@
 import HandlerClient from "./HandlerClient.js";
-import { ClientContext } from "~/types.js";
+import { type ClientContext } from "~/types.js";
 
 export * from "./HandlerClientPlugin.js";
 

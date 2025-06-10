@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import { Klass, LexicalNode } from "lexical";
+import { type Klass, type LexicalNode } from "lexical";
 import { css } from "emotion";
-import { CSSObject } from "@emotion/react";
+import { type CSSObject } from "@emotion/react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
@@ -9,13 +9,13 @@ import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { allNodes } from "@webiny/lexical-nodes";
 import {
     createTheme,
-    EditorTheme,
-    ThemeEmotionMap,
+    type EditorTheme,
+    type ThemeEmotionMap,
     toTypographyEmotionMap
 } from "@webiny/lexical-theme";
 import { isValidLexicalData } from "~/utils/isValidLexicalData.js";
 import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue.js";
-import { LexicalValue } from "~/types.js";
+import { type LexicalValue } from "~/types.js";
 import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin/index.js";
 import { RichTextEditorProvider } from "~/context/RichTextEditorContext.js";
 

@@ -1,6 +1,6 @@
-import HandlerClient from "./HandlerClient.js";
-import { Plugin } from "@webiny/plugins/types.js";
-import { Context } from "@webiny/api/types.js";
+import type HandlerClient from "./HandlerClient.js";
+import { type Plugin } from "@webiny/plugins/types.js";
+import { type Context } from "@webiny/api/types.js";
 
 export type InvokeArgs<TInvokeArgsPayload = any> = {
     name: string;

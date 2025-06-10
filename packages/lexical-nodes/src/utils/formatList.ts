@@ -5,16 +5,16 @@ import {
     $isParagraphNode,
     $isRangeSelection,
     $isRootOrShadowRoot,
-    ElementNode,
-    LexicalEditor,
-    LexicalNode,
-    NodeKey
+    type ElementNode,
+    type LexicalEditor,
+    type LexicalNode,
+    type NodeKey
 } from "lexical";
-import { $createListNode, $isListNode, ListNode } from "~/ListNode.js";
+import { $createListNode, $isListNode, type ListNode } from "~/ListNode.js";
 import { $getNearestNodeOfType } from "@lexical/utils";
 import { $createListItemNode, $isListItemNode, ListItemNode } from "~/ListItemNode.js";
-import { ListType } from "@lexical/list";
-import { $createParagraphNode, ParagraphNode } from "~/ParagraphNode.js";
+import { type ListType } from "@lexical/list";
+import { $createParagraphNode, type ParagraphNode } from "~/ParagraphNode.js";
 import {
     $getAllListItems,
     $getTopListNode,

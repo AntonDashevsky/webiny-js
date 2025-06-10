@@ -1,5 +1,5 @@
-import { createReactAppConfig, ReactAppConfigModifier } from "~/createReactAppConfig.js";
-import { ApiOutput } from "@webiny/pulumi-aws";
+import { createReactAppConfig, type ReactAppConfigModifier } from "~/createReactAppConfig.js";
+import { type ApiOutput } from "@webiny/pulumi-aws";
 
 export const createAdminAppConfig = (modifier?: ReactAppConfigModifier) => {
     return createReactAppConfig(baseParams => {

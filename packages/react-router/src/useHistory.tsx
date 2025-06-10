@@ -1,4 +1,4 @@
-import { useNavigate, NavigateOptions, To } from "react-router-dom";
+import { useNavigate, type NavigateOptions, type To } from "react-router-dom";
 
 export interface UseHistory {
     push: (to: To, options?: NavigateOptions) => void;

@@ -1,18 +1,18 @@
 import {
-    DOMConversion,
-    DOMConversionMap,
-    EditorConfig,
-    LexicalNode,
-    NodeKey,
-    Spread
+    type DOMConversion,
+    type DOMConversionMap,
+    type EditorConfig,
+    type LexicalNode,
+    type NodeKey,
+    type Spread
 } from "lexical";
-import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import { type EditorTheme, type ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
 import {
     QuoteNode as BaseQuoteNode,
-    SerializedQuoteNode as BaseSerializedQuoteNode
+    type SerializedQuoteNode as BaseSerializedQuoteNode
 } from "@lexical/rich-text";
-import { TextNodeThemeStyles, ThemeStyleValue, TypographyStylesNode } from "~/types.js";
+import { type TextNodeThemeStyles, type ThemeStyleValue, type TypographyStylesNode } from "~/types.js";
 
 export type SerializedQuoteNode = Spread<
     {

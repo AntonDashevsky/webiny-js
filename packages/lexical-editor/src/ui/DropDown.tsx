@@ -6,7 +6,7 @@
  *
  */
 
-import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as React from "react";
 
 type DropDownContextType = {

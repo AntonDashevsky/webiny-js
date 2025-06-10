@@ -3,10 +3,10 @@ import { mergeRegister } from "@lexical/utils";
 import {
     $getSelection,
     $isRangeSelection,
-    BaseSelection,
+    type BaseSelection,
     BLUR_COMMAND,
     COMMAND_PRIORITY_LOW,
-    LexicalEditor,
+    type LexicalEditor,
     SELECTION_CHANGE_COMMAND
 } from "lexical";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@webiny/lexical-nodes";

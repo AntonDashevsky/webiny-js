@@ -1,6 +1,6 @@
 import * as aws from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
-import { createAppModule, PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import type * as pulumi from "@pulumi/pulumi";
+import { createAppModule, type PulumiApp, type PulumiAppModule } from "@webiny/pulumi";
 
 export interface ApiRouteParams {
     path: pulumi.Input<string>;

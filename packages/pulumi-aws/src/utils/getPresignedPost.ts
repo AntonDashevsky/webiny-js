@@ -1,7 +1,7 @@
 import {
     S3Client,
     createPresignedPost,
-    PresignedPostOptions
+    type PresignedPostOptions
 } from "@webiny/aws-sdk/client-s3";
 
 interface GetPresignedPostParams {

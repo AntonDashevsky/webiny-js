@@ -1,5 +1,5 @@
-import { createApiPulumiApp, CreateApiPulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
-import { PluginCollection } from "@webiny/plugins/types.js";
+import { createApiPulumiApp, type CreateApiPulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
+import { type PluginCollection } from "@webiny/plugins/types.js";
 import {
     ensureCoreDeployed,
     executeDataMigrations,

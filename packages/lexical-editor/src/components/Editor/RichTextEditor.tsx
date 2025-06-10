@@ -1,8 +1,8 @@
 import React, { Fragment, useRef, useState } from "react";
 import { css } from "emotion";
-import { CSSObject } from "@emotion/react";
-import { Klass, LexicalEditor, LexicalNode } from "lexical";
-import { EditorState } from "lexical/LexicalEditorState.js";
+import { type CSSObject } from "@emotion/react";
+import { type Klass, type LexicalEditor, type LexicalNode } from "lexical";
+import { type EditorState } from "lexical/LexicalEditorState.js";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { $isRootTextContentEmpty } from "@lexical/text";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
@@ -15,8 +15,8 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import {
     createTheme,
-    EditorTheme,
-    ThemeEmotionMap,
+    type EditorTheme,
+    type ThemeEmotionMap,
     toTypographyEmotionMap
 } from "@webiny/lexical-theme";
 import { allNodes } from "@webiny/lexical-nodes";
@@ -24,7 +24,7 @@ import { RichTextEditorProvider } from "~/context/RichTextEditorContext.js";
 import { isValidLexicalData } from "~/utils/isValidLexicalData.js";
 import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin/index.js";
 import { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin.js";
-import { LexicalValue, ToolbarActionPlugin } from "~/types.js";
+import { type LexicalValue, type ToolbarActionPlugin } from "~/types.js";
 import { Placeholder } from "~/ui/Placeholder.js";
 import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue.js";
 import { SharedHistoryContext, useSharedHistoryContext } from "~/context/SharedHistoryContext.js";

@@ -1,6 +1,6 @@
-import { FC, useEffect } from "react";
+import { type FC, useEffect } from "react";
 import { BLUR_COMMAND, COMMAND_PRIORITY_LOW } from "lexical";
-import { LexicalValue } from "~/types.js";
+import { type LexicalValue } from "~/types.js";
 import { useRichTextEditor } from "~/hooks/index.js";
 
 interface BlurEventPlugin {

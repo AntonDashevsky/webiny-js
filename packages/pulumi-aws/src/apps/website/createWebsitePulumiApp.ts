@@ -1,9 +1,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import fs from "fs";
-import { createPulumiApp, PulumiAppParam, PulumiAppParamCallback } from "@webiny/pulumi";
+import { createPulumiApp, type PulumiAppParam, type PulumiAppParamCallback } from "@webiny/pulumi";
 import { createPrivateAppBucket } from "../createAppBucket.js";
-import { applyCustomDomain, CustomDomainParams } from "../customDomain.js";
+import { applyCustomDomain, type CustomDomainParams } from "../customDomain.js";
 import { createPrerenderingService } from "./WebsitePrerendering.js";
 import { ApiOutput, CoreOutput, VpcConfig } from "~/apps/index.js";
 import {

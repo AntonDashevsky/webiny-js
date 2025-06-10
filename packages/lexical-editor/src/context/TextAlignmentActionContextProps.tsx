@@ -1,5 +1,5 @@
 import React from "react";
-import { ElementFormatType } from "lexical";
+import { type ElementFormatType } from "lexical";
 
 export interface TextAlignmentActionContextProps {
     /*

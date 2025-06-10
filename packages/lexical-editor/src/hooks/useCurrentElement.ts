@@ -1,5 +1,5 @@
 import { $findMatchingParent } from "@lexical/utils";
-import { $isRootOrShadowRoot, RangeSelection } from "lexical";
+import { $isRootOrShadowRoot, type RangeSelection } from "lexical";
 import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection.js";
 
 export function useCurrentElement() {

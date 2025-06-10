@@ -3,7 +3,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { marshall } from "@webiny/aws-sdk/client-dynamodb";
 
-import { PulumiApp } from "@webiny/pulumi";
+import { type PulumiApp } from "@webiny/pulumi";
 import { getLayerArn } from "@webiny/aws-layers";
 
 import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";

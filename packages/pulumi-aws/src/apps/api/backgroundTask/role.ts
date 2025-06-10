@@ -1,6 +1,6 @@
-import { PulumiApp } from "@webiny/pulumi";
+import { type PulumiApp } from "@webiny/pulumi";
 import * as aws from "@pulumi/aws";
-import * as pulumi from "@pulumi/pulumi";
+import type * as pulumi from "@pulumi/pulumi";
 
 interface Params {
     name: string;

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Compose, Decorator, makeDecoratable } from "@webiny/react-composition";
-import { GenericComponent } from "@webiny/react-composition/types.js";
-import { Property, Properties, toObject } from "~/index.js";
+import { Compose, type Decorator, makeDecoratable } from "@webiny/react-composition";
+import { type GenericComponent } from "@webiny/react-composition/types.js";
+import { type Property, Properties, toObject } from "~/index.js";
 import { useDebugConfig } from "./useDebugConfig.js";
 
 const createHOC =

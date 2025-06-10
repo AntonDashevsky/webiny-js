@@ -1,4 +1,4 @@
-import * as http from "http";
+import type * as http from "http";
 
 type ExtraHeaders = {
     "content-type"?: string | undefined;

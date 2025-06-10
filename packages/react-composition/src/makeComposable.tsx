@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { GenericComponent } from "~/types.js";
+import { type GenericComponent } from "~/types.js";
 import { makeDecoratable } from "~/makeDecoratable.js";
 
 const ComposableContext = createContext<string[]>([]);

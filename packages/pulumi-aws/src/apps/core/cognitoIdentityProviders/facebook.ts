@@ -1,6 +1,6 @@
-import * as pulumi from "@pulumi/pulumi";
-import { CognitoIdentityProviderConfig } from "./configure.js";
-import { IdentityProviderArgs } from "@pulumi/aws/cognito/index.js";
+import type * as pulumi from "@pulumi/pulumi";
+import { type CognitoIdentityProviderConfig } from "./configure.js";
+import { type IdentityProviderArgs } from "@pulumi/aws/cognito/index.js";
 
 export const getFacebookIdpConfig = (
     userPoolId: pulumi.Input<string>,

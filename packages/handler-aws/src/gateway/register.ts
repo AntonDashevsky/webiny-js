@@ -1,7 +1,7 @@
 import type { APIGatewayEvent } from "@webiny/aws-sdk/types/index.js";
 import { registry } from "~/registry.js";
 import { createSourceHandler } from "~/sourceHandler.js";
-import { createHandler, HandlerParams } from "./index.js";
+import { createHandler, type HandlerParams } from "./index.js";
 
 const handler = createSourceHandler<APIGatewayEvent, HandlerParams>({
     name: "handler-aws-api-gateway",

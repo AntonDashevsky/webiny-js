@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import { isPoint, Point } from "./point.js";
+import { isPoint, type Point } from "./point.js";
 
 type ContainsPointReturn = {
     result: boolean;

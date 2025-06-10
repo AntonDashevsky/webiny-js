@@ -1,11 +1,11 @@
 import React from "react";
-import { RouteProps } from "~/Route.js";
+import { type RouteProps } from "~/Route.js";
 import {
     Route,
     Routes as BaseRoutes,
-    RoutesProps as BaseRoutesProps,
+    type RoutesProps as BaseRoutesProps,
     useLocation,
-    Location
+    type Location
 } from "react-router-dom";
 
 const createNativeRoute = (props: RouteProps, index: number, location: Location): JSX.Element => {

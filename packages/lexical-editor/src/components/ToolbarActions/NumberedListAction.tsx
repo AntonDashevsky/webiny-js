@@ -1,5 +1,5 @@
 import React from "react";
-import { $isListNode, ListNode } from "@webiny/lexical-nodes";
+import { $isListNode, type ListNode } from "@webiny/lexical-nodes";
 import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { INSERT_ORDERED_LIST_COMMAND, REMOVE_LIST_COMMAND } from "~/commands/index.js";
 import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";

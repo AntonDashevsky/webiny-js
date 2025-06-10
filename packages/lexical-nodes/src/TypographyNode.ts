@@ -1,16 +1,16 @@
 import {
     createCommand,
-    EditorConfig,
+    type EditorConfig,
     ElementNode,
-    LexicalCommand,
-    LexicalEditor,
-    LexicalNode,
-    NodeKey,
-    SerializedElementNode,
-    Spread
+    type LexicalCommand,
+    type LexicalEditor,
+    type LexicalNode,
+    type NodeKey,
+    type SerializedElementNode,
+    type Spread
 } from "lexical";
 import { addClassNamesToElement } from "@lexical/utils";
-import { EditorTheme, TypographyHTMLTag, TypographyValue } from "@webiny/lexical-theme";
+import { type EditorTheme, type TypographyHTMLTag, type TypographyValue } from "@webiny/lexical-theme";
 import { $createParagraphNode } from "~/ParagraphNode.js";
 
 // Command and payload

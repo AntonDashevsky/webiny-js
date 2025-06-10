@@ -1,4 +1,4 @@
-import { createPulumiApp, PulumiAppParam } from "@webiny/pulumi";
+import { createPulumiApp, type PulumiAppParam } from "@webiny/pulumi";
 import { SyncSystemDynamo } from "./SyncSystemDynamo.js";
 import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
 import { SyncSystemSQS } from "./SyncSystemSQS.js";

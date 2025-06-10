@@ -2,7 +2,7 @@ import { createHandler as createBaseHandler } from "@webiny/handler";
 import { registerDefaultPlugins } from "~/plugins/index.js";
 import {
     EventBridgeEventHandler,
-    EventBridgeEventHandlerCallableParams
+    type EventBridgeEventHandlerCallableParams
 } from "~/eventBridge/plugins/EventBridgeEventHandler.js";
 import { execute } from "~/execute.js";
 import type { HandlerFactoryParams } from "~/types.js";

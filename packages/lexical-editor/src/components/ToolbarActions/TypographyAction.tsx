@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { LexicalCommand } from "lexical";
+import { type LexicalCommand } from "lexical";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
-import { TypographyValue } from "@webiny/lexical-theme";
+import { type TypographyValue } from "@webiny/lexical-theme";
 import { TypographyActionContext } from "~/context/TypographyActionContext.js";
 import {
     $isHeadingNode,
@@ -10,16 +10,16 @@ import {
     $isQuoteNode,
     $isTypographyNode,
     ADD_TYPOGRAPHY_COMMAND,
-    TypographyNode,
-    TypographyPayload
+    type TypographyNode,
+    type TypographyPayload
 } from "@webiny/lexical-nodes";
 import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
 import {
     INSERT_ORDERED_LIST_COMMAND,
     INSERT_UNORDERED_LIST_COMMAND,
     INSERT_QUOTE_COMMAND,
-    ListCommandPayload,
-    QuoteCommandPayload
+    type ListCommandPayload,
+    type QuoteCommandPayload
 } from "~/commands/index.js";
 import { useCurrentElement } from "~/hooks/useCurrentElement.js";
 

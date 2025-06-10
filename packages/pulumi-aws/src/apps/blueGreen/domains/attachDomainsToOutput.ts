@@ -1,4 +1,4 @@
-import * as aws from "@pulumi/aws";
+import type * as aws from "@pulumi/aws";
 import { type PulumiApp, type PulumiAppResource } from "@webiny/pulumi";
 import type { IResolvedDomains } from "~/apps/blueGreen/types.js";
 

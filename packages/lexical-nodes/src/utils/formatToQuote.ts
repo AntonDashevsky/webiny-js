@@ -1,4 +1,4 @@
-import { $getSelection, $isRangeSelection, LexicalEditor } from "lexical";
+import { $getSelection, $isRangeSelection, type LexicalEditor } from "lexical";
 import { $setBlocksType } from "@lexical/selection";
 import { $createQuoteNode } from "~/QuoteNode.js";
 

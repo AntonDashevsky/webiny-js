@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins/Plugin.js";
-import { InvokeArgs } from "~/types.js";
+import { type InvokeArgs } from "~/types.js";
 
 interface HandlerClientPluginCallable<Payload = any, Response = any> {
     (params: InvokeArgs<Payload>): Promise<Response>;

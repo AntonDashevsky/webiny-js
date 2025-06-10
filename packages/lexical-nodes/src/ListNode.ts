@@ -1,20 +1,20 @@
 import {
-    DOMConversion,
-    DOMConversionMap,
-    DOMConversionOutput,
-    EditorConfig,
+    type DOMConversion,
+    type DOMConversionMap,
+    type DOMConversionOutput,
+    type EditorConfig,
     ElementNode,
-    LexicalNode,
-    NodeKey,
-    SerializedElementNode,
-    Spread
+    type LexicalNode,
+    type NodeKey,
+    type SerializedElementNode,
+    type Spread
 } from "lexical";
-import { EditorTheme, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import { type EditorTheme, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
-import { ListNodeTagType } from "@lexical/list/LexicalListNode.js";
+import { type ListNodeTagType } from "@lexical/list/LexicalListNode.js";
 import { $getListDepth, wrapInListItem } from "~/utils/listNode.js";
-import { $isListItemNode, ListItemNode } from "./ListItemNode.js";
-import { ListType } from "@lexical/list";
+import { $isListItemNode, type ListItemNode } from "./ListItemNode.js";
+import { type ListType } from "@lexical/list";
 
 const TypographyStyleAttrName = "data-theme-list-style-id";
 

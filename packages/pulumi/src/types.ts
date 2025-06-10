@@ -1,4 +1,4 @@
-import * as pulumi from "@pulumi/pulumi";
+import type * as pulumi from "@pulumi/pulumi";
 import type { PulumiAppModuleDefinition } from "./PulumiAppModule.js";
 import type {
     CreatePulumiAppResourceParams,

@@ -7,13 +7,13 @@
 import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types/index.js";
 import {
     createHandler as createBaseHandler,
-    CreateHandlerParams as BaseCreateHandlerParams
+    type CreateHandlerParams as BaseCreateHandlerParams
 } from "@webiny/handler";
 import { RawEventHandler } from "~/raw/plugins/RawEventHandler.js";
 import { registerDefaultPlugins } from "~/plugins/index.js";
 import { execute } from "~/execute.js";
 import { createComposedHandler } from "~/utils/composedHandler.js";
-import { Context, Request } from "@webiny/handler/types.js";
+import { type Context, type Request } from "@webiny/handler/types.js";
 
 // @ts-expect-error This export has no types.
 import Reply from "fastify/lib/reply.js";

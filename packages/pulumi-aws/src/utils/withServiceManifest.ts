@@ -1,9 +1,9 @@
 import merge from "lodash/merge.js";
-import { PulumiApp } from "@webiny/pulumi";
+import { type PulumiApp } from "@webiny/pulumi";
 import {
     addServiceManifestTableItem,
-    ServiceManifest,
-    TableDefinition
+    type ServiceManifest,
+    type TableDefinition
 } from "./addServiceManifestTableItem.js";
 import { CoreOutput } from "~/apps/index.js";
 

@@ -1,5 +1,5 @@
-import * as pulumi from "@pulumi/pulumi";
-import { CognitoIdentityProviderConfig } from "./configure.js";
+import type * as pulumi from "@pulumi/pulumi";
+import { type CognitoIdentityProviderConfig } from "./configure.js";
 import { getGoogleIdpConfig } from "./google.js";
 import { getFacebookIdpConfig } from "./facebook.js";
 import { getAppleIdpConfig } from "./apple.js";

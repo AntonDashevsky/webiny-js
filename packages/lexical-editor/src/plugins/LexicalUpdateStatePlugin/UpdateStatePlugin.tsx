@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { parseLexicalState } from "~/utils/isValidLexicalData.js";
 import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue.js";
-import { LexicalValue } from "~/types.js";
+import { type LexicalValue } from "~/types.js";
 import { useRichTextEditor } from "~/hooks/index.js";
 
 interface UpdateStatePluginProps {

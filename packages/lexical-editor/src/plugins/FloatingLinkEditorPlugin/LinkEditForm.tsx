@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { sanitizeUrl } from "~/utils/sanitizeUrl.js";
 import { isAnchorLink } from "~/utils/isAnchorLink.js";
-import { LinkData } from "./FloatingLinkEditorPlugin.js";
+import { type LinkData } from "./FloatingLinkEditorPlugin.js";
 
 interface LinkFormProps {
     linkData: LinkData;

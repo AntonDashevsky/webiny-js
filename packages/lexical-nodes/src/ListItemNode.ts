@@ -1,19 +1,19 @@
 import {
     $isElementNode,
     $isRangeSelection,
-    DOMConversionMap,
-    DOMConversionOutput,
-    EditorConfig,
-    EditorThemeClasses,
+    type DOMConversionMap,
+    type DOMConversionOutput,
+    type EditorConfig,
+    type EditorThemeClasses,
     ElementNode,
-    LexicalNode,
-    NodeKey,
-    ParagraphNode,
-    RangeSelection,
-    SerializedElementNode,
-    Spread
+    type LexicalNode,
+    type NodeKey,
+    type ParagraphNode,
+    type RangeSelection,
+    type SerializedElementNode,
+    type Spread
 } from "lexical";
-import { $createListNode, $isListNode, ListNode } from "~/ListNode.js";
+import { $createListNode, $isListNode, type ListNode } from "~/ListNode.js";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
 import {
     $handleIndent,

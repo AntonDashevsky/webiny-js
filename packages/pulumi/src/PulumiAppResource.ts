@@ -1,4 +1,4 @@
-import * as pulumi from "@pulumi/pulumi";
+import type * as pulumi from "@pulumi/pulumi";
 
 export interface PulumiAppResourceConstructor<T = any, TArgs = any> {
     new (name: string, args: TArgs, opts?: pulumi.CustomResourceOptions): T;

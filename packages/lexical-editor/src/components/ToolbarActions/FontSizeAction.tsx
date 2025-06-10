@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { $getSelectionStyleValueForProperty, $patchStyleText } from "@lexical/selection";
 import { mergeRegister } from "@lexical/utils";
-import { $getSelection, $isRangeSelection, LexicalEditor } from "lexical";
+import { $getSelection, $isRangeSelection, type LexicalEditor } from "lexical";
 import { DropDown, DropDownItem } from "~/ui/DropDown.js";
 import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection.js";
 import { useRichTextEditor } from "~/hooks/index.js";

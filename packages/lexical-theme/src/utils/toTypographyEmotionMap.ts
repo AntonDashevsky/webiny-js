@@ -1,6 +1,6 @@
-import { ThemeEmotionMap, TypographyHTMLTag } from "~/types.js";
-import { EditorTheme } from "~/createTheme.js";
-import { css as EmotionCSS } from "emotion";
+import { type ThemeEmotionMap, type TypographyHTMLTag } from "~/types.js";
+import { type EditorTheme } from "~/createTheme.js";
+import { type css as EmotionCSS } from "emotion";
 
 /*
  *  Creates a map of style key ID's and typography style objects that include 'className' property which contains the

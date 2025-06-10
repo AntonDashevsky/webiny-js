@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { HandlerClientHandlerPlugin, InvokeArgs, ClientContext } from "./types.js";
+import { type HandlerClientHandlerPlugin, type InvokeArgs, type ClientContext } from "./types.js";
 import { HandlerClientPlugin } from "~/HandlerClientPlugin.js";
 
 const defaultPluginName = "handler-client";

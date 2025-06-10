@@ -1,7 +1,7 @@
 import React from "react";
 import {
     ActiveHeadingRenderer,
-    elementInputs
+    type elementInputs
 } from "@webiny/app-page-builder/editor/plugins/elements/heading/index.js";
 import { isValidLexicalData } from "@webiny/lexical-editor";
 import { useRenderer } from "@webiny/app-page-builder-elements";

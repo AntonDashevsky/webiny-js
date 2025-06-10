@@ -8,7 +8,7 @@ import { createHandler as createBaseHandler } from "@webiny/handler";
 import { registerDefaultPlugins } from "~/plugins/index.js";
 import {
     DynamoDBEventHandler,
-    DynamoDBEventHandlerCallableParams
+    type DynamoDBEventHandlerCallableParams
 } from "./plugins/DynamoDBEventHandler.js";
 /**
  * We need a class, not an interface exported from types.

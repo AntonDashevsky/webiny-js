@@ -2,7 +2,7 @@ import * as path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { createInstallationZip } from "@webiny/api-page-builder/installation/index.js";
-import { createAppModule, PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule, type PulumiApp, type PulumiAppModule } from "@webiny/pulumi";
 import { CoreOutput } from "~/apps/index.js";
 import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
 import { getAwsAccountId, getAwsRegion } from "../awsUtils.js";

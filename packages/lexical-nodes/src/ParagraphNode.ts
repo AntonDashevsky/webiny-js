@@ -1,18 +1,18 @@
 import {
     $applyNodeReplacement,
-    DOMConversionMap,
-    DOMConversionOutput,
-    ElementFormatType,
-    LexicalNode,
-    NodeKey,
+    type DOMConversionMap,
+    type DOMConversionOutput,
+    type ElementFormatType,
+    type LexicalNode,
+    type NodeKey,
     ParagraphNode as BaseParagraphNode,
-    SerializedParagraphNode as SerializedBaseParagraphNode,
-    Spread
+    type SerializedParagraphNode as SerializedBaseParagraphNode,
+    type Spread
 } from "lexical";
-import { EditorConfig } from "lexical";
-import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import { type EditorConfig } from "lexical";
+import { type EditorTheme, type ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
-import { TypographyStylesNode, ThemeStyleValue, TextNodeThemeStyles } from "~/types.js";
+import { type TypographyStylesNode, type ThemeStyleValue, type TextNodeThemeStyles } from "~/types.js";
 
 export type SerializeParagraphNode = Spread<
     {

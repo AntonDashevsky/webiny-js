@@ -1,14 +1,14 @@
 import {
     createWebsitePulumiApp,
-    CreateWebsitePulumiAppParams
+    type CreateWebsitePulumiAppParams
 } from "@webiny/pulumi-aws/enterprise/index.js";
-import { PluginCollection } from "@webiny/plugins/types.js";
+import { type PluginCollection } from "@webiny/plugins/types.js";
 import {
     generateCommonHandlers,
     lambdaEdgeWarning,
     renderWebsite,
     telemetryNoLongerNewUser,
-    IRenderWebsiteParams
+    type IRenderWebsiteParams
 } from "~/website/plugins/index.js";
 import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed.js";
 

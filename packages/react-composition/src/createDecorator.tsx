@@ -1,10 +1,10 @@
 import React from "react";
 import {
-    CanReturnNullOrElement,
-    Decoratable,
-    DecoratableComponent,
-    DecoratableHook,
-    Decorator
+    type CanReturnNullOrElement,
+    type Decoratable,
+    type DecoratableComponent,
+    type DecoratableHook,
+    type Decorator
 } from "~/types.js";
 import { Compose } from "~/Compose.js";
 

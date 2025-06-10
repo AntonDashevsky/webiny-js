@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import {
-    ElementFormatType,
+    type ElementFormatType,
     FORMAT_ELEMENT_COMMAND,
     INDENT_CONTENT_COMMAND,
     OUTDENT_CONTENT_COMMAND

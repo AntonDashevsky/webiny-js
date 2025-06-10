@@ -1,5 +1,5 @@
 import { AsyncPluginsContainer } from "@webiny/plugins";
-import { HandlerFactory } from "~/types.js";
+import { type HandlerFactory } from "~/types.js";
 import { registry } from "./registry.js";
 
 export const createHandler: HandlerFactory = ({ plugins, ...params }) => {

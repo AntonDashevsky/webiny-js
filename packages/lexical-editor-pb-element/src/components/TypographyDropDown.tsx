@@ -6,8 +6,8 @@ import {
     useCurrentSelection,
     useTypographyAction
 } from "@webiny/lexical-editor";
-import { TypographyStyle } from "@webiny/theme/types.js";
-import { TypographyValue } from "@webiny/lexical-theme";
+import { type TypographyStyle } from "@webiny/theme/types.js";
+import { type TypographyValue } from "@webiny/lexical-theme";
 import { useTheme } from "@webiny/app-admin";
 import { useCurrentElement } from "@webiny/lexical-editor/hooks/useCurrentElement.js";
 import {

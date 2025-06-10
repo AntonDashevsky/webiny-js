@@ -1,6 +1,6 @@
 import { customAlphabet } from "nanoid";
 const nanoid = customAlphabet("1234567890abcdef");
-import { Property } from "./Properties.js";
+import { type Property } from "./Properties.js";
 
 function buildRoots(roots: Property[], properties: Property[]) {
     const obj: Record<string, unknown> = roots.reduce((acc, item) => {

@@ -1,16 +1,16 @@
 import findUp from "find-up";
 import path from "path";
 import * as pulumi from "@pulumi/pulumi";
-import { PulumiAppModuleDefinition } from "./PulumiAppModule.js";
+import { type PulumiAppModuleDefinition } from "./PulumiAppModule.js";
 import {
-    CreatePulumiAppResourceParams,
-    PulumiAppResource,
-    PulumiAppResourceArgs,
-    PulumiAppResourceConfigModifier,
-    PulumiAppResourceConfigProxy,
-    PulumiAppResourceConfigSetter,
-    PulumiAppResourceConstructor,
-    PulumiAppResourceType
+    type CreatePulumiAppResourceParams,
+    type PulumiAppResource,
+    type PulumiAppResourceArgs,
+    type PulumiAppResourceConfigModifier,
+    type PulumiAppResourceConfigProxy,
+    type PulumiAppResourceConfigSetter,
+    type PulumiAppResourceConstructor,
+    type PulumiAppResourceType
 } from "./PulumiAppResource.js";
 import type {
     CreatePulumiAppParams,
@@ -21,7 +21,7 @@ import type {
     PulumiProgram,
     ResourceHandler
 } from "~/types.js";
-import { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource.js";
+import { type PulumiAppRemoteResource } from "~/PulumiAppRemoteResource.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import { DEFAULT_PROD_ENV_NAMES } from "./constants.js";
 

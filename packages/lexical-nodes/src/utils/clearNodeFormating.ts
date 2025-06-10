@@ -1,4 +1,4 @@
-import { $isRangeSelection, $isTextNode, LexicalEditor, RangeSelection } from "lexical";
+import { $isRangeSelection, $isTextNode, type LexicalEditor, type RangeSelection } from "lexical";
 import { $selectAll } from "@lexical/selection";
 import { $getNearestBlockElementAncestorOrThrow } from "@lexical/utils";
 import { $isDecoratorBlockNode } from "@lexical/react/LexicalDecoratorBlockNode";

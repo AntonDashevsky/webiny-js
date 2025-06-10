@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { FastifyReply, FastifyRequest } from "fastify";
+import { type FastifyReply, type FastifyRequest } from "fastify";
 
 /**
  * If the execution of the callable returns false, no more plugins will be executed after the given one.

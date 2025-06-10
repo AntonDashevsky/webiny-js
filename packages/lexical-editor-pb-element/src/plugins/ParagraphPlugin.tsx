@@ -1,7 +1,7 @@
 import React from "react";
 import {
     ActiveParagraphRenderer,
-    elementInputs
+    type elementInputs
 } from "@webiny/app-page-builder/editor/plugins/elements/paragraph/index.js";
 import { isValidLexicalData } from "@webiny/lexical-editor";
 import { useRenderer } from "@webiny/app-page-builder-elements";

@@ -1,6 +1,6 @@
 import type { S3Event } from "@webiny/aws-sdk/types/index.js";
 import { registry } from "~/registry.js";
-import { HandlerFactoryParams } from "~/types.js";
+import { type HandlerFactoryParams } from "~/types.js";
 import { createSourceHandler } from "~/sourceHandler.js";
 import { createHandler } from "./index.js";
 

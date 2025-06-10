@@ -25,7 +25,7 @@ import {
     $isRangeSelection,
     createCommand,
     ElementNode,
-    Spread
+    type Spread
 } from "lexical";
 
 export type LinkAttributes = {

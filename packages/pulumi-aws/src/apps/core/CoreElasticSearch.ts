@@ -8,10 +8,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import {
     createAppModule,
-    PulumiApp,
-    PulumiAppRemoteResource,
-    PulumiAppResource,
-    PulumiAppResourceConstructor
+    type PulumiApp,
+    type PulumiAppRemoteResource,
+    type PulumiAppResource,
+    type PulumiAppResourceConstructor
 } from "@webiny/pulumi";
 
 import { getAwsAccountId } from "../awsUtils.js";
