@@ -1,4 +1,3 @@
-import { getPresets } from "@webiny/project-utils/testing/presets/index.js";
 import base from "../../jest.config.base.js";
 
 export default async () => {
@@ -10,5 +9,5 @@ export default async () => {
         ["@webiny/api-tenancy", "storage-operations"]
     );
 
-    return base({ path: import.meta.dirname, presets });
+    return base({ path: import.meta.dirname }, presets);
 };

@@ -38,6 +38,7 @@ export default async ({ path }, presets = []) => {
             modulePaths: [`${path}/src`],
             testMatch: [`${path}/**/*${type}.test.[jt]s?(x)`],
             transformIgnorePatterns: ["/node_modules/(?!(nanoid)/)"],
+            testPathIgnorePatterns: ["/apps/", "/extensions/"],
             moduleDirectories: ["node_modules"],
             moduleNameMapper: {
                 "~tests/(.*)": `${path}/__tests__/$1`,

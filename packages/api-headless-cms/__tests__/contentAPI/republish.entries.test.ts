@@ -7,8 +7,7 @@ import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
 import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
 import { createStorageOperationsContext } from "~tests/storageOperations/context";
 
-const cliPackageJson = require("@webiny/cli/package.json");
-const webinyVersion = cliPackageJson.version;
+const webinyVersion = "0.0.0";
 
 interface CreateEntryResult {
     entry: CmsEntry;

@@ -1,3 +1,5 @@
-const base = require("../../jest.config.base");
+import base from "../../jest.config.base.js";
 
-module.exports = base({ path: __dirname });
+export default async () => {
+    return base({ path: import.meta.dirname });
+};

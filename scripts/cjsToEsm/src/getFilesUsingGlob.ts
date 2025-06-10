@@ -8,7 +8,14 @@ export function getFilesUsingGlob(rootDir: string | string[]): string[] {
     const request = Array.isArray(rootDir) ? rootDir : [rootDir];
     const globs = request
         .map((rootDir: string) => {
-            return [`${rootDir}/src/**/*.tsx`, `${rootDir}/src/**/*.ts`, `${rootDir}/src/**/*.js`];
+            return [
+                `${rootDir}/src/**/*.tsx`,
+                `${rootDir}/**/*.test.tsx?`,
+                `${rootDir}/src/**/*.ts`,
+                `${rootDir}/**/*.test.ts`,
+                `${rootDir}/src/**/*.js`,
+                `${rootDir}/**/*.test.js`
+            ];
         })
         .flat();
 

@@ -10,8 +10,7 @@ import { createIdentifier, generateAlphaNumericLowerCaseId, mdbid } from "@webin
 import crypto from "crypto";
 import { PluginsContainer } from "@webiny/plugins";
 
-const cliPackageJson = require("@webiny/cli/package.json");
-const webinyVersion = cliPackageJson.version;
+const webinyVersion = "0.0.0";
 
 const baseGroup = new CmsGroupPlugin({
     name: "Base group",
