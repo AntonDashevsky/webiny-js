@@ -8,9 +8,8 @@ import {
     createCmsModelPlugin
 } from "~/plugins";
 
-const { version: webinyVersion } = require("@webiny/cli/package.json");
-
 const contentModelGroup = createContentModelGroup();
+const webinyVersion = "0.0.0";
 
 export interface Fruit {
     id?: string;
@@ -173,7 +172,7 @@ const models: CmsModel[] = [
             }
         ],
         tenant: "root",
-        webinyVersion
+        webinyVersion: "0.0.0"
     },
 
     // category
@@ -251,7 +250,7 @@ const models: CmsModel[] = [
             }
         ],
         tenant: "root",
-        webinyVersion
+        webinyVersion: "0.0.0"
     },
     // category
     {
@@ -354,7 +353,7 @@ const models: CmsModel[] = [
             }
         ],
         tenant: "root",
-        webinyVersion
+        webinyVersion: "0.0.0"
     },
     // product
     {
@@ -959,7 +958,7 @@ const models: CmsModel[] = [
             }
         ],
         tenant: "root",
-        webinyVersion
+        webinyVersion: "0.0.0"
     },
     // product review
     {

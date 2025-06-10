@@ -5,6 +5,7 @@ import { createMockApiLog } from "@webiny/project-utils/testing/mockApiLog";
 import { LambdaContext, Reply, Request } from "@webiny/handler-aws/types";
 import { marshall } from "@webiny/aws-sdk/client-dynamodb";
 import { createMockContext } from "~tests/mocks/context";
+import { jest } from "@jest/globals";
 
 describe("transfer data", () => {
     it("should transfer data from event to elasticsearch", async () => {

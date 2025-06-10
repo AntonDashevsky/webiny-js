@@ -1,5 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 import { defaultIdentity } from "../tenancySecurity";
+import { jest } from "@jest/globals";
 
 jest.setTimeout(100000);
 

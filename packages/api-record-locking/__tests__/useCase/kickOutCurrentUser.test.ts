@@ -2,6 +2,7 @@ import { KickOutCurrentUserUseCase } from "~/useCases/KickOutCurrentUser/KickOut
 import { IWebsocketsContextObject } from "@webiny/api-websockets";
 import { createIdentity } from "~tests/helpers/identity";
 import { IRecordLockingLockRecord } from "~/types";
+import { jest } from "@jest/globals";
 
 describe("kick out current user", () => {
     it("should send message via websockets to kick out current user", async () => {

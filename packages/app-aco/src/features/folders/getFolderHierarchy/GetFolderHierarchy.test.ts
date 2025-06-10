@@ -1,6 +1,7 @@
 import { GetFolderHierarchy } from "./GetFolderHierarchy.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory.js";
+import { jest } from "@jest/globals";
 
 describe("GetFolderHierarchy", () => {
     const type = "abc";

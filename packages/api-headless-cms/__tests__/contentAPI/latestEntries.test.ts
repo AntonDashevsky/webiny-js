@@ -4,6 +4,7 @@ import models from "./mocks/contentModels";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler";
 import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler";
+import { jest } from "@jest/globals";
 
 jest.setTimeout(100000);
 

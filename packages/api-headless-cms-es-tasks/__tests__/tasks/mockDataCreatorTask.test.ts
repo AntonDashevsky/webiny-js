@@ -13,6 +13,7 @@ import {
 } from "~/tasks/MockDataManager/createModelAndGroup";
 import { CARS_MODEL_ID } from "~/tasks/MockDataManager/constants";
 import { disableIndexing, enableIndexing } from "~/utils";
+import { jest } from "@jest/globals";
 
 jest.setTimeout(120000);
 

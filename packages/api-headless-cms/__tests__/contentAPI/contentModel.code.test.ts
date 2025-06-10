@@ -1,4 +1,5 @@
 import { CmsModelPlugin } from "~/plugins";
+import { jest } from "@jest/globals";
 
 describe("content model via code", () => {
     beforeEach(async () => {

@@ -1,5 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 import { Page } from "~/types";
+import { jest } from "@jest/globals";
 
 const sort: string[] = ["createdOn_DESC"];
 

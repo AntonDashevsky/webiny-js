@@ -5,6 +5,7 @@ import { Column, ColumnsPresenter, ColumnsRepository } from "../Columns/index.js
 import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository.js";
 import { ColumnsVisibilityDecorator } from "./ColumnsVisibilityDecorator.js";
 import { ColumnsVisibilityUpdater } from "~/components/Table/components/Table/ColumnVisibility/ColumnsVisibilityUpdater.js";
+import { jest } from "@jest/globals";
 
 const defaultGateway: IColumnsVisibilityGateway = {
     get: jest.fn(),

@@ -2,6 +2,7 @@ import { createDynamoDbLogger } from "~/logger";
 import { getTenant } from "~tests/mocks/getTenant";
 import { getLocale } from "~tests/mocks/getLocale";
 import { ILoggerLog, LogType } from "~/types";
+import { jest } from "@jest/globals";
 
 jest.setTimeout(5000);
 

@@ -4,6 +4,7 @@ import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup
 import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler";
 import { Fruit } from "./mocks/contentModels";
 import { createCmsGraphQLSchemaSorterPlugin } from "~/plugins";
+import { jest } from "@jest/globals";
 
 const appleData: Fruit = {
     name: "A’p ` pl ' e",

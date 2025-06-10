@@ -1,5 +1,6 @@
 import { useGraphQLHandler } from "~tests/testHelpers/useGraphQLHandler";
 import { ContextPlugin } from "@webiny/api";
+import { jest } from "@jest/globals";
 
 describe("benchmark points", () => {
     let elapsed = 0;

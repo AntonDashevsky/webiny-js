@@ -3,6 +3,7 @@ import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { PutCommand, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb";
 import { CmsGraphQLSchemaPlugin } from "@webiny/api-headless-cms/plugins";
+import { jest } from "@jest/globals";
 
 const identityA: SecurityIdentity = { id: "a", type: "admin", displayName: "A" };
 

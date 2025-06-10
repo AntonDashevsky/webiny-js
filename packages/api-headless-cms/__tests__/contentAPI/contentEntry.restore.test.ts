@@ -4,6 +4,7 @@ import { useCategoryReadHandler } from "~tests/testHelpers/useCategoryReadHandle
 import { CmsEntry } from "~/types";
 import { toSlug } from "~/utils/toSlug";
 import { ROOT_FOLDER } from "~/constants";
+import { jest } from "@jest/globals";
 
 jest.setTimeout(100000);
 

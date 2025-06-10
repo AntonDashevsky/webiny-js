@@ -8,6 +8,7 @@ import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler"
 import { useArticleReadHandler } from "../testHelpers/useArticleReadHandler";
 import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
 import { Fruit } from "./mocks/contentModels";
+import { jest } from "@jest/globals";
 
 const appleData: Fruit = {
     name: "Apple",

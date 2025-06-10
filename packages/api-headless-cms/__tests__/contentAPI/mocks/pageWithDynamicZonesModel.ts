@@ -1,4 +1,3 @@
-const { version: webinyVersion } = require("@webiny/cli/package.json");
 import {
     CmsModel as BaseCmsModel,
     CmsModelField as BaseCmsModelField,
@@ -19,7 +18,7 @@ interface CmsModel extends Omit<BaseCmsModel, "fields"> {
 
 export const pageModel: CmsModel = {
     tenant: "root",
-    webinyVersion,
+    webinyVersion: "0.0.0",
     locale: "en-US",
     name: "Page",
     group: {

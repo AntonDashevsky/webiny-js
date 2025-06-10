@@ -3,6 +3,7 @@ import { createElasticsearchClient } from "@webiny/project-utils/testing/elastic
 import { ElasticsearchCatClusterHealthStatus } from "~/operations/types";
 import { UnhealthyClusterError } from "~/utils/waitUntilHealthy/UnhealthyClusterError";
 import { WaitingHealthyClusterAbortedError } from "~/utils/waitUntilHealthy/WaitingHealthyClusterAbortedError";
+import { jest } from "@jest/globals";
 
 describe("wait until healthy", () => {
     const client = createElasticsearchClient();

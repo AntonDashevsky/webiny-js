@@ -1,6 +1,7 @@
 import { DeleteFolder } from "./DeleteFolder.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { Folder } from "../Folder.js";
+import { jest } from "@jest/globals";
 
 describe("DeleteFolder", () => {
     const type = "abc";

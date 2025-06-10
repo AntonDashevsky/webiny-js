@@ -5,6 +5,7 @@ import {
     Operation
 } from "~/components/AdvancedSearch/domain/index.js";
 import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
+import { jest } from "@jest/globals";
 
 describe("QuerySaverDialogPresenter", () => {
     const demoFilter: FilterGroupFilterDTO = {

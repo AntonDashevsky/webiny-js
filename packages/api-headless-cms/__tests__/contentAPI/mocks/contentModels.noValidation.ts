@@ -2,8 +2,6 @@ import { createContentModelGroup } from "./contentModelGroup";
 import { CmsModel } from "~/types";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
 
-const { version: webinyVersion } = require("@webiny/cli/package.json");
-
 const ids = {
     field11: generateAlphaNumericLowerCaseId(8),
     field12: generateAlphaNumericLowerCaseId(8)
@@ -69,7 +67,7 @@ const models: CmsModel[] = [
         ],
         locale: "en-US",
         tenant: "root",
-        webinyVersion
+        webinyVersion: "0.0.0"
     }
 ];
 

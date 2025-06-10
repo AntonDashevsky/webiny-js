@@ -2,6 +2,7 @@ import { ApwContentReviewStepStatus } from "~/types";
 import { createSetupForPageContentReview } from "../utils/helpers";
 import { useGraphQlHandler } from "~tests/utils/useGraphQlHandler";
 import { createTransport } from "@webiny/api-mailer";
+import { jest } from "@jest/globals";
 
 jest.mock("~/plugins/hooks/notifications/appUrl", () => {
     return {

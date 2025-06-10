@@ -2,6 +2,7 @@ import { Context } from "~/Context";
 import { BenchmarkMeasurement } from "~/types";
 import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin";
 import { ContextPlugin } from "~/plugins/ContextPlugin";
+import { jest } from "@jest/globals";
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 

@@ -3,6 +3,7 @@ import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { Folder } from "../Folder.js";
 import { type FolderPermission } from "@webiny/shared-aco/flp/flp.types.js";
 import { ROOT_FOLDER } from "~/constants.js";
+import { jest } from "@jest/globals";
 
 describe("UpdateFolder", () => {
     const type = "abc";

@@ -7,6 +7,7 @@ import {
     Operation
 } from "./domain/index.js";
 import { type FiltersGatewayInterface } from "./gateways/index.js";
+import { jest } from "@jest/globals";
 
 const mockGateway: FiltersGatewayInterface = {
     list: jest.fn(),

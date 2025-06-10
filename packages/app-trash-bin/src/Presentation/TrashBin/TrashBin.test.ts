@@ -16,6 +16,7 @@ import {
     TrashBinItemsRepository,
     TrashBinItemsRepositoryWithLoading
 } from "~/Domain/Repositories/TrashBinItems/index.js";
+import { jest } from "@jest/globals";
 
 interface Item {
     id: string;

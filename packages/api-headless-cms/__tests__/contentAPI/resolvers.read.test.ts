@@ -5,6 +5,7 @@ import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandle
 import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
 import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
 import { useProductReadHandler } from "../testHelpers/useProductReadHandler";
+import { jest } from "@jest/globals";
 
 const createPermissions = ({ groups, models }: { groups?: string[]; models?: string[] }) => [
     {

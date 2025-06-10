@@ -6,6 +6,7 @@ import {
     createValueKeyFromStorageConverter
 } from "~/utils/converters/valueKeyStorageConverter";
 import { createGraphQLFields } from "~/graphqlFields";
+import { jest } from "@jest/globals";
 
 jest.setTimeout(10000);
 

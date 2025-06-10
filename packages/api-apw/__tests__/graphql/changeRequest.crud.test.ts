@@ -2,6 +2,7 @@ import { createPageContentReviewSetup } from "../utils/helpers";
 import { mocks as changeRequestMock } from "./mocks/changeRequest";
 import { useGraphQlHandler } from "~tests/utils/useGraphQlHandler";
 import { createTransport } from "@webiny/api-mailer";
+import { jest } from "@jest/globals";
 
 const updatedRichText = [
     {

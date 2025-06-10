@@ -5,6 +5,7 @@ import { expectCompressed } from "~tests/graphql/utils/expectCompressed";
 import { decompress } from "./utils/compression";
 import { calculateSize, createPageContent } from "~tests/graphql/mocks/pageContent";
 import { PageElementId } from "~/graphql/crud/pages/PageElementId";
+import { jest } from "@jest/globals";
 
 jest.setTimeout(100000);
 

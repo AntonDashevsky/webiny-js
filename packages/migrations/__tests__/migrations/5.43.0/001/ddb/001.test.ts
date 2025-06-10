@@ -11,6 +11,8 @@ import { insertTestFolders } from "../insertTestFolders";
 import { createLocalesData, createTenantsData } from "../common";
 
 import { StepFunctionService } from "@webiny/tasks/service/StepFunctionServicePlugin";
+import { jest } from "@jest/globals";
+
 jest.mock("@webiny/tasks/service/StepFunctionServicePlugin", () => {
     const sendMock = jest.fn().mockResolvedValue({
         tenant: "mockTenant",

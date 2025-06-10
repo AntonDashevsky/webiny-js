@@ -3,6 +3,7 @@ import useGqlHandler from "./useGqlHandler";
 import { identityA, identityB, NOT_AUTHORIZED_RESPONSE } from "./mocks";
 import { Category } from "~/types";
 import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import { jest } from "@jest/globals";
 
 const defaultHandler = useGqlHandler({
     permissions: [{ name: "content.i18n" }, { name: "pb.*" }],

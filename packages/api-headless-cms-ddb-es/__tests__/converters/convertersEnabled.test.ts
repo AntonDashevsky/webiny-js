@@ -7,6 +7,7 @@ import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
 import { get } from "@webiny/db-dynamodb";
 import { createPartitionKey } from "~/operations/entry/keys";
 import lodashMerge from "lodash/merge";
+import { jest } from "@jest/globals";
 
 jest.retryTimes(0);
 

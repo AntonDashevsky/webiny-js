@@ -2,6 +2,7 @@ import { mdbid } from "@webiny/utils";
 import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
 import { CmsEntry, CmsModel } from "~/types";
 import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
+import { jest } from "@jest/globals";
 
 const NUMBER_OF_FRUITS = 200;
 
