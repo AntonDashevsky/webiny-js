@@ -40,7 +40,11 @@ export const UpdateStatePlugin = ({ value }: UpdateStatePluginProps) => {
             if (newState) {
                 const state = newState;
                 queueMicrotask(() => {
-                    editor.setEditorState(state);
+                    try {
+                        editor.setEditorState(state, { });
+                    } catch (e) {
+                        console.error(e);
+                    }
                 });
             }
         }

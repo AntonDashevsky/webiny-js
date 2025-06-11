@@ -89,7 +89,7 @@ export default {
                 slot: "children"
             },
             component: {
-                name: "Webiny/BlockRef",
+                name: "Webiny/TextWithDropzone",
                 inputs: {
                     blockId: "B6ROAnHFao3",
                     inputs: {}

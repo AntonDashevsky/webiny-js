@@ -47,7 +47,8 @@ export const ElementOverlay = React.memo(
             [element]
         );
 
-        const onClick = useCallback(() => {
+        const onClick = useCallback((event: React.MouseEvent) => {
+            event.stopPropagation();
             $selectElement(editor, elementId);
         }, []);
 

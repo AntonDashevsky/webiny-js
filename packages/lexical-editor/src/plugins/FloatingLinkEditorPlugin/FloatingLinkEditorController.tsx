@@ -14,9 +14,15 @@ import {
     SELECTION_CHANGE_COMMAND
 } from "lexical";
 import { $findMatchingParent, mergeRegister } from "@lexical/utils";
-import { FloatingLinkEditor } from "./FloatingLinkEditorPlugin";
+import { FloatingLinkEditor } from "./FloatingLinkEditor";
+import { LinkEditForm } from "./LinkEditForm";
 
-export function useFloatingLinkEditor(anchorElem: HTMLElement): JSX.Element | null {
+interface FloatingLinkEditorProps {
+    anchorElem: HTMLElement;
+    LinkEditForm?: typeof LinkEditForm;
+}
+
+export const FloatingLinkEditorController = (props: FloatingLinkEditorProps) => {
     const { editor } = useRichTextEditor();
     const [isLink, setIsLink] = useState(false);
 
@@ -35,7 +41,7 @@ export function useFloatingLinkEditor(anchorElem: HTMLElement): JSX.Element | nu
 
         if (!isLinkOrChildOfLink) {
             // When hiding the toolbar, we want to hide immediately.
-            setIsLink(false);
+            // setIsLink(false);
         }
 
         if (selection.dirty) {
@@ -63,7 +69,7 @@ export function useFloatingLinkEditor(anchorElem: HTMLElement): JSX.Element | nu
                 BLUR_COMMAND,
                 payload => {
                     if (!isChildOfLinkEditor(payload.relatedTarget as HTMLElement)) {
-                        setIsLink(false);
+                        //setIsLink(false);
                     }
 
                     return false;
@@ -82,7 +88,12 @@ export function useFloatingLinkEditor(anchorElem: HTMLElement): JSX.Element | nu
     }, [editor, updateToolbar]);
 
     return createPortal(
-        <FloatingLinkEditor isVisible={isLink} editor={editor} anchorElem={anchorElem} />,
-        anchorElem
+        <FloatingLinkEditor
+            isVisible={isLink}
+            editor={editor}
+            anchorElem={props.anchorElem}
+            LinkEditForm={props.LinkEditForm}
+        />,
+        props.anchorElem
     );
-}
+};

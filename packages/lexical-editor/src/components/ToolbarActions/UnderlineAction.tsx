@@ -15,7 +15,7 @@ export const UnderlineAction = () => {
         <button
             onClick={handleClick}
             className={"popup-item spaced " + (isUnderlineSelected ? "active" : "")}
-            aria-label="Format text as italic"
+            aria-label="Underline text"
         >
             <i className="format underline" />
         </button>

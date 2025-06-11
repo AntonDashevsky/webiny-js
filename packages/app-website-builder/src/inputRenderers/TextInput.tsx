@@ -1,10 +1,10 @@
 import React from "react";
-import { Textarea } from "@webiny/admin-ui";
+import { Input } from "@webiny/admin-ui";
 import { ElementInputRendererProps } from "~/BaseEditor";
 
 export const TextInputRenderer = ({ value, onChange, input }: ElementInputRendererProps) => {
     return (
-        <Textarea
+        <Input
             value={value}
             onChange={onChange}
             label={input.label}

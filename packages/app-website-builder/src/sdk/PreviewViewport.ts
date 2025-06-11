@@ -43,14 +43,14 @@ export class PreviewViewport {
 
         elementSlots.forEach(element => {
             const parentId = element.getAttribute("data-parent-id");
-            const path = element.getAttribute("data-path");
+            const slot = element.getAttribute("data-parent-slot");
             const depth = element.getAttribute("data-depth");
 
             // Get the bounding box relative to the viewport
             const rect = element.getBoundingClientRect();
 
             // Convert DOMRect to a plain object to ensure it can be serialized
-            slotBoxes[`${parentId}:${path}`] = {
+            slotBoxes[`${parentId}:${slot}`] = {
                 type: "element-slot",
                 depth: parseInt(depth ?? "0"),
                 parentId: element.getAttribute("data-parent-id")!,

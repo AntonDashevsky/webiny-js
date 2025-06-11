@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { sanitizeUrl } from "~/utils/sanitizeUrl";
 import { isAnchorLink } from "~/utils/isAnchorLink";
-import { LinkData } from "./FloatingLinkEditorPlugin";
+import type { LinkData } from "./FloatingLinkEditor";
 
-interface LinkFormProps {
+export interface LinkFormProps {
     linkData: LinkData;
     onSave: (linkData: LinkData) => void;
     onCancel: () => void;

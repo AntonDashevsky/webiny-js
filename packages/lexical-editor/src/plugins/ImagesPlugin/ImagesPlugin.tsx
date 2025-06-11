@@ -1,3 +1,4 @@
+"use client";
 /**
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
@@ -76,10 +77,17 @@ export function ImagesPlugin({
     return null;
 }
 
-const TRANSPARENT_IMAGE =
-    "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-const img = document.createElement("img");
-img.src = TRANSPARENT_IMAGE;
+function getDragImage() {
+    if (!document) {
+        return undefined;
+    }
+
+    const TRANSPARENT_IMAGE =
+        "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    const img = document.createElement("img");
+    img.src = TRANSPARENT_IMAGE;
+    return img;
+}
 
 function onDragStart(event: DragEvent): boolean {
     const node = getImageNodeInSelection();
@@ -87,11 +95,12 @@ function onDragStart(event: DragEvent): boolean {
         return false;
     }
     const dataTransfer = event.dataTransfer;
-    if (!dataTransfer) {
+    const dragImage = getDragImage();
+    if (!dataTransfer || !dragImage) {
         return false;
     }
     dataTransfer.setData("text/plain", "_");
-    dataTransfer.setDragImage(img, 0, 0);
+    dataTransfer.setDragImage(dragImage, 0, 0);
     dataTransfer.setData(
         "application/x-lexical-drag",
         JSON.stringify({

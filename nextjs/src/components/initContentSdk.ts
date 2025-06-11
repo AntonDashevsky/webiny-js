@@ -3,7 +3,9 @@ import { contentSdk, registerComponentGroup } from "@webiny/app-website-builder/
 
 export const initContentSdk = () => {
     contentSdk.init({
-        apiKey: "123"
+        apiKey: "123",
+        // builtInComponents: false,
+        // theme: {}
     });
 
     registerComponentGroup({

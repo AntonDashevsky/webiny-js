@@ -15,9 +15,9 @@ import { PageOptionsDropdown } from "./TopBar/DropdownActions/PageOptionsDropdow
 import { Preview } from "./Content/Preview";
 import { InsertElements } from "./Toolbar/InsertElements";
 import { CommandHandlers } from "~/BaseEditor/commandHandlers";
-import { ElementInputRenderers } from "./Inputs";
 import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { DocumentStateEditor } from "./DocumentStateEditor";
+import { ElementInputRenderers } from "./ElementInputRenderers";
 
 const { Ui } = EditorConfig;
 
@@ -97,11 +97,11 @@ export const DefaultEditorConfig = React.memo(() => {
                         </Ui.OnActiveElement>
                     }
                 />
-                <Ui.Sidebar.Element
+                {/*<Ui.Sidebar.Element
                     name={"stateEditor"}
                     group={"element"}
                     element={<DocumentStateEditor />}
-                />
+                />*/}
             </EditorConfig>
         </>
     );

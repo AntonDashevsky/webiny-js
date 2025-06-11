@@ -6,7 +6,8 @@ import {
     createTagsInput,
     createTextInput,
     createBooleanInput,
-    createLongTextInput
+    createLongTextInput,
+    createRichTextInput
 } from "@webiny/app-website-builder/react/index.js";
 import { Root } from "@components/library/Root";
 import Hero_1 from "./library/Hero-1";
@@ -14,42 +15,27 @@ import Contact_Sales from "./library/Contact_Sales";
 import SingleColumnWithImages from "@components/library/SingleColumnWithImages";
 import SingleColumn from "./library/SingleColumn";
 import Stats from "@components/library/Stats";
+import { TextWithDropzone } from "@components/library/TextWithDropzone";
 
 const TextComponent = ({ text, flag }: { text: string; flag: boolean }) => (
     <p className={`p-6 ${flag ? "font-bold" : ""}`}>{text}</p>
 );
 
-const BlockRefComponent = ({
-    blockId,
-    title,
-    children
-}: {
-    title: string;
-    blockId: string;
-    children: React.ReactNode;
-}) => {
-    return (
-        <div className={"p-6"}>
-            <h2>{title || "Split Block"}</h2>
-            <div style={{ display: "flex", flexDirection: "row", gap: 8, padding: 5 }}>
-                <div style={{ flexBasis: "50%", textAlign: "justify" }}>
-                    Nunc maximus elementum luctus. In hac habitasse platea dictumst. Vivamus
-                    porttitor quam nec ante tempor, sit amet tristique dui accumsan. Suspendisse
-                    egestas molestie sagittis. Nulla facilisi. Vestibulum laoreet nibh ipsum, ut
-                    bibendum libero tempor sed. Vestibulum id nunc at erat scelerisque tempor eget
-                    id augue. Mauris congue sed dui vel posuere.
-                </div>
-                <div style={{ flexBasis: "50%" }}>{children}</div>
-            </div>
-        </div>
-    );
-};
 
 export const customComponents = [
     createComponent(Root, {
         name: "Webiny/Root",
         acceptsChildren: true,
         hideFromToolbar: true
+    }),
+    createComponent(Root, {
+        name: "Webiny/Columns",
+        acceptsChildren: true,
+        defaultStyles: {
+            desktop: {
+
+            }
+        }
     }),
     createComponent(TextComponent, {
         name: "Webiny/Text",
@@ -70,9 +56,9 @@ export const customComponents = [
             })
         ]
     }),
-    createComponent(BlockRefComponent, {
-        name: "Webiny/BlockRef",
-        label: "Block Reference",
+    createComponent(TextWithDropzone, {
+        name: "Webiny/TextWithDropzone",
+        label: "Text with Dropzone",
         group: "basic",
         acceptsChildren: true,
         inputs: [
@@ -80,6 +66,11 @@ export const customComponents = [
                 name: "title",
                 label: "Title",
                 defaultValue: "",
+                required: true
+            }),
+            createRichTextInput({
+                name: "content",
+                label: "Content",
                 required: true
             })
         ]

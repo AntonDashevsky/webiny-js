@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 31;
+  z-index: 51;
   max-width: 400px;
   width: 100%;
   opacity: 0;
@@ -12,6 +12,7 @@
   transition: opacity 0.5s;
   will-change: transform;
   padding: 10px 0;
+  pointer-events: all;
 }
 
 .link-editor .link-editor-target-checkbox {

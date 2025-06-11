@@ -18,6 +18,7 @@ export const BulletListAction = () => {
             const styleId = themeEmotionMap
                 ? findTypographyStyleByHtmlTag("ul", themeEmotionMap)?.id
                 : undefined;
+
             // will update the active state in the useEffect
             editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, { themeStyleId: styleId });
         } else {

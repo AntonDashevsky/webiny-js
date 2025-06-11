@@ -3,12 +3,12 @@ import "./StaticToolbar.css";
 import { useLexicalEditorConfig } from "~/components/LexicalEditorConfig/LexicalEditorConfig";
 import { useRichTextEditor } from "~/hooks";
 
-export const StaticToolbar = () => {
+export const StaticToolbar = ({ className }: { className?: string }) => {
     const { toolbarElements } = useLexicalEditorConfig();
     const { editor } = useRichTextEditor();
 
     return (
-        <div className="static-toolbar">
+        <div className={className ?? "static-toolbar"} data-role={"toolbar"}>
             {editor.isEditable() && (
                 <>
                     {toolbarElements.map(action => (

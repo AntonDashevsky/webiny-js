@@ -35,6 +35,7 @@ export const Preview = () => {
         }
 
         const iframeRect = iframe.getBoundingClientRect();
+
         return {
             top: iframeRect.top,
             left: iframeRect.left,
