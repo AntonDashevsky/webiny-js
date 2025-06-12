@@ -1,8 +1,9 @@
-import { autorun } from "mobx";
+import { autorun, toJS } from "mobx";
 import { useCallback, useEffect, useState } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { DocumentElement } from "~/sdk/types";
 import { Commands } from "../commands";
+import deepEqual from "deep-equal";
 
 export const useActiveElement = () => {
     const [activeElement, setActiveElement] = useState<DocumentElement | null>(null);
@@ -16,12 +17,15 @@ export const useActiveElement = () => {
             const activeElementId = editorState.selectedElement;
 
             if (activeElementId) {
-                setActiveElement(documentState.elements[activeElementId]);
+                const newElement = toJS(documentState.elements[activeElementId]);
+                if (!deepEqual(newElement, activeElement)) {
+                    setActiveElement(newElement);
+                }
             } else {
                 setActiveElement(null);
             }
         });
-    }, []);
+    }, [activeElement]);
 
     const setActiveElementId = useCallback(
         (id: string | null) => {

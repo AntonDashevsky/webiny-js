@@ -5,6 +5,8 @@ export default {
         title: "Page 1",
         path: "/page-1"
     },
+    bindings: {},
+    state: {},
     elements: {
         root: {
             type: "Webiny/Element",

@@ -1,5 +1,5 @@
 import React from "react";
-import { PageContent } from "@components/PageContent";
+import { PageContent } from "@/webiny/PageContent";
 import { contentSdk } from "@webiny/app-website-builder/react";
 
 export async function generateStaticParams() {

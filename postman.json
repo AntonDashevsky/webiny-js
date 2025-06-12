@@ -1,0 +1,244 @@
+{
+  "info": {
+    "_postman_id": "f246e85f-4551-4fbd-b7e8-73d8f90d99fd",
+    "name": "Webiny",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3199497"
+  },
+  "item": [
+    {
+      "name": "Search Products",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "accept-language",
+            "value": "en-US,en;q=0.9",
+            "type": "text"
+          },
+          {
+            "key": "cache-control",
+            "value": "no-cache",
+            "type": "text"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "authorization",
+            "value": "bearer {{authToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"options\":[{\"attributeFQN\":\"tenant~color\",\"name\":\"Color\",\"value\":\"Orange\"}]}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://t49337-s73593.sandbox.mozu.com/api/commerce/catalog/storefront/productsearch/search?query=shoe",
+          "protocol": "https",
+          "host": ["t49337-s73593", "sandbox", "mozu", "com"],
+          "path": ["api", "commerce", "catalog", "storefront", "productsearch", "search"],
+          "query": [
+            {
+              "key": "query",
+              "value": "shoe"
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl 'https://t49337-s73593.sandbox.mozu.com/api/commerce/catalog/storefront/products/SHOE12/configure?includeOptionDetails=true&quantity=1' \\\n  -H 'accept: application/json' \\\n  -H 'accept-language: en-US,en;q=0.9' \\\n  -H 'cache-control: no-cache' \\\n  -H 'content-type: application/json' \\\n  -b '_mkto_trk=id:702-MYH-396&token:_mch-mozu.com-64c7a50f4ae2853fffae9327545a0472; _cs_c=0; _vwo_uuid_v2=DF15CC506535AFEA26C9ABA862BA6845E|38da04c1be20c11b3ca14fed0ebcf9ba; __utmz=42390841.1740163529.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); _scid=boW-AhumUmHIysB9vcfoVHeaeo9C_QiJ; _fbp=fb.1.1740168062052.948473796962350043; _ga_MCZEH7PY01=GS1.1.1740180974.26.0.1740180974.0.0.0; _ga_27G78BFKYY=GS1.1.1741021870.1.0.1741021870.0.0.0; __adroll_fpc=1a84df553cc758cd523ec5be69aa2ae2-1741021871362; _ju_dc=829e99e1-f852-11ef-99d6-8b3d7f210fba; _svsid=1e6480c23e4c993201db58dacf6d0695; AMCV_43D827E253DB462E0A490D4E%40AdobeOrg=179643557%7CMCIDTS%7C20158%7CMCMID%7C03394148303282073692504129779517516101%7CMCAAMLH-1742188251%7C9%7CMCAAMB-1742188251%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1741590651s%7CNONE%7CvVersion%7C5.5.0; _lc2_fpi=5a06dafb22fd--01j5thth247f3106afby9v4w2y; _bti=%7B%22bsin%22%3A%22%22%7D; _li_ss=ClgKBgj3ARChGgoFCAoQoRoKBgjdARChGgoGCIEBEKEaCgUIDBCpGgoGCPUBEJ8aCgkI_____wcQphoKBQgLEJ8aCgYI0gEQoRoKBgiiARCfGgoGCP8BEKEaEn8NX-OvaBJ4CgYIygEQoRoKBgjkARCeGgoGCJMBEJ8aCgYIyQEQoRoKBgj0ARCfGgoGCJQBEJ8aCgYI5gEQnhoKBgjGARCdGgoGCMcBEJ8aCgYI5wEQnhoKBgjIARChGgoGCOUBEJ4aCgYIxQEQoRoKBgj-ARChGgoGCOgBEJ4aEj8NeucxARI4CgYIygEQoRoKBgiTARCfGgoGCMkBEKEaCgYIxQEQoRoKBgjGARCdGgoGCMcBEJ8aCgYIyAEQoRoSNw0vNbMSEjAKBgjKARCeGgoGCJMBEJ8aCgYIyQEQoRoKBgjFARChGgoGCMYBEJ0aCgYIyAEQnho; _clck=1dezmed%7C2%7Cfua%7C0%7C1895; unbxd.userId=uid-1742590301139-37174; STSIDN3X9TnohYaNH=e07035bf-3cb3-4863-96de-c5caf4e118e5; BVBRANDID=d06a2d3f-ecc6-44e1-bb02-3ba99ffcbffe; __utma=42390841.891002315.1739480254.1741885899.1743684723.3; GSIDf3fn0JznkUzu=9d2ddd64-c386-496a-9a76-5fb965d52af6; STSIDf3fn0JznkUzu=8cca36b2-fa72-4d58-8a68-acf724f39deb; mbox=session#1c95a58799f74eec9bdc0cd1403234a2#1747328611|PC#1c95a58799f74eec9bdc0cd1403234a2.35_0#1810571551; ab.storage.sessionId.b8facd98-5e89-44f0-9513-57e341f984c7=g%3Aa72beec7-6dfa-dbb7-eabe-0e402277d34a%7Ce%3A1747328833437%7Cc%3A1747327033437%7Cl%3A1747327033437; ab.storage.deviceId.b8facd98-5e89-44f0-9513-57e341f984c7=g%3A1fdf396d-ce89-22d2-bbb7-eed514fd06c3%7Ce%3Aundefined%7Cc%3A1740168061673%7Cl%3A1747327033438; _ga_P70R1J8JSF=GS2.1.s1747327033$o2$g0$t1747327033$j60$l0$h0; _ga_M7CEG347TT=GS2.1.s1747327033$o2$g0$t1747327033$j60$l0$h0; _ga_ZLQR89TSP6=GS2.1.s1747327033$o2$g0$t1747327033$j0$l0$h0; _scid_r=eAW-AhumUmHIysB9vcfoVHeaeo9C_QiJeL_1lA; _hjSessionUser_2014601=eyJpZCI6IjA3N2M0NDE5LWU2ZDItNTZmNi1iMTUwLWFiZGM4MmY0NmRhZSIsImNyZWF0ZWQiOjE3NDc3NjY0NzI5NDgsImV4aXN0aW5nIjp0cnVlfQ==; _ga_CRGJ6H77X9=GS2.1.s1747766482$o1$g0$t1747766482$j60$l0$h0$dkv_2q96qWEfOntrr1AyobxAKkvl0LHIzDQ; _ga_TJ1M1HRF5W=GS2.1.s1747766470$o1$g1$t1747766516$j0$l0$h0; _gcl_au=1.1.774658206.1748521849; GSIDYURBIt8yrzkO=ee2ce6be-6ccb-42f5-bc89-a301bda37c02; STSID278142=0803d2ba-cce7-4666-8240-1406847a5aca; _ga_67LBDGHS7J=GS2.1.s1748529580$o2$g0$t1748529580$j60$l0$h0; GSIDN3X9TnohYaNH=95447c5a-78f0-47dc-a1bc-9ab3968368e4; ltkpopup-suppression-68bcf9cc-6a68-402b-9516-113e7b8de0f9=1; utag_main__sn=3; _ga_PERQ02NX0T=GS2.1.s1748539406$o3$g1$t1748540150$j35$l0$h0; _ga_K3YC2YB78C=GS2.1.s1748539407$o3$g1$t1748540150$j35$l0$h0; cto_bundle=TidOul9QYnNMTllWdFVVMDFmV3BlTlpBY1R1VHFXT0xJN2ZPMmZ3ZHR2aUQ4ZiUyQjVna3J4TzVzcmRtRDdoZXN0TVlVenpTUkhTeXAwR3pxbktsQmlST3klMkY4cjF4REh6MXZvRTdBWkVPUUpNQXJuOXA5JTJCaGh6a1FOQldJSDFtQk0zeGUlMkJjSExzZER6TnZqaEVDWFhmUkh5ektqVjZoZWNXbDNpVXJJcUo2SU1LVHRwN3klMkZZcXNOdUhDeTIlMkJsRnc0cTJ1Ym5zOXFueHIlMkI2cVZqdndtc0xsUjI2bW9lODNGNlNsNDRSS1B0dkJEV0hOcGFQNnBSMGlMV3IlMkJKV1dJR1JhVWYwNjg5RyUyRkdUOXBKRXFHTjAzJTJCVXQ1cXp6alYlMkIlMkJ4NlZtMXIxaSUyQlIlMkZCR0JqdG8lM0Q; _cs_id=c57b6f89-0cc5-a285-e127-13b697b1f54f.1739832505.7.1748911324.1748910581.1726587959.1773996505867.1.x; _uetvid=e6f6331054f011ef98f097730145c7fc; _ga_KQ8PQ6JEPH=GS2.1.s1748910582$o10$g1$t1748911624$j60$l0$h0; _ga=GA1.1.891002315.1739480254; mzrt-prod=Token=ca2ad8c5761d4e09bc2c7cc1d9ddccef&Expires=639166942356290422&Expiration=638852446356260000&User=VqNm6WppN7Nj63xN06g2Folw%2FcI6HKgLad4fUI36Hn5ddm2Nh0BVJjiApWpQP%2FP7qrv%2FSjr382AuoYQwSMVYBlGDQ5IhhR4NrnBIr%2Fidp%2BMYFu2okHpI%2BMckfWjdB4wMADVW%2FwkHt6AL44rtd1pglQ3Teuz4PYeW9sWIjgfve9w%3D; mozuDevCenterAuth=AccessToken=MhlC7Ai0WMNLf%2Fj6pf%2BuMWAKFFAbyswD8xr%2Fk6vE8VYr%2B8CeF1RU53BqPkf9k7hS71rnHBBdYFTPE1VOCYc4qSk3VcLYCY%2FBEk8kKLAXRvi5ggIZ0D2%2FsCEv0dnQTvYtwDZd2%2FsMX3vAwbVDHhpzLmi0Pw7cdzDHnYeNNptquMGAptZZcqfYQUspLoa4BH8rupvDvwcFMOL%2F9h04ElFCqGn1koWXYkRbUYdORCxHrH79NGbW1hchEZAB3RhlHX5KTHt41Yb4nFnwWBVgsPv5XgWMD%2B3BolY0X05Rqu1wNe6dl%2FItpaV5VfbF9v%2Bkrd%2FWPwGIZGdKPY5%2Bp8qsaw%2BRi%2BDKJXMrxdSuenhP2HGOqE%2FgJXII1baXLoBKhsTjtaye&RefreshToken=ca2ad8c5761d4e09bc2c7cc1d9ddccef&AccessTokenExpiration=8DDA8E948299710&RefreshTokenExpiration=8DDA8EA48F444A0; sb-sf-at-prod-s=at=9HihPdPvggmUQjY87u6eBOCK5iwHegp1whAt5iJ%2FSanSOMYBr8HbBan64qw6mMu9ncTEMkvT96n4nE6Hdsie2muxiyLufOvV0YriLd8smoT3kcw6T54KU47xwkPlQuhVGWBD3zuIQf2EU1tcoydxUR%2F4upqmEvQtl%2BZh8aSqg48%2BS%2BZ8j2FNmbuSwCOgxh0U2BguDHECzr7CFXIx5EjNBDl8IVkIn7J7UTapO80Cb3ITsvskDJZMfRgRA7CLzQZJXxmIje7XuTLn4kK7Rf6d6%2F2f53PZ2VHYAozg9%2BmT%2FhwCCU7cLGouV70PS6NC7skrc1ZrMPGjZmYNz3hED7%2FnPQ%3D%3D&dt=2025-06-11T12%3A55%3A45.5989487Z; sb-sf-at-prod=at=9HihPdPvggmUQjY87u6eBOCK5iwHegp1whAt5iJ%2FSanSOMYBr8HbBan64qw6mMu9ncTEMkvT96n4nE6Hdsie2muxiyLufOvV0YriLd8smoT3kcw6T54KU47xwkPlQuhVGWBD3zuIQf2EU1tcoydxUR%2F4upqmEvQtl%2BZh8aSqg48%2BS%2BZ8j2FNmbuSwCOgxh0U2BguDHECzr7CFXIx5EjNBDl8IVkIn7J7UTapO80Cb3ITsvskDJZMfRgRA7CLzQZJXxmIje7XuTLn4kK7Rf6d6%2F2f53PZ2VHYAozg9%2BmT%2FhwCCU7cLGouV70PS6NC7skrc1ZrMPGjZmYNz3hED7%2FnPQ%3D%3D; _mzvr=TVm507Qx3EatTmzTanVAtQ; _mzvs=nn; mozucartcount=%7B%225fce9fb4ad884530890c94fdc9c3c677%22%3A0%7D; _ga_MCZEH7PY01=GS2.1.s1749646530$o192$g1$t1749646592$j60$l0$h0; __cf_bm=Y1HQljJzaHmE0Vh.SFwRenk2_Sd8PRuBBkeZ12R2lb4-1749646660-1.0.1.1-KXr5r6rmdVOstGcC_7iQTiZQ3jy_KTvgp5so11ueyi90bxyfrzvHM1VbHdgfC_wkkZ3hMUmB9b6WguccYHINQ8VjDdxxiyTXZ1bhsgWr8EA; cf_clearance=t9_iKBmkp836lmr6sS9qv5Y0XPJMZEN0XCJZtvZWL0M-1749646661-1.2.1.1-rA5T86oh9YV35j.BO1hNeBYbjfPEEu2HhyooqCvV73ra0dDu48nAVOPLZGseWzrY6Fs3eRknJ.7XgBI664h2izIHFCvNYtjcWGmhUGfEanf8Pe0g5xAidKZ.v8oyyrGWiDjmoiHnPIhA0shl1lGsmd4YznOHK0A2mZSAi0_SOEQRWJ04MX0rHdCt_Pf8qsYFjXXJo4BmW6ptiTGT0m1t3iWLOLlLnhx4LMHtJWceFJzMyF8ZixTZ1N6zeGDQ_DoblhqwQGSVWNSB3DGHxMp0KQHxLw8MvKMeuigHKNoenmbz4TBYu795PV8zPwPPJL55cM750Q1fX1thMkdXwzOKM.OmWiO._eX8Xpatg6nI3nA; _mzvt=ZcNkhMMaPkWiAR-ykPtUUA; _mzPc=eyJjb3JyZWxhdGlvbklkIjoiMzYxMTc0MDJiMWY4NGRjMTk4NTcxNGViOGVmMGE5NjciLCJpcEFkZHJlc3MiOiIzNC4xOTkuMTMuMTY3IiwiaXNEZWJ1Z01vZGUiOmZhbHNlLCJpc0NyYXdsZXIiOmZhbHNlLCJpc01vYmlsZSI6ZmFsc2UsImlzVGFibGV0IjpmYWxzZSwiaXNEZXNrdG9wIjp0cnVlLCJ2aXNpdCI6eyJ2aXNpdElkIjoiWmNOa2hNTWFQa1dpQVIteWtQdFVVQSIsInZpc2l0b3JJZCI6IlRWbTUwN1F4M0VhdFRtelRhblZBdFEiLCJpc1RyYWNrZWQiOmZhbHNlLCJpc1VzZXJUcmFja2VkIjpmYWxzZX0sInVzZXIiOnsiaXNBdXRoZW50aWNhdGVkIjpmYWxzZSwidXNlcklkIjoiNWZjZTlmYjRhZDg4NDUzMDg5MGM5NGZkYzljM2M2NzciLCJmaXJzdE5hbWUiOiIiLCJsYXN0TmFtZSI6IiIsImVtYWlsIjoiIiwiaXNBbm9ueW1vdXMiOnRydWUsImJlaGF2aW9ycyI6WzEwMTRdLCJpc1NhbGVzUmVwIjpmYWxzZX0sInVzZXJQcm9maWxlIjp7InVzZXJJZCI6IjVmY2U5ZmI0YWQ4ODQ1MzA4OTBjOTRmZGM5YzNjNjc3IiwiZmlyc3ROYW1lIjoiIiwibGFzdE5hbWUiOiIiLCJlbWFpbEFkZHJlc3MiOiIiLCJ1c2VyTmFtZSI6IiJ9LCJpc0VkaXRNb2RlIjpmYWxzZSwiaXNBZG1pbk1vZGUiOmZhbHNlLCJub3ciOiIyMDI1LTA2LTExVDEzOjAxOjA2LjYwOTE0NDRaIiwiY3Jhd2xlckluZm8iOnsiaXNDcmF3bGVyIjpmYWxzZX0sImN1cnJlbmN5UmF0ZUluZm8iOnt9fQ%3D%3D' \\\n  -H 'origin: https://t49337-s73593.sandbox.mozu.com' \\\n  -H 'pragma: no-cache' \\\n  -H 'priority: u=1, i' \\\n  -H 'referer: https://t49337-s73593.sandbox.mozu.com/izumi-bike-shoes/p/SHOE12' \\\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-platform: \"macOS\"' \\\n  -H 'sec-fetch-dest: empty' \\\n  -H 'sec-fetch-mode: cors' \\\n  -H 'sec-fetch-site: same-origin' \\\n  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36' \\\n  -H 'x-vol-catalog: 1' \\\n  -H 'x-vol-currency: USD' \\\n  -H 'x-vol-locale: en-US' \\\n  -H 'x-vol-master-catalog: 1' \\\n  -H 'x-vol-site: 73593' \\\n  -H 'x-vol-tenant: 49337' \\\n  --data-raw '{\"options\":[{\"attributeFQN\":\"tenant~color\",\"name\":\"Color\",\"value\":\"Orange\"}]}'"
+      },
+      "response": []
+    },
+    {
+      "name": "Search Categories",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "accept-language",
+            "value": "en-US,en;q=0.9",
+            "type": "text"
+          },
+          {
+            "key": "cache-control",
+            "value": "no-cache",
+            "type": "text"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "authorization",
+            "value": "bearer {{authToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"options\":[{\"attributeFQN\":\"tenant~color\",\"name\":\"Color\",\"value\":\"Orange\"}]}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://t49337-s73593.sandbox.mozu.com/api/commerce/catalog/storefront/categories",
+          "protocol": "https",
+          "host": ["t49337-s73593", "sandbox", "mozu", "com"],
+          "path": ["api", "commerce", "catalog", "storefront", "categories"],
+          "query": [
+            {
+              "key": "filter",
+              "value": "content.name cont Kayaks and parentCategory eq 2",
+              "disabled": true
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl 'https://t49337-s73593.sandbox.mozu.com/api/commerce/catalog/storefront/products/SHOE12/configure?includeOptionDetails=true&quantity=1' \\\n  -H 'accept: application/json' \\\n  -H 'accept-language: en-US,en;q=0.9' \\\n  -H 'cache-control: no-cache' \\\n  -H 'content-type: application/json' \\\n  -b '_mkto_trk=id:702-MYH-396&token:_mch-mozu.com-64c7a50f4ae2853fffae9327545a0472; _cs_c=0; _vwo_uuid_v2=DF15CC506535AFEA26C9ABA862BA6845E|38da04c1be20c11b3ca14fed0ebcf9ba; __utmz=42390841.1740163529.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); _scid=boW-AhumUmHIysB9vcfoVHeaeo9C_QiJ; _fbp=fb.1.1740168062052.948473796962350043; _ga_MCZEH7PY01=GS1.1.1740180974.26.0.1740180974.0.0.0; _ga_27G78BFKYY=GS1.1.1741021870.1.0.1741021870.0.0.0; __adroll_fpc=1a84df553cc758cd523ec5be69aa2ae2-1741021871362; _ju_dc=829e99e1-f852-11ef-99d6-8b3d7f210fba; _svsid=1e6480c23e4c993201db58dacf6d0695; AMCV_43D827E253DB462E0A490D4E%40AdobeOrg=179643557%7CMCIDTS%7C20158%7CMCMID%7C03394148303282073692504129779517516101%7CMCAAMLH-1742188251%7C9%7CMCAAMB-1742188251%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1741590651s%7CNONE%7CvVersion%7C5.5.0; _lc2_fpi=5a06dafb22fd--01j5thth247f3106afby9v4w2y; _bti=%7B%22bsin%22%3A%22%22%7D; _li_ss=ClgKBgj3ARChGgoFCAoQoRoKBgjdARChGgoGCIEBEKEaCgUIDBCpGgoGCPUBEJ8aCgkI_____wcQphoKBQgLEJ8aCgYI0gEQoRoKBgiiARCfGgoGCP8BEKEaEn8NX-OvaBJ4CgYIygEQoRoKBgjkARCeGgoGCJMBEJ8aCgYIyQEQoRoKBgj0ARCfGgoGCJQBEJ8aCgYI5gEQnhoKBgjGARCdGgoGCMcBEJ8aCgYI5wEQnhoKBgjIARChGgoGCOUBEJ4aCgYIxQEQoRoKBgj-ARChGgoGCOgBEJ4aEj8NeucxARI4CgYIygEQoRoKBgiTARCfGgoGCMkBEKEaCgYIxQEQoRoKBgjGARCdGgoGCMcBEJ8aCgYIyAEQoRoSNw0vNbMSEjAKBgjKARCeGgoGCJMBEJ8aCgYIyQEQoRoKBgjFARChGgoGCMYBEJ0aCgYIyAEQnho; _clck=1dezmed%7C2%7Cfua%7C0%7C1895; unbxd.userId=uid-1742590301139-37174; STSIDN3X9TnohYaNH=e07035bf-3cb3-4863-96de-c5caf4e118e5; BVBRANDID=d06a2d3f-ecc6-44e1-bb02-3ba99ffcbffe; __utma=42390841.891002315.1739480254.1741885899.1743684723.3; GSIDf3fn0JznkUzu=9d2ddd64-c386-496a-9a76-5fb965d52af6; STSIDf3fn0JznkUzu=8cca36b2-fa72-4d58-8a68-acf724f39deb; mbox=session#1c95a58799f74eec9bdc0cd1403234a2#1747328611|PC#1c95a58799f74eec9bdc0cd1403234a2.35_0#1810571551; ab.storage.sessionId.b8facd98-5e89-44f0-9513-57e341f984c7=g%3Aa72beec7-6dfa-dbb7-eabe-0e402277d34a%7Ce%3A1747328833437%7Cc%3A1747327033437%7Cl%3A1747327033437; ab.storage.deviceId.b8facd98-5e89-44f0-9513-57e341f984c7=g%3A1fdf396d-ce89-22d2-bbb7-eed514fd06c3%7Ce%3Aundefined%7Cc%3A1740168061673%7Cl%3A1747327033438; _ga_P70R1J8JSF=GS2.1.s1747327033$o2$g0$t1747327033$j60$l0$h0; _ga_M7CEG347TT=GS2.1.s1747327033$o2$g0$t1747327033$j60$l0$h0; _ga_ZLQR89TSP6=GS2.1.s1747327033$o2$g0$t1747327033$j0$l0$h0; _scid_r=eAW-AhumUmHIysB9vcfoVHeaeo9C_QiJeL_1lA; _hjSessionUser_2014601=eyJpZCI6IjA3N2M0NDE5LWU2ZDItNTZmNi1iMTUwLWFiZGM4MmY0NmRhZSIsImNyZWF0ZWQiOjE3NDc3NjY0NzI5NDgsImV4aXN0aW5nIjp0cnVlfQ==; _ga_CRGJ6H77X9=GS2.1.s1747766482$o1$g0$t1747766482$j60$l0$h0$dkv_2q96qWEfOntrr1AyobxAKkvl0LHIzDQ; _ga_TJ1M1HRF5W=GS2.1.s1747766470$o1$g1$t1747766516$j0$l0$h0; _gcl_au=1.1.774658206.1748521849; GSIDYURBIt8yrzkO=ee2ce6be-6ccb-42f5-bc89-a301bda37c02; STSID278142=0803d2ba-cce7-4666-8240-1406847a5aca; _ga_67LBDGHS7J=GS2.1.s1748529580$o2$g0$t1748529580$j60$l0$h0; GSIDN3X9TnohYaNH=95447c5a-78f0-47dc-a1bc-9ab3968368e4; ltkpopup-suppression-68bcf9cc-6a68-402b-9516-113e7b8de0f9=1; utag_main__sn=3; _ga_PERQ02NX0T=GS2.1.s1748539406$o3$g1$t1748540150$j35$l0$h0; _ga_K3YC2YB78C=GS2.1.s1748539407$o3$g1$t1748540150$j35$l0$h0; cto_bundle=TidOul9QYnNMTllWdFVVMDFmV3BlTlpBY1R1VHFXT0xJN2ZPMmZ3ZHR2aUQ4ZiUyQjVna3J4TzVzcmRtRDdoZXN0TVlVenpTUkhTeXAwR3pxbktsQmlST3klMkY4cjF4REh6MXZvRTdBWkVPUUpNQXJuOXA5JTJCaGh6a1FOQldJSDFtQk0zeGUlMkJjSExzZER6TnZqaEVDWFhmUkh5ektqVjZoZWNXbDNpVXJJcUo2SU1LVHRwN3klMkZZcXNOdUhDeTIlMkJsRnc0cTJ1Ym5zOXFueHIlMkI2cVZqdndtc0xsUjI2bW9lODNGNlNsNDRSS1B0dkJEV0hOcGFQNnBSMGlMV3IlMkJKV1dJR1JhVWYwNjg5RyUyRkdUOXBKRXFHTjAzJTJCVXQ1cXp6alYlMkIlMkJ4NlZtMXIxaSUyQlIlMkZCR0JqdG8lM0Q; _cs_id=c57b6f89-0cc5-a285-e127-13b697b1f54f.1739832505.7.1748911324.1748910581.1726587959.1773996505867.1.x; _uetvid=e6f6331054f011ef98f097730145c7fc; _ga_KQ8PQ6JEPH=GS2.1.s1748910582$o10$g1$t1748911624$j60$l0$h0; _ga=GA1.1.891002315.1739480254; mzrt-prod=Token=ca2ad8c5761d4e09bc2c7cc1d9ddccef&Expires=639166942356290422&Expiration=638852446356260000&User=VqNm6WppN7Nj63xN06g2Folw%2FcI6HKgLad4fUI36Hn5ddm2Nh0BVJjiApWpQP%2FP7qrv%2FSjr382AuoYQwSMVYBlGDQ5IhhR4NrnBIr%2Fidp%2BMYFu2okHpI%2BMckfWjdB4wMADVW%2FwkHt6AL44rtd1pglQ3Teuz4PYeW9sWIjgfve9w%3D; mozuDevCenterAuth=AccessToken=MhlC7Ai0WMNLf%2Fj6pf%2BuMWAKFFAbyswD8xr%2Fk6vE8VYr%2B8CeF1RU53BqPkf9k7hS71rnHBBdYFTPE1VOCYc4qSk3VcLYCY%2FBEk8kKLAXRvi5ggIZ0D2%2FsCEv0dnQTvYtwDZd2%2FsMX3vAwbVDHhpzLmi0Pw7cdzDHnYeNNptquMGAptZZcqfYQUspLoa4BH8rupvDvwcFMOL%2F9h04ElFCqGn1koWXYkRbUYdORCxHrH79NGbW1hchEZAB3RhlHX5KTHt41Yb4nFnwWBVgsPv5XgWMD%2B3BolY0X05Rqu1wNe6dl%2FItpaV5VfbF9v%2Bkrd%2FWPwGIZGdKPY5%2Bp8qsaw%2BRi%2BDKJXMrxdSuenhP2HGOqE%2FgJXII1baXLoBKhsTjtaye&RefreshToken=ca2ad8c5761d4e09bc2c7cc1d9ddccef&AccessTokenExpiration=8DDA8E948299710&RefreshTokenExpiration=8DDA8EA48F444A0; sb-sf-at-prod-s=at=9HihPdPvggmUQjY87u6eBOCK5iwHegp1whAt5iJ%2FSanSOMYBr8HbBan64qw6mMu9ncTEMkvT96n4nE6Hdsie2muxiyLufOvV0YriLd8smoT3kcw6T54KU47xwkPlQuhVGWBD3zuIQf2EU1tcoydxUR%2F4upqmEvQtl%2BZh8aSqg48%2BS%2BZ8j2FNmbuSwCOgxh0U2BguDHECzr7CFXIx5EjNBDl8IVkIn7J7UTapO80Cb3ITsvskDJZMfRgRA7CLzQZJXxmIje7XuTLn4kK7Rf6d6%2F2f53PZ2VHYAozg9%2BmT%2FhwCCU7cLGouV70PS6NC7skrc1ZrMPGjZmYNz3hED7%2FnPQ%3D%3D&dt=2025-06-11T12%3A55%3A45.5989487Z; sb-sf-at-prod=at=9HihPdPvggmUQjY87u6eBOCK5iwHegp1whAt5iJ%2FSanSOMYBr8HbBan64qw6mMu9ncTEMkvT96n4nE6Hdsie2muxiyLufOvV0YriLd8smoT3kcw6T54KU47xwkPlQuhVGWBD3zuIQf2EU1tcoydxUR%2F4upqmEvQtl%2BZh8aSqg48%2BS%2BZ8j2FNmbuSwCOgxh0U2BguDHECzr7CFXIx5EjNBDl8IVkIn7J7UTapO80Cb3ITsvskDJZMfRgRA7CLzQZJXxmIje7XuTLn4kK7Rf6d6%2F2f53PZ2VHYAozg9%2BmT%2FhwCCU7cLGouV70PS6NC7skrc1ZrMPGjZmYNz3hED7%2FnPQ%3D%3D; _mzvr=TVm507Qx3EatTmzTanVAtQ; _mzvs=nn; mozucartcount=%7B%225fce9fb4ad884530890c94fdc9c3c677%22%3A0%7D; _ga_MCZEH7PY01=GS2.1.s1749646530$o192$g1$t1749646592$j60$l0$h0; __cf_bm=Y1HQljJzaHmE0Vh.SFwRenk2_Sd8PRuBBkeZ12R2lb4-1749646660-1.0.1.1-KXr5r6rmdVOstGcC_7iQTiZQ3jy_KTvgp5so11ueyi90bxyfrzvHM1VbHdgfC_wkkZ3hMUmB9b6WguccYHINQ8VjDdxxiyTXZ1bhsgWr8EA; cf_clearance=t9_iKBmkp836lmr6sS9qv5Y0XPJMZEN0XCJZtvZWL0M-1749646661-1.2.1.1-rA5T86oh9YV35j.BO1hNeBYbjfPEEu2HhyooqCvV73ra0dDu48nAVOPLZGseWzrY6Fs3eRknJ.7XgBI664h2izIHFCvNYtjcWGmhUGfEanf8Pe0g5xAidKZ.v8oyyrGWiDjmoiHnPIhA0shl1lGsmd4YznOHK0A2mZSAi0_SOEQRWJ04MX0rHdCt_Pf8qsYFjXXJo4BmW6ptiTGT0m1t3iWLOLlLnhx4LMHtJWceFJzMyF8ZixTZ1N6zeGDQ_DoblhqwQGSVWNSB3DGHxMp0KQHxLw8MvKMeuigHKNoenmbz4TBYu795PV8zPwPPJL55cM750Q1fX1thMkdXwzOKM.OmWiO._eX8Xpatg6nI3nA; _mzvt=ZcNkhMMaPkWiAR-ykPtUUA; _mzPc=eyJjb3JyZWxhdGlvbklkIjoiMzYxMTc0MDJiMWY4NGRjMTk4NTcxNGViOGVmMGE5NjciLCJpcEFkZHJlc3MiOiIzNC4xOTkuMTMuMTY3IiwiaXNEZWJ1Z01vZGUiOmZhbHNlLCJpc0NyYXdsZXIiOmZhbHNlLCJpc01vYmlsZSI6ZmFsc2UsImlzVGFibGV0IjpmYWxzZSwiaXNEZXNrdG9wIjp0cnVlLCJ2aXNpdCI6eyJ2aXNpdElkIjoiWmNOa2hNTWFQa1dpQVIteWtQdFVVQSIsInZpc2l0b3JJZCI6IlRWbTUwN1F4M0VhdFRtelRhblZBdFEiLCJpc1RyYWNrZWQiOmZhbHNlLCJpc1VzZXJUcmFja2VkIjpmYWxzZX0sInVzZXIiOnsiaXNBdXRoZW50aWNhdGVkIjpmYWxzZSwidXNlcklkIjoiNWZjZTlmYjRhZDg4NDUzMDg5MGM5NGZkYzljM2M2NzciLCJmaXJzdE5hbWUiOiIiLCJsYXN0TmFtZSI6IiIsImVtYWlsIjoiIiwiaXNBbm9ueW1vdXMiOnRydWUsImJlaGF2aW9ycyI6WzEwMTRdLCJpc1NhbGVzUmVwIjpmYWxzZX0sInVzZXJQcm9maWxlIjp7InVzZXJJZCI6IjVmY2U5ZmI0YWQ4ODQ1MzA4OTBjOTRmZGM5YzNjNjc3IiwiZmlyc3ROYW1lIjoiIiwibGFzdE5hbWUiOiIiLCJlbWFpbEFkZHJlc3MiOiIiLCJ1c2VyTmFtZSI6IiJ9LCJpc0VkaXRNb2RlIjpmYWxzZSwiaXNBZG1pbk1vZGUiOmZhbHNlLCJub3ciOiIyMDI1LTA2LTExVDEzOjAxOjA2LjYwOTE0NDRaIiwiY3Jhd2xlckluZm8iOnsiaXNDcmF3bGVyIjpmYWxzZX0sImN1cnJlbmN5UmF0ZUluZm8iOnt9fQ%3D%3D' \\\n  -H 'origin: https://t49337-s73593.sandbox.mozu.com' \\\n  -H 'pragma: no-cache' \\\n  -H 'priority: u=1, i' \\\n  -H 'referer: https://t49337-s73593.sandbox.mozu.com/izumi-bike-shoes/p/SHOE12' \\\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-platform: \"macOS\"' \\\n  -H 'sec-fetch-dest: empty' \\\n  -H 'sec-fetch-mode: cors' \\\n  -H 'sec-fetch-site: same-origin' \\\n  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36' \\\n  -H 'x-vol-catalog: 1' \\\n  -H 'x-vol-currency: USD' \\\n  -H 'x-vol-locale: en-US' \\\n  -H 'x-vol-master-catalog: 1' \\\n  -H 'x-vol-site: 73593' \\\n  -H 'x-vol-tenant: 49337' \\\n  --data-raw '{\"options\":[{\"attributeFQN\":\"tenant~color\",\"name\":\"Color\",\"value\":\"Orange\"}]}'"
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          "// --- Validate that required variables exist ---",
+          "const apihost = pm.collectionVariables.get(\"apihost\");",
+          "const applicationKey = pm.collectionVariables.get(\"applicationKey\");",
+          "const sharedSecret = pm.collectionVariables.get(\"sharedSecret\");",
+          "",
+          "if (!apihost) {",
+          "    throw new Error(\"Missing required environment variable: apihost\");",
+          "}",
+          "if (!applicationKey) {",
+          "    throw new Error(\"Missing required environment variable: applicationKey\");",
+          "}",
+          "if (!sharedSecret) {",
+          "    throw new Error(\"Missing required environment variable: sharedSecret\");",
+          "}",
+          "",
+          "// --- Get stored authToken & authTokenExpiry ---",
+          "let authToken = pm.collectionVariables.get(\"authToken\");",
+          "let authTokenExpiry = pm.collectionVariables.get(\"authTokenExpiry\");",
+          "",
+          "// Convert string to integer if it exists; otherwise, set to 0",
+          "authTokenExpiry = authTokenExpiry ? parseInt(authTokenExpiry, 10) : 0;",
+          "let currentTime = Date.now(); // current time in ms",
+          "",
+          "// --- Determine if we need a new token ---",
+          "const tokenIsMissing = !authToken;",
+          "const tokenIsExpired = currentTime >= authTokenExpiry;",
+          "",
+          "if (tokenIsMissing || tokenIsExpired) {",
+          "   ",
+          "    // --- Make the auth request ---",
+          "    pm.sendRequest({",
+          "        url: `https://${apihost}/api/platform/applications/authtickets/oauth`,",
+          "        method: \"POST\",",
+          "        header: {",
+          "            \"Content-Type\": \"application/json\"",
+          "        },",
+          "        body: {",
+          "            mode: \"raw\",",
+          "            raw: JSON.stringify({",
+          "                client_id: applicationKey,",
+          "                client_secret: sharedSecret",
+          "            })",
+          "        }",
+          "    }, (err, res) => {",
+          "     ",
+          "        if (err) {",
+          "            console.error(\"Error requesting auth token:\", err);",
+          "            throw new Error(\"Failed to fetch auth token\");",
+          "        }",
+          "",
+          "        if (res.code !== 200) {",
+          "            console.error(\"Auth request failed:\", res.status, res.statusText, res.text());",
+          "            throw new Error(`Auth request failed with status ${res.status}`);",
+          "        }",
+          "",
+          "        // Parse the JSON response",
+          "        const jsonData = res.json();",
+          "        if (!jsonData.access_token || !jsonData.expires_in) {",
+          "            console.error(\"Unexpected auth response:\", jsonData);",
+          "            throw new Error(\"Auth response missing access_token or expires_in\");",
+          "        }",
+          "",
+          "        // --- Save the new authToken and its expiry ---",
+          "        pm.collectionVariables.set(\"authToken\", jsonData.access_token);",
+          "",
+          "        // expires_in is in seconds, so convert to ms and add to currentTime",
+          "        const expiresInSeconds = parseInt(jsonData.expires_in, 10) || 3600;",
+          "        const newExpiry = currentTime + (expiresInSeconds * 1000);",
+          "        pm.collectionVariables.set(\"authTokenExpiry\", newExpiry.toString());",
+          "    });",
+          "}"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "apihost",
+      "value": "t49337-s73593.sandbox.mozu.com",
+      "type": "string"
+    },
+    {
+      "key": "applicationKey",
+      "value": "d4e9bb5.webiny_pb_poc.1.0.0.Release",
+      "type": "string"
+    },
+    {
+      "key": "sharedSecret",
+      "value": "2e272a77e98d4726b401dd9874fa7b8e",
+      "type": "string"
+    },
+    {
+      "key": "authToken",
+      "value": ""
+    },
+    {
+      "key": "authTokenExpiry",
+      "value": ""
+    }
+  ]
+}

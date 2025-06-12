@@ -41,7 +41,7 @@ export const FloatingLinkEditorController = (props: FloatingLinkEditorProps) => 
 
         if (!isLinkOrChildOfLink) {
             // When hiding the toolbar, we want to hide immediately.
-            // setIsLink(false);
+            setIsLink(false);
         }
 
         if (selection.dirty) {
@@ -69,7 +69,7 @@ export const FloatingLinkEditorController = (props: FloatingLinkEditorProps) => 
                 BLUR_COMMAND,
                 payload => {
                     if (!isChildOfLinkEditor(payload.relatedTarget as HTMLElement)) {
-                        //setIsLink(false);
+                        setIsLink(false);
                     }
 
                     return false;

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { DelayedOnChange } from "@webiny/admin-ui";
 import { CompositionScope } from "@webiny/app-admin/index";
 import { LexicalEditor } from "./LexicalEditor";
@@ -18,13 +18,17 @@ export const LexicalInputRenderer = (props: ElementInputRendererProps) => {
 
 import { Dialog } from "@webiny/admin-ui";
 
-interface EditorDialogProps extends ElementInputRendererProps {
+interface EditorDialogProps extends Omit<ElementInputRendererProps, "onPreviewChange"> {
     open: boolean;
     onClose: () => void;
 }
 
 const EditorDialog = (props: EditorDialogProps) => {
     const [localValue, setLocalValue] = useState(props.value);
+
+    useEffect(() => {
+        setLocalValue(props.value);
+    }, [props.value]);
 
     return (
         <Dialog

@@ -82,6 +82,8 @@ export class PreviewSdk implements IContentSdk {
         this.setupListeners();
 
         this.messenger.send("preview.ready", true);
+
+        this.disableLinks();
     }
 
     public async getPage(path: string): Promise<Page | null> {
@@ -233,5 +235,23 @@ export class PreviewSdk implements IContentSdk {
         }
 
         return new PreviewDocument(result as PreviewDocumentProps);
+    }
+
+    private disableLinks() {
+        document.addEventListener(
+            "click",
+            event => {
+                const target = event.target as HTMLElement;
+
+                // Check if the clicked element or any of its ancestors is a link
+                const anchor = target.closest("a");
+
+                if (anchor && anchor.href) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            },
+            true
+        );
     }
 }

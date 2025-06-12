@@ -42,16 +42,20 @@ export const Dialog = ({
                             {loading && <CircularProgress label={loadingLabel} />}
                             <DialogTitle>{title}</DialogTitle>
                             <DialogContent>{content}</DialogContent>
-                            <DialogActions>
-                                {cancelLabel ? (
-                                    <ButtonDefault onClick={closeDialog}>
-                                        {cancelLabel}
-                                    </ButtonDefault>
-                                ) : null}
-                                {acceptLabel ? (
-                                    <ButtonPrimary onClick={submit}>{acceptLabel}</ButtonPrimary>
-                                ) : null}
-                            </DialogActions>
+                            {acceptLabel || cancelLabel ? (
+                                <DialogActions>
+                                    {cancelLabel ? (
+                                        <ButtonDefault onClick={closeDialog}>
+                                            {cancelLabel}
+                                        </ButtonDefault>
+                                    ) : null}
+                                    {acceptLabel ? (
+                                        <ButtonPrimary onClick={submit}>
+                                            {acceptLabel}
+                                        </ButtonPrimary>
+                                    ) : null}
+                                </DialogActions>
+                            ) : null}
                         </>
                     )}
                 </Form>

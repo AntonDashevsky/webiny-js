@@ -19,6 +19,7 @@ import { ScrollTracker } from "~/BaseEditor/defaultConfig/Content/Preview/Scroll
 import { KeyboardShortcuts } from "./KeyboardShortcuts";
 import { ViewportManager } from "~/sdk/ViewportManager";
 import { mouseTracker } from "~/sdk";
+import { Commands } from "~/BaseEditor";
 
 export const Preview = () => {
     const editor = useDocumentEditor();
@@ -124,6 +125,10 @@ export const Preview = () => {
 
     const onConnected = useCallback((messenger: Messenger) => {
         messenger.send("document.set", editor.getDocumentState().toJson());
+
+        editor.registerCommandHandler(Commands.PreviewPatchElement, payload => {
+            messenger.send(`element.patch.${payload.elementId}`, payload.values);
+        });
 
         messenger.on("preview.viewport.change.start", () => {
             editor.updateEditor(state => {

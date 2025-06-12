@@ -20,6 +20,14 @@ export class DocumentStore {
         });
     }
 
+    updateDocument(cb: (document: Document) => void) {
+        runInAction(() => {
+            if (this.document) {
+                cb(this.document);
+            }
+        });
+    }
+
     getDocument() {
         return this.document;
     }

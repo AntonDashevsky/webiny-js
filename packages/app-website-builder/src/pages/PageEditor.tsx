@@ -8,7 +8,7 @@ import { CompositionScope } from "@webiny/app-admin";
 export const PageEditor = () => {
     return (
         <CompositionScope name={"websiteBuilder"}>
-            <DocumentEditor document={mockPage1}>
+            <DocumentEditor document={emptyPage}>
                 {/*<EditorConfig>
                 <EditorConfig.Ui.Content.Element
                     name={"debugger"}

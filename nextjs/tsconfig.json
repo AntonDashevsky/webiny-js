@@ -19,9 +19,15 @@
       }
     ],
     "paths": {
-      "@components/*": [
-        "./src/components/*"
-      ]
+      "@/*": ["./*"],
+      "@/lib/*": ["./src/kibo/lib/*"],
+      "@/components/*": ["./src/kibo/components/*"],
+      "@/types/*": ["./src/kibo/types/*"],
+      "@/hooks/*": ["./src/kibo/hooks/*"],
+      "@/hooks": ["./src/kibo/hooks"],
+      "@/styles/*": ["./src/kibo/styles/*"],
+      "@/styles/*": ["./src/kibo/styles/*"],
+      "@/webiny/*": ["./src/webiny/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

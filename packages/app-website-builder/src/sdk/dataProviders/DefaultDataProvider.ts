@@ -1,5 +1,6 @@
 import type { IDataProvider, Page } from "~/sdk/types.js";
 import { logger } from "../Logger";
+import emptyPage from "~/DocumentEditor/mocks/emptyPage";
 import mockPage1 from "~/DocumentEditor/mocks/mockPage1";
 import mockPage2 from "~/DocumentEditor/mocks/mockPage2";
 

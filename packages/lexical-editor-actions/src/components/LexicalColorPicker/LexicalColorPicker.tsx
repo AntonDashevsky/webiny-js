@@ -26,7 +26,8 @@ const ColorBox = styled("div")({
     borderRadius: "50%",
     margin: 5,
     border: "1px solid var(--mdc-theme-on-background)",
-    padding: 3
+    padding: 3,
+    boxSizing: "content-box"
 });
 
 const Color = styled("button")({

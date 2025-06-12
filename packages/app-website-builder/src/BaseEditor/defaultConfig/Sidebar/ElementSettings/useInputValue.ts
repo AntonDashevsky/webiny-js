@@ -6,7 +6,9 @@ import type {
     ExpressionBinding,
     StaticBinding
 } from "~/sdk/types";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import { toJS } from "mobx";
+import { Commands } from "~/BaseEditor";
 
 const isExpressionBinding = (
     binding: StaticBinding | ExpressionBinding | undefined
@@ -16,6 +18,7 @@ const isExpressionBinding = (
 
 export const useInputValue = (element: DocumentElement, input: ComponentInput) => {
     const editor = useDocumentEditor();
+    const [localState, setLocalValue] = useState<any>();
 
     const value = useSelectFromDocument<StaticBinding | ExpressionBinding>(
         document => {
@@ -32,17 +35,17 @@ export const useInputValue = (element: DocumentElement, input: ComponentInput) =
             const inputBindings = bindings[`component.inputs.${input.name}`] ?? [];
             const expressionBinding = inputBindings.find(b => b.type === "expression");
             if (expressionBinding) {
-                return expressionBinding;
+                return toJS(expressionBinding);
             }
 
             const staticBinding = inputBindings.find(b => b.type === "static");
 
-            return (
-                staticBinding ?? {
-                    type: "static",
-                    value: ""
-                }
-            );
+            return staticBinding
+                ? toJS(staticBinding)
+                : {
+                      type: "static",
+                      value: ""
+                  };
         },
         [element.id, input.name]
     );
@@ -58,16 +61,36 @@ export const useInputValue = (element: DocumentElement, input: ComponentInput) =
                     inputBindings = inputBindings.filter(b => b.type !== "expression");
                     inputBindings.push({ ...expressionBinding, value });
                 } else {
-                    inputBindings = inputBindings.filter(b => b.type !== "static");
-                    inputBindings.push({ type: "static", value });
+                    const staticBinding = inputBindings.find(b => b.type === "static");
+                    if (staticBinding) {
+                        staticBinding.value = value;
+                    } else {
+                        inputBindings.push({ type: "static", value });
+                    }
                 }
 
                 bindings[`component.inputs.${input.name}`] = inputBindings;
 
                 state.bindings[element.id] = bindings;
             });
+
+            // Clear local value
+            setLocalValue(undefined);
         },
-        [element.id, editor]
+        [element.id]
+    );
+
+    const onPreviewChange = useCallback(
+        (value: any) => {
+            setLocalValue({ type: "static", value });
+            editor.executeCommand(Commands.PreviewPatchElement, {
+                elementId: element.id,
+                values: {
+                    [`component.inputs.${input.name}`]: value
+                }
+            });
+        },
+        [element.id]
     );
 
     const setBindingType = useCallback(
@@ -93,5 +116,10 @@ export const useInputValue = (element: DocumentElement, input: ComponentInput) =
         [element.id]
     );
 
-    return { value, onChange, setBindingType };
+    return {
+        value: localState ?? value,
+        onChange,
+        onPreviewChange,
+        setBindingType
+    };
 };

@@ -1,7 +1,7 @@
 import { IconButton } from "@webiny/admin-ui";
 import { ReactComponent as AddLinkIcon } from "@webiny/icons/add_link.svg";
 import { ReactComponent as RemoveLinkIcon } from "@webiny/icons/link_off.svg";
-import React from "react";
+import React, { useCallback } from "react";
 
 interface WithBindingToggleProps {
     type: "static" | "expression";
@@ -9,17 +9,22 @@ interface WithBindingToggleProps {
     children: React.ReactNode;
 }
 
+const addIcon = <AddLinkIcon />;
+const removeIcon = <RemoveLinkIcon />;
+
 export const WithBindingToggle = ({ setBindingType, type, children }: WithBindingToggleProps) => {
+    const onClick = useCallback(() => {
+        setBindingType(type === "static" ? "expression" : "static");
+    }, [type, setBindingType]);
+
     return (
         <div className={"wby-relative"}>
             <IconButton
                 className={"wby-absolute wby-right-0"}
                 variant={"ghost"}
                 size={"sm"}
-                icon={type === "static" ? <AddLinkIcon /> : <RemoveLinkIcon />}
-                onClick={() => {
-                    setBindingType(type === "static" ? "expression" : "static");
-                }}
+                icon={type === "static" ? addIcon : removeIcon}
+                onClick={onClick}
             />
             {children}
         </div>

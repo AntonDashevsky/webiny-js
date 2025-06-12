@@ -5,6 +5,7 @@ import type { ComponentInput } from "~/sdk/types";
 export interface ElementInputRendererProps {
     value: any;
     onChange: (value: any) => void;
+    onPreviewChange: (value: any) => void;
     input: ComponentInput;
 }
 

@@ -1,5 +1,4 @@
 "use client";
-import set from "lodash/set";
 import { autorun, makeAutoObservable, observable, runInAction, toJS } from "mobx";
 import { contentSdk, DocumentStore, type PreviewSdk } from "~/sdk/index.js";
 import type { DocumentElement } from "~/sdk/types.js";
@@ -62,19 +61,22 @@ export class PreviewElementRendererPresenter {
 
         this.listeners.push(
             this.preview.messenger.on(`element.patch.${id}`, values => {
-                const element = this.element;
-                if (!element) {
-                    return;
-                }
+                this.documentStore.updateDocument(document => {
+                    const elementBindings = document.bindings[id] ?? observable({});
 
-                const newData = toJS(element);
-                Object.keys(values).forEach(key => {
-                    set(newData, key, values[key]);
-                });
+                    Object.keys(values || {}).forEach(key => {
+                        const bindings = elementBindings[key] ?? [];
 
-                runInAction(() => {
-                    // Assign all new keys from the incoming object
-                    Object.assign(this.element, observable(newData));
+                        const newBindings = bindings.filter(binding => binding.type !== "static");
+                        newBindings.push({
+                            type: "static",
+                            value: values[key]
+                        });
+
+                        elementBindings[key] = newBindings;
+                    });
+
+                    document.bindings[id] = elementBindings;
                 });
             })
         );

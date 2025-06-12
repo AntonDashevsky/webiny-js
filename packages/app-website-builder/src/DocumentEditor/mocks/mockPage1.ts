@@ -13,25 +13,47 @@ export default {
         ]
     },
     bindings: {
-        "4ETOAnHNei7": {
-            $repeat: [
-                {
-                    type: "expression",
-                    value: "$state.list"
-                }
-            ],
-            "component.inputs.text": [
+        a4q8yakhqs: {
+            "component.inputs.productCode": [
                 {
                     type: "static",
-                    value: `Nunc maximus elementum luctus. In hac habitasse platea dictumst. Vivamus
-                    porttitor quam nec ante tempor, sit amet tristique dui accumsan. Suspendisse
-                    egestas molestie sagittis. Nulla facilisi. Vestibulum laoreet nibh ipsum, ut
-                    bibendum libero tempor sed. Vestibulum id nunc at erat scelerisque tempor eget
-                    id augue. Mauris congue sed dui vel posuere1.`
-                },
+                    value: "ACC1"
+                }
+            ]
+        },
+        c005jd8kzs: {
+            "component.inputs.title": [
                 {
-                    type: "expression",
-                    value: "$.text"
+                    type: "static",
+                    value: "Products of the Month"
+                }
+            ],
+            "component.inputs.productCodes": [
+                {
+                    type: "static",
+                    value: ["SHOE12", "ACC1", "BIKE3", "TOP13"]
+                }
+            ]
+        },
+        dvt6dzeuuh: {
+            "component.inputs.title": [
+                {
+                    type: "static",
+                    value: "Product highlight"
+                }
+            ],
+            "component.inputs.content": [
+                {
+                    type: "static",
+                    value: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"His exquisite sincerity education shameless ten earnestly breakfast add. So we me unknown as improve hastily sitting forming. Especially favourable compliment but thoroughly unreserved saw she themselves. Sufficient impossible him may ten insensible put continuing. Oppose exeter income simple few joy cousin but twenty. Scale began quiet up short wrong in in. Sportsmen shy forfeited engrossed may can.","type":"text","version":1},{"type":"linebreak","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+                }
+            ]
+        },
+        mldehii9hy: {
+            "component.inputs.productCode": [
+                {
+                    type: "static",
+                    value: "TOP3"
                 }
             ]
         }
@@ -43,47 +65,25 @@ export default {
             component: {
                 name: "Webiny/Root",
                 inputs: {
-                    children: ["4ETOAnHNei7", "2B6ROAnHFao3"]
+                    children: ["c005jd8kzs", "dvt6dzeuuh"]
                 }
             }
         },
-        "4ETOAnHNei7": {
+        c005jd8kzs: {
+            id: "c005jd8kzs",
             type: "Webiny/Element",
-            id: "4ETOAnHNei7",
             parent: {
                 id: "root",
                 slot: "children"
             },
             component: {
-                name: "Webiny/Text"
-            },
-            styles: {
-                desktop: {
-                    color: "#006700",
-                    display: "flex",
-                    flexDirection: "column",
-                    position: "relative",
-                    flexShrink: 0,
-                    boxSizing: "border-box",
-                    lineHeight: "normal",
-                    height: "auto"
-                },
-                mobilePortrait: {
-                    color: "#ea2a73",
-                    fontWeight: "bold",
-                    display: "flex",
-                    flexDirection: "column",
-                    position: "relative",
-                    flexShrink: 0,
-                    boxSizing: "border-box",
-                    lineHeight: "normal",
-                    height: "auto"
-                }
+                name: "Kibo/ProductRecommendations",
+                inputs: {}
             }
         },
-        "2B6ROAnHFao3": {
+        dvt6dzeuuh: {
+            id: "dvt6dzeuuh",
             type: "Webiny/Element",
-            id: "2B6ROAnHFao3",
             parent: {
                 id: "root",
                 slot: "children"
@@ -91,9 +91,20 @@ export default {
             component: {
                 name: "Webiny/TextWithDropzone",
                 inputs: {
-                    blockId: "B6ROAnHFao3",
-                    inputs: {}
+                    children: ["mldehii9hy"]
                 }
+            }
+        },
+        mldehii9hy: {
+            id: "mldehii9hy",
+            type: "Webiny/Element",
+            parent: {
+                id: "dvt6dzeuuh",
+                slot: "children"
+            },
+            component: {
+                name: "Kibo/ProductHighlight",
+                inputs: {}
             }
         }
     }

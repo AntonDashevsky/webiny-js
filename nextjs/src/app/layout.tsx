@@ -1,6 +1,7 @@
 import React from "react";
 import "./globals.css";
-import { ContentSdkInitializer } from "@components/ContentSdkInitializer";
+import { ContentSdkInitializer } from "@/webiny/ContentSdkInitializer";
+import { RQNotificationContextProvider } from "@/context/RQNotificationContext/RQNotificationContext";
 
 export default function RootLayout({
     children
@@ -14,7 +15,7 @@ export default function RootLayout({
             </head>
             <body>
                 <ContentSdkInitializer />
-                {children}
+                <RQNotificationContextProvider>{children}</RQNotificationContextProvider>
             </body>
         </html>
     );

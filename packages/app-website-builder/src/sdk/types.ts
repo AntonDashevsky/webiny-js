@@ -242,6 +242,12 @@ export type ObjectInput = BaseInput<Record<string, any>> & {
     fields: ComponentInput[];
 };
 
+export type CustomInput = BaseInput<any> & {
+    type: string;
+    dataType: string;
+    fields: ComponentInput[];
+};
+
 // Union of all input types
 export type ComponentInput =
     | TextInput
@@ -255,4 +261,5 @@ export type ComponentInput =
     | SelectInput
     | RadioInput
     | TagsInput
-    | ObjectInput;
+    | ObjectInput
+    | CustomInput;

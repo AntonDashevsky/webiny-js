@@ -1,0 +1,19 @@
+{
+  "name": "kibo-commerce",
+  "main": "src/index.tsx",
+  "version": "1.0.0",
+  "keywords": [
+    "webiny-extension",
+    "webiny-extension-type:admin"
+  ],
+  "dependencies": {
+    "@webiny/admin-ui": "0.0.0",
+    "@webiny/app-admin": "0.0.0",
+    "@webiny/app-website-builder": "0.0.0",
+    "currency.js": "^2.0.4",
+    "lodash": "^4.17.21",
+    "mobx-react": "^9.2.0",
+    "pluralize": "^8.0.0",
+    "react": "18.2.0"
+  }
+}

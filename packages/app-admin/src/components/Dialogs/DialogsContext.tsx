@@ -24,8 +24,8 @@ interface ShowCustomDialogParams {
 }
 
 export interface DialogsContext {
-    showDialog: (params: ShowDialogParams) => void;
-    showCustomDialog: (params: ShowCustomDialogParams) => void;
+    showDialog: (params: ShowDialogParams) => () => void;
+    showCustomDialog: (params: ShowCustomDialogParams) => () => void;
 }
 
 interface DialogsProviderProps {
@@ -43,8 +43,8 @@ export const initializeState = (params: Partial<DialogState> = {}): DialogState 
     id: `dialog-${generateId()}`,
     title: params.title ?? `Confirmation`,
     content: params.content,
-    acceptLabel: params.acceptLabel ?? `Confirm`,
-    cancelLabel: params.cancelLabel ?? `Cancel`,
+    acceptLabel: params.acceptLabel === null ? null : params.acceptLabel ?? `Confirm`,
+    cancelLabel: params.cancelLabel === null ? null : params.cancelLabel ?? `Cancel`,
     loadingLabel: params.loadingLabel ?? `Loading`,
     onAccept: params.onAccept,
     onClose: params.onClose,
@@ -63,6 +63,7 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
     const showDialog = (params: ShowDialogParams) => {
         const newDialog = initializeState({ ...params, open: true });
         setDialogs(dialogs => new Map(dialogs).set(newDialog.id, newDialog));
+        return () => closeDialog(newDialog.id);
     };
 
     const showCustomDialog = ({ onSubmit, element }: ShowCustomDialogParams) => {
@@ -72,6 +73,7 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
             open: true
         });
         setDialogs(dialogs => new Map(dialogs).set(newDialog.id, newDialog));
+        return () => closeDialog(newDialog.id);
     };
 
     const closeDialog = (id: string) => {

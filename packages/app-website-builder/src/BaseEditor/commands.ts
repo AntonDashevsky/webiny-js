@@ -30,10 +30,15 @@ const SelectElement = createCommand<{ id: string }>("SELECT_ELEMENT");
 
 const DeselectElement = createCommand<never>("DESELECT_ELEMENT");
 
+const PreviewPatchElement = createCommand<{ elementId: string; values: Record<string, any> }>(
+    "PREVIEW_PATCH_ELEMENT"
+);
+
 export const Commands = {
     CreateElement,
     DeleteElement,
     MoveElement,
     SelectElement,
-    DeselectElement
+    DeselectElement,
+    PreviewPatchElement
 };

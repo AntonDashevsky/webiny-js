@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Select } from "@webiny/admin-ui";
-import type { ComponentInput, ComponentManifest, DocumentElement } from "~/sdk/types";
+import type { ComponentInput, DocumentElement } from "~/sdk/types";
 import { useComponent } from "~/BaseEditor/hooks/useComponent";
 import { useInputRenderer } from "./useInputRenderer";
 import { useInputValue } from "./useInputValue";
@@ -20,7 +20,7 @@ export const ElementInputs = ({ element }: ElementInputsProps) => {
 
     return (
         <Grid>
-            <Grid.Column key={"repeat"} span={12}>
+            {/*<Grid.Column key={"repeat"} span={12}>
                 <Select
                     label={"Repeat for each"}
                     placeholder={"Select binding"}
@@ -28,12 +28,12 @@ export const ElementInputs = ({ element }: ElementInputsProps) => {
                     value={repeat.value ?? ""}
                     onChange={value => repeat.onChange(value === "" ? undefined : value)}
                 />
-            </Grid.Column>
+            </Grid.Column>*/}
             <>
                 {(component.inputs ?? []).map(input => {
                     return (
                         <Grid.Column key={input.name} span={12}>
-                            <ElementInput element={element} input={input} component={component} />
+                            <ElementInput element={element} input={input} />
                         </Grid.Column>
                     );
                 })}
@@ -45,18 +45,31 @@ export const ElementInputs = ({ element }: ElementInputsProps) => {
 interface ElementInputProps {
     element: DocumentElement;
     input: ComponentInput;
-    component: ComponentManifest;
 }
 
-const ElementInput = ({ element, input, component }: ElementInputProps) => {
+const ElementInput = ({ element, input }: ElementInputProps) => {
     const Renderer = useInputRenderer(input.renderer || "__unknown__");
 
-    const { value, onChange, setBindingType } = useInputValue(element, input);
+    const { value, onChange, onPreviewChange, setBindingType } = useInputValue(element, input);
 
+    return (
+        <Renderer
+            value={value.value}
+            input={input}
+            onChange={onChange}
+            onPreviewChange={onPreviewChange}
+        />
+    );
+    /*
     if (value.type === "static") {
         return (
             <WithBindingToggle type={value.type} setBindingType={setBindingType}>
-                <Renderer value={value.value} input={input} onChange={onChange} />
+                <Renderer
+                    value={value.value}
+                    input={input}
+                    onChange={onChange}
+                    onPreviewChange={onPreviewChange}
+                />
             </WithBindingToggle>
         );
     }
@@ -70,5 +83,5 @@ const ElementInput = ({ element, input, component }: ElementInputProps) => {
                 input={input}
             />
         </WithBindingToggle>
-    );
+    );*/
 };

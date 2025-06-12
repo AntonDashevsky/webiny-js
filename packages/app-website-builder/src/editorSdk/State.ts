@@ -36,6 +36,10 @@ export class State<TState extends GenericRecord = GenericRecord> implements ISta
         cb(this.pendingState);
     }
 
+    updateInPlace(cb: (state: MutableState<TState>) => void) {
+        cb(this.activeState);
+    }
+
     setState(setter: (state: MutableState<TState>) => TState) {
         this.activeState = observable(setter(this.activeState));
     }
