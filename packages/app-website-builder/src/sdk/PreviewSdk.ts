@@ -222,7 +222,7 @@ export class PreviewSdk implements IContentSdk {
 
         // Send positions to the editor
         this.messenger.send("preview.viewport", {
-            boxes: this.previewViewport.getBoxes(),
+            boxes: this.previewViewport.getVisibleBoxes(),
             viewport: this.previewViewport.getViewport()
         });
     }
@@ -269,11 +269,13 @@ export class PreviewSdk implements IContentSdk {
     }
 
     private setupHotkeyListeners() {
-        this.hotkeyManager.add("mod+z", () => {
+        this.hotkeyManager.add("mod+z", e => {
+            e.preventDefault();
             this.messenger.send("preview.undo");
         });
 
-        this.hotkeyManager.add("mod+shift+z", () => {
+        this.hotkeyManager.add("mod+shift+z", e => {
+            e.preventDefault();
             this.messenger.send("preview.redo");
         });
     }
