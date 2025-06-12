@@ -2,6 +2,7 @@
 import { autorun, makeAutoObservable, observable, runInAction, toJS } from "mobx";
 import { contentSdk, DocumentStore, type PreviewSdk } from "~/sdk/index.js";
 import type { DocumentElement } from "~/sdk/types.js";
+import { resizeObserver } from "~/sdk/ResizeObserver";
 
 export class PreviewElementRendererPresenter {
     private element: DocumentElement;
@@ -27,7 +28,18 @@ export class PreviewElementRendererPresenter {
         this.setupPreview();
     }
 
+    observeDOM() {
+        const element = document.querySelector(`[data-element-id="${this.element.id}"]`);
+        if (element) {
+            resizeObserver.observe(element);
+        }
+    }
+
     dispose() {
+        const element = document.querySelector(`[data-element-id="${this.element.id}"]`);
+        if (element) {
+            resizeObserver.unobserve(element);
+        }
         this.listeners.forEach(fn => fn());
     }
 

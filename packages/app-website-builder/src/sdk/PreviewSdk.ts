@@ -18,6 +18,8 @@ import { mouseTracker } from "./MouseTracker";
 import { functionConverter } from "./FunctionConverter";
 import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 import { DocumentStore } from "~/sdk/DocumentStore";
+import { resizeObserver } from "~/sdk/ResizeObserver";
+import { HotkeyManager } from "~/sdk/HotkeyManager";
 
 interface PreviewDocumentProps {
     id: string;
@@ -53,6 +55,7 @@ export class PreviewSdk implements IContentSdk {
     private liveSdk: IContentSdk;
     private documentStore: DocumentStore;
     private previewDocument: PreviewDocument;
+    private hotkeyManager: HotkeyManager;
 
     constructor(liveSdk: IContentSdk) {
         this.liveSdk = liveSdk;
@@ -64,6 +67,8 @@ export class PreviewSdk implements IContentSdk {
         this.documentStore = documentStoreManager.getStore(this.previewDocument.getId());
 
         this.messenger = new Messenger(source, target, "wb.editor.*");
+
+        this.hotkeyManager = new HotkeyManager();
 
         componentRegistry.onRegister(reg => {
             this.messenger.send("preview.component.register", reg.component.manifest);
@@ -84,6 +89,8 @@ export class PreviewSdk implements IContentSdk {
         this.messenger.send("preview.ready", true);
 
         this.disableLinks();
+
+        this.setupHotkeyListeners();
     }
 
     public async getPage(path: string): Promise<Page | null> {
@@ -201,6 +208,10 @@ export class PreviewSdk implements IContentSdk {
 
         // Report initial positions after a short delay to ensure elements are rendered
         setTimeout(() => this.reportBoxes(), 500);
+
+        resizeObserver.onChange(() => {
+            this.reportBoxes();
+        });
     }
 
     private reportBoxes(): void {
@@ -238,6 +249,7 @@ export class PreviewSdk implements IContentSdk {
     }
 
     private disableLinks() {
+        // Intercept link clicks when we're in the editing mode (loaded via iframe from the editor).
         document.addEventListener(
             "click",
             event => {
@@ -251,7 +263,18 @@ export class PreviewSdk implements IContentSdk {
                     event.stopPropagation();
                 }
             },
+            // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#usecapture
             true
         );
+    }
+
+    private setupHotkeyListeners() {
+        this.hotkeyManager.add("mod+z", () => {
+            this.messenger.send("preview.undo");
+        });
+
+        this.hotkeyManager.add("mod+shift+z", () => {
+            this.messenger.send("preview.redo");
+        });
     }
 }

@@ -136,6 +136,14 @@ export const Preview = () => {
             });
         });
 
+        messenger.on("preview.undo", () => {
+            editor.undo();
+        });
+
+        messenger.on("preview.redo", () => {
+            editor.redo();
+        });
+
         messenger.on("preview.viewport", ({ boxes, viewport }: PreviewViewportData) => {
             const iframeBox = getIframeBox();
 

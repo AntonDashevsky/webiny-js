@@ -13,7 +13,11 @@ export class DocumentStore {
 
     setDocument(doc: Document) {
         runInAction(() => {
-            this.document = observable(doc);
+            if (this.document) {
+                Object.assign(this.document, doc);
+            } else {
+                this.document = observable(doc);
+            }
             this.documentReady = true;
             this.readyResolvers.forEach(fn => fn());
             this.readyResolvers = [];

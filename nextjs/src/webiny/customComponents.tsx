@@ -5,8 +5,7 @@ import {
     createTextInput,
     createBooleanInput,
     createLongTextInput,
-    createRichTextInput,
-    createInput
+    createRichTextInput
 } from "@webiny/app-website-builder/react/index.js";
 import { Root } from "./components/Root";
 import { TextWithDropzone } from "./components/TextWithDropzone";
@@ -72,14 +71,11 @@ export const customComponents = [
                 defaultValue: "",
                 required: true
             }),
-            createInput({
+            createTextInput({
                 name: "productCodes",
-                type: "KiboCommerceProductList",
-                dataType: "text",
                 list: true,
                 renderer: "KiboCommerceProductList",
-                label: "Products",
-                fields: []
+                label: "Products"
             })
         ]
     }),
@@ -88,13 +84,10 @@ export const customComponents = [
         label: "Product Highlight",
         group: "ecommerce",
         inputs: [
-            createInput({
+            createTextInput({
                 name: "productCode",
-                type: "KiboCommerceProduct",
-                dataType: "text",
                 renderer: "KiboCommerceProduct",
-                label: "Product",
-                fields: []
+                label: "Product"
             })
         ]
     })

@@ -24,6 +24,10 @@ export const PreviewElementRenderer = observer((props: PreviewElementRendererPro
     }, [props.element.id]);
 
     useEffect(() => {
+        presenter.observeDOM();
+    }, [props.element.id]);
+
+    useEffect(() => {
         return () => {
             presenter.dispose();
         };
