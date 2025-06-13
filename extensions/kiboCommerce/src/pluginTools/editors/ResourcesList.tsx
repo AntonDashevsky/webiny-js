@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { action } from "mobx";
+import { action, runInAction } from "mobx";
 import { observer, useLocalObservable } from "mobx-react";
 import {
     ResourcePreviewCell,
@@ -38,14 +38,20 @@ const ResourcePreviewById = observer(
             loading: false,
             resourceInfo: null as Resource | null,
             async getResource() {
-                this.loading = true;
+                runInAction(() => {
+                    this.loading = true;
+                });
                 try {
                     const value = await props.api[props.resourceName].findById(props.id);
-                    this.resourceInfo = value;
+                    runInAction(() => {
+                        this.resourceInfo = value;
+                    });
                 } catch (e) {
                     console.error(e);
                 }
-                this.loading = false;
+                runInAction(() => {
+                    this.loading = false;
+                });
             }
         }));
         useEffect(() => {

@@ -36,7 +36,6 @@ export const LexicalEditor = (props: Omit<RichTextEditorProps, "theme">) => {
     return (
         <BaseLexicalEditor
             {...props}
-            focus={true}
             value={props.value}
             onChange={onChange}
             staticToolbar={toolbar}

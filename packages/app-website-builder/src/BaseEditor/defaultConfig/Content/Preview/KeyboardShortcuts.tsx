@@ -11,6 +11,7 @@ export const KeyboardShortcuts = () => {
     const deleteActiveElement = useCallback(() => {
         const activeElementId = $getActiveElementId(editor);
         if (activeElementId) {
+            editor.executeCommand(Commands.DeselectElement);
             editor.executeCommand(Commands.DeleteElement, { id: activeElementId });
         }
     }, []);
@@ -20,11 +21,6 @@ export const KeyboardShortcuts = () => {
     }, []);
 
     useEffect(() => {
-        // @ts-ignore 123
-        window["selectElement"] = (id: string) => {
-            editor.executeCommand(Commands.SelectElement, { id });
-        };
-
         addKeyHandler("Escape", e => {
             e.preventDefault();
             deactivateElement();
@@ -50,6 +46,7 @@ export const KeyboardShortcuts = () => {
         });
 
         return () => {
+            removeKeyHandler("Escape");
             removeKeyHandler("Backspace");
             removeKeyHandler("Delete");
             removeKeyHandler("mod+z");
