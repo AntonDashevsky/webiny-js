@@ -5,10 +5,15 @@ import { BooleanInputRenderer } from "~/inputRenderers/BooleanInput";
 import { TextareaInputRenderer } from "~/inputRenderers/TextareaInput";
 import { LexicalInputRenderer } from "~/inputRenderers/LexicalInput/LexicalInput";
 import { DefaultLexicalConfig } from "~/inputRenderers/LexicalInput/DefaultLexicalConfig";
+import { SlotInputRenderer } from "~/inputRenderers/SlotInput";
 
 export const ElementInputRenderers = () => {
     return (
         <>
+            <EditorConfig.ElementInput.Renderer
+                name={"Webiny/Slot"}
+                component={SlotInputRenderer}
+            />
             <EditorConfig.ElementInput.Renderer
                 name={"Webiny/Input"}
                 component={TextInputRenderer}

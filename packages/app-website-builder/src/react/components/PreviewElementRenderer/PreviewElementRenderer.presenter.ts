@@ -31,14 +31,14 @@ export class PreviewElementRendererPresenter {
     observeDOM() {
         const element = document.querySelector(`[data-element-id="${this.element.id}"]`);
         if (element) {
-            resizeObserver.observe(element);
+            resizeObserver.observe(element as HTMLElement);
         }
     }
 
     dispose() {
         const element = document.querySelector(`[data-element-id="${this.element.id}"]`);
         if (element) {
-            resizeObserver.unobserve(element);
+            resizeObserver.unobserve(element as HTMLElement);
         }
         this.listeners.forEach(fn => fn());
     }

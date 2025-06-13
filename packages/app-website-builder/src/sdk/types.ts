@@ -183,6 +183,11 @@ export type TextInput = BaseInput<string> & {
     dataType: "text";
 };
 
+export type SlotInput = BaseInput<DocumentElement> & {
+    type: "slot";
+    dataType: "json";
+};
+
 export type TagsInput = BaseInput<string[]> & {
     type: "text";
     dataType: "text";
@@ -262,4 +267,5 @@ export type ComponentInput =
     | RadioInput
     | TagsInput
     | ObjectInput
+    | SlotInput
     | CustomInput;

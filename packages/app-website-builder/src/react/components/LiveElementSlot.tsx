@@ -5,7 +5,7 @@ import { ElementSlotProps } from "./ElementSlot";
 import { ElementSlotDepthProvider, useElementSlotDepth } from "./ElementSlotDepthProvider";
 import { ElementIndexProvider } from "./ElementIndexProvider";
 
-export const LiveElementSlot = ({ elements }: Pick<ElementSlotProps, "elements">) => {
+export const LiveElementSlot = ({ elements = [] }: Pick<ElementSlotProps, "elements">) => {
     const depth = useElementSlotDepth();
     return (
         <>

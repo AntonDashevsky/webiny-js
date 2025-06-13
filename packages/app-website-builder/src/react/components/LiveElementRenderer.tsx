@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
+import { observer } from "mobx-react-lite";
 import type { DocumentElement } from "~/sdk/types";
 import { contentSdk } from "~/sdk";
 import { ElementSlot } from "./ElementSlot";
 import { useDocumentStore } from "~/react";
-import { observer } from "mobx-react-lite";
 import { useSelectFromState } from "./useSelectFromState";
 import { useViewport } from "./useViewportInfo";
 
@@ -46,7 +46,7 @@ export const LiveElementRenderer = observer(({ element }: LiveElementRendererPro
                         key={index}
                         style={{ position: "relative", ...styles } as React.CSSProperties}
                     >
-                        <Component {...inputs}>
+                        <Component {...inputs} element={element}>
                             {manifest?.acceptsChildren ? (
                                 <ElementSlot
                                     parentId={id}

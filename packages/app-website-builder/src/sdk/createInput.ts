@@ -11,7 +11,8 @@ import {
     ObjectInput,
     DateTimeInput,
     ComponentInput,
-    TagsInput
+    TagsInput,
+    SlotInput
 } from "./types";
 
 type OmitType<T> = Omit<T, "type" | "dataType">;
@@ -135,6 +136,16 @@ export function createTagsInput(input: OmitType<TagsInput>) {
         renderer: "Webiny/Tags",
         ...input
     }) as TagsInput;
+}
+
+export function createSlotInput(input: OmitType<SlotInput>) {
+    return createInput({
+        type: "slot",
+        dataType: "json",
+        list: true,
+        renderer: "Webiny/Slot",
+        ...input
+    }) as SlotInput;
 }
 
 // Implementation

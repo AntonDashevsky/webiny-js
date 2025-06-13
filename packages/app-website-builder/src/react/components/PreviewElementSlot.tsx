@@ -12,13 +12,13 @@ interface ElementSlotProps {
     elements: string[];
 }
 
-export const PreviewElementSlot = ({ parentId, slot, elements }: ElementSlotProps) => {
+export const PreviewElementSlot = ({ parentId, slot, elements = [] }: ElementSlotProps) => {
     const depth = useElementSlotDepth();
 
     if (!elements.length) {
         return (
             <div
-                style={{ height: 100, width: "inherit" }}
+                style={{ height: 100, width: "100% !important" }}
                 data-role={"element-slot"}
                 data-parent-id={parentId}
                 data-parent-slot={slot}

@@ -4,3 +4,4 @@ export * from "~/sdk/createInput.js";
 export * from "~/sdk/ContentSdk.js";
 export * from "~/sdk/Environment.js";
 export * from "~/sdk/registerComponentGroup.js";
+export type { DocumentElement } from "~/sdk/types.js";
