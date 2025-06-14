@@ -1,7 +1,6 @@
 import { applyPatch as jsonPatchApply, Operation } from "fast-json-patch";
-import { makeAutoObservable, runInAction, observable, toJS } from "mobx";
+import { makeAutoObservable, runInAction, observable } from "mobx";
 import type { Document } from "~/sdk/types";
-import { applyMobxPatch } from "~/sdk/applyMobxPatch";
 
 export class DocumentStore {
     private document: Document | null = null;
@@ -58,8 +57,7 @@ export class DocumentStore {
 
     applyPatch(patch: Operation[]) {
         runInAction(() => {
-            // TODO: see if simple json-patch can work here
-            applyMobxPatch(this.document!, patch);
+            jsonPatchApply(this.document!, patch, false, true);
         });
     }
 

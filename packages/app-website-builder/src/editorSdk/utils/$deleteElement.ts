@@ -26,6 +26,9 @@ export function $deleteElement(editor: Editor, id: string) {
                 $deleteElement(editor, element.id);
             });
 
+        // Delete element bindings.
+        delete state.bindings[elementToDelete.id];
+
         // Delete the element itself.
         delete state.elements[id];
     });

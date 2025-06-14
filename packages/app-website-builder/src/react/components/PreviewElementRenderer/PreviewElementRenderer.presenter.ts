@@ -1,9 +1,9 @@
 "use client";
-import { makeAutoObservable, observable, runInAction, toJS } from "mobx";
+import { makeAutoObservable, observable, toJS } from "mobx";
+import set from "lodash/set";
 import { contentSdk, DocumentStore, type PreviewSdk, viewportManager } from "~/sdk/index.js";
 import type { DocumentElement } from "~/sdk/types.js";
 import { resizeObserver } from "~/sdk/ResizeObserver";
-import { setObservablePath } from "~/sdk/setObservablePath";
 
 export class PreviewElementRendererPresenter {
     private element: DocumentElement;
@@ -73,8 +73,7 @@ export class PreviewElementRendererPresenter {
                 this.documentStore.updateDocument(document => {
                     // Apply inputs
                     Object.keys(inputs).forEach(inputName => {
-                        // TODO: See if simple `lodash/set` can work here
-                        setObservablePath(
+                        set(
                             document.bindings,
                             `${id}.inputs.${inputName}.static`,
                             inputs[inputName]
@@ -83,7 +82,7 @@ export class PreviewElementRendererPresenter {
 
                     // Apply styles
                     Object.keys(styles).forEach(propertyName => {
-                        setObservablePath(
+                        set(
                             document.bindings,
                             `${id}.styles.${this.displayMode}.${propertyName}.static`,
                             styles[propertyName]
