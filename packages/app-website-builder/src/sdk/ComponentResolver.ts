@@ -1,12 +1,20 @@
 import type { ComponentRegistry } from "~/sdk/ComponentRegistry.js";
 import type {
-    DocumentBindings,
     DocumentElement,
+    DocumentElementBindings,
     DocumentState,
     ResolvedComponent
 } from "~/sdk/types";
 import { logger } from "./Logger";
-import { BindingsResolver } from "./BindingsResolver";
+import { BindingsResolver, OnResolved } from "./BindingsResolver";
+
+export type ResolveElementParams = {
+    element: DocumentElement;
+    elementBindings: DocumentElementBindings;
+    state: DocumentState;
+    displayMode: string;
+    onResolved?: OnResolved;
+};
 
 export class ComponentResolver {
     private components: ComponentRegistry;
@@ -15,12 +23,13 @@ export class ComponentResolver {
         this.components = registry;
     }
 
-    resolve(
-        element: DocumentElement,
-        state: DocumentState,
-        bindings: DocumentBindings,
-        displayMode: string
-    ): ResolvedComponent[] | null {
+    resolve({
+        element,
+        elementBindings = {},
+        onResolved,
+        state,
+        displayMode
+    }: ResolveElementParams): ResolvedComponent[] | null {
         const componentName = element.component.name;
         const blueprint = this.components.get(componentName);
 
@@ -29,14 +38,19 @@ export class ComponentResolver {
             return null;
         }
 
-        const bindingsResolver = new BindingsResolver(state, bindings, displayMode);
-        const instances = bindingsResolver.resolveElement(element);
+        const bindingsResolver = new BindingsResolver(state, displayMode);
+        const instances = bindingsResolver.resolveElement({
+            element,
+            elementBindings,
+            inputs: blueprint.manifest.inputs ?? [],
+            onResolved
+        });
 
         return instances.map(instance => ({
             component: blueprint.component,
             manifest: blueprint.manifest,
             styles: instance.styles,
-            inputs: instance.component.inputs
+            inputs: instance.inputs
         }));
     }
 }

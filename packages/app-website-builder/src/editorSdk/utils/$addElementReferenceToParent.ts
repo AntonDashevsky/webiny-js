@@ -1,7 +1,6 @@
 import get from "lodash/get";
-import { Editor } from "../Editor";
-import { DocumentElement } from "~/sdk/types";
 import set from "lodash/set";
+import { Editor } from "../Editor";
 
 interface Params {
     elementId: string;
@@ -15,20 +14,12 @@ export function $addElementReferenceToParent(
     { elementId, parentId, slot, index }: Params
 ) {
     editor.updateDocument(state => {
-        const parent = state.elements[parentId];
-        const slotElements = getElementsFromSlot(parent, slot);
-        setSlotElements(parent, slot, [
+        const elementBindings = state.bindings[parentId] ?? {};
+        const slotElements = (get(elementBindings.inputs, `${slot}.static`) as string[]) ?? [];
+        set(state.bindings, `${parentId}.inputs.${slot}.static`, [
             ...slotElements.slice(0, index),
             elementId,
             ...slotElements.slice(index)
         ]);
     });
 }
-
-const getElementsFromSlot = (element: DocumentElement, slot: string): string[] => {
-    return get(element.component.inputs, slot) ?? [];
-};
-
-const setSlotElements = (element: DocumentElement, slot: string, elements: string[]) => {
-    return set(element.component.inputs, slot, elements);
-};

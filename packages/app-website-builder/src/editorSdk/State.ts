@@ -29,7 +29,7 @@ export class State<TState extends GenericRecord = GenericRecord> implements ISta
 
     update(cb: (state: MutableState<TState>) => void) {
         if (!this.pendingState) {
-            this.pendingState = structuredClone(this.activeState);
+            this.pendingState = structuredClone(toJS(this.activeState));
             this.commitPendingState();
         }
 

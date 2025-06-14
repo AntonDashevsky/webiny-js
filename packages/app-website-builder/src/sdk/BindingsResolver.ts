@@ -1,106 +1,135 @@
-import cloneDeep from "lodash/cloneDeep";
 import set from "lodash/set";
 import { toJS } from "mobx";
 import type {
-    DocumentBindings,
     DocumentElement,
     DocumentState,
-    ExpressionBinding,
     ResolvedElement,
-    StaticBinding
+    ComponentInput,
+    ValueBinding,
+    DocumentElementBindings
 } from "~/sdk/types";
 
-type Binding = ExpressionBinding | StaticBinding;
+export interface OnResolved {
+    (value: any, input: ComponentInput): any;
+}
 
-const isExpressionBinding = (
-    binding: StaticBinding | ExpressionBinding | undefined
-): binding is ExpressionBinding => {
-    return binding?.type === "expression";
+export type ResolveElementParams = {
+    element: DocumentElement;
+    elementBindings: DocumentElementBindings;
+    inputs: ComponentInput[];
+    onResolved?: OnResolved;
 };
 
 export class BindingsResolver {
     private readonly state: DocumentState;
-    private readonly bindings: DocumentBindings;
     private readonly displayMode: string;
 
-    constructor(state: DocumentState, bindings: DocumentBindings, displayMode: string) {
+    constructor(state: DocumentState, displayMode: string) {
         this.state = state;
-        this.bindings = bindings;
         this.displayMode = displayMode;
     }
 
-    public resolveElement(element: DocumentElement): ResolvedElement[] {
-        const elementBindings = this.bindings?.[element.id] || {};
-        const repeatBindingArray = elementBindings.$repeat as Binding[] | undefined;
+    public resolveElement({
+        element,
+        elementBindings,
+        inputs,
+        onResolved
+    }: ResolveElementParams): ResolvedElement[] {
+        const repeatBindingArray = elementBindings.$repeat;
 
         if (repeatBindingArray) {
-            const items = this.resolveBindingArray(repeatBindingArray, { state: toJS(this.state) });
+            const items = this.resolveBinding(repeatBindingArray, { state: toJS(this.state) });
+
             if (!Array.isArray(items)) {
                 console.warn("Expected array from $repeat binding.");
                 return [];
             }
-            return items.map(item => this.resolveSingleInstance(element, item));
+
+            return items.map(item => {
+                return this.resolveSingleInstance(
+                    element,
+                    elementBindings,
+                    item,
+                    inputs,
+                    onResolved
+                );
+            });
         }
 
-        return [this.resolveSingleInstance(element)];
+        return [
+            this.resolveSingleInstance(element, elementBindings, undefined, inputs, onResolved)
+        ];
     }
 
-    private resolveSingleInstance(originalElement: DocumentElement, item?: Record<string, any>) {
-        const element = cloneDeep(originalElement);
+    private resolveSingleInstance(
+        element: DocumentElement,
+        elementBindings: DocumentElementBindings,
+        item: Record<string, any> | undefined,
+        inputs: ComponentInput[],
+        onResolved?: OnResolved
+    ) {
+        const resolvedElement: ResolvedElement = {
+            id: element.id,
+            inputs: {},
+            styles: {}
+        };
+
         const context = { state: this.state, $: item };
-        const elementBindings = this.bindings?.[element.id] || {};
 
-        for (const [key, bindingArray] of Object.entries(elementBindings)) {
-            if (key.startsWith("$")) {
-                continue; // skip system bindings
+        for (const input of inputs) {
+            const binding = elementBindings.inputs?.[input.name];
+
+            if (binding) {
+                const value = this.resolveBinding(binding, context);
+
+                if (onResolved) {
+                    set(resolvedElement, `inputs.${input.name}`, onResolved(value, input));
+                } else {
+                    set(resolvedElement, `inputs.${input.name}`, value);
+                }
+            } else {
+                if (onResolved) {
+                    // If there's no binding, then there's also no value. Pass `undefined`.
+                    set(resolvedElement, `inputs.${input.name}`, onResolved(undefined, input));
+                }
             }
-
-            const value = this.resolveBindingArray(bindingArray, context);
-            set(element, key, value);
         }
 
         return {
-            ...element,
+            ...resolvedElement,
+            // TODO: resolve styles bindings
             styles: element.styles ? element.styles[this.displayMode] : {}
         };
     }
 
-    private resolveBindingArray(
-        bindings: Array<StaticBinding | ExpressionBinding> | undefined,
-        context: Record<string, any>
-    ): any {
-        if (!Array.isArray(bindings)) {
+    private resolveBinding(binding: ValueBinding | undefined, context: Record<string, any>): any {
+        if (!binding) {
             return undefined;
         }
 
-        const expressionBinding = bindings.find(b => b.type === "expression");
-        const staticBinding = bindings.find(b => b.type === "static");
-
-        if (isExpressionBinding(expressionBinding)) {
-            return this.evaluateExpression(expressionBinding.value, context);
+        if ("expression" in binding) {
+            return this.evaluateExpression(binding.expression, context);
         }
 
-        if (staticBinding) {
-            return staticBinding.value;
+        if (binding.static) {
+            return binding.static;
         }
 
         return undefined;
     }
 
-    private evaluateExpression(expression: string, context: Record<string, any> = {}) {
-        if (!expression) {
+    private evaluateExpression(expression: string | undefined, context: Record<string, any> = {}) {
+        if (!expression || expression === "$noop") {
             return undefined;
         }
 
         try {
             let finalExpression = expression.trim();
 
-            // Replace `$state` with `state`
             if (finalExpression.startsWith("$state")) {
                 finalExpression = finalExpression.replace(/^\$state/, "state");
             }
 
-            // Replace any `.123` with `[123]` to fix invalid JS syntax
             finalExpression = finalExpression.replace(/\.([0-9]+)/g, "[$1]");
 
             const scopedFn = new Function(...Object.keys(context), `return ${finalExpression};`);

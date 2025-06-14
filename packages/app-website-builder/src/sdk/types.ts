@@ -1,13 +1,24 @@
+import { ResolveElementParams } from "~/sdk/ComponentResolver";
+
 export type ElementMap = Record<string, DocumentElement>;
-
-export type StaticBinding = { type: "static"; value: string | number | boolean };
-
-export type ExpressionBinding = { type: "expression"; value: string };
 
 export type DocumentState = Record<string, any>;
 
-type DocumentElementBindings = {
-    [key: string]: Array<StaticBinding | ExpressionBinding>;
+export type ValueBinding = {
+    static?: any;
+    expression?: string;
+};
+
+export type DocumentElementBindings = {
+    $repeat?: ValueBinding;
+    inputs?: {
+        [inputName: string]: ValueBinding;
+    };
+    styles?: {
+        [displayMode: string]: {
+            [cssPropertyName: string]: ValueBinding;
+        };
+    };
 };
 
 export type DocumentBindings = Record<string, DocumentElementBindings>;
@@ -26,9 +37,11 @@ export type ResolvedComponent<TComponent = any> = {
     styles: SerializableCSSStyleDeclaration;
 };
 
-export type ResolvedElement = Omit<DocumentElement, "styles"> & {
+export type ResolvedElement = {
+    id: string;
+    inputs: Record<string, any>;
     styles: SerializableCSSStyleDeclaration;
-}
+};
 
 export type Component = {
     component: any;
@@ -52,24 +65,29 @@ export type ComponentGroup = {
     filter?: (component: ComponentManifest) => boolean;
 };
 
+export type ResponsiveStyles = {
+    [key: string]: SerializableCSSStyleDeclaration;
+};
+
 export type ComponentManifest = {
     name: string;
     group?: string;
     label?: string;
     image?: string;
     inputs?: ComponentInput[];
-    defaultStyles?: { [key: string]: SerializableCSSStyleDeclaration };
     acceptsChildren?: boolean;
-    defaultChildren?: DocumentElement[];
     hideFromToolbar?: boolean;
-};
-
-export type ElementComponent = {
-    name: string;
-    inputs: Record<string, any>;
+    defaults?: {
+        inputs?: Record<string, any>;
+        styles?: ResponsiveStyles;
+    };
 };
 
 export type DocumentElementTemplate = Omit<DocumentElement, "id">;
+
+export type ElementComponent = {
+    name: string;
+};
 
 export type DocumentElement = {
     type: "Webiny/Element";
@@ -79,9 +97,7 @@ export type DocumentElement = {
         id: string;
         slot: string;
     };
-    styles?: {
-        [key: string]: SerializableCSSStyleDeclaration;
-    };
+    styles?: ResponsiveStyles;
 };
 
 export type SerializableCSSStyleDeclaration = Partial<Record<keyof CSSStyleDeclaration, string>>;
@@ -146,12 +162,7 @@ export interface IEnvironment {
 
 export interface IContentSdk extends IDataProvider {
     registerComponent(component: Component): void;
-    resolveElement(
-        element: DocumentElement,
-        state: DocumentState,
-        bindings: DocumentBindings,
-        displayMode: string
-    ): ResolvedComponent[] | null;
+    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null;
 }
 
 export type DisplayMode = {

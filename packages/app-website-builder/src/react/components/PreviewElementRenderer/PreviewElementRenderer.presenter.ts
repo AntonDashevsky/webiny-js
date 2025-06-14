@@ -1,19 +1,26 @@
 "use client";
-import { autorun, makeAutoObservable, observable, runInAction, toJS } from "mobx";
-import { contentSdk, DocumentStore, type PreviewSdk } from "~/sdk/index.js";
+import { makeAutoObservable, observable, runInAction, toJS } from "mobx";
+import { contentSdk, DocumentStore, type PreviewSdk, viewportManager } from "~/sdk/index.js";
 import type { DocumentElement } from "~/sdk/types.js";
 import { resizeObserver } from "~/sdk/ResizeObserver";
+import { setObservablePath } from "~/sdk/setObservablePath";
 
 export class PreviewElementRendererPresenter {
     private element: DocumentElement;
     private listeners: Array<() => void> = [];
     private documentStore: DocumentStore;
-    private preview: PreviewSdk;
+    private readonly preview: PreviewSdk;
+    private displayMode: string;
+    private viewportListenerDispose: (() => void) | undefined;
 
     constructor(documentStore: DocumentStore) {
         this.documentStore = documentStore;
         this.element = observable({}) as DocumentElement;
         this.preview = contentSdk.preview!;
+        this.displayMode = viewportManager.getViewport().displayMode;
+        this.viewportListenerDispose = viewportManager.onViewportChangeEnd(viewport => {
+            this.displayMode = viewport.displayMode;
+        });
         makeAutoObservable(this);
     }
 
@@ -40,6 +47,11 @@ export class PreviewElementRendererPresenter {
         if (element) {
             resizeObserver.unobserve(element as HTMLElement);
         }
+
+        if (this.viewportListenerDispose) {
+            this.viewportListenerDispose();
+        }
+
         this.listeners.forEach(fn => fn());
     }
 
@@ -57,38 +69,26 @@ export class PreviewElementRendererPresenter {
         const { id } = element;
 
         this.listeners.push(
-            autorun(() => {
-                const newData = this.documentStore.getElement(id);
-
-                runInAction(() => {
-                    if (!newData) {
-                        return;
-                    }
-
-                    // Assign all new keys from the incoming object
-                    Object.assign(this.element, newData);
-                });
-            })
-        );
-
-        this.listeners.push(
-            this.preview.messenger.on(`element.patch.${id}`, values => {
+            this.preview.messenger.on(`element.patch.${id}`, ({ inputs = {}, styles = {} }) => {
                 this.documentStore.updateDocument(document => {
-                    const elementBindings = document.bindings[id] ?? observable({});
-
-                    Object.keys(values || {}).forEach(key => {
-                        const bindings = elementBindings[key] ?? [];
-
-                        const newBindings = bindings.filter(binding => binding.type !== "static");
-                        newBindings.push({
-                            type: "static",
-                            value: values[key]
-                        });
-
-                        elementBindings[key] = newBindings;
+                    // Apply inputs
+                    Object.keys(inputs).forEach(inputName => {
+                        // TODO: See if simple `lodash/set` can work here
+                        setObservablePath(
+                            document.bindings,
+                            `${id}.inputs.${inputName}.static`,
+                            inputs[inputName]
+                        );
                     });
 
-                    document.bindings[id] = elementBindings;
+                    // Apply styles
+                    Object.keys(styles).forEach(propertyName => {
+                        setObservablePath(
+                            document.bindings,
+                            `${id}.styles.${this.displayMode}.${propertyName}.static`,
+                            styles[propertyName]
+                        );
+                    });
                 });
             })
         );

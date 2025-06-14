@@ -1,14 +1,8 @@
 import { environment } from "./Environment.js";
-import type {
-    Component,
-    DocumentBindings,
-    DocumentElement,
-    DocumentState,
-    IContentSdk,
-    ResolvedComponent
-} from "~/sdk/types";
+import type { Component, IContentSdk, ResolvedComponent } from "~/sdk/types";
 import { LiveSdk, type LiveSdkConfig } from "./LiveSdk.js";
 import { PreviewSdk } from "./PreviewSdk.js";
+import { ResolveElementParams } from "~/sdk/ComponentResolver";
 
 export type ContentSDKConfig = LiveSdkConfig;
 
@@ -48,13 +42,8 @@ export class ContentSdk implements IContentSdk {
         this.active.registerComponent(blueprint);
     }
 
-    resolveElement(
-        element: DocumentElement,
-        state: DocumentState,
-        bindings: DocumentBindings,
-        displayMode: string
-    ): ResolvedComponent[] | null {
-        return this.active.resolveElement(element, state, bindings, displayMode);
+    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null {
+        return this.active.resolveElement(params);
     }
 }
 

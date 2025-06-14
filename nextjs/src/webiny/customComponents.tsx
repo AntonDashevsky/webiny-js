@@ -2,15 +2,19 @@
 import React from "react";
 import {
     createComponent,
+    createSlotInput,
     createTextInput,
     createBooleanInput,
     createLongTextInput,
-    createRichTextInput
+    createRichTextInput,
+    createElement
 } from "@webiny/app-website-builder/react/index.js";
 import { Root } from "./components/Root";
 import { TextWithDropzone } from "./components/TextWithDropzone";
 import ProductRecommendations from "./components/ProductRecommendations";
 import { ProductHighlight } from "./components/ProductHighlight";
+import { TwoColumns } from "./components/TwoColumns";
+import Hero_1 from "@/webiny/components/Hero-1";
 
 const TextComponent = ({ text, flag }: { text: string; flag: boolean }) => (
     <p className={`p-6 text-wrap ${flag ? "font-bold" : ""}`}>{text}</p>
@@ -30,16 +34,20 @@ export const customComponents = [
         inputs: [
             createLongTextInput({
                 name: "text",
-                label: "Text",
-                defaultValue: "Default text"
+                label: "Text"
             }),
             createBooleanInput({
                 name: "flag",
                 label: "Popular post",
-                description: "I make text bold. Or not...",
-                defaultValue: false
+                description: "I make text bold. Or not..."
             })
-        ]
+        ],
+        defaults: {
+            inputs: {
+                text: "Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.",
+                flag: true
+            }
+        }
     }),
     createComponent(TextWithDropzone, {
         name: "Webiny/TextWithDropzone",
@@ -50,7 +58,6 @@ export const customComponents = [
             createTextInput({
                 name: "title",
                 label: "Title",
-                defaultValue: "",
                 required: true
             }),
             createRichTextInput({
@@ -59,6 +66,62 @@ export const customComponents = [
                 required: true
             })
         ]
+    }),
+    createComponent(TwoColumns, {
+        name: "Webiny/TwoColumns",
+        label: "Two Columns",
+        group: "basic",
+        inputs: [
+            createTextInput({
+                name: "title",
+                label: "Title"
+            }),
+            createSlotInput({
+                name: "leftColumn"
+            }),
+            createSlotInput({
+                name: "rightColumn"
+            })
+        ],
+        defaults: {
+            inputs: {
+                title: "Default Columns Title",
+                leftColumn: [
+                    createElement({
+                        component: "Webiny/TextWithDropzone",
+                        inputs: {
+                            title: "Left Column Title"
+                        },
+                        styles: {
+                            desktop: {
+                                backgroundColor: "red",
+                                marginTop: "20px"
+                            }
+                        }
+                    })
+                ],
+                rightColumn: [
+                    createElement({
+                        component: "Webiny/TextWithDropzone",
+                        inputs: {
+                            title: "Right Column Title"
+                        },
+                        styles: {
+                            desktop: {
+                                backgroundColor: "blue",
+                                marginTop: "20px"
+                            }
+                        }
+                    })
+                ]
+            },
+            styles: {
+                desktop: {
+                    padding: "20px",
+                    backgroundColor: "#5c9a12"
+                }
+            }
+        }
     }),
     createComponent(ProductRecommendations, {
         name: "Kibo/ProductRecommendations",
@@ -76,6 +139,12 @@ export const customComponents = [
                 list: true,
                 renderer: "KiboCommerceProductList",
                 label: "Products"
+            }),
+            createTextInput({
+                name: "category",
+                list: true,
+                renderer: "KiboCommerceCategory",
+                label: "Category"
             })
         ]
     }),
@@ -90,5 +159,9 @@ export const customComponents = [
                 label: "Product"
             })
         ]
+    }),
+    createComponent(Hero_1, {
+        name: "Webiny/Hero",
+        label: "Hero #1"
     })
 ];

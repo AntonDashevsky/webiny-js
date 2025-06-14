@@ -12,10 +12,7 @@ export default {
             type: "Webiny/Element",
             id: "root",
             component: {
-                name: "Webiny/Root",
-                inputs: {
-                    children: []
-                }
+                name: "Webiny/Root"
             }
         }
     }

@@ -3,12 +3,7 @@ import { Select } from "@webiny/admin-ui";
 
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import { StatePathsExtractor } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/StatePathsExtractor";
-import {
-    ComponentInput,
-    DocumentElement,
-    type ExpressionBinding,
-    type StaticBinding
-} from "~/sdk/types";
+import { ComponentInput, DocumentElement } from "~/sdk/types";
 
 interface ExpressionRendererProps {
     element: DocumentElement;
@@ -16,12 +11,6 @@ interface ExpressionRendererProps {
     value: string;
     onChange: (value: string) => void;
 }
-
-const isExpressionBinding = (
-    binding: StaticBinding | ExpressionBinding | undefined
-): binding is ExpressionBinding => {
-    return binding?.type === "expression";
-};
 
 export const ExpressionRenderer = ({
     element,
@@ -33,17 +22,14 @@ export const ExpressionRenderer = ({
         const repeat = document.bindings[element.id]?.$repeat;
 
         if (repeat) {
-            const expressionBinding = repeat.find(binding => binding.type === "expression");
-            const staticBinding = repeat.find(binding => binding.type === "static");
-
-            if (isExpressionBinding(expressionBinding)) {
+            if (repeat.expression) {
                 return new StatePathsExtractor(document.state)
-                    .getChildPaths(expressionBinding.value)
+                    .getChildPaths(repeat.expression)
                     .filter(option => option.type.matches(input.dataType))
                     .values();
             }
 
-            return new StatePathsExtractor((staticBinding?.value as any) ?? {})
+            return new StatePathsExtractor(repeat.static)
                 .getPaths()
                 .filter(option => option.type.matches(input.dataType))
                 .values();

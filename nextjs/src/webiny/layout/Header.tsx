@@ -3,10 +3,10 @@
 import React from "react";
 
 const navigation = [
-    { name: "Product", href: "#" },
-    { name: "Features", href: "#" },
-    { name: "Marketplace", href: "#" },
-    { name: "Company", href: "#" }
+    { name: "Product 1", href: "#" },
+    { name: "Features 2", href: "#" },
+    { name: "Marketplace 3", href: "#" },
+    { name: "Company 4", href: "#" }
 ];
 
 export default function Header() {

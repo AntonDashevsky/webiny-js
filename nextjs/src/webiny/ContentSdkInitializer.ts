@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { initContentSdk } from "./initContentSdk";
 
 export const ContentSdkInitializer = React.memo(() => {
-    initContentSdk();
+    useEffect(() => {
+        initContentSdk();
+    }, []);
 
     return null;
 });

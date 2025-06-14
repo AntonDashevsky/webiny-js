@@ -1,11 +1,8 @@
 import { componentRegistry } from "~/sdk/ComponentRegistry.js";
-import { ComponentResolver } from "~/sdk/ComponentResolver.js";
+import { ComponentResolver, ResolveElementParams } from "~/sdk/ComponentResolver.js";
 import { logger } from "~/sdk/Logger.js";
 import type {
     Component,
-    DocumentBindings,
-    DocumentElement,
-    DocumentState,
     IContentSdk,
     IDataProvider,
     Page,
@@ -60,17 +57,7 @@ export class LiveSdk implements IContentSdk {
         componentRegistry.register(blueprint);
     }
 
-    resolveElement(
-        element: DocumentElement,
-        state: DocumentState,
-        bindings: DocumentBindings,
-        displayMode: string
-    ): ResolvedComponent[] | null {
-        return new ComponentResolver(componentRegistry).resolve(
-            element,
-            state,
-            bindings,
-            displayMode
-        );
+    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null {
+        return new ComponentResolver(componentRegistry).resolve(params);
     }
 }

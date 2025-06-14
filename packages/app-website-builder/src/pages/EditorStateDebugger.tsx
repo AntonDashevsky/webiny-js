@@ -7,7 +7,6 @@ import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument"
 import React from "react";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import type { HistorySnapshot } from "~/editorSdk/HistorySnapshot";
-import { ElementsButton } from "~/pages/debugger/ElementsButton";
 
 const Toolbar = styled.div`
     position: absolute;
@@ -60,7 +59,6 @@ export const EditorStateDebugger = () => {
 
     return (
         <Toolbar>
-            <ElementsButton />
             <Button variant="secondary" text={`Snapshots: ${numberOfSnapshots}`}></Button>
             <MonacoEditor
                 height={"100vh"}

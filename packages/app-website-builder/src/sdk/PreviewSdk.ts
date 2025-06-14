@@ -20,6 +20,8 @@ import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 import { DocumentStore } from "~/sdk/DocumentStore";
 import { resizeObserver } from "~/sdk/ResizeObserver";
 import { HotkeyManager } from "~/sdk/HotkeyManager";
+import { OnResolved } from "./BindingsResolver.js";
+import { ResolveElementParams } from "./ComponentResolver.js";
 
 interface PreviewDocumentProps {
     id: string;
@@ -117,13 +119,8 @@ export class PreviewSdk implements IContentSdk {
         });
     }
 
-    resolveElement(
-        element: DocumentElement,
-        state: DocumentState,
-        bindings: DocumentBindings,
-        displayMode: string
-    ): ResolvedComponent[] | null {
-        return this.liveSdk.resolveElement(element, state, bindings, displayMode);
+    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null {
+        return this.liveSdk.resolveElement(params);
     }
 
     private getReferrerOrigin(): string {

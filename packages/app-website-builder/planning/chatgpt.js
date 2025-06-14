@@ -12,16 +12,12 @@ const document = {
          */
         "4ETOAnHNei7": {
             // Binding to a static value (this can be a scalar value, or a child element passed through a dropzone/slot).
-            "component.inputs.text": [
-                {
-                    $type: "static",
-                    value: "Hello!"
-                },
-                {
-                    $type: "expression",
-                    value: "$.name"
+            inputs: {
+                text: {
+                    static: "Hello!",
+                    expression: "$.name"
                 }
-            ],
+            },
             // Repeat this element as many times as there are items in the given collection.
             $repeat: {
                 type: "expression",

@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import type { Document } from "~/sdk/types";
 import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 import { DocumentStore } from "~/sdk";
@@ -17,9 +17,11 @@ export const DocumentStoreProvider = ({
 }) => {
     const store = useMemo(() => documentStoreManager.getStore(id), [id]);
 
-    if (document) {
-        store.setDocument(document);
-    }
+    useEffect(() => {
+        if (document) {
+            store.setDocument(document);
+        }
+    }, [document]);
 
     return <DocumentStoreContext.Provider value={store}>{children}</DocumentStoreContext.Provider>;
 };

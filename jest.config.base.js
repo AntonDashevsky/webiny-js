@@ -20,6 +20,7 @@ module.exports = function ({ path }, presets = []) {
         { setupFilesAfterEnv: [] },
         tsPreset,
         {
+            resolver: "ts-jest-resolver",
             displayName: name,
             modulePaths: [`${path}/src`],
             testMatch: [`${path}/**/*${type}.test.[jt]s?(x)`],

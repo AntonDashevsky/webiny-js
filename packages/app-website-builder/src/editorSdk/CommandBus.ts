@@ -1,4 +1,4 @@
-import type { Command } from "~/editorSdk/createCommand.js";
+import type { Command } from "./createCommand.js";
 export * from "./createCommand.js";
 
 const INTERNAL_STOP = Symbol("INTERNAL_STOP");

@@ -1,10 +1,10 @@
 import {
-    ComponentGroup,
     ComponentManifest,
     Document,
     EditorViewportData,
-    PreviewViewportData, SerializedComponentGroup
-} from "~/sdk/types.js";
+    PreviewViewportData,
+    SerializedComponentGroup
+} from "../sdk/types";
 import { CommandBus, type Command, CommandHandler, CommandPriority } from "./CommandBus.js";
 import { type StateChangeListener, StateWithHistory } from "./StateWithHistory.js";
 import { type MutableState, State } from "./State.js";

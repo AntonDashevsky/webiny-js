@@ -18,14 +18,16 @@ export const PreviewElementRenderer = observer((props: PreviewElementRendererPro
     const index = useElementIndex();
 
     const presenter = useMemo(() => {
-        const presenter = new PreviewElementRendererPresenter(documentStore);
-        presenter.init(props.element);
-        return presenter;
-    }, [props.element.id]);
+        return new PreviewElementRendererPresenter(documentStore);
+    }, [props.element?.id]);
 
     useEffect(() => {
+        if (!props.element) {
+            return;
+        }
+        presenter.init(props.element);
         presenter.observeDOM();
-    }, [props.element.id]);
+    }, [props.element?.id]);
 
     useEffect(() => {
         return () => {
@@ -33,7 +35,6 @@ export const PreviewElementRenderer = observer((props: PreviewElementRendererPro
         };
     }, []);
 
-    // const vm = presenter.vm;
     const element = presenter.vm.element;
 
     if (!element) {

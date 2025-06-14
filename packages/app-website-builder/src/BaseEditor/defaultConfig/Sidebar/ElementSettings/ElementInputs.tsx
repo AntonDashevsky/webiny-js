@@ -4,10 +4,12 @@ import type { ComponentInput, DocumentElement } from "~/sdk/types";
 import { useComponent } from "~/BaseEditor/hooks/useComponent";
 import { useInputRenderer } from "./useInputRenderer";
 import { useInputValue } from "./useInputValue";
-import { ExpressionRenderer } from "./ExpressionRenderer";
-import { WithBindingToggle } from "./WithBindingToggle";
+// import { ExpressionRenderer } from "./ExpressionRenderer";
+// import { WithBindingToggle } from "./WithBindingToggle";
 import { useStateArrays } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/useStateArrays";
 import { useRepeatValue } from "./useRepeatValue";
+import { WithBindingToggle } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/WithBindingToggle";
+import { ExpressionRenderer } from "./ExpressionRenderer";
 
 interface ElementInputsProps {
     element: DocumentElement;
@@ -20,7 +22,7 @@ export const ElementInputs = ({ element }: ElementInputsProps) => {
 
     return (
         <Grid>
-            {/*<Grid.Column key={"repeat"} span={12}>
+            <Grid.Column key={"repeat"} span={12}>
                 <Select
                     label={"Repeat for each"}
                     placeholder={"Select binding"}
@@ -28,7 +30,7 @@ export const ElementInputs = ({ element }: ElementInputsProps) => {
                     value={repeat.value ?? ""}
                     onChange={value => repeat.onChange(value === "" ? undefined : value)}
                 />
-            </Grid.Column>*/}
+            </Grid.Column>
             <>
                 {(component.inputs ?? []).map(input => {
                     return (
@@ -52,36 +54,35 @@ const ElementInput = ({ element, input }: ElementInputProps) => {
 
     const { value, onChange, onPreviewChange, setBindingType } = useInputValue(element, input);
 
-    return (
+    /*   return (
         <Renderer
-            value={value.value}
+            value={value.static}
             input={input}
             onChange={onChange}
             onPreviewChange={onPreviewChange}
         />
-    );
-    /*
-    if (value.type === "static") {
+    );*/
+    if (value.expression) {
         return (
-            <WithBindingToggle type={value.type} setBindingType={setBindingType}>
-                <Renderer
-                    value={value.value}
-                    input={input}
+            <WithBindingToggle type={"expression"} setBindingType={setBindingType}>
+                <ExpressionRenderer
+                    element={element}
+                    value={value.expression}
                     onChange={onChange}
-                    onPreviewChange={onPreviewChange}
+                    input={input}
                 />
             </WithBindingToggle>
         );
     }
 
     return (
-        <WithBindingToggle type={value.type} setBindingType={setBindingType}>
-            <ExpressionRenderer
-                element={element}
-                value={value.value}
-                onChange={onChange}
+        <WithBindingToggle type={"static"} setBindingType={setBindingType}>
+            <Renderer
+                value={value.static}
                 input={input}
+                onChange={onChange}
+                onPreviewChange={onPreviewChange}
             />
         </WithBindingToggle>
-    );*/
+    );
 };
