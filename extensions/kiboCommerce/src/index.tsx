@@ -98,5 +98,14 @@ function initEcommerceApi(settings: KiboCommerceSettings) {
 }
 
 export const Extension = () => {
-    return <CommercePlugin name={"KiboCommerce"} init={() => initEcommerceApi(settings)} />;
+    return (
+        <CommercePlugin name={"KiboCommerce"} init={() => initEcommerceApi(settings)}>
+            {/*<PageType
+                name={"kiboProductPage"}
+                label={"Kibo Product Page"}
+                resourceType="product"
+                previewPath={"/product/{product.id}"}
+            />*/}
+        </CommercePlugin>
+    );
 };
