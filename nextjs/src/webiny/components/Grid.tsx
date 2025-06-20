@@ -21,7 +21,7 @@ export const Grid = ({ gridSize, columns }: GridProps) => {
     const sizes = gridSize.split("-").map(size => parseInt(size));
 
     return (
-        <div style={{ display: "flex", flexWrap: "wrap", padding: 10, width: "inherit" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", width: "inherit" }}>
             {columns.map((column, i) => (
                 <Span key={i} size={sizes[i]}>
                     <GridColumn key={i}>{column.children}</GridColumn>

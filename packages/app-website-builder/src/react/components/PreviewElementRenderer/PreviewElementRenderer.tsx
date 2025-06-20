@@ -46,7 +46,6 @@ export const PreviewElementRenderer = observer((props: PreviewElementRendererPro
     return (
         <div
             style={styles}
-            onMouseEnter={presenter.onMouseEnter}
             data-element-id={element.id}
             data-depth={depth}
             data-parent-index={index}

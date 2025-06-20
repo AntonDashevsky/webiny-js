@@ -42,6 +42,7 @@ export const customComponents = [
             createObjectInput({
                 name: "columns",
                 list: true,
+                hideFromUi: true,
                 fields: [
                     createSlotInput({
                         name: "children",

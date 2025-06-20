@@ -55,10 +55,6 @@ export class PreviewElementRendererPresenter {
         this.listeners.forEach(fn => fn());
     }
 
-    onMouseEnter = () => {
-        this.preview.messenger.send("preview.element.enter", { id: this.element!.id });
-    };
-
     private setupPreview() {
         const element = this.element;
 

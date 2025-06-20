@@ -194,16 +194,6 @@ export const Preview = () => {
             mouseTracker.setPosition(globalX, globalY);
         });
 
-        messenger.on("preview.element.enter", ({ id }) => {
-            if (id === "root") {
-                return;
-            }
-
-            editor.updateEditor(state => {
-                state.highlightedElement = id;
-            });
-        });
-
         editor.onDocumentStateChange(event => {
             if (event.reason === "update") {
                 messenger.send("document.patch", event.diff);

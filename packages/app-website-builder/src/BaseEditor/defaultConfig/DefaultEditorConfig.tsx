@@ -15,7 +15,7 @@ import { PageOptionsDropdown } from "./TopBar/DropdownActions/PageOptionsDropdow
 import { Preview } from "./Content/Preview";
 import { InsertElements } from "./Toolbar/InsertElements";
 import { CommandHandlers } from "~/BaseEditor/commandHandlers";
-// import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
+import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { DocumentStateEditor } from "./DocumentStateEditor";
 import { ElementInputRenderers } from "./ElementInputRenderers";
 
@@ -88,7 +88,7 @@ export const DefaultEditorConfig = React.memo(() => {
                     }
                 />*/}
                 {/* This element renders element properties. */}
-                {/*<Ui.Sidebar.Element
+                <Ui.Sidebar.Element
                     name={"elementSettings"}
                     group={"element"}
                     element={
@@ -96,7 +96,7 @@ export const DefaultEditorConfig = React.memo(() => {
                             <ElementSettings />
                         </Ui.OnActiveElement>
                     }
-                />*/}
+                />
                 {/*<Ui.Sidebar.Element
                     name={"stateEditor"}
                     group={"element"}
