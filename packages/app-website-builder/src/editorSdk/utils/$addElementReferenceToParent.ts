@@ -1,5 +1,4 @@
-import get from "lodash/get";
-import set from "lodash/set";
+import { InputValueBinding } from "~/sdk/types";
 import { Editor } from "../Editor";
 
 interface Params {
@@ -14,12 +13,33 @@ export function $addElementReferenceToParent(
     { elementId, parentId, slot, index }: Params
 ) {
     editor.updateDocument(state => {
-        const elementBindings = state.bindings[parentId] ?? {};
-        const slotElements = (get(elementBindings.inputs, `${slot}.static`) as string[]) ?? [];
-        set(state.bindings, `${parentId}.inputs.${slot}.static`, [
-            ...slotElements.slice(0, index),
-            elementId,
-            ...slotElements.slice(index)
-        ]);
+        const bindings = state.bindings[parentId] ?? {};
+        const inputs = bindings.inputs ?? {};
+
+        if (index < 0) {
+            // Single value slot
+            inputs[slot] = {
+                type: "slot",
+                dataType: "string",
+                static: elementId
+            };
+        } else {
+            const slotElements = inputs[slot] as InputValueBinding;
+            inputs[slot] = {
+                type: "slot",
+                dataType: "string",
+                list: true,
+                static: [
+                    ...(slotElements?.static ?? []).slice(0, index),
+                    elementId,
+                    ...(slotElements?.static ?? []).slice(index)
+                ]
+            };
+        }
+
+        state.bindings[parentId] = {
+            ...bindings,
+            inputs
+        };
     });
 }

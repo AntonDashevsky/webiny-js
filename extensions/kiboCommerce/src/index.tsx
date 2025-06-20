@@ -15,7 +15,6 @@ const settings = {
 const productCache = new Map<string, any>();
 
 function initEcommerceApi(settings: KiboCommerceSettings) {
-    console.log("settings", settings);
     const kiboClient = new KiboClient(settings, {});
     const PAGE_SIZE = 16;
 

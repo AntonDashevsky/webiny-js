@@ -2,6 +2,7 @@ export * from "./$selectElement";
 export * from "./$deselectElement";
 export * from "./$getElementById";
 export * from "./$getActiveElementId";
+export * from "./$getComponentManifestByElementId";
 export * from "./$deleteElement";
 export * from "./$createElement";
 export * from "./$moveElement";

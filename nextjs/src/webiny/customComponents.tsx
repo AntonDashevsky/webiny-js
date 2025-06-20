@@ -7,7 +7,8 @@ import {
     createBooleanInput,
     createLongTextInput,
     createRichTextInput,
-    createElement
+    createElement,
+    createObjectInput
 } from "@webiny/app-website-builder/react/index.js";
 import { Root } from "./components/Root";
 import { TextWithDropzone } from "./components/TextWithDropzone";
@@ -15,6 +16,7 @@ import ProductRecommendations from "./components/ProductRecommendations";
 import { ProductHighlight } from "./components/ProductHighlight";
 import { TwoColumns } from "./components/TwoColumns";
 import Hero_1 from "@/webiny/components/Hero-1";
+import { Grid, GridColumn } from "./components/Grid";
 
 const TextComponent = ({ text, flag }: { text: string; flag: boolean }) => (
     <p className={`p-6 text-wrap ${flag ? "font-bold" : ""}`}>{text}</p>
@@ -23,6 +25,86 @@ const TextComponent = ({ text, flag }: { text: string; flag: boolean }) => (
 export const customComponents = [
     createComponent(Root, {
         name: "Webiny/Root",
+        label: "Main Content",
+        acceptsChildren: true,
+        hideFromToolbar: true
+    }),
+    createComponent(Grid, {
+        name: "Webiny/Grid",
+        label: "Grid",
+        group: "basic",
+        inputs: [
+            createTextInput({
+                name: "gridSize",
+                label: "Grid Size",
+                renderer: "Webiny/GridSize"
+            }),
+            createObjectInput({
+                name: "columns",
+                list: true,
+                fields: [
+                    createSlotInput({
+                        name: "children",
+                        list: false,
+                        components: ["Webiny/GridColumn"]
+                    })
+                ]
+            })
+        ],
+        defaults: {
+            inputs: {
+                gridSize: "6-6",
+                columns: [
+                    {
+                        children: createElement({
+                            component: "Webiny/GridColumn",
+                            inputs: {
+                                children: [
+                                    createElement({
+                                        component: "Webiny/Text"
+                                    })
+                                ]
+                            }
+                        })
+                    },
+                    {
+                        children: createElement({
+                            component: "Webiny/GridColumn",
+                            inputs: {
+                                children: [
+                                    createElement({
+                                        component: "Webiny/Text"
+                                    })
+                                ]
+                            }
+                        })
+                    }
+                ]
+            },
+            styles: {
+                desktop: {
+                    boxSizing: "border-box",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "flex-start",
+                    alignItems: "flex-start",
+                    padding: "10px",
+                    width: "100%"
+                },
+                mobileLandscape: {
+                    backgroundColor: "red"
+                },
+                mobilePortrait: {
+                    backgroundColor: "blue"
+                }
+            }
+        }
+    }),
+    createComponent(GridColumn, {
+        name: "Webiny/GridColumn",
+        label: "Column",
+        canDrag: false,
+        canDelete: false,
         acceptsChildren: true,
         hideFromToolbar: true
     }),
@@ -45,7 +127,7 @@ export const customComponents = [
         defaults: {
             inputs: {
                 text: "Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.",
-                flag: true
+                flag: false
             }
         }
     }),

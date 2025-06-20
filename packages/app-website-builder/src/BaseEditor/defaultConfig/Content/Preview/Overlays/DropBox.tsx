@@ -23,7 +23,7 @@ export const DropBox = React.memo(
         };
 
         const [{ item, isOver }, dropRef] = useDrop<
-            unknown,
+            any,
             unknown,
             { item: { name: string }; isOver: boolean }
         >(() => ({

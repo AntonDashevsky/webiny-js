@@ -4,20 +4,38 @@ export type ElementMap = Record<string, DocumentElement>;
 
 export type DocumentState = Record<string, any>;
 
-export type ValueBinding = {
-    static?: any;
+export type InputValueBinding<T = any> = ValueBinding<T> & {
+    type: string;
+    dataType: string;
+    list?: boolean;
+};
+
+export type StyleValueBinding<T> = ValueBinding<T>;
+
+export type ValueBinding<T = string> = {
+    static?: T;
     expression?: string;
 };
 
+export type RepeatValueBinding = {
+    expression: string;
+};
+
+type StyleKeys = {
+    [K in keyof CSSStyleDeclaration as K extends string ? K : never]: CSSStyleDeclaration[K];
+};
+
+export type DocumentElementStyleBindings = Partial<{
+    [K in keyof StyleKeys]: StyleValueBinding<StyleKeys[K]>;
+}>;
+
 export type DocumentElementBindings = {
-    $repeat?: ValueBinding;
+    $repeat?: RepeatValueBinding;
     inputs?: {
-        [inputName: string]: ValueBinding;
+        [inputName: string]: InputValueBinding;
     };
     styles?: {
-        [displayMode: string]: {
-            [cssPropertyName: string]: ValueBinding;
-        };
+        [displayMode: string]: DocumentElementStyleBindings;
     };
 };
 
@@ -75,6 +93,8 @@ export type ComponentManifest = {
     label?: string;
     image?: string;
     inputs?: ComponentInput[];
+    canDrag?: boolean;
+    canDelete?: boolean;
     acceptsChildren?: boolean;
     hideFromToolbar?: boolean;
     defaults?: {
@@ -100,7 +120,9 @@ export type DocumentElement = {
     styles?: ResponsiveStyles;
 };
 
-export type SerializableCSSStyleDeclaration = Partial<Record<keyof CSSStyleDeclaration, string>>;
+export type SerializableCSSStyleDeclaration = {
+    [K in keyof StyleKeys]?: StyleKeys[K];
+};
 
 export type Page = Document;
 
@@ -196,7 +218,8 @@ export type TextInput = BaseInput<string> & {
 
 export type SlotInput = BaseInput<DocumentElement> & {
     type: "slot";
-    dataType: "json";
+    dataType: "string";
+    components?: string[];
 };
 
 export type TagsInput = BaseInput<string[]> & {

@@ -51,7 +51,7 @@ export class Editor<TDocument extends Document = Document> {
             },
             components: {},
             componentGroups: {}
-        });
+        }, false);
     }
 
     registerCommandHandler<T>(

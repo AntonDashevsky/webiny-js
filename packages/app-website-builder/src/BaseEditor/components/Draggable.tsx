@@ -1,7 +1,6 @@
 import { useDrag } from "react-dnd";
 import React, { useEffect } from "react";
 import { getEmptyImage } from "react-dnd-html5-backend";
-import deepEqual from "deep-equal";
 
 interface DraggableProps<T> {
     type: string;

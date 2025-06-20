@@ -61,32 +61,36 @@ export class DropZoneManager {
     }
 
     tick() {
+        const threshold = 10;
+        const mouseX = this.mouse.x;
+        const mouseY = this.mouse.y;
+
         let matchedId: string | null = null;
         let matchedPosition: DropPosition = null;
         let matchedBox: Box | null = null;
 
         for (const [id, { box }] of this.zones) {
-            const y = this.mouse.y;
-            const threshold = 10;
+            const isWithinX = mouseX >= box.left && mouseX <= box.right;
 
-            if (y >= box.top - threshold && y <= box.top + threshold) {
+            if (!isWithinX) {
+                continue;
+            }
+
+            if (mouseY >= box.top - threshold && mouseY <= box.top + threshold) {
                 matchedId = id;
-                // `0` means `before`
-                matchedPosition = 0;
+                matchedPosition = 0; // before
                 matchedBox = box;
                 break;
             }
 
-            if (y >= box.bottom - threshold && y <= box.bottom + threshold) {
+            if (mouseY >= box.bottom - threshold && mouseY <= box.bottom + threshold) {
                 matchedId = id;
-                // `1` means `after`
-                matchedPosition = 1;
+                matchedPosition = 1; // after
                 matchedBox = box;
                 break;
             }
         }
 
-        // Only notify if changed
         if (matchedId !== this.currentTargetId || matchedPosition !== this.currentPosition) {
             this.currentTargetId = matchedId;
             this.currentPosition = matchedPosition;

@@ -12,6 +12,8 @@ interface PreviewElementRendererProps {
     element: DocumentElement;
 }
 
+const styles = { display: "contents" };
+
 export const PreviewElementRenderer = observer((props: PreviewElementRendererProps) => {
     const documentStore = useDocumentStore();
     const depth = useElementSlotDepth();
@@ -37,12 +39,13 @@ export const PreviewElementRenderer = observer((props: PreviewElementRendererPro
 
     const element = presenter.vm.element;
 
-    if (!element) {
+    if (!element || !element.id) {
         return null;
     }
 
     return (
         <div
+            style={styles}
             onMouseEnter={presenter.onMouseEnter}
             data-element-id={element.id}
             data-depth={depth}

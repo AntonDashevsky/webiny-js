@@ -7,6 +7,7 @@ import type {
 } from "~/sdk/types";
 import { logger } from "./Logger";
 import { BindingsResolver, OnResolved } from "./BindingsResolver";
+import { ComponentManifestToAstConverter } from "~/sdk/ComponentManifestToAstConverter";
 
 export type ResolveElementParams = {
     element: DocumentElement;
@@ -42,7 +43,7 @@ export class ComponentResolver {
         const instances = bindingsResolver.resolveElement({
             element,
             elementBindings,
-            inputs: blueprint.manifest.inputs ?? [],
+            inputAst: ComponentManifestToAstConverter.convert(blueprint.manifest.inputs ?? []),
             onResolved
         });
 

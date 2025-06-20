@@ -5,8 +5,7 @@ import { Box } from "../Box";
 import { $selectElement } from "~/editorSdk/utils";
 import { Draggable } from "~/BaseEditor/components/Draggable";
 import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
 
 interface ElementOverlayProps {
     elementId: string;
@@ -27,25 +26,8 @@ export const ElementOverlay = React.memo(
         children
     }: ElementOverlayProps) => {
         const editor = useDocumentEditor();
-        const element = useSelectFromDocument(state => {
-            return state.elements[elementId];
-        });
 
-        const componentName = useSelectFromEditor(
-            state => {
-                if (!element) {
-                    return "";
-                }
-                const component = state.components[element.component.name];
-                if (!component) {
-                    console.log("Missing component", element.component.name);
-                    return "";
-                }
-
-                return component.label ?? component.name;
-            },
-            [element]
-        );
+        const componentManifest = useElementComponentManifest(previewBox.id);
 
         const onClick = useCallback((event: React.MouseEvent) => {
             event.stopPropagation();
@@ -54,10 +36,19 @@ export const ElementOverlay = React.memo(
 
         const dnd = useIsDragging();
 
+        if (!componentManifest) {
+            return null;
+        }
+
         const pointerEvents = isSelected || isHighlighted ? "auto" : "none";
+        const componentName = componentManifest.label ?? componentManifest.name;
 
         return (
-            <Draggable type="ELEMENT" item={{ id: elementId }}>
+            <Draggable
+                type="ELEMENT"
+                item={{ id: elementId, componentName: componentManifest.name }}
+                canDrag={componentManifest.canDrag !== false}
+            >
                 {({ isDragging, dragRef }) => (
                     <div
                         className={cn(

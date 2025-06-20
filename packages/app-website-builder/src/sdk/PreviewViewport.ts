@@ -19,7 +19,11 @@ export class PreviewViewport {
             const depth = element.getAttribute("data-depth");
             if (id) {
                 // Get the bounding box relative to the viewport
-                const rect = element.getBoundingClientRect();
+                const rect = element.firstElementChild?.getBoundingClientRect();
+
+                if (!rect) {
+                    return;
+                }
 
                 // Convert DOMRect to a plain object to ensure it can be serialized
                 elementBoxes[id] = {

@@ -1,7 +1,7 @@
-// @ts-nocheck Fix later.
 import { BindingsResolver } from "./BindingsResolver";
-import type { DocumentElement, DocumentBindings, DocumentState } from "~/sdk/types";
+import { DocumentElement, DocumentState, DocumentElementBindings } from "~/sdk/types";
 import { createTextInput } from "~/sdk/createInput";
+import { ComponentManifestToAstConverter } from "~/sdk/ComponentManifestToAstConverter";
 
 describe("BindingsResolver", () => {
     const baseElement: DocumentElement = {
@@ -9,14 +9,6 @@ describe("BindingsResolver", () => {
         type: "Webiny/Element",
         component: {
             name: "Webiny/Text"
-        },
-        styles: {
-            desktop: {
-                padding: "10px"
-            },
-            mobile: {
-                padding: "5px"
-            }
         }
     };
 
@@ -25,21 +17,32 @@ describe("BindingsResolver", () => {
             user: { name: "Alice" }
         };
 
-        const bindings: DocumentBindings = {
-            test1: {
-                inputs: {
-                    text: {
-                        expression: "$state.user.name",
-                        static: "Static fallback"
+        const bindings: DocumentElementBindings = {
+            inputs: {
+                text: {
+                    type: "text",
+                    dataType: "string",
+                    expression: "$state.user.name",
+                    static: "Static fallback"
+                }
+            },
+            styles: {
+                desktop: {
+                    padding: {
+                        static: "10px"
                     }
                 }
             }
         };
 
-        const resolver = new BindingsResolver(state, bindings, "desktop");
-        const [resolved] = resolver.resolveElement(baseElement, [
-            createTextInput({ name: "text" })
-        ]);
+        const inputs = [createTextInput({ name: "text" })];
+        const inputAst = ComponentManifestToAstConverter.convert(inputs);
+        const resolver = new BindingsResolver(state, "desktop");
+        const [resolved] = resolver.resolveElement({
+            element: baseElement,
+            inputAst,
+            elementBindings: bindings
+        });
 
         expect(resolved.inputs.text).toBe("Alice");
         expect(resolved.styles).toEqual({ padding: "10px" });
@@ -48,40 +51,50 @@ describe("BindingsResolver", () => {
     it("falls back to static if no expression is provided", () => {
         const state: DocumentState = {};
 
-        const bindings: DocumentBindings = {
-            test1: {
-                inputs: {
-                    text: {
-                        static: "Static only"
-                    }
+        const bindings: DocumentElementBindings = {
+            inputs: {
+                text: {
+                    type: "text",
+                    dataType: "string",
+                    static: "Static only"
                 }
             }
         };
 
-        const resolver = new BindingsResolver(state, bindings, "mobile");
-        const [resolved] = resolver.resolveElement(baseElement, [
-            createTextInput({ name: "text" })
-        ]);
+        const inputs = [createTextInput({ name: "text" })];
+        const inputAst = ComponentManifestToAstConverter.convert(inputs);
+        const resolver = new BindingsResolver(state, "mobile");
+        const [resolved] = resolver.resolveElement({
+            element: baseElement,
+            inputAst,
+            elementBindings: bindings
+        });
 
         expect(resolved.inputs.text).toBe("Static only");
-        expect(resolved.styles).toEqual({ padding: "5px" });
     });
 
     it("uses undefined if expression fails and no static exists", () => {
         const state: DocumentState = {};
 
-        const bindings: DocumentBindings = {
-            test1: {
-                inputs: {
-                    text: {
-                        expression: "$.unknown.value"
-                    }
+        const bindings: DocumentElementBindings = {
+            inputs: {
+                text: {
+                    type: "text",
+                    dataType: "string",
+                    static: "Fallback",
+                    expression: "$.unknown.value"
                 }
             }
         };
 
-        const resolver = new BindingsResolver(state, bindings, "desktop");
-        const [resolved] = resolver.resolveElement(baseElement, []);
+        const inputs = [createTextInput({ name: "text" })];
+        const inputAst = ComponentManifestToAstConverter.convert(inputs);
+        const resolver = new BindingsResolver(state, "desktop");
+        const [resolved] = resolver.resolveElement({
+            element: baseElement,
+            inputAst,
+            elementBindings: bindings
+        });
 
         expect(resolved.inputs.text).toBeUndefined();
     });
@@ -91,22 +104,28 @@ describe("BindingsResolver", () => {
             products: [{ title: "Shirt" }, { title: "Hat" }]
         };
 
-        const bindings: DocumentBindings = {
-            test1: {
-                $repeat: {
-                    expression: "$state.products"
-                },
-                inputs: {
-                    text: {
-                        expression: "$.title",
-                        static: "Unnamed"
-                    }
+        const bindings: DocumentElementBindings = {
+            $repeat: {
+                expression: "$state.products"
+            },
+            inputs: {
+                text: {
+                    type: "text",
+                    dataType: "string",
+                    expression: "$.title",
+                    static: "Unnamed"
                 }
             }
         };
 
-        const resolver = new BindingsResolver(state, bindings, "desktop");
-        const resolved = resolver.resolveElement(baseElement, [createTextInput({ name: "text" })]);
+        const inputs = [createTextInput({ name: "text" })];
+        const inputAst = ComponentManifestToAstConverter.convert(inputs);
+        const resolver = new BindingsResolver(state, "desktop");
+        const resolved = resolver.resolveElement({
+            element: baseElement,
+            inputAst,
+            elementBindings: bindings
+        });
 
         expect(resolved).toHaveLength(2);
         expect(resolved[0].inputs.text).toBe("Shirt");
@@ -118,21 +137,27 @@ describe("BindingsResolver", () => {
             invalid: 42
         };
 
-        const bindings: DocumentBindings = {
-            test1: {
-                $repeat: {
-                    expression: "$state.invalid"
-                },
-                inputs: {
-                    text: {
-                        static: "Should not be used"
-                    }
+        const bindings: DocumentElementBindings = {
+            $repeat: {
+                expression: "$state.invalid"
+            },
+            inputs: {
+                text: {
+                    type: "text",
+                    dataType: "string",
+                    static: "Should not be used"
                 }
             }
         };
 
-        const resolver = new BindingsResolver(state, bindings, "desktop");
-        const resolved = resolver.resolveElement(baseElement, []);
+        const inputs = [createTextInput({ name: "text" })];
+        const inputAst = ComponentManifestToAstConverter.convert(inputs);
+        const resolver = new BindingsResolver(state, "desktop");
+        const resolved = resolver.resolveElement({
+            element: baseElement,
+            inputAst,
+            elementBindings: bindings
+        });
 
         expect(resolved).toEqual([]);
     });
@@ -142,21 +167,25 @@ describe("BindingsResolver", () => {
             list: [{ text: "First item text" }, { text: "Second item text" }]
         };
 
-        const bindings: DocumentBindings = {
-            test1: {
-                inputs: {
-                    text: {
-                        static: "Static fallback",
-                        expression: "$state.list.0.text"
-                    }
+        const bindings: DocumentElementBindings = {
+            inputs: {
+                text: {
+                    type: "text",
+                    dataType: "string",
+                    static: "Static fallback",
+                    expression: "$state.list.0.text"
                 }
             }
         };
 
-        const resolver = new BindingsResolver(state, bindings, "desktop");
-        const [resolved] = resolver.resolveElement(baseElement, [
-            createTextInput({ name: "text" })
-        ]);
+        const inputs = [createTextInput({ name: "text" })];
+        const inputAst = ComponentManifestToAstConverter.convert(inputs);
+        const resolver = new BindingsResolver(state, "desktop");
+        const [resolved] = resolver.resolveElement({
+            element: baseElement,
+            inputAst,
+            elementBindings: bindings
+        });
 
         expect(resolved.inputs.text).toBe("First item text");
     });

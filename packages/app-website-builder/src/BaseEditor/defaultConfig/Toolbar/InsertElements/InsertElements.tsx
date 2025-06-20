@@ -44,7 +44,6 @@ const GroupComponent = ({ item }: { item: ComponentGroupItem }) => {
     );
 };
 
-
 const ElementPalette = () => {
     const groups = useComponentGroups();
 
@@ -55,7 +54,11 @@ const ElementPalette = () => {
                     <div className="wby-flex wby-flex-col wby-gap-sm wby-p-sm wby-justify-start">
                         {group.items.map(item => {
                             return (
-                                <Draggable key={item.name} type="ELEMENT" item={item}>
+                                <Draggable
+                                    key={item.name}
+                                    type="ELEMENT"
+                                    item={{ componentName: item.name }}
+                                >
                                     {({ dragRef }) => (
                                         <div ref={dragRef}>
                                             <GroupComponent item={item} />

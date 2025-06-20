@@ -1,13 +1,17 @@
 import set from "lodash/set";
 import { toJS } from "mobx";
-import type {
+import {
     DocumentElement,
     DocumentState,
     ResolvedElement,
     ComponentInput,
     ValueBinding,
-    DocumentElementBindings
+    DocumentElementBindings,
+    SerializableCSSStyleDeclaration,
+    DocumentElementStyleBindings
 } from "~/sdk/types";
+import type { InputAstNode } from "./ComponentManifestToAstConverter";
+import { findMatchingAstNode } from "./findMatchingAstNode";
 
 export interface OnResolved {
     (value: any, input: ComponentInput): any;
@@ -16,7 +20,7 @@ export interface OnResolved {
 export type ResolveElementParams = {
     element: DocumentElement;
     elementBindings: DocumentElementBindings;
-    inputs: ComponentInput[];
+    inputAst: InputAstNode[];
     onResolved?: OnResolved;
 };
 
@@ -32,7 +36,7 @@ export class BindingsResolver {
     public resolveElement({
         element,
         elementBindings,
-        inputs,
+        inputAst,
         onResolved
     }: ResolveElementParams): ResolvedElement[] {
         const repeatBindingArray = elementBindings.$repeat;
@@ -50,14 +54,14 @@ export class BindingsResolver {
                     element,
                     elementBindings,
                     item,
-                    inputs,
+                    inputAst,
                     onResolved
                 );
             });
         }
 
         return [
-            this.resolveSingleInstance(element, elementBindings, undefined, inputs, onResolved)
+            this.resolveSingleInstance(element, elementBindings, undefined, inputAst, onResolved)
         ];
     }
 
@@ -65,9 +69,9 @@ export class BindingsResolver {
         element: DocumentElement,
         elementBindings: DocumentElementBindings,
         item: Record<string, any> | undefined,
-        inputs: ComponentInput[],
+        inputAst: InputAstNode[],
         onResolved?: OnResolved
-    ) {
+    ): ResolvedElement {
         const resolvedElement: ResolvedElement = {
             id: element.id,
             inputs: {},
@@ -75,30 +79,39 @@ export class BindingsResolver {
         };
 
         const context = { state: this.state, $: item };
+        const flatBindings = elementBindings.inputs ?? {};
 
-        for (const input of inputs) {
-            const binding = elementBindings.inputs?.[input.name];
+        for (const [path, binding] of Object.entries(flatBindings)) {
+            const value = this.resolveBinding(binding, context);
+            const astNode = findMatchingAstNode(path, inputAst);
 
+            if (!astNode) {
+                // If there's no AST node found, it means this is stale data for an input that no longer exists.
+                continue;
+            }
+
+            const finalValue = onResolved ? onResolved(value, astNode.input) : value;
+
+            set(resolvedElement.inputs, path, finalValue);
+        }
+
+        // Resolve styles
+        const styles: DocumentElementStyleBindings = elementBindings.styles
+            ? elementBindings.styles[this.displayMode] ?? {}
+            : {};
+
+        const resolvedStyles: SerializableCSSStyleDeclaration = {};
+
+        for (const [path, binding] of Object.entries(styles)) {
             if (binding) {
-                const value = this.resolveBinding(binding, context);
-
-                if (onResolved) {
-                    set(resolvedElement, `inputs.${input.name}`, onResolved(value, input));
-                } else {
-                    set(resolvedElement, `inputs.${input.name}`, value);
-                }
-            } else {
-                if (onResolved) {
-                    // If there's no binding, then there's also no value. Pass `undefined`.
-                    set(resolvedElement, `inputs.${input.name}`, onResolved(undefined, input));
-                }
+                // @ts-expect-error We're positive this is correct.
+                resolvedStyles[path] = this.resolveBinding(binding, context);
             }
         }
 
         return {
             ...resolvedElement,
-            // TODO: resolve styles bindings
-            styles: element.styles ? element.styles[this.displayMode] : {}
+            styles: resolvedStyles
         };
     }
 
@@ -107,7 +120,7 @@ export class BindingsResolver {
             return undefined;
         }
 
-        if ("expression" in binding) {
+        if (binding.expression) {
             return this.evaluateExpression(binding.expression, context);
         }
 

@@ -1,7 +1,4 @@
-import get from "lodash/get";
 import { Editor } from "../Editor";
-import set from "lodash/set";
-import { toJS } from "mobx";
 
 interface Params {
     elementId: string;
@@ -14,15 +11,23 @@ export function $removeElementReferenceFromParent(
     { elementId, parentId, slot }: Params
 ) {
     editor.updateDocument(state => {
-        const elementBindings = state.bindings[parentId];
-        const slotElements = (get(elementBindings.inputs, `${slot}.static`) as string[]) ?? [];
+        const bindings = state.bindings[parentId] ?? {};
+        const inputs = bindings.inputs ?? {};
 
-        console.log("slotElements", toJS(slotElements));
-        console.log("newValue", toJS(slotElements.filter(id => id !== elementId)));
-        set(
-            state.bindings,
-            `${parentId}.inputs.${slot}.static`,
-            slotElements.filter(id => id !== elementId)
-        );
+        const binding = inputs[slot];
+        if (!binding) {
+            return;
+        }
+
+        if (binding.list) {
+            inputs[slot].static = (binding.static as string[]).filter(id => id !== elementId);
+        } else {
+            delete inputs[slot].static;
+        }
+
+        state.bindings[parentId] = {
+            ...bindings,
+            inputs
+        };
     });
 }

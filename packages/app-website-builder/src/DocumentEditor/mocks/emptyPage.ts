@@ -5,7 +5,18 @@ export default {
         title: "Page 1",
         path: "/page-1"
     },
-    bindings: {},
+    bindings: {
+        root: {
+            inputs: {
+                children: {
+                    type: "slot",
+                    dataType: "string",
+                    list: true,
+                    static: []
+                }
+            }
+        }
+    },
     state: {},
     elements: {
         root: {

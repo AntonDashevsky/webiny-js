@@ -141,7 +141,7 @@ export function createTagsInput(input: OmitType<TagsInput>) {
 export function createSlotInput(input: OmitType<SlotInput>) {
     return createInput({
         type: "slot",
-        dataType: "json",
+        dataType: "string",
         list: true,
         renderer: "Webiny/Slot",
         ...input

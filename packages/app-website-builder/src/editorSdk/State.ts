@@ -14,8 +14,10 @@ export interface IState<TState> {
 export class State<TState extends GenericRecord = GenericRecord> implements IState<TState> {
     private activeState: TState;
     private pendingState: TState | undefined;
+    private readonly usePendingState: boolean = true;
 
-    constructor(initialState: TState) {
+    constructor(initialState: TState, usePendingState: boolean = true) {
+        this.usePendingState = usePendingState;
         this.activeState = initialState;
         makeAutoObservable(this, {
             // @ts-ignore 123
@@ -28,12 +30,19 @@ export class State<TState extends GenericRecord = GenericRecord> implements ISta
     }
 
     update(cb: (state: MutableState<TState>) => void) {
-        if (!this.pendingState) {
-            this.pendingState = structuredClone(toJS(this.activeState));
-            this.commitPendingState();
+        if (this.usePendingState) {
+            if (!this.pendingState) {
+                this.pendingState = structuredClone(toJS(this.activeState));
+                this.commitPendingState();
+            }
+
+            cb(this.pendingState);
+            return;
         }
 
-        cb(this.pendingState);
+        runInAction(() => {
+            cb(this.activeState);
+        });
     }
 
     updateInPlace(cb: (state: MutableState<TState>) => void) {

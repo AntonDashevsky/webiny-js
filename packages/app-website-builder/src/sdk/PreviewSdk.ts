@@ -1,14 +1,5 @@
 "use client";
-import type {
-    Component,
-    ComponentGroup,
-    DocumentBindings,
-    DocumentElement,
-    DocumentState,
-    IContentSdk,
-    Page,
-    ResolvedComponent
-} from "./types.js";
+import type { Component, ComponentGroup, IContentSdk, Page, ResolvedComponent } from "./types.js";
 import { Messenger, MessageOrigin } from "./messenger";
 import { logger } from "./Logger";
 import { PreviewViewport } from "./PreviewViewport";
@@ -20,7 +11,6 @@ import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 import { DocumentStore } from "~/sdk/DocumentStore";
 import { resizeObserver } from "~/sdk/ResizeObserver";
 import { HotkeyManager } from "~/sdk/HotkeyManager";
-import { OnResolved } from "./BindingsResolver.js";
 import { ResolveElementParams } from "./ComponentResolver.js";
 
 interface PreviewDocumentProps {
@@ -152,14 +142,14 @@ export class PreviewSdk implements IContentSdk {
             this.documentStore.updateElement(data.id, data.patch);
             setTimeout(() => {
                 this.reportBoxes();
-            }, 20);
+            }, 50);
         });
 
         this.messenger.on("document.patch", patch => {
             this.documentStore.applyPatch(patch);
             setTimeout(() => {
                 this.reportBoxes();
-            }, 20);
+            }, 50);
         });
 
         this.messenger.on("preview.element.positions.get", () => {

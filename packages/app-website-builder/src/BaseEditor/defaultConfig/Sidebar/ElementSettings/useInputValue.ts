@@ -1,15 +1,16 @@
+// @ts-nocheck
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import type { ComponentInput, DocumentElement, ValueBinding } from "~/sdk/types";
+import type { ComponentInput, DocumentElement, InputValueBinding } from "~/sdk/types";
 import { useCallback, useState } from "react";
 import { Commands } from "~/BaseEditor";
 import set from "lodash/set";
 
 export const useInputValue = (element: DocumentElement, input: ComponentInput) => {
     const editor = useDocumentEditor();
-    const [localState, setLocalValue] = useState<ValueBinding>();
+    const [localState, setLocalValue] = useState<InputValueBinding>();
 
-    const value = useSelectFromDocument<ValueBinding>(
+    const value = useSelectFromDocument<InputValueBinding>(
         document => {
             const bindings = document.bindings[element.id];
 

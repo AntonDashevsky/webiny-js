@@ -4,7 +4,7 @@ import { Box } from "./Box";
 import { DropZoneProximity } from "~/BaseEditor/defaultConfig/Content/Preview/DropZoneManager";
 
 export interface DropEvent {
-    item: any;
+    item: { id?: string; componentName: string };
     target: { parentId: string; slot: string; index: number };
 }
 

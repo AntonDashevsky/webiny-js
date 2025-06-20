@@ -24,7 +24,14 @@ export const LiveElementRenderer = observer(({ element }: LiveElementRendererPro
     const onResolved = useCallback(
         ((value, input) => {
             if (input.type === "slot") {
-                return <ElementSlot parentId={element.id} slot={input.name} elements={value} />;
+                return (
+                    <ElementSlot
+                        key={element.id}
+                        parentId={element.id}
+                        slot={input.name}
+                        elements={input.list ? value : [value]}
+                    />
+                );
             }
             return value;
         }) as OnResolved,

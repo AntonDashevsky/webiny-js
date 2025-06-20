@@ -22,15 +22,8 @@ export const ExpressionRenderer = ({
         const repeat = document.bindings[element.id]?.$repeat;
 
         if (repeat) {
-            if (repeat.expression) {
-                return new StatePathsExtractor(document.state)
-                    .getChildPaths(repeat.expression)
-                    .filter(option => option.type.matches(input.dataType))
-                    .values();
-            }
-
-            return new StatePathsExtractor(repeat.static)
-                .getPaths()
+            return new StatePathsExtractor(document.state)
+                .getChildPaths(repeat.expression)
                 .filter(option => option.type.matches(input.dataType))
                 .values();
         }
