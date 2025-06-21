@@ -1,6 +1,19 @@
 import { TrashBinPresenter } from "./TrashBinPresenter.js";
-import { LoadingRepository, MetaRepository, type Sorting, SortingRepository } from "@webiny/app-utils";
-import { LoadingActions, type TrashBinIdentity, type TrashBinLocation } from "~/types.js";
+import {
+    LoadingRepository,
+    MetaRepository,
+    type Sorting,
+    SortingRepository
+} from "@webiny/app-utils";
+import {
+    LoadingActions,
+    type TrashBinIdentity,
+    TrashBinListQueryVariables,
+    type TrashBinLocation,
+    TrashBinMetaResponse,
+    TrashBinBulkActionsResponse,
+    TrashBinBulkActionsGatewayParams
+} from "~/types.js";
 import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers.js";
 import {
     type ITrashBinBulkActionsGateway,
@@ -129,30 +142,36 @@ describe("TrashBin", () => {
     };
 
     const listGateway = createBinListGateway({
-        execute: jest.fn().mockImplementation(() => {
-            return Promise.resolve([
-                [item1, item2, item3],
-                { totalCount: 3, cursor: null, hasMoreItems: false }
-            ]);
-        })
+        execute: jest
+            .fn<(params: TrashBinListQueryVariables) => Promise<[Item[], TrashBinMetaResponse]>>()
+            .mockImplementation(() => {
+                return Promise.resolve([
+                    [item1, item2, item3],
+                    { totalCount: 3, cursor: null, hasMoreItems: false }
+                ]);
+            })
     });
 
     const deleteItemGateway = createBinDeleteItemGateway({
-        execute: jest.fn().mockImplementation(() => {
+        execute: jest.fn<(id: string) => Promise<boolean>>().mockImplementation(() => {
             return Promise.resolve(true);
         })
     });
 
     const restoreItemGateway = createBinRestoreItemGateway({
-        execute: jest.fn().mockImplementation(() => {
+        execute: jest.fn<(id: string) => Promise<Item>>().mockImplementation(() => {
             return Promise.resolve(item1);
         })
     });
 
     const bulkActionGateway = createBinBulkActionsGateway({
-        execute: jest.fn().mockImplementation(() => {
-            return Promise.resolve({ id: "123456789" });
-        })
+        execute: jest
+            .fn<
+                (params: TrashBinBulkActionsGatewayParams) => Promise<TrashBinBulkActionsResponse>
+            >()
+            .mockImplementation(() => {
+                return Promise.resolve({ id: "123456789" });
+            })
     });
 
     const itemMapper = new CustomItemMapper();
@@ -262,18 +281,20 @@ describe("TrashBin", () => {
     it("should list more items from the gateway", async () => {
         const listGateway = createBinListGateway({
             execute: jest
-                .fn()
+                .fn<
+                    (params: TrashBinListQueryVariables) => Promise<[Item[], TrashBinMetaResponse]>
+                >()
                 .mockImplementationOnce(() => {
                     return Promise.resolve([
                         [item1, item2, item3],
                         { totalCount: 4, cursor: "IjMi", hasMoreItems: true }
-                    ]);
+                    ] as [Item[], TrashBinMetaResponse]);
                 })
                 .mockImplementationOnce(() => {
                     return Promise.resolve([
                         [item4],
                         { totalCount: 4, cursor: null, hasMoreItems: false }
-                    ]);
+                    ] as [Item[], TrashBinMetaResponse]);
                 })
         });
 
@@ -345,18 +366,20 @@ describe("TrashBin", () => {
     it("should be able to sort items", async () => {
         const sortListGateway = createBinListGateway({
             execute: jest
-                .fn()
+                .fn<
+                    (params: TrashBinListQueryVariables) => Promise<[Item[], TrashBinMetaResponse]>
+                >()
                 .mockImplementationOnce(() => {
                     return Promise.resolve([
                         [item1, item2, item3],
                         { totalCount: 3, cursor: null, hasMoreItems: false }
-                    ]);
+                    ] as [Item[], TrashBinMetaResponse]);
                 })
                 .mockImplementation(() => {
                     return Promise.resolve([
                         [item3, item2, item1],
                         { totalCount: 3, cursor: null, hasMoreItems: false }
-                    ]);
+                    ] as [Item[], TrashBinMetaResponse]);
                 })
         });
 
@@ -417,24 +440,26 @@ describe("TrashBin", () => {
     it("should be able to search items", async () => {
         const searchItemsGateway = createBinListGateway({
             execute: jest
-                .fn()
+                .fn<
+                    (params: TrashBinListQueryVariables) => Promise<[Item[], TrashBinMetaResponse]>
+                >()
                 .mockImplementationOnce(() => {
                     return Promise.resolve([
                         [item1, item2, item3],
                         { totalCount: 3, cursor: null, hasMoreItems: false }
-                    ]);
+                    ] as [Item[], TrashBinMetaResponse]);
                 })
                 .mockImplementationOnce(() => {
                     return Promise.resolve([
                         [item1],
                         { totalCount: 1, cursor: null, hasMoreItems: false }
-                    ]);
+                    ] as [Item[], TrashBinMetaResponse]);
                 })
                 .mockImplementationOnce(() => {
                     return Promise.resolve([
                         [],
                         { totalCount: 0, cursor: null, hasMoreItems: false }
-                    ]);
+                    ] as [Item[], TrashBinMetaResponse]);
                 })
         });
 
@@ -875,12 +900,18 @@ describe("TrashBin", () => {
         {
             // let's test the functionality by listing items that span multiple pages.
             const listGateway = createBinListGateway({
-                execute: jest.fn().mockImplementation(() => {
-                    return Promise.resolve([
-                        [item1, item2, item3],
-                        { totalCount: 4, cursor: "IjMi", hasMoreItems: true }
-                    ]);
-                })
+                execute: jest
+                    .fn<
+                        (
+                            params: TrashBinListQueryVariables
+                        ) => Promise<[Item[], TrashBinMetaResponse]>
+                    >()
+                    .mockImplementation(() => {
+                        return Promise.resolve([
+                            [item1, item2, item3],
+                            { totalCount: 4, cursor: "IjMi", hasMoreItems: true }
+                        ] as [Item[], TrashBinMetaResponse]);
+                    })
             });
 
             const { presenter, controllers } = init(
@@ -931,12 +962,18 @@ describe("TrashBin", () => {
         {
             // let's test the functionality by listing items that span only one page.
             const listGateway = createBinListGateway({
-                execute: jest.fn().mockImplementation(() => {
-                    return Promise.resolve([
-                        [item1, item2, item3],
-                        { totalCount: 3, cursor: null, hasMoreItems: false }
-                    ]);
-                })
+                execute: jest
+                    .fn<
+                        (
+                            params: TrashBinListQueryVariables
+                        ) => Promise<[Item[], TrashBinMetaResponse]>
+                    >()
+                    .mockImplementation(() => {
+                        return Promise.resolve([
+                            [item1, item2, item3],
+                            { totalCount: 3, cursor: null, hasMoreItems: false }
+                        ] as [Item[], TrashBinMetaResponse]);
+                    })
             });
 
             const { presenter, controllers } = init(
