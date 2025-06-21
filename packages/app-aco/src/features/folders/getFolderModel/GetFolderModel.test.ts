@@ -1,8 +1,10 @@
 import { GetFolderModel } from "./GetFolderModel.js";
 import { jest } from "@jest/globals";
+import type { IGetFolderModelGateway } from "~/features/folders/getFolderModel/IGetFolderModelGateway";
+import type { FolderModelDto } from "~/features";
 
 describe("GetFolderModel", () => {
-    const folderModel = {
+    const mockFolderModel = {
         id: "folder-model",
         group: "custom-group",
         version: "0.0.0",
@@ -29,11 +31,15 @@ describe("GetFolderModel", () => {
         titleFieldId: null,
         descriptionFieldId: null,
         imageFieldId: null
-    };
+    } as unknown as FolderModelDto;
 
-    const gateway = {
-        execute: jest.fn().mockResolvedValue(folderModel)
-    };
+    class GetFolderModelMockGateway implements IGetFolderModelGateway {
+        async execute() {
+            return mockFolderModel;
+        }
+    }
+
+    const gateway = new GetFolderModelMockGateway();
 
     beforeEach(() => {
         jest.clearAllMocks();
@@ -47,13 +53,18 @@ describe("GetFolderModel", () => {
         await useCase.execute();
 
         expect(gateway.execute).toHaveBeenCalledTimes(1);
-        expect(repository.getModel()).toEqual(folderModel);
+        expect(repository.getModel()).toEqual(mockFolderModel);
     });
 
     it("should handle gateway errors gracefully", async () => {
-        const errorGateway = {
-            execute: jest.fn().mockRejectedValue(new Error("Gateway error"))
-        };
+        class GetFolderModelErrorMockGateway implements IGetFolderModelGateway {
+            async execute(): Promise<FolderModelDto> {
+                throw new Error("Gateway error");
+            }
+        }
+
+        const errorGateway = new GetFolderModelErrorMockGateway();
+
         const { useCase, repository } = GetFolderModel.getInstance(errorGateway);
 
         expect(repository.getModel()).toBeUndefined();
@@ -72,11 +83,11 @@ describe("GetFolderModel", () => {
         await useCase.execute();
 
         expect(gateway.execute).toHaveBeenCalledTimes(1);
-        expect(repository.getModel()).toEqual(folderModel);
+        expect(repository.getModel()).toEqual(mockFolderModel);
 
         // Execute again, it should NOT execute the gateway again
         await useCase.execute();
         expect(gateway.execute).toHaveBeenCalledTimes(1);
-        expect(repository.getModel()).toEqual(folderModel);
+        expect(repository.getModel()).toEqual(mockFolderModel);
     });
 });

@@ -1,31 +1,38 @@
 import { ListFolders } from "./ListFolders.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { jest } from "@jest/globals";
+import type { IListFoldersGateway } from "~/features/folders/listFolders/IListFoldersGateway";
+import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto";
 
 describe("ListFolders", () => {
+    class ListFoldersMockGateway implements IListFoldersGateway {
+        async execute() {
+            return [
+                {
+                    id: "folder-1",
+                    title: "Folder 1",
+                    slug: "folder-1",
+                    type
+                },
+                {
+                    id: "folder-2",
+                    title: "Folder 2",
+                    slug: "folder-1",
+                    type
+                },
+                {
+                    id: "folder-3",
+                    title: "Folder 3",
+                    slug: "folder-3",
+                    type
+                }
+            ] as FolderGqlDto[];
+        }
+    }
+
     const type = "abc";
-    const gateway = {
-        execute: jest.fn().mockResolvedValue([
-            {
-                id: "folder-1",
-                title: "Folder 1",
-                slug: "folder-1",
-                type
-            },
-            {
-                id: "folder-2",
-                title: "Folder 2",
-                slug: "folder-1",
-                type
-            },
-            {
-                id: "folder-3",
-                title: "Folder 3",
-                slug: "folder-3",
-                type
-            }
-        ])
-    };
+    const gateway = new ListFoldersMockGateway();
+
     const foldersCache = folderCacheFactory.getCache(type);
 
     beforeEach(() => {
@@ -48,9 +55,13 @@ describe("ListFolders", () => {
     });
 
     it("should return empty array if no folders are found", async () => {
-        const emptyGateway = {
-            execute: jest.fn().mockResolvedValue([])
-        };
+        class ListFoldersEmptyMockGateway implements IListFoldersGateway {
+            async execute() {
+                return [];
+            }
+        }
+
+        const emptyGateway = new ListFoldersEmptyMockGateway();
         const listFolders = ListFolders.getInstance(type, emptyGateway);
 
         expect(foldersCache.hasItems()).toBeFalse();
@@ -65,9 +76,13 @@ describe("ListFolders", () => {
     });
 
     it("should handle gateway errors gracefully", async () => {
-        const errorGateway = {
-            execute: jest.fn().mockRejectedValue(new Error("Gateway error"))
-        };
+        class ListFoldersErrorMockGateway implements IListFoldersGateway {
+            async execute(): Promise<FolderGqlDto[]> {
+                throw new Error("Gateway error");
+            }
+        }
+
+        const errorGateway = new ListFoldersErrorMockGateway();
         const listFolders = ListFolders.getInstance(type, errorGateway);
 
         expect(foldersCache.hasItems()).toBeFalse();

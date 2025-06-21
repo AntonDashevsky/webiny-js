@@ -10,11 +10,11 @@ import { type FiltersGatewayInterface } from "./gateways/index.js";
 import { jest } from "@jest/globals";
 
 const mockGateway: FiltersGatewayInterface = {
-    list: jest.fn(),
-    get: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn()
+    list: jest.fn<FiltersGatewayInterface["list"]>(),
+    get: jest.fn<FiltersGatewayInterface["get"]>(),
+    create: jest.fn<FiltersGatewayInterface["create"]>(),
+    update: jest.fn<FiltersGatewayInterface["update"]>(),
+    delete: jest.fn<FiltersGatewayInterface["delete"]>()
 };
 
 const createMockGateway = ({
@@ -64,19 +64,19 @@ describe("AdvancedSearchPresenter", () => {
     };
 
     const gateway = createMockGateway({
-        list: jest.fn().mockImplementation(() => {
+        list: jest.fn<FiltersGatewayInterface["list"]>().mockImplementation(() => {
             return Promise.resolve([filter1, filter2]);
         }),
-        get: jest.fn().mockImplementation(() => {
+        get: jest.fn<FiltersGatewayInterface["get"]>().mockImplementation(() => {
             return Promise.resolve(filter1);
         }),
-        create: jest.fn().mockImplementation(() => {
+        create: jest.fn<FiltersGatewayInterface["create"]>().mockImplementation(() => {
             return Promise.resolve(filter1);
         }),
-        update: jest.fn().mockImplementation(() => {
+        update: jest.fn<FiltersGatewayInterface["update"]>().mockImplementation(() => {
             return Promise.resolve({ ...filter1, name: "Filter 1 - Edit" });
         }),
-        delete: jest.fn().mockImplementation(() => {
+        delete: jest.fn<FiltersGatewayInterface["delete"]>().mockImplementation(() => {
             return Promise.resolve(true);
         })
     });
@@ -668,7 +668,7 @@ describe("AdvancedSearchPresenter", () => {
     it("should be able to handle an empty list - error from the gateway", async () => {
         const message = "Gateway error while listing filters";
         const gateway = createMockGateway({
-            list: jest.fn().mockRejectedValue(new Error(message))
+            list: jest.fn<FiltersGatewayInterface["list"]>().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(gateway, namespace);
@@ -695,7 +695,9 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while creating filter";
         const createGateway = createMockGateway({
             ...gateway,
-            create: jest.fn().mockRejectedValue(new Error(message))
+            create: jest
+                .fn<FiltersGatewayInterface["create"]>()
+                .mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(createGateway, namespace);
@@ -738,7 +740,9 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while updating filter";
         const updateGateway = createMockGateway({
             ...gateway,
-            update: jest.fn().mockRejectedValue(new Error(message))
+            update: jest
+                .fn<FiltersGatewayInterface["update"]>()
+                .mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(updateGateway, namespace);
@@ -767,7 +771,9 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while deleting filter";
         const updateGateway = createMockGateway({
             ...gateway,
-            delete: jest.fn().mockRejectedValue(new Error(message))
+            delete: jest
+                .fn<FiltersGatewayInterface["delete"]>()
+                .mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(updateGateway, namespace);

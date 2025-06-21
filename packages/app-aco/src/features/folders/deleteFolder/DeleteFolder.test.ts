@@ -1,13 +1,16 @@
 import { DeleteFolder } from "./DeleteFolder.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { Folder } from "../Folder.js";
-import { jest } from "@jest/globals";
+import { IDeleteFolderGateway } from "~/features/folders/deleteFolder/IDeleteFolderGateway";
+
+class DeleteFolderMockGateway implements IDeleteFolderGateway {
+    async execute() {}
+}
 
 describe("DeleteFolder", () => {
     const type = "abc";
-    const gateway = {
-        execute: jest.fn().mockResolvedValue(true)
-    };
+    const gateway = new DeleteFolderMockGateway();
+
     const foldersCache = folderCacheFactory.getCache(type);
 
     beforeEach(() => {

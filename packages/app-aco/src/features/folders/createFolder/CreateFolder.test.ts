@@ -1,17 +1,23 @@
 import { CreateFolder } from "./CreateFolder.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
-import { jest } from "@jest/globals";
+import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto";
+import type { ICreateFolderGateway } from "~/features/folders/createFolder/ICreateFolderGateway";
 
-describe("CreateFolder", () => {
-    const type = "abc";
-    const gateway = {
-        execute: jest.fn().mockResolvedValue({
+class CreateFolderMockGateway implements ICreateFolderGateway {
+    async execute() {
+        return {
             id: "any-folder-id",
             title: "New Folder",
             slug: "new-folder",
-            type
-        })
-    };
+            type: "abc"
+        } as FolderGqlDto; // We don't care about the rest of the props, hence the type assertion.
+    }
+}
+
+describe("CreateFolder", () => {
+    const type = "abc";
+    const gateway = new CreateFolderMockGateway();
+
     const foldersCache = folderCacheFactory.getCache(type);
 
     beforeEach(() => {

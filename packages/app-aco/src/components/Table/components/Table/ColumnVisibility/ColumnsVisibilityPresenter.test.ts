@@ -8,8 +8,8 @@ import { ColumnsVisibilityUpdater } from "~/components/Table/components/Table/Co
 import { jest } from "@jest/globals";
 
 const defaultGateway: IColumnsVisibilityGateway = {
-    get: jest.fn(),
-    set: jest.fn()
+    get: jest.fn<IColumnsVisibilityGateway["get"]>(),
+    set: jest.fn<IColumnsVisibilityGateway["set"]>()
 };
 
 const createMockGateway = ({
@@ -90,7 +90,9 @@ describe("ColumnsVisibilityPresenter", () => {
     it("should return the columns visibility from both the column configs and the gateway", async () => {
         // Let's create a mocked gateway
         const gateway = createMockGateway({
-            get: jest.fn().mockImplementation(() => ({ title: false }))
+            get: jest
+                .fn<IColumnsVisibilityGateway["get"]>()
+                .mockImplementation(async () => ({ title: false }))
         });
 
         // Let's create repositories and presenters
@@ -143,7 +145,10 @@ describe("ColumnsVisibilityPresenter", () => {
         });
 
         // Let's update the visibility
-        const updater = jest.fn().mockImplementation(current => ({ ...current, title: false }));
+        const updater = jest
+            .fn<any>()
+            .mockImplementation((current: any) => ({ ...current, title: false }));
+
         await columnsVisibilityUpdater.update(updater);
 
         expect(columnsVisibilityPresenter.vm).toEqual({
