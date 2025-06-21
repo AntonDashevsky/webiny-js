@@ -6,6 +6,6 @@ export const useElementComponentManifest = (elementId: string) => {
     const editor = useDocumentEditor();
 
     return useMemo(() => {
-        return $getComponentManifestByElementId(editor, elementId);
+        return $getComponentManifestByElementId(editor, elementId ?? "");
     }, [elementId]);
 };

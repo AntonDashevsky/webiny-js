@@ -1,6 +1,7 @@
 import React from "react";
 import { EditorConfig } from "~/BaseEditor";
 import { TextInputRenderer } from "~/inputRenderers/TextInput";
+import { NumberInputRenderer } from "~/inputRenderers/NumberInput";
 import { BooleanInputRenderer } from "~/inputRenderers/BooleanInput";
 import { TextareaInputRenderer } from "~/inputRenderers/TextareaInput";
 import { LexicalInputRenderer } from "~/inputRenderers/LexicalInput/LexicalInput";
@@ -21,6 +22,10 @@ export const ElementInputRenderers = () => {
             <EditorConfig.ElementInput.Renderer
                 name={"Webiny/Textarea"}
                 component={TextareaInputRenderer}
+            />
+            <EditorConfig.ElementInput.Renderer
+                name={"Webiny/Number"}
+                component={NumberInputRenderer}
             />
             {/* Configure Lexical Editor*/}
             <DefaultLexicalConfig />

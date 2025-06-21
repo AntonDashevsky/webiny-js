@@ -31,6 +31,10 @@ export const ElementInputs = ({ element }: ElementInputsProps) => {
         return ComponentManifestToAstConverter.convert(component.inputs ?? []);
     }, [component.name, element.id]);
 
+    if (!element) {
+        return null;
+    }
+
     return (
         <Grid>
             {/*<Grid.Column key={"repeat"} span={12}>*/}

@@ -4,6 +4,7 @@ import {
     createComponent,
     createSlotInput,
     createTextInput,
+    createNumberInput,
     createBooleanInput,
     createLongTextInput,
     createRichTextInput,
@@ -35,50 +36,96 @@ export const customComponents = [
         group: "basic",
         inputs: [
             createTextInput({
-                name: "gridSize",
-                label: "Grid Size",
-                renderer: "Webiny/GridSize"
+                name: "gridLayout",
+                label: "Grid Layout",
+                renderer: "Webiny/GridLayout"
+            }),
+            createNumberInput({
+                name: "rowCount",
+                label: "Rows",
+                onChange: ({ inputs, createElement }) => {
+                    const gridLayout = inputs.gridLayout;
+                    const columnCount = gridLayout.split("-").length;
+                    const rowCount = Math.max(1, inputs.rowCount);
+                    const currentRows = [...inputs.rows]
+
+                    if (currentRows.length > rowCount) {
+                        inputs.rows = currentRows.slice(0, rowCount);
+                        return;
+                    }
+
+                    const createRows = Math.max(0, rowCount - currentRows.length);
+
+                    if (createRows <= 0) {
+                        return;
+                    }
+
+                    const newRows = Array.from({ length: createRows }).map(() => {
+                        return {
+                            columns: Array.from({ length: columnCount }).map(() => {
+                                return {
+                                    children: createElement({
+                                        component: "Webiny/GridColumn"
+                                    })
+                                };
+                            })
+                        };
+                    });
+
+                    inputs.rows.push(...newRows);
+                }
             }),
             createObjectInput({
-                name: "columns",
+                name: "rows",
                 list: true,
                 hideFromUi: true,
                 fields: [
-                    createSlotInput({
-                        name: "children",
-                        list: false,
-                        components: ["Webiny/GridColumn"]
+                    createObjectInput({
+                        name: "columns",
+                        list: true,
+                        hideFromUi: true,
+                        fields: [
+                            createSlotInput({
+                                name: "children",
+                                list: false,
+                                components: ["Webiny/GridColumn"]
+                            })
+                        ]
                     })
                 ]
             })
         ],
         defaults: {
             inputs: {
-                gridSize: "6-6",
-                columns: [
+                gridLayout: "6-6",
+                rows: [
                     {
-                        children: createElement({
-                            component: "Webiny/GridColumn",
-                            inputs: {
-                                children: [
-                                    createElement({
-                                        component: "Webiny/Text"
-                                    })
-                                ]
+                        columns: [
+                            {
+                                children: createElement({
+                                    component: "Webiny/GridColumn",
+                                    inputs: {
+                                        children: [
+                                            createElement({
+                                                component: "Webiny/Text"
+                                            })
+                                        ]
+                                    }
+                                })
+                            },
+                            {
+                                children: createElement({
+                                    component: "Webiny/GridColumn",
+                                    inputs: {
+                                        children: [
+                                            createElement({
+                                                component: "Webiny/Text"
+                                            })
+                                        ]
+                                    }
+                                })
                             }
-                        })
-                    },
-                    {
-                        children: createElement({
-                            component: "Webiny/GridColumn",
-                            inputs: {
-                                children: [
-                                    createElement({
-                                        component: "Webiny/Text"
-                                    })
-                                ]
-                            }
-                        })
+                        ]
                     }
                 ]
             },
@@ -107,7 +154,12 @@ export const customComponents = [
         canDrag: false,
         canDelete: false,
         acceptsChildren: true,
-        hideFromToolbar: true
+        hideFromToolbar: true,
+        defaults: {
+            inputs: {
+                children: []
+            }
+        }
     }),
     createComponent(TextComponent, {
         name: "Webiny/Text",
@@ -122,7 +174,10 @@ export const customComponents = [
             createBooleanInput({
                 name: "flag",
                 label: "Popular post",
-                description: "I make text bold. Or not..."
+                description: "I make text bold. Or not...",
+                onChange: bindings => {
+                    console.log(bindings);
+                }
             })
         ],
         defaults: {

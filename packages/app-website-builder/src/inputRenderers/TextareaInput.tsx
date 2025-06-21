@@ -16,6 +16,7 @@ export const TextareaInputRenderer = ({
             label={input.label}
             description={input.description}
             note={input.helperText}
+            rows={10}
         />
     );
 };

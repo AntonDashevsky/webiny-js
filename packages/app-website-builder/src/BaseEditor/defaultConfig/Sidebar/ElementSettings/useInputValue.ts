@@ -1,15 +1,30 @@
 import { useCallback, useState } from "react";
-import set from "lodash/set";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import type { InputValueBinding, ValueBinding } from "~/sdk/types";
 import { Commands } from "~/BaseEditor";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
-import type { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
+import {
+    ComponentManifestToAstConverter,
+    InputAstNode
+} from "~/sdk/ComponentManifestToAstConverter";
+import { functionConverter } from "~/sdk";
+import { BindingsApi } from "~/sdk/BindingsApi";
+import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
+import { useElementFactory } from "./useElementFactory";
+import { $applyDocumentOperations } from "~/editorSdk/utils/$applyDocumentOperations";
+import { useDisplayMode } from "~/BaseEditor/hooks/useDisplayMode";
 
 export const useInputValue = (node: InputAstNode) => {
+    const { displayMode } = useDisplayMode();
     const [element] = useActiveElement();
     const editor = useDocumentEditor();
+    const componentManifest = useElementComponentManifest(element?.id ?? "");
+    const inputsAst = componentManifest
+        ? ComponentManifestToAstConverter.convert(componentManifest.inputs ?? [])
+        : [];
+
+    const elementFactory = useElementFactory();
     const [localState, setLocalValue] = useState<ValueBinding>();
 
     const value = useSelectFromDocument<ValueBinding>(
@@ -61,12 +76,40 @@ export const useInputValue = (node: InputAstNode) => {
                         [node.path]: valueBinding
                     }
                 };
+
+                // Process input's `onChange`.
+                if (node.input.onChange) {
+                    const callback = functionConverter.deserialize(
+                        // TODO: we know it's a string, but on the frontend it's a function. Fix types.
+                        node.input.onChange! as any as string
+                    );
+
+                    const bindingsApi = new BindingsApi(
+                        element.id,
+                        state.bindings[element.id],
+                        inputsAst,
+                        elementFactory
+                    );
+
+                    // Run onChange callback.
+                    callback(bindingsApi.getPublicApi(displayMode.name), {
+                        displayMode: displayMode.name
+                    });
+
+                    // Set new element bindings
+                    const flatBindings = bindingsApi.toFlatBindings();
+                    state.bindings[element.id] = flatBindings;
+
+                    // Apply operations
+                    const ops = bindingsApi.getOperations();
+                    $applyDocumentOperations(editor, ops);
+                }
             });
 
             // Clear local value
             setLocalValue(undefined);
         },
-        [element?.id]
+        [element?.id, displayMode]
     );
 
     const onPreviewChange = useCallback(

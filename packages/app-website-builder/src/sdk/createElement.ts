@@ -1,6 +1,6 @@
 import type { ResponsiveStyles } from "~/sdk/types";
 
-interface CreateElementParams {
+export interface CreateElementParams {
     component: string;
     inputs?: Record<string, any>;
     styles?: ResponsiveStyles;

@@ -32,21 +32,34 @@ export type SetStaticOp = {
     };
 };
 
-export type Operation = AddElementOp | AddToParentOp | SetStaticOp;
+export type RemoveElementOp = {
+    type: "remove-element";
+    elementId: string;
+};
+
+export type Operation = AddElementOp | AddToParentOp | SetStaticOp | RemoveElementOp;
+
+interface GenerateOperationsParams {
+    componentName: string;
+    parentId: string;
+    slot: string;
+    index: number;
+    defaults?: {
+        inputs?: Record<string, any>;
+        styles?: Record<string, any>;
+    };
+}
 
 export class ElementFactory {
     constructor(private components: Record<string, ComponentManifest>) {}
 
-    public generateOperations(
-        componentName: string,
-        parentId: string,
-        slot: string,
-        index: number,
-        defaults?: {
-            inputs?: Record<string, any>;
-            styles?: Record<string, any>;
-        }
-    ): Operation[] {
+    public generateOperations({
+        componentName,
+        parentId,
+        slot,
+        index,
+        defaults
+    }: GenerateOperationsParams): Operation[] {
         const manifest = this.components[componentName];
         if (!manifest) {
             throw new Error(`Component "${componentName}" not registered.`);
@@ -81,13 +94,13 @@ export class ElementFactory {
             const isObject = node.type === "object";
 
             if (isCreateElement) {
-                const childOps = this.generateOperations(
-                    value.params.component,
-                    elementId,
-                    path,
-                    isList ? this.extractIndex(path) : -1,
-                    value.params
-                );
+                const childOps = this.generateOperations({
+                    componentName: value.params.component,
+                    parentId: elementId,
+                    slot: path,
+                    index: isList ? this.extractIndex(path) : -1,
+                    defaults: value.params
+                });
 
                 ops.push(...childOps);
 

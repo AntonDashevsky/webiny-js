@@ -1,4 +1,5 @@
-import { ResolveElementParams } from "~/sdk/ComponentResolver";
+import type { ResolveElementParams } from "~/sdk/ComponentResolver";
+import type { BindingsApi } from "~/sdk/BindingsApi";
 
 export type ElementMap = Record<string, DocumentElement>;
 
@@ -200,6 +201,7 @@ export type BaseInput<T = any> = {
     name: string;
     type: string;
     dataType: string;
+    onChange?: (bindings: BindingsApi, context: any) => void;
     label?: string;
     description?: string;
     helperText?: string;

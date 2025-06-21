@@ -144,6 +144,11 @@ const mockComponents: Record<string, ComponentManifest> = {
 
 test("ElementFactory generates element tree and bindings", () => {
     const factory = new ElementFactory(mockComponents);
-    const result = factory.generateOperations("Webiny/Grid", "root", "children", 0);
+    const result = factory.generateOperations({
+        componentName: "Webiny/Grid",
+        parentId: "root",
+        slot: "children",
+        index: 0
+    });
     const a = result;
 });

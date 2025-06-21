@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 interface GridColumnProps {
     children: React.ReactNode;
@@ -12,20 +12,28 @@ interface Column {
     children: React.ReactNode;
 }
 
-interface GridProps {
-    gridSize: string;
+interface Row {
     columns: Column[];
 }
 
-export const Grid = ({ gridSize, columns }: GridProps) => {
-    const sizes = gridSize.split("-").map(size => parseInt(size));
+interface GridProps {
+    gridLayout: string;
+    rows: Row[];
+}
+
+export const Grid = ({ gridLayout, rows }: GridProps) => {
+    const sizes = gridLayout.split("-").map(size => parseInt(size));
 
     return (
         <div style={{ display: "flex", flexWrap: "wrap", width: "inherit" }}>
-            {columns.map((column, i) => (
-                <Span key={i} size={sizes[i]}>
-                    <GridColumn key={i}>{column.children}</GridColumn>
-                </Span>
+            {rows.map((row, i) => (
+                <Fragment key={i}>
+                    {row.columns.map((column, i) => (
+                        <Span key={i} size={sizes[i]}>
+                            <GridColumn key={i}>{column.children}</GridColumn>
+                        </Span>
+                    ))}
+                </Fragment>
             ))}
         </div>
     );

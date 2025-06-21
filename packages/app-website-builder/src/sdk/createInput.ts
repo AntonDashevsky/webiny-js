@@ -14,6 +14,7 @@ import {
     TagsInput,
     SlotInput
 } from "./types";
+import { functionConverter } from "~/sdk/FunctionConverter";
 
 type OmitType<T> = Omit<T, "type" | "dataType">;
 
@@ -42,7 +43,7 @@ export function createNumberInput(input: OmitType<NumberInput>) {
     return createInput({
         type: "number",
         dataType: "number",
-        renderer: "Webiny/Input",
+        renderer: "Webiny/Number",
         ...input
     }) as NumberInput;
 }
@@ -150,5 +151,9 @@ export function createSlotInput(input: OmitType<SlotInput>) {
 
 // Implementation
 export function createInput(input: ComponentInput): ComponentInput {
+    if (input.onChange) {
+        // @ts-expect-error We don't use this function on the frontend, so this is ok.
+        input.onChange = functionConverter.serialize(input.onChange!);
+    }
     return input;
 }

@@ -42,6 +42,10 @@ export class ComponentInputTraverser {
                 return;
             }
 
+            if (value.length === 0) {
+                visitor(node, currentPath, value);
+            }
+
             value.forEach((item, index) => {
                 const itemPath = `${currentPath}[${index}]`;
 
