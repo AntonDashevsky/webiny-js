@@ -1,6 +1,11 @@
 import { BindingsResolver } from "./BindingsResolver";
-import { DocumentElement, DocumentState, DocumentElementBindings } from "~/sdk/types";
-import { createTextInput } from "~/sdk/createInput";
+import {
+    DocumentElement,
+    DocumentState,
+    DocumentElementBindings,
+    DocumentBindings
+} from "~/sdk/types";
+import { createSlotInput, createTextInput } from "~/sdk/createInput";
 import { ComponentManifestToAstConverter } from "~/sdk/ComponentManifestToAstConverter";
 
 describe("BindingsResolver", () => {
@@ -9,6 +14,14 @@ describe("BindingsResolver", () => {
         type: "Webiny/Element",
         component: {
             name: "Webiny/Text"
+        }
+    };
+
+    const rootElement: DocumentElement = {
+        id: "root",
+        type: "Webiny/Element",
+        component: {
+            name: "Webiny/Root"
         }
     };
 
@@ -46,6 +59,185 @@ describe("BindingsResolver", () => {
 
         expect(resolved.inputs.text).toBe("Alice");
         expect(resolved.styles).toEqual({ padding: "10px" });
+    });
+
+    it("resolves nested objects", () => {
+        const state: DocumentState = {};
+
+        const bindings: DocumentBindings = {
+            root: {
+                inputs: {
+                    children: {
+                        type: "slot",
+                        dataType: "string",
+                        list: true,
+                        static: ["qizw1hgqjvj8g5a43szzc"]
+                    }
+                }
+            },
+            qizw1hgqjvj8g5a43szzc: {
+                inputs: {
+                    title: {
+                        static: "Default Columns Title",
+                        type: "text",
+                        dataType: "text"
+                    },
+                    "leftColumn[0]": {
+                        static: ["7znyr9z2cpizegnrk2rhu"],
+                        type: "slot",
+                        dataType: "string",
+                        list: true
+                    },
+                    "rightColumn[0]": {
+                        static: ["cwld8kxy0qhhtaql42lr5"],
+                        type: "slot",
+                        dataType: "string",
+                        list: true
+                    }
+                },
+                styles: {
+                    desktop: {
+                        padding: {
+                            static: "20px"
+                        },
+                        backgroundColor: {
+                            static: "#5c9a12"
+                        }
+                    }
+                }
+            },
+            "7znyr9z2cpizegnrk2rhu": {
+                inputs: {
+                    title: {
+                        static: "Left Column Title",
+                        type: "text",
+                        dataType: "text"
+                    },
+                    children: {
+                        static: [],
+                        type: "slot",
+                        dataType: "string",
+                        list: true
+                    }
+                },
+                styles: {
+                    desktop: {
+                        backgroundColor: {
+                            static: "red"
+                        },
+                        marginTop: {
+                            static: "20px"
+                        }
+                    }
+                }
+            },
+            cwld8kxy0qhhtaql42lr5: {
+                inputs: {
+                    title: {
+                        static: "Right Column Title",
+                        type: "text",
+                        dataType: "text"
+                    },
+                    children: {
+                        static: [],
+                        type: "slot",
+                        dataType: "string",
+                        list: true
+                    }
+                },
+                styles: {
+                    desktop: {
+                        backgroundColor: {
+                            static: "blue"
+                        },
+                        marginTop: {
+                            static: "20px"
+                        }
+                    }
+                }
+            }
+        };
+
+        const elements = {
+            root: {
+                type: "Webiny/Element",
+                id: "root",
+                component: {
+                    name: "Webiny/Root"
+                }
+            },
+            qizw1hgqjvj8g5a43szzc: {
+                type: "Webiny/Element",
+                id: "qizw1hgqjvj8g5a43szzc",
+                parent: {
+                    id: "root",
+                    slot: "children"
+                },
+                component: {
+                    name: "Webiny/TwoColumns"
+                }
+            },
+            "7znyr9z2cpizegnrk2rhu": {
+                type: "Webiny/Element",
+                id: "7znyr9z2cpizegnrk2rhu",
+                parent: {
+                    id: "qizw1hgqjvj8g5a43szzc",
+                    slot: "leftColumn[0]"
+                },
+                component: {
+                    name: "Webiny/TextWithDropzone"
+                }
+            },
+            cwld8kxy0qhhtaql42lr5: {
+                type: "Webiny/Element",
+                id: "cwld8kxy0qhhtaql42lr5",
+                parent: {
+                    id: "qizw1hgqjvj8g5a43szzc",
+                    slot: "rightColumn[0]"
+                },
+                component: {
+                    name: "Webiny/TextWithDropzone"
+                }
+            }
+        };
+
+        const inputs = [
+            {
+                type: "text",
+                dataType: "text",
+                renderer: "Webiny/Input",
+                name: "title",
+                label: "Title",
+                fields: []
+            },
+            {
+                type: "slot",
+                dataType: "string",
+                list: true,
+                renderer: "Webiny/Slot",
+                name: "leftColumn",
+                fields: []
+            },
+            {
+                type: "slot",
+                dataType: "string",
+                list: true,
+                renderer: "Webiny/Slot",
+                name: "rightColumn",
+                fields: []
+            }
+        ];
+        const inputAst = ComponentManifestToAstConverter.convert(inputs);
+        const resolver = new BindingsResolver(state, "desktop");
+        const [resolved] = resolver.resolveElement({
+            element: elements["qizw1hgqjvj8g5a43szzc"] as DocumentElement,
+            inputAst,
+            elementBindings: bindings["qizw1hgqjvj8g5a43szzc"]
+        });
+
+        expect(resolved.inputs.title).toBe("Default Columns Title");
+        expect(resolved.inputs.leftColumn).toEqual([["7znyr9z2cpizegnrk2rhu"]]);
+        expect(resolved.inputs.rightColumn).toEqual([["cwld8kxy0qhhtaql42lr5"]]);
     });
 
     it("falls back to static if no expression is provided", () => {
@@ -97,6 +289,32 @@ describe("BindingsResolver", () => {
         });
 
         expect(resolved.inputs.text).toBeUndefined();
+    });
+
+    it("uses input's `defaultValue` if binding doesn't exist", () => {
+        const state: DocumentState = {};
+
+        const bindings: DocumentElementBindings = {
+            inputs: {}
+        };
+
+        const inputs = [createSlotInput({ name: "children", defaultValue: [] })];
+        const inputAst = ComponentManifestToAstConverter.convert(inputs);
+        const resolver = new BindingsResolver(state, "desktop");
+        const [resolved] = resolver.resolveElement({
+            element: rootElement,
+            inputAst,
+            elementBindings: bindings,
+            onResolved(value, input) {
+                if (input.type === "slot") {
+                    return "slot";
+                }
+
+                return value;
+            }
+        });
+
+        expect(resolved.inputs.children).toEqual("slot");
     });
 
     it("handles $repeat using expression and maps items", () => {

@@ -204,10 +204,7 @@ export const customComponents = [
             createBooleanInput({
                 name: "flag",
                 label: "Popular post",
-                description: "I make text bold. Or not...",
-                onChange: bindings => {
-                    console.log(bindings);
-                }
+                description: "I make text bold. Or not..."
             })
         ],
         defaults: {

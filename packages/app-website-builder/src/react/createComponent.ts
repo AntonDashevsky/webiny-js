@@ -10,7 +10,8 @@ export const createComponent = (
         manifest.inputs = [
             ...(manifest.inputs ?? []),
             createSlotInput({
-                name: "children"
+                name: "children",
+                defaultValue: []
             })
         ];
     }

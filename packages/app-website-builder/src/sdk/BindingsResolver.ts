@@ -11,7 +11,6 @@ import {
     DocumentElementStyleBindings
 } from "~/sdk/types";
 import type { InputAstNode } from "./ComponentManifestToAstConverter";
-import { findMatchingAstNode } from "./findMatchingAstNode";
 
 export interface OnResolved {
     (value: any, input: ComponentInput): any;
@@ -79,21 +78,92 @@ export class BindingsResolver {
         };
 
         const context = { state: this.state, $: item };
-        const flatBindings = elementBindings.inputs ?? {};
+        const bindings = elementBindings.inputs ?? {};
 
-        for (const [path, binding] of Object.entries(flatBindings)) {
-            const value = this.resolveBinding(binding, context);
-            const astNode = findMatchingAstNode(path, inputAst);
+        const resolveInputsFromAst = (
+            nodes: InputAstNode[],
+            prefix: string[],
+            target: Record<string, any>
+        ) => {
+            for (const node of nodes) {
+                const pathParts = [...prefix, node.name];
+                const path = pathParts.join(".");
+                const binding = bindings[path];
+                const value = this.resolveBinding(binding, context) ?? node.input.defaultValue;
 
-            if (!astNode) {
-                // If there's no AST node found, it means this is stale data for an input that no longer exists.
-                continue;
+                const finalValue = onResolved ? onResolved(value, node.input) : value;
+
+                if (node.children.length > 0) {
+                    if (node.list) {
+                        const flatKey = path;
+                        const pattern = new RegExp(
+                            `^${flatKey
+                                .replace(/\./g, "\\.")
+                                .replace(/\[/g, "\\[")
+                                .replace(/\]/g, "\\]")}\\[(\\d+)\\]`
+                        );
+                        const indexes = Object.keys(bindings).reduce((acc: number[], key) => {
+                            const match = key.match(pattern);
+                            if (match) {
+                                acc.push(parseInt(match[1], 10));
+                            }
+                            return acc;
+                        }, []);
+
+                        const uniqueIndexes = Array.from(new Set(indexes)).sort((a, b) => a - b);
+
+                        target[node.name] = uniqueIndexes.map(index => {
+                            const childTarget: Record<string, any> = {};
+                            resolveInputsFromAst(
+                                node.children,
+                                [...pathParts.slice(0, -1), `${node.name}[${index}]`],
+                                childTarget
+                            );
+                            return childTarget;
+                        });
+                    } else {
+                        const childTarget: Record<string, any> = {};
+                        resolveInputsFromAst(node.children, pathParts, childTarget);
+                        target[node.name] = childTarget;
+                    }
+                } else if (node.list) {
+                    // List node with no children (e.g., slot or primitive list)
+                    const flatKey = path;
+                    const pattern = new RegExp(
+                        `^${flatKey
+                            .replace(/\./g, "\\.")
+                            .replace(/\[/g, "\\[")
+                            .replace(/\]/g, "\\]")}\\[(\\d+)\\]`
+                    );
+                    const indexes = Object.keys(bindings).reduce((acc: number[], key) => {
+                        const match = key.match(pattern);
+                        if (match) {
+                            acc.push(parseInt(match[1], 10));
+                        }
+                        return acc;
+                    }, []);
+
+                    const uniqueIndexes = Array.from(new Set(indexes)).sort((a, b) => a - b);
+
+                    // If binding is e.g., `leftColumn[0]`, we'll have `0` in unique indexes.
+                    if (uniqueIndexes.length > 0) {
+                        target[node.name] = uniqueIndexes.map(index => {
+                            const binding = bindings[`${node.name}[${index}]`];
+                            const value =
+                                this.resolveBinding(binding, context) ?? node.input.defaultValue;
+                            return onResolved ? onResolved(value, node.input) : value;
+                        });
+                    } else {
+                        // If binding is a simple `children`, we simply assign the resolved value.
+                        target[node.name] = finalValue;
+                    }
+                } else if (finalValue !== undefined) {
+                    target[node.name] = finalValue;
+                }
             }
+        };
 
-            const finalValue = onResolved ? onResolved(value, astNode.input) : value;
-
-            set(resolvedElement.inputs, path, finalValue);
-        }
+        resolveInputsFromAst(inputAst, [], resolvedElement.inputs);
 
         // Resolve styles
         const styles: DocumentElementStyleBindings = elementBindings.styles

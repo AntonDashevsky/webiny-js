@@ -201,7 +201,10 @@ export type BaseInput<T = any> = {
     name: string;
     type: string;
     dataType: string;
-    onChange?: (bindings: BindingsApi, context: any) => void;
+    onChange?: (
+        bindings: ReturnType<BindingsApi["getPublicApi"]>,
+        context: { breakpoint: string }
+    ) => void;
     label?: string;
     description?: string;
     helperText?: string;
@@ -218,7 +221,7 @@ export type TextInput = BaseInput<string> & {
     dataType: "text";
 };
 
-export type SlotInput = BaseInput<DocumentElement> & {
+export type SlotInput = BaseInput<any> & {
     type: "slot";
     dataType: "string";
     components?: string[];

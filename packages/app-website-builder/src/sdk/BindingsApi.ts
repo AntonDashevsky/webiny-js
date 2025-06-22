@@ -2,7 +2,7 @@ import set from "lodash/set";
 import type { ElementFactory, Operation } from "~/sdk/ElementFactory";
 import type { InputAstNode } from "./ComponentManifestToAstConverter";
 import type { DocumentElementBindings } from "~/sdk/types";
-import { createElement } from "./createElement";
+import { createElement, type CreateElementParams } from "./createElement";
 
 type FlatBindings = Record<string, Record<string, any>>;
 type DeepBindings = Record<string, any>;
@@ -44,7 +44,9 @@ export class BindingsApi {
         return {
             inputs: this.inputs,
             styles: this.styles,
-            createElement: this.createElement
+            createElement: (params: CreateElementParams) => {
+                return createElement(params);
+            }
         };
     }
 
@@ -266,10 +268,6 @@ export class BindingsApi {
             });
         });
         return result;
-    }
-
-    private createElement(params: Parameters<typeof createElement>[0]) {
-        return createElement(params);
     }
 
     private getElementReferences(inputs: DocumentElementBindings["inputs"] = {}) {
