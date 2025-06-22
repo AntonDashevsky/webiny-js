@@ -1,4 +1,4 @@
-import { DisplayMode } from "~/sdk/types";
+import { Breakpoint } from "~/sdk/types";
 import { environment } from "~/sdk/Environment";
 
 export interface ViewportInfo {
@@ -6,7 +6,7 @@ export interface ViewportInfo {
     height: number;
     scrollX: number;
     scrollY: number;
-    displayMode: string;
+    breakpoint: string;
 }
 
 export class ViewportManager {
@@ -15,7 +15,7 @@ export class ViewportManager {
     private readonly changeEndSubscribers: Set<(info: ViewportInfo) => void>;
     private isChanging: boolean;
     private changeTimer: number | null;
-    private displayModes: DisplayMode[] = [
+    private breakpoints: Breakpoint[] = [
         {
             name: "desktop",
             minWidth: 0,
@@ -111,7 +111,7 @@ export class ViewportManager {
     }
 
     private getViewportInfo(): ViewportInfo {
-        const modes = [...this.displayModes].reverse();
+        const modes = [...this.breakpoints].reverse();
         const viewport = {
             width: window.innerWidth,
             height: window.innerHeight,
@@ -119,9 +119,9 @@ export class ViewportManager {
             scrollY: window.scrollY
         };
 
-        const [displayMode] = modes.filter(mode => mode.maxWidth >= viewport.width);
+        const [breakpoint] = modes.filter(mode => mode.maxWidth >= viewport.width);
 
-        return { ...viewport, displayMode: displayMode.name };
+        return { ...viewport, breakpoint: breakpoint.name };
     }
 
     private notifySubscribers(

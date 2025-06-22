@@ -1,18 +1,18 @@
 import React, { useCallback, useMemo } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { DisplayMode } from "~/sdk/types";
+import { Breakpoint } from "~/sdk/types";
 import { ReactComponent as LaptopIcon } from "@webiny/icons/laptop_mac.svg";
 import { ReactComponent as TabletIcon } from "@webiny/icons/tablet_mac.svg";
 import { ReactComponent as MobileIcon } from "@webiny/icons/phone_iphone.svg";
 
-export type EditorDisplayMode = DisplayMode & {
+export type EditorBreakpoint = Breakpoint & {
     title: string;
     description: string;
     icon: React.ReactNode;
 };
 
-const DISPLAY_MODES: EditorDisplayMode[] = [
+const BREAKPOINTS: EditorBreakpoint[] = [
     {
         name: "desktop",
         title: "Desktop",
@@ -47,28 +47,28 @@ const DISPLAY_MODES: EditorDisplayMode[] = [
     }
 ];
 
-export const useDisplayMode = () => {
+export const useBreakpoint = () => {
     const editor = useDocumentEditor();
     const activeMode = useSelectFromEditor<string>(state => {
-        return state.displayMode || DISPLAY_MODES[0].name;
+        return state.breakpoint || BREAKPOINTS[0].name;
     });
 
-    const displayMode = useMemo(() => {
-        return DISPLAY_MODES.find(mode => mode.name === activeMode)!;
+    const breakpoint = useMemo(() => {
+        return BREAKPOINTS.find(mode => mode.name === activeMode)!;
     }, [activeMode]);
 
-    const setDisplayMode = useCallback(
+    const setBreakpoint = useCallback(
         (mode: string) => {
             editor.updateEditor(state => {
-                state.displayMode = mode;
+                state.breakpoint = mode;
             });
         },
         [editor]
     );
 
     return {
-        displayMode,
-        displayModes: DISPLAY_MODES,
-        setDisplayMode
+        breakpoint,
+        breakpoints: BREAKPOINTS,
+        setBreakpoint
     };
 };

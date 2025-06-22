@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { Input } from "@webiny/admin-ui";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { useDocumentEditor } from "~/DocumentEditor";
-import { DisplayModeSelector } from "./DisplayModeSelector";
+import { BreakpointSelector } from "./BreakpointSelector";
 
 export const AddressBar = () => {
     const editor = useDocumentEditor();
@@ -38,7 +38,7 @@ export const AddressBar = () => {
                 />
             </div>
             <div className={"wby-flex-none"}>
-                <DisplayModeSelector />
+                <BreakpointSelector />
             </div>
         </div>
     );

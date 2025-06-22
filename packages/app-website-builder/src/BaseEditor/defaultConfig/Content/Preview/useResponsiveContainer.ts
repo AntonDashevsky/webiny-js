@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useDisplayMode } from "~/BaseEditor/hooks/useDisplayMode";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { ViewportManager } from "~/sdk/ViewportManager";
 
 /**
@@ -21,9 +21,9 @@ export const useResponsiveContainer = (viewportManager: ViewportManager) => {
         return viewportManager.onViewportChangeEnd(updateContainerWidth);
     }, []);
 
-    const { displayMode } = useDisplayMode();
+    const { breakpoint } = useBreakpoint();
 
     return useMemo(() => {
-        return Math.min(containerWidth, displayMode.maxWidth) + "px";
-    }, [displayMode.name, containerWidth]);
+        return Math.min(containerWidth, breakpoint.maxWidth) + "px";
+    }, [breakpoint.name, containerWidth]);
 };

@@ -13,7 +13,7 @@ export type ResolveElementParams = {
     element: DocumentElement;
     elementBindings: DocumentElementBindings;
     state: DocumentState;
-    displayMode: string;
+    breakpoint: string;
     onResolved?: OnResolved;
 };
 
@@ -29,7 +29,7 @@ export class ComponentResolver {
         elementBindings = {},
         onResolved,
         state,
-        displayMode
+        breakpoint
     }: ResolveElementParams): ResolvedComponent[] | null {
         const componentName = element.component.name;
         const blueprint = this.components.get(componentName);
@@ -39,7 +39,7 @@ export class ComponentResolver {
             return null;
         }
 
-        const bindingsResolver = new BindingsResolver(state, displayMode);
+        const bindingsResolver = new BindingsResolver(state, breakpoint);
         const instances = bindingsResolver.resolveElement({
             element,
             elementBindings,

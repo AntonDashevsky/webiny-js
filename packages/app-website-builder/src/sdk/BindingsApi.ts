@@ -36,9 +36,9 @@ export class BindingsApi {
         return this.operations;
     }
 
-    public getPublicApi(displayMode: string) {
-        if (!this.styles[displayMode]) {
-            this.styles[displayMode] = {};
+    public getPublicApi(breakpoint: string) {
+        if (!this.styles[breakpoint]) {
+            this.styles[breakpoint] = {};
         }
 
         return {

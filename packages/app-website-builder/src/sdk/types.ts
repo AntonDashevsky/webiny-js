@@ -36,7 +36,7 @@ export type DocumentElementBindings = {
         [inputName: string]: InputValueBinding;
     };
     styles?: {
-        [displayMode: string]: DocumentElementStyleBindings;
+        [breakpoint: string]: DocumentElementStyleBindings;
     };
 };
 
@@ -188,7 +188,7 @@ export interface IContentSdk extends IDataProvider {
     resolveElement(params: ResolveElementParams): ResolvedComponent[] | null;
 }
 
-export type DisplayMode = {
+export type Breakpoint = {
     name: string;
     minWidth: number;
     maxWidth: number;

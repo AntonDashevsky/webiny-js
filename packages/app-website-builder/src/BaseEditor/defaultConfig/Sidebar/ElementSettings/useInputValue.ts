@@ -13,10 +13,10 @@ import { BindingsApi } from "~/sdk/BindingsApi";
 import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
 import { useElementFactory } from "./useElementFactory";
 import { $applyDocumentOperations } from "~/editorSdk/utils/$applyDocumentOperations";
-import { useDisplayMode } from "~/BaseEditor/hooks/useDisplayMode";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 
 export const useInputValue = (node: InputAstNode) => {
-    const { displayMode } = useDisplayMode();
+    const { breakpoint } = useBreakpoint();
     const [element] = useActiveElement();
     const editor = useDocumentEditor();
     const componentManifest = useElementComponentManifest(element?.id ?? "");
@@ -92,8 +92,8 @@ export const useInputValue = (node: InputAstNode) => {
                     );
 
                     // Run onChange callback.
-                    callback(bindingsApi.getPublicApi(displayMode.name), {
-                        displayMode: displayMode.name
+                    callback(bindingsApi.getPublicApi(breakpoint.name), {
+                        breakpoint: breakpoint.name
                     });
 
                     // Set new element bindings
@@ -109,7 +109,7 @@ export const useInputValue = (node: InputAstNode) => {
             // Clear local value
             setLocalValue(undefined);
         },
-        [element?.id, displayMode]
+        [element?.id, breakpoint]
     );
 
     const onPreviewChange = useCallback(

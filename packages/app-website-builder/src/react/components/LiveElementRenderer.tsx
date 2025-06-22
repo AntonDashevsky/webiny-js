@@ -46,7 +46,7 @@ export const LiveElementRenderer = observer(({ element }: LiveElementRendererPro
         element,
         state,
         elementBindings,
-        displayMode: viewport.displayMode,
+        breakpoint: viewport.breakpoint,
         onResolved
     });
 

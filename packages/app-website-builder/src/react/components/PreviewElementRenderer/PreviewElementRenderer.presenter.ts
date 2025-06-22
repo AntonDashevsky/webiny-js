@@ -10,16 +10,16 @@ export class PreviewElementRendererPresenter {
     private listeners: Array<() => void> = [];
     private documentStore: DocumentStore;
     private readonly preview: PreviewSdk;
-    private displayMode: string;
+    private breakpoint: string;
     private viewportListenerDispose: (() => void) | undefined;
 
     constructor(documentStore: DocumentStore) {
         this.documentStore = documentStore;
         this.element = observable({}) as DocumentElement;
         this.preview = contentSdk.preview!;
-        this.displayMode = viewportManager.getViewport().displayMode;
+        this.breakpoint = viewportManager.getViewport().breakpoint;
         this.viewportListenerDispose = viewportManager.onViewportChangeEnd(viewport => {
-            this.displayMode = viewport.displayMode;
+            this.breakpoint = viewport.breakpoint;
         });
         makeAutoObservable(this);
     }
@@ -80,7 +80,7 @@ export class PreviewElementRendererPresenter {
                     Object.keys(styles).forEach(propertyName => {
                         set(
                             document.bindings,
-                            `${id}.styles.${this.displayMode}.${propertyName}.static`,
+                            `${id}.styles.${this.breakpoint}.${propertyName}.static`,
                             styles[propertyName]
                         );
                     });

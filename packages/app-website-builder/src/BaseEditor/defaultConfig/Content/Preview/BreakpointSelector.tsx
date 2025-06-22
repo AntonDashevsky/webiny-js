@@ -1,33 +1,33 @@
 import React from "react";
 import classNames from "classnames";
 import { IconButton, Tooltip, Text, Heading } from "@webiny/admin-ui";
-import { useDisplayMode } from "~/BaseEditor/hooks/useDisplayMode";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 
-export const DisplayModeSelector = () => {
-    const { displayMode, displayModes, setDisplayMode } = useDisplayMode();
+export const BreakpointSelector = () => {
+    const { breakpoint, breakpoints, setBreakpoint } = useBreakpoint();
 
     return (
         <div className={"wby-align-right wby-bg-neutral-light wby-rounded-md"}>
-            {displayModes.map(mode => {
+            {breakpoints.map(bp => {
                 return (
                     <Tooltip
-                        key={mode.name}
+                        key={bp.name}
                         content={
                             <div>
-                                <Heading level={5}>{mode.title}</Heading>
-                                <Text size="md">{mode.description}</Text>
+                                <Heading level={5}>{bp.title}</Heading>
+                                <Text size="md">{bp.description}</Text>
                             </div>
                         }
                         side="bottom"
                         className={classNames("action-wrapper", {
-                            active: mode === displayMode
+                            active: bp === breakpoint
                         })}
                         trigger={
                             <IconButton
                                 size={"md"}
-                                icon={mode.icon}
-                                variant={displayMode.name === mode.name ? "tertiary" : "ghost"}
-                                onClick={() => setDisplayMode(mode.name)}
+                                icon={bp.icon}
+                                variant={breakpoint.name === bp.name ? "tertiary" : "ghost"}
+                                onClick={() => setBreakpoint(bp.name)}
                             />
                         }
                     />

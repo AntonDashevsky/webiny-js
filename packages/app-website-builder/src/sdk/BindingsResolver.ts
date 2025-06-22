@@ -26,11 +26,11 @@ export type ResolveElementParams = {
 
 export class BindingsResolver {
     private readonly state: DocumentState;
-    private readonly displayMode: string;
+    private readonly breakpoint: string;
 
-    constructor(state: DocumentState, displayMode: string) {
+    constructor(state: DocumentState, breakpoint: string) {
         this.state = state;
-        this.displayMode = displayMode;
+        this.breakpoint = breakpoint;
     }
 
     public resolveElement({
@@ -97,7 +97,7 @@ export class BindingsResolver {
 
         // Resolve styles
         const styles: DocumentElementStyleBindings = elementBindings.styles
-            ? elementBindings.styles[this.displayMode] ?? {}
+            ? elementBindings.styles[this.breakpoint] ?? {}
             : {};
 
         const resolvedStyles: SerializableCSSStyleDeclaration = {};
