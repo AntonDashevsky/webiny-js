@@ -1,8 +1,8 @@
-import type { ElementFactory, Operation } from "~/sdk/ElementFactory";
-import { InputAstNode } from "./ComponentManifestToAstConverter";
-import { DocumentElementBindings, DocumentElementStyleBindings } from "~/sdk/types";
-import { createElement } from "./createElement";
 import set from "lodash/set";
+import type { ElementFactory, Operation } from "~/sdk/ElementFactory";
+import type { InputAstNode } from "./ComponentManifestToAstConverter";
+import type { DocumentElementBindings } from "~/sdk/types";
+import { createElement } from "./createElement";
 
 type FlatBindings = Record<string, Record<string, any>>;
 type DeepBindings = Record<string, any>;
@@ -50,10 +50,13 @@ export class BindingsApi {
 
     public toFlatBindings(): FlatBindings {
         const originalInputs = this.originalBindings.inputs ?? {};
-        const rebuild: FlatBindings = { inputs: {}, styles: {} };
-        const seenPaths = new Set();
+        const rebuilt: FlatBindings = { inputs: {}, styles: {} };
+        const seenPaths = new Set<string>();
 
-        const apply = (obj: any, path: string): any => {
+        /**
+         * Extracts a deeply nested value from an object using a flat key path like "rows[0].columns[1].children".
+         */
+        const getValue = (obj: any, path: string): any => {
             const keys = path
                 .split(/\.|\[(\d+)\]/)
                 .filter(Boolean)
@@ -61,84 +64,85 @@ export class BindingsApi {
             return keys.reduce((acc, key) => (acc ? acc[key] : undefined), obj);
         };
 
-        const processAst = (
-            nodes: InputAstNode[],
-            prefix: string[],
-            scope: "inputs" | "styles"
-        ) => {
+        /**
+         * Traverses the AST and compares current (deep) input values against the original bindings.
+         * For each path:
+         * - If changed, adds it to the rebuilt bindings.
+         * - If a CreateElement action is detected, generates child operations.
+         * - If unchanged, reuses the original binding entry (preserving metadata like expressions).
+         * - Skips deleted values (i.e., not present in the new state).
+         */
+        const compareAndCollect = (nodes: InputAstNode[], prefix: string[]) => {
             for (const node of nodes) {
                 const pathParts = [...prefix, node.name];
-                const path = pathParts.join(".");
-                seenPaths.add(path);
+                const flatKey = pathParts.join(".");
+                seenPaths.add(flatKey);
 
                 if (node.children.length) {
                     if (node.list) {
-                        const list = apply(scope === "inputs" ? this.inputs : this.styles, path);
+                        const list = getValue(this.inputs, flatKey);
                         if (Array.isArray(list)) {
                             for (let i = 0; i < list.length; i++) {
-                                processAst(
-                                    node.children,
-                                    [...pathParts.slice(0, -1), `${node.name}[${i}]`],
-                                    scope
-                                );
+                                compareAndCollect(node.children, [
+                                    ...pathParts.slice(0, -1),
+                                    `${node.name}[${i}]`
+                                ]);
                             }
                         }
                     } else {
-                        processAst(node.children, pathParts, scope);
+                        compareAndCollect(node.children, pathParts);
                     }
                 } else {
-                    const value = apply(scope === "inputs" ? this.inputs : this.styles, path);
-                    if (value !== undefined) {
-                        if (typeof value === "object" && value.action === "CreateElement") {
-                            const childOps = this.elementFactory.generateOperations({
-                                componentName: value.params.component,
-                                parentId: this.elementId,
-                                slot: path,
-                                index: -1,
-                                defaults: value.params
-                            });
+                    const newValue = getValue(this.inputs, flatKey);
+                    const originalEntry = originalInputs[flatKey];
+                    const originalValue = originalEntry?.static;
 
-                            const created = childOps.find(op => op.type === "add-element");
-                            if (created && created.type === "add-element") {
-                                const createdId = created.element.id;
-                                rebuild[scope][path] = {
-                                    static: node.list ? [createdId] : createdId,
-                                    type: node.type,
-                                    dataType: node.dataType
-                                };
-                            }
+                    if (newValue === undefined) {
+                        continue;
+                    }
 
-                            this.operations.push(...childOps);
-                        } else {
-                            const original = rebuild[scope][path] ?? originalInputs[path] ?? {};
-                            rebuild[scope][path] = {
-                                ...original,
-                                static: value,
+                    if (typeof newValue === "object" && newValue.action === "CreateElement") {
+                        const childOps = this.elementFactory.generateOperations({
+                            componentName: newValue.params.component,
+                            parentId: this.elementId,
+                            slot: flatKey,
+                            index: -1,
+                            defaults: newValue.params
+                        });
+
+                        const created = childOps.find(op => op.type === "add-element");
+                        if (created && created.type === "add-element") {
+                            const createdId = created.element.id;
+                            rebuilt.inputs[flatKey] = {
+                                static: node.list ? [createdId] : createdId,
                                 type: node.type,
                                 dataType: node.dataType,
                                 list: node.list
                             };
+                            this.operations.push(...childOps);
                         }
+                    } else if (newValue !== originalValue) {
+                        rebuilt.inputs[flatKey] = {
+                            ...(originalEntry ?? {}),
+                            static: newValue,
+                            type: node.type,
+                            dataType: node.dataType,
+                            list: node.list
+                        };
+                    } else if (newValue === originalValue) {
+                        rebuilt.inputs[flatKey] = originalEntry;
                     }
                 }
             }
         };
 
-        processAst(this.inputsAst, [], "inputs");
-        console.log("seenPaths", seenPaths);
+        compareAndCollect(this.inputsAst, []);
 
-        // Preserve untouched original inputs (e.g. expressions)
-        for (const [key, value] of Object.entries(originalInputs)) {
-            if (!seenPaths.has(key)) {
-                // untouched, copy over as-is
-                rebuild.inputs[key] = value;
-            } else if (!(key in rebuild.inputs)) {
-                // was deleted by onChange — do NOT preserve
-            }
-        }
-
-        const usedSlotIds = this.getElementReferences(rebuild.inputs);
-
+        /**
+         * Identifies slot elements that were previously referenced but are no longer used,
+         * and schedules them for removal.
+         */
+        const usedSlotIds = this.getElementReferences(rebuilt.inputs);
         for (const id of this.elementReferences) {
             if (!usedSlotIds.has(id)) {
                 this.operations.push({
@@ -148,9 +152,8 @@ export class BindingsApi {
             }
         }
 
-        rebuild.styles = this.flattenStyles(this.styles);
-
-        return rebuild;
+        rebuilt.styles = this.flattenStyles(this.styles);
+        return rebuilt;
     }
 
     private toDeep(flat: FlatBindings, ast: InputAstNode[]): DeepBindings {

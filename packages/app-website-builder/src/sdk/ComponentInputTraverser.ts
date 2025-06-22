@@ -22,7 +22,7 @@ export class ComponentInputTraverser {
      */
     public traverse(data: Record<string, any>, visitor: InputVisitor): void {
         for (const node of this.ast) {
-            const rootValue = data[node.name];
+            const rootValue = data[node.name] ?? node.input.defaultValue;
             this.traverseNode(node, rootValue, node.name, visitor);
         }
     }

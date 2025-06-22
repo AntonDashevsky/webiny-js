@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as TouchIcon } from "@webiny/icons/touch_app.svg";
-// TODO: import { Breadcrumbs } from "./Content/Breadcrumbs";
+import { Breadcrumbs } from "./Content/Breadcrumbs";
 import { Background } from "./Content/Background";
 import { EditorConfig } from "~/BaseEditor/config";
 // import { Navigator } from "./Toolbar/Navigator";
@@ -39,7 +39,7 @@ export const DefaultEditorConfig = React.memo(() => {
                 <CommandHandlers />
                 <ElementInputRenderers />
                 <Ui.TopBar.Action name={"dropdownActions"} element={<PageOptionsDropdown />} />
-                {/*<Ui.Content.Element name={"breadcrumbs"} element={<Breadcrumbs />} />*/}
+                <Ui.Content.Element name={"breadcrumbs"} element={<Breadcrumbs />} />
                 <Ui.Content.Element name={"background"} element={<Background />} />
                 <Ui.Content.Element name={"preview"} element={<Preview />} />
                 <Ui.Toolbar.Element

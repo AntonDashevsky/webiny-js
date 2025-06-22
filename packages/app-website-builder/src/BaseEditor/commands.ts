@@ -28,6 +28,8 @@ const DeleteElement = createCommand<{
 
 const SelectElement = createCommand<{ id: string }>("SELECT_ELEMENT");
 
+const HighlightElement = createCommand<{ id: string }>("HIGHLIGHT_ELEMENT");
+
 const DeselectElement = createCommand<never>("DESELECT_ELEMENT");
 
 const PreviewPatchElement = createCommand<{ elementId: string; values: Record<string, any> }>(
@@ -40,5 +42,6 @@ export const Commands = {
     MoveElement,
     SelectElement,
     DeselectElement,
+    HighlightElement,
     PreviewPatchElement
 };

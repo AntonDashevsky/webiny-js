@@ -34,7 +34,7 @@ export const Iframe = React.memo((props: IframeProps) => {
                 loader={<OverlayLoader size="lg" variant="accent" text="Loading preview..." />}
             />
             <div
-                className="wby-min-h-[calc(100vh-44px-50px)] wby-max-h-[calc(100vh-44px-50px)] wby-box-border  wby-overflow-hidden"
+                className="wby-min-h-[calc(100vh-43px-50px)] wby-max-h-[calc(100vh-43px-50px)] wby-box-border  wby-overflow-hidden"
                 style={{ width: previewWidth }}
             >
                 <ElementOverlays />

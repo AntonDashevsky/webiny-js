@@ -54,6 +54,14 @@ export class HoverManager {
                 }
             }
 
+            const isIgnored = target?.closest(`[data-hover-manager="ignore"]`);
+            if (isIgnored) {
+                if (this.running) {
+                    requestAnimationFrame(loop);
+                }
+                return;
+            }
+
             // highest depth wins
             const highestBox = Array.from(boxes.entries())
                 .sort(([, a], [, b]) => (b.depth ?? 0) - (a.depth ?? 0))

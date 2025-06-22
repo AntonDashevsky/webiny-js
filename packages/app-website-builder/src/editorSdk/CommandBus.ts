@@ -87,7 +87,7 @@ export class CommandBus {
             runHandlers
         );
 
-        console.log("[Execute Command]", command.type, payload);
+        // console.log("[Execute Command]", command.type, payload);
         await composed(payload);
     }
 }

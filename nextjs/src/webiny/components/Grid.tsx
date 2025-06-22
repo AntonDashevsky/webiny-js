@@ -21,11 +21,15 @@ interface GridProps {
     rows: Row[];
 }
 
-export const Grid = ({ gridLayout, rows }: GridProps) => {
+export const Grid = ({ gridLayout = "12", rows }: GridProps) => {
     const sizes = gridLayout.split("-").map(size => parseInt(size));
 
+    // const cellWidthReduction = value.columnGap
+    //     ? `${value.columnGap - value.columnGap / columnsCount}px`
+    //     : null; // Number of pixels we need to subtract from each cell to ensure they fit in the grid with column gap
+
     return (
-        <div style={{ display: "flex", flexWrap: "wrap", width: "inherit" }}>
+        <>
             {rows.map((row, i) => (
                 <Fragment key={i}>
                     {row.columns.map((column, i) => (
@@ -35,7 +39,7 @@ export const Grid = ({ gridLayout, rows }: GridProps) => {
                     ))}
                 </Fragment>
             ))}
-        </div>
+        </>
     );
 };
 

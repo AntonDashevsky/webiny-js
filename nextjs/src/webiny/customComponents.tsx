@@ -20,7 +20,7 @@ import Hero_1 from "@/webiny/components/Hero-1";
 import { Grid, GridColumn } from "./components/Grid";
 
 const TextComponent = ({ text, flag }: { text: string; flag: boolean }) => (
-    <p className={`p-6 text-wrap ${flag ? "font-bold" : ""}`}>{text}</p>
+    <p className={`text-wrap ${flag ? "font-bold" : ""}`}>{text}</p>
 );
 
 export const customComponents = [
@@ -38,16 +38,44 @@ export const customComponents = [
             createTextInput({
                 name: "gridLayout",
                 label: "Grid Layout",
-                renderer: "Webiny/GridLayout"
+                renderer: "Webiny/GridLayout",
+                onChange: ({ inputs, createElement }) => {
+                    const columnCount = inputs.gridLayout.split("-").length;
+                    const currentColumns = inputs.rows[0].columns.length;
+
+                    if (currentColumns < columnCount) {
+                        // Create additional columns.
+                        const addColumns = columnCount - currentColumns;
+                        inputs.rows.forEach((row: any) => {
+                            Array.from({ length: addColumns }).forEach(() => {
+                                row.columns.push({
+                                    children: createElement({
+                                        component: "Webiny/GridColumn",
+                                        inputs: {
+                                            children: []
+                                        }
+                                    })
+                                });
+                            });
+                        });
+                    } else {
+                        // Remove excess columns.
+                        inputs.rows.forEach((row: any) => {
+                            row.columns = row.columns.slice(0, columnCount);
+                        });
+                    }
+                }
             }),
             createNumberInput({
                 name: "rowCount",
-                label: "Rows",
+                label: "Row Count",
+                defaultValue: 1,
+                minValue: 1,
                 onChange: ({ inputs, createElement }) => {
                     const gridLayout = inputs.gridLayout;
                     const columnCount = gridLayout.split("-").length;
                     const rowCount = Math.max(1, inputs.rowCount);
-                    const currentRows = [...inputs.rows]
+                    const currentRows = [...inputs.rows];
 
                     if (currentRows.length > rowCount) {
                         inputs.rows = currentRows.slice(0, rowCount);
@@ -134,10 +162,12 @@ export const customComponents = [
                     boxSizing: "border-box",
                     display: "flex",
                     flexDirection: "row",
+                    flexFlow: "wrap",
                     justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    padding: "10px",
-                    width: "100%"
+                    alignItems: "stretch",
+                    width: "100%",
+                    margin: "0px",
+                    padding: "5px"
                 },
                 mobileLandscape: {
                     backgroundColor: "red"

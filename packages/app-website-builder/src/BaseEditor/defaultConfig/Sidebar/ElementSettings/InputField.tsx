@@ -1,23 +1,25 @@
 import React from "react";
 import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
-import { FieldArray } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/FieldArray";
-import { useInputRenderer } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/useInputRenderer";
-import { useInputValue } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/useInputValue";
+// import { FieldArray } from "./FieldArray";
+import { useInputRenderer } from "./useInputRenderer";
+import { useInputValue } from "./useInputValue";
 import { DocumentElementBindings } from "~/sdk/types";
 
-export function InputField({
-    node,
-    bindings = {}
-}: {
+interface InputFieldProps {
     node: InputAstNode;
     bindings: DocumentElementBindings["inputs"];
-}) {
+}
+
+export function InputField({ node }: InputFieldProps) {
     const Renderer = useInputRenderer(node.input.renderer!);
     const { value, onChange, onPreviewChange } = useInputValue(node);
     const input = node.input;
 
     if (input.type === "object") {
-        if (node.list) {
+        // TODO: nested inputs will be implemented at a later stage.
+        return;
+
+        /*if (node.list) {
             return <FieldArray node={node} bindings={bindings} />;
         }
 
@@ -28,7 +30,7 @@ export function InputField({
                     <InputField key={child.path} node={child} bindings={bindings} />
                 ))}
             </fieldset>
-        );
+        );*/
     }
 
     return (
@@ -39,4 +41,25 @@ export function InputField({
             input={node.input}
         />
     );
+
+    // We'll implement expression bindings at a later stage.
+    /*return value.expression ? (
+        <WithBindingToggle type={"expression"} setBindingType={setBindingType}>
+            <ExpressionRenderer
+                element={activeElement!}
+                value={value.expression}
+                onChange={onChange}
+                input={input}
+            />
+        </WithBindingToggle>
+    ) : (
+        <WithBindingToggle type={"static"} setBindingType={setBindingType}>
+            <Renderer
+                value={value.static}
+                onChange={onChange}
+                onPreviewChange={onPreviewChange}
+                input={node.input}
+            />
+        </WithBindingToggle>
+    );*/
 }

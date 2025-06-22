@@ -1,3 +1,4 @@
+// @ts-nocheck We're not using this file, but it's here for reference.
 import React, { useMemo } from "react";
 import { Grid, Select } from "@webiny/admin-ui";
 import type { ComponentInput, DocumentElement } from "~/sdk/types";

@@ -11,7 +11,8 @@ export const InsertElements = () => {
     return (
         <Tabs.Tab
             value="insert"
-            trigger={<Icon icon={<InsertIcon />} label={"Insert Element"} />}
+            trigger={"Components"}
+            icon={<Icon icon={<InsertIcon />} label={"Insert Element"} />}
             content={<ElementPalette />}
         />
     );

@@ -237,6 +237,7 @@ export type LongTextInput = BaseInput<string> & {
 export type NumberInput = BaseInput<number> & {
     type: "number";
     dataType: "number";
+    minValue?: number;
 };
 
 export type BooleanInput = BaseInput<boolean> & {

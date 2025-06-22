@@ -7,6 +7,7 @@ import { TextareaInputRenderer } from "~/inputRenderers/TextareaInput";
 import { LexicalInputRenderer } from "~/inputRenderers/LexicalInput/LexicalInput";
 import { DefaultLexicalConfig } from "~/inputRenderers/LexicalInput/DefaultLexicalConfig";
 import { SlotInputRenderer } from "~/inputRenderers/SlotInput";
+import { GridLayoutInputRenderer } from "~/inputRenderers/GridLayoutInput";
 
 export const ElementInputRenderers = () => {
     return (
@@ -36,6 +37,10 @@ export const ElementInputRenderers = () => {
             <EditorConfig.ElementInput.Renderer
                 name={"Webiny/Switch"}
                 component={BooleanInputRenderer}
+            />
+            <EditorConfig.ElementInput.Renderer
+                name={"Webiny/GridLayout"}
+                component={GridLayoutInputRenderer}
             />
         </>
     );

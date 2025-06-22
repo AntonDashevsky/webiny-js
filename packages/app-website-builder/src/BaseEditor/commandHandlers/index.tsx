@@ -4,6 +4,7 @@ import { DeleteElement } from "./DeleteElement";
 import { MoveElement } from "./MoveElement";
 import { DeselectElement } from "./DeselectElement";
 import { SelectElement } from "./SelectElement";
+import { HighlightElement } from "./HighlightElement";
 
 export const CommandHandlers = React.memo(() => {
     return (
@@ -13,6 +14,7 @@ export const CommandHandlers = React.memo(() => {
             <MoveElement />
             <DeselectElement />
             <SelectElement />
+            <HighlightElement />
         </>
     );
 });
