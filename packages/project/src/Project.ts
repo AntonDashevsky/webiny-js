@@ -1,11 +1,11 @@
 import { Container } from "@webiny/di-container";
 import {
-    ProjectInfoCommand,
+    GetProjectInfoCommand,
     BuildAppCommand,
     GetProjectCommand,
     GetAppCommand
 } from "~/abstractions";
-import { projectInfoCommand, buildAppCommand, getProjectCommand, getAppCommand } from "./features";
+import { getProjectInfoCommand, buildAppCommand, getProjectCommand, getAppCommand } from "./features";
 import {
     getIsCiService,
     getNpmVersionService,
@@ -40,7 +40,7 @@ export class Project {
         this.container.register(getProjectCommand).inSingletonScope();
         this.container.register(getAppCommand).inSingletonScope();
         this.container.register(buildAppCommand).inSingletonScope();
-        this.container.register(projectInfoCommand).inSingletonScope();
+        this.container.register(getProjectInfoCommand).inSingletonScope();
     }
 
     buildApp(params: BuildAppCommand.Params) {
@@ -57,7 +57,7 @@ export class Project {
     }
 
     getProjectInfo() {
-        return this.container.resolve(ProjectInfoCommand).execute();
+        return this.container.resolve(GetProjectInfoCommand).execute();
     }
 
     static init(cwd?: string) {

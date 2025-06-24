@@ -1,4 +1,4 @@
-export { ProjectInfoCommand } from "./ProjectInfoCommand";
+export { GetProjectInfoCommand } from "./GetProjectInfoCommand";
 export { BuildAppCommand } from "./BuildAppCommand";
 export { DeployAppCommand } from "./DeployAppCommand";
 export { GetProjectCommand } from "./GetProjectCommand";

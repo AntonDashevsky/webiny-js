@@ -11,9 +11,22 @@ export class DefaultGetAppService implements GetAppService.Interface {
             workspaceFolderAbsPath
         );
 
-        return AppModel.fromDto({
+        const appsFolderAbsPath = path.join(
+            project.paths.appsFolder.absolute,
+            appName);
+
+        const appsFolderRelPath = path.relative(
+            project.paths.rootFolder.absolute,
+            appsFolderAbsPath
+        );
+
+        return AppModel.fromDto(project, {
             name: appName,
             paths: {
+                appsFolder: {
+                    absolute: appsFolderAbsPath,
+                    relative: appsFolderRelPath
+                },
                 workspaceFolder: {
                     absolute: workspaceFolderAbsPath,
                     relative: workspaceFolderRelPath

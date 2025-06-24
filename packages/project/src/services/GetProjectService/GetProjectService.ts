@@ -12,15 +12,22 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
         }
 
         const projectRootFolderAbsPath = dirname(manifestFileAbsPath);
-        const projectRootFolderRelPath = '';
+        const projectRootFolderRelPath = "";
 
-        const manifestFileRelPath = './webiny.config.ts';
+        const manifestFileRelPath = "./webiny.config.ts";
+
+        const appsFolderAbsPath = join(projectRootFolderAbsPath, "apps");
+        const appsFolderRelPath = relative(projectRootFolderAbsPath, appsFolderAbsPath);
 
         const workspacesFolderAbsPath = join(projectRootFolderAbsPath, ".webiny", "workspaces");
         const workspacesFolderRelPath = relative(projectRootFolderAbsPath, workspacesFolderAbsPath);
 
         return ProjectModel.fromDto({
             paths: {
+                appsFolder: {
+                    absolute: appsFolderAbsPath,
+                    relative: appsFolderRelPath
+                },
                 rootFolder: {
                     absolute: projectRootFolderAbsPath,
                     relative: projectRootFolderRelPath
