@@ -1,6 +1,6 @@
-export { GetIsCi } from "./GetIsCi";
+export { GetIsCiService } from "./GetIsCiService";
 export { ProjectInfoService } from "./ProjectInfoService";
-export { GetNpmVersion } from "./GetNpmVersion";
-export { GetNpxVersion } from "./GetNpxVersion";
-export { GetPulumiVersion } from "./GetPulumiVersion";
-export { GetYarnVersion } from "./GetYarnVersion";
+export { GetNpmVersionService } from "./GetNpmVersionService";
+export { GetNpxVersionService } from "./GetNpxVersionService";
+export { GetPulumiVersionService } from "./GetPulumiVersionService";
+export { GetYarnVersionService } from "./GetYarnVersionService";

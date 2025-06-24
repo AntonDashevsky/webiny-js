@@ -1,0 +1,38 @@
+import chalk from "chalk";
+import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
+import { IRequireConfigOptions, requireConfigWithExecute } from "~/utils/index.js";
+const { gray } = chalk;
+
+export class SinglePackageBuilder extends BasePackagesBuilder {
+    public override async build() {
+        const pkg = this.packages[0];
+        const context = this.context;
+        const inputs = this.inputs;
+
+        const { env, debug, variant, region } = inputs;
+
+        const pkgName = pkg.name;
+        const pkgRelativePath = gray(`(${pkg.paths.relative})`);
+        context.info(`Building %s package...`, `${pkgName} ${pkgRelativePath}`);
+
+        const options: IRequireConfigOptions = {
+            env,
+            variant,
+            region,
+            debug,
+            cwd: pkg.paths.root
+        };
+
+        const config = await requireConfigWithExecute(pkg.paths.config, {
+            options,
+            context
+        });
+
+        const hasBuildCommand = config.commands && typeof config.commands.build === "function";
+        if (!hasBuildCommand) {
+            throw new Error("Build command not found.");
+        }
+
+        await config.commands.build(options);
+    }
+}

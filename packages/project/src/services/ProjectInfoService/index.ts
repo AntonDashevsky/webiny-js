@@ -1,7 +1,7 @@
-export * from "./GetIsCi";
-export * from "./GetNpmVersion";
-export * from "./GetNpxVersion";
-export * from "./GetPulumiVersion";
-export * from "./GetYarnVersion";
+export * from "./GetIsCiService";
+export * from "./GetNpmVersionService";
+export * from "./GetNpxVersionService";
+export * from "./GetPulumiVersionService";
+export * from "./GetYarnVersionService";
 export * from "./ProjectInfoService";
 

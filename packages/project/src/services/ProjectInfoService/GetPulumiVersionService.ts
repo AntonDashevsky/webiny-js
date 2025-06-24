@@ -1,12 +1,12 @@
 import { createImplementation } from "@webiny/di-container";
 import {
-    GetPulumiVersion,
+    GetPulumiVersionService,
 } from "~/abstractions";
 import execa from "execa";
 
-export class DefaultGetPulumiVersion implements GetPulumiVersion.Interface {
+export class DefaultGetPulumiVersion implements GetPulumiVersionService.Interface {
     execute() {
-        let result : GetPulumiVersion.Result = ["", ""];
+        let result : GetPulumiVersionService.Result = ["", ""];
 
         try {
             {
@@ -48,8 +48,8 @@ export class DefaultGetPulumiVersion implements GetPulumiVersion.Interface {
     }
 }
 
-export const getPulumiVersion = createImplementation({
-    abstraction: GetPulumiVersion,
+export const getPulumiVersionService = createImplementation({
+    abstraction: GetPulumiVersionService,
     implementation: DefaultGetPulumiVersion,
     dependencies: []
 });

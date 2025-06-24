@@ -1,8 +1,13 @@
 import { Project } from "./Project";
 
-const project = Project.init();
+async function main() {
+    const project = Project.init();
+    const reza = await project.getProject();
 
-const reza = await project.getProjectInfo();
+    console.log('1.', reza);
 
+    const reza2 = await project.getApp('api');
+    console.log('2.', reza2);
+}
 
-console.log('RESULT', reza);
+await main();

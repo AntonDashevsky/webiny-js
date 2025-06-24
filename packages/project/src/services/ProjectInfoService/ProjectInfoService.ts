@@ -1,20 +1,20 @@
 import { createImplementation } from "@webiny/di-container";
 import {
     ProjectInfoService,
-    GetIsCi,
-    GetNpmVersion,
-    GetNpxVersion,
-    GetPulumiVersion,
-    GetYarnVersion
+    GetIsCiService,
+    GetNpmVersionService,
+    GetNpxVersionService,
+    GetPulumiVersionService,
+    GetYarnVersionService
 } from "~/abstractions";
 
 export class DefaultProjectInfoService implements ProjectInfoService.Interface {
     constructor(
-        private getIsCi: GetIsCi.Interface,
-        private getNpmVersion: GetNpmVersion.Interface,
-        private getNpxVersion: GetNpxVersion.Interface,
-        private getPulumiVersion: GetPulumiVersion.Interface,
-        private getYarnVersion: GetYarnVersion.Interface
+        private getIsCi: GetIsCiService.Interface,
+        private getNpmVersion: GetNpmVersionService.Interface,
+        private getNpxVersion: GetNpxVersionService.Interface,
+        private getPulumiVersion: GetPulumiVersionService.Interface,
+        private getYarnVersion: GetYarnVersionService.Interface
     ) {}
 
     async execute() {
@@ -59,5 +59,11 @@ export class DefaultProjectInfoService implements ProjectInfoService.Interface {
 export const projectInfoService = createImplementation({
     abstraction: ProjectInfoService,
     implementation: DefaultProjectInfoService,
-    dependencies: [GetIsCi, GetNpmVersion, GetNpxVersion, GetPulumiVersion, GetYarnVersion]
+    dependencies: [
+        GetIsCiService,
+        GetNpmVersionService,
+        GetNpxVersionService,
+        GetPulumiVersionService,
+        GetYarnVersionService
+    ]
 });

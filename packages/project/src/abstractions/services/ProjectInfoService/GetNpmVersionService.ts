@@ -4,8 +4,8 @@ interface IGetNpmVersion {
     execute(): string;
 }
 
-export const GetNpmVersion = new Abstraction<IGetNpmVersion>("GetNpmVersion");
+export const GetNpmVersionService = new Abstraction<IGetNpmVersion>("GetNpmVersion");
 
-export namespace GetNpmVersion {
+export namespace GetNpmVersionService {
     export type Interface = IGetNpmVersion;
 }
