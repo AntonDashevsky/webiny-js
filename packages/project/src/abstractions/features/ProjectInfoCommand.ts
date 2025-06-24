@@ -7,12 +7,10 @@ type ProjectInfoCommandResult = ProjectInfoService.Result;
 
 type IProjectInfoCommand = ICommand<ProjectInfoCommandParams, ProjectInfoCommandResult>;
 
-export const ProjectInfoCommand = new Abstraction<IProjectInfoCommand>(
-    "ProjectInfoCommand"
-);
+export const ProjectInfoCommand = new Abstraction<IProjectInfoCommand>("ProjectInfoCommand");
 
 export namespace ProjectInfoCommand {
-    export interface Interface extends IProjectInfoCommand {}
+    export type Interface = IProjectInfoCommand;
 
     export type Params = ProjectInfoCommandParams;
 

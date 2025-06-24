@@ -7,5 +7,5 @@ interface IGetIsCi {
 export const GetIsCi = new Abstraction<IGetIsCi>("GetIsCi");
 
 export namespace GetIsCi {
-    export interface Interface extends IGetIsCi {}
+    export type Interface = IGetIsCi;
 }

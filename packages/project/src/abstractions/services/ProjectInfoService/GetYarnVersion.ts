@@ -7,5 +7,5 @@ interface IGetYarnVersion {
 export const GetYarnVersion = new Abstraction<IGetYarnVersion>("GetYarnVersion");
 
 export namespace GetYarnVersion {
-    export interface Interface extends IGetYarnVersion {}
+    export type Interface = IGetYarnVersion;
 }

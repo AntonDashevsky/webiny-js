@@ -7,5 +7,5 @@ interface IGetNpmVersion {
 export const GetNpmVersion = new Abstraction<IGetNpmVersion>("GetNpmVersion");
 
 export namespace GetNpmVersion {
-    export interface Interface extends IGetNpmVersion {}
+    export type Interface = IGetNpmVersion;
 }

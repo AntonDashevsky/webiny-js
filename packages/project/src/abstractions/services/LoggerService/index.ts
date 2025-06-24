@@ -1,1 +1,1 @@
-export * from "./LoggerService";
+export { LoggerService } from "./LoggerService";

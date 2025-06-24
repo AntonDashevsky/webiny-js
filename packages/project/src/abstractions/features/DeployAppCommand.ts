@@ -18,12 +18,10 @@ export interface DeployAppCommandParams {
 
 type IDeployAppCommand = ICommand<DeployAppCommandParams>;
 
-export const DeployAppCommand = new Abstraction<IDeployAppCommand>(
-    "DeployAppCommand"
-);
+export const DeployAppCommand = new Abstraction<IDeployAppCommand>("DeployAppCommand");
 
 namespace DeployAppCommand {
-    export interface Interface extends IDeployAppCommand {}
+    export type Interface = IDeployAppCommand;
 
     export type Params = DeployAppCommandParams;
 }

@@ -12,12 +12,10 @@ interface BuildAppCommandParams {
 
 type IBuildAppCommand = ICommand<BuildAppCommandParams>;
 
-export const BuildAppCommand = new Abstraction<IBuildAppCommand>(
-    "BuildAppCommand"
-);
+export const BuildAppCommand = new Abstraction<IBuildAppCommand>("BuildAppCommand");
 
 export namespace BuildAppCommand {
-    export interface Interface extends IBuildAppCommand {}
+    export type Interface = IBuildAppCommand;
 
     export type Params = BuildAppCommandParams;
 }

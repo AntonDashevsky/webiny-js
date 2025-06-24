@@ -7,5 +7,5 @@ interface IGetNpxVersion {
 export const GetNpxVersion = new Abstraction<IGetNpxVersion>("GetNpxVersion");
 
 export namespace GetNpxVersion {
-    export interface Interface extends IGetNpxVersion {}
+    export type Interface = IGetNpxVersion;
 }

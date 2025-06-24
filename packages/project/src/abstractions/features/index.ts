@@ -1,3 +1,3 @@
-export * from "./ProjectInfoCommand";
-export * from "./BuildAppCommand";
-export * from "./DeployAppCommand";
+export { ProjectInfoCommand } from "./ProjectInfoCommand";
+export { BuildAppCommand } from "./BuildAppCommand";
+export { DeployAppCommand } from "./DeployAppCommand";
