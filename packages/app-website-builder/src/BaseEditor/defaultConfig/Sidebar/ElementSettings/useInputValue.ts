@@ -13,6 +13,7 @@ import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/
 import { useElementFactory } from "./useElementFactory";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useBindingsForElement } from "./useBindingsForElement";
+import { toJS } from "mobx";
 
 export const useInputValue = (node: InputAstNode) => {
     const { breakpoint } = useBreakpoint();
@@ -24,12 +25,13 @@ export const useInputValue = (node: InputAstNode) => {
         : [];
 
     // These bindings already include per-breakpoint overrides.
-    const bindings = useBindingsForElement(element?.id);
+    const breakpointBindings = useBindingsForElement(element?.id);
 
     const elementFactory = useElementFactory();
     const [localState, setLocalValue] = useState<ValueBinding>();
 
-    const value = bindings.inputs?.[node.path] ?? {
+    // This value is the final calculated breakpoint value.
+    const value = breakpointBindings.inputs?.[node.path] ?? {
         static: ""
     };
 
@@ -39,9 +41,15 @@ export const useInputValue = (node: InputAstNode) => {
                 return;
             }
 
+            // We need to update the value taking into account the current breakpoint.
+            // Non-default breakpoint value needs to go into `overrides`.
+
             editor.updateDocument(document => {
+                // Get original bindings.
                 const bindings = document.bindings[element.id] ?? { inputs: {} };
-                const valueBinding: InputValueBinding = bindings.inputs?.[node.path] ?? {
+
+                // Update breakpoint bindings.
+                const valueBinding: InputValueBinding = breakpointBindings.inputs?.[node.path] ?? {
                     type: node.type,
                     dataType: node.dataType,
                     static: ""
@@ -53,13 +61,22 @@ export const useInputValue = (node: InputAstNode) => {
                     valueBinding.static = value;
                 }
 
-                document.bindings[element.id] = {
-                    ...bindings,
+                const newBindings = {
+                    ...breakpointBindings,
                     inputs: {
-                        ...bindings.inputs,
+                        ...breakpointBindings.inputs,
                         [node.path]: valueBinding
                     }
                 };
+
+                const bindingsApi = new BindingsApi(
+                    element.id,
+                    bindings,
+                    newBindings,
+                    inputsAst,
+                    elementFactory,
+                    breakpoint.name
+                );
 
                 // Process input's `onChange`.
                 if (node.input.onChange) {
@@ -68,33 +85,25 @@ export const useInputValue = (node: InputAstNode) => {
                         node.input.onChange! as any as string
                     );
 
-                    const bindingsApi = new BindingsApi(
-                        element.id,
-                        document.bindings[element.id],
-                        inputsAst,
-                        elementFactory,
-                        breakpoint.name
-                    );
-
                     // Run onChange callback.
                     callback(bindingsApi.getPublicApi(), {
                         breakpoint: breakpoint.name
                     });
-
-                    // Set new element bindings
-                    const flatBindings = bindingsApi.toFlatBindings();
-                    document.bindings[element.id] = flatBindings;
-
-                    // Apply operations
-                    const ops = bindingsApi.getOperations();
-                    ops.forEach(op => op.apply(document));
                 }
+
+                // Set new element bindings
+                const flatBindings = bindingsApi.toFlatBindings();
+                document.bindings[element.id] = flatBindings;
+
+                // Apply operations
+                const ops = bindingsApi.getOperations();
+                ops.forEach(op => op.apply(document));
             });
 
             // Clear local value
             setLocalValue(undefined);
         },
-        [element?.id, breakpoint]
+        [element?.id, breakpointBindings, breakpoint]
     );
 
     const onPreviewChange = useCallback(

@@ -53,6 +53,7 @@ interface GenerateOperationsFromBindingsParams {
         styles: Record<string, any>;
     };
     operations: ElementFactoryOperations;
+    ignoreDefaultValues: boolean;
 }
 
 type ElementFactoryOperations = {
@@ -132,7 +133,8 @@ export class ElementFactory {
             elementId: element.id,
             inputsAst,
             bindings,
-            operations
+            operations,
+            ignoreDefaultValues: false
         });
 
         if (bindings.overrides) {
@@ -163,7 +165,8 @@ export class ElementFactory {
                                     breakpoint
                                 );
                             }
-                        }
+                        },
+                        ignoreDefaultValues: true
                     })
                 );
             }
@@ -176,7 +179,8 @@ export class ElementFactory {
         elementId,
         inputsAst,
         bindings,
-        operations
+        operations,
+        ignoreDefaultValues
     }: GenerateOperationsFromBindingsParams): IDocumentOperation[] {
         const inputData = bindings.inputs;
         const traverser = new ComponentInputTraverser(inputsAst);
@@ -212,9 +216,13 @@ export class ElementFactory {
             } else if (isObject && isList) {
                 return;
             } else {
+                if (ignoreDefaultValues && !value) {
+                    return;
+                }
+
                 ops.push(
                     operations.setInputBinding(elementId, path, {
-                        static: value ?? null,
+                        static: value ?? node.input.defaultValue,
                         type: node.type,
                         dataType: node.dataType,
                         list: node.list

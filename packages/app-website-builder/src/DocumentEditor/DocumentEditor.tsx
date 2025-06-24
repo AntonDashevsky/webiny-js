@@ -5,8 +5,8 @@ import { DndProvider } from "react-dnd";
 import { Editor as EditorComponent } from "~/BaseEditor/components";
 import { DefaultEditorConfig } from "~/BaseEditor";
 import { Editor } from "~/editorSdk/Editor";
-import { StateInspector } from "@webiny/app-admin/components";
 import { observer } from "mobx-react-lite";
+import { StateInspector } from "./StateInspector";
 
 export const DocumentEditorContext = React.createContext<Editor | undefined>(undefined);
 
@@ -25,15 +25,11 @@ interface DocumentEditorProps {
 
 export const DocumentEditor = observer(({ document, children }: DocumentEditorProps) => {
     const editor = useMemo(() => new Editor(document), []);
-    const state = {
-        editorState: editor.getEditorState().toJson(),
-        documentState: editor.getDocumentState().toJson()
-    };
 
     return (
         <DndProvider backend={HTML5Backend}>
             <DefaultEditorConfig />
-            <StateInspector title={"Editor State"} shortcut={"Cmd+E"} state={state} />
+            <StateInspector editor={editor} />
             <DocumentEditorContext.Provider value={editor}>
                 {children ? <>{children}</> : null}
                 <EditorComponent />

@@ -63,12 +63,6 @@ export const FloatingPanel = ({ dragHandle, shortcut, children }: FloatingPanelP
 
     return createPortal(
         <>
-            <div
-                className={"wby-absolute wby-top-0 wby-left-0 wby-w-full wby-h-full"}
-                style={{
-                    pointerEvents: isVisible ? "auto" : "none"
-                }}
-            />
             <PanelRoot>
                 <Draggable handle={dragHandle} onStop={onDragStop} position={position}>
                     <Resizable

@@ -15,10 +15,11 @@ export interface Column {
 interface GridProps {
     gridLayout: string;
     rowCount: number;
+    columnGap: number;
     columns: Column[];
 }
 
-export const Grid = ({ gridLayout = "12", columns, rowCount }: GridProps) => {
+export const Grid = ({ gridLayout = "12", columns, columnGap }: GridProps) => {
     const rowConfig = gridLayout.split("-").map(size => parseInt(size));
     const rows: Column[][] = [];
 
@@ -27,15 +28,14 @@ export const Grid = ({ gridLayout = "12", columns, rowCount }: GridProps) => {
         rows.push(columns.slice(i, i + rowConfig.length));
     }
 
-    // const cellWidthReduction = value.columnGap
-    //     ? `${value.columnGap - value.columnGap / columnsCount}px`
-    //     : null; // Number of pixels we need to subtract from each cell to ensure they fit in the grid with column gap
+    // Number of pixels we need to subtract from each cell to ensure they fit in the grid with column gap
+    const cellWidthReduction = columnGap ? columnGap - columnGap / rowConfig.length : 0;
 
     return (
         <>
             {rows.map(columns => {
                 return columns.map((column, i) => (
-                    <Span key={i} size={rowConfig[i]}>
+                    <Span key={i} size={rowConfig[i]} reductionInPx={cellWidthReduction}>
                         <GridColumn key={i}>{column.children}</GridColumn>
                     </Span>
                 ));
@@ -46,11 +46,12 @@ export const Grid = ({ gridLayout = "12", columns, rowCount }: GridProps) => {
 
 interface SpanProps {
     size: number;
+    reductionInPx: number;
     children: React.ReactNode;
 }
 
-const Span = ({ size, children }: SpanProps) => {
-    const width = `${(size / 12) * 100}%`;
+const Span = ({ size, children, reductionInPx }: SpanProps) => {
+    const width = `calc(${(size / 12) * 100}% - ${reductionInPx}px)`;
 
     return (
         <div

@@ -181,7 +181,9 @@ export class PreviewSdk implements IContentSdk {
         viewportManager.onViewportChangeEnd(() => {
             if (this.messenger) {
                 this.messenger.send("preview.viewport.change.end");
-                this.reportBoxes();
+                setTimeout(() => {
+                    this.reportBoxes();
+                }, 50);
             }
         });
 

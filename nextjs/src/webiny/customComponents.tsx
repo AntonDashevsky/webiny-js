@@ -101,10 +101,31 @@ export const customComponents = [
                     inputs.columns.push(...newRows);
                 }
             }),
-            createTextInput({
+            createNumberInput({
                 name: "rowGap",
                 label: "Row Gap",
-                responsive: true
+                responsive: true,
+                onChange: ({ inputs, styles }) => {
+                    const rowGap = parseInt(inputs.rowGap);
+                    if (isNaN(rowGap)) {
+                        delete styles.rowGap;
+                    } else {
+                        styles.rowGap = `${inputs.rowGap}px`;
+                    }
+                }
+            }),
+            createNumberInput({
+                name: "columnGap",
+                label: "Column Gap",
+                responsive: true,
+                onChange: ({ inputs, styles }) => {
+                    const columnGap = parseInt(inputs.columnGap);
+                    if (isNaN(columnGap)) {
+                        delete styles.columnGap;
+                    } else {
+                        styles.columnGap = `${inputs.columnGap}px`;
+                    }
+                }
             }),
             createObjectInput({
                 name: "columns",
