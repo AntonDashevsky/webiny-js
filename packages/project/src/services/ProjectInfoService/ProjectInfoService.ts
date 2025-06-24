@@ -15,13 +15,7 @@ export class DefaultProjectInfoService implements ProjectInfoService.Interface {
         private getNpxVersion: GetNpxVersion.Interface,
         private getPulumiVersion: GetPulumiVersion.Interface,
         private getYarnVersion: GetYarnVersion.Interface
-    ) {
-        this.getIsCi = getIsCi;
-        this.getNpmVersion = getNpmVersion;
-        this.getNpxVersion = getNpxVersion;
-        this.getPulumiVersion = getPulumiVersion;
-        this.getYarnVersion = getYarnVersion;
-    }
+    ) {}
 
     async execute() {
         const wcpProjectId = process.env.WCP_PROJECT_ID || "";
