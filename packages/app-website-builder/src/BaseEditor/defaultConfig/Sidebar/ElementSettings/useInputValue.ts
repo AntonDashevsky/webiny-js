@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import type { InputValueBinding, ValueBinding } from "~/sdk/types";
 import { Commands } from "~/BaseEditor";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
@@ -12,8 +11,8 @@ import { functionConverter } from "~/sdk";
 import { BindingsApi } from "~/sdk/BindingsApi";
 import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
 import { useElementFactory } from "./useElementFactory";
-import { $applyDocumentOperations } from "~/editorSdk/utils/$applyDocumentOperations";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
+import { useBindingsForElement } from "./useBindingsForElement";
 
 export const useInputValue = (node: InputAstNode) => {
     const { breakpoint } = useBreakpoint();
@@ -24,30 +23,15 @@ export const useInputValue = (node: InputAstNode) => {
         ? ComponentManifestToAstConverter.convert(componentManifest.inputs ?? [])
         : [];
 
+    // These bindings already include per-breakpoint overrides.
+    const bindings = useBindingsForElement(element?.id);
+
     const elementFactory = useElementFactory();
     const [localState, setLocalValue] = useState<ValueBinding>();
 
-    const value = useSelectFromDocument<ValueBinding>(
-        document => {
-            if (!element) {
-                return { static: "" };
-            }
-            const bindings = document.bindings[element.id];
-
-            if (!bindings) {
-                return {
-                    static: ""
-                };
-            }
-
-            return (
-                bindings.inputs?.[node.path] ?? {
-                    static: ""
-                }
-            );
-        },
-        [element?.id, node.name]
-    );
+    const value = bindings.inputs?.[node.path] ?? {
+        static: ""
+    };
 
     const onChange = useCallback(
         (value: any) => {
@@ -55,8 +39,8 @@ export const useInputValue = (node: InputAstNode) => {
                 return;
             }
 
-            editor.updateDocument(state => {
-                const bindings = state.bindings[element.id] ?? { inputs: {} };
+            editor.updateDocument(document => {
+                const bindings = document.bindings[element.id] ?? { inputs: {} };
                 const valueBinding: InputValueBinding = bindings.inputs?.[node.path] ?? {
                     type: node.type,
                     dataType: node.dataType,
@@ -69,7 +53,7 @@ export const useInputValue = (node: InputAstNode) => {
                     valueBinding.static = value;
                 }
 
-                state.bindings[element.id] = {
+                document.bindings[element.id] = {
                     ...bindings,
                     inputs: {
                         ...bindings.inputs,
@@ -86,23 +70,24 @@ export const useInputValue = (node: InputAstNode) => {
 
                     const bindingsApi = new BindingsApi(
                         element.id,
-                        state.bindings[element.id],
+                        document.bindings[element.id],
                         inputsAst,
-                        elementFactory
+                        elementFactory,
+                        breakpoint.name
                     );
 
                     // Run onChange callback.
-                    callback(bindingsApi.getPublicApi(breakpoint.name), {
+                    callback(bindingsApi.getPublicApi(), {
                         breakpoint: breakpoint.name
                     });
 
                     // Set new element bindings
                     const flatBindings = bindingsApi.toFlatBindings();
-                    state.bindings[element.id] = flatBindings;
+                    document.bindings[element.id] = flatBindings;
 
                     // Apply operations
                     const ops = bindingsApi.getOperations();
-                    $applyDocumentOperations(editor, ops);
+                    ops.forEach(op => op.apply(document));
                 }
             });
 

@@ -30,32 +30,24 @@ const BREAKPOINTS: EditorBreakpoint[] = [
         maxWidth: 991
     },
     {
-        name: "mobileLandscape",
-        title: "Mobile Landscape",
-        description: `Styles added here will apply at 767px and down, unless they're edited at a smaller breakpoint.`,
-        icon: <MobileIcon className={"wby-rotate-90"} />,
-        minWidth: 0,
-        maxWidth: 767
-    },
-    {
         name: "mobilePortrait",
         title: "Mobile Portrait",
-        description: `Styles added here will apply at 478px and down.`,
+        description: `Styles added here will apply at 767px and down.`,
         icon: <MobileIcon />,
         minWidth: 0,
-        maxWidth: 478
+        maxWidth: 767
     }
 ];
 
 export const useBreakpoint = () => {
     const editor = useDocumentEditor();
-    const activeMode = useSelectFromEditor<string>(state => {
+    const activeBreakpoint = useSelectFromEditor<string>(state => {
         return state.breakpoint || BREAKPOINTS[0].name;
     });
 
     const breakpoint = useMemo(() => {
-        return BREAKPOINTS.find(mode => mode.name === activeMode)!;
-    }, [activeMode]);
+        return BREAKPOINTS.find(mode => mode.name === activeBreakpoint)!;
+    }, [activeBreakpoint]);
 
     const setBreakpoint = useCallback(
         (mode: string) => {
@@ -67,6 +59,7 @@ export const useBreakpoint = () => {
     );
 
     return {
+        isDefaultBreakpoint: BREAKPOINTS.findIndex(bp => bp.name === activeBreakpoint) === 0,
         breakpoint,
         breakpoints: BREAKPOINTS,
         setBreakpoint

@@ -7,7 +7,9 @@ export const MoveElement = () => {
     const editor = useDocumentEditor();
     useEffect(() => {
         return editor.registerCommandHandler(Commands.MoveElement, payload => {
-            $moveElement(editor, payload);
+            editor.updateDocument(document => {
+                $moveElement(document, payload);
+            });
         });
     }, []);
 

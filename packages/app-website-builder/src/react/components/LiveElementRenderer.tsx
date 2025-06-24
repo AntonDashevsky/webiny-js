@@ -6,7 +6,7 @@ import { contentSdk } from "~/sdk";
 import { ElementSlot } from "./ElementSlot";
 import { useViewport } from "./useViewportInfo";
 import type { OnResolved } from "~/sdk/BindingsResolver";
-import { useBindingForElement } from "./useBindingForElement";
+import { useBindingsForElement } from "./useBindingsForElement";
 import { useDocumentState } from "./useDocumentState";
 
 interface LiveElementRendererProps {
@@ -18,7 +18,7 @@ export const LiveElementRenderer = observer(({ element }: LiveElementRendererPro
     const viewport = useViewport();
 
     // We want to deep-track bindings, and re-render on any change to bindings.
-    const elementBindings = useBindingForElement(element.id);
+    const elementBindings = useBindingsForElement(element.id);
     const state = useDocumentState();
 
     const onResolved = useCallback(
@@ -46,7 +46,6 @@ export const LiveElementRenderer = observer(({ element }: LiveElementRendererPro
         element,
         state,
         elementBindings,
-        breakpoint: viewport.breakpoint,
         onResolved
     });
 

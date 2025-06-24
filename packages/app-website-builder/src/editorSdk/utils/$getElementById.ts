@@ -1,5 +1,5 @@
-import { Editor } from "../Editor";
+import type { Document } from "~/sdk/types.js";
 
-export function $getElementById(editor: Editor, id: string) {
-    return editor.getDocumentState().read().elements[id];
+export function $getElementById(document: Document, id: string) {
+    return document.elements[id];
 }

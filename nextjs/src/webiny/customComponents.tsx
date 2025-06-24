@@ -17,7 +17,7 @@ import ProductRecommendations from "./components/ProductRecommendations";
 import { ProductHighlight } from "./components/ProductHighlight";
 import { TwoColumns } from "./components/TwoColumns";
 import Hero_1 from "@/webiny/components/Hero-1";
-import { Grid, GridColumn } from "./components/Grid";
+import { Column, Grid, GridColumn } from "./components/Grid";
 
 const TextComponent = ({ text, flag }: { text: string; flag: boolean }) => (
     <p className={`text-wrap ${flag ? "font-bold" : ""}`}>{text}</p>
@@ -40,30 +40,26 @@ export const customComponents = [
                 label: "Grid Layout",
                 renderer: "Webiny/GridLayout",
                 onChange: ({ inputs, createElement }) => {
-                    const columnCount = inputs.gridLayout.split("-").length;
-                    const currentColumns = inputs.rows[0].columns.length;
+                    const rowColumnCount = inputs.gridLayout.split("-").length;
+                    const columns = inputs.columns.length;
 
-                    if (currentColumns < columnCount) {
-                        // Create additional columns.
-                        const addColumns = columnCount - currentColumns;
-                        inputs.rows.forEach((row: any) => {
-                            Array.from({ length: addColumns }).forEach(() => {
-                                row.columns.push({
-                                    children: createElement({
-                                        component: "Webiny/GridColumn",
-                                        inputs: {
-                                            children: []
-                                        }
-                                    })
-                                });
+                    const remainder = columns % rowColumnCount;
+
+                    if (remainder !== 0) {
+                        const fullColumnCount = rowColumnCount * inputs.rowCount;
+                        const toCreate =
+                            columns > fullColumnCount ? remainder : rowColumnCount - remainder;
+
+                        Array.from({ length: toCreate }).forEach(() => {
+                            inputs.columns.push({
+                                children: createElement({
+                                    component: "Webiny/GridColumn"
+                                })
                             });
                         });
-                    } else {
-                        // Remove excess columns.
-                        inputs.rows.forEach((row: any) => {
-                            row.columns = row.columns.slice(0, columnCount);
-                        });
                     }
+
+                    inputs.rowCount = inputs.columns.length / rowColumnCount;
                 }
             }),
             createNumberInput({
@@ -75,50 +71,50 @@ export const customComponents = [
                     const gridLayout = inputs.gridLayout;
                     const columnCount = gridLayout.split("-").length;
                     const rowCount = Math.max(1, inputs.rowCount);
-                    const currentRows = [...inputs.rows];
+                    const columns = inputs.columns;
+                    const rows: Column[][] = [];
 
-                    if (currentRows.length > rowCount) {
-                        inputs.rows = currentRows.slice(0, rowCount);
+                    // Chunk columns into rows
+                    for (let i = 0; i < columns.length; i += columnCount) {
+                        rows.push(columns.slice(i, i + columnCount));
+                    }
+
+                    if (rows.length > rowCount) {
+                        inputs.columns = columns.slice(0, columnCount * rowCount);
                         return;
                     }
 
-                    const createRows = Math.max(0, rowCount - currentRows.length);
+                    const createRows = Math.max(0, rowCount - rows.length);
 
                     if (createRows <= 0) {
                         return;
                     }
 
-                    const newRows = Array.from({ length: createRows }).map(() => {
+                    const newRows = Array.from({ length: createRows * columnCount }).map(() => {
                         return {
-                            columns: Array.from({ length: columnCount }).map(() => {
-                                return {
-                                    children: createElement({
-                                        component: "Webiny/GridColumn"
-                                    })
-                                };
+                            children: createElement({
+                                component: "Webiny/GridColumn"
                             })
                         };
                     });
 
-                    inputs.rows.push(...newRows);
+                    inputs.columns.push(...newRows);
                 }
             }),
+            createTextInput({
+                name: "rowGap",
+                label: "Row Gap",
+                responsive: true
+            }),
             createObjectInput({
-                name: "rows",
+                name: "columns",
                 list: true,
                 hideFromUi: true,
                 fields: [
-                    createObjectInput({
-                        name: "columns",
-                        list: true,
-                        hideFromUi: true,
-                        fields: [
-                            createSlotInput({
-                                name: "children",
-                                list: false,
-                                components: ["Webiny/GridColumn"]
-                            })
-                        ]
+                    createSlotInput({
+                        name: "children",
+                        list: false,
+                        components: ["Webiny/GridColumn"]
                     })
                 ]
             })
@@ -126,54 +122,54 @@ export const customComponents = [
         defaults: {
             inputs: {
                 gridLayout: "6-6",
-                rows: [
+                columns: [
                     {
-                        columns: [
-                            {
-                                children: createElement({
-                                    component: "Webiny/GridColumn",
-                                    inputs: {
-                                        children: [
-                                            createElement({
-                                                component: "Webiny/Text"
-                                            })
-                                        ]
-                                    }
-                                })
-                            },
-                            {
-                                children: createElement({
-                                    component: "Webiny/GridColumn",
-                                    inputs: {
-                                        children: [
-                                            createElement({
-                                                component: "Webiny/Text"
-                                            })
-                                        ]
-                                    }
-                                })
+                        children: createElement({
+                            component: "Webiny/GridColumn",
+                            inputs: {
+                                children: [
+                                    createElement({
+                                        component: "Webiny/Text"
+                                    })
+                                ]
                             }
-                        ]
+                        })
+                    },
+                    {
+                        children: createElement({
+                            component: "Webiny/GridColumn",
+                            inputs: {
+                                children: [
+                                    createElement({
+                                        component: "Webiny/Text"
+                                    })
+                                ]
+                            }
+                        })
                     }
                 ]
             },
             styles: {
-                desktop: {
-                    boxSizing: "border-box",
-                    display: "flex",
-                    flexDirection: "row",
-                    flexFlow: "wrap",
-                    justifyContent: "flex-start",
-                    alignItems: "stretch",
-                    width: "100%",
-                    margin: "0px",
-                    padding: "5px"
+                boxSizing: "border-box",
+                display: "flex",
+                flexDirection: "row",
+                flexFlow: "wrap",
+                justifyContent: "flex-start",
+                alignItems: "stretch",
+                width: "100%",
+                margin: "0px",
+                padding: "5px"
+            },
+            overrides: {
+                tablet: {
+                    styles: {
+                        backgroundColor: "blue"
+                    }
                 },
-                mobileLandscape: {
-                    backgroundColor: "red"
-                },
-                mobilePortrait: {
-                    backgroundColor: "blue"
+                mobile: {
+                    styles: {
+                        backgroundColor: "red"
+                    }
                 }
             }
         }
@@ -184,12 +180,7 @@ export const customComponents = [
         canDrag: false,
         canDelete: false,
         acceptsChildren: true,
-        hideFromToolbar: true,
-        defaults: {
-            inputs: {
-                children: []
-            }
-        }
+        hideFromToolbar: true
     }),
     createComponent(TextComponent, {
         name: "Webiny/Text",
@@ -281,10 +272,8 @@ export const customComponents = [
                 ]
             },
             styles: {
-                desktop: {
-                    padding: "20px",
-                    backgroundColor: "#5c9a12"
-                }
+                padding: "20px",
+                backgroundColor: "#5c9a12"
             }
         }
     }),

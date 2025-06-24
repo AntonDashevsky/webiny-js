@@ -26,9 +26,7 @@ const mockComponents: Record<string, ComponentManifest> = {
                 flag: true
             },
             styles: {
-                desktop: {
-                    color: "black"
-                }
+                color: "black"
             }
         }
     },
@@ -110,9 +108,7 @@ const mockComponents: Record<string, ComponentManifest> = {
                 ]
             },
             styles: {
-                desktop: {
-                    padding: "10px"
-                }
+                padding: "10px"
             }
         }
     },
@@ -122,11 +118,9 @@ const mockComponents: Record<string, ComponentManifest> = {
         acceptsChildren: true,
         defaults: {
             styles: {
-                desktop: {
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "stretch"
-                }
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "stretch"
             }
         },
         inputs: [
@@ -144,7 +138,7 @@ const mockComponents: Record<string, ComponentManifest> = {
 
 test("ElementFactory generates element tree and bindings", () => {
     const factory = new ElementFactory(mockComponents);
-    const result = factory.generateOperations({
+    const result = factory.createElementFromComponent({
         componentName: "Webiny/Grid",
         parentId: "root",
         slot: "children",

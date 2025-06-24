@@ -1,8 +1,10 @@
 import set from "lodash/set";
-import type { ElementFactory, Operation } from "~/sdk/ElementFactory";
+import type { ElementFactory } from "~/sdk/ElementFactory";
 import type { InputAstNode } from "./ComponentManifestToAstConverter";
 import type { DocumentElementBindings } from "~/sdk/types";
+import type { IDocumentOperation } from "./documentOperations/IDocumentOperation";
 import { createElement, type CreateElementParams } from "./createElement";
+import { DocumentOperations } from "~/sdk/documentOperations";
 
 type FlatBindings = Record<string, Record<string, any>>;
 type DeepBindings = Record<string, any>;
@@ -13,7 +15,8 @@ export class BindingsApi {
     private readonly elementId: string;
     private readonly inputsAst: InputAstNode[];
     private elementFactory: ElementFactory;
-    private operations: Operation[] = [];
+    private breakpoint: string;
+    private operations: IDocumentOperation[] = [];
     private elementReferences: Set<string>;
     private originalBindings: DocumentElementBindings;
 
@@ -21,8 +24,10 @@ export class BindingsApi {
         elementId: string,
         bindings: DocumentElementBindings,
         inputsAst: InputAstNode[],
-        elementFactory: ElementFactory
+        elementFactory: ElementFactory,
+        breakpoint: string
     ) {
+        this.breakpoint = breakpoint;
         this.elementId = elementId;
         this.inputsAst = inputsAst;
         this.elementFactory = elementFactory;
@@ -32,13 +37,13 @@ export class BindingsApi {
         this.elementReferences = this.getElementReferences(bindings.inputs);
     }
 
-    public getOperations(): Operation[] {
+    public getOperations(): IDocumentOperation[] {
         return this.operations;
     }
 
-    public getPublicApi(breakpoint: string) {
-        if (!this.styles[breakpoint]) {
-            this.styles[breakpoint] = {};
+    public getPublicApi() {
+        if (!this.styles[this.breakpoint]) {
+            this.styles[this.breakpoint] = {};
         }
 
         return {
@@ -104,25 +109,22 @@ export class BindingsApi {
                     }
 
                     if (typeof newValue === "object" && newValue.action === "CreateElement") {
-                        const childOps = this.elementFactory.generateOperations({
+                        const newElement = this.elementFactory.createElementFromComponent({
                             componentName: newValue.params.component,
                             parentId: this.elementId,
                             slot: flatKey,
                             index: -1,
-                            defaults: newValue.params
+                            bindings: newValue.params
                         });
 
-                        const created = childOps.find(op => op.type === "add-element");
-                        if (created && created.type === "add-element") {
-                            const createdId = created.element.id;
-                            rebuilt.inputs[flatKey] = {
-                                static: node.list ? [createdId] : createdId,
-                                type: node.type,
-                                dataType: node.dataType,
-                                list: node.list
-                            };
-                            this.operations.push(...childOps);
-                        }
+                        const createdId = newElement.element.id;
+                        rebuilt.inputs[flatKey] = {
+                            static: node.list ? [createdId] : createdId,
+                            type: node.type,
+                            dataType: node.dataType,
+                            list: node.list
+                        };
+                        this.operations.push(...newElement.operations);
                     } else if (newValue !== originalValue) {
                         rebuilt.inputs[flatKey] = {
                             ...(originalEntry ?? {}),
@@ -147,10 +149,7 @@ export class BindingsApi {
         const usedSlotIds = this.getElementReferences(rebuilt.inputs);
         for (const id of this.elementReferences) {
             if (!usedSlotIds.has(id)) {
-                this.operations.push({
-                    type: "remove-element",
-                    elementId: id
-                });
+                this.operations.push(new DocumentOperations.RemoveElement(id));
             }
         }
 
@@ -261,11 +260,9 @@ export class BindingsApi {
      */
     private toDeepStyles(styles: DocumentElementBindings["styles"] = {}) {
         const result: DeepBindings = {};
-        Object.keys(styles).forEach(screenSize => {
-            Object.keys(styles[screenSize]).forEach(key => {
-                // @ts-expect-error Style keys cannot be indexed with a string.
-                set(result, `${screenSize}.${key}`, styles[screenSize][key].static);
-            });
+        Object.keys(styles).forEach(key => {
+            // @ts-expect-error Style keys cannot be indexed with a string.
+            result[key] = styles[key].static;
         });
         return result;
     }

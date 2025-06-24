@@ -1,3 +1,4 @@
+import type { Properties as CSSProperties } from "csstype";
 import type { ResolveElementParams } from "~/sdk/ComponentResolver";
 import type { BindingsApi } from "~/sdk/BindingsApi";
 
@@ -11,9 +12,9 @@ export type InputValueBinding<T = any> = ValueBinding<T> & {
     list?: boolean;
 };
 
-export type StyleValueBinding<T> = ValueBinding<T>;
+export type StyleValueBinding<T = any> = ValueBinding<T>;
 
-export type ValueBinding<T = string> = {
+export type ValueBinding<T = any> = {
     static?: T;
     expression?: string;
 };
@@ -22,25 +23,31 @@ export type RepeatValueBinding = {
     expression: string;
 };
 
-type StyleKeys = {
-    [K in keyof CSSStyleDeclaration as K extends string ? K : never]: CSSStyleDeclaration[K];
-};
+export type CssProperties = CSSProperties;
 
 export type DocumentElementStyleBindings = Partial<{
-    [K in keyof StyleKeys]: StyleValueBinding<StyleKeys[K]>;
+    [K in keyof CssProperties]: StyleValueBinding<CssProperties[K]>;
 }>;
+
+export type DocumentElementInputBindings = {
+    [inputName: string]: InputValueBinding;
+};
 
 export type DocumentElementBindings = {
     $repeat?: RepeatValueBinding;
-    inputs?: {
-        [inputName: string]: InputValueBinding;
-    };
-    styles?: {
-        [breakpoint: string]: DocumentElementStyleBindings;
+    inputs?: DocumentElementInputBindings;
+    styles?: DocumentElementStyleBindings;
+    overrides?: {
+        [key: string]: {
+            inputs?: DocumentElementInputBindings;
+            styles?: DocumentElementStyleBindings;
+        };
     };
 };
 
-export type DocumentBindings = Record<string, DocumentElementBindings>;
+export type DocumentBindings = {
+    [elementId: string]: DocumentElementBindings;
+};
 
 export type Document = {
     properties: Record<string, any>;
@@ -100,7 +107,13 @@ export type ComponentManifest = {
     hideFromToolbar?: boolean;
     defaults?: {
         inputs?: Record<string, any>;
-        styles?: ResponsiveStyles;
+        styles?: SerializableCSSStyleDeclaration;
+        overrides?: {
+            [breakpoint: string]: {
+                inputs?: Record<string, any>;
+                styles?: SerializableCSSStyleDeclaration;
+            };
+        };
     };
 };
 
@@ -122,7 +135,7 @@ export type DocumentElement = {
 };
 
 export type SerializableCSSStyleDeclaration = {
-    [K in keyof StyleKeys]?: StyleKeys[K];
+    [K in keyof CssProperties]?: CssProperties[K];
 };
 
 export type Page = Document;
@@ -209,6 +222,7 @@ export type BaseInput<T = any> = {
     description?: string;
     helperText?: string;
     defaultValue?: T;
+    responsive?: boolean;
     required?: boolean;
     hideFromUi?: boolean;
     renderer?: string;

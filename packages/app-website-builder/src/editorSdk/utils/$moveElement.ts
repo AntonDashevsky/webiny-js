@@ -1,4 +1,4 @@
-import { Editor } from "../Editor";
+import type { Document } from "~/sdk/types.js";
 import { $getElementById } from "./$getElementById";
 import { $removeElementReferenceFromParent } from "./$removeElementReferenceFromParent";
 import { $addElementReferenceToParent } from "./$addElementReferenceToParent";
@@ -14,33 +14,31 @@ interface MoveParams {
     index: number;
 }
 
-export function $moveElement(editor: Editor, params: MoveParams) {
+export function $moveElement(document: Document, params: MoveParams) {
     const { elementId, index, slot, parentId } = params;
 
-    editor.updateDocument(() => {
-        const elementToMove = $getElementById(editor, elementId);
+    const elementToMove = $getElementById(document, elementId);
 
-        // Remove the reference to the element from its parent element.
-        if (elementToMove.parent) {
-            $removeElementReferenceFromParent(editor, {
-                elementId,
-                parentId: elementToMove.parent.id,
-                slot: elementToMove.parent.slot
-            });
-        }
-
-        // Assign new parent.
-        elementToMove.parent = {
-            id: parentId,
-            slot
-        };
-
-        // Add reference to the new parent.
-        $addElementReferenceToParent(editor, {
+    // Remove the reference to the element from its parent element.
+    if (elementToMove.parent) {
+        $removeElementReferenceFromParent(document, {
             elementId,
-            parentId,
-            slot,
-            index
+            parentId: elementToMove.parent.id,
+            slot: elementToMove.parent.slot
         });
+    }
+
+    // Assign new parent.
+    elementToMove.parent = {
+        id: parentId,
+        slot
+    };
+
+    // Add reference to the new parent.
+    $addElementReferenceToParent(document, {
+        elementId,
+        parentId,
+        slot,
+        index
     });
 }

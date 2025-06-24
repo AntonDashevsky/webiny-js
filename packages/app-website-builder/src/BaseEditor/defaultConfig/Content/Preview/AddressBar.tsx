@@ -8,7 +8,7 @@ export const AddressBar = () => {
     const editor = useDocumentEditor();
 
     const previewUrl = useSelectFromEditor<string>(state => {
-        return state.previewUrl ?? "http://localhost:3000/page-1?wb.preview=true";
+        return state.previewUrl ?? "http://localhost:3000/page-1";
     });
 
     const [url, setUrl] = useState(previewUrl);

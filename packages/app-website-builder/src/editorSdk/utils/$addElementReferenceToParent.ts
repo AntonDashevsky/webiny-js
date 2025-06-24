@@ -1,5 +1,5 @@
-import { InputValueBinding } from "~/sdk/types";
-import { Editor } from "../Editor";
+import type { Document } from "~/sdk/types.js";
+import type { InputValueBinding } from "~/sdk/types";
 
 interface Params {
     elementId: string;
@@ -9,37 +9,35 @@ interface Params {
 }
 
 export function $addElementReferenceToParent(
-    editor: Editor,
+    document: Document,
     { elementId, parentId, slot, index }: Params
 ) {
-    editor.updateDocument(state => {
-        const bindings = state.bindings[parentId] ?? {};
-        const inputs = bindings.inputs ?? {};
+    const bindings = document.bindings[parentId] ?? {};
+    const inputs = bindings.inputs ?? {};
 
-        if (index < 0) {
-            // Single value slot
-            inputs[slot] = {
-                type: "slot",
-                dataType: "string",
-                static: elementId
-            };
-        } else {
-            const slotElements = inputs[slot] as InputValueBinding;
-            inputs[slot] = {
-                type: "slot",
-                dataType: "string",
-                list: true,
-                static: [
-                    ...(slotElements?.static ?? []).slice(0, index),
-                    elementId,
-                    ...(slotElements?.static ?? []).slice(index)
-                ]
-            };
-        }
-
-        state.bindings[parentId] = {
-            ...bindings,
-            inputs
+    if (index < 0) {
+        // Single value slot
+        inputs[slot] = {
+            type: "slot",
+            dataType: "string",
+            static: elementId
         };
-    });
+    } else {
+        const slotElements = inputs[slot] as InputValueBinding;
+        inputs[slot] = {
+            type: "slot",
+            dataType: "string",
+            list: true,
+            static: [
+                ...(slotElements?.static ?? []).slice(0, index),
+                elementId,
+                ...(slotElements?.static ?? []).slice(index)
+            ]
+        };
+    }
+
+    document.bindings[parentId] = {
+        ...bindings,
+        inputs
+    };
 }

@@ -47,16 +47,15 @@ export class ComponentInputTraverser {
             }
 
             value.forEach((item, index) => {
-                const itemPath = `${currentPath}[${index}]`;
-
                 if (node.children.length > 0) {
+                    const itemPath = `${currentPath}[${index}]`;
                     for (const child of node.children) {
                         const childValue = item?.[child.name];
                         const childPath = `${itemPath}.${child.name}`;
                         this.traverseNode(child, childValue, childPath, visitor);
                     }
                 } else {
-                    visitor(node, itemPath, item);
+                    visitor(node, currentPath, item);
                 }
             });
         } else {

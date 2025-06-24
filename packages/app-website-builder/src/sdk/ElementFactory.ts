@@ -1,92 +1,187 @@
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils/generateId";
-import type { DocumentElement, ComponentManifest } from "~/sdk/types";
+import type {
+    DocumentElement,
+    ComponentManifest,
+    InputValueBinding,
+    StyleValueBinding
+} from "~/sdk/types";
+import { type IDocumentOperation, DocumentOperations } from "./documentOperations";
 import {
     ComponentManifestToAstConverter,
     type InputAstNode
 } from "./ComponentManifestToAstConverter";
 import { ComponentInputTraverser } from "./ComponentInputTraverser";
 
-export type AddElementOp = {
-    type: "add-element";
-    element: DocumentElement;
-};
-
-export type AddToParentOp = {
-    type: "add-to-parent";
-    elementId: string;
-    parentId: string;
-    slot: string;
-    index: number;
-};
-
-export type SetStaticOp = {
-    type: "set-static";
-    elementId: string;
-    scope: "inputs" | "styles";
-    binding: string; // e.g. "columns[0].children"
-    value: any;
-    meta: {
-        type: string;
-        dataType: string;
-        list?: boolean;
-    };
-};
-
-export type RemoveElementOp = {
-    type: "remove-element";
-    elementId: string;
-};
-
-export type Operation = AddElementOp | AddToParentOp | SetStaticOp | RemoveElementOp;
-
-interface GenerateOperationsParams {
+interface CreateElementParams {
     componentName: string;
     parentId: string;
     slot: string;
     index: number;
-    defaults?: {
+    bindings?: {
         inputs?: Record<string, any>;
         styles?: Record<string, any>;
+        overrides?: {
+            [breakpoint: string]: {
+                inputs?: Record<string, any>;
+                styles?: Record<string, any>;
+            };
+        };
     };
 }
+
+interface GenerateOperationsParams {
+    element: DocumentElement;
+    inputsAst: InputAstNode[];
+    operations: ElementFactoryOperations;
+    bindings: {
+        inputs: Record<string, any>;
+        styles: Record<string, any>;
+        overrides: {
+            [breakpoint: string]: {
+                inputs?: Record<string, any>;
+                styles?: Record<string, any>;
+            };
+        };
+    };
+}
+
+interface GenerateOperationsFromBindingsParams {
+    elementId: string;
+    inputsAst: InputAstNode[];
+    bindings: {
+        inputs: Record<string, any>;
+        styles: Record<string, any>;
+    };
+    operations: ElementFactoryOperations;
+}
+
+type ElementFactoryOperations = {
+    addElement: (element: DocumentElement) => IDocumentOperation;
+    addToParent: (element: DocumentElement, index: number) => IDocumentOperation;
+    setInputBinding: (
+        elementId: string,
+        bindingPath: string,
+        binding: InputValueBinding
+    ) => IDocumentOperation;
+    setStyleBinding: (
+        elementId: string,
+        bindingPath: string,
+        binding: StyleValueBinding
+    ) => IDocumentOperation;
+};
+
+const defaultOperations: ElementFactoryOperations = {
+    addElement: (element: DocumentElement) => {
+        return new DocumentOperations.AddElement(element);
+    },
+    addToParent: (element: DocumentElement, index: number) => {
+        return new DocumentOperations.AddToParent(element, index);
+    },
+    setInputBinding: (elementId, bindingPath, binding) => {
+        return new DocumentOperations.SetGlobalInputBinding(elementId, bindingPath, binding);
+    },
+    setStyleBinding: (elementId, bindingPath, binding) => {
+        return new DocumentOperations.SetGlobalStyleBinding(elementId, bindingPath, binding);
+    }
+};
 
 export class ElementFactory {
     constructor(private components: Record<string, ComponentManifest>) {}
 
-    public generateOperations({
+    public createElementFromComponent({
         componentName,
         parentId,
         slot,
         index,
-        defaults
-    }: GenerateOperationsParams): Operation[] {
-        const manifest = this.components[componentName];
-        if (!manifest) {
-            throw new Error(`Component "${componentName}" not registered.`);
-        }
+        bindings
+    }: CreateElementParams) {
+        const { element, componentManifest, inputsAst } = this.createElement(
+            componentName,
+            parentId,
+            slot
+        );
 
-        const elementId = generateAlphaNumericLowerCaseId();
-        const element: DocumentElement = {
-            type: "Webiny/Element",
-            id: elementId,
-            parent: { id: parentId, slot },
-            component: { name: componentName }
-        };
-
-        const ops: Operation[] = [
-            { type: "add-element", element },
-            {
-                type: "add-to-parent",
-                elementId,
-                parentId,
-                slot,
-                index
-            }
+        const documentOps: IDocumentOperation[] = [
+            defaultOperations.addElement(element),
+            defaultOperations.addToParent(element, index)
         ];
 
-        const ast: InputAstNode[] = ComponentManifestToAstConverter.convert(manifest.inputs || []);
-        const inputData = defaults?.inputs ?? manifest.defaults?.inputs ?? {};
-        const traverser = new ComponentInputTraverser(ast);
+        documentOps.push(
+            ...this.generateOperations({
+                element,
+                inputsAst,
+                bindings: {
+                    inputs: bindings?.inputs ?? componentManifest.defaults?.inputs ?? {},
+                    styles: bindings?.styles ?? componentManifest.defaults?.styles ?? {},
+                    overrides: bindings?.overrides ?? {}
+                },
+                operations: defaultOperations
+            })
+        );
+
+        return { element, operations: documentOps };
+    }
+
+    public generateOperations({
+        element,
+        inputsAst,
+        bindings,
+        operations
+    }: GenerateOperationsParams): IDocumentOperation[] {
+        const ops = this.generateOperationsFromBindings({
+            elementId: element.id,
+            inputsAst,
+            bindings,
+            operations
+        });
+
+        if (bindings.overrides) {
+            for (const [breakpoint, overrides] of Object.entries(bindings.overrides)) {
+                ops.push(
+                    ...this.generateOperationsFromBindings({
+                        elementId: element.id,
+                        inputsAst,
+                        bindings: {
+                            inputs: overrides.inputs ?? {},
+                            styles: overrides.styles ?? {}
+                        },
+                        operations: {
+                            ...operations,
+                            setInputBinding: (elementId, bindingPath, binding) => {
+                                return new DocumentOperations.SetInputBindingOverride(
+                                    elementId,
+                                    bindingPath,
+                                    binding,
+                                    breakpoint
+                                );
+                            },
+                            setStyleBinding: (elementId, bindingPath, binding) => {
+                                return new DocumentOperations.SetStyleBindingOverride(
+                                    elementId,
+                                    bindingPath,
+                                    binding,
+                                    breakpoint
+                                );
+                            }
+                        }
+                    })
+                );
+            }
+        }
+
+        return ops;
+    }
+
+    private generateOperationsFromBindings({
+        elementId,
+        inputsAst,
+        bindings,
+        operations
+    }: GenerateOperationsFromBindingsParams): IDocumentOperation[] {
+        const inputData = bindings.inputs;
+        const traverser = new ComponentInputTraverser(inputsAst);
+
+        const ops: IDocumentOperation[] = [];
 
         traverser.traverse(inputData, (node, path, value) => {
             const isCreateElement = value?.action === "CreateElement";
@@ -94,74 +189,81 @@ export class ElementFactory {
             const isObject = node.type === "object";
 
             if (isCreateElement) {
-                const childOps = this.generateOperations({
+                const factory = new ElementFactory(this.components);
+                const newElement = factory.createElementFromComponent({
                     componentName: value.params.component,
-                    parentId: elementId,
+                    index: isList ? this.extractIndex(path) : 0,
                     slot: path,
-                    index: isList ? this.extractIndex(path) : -1,
-                    defaults: value.params
+                    parentId: elementId,
+                    bindings: value.params
                 });
 
-                ops.push(...childOps);
+                const newElementId = newElement.element.id;
 
-                const created = childOps.find(op => op.type === "add-element") as AddElementOp;
-                const valueToSet = node.list ? [created.element.id] : created.element.id;
-
-                ops.push({
-                    type: "set-static",
-                    elementId,
-                    scope: "inputs",
-                    binding: path,
-                    value: valueToSet,
-                    meta: {
+                ops.push(
+                    ...newElement.operations,
+                    operations.setInputBinding(elementId, path, {
+                        static: node.list ? [newElementId] : newElementId,
                         type: node.type,
                         dataType: node.dataType,
                         list: node.list
-                    }
-                });
+                    })
+                );
             } else if (isObject && isList) {
                 return;
             } else {
-                ops.push({
-                    type: "set-static",
-                    elementId,
-                    scope: "inputs",
-                    binding: path,
-                    value: value ?? null,
-                    meta: {
+                ops.push(
+                    operations.setInputBinding(elementId, path, {
+                        static: value ?? null,
                         type: node.type,
                         dataType: node.dataType,
                         list: node.list
-                    }
-                });
+                    })
+                );
             }
         });
 
         // Process styles
-        if (defaults?.styles) {
-            for (const device in defaults.styles) {
-                const styleValues = defaults.styles[device];
-                for (const key in styleValues) {
-                    ops.push({
-                        type: "set-static",
-                        elementId,
-                        scope: "styles",
-                        binding: `${device}.${key}`,
-                        value: styleValues[key],
-                        meta: {
-                            type: "style",
-                            dataType: typeof styleValues[key]
-                        }
-                    });
-                }
-            }
+        for (const key in bindings.styles) {
+            ops.push(
+                operations.setStyleBinding(elementId, key, {
+                    static: bindings.styles[key]
+                })
+            );
         }
 
         return ops;
     }
 
+    private getComponentManifest(componentName: string): ComponentManifest {
+        const manifest = this.components[componentName];
+        if (!manifest) {
+            throw new Error(`Component "${componentName}" not registered.`);
+        }
+
+        return manifest;
+    }
+
     private extractIndex(path: string): number {
         const match = path.match(/\[(\d+)\]/);
         return match ? parseInt(match[1], 10) : 0;
+    }
+
+    private createElement(componentName: string, parentId: string, slot: string) {
+        const element: DocumentElement = {
+            type: "Webiny/Element",
+            id: generateAlphaNumericLowerCaseId(),
+            parent: { id: parentId, slot },
+            component: { name: componentName }
+        };
+
+        const componentManifest = this.getComponentManifest(componentName);
+        const inputsAst = ComponentManifestToAstConverter.convert(componentManifest.inputs ?? []);
+
+        return {
+            element,
+            inputsAst,
+            componentManifest
+        };
     }
 }

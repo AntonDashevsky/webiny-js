@@ -7,7 +7,9 @@ export const DeleteElement = () => {
     const editor = useDocumentEditor();
     useEffect(() => {
         return editor.registerCommandHandler(Commands.DeleteElement, payload => {
-            $deleteElement(editor, payload.id);
+            editor.updateDocument(document => {
+                $deleteElement(document, payload.id);
+            });
         });
     }, []);
 

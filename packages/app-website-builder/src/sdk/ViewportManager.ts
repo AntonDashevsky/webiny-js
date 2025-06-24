@@ -7,6 +7,7 @@ export interface ViewportInfo {
     scrollX: number;
     scrollY: number;
     breakpoint: string;
+    breakpoints: Breakpoint[];
 }
 
 export class ViewportManager {
@@ -27,14 +28,9 @@ export class ViewportManager {
             maxWidth: 991
         },
         {
-            name: "mobileLandscape",
+            name: "mobile",
             minWidth: 0,
             maxWidth: 767
-        },
-        {
-            name: "mobilePortrait",
-            minWidth: 0,
-            maxWidth: 478
         }
     ];
 
@@ -121,7 +117,7 @@ export class ViewportManager {
 
         const [breakpoint] = modes.filter(mode => mode.maxWidth >= viewport.width);
 
-        return { ...viewport, breakpoint: breakpoint.name };
+        return { ...viewport, breakpoint: breakpoint.name, breakpoints: this.breakpoints };
     }
 
     private notifySubscribers(

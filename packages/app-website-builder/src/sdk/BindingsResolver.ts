@@ -1,4 +1,3 @@
-import set from "lodash/set";
 import { toJS } from "mobx";
 import {
     DocumentElement,
@@ -25,11 +24,9 @@ export type ResolveElementParams = {
 
 export class BindingsResolver {
     private readonly state: DocumentState;
-    private readonly breakpoint: string;
 
-    constructor(state: DocumentState, breakpoint: string) {
+    constructor(state: DocumentState) {
         this.state = state;
-        this.breakpoint = breakpoint;
     }
 
     public resolveElement({
@@ -95,22 +92,7 @@ export class BindingsResolver {
 
                 if (node.children.length > 0) {
                     if (node.list) {
-                        const flatKey = path;
-                        const pattern = new RegExp(
-                            `^${flatKey
-                                .replace(/\./g, "\\.")
-                                .replace(/\[/g, "\\[")
-                                .replace(/\]/g, "\\]")}\\[(\\d+)\\]`
-                        );
-                        const indexes = Object.keys(bindings).reduce((acc: number[], key) => {
-                            const match = key.match(pattern);
-                            if (match) {
-                                acc.push(parseInt(match[1], 10));
-                            }
-                            return acc;
-                        }, []);
-
-                        const uniqueIndexes = Array.from(new Set(indexes)).sort((a, b) => a - b);
+                        const uniqueIndexes = this.getUniqueIndexesFromPath(path, bindings);
 
                         target[node.name] = uniqueIndexes.map(index => {
                             const childTarget: Record<string, any> = {};
@@ -128,22 +110,7 @@ export class BindingsResolver {
                     }
                 } else if (node.list) {
                     // List node with no children (e.g., slot or primitive list)
-                    const flatKey = path;
-                    const pattern = new RegExp(
-                        `^${flatKey
-                            .replace(/\./g, "\\.")
-                            .replace(/\[/g, "\\[")
-                            .replace(/\]/g, "\\]")}\\[(\\d+)\\]`
-                    );
-                    const indexes = Object.keys(bindings).reduce((acc: number[], key) => {
-                        const match = key.match(pattern);
-                        if (match) {
-                            acc.push(parseInt(match[1], 10));
-                        }
-                        return acc;
-                    }, []);
-
-                    const uniqueIndexes = Array.from(new Set(indexes)).sort((a, b) => a - b);
+                    const uniqueIndexes = this.getUniqueIndexesFromPath(path, bindings);
 
                     // If binding is e.g., `leftColumn[0]`, we'll have `0` in unique indexes.
                     if (uniqueIndexes.length > 0) {
@@ -167,7 +134,7 @@ export class BindingsResolver {
 
         // Resolve styles
         const styles: DocumentElementStyleBindings = elementBindings.styles
-            ? elementBindings.styles[this.breakpoint] ?? {}
+            ? elementBindings.styles ?? {}
             : {};
 
         const resolvedStyles: SerializableCSSStyleDeclaration = {};
@@ -183,6 +150,25 @@ export class BindingsResolver {
             ...resolvedElement,
             styles: resolvedStyles
         };
+    }
+
+    private getUniqueIndexesFromPath(flatKey: string, bindings: DocumentElementBindings) {
+        const pattern = new RegExp(
+            `^${flatKey
+                .replace(/\./g, "\\.")
+                .replace(/\[/g, "\\[")
+                .replace(/\]/g, "\\]")}\\[(\\d+)\\]`
+        );
+
+        const indexes = Object.keys(bindings).reduce((acc: number[], key) => {
+            const match = key.match(pattern);
+            if (match) {
+                acc.push(parseInt(match[1], 10));
+            }
+            return acc;
+        }, []);
+
+        return Array.from(new Set(indexes)).sort((a, b) => a - b);
     }
 
     private resolveBinding(binding: ValueBinding | undefined, context: Record<string, any>): any {

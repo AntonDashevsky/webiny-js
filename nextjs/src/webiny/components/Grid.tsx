@@ -8,21 +8,24 @@ export const GridColumn = ({ children }: GridColumnProps) => {
     return <div style={{ padding: 10 }}>{children}</div>;
 };
 
-interface Column {
+export interface Column {
     children: React.ReactNode;
-}
-
-interface Row {
-    columns: Column[];
 }
 
 interface GridProps {
     gridLayout: string;
-    rows: Row[];
+    rowCount: number;
+    columns: Column[];
 }
 
-export const Grid = ({ gridLayout = "12", rows }: GridProps) => {
-    const sizes = gridLayout.split("-").map(size => parseInt(size));
+export const Grid = ({ gridLayout = "12", columns, rowCount }: GridProps) => {
+    const rowConfig = gridLayout.split("-").map(size => parseInt(size));
+    const rows: Column[][] = [];
+
+    // Chunk columns into rows
+    for (let i = 0; i < columns.length; i += rowConfig.length) {
+        rows.push(columns.slice(i, i + rowConfig.length));
+    }
 
     // const cellWidthReduction = value.columnGap
     //     ? `${value.columnGap - value.columnGap / columnsCount}px`
@@ -30,15 +33,13 @@ export const Grid = ({ gridLayout = "12", rows }: GridProps) => {
 
     return (
         <>
-            {rows.map((row, i) => (
-                <Fragment key={i}>
-                    {row.columns.map((column, i) => (
-                        <Span key={i} size={sizes[i]}>
-                            <GridColumn key={i}>{column.children}</GridColumn>
-                        </Span>
-                    ))}
-                </Fragment>
-            ))}
+            {rows.map(columns => {
+                return columns.map((column, i) => (
+                    <Span key={i} size={rowConfig[i]}>
+                        <GridColumn key={i}>{column.children}</GridColumn>
+                    </Span>
+                ));
+            })}
         </>
     );
 };

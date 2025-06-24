@@ -2,7 +2,6 @@ import type { Editor } from "../Editor";
 import type { CommandPayload } from "~/editorSdk/createCommand";
 import { Commands } from "~/BaseEditor";
 import { ElementFactory } from "~/sdk/ElementFactory";
-import { $applyDocumentOperations } from "~/editorSdk/utils/$applyDocumentOperations";
 
 export function $createElement(
     editor: Editor,
@@ -12,13 +11,15 @@ export function $createElement(
     const componentsManifest = editor.getEditorState().read().components;
 
     const elementFactory = new ElementFactory(componentsManifest);
-    const operations = elementFactory.generateOperations({
+    const { operations } = elementFactory.createElementFromComponent({
         componentName,
         parentId,
         slot,
         index,
-        defaults: componentsManifest[componentName].defaults
+        bindings: componentsManifest[componentName].defaults ?? {}
     });
 
-    $applyDocumentOperations(editor, operations);
+    editor.updateDocument(document => {
+        operations.forEach(operation => operation.apply(document));
+    });
 }

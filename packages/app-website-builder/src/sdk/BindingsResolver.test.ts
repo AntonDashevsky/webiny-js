@@ -40,17 +40,15 @@ describe("BindingsResolver", () => {
                 }
             },
             styles: {
-                desktop: {
-                    padding: {
-                        static: "10px"
-                    }
+                padding: {
+                    static: "10px"
                 }
             }
         };
 
         const inputs = [createTextInput({ name: "text" })];
         const inputAst = ComponentManifestToAstConverter.convert(inputs);
-        const resolver = new BindingsResolver(state, "desktop");
+        const resolver = new BindingsResolver(state);
         const [resolved] = resolver.resolveElement({
             element: baseElement,
             inputAst,
@@ -96,13 +94,11 @@ describe("BindingsResolver", () => {
                     }
                 },
                 styles: {
-                    desktop: {
-                        padding: {
-                            static: "20px"
-                        },
-                        backgroundColor: {
-                            static: "#5c9a12"
-                        }
+                    padding: {
+                        static: "20px"
+                    },
+                    backgroundColor: {
+                        static: "#5c9a12"
                     }
                 }
             },
@@ -121,13 +117,11 @@ describe("BindingsResolver", () => {
                     }
                 },
                 styles: {
-                    desktop: {
-                        backgroundColor: {
-                            static: "red"
-                        },
-                        marginTop: {
-                            static: "20px"
-                        }
+                    backgroundColor: {
+                        static: "red"
+                    },
+                    marginTop: {
+                        static: "20px"
                     }
                 }
             },
@@ -146,13 +140,11 @@ describe("BindingsResolver", () => {
                     }
                 },
                 styles: {
-                    desktop: {
-                        backgroundColor: {
-                            static: "blue"
-                        },
-                        marginTop: {
-                            static: "20px"
-                        }
+                    backgroundColor: {
+                        static: "blue"
+                    },
+                    marginTop: {
+                        static: "20px"
                     }
                 }
             }
@@ -228,7 +220,7 @@ describe("BindingsResolver", () => {
             }
         ];
         const inputAst = ComponentManifestToAstConverter.convert(inputs);
-        const resolver = new BindingsResolver(state, "desktop");
+        const resolver = new BindingsResolver(state);
         const [resolved] = resolver.resolveElement({
             element: elements["qizw1hgqjvj8g5a43szzc"] as DocumentElement,
             inputAst,
@@ -255,7 +247,7 @@ describe("BindingsResolver", () => {
 
         const inputs = [createTextInput({ name: "text" })];
         const inputAst = ComponentManifestToAstConverter.convert(inputs);
-        const resolver = new BindingsResolver(state, "mobile");
+        const resolver = new BindingsResolver(state);
         const [resolved] = resolver.resolveElement({
             element: baseElement,
             inputAst,
@@ -281,7 +273,7 @@ describe("BindingsResolver", () => {
 
         const inputs = [createTextInput({ name: "text" })];
         const inputAst = ComponentManifestToAstConverter.convert(inputs);
-        const resolver = new BindingsResolver(state, "desktop");
+        const resolver = new BindingsResolver(state);
         const [resolved] = resolver.resolveElement({
             element: baseElement,
             inputAst,
@@ -300,7 +292,7 @@ describe("BindingsResolver", () => {
 
         const inputs = [createSlotInput({ name: "children", defaultValue: [] })];
         const inputAst = ComponentManifestToAstConverter.convert(inputs);
-        const resolver = new BindingsResolver(state, "desktop");
+        const resolver = new BindingsResolver(state);
         const [resolved] = resolver.resolveElement({
             element: rootElement,
             inputAst,
@@ -338,7 +330,7 @@ describe("BindingsResolver", () => {
 
         const inputs = [createTextInput({ name: "text" })];
         const inputAst = ComponentManifestToAstConverter.convert(inputs);
-        const resolver = new BindingsResolver(state, "desktop");
+        const resolver = new BindingsResolver(state);
         const resolved = resolver.resolveElement({
             element: baseElement,
             inputAst,
@@ -370,7 +362,7 @@ describe("BindingsResolver", () => {
 
         const inputs = [createTextInput({ name: "text" })];
         const inputAst = ComponentManifestToAstConverter.convert(inputs);
-        const resolver = new BindingsResolver(state, "desktop");
+        const resolver = new BindingsResolver(state);
         const resolved = resolver.resolveElement({
             element: baseElement,
             inputAst,
@@ -398,7 +390,7 @@ describe("BindingsResolver", () => {
 
         const inputs = [createTextInput({ name: "text" })];
         const inputAst = ComponentManifestToAstConverter.convert(inputs);
-        const resolver = new BindingsResolver(state, "desktop");
+        const resolver = new BindingsResolver(state);
         const [resolved] = resolver.resolveElement({
             element: baseElement,
             inputAst,

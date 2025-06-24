@@ -1,35 +1,33 @@
-import { Editor } from "../Editor";
+import type { Document } from "~/sdk/types.js";
 import { $getElementById } from "./$getElementById";
 import { $removeElementReferenceFromParent } from "./$removeElementReferenceFromParent";
 
-export function $deleteElement(editor: Editor, id: string) {
-    const elementToDelete = $getElementById(editor, id);
+export function $deleteElement(document: Document, id: string) {
+    const elementToDelete = $getElementById(document, id);
 
     if (!elementToDelete) {
         return;
     }
 
-    editor.updateDocument(state => {
-        // Remove the reference to the element from its parent element.
-        if (elementToDelete.parent) {
-            $removeElementReferenceFromParent(editor, {
-                elementId: id,
-                parentId: elementToDelete.parent.id,
-                slot: elementToDelete.parent.slot
-            });
-        }
+    // Remove the reference to the element from its parent element.
+    if (elementToDelete.parent) {
+        $removeElementReferenceFromParent(document, {
+            elementId: id,
+            parentId: elementToDelete.parent.id,
+            slot: elementToDelete.parent.slot
+        });
+    }
 
-        // Remove all descendants.
-        Object.values(state.elements)
-            .filter(el => el.parent?.id === id)
-            .forEach(element => {
-                $deleteElement(editor, element.id);
-            });
+    // Remove all descendants.
+    Object.values(document.elements)
+        .filter(el => el.parent?.id === id)
+        .forEach(element => {
+            $deleteElement(document, element.id);
+        });
 
-        // Delete element bindings.
-        delete state.bindings[elementToDelete.id];
+    // Delete element bindings.
+    delete document.bindings[elementToDelete.id];
 
-        // Delete the element itself.
-        delete state.elements[id];
-    });
+    // Delete the element itself.
+    delete document.elements[id];
 }
