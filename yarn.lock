@@ -17347,6 +17347,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@webiny/cli2@workspace:packages/cli2":
+  version: 0.0.0-use.local
+  resolution: "@webiny/cli2@workspace:packages/cli2"
+  dependencies:
+    "@types/lodash": "npm:^4.17.13"
+    "@webiny/di-container": "npm:0.0.0"
+    "@webiny/project": "npm:0.0.0"
+    "@webiny/project-utils": "npm:0.0.0"
+    jest: "npm:^29.7.0"
+    rimraf: "npm:^6.0.1"
+    typescript: "npm:5.3.3"
+  languageName: unknown
+  linkType: soft
+
 "@webiny/cli@npm:0.0.0, @webiny/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@webiny/cli@workspace:packages/cli"
@@ -17469,7 +17483,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/di-container@workspace:packages/di-container":
+"@webiny/di-container@npm:0.0.0, @webiny/di-container@workspace:packages/di-container":
   version: 0.0.0-use.local
   resolution: "@webiny/di-container@workspace:packages/di-container"
   dependencies:
@@ -17928,6 +17942,20 @@ __metadata:
     "@webiny/cli": "*"
     "@webiny/global-config": "*"
     "@webiny/telemetry": "*"
+  languageName: unknown
+  linkType: soft
+
+"@webiny/project@npm:0.0.0, @webiny/project@workspace:packages/project":
+  version: 0.0.0-use.local
+  resolution: "@webiny/project@workspace:packages/project"
+  dependencies:
+    "@types/lodash": "npm:^4.17.13"
+    "@webiny/di-container": "npm:0.0.0"
+    "@webiny/project-utils": "npm:0.0.0"
+    "@webiny/system-requirements": "npm:0.0.0"
+    jest: "npm:^29.7.0"
+    rimraf: "npm:^6.0.1"
+    typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft
 
