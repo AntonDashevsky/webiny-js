@@ -29,6 +29,10 @@ export class Project {
         this.container.register(projectInfoCommand).inSingletonScope();
     }
 
+    buildApp() {
+
+    }
+
     getProjectInfo() {
         return this.container.resolve(ProjectInfoCommand).execute();
     }

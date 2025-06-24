@@ -9,18 +9,13 @@ import {
 } from "~/abstractions";
 
 export class DefaultProjectInfoService implements ProjectInfoService.Interface {
-    getIsCi: GetIsCi.Interface;
-    getNpmVersion: GetNpmVersion.Interface;
-    getNpxVersion: GetNpxVersion.Interface;
-    getPulumiVersion: GetPulumiVersion.Interface;
-    getYarnVersion: GetYarnVersion.Interface;
 
     constructor(
-        getIsCi: GetIsCi.Interface,
-        getNpmVersion: GetNpmVersion.Interface,
-        getNpxVersion: GetNpxVersion.Interface,
-        getPulumiVersion: GetPulumiVersion.Interface,
-        getYarnVersion: GetYarnVersion.Interface
+        private getIsCi: GetIsCi.Interface,
+        private getNpmVersion: GetNpmVersion.Interface,
+        private getNpxVersion: GetNpxVersion.Interface,
+        private getPulumiVersion: GetPulumiVersion.Interface,
+        private getYarnVersion: GetYarnVersion.Interface
     ) {
         this.getIsCi = getIsCi;
         this.getNpmVersion = getNpmVersion;
