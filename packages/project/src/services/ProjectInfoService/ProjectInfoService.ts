@@ -5,11 +5,10 @@ import {
     GetNpmVersion,
     GetNpxVersion,
     GetPulumiVersion,
-    GetYarnVersion,
+    GetYarnVersion
 } from "~/abstractions";
 
 export class DefaultProjectInfoService implements ProjectInfoService.Interface {
-
     constructor(
         private getIsCi: GetIsCi.Interface,
         private getNpmVersion: GetNpmVersion.Interface,
@@ -56,7 +55,7 @@ export class DefaultProjectInfoService implements ProjectInfoService.Interface {
             pulumi: {
                 "@pulumi/pulumi": pulumiVersion,
                 "@pulumi/aws": pulumiAwsVersion,
-                secretsProvider: process.env.PULUMI_SECRETS_PROVIDER || '',
+                secretsProvider: process.env.PULUMI_SECRETS_PROVIDER || "",
                 usingPassword: !!process.env.PULUMI_CONFIG_PASSPHRASE
             }
         };
@@ -66,11 +65,5 @@ export class DefaultProjectInfoService implements ProjectInfoService.Interface {
 export const projectInfoService = createImplementation({
     abstraction: ProjectInfoService,
     implementation: DefaultProjectInfoService,
-    dependencies: [
-        GetIsCi,
-        GetNpmVersion,
-        GetNpxVersion,
-        GetPulumiVersion,
-        GetYarnVersion
-    ]
+    dependencies: [GetIsCi, GetNpmVersion, GetNpxVersion, GetPulumiVersion, GetYarnVersion]
 });
