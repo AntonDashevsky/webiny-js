@@ -5,4 +5,4 @@ const project = Project.init();
 const reza = await project.getProjectInfo();
 
 
-console.log('reza', reza);
+console.log('RESULT', reza);

@@ -1,6 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
 
-interface IProjectInfoServiceResult {
+export interface IProjectInfoServiceResult {
     webiny: {
         debugEnabled: boolean;
         featureFlags: Record<string, boolean>;
@@ -26,15 +26,13 @@ interface IProjectInfoServiceResult {
     };
 }
 
-interface IProjectInfoService {
+export interface IProjectInfoService {
     execute(): Promise<IProjectInfoServiceResult>;
 }
 
-export const ProjectInfoService = new Abstraction<IProjectInfoService>(
-    "ProjectInfoService"
-);
+export const ProjectInfoService = new Abstraction<IProjectInfoService>("ProjectInfoService");
 
 export namespace ProjectInfoService {
-    export interface Interface extends IProjectInfoService {}
+    export type Interface = IProjectInfoService;
     export type Result = IProjectInfoServiceResult;
 }

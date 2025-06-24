@@ -2,14 +2,16 @@ import { Abstraction } from "@webiny/di-container";
 
 export type PulumiVersion = string;
 export type PulumiAwsVersion = string;
-export type GetPulumiVersionResult = [PulumiVersion, PulumiAwsVersion];
+export type IGetPulumiVersionResult = [PulumiVersion, PulumiAwsVersion];
 
 interface IGetPulumiVersion {
-    execute(): GetPulumiVersionResult;
+    execute(): IGetPulumiVersionResult;
 }
 
 export const GetPulumiVersion = new Abstraction<IGetPulumiVersion>("GetPulumiVersion");
 
 export namespace GetPulumiVersion {
-    export interface Interface extends IGetPulumiVersion {}
+    export type Interface = IGetPulumiVersion;
+
+    export type Result = IGetPulumiVersionResult;
 }

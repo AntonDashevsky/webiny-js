@@ -1,16 +1,12 @@
 import { createImplementation } from "@webiny/di-container";
 import {
     GetPulumiVersion,
-    GetPulumiVersionResult,
-    PulumiAwsVersion,
-    PulumiVersion
 } from "~/abstractions";
 import execa from "execa";
 
 export class DefaultGetPulumiVersion implements GetPulumiVersion.Interface {
     execute() {
-        let pulumi: PulumiVersion = "",
-            pulumiAws: PulumiAwsVersion = "";
+        let result : GetPulumiVersion.Result = ["", ""];
 
         try {
             {
@@ -25,7 +21,7 @@ export class DefaultGetPulumiVersion implements GetPulumiVersion.Interface {
 
                 const match = stdout.match(/npm:(.*?)"/);
                 if (match) {
-                    pulumi = match[1];
+                    result[0] = match[1];
                 }
             }
 
@@ -41,14 +37,14 @@ export class DefaultGetPulumiVersion implements GetPulumiVersion.Interface {
 
                 const match = stdout.match(/npm:(.*?)"/);
                 if (match) {
-                    pulumiAws = match[1];
+                    result[1] = match[1];
                 }
             }
         } catch (err) {
-            return ["", ""] as GetPulumiVersionResult;
+            // Do nothing.
         }
 
-        return [pulumi || "", pulumiAws || ""] as GetPulumiVersionResult;
+        return result;
     }
 }
 

@@ -1,17 +1,15 @@
 import { Container } from "@webiny/di-container";
-// import { ProjectPaths } from "./ProjectPaths";
-
+import { ProjectInfoCommand } from "~/abstractions";
 import { projectInfoCommand } from "./features";
-
 import {
     getIsCi,
     getNpmVersion,
     getNpxVersion,
     getPulumiVersion,
-    getYarnVersion
+    getYarnVersion,
+    projectInfoService
 } from "./services";
-
-import { ProjectInfoCommand } from "~/abstractions";
+// import { ProjectPaths } from "./ProjectPaths";
 
 export class Project {
     // paths: ProjectPaths;
@@ -26,6 +24,7 @@ export class Project {
         this.container.register(getNpxVersion).inSingletonScope();
         this.container.register(getPulumiVersion).inSingletonScope();
         this.container.register(getYarnVersion).inSingletonScope();
+        this.container.register(projectInfoService).inSingletonScope();
         this.container.register(projectInfoCommand).inSingletonScope();
     }
 

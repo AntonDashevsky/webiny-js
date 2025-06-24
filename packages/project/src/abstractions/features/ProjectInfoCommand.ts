@@ -1,11 +1,9 @@
 import { Abstraction } from "@webiny/di-container";
 import { ICommand } from "./ICommand";
+import { ProjectInfoService } from "~/abstractions/services/ProjectInfoService";
 
-export type ProjectInfoCommandParams = void;
-export type ProjectInfoCommandResult = Array<{
-    sectionName: string;
-    data: Record<string, any>;
-}>;
+type ProjectInfoCommandParams = void;
+type ProjectInfoCommandResult = ProjectInfoService.Result;
 
 type IProjectInfoCommand = ICommand<ProjectInfoCommandParams, ProjectInfoCommandResult>;
 
