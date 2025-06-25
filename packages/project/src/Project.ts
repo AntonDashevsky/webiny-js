@@ -3,7 +3,7 @@ import {
     GetProjectInfoCommand,
     BuildAppCommand,
     GetProjectCommand,
-    GetAppCommand
+    GetAppCommand,
 } from "~/abstractions";
 import { getProjectInfoCommand, buildAppCommand, getProjectCommand, getAppCommand } from "./features";
 import {
@@ -14,7 +14,10 @@ import {
     getYarnVersionService,
     projectInfoService,
     getProjectService,
-    getAppService
+    getAppService,
+    getAppPackagesService,
+    buildAppService,
+    loggerService
 } from "./services";
 
 export class Project {
@@ -35,6 +38,9 @@ export class Project {
         this.container.register(projectInfoService).inSingletonScope();
         this.container.register(getProjectService).inSingletonScope();
         this.container.register(getAppService).inSingletonScope();
+        this.container.register(buildAppService).inSingletonScope();
+        this.container.register(getAppPackagesService).inSingletonScope();
+        this.container.register(loggerService).inSingletonScope();
 
         // Commands.
         this.container.register(getProjectCommand).inSingletonScope();

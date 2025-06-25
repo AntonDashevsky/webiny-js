@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { GetProjectInfoCommand, ProjectInfoService } from "~/abstractions";
 
-export class DefaultGetProjectInfoCommand implements getProjectInfoCommand.Interface {
+export class DefaultGetProjectInfoCommand implements GetProjectInfoCommand.Interface {
     constructor(private projectInfoService: ProjectInfoService.Interface) {}
 
     async execute() {

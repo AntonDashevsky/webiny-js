@@ -5,7 +5,7 @@ import Listr from "listr";
 import chalk from "chalk";
 import type { IProjectApplicationPackage } from "@webiny/cli/types.js";
 import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
-import { measureDuration } from "~/utils/index.js";
+import { measureDuration } from "./utils/measureDuration.js";
 
 const { gray } = chalk;
 const WORKER_PATH = path.resolve(import.meta.dirname, "workerEntry.js");
@@ -13,12 +13,12 @@ const WORKER_PATH = path.resolve(import.meta.dirname, "workerEntry.js");
 export class MultiplePackagesBuilder extends BasePackagesBuilder {
     public override async build(): Promise<void> {
         const packages = this.packages;
-        const context = this.context;
-        const inputs = this.inputs;
+        const buildParams = this.buildParams;
+        const logger = this.logger;
 
         const getBuildDuration = measureDuration();
 
-        context.info(`Building %s packages...`, packages.length);
+        logger.info(`Building %s packages...`, packages.length);
 
         const tasksList = packages.map(pkg => {
             return {
@@ -26,7 +26,7 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
                 task: () => {
                     return new Promise<void>((resolve, reject) => {
                         const buildConfig = JSON.stringify({
-                            ...inputs,
+                            ...buildParams,
                             package: { paths: pkg.paths }
                         });
                         const child = fork(WORKER_PATH, [buildConfig], { silent: true });
@@ -61,7 +61,7 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
 
         await tasks.run().catch(err => {
             console.log();
-            context.error(`Failed to build all packages. For more details, check the logs below.`);
+            logger.error(`Failed to build all packages. For more details, check the logs below.`);
             console.log();
 
             /**
@@ -70,14 +70,14 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
             err.errors.forEach((err: Error, i: number) => {
                 const { pkg, error } = err.cause as Record<string, any>;
                 const number = `${i + 1}.`;
-                const name = context.error.hl(pkg.name);
+                const name = logger.error(pkg.name);
                 const relativePath = gray(`(${pkg.paths.relative})`);
                 const title = [number, name, relativePath].join(" ");
 
                 console.log(title);
                 console.log(error.message);
 
-                if (inputs.debug) {
+                if (buildParams.debug) {
                     console.log(error.stack);
                 }
             });
@@ -85,9 +85,10 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
             throw new Error(`Failed to build all packages.`);
         });
 
-        console.log();
+        logger.log();
 
-        context.success(`Built ${packages.length} packages in ${getBuildDuration()}.`);
+        logger.info(`Built ${packages.length} packages in ${getBuildDuration()}.`);
+        // context.success(`Built ${packages.length} packages in ${getBuildDuration()}.`);
     }
 
     private getPackageLabel(pkg: IProjectApplicationPackage): string {

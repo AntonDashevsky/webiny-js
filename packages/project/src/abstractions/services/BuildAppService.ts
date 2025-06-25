@@ -3,6 +3,9 @@ import { IAppModel } from "~/abstractions/models/IAppModel";
 
 export interface IBuildParams {
     env: string;
+    debug?: boolean;
+    variant?: string;
+    region?: string;
 }
 
 export interface IBuildAppService {
@@ -13,4 +16,5 @@ export const BuildAppService = new Abstraction<IBuildAppService>("BuildAppServic
 
 export namespace BuildAppService {
     export type Interface = IBuildAppService;
+    export type Params = IBuildParams;
 }

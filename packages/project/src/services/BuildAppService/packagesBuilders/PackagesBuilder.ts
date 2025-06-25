@@ -7,13 +7,13 @@ export class PackagesBuilder extends BasePackagesBuilder {
     public override async build(): Promise<void> {
         const BuilderClass = this.getBuilderClass();
 
-        const builder = new BuilderClass(this.params);
+        const builder = new BuilderClass(this.packages, this.buildParams, this.logger);
 
         await builder.build();
     }
 
     private getBuilderClass() {
-        const packagesCount = this.params.packages.length;
+        const packagesCount = this.packages.length;
         if (packagesCount === 0) {
             return ZeroPackagesBuilder;
         }
@@ -21,7 +21,6 @@ export class PackagesBuilder extends BasePackagesBuilder {
         if (packagesCount === 1) {
             return SinglePackageBuilder;
         }
-
         return MultiplePackagesBuilder;
     }
 }

@@ -1,1 +1,0 @@
-export { GetProjectService } from "./GetProjectService";

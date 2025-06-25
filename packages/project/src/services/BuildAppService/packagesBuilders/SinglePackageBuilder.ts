@@ -1,31 +1,30 @@
 import chalk from "chalk";
 import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
-import { IRequireConfigOptions, requireConfigWithExecute } from "~/utils/index.js";
-const { gray } = chalk;
+import { type IRequireConfigOptions, requireConfigWithExecute } from "./utils/requireConfig.js";
 
 export class SinglePackageBuilder extends BasePackagesBuilder {
     public override async build() {
         const pkg = this.packages[0];
-        const context = this.context;
-        const inputs = this.inputs;
+        const logger = this.logger;
+        const buildParams = this.buildParams;
 
-        const { env, debug, variant, region } = inputs;
+        const { env, debug, variant, region } = buildParams;
 
         const pkgName = pkg.name;
-        const pkgRelativePath = gray(`(${pkg.paths.relative})`);
-        context.info(`Building %s package...`, `${pkgName} ${pkgRelativePath}`);
+        const pkgRelativePath = chalk.gray(`(${pkg.paths.packageFolder})`);
+        logger.info(`Building %s package...`, `${pkgName} ${pkgRelativePath}`);
 
         const options: IRequireConfigOptions = {
             env,
             variant,
             region,
             debug,
-            cwd: pkg.paths.root
+            cwd: pkg.paths.packageFolder,
         };
 
-        const config = await requireConfigWithExecute(pkg.paths.config, {
+        const config = await requireConfigWithExecute(pkg.paths.webinyConfigFile, {
             options,
-            context
+            context: {}
         });
 
         const hasBuildCommand = config.commands && typeof config.commands.build === "function";

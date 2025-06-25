@@ -1,14 +1,16 @@
 import { createImplementation } from "@webiny/di-container";
-import { BuildAppCommand, GetAppService, BuildAppService } from "~/abstractions";
+import { BuildAppCommand, GetProjectService, GetAppService, BuildAppService } from "~/abstractions";
 
-export class DefaultBuildProjectCommand implements BuildAppCommand.Interface {
+export class DefaultBuildAppCommand implements BuildAppCommand.Interface {
     constructor(
+        private getProjectService: GetProjectService.Interface,
         private getAppService: GetAppService.Interface,
         private buildAppService: BuildAppService.Interface
     ) {}
 
     async execute(params: BuildAppCommand.Params): Promise<void> {
-        const app = this.getAppService.execute(params.app);
+        const project = this.getProjectService.execute(params.app);
+        const app = this.getAppService.execute(project, params.app);
 
         return this.buildAppService.execute(app, params);
     }
@@ -16,6 +18,6 @@ export class DefaultBuildProjectCommand implements BuildAppCommand.Interface {
 
 export const buildAppCommand = createImplementation({
     abstraction: BuildAppCommand,
-    implementation: DefaultBuildProjectCommand,
-    dependencies: [GetAppService, BuildAppService]
+    implementation: DefaultBuildAppCommand,
+    dependencies: [GetProjectService, GetAppService, BuildAppService]
 });
