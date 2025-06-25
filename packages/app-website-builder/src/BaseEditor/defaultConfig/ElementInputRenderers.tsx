@@ -8,6 +8,7 @@ import { LexicalInputRenderer } from "~/inputRenderers/LexicalInput/LexicalInput
 import { DefaultLexicalConfig } from "~/inputRenderers/LexicalInput/DefaultLexicalConfig";
 import { SlotInputRenderer } from "~/inputRenderers/SlotInput";
 import { GridLayoutInputRenderer } from "~/inputRenderers/GridLayoutInput";
+import { SelectInputRenderer } from "~/inputRenderers/SelectInput";
 
 export const ElementInputRenderers = () => {
     return (
@@ -19,6 +20,10 @@ export const ElementInputRenderers = () => {
             <EditorConfig.ElementInput.Renderer
                 name={"Webiny/Input"}
                 component={TextInputRenderer}
+            />
+            <EditorConfig.ElementInput.Renderer
+                name={"Webiny/Select"}
+                component={SelectInputRenderer}
             />
             <EditorConfig.ElementInput.Renderer
                 name={"Webiny/Textarea"}

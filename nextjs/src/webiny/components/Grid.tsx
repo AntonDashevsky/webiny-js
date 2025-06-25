@@ -1,25 +1,25 @@
-import React, { Fragment } from "react";
+import React from "react";
+import type { ComponentProps, ComponentPropsWithChildren } from "@webiny/app-website-builder/react";
 
-interface GridColumnProps {
-    children: React.ReactNode;
-}
-
-export const GridColumn = ({ children }: GridColumnProps) => {
-    return <div style={{ padding: 10 }}>{children}</div>;
+export const GridColumn = ({ inputs }: { inputs: ComponentPropsWithChildren["inputs"] }) => {
+    return <div style={{ padding: 10 }}>{inputs.children}</div>;
 };
 
 export interface Column {
     children: React.ReactNode;
 }
 
-interface GridProps {
+type GridProps = ComponentProps<{
     gridLayout: string;
     rowCount: number;
     columnGap: number;
     columns: Column[];
-}
+    stackAtBreakpoint?: string;
+    reverseWhenStacked?: boolean;
+}>;
 
-export const Grid = ({ gridLayout = "12", columns, columnGap }: GridProps) => {
+export const Grid = ({ inputs, styles, breakpoint }: GridProps) => {
+    const { gridLayout = "12", columns, columnGap, stackAtBreakpoint, reverseWhenStacked } = inputs;
     const rowConfig = gridLayout.split("-").map(size => parseInt(size));
     const rows: Column[][] = [];
 
@@ -31,27 +31,40 @@ export const Grid = ({ gridLayout = "12", columns, columnGap }: GridProps) => {
     // Number of pixels we need to subtract from each cell to ensure they fit in the grid with column gap
     const cellWidthReduction = columnGap ? columnGap - columnGap / rowConfig.length : 0;
 
+    const stackColumns = breakpoint === stackAtBreakpoint;
+
+    if (stackColumns) {
+        delete styles.flexFlow;
+        styles.flexDirection = reverseWhenStacked ? "column-reverse" : "column";
+    }
+
     return (
-        <>
+        <div style={styles}>
             {rows.map(columns => {
                 return columns.map((column, i) => (
-                    <Span key={i} size={rowConfig[i]} reductionInPx={cellWidthReduction}>
-                        <GridColumn key={i}>{column.children}</GridColumn>
+                    <Span
+                        key={i}
+                        stackColumns={stackColumns}
+                        size={rowConfig[i]}
+                        reductionInPx={cellWidthReduction}
+                    >
+                        <GridColumn key={i} inputs={{ children: column.children }} />
                     </Span>
                 ));
             })}
-        </>
+        </div>
     );
 };
 
 interface SpanProps {
     size: number;
     reductionInPx: number;
+    stackColumns: boolean;
     children: React.ReactNode;
 }
 
-const Span = ({ size, children, reductionInPx }: SpanProps) => {
-    const width = `calc(${(size / 12) * 100}% - ${reductionInPx}px)`;
+const Span = ({ size, children, reductionInPx, stackColumns }: SpanProps) => {
+    const width = stackColumns ? "100%" : `calc(${(size / 12) * 100}% - ${reductionInPx}px)`;
 
     return (
         <div

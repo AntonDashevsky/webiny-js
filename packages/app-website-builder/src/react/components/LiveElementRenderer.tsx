@@ -57,15 +57,21 @@ export const LiveElementRenderer = observer(({ element }: LiveElementRendererPro
         <>
             {instances.map((resolvedElement, index) => {
                 const { component: Component, inputs, styles, manifest } = resolvedElement;
+                const props = { inputs, styles, element, breakpoint: viewport.breakpoint };
+                const autoApplyStyles = manifest.autoApplyStyles !== false;
+
+                const userElement = <Component key={element.id} {...props} />;
+
+                if (!autoApplyStyles) {
+                    return userElement;
+                }
 
                 return (
                     <div
                         key={index}
                         style={{ position: "relative", ...styles } as React.CSSProperties}
                     >
-                        <Component {...inputs} element={element}>
-                            {manifest?.acceptsChildren ? inputs.children : null}
-                        </Component>
+                        {userElement}
                     </div>
                 );
             })}

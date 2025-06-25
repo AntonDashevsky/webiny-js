@@ -5,4 +5,5 @@ export * from "~/sdk/createElement.js";
 export * from "~/sdk/ContentSdk.js";
 export * from "~/sdk/Environment.js";
 export * from "~/sdk/registerComponentGroup.js";
-export type { DocumentElement } from "~/sdk/types.js";
+export type { DocumentElement, Breakpoint } from "~/sdk/types.js";
+export type { ComponentProps, ComponentPropsWithChildren } from "./types.js";

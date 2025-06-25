@@ -1,4 +1,4 @@
-import type { Properties as CSSProperties } from "csstype";
+import type { CSSProperties } from "react";
 import type { ResolveElementParams } from "~/sdk/ComponentResolver";
 import type { BindingsApi } from "~/sdk/BindingsApi";
 
@@ -59,7 +59,7 @@ export type Document = {
 export type ResolvedComponent<TComponent = any> = {
     component: TComponent;
     inputs: Record<string, any>;
-    manifest?: ComponentManifest;
+    manifest: ComponentManifest;
     styles: SerializableCSSStyleDeclaration;
 };
 
@@ -105,6 +105,7 @@ export type ComponentManifest = {
     canDelete?: boolean;
     acceptsChildren?: boolean;
     hideFromToolbar?: boolean;
+    autoApplyStyles?: boolean;
     defaults?: {
         inputs?: Record<string, any>;
         styles?: SerializableCSSStyleDeclaration;

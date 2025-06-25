@@ -1,10 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { Product } from "@/lib/gql/types";
-import { environment } from "@webiny/app-website-builder/sdk";
 
 export const ProductCard = ({ product }: { product: Product }) => {
-    if(!product) {
+    if (!product) {
         return null;
     }
 

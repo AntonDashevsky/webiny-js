@@ -9,7 +9,8 @@ import {
     createLongTextInput,
     createRichTextInput,
     createElement,
-    createObjectInput
+    createObjectInput,
+    createSelectInput
 } from "@webiny/app-website-builder/react/index.js";
 import { Root } from "./components/Root";
 import { TextWithDropzone } from "./components/TextWithDropzone";
@@ -19,7 +20,7 @@ import { TwoColumns } from "./components/TwoColumns";
 import Hero_1 from "@/webiny/components/Hero-1";
 import { Column, Grid, GridColumn } from "./components/Grid";
 
-const TextComponent = ({ text, flag }: { text: string; flag: boolean }) => (
+const TextComponent = ({ inputs: { text, flag } }: { inputs: { text: string; flag: boolean } }) => (
     <p className={`text-wrap ${flag ? "font-bold" : ""}`}>{text}</p>
 );
 
@@ -34,6 +35,7 @@ export const customComponents = [
         name: "Webiny/Grid",
         label: "Grid",
         group: "basic",
+        autoApplyStyles: false,
         inputs: [
             createTextInput({
                 name: "gridLayout",
@@ -104,6 +106,7 @@ export const customComponents = [
             createNumberInput({
                 name: "rowGap",
                 label: "Row Gap",
+                defaultValue: 0,
                 responsive: true,
                 onChange: ({ inputs, styles }) => {
                     const rowGap = parseInt(inputs.rowGap);
@@ -117,6 +120,7 @@ export const customComponents = [
             createNumberInput({
                 name: "columnGap",
                 label: "Column Gap",
+                defaultValue: 0,
                 responsive: true,
                 onChange: ({ inputs, styles }) => {
                     const columnGap = parseInt(inputs.columnGap);
@@ -126,6 +130,18 @@ export const customComponents = [
                         styles.columnGap = `${inputs.columnGap}px`;
                     }
                 }
+            }),
+            createSelectInput({
+                name: "stackAtBreakpoint",
+                label: "Stack at breakpoint",
+                options: [
+                    { label: "Tablet", value: "tablet" },
+                    { label: "Mobile", value: "mobile" }
+                ]
+            }),
+            createBooleanInput({
+                name: "reverseWhenStacked",
+                label: "Reverse columns when stacked"
             }),
             createObjectInput({
                 name: "columns",
@@ -180,18 +196,6 @@ export const customComponents = [
                 width: "100%",
                 margin: "0px",
                 padding: "5px"
-            },
-            overrides: {
-                tablet: {
-                    styles: {
-                        backgroundColor: "blue"
-                    }
-                },
-                mobile: {
-                    styles: {
-                        backgroundColor: "red"
-                    }
-                }
             }
         }
     }),

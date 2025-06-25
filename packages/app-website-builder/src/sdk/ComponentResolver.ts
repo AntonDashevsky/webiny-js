@@ -47,7 +47,7 @@ export class ComponentResolver {
 
         return instances.map(instance => ({
             component: blueprint.component,
-            manifest: blueprint.manifest,
+            manifest: blueprint.manifest!,
             styles: instance.styles,
             inputs: instance.inputs
         }));

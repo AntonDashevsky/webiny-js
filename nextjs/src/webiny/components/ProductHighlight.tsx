@@ -1,17 +1,18 @@
 import React from "react";
+import type { ComponentProps } from "@webiny/app-website-builder/react";
 import { useGetProduct } from "@/hooks/queries/product/useGetProduct/useGetProduct";
 import { ProductCard } from "./ProductCard";
 
-export interface ProductHighlightProps {
+export type ProductHighlightProps = ComponentProps<{
     title: string;
     productCode: string;
-}
+}>;
 
-export const ProductHighlight = (props: ProductHighlightProps) => {
-    const { productCode } = props;
+export const ProductHighlight = ({ inputs }: ProductHighlightProps) => {
+    const { productCode } = inputs;
     const { data: product } = useGetProduct({ productCode });
 
-    const title = props.title ?? null;
+    const title = inputs.title ?? null;
 
     return (
         <div className="bg-white w-full">

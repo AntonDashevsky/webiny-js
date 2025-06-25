@@ -83,7 +83,7 @@ export class BindingsApi {
             if (this.isBaseBreakpoint(bp)) {
                 return this.rawBindings.inputs;
             }
-            return this.rawBindings.overrides?.[bp].inputs;
+            return this.rawBindings.overrides?.[bp]?.inputs;
         });
 
         /**
@@ -364,7 +364,7 @@ export class BindingsApi {
             if (breakpoint === "desktop") {
                 return this.rawBindings.styles;
             }
-            return this.rawBindings.overrides?.[breakpoint].styles;
+            return this.rawBindings.overrides?.[breakpoint]?.styles;
         });
 
         for (const [key, value] of Object.entries(styles)) {

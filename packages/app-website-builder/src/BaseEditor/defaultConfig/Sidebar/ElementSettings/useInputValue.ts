@@ -37,6 +37,7 @@ export const useInputValue = (node: InputAstNode) => {
 
     const onChange = useCallback(
         (value: any) => {
+            performance.mark('click-start');
             if (!element) {
                 return;
             }
@@ -46,7 +47,7 @@ export const useInputValue = (node: InputAstNode) => {
 
             editor.updateDocument(document => {
                 // Get original bindings.
-                const bindings = document.bindings[element.id] ?? { inputs: {} };
+                const bindings = toJS(document.bindings[element.id] ?? { inputs: {} });
 
                 // Update breakpoint bindings.
                 const valueBinding: InputValueBinding = breakpointBindings.inputs?.[node.path] ?? {
@@ -61,13 +62,13 @@ export const useInputValue = (node: InputAstNode) => {
                     valueBinding.static = value;
                 }
 
-                const newBindings = {
+                const newBindings = toJS({
                     ...breakpointBindings,
                     inputs: {
                         ...breakpointBindings.inputs,
                         [node.path]: valueBinding
                     }
-                };
+                });
 
                 const bindingsApi = new BindingsApi(
                     element.id,
@@ -102,6 +103,7 @@ export const useInputValue = (node: InputAstNode) => {
 
             // Clear local value
             setLocalValue(undefined);
+            performance.mark('click-end');
         },
         [element?.id, breakpointBindings, breakpoint]
     );

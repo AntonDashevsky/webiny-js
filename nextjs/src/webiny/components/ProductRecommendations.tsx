@@ -1,20 +1,21 @@
 import React from "react";
+import type { ComponentProps } from "@webiny/app-website-builder/react";
 import { useGetProducts } from "@/hooks/queries/product/useGetProducts/useGetProducts";
 
 import type { Product } from "@/lib/gql/types";
 import { ProductCard } from "./ProductCard";
 
-export interface ProductRecommendationsProps {
+export type ProductRecommendationsProps = ComponentProps<{
     title: string;
     productCodes: Array<string>;
-}
+}>;
 
-const ProductRecommendations = (props: ProductRecommendationsProps) => {
-    const { productCodes } = props;
+const ProductRecommendations = ({ inputs }: ProductRecommendationsProps) => {
+    const { productCodes } = inputs;
     const { data: productSearchResult } = useGetProducts(productCodes);
     const products = (productSearchResult?.items ?? []) as Product[];
 
-    const title = props.title ?? "Product Recommendations";
+    const title = inputs.title ?? "Product Recommendations";
 
     return (
         <div className="bg-white">
