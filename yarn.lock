@@ -17353,8 +17353,8 @@ __metadata:
   dependencies:
     "@types/lodash": "npm:^4.17.13"
     "@webiny/di-container": "npm:0.0.0"
-    "@webiny/project": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
+    "@webiny/system-requirements": "npm:0.0.0"
     jest: "npm:^29.7.0"
     rimraf: "npm:^6.0.1"
     typescript: "npm:5.3.3"
@@ -17945,7 +17945,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/project@npm:0.0.0, @webiny/project@workspace:packages/project":
+"@webiny/project@workspace:packages/project":
   version: 0.0.0-use.local
   resolution: "@webiny/project@workspace:packages/project"
   dependencies:
