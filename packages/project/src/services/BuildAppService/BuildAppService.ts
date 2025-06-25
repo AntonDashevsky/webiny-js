@@ -12,7 +12,6 @@ export class DefaultBuildAppService implements BuildAppService.Interface {
     async execute(app: AppModel, buildParams: BuildAppService.Params): Promise<void> {
         const packages = await this.getAppPackagesService.execute(app);
 
-        console.log('packages', packages)
         const packagesBuilder = new PackagesBuilder(packages, buildParams, this.logger);
 
         return packagesBuilder.build();

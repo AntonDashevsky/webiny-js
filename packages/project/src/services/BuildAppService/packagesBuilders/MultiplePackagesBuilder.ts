@@ -3,11 +3,10 @@ import { deserializeError } from "serialize-error";
 import path from "path";
 import Listr from "listr";
 import chalk from "chalk";
-import type { IProjectApplicationPackage } from "@webiny/cli/types.js";
 import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
 import { measureDuration } from "./utils/measureDuration.js";
+import { AppPackageModel } from "~/models";
 
-const { gray } = chalk;
 const WORKER_PATH = path.resolve(import.meta.dirname, "workerEntry.js");
 
 export class MultiplePackagesBuilder extends BasePackagesBuilder {
@@ -71,7 +70,7 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
                 const { pkg, error } = err.cause as Record<string, any>;
                 const number = `${i + 1}.`;
                 const name = logger.error(pkg.name);
-                const relativePath = gray(`(${pkg.paths.relative})`);
+                const relativePath = chalk.gray(`(${pkg.paths.relative})`);
                 const title = [number, name, relativePath].join(" ");
 
                 console.log(title);
@@ -87,13 +86,13 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
 
         logger.log();
 
+        // TODO: context.success was used here
         logger.info(`Built ${packages.length} packages in ${getBuildDuration()}.`);
-        // context.success(`Built ${packages.length} packages in ${getBuildDuration()}.`);
     }
 
-    private getPackageLabel(pkg: IProjectApplicationPackage): string {
+    private getPackageLabel(pkg: AppPackageModel): string {
         const pkgName = pkg.name;
-        const pkgRelativePath = gray(`(${pkg.paths.relative})`);
+        const pkgRelativePath = chalk.gray(`(${pkg.paths.packageFolder})`);
         return `${pkgName} ${pkgRelativePath}`;
     }
 }

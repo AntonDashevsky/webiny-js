@@ -1,7 +1,7 @@
-import { Project } from "./Project";
+import { ProjectSdk } from "./ProjectSdk";
 
 async function main() {
-    const project = Project.init();
+    const project = ProjectSdk.init();
     // const pro = await project.getProject();
     //
     // console.log("1.", pro);
