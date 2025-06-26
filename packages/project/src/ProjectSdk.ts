@@ -3,9 +3,14 @@ import {
     GetProjectInfoCommand,
     BuildAppCommand,
     GetProjectCommand,
-    GetAppCommand,
+    GetAppCommand
 } from "~/abstractions";
-import { getProjectInfoCommand, buildAppCommand, getProjectCommand, getAppCommand } from "./features";
+import {
+    getProjectInfoCommand,
+    buildAppCommand,
+    getProjectCommand,
+    getAppCommand
+} from "./features";
 import {
     getIsCiService,
     getNpmVersionService,
@@ -17,15 +22,21 @@ import {
     getAppService,
     getAppPackagesService,
     buildAppService,
-    loggerService
+    loggerService,
+
+    // Hooks registries.
+    afterBuildHooksRegistry,
+    afterDeployHooksRegistry,
+    beforeBuildHooksRegistry,
+    beforeDeployHooksRegistry
 } from "./services";
 
 export class ProjectSdk {
     cwd: string;
     container: Container;
 
-    protected constructor(cwd?: string) {
-        this.cwd = cwd || process.cwd();
+    protected constructor(cwd: string, options: any) {
+        this.cwd = cwd;
 
         this.container = new Container();
 
@@ -42,19 +53,36 @@ export class ProjectSdk {
         this.container.register(getAppPackagesService).inSingletonScope();
         this.container.register(loggerService).inSingletonScope();
 
-        // Commands.
+        // Services - hooks.
+        this.container.register(afterBuildHooksRegistry).inSingletonScope();
+        this.container.register(afterDeployHooksRegistry).inSingletonScope();
+        this.container.register(beforeBuildHooksRegistry).inSingletonScope();
+        this.container.register(beforeDeployHooksRegistry).inSingletonScope();
+
+        // Features.
         this.container.register(getProjectCommand).inSingletonScope();
         this.container.register(getAppCommand).inSingletonScope();
         this.container.register(buildAppCommand).inSingletonScope();
         this.container.register(getProjectInfoCommand).inSingletonScope();
-    }
 
-    buildApp(params: BuildAppCommand.Params) {
-        return this.container.resolve(BuildAppCommand).execute(params);
+        // Extra.
+        if (options && Array.isArray(options.beforeBuildHooks)) {
+            options.beforeBuildHooks.forEach((hook:any) => {
+                this.container.register(hook).inSingletonScope();
+            });
+        }
     }
 
     getProject() {
         return this.container.resolve(GetProjectCommand).execute(this.cwd);
+    }
+
+    getProjectInfo() {
+        return this.container.resolve(GetProjectInfoCommand).execute();
+    }
+
+    buildApp(params: BuildAppCommand.Params) {
+        return this.container.resolve(BuildAppCommand).execute(params);
     }
 
     async getApp(appName: string) {
@@ -62,11 +90,7 @@ export class ProjectSdk {
         return this.container.resolve(GetAppCommand).execute({ project, appName });
     }
 
-    getProjectInfo() {
-        return this.container.resolve(GetProjectInfoCommand).execute();
-    }
-
-    static init(cwd?: string) {
-        return new ProjectSdk(cwd);
+    static init(cwd: string, options: any) {
+        return new ProjectSdk(cwd, options);
     }
 }
