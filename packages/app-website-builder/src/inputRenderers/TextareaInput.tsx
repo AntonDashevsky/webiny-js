@@ -6,14 +6,15 @@ export const TextareaInputRenderer = ({
     value,
     onChange,
     onPreviewChange,
-    input
+    input,
+    label
 }: ElementInputRendererProps) => {
     return (
         <Textarea
             value={value || ""}
             onChange={onPreviewChange}
             onBlur={e => onChange(e.currentTarget.value)}
-            label={input.label}
+            label={label}
             description={input.description}
             note={input.helperText}
             rows={10}

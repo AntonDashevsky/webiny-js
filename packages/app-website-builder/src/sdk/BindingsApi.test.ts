@@ -148,16 +148,15 @@ describe("BindingsApi", () => {
                 }
             }
         };
-
+        const ast = createTestAst();
         const processor = new BindingsProcessor(["desktop", "tablet", "mobile"]);
         const breakpointBindings = processor.getBindings(baseBindings, "mobile");
 
-        const ast = createTestAst();
         const factory = createMockFactory();
         const api = new BindingsApi(
             "element2",
             baseBindings,
-            breakpointBindings.bindings,
+            breakpointBindings,
             ast,
             factory,
             "mobile"
@@ -268,15 +267,15 @@ describe("BindingsApi", () => {
             }
         };
 
+        const ast = createTestAst();
         const processor = new BindingsProcessor(["desktop", "tablet", "mobile"]);
         const breakpointBindings = processor.getBindings(baseBindings, "tablet");
 
-        const ast = createTestAst();
         const factory = createMockFactory();
         const api = new BindingsApi(
             "element2",
             baseBindings,
-            breakpointBindings.bindings,
+            breakpointBindings,
             ast,
             factory,
             "mobile"

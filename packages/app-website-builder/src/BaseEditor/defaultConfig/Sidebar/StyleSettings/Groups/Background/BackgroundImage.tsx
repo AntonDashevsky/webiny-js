@@ -22,7 +22,7 @@ export const parseValue = (value: string) => {
 
 export const BackgroundImage = () => {
     const { isBaseBreakpoint } = useBreakpoint();
-    const { styles, onChange, inheritanceInfo } = useStyles();
+    const { styles, onChange, inheritanceMap } = useStyles();
     const [localValue, setLocalValue] = useState<string | null>(styles.backgroundImage);
     const url = useMemo(() => {
         const parser = new BackgroundImageParser(styles.backgroundImage);
@@ -92,7 +92,7 @@ export const BackgroundImage = () => {
         });
     };
 
-    const inheritance = inheritanceInfo.backgroundImage;
+    const inheritance = inheritanceMap?.backgroundImage ?? {};
 
     return (
         <FileManager

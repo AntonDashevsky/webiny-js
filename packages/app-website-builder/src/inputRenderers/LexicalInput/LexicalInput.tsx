@@ -18,7 +18,7 @@ export const LexicalInputRenderer = (props: ElementInputRendererProps) => {
 
 import { Dialog } from "@webiny/admin-ui";
 
-interface EditorDialogProps extends Omit<ElementInputRendererProps, "onPreviewChange"> {
+interface EditorDialogProps extends Omit<ElementInputRendererProps, "onPreviewChange" | "label"> {
     open: boolean;
     onClose: () => void;
 }

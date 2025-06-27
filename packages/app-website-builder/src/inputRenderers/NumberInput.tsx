@@ -3,7 +3,12 @@ import { Input } from "@webiny/admin-ui";
 import { ElementInputRendererProps } from "~/BaseEditor";
 import { NumberInput } from "~/sdk/types";
 
-export const NumberInputRenderer = ({ value, onChange, input }: ElementInputRendererProps) => {
+export const NumberInputRenderer = ({
+    value,
+    onChange,
+    input,
+    label
+}: ElementInputRendererProps) => {
     const localOnChange = useCallback(
         (value: string) => {
             const number = parseInt(value);
@@ -22,7 +27,7 @@ export const NumberInputRenderer = ({ value, onChange, input }: ElementInputRend
             type={"number"}
             value={value}
             onChange={localOnChange}
-            label={input.label}
+            label={label}
             description={input.description}
             note={input.helperText}
         />

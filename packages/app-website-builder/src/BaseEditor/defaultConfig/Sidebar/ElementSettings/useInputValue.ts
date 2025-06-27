@@ -3,35 +3,29 @@ import { useDocumentEditor } from "~/DocumentEditor";
 import type { InputValueBinding, ValueBinding } from "~/sdk/types";
 import { Commands } from "~/BaseEditor";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
-import {
-    ComponentManifestToAstConverter,
-    InputAstNode
-} from "~/sdk/ComponentManifestToAstConverter";
+import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
 import { functionConverter } from "~/sdk";
 import { BindingsApi } from "~/sdk/BindingsApi";
-import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
 import { useElementFactory } from "./useElementFactory";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useBindingsForElement } from "./useBindingsForElement";
 import { toJS } from "mobx";
+import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
 
 export const useInputValue = (node: InputAstNode) => {
     const { breakpoint } = useBreakpoint();
     const [element] = useActiveElement();
     const editor = useDocumentEditor();
-    const componentManifest = useElementComponentManifest(element?.id ?? "");
-    const inputsAst = componentManifest
-        ? ComponentManifestToAstConverter.convert(componentManifest.inputs ?? [])
-        : [];
+    const inputsAst = useElementInputsAst(element?.id);
 
     // These bindings already include per-breakpoint overrides.
-    const { resolvedBindings } = useBindingsForElement(element?.id);
+    const { resolvedBindings, inheritanceMap } = useBindingsForElement(element?.id);
 
     const elementFactory = useElementFactory();
     const [localState, setLocalValue] = useState<ValueBinding>();
 
     // This value is the final calculated breakpoint value.
-    const value = resolvedBindings.bindings.inputs?.[node.path] ?? {
+    const value = resolvedBindings.inputs?.[node.path] ?? {
         static: ""
     };
 
@@ -49,9 +43,7 @@ export const useInputValue = (node: InputAstNode) => {
                 const bindings = toJS(document.bindings[element.id] ?? { inputs: {} });
 
                 // Update breakpoint bindings.
-                const valueBinding: InputValueBinding = resolvedBindings.bindings.inputs?.[
-                    node.path
-                ] ?? {
+                const valueBinding: InputValueBinding = resolvedBindings.inputs?.[node.path] ?? {
                     type: node.type,
                     dataType: node.dataType,
                     static: ""
@@ -66,7 +58,7 @@ export const useInputValue = (node: InputAstNode) => {
                 const newBindings = toJS({
                     ...resolvedBindings,
                     inputs: {
-                        ...resolvedBindings.bindings.inputs,
+                        ...resolvedBindings.inputs,
                         [node.path]: valueBinding
                     }
                 });
@@ -94,8 +86,7 @@ export const useInputValue = (node: InputAstNode) => {
                 }
 
                 // Set new element bindings
-                const flatBindings = bindingsApi.toFlatBindings();
-                document.bindings[element.id] = flatBindings;
+                document.bindings[element.id] = bindingsApi.toFlatBindings();
 
                 // Apply operations
                 const ops = bindingsApi.getOperations();
@@ -132,6 +123,10 @@ export const useInputValue = (node: InputAstNode) => {
         [element?.id]
     );
 
+    const onReset = useCallback(() => {
+        onChange(undefined);
+    }, [onChange]);
+
     const setBindingType = useCallback(
         (type: "static" | "expression") => {
             if (!element) {
@@ -167,8 +162,10 @@ export const useInputValue = (node: InputAstNode) => {
 
     return {
         value: localState ?? value,
+        inheritanceMap: inheritanceMap.inputs[node.path],
         onChange,
         onPreviewChange,
+        onReset,
         setBindingType
     };
 };

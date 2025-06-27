@@ -2,33 +2,34 @@ import { toJS } from "mobx";
 import { BindingsProcessor } from "~/sdk/BindingsProcessor";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
+import { InheritanceProcessor } from "~/sdk/InheritanceProcessor";
 
 export const useBindingsForElement = (elementId?: string) => {
     const { breakpoint, breakpoints } = useBreakpoint();
+    const inputsAst = useElementInputsAst(elementId);
 
     return useSelectFromDocument(
         document => {
             if (!elementId) {
                 return {
                     rawBindings: {},
-                    resolvedBindings: {
-                        bindings: { inputs: {}, styles: {} },
-                        inheritanceInfo: {
-                            inputs: {},
-                            styles: {}
-                        }
-                    }
+                    resolvedBindings: { inputs: {}, styles: {} },
+                    inheritanceMap: { inputs: {}, styles: {} }
                 };
             }
 
             const bindings = toJS(document.bindings[elementId]) ?? {};
 
             // Merge element bindings.
-            const bindingsProcessor = new BindingsProcessor(breakpoints.map(bp => bp.name));
+            const breakpointNames = breakpoints.map(bp => bp.name);
+            const bindingsProcessor = new BindingsProcessor(breakpointNames);
+            const inheritanceProcessor = new InheritanceProcessor(breakpointNames, inputsAst);
 
             return {
                 rawBindings: bindings,
-                resolvedBindings: bindingsProcessor.getBindings(bindings, breakpoint.name)
+                resolvedBindings: bindingsProcessor.getBindings(bindings, breakpoint.name),
+                inheritanceMap: inheritanceProcessor.getInheritanceMap(bindings, breakpoint.name)
             };
         },
         [elementId, breakpoint]

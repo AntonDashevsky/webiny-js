@@ -4,6 +4,7 @@ import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
 import { useInputRenderer } from "./useInputRenderer";
 import { useInputValue } from "./useInputValue";
 import { DocumentElementBindings } from "~/sdk/types";
+import { InheritanceLabel } from "../InheritanceLabel";
 
 interface InputFieldProps {
     node: InputAstNode;
@@ -12,7 +13,7 @@ interface InputFieldProps {
 
 export function InputField({ node }: InputFieldProps) {
     const Renderer = useInputRenderer(node.input.renderer!);
-    const { value, onChange, onPreviewChange } = useInputValue(node);
+    const { value, onChange, onPreviewChange, inheritanceMap, onReset } = useInputValue(node);
     const input = node.input;
 
     if (input.type === "object") {
@@ -33,8 +34,20 @@ export function InputField({ node }: InputFieldProps) {
         );*/
     }
 
+    const label = node.input.responsive ? (
+        <InheritanceLabel
+            text={input.label}
+            inheritedFrom={inheritanceMap?.inheritedFrom}
+            isOverridden={inheritanceMap?.overridden ?? false}
+            onReset={onReset}
+        />
+    ) : (
+        input.label
+    );
+
     return (
         <Renderer
+            label={label}
             value={value.static}
             onChange={onChange}
             onPreviewChange={onPreviewChange}

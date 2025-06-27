@@ -4,7 +4,6 @@ import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useS
 import { BackgroundImageParser } from "./BackgroundImageParser";
 import { toTitleCaseLabel } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/Groups/Background/toTitleCaseLabel";
 import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 
 const POSITIONS = [
     "top left",
@@ -21,7 +20,7 @@ const POSITIONS = [
 const options = POSITIONS.map(key => ({ label: toTitleCaseLabel(key), value: key }));
 
 export const BackgroundPosition = () => {
-    const { styles, onChange, inheritanceInfo } = useStyles();
+    const { styles, onChange, inheritanceMap } = useStyles();
     const [localValue, setLocalValue] = useState<string>(styles.backgroundPosition);
     const hasBackgroundImage = useMemo(() => {
         const parser = new BackgroundImageParser(styles.backgroundImage);
@@ -46,7 +45,7 @@ export const BackgroundPosition = () => {
         });
     };
 
-    const inheritance = inheritanceInfo.backgroundPosition ?? {};
+    const inheritance = inheritanceMap?.backgroundPosition ?? {};
 
     return (
         <Select

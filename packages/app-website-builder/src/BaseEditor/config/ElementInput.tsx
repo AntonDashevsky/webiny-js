@@ -3,6 +3,7 @@ import { Property, useIdGenerator } from "@webiny/react-properties";
 import type { ComponentInput } from "~/sdk/types";
 
 export interface ElementInputRendererProps {
+    label: React.ReactNode;
     value: any;
     onChange: (value: any) => void;
     onPreviewChange: (value: any) => void;

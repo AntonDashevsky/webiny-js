@@ -13,13 +13,13 @@ export const useStyles = () => {
     const editor = useDocumentEditor();
 
     // These bindings already include per-breakpoint overrides.
-    const { rawBindings, resolvedBindings } = useBindingsForElement(element?.id);
+    const { rawBindings, resolvedBindings, inheritanceMap } = useBindingsForElement(element?.id);
+
     const stylesProcessor = new StylesBindingsProcessor(
         breakpoints.map(bp => bp.name),
         rawBindings
     );
-    const devFriendlyStyles = stylesProcessor.toDeepStyles(resolvedBindings.bindings.styles);
-    const inheritanceInfo = resolvedBindings.inheritanceInfo.styles;
+    const devFriendlyStyles = stylesProcessor.toDeepStyles(resolvedBindings.styles);
 
     const onChange = useCallback(
         (cb: (styles: Record<string, any>) => void) => {
@@ -68,7 +68,7 @@ export const useStyles = () => {
 
     return {
         styles: localState ?? devFriendlyStyles,
-        inheritanceInfo,
+        inheritanceMap: inheritanceMap.styles,
         onChange,
         onPreviewChange
     };

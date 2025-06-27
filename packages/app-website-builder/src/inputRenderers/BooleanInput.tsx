@@ -1,15 +1,14 @@
-import { Switch } from "@webiny/admin-ui";
 import React from "react";
-import type { TextInput } from "~/sdk/types";
+import { Switch } from "@webiny/admin-ui";
+import { ElementInputRendererProps } from "~/BaseEditor";
 
-interface ElementInputProps<T> {
-    value: T;
-    onChange: (value: T) => void;
-    input: TextInput;
-}
-
-export const BooleanInputRenderer = ({ value, onChange, input }: ElementInputProps<boolean>) => {
-    const { label, description, helperText } = input;
+export const BooleanInputRenderer = ({
+    value,
+    onChange,
+    input,
+    label
+}: ElementInputRendererProps) => {
+    const { description, helperText } = input;
     return (
         <Switch
             label={label}

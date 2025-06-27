@@ -5,7 +5,7 @@ import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useS
 import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
 
 export const BackgroundColor = () => {
-    const { styles, onChange, onPreviewChange, inheritanceInfo } = useStyles();
+    const { styles, onChange, onPreviewChange, inheritanceMap } = useStyles();
     const [value, setValue] = useState(styles.backgroundColor ?? "#000000");
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -38,7 +38,7 @@ export const BackgroundColor = () => {
         });
     };
 
-    const inheritance = inheritanceInfo?.backgroundColor ?? {};
+    const inheritance = inheritanceMap?.backgroundColor ?? {};
 
     return (
         <ColorPicker
