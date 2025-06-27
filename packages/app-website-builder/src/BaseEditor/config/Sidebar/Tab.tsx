@@ -24,20 +24,21 @@ export const TabContainer = styled("div")({
 export interface TabProps {
     name: string;
     label: string;
+    noPadding?: boolean;
     element: JSX.Element;
     disabled?: boolean;
     visible?: boolean;
 }
 
-export const Tab = ({ name, label, disabled, element, visible }: TabProps) => {
+export const Tab = ({ name, label, disabled, element, visible, noPadding }: TabProps) => {
     return (
         <Tabs.Tab
+            className={noPadding ? "wby-p-0" : undefined}
             value={name}
             trigger={label}
             disabled={disabled}
             visible={visible}
             content={<TabContainer>{element}</TabContainer>}
-
         />
     );
 };

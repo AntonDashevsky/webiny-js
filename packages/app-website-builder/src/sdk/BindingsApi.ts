@@ -1,4 +1,3 @@
-import set from "lodash/set";
 import type { ElementFactory } from "~/sdk/ElementFactory";
 import type { InputAstNode } from "./ComponentManifestToAstConverter";
 import type { DocumentElementBindings } from "~/sdk/types";
@@ -6,6 +5,7 @@ import type { IDocumentOperation } from "./documentOperations/IDocumentOperation
 import { createElement, type CreateElementParams } from "./createElement";
 import { DocumentOperations } from "~/sdk/documentOperations";
 import { InheritedValueResolver } from "~/sdk/InheritedValueResolver";
+import { StylesBindingsProcessor } from "~/sdk/StylesBindingsProcessor";
 
 export type FlatBindings = Record<string, Record<string, any>>;
 type DeepBindings = Record<string, any>;
@@ -13,6 +13,7 @@ type DeepBindings = Record<string, any>;
 export class BindingsApi {
     public inputs: DeepBindings = {};
     public styles: DeepBindings = {};
+    private stylesProcessor: StylesBindingsProcessor;
     private readonly elementId: string;
     private readonly inputsAst: InputAstNode[];
     private elementFactory: ElementFactory;
@@ -33,12 +34,13 @@ export class BindingsApi {
         this.breakpoint = breakpoint;
         // TODO: improve handling of breakpoints.
         this.breakpoints = ["desktop", "tablet", "mobile"];
+        this.stylesProcessor = new StylesBindingsProcessor(this.breakpoints, rawBindings);
         this.elementId = elementId;
         this.inputsAst = inputsAst;
         this.elementFactory = elementFactory;
         this.rawBindings = rawBindings;
         this.inputs = this.toDeep(resolvedBindings.inputs || {}, this.inputsAst);
-        this.styles = this.toDeepStyles(resolvedBindings.styles || {});
+        this.styles = this.stylesProcessor.toDeepStyles(resolvedBindings.styles || {});
         this.elementReferences = this.getElementReferences(rawBindings.inputs);
     }
 
@@ -260,7 +262,7 @@ export class BindingsApi {
         }
 
         // Convert deep styles back to flattened bindings
-        this.flattenStyles(rebuilt, this.styles);
+        this.stylesProcessor.applyStyles(rebuilt, this.styles, this.breakpoint);
 
         // Remove empty inputs and styles overrides.
         for (const [breakpoint, overrides] of Object.entries(rebuilt.overrides)) {
@@ -353,46 +355,6 @@ export class BindingsApi {
         };
 
         walk(ast, []);
-        return result;
-    }
-
-    /**
-     * Convert the styles object back to the original structure with ValueBinding value object.
-     */
-    private flattenStyles(rebuilt: FlatBindings, styles: DeepBindings): void {
-        const valueResolver = new InheritedValueResolver(this.breakpoints, breakpoint => {
-            if (breakpoint === "desktop") {
-                return this.rawBindings.styles;
-            }
-            return this.rawBindings.overrides?.[breakpoint]?.styles;
-        });
-
-        for (const [key, value] of Object.entries(styles)) {
-            if (this.isBaseBreakpoint(this.breakpoint)) {
-                // Base breakpoint: always assign styles directly
-                set(rebuilt, `styles.${key}.static`, value);
-            } else {
-                // Non-base breakpoint: check the inheritance chain
-                const inheritedValue = valueResolver.getInheritedValue(key, this.breakpoint);
-
-                if (value !== inheritedValue) {
-                    set(rebuilt, `overrides.${this.breakpoint}.styles.${key}.static`, value);
-                }
-                // else skip assignment to avoid redundant override
-            }
-        }
-    }
-
-    /**
-     * This method removes the `static` key from the value, since the `onChange` callback
-     * is only executed on static values.
-     */
-    private toDeepStyles(styles: DocumentElementBindings["styles"] = {}) {
-        const result: DeepBindings = {};
-        Object.keys(styles).forEach(key => {
-            // @ts-expect-error Style keys cannot be indexed with a string.
-            result[key] = styles[key].static;
-        });
         return result;
     }
 

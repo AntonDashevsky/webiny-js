@@ -13,16 +13,13 @@ import {
     createSelectInput
 } from "@webiny/app-website-builder/react/index.js";
 import { Root } from "./components/Root";
-import { TextWithDropzone } from "./components/TextWithDropzone";
 import ProductRecommendations from "./components/ProductRecommendations";
 import { ProductHighlight } from "./components/ProductHighlight";
-import { TwoColumns } from "./components/TwoColumns";
 import Hero_1 from "@/webiny/components/Hero-1";
 import { Column, Grid, GridColumn } from "./components/Grid";
+import { createLexicalValue, RichTextComponent } from "./components/RichTextComponent";
 
-const TextComponent = ({ inputs: { text, flag } }: { inputs: { text: string; flag: boolean } }) => (
-    <p className={`text-wrap ${flag ? "font-bold" : ""}`}>{text}</p>
-);
+const SimpleTextComponent = ({ inputs: { text } }: { inputs: { text: string } }) => <p>{text}</p>;
 
 export const customComponents = [
     createComponent(Root, {
@@ -166,7 +163,7 @@ export const customComponents = [
                             inputs: {
                                 children: [
                                     createElement({
-                                        component: "Webiny/Text"
+                                        component: "Webiny/RichText"
                                     })
                                 ]
                             }
@@ -178,7 +175,7 @@ export const customComponents = [
                             inputs: {
                                 children: [
                                     createElement({
-                                        component: "Webiny/Text"
+                                        component: "Webiny/RichText"
                                     })
                                 ]
                             }
@@ -205,32 +202,50 @@ export const customComponents = [
         canDrag: false,
         canDelete: false,
         acceptsChildren: true,
-        hideFromToolbar: true
+        hideFromToolbar: true,
+        defaults: {
+            styles: {
+                padding: "10px"
+            }
+        }
     }),
-    createComponent(TextComponent, {
-        name: "Webiny/Text",
-        label: "Text",
+    createComponent(RichTextComponent, {
+        name: "Webiny/RichText",
+        label: "Rich Text",
+        group: "basic",
+        image: "https://material-icons.github.io/material-icons/svg/text_fields/outline.svg",
+        inputs: [
+            createRichTextInput({
+                name: "content",
+                label: "Content"
+            })
+        ],
+        defaults: {
+            inputs: {
+                content: createLexicalValue(
+                    "Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet."
+                )
+            }
+        }
+    }),
+    createComponent(SimpleTextComponent, {
+        name: "Webiny/SimpleText",
+        label: "Simple Text",
         group: "basic",
         image: "https://material-icons.github.io/material-icons/svg/text_fields/outline.svg",
         inputs: [
             createLongTextInput({
                 name: "text",
                 label: "Text"
-            }),
-            createBooleanInput({
-                name: "flag",
-                label: "Popular post",
-                description: "I make text bold. Or not..."
             })
         ],
         defaults: {
             inputs: {
-                text: "Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.",
-                flag: false
+                text: "Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet."
             }
         }
     }),
-    createComponent(TextWithDropzone, {
+    /*createComponent(TextWithDropzone, {
         name: "Webiny/TextWithDropzone",
         label: "Text with Dropzone",
         group: "basic",
@@ -301,7 +316,7 @@ export const customComponents = [
                 backgroundColor: "#5c9a12"
             }
         }
-    }),
+    }),*/
     createComponent(ProductRecommendations, {
         name: "Kibo/ProductRecommendations",
         label: "Product Recommendations",

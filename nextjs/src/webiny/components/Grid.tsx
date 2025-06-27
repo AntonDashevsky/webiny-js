@@ -2,7 +2,7 @@ import React from "react";
 import type { ComponentProps, ComponentPropsWithChildren } from "@webiny/app-website-builder/react";
 
 export const GridColumn = ({ inputs }: { inputs: ComponentPropsWithChildren["inputs"] }) => {
-    return <div style={{ padding: 10 }}>{inputs.children}</div>;
+    return <>{inputs.children}</>;
 };
 
 export interface Column {

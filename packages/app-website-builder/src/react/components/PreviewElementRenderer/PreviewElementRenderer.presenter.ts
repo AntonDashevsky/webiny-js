@@ -1,7 +1,7 @@
 "use client";
 import { makeAutoObservable, observable, toJS } from "mobx";
-import set from "lodash/set";
-import { contentSdk, DocumentStore, type PreviewSdk, viewportManager } from "~/sdk/index.js";
+import * as fjp from "fast-json-patch";
+import { contentSdk, DocumentStore, type PreviewSdk } from "~/sdk/index.js";
 import type { DocumentElement } from "~/sdk/types.js";
 import { resizeObserver } from "~/sdk/ResizeObserver";
 
@@ -10,17 +10,11 @@ export class PreviewElementRendererPresenter {
     private listeners: Array<() => void> = [];
     private documentStore: DocumentStore;
     private readonly preview: PreviewSdk;
-    private breakpoint: string;
-    private viewportListenerDispose: (() => void) | undefined;
 
     constructor(documentStore: DocumentStore) {
         this.documentStore = documentStore;
         this.element = observable({}) as DocumentElement;
         this.preview = contentSdk.preview!;
-        this.breakpoint = viewportManager.getViewport().breakpoint;
-        this.viewportListenerDispose = viewportManager.onViewportChangeEnd(viewport => {
-            this.breakpoint = viewport.breakpoint;
-        });
         makeAutoObservable(this);
     }
 
@@ -48,10 +42,6 @@ export class PreviewElementRendererPresenter {
             resizeObserver.unobserve(element as HTMLElement);
         }
 
-        if (this.viewportListenerDispose) {
-            this.viewportListenerDispose();
-        }
-
         this.listeners.forEach(fn => fn());
     }
 
@@ -65,25 +55,9 @@ export class PreviewElementRendererPresenter {
         const { id } = element;
 
         this.listeners.push(
-            this.preview.messenger.on(`element.patch.${id}`, ({ inputs = {}, styles = {} }) => {
+            this.preview.messenger.on(`element.patch.${id}`, patch => {
                 this.documentStore.updateDocument(document => {
-                    // Apply inputs
-                    Object.keys(inputs).forEach(inputName => {
-                        set(
-                            document.bindings,
-                            `${id}.inputs.${inputName}.static`,
-                            inputs[inputName]
-                        );
-                    });
-
-                    // Apply styles
-                    Object.keys(styles).forEach(propertyName => {
-                        set(
-                            document.bindings,
-                            `${id}.styles.${this.breakpoint}.${propertyName}.static`,
-                            styles[propertyName]
-                        );
-                    });
+                    fjp.applyPatch(document.bindings[id], patch, false, true);
                 });
             })
         );

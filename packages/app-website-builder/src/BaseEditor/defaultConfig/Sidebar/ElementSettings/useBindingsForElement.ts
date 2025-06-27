@@ -9,7 +9,16 @@ export const useBindingsForElement = (elementId?: string) => {
     return useSelectFromDocument(
         document => {
             if (!elementId) {
-                return {};
+                return {
+                    rawBindings: {},
+                    resolvedBindings: {
+                        bindings: { inputs: {}, styles: {} },
+                        inheritanceInfo: {
+                            inputs: {},
+                            styles: {}
+                        }
+                    }
+                };
             }
 
             const bindings = toJS(document.bindings[elementId]) ?? {};
@@ -17,7 +26,10 @@ export const useBindingsForElement = (elementId?: string) => {
             // Merge element bindings.
             const bindingsProcessor = new BindingsProcessor(breakpoints.map(bp => bp.name));
 
-            return bindingsProcessor.getBindings(bindings, breakpoint.name);
+            return {
+                rawBindings: bindings,
+                resolvedBindings: bindingsProcessor.getBindings(bindings, breakpoint.name)
+            };
         },
         [elementId, breakpoint]
     );

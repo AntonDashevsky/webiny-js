@@ -157,7 +157,7 @@ describe("BindingsApi", () => {
         const api = new BindingsApi(
             "element2",
             baseBindings,
-            breakpointBindings,
+            breakpointBindings.bindings,
             ast,
             factory,
             "mobile"
@@ -276,7 +276,7 @@ describe("BindingsApi", () => {
         const api = new BindingsApi(
             "element2",
             baseBindings,
-            breakpointBindings,
+            breakpointBindings.bindings,
             ast,
             factory,
             "mobile"

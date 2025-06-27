@@ -32,7 +32,7 @@ const HighlightElement = createCommand<{ id: string }>("HIGHLIGHT_ELEMENT");
 
 const DeselectElement = createCommand<never>("DESELECT_ELEMENT");
 
-const PreviewPatchElement = createCommand<{ elementId: string; values: Record<string, any> }>(
+const PreviewPatchElement = createCommand<{ elementId: string; patch: any[] }>(
     "PREVIEW_PATCH_ELEMENT"
 );
 

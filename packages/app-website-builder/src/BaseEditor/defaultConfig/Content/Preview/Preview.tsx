@@ -127,7 +127,7 @@ export const Preview = () => {
         messenger.send("document.set", editor.getDocumentState().toJson());
 
         editor.registerCommandHandler(Commands.PreviewPatchElement, payload => {
-            messenger.send(`element.patch.${payload.elementId}`, payload.values);
+            messenger.send(`element.patch.${payload.elementId}`, payload.patch);
         });
 
         messenger.on("preview.viewport.change.start", () => {

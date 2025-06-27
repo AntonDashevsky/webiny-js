@@ -25,19 +25,18 @@ export const useInputValue = (node: InputAstNode) => {
         : [];
 
     // These bindings already include per-breakpoint overrides.
-    const breakpointBindings = useBindingsForElement(element?.id);
+    const { resolvedBindings } = useBindingsForElement(element?.id);
 
     const elementFactory = useElementFactory();
     const [localState, setLocalValue] = useState<ValueBinding>();
 
     // This value is the final calculated breakpoint value.
-    const value = breakpointBindings.inputs?.[node.path] ?? {
+    const value = resolvedBindings.bindings.inputs?.[node.path] ?? {
         static: ""
     };
 
     const onChange = useCallback(
         (value: any) => {
-            performance.mark('click-start');
             if (!element) {
                 return;
             }
@@ -50,7 +49,9 @@ export const useInputValue = (node: InputAstNode) => {
                 const bindings = toJS(document.bindings[element.id] ?? { inputs: {} });
 
                 // Update breakpoint bindings.
-                const valueBinding: InputValueBinding = breakpointBindings.inputs?.[node.path] ?? {
+                const valueBinding: InputValueBinding = resolvedBindings.bindings.inputs?.[
+                    node.path
+                ] ?? {
                     type: node.type,
                     dataType: node.dataType,
                     static: ""
@@ -63,9 +64,9 @@ export const useInputValue = (node: InputAstNode) => {
                 }
 
                 const newBindings = toJS({
-                    ...breakpointBindings,
+                    ...resolvedBindings,
                     inputs: {
-                        ...breakpointBindings.inputs,
+                        ...resolvedBindings.bindings.inputs,
                         [node.path]: valueBinding
                     }
                 });
@@ -103,9 +104,8 @@ export const useInputValue = (node: InputAstNode) => {
 
             // Clear local value
             setLocalValue(undefined);
-            performance.mark('click-end');
         },
-        [element?.id, breakpointBindings, breakpoint]
+        [element?.id, resolvedBindings, breakpoint]
     );
 
     const onPreviewChange = useCallback(
@@ -115,13 +115,18 @@ export const useInputValue = (node: InputAstNode) => {
             }
 
             setLocalValue({ static: value });
+
+            // TODO: extract InputBindings to calculate the correct patch based on inheritance
+            // TODO: BindingsApi needs to use InputBindings and StyleBindings internally
             editor.executeCommand(Commands.PreviewPatchElement, {
                 elementId: element.id,
-                values: {
-                    inputs: {
-                        [node.path]: value
+                patch: [
+                    {
+                        op: "replace",
+                        path: `/inputs/${node.path}/static`,
+                        value
                     }
-                }
+                ]
             });
         },
         [element?.id]

@@ -9,7 +9,7 @@ import { EditorConfig } from "~/BaseEditor/config";
 import { InfoMessage } from "./Sidebar/InfoMessage";
 // import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { StyleSettingsGroup } from "./Sidebar/StyleSettings/StyleSettingsGroup";
-// import { StyleProperties } from "./Sidebar/StyleSettings/StyleProperties";
+import { StyleProperties } from "./Sidebar/StyleSettings/StyleProperties";
 import { ElementSettingsGroup } from "./Sidebar/ElementSettings/ElementSettingsGroup";
 import { PageOptionsDropdown } from "./TopBar/DropdownActions/PageOptionsDropdown";
 import { Preview } from "./Content/Preview";
@@ -57,7 +57,7 @@ export const DefaultEditorConfig = React.memo(() => {
                 <Ui.Sidebar.Group name={"element"} element={<ElementSettingsGroup />} />
                 <Ui.Sidebar.Group name={"style"} element={<StyleSettingsGroup />} />
                 {/* Style Settings Tab */}
-                {/*<Ui.Sidebar.Element
+                <Ui.Sidebar.Element
                     name={"styleSettings"}
                     group={"style"}
                     element={
@@ -65,7 +65,7 @@ export const DefaultEditorConfig = React.memo(() => {
                             <StyleProperties />
                         </Ui.OnActiveElement>
                     }
-                />*/}
+                />
                 <Ui.Sidebar.Element
                     name={"styleInactive"}
                     group={"style"}

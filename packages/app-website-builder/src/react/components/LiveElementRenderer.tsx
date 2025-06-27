@@ -45,7 +45,7 @@ export const LiveElementRenderer = observer(({ element }: LiveElementRendererPro
     const instances = contentSdk.resolveElement({
         element,
         state,
-        elementBindings,
+        elementBindings: elementBindings.bindings,
         onResolved
     });
 

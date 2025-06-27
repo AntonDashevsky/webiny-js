@@ -5,7 +5,7 @@ export const breadcrumbs = css({
     zIndex: 100,
     flexDirection: "row",
     padding: 0,
-    position: "fixed",
+    position: "absolute",
     left: 300,
     bottom: 0,
     width: "calc(100% - 600px)",

@@ -9,6 +9,7 @@ export const StyleSettingsGroup = () => {
                 name={"style"}
                 label={"Style"}
                 element={<Sidebar.Elements group={"style"} />}
+                noPadding={true}
             />
         </ScrollableContainer>
     );

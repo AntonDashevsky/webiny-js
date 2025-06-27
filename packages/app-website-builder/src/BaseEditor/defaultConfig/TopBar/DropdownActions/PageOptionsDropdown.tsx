@@ -1,37 +1,52 @@
-import React, { Fragment } from "react";
-import { css } from "emotion";
-import { Menu } from "@webiny/ui/Menu";
-import { IconButton } from "@webiny/ui/Button";
-import { ReactComponent as MoreVerticalIcon } from "@webiny/icons/more_vert.svg";
-import { useEditorConfig } from "~/BaseEditor";
-import { TopBar } from "~/BaseEditor/config/TopBar/TopBar";
+import { Button, DropdownMenu, Icon, useToast } from "@webiny/admin-ui";
+import { ReactComponent as ArrowDown } from "@webiny/icons/keyboard_arrow_down.svg";
+import { ReactComponent as Draft } from "@webiny/icons/draw.svg";
+import { ReactComponent as Check } from "@webiny/icons/check.svg";
+import React, { useState } from "react";
+import { SettingsDialog } from "./SettingsDialog";
 
-const menuStyles = css`
-    .disabled {
-        opacity: 0.5;
-        pointer-events: none;
-    }
-`;
+const { Item } = DropdownMenu;
 
 export const PageOptionsDropdown = () => {
-    const { elements } = useEditorConfig();
-    const dropdownActions = elements.filter(
-        el => el.scope === "topBar" && el.group === "dropdownActions"
-    );
-
-    if (!dropdownActions.length) {
-        return null;
-    }
+    const [showDialog, setShowDialog] = useState(false);
+    const { showToast } = useToast();
+    const publish = () => {
+        setTimeout(() => {
+            showToast({
+                title: "Page was published successfully!",
+                icon: <Icon icon={<Check />} label={""} className={"wby-fill-success"} />
+            });
+        }, 500);
+    };
 
     return (
-        <Menu
-            data-testid="pb-editor-page-options-menu"
-            className={menuStyles}
-            handle={<IconButton icon={<MoreVerticalIcon />} />}
-        >
-            {/* We need to have more than 1 element in the children to force the Menu to render as a regular Menu. */}
-            <Fragment />
-            <TopBar.Elements group={"dropdownActions"} />
-        </Menu>
+        <div className={"wby-flex wby-gap-x-sm"}>
+            <SettingsDialog
+                open={showDialog}
+                onClose={() => setShowDialog(false)}
+                onSave={() => setShowDialog(false)}
+            />
+            <DropdownMenu
+                trigger={
+                    <Button
+                        variant="ghost"
+                        text={"v1 (Draft)"}
+                        icon={<ArrowDown />}
+                        iconPosition={"end"}
+                    />
+                }
+            >
+                <Item
+                    icon={<Item.Icon label={"v1 (Draft)"} element={<Draft />} />}
+                    text={"v1 (Draft)"}
+                />
+            </DropdownMenu>
+            <Button
+                variant="secondary"
+                text={"Settings"}
+                onClick={() => setShowDialog(true)}
+            ></Button>
+            <Button variant="primary" text={"Publish"} onClick={publish}></Button>
+        </div>
     );
 };

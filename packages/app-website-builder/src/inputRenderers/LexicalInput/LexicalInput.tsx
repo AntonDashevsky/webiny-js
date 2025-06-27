@@ -34,6 +34,7 @@ const EditorDialog = (props: EditorDialogProps) => {
         <Dialog
             open={props.open}
             className={"wby-w-[900px] wby-max-w-[900px] wby-overflow-visible"}
+            data-hover-manager={"ignore"}
             title={`Edit ${props.input.label}`}
             dismissible={false}
             showCloseButton={false}
@@ -66,7 +67,7 @@ const ExpandableLexicalInputRenderer = ({ value, onChange, input }: ElementInput
             onChange(value);
             setExpanded(false);
         },
-        [setExpanded]
+        [onChange, setExpanded]
     );
 
     return (

@@ -1,11 +1,11 @@
-// @ts-nocheck Not used at the moment.
-import React, { useMemo } from "react";
-import { ElementProperties, ElementProperty } from "~/editor/config/ElementProperty";
-import { useActiveElement } from "~/editor";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import React from "react";
+import { Accordion } from "@webiny/admin-ui";
+import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
+import { DocumentElement } from "~/sdk/types";
+import { Background } from "./Groups/Background";
 
 export const StyleProperties = () => {
-    const [element] = useActiveElement<Element>();
+    const [element] = useActiveElement();
     if (!element) {
         return null;
     }
@@ -13,29 +13,10 @@ export const StyleProperties = () => {
     return <ElementStyleProperties element={element} />;
 };
 
-const ElementStyleProperties = ({ element }: { element: Element }) => {
-    const plugin = useElementPlugin(element);
-    if (!plugin) {
-        return null;
-    }
-
-    const names = (plugin.settings || []) as string[] | string[][];
-
-    const settings = useMemo(() => {
-        return names
-            .map(config => (Array.isArray(config) ? config[0] : config))
-            .filter(name => name.startsWith("pb-editor-page-element-style-settings-"))
-            .map(name => getPropertyName(name));
-    }, [element.type]);
-
+const ElementStyleProperties = ({ element }: { element: DocumentElement }) => {
     return (
-        <ElementProperties
-            group={ElementProperty.STYLE}
-            transform={elements => {
-                return ["property", ...settings]
-                    .map(name => elements.find(element => element.name === name))
-                    .filter(Boolean) as typeof elements;
-            }}
-        />
+        <Accordion>
+            <Background />
+        </Accordion>
     );
 };

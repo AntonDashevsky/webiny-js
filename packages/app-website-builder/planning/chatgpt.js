@@ -1,4 +1,22 @@
 const document = {
+    id: "id#revision",
+    status: "",
+    revision: {},
+    // Field type: "searchable-json"
+    properties: {
+        // Static page
+        path: "/about-us",
+        // Template
+        templateId: "product-page",
+        // Other properties
+        title: "",
+        description: "",
+        settings: {
+            tags: []
+        },
+        extensions: {}
+    },
+    // Not stored.
     state: {
         spacex: {
             launches: [{ id: "1", name: "Launch 1" }]
@@ -39,6 +57,7 @@ const document = {
             }
         }
     },
+    // Field type: "json"
     elements: {
         root: {
             type: "Webiny/Element",
@@ -81,3 +100,21 @@ const document = {
         }
     }
 };
+
+const query = /* GraphQL */ `
+    {
+        websiteBuilder {
+            # Public API
+            getPageByPath(path: "/about-us") {
+                
+            }
+            
+            getPageTemplate(slug: "") {
+                    
+            }
+            # Admin
+            
+            
+        }
+    }
+`;

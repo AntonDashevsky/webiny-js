@@ -46,7 +46,7 @@ export const useBreakpoint = () => {
     });
 
     const breakpoint = useMemo(() => {
-        return BREAKPOINTS.find(mode => mode.name === activeBreakpoint)!;
+        return BREAKPOINTS.find(bp => bp.name === activeBreakpoint)!;
     }, [activeBreakpoint]);
 
     const setBreakpoint = useCallback(
@@ -59,7 +59,7 @@ export const useBreakpoint = () => {
     );
 
     return {
-        isDefaultBreakpoint: BREAKPOINTS.findIndex(bp => bp.name === activeBreakpoint) === 0,
+        isBaseBreakpoint: breakpoint.name === "desktop",
         breakpoint,
         breakpoints: BREAKPOINTS,
         setBreakpoint
