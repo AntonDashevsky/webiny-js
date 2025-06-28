@@ -3,9 +3,11 @@ import { IProjectModel } from "~/abstractions/models";
 type ProjectModelDto = IProjectModel;
 
 export class ProjectModel implements IProjectModel {
+    public readonly name: string;
     public readonly paths: IProjectModel["paths"];
 
     private constructor(params: ProjectModelDto) {
+        this.name = params.name;
         this.paths = params.paths;
     }
 

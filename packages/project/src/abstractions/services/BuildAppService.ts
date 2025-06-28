@@ -1,12 +1,8 @@
 import { Abstraction } from "@webiny/di-container";
 import { IAppModel } from "~/abstractions/models/IAppModel";
+import { BaseBuildDeployParams } from "~/abstractions/types";
 
-export interface IBuildParams {
-    env: string;
-    debug?: boolean;
-    variant?: string;
-    region?: string;
-}
+export interface IBuildParams extends BaseBuildDeployParams {}
 
 export interface IBuildAppService {
     execute(app: IAppModel, buildParams: IBuildParams): Promise<void>;

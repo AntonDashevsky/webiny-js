@@ -8,6 +8,7 @@ export interface IAppModel {
     paths: {
         appsFolder: AbsRelPaths;
         workspaceFolder: AbsRelPaths;
+        localPulumiStateFilesFolder: AbsRelPaths;
     };
 
     getConfig(): Promise<Record<string, any>>;

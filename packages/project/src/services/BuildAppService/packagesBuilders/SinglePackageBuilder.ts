@@ -8,7 +8,7 @@ export class SinglePackageBuilder extends BasePackagesBuilder {
         const logger = this.logger;
         const buildParams = this.buildParams;
 
-        const { env, debug, variant, region } = buildParams;
+        const { env, variant, region } = buildParams;
 
         const pkgName = pkg.name;
         const pkgRelativePath = chalk.gray(`(${pkg.paths.packageFolder})`);
@@ -18,7 +18,7 @@ export class SinglePackageBuilder extends BasePackagesBuilder {
             env,
             variant,
             region,
-            debug,
+            // debug, TODO: check this
             cwd: pkg.paths.packageFolder,
         };
 

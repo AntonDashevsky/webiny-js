@@ -11,13 +11,21 @@ export class DefaultGetAppService implements GetAppService.Interface {
             workspaceFolderAbsPath
         );
 
-        const appsFolderAbsPath = path.join(
-            project.paths.appsFolder.absolute,
-            appName);
+        const appsFolderAbsPath = path.join(project.paths.appsFolder.absolute, appName);
 
         const appsFolderRelPath = path.relative(
             project.paths.rootFolder.absolute,
             appsFolderAbsPath
+        );
+
+        const localPulumiStateFilesFolderAbsPath = path.join(
+            project.paths.localPulumiStateFilesFolder.absolute,
+            appsFolderRelPath
+        );
+
+        const localPulumiStateFilesFolderRelPath = path.relative(
+            project.paths.rootFolder.absolute,
+            localPulumiStateFilesFolderAbsPath
         );
 
         return AppModel.fromDto({
@@ -30,6 +38,10 @@ export class DefaultGetAppService implements GetAppService.Interface {
                 workspaceFolder: {
                     absolute: workspaceFolderAbsPath,
                     relative: workspaceFolderRelPath
+                },
+                localPulumiStateFilesFolder: {
+                    absolute: localPulumiStateFilesFolderAbsPath,
+                    relative: localPulumiStateFilesFolderRelPath
                 }
             }
         });

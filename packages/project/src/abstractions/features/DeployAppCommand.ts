@@ -1,26 +1,16 @@
 import { Abstraction } from "@webiny/di-container";
 import { ICommand } from "./ICommand";
+import { DeployAppService } from "~/abstractions";
 
-export interface DeployAppCommandParams {
+export interface DeployAppCommandParams extends DeployAppService.Params {
     app: string;
-    env: string;
-    variant?: string;
-    region?: string;
-    build?: boolean;
-    deploy?: boolean;
-    preview?: boolean;
-    allowLocalStateFiles?: boolean;
-
-    debug?: boolean;
-    logs?: boolean;
-    deploymentLogs?: boolean;
 }
 
 type IDeployAppCommand = ICommand<DeployAppCommandParams>;
 
 export const DeployAppCommand = new Abstraction<IDeployAppCommand>("DeployAppCommand");
 
-namespace DeployAppCommand {
+export namespace DeployAppCommand {
     export type Interface = IDeployAppCommand;
 
     export type Params = DeployAppCommandParams;

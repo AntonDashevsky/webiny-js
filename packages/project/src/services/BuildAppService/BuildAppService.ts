@@ -9,6 +9,8 @@ import {
 import { AppModel } from "~/models";
 import { PackagesBuilder } from "./packagesBuilders/PackagesBuilder";
 
+import { createAppWorkspace } from "~/utils";
+
 export class DefaultBuildAppService implements BuildAppService.Interface {
     constructor(
         private getAppPackagesService: GetAppPackagesService.Interface,
@@ -18,6 +20,16 @@ export class DefaultBuildAppService implements BuildAppService.Interface {
     ) {}
 
     async execute(app: AppModel, buildParams: BuildAppService.Params): Promise<void> {
+        if (!buildParams.env) {
+            throw new Error(`Please specify environment, for example "dev".`);
+        }
+
+        await createAppWorkspace({
+            app,
+            env: buildParams.env,
+            variant: buildParams.variant
+        });
+
         const beforeBuildHooks = this.beforeBuildHooksRegistry.execute();
         for (const beforeBuildHook of beforeBuildHooks) {
             await beforeBuildHook.execute();
@@ -25,7 +37,7 @@ export class DefaultBuildAppService implements BuildAppService.Interface {
 
         const packages = await this.getAppPackagesService.execute(app);
         const packagesBuilder = new PackagesBuilder(packages, buildParams, this.logger);
-        // await packagesBuilder.build();
+        await packagesBuilder.build();
 
         const afterBuildHooks = this.afterBuildHooksRegistry.execute();
         for (const afterBuildHook of afterBuildHooks) {

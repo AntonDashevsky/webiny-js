@@ -76,9 +76,10 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
                 console.log(title);
                 console.log(error.message);
 
-                if (buildParams.debug) {
-                    console.log(error.stack);
-                }
+                // TODO: check this
+                // if (buildParams.debug) {
+                //     console.log(error.stack);
+                // }
             });
 
             throw new Error(`Failed to build all packages.`);

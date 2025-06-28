@@ -22,7 +22,15 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
         const workspacesFolderAbsPath = join(projectRootFolderAbsPath, ".webiny", "workspaces");
         const workspacesFolderRelPath = relative(projectRootFolderAbsPath, workspacesFolderAbsPath);
 
+        const localPulumiStateFilesFolderAbsPath = join(projectRootFolderAbsPath, ".pulumi");
+
+        const localPulumiStateFilesFolderRelPath = relative(
+            projectRootFolderAbsPath,
+            localPulumiStateFilesFolderAbsPath
+        );
+
         return ProjectModel.fromDto({
+            name: "webiny-project",
             paths: {
                 appsFolder: {
                     absolute: appsFolderAbsPath,
@@ -39,23 +47,13 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
                 workspacesFolder: {
                     absolute: workspacesFolderAbsPath,
                     relative: workspacesFolderRelPath
+                },
+                localPulumiStateFilesFolder: {
+                    absolute: localPulumiStateFilesFolderAbsPath,
+                    relative: localPulumiStateFilesFolderRelPath
                 }
             }
         });
-
-        // let projectlicationConfig = await import(rootFile).then(m => m.default ?? m);
-        //
-        // return new ProjectModel({
-        //     config: {
-        //         ...projectlicationConfig,
-        //         getPlugins: async () => {
-        //             return projectlicationConfig.getPlugins ? projectlicationConfig.getPlugins() : [];
-        //         }
-        //     }
-        //     // project: project // Assuming `project` is defined in the context where this method is called
-        // }
-        //
-        // return ProjectModel.load(cwd);
     }
 }
 

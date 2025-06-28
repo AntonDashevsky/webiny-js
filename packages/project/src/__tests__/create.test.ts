@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ProjectSdk } from "~/ProjectSdk";
 
 import { createImplementation } from "@webiny/di-container";

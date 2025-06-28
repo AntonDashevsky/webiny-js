@@ -9,30 +9,39 @@ class MyBeforeBuildHook implements BeforeBuildHook.Interface {
     }
 }
 
+const myBeforeBuildHook = createImplementation({
+    abstraction: BeforeBuildHook,
+    implementation: MyBeforeBuildHook,
+    dependencies: []
+});
+
 class MyOtherBeforeBuildHook implements BeforeBuildHook.Interface {
     execute() {
         console.log("2");
     }
 }
 
+const myOtherBeforeBuildHook = createImplementation({
+    abstraction: BeforeBuildHook,
+    implementation: MyOtherBeforeBuildHook,
+    dependencies: []
+});
+
+
+
 async function main() {
     const cwd = process.cwd();
     const project = ProjectSdk.init(cwd, {
         beforeBuildHooks: [
-            createImplementation({
-                abstraction: BeforeBuildHook,
-                implementation: MyBeforeBuildHook,
-                dependencies: []
-            }),
-            createImplementation({
-                abstraction: BeforeBuildHook,
-                implementation: MyOtherBeforeBuildHook,
-                dependencies: []
-            })
+            // @ts-ignore TODO: Fix this.
+            myBeforeBuildHook,
+
+            // @ts-ignore TODO: Fix this.
+            myOtherBeforeBuildHook
         ]
     });
 
-    const apiPackages = await project.buildApp({
+    const apiPackages = await project.deployApp({
         app: "api",
         env: "dev"
     });
