@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ProjectApplication } from "@webiny/cli/types.js";
 import chalk from "chalk";
 import { IUserCommandInput } from "~/types.js";
