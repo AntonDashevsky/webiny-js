@@ -6,6 +6,7 @@ import type { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
 import { DocumentOperations, type IDocumentOperation } from "~/sdk/documentOperations";
 import { ElementFactory } from "~/sdk/ElementFactory";
 import { InputsUpdater } from "~/sdk/InputsUpdater";
+import { generateAlphaNumericLowerCaseId } from "@webiny/utils/generateId";
 
 type DeepBindings = Record<string, any>;
 
@@ -226,12 +227,17 @@ export class InputsBindingsProcessor {
 
                         const createdId = newElement.element.id;
 
+                        // Assign or generate a stable unique id for the binding
+                        const existingId = originalEntry?.id;
+                        const idToUse = existingId ?? generateAlphaNumericLowerCaseId();
+
                         // Build binding for the new element id(s)
                         const binding = {
                             static: node.list ? [createdId] : createdId,
                             type: node.type,
                             dataType: node.dataType,
-                            list: node.list
+                            list: node.list,
+                            id: idToUse
                         };
 
                         if (node.input?.responsive && !this.isBaseBreakpoint(breakpoint)) {
@@ -275,13 +281,18 @@ export class InputsBindingsProcessor {
                         const isResponsive =
                             node.input?.responsive && !this.isBaseBreakpoint(breakpoint);
 
+                        // Assign or generate a stable unique id for the binding
+                        const existingId = originalEntry?.id;
+                        const idToUse = existingId ?? generateAlphaNumericLowerCaseId();
+
                         // Merge existing original entry data with updated static value
                         const binding = {
                             ...(originalEntry ?? {}),
                             static: newValue,
                             type: node.type,
                             dataType: node.dataType,
-                            list: node.list
+                            list: node.list,
+                            id: idToUse
                         };
 
                         if (isResponsive) {

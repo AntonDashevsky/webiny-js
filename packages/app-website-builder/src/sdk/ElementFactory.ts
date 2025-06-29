@@ -207,6 +207,7 @@ export class ElementFactory {
                 ops.push(
                     ...newElement.operations,
                     operations.setInputBinding(elementId, path, {
+                        id: generateAlphaNumericLowerCaseId(),
                         static: node.list ? [newElementId] : newElementId,
                         type: node.type,
                         dataType: node.dataType,
@@ -222,6 +223,7 @@ export class ElementFactory {
 
                 ops.push(
                     operations.setInputBinding(elementId, path, {
+                        id: generateAlphaNumericLowerCaseId(),
                         static: value ?? node.input.defaultValue,
                         type: node.type,
                         dataType: node.dataType,

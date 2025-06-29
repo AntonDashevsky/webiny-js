@@ -7,6 +7,7 @@ export type ElementMap = Record<string, DocumentElement>;
 export type DocumentState = Record<string, any>;
 
 export type InputValueBinding<T = any> = ValueBinding<T> & {
+    id: string;
     type: string;
     dataType: string;
     list?: boolean;
