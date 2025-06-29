@@ -11,15 +11,16 @@ import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useBindingsForElement } from "./useBindingsForElement";
 import { toJS } from "mobx";
 import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
+import { InputsBindingsProcessor } from "~/sdk/InputBindingsProcessor";
 
 export const useInputValue = (node: InputAstNode) => {
-    const { breakpoint } = useBreakpoint();
+    const { breakpoint, breakpoints } = useBreakpoint();
     const [element] = useActiveElement();
     const editor = useDocumentEditor();
     const inputsAst = useElementInputsAst(element?.id);
 
     // These bindings already include per-breakpoint overrides.
-    const { resolvedBindings, inheritanceMap } = useBindingsForElement(element?.id);
+    const { rawBindings, resolvedBindings, inheritanceMap } = useBindingsForElement(element?.id);
 
     const elementFactory = useElementFactory();
     const [localState, setLocalValue] = useState<ValueBinding>();
@@ -85,12 +86,7 @@ export const useInputValue = (node: InputAstNode) => {
                     });
                 }
 
-                // Set new element bindings
-                document.bindings[element.id] = bindingsApi.toFlatBindings();
-
-                // Apply operations
-                const ops = bindingsApi.getOperations();
-                ops.forEach(op => op.apply(document));
+                bindingsApi.applyToDocument(document);
             });
 
             // Clear local value
@@ -99,6 +95,9 @@ export const useInputValue = (node: InputAstNode) => {
         [element?.id, resolvedBindings, breakpoint]
     );
 
+    /**
+     * In preview, we do not update the editor document. Instead, we create a patch and send it to the preview app.
+     */
     const onPreviewChange = useCallback(
         (value: any) => {
             if (!element) {
@@ -107,20 +106,27 @@ export const useInputValue = (node: InputAstNode) => {
 
             setLocalValue({ static: value });
 
-            // TODO: extract InputBindings to calculate the correct patch based on inheritance
-            // TODO: BindingsApi needs to use InputBindings and StyleBindings internally
+            const partialInputs = {
+                [node.path]: { ...resolvedBindings.inputs[element.id], static: value }
+            };
+
+            const inputsProcessor = new InputsBindingsProcessor(
+                element.id,
+                inputsAst,
+                breakpoints.map(bp => bp.name),
+                rawBindings,
+                elementFactory
+            );
+
+            const deepInputs = inputsProcessor.toDeepInputs(partialInputs);
+            const updatedInputs = inputsProcessor.createUpdate(deepInputs, breakpoint.name);
+
             editor.executeCommand(Commands.PreviewPatchElement, {
                 elementId: element.id,
-                patch: [
-                    {
-                        op: "replace",
-                        path: `/inputs/${node.path}/static`,
-                        value
-                    }
-                ]
+                patch: updatedInputs.createJsonPatch(rawBindings)
             });
         },
-        [element?.id]
+        [element?.id, rawBindings]
     );
 
     const onReset = useCallback(() => {

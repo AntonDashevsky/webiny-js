@@ -1,28 +1,27 @@
 import type { ElementFactory } from "~/sdk/ElementFactory";
 import type { InputAstNode } from "./ComponentManifestToAstConverter";
-import type { DocumentElementBindings } from "~/sdk/types";
-import type { IDocumentOperation } from "./documentOperations/IDocumentOperation";
+import type { DocumentElementBindings, Document } from "~/sdk/types";
 import { createElement, type CreateElementParams } from "./createElement";
-import { DocumentOperations } from "~/sdk/documentOperations";
-import { InheritedValueResolver } from "~/sdk/InheritedValueResolver";
 import { StylesBindingsProcessor } from "~/sdk/StylesBindingsProcessor";
+import { InputsBindingsProcessor } from "~/sdk/InputBindingsProcessor";
 
 export type FlatBindings = Record<string, Record<string, any>>;
 type DeepBindings = Record<string, any>;
 
+// The BindingsApi class manages the transformation and handling of element bindings,
+// including inputs and styles, for a document element within the editor.
 export class BindingsApi {
     public inputs: DeepBindings = {};
     public styles: DeepBindings = {};
+    private inputsProcessor: InputsBindingsProcessor;
     private stylesProcessor: StylesBindingsProcessor;
-    private readonly elementId: string;
-    private readonly inputsAst: InputAstNode[];
-    private elementFactory: ElementFactory;
     private breakpoint: string;
-    private operations: IDocumentOperation[] = [];
-    private elementReferences: Set<string>;
-    private rawBindings: DocumentElementBindings;
     private breakpoints: string[];
 
+    // TODO: refactor to pass inputs and styles processor instead of their deps.
+
+    // Constructs a new BindingsApi instance for a specific element, providing its
+    // raw and resolved bindings, the input AST, an element factory, and the current breakpoint.
     constructor(
         elementId: string,
         rawBindings: DocumentElementBindings,
@@ -34,20 +33,24 @@ export class BindingsApi {
         this.breakpoint = breakpoint;
         // TODO: improve handling of breakpoints.
         this.breakpoints = ["desktop", "tablet", "mobile"];
-        this.stylesProcessor = new StylesBindingsProcessor(this.breakpoints, rawBindings);
-        this.elementId = elementId;
-        this.inputsAst = inputsAst;
-        this.elementFactory = elementFactory;
-        this.rawBindings = rawBindings;
-        this.inputs = this.toDeep(resolvedBindings.inputs || {}, this.inputsAst);
+        this.inputsProcessor = new InputsBindingsProcessor(
+            elementId,
+            inputsAst,
+            this.breakpoints,
+            rawBindings,
+            elementFactory
+        );
+        this.stylesProcessor = new StylesBindingsProcessor(
+            elementId,
+            this.breakpoints,
+            rawBindings
+        );
+        this.inputs = this.inputsProcessor.toDeepInputs(resolvedBindings.inputs || {});
         this.styles = this.stylesProcessor.toDeepStyles(resolvedBindings.styles || {});
-        this.elementReferences = this.getElementReferences(rawBindings.inputs);
     }
 
-    public getOperations(): IDocumentOperation[] {
-        return this.operations;
-    }
-
+    // Returns the public API for this binding context, exposing deep inputs, styles,
+    // and a function to create elements.
     public getPublicApi() {
         return {
             inputs: this.inputs,
@@ -58,323 +61,11 @@ export class BindingsApi {
         };
     }
 
-    /**
-     * Converts the internal deep bindings representation back into a flat structure suitable for storage or transmission.
-     * This method traverses the input AST, compares current input values with the original raw bindings,
-     * and constructs a flat bindings object that includes any changes, new elements, and responsive overrides.
-     *
-     * It also identifies elements that were removed from slot bindings and schedules their removal operations.
-     * Styles are flattened back to their original structure with static value wrappers.
-     *
-     * @returns A flat bindings object with inputs, styles, and any breakpoint overrides.
-     */
-    public toFlatBindings(): FlatBindings {
-        const originalInputs = this.rawBindings.inputs ?? {};
-        const originalStyles = this.rawBindings.styles ?? {};
+    public applyToDocument(document: Document) {
+        const inputs = this.inputsProcessor.createUpdate(this.inputs, this.breakpoint);
+        const styles = this.stylesProcessor.createUpdate(this.styles, this.breakpoint);
 
-        const rebuilt: FlatBindings = { inputs: {}, styles: originalStyles, overrides: {} };
-
-        // Clone existing overrides if present, to avoid losing breakpoint overrides
-        if (this.rawBindings.overrides) {
-            rebuilt.overrides = structuredClone(this.rawBindings.overrides);
-        }
-
-        // Set to track which flat binding paths we've processed during traversal
-        const seenPaths = new Set<string>();
-        const valueResolver = new InheritedValueResolver(this.breakpoints, bp => {
-            if (this.isBaseBreakpoint(bp)) {
-                return this.rawBindings.inputs;
-            }
-            return this.rawBindings.overrides?.[bp]?.inputs;
-        });
-
-        /**
-         * Extracts a nested value from an object based on a flat string path.
-         * Supports array indexes like 'rows[0].columns[1].children'.
-         *
-         * @param obj - The nested object to traverse
-         * @param path - The flat path string
-         * @returns The value at the specified path, or undefined if not found
-         */
-        const getValue = (obj: any, path: string): any => {
-            const keys = path
-                .split(/\.|\[(\d+)\]/) // Split by dot or array index
-                .filter(Boolean)
-                .map(k => (/\d+/.test(k) ? +k : k));
-            return keys.reduce((acc, key) => (acc ? acc[key] : undefined), obj);
-        };
-
-        /**
-         * Recursively traverses the AST nodes, comparing new input values with original bindings.
-         * Collects changed values into 'rebuilt' and generates operations for new elements.
-         *
-         * @param nodes - Array of AST nodes to traverse
-         * @param prefix - Array of path segments for current recursion level
-         */
-        const compareAndCollect = (nodes: InputAstNode[], prefix: string[]) => {
-            for (const node of nodes) {
-                const pathParts = [...prefix, node.name];
-                const flatKey = pathParts.join(".");
-
-                // Mark this path as seen
-                seenPaths.add(flatKey);
-
-                if (node.children.length) {
-                    if (node.list) {
-                        // For list nodes, process each indexed item separately
-                        const list = getValue(this.inputs, flatKey);
-                        if (Array.isArray(list)) {
-                            for (let i = 0; i < list.length; i++) {
-                                // Recurse with indexed path like 'rows[0]', 'rows[1]'
-                                compareAndCollect(node.children, [
-                                    ...pathParts.slice(0, -1),
-                                    `${node.name}[${i}]`
-                                ]);
-                            }
-                        }
-                    } else {
-                        // For single object nodes, recurse normally
-                        compareAndCollect(node.children, pathParts);
-                    }
-                } else {
-                    // Leaf node (primitive or slot) processing
-
-                    // Get current new value from deep inputs
-                    const newValue = getValue(this.inputs, flatKey);
-
-                    // Get original binding entry for this path
-                    const originalEntry = originalInputs[flatKey];
-
-                    // If new value is undefined, skip (treat as deleted or missing)
-                    if (newValue === undefined) {
-                        continue;
-                    }
-
-                    if (typeof newValue === "object" && newValue.action === "CreateElement") {
-                        // Handle CreateElement action by generating element and operations
-                        const newElement = this.elementFactory.createElementFromComponent({
-                            componentName: newValue.params.component,
-                            parentId: this.elementId,
-                            slot: flatKey,
-                            index: -1,
-                            bindings: newValue.params
-                        });
-
-                        const createdId = newElement.element.id;
-
-                        // Build binding for the new element id(s)
-                        const binding = {
-                            static: node.list ? [createdId] : createdId,
-                            type: node.type,
-                            dataType: node.dataType,
-                            list: node.list
-                        };
-
-                        if (node.input?.responsive && !this.isBaseBreakpoint(this.breakpoint)) {
-                            const inheritedValue = valueResolver.getInheritedValue(
-                                flatKey,
-                                this.breakpoint
-                            );
-
-                            if (!inheritedValue || inheritedValue !== binding.static) {
-                                if (!rebuilt.overrides[this.breakpoint]) {
-                                    rebuilt.overrides[this.breakpoint] = {};
-                                }
-
-                                if (!rebuilt.overrides[this.breakpoint].inputs) {
-                                    rebuilt.overrides[this.breakpoint].inputs = {};
-                                }
-
-                                rebuilt.overrides[this.breakpoint].inputs[flatKey] = binding;
-                            }
-
-                            if (originalEntry) {
-                                rebuilt.inputs[flatKey] = originalEntry;
-                            }
-                        } else {
-                            // Normal case: update base inputs
-                            rebuilt.inputs[flatKey] = binding;
-                        }
-
-                        // Add generated operations for this element creation
-                        this.operations.push(...newElement.operations);
-                    } else {
-                        // Normal value update
-                        const isResponsive =
-                            node.input?.responsive && !this.isBaseBreakpoint(this.breakpoint);
-
-                        // Merge existing original entry data with updated static value
-                        const binding = {
-                            ...(originalEntry ?? {}),
-                            static: newValue,
-                            type: node.type,
-                            dataType: node.dataType,
-                            list: node.list
-                        };
-
-                        if (isResponsive) {
-                            const inheritedValue = valueResolver.getInheritedValue(
-                                flatKey,
-                                this.breakpoint
-                            );
-
-                            if (!inheritedValue || inheritedValue !== binding.static) {
-                                if (!rebuilt.overrides[this.breakpoint]) {
-                                    rebuilt.overrides[this.breakpoint] = {};
-                                }
-
-                                if (!rebuilt.overrides[this.breakpoint].inputs) {
-                                    rebuilt.overrides[this.breakpoint].inputs = {};
-                                }
-
-                                rebuilt.overrides[this.breakpoint].inputs[flatKey] = binding;
-                            }
-
-                            // If override value is the same as inherited value, delete the override.
-                            if (inheritedValue && inheritedValue === binding.static) {
-                                delete rebuilt.overrides[this.breakpoint].inputs[flatKey];
-                            }
-
-                            if (originalEntry) {
-                                rebuilt.inputs[flatKey] = originalEntry;
-                            }
-                        } else {
-                            // Base binding update
-                            rebuilt.inputs[flatKey] = binding;
-                        }
-                    }
-                }
-            }
-        };
-
-        // Start the AST traversal and collection
-        compareAndCollect(this.inputsAst, []);
-
-        /**
-         * Identify elements referenced in slots that were removed since last state,
-         * and queue their removal.
-         */
-        const usedSlotIds = this.getElementReferences(rebuilt.inputs);
-        for (const id of this.elementReferences) {
-            if (!usedSlotIds.has(id)) {
-                this.operations.push(new DocumentOperations.RemoveElement(id));
-            }
-        }
-
-        // Convert deep styles back to flattened bindings
-        this.stylesProcessor.applyStyles(rebuilt, this.styles, this.breakpoint);
-
-        // Remove empty inputs and styles overrides.
-        for (const [breakpoint, overrides] of Object.entries(rebuilt.overrides)) {
-            if (Object.keys(overrides.inputs ?? {}).length === 0) {
-                delete rebuilt.overrides[breakpoint].inputs;
-            }
-            if (Object.keys(overrides.styles || {}).length === 0) {
-                delete rebuilt.overrides[breakpoint].styles;
-            }
-        }
-
-        return rebuilt;
-    }
-
-    private toDeep(flat: FlatBindings, ast: InputAstNode[]): DeepBindings {
-        const result: DeepBindings = {};
-
-        const assignValue = (path: (string | number)[], value: any) => {
-            let current = result;
-            for (let i = 0; i < path.length - 1; i++) {
-                const key = path[i];
-                const nextKey = path[i + 1];
-                const isNextIndex = typeof nextKey === "number";
-
-                if (typeof key === "number") {
-                    if (!Array.isArray(current)) {
-                        throw new Error("Expected array in path assignment.");
-                    }
-                    while (current.length <= key) {
-                        current.push(isNextIndex ? [] : {});
-                    }
-                    if (typeof current[key] !== "object") {
-                        current[key] = isNextIndex ? [] : {};
-                    }
-                    current = current[key];
-                } else {
-                    if (!(key in current) || typeof current[key] !== "object") {
-                        current[key] = isNextIndex ? [] : {};
-                    }
-                    current = current[key];
-                }
-            }
-            current[path[path.length - 1]] = value;
-        };
-
-        const walk = (nodes: InputAstNode[], prefix: string[]) => {
-            for (const node of nodes) {
-                const pathParts = [...prefix, node.name];
-                const flatKey = pathParts.join(".");
-                const entry = flat[flatKey];
-                const staticValue = entry?.static;
-
-                if (node.children.length > 0) {
-                    if (node.list) {
-                        const pattern = new RegExp(
-                            `^${flatKey
-                                .replace(/\./g, "\\.")
-                                .replace(/\[/, "\\[")
-                                .replace(/\]/, "\\]")}\\[(\\d+)\\]`
-                        );
-                        const indexes = Object.keys(flat).reduce((acc: number[], key) => {
-                            const match = key.match(pattern);
-                            if (match) {
-                                acc.push(parseInt(match[1], 10));
-                            }
-                            return acc;
-                        }, []);
-
-                        const uniqueIndexes = Array.from(new Set(indexes)).sort((a, b) => a - b);
-
-                        for (const i of uniqueIndexes) {
-                            walk(node.children, [...prefix, `${node.name}[${i}]`]);
-                        }
-                    } else {
-                        walk(node.children, pathParts);
-                    }
-                } else if (staticValue !== undefined) {
-                    const path = pathParts.reduce<(string | number)[]>((acc, part) => {
-                        const match = part.match(/(.*?)\[(\d+)\]/);
-                        if (match) {
-                            acc.push(match[1], Number(match[2]));
-                        } else {
-                            acc.push(part);
-                        }
-                        return acc;
-                    }, []);
-                    assignValue(path, staticValue);
-                }
-            }
-        };
-
-        walk(ast, []);
-        return result;
-    }
-
-    private getElementReferences(inputs: DocumentElementBindings["inputs"] = {}) {
-        const references = new Set<string>();
-
-        for (const [, binding] of Object.entries(inputs)) {
-            if (binding.type === "slot") {
-                if (Array.isArray(binding.static)) {
-                    ((binding.static ?? []) as string[]).forEach(id => references.add(id));
-                } else if (typeof binding.static === "string") {
-                    references.add(binding.static);
-                }
-            }
-        }
-
-        return references;
-    }
-
-    private isBaseBreakpoint(name: string) {
-        return this.breakpoints.indexOf(name) === 0;
+        inputs.applyToDocument(document);
+        styles.applyToDocument(document);
     }
 }

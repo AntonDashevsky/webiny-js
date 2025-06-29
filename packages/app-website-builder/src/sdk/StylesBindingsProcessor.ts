@@ -1,11 +1,19 @@
 import set from "lodash/set";
 import unset from "lodash/unset";
-import * as fjp from "fast-json-patch";
-import type { DocumentElementBindings } from "~/sdk/types";
+import type { DocumentElementBindings, DocumentElementStyleBindings } from "~/sdk/types";
 import { InheritedValueResolver } from "~/sdk/InheritedValueResolver";
+import { StylesUpdater } from "./StylesUpdater";
 
 type DeepBindings = Record<string, any>;
-type FlatBindings = Record<string, Record<string, any>>;
+
+export type ElementStylesBindings = {
+    styles: DocumentElementStyleBindings;
+    overrides: {
+        [breakpoint: string]: {
+            styles: DocumentElementStyleBindings;
+        };
+    };
+};
 
 /**
  * Handles deep-to-flat and flat-to-deep conversion of style bindings,
@@ -14,8 +22,10 @@ type FlatBindings = Record<string, Record<string, any>>;
 export class StylesBindingsProcessor {
     private breakpoints: string[];
     private rawBindings: DocumentElementBindings;
+    private elementId: string;
 
-    constructor(breakpoints: string[], rawBindings: DocumentElementBindings) {
+    constructor(elementId: string, breakpoints: string[], rawBindings: DocumentElementBindings) {
+        this.elementId = elementId;
         this.breakpoints = breakpoints;
         this.rawBindings = rawBindings;
     }
@@ -35,16 +45,9 @@ export class StylesBindingsProcessor {
     /**
      * Flattens deep styles object into flat bindings with `.static` wrappers.
      * Skips overrides where the value matches inherited parent breakpoint.
-     *
-     * @param rebuilt - The object to store flattened styles
-     * @param styles - The deep styles to flatten
-     * @param currentBreakpoint - The breakpoint for which overrides are being flattened
      */
-    public applyStyles(
-        rebuilt: FlatBindings,
-        styles: DeepBindings,
-        currentBreakpoint: string
-    ): void {
+    public createUpdate(styles: DeepBindings, currentBreakpoint: string) {
+        const rebuilt = this.getBaseStyles();
         const valueResolver = new InheritedValueResolver(this.breakpoints, breakpoint => {
             if (this.isBaseBreakpoint(breakpoint)) {
                 return this.rawBindings.styles;
@@ -84,24 +87,30 @@ export class StylesBindingsProcessor {
                 }
             }
         }
+
+        return new StylesUpdater(this.elementId, rebuilt);
     }
 
-    public createPatch(
-        baseBindings: DocumentElementBindings, // current flat bindings for this breakpoint
-        updatedStyles: DeepBindings,                      // new deep styles to apply
-        currentBreakpoint: string
-    ): fjp.Operation[] {
-        // Step 1: Prepare an empty object to hold the flattened updated styles
-        const updatedFlattenedBindings: Record<string, any> = structuredClone(baseBindings);
+    private getBaseStyles(): ElementStylesBindings {
+        const baseStyles: ElementStylesBindings = {
+            styles: structuredClone(this.rawBindings.styles) ?? {},
+            overrides: {}
+        };
 
-        // Step 2: Use existing applyStyles method to fill updatedFlattenedBindings with breakpoint-aware flattened styles
-        this.applyStyles(updatedFlattenedBindings, updatedStyles, currentBreakpoint);
+        // Clone existing overrides if present, to avoid losing breakpoint overrides
+        if (this.rawBindings.overrides) {
+            for (const [bp, overrides] of Object.entries(this.rawBindings.overrides)) {
+                if (overrides.styles) {
+                    set(
+                        baseStyles,
+                        `overrides.${bp}.styles`,
+                        structuredClone(this.rawBindings.overrides[bp].styles)
+                    );
+                }
+            }
+        }
 
-        // Step 3: Use fast-json-patch to get a patch that transforms baseBindings into updatedFlattenedBindings
-        // Note: baseBindings might be undefined if no styles set yet, so default to {}
-        const patch = fjp.compare(baseBindings || {}, updatedFlattenedBindings);
-
-        return patch;
+        return baseStyles;
     }
 
     private isBaseBreakpoint(name: string): boolean {

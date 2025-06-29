@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { DelayedOnChange } from "@webiny/admin-ui";
+import { DelayedOnChange, FormComponentLabel } from "@webiny/admin-ui";
 import { CompositionScope } from "@webiny/app-admin/index";
 import { LexicalEditor } from "./LexicalEditor";
 import { ElementInputRendererProps } from "~/BaseEditor";
@@ -59,7 +59,7 @@ const EditorDialog = (props: EditorDialogProps) => {
     );
 };
 
-const ExpandableLexicalInputRenderer = ({ value, onChange, input }: ElementInputRendererProps) => {
+const ExpandableLexicalInputRenderer = ({ value, onChange, input, label }: ElementInputRendererProps) => {
     const { isExpanded, setExpanded } = useExpandedEditor();
 
     const applyChanges = useCallback(
@@ -72,6 +72,7 @@ const ExpandableLexicalInputRenderer = ({ value, onChange, input }: ElementInput
 
     return (
         <>
+            <FormComponentLabel text={label} />
             <CompositionScope name={"compact"}>
                 <DelayedOnChange value={value} onChange={onChange}>
                     {({ value, onChange }) => (

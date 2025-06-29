@@ -1,4 +1,3 @@
-// @ts-nocheck 123
 import { BindingsProcessor } from "./BindingsProcessor";
 import type { DocumentElementBindings } from "~/sdk/types";
 

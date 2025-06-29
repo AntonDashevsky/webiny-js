@@ -16,9 +16,11 @@ export const useStyles = () => {
     const { rawBindings, resolvedBindings, inheritanceMap } = useBindingsForElement(element?.id);
 
     const stylesProcessor = new StylesBindingsProcessor(
+        element?.id ?? "",
         breakpoints.map(bp => bp.name),
         rawBindings
     );
+
     const devFriendlyStyles = stylesProcessor.toDeepStyles(resolvedBindings.styles);
 
     const onChange = useCallback(
@@ -31,10 +33,10 @@ export const useStyles = () => {
             cb(devFriendlyStyles);
 
             // Apply final styles to element bindings.
-            stylesProcessor.applyStyles(rawBindings, devFriendlyStyles, breakpoint.name);
+            const updatedStyles = stylesProcessor.createUpdate(devFriendlyStyles, breakpoint.name);
 
             editor.updateDocument(document => {
-                document.bindings[element.id] = rawBindings;
+                updatedStyles.applyToDocument(document);
             });
 
             // Clear local value
@@ -51,16 +53,13 @@ export const useStyles = () => {
 
             cb(devFriendlyStyles);
 
-            const patch = stylesProcessor.createPatch(
-                rawBindings,
-                devFriendlyStyles,
-                breakpoint.name
-            );
-
             setLocalValue(devFriendlyStyles);
+
+            const updatedStyles = stylesProcessor.createUpdate(devFriendlyStyles, breakpoint.name);
+
             editor.executeCommand(Commands.PreviewPatchElement, {
                 elementId: element.id,
-                patch
+                patch: updatedStyles.createJsonPatch(rawBindings)
             });
         },
         [element?.id, devFriendlyStyles, breakpoint]
