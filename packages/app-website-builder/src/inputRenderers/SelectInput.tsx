@@ -13,7 +13,11 @@ export const SelectInputRenderer = ({
     return (
         <Select
             value={value}
-            onChange={onChange}
+            onChange={newValue => {
+                onChange(({ value }) => {
+                    value.set(newValue);
+                });
+            }}
             options={input.options}
             label={label}
             description={input.description}

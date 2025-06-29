@@ -9,6 +9,7 @@ import { DefaultLexicalConfig } from "~/inputRenderers/LexicalInput/DefaultLexic
 import { SlotInputRenderer } from "~/inputRenderers/SlotInput";
 import { GridLayoutInputRenderer } from "~/inputRenderers/GridLayoutInput";
 import { SelectInputRenderer } from "~/inputRenderers/SelectInput";
+import { FileInputRenderer } from "~/inputRenderers/FileInput";
 
 export const ElementInputRenderers = () => {
     return (
@@ -46,6 +47,10 @@ export const ElementInputRenderers = () => {
             <EditorConfig.ElementInput.Renderer
                 name={"Webiny/GridLayout"}
                 component={GridLayoutInputRenderer}
+            />
+            <EditorConfig.ElementInput.Renderer
+                name={"Webiny/File"}
+                component={FileInputRenderer}
             />
         </>
     );

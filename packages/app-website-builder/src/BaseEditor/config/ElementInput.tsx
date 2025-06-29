@@ -1,12 +1,15 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import type { ComponentInput } from "~/sdk/types";
+import type { IElementMetadata } from "~/sdk/ElementMetadata";
+import type { InputBindingOnChange } from "../defaultConfig/Sidebar/ElementSettings/useInputValue";
 
 export interface ElementInputRendererProps {
     label: React.ReactNode;
+    metadata: IElementMetadata;
     value: any;
-    onChange: (value: any) => void;
-    onPreviewChange: (value: any) => void;
+    onChange: InputBindingOnChange;
+    onPreviewChange: InputBindingOnChange;
     input: ComponentInput;
 }
 

@@ -15,7 +15,11 @@ export const BooleanInputRenderer = ({
             note={helperText}
             description={description}
             checked={value}
-            onChange={onChange}
+            onChange={newValue => {
+                onChange(({ value }) => {
+                    value.set(newValue);
+                });
+            }}
         />
     );
 };

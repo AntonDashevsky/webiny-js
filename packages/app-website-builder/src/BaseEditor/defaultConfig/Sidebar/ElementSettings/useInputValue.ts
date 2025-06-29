@@ -1,92 +1,164 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
-import type { InputValueBinding, ValueBinding } from "~/sdk/types";
+import type { ValueBinding } from "~/sdk/types";
 import { Commands } from "~/BaseEditor";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
 import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
 import { functionConverter } from "~/sdk";
-import { BindingsApi } from "~/sdk/BindingsApi";
 import { useElementFactory } from "./useElementFactory";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useBindingsForElement } from "./useBindingsForElement";
-import { toJS } from "mobx";
 import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
 import { InputsBindingsProcessor } from "~/sdk/InputBindingsProcessor";
+import { StylesBindingsProcessor } from "~/sdk/StylesBindingsProcessor";
+import {
+    BreakpointElementMetadata,
+    ElementMetadata,
+    IElementMetadata,
+    InputMetadata,
+    NullElementMetadata
+} from "~/sdk/ElementMetadata";
+import { createElement, CreateElementParams } from "~/sdk/createElement";
+import set from "lodash/set";
+import { generateAlphaNumericLowerCaseId } from "@webiny/utils/generateId";
+
+export type OnChangeParams = {
+    value: ValueObject;
+    metadata: IElementMetadata;
+};
+
+export type InputBindingOnChange = (cb: (params: OnChangeParams) => void) => void;
+
+class ValueObject {
+    private value: any;
+
+    constructor(value: any) {
+        this.value = value;
+    }
+
+    set(value: any) {
+        this.value = value;
+    }
+
+    get() {
+        return this.value;
+    }
+}
+
+function convertBracketPathToDotPath(path: string): string {
+    return path.replace(/\[(\d+)\]/g, ".$1");
+}
 
 export const useInputValue = (node: InputAstNode) => {
     const { breakpoint, breakpoints } = useBreakpoint();
     const [element] = useActiveElement();
     const editor = useDocumentEditor();
     const inputsAst = useElementInputsAst(element?.id);
+    const elementFactory = useElementFactory();
+
+    const breakpointNames = useMemo(() => breakpoints.map(bp => bp.name), []);
 
     // These bindings already include per-breakpoint overrides.
     const { rawBindings, resolvedBindings, inheritanceMap } = useBindingsForElement(element?.id);
 
-    const elementFactory = useElementFactory();
-    const [localState, setLocalValue] = useState<ValueBinding>();
+    const stylesProcessor = useMemo(() => {
+        return new StylesBindingsProcessor(element?.id ?? "", breakpointNames, rawBindings);
+    }, [element?.id, rawBindings]);
+
+    const inputsProcessor = useMemo(() => {
+        return new InputsBindingsProcessor(
+            element?.id ?? "",
+            inputsAst,
+            breakpointNames,
+            rawBindings,
+            elementFactory
+        );
+    }, [element?.id, rawBindings]);
 
     // This value is the final calculated breakpoint value.
-    const value = resolvedBindings.inputs?.[node.path] ?? {
-        static: ""
-    };
+    const value = resolvedBindings.inputs[node.path];
+
+    const inputMetadata = useMemo((): IElementMetadata => {
+        if (!element) {
+            return new NullElementMetadata();
+        }
+
+        let elementMetadata: IElementMetadata = new ElementMetadata(
+            element.id,
+            rawBindings.metadata
+        );
+
+        if (node.input.responsive) {
+            elementMetadata = new BreakpointElementMetadata(
+                breakpointNames,
+                breakpoint.name,
+                elementMetadata
+            );
+        }
+
+        const valueId = value?.id ?? generateAlphaNumericLowerCaseId();
+
+        return new InputMetadata(valueId, elementMetadata);
+    }, [element?.id, breakpoint.name, rawBindings]);
+
+    const [localState, setLocalValue] = useState<ValueBinding>();
 
     const onChange = useCallback(
-        (value: any) => {
+        (cb: (params: OnChangeParams) => void) => {
             if (!element) {
                 return;
             }
 
-            // We need to update the value taking into account the current breakpoint.
-            // Non-default breakpoint value needs to go into `overrides`.
+            const deepInputs = inputsProcessor.toDeepInputs(resolvedBindings.inputs);
 
-            editor.updateDocument(document => {
-                // Get original bindings.
-                const bindings = toJS(document.bindings[element.id] ?? { inputs: {} });
+            const valueObject = new ValueObject(value);
 
-                // Update breakpoint bindings.
-                const valueBinding: InputValueBinding = resolvedBindings.inputs?.[node.path] ?? {
-                    type: node.type,
-                    dataType: node.dataType,
-                    static: ""
-                };
+            const updaterInput = {
+                value: valueObject,
+                metadata: inputMetadata
+            };
 
-                if (valueBinding.expression) {
-                    valueBinding.expression = value === undefined ? "$noop" : value;
-                } else {
-                    valueBinding.static = value;
-                }
+            // Change the input value (and metadata).
+            cb(updaterInput);
 
-                const newBindings = toJS({
-                    ...resolvedBindings,
-                    inputs: {
-                        ...resolvedBindings.inputs,
-                        [node.path]: valueBinding
-                    }
-                });
+            const valuePath = convertBracketPathToDotPath(node.path);
+            const devFriendlyInputs = set(
+                structuredClone(deepInputs),
+                valuePath,
+                valueObject.get()
+            );
+            const devFriendlyStyles = stylesProcessor.toDeepStyles(rawBindings.styles ?? {});
 
-                const bindingsApi = new BindingsApi(
-                    element.id,
-                    bindings,
-                    newBindings,
-                    inputsAst,
-                    elementFactory,
-                    breakpoint.name
+            // Process input's `onChange`.
+            if (node.input.onChange) {
+                const callback = functionConverter.deserialize(
+                    // TODO: we know it's a string, but on the frontend it's a function. Fix types.
+                    node.input.onChange! as any as string
                 );
 
-                // Process input's `onChange`.
-                if (node.input.onChange) {
-                    const callback = functionConverter.deserialize(
-                        // TODO: we know it's a string, but on the frontend it's a function. Fix types.
-                        node.input.onChange! as any as string
-                    );
+                // Run onChange callback.
+                const publicApi = {
+                    inputs: devFriendlyInputs,
+                    styles: devFriendlyStyles,
+                    createElement: (params: CreateElementParams) => {
+                        return createElement(params);
+                    }
+                };
 
-                    // Run onChange callback.
-                    callback(bindingsApi.getPublicApi(), {
-                        breakpoint: breakpoint.name
-                    });
-                }
+                // Run input's `onChange` callback.
+                callback(publicApi, {
+                    breakpoint: breakpoint.name
+                });
+            }
 
-                bindingsApi.applyToDocument(document);
+            editor.updateDocument(document => {
+                const inputs = inputsProcessor.createUpdate(devFriendlyInputs, breakpoint.name);
+                const styles = stylesProcessor.createUpdate(devFriendlyStyles, breakpoint.name);
+
+                inputs.applyToDocument(document);
+                styles.applyToDocument(document);
+
+                inputMetadata.applyToDocument(document);
             });
 
             // Clear local value
@@ -99,27 +171,33 @@ export const useInputValue = (node: InputAstNode) => {
      * In preview, we do not update the editor document. Instead, we create a patch and send it to the preview app.
      */
     const onPreviewChange = useCallback(
-        (value: any) => {
+        (cb: (params: OnChangeParams) => void) => {
             if (!element) {
                 return;
             }
 
-            setLocalValue({ static: value });
+            const deepInputs = inputsProcessor.toDeepInputs(resolvedBindings.inputs);
 
-            const partialInputs = {
-                [node.path]: { ...resolvedBindings.inputs[element.id], static: value }
+            const valueObject = new ValueObject(value);
+
+            const updaterInput = {
+                value: valueObject,
+                metadata: inputMetadata
             };
 
-            const inputsProcessor = new InputsBindingsProcessor(
-                element.id,
-                inputsAst,
-                breakpoints.map(bp => bp.name),
-                rawBindings,
-                elementFactory
+            // Change the input value (and metadata).
+            cb(updaterInput);
+
+            const valuePath = convertBracketPathToDotPath(node.path);
+            const devFriendlyInputs = set(
+                structuredClone(deepInputs),
+                valuePath,
+                valueObject.get()
             );
 
-            const deepInputs = inputsProcessor.toDeepInputs(partialInputs);
-            const updatedInputs = inputsProcessor.createUpdate(deepInputs, breakpoint.name);
+            setLocalValue(devFriendlyInputs);
+
+            const updatedInputs = inputsProcessor.createUpdate(devFriendlyInputs, breakpoint.name);
 
             editor.executeCommand(Commands.PreviewPatchElement, {
                 elementId: element.id,
@@ -129,10 +207,6 @@ export const useInputValue = (node: InputAstNode) => {
         [element?.id, rawBindings]
     );
 
-    const onReset = useCallback(() => {
-        onChange(undefined);
-    }, [onChange]);
-
     const setBindingType = useCallback(
         (type: "static" | "expression") => {
             if (!element) {
@@ -140,12 +214,8 @@ export const useInputValue = (node: InputAstNode) => {
             }
 
             editor.updateDocument(state => {
-                const bindings = state.bindings[element.id] ?? { inputs: {} };
-                const valueBinding: InputValueBinding = bindings.inputs?.[node.path] ?? {
-                    type: node.type,
-                    dataType: node.dataType,
-                    static: ""
-                };
+                const bindings = state.bindings[element.id];
+                const valueBinding = bindings.inputs![node.path];
 
                 if (type === "static") {
                     // Switching to static bindings means we have to remove the expression binding.
@@ -166,12 +236,20 @@ export const useInputValue = (node: InputAstNode) => {
         [element?.id]
     );
 
+    const onReset = useCallback(() => {
+        onChange(({ value, metadata }) => {
+            value.set(undefined);
+            metadata.unset("*");
+        });
+    }, [onChange]);
+
     return {
-        value: localState ?? value,
+        value: localState ?? value?.static ?? "",
+        metadata: inputMetadata,
         inheritanceMap: inheritanceMap.inputs[node.path],
+        onReset,
         onChange,
         onPreviewChange,
-        onReset,
         setBindingType
     };
 };

@@ -6,7 +6,11 @@ export const TextInputRenderer = ({ value, onChange, input, label }: ElementInpu
     return (
         <Input
             value={value}
-            onChange={onChange}
+            onChange={newValue => {
+                onChange(({ value }) => {
+                    value.set(newValue);
+                });
+            }}
             label={label}
             description={input.description}
             note={input.helperText}

@@ -9,7 +9,8 @@ import {
     BreakpointElementMetadata,
     ElementMetadata,
     IElementMetadata,
-    NullElementMetadata
+    NullElementMetadata,
+    StylesMetadata
 } from "~/sdk/ElementMetadata";
 
 export type OnChangeParams = {
@@ -22,7 +23,8 @@ export const useStyles = () => {
     const { breakpoint, breakpoints } = useBreakpoint();
     const [element] = useActiveElement();
     const editor = useDocumentEditor();
-    const breakpointNames = useMemo(() => breakpoints.map(bp => bp.name), []);
+
+    const breakpointNames = breakpoints.map(bp => bp.name);
 
     // These bindings already include per-breakpoint overrides.
     const { rawBindings, resolvedBindings, inheritanceMap } = useBindingsForElement(element?.id);
@@ -33,15 +35,17 @@ export const useStyles = () => {
         rawBindings
     );
 
-    const elementMetadata = useMemo(() => {
+    const elementMetadata: IElementMetadata = useMemo(() => {
         if (!element) {
             return new NullElementMetadata();
         }
 
-        return new BreakpointElementMetadata(
-            breakpointNames,
-            breakpoint.name,
-            new ElementMetadata(element.id, rawBindings.metadata)
+        return new StylesMetadata(
+            new BreakpointElementMetadata(
+                breakpointNames,
+                breakpoint.name,
+                new ElementMetadata(element.id, rawBindings.metadata)
+            )
         );
     }, [element?.id, breakpoint.name, rawBindings]);
 

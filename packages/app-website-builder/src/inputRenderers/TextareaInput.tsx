@@ -12,8 +12,16 @@ export const TextareaInputRenderer = ({
     return (
         <Textarea
             value={value || ""}
-            onChange={onPreviewChange}
-            onBlur={e => onChange(e.currentTarget.value)}
+            onChange={newValue => {
+                onPreviewChange(({ value }) => {
+                    value.set(newValue);
+                });
+            }}
+            onBlur={e =>
+                onChange(({ value }) => {
+                    value.set(e.currentTarget.value);
+                })
+            }
             label={label}
             description={input.description}
             note={input.helperText}

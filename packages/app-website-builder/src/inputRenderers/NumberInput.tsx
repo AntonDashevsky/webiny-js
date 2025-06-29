@@ -18,7 +18,9 @@ export const NumberInputRenderer = ({
                 return;
             }
 
-            onChange(number);
+            onChange(({ value }) => {
+                value.set(number);
+            });
         },
         [onChange]
     );

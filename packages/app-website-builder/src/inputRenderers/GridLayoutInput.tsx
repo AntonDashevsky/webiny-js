@@ -58,7 +58,9 @@ export const GridLayoutInputRenderer = ({ value, onChange }: ElementInputRendere
                     <div
                         style={{ filter: value !== preset.layout ? "grayscale(1)" : "none" }}
                         onClick={() => {
-                            onChange(preset.layout);
+                            onChange(({ value }) => {
+                                value.set(preset.layout);
+                            });
                         }}
                     >
                         {preset.icon}

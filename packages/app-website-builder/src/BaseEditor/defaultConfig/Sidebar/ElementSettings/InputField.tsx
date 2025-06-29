@@ -13,7 +13,7 @@ interface InputFieldProps {
 
 export function InputField({ node }: InputFieldProps) {
     const Renderer = useInputRenderer(node.input.renderer!);
-    const { value, onChange, onPreviewChange, inheritanceMap, onReset } = useInputValue(node);
+    const { value, onChange, onPreviewChange, inheritanceMap, metadata, onReset } = useInputValue(node);
     const input = node.input;
 
     if (input.type === "object") {
@@ -47,6 +47,7 @@ export function InputField({ node }: InputFieldProps) {
 
     return (
         <Renderer
+            metadata={metadata}
             label={label}
             value={value.static}
             onChange={onChange}

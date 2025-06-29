@@ -1,3 +1,4 @@
+import micromatch from "micromatch";
 import type { Document } from "~/sdk/types";
 
 export type Metadata = Record<string, any>;
@@ -39,7 +40,16 @@ export class ElementMetadata implements IElementMetadata {
     }
 
     unset(id: string): void {
-        delete this.metadata[id];
+        // Support wildcard paths using micromatch
+        if (id.includes("*")) {
+            const keys = Object.keys(this.metadata);
+            const matches = micromatch(keys, id);
+            for (const key of matches) {
+                delete this.metadata[key];
+            }
+        } else {
+            delete this.metadata[id];
+        }
     }
 
     applyToDocument(document: Document) {
@@ -50,9 +60,9 @@ export class ElementMetadata implements IElementMetadata {
 export class BreakpointElementMetadata implements IElementMetadata {
     private readonly breakpoints: string[];
     private readonly currentBreakpoint: string;
-    private metadata: ElementMetadata;
+    private metadata: IElementMetadata;
 
-    constructor(breakpoints: string[], currentBreakpoint: string, metadata: ElementMetadata) {
+    constructor(breakpoints: string[], currentBreakpoint: string, metadata: IElementMetadata) {
         this.breakpoints = breakpoints;
         this.currentBreakpoint = currentBreakpoint;
         this.metadata = metadata;
@@ -82,5 +92,57 @@ export class BreakpointElementMetadata implements IElementMetadata {
 
     unset(id: string): void {
         this.metadata.unset(`${this.currentBreakpoint}/${id}`);
+    }
+}
+
+export class InputMetadata implements IElementMetadata {
+    private readonly inputId: string;
+    private metadata: IElementMetadata;
+    private prefix = "inputs/";
+
+    constructor(inputId: string, metadata: IElementMetadata) {
+        this.inputId = inputId;
+        this.metadata = metadata;
+    }
+
+    applyToDocument(document: Document): void {
+        this.metadata.applyToDocument(document);
+    }
+
+    get<T extends Metadata = Metadata>(id: string): T | undefined {
+        return this.metadata.get(`${this.prefix}${this.inputId}/${id}`);
+    }
+
+    set(id: string, data: any): void {
+        this.metadata.set(`${this.prefix}${this.inputId}/${id}`, data);
+    }
+
+    unset(id: string): void {
+        this.metadata.unset(`${this.prefix}${this.inputId}/${id}`);
+    }
+}
+
+export class StylesMetadata implements IElementMetadata {
+    private metadata: IElementMetadata;
+    private prefix = "styles/";
+
+    constructor(metadata: IElementMetadata) {
+        this.metadata = metadata;
+    }
+
+    applyToDocument(document: Document): void {
+        this.metadata.applyToDocument(document);
+    }
+
+    get<T extends Metadata = Metadata>(id: string): T | undefined {
+        return this.metadata.get(`${this.prefix}${id}`);
+    }
+
+    set(id: string, data: any): void {
+        this.metadata.set(`${this.prefix}${id}`, data);
+    }
+
+    unset(id: string): void {
+        this.metadata.unset(`${this.prefix}${id}`);
     }
 }
