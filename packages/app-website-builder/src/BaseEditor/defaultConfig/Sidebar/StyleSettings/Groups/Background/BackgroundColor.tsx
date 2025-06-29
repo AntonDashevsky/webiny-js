@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ColorPicker } from "@webiny/admin-ui";
 
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
@@ -17,7 +17,7 @@ export const BackgroundColor = () => {
 
     const handleChange = (value: string) => {
         setValue(value);
-        onPreviewChange(styles => {
+        onPreviewChange(({ styles }) => {
             styles.backgroundColor = value;
         });
 
@@ -26,14 +26,14 @@ export const BackgroundColor = () => {
         }
 
         timeoutRef.current = setTimeout(() => {
-            onChange(styles => {
+            onChange(({ styles }) => {
                 styles.backgroundColor = value;
             });
         }, 300); // wait 300ms after last input event
     };
 
     const onReset = () => {
-        onChange(styles => {
+        onChange(({ styles }) => {
             delete styles.backgroundColor;
         });
     };

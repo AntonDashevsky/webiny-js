@@ -34,13 +34,13 @@ export const BackgroundPosition = () => {
     }, [styles.backgroundPosition]);
 
     const onPositionChange = (value: string) => {
-        onChange(styles => {
+        onChange(({ styles }) => {
             styles.backgroundPosition = value;
         });
     };
 
     const onReset = () => {
-        onChange(styles => {
+        onChange(({ styles }) => {
             delete styles.backgroundPosition;
         });
     };

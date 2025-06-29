@@ -37,6 +37,7 @@ export type DocumentElementBindings = {
     $repeat?: RepeatValueBinding;
     inputs?: DocumentElementInputBindings;
     styles?: DocumentElementStyleBindings;
+    metadata?: Record<string, any>;
     overrides?: {
         [key: string]: {
             inputs?: DocumentElementInputBindings;

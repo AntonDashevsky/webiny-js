@@ -6,6 +6,14 @@ import { BackgroundImageParser } from "./BackgroundImageParser";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { InheritanceLabel } from "../../../InheritanceLabel";
 
+type FileInfo = {
+    id: string;
+    name: string;
+    size: number;
+    mimeType: string;
+    url: string;
+};
+
 const DEFAULT_POSITION = "center";
 const DEFAULT_SCALING = {
     backgroundSize: "cover",
@@ -22,7 +30,7 @@ export const parseValue = (value: string) => {
 
 export const BackgroundImage = () => {
     const { isBaseBreakpoint } = useBreakpoint();
-    const { styles, onChange, inheritanceMap } = useStyles();
+    const { styles, metadata, onChange, inheritanceMap } = useStyles();
     const [localValue, setLocalValue] = useState<string | null>(styles.backgroundImage);
     const url = useMemo(() => {
         const parser = new BackgroundImageParser(styles.backgroundImage);
@@ -55,25 +63,24 @@ export const BackgroundImage = () => {
             return typeItem ? typeItem.value : "";
         };
 
-        // TODO: where should I store this?
-        console.log({
-            id: file.id,
-            name: getName(),
-            size: getSize(),
-            mimeType: getType(),
-            url: file.src || ""
-        });
-
-        onChange(styles => {
+        onChange(({ styles, metadata }) => {
             styles.backgroundPosition = DEFAULT_POSITION;
             styles.backgroundSize = DEFAULT_SCALING.backgroundSize;
             styles.backgroundRepeat = DEFAULT_SCALING.backgroundRepeat;
             styles.backgroundImage = `url("${file.src}")`;
+
+            metadata.set("backgroundImage", {
+                id: file.id,
+                name: getName(),
+                size: getSize(),
+                mimeType: getType(),
+                url: file.src || ""
+            });
         });
     };
 
     const onRemove = () => {
-        onChange(styles => {
+        onChange(({ styles, metadata }) => {
             // On base breakpoint, we unset the image and all styles related to it.
             if (isBaseBreakpoint) {
                 delete styles.backgroundImage;
@@ -83,16 +90,22 @@ export const BackgroundImage = () => {
             } else {
                 styles.backgroundImage = "none";
             }
+
+            metadata.unset("backgroundImage");
         });
     };
 
     const onReset = () => {
-        onChange(styles => {
+        onChange(({ styles }) => {
             delete styles.backgroundImage;
+
+            metadata.unset("backgroundImage");
         });
     };
 
     const inheritance = inheritanceMap?.backgroundImage ?? {};
+
+    const fileInfo = metadata.get<FileInfo>("backgroundImage");
 
     return (
         <FileManager
@@ -110,7 +123,7 @@ export const BackgroundImage = () => {
                     }
                     description="Select a background image"
                     type="compact"
-                    value={url ? { name: url, url } : undefined}
+                    value={url ? fileInfo : undefined}
                     onSelectItem={() => showFileManager()}
                     onRemoveItem={onRemove}
                     onEditItem={() => showFileManager()}
