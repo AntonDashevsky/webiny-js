@@ -49,7 +49,6 @@ export class DefaultPulumiGetStackOutputService implements PulumiGetStackOutputS
                 json: true
             },
             execa: {
-                stdio: "inherit",
                 env: createEnvConfiguration({
                     configurations: [withPulumiConfigPassphrase()]
                 })

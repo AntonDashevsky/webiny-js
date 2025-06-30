@@ -7,7 +7,7 @@ export class DefaultGetPulumiService implements GetPulumiService.Interface {
     constructor(private readonly getProjectService: GetProjectService.Interface) {}
 
     async execute(params: GetPulumiService.Params = {}) {
-        const project = this.getProjectService.execute();
+        const project = await this.getProjectService.execute();
         const { app, pulumiOptions = {} } = params;
 
 

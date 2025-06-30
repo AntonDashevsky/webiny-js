@@ -43,6 +43,7 @@ export class DefaultPulumiSelectStackService implements PulumiSelectStackService
             }
         });
 
+
         /**
          * A region from the input or process CANNOT be different to the region from the stack.
          * Also, if there is no stack, everything is ok.

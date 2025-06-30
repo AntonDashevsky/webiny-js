@@ -58,7 +58,7 @@ async function main() {
     projectSdk.getContainer().registerDecorator(myOtherBeforeBuildHook);
     projectSdk.getContainer().registerDecorator(myAfterBuildHook);
 
-    await projectSdk.buildApp({
+    await projectSdk.deployApp({
         app: "core",
         env: "dev"
     });
