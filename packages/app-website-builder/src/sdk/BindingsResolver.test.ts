@@ -33,6 +33,7 @@ describe("BindingsResolver", () => {
         const bindings: DocumentElementBindings = {
             inputs: {
                 text: {
+                    id: "text",
                     type: "text",
                     dataType: "string",
                     expression: "$state.user.name",
@@ -66,6 +67,7 @@ describe("BindingsResolver", () => {
             root: {
                 inputs: {
                     children: {
+                        id: "children",
                         type: "slot",
                         dataType: "string",
                         list: true,
@@ -76,17 +78,20 @@ describe("BindingsResolver", () => {
             qizw1hgqjvj8g5a43szzc: {
                 inputs: {
                     title: {
+                        id: "title",
                         static: "Default Columns Title",
                         type: "text",
                         dataType: "text"
                     },
-                    "leftColumn[0]": {
+                    "leftColumn/0": {
+                        id: "slot",
                         static: ["7znyr9z2cpizegnrk2rhu"],
                         type: "slot",
                         dataType: "string",
                         list: true
                     },
-                    "rightColumn[0]": {
+                    "rightColumn/0": {
+                        id: "slot",
                         static: ["cwld8kxy0qhhtaql42lr5"],
                         type: "slot",
                         dataType: "string",
@@ -105,11 +110,13 @@ describe("BindingsResolver", () => {
             "7znyr9z2cpizegnrk2rhu": {
                 inputs: {
                     title: {
+                        id: "title",
                         static: "Left Column Title",
                         type: "text",
                         dataType: "text"
                     },
                     children: {
+                        id: "slot",
                         static: [],
                         type: "slot",
                         dataType: "string",
@@ -128,11 +135,13 @@ describe("BindingsResolver", () => {
             cwld8kxy0qhhtaql42lr5: {
                 inputs: {
                     title: {
+                        id: "title",
                         static: "Right Column Title",
                         type: "text",
                         dataType: "text"
                     },
                     children: {
+                        id: "slot",
                         static: [],
                         type: "slot",
                         dataType: "string",
@@ -174,7 +183,7 @@ describe("BindingsResolver", () => {
                 id: "7znyr9z2cpizegnrk2rhu",
                 parent: {
                     id: "qizw1hgqjvj8g5a43szzc",
-                    slot: "leftColumn[0]"
+                    slot: "leftColumn/0"
                 },
                 component: {
                     name: "Webiny/TextWithDropzone"
@@ -185,7 +194,7 @@ describe("BindingsResolver", () => {
                 id: "cwld8kxy0qhhtaql42lr5",
                 parent: {
                     id: "qizw1hgqjvj8g5a43szzc",
-                    slot: "rightColumn[0]"
+                    slot: "rightColumn/0"
                 },
                 component: {
                     name: "Webiny/TextWithDropzone"
@@ -238,6 +247,7 @@ describe("BindingsResolver", () => {
         const bindings: DocumentElementBindings = {
             inputs: {
                 text: {
+                    id: "text",
                     type: "text",
                     dataType: "string",
                     static: "Static only"
@@ -263,6 +273,7 @@ describe("BindingsResolver", () => {
         const bindings: DocumentElementBindings = {
             inputs: {
                 text: {
+                    id: "text",
                     type: "text",
                     dataType: "string",
                     static: "Fallback",
@@ -320,6 +331,7 @@ describe("BindingsResolver", () => {
             },
             inputs: {
                 text: {
+                    id: "text",
                     type: "text",
                     dataType: "string",
                     expression: "$.title",
@@ -353,6 +365,7 @@ describe("BindingsResolver", () => {
             },
             inputs: {
                 text: {
+                    id: "text",
                     type: "text",
                     dataType: "string",
                     static: "Should not be used"
@@ -380,6 +393,7 @@ describe("BindingsResolver", () => {
         const bindings: DocumentElementBindings = {
             inputs: {
                 text: {
+                    id: "text",
                     type: "text",
                     dataType: "string",
                     static: "Static fallback",

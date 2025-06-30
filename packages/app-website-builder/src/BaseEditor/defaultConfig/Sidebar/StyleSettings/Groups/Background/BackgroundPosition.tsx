@@ -35,13 +35,13 @@ export const BackgroundPosition = ({ elementId }: { elementId: string }) => {
 
     const onPositionChange = (value: string) => {
         onChange(({ styles }) => {
-            styles.backgroundPosition = value;
+            styles.set("backgroundPosition", value);
         });
     };
 
     const onReset = () => {
         onChange(({ styles }) => {
-            delete styles.backgroundPosition;
+            styles.unset("backgroundPosition");
         });
     };
 

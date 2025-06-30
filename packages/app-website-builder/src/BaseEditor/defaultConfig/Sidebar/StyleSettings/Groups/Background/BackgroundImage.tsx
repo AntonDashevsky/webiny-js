@@ -64,10 +64,10 @@ export const BackgroundImage = ({ elementId }: { elementId: string }) => {
         };
 
         onChange(({ styles, metadata }) => {
-            styles.backgroundPosition = DEFAULT_POSITION;
-            styles.backgroundSize = DEFAULT_SCALING.backgroundSize;
-            styles.backgroundRepeat = DEFAULT_SCALING.backgroundRepeat;
-            styles.backgroundImage = `url("${file.src}")`;
+            styles.set("backgroundPosition", DEFAULT_POSITION);
+            styles.set("backgroundSize", DEFAULT_SCALING.backgroundSize);
+            styles.set("backgroundRepeat", DEFAULT_SCALING.backgroundRepeat);
+            styles.set("backgroundImage", `url("${file.src}")`);
 
             metadata.set("backgroundImage", {
                 id: file.id,
@@ -83,12 +83,12 @@ export const BackgroundImage = ({ elementId }: { elementId: string }) => {
         onChange(({ styles, metadata }) => {
             // On base breakpoint, we unset the image and all styles related to it.
             if (isBaseBreakpoint) {
-                delete styles.backgroundImage;
-                delete styles.backgroundPosition;
-                delete styles.backgroundSize;
-                delete styles.backgroundRepeat;
+                styles.unset("backgroundImage");
+                styles.unset("backgroundPosition");
+                styles.unset("backgroundSize");
+                styles.unset("backgroundRepeat");
             } else {
-                styles.backgroundImage = "none";
+                styles.set("backgroundImage", "none");
             }
 
             metadata.unset("backgroundImage");
@@ -97,7 +97,7 @@ export const BackgroundImage = ({ elementId }: { elementId: string }) => {
 
     const onReset = () => {
         onChange(({ styles }) => {
-            delete styles.backgroundImage;
+            styles.unset("backgroundImage");
 
             metadata.unset("backgroundImage");
         });

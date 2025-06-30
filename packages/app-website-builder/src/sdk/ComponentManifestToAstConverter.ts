@@ -17,7 +17,7 @@ export class ComponentManifestToAstConverter {
 
     private static buildAst(inputs: ComponentInput[], basePath = ""): InputAstNode[] {
         return inputs.map(input => {
-            const path = basePath ? `${basePath}.${input.name}` : input.name;
+            const path = basePath ? `${basePath}/${input.name}` : input.name;
             const node: InputAstNode = {
                 name: input.name,
                 type: input.type,

@@ -41,7 +41,6 @@ export class BindingsResolver {
             const items = this.resolveBinding(repeatBindingArray, { state: toJS(this.state) });
 
             if (!Array.isArray(items)) {
-                console.warn("Expected array from $repeat binding.");
                 return [];
             }
 
@@ -84,7 +83,7 @@ export class BindingsResolver {
         ) => {
             for (const node of nodes) {
                 const pathParts = [...prefix, node.name];
-                const path = pathParts.join(".");
+                const path = pathParts.join("/");
                 const binding = bindings[path];
                 const value = this.resolveBinding(binding, context) ?? node.input.defaultValue;
 
@@ -98,7 +97,7 @@ export class BindingsResolver {
                             const childTarget: Record<string, any> = {};
                             resolveInputsFromAst(
                                 node.children,
-                                [...pathParts.slice(0, -1), `${node.name}[${index}]`],
+                                [...pathParts.slice(0, -1), `${node.name}/${index}`],
                                 childTarget
                             );
                             return childTarget;
@@ -112,10 +111,10 @@ export class BindingsResolver {
                     // List node with no children (e.g., slot or primitive list)
                     const uniqueIndexes = this.getUniqueIndexesFromPath(path, bindings);
 
-                    // If binding is e.g., `leftColumn[0]`, we'll have `0` in unique indexes.
+                    // If binding is e.g., `leftColumn/0`, we'll have `0` in unique indexes.
                     if (uniqueIndexes.length > 0) {
                         target[node.name] = uniqueIndexes.map(index => {
-                            const binding = bindings[`${node.name}[${index}]`];
+                            const binding = bindings[`${node.name}/${index}`];
                             const value =
                                 this.resolveBinding(binding, context) ?? node.input.defaultValue;
                             return onResolved ? onResolved(value, node.input) : value;
@@ -153,12 +152,7 @@ export class BindingsResolver {
     }
 
     private getUniqueIndexesFromPath(flatKey: string, bindings: DocumentElementBindings) {
-        const pattern = new RegExp(
-            `^${flatKey
-                .replace(/\./g, "\\.")
-                .replace(/\[/g, "\\[")
-                .replace(/\]/g, "\\]")}\\[(\\d+)\\]`
-        );
+        const pattern = new RegExp(`^${flatKey}\\/(\\d+)`);
 
         const indexes = Object.keys(bindings).reduce((acc: number[], key) => {
             const match = key.match(pattern);
@@ -204,7 +198,6 @@ export class BindingsResolver {
             const scopedFn = new Function(...Object.keys(context), `return ${finalExpression};`);
             return scopedFn(...Object.values(context));
         } catch (e) {
-            console.warn(`Failed to evaluate expression: "${expression}"`, e);
             return undefined;
         }
     }

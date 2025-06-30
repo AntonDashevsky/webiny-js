@@ -166,7 +166,7 @@ export class InheritanceProcessor {
 
         const traverse = (nodes: InputAstNode[], prefix: string[]) => {
             for (const node of nodes) {
-                const currentPath = [...prefix, node.name].join(".");
+                const currentPath = [...prefix, node.name].join("/");
                 if (node.input?.responsive) {
                     responsivePaths.add(currentPath);
                 }

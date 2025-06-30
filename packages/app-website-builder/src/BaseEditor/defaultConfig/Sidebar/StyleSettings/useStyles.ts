@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { Commands } from "~/BaseEditor";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
@@ -12,14 +12,42 @@ import {
 } from "~/BaseEditor/metadata";
 
 export type OnChangeParams = {
-    styles: Record<string, any>;
+    styles: StylesValueObject;
     metadata: IMetadata;
 };
+
+class StylesValueObject {
+    private readonly value: Record<string, any>;
+
+    constructor(value: any = {}) {
+        this.value = value;
+    }
+
+    set(key: string, value: any) {
+        this.value[key] = value;
+    }
+
+    get(key: string) {
+        return this.value[key];
+    }
+
+    getAll() {
+        return this.value;
+    }
+
+    unset(key: string) {
+        delete this.value[key];
+    }
+}
 
 export const useStyles = (elementId: string) => {
     const [localState, setLocalValue] = useState<Record<string, any>>();
     const { breakpoint, breakpoints } = useBreakpoint();
     const editor = useDocumentEditor();
+
+    useEffect(() => {
+        setLocalValue(undefined);
+    }, [elementId]);
 
     const breakpointNames = breakpoints.map(bp => bp.name);
 
@@ -46,11 +74,13 @@ export const useStyles = (elementId: string) => {
 
     const onChange = useCallback(
         (cb: (params: OnChangeParams) => void) => {
+            const styles = new StylesValueObject(devFriendlyStyles);
+
             // Apply changes by reference.
-            cb({ styles: devFriendlyStyles, metadata: elementMetadata });
+            cb({ styles, metadata: elementMetadata });
 
             // Apply final styles to element bindings.
-            const updatedStyles = stylesProcessor.createUpdate(devFriendlyStyles, breakpoint.name);
+            const updatedStyles = stylesProcessor.createUpdate(styles.getAll(), breakpoint.name);
 
             editor.updateDocument(document => {
                 updatedStyles.applyToDocument(document);
@@ -65,11 +95,16 @@ export const useStyles = (elementId: string) => {
 
     const onPreviewChange = useCallback(
         (cb: (params: OnChangeParams) => void) => {
-            cb({ styles: devFriendlyStyles, metadata: elementMetadata });
+            const styles = new StylesValueObject(devFriendlyStyles);
 
-            setLocalValue(devFriendlyStyles);
+            cb({ styles, metadata: elementMetadata });
 
-            const updatedStyles = stylesProcessor.createUpdate(devFriendlyStyles, breakpoint.name);
+            const finalStyles = styles.getAll();
+
+            // For preview, we need to store a local copy of styles, to avoid updating editor state.
+            setLocalValue(finalStyles);
+
+            const updatedStyles = stylesProcessor.createUpdate(finalStyles, breakpoint.name);
 
             editor.executeCommand(Commands.PreviewPatchElement, {
                 elementId,

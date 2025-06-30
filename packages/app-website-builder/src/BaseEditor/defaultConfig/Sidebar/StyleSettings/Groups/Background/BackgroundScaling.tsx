@@ -65,16 +65,16 @@ export const BackgroundScaling = ({ elementId }: { elementId: string }) => {
         onChange(({ styles }) => {
             const scaling = SCALING_MAP.find(item => item.name === value);
             if (scaling) {
-                styles.backgroundRepeat = scaling.backgroundRepeat;
-                styles.backgroundSize = scaling.backgroundSize;
+                styles.set("backgroundRepeat", scaling.backgroundRepeat);
+                styles.set("backgroundSize", scaling.backgroundSize);
             }
         });
     };
 
     const onReset = () => {
         onChange(({ styles }) => {
-            delete styles.backgroundRepeat;
-            delete styles.backgroundSize;
+            styles.unset("backgroundRepeat");
+            styles.unset("backgroundSize");
         });
     };
 

@@ -48,7 +48,7 @@ class ValueObject {
 }
 
 function convertBracketPathToDotPath(path: string): string {
-    return path.replace(/\[(\d+)\]/g, ".$1");
+    return path.replace(/\/(\d+)\//g, ".$1");
 }
 
 export const useInputValue = (elementId: string, node: InputAstNode) => {

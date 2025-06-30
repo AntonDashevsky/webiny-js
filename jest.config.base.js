@@ -48,7 +48,8 @@ module.exports = function ({ path }, presets = []) {
             ],
             globals: {
                 WEBINY_VERSION: version
-            }
+            },
+            watchman: false
         }
     ]);
 

@@ -5,20 +5,12 @@ import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument"
 import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
 import { InheritanceProcessor } from "~/sdk/InheritanceProcessor";
 
-export const useBindingsForElement = (elementId?: string) => {
+export const useBindingsForElement = (elementId: string) => {
     const { breakpoint, breakpoints } = useBreakpoint();
     const inputsAst = useElementInputsAst(elementId);
 
     return useSelectFromDocument(
         document => {
-            if (!elementId) {
-                return {
-                    rawBindings: {},
-                    resolvedBindings: { inputs: {}, styles: {} },
-                    inheritanceMap: { inputs: {}, styles: {} }
-                };
-            }
-
             const bindings = toJS(document.bindings[elementId]) ?? {};
 
             // Merge element bindings.
@@ -32,6 +24,6 @@ export const useBindingsForElement = (elementId?: string) => {
                 inheritanceMap: inheritanceProcessor.getInheritanceMap(bindings, breakpoint.name)
             };
         },
-        [elementId, breakpoint]
+        [elementId, breakpoint.name]
     );
 };

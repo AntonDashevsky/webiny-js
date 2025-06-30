@@ -18,6 +18,7 @@ export function $addElementReferenceToParent(
     if (index < 0) {
         // Single value slot
         inputs[slot] = {
+            ...inputs[slot],
             type: "slot",
             dataType: "string",
             static: elementId
@@ -25,6 +26,7 @@ export function $addElementReferenceToParent(
     } else {
         const slotElements = inputs[slot] as InputValueBinding;
         inputs[slot] = {
+            ...inputs[slot],
             type: "slot",
             dataType: "string",
             list: true,

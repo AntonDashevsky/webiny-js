@@ -18,7 +18,7 @@ export const BackgroundColor = ({ elementId }: { elementId: string }) => {
     const handleChange = (value: string) => {
         setValue(value);
         onPreviewChange(({ styles }) => {
-            styles.backgroundColor = value;
+            styles.set("backgroundColor", value);
         });
 
         if (timeoutRef.current) {
@@ -27,14 +27,14 @@ export const BackgroundColor = ({ elementId }: { elementId: string }) => {
 
         timeoutRef.current = setTimeout(() => {
             onChange(({ styles }) => {
-                styles.backgroundColor = value;
+                styles.set("backgroundColor", value);
             });
         }, 300); // wait 300ms after last input event
     };
 
     const onReset = () => {
         onChange(({ styles }) => {
-            delete styles.backgroundColor;
+            styles.unset("backgroundColor");
         });
     };
 

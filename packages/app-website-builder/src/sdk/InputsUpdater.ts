@@ -21,7 +21,7 @@ export class InputsUpdater implements IBindingsUpdater {
     }
 
     applyToDocument(document: Document) {
-        document.bindings[this.elementId].inputs = this.bindings.inputs;
+        document.bindings[this.elementId].inputs = structuredClone(this.bindings.inputs);
 
         if (this.bindings.overrides) {
             for (const [bp, overrides] of Object.entries(this.bindings.overrides)) {
@@ -43,8 +43,11 @@ export class InputsUpdater implements IBindingsUpdater {
         if (Object.keys(toCompare.overrides ?? {}).length === 0) {
             delete toCompare.overrides;
         }
+
+        const ignore = ["/styles", "/overrides/styles", "/metadata"];
+
         return fjp.compare(bindings, toCompare).filter(op => {
-            return !op.path.startsWith("/styles") && !op.path.startsWith("/overrides/styles");
+            return !ignore.some(prefix => op.path.startsWith(prefix));
         });
     }
 }

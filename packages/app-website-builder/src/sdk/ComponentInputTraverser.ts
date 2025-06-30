@@ -34,20 +34,18 @@ export class ComponentInputTraverser {
         visitor: InputVisitor
     ): void {
         if (node.list) {
-            if (!Array.isArray(value)) {
-                return;
-            }
+            value = value ?? [];
 
             if (value.length === 0) {
                 visitor(node, currentPath, value);
             }
 
-            value.forEach((item, index) => {
+            value.forEach((item: any, index: number) => {
                 if (node.children.length > 0) {
-                    const itemPath = `${currentPath}[${index}]`;
+                    const itemPath = `${currentPath}/${index}`;
                     for (const child of node.children) {
                         const childValue = item?.[child.name];
-                        const childPath = `${itemPath}.${child.name}`;
+                        const childPath = `${itemPath}/${child.name}`;
                         this.traverseNode(child, childValue, childPath, visitor);
                     }
                 } else {
@@ -58,7 +56,7 @@ export class ComponentInputTraverser {
             if (node.children.length > 0) {
                 for (const child of node.children) {
                     const childValue = value?.[child.name];
-                    const childPath = `${currentPath}.${child.name}`;
+                    const childPath = `${currentPath}/${child.name}`;
                     this.traverseNode(child, childValue, childPath, visitor);
                 }
             } else {

@@ -237,6 +237,12 @@ export const customComponents = [
             createLongTextInput({
                 name: "text",
                 label: "Text"
+            }),
+            createTextInput({
+                name: "image",
+                label: "Image",
+                renderer: "Webiny/File",
+                responsive: true
             })
         ],
         defaults: {

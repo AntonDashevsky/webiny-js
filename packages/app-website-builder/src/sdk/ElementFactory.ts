@@ -204,6 +204,8 @@ export class ElementFactory {
 
                 const newElementId = newElement.element.id;
 
+                console.log("newElement", newElement);
+
                 ops.push(
                     ...newElement.operations,
                     operations.setInputBinding(elementId, path, {
@@ -217,14 +219,10 @@ export class ElementFactory {
             } else if (isObject && isList) {
                 return;
             } else {
-                if (ignoreDefaultValues) {
-                    return;
-                }
-
                 ops.push(
                     operations.setInputBinding(elementId, path, {
                         id: generateAlphaNumericLowerCaseId(),
-                        static: value ?? node.input.defaultValue,
+                        static: ignoreDefaultValues ? undefined : value ?? node.input.defaultValue,
                         type: node.type,
                         dataType: node.dataType,
                         list: node.list
@@ -255,7 +253,7 @@ export class ElementFactory {
     }
 
     private extractIndex(path: string): number {
-        const match = path.match(/\[(\d+)\]/);
+        const match = path.match(/\/(\d+)\//);
         return match ? parseInt(match[1], 10) : 0;
     }
 

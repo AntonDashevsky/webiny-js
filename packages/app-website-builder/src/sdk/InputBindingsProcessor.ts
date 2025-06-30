@@ -85,18 +85,13 @@ export class InputsBindingsProcessor {
         const walk = (nodes: InputAstNode[], prefix: string[]) => {
             for (const node of nodes) {
                 const pathParts = [...prefix, node.name];
-                const flatKey = pathParts.join(".");
+                const flatKey = pathParts.join("/");
                 const entry = flat[flatKey];
                 const staticValue = entry?.static;
 
                 if (node.children.length > 0) {
                     if (node.list) {
-                        const pattern = new RegExp(
-                            `^${flatKey
-                                .replace(/\./g, "\\.")
-                                .replace(/\[/, "\\[")
-                                .replace(/\]/, "\\]")}\\[(\\d+)\\]`
-                        );
+                        const pattern = new RegExp(`^${flatKey}\\/(\\d+)\\/`);
                         const indexes = Object.keys(flat).reduce((acc: number[], key) => {
                             const match = key.match(pattern);
                             if (match) {
@@ -108,14 +103,14 @@ export class InputsBindingsProcessor {
                         const uniqueIndexes = Array.from(new Set(indexes)).sort((a, b) => a - b);
 
                         for (const i of uniqueIndexes) {
-                            walk(node.children, [...prefix, `${node.name}[${i}]`]);
+                            walk(node.children, [...prefix, `${node.name}/${i}`]);
                         }
                     } else {
                         walk(node.children, pathParts);
                     }
                 } else if (staticValue !== undefined) {
                     const path = pathParts.reduce<(string | number)[]>((acc, part) => {
-                        const match = part.match(/(.*?)\[(\d+)\]/);
+                        const match = part.match(/(.*?)\/(\d+)/);
                         if (match) {
                             acc.push(match[1], Number(match[2]));
                         } else {
@@ -165,10 +160,10 @@ export class InputsBindingsProcessor {
         });
 
         // Extracts a nested value from an object based on a flat string path.
-        // Supports array indexes like 'rows[0].columns[1].children'.
+        // Supports array indexes like 'rows/0/columns/1/children'.
         const getValue = (obj: any, path: string): any => {
             const keys = path
-                .split(/\.|\[(\d+)\]/) // Split by dot or array index
+                .split(/\.|\/(\d+)\//) // Split by dot or array index
                 .filter(Boolean)
                 .map(k => (/\d+/.test(k) ? +k : k));
             return keys.reduce((acc, key) => (acc ? acc[key] : undefined), obj);
@@ -179,7 +174,7 @@ export class InputsBindingsProcessor {
         const compareAndCollect = (nodes: InputAstNode[], prefix: string[]) => {
             for (const node of nodes) {
                 const pathParts = [...prefix, node.name];
-                const flatKey = pathParts.join(".");
+                const flatKey = pathParts.join("/");
 
                 // Mark this path as seen
                 seenPaths.add(flatKey);
@@ -193,7 +188,7 @@ export class InputsBindingsProcessor {
                                 // Recurse with indexed path like 'rows[0]', 'rows[1]'
                                 compareAndCollect(node.children, [
                                     ...pathParts.slice(0, -1),
-                                    `${node.name}[${i}]`
+                                    `${node.name}/${i}`
                                 ]);
                             }
                         }

@@ -37,8 +37,10 @@ export class StylesUpdater implements IBindingsUpdater {
             delete toCompare.overrides;
         }
 
+        const ignore = ["/inputs", "/overrides/inputs", "/metadata"];
+
         return fjp.compare(bindings, toCompare).filter(op => {
-            return !op.path.startsWith("/inputs") && !op.path.startsWith("/overrides/inputs");
+            return !ignore.some(prefix => op.path.startsWith(prefix));
         });
     }
 }

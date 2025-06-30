@@ -59,17 +59,36 @@ describe("InputsBindingsProcessor", () => {
         }
     ];
 
+    const withSlotAst: InputAstNode[] = [
+        {
+            path: "children",
+            children: [],
+            name: "children",
+            type: "slot",
+            dataType: "string",
+            list: false,
+            input: {
+                type: "slot",
+                dataType: "string",
+                name: "children",
+                label: "Children"
+            }
+        }
+    ];
+
     const breakpoints = ["desktop", "tablet", "mobile"];
 
     const baseBindings: DocumentElementBindings = {
         inputs: {
-            title: { static: "Base Title", type: "text", dataType: "text" },
-            "items[0].label": {
+            title: { id: "title", static: "Base Title", type: "text", dataType: "text" },
+            "items/0/label": {
+                id: "label0",
                 static: "Base Label 1",
                 type: "text",
                 dataType: "text"
             },
-            "items[1].label": {
+            "items/1/label": {
+                id: "label1",
                 static: "Base Label 2",
                 type: "text",
                 dataType: "text"
@@ -81,8 +100,9 @@ describe("InputsBindingsProcessor", () => {
     const overrides: DocumentElementBindings["overrides"] = {
         tablet: {
             inputs: {
-                title: { static: "Tablet Title", type: "text", dataType: "text" },
-                "items[0].label": {
+                title: { id: "title", static: "Tablet Title", type: "text", dataType: "text" },
+                "items/0/label": {
+                    id: "label0",
                     static: "Tablet Label 1",
                     type: "text",
                     dataType: "text"
@@ -91,16 +111,35 @@ describe("InputsBindingsProcessor", () => {
         },
         mobile: {
             inputs: {
-                title: { static: "Mobile Title", type: "text", dataType: "text" }
+                title: { id: "title", static: "Mobile Title", type: "text", dataType: "text" }
             }
         }
     };
 
-    const getInputsBindingsProcessor = (bindings: DocumentElementBindings = baseBindings) => {
-        const elementFactory = new ElementFactory({});
+    const getInputsBindingsProcessor = (
+        bindings: DocumentElementBindings = baseBindings,
+        ast = simpleAst
+    ) => {
+        const elementFactory = new ElementFactory({
+            "Webiny/GridColumn": {
+                name: "Webiny/GridColumn",
+                label: "Column",
+                acceptsChildren: true,
+                inputs: [
+                    {
+                        type: "slot",
+                        dataType: "string",
+                        list: true,
+                        renderer: "Webiny/Slot",
+                        name: "children",
+                        defaultValue: []
+                    }
+                ]
+            }
+        });
         const processor = new InputsBindingsProcessor(
             "elementId",
-            simpleAst,
+            ast,
             breakpoints,
             bindings,
             elementFactory
@@ -120,7 +159,7 @@ describe("InputsBindingsProcessor", () => {
     });
 
     it("applyInputs should assign base breakpoint inputs correctly", () => {
-        const { processor, bindings } = getInputsBindingsProcessor();
+        const { processor } = getInputsBindingsProcessor();
 
         const newInputs = {
             title: "New Base Title",
@@ -128,12 +167,15 @@ describe("InputsBindingsProcessor", () => {
         };
 
         const updater = processor.createUpdate(newInputs, "mobile");
-        const rebuilt = updater.applyToBindings(bindings);
+        const rebuilt: any = { bindings: { elementId: { inputs: {}, styles: {} } } };
+        updater.applyToDocument(rebuilt);
 
-        expect(rebuilt.inputs.title.static).toBe("New Base Title");
-        expect(rebuilt.inputs["items[0].label"].static).toBe("New Label 1");
-        expect(rebuilt.inputs["items[1].label"].static).toBe("New Label 2");
-        expect(rebuilt.overrides).toBeUndefined();
+        const elementBindings = rebuilt.bindings.elementId;
+
+        expect(elementBindings.inputs.title.static).toBe("New Base Title");
+        expect(elementBindings.inputs["items/0/label"].static).toBe("New Label 1");
+        expect(elementBindings.inputs["items/1/label"].static).toBe("New Label 2");
+        expect(elementBindings.overrides).toBeUndefined();
     });
 
     it("applyInputs should assign overrides correctly, skipping inherited values", () => {
@@ -142,7 +184,7 @@ describe("InputsBindingsProcessor", () => {
             overrides,
             styles: {}
         };
-        const { processor, bindings } = getInputsBindingsProcessor(rawBindings);
+        const { processor } = getInputsBindingsProcessor(rawBindings);
 
         const newInputs = {
             title: "Mobile Title",
@@ -150,11 +192,14 @@ describe("InputsBindingsProcessor", () => {
         };
 
         const updater = processor.createUpdate(newInputs, "mobile");
-        const rebuilt = updater.applyToBindings(bindings);
+        const rebuilt: any = { bindings: { elementId: { inputs: {}, styles: {} } } };
+        updater.applyToDocument(rebuilt);
 
-        expect(rebuilt.inputs.title.static).toBe("Mobile Title");
+        const elementBindings = rebuilt.bindings.elementId;
+
+        expect(elementBindings.inputs.title.static).toBe("Mobile Title");
         // Items are same as base, so should not be in overrides
-        expect(rebuilt.overrides?.mobile.inputs?.["items[0].label"]).toBeUndefined();
+        expect(elementBindings.overrides?.mobile.inputs?.["items/0/label"]).toBeUndefined();
     });
 
     it("createPatch should create correct json patch for input changes", () => {
@@ -173,11 +218,12 @@ describe("InputsBindingsProcessor", () => {
         const updater = processor.createUpdate(newInputs, "mobile");
         const patch = updater.createJsonPatch(bindings);
 
+        // You're seeing the weird `~1` delimiter because that's what fast-json-patch does with indexes.
         expect(patch).toEqual(
             expect.arrayContaining([
                 expect.objectContaining({
                     op: "remove",
-                    path: "/inputs/items[1].label"
+                    path: "/inputs/items~11~1label"
                 }),
                 expect.objectContaining({
                     op: "replace",
@@ -186,7 +232,7 @@ describe("InputsBindingsProcessor", () => {
                 }),
                 expect.objectContaining({
                     op: "replace",
-                    path: "/inputs/items[0].label/static",
+                    path: "/inputs/items~10~1label/static",
                     value: "Changed Label 1"
                 })
             ])
@@ -197,12 +243,12 @@ describe("InputsBindingsProcessor", () => {
         const rawBindings: DocumentElementBindings = {
             inputs: {
                 ...baseBindings.inputs,
-                "some.key": { static: "toRemove", type: "text", dataType: "text" }
+                "some/key": { id: "someKey", static: "toRemove", type: "text", dataType: "text" }
             },
             overrides,
             styles: {}
         };
-        const { processor, bindings } = getInputsBindingsProcessor(rawBindings);
+        const { processor } = getInputsBindingsProcessor(rawBindings);
 
         const newInputs = {
             title: "Base Title",
@@ -210,8 +256,65 @@ describe("InputsBindingsProcessor", () => {
         };
 
         const updater = processor.createUpdate(newInputs, "mobile");
-        const rebuilt = updater.applyToBindings(bindings);
+        const rebuilt: any = { bindings: { elementId: { inputs: {}, styles: {} } } };
+        updater.applyToDocument(rebuilt);
 
-        expect(rebuilt.inputs["some.key"]).toBeUndefined();
+        const elementBindings = rebuilt.bindings.elementId;
+
+        expect(elementBindings.inputs["some/key"]).toBeUndefined();
+    });
+
+    it("createUpdate should apply correct changes to the document", () => {
+        const rawBindings: DocumentElementBindings = {
+            inputs: baseBindings.inputs,
+            overrides,
+            styles: {}
+        };
+        const { processor } = getInputsBindingsProcessor(rawBindings, [
+            ...simpleAst,
+            ...withSlotAst
+        ]);
+
+        const deepInputs = processor.toDeepInputs(rawBindings.inputs!);
+
+        deepInputs.items.push({ label: "New Label 1" });
+        deepInputs.children = {
+            action: "CreateElement",
+            params: {
+                component: "Webiny/GridColumn"
+            }
+        };
+
+        const updater = processor.createUpdate(deepInputs, "mobile");
+        const rebuilt: any = { bindings: { elementId: { inputs: {}, styles: {} } }, elements: {} };
+        updater.applyToDocument(rebuilt);
+
+        expect(rebuilt.bindings.elementId.inputs).toMatchObject({
+            title: { id: "title", static: "Base Title", type: "text", dataType: "text" },
+            "items/0/label": {
+                id: "label0",
+                static: "Base Label 1",
+                type: "text",
+                dataType: "text"
+            },
+            "items/1/label": {
+                id: "label1",
+                static: "Base Label 2",
+                type: "text",
+                dataType: "text"
+            },
+            "items/2/label": {
+                id: expect.any(String),
+                static: "New Label 1",
+                type: "text",
+                dataType: "text"
+            },
+            children: {
+                id: expect.any(String),
+                static: expect.any(String),
+                type: "slot",
+                dataType: "string"
+            }
+        });
     });
 });
