@@ -19,6 +19,7 @@ export function createDecorator<A extends Abstraction<any>, I extends Constructo
     const metadata = new Metadata(params.decorator as Constructor);
     metadata.setAbstraction(params.abstraction);
     metadata.setDependencies(params.dependencies as unknown as Dependency[]);
+    metadata.setAttribute("IS_DECORATOR", true);
 
     return params.decorator;
 }
