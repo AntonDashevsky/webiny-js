@@ -495,4 +495,90 @@ describe("DIContainer", () => {
 
         expect(() => rootContainer.register(loggerDecorator)).toThrow(/is a decorator/);
     });
+
+    test("types should support various formats of a single required dependency", () => {
+        class RequiredLogger implements ILogger {
+            constructor(public logger: ILogger) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [LoggerAbstraction]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction]]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: false }]]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: false, optional: false }]]
+        });
+    });
+
+    test("types should support various formats of an optional dependency", () => {
+        class OptionalLogger implements ILogger {
+            constructor(public logger?: ILogger) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: OptionalLogger,
+            dependencies: [[LoggerAbstraction, { optional: true }]]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: OptionalLogger,
+            dependencies: [[LoggerAbstraction, { multiple: false, optional: true }]]
+        });
+    });
+
+    test("types should support various formats of required list of dependencies", () => {
+        class RequiredLogger implements ILogger {
+            constructor(public logger: ILogger[]) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: true }]]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: true, optional: false }]]
+        });
+    });
+
+    test("types should support optional list of dependencies", () => {
+        class RequiredLogger implements ILogger {
+            constructor(public logger?: ILogger[]) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: true, optional: true }]]
+        });
+    });
 });

@@ -35,8 +35,10 @@ export enum LifetimeScope {
 export type IsOptionalValue<T> = undefined extends T ? T : never;
 export type IsArray<T extends Array<any>> = Array<any> extends T ? T : never;
 export type GetAbstractionFromArray<T> = T extends Array<infer A> ? Abstraction<A> : never;
-export type Multiple = { multiple: true };
-export type Optional = { optional: true };
+export type MultipleTrue = { multiple: true };
+export type OptionalTrue = { optional: true };
+export type MultipleFalse = { multiple: false };
+export type OptionalFalse = { optional: false };
 
 declare const implementation: unique symbol;
 
@@ -49,12 +51,18 @@ export type MapDependencies<T extends [...any]> = {
         ? // Requires an array of implementations.
           [
               GetAbstractionFromArray<T[K]>,
-              T[K] extends IsOptionalValue<T[K]> ? Multiple & Optional : Multiple
+              T[K] extends IsOptionalValue<T[K]>
+                  ? MultipleTrue & OptionalTrue
+                  : MultipleTrue & Partial<OptionalFalse>
           ]
         : // Requires a single implementation.
         T[K] extends IsOptionalValue<T[K]>
-        ? [Abstraction<T[K]>, Optional]
-        : Abstraction<T[K]>;
+        ? // Support shorthand and long form.
+          [Abstraction<T[K]>, OptionalTrue & Partial<MultipleFalse>]
+        : // Support shorthand and long form.
+          | [Abstraction<T[K]>, MultipleFalse & Partial<OptionalFalse>]
+              | [Abstraction<T[K]>]
+              | Abstraction<T[K]>;
 };
 
 export type Dependencies<T> = T extends Constructor
