@@ -8,17 +8,27 @@ import {
     useExpandedEditor
 } from "~/inputRenderers/LexicalInput/ExpandedEditor";
 
+type LexicalInputRendererProps = Omit<ElementInputRendererProps, "onChange" | "metadata"> & {
+    onChange: (value: string) => void;
+};
+
 export const LexicalInputRenderer = (props: ElementInputRendererProps) => {
+    const onChange = (lexicalValue: string) => {
+        props.onChange(({ value }) => {
+            value.set(lexicalValue);
+        });
+    };
+
     return (
         <ExpandedEditorProvider>
-            <ExpandableLexicalInputRenderer {...props} />
+            <ExpandableLexicalInputRenderer {...props} onChange={onChange} />
         </ExpandedEditorProvider>
     );
 };
 
 import { Dialog } from "@webiny/admin-ui";
 
-interface EditorDialogProps extends Omit<ElementInputRendererProps, "onPreviewChange" | "label"> {
+interface EditorDialogProps extends Omit<LexicalInputRendererProps, "onPreviewChange" | "label"> {
     open: boolean;
     onClose: () => void;
 }
@@ -59,12 +69,17 @@ const EditorDialog = (props: EditorDialogProps) => {
     );
 };
 
-const ExpandableLexicalInputRenderer = ({ value, onChange, input, label }: ElementInputRendererProps) => {
+const ExpandableLexicalInputRenderer = ({
+    value,
+    onChange,
+    input,
+    label
+}: LexicalInputRendererProps) => {
     const { isExpanded, setExpanded } = useExpandedEditor();
 
     const applyChanges = useCallback(
-        (value: any) => {
-            onChange(value);
+        (newValue: any) => {
+            onChange(newValue);
             setExpanded(false);
         },
         [onChange, setExpanded]

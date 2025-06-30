@@ -1,62 +1,51 @@
 import { useCallback, useMemo, useState } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { Commands } from "~/BaseEditor";
-import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useBindingsForElement } from "../ElementSettings/useBindingsForElement";
 import { StylesBindingsProcessor } from "~/sdk/StylesBindingsProcessor";
 import {
     BreakpointElementMetadata,
     ElementMetadata,
-    IElementMetadata,
-    NullElementMetadata,
+    IMetadata,
     StylesMetadata
-} from "~/sdk/ElementMetadata";
+} from "~/BaseEditor/metadata";
 
 export type OnChangeParams = {
     styles: Record<string, any>;
-    metadata: IElementMetadata;
+    metadata: IMetadata;
 };
 
-export const useStyles = () => {
+export const useStyles = (elementId: string) => {
     const [localState, setLocalValue] = useState<Record<string, any>>();
     const { breakpoint, breakpoints } = useBreakpoint();
-    const [element] = useActiveElement();
     const editor = useDocumentEditor();
 
     const breakpointNames = breakpoints.map(bp => bp.name);
 
     // These bindings already include per-breakpoint overrides.
-    const { rawBindings, resolvedBindings, inheritanceMap } = useBindingsForElement(element?.id);
+    const { rawBindings, resolvedBindings, inheritanceMap } = useBindingsForElement(elementId);
 
     const stylesProcessor = new StylesBindingsProcessor(
-        element?.id ?? "",
+        elementId,
         breakpoints.map(bp => bp.name),
         rawBindings
     );
 
-    const elementMetadata: IElementMetadata = useMemo(() => {
-        if (!element) {
-            return new NullElementMetadata();
-        }
-
+    const elementMetadata: IMetadata = useMemo(() => {
         return new StylesMetadata(
             new BreakpointElementMetadata(
                 breakpointNames,
                 breakpoint.name,
-                new ElementMetadata(element.id, rawBindings.metadata)
+                new ElementMetadata(elementId, rawBindings.metadata)
             )
         );
-    }, [element?.id, breakpoint.name, rawBindings]);
+    }, [elementId, breakpoint.name, rawBindings]);
 
     const devFriendlyStyles = stylesProcessor.toDeepStyles(resolvedBindings.styles);
 
     const onChange = useCallback(
         (cb: (params: OnChangeParams) => void) => {
-            if (!element) {
-                return;
-            }
-
             // Apply changes by reference.
             cb({ styles: devFriendlyStyles, metadata: elementMetadata });
 
@@ -71,15 +60,11 @@ export const useStyles = () => {
             // Clear local value
             setLocalValue(undefined);
         },
-        [element?.id, devFriendlyStyles, breakpoint]
+        [elementId, devFriendlyStyles, breakpoint]
     );
 
     const onPreviewChange = useCallback(
         (cb: (params: OnChangeParams) => void) => {
-            if (!element) {
-                return;
-            }
-
             cb({ styles: devFriendlyStyles, metadata: elementMetadata });
 
             setLocalValue(devFriendlyStyles);
@@ -87,11 +72,11 @@ export const useStyles = () => {
             const updatedStyles = stylesProcessor.createUpdate(devFriendlyStyles, breakpoint.name);
 
             editor.executeCommand(Commands.PreviewPatchElement, {
-                elementId: element.id,
+                elementId,
                 patch: updatedStyles.createJsonPatch(rawBindings)
             });
         },
-        [element?.id, devFriendlyStyles, breakpoint]
+        [elementId, devFriendlyStyles, breakpoint]
     );
 
     return {

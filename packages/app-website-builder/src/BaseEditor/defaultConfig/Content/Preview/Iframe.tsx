@@ -18,8 +18,12 @@ export const Iframe = React.memo((props: IframeProps) => {
     const previewWidth = useResponsiveContainer(props.viewportManager);
 
     const previewUrl = useSelectFromEditor<string>(state => {
-        const iframeUrl =
-            "http://localhost:3000/page-1?preview.document.type=page&preview.document.id=12345678&preview.document.path=/page-1";
+        const searchParams = new URLSearchParams();
+        searchParams.append("preview.document.type", "page");
+        searchParams.append("preview.document.id", "12345678");
+        searchParams.append("preview.document.path", "/page-1");
+
+        const iframeUrl = `http://localhost:3000/page-1?${searchParams.toString()}`;
         return state.previewUrl ?? iframeUrl;
     });
 

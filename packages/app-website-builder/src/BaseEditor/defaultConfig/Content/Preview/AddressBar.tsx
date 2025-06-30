@@ -6,7 +6,6 @@ import { BreakpointSelector } from "./BreakpointSelector";
 
 export const AddressBar = () => {
     const editor = useDocumentEditor();
-
     const previewUrl = useSelectFromEditor<string>(state => {
         return state.previewUrl ?? "http://localhost:3000/page-1";
     });

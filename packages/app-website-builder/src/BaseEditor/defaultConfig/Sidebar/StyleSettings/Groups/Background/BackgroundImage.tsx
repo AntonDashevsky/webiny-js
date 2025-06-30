@@ -28,9 +28,9 @@ export const parseValue = (value: string) => {
     return;
 };
 
-export const BackgroundImage = () => {
+export const BackgroundImage = ({ elementId }: { elementId: string }) => {
     const { isBaseBreakpoint } = useBreakpoint();
-    const { styles, metadata, onChange, inheritanceMap } = useStyles();
+    const { styles, metadata, onChange, inheritanceMap } = useStyles(elementId);
     const [localValue, setLocalValue] = useState<string | null>(styles.backgroundImage);
     const url = useMemo(() => {
         const parser = new BackgroundImageParser(styles.backgroundImage);

@@ -1,5 +1,5 @@
 import { applyPatch as jsonPatchApply, Operation } from "fast-json-patch";
-import { makeAutoObservable, runInAction, observable } from "mobx";
+import { makeAutoObservable, runInAction, observable, toJS } from "mobx";
 import type { Document } from "~/sdk/types";
 
 export class DocumentStore {

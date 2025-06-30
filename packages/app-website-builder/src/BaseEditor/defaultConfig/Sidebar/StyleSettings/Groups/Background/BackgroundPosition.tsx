@@ -19,8 +19,8 @@ const POSITIONS = [
 
 const options = POSITIONS.map(key => ({ label: toTitleCaseLabel(key), value: key }));
 
-export const BackgroundPosition = () => {
-    const { styles, onChange, inheritanceMap } = useStyles();
+export const BackgroundPosition = ({ elementId }: { elementId: string }) => {
+    const { styles, onChange, inheritanceMap } = useStyles(elementId);
     const [localValue, setLocalValue] = useState<string>(styles.backgroundPosition);
     const hasBackgroundImage = useMemo(() => {
         const parser = new BackgroundImageParser(styles.backgroundImage);

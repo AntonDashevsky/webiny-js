@@ -4,8 +4,8 @@ import { ColorPicker } from "@webiny/admin-ui";
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
 import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
 
-export const BackgroundColor = () => {
-    const { styles, onChange, onPreviewChange, inheritanceMap } = useStyles();
+export const BackgroundColor = ({ elementId }: { elementId: string }) => {
+    const { styles, onChange, onPreviewChange, inheritanceMap } = useStyles(elementId);
     const [value, setValue] = useState(styles.backgroundColor ?? "#000000");
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 

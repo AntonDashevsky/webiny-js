@@ -5,21 +5,25 @@ import { BackgroundColor } from "./Background/BackgroundColor";
 import { BackgroundPosition } from "./Background/BackgroundPosition";
 import { BackgroundScaling } from "./Background/BackgroundScaling";
 
-export const Background = () => {
+interface BackgroundProps {
+    elementId: string;
+}
+
+export const Background = ({ elementId }: BackgroundProps) => {
     return (
         <Accordion.Item title={"Background"}>
             <Grid>
                 <Grid.Column span={12}>
-                    <BackgroundColor />
+                    <BackgroundColor elementId={elementId} />
                 </Grid.Column>
                 <Grid.Column span={12}>
-                    <BackgroundImage />
+                    <BackgroundImage elementId={elementId} />
                 </Grid.Column>
                 <Grid.Column span={12}>
-                    <BackgroundPosition />
+                    <BackgroundPosition elementId={elementId} />
                 </Grid.Column>
                 <Grid.Column span={12}>
-                    <BackgroundScaling />
+                    <BackgroundScaling elementId={elementId} />
                 </Grid.Column>
             </Grid>
         </Accordion.Item>

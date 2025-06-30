@@ -46,8 +46,8 @@ const SCALING_MAP: Scaling[] = [
 
 const options = SCALING_MAP.map(item => ({ label: toTitleCaseLabel(item.name), value: item.name }));
 
-export const BackgroundScaling = () => {
-    const { styles, onChange, inheritanceMap } = useStyles();
+export const BackgroundScaling = ({ elementId }: { elementId: string }) => {
+    const { styles, onChange, inheritanceMap } = useStyles(elementId);
 
     const scaling = SCALING_MAP.find(item => {
         return (

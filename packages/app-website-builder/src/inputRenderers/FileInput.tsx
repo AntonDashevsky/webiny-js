@@ -2,8 +2,15 @@ import React from "react";
 import { FilePicker, FileItemDto } from "@webiny/admin-ui";
 import { ElementInputRendererProps } from "~/BaseEditor";
 import { FileManager } from "@webiny/app-admin";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 
-export const FileInputRenderer = ({ metadata, onChange, label }: ElementInputRendererProps) => {
+export const FileInputRenderer = ({
+    value,
+    metadata,
+    onChange,
+    label
+}: ElementInputRendererProps) => {
+    const { isBaseBreakpoint } = useBreakpoint();
     const onFileChange = (file: any) => {
         const metaItems = file.meta || [];
         const getName = () => {
@@ -34,12 +41,17 @@ export const FileInputRenderer = ({ metadata, onChange, label }: ElementInputRen
 
     const onRemove = () => {
         onChange(({ value, metadata }) => {
-            value.set(undefined);
+            if (isBaseBreakpoint) {
+                value.set(undefined);
+            } else {
+                value.set(null);
+            }
             metadata.unset("image");
         });
     };
 
     const fileInfo = metadata.get<FileItemDto>("image");
+    const preview = value ? fileInfo : undefined;
 
     return (
         <FileManager
@@ -49,7 +61,7 @@ export const FileInputRenderer = ({ metadata, onChange, label }: ElementInputRen
                     label={label}
                     description="Select a background image"
                     type="compact"
-                    value={fileInfo ? fileInfo : undefined}
+                    value={preview}
                     onSelectItem={() => showFileManager()}
                     onRemoveItem={onRemove}
                     onEditItem={() => showFileManager()}

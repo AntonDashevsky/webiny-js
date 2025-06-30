@@ -16,7 +16,7 @@ export const StyleProperties = () => {
 const ElementStyleProperties = ({ element }: { element: DocumentElement }) => {
     return (
         <Accordion>
-            <Background />
+            <Background elementId={element.id}/>
         </Accordion>
     );
 };

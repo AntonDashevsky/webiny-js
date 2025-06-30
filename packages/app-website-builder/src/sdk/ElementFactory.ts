@@ -217,7 +217,7 @@ export class ElementFactory {
             } else if (isObject && isList) {
                 return;
             } else {
-                if (ignoreDefaultValues && !value) {
+                if (ignoreDefaultValues) {
                     return;
                 }
 

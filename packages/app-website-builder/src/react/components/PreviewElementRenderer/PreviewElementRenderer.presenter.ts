@@ -57,6 +57,7 @@ export class PreviewElementRendererPresenter {
         this.listeners.push(
             this.preview.messenger.on(`element.patch.${id}`, patch => {
                 this.documentStore.updateDocument(document => {
+                    console.log("patch", id, patch);
                     fjp.applyPatch(document.bindings[id], patch, false, true);
                 });
             })

@@ -253,7 +253,6 @@ export class InputsBindingsProcessor {
                                 }
                             } else if (
                                 inheritedValue === undefined ||
-                                inheritedValue === null ||
                                 !deepEqual(inheritedValue, binding.static)
                             ) {
                                 if (!rebuilt.overrides[breakpoint]) {
@@ -308,7 +307,6 @@ export class InputsBindingsProcessor {
                                 }
                             } else if (
                                 inheritedValue === undefined ||
-                                inheritedValue === null ||
                                 !deepEqual(inheritedValue, binding.static)
                             ) {
                                 if (!rebuilt.overrides[breakpoint]) {

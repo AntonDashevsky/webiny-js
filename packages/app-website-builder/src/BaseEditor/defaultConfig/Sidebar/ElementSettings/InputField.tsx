@@ -3,17 +3,21 @@ import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
 // import { FieldArray } from "./FieldArray";
 import { useInputRenderer } from "./useInputRenderer";
 import { useInputValue } from "./useInputValue";
-import { DocumentElementBindings } from "~/sdk/types";
+import type { DocumentElement, DocumentElementBindings } from "~/sdk/types";
 import { InheritanceLabel } from "../InheritanceLabel";
 
 interface InputFieldProps {
     node: InputAstNode;
+    element: DocumentElement;
     bindings: DocumentElementBindings["inputs"];
 }
 
-export function InputField({ node }: InputFieldProps) {
+export function InputField({ element, node }: InputFieldProps) {
     const Renderer = useInputRenderer(node.input.renderer!);
-    const { value, onChange, onPreviewChange, inheritanceMap, metadata, onReset } = useInputValue(node);
+    const { value, onChange, onPreviewChange, inheritanceMap, metadata, onReset } = useInputValue(
+        element.id,
+        node
+    );
     const input = node.input;
 
     if (input.type === "object") {

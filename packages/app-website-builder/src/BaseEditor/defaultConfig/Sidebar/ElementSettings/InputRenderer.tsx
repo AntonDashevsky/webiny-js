@@ -2,7 +2,8 @@ import React from "react";
 import { Grid } from "@webiny/admin-ui";
 import type { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
 import { InputField } from "./InputField";
-import type { DocumentElementBindings } from "~/sdk/types";
+import type { DocumentElement, DocumentElementBindings } from "~/sdk/types";
+import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
 
 export const InputRenderer = ({
     ast,
@@ -16,10 +17,32 @@ export const InputRenderer = ({
             {ast.map(node =>
                 node.input.hideFromUi ? null : (
                     <Grid.Column span={12} key={node.path}>
-                        <InputField key={node.path} node={node} bindings={bindings} />
+                        <ActiveElement>
+                            {element => (
+                                <InputField
+                                    key={node.path}
+                                    element={element}
+                                    node={node}
+                                    bindings={bindings}
+                                />
+                            )}
+                        </ActiveElement>
                     </Grid.Column>
                 )
             )}
         </>
     );
+};
+
+type ActiveElementProps = {
+    children: (element: DocumentElement) => React.ReactNode;
+};
+
+const ActiveElement = ({ children }: ActiveElementProps) => {
+    const [element] = useActiveElement();
+    if (!element) {
+        return null;
+    }
+
+    return children(element);
 };
