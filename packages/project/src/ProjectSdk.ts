@@ -4,6 +4,7 @@ import {
     BuildApp,
     DeployApp,
     GetApp,
+    GetAppOutput,
     GetProject,
     GetProjectInfo
 } from "~/abstractions";
@@ -14,7 +15,6 @@ export class ProjectSdk {
 
     protected constructor(cwd: string) {
         this.cwd = cwd;
-
         this.container = createProjectSdkContainer();
     }
 
@@ -30,6 +30,12 @@ export class ProjectSdk {
     // App-related methods.
     async getApp(appName: string) {
         return this.container.resolve(GetApp).execute(appName);
+    }
+
+    async getAppOutput<TOutput extends Record<string, any> = Record<string, any>>(
+        params: GetAppOutput.Params
+    ) {
+        return this.container.resolve(GetAppOutput).execute<TOutput>(params);
     }
 
     buildApp(params: BuildApp.Params) {
