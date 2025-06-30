@@ -1,4 +1,5 @@
-export interface BaseBuildDeployParams {
+export interface IBaseAppParams {
+    app: string;
     env: string;
     variant?: string;
     region?: string;

@@ -1,10 +1,6 @@
 import { Container } from "@webiny/di-container";
 import { createProjectSdkContainer } from "./createProjectSdkContainer";
 import {
-    AfterBuildHook,
-    AfterDeployHook,
-    BeforeBuildHook,
-    BeforeDeployHook,
     BuildApp,
     DeployApp,
     GetApp,
@@ -33,8 +29,7 @@ export class ProjectSdk {
 
     // App-related methods.
     async getApp(appName: string) {
-        const project = await this.getProject();
-        return this.container.resolve(GetApp).execute({ project, appName });
+        return this.container.resolve(GetApp).execute(appName);
     }
 
     buildApp(params: BuildApp.Params) {

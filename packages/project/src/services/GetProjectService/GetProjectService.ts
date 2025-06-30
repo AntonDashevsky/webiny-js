@@ -5,7 +5,7 @@ import findUp from "find-up";
 import { dirname, join, relative } from "path";
 
 export class DefaultGetProjectService implements GetProjectService.Interface {
-    execute(cwd = process.cwd()) {
+    async execute(cwd = process.cwd()) {
         const manifestFileAbsPath = findUp.sync("webiny.config.ts", { cwd });
         if (!manifestFileAbsPath) {
             throw new Error(`Could not detect project in given directory (${cwd}).`);

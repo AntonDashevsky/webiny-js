@@ -1,0 +1,26 @@
+import { Abstraction } from "@webiny/di-container";
+import { IBaseAppParams } from "~/abstractions/types";
+import { ExecaChildProcess } from "execa";
+
+type IPulumiProcess = ExecaChildProcess<string>;
+
+interface IDeployAppParams extends IBaseAppParams {
+    preview?: boolean;
+    debug?: boolean;
+
+    onPulumiProcess?: (process: IPulumiProcess) => void;
+}
+
+interface IDeployApp {
+    execute(params: IDeployAppParams): Promise<void>;
+}
+
+export const DeployApp = new Abstraction<IDeployApp>("DeployApp");
+
+export namespace DeployApp {
+    export type Interface = IDeployApp;
+
+    export type Params = IDeployAppParams;
+
+    export type PulumiProcess = IPulumiProcess;
+}

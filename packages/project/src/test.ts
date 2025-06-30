@@ -58,13 +58,9 @@ async function main() {
     projectSdk.getContainer().registerDecorator(myOtherBeforeBuildHook);
     projectSdk.getContainer().registerDecorator(myAfterBuildHook);
 
-    await projectSdk.deployApp({
+    await projectSdk.buildApp({
         app: "core",
-        env: "dev",
-        onPulumiProcess(pulumiProcess) {
-            pulumiProcess.stdout!.pipe(process.stdout);
-            pulumiProcess.stderr!.pipe(process.stderr);
-        }
+        env: "dev"
     });
 }
 

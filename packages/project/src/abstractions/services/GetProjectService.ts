@@ -1,8 +1,8 @@
 import { Abstraction } from "@webiny/di-container";
-import { IProjectModel } from "~/abstractions/models/IProjectModel";
+import { IProjectModel } from "~/abstractions/models";
 
-export interface IGetProjectService {
-    execute(cwd?: string): IProjectModel;
+interface IGetProjectService {
+    execute(cwd?: string): Promise<IProjectModel>;
 }
 
 export const GetProjectService = new Abstraction<IGetProjectService>("GetProjectService");

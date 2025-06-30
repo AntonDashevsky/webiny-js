@@ -1,23 +1,36 @@
 import { createImplementation } from "@webiny/di-container";
-import { BuildApp, GetProjectService, GetAppService, BuildAppService } from "~/abstractions";
+import { BuildApp, GetApp, GetAppPackagesService, LoggerService } from "~/abstractions";
+import { createAppWorkspace } from "~/utils";
+import { PackagesBuilder } from "./packagesBuilders/PackagesBuilder";
 
 export class DefaultBuildApp implements BuildApp.Interface {
     constructor(
-        private getProjectService: GetProjectService.Interface,
-        private getAppService: GetAppService.Interface,
-        private buildAppService: BuildAppService.Interface
+        private getApp: GetApp.Interface,
+        private getAppPackagesService: GetAppPackagesService.Interface,
+        private logger: LoggerService.Interface
     ) {}
 
-    async execute(params: BuildApp.Params): Promise<void> {
-        const project = this.getProjectService.execute(params.app);
-        const app = this.getAppService.execute(project, params.app);
+    async execute(params: BuildApp.Params) {
+        if (!params.env) {
+            throw new Error(`Please specify environment, for example "dev".`);
+        }
 
-        return this.buildAppService.execute(app, params);
+        const app = await this.getApp.execute(params.app);
+
+        await createAppWorkspace({
+            app,
+            env: params.env,
+            variant: params.variant
+        });
+
+        const packages = await this.getAppPackagesService.execute(app);
+        const packagesBuilder = new PackagesBuilder(packages, params, this.logger);
+        await packagesBuilder.build();
     }
 }
 
 export const buildApp = createImplementation({
     abstraction: BuildApp,
     implementation: DefaultBuildApp,
-    dependencies: [GetProjectService, GetAppService, BuildAppService]
+    dependencies: [ GetApp, GetAppPackagesService, LoggerService]
 });
