@@ -44,6 +44,15 @@ export class ProjectApplication {
         );
 
         return {
+            id,
+            name,
+            description,
+            root: projectAppRootPath,
+            paths: {
+                relative: projectAppRelativePath,
+                absolute: projectAppRootPath,
+                workspace: projectAppWorkspacePath
+            },
             config: {
                 ...applicationConfig,
                 getPlugins: async () => {

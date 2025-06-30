@@ -1,17 +1,17 @@
 import { Abstraction } from "@webiny/di-container";
 import { IAppModel, IProjectModel } from "~/abstractions/models";
-import { ICommand } from "./ICommand";
+import { I } from "./I";
 
-type IGetAppCommandParams = {
+type IGetAppParams = {
     project: IProjectModel,
     appName: string;
 }
 
-type IGetAppCommand = ICommand<IGetAppCommandParams, IAppModel>;
+type IGetApp = I<IGetAppParams, IAppModel>;
 
-export const GetAppCommand = new Abstraction<IGetAppCommand>("GetAppCommand");
+export const GetApp = new Abstraction<IGetApp>("GetApp");
 
-export namespace GetAppCommand {
-    export type Interface = IGetAppCommand;
-    export type Params = IGetAppCommandParams;
+export namespace GetApp {
+    export type Interface = IGetApp;
+    export type Params = IGetAppParams;
 }

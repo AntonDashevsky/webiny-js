@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { Context, IPulumi, IUserCommandInput } from "~/types";
+import { Context, IPulumi, IUserInput } from "~/types";
 import { measureDuration } from "~/utils";
 import ora from "ora";
 import { isCI } from "ci-info";
@@ -13,7 +13,7 @@ import {
 } from "~/utils/env";
 
 export interface IExecuteRefreshParams {
-    inputs: IUserCommandInput;
+    inputs: IUserInput;
     context: Context;
     pulumi: Pick<IPulumi, "run">;
 }

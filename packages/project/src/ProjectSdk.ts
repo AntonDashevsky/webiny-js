@@ -5,54 +5,51 @@ import {
     AfterDeployHook,
     BeforeBuildHook,
     BeforeDeployHook,
-    BuildAppCommand,
-    DeployAppCommand,
-    GetAppCommand,
-    GetProjectCommand,
-    GetProjectInfoCommand
+    BuildApp,
+    DeployApp,
+    GetApp,
+    GetProject,
+    GetProjectInfo
 } from "~/abstractions";
-
-export type ProjectSdkOptions = Partial<{
-    beforeBuildHooks: BeforeBuildHook.Interface[];
-    afterBuildHooks: AfterBuildHook.Interface[];
-    beforeDeployHooks: BeforeDeployHook.Interface[];
-    afterDeployHooks: AfterDeployHook.Interface[];
-}>;
 
 export class ProjectSdk {
     cwd: string;
     container: Container;
 
-    protected constructor(cwd: string, options: ProjectSdkOptions = {}) {
+    protected constructor(cwd: string) {
         this.cwd = cwd;
 
-        this.container = createProjectSdkContainer(options);
+        this.container = createProjectSdkContainer();
     }
 
     // Project-related methods.
     getProject() {
-        return this.container.resolve(GetProjectCommand).execute(this.cwd);
+        return this.container.resolve(GetProject).execute(this.cwd);
     }
 
     getProjectInfo() {
-        return this.container.resolve(GetProjectInfoCommand).execute();
+        return this.container.resolve(GetProjectInfo).execute();
     }
 
     // App-related methods.
     async getApp(appName: string) {
         const project = await this.getProject();
-        return this.container.resolve(GetAppCommand).execute({ project, appName });
+        return this.container.resolve(GetApp).execute({ project, appName });
     }
 
-    buildApp(params: BuildAppCommand.Params) {
-        return this.container.resolve(BuildAppCommand).execute(params);
+    buildApp(params: BuildApp.Params) {
+        return this.container.resolve(BuildApp).execute(params);
     }
 
-    deployApp(params: DeployAppCommand.Params) {
-        return this.container.resolve(DeployAppCommand).execute(params);
+    deployApp(params: DeployApp.Params) {
+        return this.container.resolve(DeployApp).execute(params);
     }
 
-    static init(cwd: string, options?: ProjectSdkOptions) {
-        return new ProjectSdk(cwd, options);
+    getContainer() {
+        return this.container;
+    }
+
+    static init(cwd: string) {
+        return new ProjectSdk(cwd);
     }
 }

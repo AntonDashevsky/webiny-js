@@ -30,20 +30,6 @@ export class DefaultPulumiSelectStackService implements PulumiSelectStackService
 
         const stackName = getStackName(params);
 
-        const args = {
-            command: ["stack", "select", stackName],
-            args: {
-                create: true,
-                secretsProvider
-            },
-            execa: {
-                env: createEnvConfiguration({
-                    configurations: [withPulumiConfigPassphrase(configPassphrase)]
-                })
-            }
-        };
-
-
         await pulumi.run({
             command: ["stack", "select", stackName],
             args: {

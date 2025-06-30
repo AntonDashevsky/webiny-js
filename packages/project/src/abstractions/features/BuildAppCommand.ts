@@ -1,7 +1,7 @@
 import { Abstraction } from "@webiny/di-container";
-import { ICommand } from "./ICommand";
+import { I } from "./I";
 
-interface BuildAppCommandParams {
+interface BuildAppParams {
     app: string;
     env: string;
     variant?: string;
@@ -10,12 +10,12 @@ interface BuildAppCommandParams {
     logs?: boolean;
 }
 
-type IBuildAppCommand = ICommand<BuildAppCommandParams>;
+type IBuildApp = I<BuildAppParams>;
 
-export const BuildAppCommand = new Abstraction<IBuildAppCommand>("BuildAppCommand");
+export const BuildApp = new Abstraction<IBuildApp>("BuildApp");
 
-export namespace BuildAppCommand {
-    export type Interface = IBuildAppCommand;
+export namespace BuildApp {
+    export type Interface = IBuildApp;
 
-    export type Params = BuildAppCommandParams;
+    export type Params = BuildAppParams;
 }

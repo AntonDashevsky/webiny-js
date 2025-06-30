@@ -1,7 +1,7 @@
-export { GetAppOutputCommand } from "./GetAppOutputCommand";
-export { GetProjectInfoCommand } from "./GetProjectInfoCommand";
-export { BuildAppCommand } from "./BuildAppCommand";
-export { DeployAppCommand } from "./DeployAppCommand";
-export { GetProjectCommand } from "./GetProjectCommand";
-export { GetAppCommand } from "./GetAppCommand";
+export { GetAppOutput } from "./GetAppOutput";
+export { GetProjectInfo } from "./GetProjectInfo";
+export { BuildApp } from "./BuildApp";
+export { DeployApp } from "./DeployApp";
+export { GetProject } from "./GetProject";
+export { GetApp } from "./GetApp";
 export * from "./hooks";

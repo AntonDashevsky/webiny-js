@@ -4,4 +4,3 @@ export * from "./GetNpxVersionService";
 export * from "./GetPulumiVersionService";
 export * from "./GetYarnVersionService";
 export * from "./ProjectInfoService";
-

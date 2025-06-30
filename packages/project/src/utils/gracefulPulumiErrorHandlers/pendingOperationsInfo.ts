@@ -1,13 +1,13 @@
 // @ts-nocheck
 import { ProjectApplication } from "@webiny/cli/types.js";
 import chalk from "chalk";
-import { IUserCommandInput } from "~/types.js";
+import { IUserInput } from "~/types.js";
 
 const MATCH_STRING = "the stack is currently locked by";
 
 export interface IPendingOperationsInfoParamsContext {
     projectApplication: Pick<ProjectApplication, "id">;
-    commandParams: Pick<IUserCommandInput, "env">;
+    commandParams: Pick<IUserInput, "env">;
 }
 
 export interface IPendingOperationsInfoParams {

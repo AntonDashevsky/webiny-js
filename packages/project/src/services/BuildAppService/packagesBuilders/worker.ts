@@ -17,8 +17,8 @@ const worker = async () => {
         options
     });
 
-    const hasBuildCommand = config.commands && typeof config.commands.build === "function";
-    if (!hasBuildCommand) {
+    const hasBuild = config.commands && typeof config.commands.build === "function";
+    if (!hasBuild) {
         throw new Error("Build command not found.");
     }
     await config.commands.build(options).catch(error => {

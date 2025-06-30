@@ -1,3 +1,3 @@
-export interface ICommand<TParams = void, TResult = void> {
+export interface I<TParams = void, TResult = void> {
     execute(params: TParams): Promise<TResult>;
 }

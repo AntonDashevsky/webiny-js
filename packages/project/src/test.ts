@@ -1,50 +1,70 @@
 import { ProjectSdk } from "./ProjectSdk";
+import { createDecorator } from "@webiny/di-container";
+import { BuildApp } from "~/abstractions";
 
-import { createImplementation } from "@webiny/di-container";
-import { BeforeBuildHook } from "~/abstractions";
+// BEFORE HOOKS
+class MyBeforeBuildHook implements BuildApp.Interface {
+    constructor(private decoratee: BuildApp.Interface) {}
 
-class MyBeforeBuildHook implements BeforeBuildHook.Interface {
-    execute() {
-        console.log("1");
+    async execute(params: BuildApp.Params) {
+        console.log("Before build 1");
+        return this.decoratee.execute(params);
     }
 }
 
-const myBeforeBuildHook = createImplementation({
-    abstraction: BeforeBuildHook,
-    implementation: MyBeforeBuildHook,
+const myBeforeBuildHook = createDecorator({
+    abstraction: BuildApp,
+    decorator: MyBeforeBuildHook,
     dependencies: []
 });
 
-class MyOtherBeforeBuildHook implements BeforeBuildHook.Interface {
-    execute() {
-        console.log("2");
+class MyOtherBeforeBuildHook implements BuildApp.Interface {
+    constructor(private decoratee: BuildApp.Interface) {}
+
+    async execute(params: BuildApp.Params) {
+        console.log("Before build 2");
+        return this.decoratee.execute(params);
     }
 }
 
-const myOtherBeforeBuildHook = createImplementation({
-    abstraction: BeforeBuildHook,
-    implementation: MyOtherBeforeBuildHook,
+const myOtherBeforeBuildHook = createDecorator({
+    abstraction: BuildApp,
+    decorator: MyOtherBeforeBuildHook,
     dependencies: []
 });
 
+// AFTER HOOKS
+class MyAfterBuildHook implements BuildApp.Interface {
+    constructor(private decoratee: BuildApp.Interface) {}
 
+    async execute(params: BuildApp.Params) {
+        const result = await this.decoratee.execute(params);
+        console.log("After build 1");
+        return result;
+    }
+}
+
+const myAfterBuildHook = createDecorator({
+    abstraction: BuildApp,
+    decorator: MyAfterBuildHook,
+    dependencies: []
+});
 
 async function main() {
     const cwd = process.cwd();
-    const project = ProjectSdk.init(cwd, {
-        beforeBuildHooks: [
-            // @ts-ignore TODO: Fix this.
-            myBeforeBuildHook,
+    const projectSdk = ProjectSdk.init(cwd);
 
-            // @ts-ignore TODO: Fix this.
-            myOtherBeforeBuildHook
-        ]
-    });
+    projectSdk.getContainer().registerDecorator(myBeforeBuildHook);
+    projectSdk.getContainer().registerDecorator(myOtherBeforeBuildHook);
+    projectSdk.getContainer().registerDecorator(myAfterBuildHook);
 
-    const apiPackages = await project.deployApp({
+    await projectSdk.deployApp({
         app: "core",
         env: "dev",
-        preview: true,
+        onPulumiProcess(pulumiProcess) {
+            pulumiProcess.stdout!.pipe(process.stdout);
+            pulumiProcess.stderr!.pipe(process.stderr);
+        }
     });
 }
 

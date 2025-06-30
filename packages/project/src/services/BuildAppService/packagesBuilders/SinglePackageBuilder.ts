@@ -27,8 +27,8 @@ export class SinglePackageBuilder extends BasePackagesBuilder {
             context: {}
         });
 
-        const hasBuildCommand = config.commands && typeof config.commands.build === "function";
-        if (!hasBuildCommand) {
+        const hasBuild = config.commands && typeof config.commands.build === "function";
+        if (!hasBuild) {
             throw new Error("Build command not found.");
         }
 

@@ -4,10 +4,10 @@ import chunk from "lodash/chunk.js";
 import fs from "fs";
 import {
     createS3,
-    HeadObjectCommand,
+    HeadObject,
     ObjectCannedACL,
-    PutObjectCommand,
-    PutObjectCommandInput
+    PutObject,
+    PutObjectInput
 } from "@webiny/aws-sdk/client-s3";
 import mime from "mime";
 import { relative } from "path";
@@ -35,7 +35,7 @@ export interface Paths {
 }
 
 export interface CacheControlMap {
-    [key: string]: PutObjectCommandInput["CacheControl"];
+    [key: string]: PutObjectInput["CacheControl"];
 }
 
 export interface IUploadFolderToS3Params {
@@ -47,9 +47,9 @@ export interface IUploadFolderToS3Params {
     onFileUploadError: (params: { paths: Paths; error: Error }) => void;
     // A callback that gets called every time a file upload has been skipped.
     onFileUploadSkip: (params: { paths: Paths }) => void;
-    bucket: PutObjectCommandInput["Bucket"];
+    bucket: PutObjectInput["Bucket"];
     acl?: ObjectCannedACL;
-    cacheControl?: PutObjectCommandInput["CacheControl"] | CacheControlMap;
+    cacheControl?: PutObjectInput["CacheControl"] | CacheControlMap;
 }
 
 /**
@@ -114,7 +114,7 @@ export const uploadFolderToS3 = async ({
 
                         let skipUpload = false;
                         try {
-                            const cmd = new HeadObjectCommand({
+                            const cmd = new HeadObject({
                                 Bucket: bucket,
                                 Key: key
                             });
@@ -144,7 +144,7 @@ export const uploadFolderToS3 = async ({
                                     x?.pattern?.test(key)
                                 )?.value;
                             }
-                            const cmd = new PutObjectCommand({
+                            const cmd = new PutObject({
                                 Bucket: bucket,
                                 Key: key,
                                 ACL: acl,

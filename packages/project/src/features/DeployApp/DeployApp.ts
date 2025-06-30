@@ -1,14 +1,14 @@
 import { createImplementation } from "@webiny/di-container";
-import { DeployAppCommand, GetProjectService, GetAppService, DeployAppService } from "~/abstractions";
+import { DeployApp, GetProjectService, GetAppService, DeployAppService } from "~/abstractions";
 
-export class DefaultDeployAppCommand implements DeployAppCommand.Interface {
+export class DefaultDeployApp implements DeployApp.Interface {
     constructor(
         private getProjectService: GetProjectService.Interface,
         private getAppService: GetAppService.Interface,
         private deployAppService: DeployAppService.Interface
     ) {}
 
-    async execute(params: DeployAppCommand.Params): Promise<void> {
+    async execute(params: DeployApp.Params): Promise<void> {
         const project = this.getProjectService.execute();
         const app = this.getAppService.execute(project, params.app);
 
@@ -16,8 +16,8 @@ export class DefaultDeployAppCommand implements DeployAppCommand.Interface {
     }
 }
 
-export const deployAppCommand = createImplementation({
-    abstraction: DeployAppCommand,
-    implementation: DefaultDeployAppCommand,
+export const deployApp = createImplementation({
+    abstraction: DeployApp,
+    implementation: DefaultDeployApp,
     dependencies: [GetProjectService, GetAppService, DeployAppService]
 });

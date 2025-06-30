@@ -1,11 +1,11 @@
 import { Abstraction } from "@webiny/di-container";
 import { IProjectModel } from "~/abstractions/models";
-import { ICommand } from "./ICommand";
+import { I } from "./I";
 
-type IGetProjectCommand = ICommand<string | undefined, IProjectModel>;
+type IGetProject = I<string | undefined, IProjectModel>;
 
-export const GetProjectCommand = new Abstraction<IGetProjectCommand>("GetProjectCommand");
+export const GetProject = new Abstraction<IGetProject>("GetProject");
 
-export namespace GetProjectCommand {
-    export type Interface = IGetProjectCommand;
+export namespace GetProject {
+    export type Interface = IGetProject;
 }

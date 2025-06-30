@@ -1,15 +1,15 @@
 import { Abstraction } from "@webiny/di-container";
 import { PulumiGetStackOutputService } from "~/abstractions";
-import { ICommand } from "~/abstractions/features/ICommand";
+import { I } from "~/abstractions/features/I";
 
-export interface IGetAppOutputCommandParams extends PulumiGetStackOutputService.Params {
+export interface IGetAppOutputParams extends PulumiGetStackOutputService.Params {
     app: string;
 }
-type IGetAppOutputCommand<TOutput = Record<string, any>> = ICommand<IGetAppOutputCommandParams, TOutput | null>;
+type IGetAppOutput<TOutput = Record<string, any>> = I<IGetAppOutputParams, TOutput | null>;
 
-export const GetAppOutputCommand = new Abstraction<IGetAppOutputCommand>("GetAppOutputCommand");
+export const GetAppOutput = new Abstraction<IGetAppOutput>("GetAppOutput");
 
-export namespace GetAppOutputCommand {
-    export type Interface = IGetAppOutputCommand;
-    export type Params = IGetAppOutputCommandParams;
+export namespace GetAppOutput {
+    export type Interface = IGetAppOutput;
+    export type Params = IGetAppOutputParams;
 }

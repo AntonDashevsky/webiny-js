@@ -1,38 +1,37 @@
 import { createImplementation } from "@webiny/di-container";
 import {
-    AfterDeployHooksRegistry,
-    BeforeDeployHooksRegistry,
-    BuildAppService,
-    DeployAppService, GetProjectService,
+    BuildApp,
+    DeployAppService,
+    GetProjectService,
     GetPulumiService,
+    PulumiGetSecretsProviderService,
     PulumiSelectStackService
 } from "~/abstractions";
 import { AppModel } from "~/models";
-import { executeDeploy } from "./utils/executeDeploy";
-import { executePreview } from "./utils/executePreview";
+import {
+    createEnvConfiguration,
+    withEnv,
+    withEnvVariant,
+    withProjectName,
+    withPulumiConfigPassphrase,
+    withRegion
+} from "~/utils/env";
 
 export class DefaultDeployAppService implements DeployAppService.Interface {
     constructor(
-        private buildAppService: BuildAppService.Interface,
-        private beforeDeployHooksRegistry: BeforeDeployHooksRegistry.Interface,
-        private afterDeployHooksRegistry: AfterDeployHooksRegistry.Interface,
+        private buildApp: BuildApp.Interface,
         private getProjectService: GetProjectService.Interface,
         private getPulumiService: GetPulumiService.Interface,
-        private pulumiSelectStackService: PulumiSelectStackService.Interface
+        private pulumiSelectStackService: PulumiSelectStackService.Interface,
+        private pulumiGetSecretsProviderService: PulumiGetSecretsProviderService.Interface
     ) {}
 
-    async execute(app: AppModel, params: DeployAppService.Params): Promise<void> {
+    async execute(app: AppModel, params: DeployAppService.Params) {
         if (!params.env) {
             throw new Error(`Please specify environment, for example "dev".`);
         }
 
-        // await this.buildAppService.execute(app, params);
-
-
-        const beforeDeployHooks = this.beforeDeployHooksRegistry.execute();
-        for (const beforeDeployHook of beforeDeployHooks) {
-            await beforeDeployHook.execute();
-        }
+        await this.buildApp.execute(params);
 
         await this.pulumiSelectStackService.execute(app, params);
 
@@ -43,15 +42,42 @@ export class DefaultDeployAppService implements DeployAppService.Interface {
         const pulumi = await this.getPulumiService.execute({ app });
         const project = this.getProjectService.execute();
 
-        if (params.preview) {
-            await executePreview(pulumi, project, params);
-        } else {
-            await executeDeploy(pulumi, project, params);
-        }
+        const env = createEnvConfiguration({
+            configurations: [
+                withRegion(params),
+                withEnv(params),
+                withEnvVariant(params),
+                withProjectName({ project }),
+                withPulumiConfigPassphrase()
+            ]
+        });
 
-        const afterDeployHooks = this.afterDeployHooksRegistry.execute();
-        for (const afterDeployHook of afterDeployHooks) {
-            await afterDeployHook.execute();
+        const secretsProvider = this.pulumiGetSecretsProviderService.execute();
+        const pulumiProcess = params.preview
+            ? pulumi.run({
+                  command: "preview",
+                  args: {
+                      diff: true,
+                      debug: !!params.debug
+
+                      // Preview command does not accept "--secrets-provider" argument.
+                      // secretsProvider: PULUMI_SECRETS_PROVIDER
+                  },
+                  execa: { env }
+              })
+            : pulumi.run({
+                  command: "up",
+                  args: {
+                      yes: true,
+                      skipPreview: true,
+                      secretsProvider,
+                      debug: !!params.debug
+                  },
+                  execa: { env }
+              });
+
+        if (params.onPulumiProcess) {
+            params.onPulumiProcess(pulumiProcess);
         }
     }
 }
@@ -60,11 +86,10 @@ export const deployAppService = createImplementation({
     abstraction: DeployAppService,
     implementation: DefaultDeployAppService,
     dependencies: [
-        BuildAppService,
-        BeforeDeployHooksRegistry,
-        AfterDeployHooksRegistry,
+        BuildApp,
         GetProjectService,
         GetPulumiService,
-        PulumiSelectStackService
+        PulumiSelectStackService,
+        PulumiGetSecretsProviderService
     ]
 });

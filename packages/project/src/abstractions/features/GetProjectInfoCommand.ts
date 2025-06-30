@@ -1,18 +1,18 @@
 import { Abstraction } from "@webiny/di-container";
-import { ICommand } from "./ICommand";
+import { I } from "./I";
 import { ProjectInfoService } from "~/abstractions/services/ProjectInfoService";
 
-type GetProjectInfoCommandParams = void;
-type GetProjectInfoCommandResult = ProjectInfoService.Result;
+type GetProjectInfoParams = void;
+type GetProjectInfoResult = ProjectInfoService.Result;
 
-type IGetProjectInfoCommand = ICommand<GetProjectInfoCommandParams, GetProjectInfoCommandResult>;
+type IGetProjectInfo = I<GetProjectInfoParams, GetProjectInfoResult>;
 
-export const GetProjectInfoCommand = new Abstraction<IGetProjectInfoCommand>("GetProjectInfoCommand");
+export const GetProjectInfo = new Abstraction<IGetProjectInfo>("GetProjectInfo");
 
-export namespace GetProjectInfoCommand {
-    export type Interface = IGetProjectInfoCommand;
+export namespace GetProjectInfo {
+    export type Interface = IGetProjectInfo;
 
-    export type Params = GetProjectInfoCommandParams;
+    export type Params = GetProjectInfoParams;
 
-    export type Result = GetProjectInfoCommandResult;
+    export type Result = GetProjectInfoResult;
 }

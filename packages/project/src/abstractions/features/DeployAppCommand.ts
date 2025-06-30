@@ -1,17 +1,17 @@
 import { Abstraction } from "@webiny/di-container";
-import { ICommand } from "./ICommand";
+import { I } from "./I";
 import { DeployAppService } from "~/abstractions";
 
-export interface DeployAppCommandParams extends DeployAppService.Params {
+export interface DeployAppParams extends DeployAppService.Params {
     app: string;
 }
 
-type IDeployAppCommand = ICommand<DeployAppCommandParams>;
+type IDeployApp = I<DeployAppParams>;
 
-export const DeployAppCommand = new Abstraction<IDeployAppCommand>("DeployAppCommand");
+export const DeployApp = new Abstraction<IDeployApp>("DeployApp");
 
-export namespace DeployAppCommand {
-    export type Interface = IDeployAppCommand;
+export namespace DeployApp {
+    export type Interface = IDeployApp;
 
-    export type Params = DeployAppCommandParams;
+    export type Params = DeployAppParams;
 }

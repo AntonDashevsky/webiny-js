@@ -1,11 +1,11 @@
 import { Container } from "@webiny/di-container";
 import { AfterBuildHook, AfterDeployHook, BeforeBuildHook, BeforeDeployHook } from "~/abstractions";
 import {
-    buildAppCommand,
-    deployAppCommand,
-    getAppCommand,
-    getProjectCommand,
-    getProjectInfoCommand
+    buildApp,
+    deployApp,
+    getApp,
+    getProject,
+    getProjectInfo
 } from "./features";
 import {
     afterBuildHooksRegistry,
@@ -32,14 +32,7 @@ import {
     pulumiSelectStackService
 } from "./services";
 
-export type CreateProjectContainerOptions = Partial<{
-    beforeBuildHooks: BeforeBuildHook.Interface[];
-    afterBuildHooks: AfterBuildHook.Interface[];
-    beforeDeployHooks: BeforeDeployHook.Interface[];
-    afterDeployHooks: AfterDeployHook.Interface[];
-}>;
-
-export const createProjectSdkContainer = (options: CreateProjectContainerOptions = {}) => {
+export const createProjectSdkContainer = () => {
     const container = new Container();
 
     // Services.
@@ -70,40 +63,11 @@ export const createProjectSdkContainer = (options: CreateProjectContainerOptions
     container.register(beforeDeployHooksRegistry).inSingletonScope();
 
     // Features.
-    container.register(getProjectCommand).inSingletonScope();
-    container.register(getAppCommand).inSingletonScope();
-    container.register(buildAppCommand).inSingletonScope();
-    container.register(deployAppCommand).inSingletonScope();
-    container.register(getProjectInfoCommand).inSingletonScope();
-
-    // Extra implementations.
-    if (Array.isArray(options.beforeBuildHooks)) {
-        options.beforeBuildHooks.forEach(hook => {
-            // @ts-ignore TODO: FIX TYPES
-            container.register(hook);
-        });
-    }
-
-    if (Array.isArray(options.afterBuildHooks)) {
-        options.afterBuildHooks.forEach(hook => {
-            // @ts-ignore TODO: FIX TYPES
-            container.register(hook);
-        });
-    }
-
-    if (Array.isArray(options.beforeDeployHooks)) {
-        options.beforeDeployHooks.forEach(hook => {
-            // @ts-ignore TODO: FIX TYPES
-            container.register(hook);
-        });
-    }
-
-    if (Array.isArray(options.afterDeployHooks)) {
-        options.afterDeployHooks.forEach(hook => {
-            // @ts-ignore TODO: FIX TYPES
-            container.register(hook);
-        });
-    }
+    container.register(getProject).inSingletonScope();
+    container.register(getApp).inSingletonScope();
+    container.register(buildApp).inSingletonScope();
+    container.register(deployApp).inSingletonScope();
+    container.register(getProjectInfo).inSingletonScope();
 
     return container;
 };
