@@ -3,7 +3,9 @@ import {
     GetPulumiService,
     PulumiSelectStackService,
     PulumiLoginService,
-    PulumiGetStackOutputService
+    PulumiGetStackOutputService,
+    PulumiGetSecretsProviderService,
+    PulumiGetConfigPassphraseService
 } from "~/abstractions";
 import { AppModel } from "~/models";
 import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env";
@@ -13,7 +15,9 @@ export class DefaultPulumiSelectStackService implements PulumiSelectStackService
     constructor(
         private getPulumiService: GetPulumiService.Interface,
         private pulumiLoginService: PulumiLoginService.Interface,
-        private pulumiGetStackOutputService: PulumiGetStackOutputService.Interface
+        private pulumiGetStackOutputService: PulumiGetStackOutputService.Interface,
+        private pulumiGetSecretsProviderService: PulumiGetSecretsProviderService.Interface,
+        private pulumiGetConfigPassphraseService: PulumiGetConfigPassphraseService.Interface
     ) {}
 
     async execute(app: AppModel, params: PulumiSelectStackService.Params): Promise<any> {
@@ -21,19 +25,34 @@ export class DefaultPulumiSelectStackService implements PulumiSelectStackService
 
         await this.pulumiLoginService.execute(app);
 
-        const PULUMI_SECRETS_PROVIDER = process.env.PULUMI_SECRETS_PROVIDER;
+        const secretsProvider = this.pulumiGetSecretsProviderService.execute();
+        const configPassphrase = this.pulumiGetConfigPassphraseService.execute();
 
         const stackName = getStackName(params);
+
+        const args = {
+            command: ["stack", "select", stackName],
+            args: {
+                create: true,
+                secretsProvider
+            },
+            execa: {
+                env: createEnvConfiguration({
+                    configurations: [withPulumiConfigPassphrase(configPassphrase)]
+                })
+            }
+        };
+
 
         await pulumi.run({
             command: ["stack", "select", stackName],
             args: {
                 create: true,
-                secretsProvider: PULUMI_SECRETS_PROVIDER
+                secretsProvider
             },
             execa: {
                 env: createEnvConfiguration({
-                    configurations: [withPulumiConfigPassphrase()]
+                    configurations: [withPulumiConfigPassphrase(configPassphrase)]
                 })
             }
         });
@@ -78,5 +97,11 @@ export class DefaultPulumiSelectStackService implements PulumiSelectStackService
 export const pulumiSelectStackService = createImplementation({
     abstraction: PulumiSelectStackService,
     implementation: DefaultPulumiSelectStackService,
-    dependencies: [GetPulumiService, PulumiLoginService, PulumiGetStackOutputService]
+    dependencies: [
+        GetPulumiService,
+        PulumiLoginService,
+        PulumiGetStackOutputService,
+        PulumiGetSecretsProviderService,
+        PulumiGetConfigPassphraseService
+    ]
 });

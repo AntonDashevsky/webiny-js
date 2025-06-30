@@ -4,6 +4,8 @@ export { GetPulumiService } from "./GetPulumiService";
 export { PulumiGetStackOutputService } from "./PulumiGetStackOutputService";
 export { PulumiLoginService } from "./PulumiLoginService";
 export { PulumiSelectStackService } from "./PulumiSelectStackService";
+export { PulumiGetSecretsProviderService } from "./PulumiGetSecretsProviderService";
+export { PulumiGetConfigPassphraseService } from "./PulumiGetConfigPassphraseService";
 
 // Projects.
 export { GetProjectService } from "./GetProjectService";

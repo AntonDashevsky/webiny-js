@@ -5,7 +5,7 @@ import { ProjectModel, AppModel } from "~/models";
 
 export class DefaultGetAppService implements GetAppService.Interface {
     execute(project: ProjectModel, appName: string) {
-        const workspaceFolderAbsPath = path.join(project.paths.workspacesFolder.absolute, appName);
+        const workspaceFolderAbsPath = path.join(project.paths.workspacesFolder.absolute, 'apps', appName);
         const workspaceFolderRelPath = path.relative(
             project.paths.rootFolder.absolute,
             workspaceFolderAbsPath

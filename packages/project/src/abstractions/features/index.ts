@@ -1,3 +1,4 @@
+export { GetAppOutputCommand } from "./GetAppOutputCommand";
 export { GetProjectInfoCommand } from "./GetProjectInfoCommand";
 export { BuildAppCommand } from "./BuildAppCommand";
 export { DeployAppCommand } from "./DeployAppCommand";

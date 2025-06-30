@@ -42,8 +42,9 @@ async function main() {
     });
 
     const apiPackages = await project.deployApp({
-        app: "api",
-        env: "dev"
+        app: "core",
+        env: "dev",
+        preview: true,
     });
 }
 

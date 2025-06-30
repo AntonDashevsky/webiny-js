@@ -1,5 +1,5 @@
 import { Container } from "@webiny/di-container";
-import { createProjectContainer } from "./createProjectContainer";
+import { createProjectSdkContainer } from "./createProjectSdkContainer";
 import {
     AfterBuildHook,
     AfterDeployHook,
@@ -26,7 +26,7 @@ export class ProjectSdk {
     protected constructor(cwd: string, options: ProjectSdkOptions = {}) {
         this.cwd = cwd;
 
-        this.container = createProjectContainer(options);
+        this.container = createProjectSdkContainer(options);
     }
 
     // Project-related methods.

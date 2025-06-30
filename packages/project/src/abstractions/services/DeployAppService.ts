@@ -3,7 +3,7 @@ import { IAppModel } from "~/abstractions/models/IAppModel";
 import { BaseBuildDeployParams } from "~/abstractions/types";
 
 export interface IDeployParams extends BaseBuildDeployParams {
-    preview?: string;
+    preview?: boolean;
     debug?: boolean;
 }
 

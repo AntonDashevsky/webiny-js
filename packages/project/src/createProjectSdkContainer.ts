@@ -25,9 +25,11 @@ import {
     getYarnVersionService,
     loggerService,
     projectInfoService,
+    pulumiGetConfigPassphraseService,
+    pulumiGetSecretsProviderService,
     pulumiGetStackOutputService,
     pulumiLoginService,
-    pulumiSelectStackService,
+    pulumiSelectStackService
 } from "./services";
 
 export type CreateProjectContainerOptions = Partial<{
@@ -37,7 +39,7 @@ export type CreateProjectContainerOptions = Partial<{
     afterDeployHooks: AfterDeployHook.Interface[];
 }>;
 
-export const createProjectContainer = (options: CreateProjectContainerOptions = {}) => {
+export const createProjectSdkContainer = (options: CreateProjectContainerOptions = {}) => {
     const container = new Container();
 
     // Services.
@@ -54,6 +56,9 @@ export const createProjectContainer = (options: CreateProjectContainerOptions = 
     container.register(deployAppService).inSingletonScope();
     container.register(getAppPackagesService).inSingletonScope();
     container.register(loggerService).inSingletonScope();
+    container.register(pulumiGetConfigPassphraseService).inSingletonScope();
+    container.register(pulumiGetSecretsProviderService).inSingletonScope();
+
     container.register(pulumiGetStackOutputService).inSingletonScope();
     container.register(pulumiLoginService).inSingletonScope();
     container.register(pulumiSelectStackService).inSingletonScope();
@@ -73,28 +78,28 @@ export const createProjectContainer = (options: CreateProjectContainerOptions = 
 
     // Extra implementations.
     if (Array.isArray(options.beforeBuildHooks)) {
-        options.beforeBuildHooks.forEach((hook) => {
+        options.beforeBuildHooks.forEach(hook => {
             // @ts-ignore TODO: FIX TYPES
             container.register(hook);
         });
     }
 
     if (Array.isArray(options.afterBuildHooks)) {
-        options.afterBuildHooks.forEach((hook) => {
+        options.afterBuildHooks.forEach(hook => {
             // @ts-ignore TODO: FIX TYPES
             container.register(hook);
         });
     }
 
     if (Array.isArray(options.beforeDeployHooks)) {
-        options.beforeDeployHooks.forEach((hook) => {
+        options.beforeDeployHooks.forEach(hook => {
             // @ts-ignore TODO: FIX TYPES
             container.register(hook);
         });
     }
 
     if (Array.isArray(options.afterDeployHooks)) {
-        options.afterDeployHooks.forEach((hook) => {
+        options.afterDeployHooks.forEach(hook => {
             // @ts-ignore TODO: FIX TYPES
             container.register(hook);
         });

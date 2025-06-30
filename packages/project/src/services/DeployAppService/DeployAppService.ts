@@ -26,7 +26,8 @@ export class DefaultDeployAppService implements DeployAppService.Interface {
             throw new Error(`Please specify environment, for example "dev".`);
         }
 
-        await this.buildAppService.execute(app, params);
+        // await this.buildAppService.execute(app, params);
+
 
         const beforeDeployHooks = this.beforeDeployHooksRegistry.execute();
         for (const beforeDeployHook of beforeDeployHooks) {

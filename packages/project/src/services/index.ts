@@ -4,6 +4,8 @@ export * from "./GetAppPackagesService";
 export * from "./GetAppService";
 export * from "./GetProjectService";
 export * from "./GetPulumiService";
+export * from "./PulumiGetConfigPassphraseService";
+export * from "./PulumiGetSecretsProviderService";
 export * from "./PulumiGetStackOutputService";
 export * from "./PulumiLoginService";
 export * from "./PulumiSelectStackService";

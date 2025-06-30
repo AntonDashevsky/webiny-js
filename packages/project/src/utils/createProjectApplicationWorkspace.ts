@@ -1,9 +1,9 @@
 import path from "path";
 import util from "util";
 import ncpBase from "ncp";
-import {replaceInPath} from "replace-in-path";
+import { replaceInPath } from "replace-in-path";
 import fs from "fs-extra";
-import {AppModel} from "~/models";
+import { AppModel } from "~/models";
 
 const ncp = util.promisify(ncpBase.ncp);
 
@@ -13,7 +13,7 @@ export interface CreateAppWorkspaceParams {
     variant?: string;
 }
 
-export const createAppWorkspace = async ({app, env, variant}: CreateAppWorkspaceParams) => {
+export const createAppWorkspace = async ({ app, env, variant }: CreateAppWorkspaceParams) => {
     const appWorkspaceFolderPath = app.paths.workspaceFolder.absolute;
 
     if (await fs.pathExists(appWorkspaceFolderPath)) {
@@ -33,9 +33,12 @@ export const createAppWorkspace = async ({app, env, variant}: CreateAppWorkspace
     await new Promise(resolve => setTimeout(resolve, 10));
 
     replaceInPath(path.join(appWorkspaceFolderPath, "/**/*.{ts,js,yaml}"), [
-        {find: "{PROJECT_ID}", replaceWith: app.name},
-        {find: "{PROJECT_DESCRIPTION}", replaceWith: `Webiny's ${app.name} app.`},
-        {find: "{DEPLOY_ENV}", replaceWith: env},
-        {find: "{DEPLOY_VARIANT}", replaceWith: !variant || variant === "undefined" ? "" : variant}
+        { find: "{PROJECT_ID}", replaceWith: app.name },
+        { find: "{PROJECT_DESCRIPTION}", replaceWith: `Webiny's ${app.name} app.` },
+        { find: "{DEPLOY_ENV}", replaceWith: env },
+        {
+            find: "{DEPLOY_VARIANT}",
+            replaceWith: !variant || variant === "undefined" ? "" : variant
+        }
     ]);
 };

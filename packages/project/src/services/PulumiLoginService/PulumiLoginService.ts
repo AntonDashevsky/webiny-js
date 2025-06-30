@@ -11,6 +11,7 @@ export class DefaultPulumiLoginService implements PulumiLoginService.Interface {
 
     async execute(app: AppModel): Promise<any> {
         // Do the login with Pulumi CLI.
+
         const pulumi = await this.getPulumiService.execute({ app });
 
         const projectAppRelativePath = app.paths.appsFolder.absolute;
