@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { environment } from "~/sdk";
+import { environment } from "@webiny/app-website-builder/sdk";
 import { LiveElementSlot } from "./LiveElementSlot";
 import { PreviewElementSlot } from "./PreviewElementSlot";
 

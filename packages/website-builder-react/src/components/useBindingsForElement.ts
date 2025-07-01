@@ -1,8 +1,8 @@
 import { toJS } from "mobx";
-import { useSelectFromState } from "~/react/components/useSelectFromState";
-import { useDocumentStore } from "~/react";
-import { BindingsProcessor } from "~/sdk/BindingsProcessor";
+import { BindingsProcessor } from "@webiny/app-website-builder/sdk";
 import { useViewport } from "./useViewportInfo";
+import { useDocumentStore } from "./DocumentStoreProvider";
+import { useSelectFromState } from "./useSelectFromState";
 
 export const useBindingsForElement = (elementId: string) => {
     const documentStore = useDocumentStore();

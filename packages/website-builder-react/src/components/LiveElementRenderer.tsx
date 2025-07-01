@@ -1,11 +1,10 @@
 "use client";
 import React, { useCallback } from "react";
 import { observer } from "mobx-react-lite";
-import type { DocumentElement, DocumentElementBindings } from "~/sdk/types";
-import { contentSdk } from "~/sdk";
+import type { DocumentElement, DocumentElementBindings, OnResolved } from "@webiny/app-website-builder/sdk";
+import { contentSdk } from "@webiny/app-website-builder/sdk";
 import { ElementSlot } from "./ElementSlot";
 import { useViewport } from "./useViewportInfo";
-import type { OnResolved } from "~/sdk/BindingsResolver";
 import { useBindingsForElement } from "./useBindingsForElement";
 import { useDocumentState } from "./useDocumentState";
 

@@ -1,20 +1,24 @@
 "use client";
 import { makeAutoObservable, observable, toJS } from "mobx";
 import * as fjp from "fast-json-patch";
-import { contentSdk, DocumentStore, type EditingSdk } from "~/sdk/index.js";
-import type { DocumentElement } from "~/sdk/types.js";
-import { resizeObserver } from "~/sdk/ResizeObserver";
+import {
+    contentSdk,
+    resizeObserver,
+    DocumentStore,
+    type EditingSdk,
+    type DocumentElement
+} from "@webiny/app-website-builder/sdk";
 
 export class EditingElementRendererPresenter {
     private element: DocumentElement;
     private listeners: Array<() => void> = [];
     private documentStore: DocumentStore;
-    private readonly editing: EditingSdk;
+    private readonly editingSdk: EditingSdk | undefined;
 
     constructor(documentStore: DocumentStore) {
         this.documentStore = documentStore;
         this.element = observable({}) as DocumentElement;
-        this.editing = contentSdk.editing!;
+        this.editingSdk = contentSdk.getEditingSdk();
         makeAutoObservable(this);
     }
 
@@ -54,12 +58,14 @@ export class EditingElementRendererPresenter {
 
         const { id } = element;
 
-        this.listeners.push(
-            this.editing.messenger.on(`element.patch.${id}`, patch => {
-                this.documentStore.updateDocument(document => {
-                    fjp.applyPatch(document.bindings[id], patch, false, true);
-                });
-            })
-        );
+        if (this.editingSdk) {
+            this.listeners.push(
+                this.editingSdk.messenger.on(`element.patch.${id}`, patch => {
+                    this.documentStore.updateDocument(document => {
+                        fjp.applyPatch(document.bindings[id], patch, false, true);
+                    });
+                })
+            );
+        }
     }
 }

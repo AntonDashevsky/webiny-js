@@ -1,9 +1,24 @@
-import type { ComponentManifest } from "@webiny/app-website-builder/sdk/types";
-import { contentSdk, registerComponentGroup } from "@webiny/app-website-builder/react/index";
+import {
+    contentSdk,
+    registerComponentGroup,
+    type ComponentManifest
+} from "@webiny/website-builder-react";
 
-export const initContentSdk = () => {
+interface InitContentSdkOptions {
+    preview?: boolean;
+    apiKey?: string;
+}
+
+let initialized = false;
+
+export const initContentSdk = (options: InitContentSdkOptions = {}) => {
+    if (initialized) {
+        return;
+    }
+
     contentSdk.init({
-        apiKey: "123",
+        apiKey: options.apiKey ?? String(process.env.NEXT_PUBLIC_WEBSITE_BUILDER_API_KEY),
+        preview: options.preview ?? false
         // builtInComponents: false,
         // theme: {}
     });
@@ -23,4 +38,6 @@ export const initContentSdk = () => {
         label: "Custom",
         filter: (component: ComponentManifest) => !component.group
     });
+
+    initialized = true;
 };

@@ -1,17 +1,19 @@
 import React from "react";
 import { PageContent } from "@/webiny/PageContent";
-import { contentSdk } from "@webiny/app-website-builder/react";
+import { contentSdk } from "@webiny/website-builder-react";
+import { initContentSdk } from "@/webiny/initContentSdk";
 
 export async function generateStaticParams() {
+    initContentSdk();
     const pages = await contentSdk.listPages();
 
     return pages.map(page => ({ slug: page.properties.path }));
 }
 
 async function getPage(path: string) {
-    const page = await contentSdk.getPage(path);
+    initContentSdk();
 
-    return page;
+    return await contentSdk.getPage(path);
 }
 
 export default async function ProductPage({

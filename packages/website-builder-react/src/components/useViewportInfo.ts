@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { viewportManager } from "~/sdk";
+import { viewportManager } from "@webiny/app-website-builder/sdk";
 
 export const useViewport = () => {
     const [viewport, setViewport] = useState(viewportManager.getViewport());

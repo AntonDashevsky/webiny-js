@@ -11,7 +11,7 @@ import {
     createElement,
     createObjectInput,
     createSelectInput
-} from "@webiny/app-website-builder/react/index.js";
+} from "@webiny/website-builder-react";
 import { Root } from "./components/Root";
 import ProductRecommendations from "./components/ProductRecommendations";
 import { ProductHighlight } from "./components/ProductHighlight";

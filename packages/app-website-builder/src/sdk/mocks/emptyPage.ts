@@ -1,8 +1,8 @@
-import type { Document } from "~/sdk/types";
+import { Document } from "~/sdk/types";
 
 export default {
     properties: {
-        title: "Page 1",
+        title: "Empty Page",
         path: "/page-1"
     },
     bindings: {},

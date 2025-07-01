@@ -2,9 +2,11 @@ import type { ComponentGroup } from "./types";
 import { contentSdk } from "./ContentSdk";
 
 export const registerComponentGroup = (group: ComponentGroup) => {
-    if (!contentSdk.editing) {
+    const editingSdk = contentSdk.getEditingSdk();
+
+    if (!editingSdk) {
         return;
     }
 
-    contentSdk.editing.registerComponentGroup(group);
+    editingSdk.registerComponentGroup(group);
 };

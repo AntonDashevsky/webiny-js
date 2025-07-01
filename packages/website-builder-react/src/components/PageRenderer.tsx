@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { DocumentRenderer } from "./DocumentRenderer.js";
-import type { Component, Document } from "~/sdk/types.js";
+import type { Component, Document } from "@webiny/app-website-builder/sdk";
 
 export type Page = Document;
 

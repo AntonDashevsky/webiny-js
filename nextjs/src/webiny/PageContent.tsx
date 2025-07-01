@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { contentSdk, PageRenderer } from "@webiny/app-website-builder/react/index";
+import { contentSdk, PageRenderer } from "@webiny/website-builder-react";
 import { PageLayout } from "./PageLayout";
 import { customComponents } from "./customComponents";
 
@@ -8,14 +8,11 @@ export function PageContent({ path, initialData }: { path: string; initialData: 
     const [data, setData] = useState(initialData);
 
     useEffect(() => {
-        (async () => {
-            if (!initialData) {
-                const page = await contentSdk.getPage(path);
-                if (page) {
-                    setData(page);
-                }
-            }
-        })();
+        if (contentSdk.isEditing()) {
+            contentSdk.getPage(path).then(data => {
+                setData(data);
+            });
+        }
     }, [path]);
 
     return (

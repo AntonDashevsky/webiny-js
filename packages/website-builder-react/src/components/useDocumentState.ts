@@ -1,5 +1,5 @@
-import { useSelectFromState } from "~/react/components/useSelectFromState";
-import { useDocumentStore } from "~/react";
+import { useDocumentStore } from "./DocumentStoreProvider";
+import { useSelectFromState } from "./useSelectFromState";
 
 export const useDocumentState = () => {
     const documentStore = useDocumentStore();

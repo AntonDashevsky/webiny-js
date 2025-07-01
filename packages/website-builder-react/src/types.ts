@@ -1,4 +1,4 @@
-import type { CssProperties, DocumentElement } from "~/sdk/types";
+import type { CssProperties, DocumentElement } from "@webiny/app-website-builder/sdk";
 
 export type ComponentProps<TInputs = unknown> = {
     inputs: TInputs;

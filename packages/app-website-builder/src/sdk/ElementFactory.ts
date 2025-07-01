@@ -204,8 +204,6 @@ export class ElementFactory {
 
                 const newElementId = newElement.element.id;
 
-                console.log("newElement", newElement);
-
                 ops.push(
                     ...newElement.operations,
                     operations.setInputBinding(elementId, path, {

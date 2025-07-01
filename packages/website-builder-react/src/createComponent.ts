@@ -1,5 +1,5 @@
-import type { Component, ComponentManifest } from "~/sdk/types.js";
-import { createSlotInput } from "~/sdk";
+import type { Component, ComponentManifest } from "@webiny/app-website-builder/sdk";
+import { createSlotInput } from "@webiny/app-website-builder/sdk";
 
 export const createComponent = (
     component: React.ComponentType<any>,

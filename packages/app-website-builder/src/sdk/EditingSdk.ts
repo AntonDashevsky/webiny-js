@@ -74,7 +74,7 @@ export class EditingSdk implements IContentSdk {
 
         this.initialized = true;
 
-        logger.info("Preview SDK initialized!");
+        logger.info("Editing SDK initialized!");
 
         this.setupListeners();
 

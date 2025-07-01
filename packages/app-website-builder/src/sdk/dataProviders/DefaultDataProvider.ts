@@ -1,8 +1,7 @@
 import type { IDataProvider, Page } from "~/sdk/types.js";
 import { logger } from "../Logger";
-import emptyPage from "~/DocumentEditor/mocks/emptyPage";
-import mockPage1 from "~/DocumentEditor/mocks/mockPage1";
-import mockPage2 from "~/DocumentEditor/mocks/mockPage2";
+import mockPage1 from "~/sdk/mocks/mockPage1";
+import emptyPage from "~/sdk/mocks/emptyPage";
 
 interface DefaultDataProviderConfig {
     apiKey: string;
@@ -20,10 +19,10 @@ export class DefaultDataProvider implements IDataProvider {
         logger.info("IMPLEMENT: Loading page from API!");
 
         // const res = await fetch(`${this.apiEndpoint}?url=${encodeURIComponent(path)}&preview=${isServerPreview ? "1" : "0"}`);
-        return path === "/page-1" ? mockPage1 : mockPage2;
+        return path === "/page-1" ? mockPage1 : emptyPage;
     }
 
     public async listPages() {
-        return [mockPage1, mockPage2];
+        return [mockPage1, emptyPage];
     }
 }
