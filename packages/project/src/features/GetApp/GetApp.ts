@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetApp, GetAppService, GetProject } from "~/abstractions";
+import { GetApp, GetProject } from "~/abstractions";
 import path from "path";
 import { AppModel } from "~/models";
 
