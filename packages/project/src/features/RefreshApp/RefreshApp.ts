@@ -5,7 +5,7 @@ import {
     GetProject,
     GetPulumiService,
     PulumiSelectStackService
-} from "~/abstractions";
+} from "~/abstractions/index.js";
 import {
     createEnvConfiguration,
     withEnv,
@@ -13,7 +13,7 @@ import {
     withProjectName,
     withPulumiConfigPassphrase,
     withRegion
-} from "~/utils/env";
+} from "~/utils/env/index.js";
 
 export class DefaultRefreshApp implements RefreshApp.Interface {
     constructor(

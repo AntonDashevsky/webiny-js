@@ -1,5 +1,5 @@
 import { Container } from "@webiny/di-container";
-import { createProjectSdkContainer } from "./createProjectSdkContainer";
+import { createProjectSdkContainer } from "./createProjectSdkContainer.js";
 import {
     BuildApp,
     DeployApp,
@@ -10,7 +10,7 @@ import {
     GetProjectInfo,
     RefreshApp,
     RunPulumiCommand
-} from "~/abstractions";
+} from "~/abstractions/index.js";
 
 export class ProjectSdk {
     cwd?: string;

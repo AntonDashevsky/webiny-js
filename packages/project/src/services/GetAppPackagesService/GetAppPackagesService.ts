@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetAppPackagesService } from "~/abstractions";
-import { AppModel, AppPackageModel } from "~/models";
+import { GetAppPackagesService } from "~/abstractions/index.js";
+import { AppModel, AppPackageModel } from "~/models/index.js";
 import glob from "fast-glob";
 import { dirname, join } from "path";
 import readJson from "read-json-sync";

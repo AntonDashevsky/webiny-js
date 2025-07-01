@@ -1,4 +1,4 @@
-import { ProjectSdk } from "./ProjectSdk";
+import { ProjectSdk } from "./ProjectSdk.js";
 
 async function main() {
     const cwd = process.cwd();

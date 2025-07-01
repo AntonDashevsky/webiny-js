@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import {
     GetPulumiVersionService,
-} from "~/abstractions";
+} from "~/abstractions/index.js";
 import execa from "execa";
 
 export class DefaultGetPulumiVersion implements GetPulumiVersionService.Interface {

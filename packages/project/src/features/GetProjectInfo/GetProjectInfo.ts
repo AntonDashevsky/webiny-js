@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetProjectInfo, ProjectInfoService } from "~/abstractions";
+import { GetProjectInfo, ProjectInfoService } from "~/abstractions/index.js";
 
 export class DefaultGetProjectInfo implements GetProjectInfo.Interface {
     constructor(private projectInfoService: ProjectInfoService.Interface) {}

@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { PulumiGetConfigPassphraseService } from "~/abstractions";
+import { PulumiGetConfigPassphraseService } from "~/abstractions/index.js";
 
 export class DefaultPulumiGetConfigPassphraseService implements PulumiGetConfigPassphraseService.Interface {
     execute() {

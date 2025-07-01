@@ -1,2 +1,2 @@
-export * from "./features";
-export * from "./services";
+export * from "./features/index.js";
+export * from "./services/index.js";

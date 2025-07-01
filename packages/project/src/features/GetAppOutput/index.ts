@@ -1,1 +1,1 @@
-export * from "./GetAppOutput";
+export * from "./GetAppOutput.js";

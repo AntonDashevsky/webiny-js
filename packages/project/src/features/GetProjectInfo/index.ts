@@ -1,2 +1,2 @@
-export * from "./GetProjectInfo";
+export * from "./GetProjectInfo.js";
 

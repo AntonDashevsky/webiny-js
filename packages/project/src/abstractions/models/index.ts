@@ -1,3 +1,3 @@
-export * from "./IAppModel";
-export * from "./IAppPackageModel";
-export * from "./IProjectModel";
+export * from "./IAppModel.js";
+export * from "./IAppPackageModel.js";
+export * from "./IProjectModel.js";

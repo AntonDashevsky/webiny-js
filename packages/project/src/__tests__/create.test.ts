@@ -1,8 +1,8 @@
 // @ts-nocheck
-import { ProjectSdk } from "~/ProjectSdk";
+import { ProjectSdk } from "~/ProjectSdk.js";
 
 import { createImplementation } from "@webiny/di-container";
-import { BeforeBuildHook } from "~/abstractions";
+import { BeforeBuildHook } from "~/abstractions/index.js";
 
 describe("project root detection", () => {
     it("should be able to detect project root", async () => {

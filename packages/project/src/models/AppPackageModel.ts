@@ -1,4 +1,4 @@
-import { IAppPackageModel } from "~/abstractions/models";
+import { IAppPackageModel } from "~/abstractions/models/index.js";
 
 type AppPackageModelDto = IAppPackageModel;
 

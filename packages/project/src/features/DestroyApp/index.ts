@@ -1,1 +1,1 @@
-export * from "./DestroyApp";
+export * from "./DestroyApp.js";

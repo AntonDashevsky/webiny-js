@@ -3,11 +3,11 @@ import {
     GetPulumiService,
     PulumiGetSecretsProviderService,
     PulumiGetStackOutputService
-} from "~/abstractions";
-import { AppModel } from "~/models";
-import { getStackName } from "~/utils";
-import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env";
-import { mapStackOutput } from "./mapStackOutput";
+} from "~/abstractions/index.js";
+import { AppModel } from "~/models/index.js";
+import { getStackName } from "~/utils/index.js";
+import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
+import { mapStackOutput } from "./mapStackOutput.js";
 
 export class DefaultPulumiGetStackOutputService implements PulumiGetStackOutputService.Interface {
     constructor(

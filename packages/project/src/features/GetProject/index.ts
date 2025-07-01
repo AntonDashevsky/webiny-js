@@ -1,2 +1,2 @@
-export * from "./GetProject";
+export * from "./GetProject.js";
 

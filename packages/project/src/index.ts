@@ -1,1 +1,1 @@
-export { ProjectSdk } from "./ProjectSdk";
+export { ProjectSdk } from "./ProjectSdk.js";

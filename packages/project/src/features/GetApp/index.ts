@@ -1,2 +1,2 @@
-export * from "./GetApp";
+export * from "./GetApp.js";
 

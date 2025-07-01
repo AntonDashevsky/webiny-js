@@ -1,2 +1,2 @@
-export * from "./PulumiGetConfigPassphraseService";
+export * from "./PulumiGetConfigPassphraseService.js";
 

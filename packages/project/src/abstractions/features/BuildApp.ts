@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { IBaseAppParams } from "~/abstractions/types";
+import { IBaseAppParams } from "~/abstractions/types.js";
 
 interface IBuildApp {
     execute(params: IBaseAppParams): Promise<void>;

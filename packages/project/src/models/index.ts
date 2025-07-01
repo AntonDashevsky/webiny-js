@@ -1,3 +1,3 @@
-export * from "./AppModel";
-export * from "./ProjectModel";
-export * from "./AppPackageModel";
+export * from "./AppModel.js";
+export * from "./ProjectModel.js";
+export * from "./AppPackageModel.js";

@@ -1,6 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
-import { IAppModel } from "~/abstractions/models/IAppModel";
-import { IBaseAppParams } from "~/abstractions/types";
+import { IAppModel } from "~/abstractions/models/IAppModel.js";
+import { IBaseAppParams } from "~/abstractions/types.js";
 
 export interface IPulumiGetStackOutputParams extends IBaseAppParams {
     map?: Record<string, any>;

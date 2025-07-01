@@ -1,2 +1,2 @@
-export * from "./PulumiLoginService";
+export * from "./PulumiLoginService.js";
 

@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetApp, GetAppOutput, PulumiGetStackOutputService } from "~/abstractions";
+import { GetApp, GetAppOutput, PulumiGetStackOutputService } from "~/abstractions/index.js";
 
 export class DefaultGetAppOutput implements GetAppOutput.Interface {
     constructor(

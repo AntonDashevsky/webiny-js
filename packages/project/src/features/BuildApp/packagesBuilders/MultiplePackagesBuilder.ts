@@ -5,7 +5,7 @@ import Listr from "listr";
 import chalk from "chalk";
 import { BasePackagesBuilder } from "./BasePackagesBuilder.js";
 import { measureDuration } from "./utils/measureDuration.js";
-import { AppPackageModel } from "~/models";
+import { AppPackageModel } from "~/models/index.js";
 
 const WORKER_PATH = path.resolve(import.meta.dirname, "workerEntry.js");
 

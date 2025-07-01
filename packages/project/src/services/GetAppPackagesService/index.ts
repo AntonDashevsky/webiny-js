@@ -1,2 +1,2 @@
-export * from "./GetAppPackagesService";
+export * from "./GetAppPackagesService.js";
 

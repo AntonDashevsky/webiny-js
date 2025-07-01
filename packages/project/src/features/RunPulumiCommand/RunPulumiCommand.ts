@@ -5,14 +5,14 @@ import {
     GetProject,
     GetPulumiService,
     PulumiSelectStackService
-} from "~/abstractions";
+} from "~/abstractions/index.js";
 import {
     createEnvConfiguration,
     withEnv,
     withEnvVariant,
     withProjectName, withPulumiConfigPassphrase,
     withRegion
-} from "~/utils/env";
+} from "~/utils/env/index.js";
 
 export class DefaultRunPulumiCommand implements RunPulumiCommand.Interface {
     constructor(

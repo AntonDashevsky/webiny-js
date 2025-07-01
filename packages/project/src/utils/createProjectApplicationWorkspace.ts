@@ -3,7 +3,7 @@ import util from "util";
 import ncpBase from "ncp";
 import { replaceInPath } from "replace-in-path";
 import fs from "fs-extra";
-import { AppModel } from "~/models";
+import { AppModel } from "~/models/index.js";
 
 const ncp = util.promisify(ncpBase.ncp);
 

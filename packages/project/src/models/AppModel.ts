@@ -1,4 +1,4 @@
-import { IAppModel } from "~/abstractions/models";
+import { IAppModel } from "~/abstractions/models/index.js";
 
 type AppModelDto = Pick<IAppModel, "name" | "paths">;
 

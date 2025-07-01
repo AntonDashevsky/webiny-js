@@ -1,1 +1,1 @@
-export * from "./BuildApp";
+export * from "./BuildApp.js";

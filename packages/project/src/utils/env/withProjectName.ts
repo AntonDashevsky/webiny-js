@@ -1,5 +1,5 @@
 import { createConfiguration } from "./configuration.js";
-import { ProjectModel } from "~/models";
+import { ProjectModel } from "~/models/index.js";
 
 export interface IWithProjectNameParams {
     project: ProjectModel;

@@ -1,5 +1,5 @@
-import { BuildApp, LoggerService } from "~/abstractions";
-import { IAppPackageModel } from "~/abstractions/models";
+import { BuildApp, LoggerService } from "~/abstractions/index.js";
+import { IAppPackageModel } from "~/abstractions/models/index.js";
 
 export class BasePackagesBuilder {
     constructor(

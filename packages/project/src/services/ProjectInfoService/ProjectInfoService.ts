@@ -6,7 +6,7 @@ import {
     GetNpxVersionService,
     GetPulumiVersionService,
     GetYarnVersionService
-} from "~/abstractions";
+} from "~/abstractions/index.js";
 
 export class DefaultProjectInfoService implements ProjectInfoService.Interface {
     constructor(

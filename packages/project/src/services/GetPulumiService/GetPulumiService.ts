@@ -1,7 +1,7 @@
 import { Pulumi } from "@webiny/pulumi-sdk";
 import path from "path";
 import { createImplementation } from "@webiny/di-container";
-import { GetProjectService, GetPulumiService } from "~/abstractions";
+import { GetProjectService, GetPulumiService } from "~/abstractions/index.js";
 
 export class DefaultGetPulumiService implements GetPulumiService.Interface {
     constructor(private readonly getProjectService: GetProjectService.Interface) {}

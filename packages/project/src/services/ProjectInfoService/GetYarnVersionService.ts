@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import { SystemRequirements } from "@webiny/system-requirements";
-import { GetYarnVersionService } from "~/abstractions";
+import { GetYarnVersionService } from "~/abstractions/index.js";
 
 export class DefaultGetYarnVersionService implements GetYarnVersionService.Interface {
     execute() {

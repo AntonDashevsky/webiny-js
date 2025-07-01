@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { IAppModel, IAppPackageModel } from "~/abstractions/models";
+import { IAppModel, IAppPackageModel } from "~/abstractions/models/index.js";
 
 export interface IGetAppPackagesService {
     execute(app: IAppModel): Promise<IAppPackageModel[]>;

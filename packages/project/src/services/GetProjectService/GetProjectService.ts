@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetProjectService } from "~/abstractions";
-import { ProjectModel } from "~/models/ProjectModel";
+import { GetProjectService } from "~/abstractions/index.js";
+import { ProjectModel } from "~/models/ProjectModel.js";
 import findUp from "find-up";
 import { dirname, join, relative } from "path";
 

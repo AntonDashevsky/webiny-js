@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
-import { BuildApp, GetApp, GetAppPackagesService, LoggerService } from "~/abstractions";
-import { createAppWorkspace } from "~/utils";
-import { PackagesBuilder } from "./packagesBuilders/PackagesBuilder";
+import { BuildApp, GetApp, GetAppPackagesService, LoggerService } from "~/abstractions/index.js";
+import { createAppWorkspace } from "~/utils/index.js";
+import { PackagesBuilder } from "./packagesBuilders/PackagesBuilder.js";
 
 export class DefaultBuildApp implements BuildApp.Interface {
     constructor(

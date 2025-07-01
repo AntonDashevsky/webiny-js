@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { IProjectModel } from "~/abstractions/models";
+import { IProjectModel } from "~/abstractions/models/index.js";
 
 interface IGetProjectService {
     execute(cwd?: string): Promise<IProjectModel>;

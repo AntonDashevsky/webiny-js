@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import { SystemRequirements } from "@webiny/system-requirements";
-import { GetNpxVersionService } from "~/abstractions";
+import { GetNpxVersionService } from "~/abstractions/index.js";
 
 export class DefaultGetNpxVersionService implements GetNpxVersionService.Interface {
     execute() {

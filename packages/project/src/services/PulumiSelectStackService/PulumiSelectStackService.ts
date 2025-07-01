@@ -6,10 +6,10 @@ import {
     PulumiGetStackOutputService,
     PulumiGetSecretsProviderService,
     PulumiGetConfigPassphraseService
-} from "~/abstractions";
-import { AppModel } from "~/models";
-import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env";
-import { getStackName } from "~/utils";
+} from "~/abstractions/index.js";
+import { AppModel } from "~/models/index.js";
+import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
+import { getStackName } from "~/utils/index.js";
 
 export class DefaultPulumiSelectStackService implements PulumiSelectStackService.Interface {
     constructor(

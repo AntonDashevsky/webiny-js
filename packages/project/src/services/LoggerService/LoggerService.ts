@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { createPinoLogger as baseCreatePinoLogger, Logger } from "@webiny/logger";
 import pinoPretty from "pino-pretty";
-import { LoggerService } from "~/abstractions";
+import { LoggerService } from "~/abstractions/index.js";
 
 export class DefaultLoggerService implements LoggerService.Interface {
     pinoLogger: Logger;

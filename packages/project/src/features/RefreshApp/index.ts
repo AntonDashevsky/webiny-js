@@ -1,1 +1,1 @@
-export * from "./RefreshApp";
+export * from "./RefreshApp.js";

@@ -9,7 +9,7 @@ import {
     getProjectInfo,
     refreshApp,
     runPulumiCommand
-} from "./features";
+} from "./features/index.js";
 import {
     getAppPackagesService,
     getIsCiService,
@@ -26,7 +26,7 @@ import {
     pulumiGetStackOutputService,
     pulumiLoginService,
     pulumiSelectStackService
-} from "./services";
+} from "./services/index.js";
 
 export const createProjectSdkContainer = () => {
     const container = new Container();

@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetApp, GetProject } from "~/abstractions";
+import { GetApp, GetProject } from "~/abstractions/index.js";
 import path from "path";
-import { AppModel } from "~/models";
+import { AppModel } from "~/models/index.js";
 
 export class DefaultGetApp implements GetApp.Interface {
     constructor(private getProject: GetProject.Interface) {}

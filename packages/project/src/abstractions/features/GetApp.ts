@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { IAppModel } from "~/abstractions/models";
+import { IAppModel } from "~/abstractions/models/index.js";
 
 type IGetApp = {
     execute(appName: string): Promise<IAppModel>;

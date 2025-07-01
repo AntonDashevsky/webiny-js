@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { PulumiGetSecretsProviderService } from "~/abstractions";
+import { PulumiGetSecretsProviderService } from "~/abstractions/index.js";
 
 export class DefaultPulumiGetSecretsProviderService implements PulumiGetSecretsProviderService.Interface {
     execute() {
