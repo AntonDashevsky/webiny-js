@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as CheckboxPrimitives from "@radix-ui/react-checkbox";
+import { Checkbox as CheckboxPrimitives } from "radix-ui";
 import { ReactComponent as CheckIcon } from "@webiny/icons/check.svg";
 import { cn, makeDecoratable, cva, type VariantProps } from "~/utils";
 import { useCheckbox } from "./useCheckbox";
@@ -98,7 +98,9 @@ const DecoratableCheckboxPrimitiveRenderer = ({
                     )}
                 </span>
             </CheckboxPrimitives.Root>
-            {hasLabel && <Label id={id} text={label} weight={"light"} className={"wby-text-md"} />}
+            {hasLabel && (
+                <Label htmlFor={id} text={label} weight={"light"} className={"wby-text-md"} />
+            )}
         </div>
     );
 };

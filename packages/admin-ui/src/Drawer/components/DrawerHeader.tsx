@@ -5,7 +5,7 @@ import { DrawerTitle } from "./DrawerTitle";
 import { DrawerDescription } from "./DrawerDescription";
 import { ReactComponent as XIcon } from "@webiny/icons/close.svg";
 import { IconButton } from "~/Button";
-import * as DrawerPrimitive from "@radix-ui/react-dialog";
+import { Dialog as DrawerPrimitive } from "radix-ui";
 import { useMemo } from "react";
 import { Separator } from "~/Separator";
 
@@ -59,7 +59,7 @@ export const DrawerHeader = ({
                 </DrawerTitle>
                 {description && <DrawerDescription>{description}</DrawerDescription>}
             </div>
-            {separator && <Separator variant={"dimmed"} margin={"none"} />}
+            {separator && <Separator />}
         </>
     );
 };

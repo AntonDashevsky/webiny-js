@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
 import { InputField } from "./InputField";

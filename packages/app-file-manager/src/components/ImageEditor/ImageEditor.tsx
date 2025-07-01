@@ -1,7 +1,7 @@
 import React from "react";
+import { Button } from "@webiny/admin-ui";
 import { flip, filter, crop, rotate } from "./toolbar";
 import { ImageEditorTool, ToolbarTool } from "./toolbar/types";
-import { ButtonSecondary, ButtonPrimary } from "@webiny/ui/Button";
 /**
  * Package load-script does not have types.
  */
@@ -185,10 +185,12 @@ class ImageEditor extends React.Component<ImageEditorProps, ImageEditorState> {
         const { src, tools, children } = this.props;
         const { tool } = this.state;
         const editor = (
-            <React.Fragment>
-                <div
-                    className={"wby-flex wby-justify-center wby-items-center wby-w-full wby-mt-md"}
-                >
+            <div
+                className={
+                    "wby-w-full wby-h-full wby-flex wby-flex-col wby-gap-md wby-overflow-hidden"
+                }
+            >
+                <div className={"wby-flex wby-justify-center wby-items-center wby-w-full"}>
                     {tools.map(key => {
                         const tool: ImageEditorTool = toolbar[key];
                         if (!tool) {
@@ -211,7 +213,7 @@ class ImageEditor extends React.Component<ImageEditorProps, ImageEditorState> {
                         );
                     })}
                 </div>
-                <div className={"wby-my-md"}>
+                <div className={"wby-w-full"}>
                     {tool ? (
                         <>
                             {typeof tool.renderForm === "function" &&
@@ -221,42 +223,45 @@ class ImageEditor extends React.Component<ImageEditorProps, ImageEditorState> {
                                     canvas: this.canvas
                                 })}
 
-                            <div className={"wby-text-center wby-mt-sm"}>
-                                <ButtonSecondary
+                            <div className={"wby-flex wby-justify-center wby-gap-sm wby-mt-sm"}>
+                                <Button
+                                    variant={"secondary"}
+                                    text={"Cancel"}
                                     data-testid="button-cancel"
                                     onClick={() => {
                                         this.cancelActiveTool();
                                     }}
-                                >
-                                    Cancel
-                                </ButtonSecondary>
-                                &nbsp;
-                                <ButtonPrimary
+                                />
+                                <Button
+                                    variant={"primary"}
+                                    text={"Apply"}
                                     data-testid="button-apply"
                                     onClick={() => {
                                         this.applyActiveTool();
                                     }}
-                                >
-                                    Apply
-                                </ButtonPrimary>
+                                />
                             </div>
                         </>
                     ) : (
-                        <div style={{ textAlign: "center" }}>
+                        <div className={"wby-text-center"}>
                             Select a tool to start working on your image.
                         </div>
                     )}
                 </div>
-
-                <div style={{ margin: "0 auto", textAlign: "center" }}>
+                <div
+                    className={
+                        "wby-flex wby-justify-center wby-items-center wby-w-full wby-bg-neutral-dimmed wby-rounded-md wby-overflow-hidden"
+                    }
+                    style={{ height: "calc(100vh - 256px)" }}
+                >
                     <canvas
                         key={src}
                         id={"canvas"}
-                        style={{ maxWidth: "100%" }}
+                        style={{ maxWidth: "100%", maxHeight: "100%" }}
                         ref={this.canvas as React.Ref<any>}
                     />
                 </div>
-            </React.Fragment>
+            </div>
         );
 
         if (typeof children === "function") {

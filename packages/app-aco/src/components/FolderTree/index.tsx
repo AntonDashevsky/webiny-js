@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Tooltip } from "@webiny/admin-ui";
-import { useGetFolderLevelPermission, useListFolders } from "~/features";
+import { useGetFolderHierarchy, useGetFolderLevelPermission } from "~/features";
 import { ButtonCreate } from "./ButtonCreate";
 import { Loader } from "./Loader";
 import { List } from "./List";
@@ -27,7 +27,7 @@ export const FolderTree = ({
     onFolderClick,
     rootFolderLabel
 }: FolderTreeProps) => {
-    const { folders } = useListFolders();
+    const { folders, getIsFolderLoading } = useGetFolderHierarchy();
     const { getFolderLevelPermission: canManageStructure } =
         useGetFolderLevelPermission("canManageStructure");
 
@@ -59,24 +59,26 @@ export const FolderTree = ({
         );
     }, [enableCreate, canManageStructure, focusedFolderId, localFolders]);
 
+    if (getIsFolderLoading()) {
+        return <Loader />;
+    }
+
     return (
-        <AcoWithConfig>
-            {localFolders.length > 0 ? (
-                <>
-                    <List
-                        folders={localFolders}
-                        onFolderClick={onFolderClick}
-                        focusedFolderId={focusedFolderId}
-                        hiddenFolderIds={hiddenFolderIds}
-                        enableActions={enableActions}
-                    />
-                    {enableCreate && (
-                        <div className={"wby-mt-sm-plus wby-ml-xs"}>{createButton}</div>
-                    )}
-                </>
-            ) : (
-                <Loader />
-            )}
-        </AcoWithConfig>
+        <div className="wby-my-xs">
+            <AcoWithConfig>
+                <List
+                    folders={localFolders}
+                    onFolderClick={onFolderClick}
+                    focusedFolderId={focusedFolderId}
+                    hiddenFolderIds={hiddenFolderIds}
+                    enableActions={enableActions}
+                />
+                {enableCreate && (
+                    <div className={"wby-m-xs-plus wby-mt-sm-plus wby-mb-lg wby-pl-sm-extra"}>
+                        {createButton}
+                    </div>
+                )}
+            </AcoWithConfig>
+        </div>
     );
 };

@@ -1,12 +1,12 @@
 import * as React from "react";
-import * as LabelPrimitive from "@radix-ui/react-label";
+import { Label as LabelPrimitive } from "radix-ui";
 import { cn, makeDecoratable, cva, type VariantProps } from "~/utils";
 import { LabelDescription, LabelHint, LabelRequired, LabelValue } from "./components";
 
 const labelVariants = cva(
     [
         "wby-inline-flex wby-items-center wby-justify-between wby-w-full wby-text-sm",
-        "wby-text-neutral-primary",
+        "wby-text-neutral-primary wby-whitespace-nowrap",
         "peer-disabled:wby-text-neutral-disabled peer-disabled:wby-cursor-not-allowed"
     ],
     {
@@ -49,7 +49,6 @@ const LabelBase = ({
     text,
     weight,
     invalid,
-    id,
     ...props
 }: LabelProps) => {
     if (!text) {
@@ -59,7 +58,6 @@ const LabelBase = ({
     return (
         <LabelPrimitive.Root
             className={cn(labelVariants({ weight, disabled, invalid }), className)}
-            htmlFor={id}
             {...props}
         >
             <span>

@@ -22,7 +22,6 @@ import {
 /**
  * Package deep-equal does not have types.
  */
-// @ts-expect-error
 import deepEqual from "deep-equal";
 import { getObjectProperties } from "~/utils/getObjectProperties";
 import { ObjectUpdater } from "~/utils/ObjectUpdater";

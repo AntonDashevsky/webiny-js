@@ -3,7 +3,6 @@ import { createZodError, mdbid } from "@webiny/utils";
 /**
  * Package deep-equal does not have types.
  */
-// @ts-expect-error
 import deepEqual from "deep-equal";
 import { createTopic } from "@webiny/pubsub";
 import WebinyError from "@webiny/error";

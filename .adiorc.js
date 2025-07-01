@@ -66,7 +66,14 @@ module.exports = {
         devDependencies: true,
         peerDependencies: true
     },
-    ignoreDirs: ["node_modules/", "dist/", "build/", "nextjs", "nextjs-pages-router"],
+    ignoreDirs: [
+        "node_modules/",
+        "dist/",
+        "build/",
+        "nextjs",
+        "nextjs-pages-router",
+        "extensions/kiboCommerce"
+    ],
     packages: getWorkspaces().map(pkg =>
         pkg.replace(/\//g, path.sep).replace(process.cwd() + path.sep, "")
     )

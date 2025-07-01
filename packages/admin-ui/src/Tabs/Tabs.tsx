@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { Tabs as TabsPrimitive } from "radix-ui";
 import { makeDecoratable, type VariantProps, withStaticProps } from "~/utils";
 import {
     Content,
@@ -74,7 +74,7 @@ const DecoratableTabs = ({
                     key={tab.id}
                     value={tab.value}
                     content={tab.content}
-                    spacing={spacing}
+                    spacing={tab.spacing ?? spacing}
                     className={tab.className}
                 />
             )),

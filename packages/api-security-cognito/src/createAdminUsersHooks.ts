@@ -5,7 +5,6 @@ import { PermissionsTenantLink, PermissionsTenantLinkTeam } from "@webiny/api-se
 /**
  * Package deep-equal does not have types.
  */
-// @ts-expect-error
 import deepEqual from "deep-equal";
 
 export const createAdminUsersHooks = () => {

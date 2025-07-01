@@ -1,7 +1,7 @@
 import React from "react";
-import { CompositionScope } from "@webiny/react-composition";
 import { AcoConfig, TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
 import { TableItem } from "~/types";
+import { makeDecoratable } from "@webiny/react-composition";
 
 const { Table } = AcoConfig;
 
@@ -9,15 +9,15 @@ export { ColumnConfig };
 
 type ColumnProps = React.ComponentProps<typeof AcoConfig.Table.Column>;
 
-const BaseColumn = (props: ColumnProps) => {
+const BaseColumnComponent = (props: ColumnProps) => {
     return (
-        <CompositionScope name={"fm"}>
-            <AcoConfig>
-                <Table.Column {...props} />
-            </AcoConfig>
-        </CompositionScope>
+        <AcoConfig>
+            <Table.Column {...props} />
+        </AcoConfig>
     );
 };
+
+const BaseColumn = makeDecoratable("Column", BaseColumnComponent);
 
 export const Column = Object.assign(BaseColumn, {
     useTableRow: Table.Column.createUseTableRow<TableItem>(),

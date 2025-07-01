@@ -22,6 +22,11 @@ interface CreateCommerceInputRenderersProps {
 
 const createSingleResourcePicker = (pluginName: string, api: CommerceApi, resourceName: string) => {
     const SingleResourcePicker = (props: ElementInputRendererProps) => {
+        const onChange = (newValue: unknown) => {
+            props.onChange(({ value }) => {
+                value.set(newValue);
+            });
+        };
         return (
             <div className={"wby-w-full"}>
                 <FormComponentLabel text={props.input.label} />
@@ -30,7 +35,7 @@ const createSingleResourcePicker = (pluginName: string, api: CommerceApi, resour
                     resourceName={resourceName}
                     pluginName={pluginName}
                     value={props.value}
-                    onChange={props.onChange}
+                    onChange={onChange}
                 />
             </div>
         );
@@ -43,6 +48,12 @@ const createSingleResourcePicker = (pluginName: string, api: CommerceApi, resour
 
 const createResourceListPicker = (pluginName: string, api: CommerceApi, resourceName: string) => {
     const ListResourcePicker = (props: ElementInputRendererProps) => {
+        const onChange = (newValue: unknown) => {
+            props.onChange(({ value }) => {
+                value.set(newValue);
+            });
+        };
+
         return (
             <div className={"wby-w-full"}>
                 <FormComponentLabel text={props.input.label} />
@@ -51,7 +62,7 @@ const createResourceListPicker = (pluginName: string, api: CommerceApi, resource
                     resourceName={resourceName}
                     pluginName={pluginName}
                     value={props.value}
-                    onChange={props.onChange}
+                    onChange={onChange}
                 />
             </div>
         );
