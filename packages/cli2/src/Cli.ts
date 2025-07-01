@@ -1,21 +1,21 @@
 import { Container } from "@webiny/di-container";
-import type {Argv} from "yargs";
+import type { Argv } from "yargs";
 import yargs from "yargs/yargs";
 import { createCliContainer } from "./createCliContainer.js";
 import { hideBin } from "yargs/helpers";
 import chalk from "chalk";
-import { Command } from "~/abstractions/index.js";
+import { CommandsRegistryService } from "~/abstractions/index.js";
 
 const { blue, red, bold, bgYellow } = chalk;
 
 const onFail = () => () => {};
 
 export class Cli {
-    private argv: Argv;
+    private cli: Argv;
     private container: Container;
 
     private constructor() {
-        this.argv = yargs(hideBin(process.argv))
+        this.cli = yargs(hideBin(process.argv))
             .usage("Usage: $0 <command> [options]")
             .help(false)
             .demandCommand(1)
@@ -31,17 +31,35 @@ export class Cli {
 
         this.container = createCliContainer();
 
-        const commands = this.container.resolve(Command);
-        console.log('commands', commands);
+        const commands = this.container.resolve(CommandsRegistryService).execute();
+
+        for (const command of commands) {
+            const { name, description, options = [], handler } = command.execute();
+            this.cli.command(
+                name,
+                description,
+                (yargs: Argv) => {
+                    options.forEach(option => {
+                        const { name, ...rest } = option;
+
+                        // @ts-ignore TS complains b/c `type` in `ICommandOptionDefinition` is defined
+                        // as `string`, but `yargs` expects it to be a specific Yargs type.
+                        yargs.option(name, rest);
+                    });
+
+                    return yargs;
+                },
+                (args: any) => handler(args)
+            );
+        }
 
         // Enable help and run the CLI.
-        this.argv.help(true);
+        this.cli.help(true);
     }
 
     parse() {
-        this.argv.parse();
+        return this.cli.parse();
     }
-
 
     static async init() {
         return new Cli();

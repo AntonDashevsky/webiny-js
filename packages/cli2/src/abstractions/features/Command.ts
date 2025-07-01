@@ -4,6 +4,7 @@ export interface ICommandOptionDefinition {
     name: string;
     description: string;
     type: string;
+    demandOption?: boolean;
     default?: any;
 }
 
@@ -11,7 +12,7 @@ export interface ICommandDefinition {
     name: string;
     description: string;
     options?: ICommandOptionDefinition[];
-    handler: (args: any) => Promise<void>;
+    handler: (args: any) => void | Promise<void>;
 }
 
 export interface ICommand {

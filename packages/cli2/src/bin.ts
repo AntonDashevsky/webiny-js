@@ -11,7 +11,9 @@ async function main() {
     // Ensure system requirements are met.
     ensureSystemRequirements();
 
-    await Cli.init();
+    const cli = await Cli.init();
+
+    return cli.parse();
 }
 
 await main();
