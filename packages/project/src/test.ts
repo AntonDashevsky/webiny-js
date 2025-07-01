@@ -4,12 +4,15 @@ async function main() {
     const cwd = process.cwd();
     const projectSdk = ProjectSdk.init(cwd);
 
-    const result = await projectSdk.getAppOutput<{ a: 123 }>({
+     await projectSdk.destroyApp({
         app: "core",
-        env: "dev"
+        env: "dev",
+        onPulumiProcess: pulumiProcess => {
+            pulumiProcess.stdout!.pipe(process.stdout);
+            pulumiProcess.stderr!.pipe(process.stderr);
+        }
     });
 
-    console.log("result", result);
 }
 
 await main();

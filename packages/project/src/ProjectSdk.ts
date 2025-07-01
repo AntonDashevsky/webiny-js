@@ -3,6 +3,7 @@ import { createProjectSdkContainer } from "./createProjectSdkContainer";
 import {
     BuildApp,
     DeployApp,
+    DestroyApp,
     GetApp,
     GetAppOutput,
     GetProject,
@@ -44,6 +45,10 @@ export class ProjectSdk {
 
     deployApp(params: DeployApp.Params) {
         return this.container.resolve(DeployApp).execute(params);
+    }
+
+    destroyApp(params: DestroyApp.Params) {
+        return this.container.resolve(DestroyApp).execute(params);
     }
 
     getContainer() {

@@ -1,5 +1,7 @@
 export { BuildApp } from "./BuildApp";
 export { DeployApp } from "./DeployApp";
+export { DestroyApp } from "./DestroyApp";
+export { RefreshApp } from "./RefreshApp";
 export { GetApp } from "./GetApp";
 export { GetAppOutput } from "./GetAppOutput";
 export { GetProject } from "./GetProject";
