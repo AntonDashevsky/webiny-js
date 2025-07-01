@@ -1,5 +1,5 @@
-import { Metadata } from "./Metadata";
-import type { Constructor } from "~/types";
+import { Metadata } from "./Metadata.js";
+import type { Constructor } from "~/types.js";
 
 export const isComposite = (implementation: Constructor) => {
     const metadata = new Metadata(implementation);

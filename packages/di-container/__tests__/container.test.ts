@@ -6,7 +6,7 @@ import {
     isDecorator,
     createComposite,
     isComposite
-} from "~/index";
+} from "~/index.js";
 import { jest } from "@jest/globals";
 // Mock implementations for testing
 interface ILogger {
