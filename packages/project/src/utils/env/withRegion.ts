@@ -1,5 +1,5 @@
 import { createConfiguration } from "./configuration.js";
-import { regions } from "@webiny/cli/regions.js";
+import { regions } from "../regions.js";
 
 export interface IWithRegionParams {
     region?: string;
@@ -20,3 +20,4 @@ export const withRegion = (params: IWithRegionParams) => {
         };
     });
 };
+
