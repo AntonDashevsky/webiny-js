@@ -1,23 +1,23 @@
 import { environment } from "./Environment.js";
 import type { Component, IContentSdk, ResolvedComponent } from "~/sdk/types";
 import { LiveSdk, type LiveSdkConfig } from "./LiveSdk.js";
-import { PreviewSdk } from "./PreviewSdk.js";
+import { EditingSdk } from "./EditingSdk.js";
 import { ResolveElementParams } from "~/sdk/ComponentResolver";
 
 export type ContentSDKConfig = LiveSdkConfig;
 
 export class ContentSdk implements IContentSdk {
     private readonly live: LiveSdk;
-    public preview?: PreviewSdk;
+    public editing?: EditingSdk;
     private active: IContentSdk;
 
     constructor() {
         this.live = new LiveSdk();
 
         const isPreview = environment.isPreview() && environment.isClient();
-        if (isPreview) {
-            this.preview = new PreviewSdk(this.live);
-            this.active = this.preview;
+        if (environment.isEditing()) {
+            this.editing = new EditingSdk(this.live);
+            this.active = this.editing;
         } else {
             this.active = this.live;
         }
@@ -25,8 +25,8 @@ export class ContentSdk implements IContentSdk {
 
     public init(config: ContentSDKConfig) {
         this.live.init(config);
-        if (this.preview) {
-            this.preview.init();
+        if (this.editing) {
+            this.editing.init();
         }
     }
 

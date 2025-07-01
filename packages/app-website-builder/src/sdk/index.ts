@@ -1,4 +1,4 @@
-export * from "./PreviewSdk.js";
+export * from "./EditingSdk.js";
 export * from "./LiveSdk.js";
 export * from "./ContentSdk.js";
 export * from "./Environment.js";

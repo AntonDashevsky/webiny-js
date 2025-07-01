@@ -39,7 +39,7 @@ class PreviewDocument {
     }
 }
 
-export class PreviewSdk implements IContentSdk {
+export class EditingSdk implements IContentSdk {
     private initialized = false;
     public readonly messenger: Messenger;
     private positionReportingEnabled = false;

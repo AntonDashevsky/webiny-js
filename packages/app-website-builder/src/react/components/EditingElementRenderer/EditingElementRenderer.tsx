@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import { DocumentElement } from "~/sdk/types";
-import { PreviewElementRendererPresenter } from "./PreviewElementRenderer.presenter";
+import { EditingElementRendererPresenter } from "./EditingElementRenderer.presenter";
 import { LiveElementRenderer } from "../LiveElementRenderer";
 import { useElementSlotDepth } from "~/react/components/ElementSlotDepthProvider";
 import { useElementIndex } from "~/react/components/ElementIndexProvider";
@@ -14,13 +14,13 @@ interface PreviewElementRendererProps {
 
 const styles = { display: "contents" };
 
-export const PreviewElementRenderer = observer((props: PreviewElementRendererProps) => {
+export const EditingElementRenderer = observer((props: PreviewElementRendererProps) => {
     const documentStore = useDocumentStore();
     const depth = useElementSlotDepth();
     const index = useElementIndex();
 
     const presenter = useMemo(() => {
-        return new PreviewElementRendererPresenter(documentStore);
+        return new EditingElementRendererPresenter(documentStore);
     }, [props.element?.id]);
 
     useEffect(() => {

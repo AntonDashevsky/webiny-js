@@ -1,20 +1,20 @@
 "use client";
 import { makeAutoObservable, observable, toJS } from "mobx";
 import * as fjp from "fast-json-patch";
-import { contentSdk, DocumentStore, type PreviewSdk } from "~/sdk/index.js";
+import { contentSdk, DocumentStore, type EditingSdk } from "~/sdk/index.js";
 import type { DocumentElement } from "~/sdk/types.js";
 import { resizeObserver } from "~/sdk/ResizeObserver";
 
-export class PreviewElementRendererPresenter {
+export class EditingElementRendererPresenter {
     private element: DocumentElement;
     private listeners: Array<() => void> = [];
     private documentStore: DocumentStore;
-    private readonly preview: PreviewSdk;
+    private readonly editing: EditingSdk;
 
     constructor(documentStore: DocumentStore) {
         this.documentStore = documentStore;
         this.element = observable({}) as DocumentElement;
-        this.preview = contentSdk.preview!;
+        this.editing = contentSdk.editing!;
         makeAutoObservable(this);
     }
 
@@ -55,7 +55,7 @@ export class PreviewElementRendererPresenter {
         const { id } = element;
 
         this.listeners.push(
-            this.preview.messenger.on(`element.patch.${id}`, patch => {
+            this.editing.messenger.on(`element.patch.${id}`, patch => {
                 this.documentStore.updateDocument(document => {
                     fjp.applyPatch(document.bindings[id], patch, false, true);
                 });

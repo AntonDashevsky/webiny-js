@@ -14,9 +14,9 @@ export interface ElementSlotProps {
 }
 
 export const ElementSlot = (props: ElementSlotProps) => {
-    const isPreview = environment.isPreview() && environment.isClient();
+    const isEditing = environment.isEditing();
 
-    if (isPreview) {
+    if (isEditing) {
         return <PreviewElementSlot {...props} />;
     } else {
         return <LiveElementSlot {...props} />;
