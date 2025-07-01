@@ -1,5 +1,15 @@
 import { Container } from "@webiny/di-container";
-import { buildApp, deployApp, destroyApp, getApp, getAppOutput, getProject, getProjectInfo } from "./features";
+import {
+    buildApp,
+    deployApp,
+    destroyApp,
+    getApp,
+    getAppOutput,
+    getProject,
+    getProjectInfo,
+    refreshApp,
+    runPulumiCommand
+} from "./features";
 import {
     getAppPackagesService,
     getIsCiService,
@@ -47,6 +57,8 @@ export const createProjectSdkContainer = () => {
     container.register(deployApp).inSingletonScope();
     container.register(destroyApp).inSingletonScope();
     container.register(getProjectInfo).inSingletonScope();
+    container.register(refreshApp).inSingletonScope();
+    container.register(runPulumiCommand).inSingletonScope();
 
     return container;
 };

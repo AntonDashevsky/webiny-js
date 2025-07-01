@@ -7,7 +7,9 @@ import {
     GetApp,
     GetAppOutput,
     GetProject,
-    GetProjectInfo
+    GetProjectInfo,
+    RefreshApp,
+    RunPulumiCommand
 } from "~/abstractions";
 
 export class ProjectSdk {
@@ -49,6 +51,14 @@ export class ProjectSdk {
 
     destroyApp(params: DestroyApp.Params) {
         return this.container.resolve(DestroyApp).execute(params);
+    }
+
+    refreshApp(params: RefreshApp.Params) {
+        return this.container.resolve(RefreshApp).execute(params);
+    }
+
+    runPulumiCommand(params: RunPulumiCommand.Params) {
+        return this.container.resolve(RunPulumiCommand).execute(params);
     }
 
     getContainer() {

@@ -6,3 +6,4 @@ export { GetApp } from "./GetApp";
 export { GetAppOutput } from "./GetAppOutput";
 export { GetProject } from "./GetProject";
 export { GetProjectInfo } from "./GetProjectInfo";
+export { RunPulumiCommand } from "./RunPulumiCommand";

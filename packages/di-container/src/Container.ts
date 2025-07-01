@@ -9,8 +9,8 @@ import {
     LifetimeScope
 } from "./types.js";
 import { Metadata } from "./Metadata.js";
-import { isComposite } from "~/isComposite";
-import { isDecorator } from "~/isDecorator";
+import { isComposite } from "./isComposite";
+import { isDecorator } from "./isDecorator";
 
 export class Container {
     private registrations = new Map<symbol, Registration[]>();

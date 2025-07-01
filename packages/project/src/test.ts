@@ -4,7 +4,7 @@ async function main() {
     const cwd = process.cwd();
     const projectSdk = ProjectSdk.init(cwd);
 
-     await projectSdk.destroyApp({
+    await projectSdk.refreshApp({
         app: "core",
         env: "dev",
         onPulumiProcess: pulumiProcess => {
@@ -12,7 +12,6 @@ async function main() {
             pulumiProcess.stderr!.pipe(process.stderr);
         }
     });
-
 }
 
 await main();
