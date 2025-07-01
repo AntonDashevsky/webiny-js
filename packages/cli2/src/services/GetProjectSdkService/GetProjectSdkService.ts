@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import { ProjectSdk } from "@webiny/project";
-import { GetProjectSdkService } from "~/abstractions";
+import { GetProjectSdkService } from "~/abstractions/index.js";
 
 export class DefaultGetProjectSdkService implements GetProjectSdkService.Interface {
     execute() {

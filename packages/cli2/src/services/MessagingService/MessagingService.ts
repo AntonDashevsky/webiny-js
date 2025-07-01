@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { MessagingService } from "~/abstractions";
+import { MessagingService } from "~/abstractions/index.js";
 import chalk from "chalk";
 
 const LOG_COLORS = {

@@ -5,9 +5,9 @@ import {
     loadEnvVarsService,
     loggerService,
     messagingService
-} from "./services";
+} from "./services/index.js";
 
-import { aboutCommand } from "./features";
+import { aboutCommand } from "./features/index.js";
 
 export const createCliContainer = () => {
     const container = new Container();

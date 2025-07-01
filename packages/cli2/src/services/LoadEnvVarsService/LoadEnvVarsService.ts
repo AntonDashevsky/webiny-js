@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetProjectSdkService, LoadEnvVarsService, LoggerService } from "~/abstractions";
+import { GetProjectSdkService, LoadEnvVarsService, LoggerService } from "~/abstractions/index.js";
 import path from "path";
 import dotenv from "dotenv";
 import { boolean } from "boolean";

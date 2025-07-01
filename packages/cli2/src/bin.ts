@@ -5,7 +5,7 @@ import "tsx";
 import "./utils/suppressPunycodeWarnings.js";
 
 import { ensureSystemRequirements } from "@webiny/system-requirements";
-import { Cli } from "./Cli";
+import { Cli } from "./Cli.js";
 
 async function main() {
     // Ensure system requirements are met.

@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, GetProjectSdkService } from "~/abstractions";
+import { Command, GetProjectSdkService } from "~/abstractions/index.js";
 
 export class AboutCommand implements Command.Interface {
     constructor(private getProjectSdkService: GetProjectSdkService.Interface) {}

@@ -1,1 +1,1 @@
-export * from "./LoadEnvVarsService";
+export * from "./LoadEnvVarsService.js";

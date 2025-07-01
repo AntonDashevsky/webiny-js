@@ -1,10 +1,10 @@
 import { Container } from "@webiny/di-container";
 import type {Argv} from "yargs";
 import yargs from "yargs/yargs";
-import { createCliContainer } from "./createCliContainer";
+import { createCliContainer } from "./createCliContainer.js";
 import { hideBin } from "yargs/helpers";
 import chalk from "chalk";
-import { Command } from "~/abstractions";
+import { Command } from "~/abstractions/index.js";
 
 const { blue, red, bold, bgYellow } = chalk;
 
