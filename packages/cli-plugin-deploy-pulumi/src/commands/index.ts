@@ -28,7 +28,6 @@ export const commands: CliCommandPlugin[] = [
         type: "cli-command",
         name: "cli-command-deployment",
         async create({ yargs, context }) {
-            console.log("Create deployment commands");
             yargs.example("$0 deploy api --env=dev", "");
             yargs.example("$0 build api --env=dev", "");
             yargs.example("$0 destroy api --env=dev", "");

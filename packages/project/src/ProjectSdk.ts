@@ -13,10 +13,10 @@ import {
 } from "~/abstractions";
 
 export class ProjectSdk {
-    cwd: string;
+    cwd?: string;
     container: Container;
 
-    protected constructor(cwd: string) {
+    protected constructor(cwd?: string) {
         this.cwd = cwd;
         this.container = createProjectSdkContainer();
     }
@@ -65,7 +65,7 @@ export class ProjectSdk {
         return this.container;
     }
 
-    static init(cwd: string) {
+    static init(cwd?: string) {
         return new ProjectSdk(cwd);
     }
 }

@@ -85,8 +85,6 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
             throw new Error(`Failed to build all packages.`);
         });
 
-        logger.log();
-
         // TODO: context.success was used here
         logger.info(`Built ${packages.length} packages in ${getBuildDuration()}.`);
     }

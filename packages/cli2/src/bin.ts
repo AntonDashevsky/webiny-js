@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+import "tsx";
+
+// Suppress punycode warnings. This is a known issue we can't fix.
+import "./utils/suppressPunycodeWarnings.js";
+
+import { ensureSystemRequirements } from "@webiny/system-requirements";
+import { Cli } from "./Cli";
+
+async function main() {
+    // Ensure system requirements are met.
+    ensureSystemRequirements();
+
+    await Cli.init();
+}
+
+await main();
