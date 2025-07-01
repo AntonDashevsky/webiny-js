@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as LabelPrimitive from "@radix-ui/react-label";
+import { Label as LabelPrimitive } from "radix-ui";
 import { cn, makeDecoratable, cva, type VariantProps } from "~/utils";
 import { LabelDescription, LabelHint, LabelRequired, LabelValue } from "./components";
 
@@ -49,7 +49,6 @@ const LabelBase = ({
     text,
     weight,
     invalid,
-    id,
     ...props
 }: LabelProps) => {
     if (!text) {
@@ -59,7 +58,6 @@ const LabelBase = ({
     return (
         <LabelPrimitive.Root
             className={cn(labelVariants({ weight, disabled, invalid }), className)}
-            htmlFor={id}
             {...props}
         >
             <span>

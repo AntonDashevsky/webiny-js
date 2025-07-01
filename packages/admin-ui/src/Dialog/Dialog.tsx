@@ -50,6 +50,9 @@ const DialogBase = (props: DialogProps) => {
             modal,
             dir,
 
+            // Shared props.
+            size,
+
             // Trigger props.
             trigger,
 
@@ -70,7 +73,7 @@ const DialogBase = (props: DialogProps) => {
             showCloseButton = true,
 
             // Content props.
-            ...contentProps
+            ...rest
         } = props;
 
         // Handles dialog open state changes, calling original and onClose / onOpen callbacks as needed
@@ -99,11 +102,11 @@ const DialogBase = (props: DialogProps) => {
                 // that are decorated with `makeDecoratable`. This will be fixed in the future.
                 children: <div>{trigger}</div>
             },
-            headerProps: { title, icon, description },
-            bodyProps: { children, bodyPadding },
-            footerProps: { info, actions },
-            closeButtonProps: { show: showCloseButton },
-            contentProps
+            headerProps: { title, icon, description, size },
+            bodyProps: { children, bodyPadding, size },
+            footerProps: { info, actions, size },
+            closeButtonProps: { show: showCloseButton, size },
+            contentProps: { ...rest, size }
         };
     }, [props]);
 
@@ -116,7 +119,7 @@ const DialogBase = (props: DialogProps) => {
                     <DialogHeader {...headerProps} />
                     <DialogBody {...bodyProps} />
                     <DialogFooter {...footerProps} />
-                    {closeButtonProps.show && <DialogClose />}
+                    {closeButtonProps.show && <DialogClose size={closeButtonProps.size} />}
                 </DialogContent>
             </DialogPortal>
         </DialogRoot>

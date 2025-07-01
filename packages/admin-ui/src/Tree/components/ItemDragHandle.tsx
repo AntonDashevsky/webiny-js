@@ -1,15 +1,18 @@
-import React from "react";
+import React, { RefObject } from "react";
 import { ReactComponent as DragIndicator } from "@webiny/icons/drag_indicator.svg";
-import { IconButton, Icon, cn } from "@webiny/admin-ui";
+import { IconButton } from "~/Button";
+import { Icon } from "~/Icon";
+import { cn, makeDecoratable } from "~/utils";
 
-type TreeItemDragIndicatorProps = {
-    handleRef?: React.Ref<HTMLSpanElement>;
+type ItemDragHandleProps = {
+    handleRef?: RefObject<HTMLDivElement | null>;
 };
-const TreeItemDragIndicator = ({ handleRef }: TreeItemDragIndicatorProps) => {
+
+const BaseItemDragHandle = ({ handleRef }: ItemDragHandleProps) => {
     const [isDragging, setIsDragging] = React.useState(false);
 
     return (
-        <span ref={handleRef}>
+        <div ref={handleRef as React.LegacyRef<HTMLDivElement>}>
             <IconButton
                 size={"xs"}
                 variant={"secondary"}
@@ -24,8 +27,10 @@ const TreeItemDragIndicator = ({ handleRef }: TreeItemDragIndicatorProps) => {
                     isDragging ? "wby-cursor-grabbing" : "wby-cursor-grab"
                 ])}
             />
-        </span>
+        </div>
     );
 };
 
-export { TreeItemDragIndicator, TreeItemDragIndicatorProps };
+const ItemDragHandle = makeDecoratable("TreeItemDragHandle", BaseItemDragHandle);
+
+export { ItemDragHandle, type ItemDragHandleProps };

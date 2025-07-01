@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as SwitchPrimitives from "@radix-ui/react-switch";
+import { Switch as SwitchPrimitives } from "radix-ui";
 import { cn, cva, makeDecoratable, type VariantProps } from "~/utils";
 import { Label } from "~/Label";
 import { useSwitch } from "./useSwitch";
@@ -54,7 +54,7 @@ const SwitchRenderer = ({
     return (
         <div className={cn(switchVariants({ labelPosition }), className)}>
             <Label
-                id={id}
+                htmlFor={id}
                 text={label}
                 disabled={disabled}
                 required={required}

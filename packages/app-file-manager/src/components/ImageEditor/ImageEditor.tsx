@@ -185,10 +185,12 @@ class ImageEditor extends React.Component<ImageEditorProps, ImageEditorState> {
         const { src, tools, children } = this.props;
         const { tool } = this.state;
         const editor = (
-            <>
-                <div
-                    className={"wby-flex wby-justify-center wby-items-center wby-w-full wby-mt-md"}
-                >
+            <div
+                className={
+                    "wby-w-full wby-h-full wby-flex wby-flex-col wby-gap-md wby-overflow-hidden"
+                }
+            >
+                <div className={"wby-flex wby-justify-center wby-items-center wby-w-full"}>
                     {tools.map(key => {
                         const tool: ImageEditorTool = toolbar[key];
                         if (!tool) {
@@ -211,7 +213,7 @@ class ImageEditor extends React.Component<ImageEditorProps, ImageEditorState> {
                         );
                     })}
                 </div>
-                <div className={"wby-w-full wby-my-md"}>
+                <div className={"wby-w-full"}>
                     {tool ? (
                         <>
                             {typeof tool.renderForm === "function" &&
@@ -246,16 +248,20 @@ class ImageEditor extends React.Component<ImageEditorProps, ImageEditorState> {
                         </div>
                     )}
                 </div>
-
-                <div className={"wby-text-center wby-mx-auto"}>
+                <div
+                    className={
+                        "wby-flex wby-justify-center wby-items-center wby-w-full wby-bg-neutral-dimmed wby-rounded-md wby-overflow-hidden"
+                    }
+                    style={{ height: "calc(100vh - 256px)" }}
+                >
                     <canvas
                         key={src}
                         id={"canvas"}
-                        style={{ maxWidth: "100%" }}
+                        style={{ maxWidth: "100%", maxHeight: "100%" }}
                         ref={this.canvas as React.Ref<any>}
                     />
                 </div>
-            </>
+            </div>
         );
 
         if (typeof children === "function") {

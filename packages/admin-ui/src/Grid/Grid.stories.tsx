@@ -6,7 +6,10 @@ import { StyledColumn } from "./stories/StyledColumn";
 
 const meta: Meta<typeof Grid> = {
     title: "Components/Grid",
-    component: Grid
+    component: Grid,
+    parameters: {
+        layout: "padded"
+    }
 };
 
 export default meta;
@@ -15,7 +18,7 @@ type Story = StoryObj<typeof Grid>;
 
 export const Default: Story = {
     args: {
-        className: "wby-bg-neutral-light wby-p-4",
+        className: "wby-bg-neutral-light wby-p-md wby-w-full",
         children: (
             <>
                 <StyledColumn index={1} />
@@ -32,7 +35,42 @@ export const Default: Story = {
     }
 };
 
-export const SpaciousGap: Story = {
+export const WithGapNone: Story = {
+    args: {
+        ...Default.args,
+        gap: "none"
+    }
+};
+
+export const WithGapMicro: Story = {
+    args: {
+        ...Default.args,
+        gap: "micro"
+    }
+};
+
+export const WithGapSmall: Story = {
+    args: {
+        ...Default.args,
+        gap: "small"
+    }
+};
+
+export const WithGapCompact: Story = {
+    args: {
+        ...Default.args,
+        gap: "compact"
+    }
+};
+
+export const WithGapComfortable: Story = {
+    args: {
+        ...Default.args,
+        gap: "comfortable"
+    }
+};
+
+export const WithGapSpacious: Story = {
     args: {
         ...Default.args,
         gap: "spacious"
@@ -109,13 +147,13 @@ export const Documentation: Story = {
     },
     args: {
         gap: "comfortable",
-        className: "wby-bg-neutral-light wby-p-4"
+        className: "wby-bg-neutral-light wby-p-md wby-w-full"
     },
     argTypes: {
         gap: {
             description: "Spacing between grid columns",
             control: "select",
-            options: ["comfortable", "spacious"],
+            options: ["none", "micro", "small", "compact", "comfortable", "spacious"],
             defaultValue: "comfortable"
         },
         className: {

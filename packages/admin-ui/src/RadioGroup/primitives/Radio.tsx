@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { RadioGroup as RadioGroupPrimitive } from "radix-ui";
 import { cn, makeDecoratable } from "~/utils";
 import { Label } from "~/Label";
 
@@ -37,7 +37,7 @@ const DecoratableRadio = ({ className, label, id, ...props }: RadioProps) => {
                     />
                 </RadioGroupPrimitive.Indicator>
             </RadioGroupPrimitive.Item>
-            <Label id={id} text={label} weight={"light"} className={"wby-text-md"} />
+            <Label htmlFor={id} text={label} weight={"light"} className={"wby-text-md"} />
         </div>
     );
 };
