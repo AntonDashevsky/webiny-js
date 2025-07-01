@@ -1,9 +1,11 @@
 import { Abstraction } from "./Abstraction.js";
 import { Constructor, Dependency } from "./types.js";
 
-const KEYS = {
+export const KEYS = {
     ABSTRACTION: "wby:abstraction",
-    DEPENDENCIES: "wby:dependencies"
+    DEPENDENCIES: "wby:dependencies",
+    IS_DECORATOR: "wby:isDecorator",
+    IS_COMPOSITE: "wby:isComposite"
 };
 
 export class Metadata<T extends Constructor> {
@@ -21,11 +23,19 @@ export class Metadata<T extends Constructor> {
         return Reflect.getMetadata(KEYS.DEPENDENCIES, this.target);
     }
 
+    getAttribute(key: keyof typeof KEYS) {
+        return Reflect.getMetadata(KEYS[key], this.target);
+    }
+
     setAbstraction(abstraction: Abstraction<unknown>) {
         Reflect.defineMetadata(KEYS.ABSTRACTION, abstraction, this.target);
     }
 
     setDependencies(dependencies: Dependency[]) {
         Reflect.defineMetadata(KEYS.DEPENDENCIES, dependencies, this.target);
+    }
+
+    setAttribute(key: keyof typeof KEYS, value: unknown) {
+        Reflect.defineMetadata(KEYS[key], value, this.target);
     }
 }

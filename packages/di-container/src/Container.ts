@@ -9,18 +9,33 @@ import {
     LifetimeScope
 } from "./types.js";
 import { Metadata } from "./Metadata.js";
+import { isComposite } from "~/isComposite";
+import { isDecorator } from "~/isDecorator";
 
 export class Container {
     private registrations = new Map<symbol, Registration[]>();
     private decorators = new Map<symbol, DecoratorRegistration[]>();
-    private instances = new Map<symbol, any>();
+    private instances = new Map<string, any>();
     private instanceRegistrations = new Map<symbol, InstanceRegistration[]>();
+    private composites = new Map<symbol, Registration>();
     private parent?: Container;
 
     register<T>(implementation: Constructor<T>): RegistrationBuilder<T> {
         const metadata = new Metadata(implementation);
         const abstraction = metadata.getAbstraction();
         const dependencies = metadata.getDependencies();
+
+        if (isComposite(implementation)) {
+            throw new Error(
+                `${implementation.name} is a composite! Use the "registerComposite" method.`
+            );
+        }
+
+        if (isDecorator(implementation)) {
+            throw new Error(
+                `${implementation.name} is a decorator! Use the "registerDecorator" method.`
+            );
+        }
 
         if (!abstraction) {
             throw new Error(`No abstraction metadata found for ${implementation.name}`);
@@ -49,6 +64,12 @@ export class Container {
         const abstraction = metadata.getAbstraction();
         const dependencies = metadata.getDependencies();
 
+        if (!isDecorator(decorator)) {
+            throw new Error(
+                `${decorator.name} is not a decorator! Use the "createDecorator" factory.`
+            );
+        }
+
         if (!abstraction) {
             throw new Error(`No abstraction metadata found for ${decorator.name}`);
         }
@@ -60,6 +81,30 @@ export class Container {
 
         const existing = this.decorators.get(abstraction.token) || [];
         this.decorators.set(abstraction.token, [...existing, registration]);
+    }
+
+    registerComposite<T>(implementation: Constructor<T>): void {
+        const metadata = new Metadata(implementation);
+        const abstraction = metadata.getAbstraction();
+        const dependencies = metadata.getDependencies();
+
+        if (!isComposite(implementation)) {
+            throw new Error(
+                `${implementation.name} is not a composite! Use the "createComposite" factory.`
+            );
+        }
+
+        if (!abstraction) {
+            throw new Error(`No abstraction metadata found for ${implementation.name}`);
+        }
+
+        const registration: Registration<T> = {
+            implementation,
+            dependencies: dependencies || [],
+            scope: LifetimeScope.Transient
+        };
+
+        this.composites.set(abstraction.token, registration);
     }
 
     resolve<T>(abstraction: Abstraction<T>): T {
@@ -92,7 +137,7 @@ export class Container {
         resolutionStack: Map<symbol, boolean>,
         options: DependencyOptions
     ): T {
-        if (resolutionStack.has(abstraction.token)) {
+        if (resolutionStack.has(abstraction.token) && !options.multiple) {
             throw new Error(`Circular dependency detected for ${abstraction.toString()}`);
         }
 
@@ -129,6 +174,20 @@ export class Container {
             ) as any;
         }
 
+        const composite = this.composites.get(abstraction.token);
+        if (composite) {
+            resolutionStack.set(abstraction.token, true);
+
+            const resolvedDeps = composite.dependencies.map(dep => {
+                const [abstractionDep, depOptions] = Array.isArray(dep) ? dep : [dep, {}];
+                return this.resolveInternal(abstractionDep, new Map(resolutionStack), depOptions);
+            });
+
+            const instance = new composite.implementation(...resolvedDeps);
+            resolutionStack.delete(abstraction.token);
+            return instance;
+        }
+
         if (instanceRegs.length > 0) {
             const instance = instanceRegs[instanceRegs.length - 1].instance;
             return this.applyDecorators(abstraction, instance, resolutionStack);
@@ -147,8 +206,9 @@ export class Container {
         registration: Registration<T>,
         resolutionStack: Map<symbol, boolean>
     ): T {
+        const instanceKey = `${abstraction.token.toString()}::${registration.implementation.name}`;
         if (registration.scope === LifetimeScope.Singleton) {
-            const existing = this.instances.get(abstraction.token);
+            const existing = this.instances.get(instanceKey);
             if (existing) {
                 return existing;
             }
@@ -165,7 +225,7 @@ export class Container {
         const decoratedInstance = this.applyDecorators(abstraction, instance, resolutionStack);
 
         if (registration.scope === LifetimeScope.Singleton) {
-            this.instances.set(abstraction.token, decoratedInstance);
+            this.instances.set(instanceKey, decoratedInstance);
         }
 
         resolutionStack.delete(abstraction.token);

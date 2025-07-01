@@ -1,4 +1,12 @@
-import { Container, Abstraction, createImplementation, createDecorator } from "~/index";
+import {
+    Container,
+    Abstraction,
+    createImplementation,
+    createDecorator,
+    isDecorator,
+    createComposite,
+    isComposite
+} from "~/index";
 import { jest } from "@jest/globals";
 // Mock implementations for testing
 interface ILogger {
@@ -18,6 +26,16 @@ class ConsoleLogger implements ILogger {
 class FileLogger implements ILogger {
     log(...args: unknown[]): void {
         console.log("FileLogger:", ...args);
+    }
+}
+
+class CompositeLogger implements ILogger {
+    constructor(private readonly loggers: ILogger[]) {}
+
+    log(...args: unknown[]): void {
+        for (const logger of this.loggers) {
+            logger.log(...args);
+        }
     }
 }
 
@@ -80,7 +98,7 @@ describe("DIContainer", () => {
         expect(loggerFromChild).toBe(loggerFromRoot); // Resolved from parent container
     });
 
-    test("should resolve multiple implementations of the same abstraction when multiple flag is used", () => {
+    test("should resolve multiple transient implementations of the same abstraction when multiple flag is used", () => {
         const consoleLoggerImpl = createImplementation({
             abstraction: LoggerAbstraction,
             implementation: ConsoleLogger,
@@ -94,6 +112,101 @@ describe("DIContainer", () => {
 
         rootContainer.register(consoleLoggerImpl);
         rootContainer.register(fileLoggerImpl);
+
+        class LoggerManager {
+            constructor(public loggers: ILogger[]) {}
+        }
+
+        const managerAbstraction = new Abstraction<LoggerManager>("LoggerManager");
+
+        const managerImpl = createImplementation({
+            abstraction: managerAbstraction,
+            implementation: LoggerManager,
+            dependencies: [[LoggerAbstraction, { multiple: true }]]
+        });
+
+        rootContainer.register(managerImpl);
+
+        const manager = rootContainer.resolve(managerAbstraction);
+        expect(manager.loggers.length).toBe(2);
+        expect(manager.loggers.some(logger => logger instanceof ConsoleLogger)).toBe(true);
+        expect(manager.loggers.some(logger => logger instanceof FileLogger)).toBe(true);
+    });
+
+    test("should resolve a composite wrapper when a single implementation is requested", () => {
+        let numberOfLogCalls = 0;
+
+        // For assertion purposes, we create a logger decorator.
+        class LoggerDecorator implements ILogger {
+            constructor(private decoratee: ILogger) {}
+
+            log(...args: unknown[]): void {
+                numberOfLogCalls++;
+            }
+        }
+
+        const loggerDecorator = createDecorator({
+            abstraction: LoggerAbstraction,
+            decorator: LoggerDecorator,
+            dependencies: []
+        });
+
+        const consoleLoggerImpl = createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: ConsoleLogger,
+            dependencies: []
+        });
+        const fileLoggerImpl = createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: FileLogger,
+            dependencies: []
+        });
+
+        const compositeImpl = createComposite({
+            abstraction: LoggerAbstraction,
+            implementation: CompositeLogger,
+            dependencies: [[LoggerAbstraction, { multiple: true }]]
+        });
+
+        rootContainer.register(consoleLoggerImpl);
+        rootContainer.register(fileLoggerImpl);
+        rootContainer.registerDecorator(loggerDecorator);
+        rootContainer.registerComposite(compositeImpl);
+
+        class InjectionTest {
+            constructor(public logger: ILogger) {}
+
+            getLogger() {
+                return this.logger;
+            }
+        }
+
+        const testObject = rootContainer.resolveWithDependencies({
+            implementation: InjectionTest,
+            dependencies: [LoggerAbstraction]
+        });
+
+        const compositeLogger = testObject.getLogger();
+        expect(compositeLogger instanceof CompositeLogger).toBe(true);
+
+        compositeLogger.log("Composite log!");
+        expect(numberOfLogCalls).toBe(2);
+    });
+
+    test("should resolve multiple singleton implementations of the same abstraction when multiple flag is used", () => {
+        const consoleLoggerImpl = createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: ConsoleLogger,
+            dependencies: []
+        });
+        const fileLoggerImpl = createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: FileLogger,
+            dependencies: []
+        });
+
+        rootContainer.register(consoleLoggerImpl).inSingletonScope();
+        rootContainer.register(fileLoggerImpl).inSingletonScope();
 
         class LoggerManager {
             constructor(public loggers: ILogger[]) {}
@@ -293,5 +406,179 @@ describe("DIContainer", () => {
         logger.log("hello world");
         expect(consoleSpy).toHaveBeenCalledWith("ConsoleLogger:", "HELLO WORLD");
         consoleSpy.mockRestore();
+    });
+
+    test("should correctly assert decorators", () => {
+        class LoggerDecorator implements ILogger {
+            constructor(private decoratee: ILogger) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        const loggerDecorator = createDecorator({
+            abstraction: LoggerAbstraction,
+            decorator: LoggerDecorator,
+            dependencies: []
+        });
+
+        expect(isDecorator(loggerDecorator)).toBe(true);
+
+        const consoleLoggerImpl = createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: ConsoleLogger,
+            dependencies: []
+        });
+
+        expect(isDecorator(consoleLoggerImpl)).toBe(false);
+    });
+
+    test("should correctly assert composites", () => {
+        const consoleLoggerImpl = createComposite({
+            abstraction: LoggerAbstraction,
+            implementation: ConsoleLogger,
+            dependencies: []
+        });
+
+        expect(isComposite(consoleLoggerImpl)).toBe(true);
+
+        const formatterImpl = createImplementation({
+            abstraction: FormatterAbstraction,
+            implementation: UpperCaseFormatter,
+            dependencies: []
+        });
+
+        expect(isComposite(formatterImpl)).toBe(false);
+    });
+
+    test("registerDecorator should throw on a non-decorator", () => {
+        const nonDecorator = createImplementation({
+            abstraction: FormatterAbstraction,
+            implementation: UpperCaseFormatter,
+            dependencies: []
+        });
+
+        expect(() => rootContainer.registerDecorator(nonDecorator)).toThrow(/is not a decorator/);
+    });
+
+    test("registerComposite should throw on a non-composite", () => {
+        const nonComposite = createImplementation({
+            abstraction: FormatterAbstraction,
+            implementation: UpperCaseFormatter,
+            dependencies: []
+        });
+
+        expect(() => rootContainer.registerComposite(nonComposite)).toThrow(/is not a composite/);
+    });
+
+    test("register should throw on a composite", () => {
+        const composite = createComposite({
+            abstraction: LoggerAbstraction,
+            implementation: ConsoleLogger,
+            dependencies: []
+        });
+
+        expect(() => rootContainer.register(composite)).toThrow(/is a composite/);
+    });
+
+    test("register should throw on a decorator", () => {
+        class LoggerDecorator implements ILogger {
+            constructor(private decoratee: ILogger) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        const loggerDecorator = createDecorator({
+            abstraction: LoggerAbstraction,
+            decorator: LoggerDecorator,
+            dependencies: []
+        });
+
+        expect(() => rootContainer.register(loggerDecorator)).toThrow(/is a decorator/);
+    });
+
+    test("types should support various formats of a single required dependency", () => {
+        class RequiredLogger implements ILogger {
+            constructor(public logger: ILogger) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [LoggerAbstraction]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction]]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: false }]]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: false, optional: false }]]
+        });
+    });
+
+    test("types should support various formats of an optional dependency", () => {
+        class OptionalLogger implements ILogger {
+            constructor(public logger?: ILogger) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: OptionalLogger,
+            dependencies: [[LoggerAbstraction, { optional: true }]]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: OptionalLogger,
+            dependencies: [[LoggerAbstraction, { multiple: false, optional: true }]]
+        });
+    });
+
+    test("types should support various formats of required list of dependencies", () => {
+        class RequiredLogger implements ILogger {
+            constructor(public logger: ILogger[]) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: true }]]
+        });
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: true, optional: false }]]
+        });
+    });
+
+    test("types should support optional list of dependencies", () => {
+        class RequiredLogger implements ILogger {
+            constructor(public logger?: ILogger[]) {}
+
+            log(...args: unknown[]): void {}
+        }
+
+        createImplementation({
+            abstraction: LoggerAbstraction,
+            implementation: RequiredLogger,
+            dependencies: [[LoggerAbstraction, { multiple: true, optional: true }]]
+        });
     });
 });
