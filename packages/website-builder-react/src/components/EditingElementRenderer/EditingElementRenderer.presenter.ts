@@ -1,12 +1,12 @@
 "use client";
 import { makeAutoObservable, observable, toJS } from "mobx";
-import * as fjp from "fast-json-patch";
 import {
     contentSdk,
     resizeObserver,
+    jsonPatch,
     DocumentStore,
     type EditingSdk,
-    type DocumentElement
+    type DocumentElement,
 } from "@webiny/app-website-builder/sdk";
 
 export class EditingElementRendererPresenter {
@@ -62,7 +62,7 @@ export class EditingElementRendererPresenter {
             this.listeners.push(
                 this.editingSdk.messenger.on(`element.patch.${id}`, patch => {
                     this.documentStore.updateDocument(document => {
-                        fjp.applyPatch(document.bindings[id], patch, false, true);
+                        jsonPatch.applyPatch(document.bindings[id], patch, false, true);
                     });
                 })
             );

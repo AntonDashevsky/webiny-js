@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { contentSdk, DocumentStoreProvider } from "~/index.js";
-import type { Component, Document } from "@webiny/app-website-builder/sdk";
+import { type Component, contentSdk, type Document } from "@webiny/app-website-builder/sdk";
 import { ElementRenderer } from "./ElementRenderer";
+import { DocumentStoreProvider } from "./DocumentStoreProvider";
 
 const rootId = "root";
 

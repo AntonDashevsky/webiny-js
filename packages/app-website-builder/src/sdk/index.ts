@@ -16,3 +16,4 @@ export * from "./ResizeObserver.js";
 export * from "./BindingsResolver.js";
 export * from "./createElement.js";
 export * from "./registerComponentGroup.js";
+export * from "./jsonPatch";

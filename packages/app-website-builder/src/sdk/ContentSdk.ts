@@ -50,8 +50,6 @@ export class ContentSdk implements IContentSdk {
             return;
         }
 
-        console.log("init sdk with config", config);
-
         this.lastConfig = configHash;
 
         let liveSdk: IContentSdk = new LiveSdk();
