@@ -4,12 +4,10 @@ import { ExecaChildProcess } from "execa";
 
 type IPulumiProcess = ExecaChildProcess<string>;
 
-interface IRefreshAppParams extends IBaseAppParams {
-    onPulumiProcess?: (process: IPulumiProcess) => void;
-}
+interface IRefreshAppParams extends IBaseAppParams {}
 
 interface IRefreshApp {
-    execute(params: IRefreshAppParams): Promise<void>;
+    execute(params: IRefreshAppParams): Promise<{ pulumiProcess: IPulumiProcess }>;
 }
 
 export const RefreshApp = new Abstraction<IRefreshApp>("RefreshApp");

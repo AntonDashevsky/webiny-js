@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { MessagingService } from "~/abstractions/index.js";
+import { StdioService } from "~/abstractions/index.js";
 import chalk from "chalk";
 
 const LOG_COLORS = {
@@ -9,21 +9,41 @@ const LOG_COLORS = {
     success: chalk.green
 } as const;
 
-export class DefaultMessagingService implements MessagingService.Interface {
+export class DefaultStdioService implements StdioService.Interface {
     success(message?: any, ...optionalParams: any[]) {
-        this.log(message, ...optionalParams);
+        this.log("success", message, ...optionalParams);
     }
 
     info(message?: any, ...optionalParams: any[]) {
-        this.log(message, ...optionalParams);
+        this.log("info", message, ...optionalParams);
     }
 
     warn(message?: any, ...optionalParams: any[]) {
-        this.log(message, ...optionalParams);
+        this.log("warn", message, ...optionalParams);
     }
 
     error(message?: any, ...optionalParams: any[]) {
-        this.log(message, ...optionalParams);
+        this.log("error", message, ...optionalParams);
+    }
+
+    write(message?: any, ...optionalParams: any[]) {
+        process.stdout.write(message, ...optionalParams);
+    }
+
+    newLine() {
+        process.stdout.write("\n");
+    }
+
+    getStdout() {
+        return process.stdout;
+    }
+
+    getStderr() {
+        return process.stderr;
+    }
+
+    getStdin() {
+        return process.stdin;
     }
 
     private log(type: keyof typeof LOG_COLORS, ...args: any[]) {
@@ -43,8 +63,8 @@ export class DefaultMessagingService implements MessagingService.Interface {
     }
 }
 
-export const messagingService = createImplementation({
-    abstraction: MessagingService,
-    implementation: DefaultMessagingService,
+export const stdioService = createImplementation({
+    abstraction: StdioService,
+    implementation: DefaultStdioService,
     dependencies: []
 });

@@ -23,7 +23,7 @@ export class DefaultDestroyApp implements DestroyApp.Interface {
         private getPulumiService: GetPulumiService.Interface
     ) {}
 
-    async execute(params: DestroyApp.Params): Promise<void> {
+    async execute(params: DestroyApp.Params) {
         const app = await this.getApp.execute(params.app);
 
         if (!params.env) {
@@ -45,18 +45,16 @@ export class DefaultDestroyApp implements DestroyApp.Interface {
             ]
         });
 
-        const pulumiProcess = pulumi.run({
-            command: "destroy",
-            args: {
-                debug: params.debug || false,
-                yes: true
-            },
-            execa: { env }
-        });
-
-        if (params.onPulumiProcess) {
-            params.onPulumiProcess(pulumiProcess);
-        }
+        return {
+            pulumiProcess: pulumi.run({
+                command: "destroy",
+                args: {
+                    debug: params.debug || false,
+                    yes: true
+                },
+                execa: { env }
+            })
+        };
     }
 }
 

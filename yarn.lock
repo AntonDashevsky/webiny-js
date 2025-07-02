@@ -17357,6 +17357,7 @@ __metadata:
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/system-requirements": "npm:0.0.0"
     jest: "npm:^29.7.0"
+    ora: "npm:4.1.1"
     pino: "npm:^8.21.0"
     pino-pretty: "npm:^9.4.0"
     rimraf: "npm:^6.0.1"

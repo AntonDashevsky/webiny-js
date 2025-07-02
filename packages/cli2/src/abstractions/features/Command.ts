@@ -1,26 +1,39 @@
 import { Abstraction } from "@webiny/di-container";
 
+export interface ICommandParamDefinition {
+    name: string;
+    description: string;
+    type: string;
+    required?: boolean;
+    default?: any;
+}
+
 export interface ICommandOptionDefinition {
     name: string;
     description: string;
     type: string;
-    demandOption?: boolean;
+    required?: boolean;
     default?: any;
 }
 
-export interface ICommandDefinition {
+export interface ICommandDefinition<THandlerParams> {
     name: string;
     description: string;
+    params?: ICommandParamDefinition[];
     options?: ICommandOptionDefinition[];
-    handler: (args: any) => void | Promise<void>;
+    examples?: string[];
+    handler: (params: THandlerParams) => void | Promise<void>;
 }
 
-export interface ICommand {
-    execute(): ICommandDefinition;
+export interface ICommand<THandlerParams> {
+    execute(): ICommandDefinition<THandlerParams>;
 }
 
-export const Command = new Abstraction<ICommand>("Command");
+export const Command = new Abstraction("Command");
 
 export namespace Command {
-    export type Interface = ICommand;
+    export type Interface<THandlerParams> = ICommand<THandlerParams>;
+
+    export type ParamDefinition = ICommandParamDefinition;
+    export type OptionDefinition = ICommandOptionDefinition;
 }

@@ -5,12 +5,11 @@ import { ExecaChildProcess } from "execa";
 type IPulumiProcess = ExecaChildProcess<string>;
 
 interface IRunPulumiCommandParams extends IBaseAppParams {
-    command: string[],
-    onPulumiProcess?: (process: IPulumiProcess) => void;
+    command: string[];
 }
 
 interface IRunPulumiCommand {
-    execute(params: IRunPulumiCommandParams): Promise<void>;
+    execute(params: IRunPulumiCommandParams): Promise<{ pulumiProcess: IPulumiProcess }>;
 }
 
 export const RunPulumiCommand = new Abstraction<IRunPulumiCommand>("RunPulumiCommand");

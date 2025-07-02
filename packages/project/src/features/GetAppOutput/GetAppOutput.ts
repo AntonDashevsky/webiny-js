@@ -1,23 +1,48 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetApp, GetAppOutput, PulumiGetStackOutputService } from "~/abstractions/index.js";
+import {
+    GetApp,
+    GetAppOutput,
+    GetPulumiService,
+    PulumiSelectStackService
+} from "~/abstractions/index.js";
+import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env";
 
 export class DefaultGetAppOutput implements GetAppOutput.Interface {
     constructor(
         private getApp: GetApp.Interface,
-        private pulumiGetStackOutputService: PulumiGetStackOutputService.Interface
+        private pulumiSelectStackService: PulumiSelectStackService.Interface,
+        private getPulumiService: GetPulumiService.Interface
     ) {}
 
-    async execute<TOutput extends Record<string, any> = Record<string, any>>(
-        params: GetAppOutput.Params
-    ) {
+    async execute(params: GetAppOutput.Params) {
         const app = await this.getApp.execute(params.app);
 
-        return this.pulumiGetStackOutputService.execute<TOutput>(app, params);
+        if (!params.env) {
+            throw new Error(`Please specify environment, for example "dev".`);
+        }
+
+        await this.pulumiSelectStackService.execute(app, params);
+
+        const pulumi = await this.getPulumiService.execute({ app });
+
+        const env = createEnvConfiguration({
+            configurations: [withPulumiConfigPassphrase()]
+        });
+
+        return {
+            pulumiProcess: pulumi.run({
+                command: ["stack", "output"],
+                args: {
+                    json: params.json || false
+                },
+                execa: { env }
+            })
+        };
     }
 }
 
 export const getAppOutput = createImplementation({
     abstraction: GetAppOutput,
     implementation: DefaultGetAppOutput,
-    dependencies: [GetApp, PulumiGetStackOutputService]
+    dependencies: [GetApp, PulumiSelectStackService, GetPulumiService]
 });

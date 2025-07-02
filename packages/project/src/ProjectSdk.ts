@@ -35,10 +35,8 @@ export class ProjectSdk {
         return this.container.resolve(GetApp).execute(appName);
     }
 
-    async getAppOutput<TOutput extends Record<string, any> = Record<string, any>>(
-        params: GetAppOutput.Params
-    ) {
-        return this.container.resolve(GetAppOutput).execute<TOutput>(params);
+    async getAppOutput(params: GetAppOutput.Params) {
+        return this.container.resolve(GetAppOutput).execute(params);
     }
 
     buildApp(params: BuildApp.Params) {

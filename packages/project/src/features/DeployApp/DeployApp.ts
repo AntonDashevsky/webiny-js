@@ -1,6 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
 import {
-    BuildApp,
     DeployApp,
     GetApp,
     GetProject,
@@ -21,20 +20,17 @@ export class DefaultDeployApp implements DeployApp.Interface {
     constructor(
         private getApp: GetApp.Interface,
         private getProject: GetProject.Interface,
-        private buildApp: BuildApp.Interface,
         private pulumiSelectStackService: PulumiSelectStackService.Interface,
         private getPulumiService: GetPulumiService.Interface,
         private pulumiGetSecretsProviderService: PulumiGetSecretsProviderService.Interface
     ) {}
 
-    async execute(params: DeployApp.Params): Promise<void> {
+    async execute(params: DeployApp.Params) {
         const app = await this.getApp.execute(params.app);
 
         if (!params.env) {
             throw new Error(`Please specify environment, for example "dev".`);
         }
-
-        await this.buildApp.execute(params);
 
         await this.pulumiSelectStackService.execute(app, params);
 
@@ -79,9 +75,7 @@ export class DefaultDeployApp implements DeployApp.Interface {
                   execa: { env }
               });
 
-        if (params.onPulumiProcess) {
-            params.onPulumiProcess(pulumiProcess);
-        }
+        return { pulumiProcess };
     }
 }
 
@@ -91,7 +85,6 @@ export const deployApp = createImplementation({
     dependencies: [
         GetApp,
         GetProject,
-        BuildApp,
         PulumiSelectStackService,
         GetPulumiService,
         PulumiGetSecretsProviderService

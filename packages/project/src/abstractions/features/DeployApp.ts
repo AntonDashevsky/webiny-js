@@ -7,12 +7,10 @@ type IPulumiProcess = ExecaChildProcess<string>;
 interface IDeployAppParams extends IBaseAppParams {
     preview?: boolean;
     debug?: boolean;
-
-    onPulumiProcess?: (process: IPulumiProcess) => void;
 }
 
 interface IDeployApp {
-    execute(params: IDeployAppParams): Promise<void>;
+    execute(params: IDeployAppParams): Promise<{ pulumiProcess: IPulumiProcess }>;
 }
 
 export const DeployApp = new Abstraction<IDeployApp>("DeployApp");

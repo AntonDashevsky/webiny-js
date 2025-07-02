@@ -4,14 +4,21 @@ async function main() {
     const cwd = process.cwd();
     const projectSdk = ProjectSdk.init(cwd);
 
-    await projectSdk.refreshApp({
+    const reza = await projectSdk.getAppOutput({
         app: "core",
         env: "dev",
-        onPulumiProcess: pulumiProcess => {
-            pulumiProcess.stdout!.pipe(process.stdout);
-            pulumiProcess.stderr!.pipe(process.stderr);
-        }
     });
+
+    console.log('reza', reza);
 }
 
 await main();
+
+
+
+// my before stuff
+// await decoratee()
+// my after stuff
+
+
+// cli.deploy - sdk.deploy();

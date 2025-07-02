@@ -6,12 +6,10 @@ type IPulumiProcess = ExecaChildProcess<string>;
 
 interface IDestroyAppParams extends IBaseAppParams {
     debug?: boolean;
-
-    onPulumiProcess?: (process: IPulumiProcess) => void;
 }
 
 interface IDestroyApp {
-    execute(params: IDestroyAppParams): Promise<void>;
+    execute(params: IDestroyAppParams): Promise<{ pulumiProcess: IPulumiProcess }>;
 }
 
 export const DestroyApp = new Abstraction<IDestroyApp>("DestroyApp");

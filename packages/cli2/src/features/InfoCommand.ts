@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService } from "~/abstractions/index.js";
 
@@ -7,13 +8,12 @@ export class InfoCommand implements Command.Interface {
     execute() {
         return {
             name: "info",
-            description: "Lists relevant URLs for your Webiny project.",
+            description: "Lists relevant URLs for your Webiny project",
             options: [
                 {
                     name: "env",
                     description: `Environment (required if Pulumi state files are not stored locally)`,
-                    type: "string",
-                    required: false
+                    type: "string"
                 },
                 {
                     name: "debug",

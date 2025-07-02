@@ -1,12 +1,15 @@
 import { Abstraction } from "@webiny/di-container";
 import { IBaseAppParams } from "~/abstractions/types.js";
+import { ExecaChildProcess } from "execa";
 
-export interface IGetAppOutputParams extends IBaseAppParams {}
+type IPulumiProcess = ExecaChildProcess<string>;
+
+export interface IGetAppOutputParams extends IBaseAppParams {
+    json?: boolean;
+}
 
 export interface IGetAppOutput {
-    execute<TOutput extends Record<string, any> = Record<string, any>>(
-        params: IGetAppOutputParams
-    ): Promise<TOutput | null>;
+    execute(params: IGetAppOutputParams): Promise<{ pulumiProcess: IPulumiProcess }>;
 }
 
 export const GetAppOutput = new Abstraction<IGetAppOutput>("GetAppOutput");

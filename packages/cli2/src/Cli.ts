@@ -1,14 +1,78 @@
 import { Container } from "@webiny/di-container";
-import type { Argv } from "yargs";
+import { Argv, PositionalOptions } from "yargs";
 import yargs from "yargs/yargs";
 import { createCliContainer } from "./createCliContainer.js";
 import { hideBin } from "yargs/helpers";
 import chalk from "chalk";
-import { CommandsRegistryService } from "~/abstractions/index.js";
+import { CommandsRegistryService, Command } from "~/abstractions/index.js";
 
 const { blue, red, bold, bgYellow } = chalk;
 
-const onFail = () => () => {};
+const onFail = () => (msg: string, error: any, yargs: Argv) => {
+    if (msg) {
+        if (msg.includes("Not enough non-option arguments")) {
+            console.log();
+            console.error(red("Command was not invoked as expected!"));
+            console.info(
+                `Some non-optional arguments are missing. See the usage examples printed below.`
+            );
+            console.log();
+            yargs.showHelp();
+            return;
+        }
+
+        if (msg.includes("Missing required argument")) {
+            const args = msg
+                .split(":")[1]
+                .split(",")
+                .map(v => v.trim());
+
+            console.log();
+            console.error(red("Command was not invoked as expected!"));
+            console.info(
+                `Missing required argument(s): ${args
+                    .map(arg => red(arg))
+                    .join(", ")}. See the usage examples printed below.`
+            );
+            console.log();
+            yargs.showHelp();
+            return;
+        }
+        console.log();
+        console.error(red("Command execution was aborted!"));
+        console.error(msg);
+        console.log(error);
+
+        process.exit(1);
+    }
+
+    console.log();
+    // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
+    const debugEnabled = process.argv.includes("--debug");
+    if (debugEnabled) {
+        console.debug(error);
+    } else {
+        console.error(error.message);
+    }
+
+    // const gracefulError = error.cause?.gracefulError;
+    // if (gracefulError instanceof Error) {
+    //     console.log();
+    //     console.log(bgYellow(bold("💡 How can I resolve this?")));
+    //     console.log(gracefulError.message);
+    // }
+    //
+    // const plugins = context.plugins.byType("cli-command-error");
+    // for (let i = 0; i < plugins.length; i++) {
+    //     const plugin = plugins[i];
+    //     plugin.handle({
+    //         error,
+    //         context
+    //     });
+    // }
+
+    process.exit(1);
+};
 
 export class Cli {
     private cli: Argv;
@@ -34,20 +98,52 @@ export class Cli {
         const commands = this.container.resolve(CommandsRegistryService).execute();
 
         for (const command of commands) {
-            const { name, description, options = [], handler } = command.execute();
-            this.cli.command(
-                name,
-                description,
-                (yargs: Argv) => {
-                    options.forEach(option => {
-                        const { name, ...rest } = option;
+            const { name, description, params = [], options = [], handler } = command.execute();
 
-                        // @ts-ignore TS complains b/c `type` in `ICommandOptionDefinition` is defined
-                        // as `string`, but `yargs` expects it to be a specific Yargs type.
-                        yargs.option(name, rest);
+            let yargsCmd = name;
+            if (params.length > 0) {
+                yargsCmd +=
+                    " " +
+                    params
+                        .map(param => {
+                            return param.required ? `<${param.name}>` : `[${param.name}]`;
+                        })
+                        .join(" ");
+            }
+
+            this.cli.command(
+                yargsCmd,
+                description,
+                yargs => {
+                    params.forEach((param: Command.ParamDefinition) => {
+                        const { name, ...rest } = param;
+                        const mappedParams = Object.entries(rest).reduce((acc, [key, value]) => {
+                            if (key === "required") {
+                                acc["demandOption"] = value as boolean;
+                            }
+
+                            // @ts-ignore Key is always a valid PositionalOptions key.
+                            acc[key] = value;
+                            return acc;
+                        }, {} as PositionalOptions);
+
+                        yargs.positional(name, mappedParams);
                     });
 
-                    return yargs;
+                    options.forEach((param: Command.OptionDefinition) => {
+                        const { name, ...rest } = param;
+                        const mappedOptions = Object.entries(rest).reduce((acc, [key, value]) => {
+                            if (key === "required") {
+                                acc["demandOption"] = value as boolean;
+                            }
+
+                            // @ts-ignore Key is always a valid PositionalOptions key.
+                            acc[key] = value;
+                            return acc;
+                        }, {} as PositionalOptions);
+
+                        yargs.option(name, mappedOptions);
+                    });
                 },
                 (args: any) => handler(args)
             );
@@ -65,70 +161,3 @@ export class Cli {
         return new Cli();
     }
 }
-
-
-// const onFail = context => (msg, error, yargs) => {
-//     if (msg) {
-//         if (msg.includes("Not enough non-option arguments")) {
-//             console.log();
-//             context.error(red("Command was not invoked as expected!"));
-//             context.info(
-//                 `Some non-optional arguments are missing. See the usage examples printed below.`
-//             );
-//             console.log();
-//             yargs.showHelp();
-//             return;
-//         }
-//
-//         if (msg.includes("Missing required argument")) {
-//             const args = msg
-//                 .split(":")[1]
-//                 .split(",")
-//                 .map(v => v.trim());
-//
-//             console.log();
-//             context.error(red("Command was not invoked as expected!"));
-//             context.info(
-//                 `Missing required argument(s): ${args
-//                     .map(arg => red(arg))
-//                     .join(", ")}. See the usage examples printed below.`
-//             );
-//             console.log();
-//             yargs.showHelp();
-//             return;
-//         }
-//         console.log();
-//         context.error(red("Command execution was aborted!"));
-//         context.error(msg);
-//         console.log(error);
-//
-//         process.exit(1);
-//     }
-//
-//     console.log();
-//     // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
-//     const debugEnabled = process.argv.includes("--debug");
-//     if (debugEnabled) {
-//         context.debug(error);
-//     } else {
-//         context.error(error.message);
-//     }
-//
-//     const gracefulError = error.cause?.gracefulError;
-//     if (gracefulError instanceof Error) {
-//         console.log();
-//         console.log(bgYellow(bold("💡 How can I resolve this?")));
-//         console.log(gracefulError.message);
-//     }
-//
-//     const plugins = context.plugins.byType("cli-command-error");
-//     for (let i = 0; i < plugins.length; i++) {
-//         const plugin = plugins[i];
-//         plugin.handle({
-//             error,
-//             context
-//         });
-//     }
-//
-//     process.exit(1);
-// };

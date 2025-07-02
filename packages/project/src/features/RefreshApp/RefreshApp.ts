@@ -23,7 +23,7 @@ export class DefaultRefreshApp implements RefreshApp.Interface {
         private getPulumiService: GetPulumiService.Interface
     ) {}
 
-    async execute(params: RefreshApp.Params): Promise<void> {
+    async execute(params: RefreshApp.Params) {
         const app = await this.getApp.execute(params.app);
 
         if (!params.env) {
@@ -45,17 +45,15 @@ export class DefaultRefreshApp implements RefreshApp.Interface {
             ]
         });
 
-        const pulumiProcess = pulumi.run({
-            command: "refresh",
-            args: {
-                yes: true
-            },
-            execa: { env }
-        });
-
-        if (params.onPulumiProcess) {
-            params.onPulumiProcess(pulumiProcess);
-        }
+        return {
+            pulumiProcess: pulumi.run({
+                command: "refresh",
+                args: {
+                    yes: true
+                },
+                execa: { env }
+            })
+        };
     }
 }
 

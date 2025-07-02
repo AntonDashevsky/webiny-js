@@ -10,7 +10,8 @@ import {
     createEnvConfiguration,
     withEnv,
     withEnvVariant,
-    withProjectName, withPulumiConfigPassphrase,
+    withProjectName,
+    withPulumiConfigPassphrase,
     withRegion
 } from "~/utils/env/index.js";
 
@@ -22,7 +23,7 @@ export class DefaultRunPulumiCommand implements RunPulumiCommand.Interface {
         private getPulumiService: GetPulumiService.Interface
     ) {}
 
-    async execute(params: RunPulumiCommand.Params): Promise<void> {
+    async execute(params: RunPulumiCommand.Params) {
         const app = await this.getApp.execute(params.app);
 
         if (!params.env) {
@@ -44,14 +45,12 @@ export class DefaultRunPulumiCommand implements RunPulumiCommand.Interface {
             ]
         });
 
-        const pulumiProcess = pulumi.run({
-            command: params.command as string[],
-            execa: { env }
-        });
-
-        if (params.onPulumiProcess) {
-            params.onPulumiProcess(pulumiProcess);
-        }
+        return {
+            pulumiProcess: pulumi.run({
+                command: params.command as string[],
+                execa: { env }
+            })
+        };
     }
 }
 

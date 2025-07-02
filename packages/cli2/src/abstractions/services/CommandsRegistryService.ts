@@ -2,7 +2,7 @@ import { Abstraction } from "@webiny/di-container";
 import { Command } from "~/abstractions/index.js";
 
 export interface ICommandsRegistryService {
-    execute(): Command.Interface[];
+    execute(): Command.Interface<any>[];
 }
 
 export const CommandsRegistryService = new Abstraction<ICommandsRegistryService>("CommandsRegistryService");
