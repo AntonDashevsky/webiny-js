@@ -1,4 +1,5 @@
 import React from "react";
+import { draftMode } from "next/headers";
 import { PageContent } from "@/webiny/PageContent";
 import { contentSdk } from "@webiny/website-builder-react";
 import { initContentSdk } from "@/webiny/initContentSdk";
@@ -11,7 +12,9 @@ export async function generateStaticParams() {
 }
 
 async function getPage(path: string) {
-    initContentSdk();
+    const { isEnabled } = await draftMode();
+
+    initContentSdk({ preview: isEnabled });
 
     return await contentSdk.getPage(path);
 }

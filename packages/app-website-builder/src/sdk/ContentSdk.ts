@@ -42,11 +42,17 @@ class InternalContentSdk implements IContentSdk {
 export class ContentSdk implements IContentSdk {
     protected sdk?: InternalContentSdk;
     private isPreview = false;
+    private lastConfig: any;
 
-    public init(config: ContentSDKConfig) {
-        if (this.sdk) {
+    public init(config: ContentSDKConfig, afterInit?: () => void): void {
+        const configHash = JSON.stringify(config);
+        if (this.lastConfig && this.lastConfig === configHash) {
             return;
         }
+
+        console.log("init sdk with config", config);
+
+        this.lastConfig = configHash;
 
         let liveSdk: IContentSdk = new LiveSdk();
         (liveSdk as LiveSdk).init(config);
@@ -54,7 +60,6 @@ export class ContentSdk implements IContentSdk {
         if (config.preview && !environment.isEditing()) {
             this.isPreview = true;
             liveSdk = new PreviewSdk(liveSdk);
-            (liveSdk as PreviewSdk).init(config);
         }
 
         let editingSdk;
@@ -64,6 +69,10 @@ export class ContentSdk implements IContentSdk {
         }
 
         this.sdk = new InternalContentSdk(liveSdk as LiveSdk, editingSdk);
+
+        if (typeof afterInit === "function") {
+            afterInit();
+        }
     }
 
     public getEditingSdk() {

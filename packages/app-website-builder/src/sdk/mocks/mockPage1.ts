@@ -2,7 +2,7 @@ import { Document } from "~/sdk/types";
 
 export default {
     properties: {
-        title: "Draft Page 1",
+        title: "Published Page 1",
         path: "/page-1"
     },
     bindings: {
@@ -161,7 +161,7 @@ export default {
             inputs: {
                 content: {
                     id: "wmg98wmgpm3e4esq1hcnf",
-                    static: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Draft Page","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"heading-element","version":1,"tag":"h1","styles":[{"styleId":"heading1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1,"textFormat":1}}',
+                    static: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Published Page","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"heading-element","version":1,"tag":"h1","styles":[{"styleId":"heading1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1,"textFormat":1}}',
                     type: "richText",
                     dataType: "json",
                     list: false

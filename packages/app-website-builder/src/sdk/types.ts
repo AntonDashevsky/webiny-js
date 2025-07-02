@@ -190,13 +190,14 @@ export type PreviewViewportData = {
 
 export type ApiOptions = {
     preview?: boolean;
-}
+};
 
 export type GetPageOptions = ApiOptions;
+export type ListPagesOptions = ApiOptions;
 
 export interface IDataProvider {
     getPage(path: string, options?: GetPageOptions): Promise<Page | null>;
-    listPages(): Promise<Page[]>;
+    listPages(options?: ListPagesOptions): Promise<Page[]>;
 }
 
 export interface IEnvironment {
