@@ -288,8 +288,8 @@ export type DateTimeInput = BaseInput<string> & {
     dataType: "datetime";
 };
 
-export type RichTextInput = BaseInput<string> & {
-    type: "richText";
+export type LexicalInput = BaseInput<string> & {
+    type: "lexical";
     dataType: "json";
 };
 
@@ -326,7 +326,7 @@ export type ComponentInput =
     | ColorInput
     | FileInput
     | DateTimeInput
-    | RichTextInput
+    | LexicalInput
     | SelectInput
     | RadioInput
     | TagsInput

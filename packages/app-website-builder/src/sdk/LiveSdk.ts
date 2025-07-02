@@ -1,6 +1,5 @@
 import { componentRegistry } from "~/sdk/ComponentRegistry.js";
 import { ComponentResolver, ResolveElementParams } from "~/sdk/ComponentResolver.js";
-import { logger } from "~/sdk/Logger.js";
 import {
     Component,
     GetPageOptions,
@@ -39,8 +38,6 @@ export class LiveSdk implements IContentSdk {
         });
 
         this.initialized = true;
-
-        logger.debug("Live SDK initialized!");
     }
 
     async getPage(path: string, options?: GetPageOptions): Promise<Page | null> {

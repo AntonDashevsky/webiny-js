@@ -1,8 +1,9 @@
 import React from "react";
 import { draftMode } from "next/headers";
-import { PageContent } from "@/webiny/PageContent";
 import { contentSdk } from "@webiny/website-builder-react";
 import { initContentSdk } from "@/webiny/initContentSdk";
+import { PageLayout } from "@/webiny/PageLayout";
+import { DocumentRenderer } from "@/webiny/DocumentRenderer";
 
 export async function generateStaticParams() {
     initContentSdk();
@@ -20,16 +21,21 @@ async function getPage(path: string) {
 }
 
 export default async function ProductPage({
-    params
+    params,
+    searchParams
 }: {
     params: Promise<{ slug: string }>;
     searchParams: Promise<Record<string, string>>;
 }) {
     const { slug } = await params;
+    const search = await searchParams;
 
-    const currentPath = `/${slug}`;
+    const isEditing = search["wb.editing"] === "true";
+    const page = await getPage(`/${slug}`);
 
-    const data = await getPage(currentPath);
-
-    return <PageContent path={currentPath} initialData={data} />;
+    return (
+        <PageLayout>
+            <DocumentRenderer document={page} isEditing={isEditing} />
+        </PageLayout>
+    );
 }

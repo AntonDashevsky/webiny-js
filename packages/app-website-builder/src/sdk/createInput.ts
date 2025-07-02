@@ -5,7 +5,7 @@ import {
     BooleanInput,
     ColorInput,
     FileInput,
-    RichTextInput,
+    LexicalInput,
     SelectInput,
     RadioInput,
     ObjectInput,
@@ -89,13 +89,13 @@ export function createDateInput(input: OmitType<DateTimeInput>) {
 }
 
 // Rich Text
-export function createRichTextInput(input: OmitType<RichTextInput>) {
+export function createLexicalInput(input: OmitType<LexicalInput>) {
     return createInput({
-        type: "richText",
+        type: "lexical",
         dataType: "json",
         renderer: "Webiny/Lexical",
         ...input
-    }) as RichTextInput;
+    }) as LexicalInput;
 }
 
 // Select

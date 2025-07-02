@@ -85,9 +85,9 @@ export class EditingSdk implements IContentSdk {
         this.setupHotkeyListeners();
     }
 
-    public async getPage(path: string): Promise<Page | null> {
-        if (!this.previewDocument.matches({ type: "page", path })) {
-            return this.liveSdk.getPage(path);
+    public async getPage(pathname: string): Promise<Page | null> {
+        if (!this.previewDocument.matches({ type: "page", pathname })) {
+            return this.liveSdk.getPage(pathname);
         }
 
         await this.documentStore.waitForDocument();
@@ -219,7 +219,7 @@ export class EditingSdk implements IContentSdk {
     private getPreviewDocument() {
         const search = new URLSearchParams(window.location.search);
         const result: Record<string, string> = {};
-        const prefix = "preview.document";
+        const prefix = "wb.editing";
 
         for (const [key, value] of search.entries()) {
             if (key.startsWith(prefix + ".")) {
@@ -230,7 +230,7 @@ export class EditingSdk implements IContentSdk {
 
         if (!result.id) {
             throw new Error(
-                "Preview document ID is required! Pass a `preview.document.id` query parameter."
+                "Editing document ID is required! Pass a `wb.editing.id` query parameter."
             );
         }
 

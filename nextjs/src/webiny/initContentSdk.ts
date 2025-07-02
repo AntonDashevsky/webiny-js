@@ -11,7 +11,6 @@ interface InitContentSdkOptions {
 
 export const initContentSdk = (options: InitContentSdkOptions = {}) => {
     const previewMode = options.preview === true && !contentSdk.isEditing();
-    console.log("SDK in preview mode?", previewMode);
 
     contentSdk.init(
         {

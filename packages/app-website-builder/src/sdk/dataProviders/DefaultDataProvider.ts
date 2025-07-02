@@ -16,7 +16,6 @@ export class DefaultDataProvider implements IDataProvider {
     }
 
     public async getPage(path: string, options: GetPageOptions = {}): Promise<Page | null> {
-        console.log("DataProvider", options);
         const { preview = false } = options;
 
         // const res = await fetch(`${this.apiEndpoint}?url=${encodeURIComponent(path)}&preview=${isServerPreview ? "1" : "0"}`);

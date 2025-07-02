@@ -1,7 +1,6 @@
 import React from "react";
 import { draftMode } from "next/headers";
 import "./globals.css";
-import { RQNotificationContextProvider } from "@/context/RQNotificationContext/RQNotificationContext";
 import { ContentSdkInitializer } from "@/webiny/ContentSdkInitializer";
 
 export default async function RootLayout({
@@ -18,7 +17,7 @@ export default async function RootLayout({
             </head>
             <body>
                 <ContentSdkInitializer draftMode={isEnabled} />
-                <RQNotificationContextProvider>{children}</RQNotificationContextProvider>
+                {children}
             </body>
         </html>
     );

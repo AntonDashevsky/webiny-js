@@ -1,6 +1,10 @@
 "use client";
 import React, { useContext, useEffect, useMemo } from "react";
-import { type Document, documentStoreManager, DocumentStore } from "@webiny/app-website-builder/sdk";
+import {
+    type Document,
+    documentStoreManager,
+    DocumentStore
+} from "@webiny/app-website-builder/sdk";
 
 const DocumentStoreContext = React.createContext<DocumentStore | undefined>(undefined);
 
@@ -15,11 +19,9 @@ export const DocumentStoreProvider = ({
 }) => {
     const store = useMemo(() => documentStoreManager.getStore(id), [id]);
 
-    useEffect(() => {
-        if (document) {
-            store.setDocument(document);
-        }
-    }, [document]);
+    if (document) {
+        store.setDocument(document);
+    }
 
     return <DocumentStoreContext.Provider value={store}>{children}</DocumentStoreContext.Provider>;
 };

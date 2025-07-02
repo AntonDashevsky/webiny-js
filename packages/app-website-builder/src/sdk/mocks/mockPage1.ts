@@ -2,7 +2,7 @@ import { Document } from "~/sdk/types";
 
 export default {
     properties: {
-        title: "Published Page 1",
+        title: "Published Page",
         path: "/page-1"
     },
     bindings: {
@@ -12,48 +12,68 @@ export default {
                     type: "slot",
                     dataType: "string",
                     list: true,
-                    static: ["a3joeguclfb0pws7iy3z6", "use09dto6o4czn4liae6c"]
+                    static: [
+                        "gdt5pepowye9diki5nppa",
+                        "dk9vs4tg0aazmo0yhf8zo",
+                        "1yj2swsmslmujyqdrtxne"
+                    ]
                 }
             }
         },
-        use09dto6o4czn4liae6c: {
+        dk9vs4tg0aazmo0yhf8zo: {
+            inputs: {
+                content: {
+                    id: "rbgm8o8bc5pvpn6ihpo00",
+                    static: {
+                        state: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Examine she brother prudent add day ham. Far stairs now coming bed ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"oppose","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":" hunted become his. You isEditing departure had procuring suspicion. Books whose front would ","type":"text","version":1},{"detail":0,"format":1,"mode":"normal","style":"","text":"purse","type":"text","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":" if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.sdf","type":"text","version":1}],"direction":"ltr","format":"justify","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}',
+                        html: '<p dir="ltr" style="text-align: justify;"><span style="white-space: pre-wrap;">Examine she brother prudent add day ham. Far stairs now coming bed </span><b><strong style="white-space: pre-wrap;">oppose</strong></b><span style="white-space: pre-wrap;"> hunted become his. You isEditing departure had procuring suspicion. Books whose front would </span><b><strong style="white-space: pre-wrap;">purse</strong></b><span style="white-space: pre-wrap;"> if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.sdf</span></p>'
+                    },
+                    type: "lexical",
+                    dataType: "json",
+                    list: false
+                }
+            },
+            styles: {},
+            metadata: {}
+        },
+        "1yj2swsmslmujyqdrtxne": {
             inputs: {
                 gridLayout: {
-                    id: "or19abbmfpstmyomk2by8",
+                    id: "a42jigmff1heqnowws3bk",
                     static: "6-6",
                     type: "text",
                     dataType: "text",
                     list: false
                 },
                 rowCount: {
-                    id: "xeflqnpqmvx3z54k4ff24",
+                    id: "0soycs5gfoaak4im94a5o",
                     static: 1,
                     type: "number",
                     dataType: "number",
                     list: false
                 },
                 rowGap: {
-                    id: "jb0m4zd3edtruku8ebna0",
+                    id: "4qc7q5vto42eulow7zy8l",
                     static: 0,
                     type: "number",
                     dataType: "number",
                     list: false
                 },
                 columnGap: {
-                    id: "77xpto676f8gdh4q4wik2",
+                    id: "oltk6c8cbo14mhgvxx9yn",
                     static: 0,
                     type: "number",
                     dataType: "number",
                     list: false
                 },
                 stackAtBreakpoint: {
-                    id: "fd4awwiyukmhges8e81up",
+                    id: "khju9ixvythxi4vl0vpwe",
                     type: "select",
                     dataType: "text",
                     list: false
                 },
                 reverseWhenStacked: {
-                    id: "y0gwcjqv9jfjhh7ipmiye",
+                    id: "w59mczpbzdn40zh2rbeau",
                     type: "boolean",
                     dataType: "boolean",
                     list: false
@@ -62,15 +82,15 @@ export default {
                     type: "slot",
                     dataType: "string",
                     list: false,
-                    static: "s8bgyx2izbzssupwkcxor",
-                    id: "xnhnc9wfecsvxbwthqmtg"
+                    static: "8nl97ijz28zv84f5440rd",
+                    id: "mg7t3nd0xxola8048eftk"
                 },
                 "columns/1/children": {
                     type: "slot",
                     dataType: "string",
                     list: false,
-                    static: "shrqfg7cd0ouph34saned",
-                    id: "98qrmsrkyz6c5sf01gbq1"
+                    static: "rugqfv6fw8ptwuluufflp",
+                    id: "4gczdsm8x4br1i51gotuj"
                 }
             },
             styles: {
@@ -100,17 +120,38 @@ export default {
                 },
                 padding: {
                     static: "5px"
+                },
+                backgroundPosition: {
+                    static: "center"
+                },
+                backgroundSize: {
+                    static: "cover"
+                },
+                backgroundRepeat: {
+                    static: "no-repeat"
+                },
+                backgroundImage: {
+                    static: 'url("https://dc4s05sapah2w.cloudfront.net/files/685d33fd9dd930000222d931/9l9iafhh9-18.jpeg")'
+                }
+            },
+            metadata: {
+                "styles/backgroundImage/desktop": {
+                    id: "685d33fd9dd930000222d931",
+                    name: "9l9iafhh9-18.jpeg",
+                    size: 204485,
+                    mimeType: "image/jpeg",
+                    url: "https://dc4s05sapah2w.cloudfront.net/files/685d33fd9dd930000222d931/9l9iafhh9-18.jpeg"
                 }
             }
         },
-        s8bgyx2izbzssupwkcxor: {
+        "8nl97ijz28zv84f5440rd": {
             inputs: {
                 children: {
                     type: "slot",
                     dataType: "string",
                     list: true,
-                    static: ["du6webjdvtitqvrmwqgnz"],
-                    id: "w3zzk3g1sroypomcnc69c"
+                    static: ["ez07ke7gpi10zqx2f2nw2"],
+                    id: "dz2tktfkyd21204haxvjw"
                 }
             },
             styles: {
@@ -119,25 +160,27 @@ export default {
                 }
             }
         },
-        du6webjdvtitqvrmwqgnz: {
+        ez07ke7gpi10zqx2f2nw2: {
             inputs: {
                 content: {
-                    id: "t3usuhc187e2wrudlok2z",
-                    static: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}',
-                    type: "richText",
+                    id: "mrv8romfql5q00u2ixj3b",
+                    static: {
+                        state: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+                    },
+                    type: "lexical",
                     dataType: "json",
                     list: false
                 }
             }
         },
-        shrqfg7cd0ouph34saned: {
+        rugqfv6fw8ptwuluufflp: {
             inputs: {
                 children: {
                     type: "slot",
                     dataType: "string",
                     list: true,
-                    static: ["hj7doflihy55frh7qats3"],
-                    id: "6eafyn8e9xmw2h1emuslz"
+                    static: ["6j3boewcvnxmewm3wm6mj"],
+                    id: "4atq22mm2ucz08bgb1y4q"
                 }
             },
             styles: {
@@ -146,23 +189,28 @@ export default {
                 }
             }
         },
-        hj7doflihy55frh7qats3: {
+        "6j3boewcvnxmewm3wm6mj": {
             inputs: {
                 content: {
-                    id: "i0jvbb0o25akgy28py753",
-                    static: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}',
-                    type: "richText",
+                    id: "rs84hyr5r0ka5jy5sbm2m",
+                    static: {
+                        state: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+                    },
+                    type: "lexical",
                     dataType: "json",
                     list: false
                 }
             }
         },
-        a3joeguclfb0pws7iy3z6: {
+        gdt5pepowye9diki5nppa: {
             inputs: {
                 content: {
-                    id: "wmg98wmgpm3e4esq1hcnf",
-                    static: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Published Page","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"heading-element","version":1,"tag":"h1","styles":[{"styleId":"heading1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1,"textFormat":1}}',
-                    type: "richText",
+                    id: "exevkaemk5pzs8ko1wyog",
+                    static: {
+                        state: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"Published page","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"heading-element","version":1,"tag":"h1","styles":[{"styleId":"heading1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1,"textFormat":1}}',
+                        html: '<h1 dir="ltr"><b><strong style="white-space: pre-wrap;">Published page</strong></b></h1>'
+                    },
+                    type: "lexical",
                     dataType: "json",
                     list: false
                 }
@@ -180,9 +228,20 @@ export default {
                 name: "Webiny/Root"
             }
         },
-        use09dto6o4czn4liae6c: {
+        dk9vs4tg0aazmo0yhf8zo: {
             type: "Webiny/Element",
-            id: "use09dto6o4czn4liae6c",
+            id: "dk9vs4tg0aazmo0yhf8zo",
+            parent: {
+                id: "root",
+                slot: "children"
+            },
+            component: {
+                name: "Webiny/RichText"
+            }
+        },
+        "1yj2swsmslmujyqdrtxne": {
+            type: "Webiny/Element",
+            id: "1yj2swsmslmujyqdrtxne",
             parent: {
                 id: "root",
                 slot: "children"
@@ -191,53 +250,53 @@ export default {
                 name: "Webiny/Grid"
             }
         },
-        s8bgyx2izbzssupwkcxor: {
+        "8nl97ijz28zv84f5440rd": {
             type: "Webiny/Element",
-            id: "s8bgyx2izbzssupwkcxor",
+            id: "8nl97ijz28zv84f5440rd",
             parent: {
-                id: "use09dto6o4czn4liae6c",
+                id: "1yj2swsmslmujyqdrtxne",
                 slot: "columns/0/children"
             },
             component: {
                 name: "Webiny/GridColumn"
             }
         },
-        du6webjdvtitqvrmwqgnz: {
+        ez07ke7gpi10zqx2f2nw2: {
             type: "Webiny/Element",
-            id: "du6webjdvtitqvrmwqgnz",
+            id: "ez07ke7gpi10zqx2f2nw2",
             parent: {
-                id: "s8bgyx2izbzssupwkcxor",
+                id: "8nl97ijz28zv84f5440rd",
                 slot: "children"
             },
             component: {
                 name: "Webiny/RichText"
             }
         },
-        shrqfg7cd0ouph34saned: {
+        rugqfv6fw8ptwuluufflp: {
             type: "Webiny/Element",
-            id: "shrqfg7cd0ouph34saned",
+            id: "rugqfv6fw8ptwuluufflp",
             parent: {
-                id: "use09dto6o4czn4liae6c",
+                id: "1yj2swsmslmujyqdrtxne",
                 slot: "columns/1/children"
             },
             component: {
                 name: "Webiny/GridColumn"
             }
         },
-        hj7doflihy55frh7qats3: {
+        "6j3boewcvnxmewm3wm6mj": {
             type: "Webiny/Element",
-            id: "hj7doflihy55frh7qats3",
+            id: "6j3boewcvnxmewm3wm6mj",
             parent: {
-                id: "shrqfg7cd0ouph34saned",
+                id: "rugqfv6fw8ptwuluufflp",
                 slot: "children"
             },
             component: {
                 name: "Webiny/RichText"
             }
         },
-        a3joeguclfb0pws7iy3z6: {
+        gdt5pepowye9diki5nppa: {
             type: "Webiny/Element",
-            id: "a3joeguclfb0pws7iy3z6",
+            id: "gdt5pepowye9diki5nppa",
             parent: {
                 id: "root",
                 slot: "children"

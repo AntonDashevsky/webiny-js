@@ -1,10 +1,8 @@
-"use client";
 import React from "react";
 import { type Component, contentSdk, type Document } from "@webiny/app-website-builder/sdk";
 import { ElementRenderer } from "./ElementRenderer";
 import { DocumentStoreProvider } from "./DocumentStoreProvider";
-
-const rootId = "root";
+import { ConnectToEditor } from "./ConnectToEditor";
 
 interface DocumentRendererProps {
     document: Document;
@@ -16,9 +14,13 @@ export const DocumentRenderer = ({ document, components }: DocumentRendererProps
 
     return (
         <div data-role={"document-renderer"}>
-            <DocumentStoreProvider id={document.properties.id} document={document}>
-                <ElementRenderer id={rootId} />
-            </DocumentStoreProvider>
+            {contentSdk.isEditing() ? (
+                <ConnectToEditor document={document} components={components} />
+            ) : (
+                <DocumentStoreProvider id={document.properties.id} document={document}>
+                    <ElementRenderer id={"root"} />
+                </DocumentStoreProvider>
+            )}
         </div>
     );
 };

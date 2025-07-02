@@ -7,19 +7,28 @@ import {
     createNumberInput,
     createBooleanInput,
     createLongTextInput,
-    createRichTextInput,
+    createLexicalInput,
     createElement,
     createObjectInput,
     createSelectInput
 } from "@webiny/website-builder-react";
 import { Root } from "./components/Root";
-import ProductRecommendations from "./components/ProductRecommendations";
-import { ProductHighlight } from "./components/ProductHighlight";
 import Hero_1 from "@/webiny/components/Hero-1";
-import { Column, Grid, GridColumn } from "./components/Grid";
-import { createLexicalValue, RichTextComponent } from "./components/RichTextComponent";
+import { type Column, Grid, GridColumn } from "./components/Grid";
+import { createLexicalValue, LexicalComponent } from "./components/LexicalComponent";
 
-const SimpleTextComponent = ({ inputs: { text } }: { inputs: { text: string } }) => <p>{text}</p>;
+const SimpleTextComponent = ({
+    inputs: { text, image }
+}: {
+    inputs: { text: string; image: any };
+}) => {
+    return (
+        <div>
+            <p>{text}</p>
+            <img src={image} />{" "}
+        </div>
+    );
+};
 
 export const customComponents = [
     createComponent(Root, {
@@ -209,13 +218,13 @@ export const customComponents = [
             }
         }
     }),
-    createComponent(RichTextComponent, {
+    createComponent(LexicalComponent, {
         name: "Webiny/RichText",
         label: "Rich Text",
         group: "basic",
         image: "https://material-icons.github.io/material-icons/svg/text_fields/outline.svg",
         inputs: [
-            createRichTextInput({
+            createLexicalInput({
                 name: "content",
                 label: "Content"
             })
@@ -262,7 +271,7 @@ export const customComponents = [
                 label: "Title",
                 required: true
             }),
-            createRichTextInput({
+            createLexicalInput({
                 name: "content",
                 label: "Content",
                 required: true
@@ -323,7 +332,7 @@ export const customComponents = [
             }
         }
     }),*/
-    createComponent(ProductRecommendations, {
+    /*createComponent(ProductRecommendations, {
         name: "Kibo/ProductRecommendations",
         label: "Product Recommendations",
         group: "ecommerce",
@@ -359,7 +368,7 @@ export const customComponents = [
                 label: "Product"
             })
         ]
-    }),
+    }),*/
     createComponent(Hero_1, {
         name: "Webiny/Hero",
         label: "Hero #1"

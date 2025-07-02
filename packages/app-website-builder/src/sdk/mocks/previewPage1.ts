@@ -2,7 +2,7 @@ import { Document } from "~/sdk/types";
 
 export default {
     properties: {
-        title: "Preview Page #1",
+        title: "Preview Page",
         path: "/page-1"
     },
     bindings: {
@@ -12,41 +12,55 @@ export default {
                     type: "slot",
                     dataType: "string",
                     list: true,
-                    static: ["st3n62x27kywbokirxm7t"]
+                    static: ["oa0f4v521u3e0xzn8aztf"]
                 }
             }
         },
-        st3n62x27kywbokirxm7t: {
+        oa0f4v521u3e0xzn8aztf: {
             inputs: {
-                content: {
-                    id: "onxq56jy4k3t64737w6qd",
-                    static: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet. Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}',
-                    type: "richText",
-                    dataType: "json",
+                text: {
+                    id: "v9za1vzxfhy9est4pqjzh",
+                    static: "Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.",
+                    type: "longText",
+                    dataType: "text",
+                    list: false
+                },
+                image: {
+                    id: "mtejyilosazdfa6ahneqq",
+                    static: "https://dc4s05sapah2w.cloudfront.net/files/685d34049dd930000222d961/9l9iaffck-6.jpeg",
+                    type: "text",
+                    dataType: "text",
                     list: false
                 }
             },
-            styles: {
-                backgroundPosition: {
-                    static: "center"
+            styles: {},
+            metadata: {
+                "inputs/mtejyilosazdfa6ahneqq/image/desktop": {
+                    id: "685d34049dd930000222d961",
+                    name: "9l9iaffck-6.jpeg",
+                    size: 403353,
+                    mimeType: "image/jpeg",
+                    url: "https://dc4s05sapah2w.cloudfront.net/files/685d34049dd930000222d961/9l9iaffck-6.jpeg"
                 },
-                backgroundSize: {
-                    static: "cover"
-                },
-                backgroundRepeat: {
-                    static: "no-repeat"
-                },
-                backgroundImage: {
-                    static: 'url("https://dc4s05sapah2w.cloudfront.net/files/685d33fd9dd930000222d931/9l9iafhh9-18.jpeg")'
+                "inputs/mtejyilosazdfa6ahneqq/image/tablet": {
+                    id: "685d33fd9dd930000222d935",
+                    name: "9l9iaffc2-5.jpeg",
+                    size: 213715,
+                    mimeType: "image/jpeg",
+                    url: "https://dc4s05sapah2w.cloudfront.net/files/685d33fd9dd930000222d935/9l9iaffc2-5.jpeg"
                 }
             },
-            metadata: {
-                "styles/backgroundImage/desktop": {
-                    id: "685d33fd9dd930000222d931",
-                    name: "9l9iafhh9-18.jpeg",
-                    size: 204485,
-                    mimeType: "image/jpeg",
-                    url: "https://dc4s05sapah2w.cloudfront.net/files/685d33fd9dd930000222d931/9l9iafhh9-18.jpeg"
+            overrides: {
+                tablet: {
+                    inputs: {
+                        image: {
+                            id: "mtejyilosazdfa6ahneqq",
+                            static: "https://dc4s05sapah2w.cloudfront.net/files/685d33fd9dd930000222d935/9l9iaffc2-5.jpeg",
+                            type: "text",
+                            dataType: "text",
+                            list: false
+                        }
+                    }
                 }
             }
         }
@@ -60,15 +74,15 @@ export default {
                 name: "Webiny/Root"
             }
         },
-        st3n62x27kywbokirxm7t: {
+        oa0f4v521u3e0xzn8aztf: {
             type: "Webiny/Element",
-            id: "st3n62x27kywbokirxm7t",
+            id: "oa0f4v521u3e0xzn8aztf",
             parent: {
                 id: "root",
                 slot: "children"
             },
             component: {
-                name: "Webiny/RichText"
+                name: "Webiny/SimpleText"
             }
         }
     }
