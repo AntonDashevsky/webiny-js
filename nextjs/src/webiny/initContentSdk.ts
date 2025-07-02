@@ -16,8 +16,6 @@ export const initContentSdk = (options: InitContentSdkOptions = {}) => {
         {
             apiKey: options.apiKey ?? String(process.env.NEXT_PUBLIC_WEBSITE_BUILDER_API_KEY),
             preview: previewMode ?? false
-            // builtInComponents: false,
-            // theme: {}
         },
         () => {
             registerComponentGroup({

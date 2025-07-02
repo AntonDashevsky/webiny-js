@@ -4,13 +4,14 @@ import dynamic from "next/dynamic";
 import { customComponents } from "@/webiny/customComponents";
 import { type Document } from "@webiny/website-builder-react";
 
+// Server component with SSR enabled.
 const DocumentRendererSSR = dynamic(
     // eslint-disable-next-line import/dynamic-import-chunkname
     () => import("@webiny/website-builder-react").then(m => ({ default: m.DocumentRenderer })),
     { ssr: true }
 );
 
-// Client component with SSR disabled
+// Client component with SSR disabled.
 const DocumentRendererNoSSR = dynamic(
     // eslint-disable-next-line import/dynamic-import-chunkname
     () => import("@webiny/website-builder-react").then(m => ({ default: m.DocumentRenderer })),
