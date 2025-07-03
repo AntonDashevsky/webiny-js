@@ -22,12 +22,12 @@ export const getIotEndpoint = (params: IGetIotEndpointParams): Promise<string> =
                 variant: params.variant
             });
 
-            const watchCommandTopic = `webiny-watch-${coreStackOutput.deploymentId}`;
+            const watchTopic = `webiny-watch-${coreStackOutput.deploymentId}`;
             const iotAuthorizerName = coreStackOutput.iotAuthorizerName;
 
             const queryParams = [
                 `x-amz-customauthorizer-name=${iotAuthorizerName}`,
-                `x-webiny-watch-command-topic=${watchCommandTopic}`
+                `x-webiny-watch-command-topic=${watchTopic}`
             ].join("&");
 
             return `wss://${endpointAddress}/mqtt?${queryParams}`;

@@ -2,27 +2,26 @@ import { createImplementation } from "@webiny/di-container";
 import {
     GetPulumiService,
     LoggerService,
-    PulumiGetSecretsProviderService,
-    PulumiGetStackOutputService, PulumiSelectStackService
+    PulumiGetStackExportService,
+    PulumiSelectStackService
 } from "~/abstractions/index.js";
 import { AppModel } from "~/models/index.js";
 import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
-import { mapStackOutput } from "./mapStackOutput.js";
 
-export class DefaultPulumiGetStackOutputService implements PulumiGetStackOutputService.Interface {
+export class DefaultPulumiGetStackExportService implements PulumiGetStackExportService.Interface {
     constructor(
         private getPulumiService: GetPulumiService.Interface,
         private pulumiSelectStackService: PulumiSelectStackService.Interface,
         private loggerService: LoggerService.Interface
     ) {}
 
-    async execute(app: AppModel, params: PulumiGetStackOutputService.Params) {
+    async execute(app: AppModel, params: PulumiGetStackExportService.Params) {
         const pulumi = await this.getPulumiService.execute({ app });
 
         await this.pulumiSelectStackService.execute(app, params);
 
         const stackOutputString = await pulumi.run({
-            command: ["stack", "output"],
+            command: ["stack", "export"],
             args: {
                 json: true
             },
@@ -34,21 +33,10 @@ export class DefaultPulumiGetStackOutputService implements PulumiGetStackOutputS
         });
 
         try {
-            const stackOutputJson = JSON.parse(stackOutputString.stdout);
-            if (!stackOutputJson) {
-                return null;
-            }
-
-            const map = params.map;
-            if (!map) {
-                return stackOutputJson;
-            }
-
-            // If a mapping is provided, we map the output to the specified structure.
-            return mapStackOutput(stackOutputJson, map);
+            return JSON.parse(stackOutputString.stdout);
         } catch {
             this.loggerService.error(
-                "Could not parse stack output as JSON.",
+                "Could not parse stack export as JSON.",
                 stackOutputString.stdout,
                 app,
                 params
@@ -58,8 +46,8 @@ export class DefaultPulumiGetStackOutputService implements PulumiGetStackOutputS
     }
 }
 
-export const pulumiGetStackOutputService = createImplementation({
-    abstraction: PulumiGetStackOutputService,
-    implementation: DefaultPulumiGetStackOutputService,
-    dependencies: [GetPulumiService, PulumiGetSecretsProviderService, LoggerService]
+export const pulumiGetStackExportService = createImplementation({
+    abstraction: PulumiGetStackExportService,
+    implementation: DefaultPulumiGetStackExportService,
+    dependencies: [GetPulumiService, PulumiSelectStackService, LoggerService]
 });

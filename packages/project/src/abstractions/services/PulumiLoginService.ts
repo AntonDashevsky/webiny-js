@@ -8,7 +8,7 @@ export type IPulumiLoginServiceParams = Partial<{
 }>;
 
 export interface IPulumiLoginService {
-    execute(app: IAppModel): Promise<Pulumi>;
+    execute(app: IAppModel): Promise<{ login: string }>;
 }
 
 export const PulumiLoginService = new Abstraction<IPulumiLoginService>("PulumiLoginService");

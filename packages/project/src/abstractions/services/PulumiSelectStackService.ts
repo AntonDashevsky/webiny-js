@@ -5,7 +5,7 @@ import { IBaseAppParams } from "~/abstractions/types.js";
 export interface IDeployParams extends IBaseAppParams {}
 
 export interface IPulumiSelectStackService {
-    execute(app: IAppModel, params: IDeployParams): Promise<void>;
+    execute(app: IAppModel, params: Omit<IDeployParams, 'app'>): Promise<void>;
 }
 
 export const PulumiSelectStackService = new Abstraction<IPulumiSelectStackService>(

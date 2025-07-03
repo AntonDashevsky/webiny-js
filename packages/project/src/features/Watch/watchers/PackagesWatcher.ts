@@ -4,16 +4,16 @@ import { MultiplePackagesWatcher } from "./MultiplePackagesWatcher.js";
 import { BasePackagesWatcher } from "./BasePackagesWatcher.js";
 
 export class PackagesWatcher extends BasePackagesWatcher {
-    public override async watch(): Promise<void> {
+    public override watch() {
         const WatcherClass = this.getWatcherClass();
 
         const watcher = new WatcherClass({
             packages: this.packages,
-            inputs: this.inputs,
-            context: this.context
+            params: this.params,
+            logger: this.logger
         });
 
-        await watcher.watch();
+        return watcher.watch();
     }
 
     private getWatcherClass() {

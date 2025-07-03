@@ -1,12 +1,14 @@
 export * from "./ProjectInfoService/index.js";
-export { LoggerService } from "./LoggerService.js";
-export { GetPulumiService } from "./GetPulumiService.js";
 export { GetProjectService } from "./GetProjectService.js";
+export { GetPulumiService } from "./GetPulumiService.js";
+export { ListAppLambdaFunctionsService } from "./ListAppLambdaFunctionsService.js";
+export { LoggerService } from "./LoggerService.js";
+export { PulumiGetConfigPassphraseService } from "./PulumiGetConfigPassphraseService.js";
+export { PulumiGetSecretsProviderService } from "./PulumiGetSecretsProviderService.js";
+export { PulumiGetStackExportService } from "./PulumiGetStackExportService.js";
 export { PulumiGetStackOutputService } from "./PulumiGetStackOutputService.js";
 export { PulumiLoginService } from "./PulumiLoginService.js";
 export { PulumiSelectStackService } from "./PulumiSelectStackService.js";
-export { PulumiGetSecretsProviderService } from "./PulumiGetSecretsProviderService.js";
-export { PulumiGetConfigPassphraseService } from "./PulumiGetConfigPassphraseService.js";
 
 // Apps.
 export { GetAppPackagesService } from "./GetAppPackagesService.js";

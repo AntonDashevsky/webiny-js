@@ -1,9 +1,10 @@
 export { BuildApp } from "./BuildApp.js";
 export { DeployApp } from "./DeployApp.js";
 export { DestroyApp } from "./DestroyApp.js";
-export { RefreshApp } from "./RefreshApp.js";
 export { GetApp } from "./GetApp.js";
 export { GetAppOutput } from "./GetAppOutput.js";
 export { GetProject } from "./GetProject.js";
 export { GetProjectInfo } from "./GetProjectInfo.js";
+export { RefreshApp } from "./RefreshApp.js";
 export { RunPulumiCommand } from "./RunPulumiCommand.js";
+export { Watch } from "./Watch.js";

@@ -9,7 +9,8 @@ import {
     GetProject,
     GetProjectInfo,
     RefreshApp,
-    RunPulumiCommand
+    RunPulumiCommand,
+    Watch
 } from "~/abstractions/index.js";
 
 export class ProjectSdk {
@@ -57,6 +58,10 @@ export class ProjectSdk {
 
     runPulumiCommand(params: RunPulumiCommand.Params) {
         return this.container.resolve(RunPulumiCommand).execute(params);
+    }
+
+    watch(params: Watch.Params) {
+        return this.container.resolve(Watch).execute(params);
     }
 
     getContainer() {

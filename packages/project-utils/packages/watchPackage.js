@@ -1,35 +1,58 @@
 import path from "path";
+import fs from "fs/promises";
+import { transformFileAsync } from "@babel/core";
+import chokidar from "chokidar";
 
-// The watch functionality is actually not part of `@babel/core`, but
-// part of the `@babel/cli` library. That's the reason we're extracting
-// the watch functionality out of it.
-export default async options => {
-    const [parseArgv, dir, file] = await Promise.all([
-        import("@babel/cli/lib/babel/options").then(m => m.default ?? m),
-        import("@babel/cli/lib/babel/dir").then(m => m.default ?? m),
-        import("@babel/cli/lib/babel/file".then(m => m.default ?? m))
-    ]);
+const compileFile = async (cwd, inputPath, outputPath) => {
+    const inputPathRelative = path.relative(cwd, inputPath);
+    
+    const result = await transformFileAsync(inputPath, {
+        presets: ["@babel/preset-typescript"],
+        sourceMaps: true,
+    });
 
-    const parsedArgv = parseArgv([
-        "_",
-        "_",
-        path.join(options.cwd, "src"),
-        "-d",
-        path.join(options.cwd, "dist"),
-        "--source-maps",
-        "--copy-files",
-        "--extensions",
-        `.ts,.tsx`,
-        "--watch"
-    ]);
-
-    if (parsedArgv) {
-        const fn = parsedArgv.cliOptions.outDir ? dir : file;
-        return fn(parsedArgv).catch(err => {
-            console.error(err);
-            process.exit(1);
-        });
-    } else {
-        process.exit(1);
+    if (!result || !result.code) {
+        throw new Error(`Failed to compile: ${inputPath}`);
     }
+
+    // Write compiled file
+    await fs.mkdir(path.dirname(outputPath), { recursive: true });
+    await fs.writeFile(outputPath, result.code);
+
+    // Write source map
+    if (result.map) {
+        await fs.writeFile(`${outputPath}.map`, JSON.stringify(result.map));
+    }
+
+    console.log(`Successfully compiled ${inputPathRelative}.`);
+};
+
+export default async (options) => {
+    const srcDir = path.join(options.cwd, "src");
+    const outDir = path.join(options.cwd, "dist");
+
+    const watcher = chokidar.watch("**/*.{ts,tsx}", { cwd: srcDir });
+
+    watcher.on("add", async (relativePath) => {
+        const inputPath = path.join(srcDir, relativePath);
+        const outputPath = path.join(outDir, relativePath.replace(/\.(ts|tsx)$/, ".js"));
+        try {
+            await compileFile(options.cwd, inputPath, outputPath);
+        } catch (err) {
+            console.error("Error compiling:", err);
+        }
+    });
+
+    watcher.on("change", async (relativePath) => {
+        const inputPath = path.join(srcDir, relativePath);
+        const outputPath = path.join(outDir, relativePath.replace(/\.(ts|tsx)$/, ".js"));
+
+        try {
+            await compileFile(options.cwd, inputPath, outputPath);
+        } catch (err) {
+            console.error("Error compiling:", err);
+        }
+    });
+
+    console.log("Watching for changes...");
 };

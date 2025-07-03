@@ -4,12 +4,11 @@ async function main() {
     const cwd = process.cwd();
     const projectSdk = ProjectSdk.init(cwd);
 
-    const reza = await projectSdk.getAppOutput({
-        app: "core",
-        env: "dev",
+    await projectSdk.watch({
+        package: ['api-graphql'],
+        env: 'dev',
     });
 
-    console.log('reza', reza);
 }
 
 await main();

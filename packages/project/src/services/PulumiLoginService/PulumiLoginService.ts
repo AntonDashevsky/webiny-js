@@ -9,7 +9,7 @@ const SELF_MANAGED_BACKEND = ["s3://", "azblob://", "gs://"];
 export class DefaultPulumiLoginService implements PulumiLoginService.Interface {
     constructor(private getPulumiService: GetPulumiService.Interface) {}
 
-    async execute(app: AppModel): Promise<any> {
+    async execute(app: AppModel) {
         const pulumi = await this.getPulumiService.execute({ app });
 
         const projectAppRelativePath = app.paths.appsFolder.absolute;

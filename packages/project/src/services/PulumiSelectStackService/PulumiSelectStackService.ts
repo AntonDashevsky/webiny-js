@@ -20,7 +20,7 @@ export class DefaultPulumiSelectStackService implements PulumiSelectStackService
         private pulumiGetConfigPassphraseService: PulumiGetConfigPassphraseService.Interface
     ) {}
 
-    async execute(app: AppModel, params: PulumiSelectStackService.Params): Promise<any> {
+    async execute(app: AppModel, params: PulumiSelectStackService.Params) {
         const pulumi = await this.getPulumiService.execute({ app });
 
         await this.pulumiLoginService.execute(app);
