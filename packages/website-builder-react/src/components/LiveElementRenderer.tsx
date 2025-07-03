@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import type {
     DocumentElement,
@@ -20,8 +20,18 @@ interface LiveElementRendererProps {
 export const LiveElementRenderer = observer(({ element }: LiveElementRendererProps) => {
     const viewport = useViewport();
 
-    // We want to deep-track bindings, and re-render on any change to bindings.
-    const elementBindings = useBindingsForElement(element.id);
+    // 1. Start breakpoint as "desktop" on both server and initial client render.
+    const [breakpoint, setBreakpoint] = useState<"desktop" | string>("desktop");
+
+    // 2. Update breakpoint on the client after mount, using real viewport value.
+    useEffect(() => {
+        if (viewport.breakpoint && viewport.breakpoint !== breakpoint) {
+            setBreakpoint(viewport.breakpoint);
+        }
+    }, [viewport.breakpoint, breakpoint]);
+
+    // Bindings for current breakpoint
+    const elementBindings = useBindingsForElement(element.id, breakpoint); // pass breakpoint explicitly if possible
     const state = useDocumentState();
 
     const onResolved = useCallback(

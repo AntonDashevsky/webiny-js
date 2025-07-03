@@ -4,7 +4,7 @@ import { useViewport } from "./useViewportInfo";
 import { useDocumentStore } from "./DocumentStoreProvider";
 import { useSelectFromState } from "./useSelectFromState";
 
-export const useBindingsForElement = (elementId: string) => {
+export const useBindingsForElement = (elementId: string, breakpoint: string) => {
     const documentStore = useDocumentStore();
     const viewport = useViewport();
 
@@ -17,8 +17,8 @@ export const useBindingsForElement = (elementId: string) => {
             // Merge element bindings.
             const bindingsProcessor = new BindingsProcessor(breakpoints);
 
-            return bindingsProcessor.getBindings(bindings, viewport.breakpoint);
+            return bindingsProcessor.getBindings(bindings, breakpoint);
         },
-        [elementId, viewport.breakpoint]
+        [elementId, breakpoint]
     );
 };

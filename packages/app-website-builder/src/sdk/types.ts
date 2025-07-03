@@ -9,7 +9,6 @@ export type DocumentState = Record<string, any>;
 export type InputValueBinding<T = any> = ValueBinding<T> & {
     id: string;
     type: string;
-    dataType: string;
     list?: boolean;
 };
 
@@ -223,7 +222,6 @@ export type Breakpoint = {
 export type BaseInput<T = any> = {
     name: string;
     type: string;
-    dataType: string;
     onChange?: (
         bindings: ReturnType<BindingsApi["getPublicApi"]>,
         context: { breakpoint: string }
@@ -242,78 +240,64 @@ export type BaseInput<T = any> = {
 // Discriminated union per input type
 export type TextInput = BaseInput<string> & {
     type: "text";
-    dataType: "text";
 };
 
 export type SlotInput = BaseInput<any> & {
     type: "slot";
-    dataType: "string";
     components?: string[];
 };
 
 export type TagsInput = BaseInput<string[]> & {
     type: "text";
-    dataType: "text";
 };
 
 export type LongTextInput = BaseInput<string> & {
     type: "longText";
-    dataType: "text";
 };
 
 export type NumberInput = BaseInput<number> & {
     type: "number";
-    dataType: "number";
     minValue?: number;
 };
 
 export type BooleanInput = BaseInput<boolean> & {
     type: "boolean";
-    dataType: "boolean";
 };
 
 export type ColorInput = BaseInput<string> & {
     type: "color";
-    dataType: "text";
 };
 
 export type FileInput = BaseInput<string> & {
     type: "file";
-    dataType: "text";
     allowedFileTypes: string[];
 };
 
 export type DateTimeInput = BaseInput<string> & {
     type: "datetime";
-    dataType: "datetime";
 };
 
 export type LexicalInput = BaseInput<string> & {
     type: "lexical";
-    dataType: "json";
 };
 
 export type SelectInput = BaseInput<string> & {
     type: "select";
-    dataType: "text";
     options: { label: string; value: string }[];
 };
 
 export type RadioInput = BaseInput<string> & {
     type: "radio";
-    dataType: "text";
     options: { label: string; value: string }[];
 };
 
 export type ObjectInput = BaseInput<Record<string, any>> & {
     type: "object";
-    dataType: "object";
     fields: ComponentInput[];
 };
 
 export type CustomInput = BaseInput<any> & {
     type: string;
-    dataType: string;
     fields: ComponentInput[];
 };
 

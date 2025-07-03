@@ -172,7 +172,7 @@ export const customComponents = [
                             inputs: {
                                 children: [
                                     createElement({
-                                        component: "Webiny/RichText"
+                                        component: "Webiny/Lexical"
                                     })
                                 ]
                             }
@@ -184,7 +184,7 @@ export const customComponents = [
                             inputs: {
                                 children: [
                                     createElement({
-                                        component: "Webiny/RichText"
+                                        component: "Webiny/Lexical"
                                     })
                                 ]
                             }
@@ -219,7 +219,7 @@ export const customComponents = [
         }
     }),
     createComponent(LexicalComponent, {
-        name: "Webiny/RichText",
+        name: "Webiny/Lexical",
         label: "Rich Text",
         group: "basic",
         image: "https://material-icons.github.io/material-icons/svg/text_fields/outline.svg",

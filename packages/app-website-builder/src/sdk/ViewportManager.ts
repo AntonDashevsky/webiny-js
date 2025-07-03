@@ -116,6 +116,7 @@ export class ViewportManager {
                   scrollY: window.scrollY
               }
             : {
+                  // During SSR or Next.js build, viewport is not available.
                   height: 0,
                   width: 2000,
                   scrollX: 0,

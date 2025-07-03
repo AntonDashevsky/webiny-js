@@ -10,7 +10,6 @@ export default {
             inputs: {
                 children: {
                     type: "slot",
-                    dataType: "string",
                     list: true,
                     static: ["oa0f4v521u3e0xzn8aztf"]
                 }
@@ -22,14 +21,12 @@ export default {
                     id: "v9za1vzxfhy9est4pqjzh",
                     static: "Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.",
                     type: "longText",
-                    dataType: "text",
                     list: false
                 },
                 image: {
                     id: "mtejyilosazdfa6ahneqq",
                     static: "https://dc4s05sapah2w.cloudfront.net/files/685d34049dd930000222d961/9l9iaffck-6.jpeg",
                     type: "text",
-                    dataType: "text",
                     list: false
                 }
             },
@@ -57,7 +54,6 @@ export default {
                             id: "mtejyilosazdfa6ahneqq",
                             static: "https://dc4s05sapah2w.cloudfront.net/files/685d33fd9dd930000222d935/9l9iaffc2-5.jpeg",
                             type: "text",
-                            dataType: "text",
                             list: false
                         }
                     }

@@ -10,7 +10,6 @@ export default {
             inputs: {
                 children: {
                     type: "slot",
-                    dataType: "string",
                     list: true,
                     static: [
                         "gdt5pepowye9diki5nppa",
@@ -29,7 +28,6 @@ export default {
                         html: '<p dir="ltr" style="text-align: justify;"><span style="white-space: pre-wrap;">Examine she brother prudent add day ham. Far stairs now coming bed </span><b><strong style="white-space: pre-wrap;">oppose</strong></b><span style="white-space: pre-wrap;"> hunted become his. You isEditing departure had procuring suspicion. Books whose front would </span><b><strong style="white-space: pre-wrap;">purse</strong></b><span style="white-space: pre-wrap;"> if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.sdf</span></p>'
                     },
                     type: "lexical",
-                    dataType: "json",
                     list: false
                 }
             },
@@ -42,52 +40,44 @@ export default {
                     id: "a42jigmff1heqnowws3bk",
                     static: "6-6",
                     type: "text",
-                    dataType: "text",
                     list: false
                 },
                 rowCount: {
                     id: "0soycs5gfoaak4im94a5o",
                     static: 1,
                     type: "number",
-                    dataType: "number",
                     list: false
                 },
                 rowGap: {
                     id: "4qc7q5vto42eulow7zy8l",
                     static: 0,
                     type: "number",
-                    dataType: "number",
                     list: false
                 },
                 columnGap: {
                     id: "oltk6c8cbo14mhgvxx9yn",
                     static: 0,
                     type: "number",
-                    dataType: "number",
                     list: false
                 },
                 stackAtBreakpoint: {
                     id: "khju9ixvythxi4vl0vpwe",
                     type: "select",
-                    dataType: "text",
                     list: false
                 },
                 reverseWhenStacked: {
                     id: "w59mczpbzdn40zh2rbeau",
                     type: "boolean",
-                    dataType: "boolean",
                     list: false
                 },
                 "columns/0/children": {
                     type: "slot",
-                    dataType: "string",
                     list: false,
                     static: "8nl97ijz28zv84f5440rd",
                     id: "mg7t3nd0xxola8048eftk"
                 },
                 "columns/1/children": {
                     type: "slot",
-                    dataType: "string",
                     list: false,
                     static: "rugqfv6fw8ptwuluufflp",
                     id: "4gczdsm8x4br1i51gotuj"
@@ -148,7 +138,6 @@ export default {
             inputs: {
                 children: {
                     type: "slot",
-                    dataType: "string",
                     list: true,
                     static: ["ez07ke7gpi10zqx2f2nw2"],
                     id: "dz2tktfkyd21204haxvjw"
@@ -168,7 +157,6 @@ export default {
                         state: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
                     },
                     type: "lexical",
-                    dataType: "json",
                     list: false
                 }
             }
@@ -177,7 +165,6 @@ export default {
             inputs: {
                 children: {
                     type: "slot",
-                    dataType: "string",
                     list: true,
                     static: ["6j3boewcvnxmewm3wm6mj"],
                     id: "4atq22mm2ucz08bgb1y4q"
@@ -197,7 +184,6 @@ export default {
                         state: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Examine she brother prudent add day ham. Far stairs now coming bed oppose hunted become his. You zealously departure had procuring suspicion. Books whose front would purse if be do decay. Quitting you way formerly disposed perceive ladyship are. Common turned boy direct and yet.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph-element","version":1,"textFormat":0,"textStyle":"","styles":[{"styleId":"paragraph1","type":"typography"}]}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
                     },
                     type: "lexical",
-                    dataType: "json",
                     list: false
                 }
             }
@@ -211,7 +197,6 @@ export default {
                         html: '<h1 dir="ltr"><b><strong style="white-space: pre-wrap;">Published page</strong></b></h1>'
                     },
                     type: "lexical",
-                    dataType: "json",
                     list: false
                 }
             },
@@ -236,7 +221,7 @@ export default {
                 slot: "children"
             },
             component: {
-                name: "Webiny/RichText"
+                name: "Webiny/Lexical"
             }
         },
         "1yj2swsmslmujyqdrtxne": {
@@ -269,7 +254,7 @@ export default {
                 slot: "children"
             },
             component: {
-                name: "Webiny/RichText"
+                name: "Webiny/Lexical"
             }
         },
         rugqfv6fw8ptwuluufflp: {
@@ -291,7 +276,7 @@ export default {
                 slot: "children"
             },
             component: {
-                name: "Webiny/RichText"
+                name: "Webiny/Lexical"
             }
         },
         gdt5pepowye9diki5nppa: {
@@ -302,7 +287,7 @@ export default {
                 slot: "children"
             },
             component: {
-                name: "Webiny/RichText"
+                name: "Webiny/Lexical"
             }
         }
     }

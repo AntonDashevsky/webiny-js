@@ -210,7 +210,6 @@ export class ElementFactory {
                         id: generateAlphaNumericLowerCaseId(),
                         static: node.list ? [newElementId] : newElementId,
                         type: node.type,
-                        dataType: node.dataType,
                         list: node.list
                     })
                 );
@@ -222,7 +221,6 @@ export class ElementFactory {
                         id: generateAlphaNumericLowerCaseId(),
                         static: ignoreDefaultValues ? undefined : value ?? node.input.defaultValue,
                         type: node.type,
-                        dataType: node.dataType,
                         list: node.list
                     })
                 );

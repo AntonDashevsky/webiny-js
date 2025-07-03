@@ -7,8 +7,8 @@ describe("BindingsProcessor", () => {
 
     const bindings: DocumentElementBindings = {
         inputs: {
-            title: { id: "title", static: "Hello", type: "text", dataType: "string" },
-            count: { id: "count", static: 1, type: "number", dataType: "number", expression: "$state.count" }
+            title: { id: "title", static: "Hello", type: "text" },
+            count: { id: "count", static: 1, type: "number", expression: "$state.count" }
         },
         styles: {
             padding: { static: "10px" },
@@ -17,7 +17,7 @@ describe("BindingsProcessor", () => {
         overrides: {
             tablet: {
                 inputs: {
-                    title: { id: "title", static: "Hello Tablet", type: "text", dataType: "string" }
+                    title: { id: "title", static: "Hello Tablet", type: "text" }
                 },
                 styles: {
                     backgroundColor: { static: "gray" }
@@ -25,7 +25,7 @@ describe("BindingsProcessor", () => {
             },
             mobile: {
                 inputs: {
-                    count: { id: "count", static: 3, type: "number", dataType: "number" }
+                    count: { id: "count", static: 3, type: "number" }
                 },
                 styles: {
                     padding: { static: "5px" }
