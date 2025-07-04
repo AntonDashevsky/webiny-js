@@ -1,130 +1,54 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { autorun } from "mobx";
 import { useDocumentEditor } from "~/DocumentEditor";
-import { Commands } from "~/BaseEditor";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { useBindingsForElement } from "../ElementSettings/useBindingsForElement";
-import { StylesBindingsProcessor } from "~/sdk/StylesBindingsProcessor";
-import {
-    BreakpointElementMetadata,
-    ElementMetadata,
-    IMetadata,
-    StylesMetadata
-} from "~/BaseEditor/metadata";
+import { StylesStore, StyleStoreVm } from "./StylesStore";
+import { NullMetadata } from "~/BaseEditor/metadata";
 
-export type OnChangeParams = {
-    styles: StylesValueObject;
-    metadata: IMetadata;
-};
+// Singleton store container
+const stylesStores = new Map<string, StylesStore>();
 
-class StylesValueObject {
-    private readonly value: Record<string, any>;
+export function useStyles(elementId: string) {
+    const [vm, setVm] = useState<StyleStoreVm>({
+        styles: {},
+        metadata: new NullMetadata(),
+        inheritanceMap: {}
+    });
 
-    constructor(value: any = {}) {
-        this.value = value;
-    }
-
-    set(key: string, value: any) {
-        this.value[key] = value;
-    }
-
-    get(key: string) {
-        return this.value[key];
-    }
-
-    getAll() {
-        return this.value;
-    }
-
-    unset(key: string) {
-        delete this.value[key];
-    }
-}
-
-export const useStyles = (elementId: string) => {
-    const { breakpoint, breakpoints } = useBreakpoint();
     const editor = useDocumentEditor();
-    const [, setCount] = useState(0);
-    const localRef = useRef<any>();
+    const { breakpoints } = useBreakpoint();
 
-    const rerender = useCallback(() => {
-        setCount(count => count + 1);
+    const store = useMemo(() => {
+        // Create or get existing store for this element
+        let store = stylesStores.get(elementId);
+
+        if (!store) {
+            store = new StylesStore(
+                editor,
+                elementId,
+                breakpoints.map(bp => bp.name)
+            );
+            stylesStores.set(elementId, store);
+        }
+
+        return store;
+    }, [elementId]);
+
+    useEffect(() => {
+        setVm(store.vm);
     }, []);
 
-    const breakpointNames = breakpoints.map(bp => bp.name);
-
-    // These bindings already include per-breakpoint overrides.
-    const { rawBindings, resolvedBindings, inheritanceMap } = useBindingsForElement(elementId);
-
-    const stylesProcessor = new StylesBindingsProcessor(
-        elementId,
-        breakpoints.map(bp => bp.name),
-        rawBindings
-    );
-
-    const elementMetadata: IMetadata = useMemo(() => {
-        return new StylesMetadata(
-            new BreakpointElementMetadata(
-                breakpointNames,
-                breakpoint.name,
-                new ElementMetadata(elementId, rawBindings.metadata)
-            )
-        );
-    }, [elementId, breakpoint.name, rawBindings]);
-
-    const devFriendlyStyles = stylesProcessor.toDeepStyles(resolvedBindings.styles);
-
-    const onChange = (cb: (params: OnChangeParams) => void) => {
-        const styles = new StylesValueObject(devFriendlyStyles);
-
-        // Apply changes by reference.
-        cb({ styles, metadata: elementMetadata });
-
-        const finalStyles = styles.getAll();
-
-        // Apply final styles to element bindings.
-        const updatedStyles = stylesProcessor.createUpdate(finalStyles, breakpoint.name);
-
-        localRef.current = undefined;
-
-        editor.updateDocument(document => {
-            updatedStyles.applyToDocument(document);
-            elementMetadata.applyToDocument(document);
+    useEffect(() => {
+        autorun(() => {
+            setVm(store.vm);
         });
-    };
-
-    const onPreviewChange = (cb: (params: OnChangeParams) => void) => {
-        const stylesProcessor = new StylesBindingsProcessor(
-            elementId,
-            breakpoints.map(bp => bp.name),
-            structuredClone(rawBindings)
-        );
-
-        const styles = new StylesValueObject(structuredClone(devFriendlyStyles));
-
-        cb({ styles, metadata: elementMetadata });
-
-        const finalStyles = styles.getAll();
-
-        // For preview, we need to store a local copy of styles, to avoid updating editor state.
-        localRef.current = finalStyles;
-
-        const updatedStyles = stylesProcessor.createUpdate(finalStyles, breakpoint.name);
-
-
-        // Since we're not updating state, force re-render of the consumers.
-        rerender();
-
-        editor.executeCommand(Commands.PreviewPatchElement, {
-            elementId,
-            patch: updatedStyles.createJsonPatch(rawBindings)
-        });
-    };
+    }, [store]);
 
     return {
-        styles: localRef.current ?? devFriendlyStyles,
-        metadata: elementMetadata,
-        inheritanceMap: inheritanceMap.styles,
-        onChange,
-        onPreviewChange
+        styles: vm.styles,
+        metadata: vm.metadata,
+        inheritanceMap: vm.inheritanceMap,
+        onChange: store.onChange,
+        onPreviewChange: store.onPreviewChange
     };
-};
+}

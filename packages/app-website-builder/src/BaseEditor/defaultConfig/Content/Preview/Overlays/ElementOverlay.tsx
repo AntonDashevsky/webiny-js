@@ -179,6 +179,7 @@ const MarginStripes = ({ top, left, height, width }: MarginStripesProps) => {
         <div
             data-role={"element-margin"}
             style={{
+                pointerEvents: "none",
                 position: "absolute",
                 top,
                 left,

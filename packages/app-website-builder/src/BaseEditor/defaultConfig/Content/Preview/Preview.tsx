@@ -137,6 +137,10 @@ export const Preview = () => {
             });
         });
 
+        messenger.on("preview.escape", () => {
+            editor.executeCommand(Commands.DeselectElement);
+        });
+
         messenger.on("preview.undo", () => {
             editor.undo();
         });

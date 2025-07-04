@@ -259,6 +259,11 @@ export class EditingSdk implements IContentSdk {
     }
 
     private setupHotkeyListeners() {
+        this.hotkeyManager.add("escape", e => {
+            e.preventDefault();
+            this.messenger.send("preview.escape");
+        });
+
         this.hotkeyManager.add("mod+z", e => {
             e.preventDefault();
             this.messenger.send("preview.undo");
