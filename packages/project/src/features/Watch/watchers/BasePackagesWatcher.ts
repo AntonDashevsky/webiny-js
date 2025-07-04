@@ -1,6 +1,11 @@
 import { LoggerService, Watch } from "~/abstractions";
 import { ChildProcess } from "child_process";
 
+export interface IWatchProcess {
+    packageName: string;
+    process: ChildProcess;
+}
+
 export interface IBasePackagesWatcherPackage {
     name: string;
     webinyConfig: Record<string, any>;
@@ -27,7 +32,7 @@ export class BasePackagesWatcher {
         this.logger = logger;
     }
 
-    public watch(): ChildProcess[] {
+    public watch(): IWatchProcess[] {
         throw new Error("Not implemented.");
     }
 }

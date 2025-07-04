@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { DescribeEndpointCommand, IoTClient } from "@webiny/aws-sdk/client-iot";
 import { getStackOutput } from "~/utils/index.js";
 

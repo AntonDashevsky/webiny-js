@@ -19,14 +19,11 @@ export class SinglePackageWatcher extends BasePackagesWatcher {
             stdio: ["pipe", "pipe", "pipe", "ipc"]
         });
 
-        if (childProcess.stdout) {
-            childProcess.stdout.pipe(process.stdout);
-        }
-
-        if (childProcess.stderr) {
-            childProcess.stderr.pipe(process.stderr);
-        }
-
-        return [childProcess];
+        return [
+            {
+                packageName: pkg.name,
+                process: childProcess
+            }
+        ];
     }
 }

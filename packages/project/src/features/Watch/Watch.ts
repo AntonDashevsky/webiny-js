@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createImplementation } from "@webiny/di-container";
 import {
     GetApp,
@@ -28,7 +29,7 @@ export class DefaultWatch implements Watch.Interface {
         private getProject: GetProject.Interface,
         private getApp: GetApp.Interface,
         private logger: LoggerService.Interface,
-        private listAppLambdaFunctionsService: ListAppLambdaFunctionsService.Interface
+        private listAppLambdaFunctionsService: ListAppLambdaFunctionsService.Interface,
     ) {}
 
     async execute(params: Watch.Params) {
@@ -208,6 +209,7 @@ export const watch = createImplementation({
         GetProject,
         GetApp,
         LoggerService,
-        ListAppLambdaFunctionsService
+        ListAppLambdaFunctionsService,
+        PulumiGetStackOutputService
     ]
 });

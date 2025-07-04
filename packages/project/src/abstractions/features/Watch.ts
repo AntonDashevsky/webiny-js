@@ -1,7 +1,10 @@
 import { Abstraction } from "@webiny/di-container";
-import { ExecaChildProcess } from "execa";
+import { ChildProcess } from "child_process";
 
-export type IPulumiProcess = ExecaChildProcess<string>;
+export interface IWatchProcess {
+    packageName: string;
+    process: ChildProcess;
+}
 
 export interface IWatchNoAppParams {
     package?: string | string[];
@@ -20,9 +23,12 @@ export interface IWatchWithAppParams extends IWatchNoAppParams {
 }
 
 export type IWatchParams = IWatchNoAppParams | IWatchWithAppParams;
+export type IWatchResult = Promise<IWatchProcess[]>;
+
+
 
 export interface IWatch {
-    execute(params: IWatchParams): Promise<void>;
+    execute(params: IWatchParams): IWatchResult
 }
 
 export const Watch = new Abstraction<IWatch>("Watch");
@@ -31,6 +37,5 @@ export namespace Watch {
     export type Interface = IWatch;
 
     export type Params = IWatchParams;
-
-    export type PulumiProcess = IPulumiProcess;
+    export type Result = IWatchResult;
 }

@@ -13,7 +13,8 @@ import {
     buildCommand,
     deployCommand,
     infoCommand,
-    outputCommand
+    outputCommand,
+    watchCommand
 } from "./features/index.js";
 
 export const createCliContainer = () => {
@@ -25,6 +26,7 @@ export const createCliContainer = () => {
     container.register(deployCommand).inSingletonScope();
     container.register(infoCommand).inSingletonScope();
     container.register(outputCommand).inSingletonScope();
+    container.register(watchCommand).inSingletonScope();
 
     // Services.
     container.register(commandsRegistryService).inSingletonScope();

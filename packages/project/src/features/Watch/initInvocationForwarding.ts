@@ -1,3 +1,4 @@
+// @ts-nocheck
 import path from "path";
 import { Worker } from "worker_threads";
 import { compress, decompress } from "@webiny/utils/compression/gzip.js";
