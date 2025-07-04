@@ -12,6 +12,7 @@ import {
     RunPulumiCommand,
     Watch
 } from "~/abstractions/index.js";
+import { isValidRegionName, isValidVariantName } from "./utils/index.js";
 
 export class ProjectSdk {
     cwd?: string;
@@ -20,6 +21,10 @@ export class ProjectSdk {
     protected constructor(cwd?: string) {
         this.cwd = cwd;
         this.container = createProjectSdkContainer();
+    }
+
+    static init(cwd?: string) {
+        return new ProjectSdk(cwd);
     }
 
     // Project-related methods.
@@ -64,11 +69,16 @@ export class ProjectSdk {
         return this.container.resolve(Watch).execute(params);
     }
 
-    getContainer() {
-        return this.container;
+    // Utility methods.
+    isValidRegionName(name?: string) {
+        return isValidRegionName(name);
     }
 
-    static init(cwd?: string) {
-        return new ProjectSdk(cwd);
+    isValidVariantName(name?: string) {
+        return isValidVariantName(name);
+    }
+
+    getContainer() {
+        return this.container;
     }
 }

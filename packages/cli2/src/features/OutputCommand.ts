@@ -12,7 +12,7 @@ export class OutputCommand implements Command.Interface<IOutputCommandParams> {
         private stdioService: StdioService.Interface
     ) {}
 
-    execute() {
+    execute(): Command.Result<IOutputCommandParams> {
         return {
             name: "output",
             description: "Prints Pulumi stack output for given project application and environment",

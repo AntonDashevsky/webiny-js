@@ -14,7 +14,7 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
         private stdioService: StdioService.Interface
     ) {}
 
-    execute() {
+    execute(): Command.Result<IAboutCommandParams> {
         return {
             name: "about",
             description: "Prints out information helpful for debugging purposes.",

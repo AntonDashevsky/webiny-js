@@ -10,7 +10,7 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
         private stdioService: StdioService.Interface
     ) {}
 
-    execute() {
+    execute(): Command.Result<IBuildCommandParams> {
         return {
             name: "build",
             description: "Builds specified app",

@@ -1,78 +1,13 @@
 import { Container } from "@webiny/di-container";
-import { Argv, PositionalOptions } from "yargs";
+import { Argv } from "yargs";
 import yargs from "yargs/yargs";
 import { createCliContainer } from "./createCliContainer.js";
 import { hideBin } from "yargs/helpers";
 import chalk from "chalk";
 import { CommandsRegistryService, Command } from "~/abstractions/index.js";
 
-const { blue, red, bold, bgYellow } = chalk;
-
-const onFail = () => (msg: string, error: any, yargs: Argv) => {
-    if (msg) {
-        if (msg.includes("Not enough non-option arguments")) {
-            console.log();
-            console.error(red("Command was not invoked as expected!"));
-            console.info(
-                `Some non-optional arguments are missing. See the usage examples printed below.`
-            );
-            console.log();
-            yargs.showHelp();
-            return;
-        }
-
-        if (msg.includes("Missing required argument")) {
-            const args = msg
-                .split(":")[1]
-                .split(",")
-                .map(v => v.trim());
-
-            console.log();
-            console.error(red("Command was not invoked as expected!"));
-            console.info(
-                `Missing required argument(s): ${args
-                    .map(arg => red(arg))
-                    .join(", ")}. See the usage examples printed below.`
-            );
-            console.log();
-            yargs.showHelp();
-            return;
-        }
-        console.log();
-        console.error(red("Command execution was aborted!"));
-        console.error(msg);
-        console.log(error);
-
-        process.exit(1);
-    }
-
-    console.log();
-    // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
-    const debugEnabled = process.argv.includes("--debug");
-    if (debugEnabled) {
-        console.debug(error);
-    } else {
-        console.error(error.message);
-    }
-
-    // const gracefulError = error.cause?.gracefulError;
-    // if (gracefulError instanceof Error) {
-    //     console.log();
-    //     console.log(bgYellow(bold("💡 How can I resolve this?")));
-    //     console.log(gracefulError.message);
-    // }
-    //
-    // const plugins = context.plugins.byType("cli-command-error");
-    // for (let i = 0; i < plugins.length; i++) {
-    //     const plugin = plugins[i];
-    //     plugin.handle({
-    //         error,
-    //         context
-    //     });
-    // }
-
-    process.exit(1);
-};
+// TODO: finish this file
+const { blue } = chalk;
 
 export class Cli {
     private cli: Argv;
@@ -90,8 +25,7 @@ export class Cli {
                     "https://www.webiny.com/docs"
                 )}.`
             )
-            .epilogue(`Want to contribute? ${blue("https://github.com/webiny/webiny-js")}.`)
-            .fail(onFail());
+            .epilogue(`Want to contribute? ${blue("https://github.com/webiny/webiny-js")}.`);
 
         this.container = createCliContainer();
 
@@ -115,34 +49,30 @@ export class Cli {
                 yargsCmd,
                 description,
                 yargs => {
-                    params.forEach((param: Command.ParamDefinition) => {
-                        const { name, ...rest } = param;
-                        const mappedParams = Object.entries(rest).reduce((acc, [key, value]) => {
-                            if (key === "required") {
-                                acc["demandOption"] = value as boolean;
-                            }
+                    params.forEach((param: Command.ParamDefinition<unknown>) => {
+                        const { name, required, validation, ...rest } = param;
 
-                            // @ts-ignore Key is always a valid PositionalOptions key.
-                            acc[key] = value;
-                            return acc;
-                        }, {} as PositionalOptions);
+                        const yargsParam = yargs.positional(name, {
+                            ...rest,
+                            demandOption: required
+                        });
 
-                        yargs.positional(name, mappedParams);
+                        if (validation) {
+                            yargsParam.check(validation);
+                        }
                     });
 
-                    options.forEach((param: Command.OptionDefinition) => {
-                        const { name, ...rest } = param;
-                        const mappedOptions = Object.entries(rest).reduce((acc, [key, value]) => {
-                            if (key === "required") {
-                                acc["demandOption"] = value as boolean;
-                            }
+                    options.forEach((option: Command.OptionDefinition<unknown>) => {
+                        const { name, required, validation, ...rest } = option;
 
-                            // @ts-ignore Key is always a valid PositionalOptions key.
-                            acc[key] = value;
-                            return acc;
-                        }, {} as PositionalOptions);
+                        const yargsOption = yargs.option(name, {
+                            ...rest,
+                            demandOption: required
+                        });
 
-                        yargs.option(name, mappedOptions);
+                        if (validation) {
+                            yargsOption.check(validation);
+                        }
                     });
                 },
                 (args: any) => handler(args)

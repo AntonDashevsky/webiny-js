@@ -12,7 +12,8 @@
   "dependencies": {
     "@webiny/di-container": "0.0.0",
     "@webiny/pulumi-sdk": "0.0.0",
-    "@webiny/system-requirements": "0.0.0"
+    "@webiny/system-requirements": "0.0.0",
+    "neverthrow": "^8.2.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.13",

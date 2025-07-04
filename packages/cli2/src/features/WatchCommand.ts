@@ -13,7 +13,10 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
         private stdioService: StdioService.Interface
     ) {}
 
-    execute() {
+    execute(): Command.Result<IWatchCommandParams> {
+        const projectSdk = this.getProjectSdkService.execute();
+        const stdio = this.stdioService;
+
         return {
             name: "watch",
             description: "Watches code changes for a specific app or package.",
@@ -39,12 +42,26 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                 {
                     name: "variant",
                     description: "Variant of the app to watch",
-                    type: "string"
+                    type: "string",
+                    validation: (params) => {
+                        const isValid = projectSdk.isValidVariantName(params.variant);
+                        if (isValid.isErr()) {
+                            throw isValid.error;
+                        }
+                        return true;
+                    }
                 },
                 {
                     name: "region",
                     description: "Region to target",
-                    type: "string"
+                    type: "string",
+                    validation: (params) => {
+                        const isValid = projectSdk.isValidRegionName(params.region)
+                        if (isValid.isErr()) {
+                            throw isValid.error;
+                        }
+                        return true;
+                    }
                 },
                 {
                     name: "package",
@@ -54,9 +71,6 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                 }
             ],
             handler: async (params: IWatchCommandParams) => {
-                const projectSdk = this.getProjectSdkService.execute();
-                const stdio = this.stdioService;
-
                 const watchProcesses = await projectSdk.watch(params);
 
                 if (watchProcesses.length === 1) {
@@ -118,10 +132,6 @@ export const watchCommand = createImplementation({
 
 /*
 
-yargs.positional("folder", {
-    describe: `Project application folder or application name`,
-    type: "string"
-});
 yargs
     .option("region", {
         describe: `Region to target`,
@@ -129,11 +139,6 @@ yargs
         required: false
     })
     .check(validateRegion);
-yargs.option("env", {
-    describe: `Environment`,
-    type: "string"
-});
-yargs
     .option("variant", {
         describe: `Variant`,
         type: "string",

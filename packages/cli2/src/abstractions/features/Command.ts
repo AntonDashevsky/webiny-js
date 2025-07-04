@@ -1,39 +1,44 @@
 import { Abstraction } from "@webiny/di-container";
 
-export interface ICommandParamDefinition {
+export interface ICommandParamDefinition<TCommandParams> {
     name: string;
     description: string;
-    type: string;
+    type: "boolean" | "number" | "string";
     required?: boolean;
     default?: any;
+    validation?: (value: TCommandParams) => boolean | string;
 }
 
-export interface ICommandOptionDefinition {
+export interface ICommandOptionDefinition<TCommandParams> {
     name: string;
     description: string;
-    type: string;
+    type: "boolean" | "number" | "string";
     required?: boolean;
+    alias?: string;
     default?: any;
+    validation?: (value: TCommandParams) => boolean | string;
 }
 
-export interface ICommandDefinition<THandlerParams> {
+export interface ICommandDefinition<TCommandParams> {
     name: string;
     description: string;
-    params?: ICommandParamDefinition[];
-    options?: ICommandOptionDefinition[];
+    params?: ICommandParamDefinition<TCommandParams>[];
+    options?: ICommandOptionDefinition<TCommandParams>[];
     examples?: string[];
-    handler: (params: THandlerParams) => void | Promise<void>;
+    handler: (params: TCommandParams) => void | Promise<void>;
 }
 
-export interface ICommand<THandlerParams> {
-    execute(): ICommandDefinition<THandlerParams>;
+export interface ICommand<TCommandParams> {
+    execute(): ICommandDefinition<TCommandParams>;
 }
 
 export const Command = new Abstraction("Command");
 
 export namespace Command {
-    export type Interface<THandlerParams> = ICommand<THandlerParams>;
+    export type Interface<TCommandParams> = ICommand<TCommandParams>;
 
-    export type ParamDefinition = ICommandParamDefinition;
-    export type OptionDefinition = ICommandOptionDefinition;
+    export type ParamDefinition<TCommandParams> = ICommandParamDefinition<TCommandParams>;
+    export type OptionDefinition<TCommandParams> = ICommandOptionDefinition<TCommandParams>;
+
+    export type Result<TCommandParams> = ICommandDefinition<TCommandParams>;
 }

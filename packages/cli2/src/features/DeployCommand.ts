@@ -35,7 +35,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
         private stdioService: StdioService.Interface
     ) {}
 
-    execute() {
+    execute() : Command.Result<IDeployCommandParams> {
         return {
             name: "deploy",
             description: "Deploys specified app",

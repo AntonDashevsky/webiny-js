@@ -5,7 +5,7 @@ import { Command, GetProjectSdkService } from "~/abstractions/index.js";
 export class InfoCommand implements Command.Interface {
     constructor(private getProjectSdkService: GetProjectSdkService.Interface) {}
 
-    execute() {
+    execute(): Command.Result<void> {
         return {
             name: "info",
             description: "Lists relevant URLs for your Webiny project",
