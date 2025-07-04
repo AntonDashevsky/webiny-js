@@ -1,9 +1,9 @@
-import type { IMetadata, Metadata } from "./IMetadata";
+import type { IMetadata } from "./IMetadata";
 
 export class NullMetadata implements IMetadata {
     applyToDocument(): void {}
 
-    get<T extends Metadata = Metadata>(): T | undefined {
+    get<T = unknown>(): T | undefined {
         return undefined;
     }
 

@@ -3,6 +3,7 @@ import React from "react";
 import { ValueSelector } from "./ValueSelector";
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
 import { LinkedEditing } from "./LinkedEditing";
+import { useStyleValue } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/Groups/MarginPadding/useStyleValue";
 
 const autoOption = {
     label: "auto",
@@ -52,13 +53,51 @@ const heightOptions = [...marginUnitOptions, ...heightUnitOptions, autoOption];
 const widthOptions = [...marginUnitOptions, ...widthUnitOptions, autoOption];
 
 export const Margin = ({ elementId, children }: MarginProps) => {
-    const { onChange, metadata } = useStyles(elementId);
+    const { onChange, onPreviewChange, metadata } = useStyles(elementId);
+
+    const marginTop = useStyleValue(elementId, "marginTop");
+    const marginRight = useStyleValue(elementId, "marginRight");
+    const marginBottom = useStyleValue(elementId, "marginBottom");
+    const marginLeft = useStyleValue(elementId, "marginLeft");
+
     const linked = metadata.get<boolean>("marginLinkedEditing") ?? true;
 
     const onToggleLinkedEditing = (linked: boolean) => {
-        onChange(({ metadata }) => {
+        onChange(({ styles, metadata }) => {
+            if (linked) {
+                const value = `${marginTop.value}${marginTop.unit}`;
+                styles.set("marginRight", value);
+                styles.set("marginBottom", value);
+                styles.set("marginLeft", value);
+            }
             metadata.set("marginLinkedEditing", linked);
         });
+    };
+
+    const onMarginTopChange = (value: string) => {
+        if (linked) {
+            onChange(({ styles }) => {
+                styles.set("marginTop", value);
+                styles.set("marginRight", value);
+                styles.set("marginBottom", value);
+                styles.set("marginLeft", value);
+            });
+        } else {
+            marginTop.onChange(value);
+        }
+    };
+
+    const onMarginTopPreviewChange = (value: string) => {
+        if (linked) {
+            onPreviewChange(({ styles }) => {
+                styles.set("marginTop", value);
+                styles.set("marginRight", value);
+                styles.set("marginBottom", value);
+                styles.set("marginLeft", value);
+            });
+        } else {
+            marginTop.onChangePreview(value);
+        }
     };
 
     return (
@@ -71,9 +110,10 @@ export const Margin = ({ elementId, children }: MarginProps) => {
             {/* Top Margin */}
             <div className={"wby-flex wby-h-[40px]"}>
                 <ValueSelector
-                    elementId={elementId}
-                    propertyName={"marginTop"}
-                    options={heightOptions}
+                    {...marginTop}
+                    units={heightOptions}
+                    onChange={onMarginTopChange}
+                    onChangePreview={onMarginTopPreviewChange}
                 />
             </div>
 
@@ -81,29 +121,14 @@ export const Margin = ({ elementId, children }: MarginProps) => {
 
             {/* Middle Row (Left Margin + Padding Box + Right Margin) */}
             <div className="wby-flex wby-flex-row wby-items-center wby-w-full wby-h-[100px]">
-                <ValueSelector
-                    disabled={linked}
-                    elementId={elementId}
-                    propertyName={"marginLeft"}
-                    options={widthOptions}
-                />
+                <ValueSelector {...marginLeft} units={widthOptions} disabled={linked} />
                 {children}
-                <ValueSelector
-                    disabled={linked}
-                    elementId={elementId}
-                    propertyName={"marginRight"}
-                    options={widthOptions}
-                />
+                <ValueSelector {...marginRight} units={widthOptions} disabled={linked} />
             </div>
 
             {/* Bottom Margin */}
             <div className={"wby-flex wby-h-[40px]"}>
-                <ValueSelector
-                    disabled={linked}
-                    elementId={elementId}
-                    propertyName={"marginBottom"}
-                    options={heightOptions}
-                />
+                <ValueSelector {...marginBottom} units={heightOptions} disabled={linked} />
             </div>
         </div>
     );
