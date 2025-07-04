@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, GetProjectSdkService, StdioService } from "~/abstractions/index.js";
+import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import chalk from "chalk";
 
 interface IAboutCommandParams {
@@ -11,13 +11,14 @@ const NO_VALUE = "-";
 export class AboutCommand implements Command.Interface<IAboutCommandParams> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
-        private stdioService: StdioService.Interface
+        private stdioService: StdioService.Interface,
+        private uiService: UiService.Interface
     ) {}
 
     execute(): Command.Result<IAboutCommandParams> {
         return {
             name: "about",
-            description: "Prints out information helpful for debugging purposes.",
+            description: "Uis out information helpful for debugging purposes.",
             options: [
                 {
                     name: "json",
@@ -29,9 +30,10 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
             handler: async (args: IAboutCommandParams) => {
                 const data = await this.getProjectSdkService.execute().getProjectInfo();
                 const stdio = this.stdioService;
+                const ui = this.uiService;
 
                 if (args.json) {
-                    stdio.write(JSON.stringify(data, null, 2));
+                    ui.text(JSON.stringify(data, null, 2));
                     return;
                 }
 
@@ -79,18 +81,18 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
                         }
                     }
                 ].forEach(({ sectionName, data }, index) => {
-                    stdio.write(chalk.bold(sectionName));
-                    stdio.newLine();
+                    ui.text(chalk.bold(sectionName));
+                    ui.newLine();
 
                     for (const key of Object.keys(data) as Array<keyof typeof data>) {
-                        stdio.write(key.padEnd(36));
-                        stdio.write(data[key] || NO_VALUE);
-                        stdio.write("\n");
+                        ui.text(key.padEnd(36));
+                        ui.text(data[key] || NO_VALUE);
+                        ui.text("\n");
                     }
 
                     const isLastSection = index === 3;
                     if (!isLastSection) {
-                        stdio.newLine();
+                        ui.newLine();
                     }
                 });
             }
@@ -101,5 +103,5 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
 export const aboutCommand = createImplementation({
     abstraction: Command,
     implementation: AboutCommand,
-    dependencies: [GetProjectSdkService, StdioService]
+    dependencies: [GetProjectSdkService, StdioService, UiService]
 });

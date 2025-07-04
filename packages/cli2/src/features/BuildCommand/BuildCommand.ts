@@ -1,16 +1,22 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, GetProjectSdkService, StdioService } from "~/abstractions/index.js";
+import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
+import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
 
 export interface IBuildCommandParams extends IBaseAppParams {}
 
 export class BuildCommand implements Command.Interface<IBuildCommandParams> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
-        private stdioService: StdioService.Interface
+        private stdioService: StdioService.Interface,
+        private ui: UiService.Interface
     ) {}
 
     execute(): Command.Result<IBuildCommandParams> {
+        const projectSdk = this.getProjectSdkService.execute();
+        const stdio = this.stdioService;
+        const ui = this.ui;
+
         return {
             name: "build",
             description: "Builds specified app",
@@ -42,9 +48,15 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                 }
             ],
             handler: async (params: IBuildCommandParams) => {
-                const projectSdk = this.getProjectSdkService.execute();
+                const buildProcesses = await projectSdk.buildApp(params);
 
-                await projectSdk.buildApp(params);
+                const buildOutput = new BuildOutput({
+                    stdio,
+                    ui,
+                    buildProcesses
+                });
+
+                buildOutput.output();
             }
         };
     }
@@ -53,5 +65,5 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
 export const buildCommand = createImplementation({
     abstraction: Command,
     implementation: BuildCommand,
-    dependencies: [GetProjectSdkService, StdioService]
+    dependencies: [GetProjectSdkService, StdioService, UiService]
 });

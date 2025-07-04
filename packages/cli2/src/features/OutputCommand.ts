@@ -15,7 +15,7 @@ export class OutputCommand implements Command.Interface<IOutputCommandParams> {
     execute(): Command.Result<IOutputCommandParams> {
         return {
             name: "output",
-            description: "Prints Pulumi stack output for given project application and environment",
+            description: "Uis Pulumi stack output for given project application and environment",
             params: [
                 {
                     name: "app",

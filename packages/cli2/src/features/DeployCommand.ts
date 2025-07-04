@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, GetProjectSdkService, StdioService } from "~/abstractions/index.js";
+import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
 import { measureDuration } from "./utils/index.js";
 import ora from "ora";
@@ -32,10 +32,15 @@ const spinnerMessages: [number, string][] = [
 export class DeployCommand implements Command.Interface<IDeployCommandParams> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
+        private uiService: UiService.Interface,
         private stdioService: StdioService.Interface
     ) {}
 
-    execute() : Command.Result<IDeployCommandParams> {
+    execute(): Command.Result<IDeployCommandParams> {
+        const projectSdk = this.getProjectSdkService.execute();
+        const ui = this.uiService;
+        const stdio = this.stdioService;
+
         return {
             name: "deploy",
             description: "Deploys specified app",
@@ -85,9 +90,6 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 }
             ],
             handler: async (params: IDeployCommandParams) => {
-                const projectSdk = this.getProjectSdkService.execute();
-                const stdio = this.stdioService;
-
                 // We always show deployment logs when doing previews.
                 const projectInfo = await projectSdk.getProjectInfo();
                 const showDeploymentLogs = projectInfo.host.isCI || params.deploymentLogs;
@@ -137,7 +139,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                     const message = `Deployed in ${getDeploymentDuration()}.`;
 
                     if (showDeploymentLogs) {
-                        stdio.success(message);
+                        ui.success(message);
                     } else {
                         spinner.succeed(message);
                     }
@@ -150,8 +152,9 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                     spinner.fail(
                         `Deployment failed. For more details, please check the error logs below.`
                     );
-                    stdio.newLine();
-                    stdio.write(e.stderr || e.stdout || e.message);
+
+                    ui.newLine();
+                    ui.text(e.stderr || e.stdout || e.message);
                     throw e;
                 }
             }
@@ -162,5 +165,5 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
 export const deployCommand = createImplementation({
     abstraction: Command,
     implementation: DeployCommand,
-    dependencies: [GetProjectSdkService, StdioService]
+    dependencies: [GetProjectSdkService, UiService, StdioService]
 });

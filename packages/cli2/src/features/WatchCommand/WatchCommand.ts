@@ -1,21 +1,23 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, GetProjectSdkService, StdioService } from "~/abstractions/index.js";
+import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
 import { Transform } from "node:stream";
 import chalk from "chalk";
-import { getRandomColorForString } from "./utils";
+import { getRandomColorForString } from "./getRandomColorForString";
 
 export interface IWatchCommandParams extends IBaseAppParams {}
 
 export class WatchCommand implements Command.Interface<IWatchCommandParams> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
-        private stdioService: StdioService.Interface
+        private stdioService: StdioService.Interface,
+        private uiService: UiService.Interface
     ) {}
 
     execute(): Command.Result<IWatchCommandParams> {
         const projectSdk = this.getProjectSdkService.execute();
         const stdio = this.stdioService;
+        const ui = this.uiService;
 
         return {
             name: "watch",
@@ -79,7 +81,7 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                     watchProcess.process.stderr!.pipe(stdio.getStderr());
                 } else {
                     if (watchProcesses.length > 1) {
-                        stdio.info(
+                        ui.info(
                             `Watching ${watchProcesses.length} packages. Output will be displayed below:\n`
                         );
 
@@ -127,7 +129,7 @@ function createPrefixer(prefix: string) {
 export const watchCommand = createImplementation({
     abstraction: Command,
     implementation: WatchCommand,
-    dependencies: [GetProjectSdkService, StdioService]
+    dependencies: [GetProjectSdkService, StdioService, UiService]
 });
 
 /*

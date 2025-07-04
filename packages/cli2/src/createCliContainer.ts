@@ -5,6 +5,7 @@ import {
     getProjectSdkService,
     loadEnvVarsService,
     loggerService,
+    uiService,
     stdioService
 } from "./services/index.js";
 
@@ -33,6 +34,7 @@ export const createCliContainer = () => {
     container.register(getProjectSdkService).inSingletonScope();
     container.register(loadEnvVarsService).inSingletonScope();
     container.register(loggerService).inSingletonScope();
+    container.register(uiService).inSingletonScope();
     container.register(stdioService).inSingletonScope();
 
     return container;
