@@ -7,7 +7,7 @@ const compileFile = async (cwd, inputPath, outputPath) => {
     const inputPathRelative = path.relative(cwd, inputPath);
     
     const result = await transformFileAsync(inputPath, {
-        presets: ["@babel/preset-typescript"],
+        configFile: path.join(cwd, ".babelrc.js"),
         sourceMaps: true,
     });
 

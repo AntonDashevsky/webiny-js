@@ -25,10 +25,8 @@ export interface IWatchWithAppParams extends IWatchNoAppParams {
 export type IWatchParams = IWatchNoAppParams | IWatchWithAppParams;
 export type IWatchResult = Promise<IWatchProcess[]>;
 
-
-
 export interface IWatch {
-    execute(params: IWatchParams): IWatchResult
+    execute(params: IWatchParams): IWatchResult;
 }
 
 export const Watch = new Abstraction<IWatch>("Watch");

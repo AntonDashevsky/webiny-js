@@ -20,7 +20,8 @@ import {
     getPulumiService,
     getPulumiVersionService,
     getYarnVersionService,
-    listAppLambdaFunctions,
+    listAppLambdaFunctionsService,
+    listPackagesService,
     loggerService,
     projectInfoService,
     pulumiGetConfigPassphraseService,
@@ -43,7 +44,8 @@ export const createProjectSdkContainer = () => {
     container.register(getPulumiService).inSingletonScope();
     container.register(getPulumiVersionService).inSingletonScope();
     container.register(getYarnVersionService).inSingletonScope();
-    container.register(listAppLambdaFunctions).inSingletonScope();
+    container.register(listAppLambdaFunctionsService).inSingletonScope();
+    container.register(listPackagesService).inSingletonScope();
     container.register(loggerService).inSingletonScope();
     container.register(projectInfoService).inSingletonScope();
     container.register(pulumiGetConfigPassphraseService).inSingletonScope();

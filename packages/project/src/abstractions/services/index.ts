@@ -9,6 +9,7 @@ export { PulumiGetStackExportService } from "./PulumiGetStackExportService.js";
 export { PulumiGetStackOutputService } from "./PulumiGetStackOutputService.js";
 export { PulumiLoginService } from "./PulumiLoginService.js";
 export { PulumiSelectStackService } from "./PulumiSelectStackService.js";
+export { ListPackagesService } from "./ListPackagesService.js";
 
 // Apps.
 export { GetAppPackagesService } from "./GetAppPackagesService.js";

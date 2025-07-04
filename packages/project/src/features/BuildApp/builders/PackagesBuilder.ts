@@ -4,12 +4,16 @@ import { SinglePackageBuilder } from "./SinglePackageBuilder.js";
 import { MultiplePackagesBuilder } from "./MultiplePackagesBuilder.js";
 
 export class PackagesBuilder extends BasePackagesBuilder {
-    public override async build(): Promise<void> {
+    public override build() {
         const BuilderClass = this.getBuilderClass();
 
-        const builder = new BuilderClass(this.packages, this.buildParams, this.logger);
+        const builder = new BuilderClass({
+            packages: this.packages,
+            params: this.params,
+            logger: this.logger
+        });
 
-        await builder.build();
+        return builder.build();
     }
 
     private getBuilderClass() {

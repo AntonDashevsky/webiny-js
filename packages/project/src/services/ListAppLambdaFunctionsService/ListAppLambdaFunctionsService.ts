@@ -22,7 +22,7 @@ interface ExpectedStackExport {
     };
 }
 
-export class DefaultListAppLambdaFunctions implements ListAppLambdaFunctionsService.Interface {
+export class DefaultListAppLambdaFunctionsService implements ListAppLambdaFunctionsService.Interface {
     constructor(
         private pulumiGetStackExportService: PulumiGetStackExportService.Interface,
         private loggerService: LoggerService.Interface
@@ -97,8 +97,8 @@ export class DefaultListAppLambdaFunctions implements ListAppLambdaFunctionsServ
     }
 }
 
-export const listAppLambdaFunctions = createImplementation({
+export const listAppLambdaFunctionsService = createImplementation({
     abstraction: ListAppLambdaFunctionsService,
-    implementation: DefaultListAppLambdaFunctions,
+    implementation: DefaultListAppLambdaFunctionsService,
     dependencies: [PulumiGetStackExportService, LoggerService]
 });

@@ -1,13 +1,13 @@
 import { createImplementation } from "@webiny/di-container";
-import { BuildApp, GetApp, GetAppPackagesService, LoggerService } from "~/abstractions/index.js";
+import { BuildApp, GetApp, ListPackagesService, LoggerService } from "~/abstractions/index.js";
 import { createAppWorkspace } from "~/utils/index.js";
-import { PackagesBuilder } from "./packagesBuilders/PackagesBuilder.js";
+import { PackagesBuilder } from "./builders/PackagesBuilder.js";
 
 export class DefaultBuildApp implements BuildApp.Interface {
     constructor(
         private getApp: GetApp.Interface,
-        private getAppPackagesService: GetAppPackagesService.Interface,
-        private logger: LoggerService.Interface
+        private logger: LoggerService.Interface,
+        private listPackagesService: ListPackagesService.Interface
     ) {}
 
     async execute(params: BuildApp.Params) {
@@ -23,14 +23,19 @@ export class DefaultBuildApp implements BuildApp.Interface {
             variant: params.variant
         });
 
-        const packages = await this.getAppPackagesService.execute(app);
-        const packagesBuilder = new PackagesBuilder(packages, params, this.logger);
-        await packagesBuilder.build();
+        const packages = await this.listPackagesService.execute(params);
+        const packagesBuilder = new PackagesBuilder({
+            packages,
+            params,
+            logger: this.logger
+        });
+
+        return packagesBuilder.build();
     }
 }
 
 export const buildApp = createImplementation({
     abstraction: BuildApp,
     implementation: DefaultBuildApp,
-    dependencies: [ GetApp, GetAppPackagesService, LoggerService]
+    dependencies: [GetApp, LoggerService, ListPackagesService]
 });

@@ -1,20 +1,17 @@
-// @ts-nocheck
 import { createImplementation } from "@webiny/di-container";
 import {
     GetApp,
-    GetProject,
     ListAppLambdaFunctionsService,
+    ListPackagesService,
     LoggerService,
-    PulumiGetStackOutputService,
     Watch
 } from "~/abstractions/index.js";
 import chalk from "chalk";
-import get from "lodash/get.js";
-import merge from "lodash/merge.js";
-import type inspectorType from "inspector";
+// import get from "lodash/get.js";
+// import merge from "lodash/merge.js";
+// import type inspectorType from "inspector";
 // import { getDeploymentId, loadEnvVariables, runHook, setMustRefreshBeforeDeploy } from "~/utils/index.js";
 // import { getIotEndpoint } from "./getIotEndpoint.js";
-import { listPackages } from "./listPackages.js";
 import { AppModel } from "~/models";
 import { PackagesWatcher } from "./watchers/PackagesWatcher.js";
 // import { initInvocationForwarding } from "./initInvocationForwarding.js";
@@ -26,10 +23,10 @@ const WATCH_DISABLED_ENVIRONMENTS = ["prod", "production"];
 
 export class DefaultWatch implements Watch.Interface {
     constructor(
-        private getProject: GetProject.Interface,
         private getApp: GetApp.Interface,
         private logger: LoggerService.Interface,
         private listAppLambdaFunctionsService: ListAppLambdaFunctionsService.Interface,
+        private listPackagesService: ListPackagesService.Interface
     ) {}
 
     async execute(params: Watch.Params) {
@@ -40,11 +37,11 @@ export class DefaultWatch implements Watch.Interface {
             );
         }
 
-        const project = await this.getProject.execute();
-
         // If we're not watching a specific app, we can only watch packages.
         if (!("app" in params)) {
-            const packages = await listPackages({ project, watchParams: params });
+            const packages = await this.listPackagesService.execute({
+                whitelist: params.package,
+            });
             const packagesWatcher = new PackagesWatcher({ packages, params, logger: this.logger });
 
             return packagesWatcher.watch();
@@ -82,12 +79,11 @@ export class DefaultWatch implements Watch.Interface {
             );
         }
 
-        const packages = await listPackages({ project, app, watchParams: params });
+        const packages = await this.listPackagesService.execute(params);
         const packagesWatcher = new PackagesWatcher({ packages, params, logger: this.logger });
 
         const functionsList = await this.listAppLambdaFunctionsService.execute(app, params);
 
-        console.log("fnsList", functionsList);
         const deployCommand = `yarn webiny deploy ${app.name} --env ${params.env}`;
         const learnMoreLink = "https://webiny.link/local-aws-lambda-development";
         const troubleshootingLink = learnMoreLink + "#troubleshooting";
@@ -114,6 +110,8 @@ export class DefaultWatch implements Watch.Interface {
 
             return packagesWatcher.watch();
         }
+
+        return []
         //
         // context.info(`Local AWS Lambda development session started.`);
         // context.warning(
@@ -206,10 +204,9 @@ export const watch = createImplementation({
     abstraction: Watch,
     implementation: DefaultWatch,
     dependencies: [
-        GetProject,
         GetApp,
         LoggerService,
         ListAppLambdaFunctionsService,
-        PulumiGetStackOutputService
+        ListPackagesService
     ]
 });
