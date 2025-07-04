@@ -9,11 +9,12 @@ import {
 } from "~/BaseEditor/metadata";
 import { Commands } from "~/BaseEditor";
 import { Editor } from "~/editorSdk/Editor";
-import { autorun, makeAutoObservable, runInAction } from "mobx";
+import { autorun, makeAutoObservable, runInAction, toJS } from "mobx";
 import { type InheritanceInfo, InheritanceProcessor } from "~/sdk/InheritanceProcessor";
 import { BindingsProcessor, type DocumentElementBindings, type Document } from "~/sdk";
 import { $getComponentManifestByElementId } from "~/editorSdk/utils";
 import { ComponentManifestToAstConverter } from "~/sdk/ComponentManifestToAstConverter";
+import { BASE_BREAKPOINT } from "~/constants";
 
 export type StyleStoreVm = {
     styles: Record<string, any>;
@@ -29,7 +30,7 @@ export class StylesStore {
     private elementMetadata: IMetadata = new NullMetadata();
     private devFriendlyStyles: Record<string, any> = {};
     private localPreviewStyles: Record<string, any> | undefined = undefined;
-    private currentBreakpoint: string = "desktop";
+    private currentBreakpoint: string;
     private inheritanceMap: InheritanceInfo["styles"] = {};
     private rawBindings: DocumentElementBindings = {};
     private bindingsProcessor: BindingsProcessor;
@@ -47,7 +48,8 @@ export class StylesStore {
 
         const document = this.editor.getDocumentState().read();
         const editorState = this.editor.getEditorState().read();
-        const breakpoint = editorState.breakpoint ?? "desktop";
+        const breakpoint = editorState.breakpoint ?? BASE_BREAKPOINT;
+        this.currentBreakpoint = breakpoint;
 
         // Initial setup.
         this.calculateStuff(document, breakpoint);
@@ -55,9 +57,10 @@ export class StylesStore {
         autorun(() => {
             const document = this.editor.getDocumentState().read();
             const editorState = this.editor.getEditorState().read();
-            const breakpoint = editorState.breakpoint ?? "desktop";
+            const breakpoint = editorState.breakpoint ?? BASE_BREAKPOINT;
 
             runInAction(() => {
+                this.currentBreakpoint = breakpoint;
                 this.calculateStuff(document, breakpoint);
             });
         });
@@ -124,20 +127,13 @@ export class StylesStore {
 
     private calculateStuff(document: Document, breakpoint: string) {
         const bindings = document.bindings[this.elementId] ?? {};
-        this.currentBreakpoint = breakpoint;
 
         this.rawBindings = bindings;
-        const resolvedBindings = this.bindingsProcessor.getBindings(
-            bindings,
-            this.currentBreakpoint
-        );
+        const resolvedBindings = this.bindingsProcessor.getBindings(bindings, breakpoint);
 
-        const inheritanceMap = this.inheritanceProcessor.getInheritanceMap(
-            bindings,
-            this.currentBreakpoint
-        );
+        const inheritanceMap = this.inheritanceProcessor.getInheritanceMap(bindings, breakpoint);
 
-        this.inheritanceMap = inheritanceMap.styles;
+            this.inheritanceMap = inheritanceMap.styles;
 
         this.stylesProcessor = new StylesBindingsProcessor(
             this.elementId,
@@ -148,7 +144,7 @@ export class StylesStore {
         this.elementMetadata = new StylesMetadata(
             new BreakpointElementMetadata(
                 this.breakpointNames,
-                this.currentBreakpoint,
+                breakpoint,
                 new ElementMetadata(this.elementId, bindings.metadata)
             )
         );

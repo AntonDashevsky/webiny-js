@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { DropdownMenu /* Icon */ } from "@webiny/admin-ui";
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
 import { observer } from "mobx-react-lite";
+import { cn, DropdownMenu, Tooltip } from "@webiny/admin-ui";
+import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
+import { InheritedFrom } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
+import { BASE_BREAKPOINT } from "~/constants";
 // import { ReactComponent as ChevronDown } from "@webiny/icons/keyboard_arrow_down.svg";
 
 type Option = {
@@ -13,12 +16,16 @@ interface ValueSelectorProps {
     elementId: string;
     propertyName: string;
     options: Option[];
+    disabled?: boolean;
 }
 
 export const ValueSelector = observer(
-    ({ elementId, propertyName, options }: ValueSelectorProps) => {
+    ({ elementId, propertyName, options, disabled }: ValueSelectorProps) => {
+        const { breakpoint } = useBreakpoint();
         const { styles, onChange, onPreviewChange, inheritanceMap } = useStyles(elementId);
         const [editing, setEditing] = useState(false);
+
+        const { inheritedFrom, overridden } = inheritanceMap[propertyName] ?? {};
 
         const defaultValue = editing ? "" : 0;
 
@@ -57,10 +64,17 @@ export const ValueSelector = observer(
             });
         };
 
-        return (
-            <div className="wby-flex wby-flex-row wby-text-sm wby-my-sm wby-mx-auto wby-items-center">
+        const classNames = cn([
+            propertyName.startsWith("margin") ? "wby-bg-neutral-muted" : "wby-bg-neutral-light",
+            overridden && inheritedFrom && "wby-bg-success-default wby-text-neutral-light",
+            disabled && "wby-bg-neutral-disabled wby-text-neutral-disabled wby-pointer-events-none",
+            "wby-flex wby-flex-row wby-text-sm wby-my-sm wby-mx-auto wby-items-center wby-rounded-sm wby-py-[1px] wby-px-[2px]"
+        ]);
+
+        const controls = (
+            <div className={classNames}>
                 <input
-                    disabled={isAuto}
+                    disabled={isAuto || disabled}
                     value={isAuto ? "" : value}
                     onChange={e => setPreviewValue(e.target.value)}
                     onBlur={e => setValue(e.target.value)}
@@ -91,6 +105,34 @@ export const ValueSelector = observer(
                     ))}
                 </DropdownMenu>
             </div>
+        );
+
+        if (BASE_BREAKPOINT === breakpoint.name) {
+            return controls;
+        }
+
+        const onReset = () => {
+            onChange(({ styles }) => {
+                styles.unset(propertyName);
+            });
+        };
+
+        return (
+            <Tooltip
+                rawTrigger
+                trigger={controls}
+                content={
+                    <InheritedFrom
+                        inheritedFrom={inheritedFrom ?? BASE_BREAKPOINT}
+                        overriddenAt={overridden ? breakpoint.name : null}
+                        onReset={onReset}
+                    />
+                }
+                align="center"
+                side="bottom"
+                variant="accent"
+                showArrow={true}
+            />
         );
     }
 );

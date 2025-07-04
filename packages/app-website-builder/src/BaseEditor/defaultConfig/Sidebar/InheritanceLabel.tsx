@@ -78,7 +78,7 @@ interface InheritedFromProps {
     onReset: () => void;
 }
 
-const InheritedFrom = ({ overriddenAt, inheritedFrom, onReset }: InheritedFromProps) => {
+export const InheritedFrom = ({ overriddenAt, inheritedFrom, onReset }: InheritedFromProps) => {
     if (overriddenAt) {
         return (
             <div>

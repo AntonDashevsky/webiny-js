@@ -1,5 +1,8 @@
 import React from "react";
+
 import { ValueSelector } from "./ValueSelector";
+import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
+import { LinkedEditing } from "./LinkedEditing";
 
 const autoOption = {
     label: "auto",
@@ -49,6 +52,15 @@ const heightOptions = [...marginUnitOptions, ...heightUnitOptions, autoOption];
 const widthOptions = [...marginUnitOptions, ...widthUnitOptions, autoOption];
 
 export const Margin = ({ elementId, children }: MarginProps) => {
+    const { onChange, metadata } = useStyles(elementId);
+    const linked = metadata.get<boolean>("marginLinkedEditing") ?? true;
+
+    const onToggleLinkedEditing = (linked: boolean) => {
+        onChange(({ metadata }) => {
+            metadata.set("marginLinkedEditing", linked);
+        });
+    };
+
     return (
         <div className="wby-flex wby-flex-col wby-items-center wby-rounded-md wby-relative">
             {/* Margin Label */}
@@ -65,15 +77,19 @@ export const Margin = ({ elementId, children }: MarginProps) => {
                 />
             </div>
 
+            <LinkedEditing linked={linked} onToggle={onToggleLinkedEditing} />
+
             {/* Middle Row (Left Margin + Padding Box + Right Margin) */}
             <div className="wby-flex wby-flex-row wby-items-center wby-w-full wby-h-[100px]">
                 <ValueSelector
+                    disabled={linked}
                     elementId={elementId}
                     propertyName={"marginLeft"}
                     options={widthOptions}
                 />
                 {children}
                 <ValueSelector
+                    disabled={linked}
                     elementId={elementId}
                     propertyName={"marginRight"}
                     options={widthOptions}
@@ -83,6 +99,7 @@ export const Margin = ({ elementId, children }: MarginProps) => {
             {/* Bottom Margin */}
             <div className={"wby-flex wby-h-[40px]"}>
                 <ValueSelector
+                    disabled={linked}
                     elementId={elementId}
                     propertyName={"marginBottom"}
                     options={heightOptions}

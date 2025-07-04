@@ -14,7 +14,6 @@ export function useStyles(elementId: string) {
         metadata: new NullMetadata(),
         inheritanceMap: {}
     });
-
     const editor = useDocumentEditor();
     const { breakpoints } = useBreakpoint();
 
