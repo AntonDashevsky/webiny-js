@@ -185,8 +185,8 @@ const MarginStripes = ({ top, left, height, width }: MarginStripesProps) => {
                 height,
                 width,
                 backgroundImage:
-                    "linear-gradient(135deg, #ecebff 25%, #ffffff 25%, #ffffff 50%, #ecebff 50%, #ecebff 75%, #ffffff 75%, #ffffff 100%)",
-                backgroundSize: "8.49px 8.49px"
+                    "linear-gradient(135deg, #ecebff 18.75%, #ffffff 18.75%, #ffffff 50%, #ecebff 50%, #ecebff 68.75%, #ffffff 68.75%, #ffffff 100%)",
+                backgroundSize: "4.49px 4.49px"
             }}
         ></div>
     );
