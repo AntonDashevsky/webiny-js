@@ -108,7 +108,16 @@ export default {
                 margin: {
                     static: "0px"
                 },
-                padding: {
+                paddingTop: {
+                    static: "5px"
+                },
+                paddingBottom: {
+                    static: "5px"
+                },
+                paddingLeft: {
+                    static: "5px"
+                },
+                paddingRight: {
                     static: "5px"
                 },
                 backgroundPosition: {

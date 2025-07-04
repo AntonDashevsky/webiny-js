@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { Commands } from "~/BaseEditor";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
@@ -41,13 +41,14 @@ class StylesValueObject {
 }
 
 export const useStyles = (elementId: string) => {
-    const [localState, setLocalValue] = useState<Record<string, any>>();
     const { breakpoint, breakpoints } = useBreakpoint();
     const editor = useDocumentEditor();
+    const [, setCount] = useState(0);
+    const localRef = useRef<any>();
 
-    useEffect(() => {
-        setLocalValue(undefined);
-    }, [elementId]);
+    const rerender = useCallback(() => {
+        setCount(count => count + 1);
+    }, []);
 
     const breakpointNames = breakpoints.map(bp => bp.name);
 
@@ -72,50 +73,55 @@ export const useStyles = (elementId: string) => {
 
     const devFriendlyStyles = stylesProcessor.toDeepStyles(resolvedBindings.styles);
 
-    const onChange = useCallback(
-        (cb: (params: OnChangeParams) => void) => {
-            const styles = new StylesValueObject(devFriendlyStyles);
+    const onChange = (cb: (params: OnChangeParams) => void) => {
+        const styles = new StylesValueObject(devFriendlyStyles);
 
-            // Apply changes by reference.
-            cb({ styles, metadata: elementMetadata });
+        // Apply changes by reference.
+        cb({ styles, metadata: elementMetadata });
 
-            // Apply final styles to element bindings.
-            const updatedStyles = stylesProcessor.createUpdate(styles.getAll(), breakpoint.name);
+        const finalStyles = styles.getAll();
 
-            editor.updateDocument(document => {
-                updatedStyles.applyToDocument(document);
-                elementMetadata.applyToDocument(document);
-            });
+        // Apply final styles to element bindings.
+        const updatedStyles = stylesProcessor.createUpdate(finalStyles, breakpoint.name);
 
-            // Clear local value
-            setLocalValue(undefined);
-        },
-        [elementId, devFriendlyStyles, breakpoint]
-    );
+        localRef.current = undefined;
 
-    const onPreviewChange = useCallback(
-        (cb: (params: OnChangeParams) => void) => {
-            const styles = new StylesValueObject(devFriendlyStyles);
+        editor.updateDocument(document => {
+            updatedStyles.applyToDocument(document);
+            elementMetadata.applyToDocument(document);
+        });
+    };
 
-            cb({ styles, metadata: elementMetadata });
+    const onPreviewChange = (cb: (params: OnChangeParams) => void) => {
+        const stylesProcessor = new StylesBindingsProcessor(
+            elementId,
+            breakpoints.map(bp => bp.name),
+            structuredClone(rawBindings)
+        );
 
-            const finalStyles = styles.getAll();
+        const styles = new StylesValueObject(structuredClone(devFriendlyStyles));
 
-            // For preview, we need to store a local copy of styles, to avoid updating editor state.
-            setLocalValue(finalStyles);
+        cb({ styles, metadata: elementMetadata });
 
-            const updatedStyles = stylesProcessor.createUpdate(finalStyles, breakpoint.name);
+        const finalStyles = styles.getAll();
 
-            editor.executeCommand(Commands.PreviewPatchElement, {
-                elementId,
-                patch: updatedStyles.createJsonPatch(rawBindings)
-            });
-        },
-        [elementId, devFriendlyStyles, breakpoint]
-    );
+        // For preview, we need to store a local copy of styles, to avoid updating editor state.
+        localRef.current = finalStyles;
+
+        const updatedStyles = stylesProcessor.createUpdate(finalStyles, breakpoint.name);
+
+
+        // Since we're not updating state, force re-render of the consumers.
+        rerender();
+
+        editor.executeCommand(Commands.PreviewPatchElement, {
+            elementId,
+            patch: updatedStyles.createJsonPatch(rawBindings)
+        });
+    };
 
     return {
-        styles: localState ?? devFriendlyStyles,
+        styles: localRef.current ?? devFriendlyStyles,
         metadata: elementMetadata,
         inheritanceMap: inheritanceMap.styles,
         onChange,

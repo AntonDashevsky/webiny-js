@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { ResolveElementParams } from "~/sdk/ComponentResolver";
 import type { BindingsApi } from "~/sdk/BindingsApi";
+import { ShorthandCssProperties } from "./types/ShorthandCssProperties";
 
 export type ElementMap = Record<string, DocumentElement>;
 
@@ -23,7 +24,7 @@ export type RepeatValueBinding = {
     expression: string;
 };
 
-export type CssProperties = CSSProperties;
+export type CssProperties = Omit<CSSProperties, ShorthandCssProperties>;
 
 export type DocumentElementStyleBindings = Partial<{
     [K in keyof CssProperties]: StyleValueBinding<CssProperties[K]>;

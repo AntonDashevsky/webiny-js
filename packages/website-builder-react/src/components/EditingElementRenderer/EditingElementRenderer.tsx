@@ -28,7 +28,6 @@ export const EditingElementRenderer = observer((props: PreviewElementRendererPro
             return;
         }
         presenter.init(props.element);
-        presenter.observeDOM();
     }, [props.element?.id]);
 
     useEffect(() => {

@@ -16,6 +16,7 @@ import { Root } from "./components/Root";
 import Hero_1 from "@/webiny/components/Hero-1";
 import { type Column, Grid, GridColumn } from "./components/Grid";
 import { createLexicalValue, LexicalComponent } from "./components/LexicalComponent";
+import { Box } from "./components/Box";
 
 const SimpleTextComponent = ({
     inputs: { text, image }
@@ -36,6 +37,12 @@ export const customComponents = [
         label: "Main Content",
         acceptsChildren: true,
         hideFromToolbar: true
+    }),
+    createComponent(Box, {
+        name: "Webiny/Box",
+        label: "Box",
+        group: "basic",
+        acceptsChildren: true
     }),
     createComponent(Grid, {
         name: "Webiny/Grid",
@@ -196,12 +203,18 @@ export const customComponents = [
                 boxSizing: "border-box",
                 display: "flex",
                 flexDirection: "row",
-                flexFlow: "wrap",
+                flexWrap: "wrap",
                 justifyContent: "flex-start",
                 alignItems: "stretch",
                 width: "100%",
-                margin: "0px",
-                padding: "5px"
+                marginTop: "0px",
+                marginBottom: "0px",
+                marginLeft: "0px",
+                marginRight: "0px",
+                paddingTop: "5px",
+                paddingRight: "5px",
+                paddingBottom: "5px",
+                paddingLeft: "5px"
             }
         }
     }),
@@ -214,7 +227,10 @@ export const customComponents = [
         hideFromToolbar: true,
         defaults: {
             styles: {
-                padding: "10px"
+                paddingTop: "10px",
+                paddingRight: "10px",
+                paddingBottom: "10px",
+                paddingLeft: "10px"
             }
         }
     }),

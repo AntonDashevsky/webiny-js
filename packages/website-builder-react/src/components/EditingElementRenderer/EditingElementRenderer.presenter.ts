@@ -2,11 +2,10 @@
 import { makeAutoObservable, observable, toJS } from "mobx";
 import {
     contentSdk,
-    resizeObserver,
     jsonPatch,
     DocumentStore,
     type EditingSdk,
-    type DocumentElement,
+    type DocumentElement
 } from "@webiny/app-website-builder/sdk";
 
 export class EditingElementRendererPresenter {
@@ -33,19 +32,7 @@ export class EditingElementRendererPresenter {
         this.setupPreview();
     }
 
-    observeDOM() {
-        const element = document.querySelector(`[data-element-id="${this.element.id}"]`);
-        if (element) {
-            resizeObserver.observe(element as HTMLElement);
-        }
-    }
-
     dispose() {
-        const element = document.querySelector(`[data-element-id="${this.element.id}"]`);
-        if (element) {
-            resizeObserver.unobserve(element as HTMLElement);
-        }
-
         this.listeners.forEach(fn => fn());
     }
 

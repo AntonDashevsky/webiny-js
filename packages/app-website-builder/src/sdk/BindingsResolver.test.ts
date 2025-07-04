@@ -40,7 +40,7 @@ describe("BindingsResolver", () => {
                 }
             },
             styles: {
-                padding: {
+                paddingTop: {
                     static: "10px"
                 }
             }
@@ -56,7 +56,7 @@ describe("BindingsResolver", () => {
         });
 
         expect(resolved.inputs.text).toBe("Alice");
-        expect(resolved.styles).toEqual({ padding: "10px" });
+        expect(resolved.styles).toEqual({ paddingTop: "10px" });
     });
 
     it("resolves nested objects", () => {
@@ -94,7 +94,7 @@ describe("BindingsResolver", () => {
                     }
                 },
                 styles: {
-                    padding: {
+                    paddingTop: {
                         static: "20px"
                     },
                     backgroundColor: {

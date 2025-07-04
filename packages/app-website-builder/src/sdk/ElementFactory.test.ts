@@ -103,7 +103,7 @@ const mockComponents: Record<string, ComponentManifest> = {
                 ]
             },
             styles: {
-                padding: "10px"
+                paddingTop: "10px"
             }
         }
     },

@@ -9,7 +9,6 @@ import { mouseTracker } from "./MouseTracker";
 import { functionConverter } from "./FunctionConverter";
 import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 import { DocumentStore } from "~/sdk/DocumentStore";
-import { resizeObserver } from "~/sdk/ResizeObserver";
 import { HotkeyManager } from "~/sdk/HotkeyManager";
 import { ResolveElementParams } from "./ComponentResolver.js";
 
@@ -159,6 +158,12 @@ export class EditingSdk implements IContentSdk {
         this.messenger.on("preview.scroll", data => {
             window.scrollBy(data.deltaX, data.deltaY);
         });
+
+        this.messenger.on("element.patch.*", () => {
+            setTimeout(() => {
+                this.reportBoxes();
+            }, 50);
+        });
     }
 
     private initPositionReporting(): void {
@@ -197,10 +202,6 @@ export class EditingSdk implements IContentSdk {
 
         // Report initial positions after a short delay to ensure elements are rendered
         setTimeout(() => this.reportBoxes(), 500);
-
-        resizeObserver.onChange(() => {
-            this.reportBoxes();
-        });
     }
 
     private reportBoxes(): void {
