@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/webiny/webiny-js.git"
   },
-  "description": "A simple data project library, packed with frequently used validators.",
+  "description": "An SDK for managing Webiny projects.",
   "license": "MIT",
   "dependencies": {
     "@webiny/di-container": "0.0.0",

@@ -10,7 +10,7 @@ export class MultipleBuildsOutput extends BaseBuildOutput {
 
         const getBuildDuration = measureDuration();
 
-        ui.info(`Building %s packages...`, buildProcesses.length);
+        ui.info(`Building %s packages... `, buildProcesses.length);
 
         const tasksList = this.buildProcesses.map(buildProcess => {
             return {
@@ -57,15 +57,13 @@ export class MultipleBuildsOutput extends BaseBuildOutput {
             .run()
             .catch(err => {
                 ui.newLine();
-                ui.error(
-                    `Failed to build all packages. For more details, check the logs below.`
-                );
+                ui.error(`Failed to build all packages. For more details, check the logs below.`);
                 ui.newLine();
 
                 err.errors.forEach((err: Error, i: number) => {
                     const { pkg, error } = err.cause as Record<string, any>;
                     const number = `${i + 1}.`;
-                    const name = ui.error(pkg.name);
+                    const name = chalk.red(pkg.name);
                     const relativePath = chalk.gray(`(${pkg.paths.relative})`);
                     const title = [number, name, relativePath].join(" ");
 
@@ -83,9 +81,7 @@ export class MultipleBuildsOutput extends BaseBuildOutput {
                 throw new Error(`Failed to build all packages.`);
             })
             .then(() => {
-                ui.success(
-                    `Built ${buildProcesses.length} packages in ${getBuildDuration()}.`
-                );
+                ui.success(`Built ${buildProcesses.length} packages in ${getBuildDuration()}.`);
             });
     }
 }

@@ -1,6 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
-import { UiService, StdioService } from "~/abstractions/index.js";
 import chalk from "chalk";
+import util from "util";
+import { UiService, StdioService } from "~/abstractions/index.js";
 
 const NEW_LINE = "\n";
 
@@ -16,52 +17,45 @@ export class DefaultUiService implements UiService.Interface {
         this.stdio = stdio;
     }
 
-    text(message?: any, ...optionalParams: any[]) {
-        this.stdio.getStdout().write(message, ...optionalParams);
+    raw(text: string) {
+        this.stdio.getStdout().write(text);
+    }
+
+    text(text: string) {
+        this.stdio.getStdout().write(text);
         this.newLine();
     }
 
     newLine() {
-        this.stdio.getStdout().write("\n");
+        this.stdio.getStdout().write(NEW_LINE);
     }
 
-    // The following methods are used to print messages with a specific type prefix.
-
-    success(message?: any, ...optionalParams: any[]) {
-        this.textWithTypePrefix("success", message, ...optionalParams);
+    // The following methods are used to print texts with a specific type prefix.
+    success(text: string, ...args: any[]) {
+        this.typedColorizedText("success", text, ...args);
     }
 
-    info(message?: any, ...optionalParams: any[]) {
-        this.textWithTypePrefix("info", message, ...optionalParams);
+    info(text: string, ...args: any[]) {
+        this.typedColorizedText("info", text, ...args);
     }
 
-    warning(message?: any, ...optionalParams: any[]) {
-        this.textWithTypePrefix("warning", message, ...optionalParams);
+    warning(text: string, ...args: any[]) {
+        this.typedColorizedText("warning", text, ...args);
     }
 
-    error(message?: any, ...optionalParams: any[]) {
-        this.textWithTypePrefix("error", message, ...optionalParams);
+    error(text: string, ...args: any[]) {
+        this.typedColorizedText("error", text, ...args);
     }
 
-    raw(message?: any, ...optionalParams: any[]) {
-        this.stdio.getStdout().write(message, ...optionalParams);
-    }
+    private typedColorizedText(type: keyof typeof LOG_COLORS, text: string, ...args: any[]) {
+        const prefix = `${LOG_COLORS[type](type)}: `;
 
-    private textWithTypePrefix(type: keyof typeof LOG_COLORS, ...args: any[]) {
-        const prefix = `webiny ${LOG_COLORS[type](type)}: `;
-
-        const [first, ...rest] = args;
-        if (typeof first === "string") {
-            const textWithColorizedPlaceholders = this.colorizePlaceholders(type, first);
-            return this.text(prefix + textWithColorizedPlaceholders, ...rest);
-        }
-        return this.text(prefix, first, ...rest);
-    }
-
-    private colorizePlaceholders(type: keyof typeof LOG_COLORS, text: string) {
-        return text.replace(/%[a-zA-Z]/g, match => {
+        // Replace all placeholders (match with `/%[a-zA-Z]/g` regex) with colorized values.
+        const textWithColorizedPlaceholders = text.replace(/%[a-zA-Z]/g, match => {
             return LOG_COLORS[type](match);
-        });
+        })
+
+        return this.text(prefix + util.format(textWithColorizedPlaceholders, ...args));
     }
 }
 

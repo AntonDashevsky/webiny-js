@@ -77,6 +77,7 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
 
                 if (watchProcesses.length === 1) {
                     const [watchProcess] = watchProcesses;
+                    console.log('aaaaaaa')
                     watchProcess.process.stdout!.pipe(stdio.getStdout());
                     watchProcess.process.stderr!.pipe(stdio.getStderr());
                 } else {

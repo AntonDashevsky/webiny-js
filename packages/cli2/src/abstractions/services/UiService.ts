@@ -1,19 +1,19 @@
 import { Abstraction } from "@webiny/di-container";
 
 export interface IUiService {
-    info(...args: any[]): void;
+    raw(text: string): void;
 
-    success(...args: any[]): void;
-
-    error(...args: any[]): void;
-
-    warning(...args: any[]): void;
-
-    text(...args: any[]): void;
-
-    raw(...args: any[]): void;
+    text(text: string): void;
 
     newLine(): void;
+
+    info(text: string, ...args: any[]): void;
+
+    success(text: string, ...args: any[]): void;
+
+    error(text: string, ...args: any[]): void;
+
+    warning(text: string, ...args: any[]): void;
 }
 
 export const UiService = new Abstraction<IUiService>("UiService");
