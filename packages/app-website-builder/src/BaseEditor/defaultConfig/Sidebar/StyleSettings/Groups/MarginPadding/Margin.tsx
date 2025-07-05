@@ -1,5 +1,4 @@
 import React from "react";
-
 import { ValueSelector } from "./ValueSelector";
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
 import { LinkedEditing } from "./LinkedEditing";
@@ -113,8 +112,7 @@ export const Margin = ({ elementId, children }: MarginProps) => {
         }
     };
 
-    const rowClassname =
-        "wby-flex wby-flex-row wby-w-full wby-justify-center wby-items-center wby-py-[4px]";
+    const rowClassname = "wby-flex wby-flex-row wby-w-full wby-justify-center wby-items-center";
 
     return (
         <div className="wby-flex wby-flex-col wby-rounded-md wby-relative">
@@ -124,7 +122,7 @@ export const Margin = ({ elementId, children }: MarginProps) => {
             </span>
 
             {/* Top Margin */}
-            <div className={rowClassname} style={{ padding: "4px 0" }}>
+            <div className={rowClassname} style={{ paddingTop: "8px" }}>
                 <ValueSelector
                     label={linked ? "Margin" : "Top margin"}
                     {...marginTop}
@@ -138,7 +136,7 @@ export const Margin = ({ elementId, children }: MarginProps) => {
             <LinkedEditing linked={linked} onToggle={onToggleLinkedEditing} />
 
             {/* Middle Row (Left Margin + Padding Box + Right Margin) */}
-            <div className={rowClassname} style={{ padding: "4px 0" }}>
+            <div className={rowClassname} style={{ paddingTop: "8px" }}>
                 <ValueSelector
                     label={"Left margin"}
                     {...marginLeft}
@@ -155,7 +153,7 @@ export const Margin = ({ elementId, children }: MarginProps) => {
             </div>
 
             {/* Bottom Margin */}
-            <div className={rowClassname} style={{ padding: "4px 0" }}>
+            <div className={rowClassname} style={{ padding: "8px 0" }}>
                 <ValueSelector
                     label={"Bottom margin"}
                     {...marginBottom}

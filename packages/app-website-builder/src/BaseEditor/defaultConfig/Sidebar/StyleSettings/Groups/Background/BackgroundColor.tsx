@@ -40,8 +40,6 @@ export const BackgroundColor = ({ elementId }: { elementId: string }) => {
 
     const inheritance = inheritanceMap?.backgroundColor ?? {};
 
-    console.log("final value", value);
-
     return (
         <ColorPicker
             label={

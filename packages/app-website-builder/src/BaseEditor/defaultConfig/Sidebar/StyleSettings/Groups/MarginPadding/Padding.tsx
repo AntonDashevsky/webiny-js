@@ -117,7 +117,7 @@ export const Padding = ({ elementId }: PaddingProps) => {
             <LinkedEditing linked={linked} onToggle={onToggleLinkedEditing} />
 
             {/* Top Padding */}
-            <div className={rowClassname} style={{ padding: "4px 0" }}>
+            <div className={rowClassname} style={{ paddingTop: "8px" }}>
                 <ValueSelector
                     label={"Top padding"}
                     {...paddingTop}
@@ -129,7 +129,7 @@ export const Padding = ({ elementId }: PaddingProps) => {
             </div>
 
             {/* Center Row (Left Padding + Content + Right Padding) */}
-            <div className={rowClassname} style={{ width: 168 }}>
+            <div className={rowClassname} style={{ width: 168, paddingTop: "8px" }}>
                 <ValueSelector
                     label={"Left padding"}
                     {...paddingLeft}
@@ -151,7 +151,7 @@ export const Padding = ({ elementId }: PaddingProps) => {
             </div>
 
             {/* Bottom Padding */}
-            <div className={rowClassname} style={{ padding: "4px 0" }}>
+            <div className={rowClassname} style={{ padding: "8px 0" }}>
                 <ValueSelector
                     label={"Bottom padding"}
                     {...paddingBottom}

@@ -142,6 +142,7 @@ export const ValueSelector = (props: ValueSelectorProps) => {
                 trigger={label}
                 align="center"
                 side="bottom"
+                className={"wby-shadow-lg"}
             >
                 <div className={"wby-p-sm wby-text-sm"} style={{ width: 200 }}>
                     {controls}
