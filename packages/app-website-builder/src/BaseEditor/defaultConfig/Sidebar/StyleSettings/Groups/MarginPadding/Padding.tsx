@@ -57,7 +57,7 @@ export const Padding = ({ elementId }: PaddingProps) => {
     const onToggleLinkedEditing = (linked: boolean) => {
         onChange(({ styles, metadata }) => {
             if (linked) {
-                const value = `${paddingTop.value}${paddingTop.unit}`;
+                const value = `${paddingTop.value ?? 0}${paddingTop.unit}`;
                 styles.set("paddingRight", value);
                 styles.set("paddingBottom", value);
                 styles.set("paddingLeft", value);
@@ -92,6 +92,22 @@ export const Padding = ({ elementId }: PaddingProps) => {
         }
     };
 
+    const onReset = () => {
+        if (linked) {
+            onChange(({ styles }) => {
+                styles.unset("paddingTop");
+                styles.unset("paddingRight");
+                styles.unset("paddingBottom");
+                styles.unset("paddingLeft");
+            });
+        } else {
+            paddingTop.onReset();
+        }
+    };
+
+    const rowClassname =
+        "wby-flex wby-flex-row wby-w-full wby-justify-center wby-items-center wby-py-[4px]";
+
     return (
         <div className="wby-flex wby-flex-col wby-items-center wby-bg-neutral-muted wby-border-sm wby-border-neutral-muted wby-relative wby-rounded-md">
             <span className="wby-absolute wby-text-sm" style={{ top: 3, left: 5 }}>
@@ -101,27 +117,48 @@ export const Padding = ({ elementId }: PaddingProps) => {
             <LinkedEditing linked={linked} onToggle={onToggleLinkedEditing} />
 
             {/* Top Padding */}
-            <ValueSelector
-                {...paddingTop}
-                units={heightOptions}
-                onChange={onPaddingTopChange}
-                onChangePreview={onPaddingTopPreviewChange}
-            />
+            <div className={rowClassname} style={{ padding: "4px 0" }}>
+                <ValueSelector
+                    label={"Top padding"}
+                    {...paddingTop}
+                    onReset={onReset}
+                    units={heightOptions}
+                    onChange={onPaddingTopChange}
+                    onChangePreview={onPaddingTopPreviewChange}
+                />
+            </div>
 
             {/* Center Row (Left Padding + Content + Right Padding) */}
-            <div className="wby-flex wby-flex-row wby-items-center" style={{ width: 168 }}>
-                <ValueSelector {...paddingLeft} units={widthOptions} disabled={linked} />
+            <div className={rowClassname} style={{ width: 168 }}>
+                <ValueSelector
+                    label={"Left padding"}
+                    {...paddingLeft}
+                    units={widthOptions}
+                    disabled={linked}
+                />
                 <div
                     className="wby-flex wby-border-sm wby-border-neutral-muted wby-bg-neutral-light wby-rounded-md wby-items-center wby-justify-center"
-                    style={{ width: 64, height: 30 }}
+                    style={{ width: 170, height: 30 }}
                 >
                     -
                 </div>
-                <ValueSelector {...paddingRight} units={widthOptions} disabled={linked} />
+                <ValueSelector
+                    label={"Right padding"}
+                    {...paddingRight}
+                    units={widthOptions}
+                    disabled={linked}
+                />
             </div>
 
             {/* Bottom Padding */}
-            <ValueSelector {...paddingBottom} units={heightOptions} disabled={linked} />
+            <div className={rowClassname} style={{ padding: "4px 0" }}>
+                <ValueSelector
+                    label={"Bottom padding"}
+                    {...paddingBottom}
+                    units={heightOptions}
+                    disabled={linked}
+                />
+            </div>
         </div>
     );
 };

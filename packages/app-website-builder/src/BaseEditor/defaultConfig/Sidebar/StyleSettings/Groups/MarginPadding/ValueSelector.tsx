@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { cn, DropdownMenu, Tooltip } from "@webiny/admin-ui";
+import React, { useCallback, useRef, useState } from "react";
+import { cn, DropdownMenu, FormComponentLabel, Input, Select, Separator } from "@webiny/admin-ui";
 import { InheritedFrom } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { BASE_BREAKPOINT } from "~/constants";
@@ -10,6 +10,7 @@ type Option = {
 };
 
 interface ValueSelectorProps {
+    label: React.ReactNode;
     value: string;
     unit: string;
     units: Option[];
@@ -21,24 +22,48 @@ interface ValueSelectorProps {
     disabled?: boolean;
 }
 
+class Value {
+    static from(value: string | undefined) {
+        return value === "auto" ? 0 : parseInt(value ?? "0");
+    }
+}
+
 export const ValueSelector = (props: ValueSelectorProps) => {
     const { breakpoint } = useBreakpoint();
     const [editing, setEditing] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [inputChanged, setInputChanged] = useState(false);
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
     const defaultValue = editing ? "" : 0;
 
     const isAuto = props.value === "auto";
 
+    const currentValue = Value.from(props.value);
+
+    const trackTyping = useCallback(() => {
+        setInputChanged(true);
+    }, [setInputChanged]);
+
+    const onEnter = () => {
+        setValue(props.value);
+        setIsOpen(false);
+    };
+
     const setUnit = (unit: string) => {
         setEditing(false);
-        props.onChange(unit === "auto" ? "auto" : `${props.value}${unit}`);
+        props.onChange(unit === "auto" ? "auto" : `${currentValue}${unit}`);
     };
 
     const setValue = (value: string) => {
-        const parsedValue = parseInt(value);
+        const parsedValue = Value.from(value);
+        if (!inputChanged) {
+            return;
+        }
         const finalValue = isNaN(parsedValue) ? 0 : parsedValue;
         props.onChange(`${finalValue}${props.unit}`);
 
+        setInputChanged(false);
         setTimeout(() => {
             setEditing(false);
         }, 20);
@@ -54,66 +79,84 @@ export const ValueSelector = (props: ValueSelectorProps) => {
         props.onChangePreview(`${finalValue}${props.unit}`);
     };
 
+    const onReset = () => {
+        props.onReset();
+        setIsOpen(false);
+    };
+
     const classNames = cn([
-        // propertyName.startsWith("margin") ? "wby-bg-neutral-muted" : "wby-bg-neutral-light",
+        "wby-cursor-pointer wby-bg-neutral-base",
         props.overridden && props.inheritedFrom && "wby-bg-success-default wby-text-neutral-light",
         props.disabled &&
             "wby-bg-neutral-disabled wby-text-neutral-disabled wby-pointer-events-none",
-        "wby-flex wby-flex-row wby-text-sm wby-my-sm wby-mx-auto wby-items-center wby-rounded-sm wby-py-[1px] wby-px-[2px]"
+        "wby-flex wby-flex-row wby-text-sm wby-mx-auto wby-justify-center wby-rounded-sm wby-py-[1px] wby-px-[2px]"
     ]);
 
-    const controls = (
-        <div className={classNames}>
-            <input
-                disabled={isAuto || props.disabled}
-                value={isAuto ? "" : props.value ?? defaultValue}
-                onChange={e => setPreviewValue(e.target.value)}
-                onBlur={e => setValue(e.target.value)}
-                style={{
-                    display: isAuto ? "none" : "inline-block",
-                    background: "transparent",
-                    width: 25,
-                    textAlign: "right",
-                    paddingRight: 2
-                }}
-            />
-            <DropdownMenu
-                trigger={
-                    <div className={"wby-flex wby-flex-row wby-items-center wby-cursor-pointer"}>
-                        {props.unit}
-                    </div>
-                }
-            >
-                {props.units.map(option => (
-                    <DropdownMenu.Item
-                        key={option.value}
-                        text={option.label}
-                        onClick={() => setUnit(option.value)}
-                    />
-                ))}
-            </DropdownMenu>
+    const label = (
+        <div className={classNames} onClick={() => setIsOpen(true)} style={{ width: 45 }}>
+            {props.value ?? 0} {props.unit === "auto" ? null : props.unit}
         </div>
     );
 
-    if (BASE_BREAKPOINT === breakpoint.name) {
-        return controls;
-    }
+    const controls = (
+        <>
+            <FormComponentLabel text={props.label} />
+            <div className={"wby-flex wby-flex-row wby-space-x-sm"}>
+                <div className={"wby-flex-col"}>
+                    <Input
+                        onKeyDown={trackTyping}
+                        inputRef={inputRef}
+                        disabled={isAuto}
+                        size={"md"}
+                        value={isAuto ? "-" : props.value ?? defaultValue}
+                        onEnter={onEnter}
+                        autoSelect={true}
+                        onChange={value => setPreviewValue(value)}
+                        onBlur={e => setValue(e.target.value)}
+                        autoFocus={true}
+                    />
+                </div>
+                <div className={"wby-flex-col"}>
+                    <Select
+                        size="md"
+                        value={props.unit}
+                        options={props.units}
+                        onChange={unit => {
+                            setUnit(unit);
+                            setTimeout(() => {
+                                inputRef.current?.focus();
+                            }, 20);
+                        }}
+                        displayResetAction={false}
+                    />
+                </div>
+            </div>
+        </>
+    );
 
     return (
-        <Tooltip
-            rawTrigger
-            trigger={controls}
-            content={
-                <InheritedFrom
-                    inheritedFrom={props.inheritedFrom ?? BASE_BREAKPOINT}
-                    overriddenAt={props.overridden ? breakpoint.name : null}
-                    onReset={props.onReset}
-                />
-            }
-            align="center"
-            side="bottom"
-            variant="accent"
-            showArrow={true}
-        />
+        <div className={"wby-flex wby-flex-col wby-w-full"}>
+            <DropdownMenu
+                open={isOpen}
+                onOpenChange={() => setIsOpen(false)}
+                trigger={label}
+                align="center"
+                side="bottom"
+            >
+                <div className={"wby-p-sm wby-text-sm"} style={{ width: 200 }}>
+                    {controls}
+                    {BASE_BREAKPOINT === breakpoint.name ? null : (
+                        <>
+                            <Separator variant={"dimmed"} margin={"lg"} />
+                            <InheritedFrom
+                                inheritedFrom={props.inheritedFrom ?? BASE_BREAKPOINT}
+                                overriddenAt={props.overridden ? breakpoint.name : null}
+                                onReset={onReset}
+                            />
+                        </>
+                    )}
+                </div>
+            </DropdownMenu>
+        </div>
     );
 };

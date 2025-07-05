@@ -253,6 +253,10 @@ type InputPrimitiveProps<TValue = any> = Omit<
          * A callback that is executed each time a value is changed.
          */
         onChange?: (value: TValue) => void;
+        /**
+         * If true, will select the value in the input on focus.
+         */
+        autoSelect?: boolean;
     };
 
 const getIconPosition = (
@@ -282,6 +286,7 @@ const DecoratableInputPrimitive = ({
     onChange: originalOnChange,
     onEnter,
     onKeyDown: originalOnKeyDown,
+    onFocus: originalOnFocus,
     size,
     startIcon,
     value,
@@ -315,6 +320,19 @@ const DecoratableInputPrimitive = ({
         [originalOnKeyDown, onEnter]
     );
 
+    const onFocus = React.useCallback(
+        (e: React.FocusEvent<HTMLInputElement>) => {
+            if (originalOnFocus) {
+                originalOnFocus(e);
+            }
+
+            if (props.autoSelect) {
+                e.target.select();
+            }
+        },
+        [originalOnFocus, props.autoSelect]
+    );
+
     return (
         <div className={cn("wby-relative wby-flex wby-items-center wby-w-full", className)}>
             {startIcon && (
@@ -334,6 +352,7 @@ const DecoratableInputPrimitive = ({
                 onChange={onChange}
                 onKeyDown={onKeyDown}
                 value={value ?? ""}
+                onFocus={onFocus}
             />
             {endIcon && (
                 <InputIcon disabled={disabled} icon={endIcon} inputSize={size} position={"end"} />

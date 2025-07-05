@@ -65,7 +65,7 @@ export const Margin = ({ elementId, children }: MarginProps) => {
     const onToggleLinkedEditing = (linked: boolean) => {
         onChange(({ styles, metadata }) => {
             if (linked) {
-                const value = `${marginTop.value}${marginTop.unit}`;
+                const value = `${marginTop.value ?? 0}${marginTop.unit}`;
                 styles.set("marginRight", value);
                 styles.set("marginBottom", value);
                 styles.set("marginLeft", value);
@@ -100,17 +100,35 @@ export const Margin = ({ elementId, children }: MarginProps) => {
         }
     };
 
+    const onReset = () => {
+        if (linked) {
+            onChange(({ styles }) => {
+                styles.unset("marginTop");
+                styles.unset("marginRight");
+                styles.unset("marginBottom");
+                styles.unset("marginLeft");
+            });
+        } else {
+            marginTop.onReset();
+        }
+    };
+
+    const rowClassname =
+        "wby-flex wby-flex-row wby-w-full wby-justify-center wby-items-center wby-py-[4px]";
+
     return (
-        <div className="wby-flex wby-flex-col wby-items-center wby-rounded-md wby-relative">
+        <div className="wby-flex wby-flex-col wby-rounded-md wby-relative">
             {/* Margin Label */}
             <span className="wby-absolute wby-text-sm" style={{ top: 5, left: 7 }}>
                 Margin
             </span>
 
             {/* Top Margin */}
-            <div className={"wby-flex wby-h-[40px]"}>
+            <div className={rowClassname} style={{ padding: "4px 0" }}>
                 <ValueSelector
+                    label={linked ? "Margin" : "Top margin"}
                     {...marginTop}
+                    onReset={onReset}
                     units={heightOptions}
                     onChange={onMarginTopChange}
                     onChangePreview={onMarginTopPreviewChange}
@@ -120,15 +138,30 @@ export const Margin = ({ elementId, children }: MarginProps) => {
             <LinkedEditing linked={linked} onToggle={onToggleLinkedEditing} />
 
             {/* Middle Row (Left Margin + Padding Box + Right Margin) */}
-            <div className="wby-flex wby-flex-row wby-items-center wby-w-full wby-h-[100px]">
-                <ValueSelector {...marginLeft} units={widthOptions} disabled={linked} />
+            <div className={rowClassname} style={{ padding: "4px 0" }}>
+                <ValueSelector
+                    label={"Left margin"}
+                    {...marginLeft}
+                    units={widthOptions}
+                    disabled={linked}
+                />
                 {children}
-                <ValueSelector {...marginRight} units={widthOptions} disabled={linked} />
+                <ValueSelector
+                    label={"Right margin"}
+                    {...marginRight}
+                    units={widthOptions}
+                    disabled={linked}
+                />
             </div>
 
             {/* Bottom Margin */}
-            <div className={"wby-flex wby-h-[40px]"}>
-                <ValueSelector {...marginBottom} units={heightOptions} disabled={linked} />
+            <div className={rowClassname} style={{ padding: "4px 0" }}>
+                <ValueSelector
+                    label={"Bottom margin"}
+                    {...marginBottom}
+                    units={heightOptions}
+                    disabled={linked}
+                />
             </div>
         </div>
     );
