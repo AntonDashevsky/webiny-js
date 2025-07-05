@@ -32,7 +32,6 @@
     "@swc/plugin-emotion": "^9.0.4",
     "@types/webpack-env": "^1.18.5",
     "@webiny/aws-sdk": "0.0.0",
-    "@webiny/cli": "0.0.0",
     "@webiny/feature-flags": "0.0.0",
     "@webiny/global-config": "0.0.0",
     "@webiny/telemetry": "0.0.0",
@@ -107,7 +106,6 @@
   },
   "peerDependencies": {
     "@webiny/aws-sdk": "*",
-    "@webiny/cli": "*",
     "@webiny/global-config": "*",
     "@webiny/telemetry": "*"
   },

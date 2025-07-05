@@ -3,7 +3,7 @@ import fs from "fs";
 import getYarnWorkspaces from "get-yarn-workspaces";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { PackageJson } from "@webiny/cli/utils/PackageJson.js";
+import { PackageJson } from "../../utils/PackageJson.js";
 
 const getAllPackages = targetKeywords => {
     const { storage = "ddb" } = yargs(hideBin(process.argv));

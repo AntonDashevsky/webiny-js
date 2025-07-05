@@ -2,7 +2,6 @@ import path from "path";
 import fs from "fs-extra";
 import { rspack } from "@rspack/core";
 import formatWebpackMessages from "react-dev-utils/formatWebpackMessages.js";
-import { getProjectApplication } from "@webiny/cli/utils";
 import { BaseAppBundler } from "./BaseAppBundler.js";
 import { createRspackConfig } from "./rspack/createRspackConfig.js";
 import { TailwindSuppressor } from "./rspack/TailwindSuppressor.js";
@@ -82,7 +81,7 @@ export class RspackBundler extends BaseAppBundler {
         process.env.NODE_ENV = "development";
         process.env.ESLINT_NO_UNUSED_VARS = "0";
 
-        const rspackConfig = this.getRspackConfig("development");
+        const rspackConfig = await this.getRspackConfig("development");
         const compiler = rspack(rspackConfig);
 
         const { RspackDevServer } = await import("./rspack/RspackDevServer.js");
@@ -97,16 +96,8 @@ export class RspackBundler extends BaseAppBundler {
     }
 
     async getRspackConfig(env) {
-        let projectApplication;
-        try {
-            projectApplication = getProjectApplication({ cwd: this.params.cwd });
-        } catch {
-            // Silent catch
-        }
-
         return await createRspackConfig(this.paths, {
             ...this.params,
-            projectApplication,
             env
         });
     }

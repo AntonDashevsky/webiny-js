@@ -12,13 +12,13 @@ import ReactRefreshPlugin from "@rspack/plugin-react-refresh";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 import getCSSModuleLocalIdent from "react-dev-utils/getCSSModuleLocalIdent.js";
 import ESLintPlugin from "eslint-webpack-plugin";
-import { getProjectApplication } from "@webiny/cli/utils";
 import { TsCheckerRspackPlugin } from "ts-checker-rspack-plugin";
 import getClientEnvironment from "./env.js";
 import { createSwcConfig } from "../createSwcConfig.js";
 import modulesFactory from "./modules.js";
 
 import { createRequire } from "module";
+import { ProjectSdk } from "../../../../../ProjectSdk/index.js";
 
 const require = createRequire(import.meta.url);
 
@@ -30,8 +30,14 @@ const STATIC_FOLDER = "static";
  * @param {string} webpackEnv
  * @param {{ paths: any, options: any }} param1
  */
-export function createRspackConfig(webpackEnv, { paths, options }) {
-    const projectApplication = getProjectApplication({ cwd: options.cwd });
+export async function createRspackConfig(webpackEnv, { paths, options }) {
+    const project = ProjectSdk.init(options.cwd);
+    let app;
+    try {
+        app = await project.getApp(options.cwd);
+    } catch {
+        // No need to do anything.
+    }
 
     const isEnvDevelopment = webpackEnv === "development";
     const isEnvProduction = webpackEnv === "production";
@@ -44,7 +50,7 @@ export function createRspackConfig(webpackEnv, { paths, options }) {
     const publicPath = isEnvProduction ? paths.servedPath : isEnvDevelopment && "/";
     const shouldUseSourceMap = isEnvDevelopment || process.env.GENERATE_SOURCEMAP === "true";
     const publicUrl = isEnvProduction ? publicPath.slice(0, -1) : isEnvDevelopment && "";
-    const env = getClientEnvironment({ publicUrl, projectApplication });
+    const env = getClientEnvironment({ publicUrl, projectApplication: app });
 
     const htmlTemplate = fs.readFileSync(paths.appHtml, "utf8");
 

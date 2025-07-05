@@ -56,7 +56,7 @@ const defaults = {
 
 export const linkWorkspaces = async ({ whitelist, blacklist } = defaults) => {
     console.log(`Linking project workspaces...`);
-    const { PackageJson } = await import("@webiny/cli/utils/PackageJson.js");
+    const { PackageJson } = await import("../utils/PackageJson.js");
 
     whitelist = (whitelist || []).map(p => path.resolve(p));
     blacklist = (blacklist || []).map(p => path.resolve(p));

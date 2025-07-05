@@ -1,8 +1,8 @@
 import rspack from "@rspack/core";
 import formatWebpackMessages from "react-dev-utils/formatWebpackMessages";
-import { getProjectApplication } from "@webiny/cli/utils/index.js";
 import { BaseFunctionBundler } from "./BaseFunctionBundler.js";
 import { createRspackConfig } from "./rspack/createRspackConfig.js";
+import { ProjectSdk } from "../../../ProjectSdk/index.js";
 
 export class RspackBundler extends BaseFunctionBundler {
     constructor(params) {
@@ -12,16 +12,17 @@ export class RspackBundler extends BaseFunctionBundler {
 
     build() {
         return new Promise(async (resolve, reject) => {
-            let projectApplication;
+            const project = await ProjectSdk.init(this.params.cwd);
+            let app;
             try {
-                projectApplication = getProjectApplication({ cwd: this.params.cwd });
+                app = await project.getApp(this.params.cwd);
             } catch {
                 // No need to do anything.
             }
 
             const rspackConfig = await createRspackConfig({
                 ...this.params,
-                projectApplication,
+                app,
                 production: true
             });
 
@@ -72,16 +73,17 @@ export class RspackBundler extends BaseFunctionBundler {
 
     watch() {
         return new Promise(async (resolve, reject) => {
-            let projectApplication;
+            const project = await ProjectSdk.init(this.params.cwd);
+            let app;
             try {
-                projectApplication = getProjectApplication({ cwd: this.params.cwd });
+                app = await project.getApp(this.params.cwd);
             } catch {
                 // No need to do anything.
             }
 
-            const rspackConfig = createRspackConfig({
+            const rspackConfig = await createRspackConfig({
                 ...this.params,
-                projectApplication,
+                app,
                 production: false
             });
 

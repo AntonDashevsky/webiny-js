@@ -1,17 +1,17 @@
 import { version } from "@webiny/project-utils/package.json";
-import { getProject } from "@webiny/cli/utils";
 import { isEnabled } from "@webiny/telemetry/cli";
 import { globalConfig } from "@webiny/global-config";
 import { isCI } from "ci-info";
 
 export const applyDefaults = () => {
-    let telemetry;
-    const config = getProject().config;
-    if (config.cli && "telemetry" in config.cli) {
-        telemetry = config.cli.telemetry;
-    } else {
-        telemetry = isEnabled();
-    }
+    const telemetry = isEnabled();
+    // TODO
+    // const config = getProject().config;
+    // if (config.cli && "telemetry" in config.cli) {
+    //     telemetry = config.cli.telemetry;
+    // } else {
+    //     telemetry = isEnabled();
+    // }
 
     const wcpProjectId = config.id || process.env.WCP_PROJECT_ID;
     if (wcpProjectId) {

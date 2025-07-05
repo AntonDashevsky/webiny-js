@@ -1,4 +1,4 @@
-import { PackageJson } from "@webiny/cli/utils/PackageJson.js";
+import { PackageJson } from "../../../../utils/PackageJson.js";
 import chalk from "react-dev-utils/chalk.js";
 import { choosePort, prepareUrls } from "react-dev-utils/WebpackDevServerUtils.js";
 import clearConsole from "react-dev-utils/clearConsole.js";
