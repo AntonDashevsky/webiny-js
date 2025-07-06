@@ -17882,7 +17882,6 @@ __metadata:
     "@types/webpack-env": "npm:^1.18.5"
     "@webiny/api-log": "npm:0.0.0"
     "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/feature-flags": "npm:0.0.0"
     "@webiny/global-config": "npm:0.0.0"
     "@webiny/telemetry": "npm:0.0.0"
@@ -17952,7 +17951,6 @@ __metadata:
     yargs: "npm:^17.7.2"
   peerDependencies:
     "@webiny/aws-sdk": "*"
-    "@webiny/cli": "*"
     "@webiny/global-config": "*"
     "@webiny/telemetry": "*"
   languageName: unknown

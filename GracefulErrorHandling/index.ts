@@ -1,7 +1,7 @@
-import { createImplementation } from "@webiny/di-container";
+import { createDecorator } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
-import { measureDuration } from "./utils/index.js";
+import { measureDuration } from "../utils/index.js";
 import ora from "ora";
 
 export interface IDeployCommandParams extends IBaseAppParams {
@@ -144,17 +144,11 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                         spinner.succeed(message);
                     }
                 } catch (e) {
-                    // If the deployment logs were already shown, we don't want to do anything.
                     if (showDeploymentLogs) {
                         throw e;
                     }
 
-                    spinner.fail(
-                        `Deployment failed. For more details, please check the error logs below.`
-                    );
-
-                    ui.newLine();
-                    ui.text(e.stderr || e.stdout || e.message);
+                    spinner.fail("Deployment failed.");
                     throw e;
                 }
             }
@@ -162,8 +156,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
     }
 }
 
-export const deployCommand = createImplementation({
+export const deployCommand = createDecorator({
     abstraction: Command,
-    implementation: DeployCommand,
-    dependencies: [GetProjectSdkService, UiService, StdioService]
+    decorator: DeployCommand,
 });
