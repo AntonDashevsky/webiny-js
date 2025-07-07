@@ -5,8 +5,8 @@ import pluralize from "pluralize";
 import throttle from "lodash/throttle";
 import { useDialogs, useSnackbar } from "@webiny/app-admin";
 import { Avatar, Button, Loader, List, Input, Text, DelayedOnChange } from "@webiny/admin-ui";
-import { CustomReactEditorProps } from "../interfaces/custom-react-editor-props";
-import type { Resource } from "../interfaces/resource";
+import { Resource } from "../types";
+import { CustomResourcePickerProps } from "~/ecommerce";
 
 export interface CommerceAPIOperations {
     [resourceName: string]: {
@@ -18,7 +18,7 @@ export interface CommerceAPIOperations {
     };
 }
 
-export interface ResourcesPickerButtonProps extends CustomReactEditorProps<string> {
+export interface ResourcesPickerButtonProps extends CustomResourcePickerProps<string> {
     api: CommerceAPIOperations;
     resourcePicker?: React.FC<ResourcePickerProps>;
     pluginName: string;
@@ -34,7 +34,7 @@ export interface ResourcePreviewCellProps {
     style?: Partial<CSSStyleDeclaration>;
 }
 
-export const ResourcePreviewCell: React.FC<ResourcePreviewCellProps> = observer(props => {
+export const ResourcePreviewCell = observer((props: ResourcePreviewCellProps) => {
     return (
         <List.Item
             onClick={props.onClick}
@@ -67,14 +67,14 @@ export const ResourcePreviewCell: React.FC<ResourcePreviewCellProps> = observer(
     );
 });
 
-export type ResourcePickerProps = CustomReactEditorProps<Resource> & {
+export type ResourcePickerProps = CustomResourcePickerProps<Resource> & {
     api: CommerceAPIOperations;
     resourceName: string;
     omitIds?: string[];
     title?: string;
 };
 
-export const ResourcePicker: React.FC<ResourcePickerProps> = observer(props => {
+export const ResourcePicker = observer((props: ResourcePickerProps) => {
     const { showSnackbar } = useSnackbar();
 
     const store = useLocalObservable(() => ({

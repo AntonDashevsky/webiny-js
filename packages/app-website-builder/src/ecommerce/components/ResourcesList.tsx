@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { action, runInAction } from "mobx";
 import { observer, useLocalObservable } from "mobx-react";
+import capitalize from "lodash/capitalize";
+import pluralize from "pluralize";
 import {
     ResourcePreviewCell,
     ResourcePreviewCellProps,
@@ -10,13 +12,10 @@ import {
 import { useDialogs } from "@webiny/app-admin";
 import { Loader, Button, Text, List } from "@webiny/admin-ui";
 import { ReactComponent as Delete } from "@webiny/icons/delete.svg";
-import { Resource } from "../interfaces/resource";
-import capitalize from "lodash/capitalize";
-import pluralize from "pluralize";
-import { CommerceAPIOperations } from "../commerce";
+import type { IEcommerceApi, Resource } from "~/ecommerce";
 
 export type PickResourceListProps = {
-    api: CommerceAPIOperations;
+    api: IEcommerceApi;
     value?: string[];
     onChange(newValue: string[]): void;
     resourcePicker?: React.FC<ResourcePickerProps>;
@@ -28,7 +27,7 @@ const ResourcePreviewById = observer(
     (
         props: {
             id: string;
-            api: CommerceAPIOperations;
+            api: IEcommerceApi;
             resourceName: string;
             actions?: React.ReactNode;
         } & Partial<ResourcePreviewCellProps>

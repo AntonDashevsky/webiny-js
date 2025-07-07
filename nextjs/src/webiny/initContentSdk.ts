@@ -20,17 +20,14 @@ export const initContentSdk = (options: InitContentSdkOptions = {}) => {
         () => {
             registerComponentGroup({
                 name: "basic",
-                label: "Basic"
-            });
-
-            registerComponentGroup({
-                name: "ecommerce",
-                label: "eCommerce"
+                label: "Basic",
+                description: "Components for simple content creation"
             });
 
             registerComponentGroup({
                 name: "custom",
                 label: "Custom",
+                description: "Assorted custom components",
                 filter: (component: ComponentManifest) => !component.group
             });
         }

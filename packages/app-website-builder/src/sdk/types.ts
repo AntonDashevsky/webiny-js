@@ -90,6 +90,7 @@ export type SerializedComponentGroup = ComponentGroup & {
 export type ComponentGroup = {
     name: string;
     label: string;
+    description?: string;
     filter?: (component: ComponentManifest) => boolean;
 };
 

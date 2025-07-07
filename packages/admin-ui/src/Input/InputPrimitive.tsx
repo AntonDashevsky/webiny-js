@@ -248,7 +248,11 @@ type InputPrimitiveProps<TValue = any> = Omit<
         /**
          * Callback function to be called when the Enter key is pressed.
          */
-        onEnter?: () => void;
+        onEnter?: InputPrimitiveProps["onKeyDown"];
+        /**
+         * Callback function to be called when the Esc key is pressed.
+         */
+        onEscape?: InputPrimitiveProps["onKeyDown"];
         /**
          * A callback that is executed each time a value is changed.
          */
@@ -276,6 +280,7 @@ const getIconPosition = (
 };
 
 const DecoratableInputPrimitive = ({
+    autoSelect,
     className,
     disabled,
     endIcon,
@@ -285,6 +290,7 @@ const DecoratableInputPrimitive = ({
     maxLength,
     onChange: originalOnChange,
     onEnter,
+    onEscape,
     onKeyDown: originalOnKeyDown,
     onFocus: originalOnFocus,
     size,
@@ -310,7 +316,11 @@ const DecoratableInputPrimitive = ({
     const onKeyDown = React.useCallback(
         (e: React.KeyboardEvent<HTMLInputElement>) => {
             if (typeof onEnter === "function" && e.key === "Enter") {
-                onEnter();
+                onEnter(e);
+            }
+
+            if (typeof onEscape === "function" && e.key === "Escape") {
+                onEscape(e);
             }
 
             if (typeof originalOnKeyDown === "function") {
@@ -326,11 +336,11 @@ const DecoratableInputPrimitive = ({
                 originalOnFocus(e);
             }
 
-            if (props.autoSelect) {
+            if (autoSelect) {
                 e.target.select();
             }
         },
-        [originalOnFocus, props.autoSelect]
+        [originalOnFocus, autoSelect]
     );
 
     return (

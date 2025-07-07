@@ -9,6 +9,7 @@
   "exports": {
     ".": "./index.js",
     "./sdk": "./sdk/index.js",
+    "./ecommerce": "./ecommerce/index.js",
     "./Extension": "./Extension.js"
   },
   "author": "Pavel Denisjuk",

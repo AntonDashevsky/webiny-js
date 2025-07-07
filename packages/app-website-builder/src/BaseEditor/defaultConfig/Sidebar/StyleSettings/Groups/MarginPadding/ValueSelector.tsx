@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
-import { cn, DropdownMenu, FormComponentLabel, Input, Select, Separator } from "@webiny/admin-ui";
+import { cn, DropdownMenu, FormComponentLabel, FormComponentNote, Input, Select, Separator } from "@webiny/admin-ui";
 import { InheritedFrom } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { BASE_BREAKPOINT } from "~/constants";
@@ -86,6 +86,7 @@ export const ValueSelector = (props: ValueSelectorProps) => {
 
     const classNames = cn([
         "wby-cursor-pointer wby-bg-neutral-base",
+        "wby-border-sm wby-border-solid wby-border-neutral-muted",
         props.overridden && props.inheritedFrom && "wby-bg-success-default wby-text-neutral-light",
         props.disabled &&
             "wby-bg-neutral-disabled wby-text-neutral-disabled wby-pointer-events-none",
@@ -131,6 +132,7 @@ export const ValueSelector = (props: ValueSelectorProps) => {
                     />
                 </div>
             </div>
+            <FormComponentNote text={`Hit "Enter" or click outside the menu to close it.`}/>
         </>
     );
 
