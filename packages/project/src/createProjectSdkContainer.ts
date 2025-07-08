@@ -7,6 +7,7 @@ import {
     getAppOutput,
     getProject,
     getProjectInfo,
+    isCi,
     refreshApp,
     runPulumiCommand,
     watch
@@ -63,6 +64,7 @@ export const createProjectSdkContainer = () => {
     container.register(getAppOutput).inSingletonScope();
     container.register(getProject).inSingletonScope();
     container.register(getProjectInfo).inSingletonScope();
+    container.register(isCi).inSingletonScope();
     container.register(refreshApp).inSingletonScope();
     container.register(runPulumiCommand).inSingletonScope();
     container.register(watch).inSingletonScope();

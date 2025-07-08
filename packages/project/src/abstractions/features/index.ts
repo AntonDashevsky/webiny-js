@@ -5,6 +5,7 @@ export { GetApp } from "./GetApp.js";
 export { GetAppOutput } from "./GetAppOutput.js";
 export { GetProject } from "./GetProject.js";
 export { GetProjectInfo } from "./GetProjectInfo.js";
+export { IsCi } from "./IsCi.js";
 export { RefreshApp } from "./RefreshApp.js";
 export { RunPulumiCommand } from "./RunPulumiCommand.js";
 export { Watch } from "./Watch.js";

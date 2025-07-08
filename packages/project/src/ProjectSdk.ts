@@ -8,6 +8,7 @@ import {
     GetAppOutput,
     GetProject,
     GetProjectInfo,
+    IsCi,
     RefreshApp,
     RunPulumiCommand,
     Watch
@@ -76,6 +77,10 @@ export class ProjectSdk {
 
     isValidVariantName(name?: string) {
         return isValidVariantName(name);
+    }
+
+    isCi() {
+        return this.container.resolve(IsCi).execute();
     }
 
     getContainer() {
