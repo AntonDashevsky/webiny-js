@@ -14,6 +14,8 @@ export interface IUiService {
     error(text: string, ...args: any[]): void;
 
     warning(text: string, ...args: any[]): void;
+
+    debug(text: string, ...args: any[]): void;
 }
 
 export const UiService = new Abstraction<IUiService>("UiService");

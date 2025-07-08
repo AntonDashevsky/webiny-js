@@ -12,11 +12,7 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
         private ui: UiService.Interface
     ) {}
 
-    execute(): Command.Result<IBuildCommandParams> {
-        const projectSdk = this.getProjectSdkService.execute();
-        const stdio = this.stdioService;
-        const ui = this.ui;
-
+    execute(): Command.CommandDefinition<IBuildCommandParams> {
         return {
             name: "build",
             description: "Builds specified app",
@@ -48,15 +44,24 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                 }
             ],
             handler: async (params: IBuildCommandParams) => {
-                const buildProcesses = await projectSdk.buildApp(params);
+                const projectSdk = this.getProjectSdkService.execute();
+                const stdio = this.stdioService;
+                const ui = this.ui;
 
-                const buildOutput = new BuildOutput({
-                    stdio,
-                    ui,
-                    buildProcesses
-                });
+                try {
+                    const buildProcesses = await projectSdk.buildApp(params);
 
-                buildOutput.output();
+                    const buildOutput = new BuildOutput({
+                        stdio,
+                        ui,
+                        buildProcesses
+                    });
+
+                    await buildOutput.output();
+                } catch (error) {
+                    ui.error("Build failed, please check the details above.");
+                    throw error;
+                }
             }
         };
     }

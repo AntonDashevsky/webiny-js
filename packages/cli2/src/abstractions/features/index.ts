@@ -1,2 +1,2 @@
 export { Command } from "./Command.js";
-export { GracefulErrorHandler } from "./GracefulErrorHandler.js";
+export { ErrorHandler } from "./ErrorHandler.js";

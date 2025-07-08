@@ -12,4 +12,4 @@ ensureSystemRequirements();
 
 const cli = await Cli.init();
 
-await cli.parse();
+await cli.run(process.argv);

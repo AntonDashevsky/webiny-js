@@ -15,15 +15,8 @@ export class MultipleBuildsOutput extends BaseBuildOutput {
         const tasksList = this.buildProcesses.map(buildProcess => {
             return {
                 title: buildProcess.packageName,
-                task: () => {
-                    return new Promise<void>((resolve, reject) => {
-                        // // We only send one message from the child process, and that is the error, if any.
-                        // child.on("message", serializedError => {
-                        //     const error = deserializeError(serializedError);
-                        //     reject(new Error("Build failed.", { cause: { pkg: buildProcess, error } }));
-                        // });
-                        //
-
+                task: () =>
+                    new Promise<void>((resolve, reject) => {
                         buildProcess.process.on("error", error => {
                             reject(
                                 new Error("Build failed.", {
@@ -46,8 +39,7 @@ export class MultipleBuildsOutput extends BaseBuildOutput {
 
                             resolve();
                         });
-                    });
-                }
+                    })
             };
         });
 

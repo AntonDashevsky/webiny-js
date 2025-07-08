@@ -15,7 +15,7 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
         private uiService: UiService.Interface
     ) {}
 
-    execute(): Command.Result<IAboutCommandParams> {
+    execute(): Command.CommandDefinition<IAboutCommandParams> {
         return {
             name: "about",
             description: "Uis out information helpful for debugging purposes.",

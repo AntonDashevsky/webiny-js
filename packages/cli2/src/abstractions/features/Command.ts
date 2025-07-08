@@ -32,7 +32,7 @@ export interface ICommand<TCommandParams> {
     execute(): ICommandDefinition<TCommandParams>;
 }
 
-export const Command = new Abstraction("Command");
+export const Command = new Abstraction<ICommand<any>>("Command");
 
 export namespace Command {
     export type Interface<TCommandParams> = ICommand<TCommandParams>;
@@ -40,5 +40,5 @@ export namespace Command {
     export type ParamDefinition<TCommandParams> = ICommandParamDefinition<TCommandParams>;
     export type OptionDefinition<TCommandParams> = ICommandOptionDefinition<TCommandParams>;
 
-    export type Result<TCommandParams> = ICommandDefinition<TCommandParams>;
+    export type CommandDefinition<TCommandParams> = ICommandDefinition<TCommandParams>;
 }

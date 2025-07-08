@@ -9,7 +9,8 @@ const LOG_COLORS = {
     info: chalk.blueBright,
     error: chalk.red,
     warning: chalk.yellow,
-    success: chalk.green
+    success: chalk.green,
+    debug: chalk.gray,
 } as const;
 
 export class DefaultUiService implements UiService.Interface {
@@ -44,6 +45,10 @@ export class DefaultUiService implements UiService.Interface {
     }
 
     error(text: string, ...args: any[]) {
+        this.typedColorizedText("error", text, ...args);
+    }
+
+    debug(text: string, ...args: any[]) {
         this.typedColorizedText("error", text, ...args);
     }
 

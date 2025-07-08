@@ -14,7 +14,7 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
         private uiService: UiService.Interface
     ) {}
 
-    execute(): Command.Result<IWatchCommandParams> {
+    execute(): Command.CommandDefinition<IWatchCommandParams> {
         const projectSdk = this.getProjectSdkService.execute();
         const stdio = this.stdioService;
         const ui = this.uiService;

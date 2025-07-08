@@ -23,7 +23,7 @@ export class BaseBuildOutput {
         this.ui = ui;
     }
 
-    public output(): void {
+    public async output(): Promise<void> {
         throw new Error("Not implemented.");
     }
 }

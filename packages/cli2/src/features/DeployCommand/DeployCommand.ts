@@ -3,6 +3,7 @@ import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstra
 import { IBaseAppParams } from "~/abstractions/features/types.js";
 import { measureDuration } from "../utils/index.js";
 import ora from "ora";
+import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
 
 export interface IDeployCommandParams extends IBaseAppParams {
     build?: boolean;
@@ -36,11 +37,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
         private stdioService: StdioService.Interface
     ) {}
 
-    execute(): Command.Result<IDeployCommandParams> {
-        const projectSdk = this.getProjectSdkService.execute();
-        const ui = this.uiService;
-        const stdio = this.stdioService;
-
+    execute(): Command.CommandDefinition<IDeployCommandParams> {
         return {
             name: "deploy",
             description: "Deploys specified app",
@@ -90,20 +87,35 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 }
             ],
             handler: async (params: IDeployCommandParams) => {
+                const projectSdk = this.getProjectSdkService.execute();
+                const ui = this.uiService;
+                const stdio = this.stdioService;
+
+                if (params.build !== false) {
+                    try {
+                        const buildProcesses = await projectSdk.buildApp(params);
+
+                        const buildOutput = new BuildOutput({ stdio, ui, buildProcesses });
+                        await buildOutput.output();
+                    } catch (error) {
+                        ui.error("Build failed, please check the details above.");
+                        throw error;
+                    }
+                }
+
+                ui.newLine();
+
                 // We always show deployment logs when doing previews.
-                const projectInfo = await projectSdk.getProjectInfo();
-                const showDeploymentLogs = projectInfo.host.isCI || params.deploymentLogs;
-
-                const getDeploymentDuration = measureDuration();
-
+                const showDeploymentLogs = projectSdk.isCi() || params.deploymentLogs;
                 const spinner = ora("Deploying...");
 
-                let error: Error;
-
                 try {
+                    const getDeploymentDuration = measureDuration();
+
                     const { pulumiProcess } = await projectSdk.deployApp(params);
 
                     if (showDeploymentLogs) {
+                        ui.info(`Deploying %s app...`, params.app);
                         pulumiProcess.stdout!.pipe(stdio.getStdout());
                         pulumiProcess.stderr!.pipe(stdio.getStderr());
                         await pulumiProcess;
@@ -146,41 +158,19 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                         spinner.succeed(message);
                     }
                 } catch (e) {
-                    error = e;
-                    if (!showDeploymentLogs) {
+                    const error = e.stderr ? new Error(e.stderr, { cause: e }) : e;
+
+                    if (showDeploymentLogs) {
+                        ui.error("Deployment failed, please check the details above.");
+                    } else {
                         spinner.fail("Deployment failed.");
+                        ui.newLine();
+                        ui.error("Deployment failed with the following error:");
+                        ui.text(error.message);
                     }
 
                     throw e;
                 }
-
-                // if (error) {
-                //     if (sendTelemetryEvents) {
-                //         const eventName = gracefulError
-                //             ? getTelemetryEventName("error-graceful")
-                //             : getTelemetryEventName("error");
-                //
-                //         await sendEvent(eventName, {
-                //             ...telemetryProperties,
-                //             errorMessage: e.message,
-                //             errorStack: e.stack
-                //         });
-                //     }
-                //
-                //     let message =
-                //         "Command failed with an unexpected error. Please check the above logs.";
-                //     if (!params.debug) {
-                //         const debugFlag = context.error.hl(`--debug`);
-                //         message += ` Alternatively, try running the same command with the ${debugFlag} flag to get more detailed information.`;
-                //     }
-                //
-                //     throw new Error(message, {
-                //         cause: {
-                //             error: e,
-                //             gracefulError: gracefulError
-                //         }
-                //     });
-                // }
             }
         };
     }
