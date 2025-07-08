@@ -1,5 +1,8 @@
 import { createDecorator } from "@webiny/di-container";
-import { isEnabled as isTelemetryEnabled, sendEvent as telemetrySendEvent } from "@webiny/telemetry/cli.js";
+import {
+    isEnabled as isTelemetryEnabled,
+    sendEvent as telemetrySendEvent
+} from "@webiny/telemetry/cli.js";
 import { Command } from "~/abstractions/index.js";
 import { IDeployCommandParams } from "~/features";
 import { GracefulError } from "~/utils/GracefulError";
@@ -30,39 +33,71 @@ export class DeployCommandWithTelemetry<TParams> implements Command.Interface<TP
         const originalCommandHandler = deployCommand.handler;
 
         deployCommand.handler = async (params: IDeployCommandParams) => {
+            if ("app" in params) {
+                const telemetryProperties = {
+                    app: params.app || "unknown",
+                    env: params.env || "unknown",
+                    variant: params.variant || "unknown",
+                    region: params.region || "unknown",
+                    commandParams: JSON.stringify(params)
+                };
+
+                try {
+                    await this.sendEvent("cli-pulumi-command-deploy-start", telemetryProperties);
+
+                    const result = await originalCommandHandler(params);
+
+                    await this.sendEvent("cli-pulumi-command-deploy-end", telemetryProperties);
+
+                    return result;
+                } catch (e) {
+                    const event =
+                        e instanceof GracefulError
+                            ? "cli-pulumi-command-deploy-error-graceful"
+                            : "cli-pulumi-command-deploy-error";
+
+                    await this.sendEvent(event, {
+                        ...telemetryProperties,
+                        errorMessage: e.message,
+                        errorStack: e.stack
+                    });
+
+                    throw e;
+                }
+            }
+
             const telemetryProperties = {
                 env: params.env || "unknown",
                 variant: params.variant || "unknown",
+                region: params.region || "unknown",
                 commandParams: JSON.stringify(params)
             };
 
             try {
-                await this.sentEvent("start", telemetryProperties);
-
+                await this.sendEvent("cli-project-deploy-start", telemetryProperties);
                 const result = await originalCommandHandler(params);
-
-                await this.sentEvent("end", telemetryProperties);
-
+                await this.sendEvent("cli-project-deploy-end", telemetryProperties);
                 return result;
-            } catch (error) {
-                if (error instanceof GracefulError) {
-                    await this.sentEvent("error-graceful", telemetryProperties);
-                } else {
-                    await this.sentEvent("error", {
-                        ...telemetryProperties,
-                        error: error.message
-                    });
-                }
+            } catch (e) {
+                const event =
+                    e instanceof GracefulError
+                        ? "cli-project-deploy-error-graceful"
+                        : "cli-project-deploy-error";
 
-                throw error;
+                await this.sendEvent(event, {
+                    ...telemetryProperties,
+                    errorMessage: e.message,
+                    errorStack: e.stack
+                });
+
+                throw e;
             }
-        }
+        };
 
         return command;
     }
 
-    private sentEvent(stage: string, properties: Record<string, any>) {
-        const event = `cli-pulumi-command-deploy-${stage}`;
+    private sendEvent(event: string, properties: Record<string, any> = {}) {
         return telemetrySendEvent({
             event,
             properties
