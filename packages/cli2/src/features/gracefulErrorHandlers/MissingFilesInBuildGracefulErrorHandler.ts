@@ -9,14 +9,14 @@ const MATCH_STRING = "failed to compute archive hash for";
 export class MissingFilesInBuildGracefulErrorHandler
     implements ErrorHandler.Interface<IBaseAppParams>
 {
-    execute({ error }: ErrorHandler.Params<IBaseAppParams>) {
+    execute({ error, params }: ErrorHandler.Params<IBaseAppParams>) {
         const { message } = error;
 
         if (!message.includes(MATCH_STRING)) {
             return;
         }
 
-        const cmd = chalk.red(`yarn webiny build {APP_NAME} --env {ENVIRONMENT_NAME}`);
+        const cmd = chalk.red(`yarn webiny build ${params.app} --env ${params.env}`);
         throw new GracefulError(
             [
                 `Looks like the deployment failed because Pulumi could not retrieve the built code.`,

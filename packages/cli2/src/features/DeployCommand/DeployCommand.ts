@@ -4,31 +4,13 @@ import { IBaseAppParams } from "~/abstractions/features/types.js";
 import { measureDuration } from "../utils/index.js";
 import ora from "ora";
 import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
+import { DeployOutput } from "./deployOutputs/DeployOutput.js";
 
 export interface IDeployCommandParams extends IBaseAppParams {
     build?: boolean;
     preview?: boolean;
     deploymentLogs?: boolean;
 }
-
-const spinnerMessages: [number, string][] = [
-    [60, "Still deploying..."],
-    [120, "Still deploying, please wait..."],
-    [180, "Some resources take some time to become ready, please wait..."],
-
-    [270, "Still deploying, please don't interrupt..."],
-    [360, "Still deploying, please be patient..."],
-    [450, "Still deploying, please don't interrupt..."],
-    [540, "Still deploying, please be patient..."],
-
-    [600, "Deploying for 10 minutes now, probably a couple more to go..."],
-    [720, "Still deploying, shouldn't be much longer now..."],
-
-    [840, "Looks like it's taking a bit longer than usual, please wait..."],
-    [900, "Deploying for 15 minutes now, hopefully it's almost done..."],
-
-    [1200, "Deploying for 20 minutes now, hopefully it's almost done..."]
-];
 
 export class DeployCommand implements Command.Interface<IDeployCommandParams> {
     constructor(
@@ -38,6 +20,8 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
     ) {}
 
     execute(): Command.CommandDefinition<IDeployCommandParams> {
+        const projectSdk = this.getProjectSdkService.execute();
+
         return {
             name: "deploy",
             description: "Deploys specified app",
@@ -60,12 +44,26 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 {
                     name: "variant",
                     description: "Variant of the app to deploy",
-                    type: "string"
+                    type: "string",
+                    validation: (params) => {
+                        const isValid = projectSdk.isValidVariantName(params.variant);
+                        if (isValid.isErr()) {
+                            throw isValid.error;
+                        }
+                        return true;
+                    }
                 },
                 {
                     name: "region",
                     description: "Region to target",
-                    type: "string"
+                    type: "string",
+                    validation: (params) => {
+                        const isValid = projectSdk.isValidRegionName(params.region)
+                        if (isValid.isErr()) {
+                            throw isValid.error;
+                        }
+                        return true;
+                    }
                 },
                 {
                     name: "build",
@@ -94,83 +92,30 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 if (params.build !== false) {
                     try {
                         const buildProcesses = await projectSdk.buildApp(params);
-
                         const buildOutput = new BuildOutput({ stdio, ui, buildProcesses });
                         await buildOutput.output();
+                        ui.newLine();
                     } catch (error) {
                         ui.error("Build failed, please check the details above.");
                         throw error;
                     }
                 }
 
-                ui.newLine();
-
                 // We always show deployment logs when doing previews.
-                const showDeploymentLogs = projectSdk.isCi() || params.deploymentLogs;
-                const spinner = ora("Deploying...");
+                const showDeploymentLogs =
+                    Boolean(projectSdk.isCi() || params.preview || params.deploymentLogs);
 
-                try {
-                    const getDeploymentDuration = measureDuration();
+                const { pulumiProcess } = await projectSdk.deployApp(params);
 
-                    const { pulumiProcess } = await projectSdk.deployApp(params);
+                const deployOutput = new DeployOutput({
+                    stdio,
+                    ui,
+                    showDeploymentLogs,
+                    deployProcess: pulumiProcess,
+                    deployParams:params
+                });
 
-                    if (showDeploymentLogs) {
-                        ui.info(`Deploying %s app...`, params.app);
-                        pulumiProcess.stdout!.pipe(stdio.getStdout());
-                        pulumiProcess.stderr!.pipe(stdio.getStderr());
-                        await pulumiProcess;
-                    } else {
-                        spinner.start();
-
-                        // When showing spinner, we want to show a few messages to the user.
-                        // The deployment process can take in some cases 10-15 minutes, so we want to
-                        // give the user some feedback.
-                        const timeouts = spinnerMessages.map(([seconds, message]) => {
-                            return setTimeout(() => {
-                                spinner.text = message;
-                            }, seconds * 1000);
-                        });
-
-                        // Every second, let's add a dot to the end of the message. Once we reach
-                        // three, we start over.
-                        const interval = setInterval(() => {
-                            const spinnerText = spinner.text;
-                            if (spinnerText.endsWith("...")) {
-                                spinner.text = spinnerText.substring(0, spinnerText.length - 3);
-                            } else {
-                                spinner.text = spinnerText + ".";
-                            }
-                        }, 1000);
-
-                        try {
-                            await pulumiProcess;
-                        } finally {
-                            timeouts.forEach(clearTimeout);
-                            clearInterval(interval);
-                        }
-                    }
-
-                    const message = `Deployed in ${getDeploymentDuration()}.`;
-
-                    if (showDeploymentLogs) {
-                        ui.success(message);
-                    } else {
-                        spinner.succeed(message);
-                    }
-                } catch (e) {
-                    const error = e.stderr ? new Error(e.stderr, { cause: e }) : e;
-
-                    if (showDeploymentLogs) {
-                        ui.error("Deployment failed, please check the details above.");
-                    } else {
-                        spinner.fail("Deployment failed.");
-                        ui.newLine();
-                        ui.error("Deployment failed with the following error:");
-                        ui.text(error.message);
-                    }
-
-                    throw e;
-                }
+                await deployOutput.output();
             }
         };
     }

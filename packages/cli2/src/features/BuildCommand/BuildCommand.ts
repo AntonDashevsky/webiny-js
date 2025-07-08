@@ -13,6 +13,8 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
     ) {}
 
     execute(): Command.CommandDefinition<IBuildCommandParams> {
+        const projectSdk = this.getProjectSdkService.execute();
+
         return {
             name: "build",
             description: "Builds specified app",
@@ -34,14 +36,28 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                 },
                 {
                     name: "variant",
-                    description: "Variant of the app to build",
-                    type: "string"
+                    description: "Variant of the app to deploy",
+                    type: "string",
+                    validation: (params) => {
+                        const isValid = projectSdk.isValidVariantName(params.variant);
+                        if (isValid.isErr()) {
+                            throw isValid.error;
+                        }
+                        return true;
+                    }
                 },
                 {
                     name: "region",
                     description: "Region to target",
-                    type: "string"
-                }
+                    type: "string",
+                    validation: (params) => {
+                        const isValid = projectSdk.isValidRegionName(params.region)
+                        if (isValid.isErr()) {
+                            throw isValid.error;
+                        }
+                        return true;
+                    }
+                },
             ],
             handler: async (params: IBuildCommandParams) => {
                 const projectSdk = this.getProjectSdkService.execute();

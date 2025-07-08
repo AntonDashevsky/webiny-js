@@ -3,6 +3,7 @@ import {
     Command,
     CommandsRegistryService,
     GetCliRunnerService,
+    LoggerService,
     UiService
 } from "~/abstractions/index.js";
 import yargs from "yargs/yargs";
@@ -15,7 +16,8 @@ const { blue, bgYellow, bold } = chalk;
 export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface {
     constructor(
         private readonly commandsRegistryService: CommandsRegistryService.Interface,
-        private readonly uiService: UiService.Interface
+        private readonly uiService: UiService.Interface,
+        private readonly loggerService: LoggerService.Interface
     ) {}
 
     private yargsRunner: Argv | null = null;
@@ -40,10 +42,16 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
             )
             .epilogue(`Want to contribute? ${blue("https://github.com/webiny/webiny-js")}.`)
             .fail((invalidParamsMessage, error) => {
+                this.loggerService.error(
+                    invalidParamsMessage,
+                    error,
+                    "CLI command execution failed."
+                );
+
                 if (invalidParamsMessage) {
                     if (invalidParamsMessage.includes("Not enough non-option arguments")) {
                         ui.newLine();
-                        ui.error("asd %", "Command was not invoked as expected.");
+                        ui.error("Command was not invoked as expected.");
                         ui.info(
                             `Some non-optional arguments are missing. See the usage examples printed below.`
                         );
@@ -59,7 +67,7 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
                             .map(v => v.trim());
 
                         ui.newLine();
-                        ui.error("%", "Command was not invoked as expected.");
+                        ui.error("Command was not invoked as expected.");
                         ui.info(
                             `Missing required argument(s): ${args.join(
                                 ", "
@@ -71,7 +79,7 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
                     }
 
                     ui.newLine();
-                    ui.error("%", "Command execution was aborted.");
+                    ui.error("Command execution was aborted.");
                     ui.error(invalidParamsMessage);
                     ui.text(error.message);
 
@@ -154,5 +162,5 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
 export const getCliRunnerService = createImplementation({
     abstraction: GetCliRunnerService,
     implementation: DefaultGetCliRunnerService,
-    dependencies: [CommandsRegistryService, UiService]
+    dependencies: [CommandsRegistryService, UiService, LoggerService]
 });

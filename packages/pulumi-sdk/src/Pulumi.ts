@@ -49,6 +49,8 @@ export interface InstallArgs {
 
 export const FLAG_NON_INTERACTIVE = "--non-interactive";
 
+export class PulumiError extends Error {}
+
 export class Pulumi {
     options: Options;
     pulumiFolder: string;
@@ -144,7 +146,23 @@ export class Pulumi {
         const flags =
             args.command && args.command.includes("preview") ? [] : [FLAG_NON_INTERACTIVE];
 
-        return execa(this.pulumiBinaryPath, [...args.command, ...finalArgs, ...flags], execaArgs);
+        const pulumiProcess = execa(
+            this.pulumiBinaryPath,
+            [...args.command, ...finalArgs, ...flags],
+            execaArgs
+        );
+
+        // Wrap the promise part of proc to handle errors
+        const wrapped = pulumiProcess.then(
+            result => result,
+            err => {
+                throw new PulumiError(err.stderr || err.stdout || err.message, { cause: err });
+            }
+        );
+
+        Object.assign(wrapped, pulumiProcess);
+
+        return wrapped;
     }
 
     private async install(rawArgs?: InstallArgs): Promise<boolean> {

@@ -8,7 +8,9 @@ export class DefaultLoggerService implements LoggerService.Interface {
 
     constructor() {
         this.pinoLogger = baseCreatePinoLogger(
-            {},
+            {
+                level: process.env.LOG_LEVEL || "silent",
+            },
             pinoPretty({
                 ignore: "pid,hostname"
             })
