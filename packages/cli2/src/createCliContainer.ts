@@ -25,7 +25,7 @@ import {
     pendingOperationsGracefulErrorHandler
 } from "./features/index.js";
 
-import { commandsWithGracefulErrorHandling } from "./decorators/index.js";
+import { commandsWithGracefulErrorHandling, deployCommandWithTelemetry} from "./decorators/index.js";
 
 export const createCliContainer = () => {
     const container = new Container();
@@ -55,6 +55,7 @@ export const createCliContainer = () => {
 
     // Decorators.
     container.registerDecorator(commandsWithGracefulErrorHandling);
+    container.registerDecorator(deployCommandWithTelemetry);
 
     return container;
 };

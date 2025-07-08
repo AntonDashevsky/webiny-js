@@ -1,11 +1,12 @@
 import stripAnsi from "strip-ansi";
 import jsesc from "jsesc";
+
 /**
  * The main `sendEvent` function.
  * NOTE: don't use this in your app directly. Instead, use the one from `cli.js` or `react.js` files accordingly.
  */
 export default ({ event, user, properties, wts } = {}) => {
-    // 1. Check for existence of required base parameters.
+    // 1. Check for the existence of required base parameters.
     if (!event) {
         throw new Error(`Cannot send event - missing "event" name.`);
     }
@@ -56,5 +57,7 @@ export default ({ event, user, properties, wts } = {}) => {
     }
 
     // 3. Send.
-    return wts.trackEvent(user, event, sanitizedProperties);
+    console.log(`👉👉${event}👈👈`);
+    console.log(user, sanitizedProperties);
+    // return wts.trackEvent(user, event, sanitizedProperties);
 };

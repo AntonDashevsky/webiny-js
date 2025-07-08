@@ -2,6 +2,8 @@ import { globalConfig } from "@webiny/global-config";
 import { isCI } from "ci-info";
 import { WTS } from "wts-client/node.js";
 import baseSendEvent from "./sendEvent.js";
+import readJson from "load-json-file";
+import path from "path";
 
 export const sendEvent = async ({ event, user, version, properties }) => {
     const shouldSend = isEnabled();
@@ -18,13 +20,16 @@ export const sendEvent = async ({ event, user, version, properties }) => {
         wcpProperties.wcpProjectId = wcpProjectId;
     }
 
+    const packageJsonPath = path.join(import.meta.dirname, "package.json");
+    const packageJson = await readJson(packageJsonPath);
+
     return baseSendEvent({
         event,
         user: user || globalConfig.get("id"),
         properties: {
             ...properties,
             ...wcpProperties,
-            version: version || require("./package.json").version,
+            version: version || packageJson.version,
             ci: isCI,
             newUser: Boolean(globalConfig.get("newUser"))
         },

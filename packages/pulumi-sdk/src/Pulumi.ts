@@ -152,7 +152,9 @@ export class Pulumi {
             execaArgs
         );
 
-        // Wrap the promise part of proc to handle errors
+        // We want to throw an instance of PulumiError when the Pulumi command fails.
+        // Makes it easier to catch and handle Pulumi errors in the code.
+        // Note: this code definitely looks funky, but it is because how `execa` works.
         const wrapped = pulumiProcess.then(
             result => result,
             err => {
