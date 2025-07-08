@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import defaultImage from "@webiny/icons/extension.svg";
 import { Messenger } from "~/sdk/messenger";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { AddressBar } from "./AddressBar";
@@ -172,7 +173,10 @@ export const Preview = () => {
                 if (!state.components) {
                     state.components = {};
                 }
-                state.components[component.name] = component;
+                state.components[component.name] = {
+                    ...component,
+                    image: component.image ?? defaultImage
+                };
             });
         });
 

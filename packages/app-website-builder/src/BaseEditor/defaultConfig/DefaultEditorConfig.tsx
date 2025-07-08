@@ -13,7 +13,8 @@ import { StyleProperties } from "./Sidebar/StyleSettings/StyleProperties";
 import { ElementSettingsGroup } from "./Sidebar/ElementSettings/ElementSettingsGroup";
 import { PageOptionsDropdown } from "./TopBar/DropdownActions/PageOptionsDropdown";
 import { Preview } from "./Content/Preview";
-import { InsertElements } from "./Toolbar/InsertElements";
+import { InsertElementsTab } from "./Toolbar/InsertElements/InsertElementsTab";
+import { NavigatorTab } from "./Toolbar/Navigator/NavigatorTab";
 import { CommandHandlers } from "~/BaseEditor/commandHandlers";
 import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { ElementInputRenderers } from "./ElementInputRenderers";
@@ -48,14 +49,9 @@ export const DefaultEditorConfig = React.memo(() => {
                 <Ui.Toolbar.Element
                     name={"insertElements"}
                     group={"tabs"}
-                    element={<InsertElements />}
+                    element={<InsertElementsTab />}
                 />
-                {/*<Ui.Toolbar.Element name={"navigator"} group={"top"} element={<Navigator />} />*/}
-                {/*<Ui.Toolbar.Element
-                    name={"savingIndicator"}
-                    group={"bottom"}
-                    element={<Saving />}
-                />*/}
+                <Ui.Toolbar.Element name={"navigator"} group={"tabs"} element={<NavigatorTab />} />
                 {/* Sidebar Groups */}
                 <Ui.Sidebar.Group name={"element"} element={<ElementSettingsGroup />} />
                 <Ui.Sidebar.Group name={"style"} element={<StyleSettingsGroup />} />

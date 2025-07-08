@@ -6,6 +6,7 @@ import { createResourcePicker } from "~/ecommerce/createResourcePicker";
 import { useEcommerceApi } from "~/ecommerce/features/apis";
 import { adaptInputToBind } from "./adaptInputToBind";
 import { Resource } from "../types";
+import { toTitleCaseLabel } from "~/ecommerce/components/toTitleCaseLabel";
 
 export interface ResourcePageProps {
     apiName: string;
@@ -63,15 +64,17 @@ export const ResourcePage = (props: ResourcePageProps) => {
     return (
         <>
             <Grid.Column span={12}>
-                {api ? (
-                    <ResourcePicker
-                        {...resourceIdBind}
-                        label={`Select a ${props.resourceType}`}
-                        onChange={onResourceChange}
-                    />
-                ) : (
-                    <Skeleton />
-                )}
+                <div className={"wby-border-sm wby-rounded-md wby-border-neutral-muted wby-p-sm"}>
+                    {api ? (
+                        <ResourcePicker
+                            {...resourceIdBind}
+                            label={toTitleCaseLabel(props.resourceType)}
+                            onChange={onResourceChange}
+                        />
+                    ) : (
+                        <Skeleton />
+                    )}
+                </div>
             </Grid.Column>
             <Grid.Column span={12}>
                 <Input label={"Title"} {...titleBind} disabled={!resourceIdBind.value} />

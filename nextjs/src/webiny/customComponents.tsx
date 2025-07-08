@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import ColumnsIcon from "@webiny/icons/view_column.svg";
 import {
     createComponent,
     createSlotInput,
@@ -42,11 +43,21 @@ export const customComponents = [
         name: "Webiny/Box",
         label: "Box",
         group: "basic",
-        acceptsChildren: true
+        image: `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm0 0v-560 560Z"/></svg>`,
+        acceptsChildren: true,
+        defaults: {
+            styles: {
+                paddingTop: "5px",
+                paddingRight: "5px",
+                paddingBottom: "5px",
+                paddingLeft: "5px"
+            }
+        }
     }),
     createComponent(Grid, {
         name: "Webiny/Grid",
         label: "Grid",
+        image: `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520ZM200-600h160v-160H200v160Zm400 0h160v-160H600v160Zm0 400h160v-160H600v160Zm-400 0h160v-160H200v160Zm400-400Zm0 240Zm-240 0Zm0-240Z"/></svg>`,
         group: "basic",
         autoApplyStyles: false,
         inputs: [
@@ -221,6 +232,7 @@ export const customComponents = [
     createComponent(GridColumn, {
         name: "Webiny/GridColumn",
         label: "Column",
+        image: `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M600-120q-33 0-56.5-23.5T520-200v-560q0-33 23.5-56.5T600-840h160q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H600Zm0-640v560h160v-560H600ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h160q33 0 56.5 23.5T440-760v560q0 33-23.5 56.5T360-120H200Zm0-640v560h160v-560H200Zm560 0H600h160Zm-400 0H200h160Z"/></svg>`,
         canDrag: false,
         canDelete: false,
         acceptsChildren: true,
@@ -268,6 +280,16 @@ export const customComponents = [
                 label: "Image",
                 renderer: "Webiny/File",
                 responsive: true
+            }),
+            createTextInput({
+                name: "product",
+                label: "Product",
+                renderer: "KiboCommerceProduct"
+            }),
+            createTextInput({
+                name: "products",
+                label: "Products",
+                renderer: "KiboCommerceProductList"
             })
         ],
         defaults: {
