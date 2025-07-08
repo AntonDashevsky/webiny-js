@@ -89,13 +89,19 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
                     ui.newLine();
                     ui.text(bgYellow(bold("💡 How can I resolve this?")));
                     ui.text(error.message);
-                } else {
-                    // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
-                    const debugEnabled = process.argv.includes("--debug");
-                    if (debugEnabled) {
-                        ui.newLine();
-                        ui.debug(error.message, error.stack);
+                }
+
+                // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
+                const debugEnabled = process.argv.includes("--debug");
+                if (debugEnabled) {
+                    ui.newLine();
+
+                    let causeError = error;
+                    if (error.cause) {
+                        causeError = error.cause as Error;
                     }
+
+                    ui.debug(causeError.message, causeError.stack);
                 }
 
                 process.exit(1);

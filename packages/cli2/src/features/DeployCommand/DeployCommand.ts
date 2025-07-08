@@ -1,14 +1,22 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
-import { IBaseAppParams } from "~/abstractions/features/types.js";
 import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
 import { DeployOutput } from "./deployOutputs/DeployOutput.js";
 
-export interface IDeployCommandParams extends IBaseAppParams {
-    build?: boolean;
-    preview?: boolean;
+export interface IDeployNoAppParams {
+    variant?: string;
+    region?: string;
+    env: string;
     deploymentLogs?: boolean;
 }
+
+export interface IDeployWithAppParams extends IDeployNoAppParams {
+    app: string;
+    build?: boolean;
+    preview?: boolean;
+}
+
+export type IDeployCommandParams = IDeployNoAppParams | IDeployWithAppParams;
 
 export class DeployCommand implements Command.Interface<IDeployCommandParams> {
     constructor(
@@ -28,8 +36,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 {
                     name: "app",
                     description: "Name of the app (core, admin, or api)",
-                    type: "string",
-                    required: true
+                    type: "string"
                 }
             ],
             options: [
@@ -37,13 +44,19 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                     name: "env",
                     description: "Environment name (dev, prod, etc.)",
                     type: "string",
-                    required: true
+                    default: "dev",
+                    validation: params => {
+                        if ("app" in params && !params.env) {
+                            throw new Error("Environment name is required when deploying an app.");
+                        }
+                        return true;
+                    }
                 },
                 {
                     name: "variant",
                     description: "Variant of the app to deploy",
                     type: "string",
-                    validation: (params) => {
+                    validation: params => {
                         const isValid = projectSdk.isValidVariantName(params.variant);
                         if (isValid.isErr()) {
                             throw isValid.error;
@@ -55,8 +68,8 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                     name: "region",
                     description: "Region to target",
                     type: "string",
-                    validation: (params) => {
-                        const isValid = projectSdk.isValidRegionName(params.region)
+                    validation: params => {
+                        const isValid = projectSdk.isValidRegionName(params.region);
                         if (isValid.isErr()) {
                             throw isValid.error;
                         }
@@ -83,39 +96,51 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 }
             ],
             handler: async (params: IDeployCommandParams) => {
-                const projectSdk = this.getProjectSdkService.execute();
-                const ui = this.uiService;
-                const stdio = this.stdioService;
-
-                if (params.build !== false) {
-                    try {
-                        const buildProcesses = await projectSdk.buildApp(params);
-                        const buildOutput = new BuildOutput({ stdio, ui, buildProcesses });
-                        await buildOutput.output();
-                        ui.newLine();
-                    } catch (error) {
-                        ui.error("Build failed, please check the details above.");
-                        throw error;
-                    }
+                if ("app" in params) {
+                    return this.deployApp(params);
                 }
 
-                // We always show deployment logs when doing previews.
-                const showDeploymentLogs =
-                    Boolean(projectSdk.isCi() || params.preview || params.deploymentLogs);
-
-                const { pulumiProcess } = await projectSdk.deployApp(params);
-
-                const deployOutput = new DeployOutput({
-                    stdio,
-                    ui,
-                    showDeploymentLogs,
-                    deployProcess: pulumiProcess,
-                    deployParams:params
-                });
-
-                await deployOutput.output();
+                // Deploy all apps in the project.
+                await this.deployApp({ ...params, app: "core" });
+                await this.deployApp({ ...params, app: "api" });
+                await this.deployApp({ ...params, app: "admin" });
             }
         };
+    }
+
+    private async deployApp(params: IDeployWithAppParams) {
+        const projectSdk = this.getProjectSdkService.execute();
+        const ui = this.uiService;
+        const stdio = this.stdioService;
+
+        if (params.build !== false) {
+            try {
+                const buildProcesses = await projectSdk.buildApp(params);
+                const buildOutput = new BuildOutput({ stdio, ui, buildProcesses });
+                await buildOutput.output();
+                ui.newLine();
+            } catch (error) {
+                ui.error("Build failed, please check the details above.");
+                throw error;
+            }
+        }
+
+        // We always show deployment logs when doing previews.
+        const showDeploymentLogs = Boolean(
+            projectSdk.isCi() || params.preview || params.deploymentLogs
+        );
+
+        const { pulumiProcess } = await projectSdk.deployApp(params);
+
+        const deployOutput = new DeployOutput({
+            stdio,
+            ui,
+            showDeploymentLogs,
+            deployProcess: pulumiProcess,
+            deployParams: params
+        });
+
+        await deployOutput.output();
     }
 }
 
