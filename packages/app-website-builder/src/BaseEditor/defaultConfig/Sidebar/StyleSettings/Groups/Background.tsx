@@ -11,7 +11,7 @@ interface BackgroundProps {
 
 export const Background = ({ elementId }: BackgroundProps) => {
     return (
-        <Accordion.Item title={"Background"}>
+        <Accordion.Item title={"Background"} description={"Set color and image background"}>
             <Grid>
                 <Grid.Column span={12}>
                     <BackgroundColor elementId={elementId} />

@@ -80,10 +80,7 @@ export const LiveElementRenderer = observer(({ element }: LiveElementRendererPro
                 }
 
                 return (
-                    <div
-                        key={index}
-                        style={{ position: "relative", ...styles } as React.CSSProperties}
-                    >
+                    <div key={index} style={styles}>
                         {userElement}
                     </div>
                 );

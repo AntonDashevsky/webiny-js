@@ -7,6 +7,7 @@ import { MarginPadding } from "./Groups/MarginPadding";
 import { VisibilityGroup } from "./Groups/VisibilityGroup";
 import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
 import { StyleSettings } from "~/constants";
+import { Layout } from "./Groups/Layout";
 
 export const StyleProperties = () => {
     const [element] = useActiveElement();
@@ -32,6 +33,7 @@ const ElementStyleProperties = ({ element }: { element: DocumentElement }) => {
 
     return (
         <Accordion>
+            {isHidden(StyleSettings.Layout) ? null : <Layout elementId={element.id} />}
             {isHidden(StyleSettings.Visibility) ? null : <VisibilityGroup elementId={element.id} />}
             {isHidden(StyleSettings.Background) ? null : <Background elementId={element.id} />}
             {isHidden(StyleSettings.MarginPadding) ? null : (

@@ -22,7 +22,7 @@ import { Box } from "./components/Box";
 const SimpleTextComponent = ({
     inputs: { text, image }
 }: {
-    inputs: { text: string; image: any };
+    inputs: { text: string; image: any; children: any };
 }) => {
     return (
         <div>
@@ -271,6 +271,7 @@ export const customComponents = [
         label: "Simple Text",
         group: "basic",
         image: "https://material-icons.github.io/material-icons/svg/text_fields/outline.svg",
+        acceptsChildren: true,
         inputs: [
             createLongTextInput({
                 name: "text",

@@ -3,7 +3,8 @@ import type {
     DocumentElement,
     ComponentManifest,
     InputValueBinding,
-    StyleValueBinding
+    StyleValueBinding,
+    CssProperties
 } from "~/sdk/types";
 import { type IDocumentOperation, DocumentOperations } from "./documentOperations";
 import {
@@ -11,6 +12,17 @@ import {
     type InputAstNode
 } from "./ComponentManifestToAstConverter";
 import { ComponentInputTraverser } from "./ComponentInputTraverser";
+
+const defaultStyles = {
+    display: "flex",
+    flexDirection: "column",
+    overflowX: "hidden",
+    overflowY: "hidden"
+};
+
+const withDefaultStyles = (styles: CssProperties) => {
+    return { ...defaultStyles, ...styles };
+};
 
 interface CreateElementParams {
     componentName: string;
@@ -113,7 +125,9 @@ export class ElementFactory {
                 inputsAst,
                 bindings: {
                     inputs: bindings?.inputs ?? componentManifest.defaults?.inputs ?? {},
-                    styles: bindings?.styles ?? componentManifest.defaults?.styles ?? {},
+                    styles: withDefaultStyles(
+                        bindings?.styles ?? componentManifest.defaults?.styles ?? {}
+                    ),
                     overrides: bindings?.overrides ?? {}
                 },
                 operations: defaultOperations

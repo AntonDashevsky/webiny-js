@@ -1,55 +1,17 @@
 import React from "react";
-import { ValueSelector } from "./ValueSelector";
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
+import { useStyles } from "../../useStyles";
 import { LinkedEditing } from "./LinkedEditing";
-import { useStyleValue } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/Groups/MarginPadding/useStyleValue";
+import { ValueSelector } from "../../ValueSelector";
+import { UnitsOptions } from "../../UnitsOptions";
+import { useStyleValue } from "../../useStyleValue";
 
-const autoOption = {
-    label: "auto",
-    value: "auto"
-};
-
-const marginUnitOptions = [
-    {
-        label: "px",
-        value: "px"
-    },
-    {
-        label: "%",
-        value: "%"
-    },
-
-    {
-        label: "em",
-        value: "em"
-    },
-    {
-        label: "rem",
-        value: "rem"
-    }
-];
-
-const widthUnitOptions = [
-    {
-        label: "vw",
-        value: "vw"
-    }
-];
-
-const heightUnitOptions = [
-    {
-        label: "vh",
-        value: "vh"
-    }
-];
+const widthOptions = UnitsOptions.widthUnits().add("auto").getOptions();
+const heightOptions = UnitsOptions.heightUnits().add("auto").getOptions();
 
 interface MarginProps {
     elementId: string;
     children: React.ReactNode;
 }
-
-const heightOptions = [...marginUnitOptions, ...heightUnitOptions, autoOption];
-const widthOptions = [...marginUnitOptions, ...widthUnitOptions, autoOption];
 
 export const Margin = ({ elementId, children }: MarginProps) => {
     const { onChange, onPreviewChange, metadata } = useStyles(elementId);

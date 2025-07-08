@@ -1,8 +1,8 @@
-import { useStyles } from "../../useStyles";
+import { useStyles } from "./useStyles";
 
-export const useStyleValue = (elementId: string, propertyName: string) => {
+export const useStyleValue = (elementId: string, propertyName: string, defaultValue?: string) => {
     const { styles, onChange, onPreviewChange, inheritanceMap } = useStyles(elementId);
-    const [match, value, unit = "px"] = (styles[propertyName] ?? "").match(/(\d+)?(\S+)/) ?? [];
+    const [match, value, unit = "px"] = (styles[propertyName] ?? defaultValue ?? "").match(/(\d+)?(\S+)/) ?? [];
     const { overridden, inheritedFrom } = inheritanceMap[propertyName] ?? {};
 
     const onValueChange = (value: string) => {
