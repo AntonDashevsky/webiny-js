@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ColumnsIcon from "@webiny/icons/view_column.svg";
 import {
     createComponent,
     createSlotInput,
@@ -11,7 +10,8 @@ import {
     createLexicalInput,
     createElement,
     createObjectInput,
-    createSelectInput
+    createSelectInput,
+    StyleSettings
 } from "@webiny/website-builder-react";
 import { Root } from "./components/Root";
 import Hero_1 from "@/webiny/components/Hero-1";
@@ -237,6 +237,7 @@ export const customComponents = [
         canDelete: false,
         acceptsChildren: true,
         hideFromToolbar: true,
+        hideStyleSettings: [StyleSettings.Visibility],
         defaults: {
             styles: {
                 paddingTop: "10px",

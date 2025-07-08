@@ -17,3 +17,4 @@ export * from "./BindingsResolver.js";
 export * from "./createElement.js";
 export * from "./registerComponentGroup.js";
 export * from "./jsonPatch";
+export { StyleSettings } from "../constants";

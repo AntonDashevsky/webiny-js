@@ -108,6 +108,7 @@ export type ComponentManifest = {
     canDelete?: boolean;
     acceptsChildren?: boolean;
     hideFromToolbar?: boolean;
+    hideStyleSettings?: string[];
     autoApplyStyles?: boolean;
     defaults?: {
         inputs?: Record<string, any>;

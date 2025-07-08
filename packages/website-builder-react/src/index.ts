@@ -27,6 +27,7 @@ export {
     type ContentSDKConfig,
     type ComponentManifest,
     type ComponentInput,
+    StyleSettings
 } from "@webiny/app-website-builder/sdk";
 
 export type { ComponentProps, ComponentPropsWithChildren } from "./types.js";
