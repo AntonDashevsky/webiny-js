@@ -1,5 +1,8 @@
 import React, { useMemo, useCallback } from "react";
-import { type NodeDto, Tree, type TreeProps } from "@webiny/admin-ui";
+import get from "lodash/get";
+import { observer } from "mobx-react-lite";
+import { type NodeDto, Tree, type TreeProps, Tooltip } from "@webiny/admin-ui";
+import { ReactComponent as VisibilityNone } from "@webiny/icons/visibility_off.svg";
 import type { Document } from "~/sdk";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
@@ -7,9 +10,8 @@ import { EditorState } from "~/editorSdk/Editor";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { Commands } from "~/BaseEditor";
 import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";
-import get from "lodash/get";
-import { observer } from "mobx-react-lite";
 import { InfoMessage } from "~/BaseEditor/defaultConfig/Sidebar/InfoMessage";
+import { useStyles } from "~/BaseEditor/hooks/useStyles";
 
 // Node type for the Tree component.
 type ElementNode = NodeDto<{
@@ -64,11 +66,17 @@ function flattenElements(elements: Record<string, ElementNodeData>, activeElemen
     return result;
 }
 
-function getElementNodeData(
-    components: EditorState["components"],
-    elements: Document["elements"],
-    bindings: Document["bindings"]
-): Record<string, ElementNodeData> {
+interface GetElementNodeDataParams {
+    components: EditorState["components"];
+    elements: Document["elements"];
+    bindings: Document["bindings"];
+}
+
+function getElementNodeData({
+    components,
+    elements,
+    bindings
+}: GetElementNodeDataParams): Record<string, ElementNodeData> {
     const getIndex = (elementId: string, parentId: string, slot: string) => {
         const elementBindings = bindings[parentId];
         if (!elementBindings) {
@@ -132,7 +140,7 @@ export const Navigator = observer(() => {
         return state.components;
     });
 
-    const elementNodes = getElementNodeData(components, elements, bindings);
+    const elementNodes = getElementNodeData({ components, elements, bindings });
 
     const activeAncestors = useMemo(() => {
         if (!activeElement) {
@@ -181,7 +189,9 @@ export const Navigator = observer(() => {
             >
                 <Tree.Item.Icon label={node.label} element={node.icon} size={"sm"} />
                 {node.label}
-                {/* ({node.id.substring(0, 6)})*/}
+                <div className={"wby-flex wby-w-full wby-justify-end"}>
+                    <ElementActions elementId={node.id} />
+                </div>
             </Tree.Item.Content>
         );
     };
@@ -250,3 +260,36 @@ const Placeholder = (props: PlaceholderProps) => (
         }}
     ></div>
 );
+
+const ElementActions = ({ elementId }: { elementId: string }) => {
+    const { styles, onChange } = useStyles(elementId);
+
+    const isVisible = styles.display !== "none";
+
+    const unhideElement = () => {
+        onChange(({ styles }) => {
+            styles.set("display", "flex");
+        });
+    };
+
+    if (isVisible) {
+        return null;
+    }
+
+    return (
+        <div className={"wby-flex"}>
+            <Tooltip
+                trigger={
+                    <Tree.Item.Icon
+                        size={"sm"}
+                        className={"wby-cursor-pointer"}
+                        element={<VisibilityNone />}
+                        label={"This element is hidden."}
+                        onClick={unhideElement}
+                    />
+                }
+                content={"This element is hidden. Click to unhide."}
+            />
+        </div>
+    );
+};

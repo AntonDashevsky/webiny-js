@@ -34,7 +34,6 @@ export const Grid = ({ inputs, styles, breakpoint }: GridProps) => {
     const stackColumns = breakpoint === stackAtBreakpoint;
 
     if (stackColumns) {
-        delete styles.flexFlow;
         styles.flexDirection = reverseWhenStacked ? "column-reverse" : "column";
     }
 

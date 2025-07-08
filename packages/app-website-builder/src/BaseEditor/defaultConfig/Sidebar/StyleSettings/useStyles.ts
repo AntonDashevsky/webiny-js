@@ -2,20 +2,23 @@ import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { StylesStore, StyleStoreVm } from "./StylesStore";
+import { StylesStore, type ElementBreakpointStyles } from "./StylesStore";
 import { NullMetadata } from "~/BaseEditor/metadata";
 
 // Singleton store container
 const stylesStores = new Map<string, StylesStore>();
 
+export type { ElementBreakpointStyles };
+
 export function useStyles(elementId: string) {
-    const [vm, setVm] = useState<StyleStoreVm>({
+    const editor = useDocumentEditor();
+    const { breakpoints } = useBreakpoint();
+
+    const [vm, setVm] = useState<ElementBreakpointStyles>({
         styles: {},
         metadata: new NullMetadata(),
         inheritanceMap: {}
     });
-    const editor = useDocumentEditor();
-    const { breakpoints } = useBreakpoint();
 
     const store = useMemo(() => {
         // Create or get existing store for this element
