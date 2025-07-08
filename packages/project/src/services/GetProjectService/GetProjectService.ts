@@ -6,7 +6,7 @@ import { dirname, join, relative } from "path";
 
 export class DefaultGetProjectService implements GetProjectService.Interface {
     async execute(cwd = process.cwd()) {
-        const manifestFileAbsPath = findUp.sync("webiny.config.ts", { cwd });
+        const manifestFileAbsPath = findUp.sync("webiny.config.tsx", { cwd });
         if (!manifestFileAbsPath) {
             throw new Error(`Could not detect project in given directory (${cwd}).`);
         }
@@ -14,7 +14,7 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
         const projectRootFolderAbsPath = dirname(manifestFileAbsPath);
         const projectRootFolderRelPath = "";
 
-        const manifestFileRelPath = "./webiny.config.ts";
+        const manifestFileRelPath = "./webiny.config.tsx";
 
         const appsFolderAbsPath = join(projectRootFolderAbsPath, "apps");
         const appsFolderRelPath = relative(projectRootFolderAbsPath, appsFolderAbsPath);

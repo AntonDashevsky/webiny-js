@@ -1,7 +1,6 @@
 import { measureDuration } from "~/features/utils/index.js";
 import { BaseDeployOutput } from "./BaseDeployOutput.js";
 import ora from "ora";
-import { PulumiError } from "@webiny/pulumi-sdk";
 
 const SPINNER_MESSAGES: [number, string][] = [
     [60, "Still deploying..."],

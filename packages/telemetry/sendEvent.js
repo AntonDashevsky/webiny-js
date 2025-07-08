@@ -57,7 +57,5 @@ export default ({ event, user, properties, wts } = {}) => {
     }
 
     // 3. Send.
-    console.log(`👉👉${event}👈👈`);
-    console.log(user, sanitizedProperties);
-    // return wts.trackEvent(user, event, sanitizedProperties);
+    return wts.trackEvent(user, event, sanitizedProperties);
 };

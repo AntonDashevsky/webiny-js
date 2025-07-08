@@ -21,7 +21,7 @@ export const createAppWorkspace = async ({ app, env, variant }: CreateAppWorkspa
     }
 
     await fs.ensureDir(appWorkspaceFolderPath);
-    await ncp(app.paths.appsFolder.absolute, appWorkspaceFolderPath);
+    // await ncp(app.paths.appsFolder.absolute, appWorkspaceFolderPath);
 
     // Wait a bit and make sure the files are ready to have their content replaced.
     await new Promise(resolve => setTimeout(resolve, 10));

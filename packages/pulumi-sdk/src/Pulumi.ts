@@ -1,5 +1,5 @@
 import os from "os";
-import execa from "execa";
+import execa, { ExecaChildProcess } from "execa";
 import * as path from "path";
 import fs from "fs-extra";
 import merge from "lodash/merge.js";
@@ -164,7 +164,7 @@ export class Pulumi {
 
         Object.assign(wrapped, pulumiProcess);
 
-        return wrapped;
+        return wrapped as ExecaChildProcess<string>;
     }
 
     private async install(rawArgs?: InstallArgs): Promise<boolean> {
