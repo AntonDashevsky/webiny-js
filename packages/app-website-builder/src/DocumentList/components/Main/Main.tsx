@@ -8,13 +8,17 @@ import { BottomInfoBar } from "~/DocumentList/components/BottomInfoBar/index.js"
 import { Table } from "~/DocumentList/components/Table/index.js";
 import { useListMorePages } from "~/features/pages/index.js";
 import { Empty } from "~/DocumentList/components/Empty/index.js";
+import { useCreatePageDialog } from "./CreatePage/CreatePage";
 
 const Main = () => {
     const { vm } = useDocumentList();
     const { listMorePages } = useListMorePages();
     const { showDialog: showCreateFolderDialog } = useCreateDialog();
+
+    const { showCreatePageDialog } = useCreatePageDialog(vm.folderId);
     const { getFolderLevelPermission: canManageContent } =
         useGetFolderLevelPermission("canManageContent");
+
     const { getFolderLevelPermission: canManageStructure } =
         useGetFolderLevelPermission("canManageStructure");
 
@@ -43,7 +47,7 @@ const Main = () => {
                 canCreateFolder={canCreateFolder}
                 canCreateContent={canCreateContent}
                 onCreateFolder={onCreateFolder}
-                onCreateDocument={() => alert("Create document")}
+                onCreateDocument={showCreatePageDialog}
                 isRoot={vm.isRoot}
             />
             <div
@@ -63,7 +67,7 @@ const Main = () => {
                                 canCreateFolder={canCreateFolder}
                                 canCreateContent={canCreateContent}
                                 onCreateFolder={onCreateFolder}
-                                onCreateDocument={() => alert("Create document")}
+                                onCreateDocument={showCreatePageDialog}
                             />
                         ) : (
                             <Table />

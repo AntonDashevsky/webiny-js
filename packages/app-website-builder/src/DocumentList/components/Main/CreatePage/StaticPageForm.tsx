@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Input } from "@webiny/admin-ui";
-import { useBind } from "@webiny/form";
+import { UnsetOnUnmount, useBind } from "@webiny/form";
 import { validation } from "@webiny/validation";
 
 export const StaticPageForm = () => {
@@ -10,10 +10,14 @@ export const StaticPageForm = () => {
     return (
         <>
             <Grid.Column span={12}>
-                <Input label={"Title"} {...titleBind} />
+                <UnsetOnUnmount name={"title"}>
+                    <Input label={"Title"} {...titleBind} />
+                </UnsetOnUnmount>
             </Grid.Column>
             <Grid.Column span={12}>
-                <Input label={"Path"} {...pathBind} />
+                <UnsetOnUnmount name={"path"}>
+                    <Input label={"Path"} {...pathBind} />
+                </UnsetOnUnmount>
             </Grid.Column>
         </>
     );

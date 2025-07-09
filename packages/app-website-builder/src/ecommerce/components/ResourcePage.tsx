@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import { Grid, Input, Skeleton } from "@webiny/admin-ui";
-import { useBind } from "@webiny/form";
+import { UnsetOnUnmount, useBind, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { createResourcePicker } from "~/ecommerce/createResourcePicker";
 import { useEcommerceApi } from "~/ecommerce/features/apis";
@@ -33,19 +33,16 @@ export const ResourcePage = (props: ResourcePageProps) => {
         validators: [validation.create("required")]
     });
 
+    const resourceTypeBind = useBind({
+        name: "resourceType",
+        defaultValue: props.resourceType
+    });
+
     const titleBind = useBind({ name: "title", validators: [validation.create("required")] });
     const pathBind = useBind({ name: "path", validators: [validation.create("required")] });
 
     useEffect(() => {
-        return () => {
-            titleBind.onChange(undefined);
-            pathBind.onChange(undefined);
-            resourceIdBind.onChange(undefined);
-        };
-    }, []);
-
-    useEffect(() => {
-        if (!api) {
+        if (!api || !resourceIdBind) {
             return;
         }
 
@@ -63,24 +60,33 @@ export const ResourcePage = (props: ResourcePageProps) => {
 
     return (
         <>
+            <UnsetOnUnmount name={"resourceType"}>
+                <Input {...resourceTypeBind} type={"hidden"} />
+            </UnsetOnUnmount>
             <Grid.Column span={12}>
                 <div className={"wby-border-sm wby-rounded-md wby-border-neutral-muted wby-p-sm"}>
                     {api ? (
-                        <ResourcePicker
-                            {...resourceIdBind}
-                            label={toTitleCaseLabel(props.resourceType)}
-                            onChange={onResourceChange}
-                        />
+                        <UnsetOnUnmount name={"resourceId"}>
+                            <ResourcePicker
+                                {...resourceIdBind}
+                                label={toTitleCaseLabel(props.resourceType)}
+                                onChange={onResourceChange}
+                            />
+                        </UnsetOnUnmount>
                     ) : (
                         <Skeleton />
                     )}
                 </div>
             </Grid.Column>
             <Grid.Column span={12}>
-                <Input label={"Title"} {...titleBind} disabled={!resourceIdBind.value} />
+                <UnsetOnUnmount name={"title"}>
+                    <Input label={"Title"} {...titleBind} disabled={!resourceIdBind.value} />
+                </UnsetOnUnmount>
             </Grid.Column>
             <Grid.Column span={12}>
-                <Input label={"Path"} {...pathBind} disabled={!resourceIdBind.value} />
+                <UnsetOnUnmount name={"path"}>
+                    <Input label={"Path"} {...pathBind} disabled={!resourceIdBind.value} />
+                </UnsetOnUnmount>
             </Grid.Column>
         </>
     );

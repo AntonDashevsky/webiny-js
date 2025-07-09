@@ -17,7 +17,8 @@ export const adaptInputToBind = (Component: React.ComponentType<ElementInputRend
 
         return (
             <Component
-                {...props}
+                label={props.label}
+                value={props.value}
                 onChange={onChange}
                 metadata={metadata}
                 onPreviewChange={noop}

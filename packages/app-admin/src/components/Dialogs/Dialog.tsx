@@ -30,7 +30,7 @@ export const Dialog = ({
     size
 }: DialogProps) => {
     const handleSubmit: FormOnSubmit = data => {
-        onSubmit(data);
+        return onSubmit(data);
     };
 
     return (

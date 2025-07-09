@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StaticPageForm } from "./StaticPageForm";
+import { StaticPageForm } from "~/DocumentList/components/Main/CreatePage/StaticPageForm";
 
 export type PageType = {
     name: string;
