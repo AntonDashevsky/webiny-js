@@ -2,21 +2,75 @@ import React from "react";
 import type { CssProperties } from "@webiny/app-website-builder/sdk";
 import type { ComponentPropsWithChildren } from "~/types";
 
+const SUPPORTED_IMAGE_RESIZE_WIDTHS = [100, 300, 500, 750, 1000, 1500, 2500];
+
 type ImageProps = ComponentPropsWithChildren<{
+    htmlTag: "auto-detect" | "img" | "object";
+    title: string;
+    altText: string;
     image: {
         id: string;
         name: string;
         size: number;
         mimeType: string;
-        url: string;
+        src: string;
     };
 }>;
 
 export const ImageComponent = ({ inputs, styles }: ImageProps) => {
-    if (!inputs.image?.url) {
+    if (!inputs.image?.src) {
         return <ImagePlaceholder style={styles} />;
     }
-    return <img src={inputs.image?.url ?? styles.backgroundImage} style={styles} />;
+
+    const { title = "", altText, htmlTag, image } = inputs;
+
+    let imageTag = htmlTag;
+    if (htmlTag === "auto-detect" && image.src.endsWith(".svg")) {
+        imageTag = "img";
+    }
+
+    if (imageTag === "object") {
+        return <object style={styles} title={title} data={image.src} />;
+    }
+
+    // If a fixed image width in pixels was set, let's filter out unneeded
+    // image resize widths. For example, if 155px was set as the fixed image
+    // width, then we want the `srcset` attribute to only contain 100w and 300w.
+    let srcSetWidths: number[] = [];
+    const width = styles.width?.toString();
+
+    if (width && width.endsWith("px")) {
+        const imageWidthInt = parseInt(width);
+        for (let i = 0; i < SUPPORTED_IMAGE_RESIZE_WIDTHS.length; i++) {
+            const supportedResizeWidth = SUPPORTED_IMAGE_RESIZE_WIDTHS[i];
+            if (imageWidthInt > supportedResizeWidth) {
+                srcSetWidths.push(supportedResizeWidth);
+            } else {
+                srcSetWidths.push(supportedResizeWidth);
+                break;
+            }
+        }
+    } else {
+        // If a fixed image width was not provided, we
+        // rely on all the supported image resize widths.
+        srcSetWidths = SUPPORTED_IMAGE_RESIZE_WIDTHS;
+    }
+
+    const srcSet = srcSetWidths
+        .map(item => {
+            return `${image.src}?width=${item} ${item}w`;
+        })
+        .join(", ");
+
+    return (
+        <img
+            alt={altText}
+            title={title}
+            src={image.src}
+            srcSet={srcSet}
+            style={{ maxWidth: "100%", ...styles }}
+        />
+    );
 };
 
 const ImagePlaceholder = ({ style }: { style: CssProperties }) => {

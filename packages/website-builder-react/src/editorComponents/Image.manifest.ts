@@ -1,5 +1,9 @@
 "use client";
-import { createFileInput, createSelectInput } from "@webiny/app-website-builder/sdk";
+import {
+    createFileInput,
+    createSelectInput,
+    createTextInput
+} from "@webiny/app-website-builder/sdk";
 import { createComponent } from "~/createComponent";
 import { ImageComponent } from "./Image";
 
@@ -13,8 +17,23 @@ export const Image = createComponent(ImageComponent, {
         createFileInput({
             name: "image",
             label: "Image",
-            description: "Select an image",
-            allowedFileTypes: ["image/*"]
+            allowedFileTypes: ["image/*"],
+            onChange: ({ inputs }) => {
+                if (inputs.image) {
+                    inputs.title = inputs.image.name;
+                    inputs.altText = inputs.image.name;
+                }
+            }
+        }),
+        createTextInput({
+            name: "title",
+            label: "Title",
+            description: "Title of the image"
+        }),
+        createTextInput({
+            name: "altText",
+            label: "Alternate Text",
+            description: "Shown when the user has disabled images"
         }),
         createSelectInput({
             name: "htmlTag",

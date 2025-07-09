@@ -35,7 +35,7 @@ export const FileInputRenderer = ({
                 name: getName(),
                 size: getSize(),
                 mimeType: getType(),
-                url: file.src || ""
+                src: file.src || ""
             });
 
             metadata.set("image", {
@@ -43,7 +43,7 @@ export const FileInputRenderer = ({
                 name: getName(),
                 size: getSize(),
                 mimeType: getType(),
-                url: file.src || ""
+                src: file.src || ""
             });
         });
     };
