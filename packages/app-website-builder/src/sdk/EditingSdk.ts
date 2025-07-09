@@ -112,6 +112,10 @@ export class EditingSdk implements IContentSdk {
         return this.liveSdk.resolveElement(params);
     }
 
+    refreshOverlays() {
+        this.reportBoxes();
+    }
+
     private getReferrerOrigin(): string {
         try {
             const referrer = new URL(document.referrer);

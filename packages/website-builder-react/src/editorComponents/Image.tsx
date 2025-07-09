@@ -1,5 +1,5 @@
-import React from "react";
-import type { CssProperties } from "@webiny/app-website-builder/sdk";
+import React, { useCallback, useEffect, useState } from "react";
+import { contentSdk, CssProperties } from "@webiny/app-website-builder/sdk";
 import type { ComponentPropsWithChildren } from "~/types";
 
 const SUPPORTED_IMAGE_RESIZE_WIDTHS = [100, 300, 500, 750, 1000, 1500, 2500];
@@ -17,59 +17,29 @@ type ImageProps = ComponentPropsWithChildren<{
     };
 }>;
 
-export const ImageComponent = ({ inputs, styles }: ImageProps) => {
-    if (!inputs.image?.src) {
-        return <ImagePlaceholder style={styles} />;
+export const ImageComponent = (props: ImageProps) => {
+    const image = useImage(props);
+
+    if (!image.src) {
+        return <ImagePlaceholder style={props.styles} />;
     }
 
-    const { title = "", altText, htmlTag, image } = inputs;
-
-    let imageTag = htmlTag;
-    if (htmlTag === "auto-detect" && image.src.endsWith(".svg")) {
-        imageTag = "img";
+    if (image.tag === "object") {
+        return <object style={image.styles} title={image.title} data={image.src} />;
     }
-
-    if (imageTag === "object") {
-        return <object style={styles} title={title} data={image.src} />;
-    }
-
-    // If a fixed image width in pixels was set, let's filter out unneeded
-    // image resize widths. For example, if 155px was set as the fixed image
-    // width, then we want the `srcset` attribute to only contain 100w and 300w.
-    let srcSetWidths: number[] = [];
-    const width = styles.width?.toString();
-
-    if (width && width.endsWith("px")) {
-        const imageWidthInt = parseInt(width);
-        for (let i = 0; i < SUPPORTED_IMAGE_RESIZE_WIDTHS.length; i++) {
-            const supportedResizeWidth = SUPPORTED_IMAGE_RESIZE_WIDTHS[i];
-            if (imageWidthInt > supportedResizeWidth) {
-                srcSetWidths.push(supportedResizeWidth);
-            } else {
-                srcSetWidths.push(supportedResizeWidth);
-                break;
-            }
-        }
-    } else {
-        // If a fixed image width was not provided, we
-        // rely on all the supported image resize widths.
-        srcSetWidths = SUPPORTED_IMAGE_RESIZE_WIDTHS;
-    }
-
-    const srcSet = srcSetWidths
-        .map(item => {
-            return `${image.src}?width=${item} ${item}w`;
-        })
-        .join(", ");
 
     return (
-        <img
-            alt={altText}
-            title={title}
-            src={image.src}
-            srcSet={srcSet}
-            style={{ maxWidth: "100%", ...styles }}
-        />
+        <>
+            {!image.isLoaded && <ImagePlaceholder style={image.styles} />}
+            <img
+                alt={image.altText}
+                onLoad={image.onLoad}
+                title={image.title}
+                src={image.src}
+                srcSet={image.srcSet}
+                style={image.styles}
+            />
+        </>
     );
 };
 
@@ -101,4 +71,82 @@ const ImagePlaceholder = ({ style }: { style: CssProperties }) => {
             </svg>
         </div>
     );
+};
+
+const getSrcSet = (src: string, srcSetWidths: number[]) => {
+    return srcSetWidths.map(item => `${src}?width=${item} ${item}w`).join(", ");
+};
+
+const useImage = ({ inputs, styles }: ImageProps) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const { title = "", altText, htmlTag, image } = inputs;
+    const src = image?.src;
+
+    let tag = htmlTag;
+    if (src && htmlTag === "auto-detect" && src.endsWith(".svg")) {
+        tag = "img";
+    }
+
+    useEffect(() => {
+        if (!src) {
+            setIsLoaded(false);
+        }
+    }, [src]);
+
+    // If a fixed image width in pixels was set, let's filter out unneeded
+    // image resize widths. For example, if 155px was set as the fixed image
+    // width, then we want the `srcset` attribute to only contain 100w and 300w.
+    let srcSetWidths: number[] = [];
+
+    const width = styles.width?.toString();
+
+    if (width && width.endsWith("px")) {
+        const imageWidthInt = parseInt(width);
+        for (let i = 0; i < SUPPORTED_IMAGE_RESIZE_WIDTHS.length; i++) {
+            const supportedResizeWidth = SUPPORTED_IMAGE_RESIZE_WIDTHS[i];
+            if (imageWidthInt > supportedResizeWidth) {
+                srcSetWidths.push(supportedResizeWidth);
+            } else {
+                srcSetWidths.push(supportedResizeWidth);
+                break;
+            }
+        }
+    } else {
+        // If a fixed image width was not provided, we
+        // rely on all the supported image resize widths.
+        srcSetWidths = SUPPORTED_IMAGE_RESIZE_WIDTHS;
+    }
+
+    const srcSet = src ? getSrcSet(src, srcSetWidths) : "";
+
+    const imageStyles = {
+        maxWidth: "100%",
+        opacity: isLoaded ? 1 : 0,
+        transition: "opacity 0.3s ease",
+        ...styles
+    };
+
+    const onLoad = useCallback(() => {
+        if (contentSdk.isEditing()) {
+            setTimeout(() => {
+                setIsLoaded(true);
+                setTimeout(() => {
+                    contentSdk.getEditingSdk()?.refreshOverlays();
+                }, 100);
+            }, 100);
+        } else {
+            setIsLoaded(true);
+        }
+    }, []);
+
+    return {
+        altText,
+        isLoaded,
+        onLoad,
+        src: inputs.image?.src,
+        srcSet,
+        styles: imageStyles,
+        tag,
+        title
+    };
 };
