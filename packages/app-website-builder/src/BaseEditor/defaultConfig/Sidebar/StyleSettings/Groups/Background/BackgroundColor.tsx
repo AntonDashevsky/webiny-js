@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { observer } from "mobx-react-lite";
 import { ColorPicker } from "@webiny/admin-ui";
 
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
 import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
 
-export const BackgroundColor = ({ elementId }: { elementId: string }) => {
+export const BackgroundColor = observer(({ elementId }: { elementId: string }) => {
     const { styles, onChange, onPreviewChange, inheritanceMap } = useStyles(elementId);
     const [value, setValue] = useState(styles.backgroundColor ?? "transparent");
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -55,4 +56,4 @@ export const BackgroundColor = ({ elementId }: { elementId: string }) => {
             onChange={handleChange}
         />
     );
-};
+});

@@ -34,11 +34,11 @@ const ElementStyleProperties = ({ element }: { element: DocumentElement }) => {
     return (
         <Accordion>
             {isHidden(StyleSettings.Layout) ? null : <Layout elementId={element.id} />}
-            {isHidden(StyleSettings.Visibility) ? null : <VisibilityGroup elementId={element.id} />}
-            {isHidden(StyleSettings.Background) ? null : <Background elementId={element.id} />}
             {isHidden(StyleSettings.MarginPadding) ? null : (
                 <MarginPadding elementId={element.id} />
             )}
+            {isHidden(StyleSettings.Background) ? null : <Background elementId={element.id} />}
+            {isHidden(StyleSettings.Visibility) ? null : <VisibilityGroup elementId={element.id} />}
         </Accordion>
     );
 };

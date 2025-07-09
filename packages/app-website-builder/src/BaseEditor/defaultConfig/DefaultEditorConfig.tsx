@@ -3,9 +3,6 @@ import { ReactComponent as TouchIcon } from "@webiny/icons/touch_app.svg";
 import { Breadcrumbs } from "./Content/Breadcrumbs";
 import { Background } from "./Content/Background";
 import { EditorConfig } from "~/BaseEditor/config";
-// import { Navigator } from "./Toolbar/Navigator";
-// import { Saving } from "./Toolbar/Saving/Saving";
-// import { ElementActions } from "./Sidebar/ElementSettings/ElementActions";
 import { InfoMessage } from "./Sidebar/InfoMessage";
 // import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { StyleSettingsGroup } from "./Sidebar/StyleSettings/StyleSettingsGroup";
@@ -76,16 +73,6 @@ export const DefaultEditorConfig = React.memo(() => {
                     group={"element"}
                     element={<ClickToActivate />}
                 />
-                {/* This element renders element actions. */}
-                {/*<Ui.Sidebar.Element
-                    name={"elementActions"}
-                    group={"element"}
-                    element={
-                        <Ui.OnActiveElement>
-                            <ElementActions />
-                        </Ui.OnActiveElement>
-                    }
-                />*/}
                 {/* This element renders element properties. */}
                 <Ui.Sidebar.Element
                     name={"elementSettings"}

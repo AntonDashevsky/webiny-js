@@ -17,8 +17,8 @@ export const IconButton = ({ tooltip, ...props }: IconButtonProps) => {
             trigger={
                 <BaseIconButton
                     icon={props.icon}
-                    size={"md"}
-                    variant={"ghost"}
+                    size={props.size ?? "md"}
+                    variant={props.variant}
                     onClick={props.onClick}
                 />
             }

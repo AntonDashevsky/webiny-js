@@ -18,6 +18,7 @@ export const SelectInputRenderer = ({
                     value.set(newValue);
                 });
             }}
+            displayResetAction={input.showResetAction !== false}
             options={input.options}
             label={label}
             description={input.description}

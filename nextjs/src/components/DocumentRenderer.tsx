@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
-import { customComponents } from "@/webiny/customComponents";
+import { editorComponents } from "../editorComponents";
 import { type Document } from "@webiny/website-builder-react";
 
 // Dynamically import DocumentRenderer with SSR enabled for non-editing mode.
@@ -33,11 +33,11 @@ export const DocumentRenderer = ({ document, isEditing }: DocumentRendererProps)
         return <h2>Page Not Found!</h2>;
     }
 
-    // Render client-only version when editing to avoid SSR issues,
+    // Render the client-only version when editing to avoid SSR issues,
     // otherwise render server-side for production view.
     return isEditing ? (
-        <DocumentRendererNoSSR document={document} components={customComponents} />
+        <DocumentRendererNoSSR document={document} components={editorComponents} />
     ) : (
-        <DocumentRendererSSR document={document} components={customComponents} />
+        <DocumentRendererSSR document={document} components={editorComponents} />
     );
 };

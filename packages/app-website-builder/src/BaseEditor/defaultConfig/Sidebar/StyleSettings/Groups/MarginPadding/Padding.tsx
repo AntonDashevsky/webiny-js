@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { LinkedEditing } from "./LinkedEditing";
 import { useStyles } from "../../useStyles";
 import { ValueSelector } from "../../ValueSelector";
@@ -12,7 +13,7 @@ interface PaddingProps {
     elementId: string;
 }
 
-export const Padding = ({ elementId }: PaddingProps) => {
+export const Padding = observer(({ elementId }: PaddingProps) => {
     const { onChange, onPreviewChange, metadata } = useStyles(elementId);
 
     const paddingTop = useStyleValue(elementId, "paddingTop");
@@ -129,4 +130,4 @@ export const Padding = ({ elementId }: PaddingProps) => {
             </div>
         </div>
     );
-};
+});

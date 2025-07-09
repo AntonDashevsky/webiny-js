@@ -1,19 +1,27 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { useStyles } from "../../useStyles";
 import { LinkedEditing } from "./LinkedEditing";
 import { ValueSelector } from "../../ValueSelector";
 import { UnitsOptions } from "../../UnitsOptions";
 import { useStyleValue } from "../../useStyleValue";
 
-const widthOptions = UnitsOptions.widthUnits().add("auto").getOptions();
-const heightOptions = UnitsOptions.heightUnits().add("auto").getOptions();
+const additionalUnits = ["auto", "unset"];
+
+const widthOptions = UnitsOptions.widthUnits()
+    .add(...additionalUnits)
+    .getOptions();
+
+const heightOptions = UnitsOptions.heightUnits()
+    .add(...additionalUnits)
+    .getOptions();
 
 interface MarginProps {
     elementId: string;
     children: React.ReactNode;
 }
 
-export const Margin = ({ elementId, children }: MarginProps) => {
+export const Margin = observer(({ elementId, children }: MarginProps) => {
     const { onChange, onPreviewChange, metadata } = useStyles(elementId);
 
     const marginTop = useStyleValue(elementId, "marginTop");
@@ -26,7 +34,8 @@ export const Margin = ({ elementId, children }: MarginProps) => {
     const onToggleLinkedEditing = (linked: boolean) => {
         onChange(({ styles, metadata }) => {
             if (linked) {
-                const value = `${marginTop.value ?? 0}${marginTop.unit}`;
+                const isKeyword = marginTop.isKeyword;
+                const value = isKeyword ? marginTop.value : `${marginTop.value ?? 0}${marginTop.unit}`;
                 styles.set("marginRight", value);
                 styles.set("marginBottom", value);
                 styles.set("marginLeft", value);
@@ -125,4 +134,4 @@ export const Margin = ({ elementId, children }: MarginProps) => {
             </div>
         </div>
     );
-};
+});

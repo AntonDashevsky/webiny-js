@@ -1,7 +1,7 @@
 import React from "react";
-import type { ComponentProps, ComponentPropsWithChildren } from "@webiny/website-builder-react";
+import type { ComponentProps, ComponentPropsWithChildren } from "~/types";
 
-export const GridColumn = ({ inputs }: { inputs: ComponentPropsWithChildren["inputs"] }) => {
+export const GridColumnComponent = ({ inputs }: { inputs: ComponentPropsWithChildren["inputs"] }) => {
     return <>{inputs.children}</>;
 };
 
@@ -18,7 +18,7 @@ type GridProps = ComponentProps<{
     reverseWhenStacked?: boolean;
 }>;
 
-export const Grid = ({ inputs, styles, breakpoint }: GridProps) => {
+export const GridComponent = ({ inputs, styles, breakpoint }: GridProps) => {
     const { gridLayout = "12", columns, columnGap, stackAtBreakpoint, reverseWhenStacked } = inputs;
     const rowConfig = gridLayout.split("-").map(size => parseInt(size));
     const rows: Column[][] = [];
@@ -47,7 +47,7 @@ export const Grid = ({ inputs, styles, breakpoint }: GridProps) => {
                         size={rowConfig[i]}
                         reductionInPx={cellWidthReduction}
                     >
-                        <GridColumn key={i} inputs={{ children: column.children }} />
+                        <GridColumnComponent key={i} inputs={{ children: column.children }} />
                     </Span>
                 ));
             })}

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { LexicalHtmlRenderer } from "@webiny/lexical-editor";
-import type { ComponentProps } from "@webiny/website-builder-react";
+import type { ComponentProps } from "~/types";
 
 export const createLexicalValue = (value: string) => {
     return {
@@ -9,14 +9,14 @@ export const createLexicalValue = (value: string) => {
     };
 };
 
-type RichTextProps = ComponentProps<{
+type LexicalProps = ComponentProps<{
     content: {
         state: string;
         html?: string;
     };
 }>;
 
-export const LexicalComponent = ({ inputs }: RichTextProps) => {
+export const LexicalComponent = ({ inputs }: LexicalProps) => {
     const { state, html } = inputs.content;
 
     if (html) {

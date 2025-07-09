@@ -1,8 +1,17 @@
 import React, { useCallback, useRef, useState } from "react";
-import { cn, DropdownMenu, FormComponentLabel, FormComponentNote, Input, Select, Separator } from "@webiny/admin-ui";
+import {
+    cn,
+    DropdownMenu,
+    FormComponentLabel,
+    FormComponentNote,
+    Input,
+    Select,
+    Separator
+} from "@webiny/admin-ui";
 import { InheritedFrom } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { BASE_BREAKPOINT } from "~/constants";
+import { UnitValue } from "./UnitValue";
 
 type Option = {
     label: string;
@@ -13,6 +22,7 @@ interface ValueSelectorProps {
     label: React.ReactNode;
     value: string;
     unit: string;
+    isKeyword: boolean;
     units: Option[];
     onChange: (value: string) => void;
     onChangePreview: (value: string) => void;
@@ -20,12 +30,6 @@ interface ValueSelectorProps {
     inheritedFrom?: string;
     overridden?: boolean;
     disabled?: boolean;
-}
-
-class Value {
-    static from(value: string | undefined) {
-        return value === "auto" ? 0 : parseInt(value ?? "0");
-    }
 }
 
 export const ValueSelector = (props: ValueSelectorProps) => {
@@ -37,9 +41,7 @@ export const ValueSelector = (props: ValueSelectorProps) => {
 
     const defaultValue = editing ? "" : 0;
 
-    const isAuto = props.value === "auto";
-
-    const currentValue = Value.from(props.value);
+    const currentValue = UnitValue.from(props.value);
 
     const trackTyping = useCallback(() => {
         setInputChanged(true);
@@ -52,15 +54,16 @@ export const ValueSelector = (props: ValueSelectorProps) => {
 
     const setUnit = (unit: string) => {
         setEditing(false);
-        props.onChange(unit === "auto" ? "auto" : `${currentValue}${unit}`);
+        currentValue.setUnit(unit);
+        props.onChange(currentValue.toString());
     };
 
     const setValue = (value: string) => {
-        const parsedValue = Value.from(value);
+        const parsedValue = UnitValue.from(value);
         if (!inputChanged) {
             return;
         }
-        const finalValue = isNaN(parsedValue) ? 0 : parsedValue;
+        const finalValue = parsedValue.getValue("0");
         props.onChange(`${finalValue}${props.unit}`);
 
         setInputChanged(false);
@@ -95,7 +98,7 @@ export const ValueSelector = (props: ValueSelectorProps) => {
 
     const label = (
         <div className={classNames} onClick={() => setIsOpen(true)} style={{ width: 45 }}>
-            {props.value ?? 0} {props.unit === "auto" ? null : props.unit}
+            {props.value ?? 0} {props.isKeyword ? null : props.unit}
         </div>
     );
 
@@ -107,9 +110,9 @@ export const ValueSelector = (props: ValueSelectorProps) => {
                     <Input
                         onKeyDown={trackTyping}
                         inputRef={inputRef}
-                        disabled={isAuto}
+                        disabled={props.isKeyword}
                         size={"md"}
-                        value={isAuto ? "-" : props.value ?? defaultValue}
+                        value={props.isKeyword ? "-" : props.value ?? defaultValue}
                         onEnter={onEnter}
                         autoSelect={true}
                         onChange={value => setPreviewValue(value)}
@@ -132,7 +135,7 @@ export const ValueSelector = (props: ValueSelectorProps) => {
                     />
                 </div>
             </div>
-            <FormComponentNote text={`Hit "Enter" or click outside the menu to close it.`}/>
+            <FormComponentNote text={`Hit "Enter" or click outside the menu to close it.`} />
         </>
     );
 

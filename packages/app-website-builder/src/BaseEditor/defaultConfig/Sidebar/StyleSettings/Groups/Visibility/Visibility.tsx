@@ -1,6 +1,6 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import { Switch } from "@webiny/admin-ui";
-import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
 import { InheritanceLabel } from "~/BaseEditor/defaultConfig/Sidebar/InheritanceLabel";
 
@@ -8,8 +8,7 @@ export interface VisibilityProps {
     elementId: string;
 }
 
-export const Visibility = ({ elementId }: VisibilityProps) => {
-    const { breakpoint } = useBreakpoint();
+export const Visibility = observer(({ elementId }: VisibilityProps) => {
     const { styles, onChange, inheritanceMap } = useStyles(elementId);
 
     const isVisible = styles.display !== "none";
@@ -42,4 +41,4 @@ export const Visibility = ({ elementId }: VisibilityProps) => {
             onChange={toggleVisibility}
         />
     );
-};
+});

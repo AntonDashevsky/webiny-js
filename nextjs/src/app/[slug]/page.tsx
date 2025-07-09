@@ -1,9 +1,9 @@
 import React from "react";
 import { draftMode } from "next/headers";
 import { contentSdk } from "@webiny/website-builder-react";
-import { initContentSdk } from "@/webiny/initContentSdk";
-import { PageLayout } from "@/webiny/PageLayout";
-import { DocumentRenderer } from "@/webiny/DocumentRenderer";
+import { initContentSdk } from "@/src/contentSdk";
+import { PageLayout } from "@/src/components/PageLayout";
+import { DocumentRenderer } from "@/src/components/DocumentRenderer";
 
 // This function runs at build time to generate all static paths for Next.js prerendering.
 // We must initialize the SDK here because the SDK needs to be ready before fetching the list of pages.

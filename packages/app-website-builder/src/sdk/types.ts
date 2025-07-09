@@ -287,6 +287,7 @@ export type LexicalInput = BaseInput<string> & {
 export type SelectInput = BaseInput<string> & {
     type: "select";
     options: { label: string; value: string }[];
+    showResetAction?: boolean;
 };
 
 export type RadioInput = BaseInput<string> & {

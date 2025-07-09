@@ -49,7 +49,7 @@ export const ElementInputRenderers = () => {
                 component={GridLayoutInputRenderer}
             />
             <EditorConfig.ElementInput.Renderer
-                name={"Webiny/File"}
+                name={"Webiny/FileManager"}
                 component={FileInputRenderer}
             />
         </>

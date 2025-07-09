@@ -20,6 +20,8 @@ class Value {
     }
 }
 
+const capTo100 = ["%", "vh", "vw"];
+
 export const UnitValuePicker = (props: UnitValueProps) => {
     const [editing, setEditing] = useState(false);
 
@@ -34,9 +36,7 @@ export const UnitValuePicker = (props: UnitValueProps) => {
     };
 
     const setUnit = (unit: string) => {
-        setEditing(false);
-        const value = unit === "%" && currentValue > 100 ? 100 : currentValue
-        console.log("`${currentValue}${unit}`", `${value}${unit}`);
+        const value = capTo100.includes(unit) && currentValue > 100 ? 100 : currentValue;
         props.onChange(unit === "auto" ? "auto" : `${value}${unit}`);
     };
 
