@@ -1,13 +1,12 @@
 import { Entity } from "@webiny/db-dynamodb/toolbox";
 import { get } from "@webiny/db-dynamodb/utils/get";
 import WebinyError from "@webiny/error";
-import { AdminSettings } from "~/types";
 import { StorageOperationsSettingsService } from "~/storage/types";
 
 interface DbData {
     PK: string;
     SK: string;
-    data: AdminSettings;
+    data: Record<string, any>;
 }
 
 interface Params {

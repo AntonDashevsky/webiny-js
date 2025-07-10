@@ -4,6 +4,8 @@ import { Form, FormOnSubmit, GenericFormData } from "@webiny/form";
 
 interface DialogProps {
     title: ReactNode;
+    description: ReactNode;
+    dismissible: boolean;
     content: ReactNode;
     acceptLabel?: ReactNode;
     cancelLabel?: ReactNode;
@@ -27,7 +29,8 @@ export const Dialog = ({
     closeDialog,
     onSubmit,
     formData,
-    size
+    size,
+    ...props
 }: DialogProps) => {
     const handleSubmit: FormOnSubmit = data => {
         return onSubmit(data);
@@ -41,6 +44,8 @@ export const Dialog = ({
                     onClose={closeDialog}
                     size={size}
                     title={title}
+                    description={props.description}
+                    dismissible={props.dismissible}
                     actions={
                         <>
                             {cancelLabel ? (

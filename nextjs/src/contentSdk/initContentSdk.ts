@@ -15,6 +15,7 @@ export const initContentSdk = (options: InitContentSdkOptions = {}) => {
     contentSdk.init(
         {
             apiKey: options.apiKey ?? String(process.env.NEXT_PUBLIC_WEBSITE_BUILDER_API_KEY),
+            apiEndpoint: "https://dc4s05sapah2w.cloudfront.net/graphql",
             preview: previewMode ?? false
         },
         () => {

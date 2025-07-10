@@ -5,7 +5,6 @@ import type { ComponentPropsWithChildren } from "~/types";
 const SUPPORTED_IMAGE_RESIZE_WIDTHS = [100, 300, 500, 750, 1000, 1500, 2500];
 
 type ImageProps = ComponentPropsWithChildren<{
-    htmlTag: "auto-detect" | "img" | "object";
     title: string;
     altText: string;
     image: {
@@ -78,14 +77,11 @@ const getSrcSet = (src: string, srcSetWidths: number[]) => {
 };
 
 const useImage = ({ inputs, styles }: ImageProps) => {
-    const [isLoaded, setIsLoaded] = useState(false);
-    const { title = "", altText, htmlTag, image } = inputs;
+    const [isLoaded, setIsLoaded] = useState(contentSdk.isEditing() ? false : true);
+    const { title = "", altText, image } = inputs;
     const src = image?.src;
 
-    let tag = htmlTag;
-    if (src && htmlTag === "auto-detect" && src.endsWith(".svg")) {
-        tag = "img";
-    }
+    const tag = src && src.endsWith(".svg") ? "object" : "img";
 
     useEffect(() => {
         if (!src) {

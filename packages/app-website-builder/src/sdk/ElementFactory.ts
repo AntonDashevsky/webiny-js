@@ -223,6 +223,7 @@ export class ElementFactory {
                         id: generateAlphaNumericLowerCaseId(),
                         static: node.list ? [newElementId] : newElementId,
                         type: node.type,
+                        translatable: node.input.translatable,
                         list: node.list
                     })
                 );
@@ -234,7 +235,8 @@ export class ElementFactory {
                         id: generateAlphaNumericLowerCaseId(),
                         static: ignoreDefaultValues ? undefined : value ?? node.input.defaultValue,
                         type: node.type,
-                        list: node.list
+                        list: node.list,
+                        translatable: node.input.translatable
                     })
                 );
             }

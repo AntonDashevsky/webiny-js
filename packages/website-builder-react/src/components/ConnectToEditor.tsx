@@ -13,8 +13,7 @@ export const ConnectToEditor = (props: ConnectToEditorProps) => {
     const [data, setData] = useState<Document | null>(null);
 
     useEffect(() => {
-        // TODO: implement page fetching using preview parameters
-        contentSdk.getPage("/page-1").then(document => {
+        contentSdk.getPage(props.document.properties.path).then(document => {
             setData(document);
         });
     }, []);

@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
 import { ElementOverlays } from "./Overlays/ElementOverlays";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { ConnectEditorToPreview } from "~/DocumentEditor/ConnectEditorToPreview";
 import { Messenger } from "~/sdk/messenger";
 import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Preview/useResponsiveContainer";
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { ViewportManager } from "~/sdk/ViewportManager";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { usePreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/usePreviewUrl";
 
 interface IframeProps {
     showLoading: boolean;
@@ -15,19 +16,24 @@ interface IframeProps {
 
 export const Iframe = React.memo((props: IframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
-
+    const { previewUrl } = usePreviewUrl();
     const previewWidth = useResponsiveContainer(props.viewportManager);
 
-    const previewUrl = useSelectFromEditor<string>(state => {
-        const searchParams = new URLSearchParams();
-        searchParams.append("wb.editing", "true");
-        searchParams.append("wb.editing.type", "page");
-        searchParams.append("wb.editing.id", "12345678");
-        searchParams.append("wb.editing.pathname", "/page-1");
+    const iframeSrc = useSelectFromDocument(
+        document => {
+            const url = new URL(previewUrl);
+            url.searchParams.set("width", previewWidth);
+            const searchParams = url.searchParams;
+            searchParams.set("wb.editing", "true");
+            searchParams.set("wb.editing.type", document.metadata.documentType);
+            searchParams.set("wb.editing.id", document.id);
+            searchParams.set("wb.editing.pathname", url.pathname);
+            searchParams.set("wb.editing.referrer", window.location.origin);
 
-        const iframeUrl = `http://localhost:3000/page-1?${searchParams.toString()}`;
-        return state.previewUrl ?? iframeUrl;
-    });
+            return url.toString();
+        },
+        [previewUrl]
+    );
 
     return (
         <div
@@ -53,7 +59,8 @@ export const Iframe = React.memo((props: IframeProps) => {
                     className={
                         "wby-w-full wby-bg-white wby-border-none wby-overflow-scroll wby-min-h-[inherit]"
                     }
-                    src={previewUrl}
+                    key={iframeSrc}
+                    src={iframeSrc}
                     ref={iframeRef}
                     sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-modals allow-forms"
                 />

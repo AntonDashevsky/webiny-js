@@ -16,7 +16,7 @@ export const attachContentReviewAfterCreate = (context: ApwContext): void => {
             if (!step?.id) {
                 return;
             }
-            const settings = await getAppUrl(context);
+            const settings = await getAppUrl();
             if (!settings) {
                 return;
             }

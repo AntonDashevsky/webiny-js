@@ -1,40 +1,48 @@
 import React, { useCallback, useState } from "react";
 import { Input } from "@webiny/admin-ui";
-import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { BreakpointSelector } from "./BreakpointSelector";
+import { usePreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/usePreviewUrl";
+import { PreviewInNewTab } from "./AddressBar/PreviewInNewTab";
+import { OpenInNewTab } from "./AddressBar/OpenInNewTab";
 
 export const AddressBar = () => {
     const editor = useDocumentEditor();
-    const previewUrl = useSelectFromEditor<string>(state => {
-        return state.previewUrl ?? "http://localhost:3000/page-1";
-    });
+    const { previewUrl } = usePreviewUrl();
 
-    const [url, setUrl] = useState(previewUrl);
+    const [urlInput, setInputUrl] = useState<string | null>(null);
 
     const onChange = useCallback(
         (value: string) => {
-            setUrl(value);
+            setInputUrl(value);
         },
-        [setUrl]
+        [setInputUrl]
     );
 
     const setPreviewUrl = useCallback(() => {
-        editor.updateEditor(state => {
-            state.previewUrl = url;
-        });
-    }, [editor, url]);
+        if (urlInput) {
+            editor.updateDocument(state => {
+                state.metadata.lastPreviewUrl = urlInput;
+            });
+            setInputUrl(null);
+        }
+    }, [editor, urlInput]);
 
     return (
         <div className="wby-w-full wby-h-[49px] wby-flex wby-flex-row wby-p-sm wby-bg-neutral-base wby-border-solid wby-border-b-sm wby-border-neutral-dimmed">
-            <div className={"wby-flex-auto wby-mr-sm"}>
+            <div className={"wby-relative wby-flex-auto wby-mr-sm"}>
                 <Input
                     variant={"secondary"}
-                    value={url}
+                    value={urlInput ?? previewUrl}
                     size={"md"}
                     onChange={onChange}
                     onEnter={setPreviewUrl}
+                    onBlur={setPreviewUrl}
                 />
+                <div className={"wby-absolute wby-right-0 wby-top-0"}>
+                    <PreviewInNewTab />
+                    <OpenInNewTab />
+                </div>
             </div>
             <div className={"wby-flex-none"}>
                 <BreakpointSelector />

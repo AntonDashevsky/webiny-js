@@ -27,7 +27,7 @@ export const attachCommentAfterCreate = (context: ApwContext): void => {
                 });
             }
 
-            const settings = await getAppUrl(context);
+            const settings = await getAppUrl();
             if (!settings) {
                 return;
             }

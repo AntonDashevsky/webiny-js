@@ -10,6 +10,7 @@ export type DocumentState = Record<string, any>;
 export type InputValueBinding<T = any> = ValueBinding<T> & {
     id: string;
     type: string;
+    translatable?: boolean;
     list?: boolean;
 };
 
@@ -57,6 +58,9 @@ export type Document = {
     properties: Record<string, any>;
     state: DocumentState;
     bindings: DocumentBindings;
+    metadata: {
+        [key: string]: any;
+    };
     elements: ElementMap;
 };
 
@@ -240,6 +244,7 @@ export type BaseInput<T = any> = {
     hideFromUi?: boolean;
     renderer?: string;
     list?: boolean;
+    translatable?: boolean;
 };
 
 // Discriminated union per input type

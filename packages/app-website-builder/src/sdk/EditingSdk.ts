@@ -118,8 +118,8 @@ export class EditingSdk implements IContentSdk {
 
     private getReferrerOrigin(): string {
         try {
-            const referrer = new URL(document.referrer);
-            return `${referrer.protocol}//${referrer.host}`;
+            const searchParams = new URLSearchParams(window.location.search);
+            return searchParams.get("wb.editing.referrer")!;
         } catch {
             return "";
         }

@@ -1,6 +1,5 @@
 import { TableConstructor } from "@webiny/db-dynamodb/toolbox";
 import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { AdminSettings, AdminSettingsVariant } from "~/types";
 
 export interface TableModifier {
     (table: TableConstructor<string, string, string>): TableConstructor<string, string, string>;
@@ -12,7 +11,7 @@ export interface StorageOperationsFactoryParams {
 }
 
 export interface StorageOperationsSettingsService {
-    getSettings: (variant: AdminSettingsVariant) => Promise<AdminSettings | null>;
+    getSettings: (variant: any) => Promise<any | null>;
 }
 export interface StorageOperationsService {
     settings: StorageOperationsSettingsService;

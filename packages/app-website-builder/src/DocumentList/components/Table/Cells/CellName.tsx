@@ -47,14 +47,22 @@ interface DocumentCellRowTitleProps {
 
 const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
     return (
-        <div className={"wby-flex wby-items-center wby-gap-sm wby-truncate"}>
-            <Icon
-                size={"sm"}
-                color={"neutral-strong"}
-                icon={<File />}
-                label={`Document - ${document.title}`}
-            />
-            <Text className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>{document.title}</Text>
+        <div className={"wby-flex wby-flex-col wby-gap-y-[3px]"}>
+            <div className={"wby-flex wby-w-full wby-items-center"}>
+                <Icon
+                    size={"sm"}
+                    color={"neutral-strong"}
+                    className={"wby-mr-xs"}
+                    icon={<File />}
+                    label={`Document - ${document.title}`}
+                />
+                <Text as={"div"} className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>
+                    {document.title}
+                </Text>
+            </div>
+            <Text as={"div"} size={"sm"} className={"wby-text-neutral-dimmed"}>
+                {document.data.properties.path}
+            </Text>
         </div>
     );
 };
@@ -66,7 +74,11 @@ interface EntryCellNameProps {
 export const DocumentCellName = ({ document }: EntryCellNameProps) => {
     const { getEditPageUrl } = useGetEditPageUrl();
     return (
-        <Link to={getEditPageUrl(document.id)} variant={"secondary"} className={"wby-truncate"}>
+        <Link
+            to={getEditPageUrl(document.id)}
+            variant={"secondary"}
+            className={"wby-truncate !wby-no-underline"}
+        >
             <DocumentCellRowTitle document={document} />
         </Link>
     );

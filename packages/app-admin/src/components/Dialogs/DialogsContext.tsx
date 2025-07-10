@@ -8,6 +8,8 @@ import { generateId } from "@webiny/utils";
 
 interface ShowDialogParams {
     title: ReactNode;
+    description?: ReactNode;
+    dismissible?: boolean;
     content: ReactNode;
     actions?: JSX.Element;
     acceptLabel?: ReactNode;
@@ -43,6 +45,8 @@ interface DialogState extends ShowDialogParams {
 export const initializeState = (params: Partial<DialogState> = {}): DialogState => ({
     id: `dialog-${generateId()}`,
     title: params.title ?? `Confirmation`,
+    description: params.description,
+    dismissible: params.dismissible,
     content: params.content,
     acceptLabel: params.acceptLabel === null ? null : params.acceptLabel ?? `Confirm`,
     cancelLabel: params.cancelLabel === null ? null : params.cancelLabel ?? `Cancel`,
@@ -137,6 +141,8 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
                 ) : (
                     <Dialog
                         key={dialog.id}
+                        description={dialog.description}
+                        dismissible={dialog.dismissible ?? true}
                         title={dialog.title}
                         content={dialog.content}
                         open={dialog.open}

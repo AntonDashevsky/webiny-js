@@ -31,7 +31,8 @@ export const editorComponents = [
         inputs: [
             createLongTextInput({
                 name: "text",
-                label: "Text"
+                label: "Text",
+                translatable: true
             }),
             createFileInput({
                 name: "image",

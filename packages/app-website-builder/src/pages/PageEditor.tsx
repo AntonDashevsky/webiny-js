@@ -23,7 +23,8 @@ export const PageEditor = () => {
                 properties: page.properties,
                 state: {},
                 bindings: page.bindings,
-                elements: page.elements
+                elements: page.elements,
+                metadata: page.metadata
             });
             setLoading(false);
         });

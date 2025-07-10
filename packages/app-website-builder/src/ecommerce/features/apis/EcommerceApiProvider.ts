@@ -1,8 +1,11 @@
-import type { IEcommerceApi, IEcommerceApiFactory } from "~/ecommerce";
+import type { IEcommerceApi } from "~/ecommerce";
 import { IEcommerceSettings } from "~/ecommerce/features/settings/IEcommerceSettings";
+import { EcommerceApiManifest } from "~/ecommerce/features/apis/EcommerceApiManifest";
 
 interface IEcommerceApiProvider {
-    setApiFactory(name: string, apiFactory: IEcommerceApiFactory): void;
+    setApiManifest(manifest: EcommerceApiManifest): void;
+    getApiManifest(name: string): EcommerceApiManifest | undefined;
+    getApiManifests(): EcommerceApiManifest[];
     getApi(name: string): Promise<IEcommerceApi | undefined>;
 }
 
@@ -11,13 +14,13 @@ export interface IEcommerceSettingsLoader {
 }
 
 export class EcommerceApiProvider implements IEcommerceApiProvider {
-    private apiFactories: Map<string, IEcommerceApiFactory>;
+    private apiManifests: Map<string, EcommerceApiManifest>;
     private apiCache: Map<string, IEcommerceApi>;
     private readonly settingsLoader: IEcommerceSettingsLoader;
 
     constructor(settingsLoader: IEcommerceSettingsLoader) {
         this.settingsLoader = settingsLoader;
-        this.apiFactories = new Map<string, IEcommerceApiFactory>();
+        this.apiManifests = new Map<string, EcommerceApiManifest>();
         this.apiCache = new Map<string, IEcommerceApi>();
     }
 
@@ -26,8 +29,8 @@ export class EcommerceApiProvider implements IEcommerceApiProvider {
             return this.apiCache.get(name) as IEcommerceApi;
         }
 
-        const apiFactory = this.apiFactories.get(name);
-        if (!apiFactory) {
+        const apiManifest = this.apiManifests.get(name);
+        if (!apiManifest) {
             return undefined;
         }
 
@@ -36,14 +39,27 @@ export class EcommerceApiProvider implements IEcommerceApiProvider {
             throw new Error(`${name} is not configured!`);
         }
 
-        const api = await apiFactory(settings);
+        const api = await apiManifest.getApi(settings);
 
         this.apiCache.set(name, api);
 
         return api;
     }
 
-    public setApiFactory(name: string, api: IEcommerceApiFactory): void {
-        this.apiFactories.set(name, api);
+    getApiManifests() {
+        return Array.from(this.apiManifests.values());
+    }
+
+    public getApiManifest(name: string): EcommerceApiManifest | undefined {
+        const apiManifest = this.apiManifests.get(name);
+        if (!apiManifest) {
+            return undefined;
+        }
+
+        return apiManifest;
+    }
+
+    public setApiManifest(manifest: EcommerceApiManifest): void {
+        this.apiManifests.set(manifest.getName(), manifest);
     }
 }

@@ -12,16 +12,15 @@ import {
 import { NullDataProvider } from "./dataProviders/NullDataProvider.js";
 import { DefaultDataProvider } from "./dataProviders/DefaultDataProvider.js";
 import { documentStoreManager } from "~/sdk/DocumentStoreManager";
+import { ApiClient } from "~/sdk/dataProviders/ApiClient";
 
 export type LiveSdkConfig = {
     apiKey: string;
-    apiEndpoint?: string;
+    apiEndpoint: string;
 };
 
 export class LiveSdk implements IContentSdk {
     private initialized = false;
-    private apiKey = "";
-    private apiEndpoint = "/api/pages";
     private dataProvider: IDataProvider = new NullDataProvider();
 
     public init(config: LiveSdkConfig) {
@@ -29,13 +28,9 @@ export class LiveSdk implements IContentSdk {
             return;
         }
 
-        this.apiKey = config.apiKey;
-        this.apiEndpoint = config.apiEndpoint || "/api/pages";
+        const apiClient = new ApiClient(config.apiEndpoint, config.apiKey);
 
-        this.dataProvider = new DefaultDataProvider({
-            apiKey: this.apiKey,
-            apiEndpoint: this.apiEndpoint
-        });
+        this.dataProvider = new DefaultDataProvider({ apiClient });
 
         this.initialized = true;
     }

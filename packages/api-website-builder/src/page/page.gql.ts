@@ -126,8 +126,7 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
 
         extend type WbQuery {
             getPageModel: WbPageModelResponse!
-            getPageByPath(path: String!): WbPageResponse
-            getPageTemplate(slug: String!): WbPageResponse
+            getPageByPath(path: String!, preview: Boolean): WbPageResponse
             getPage(id: ID!): WbPageResponse
             listPages(
                 where: WbPagesListWhereInput
@@ -162,20 +161,29 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                         return context.cms.getModel(PAGE_MODEL_ID);
                     });
                 },
-                // getPageByPath: async (_, { path }, context) => {
-                //     return resolve(() => {
-                //         ensureAuthentication(context);
-                //         console.log("Getting page with path:", path);
-                //         return context.websiteBuilder.page.get();
-                //     });
-                // },
-                // getPageTemplate: async (_, { template }, context) => {
-                //     return resolve(() => {
-                //         ensureAuthentication(context);
-                //         console.log("Getting page with template:", template);
-                //         return context.websiteBuilder.page.get();
-                //     });
-                // },
+                getPageByPath: async (_, { path, preview }, context) => {
+                    return resolve(async () => {
+                        ensureAuthentication(context);
+
+                        const [[page]] = await context.websiteBuilder.page.list({
+                            where: {
+                                properties: {
+                                    path
+                                }
+                            },
+                            limit: 1,
+                            after: null,
+                            sort: ["savedOn_DESC"]
+                        });
+
+                        return {
+                            id: page.id,
+                            properties: page.properties,
+                            bindings: page.bindings,
+                            elements: page.elements
+                        };
+                    });
+                },
                 getPage: async (_, { id }, context) => {
                     return resolve(() => {
                         ensureAuthentication(context);

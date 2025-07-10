@@ -98,6 +98,33 @@ export const Extension = () => {
         <EcommercePlugin
             name={"KiboCommerce"}
             init={(settings: KiboCommerceSettings) => initEcommerceApi(settings)}
+            settings={[
+                {
+                    name: "apiHost",
+                    type: "text",
+                    required: true
+                },
+                {
+                    name: "authHost",
+                    type: "text",
+                    required: true
+                },
+                {
+                    name: "sharedSecret",
+                    type: "text",
+                    required: true
+                },
+                {
+                    name: "clientId",
+                    type: "text",
+                    required: true
+                },
+                {
+                    name: "apiKey",
+                    type: "text",
+                    required: true
+                }
+            ]}
         >
             <EcommercePlugin.PageType
                 name={"kiboProductPage"}
