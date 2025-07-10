@@ -1,4 +1,5 @@
 export * from "./GetAppPackagesService/index.js";
+export * from "./GetProjectConfigService/index.js";
 export * from "./GetProjectService/index.js";
 export * from "./GetPulumiService/index.js";
 export * from "./ListAppLambdaFunctionsService/index.js";

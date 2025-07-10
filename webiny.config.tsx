@@ -1,10 +1,10 @@
 import React from "react";
-import { Admin } from "@webiny/extensions";
+import { Cli } from "@webiny/extensions";
 
 export default function Webiny() {
     return (
         <>
-            {/*<Admin name="customDashboard" src={"./extensions/ChangeLogo.tsx"} />*/}
+            <Cli.Command name={"my-custom-command"} src={"./extensions/myCustomCommand.ts"} />
         </>
     );
 }

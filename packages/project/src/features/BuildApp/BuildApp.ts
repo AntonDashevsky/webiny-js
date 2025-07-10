@@ -1,8 +1,13 @@
 import { createImplementation } from "@webiny/di-container";
-import { BuildApp, GetApp, GetProject, ListPackagesService, LoggerService } from "~/abstractions/index.js";
+import {
+    BuildApp,
+    GetApp,
+    GetProject,
+    ListPackagesService,
+    LoggerService
+} from "~/abstractions/index.js";
 import { createAppWorkspace } from "~/utils/index.js";
 import { PackagesBuilder } from "./builders/PackagesBuilder.js";
-import { ManifestRenderer } from "./Manifest/ManifestRenderer.js";
 
 export class DefaultBuildApp implements BuildApp.Interface {
     constructor(
@@ -17,7 +22,6 @@ export class DefaultBuildApp implements BuildApp.Interface {
             throw new Error(`Please specify environment, for example "dev".`);
         }
 
-        const project = await this.getProject.execute(params.app);
         const app = await this.getApp.execute(params.app);
 
         await createAppWorkspace({
@@ -26,9 +30,6 @@ export class DefaultBuildApp implements BuildApp.Interface {
             variant: params.variant
         });
 
-        const manifestRenderer = await ManifestRenderer.render(project.paths.manifestFile.absolute);
-
-        console.log('manifestRenderer', manifestRenderer)
         const packages = await this.listPackagesService.execute(params);
         const packagesBuilder = new PackagesBuilder({
             packages,

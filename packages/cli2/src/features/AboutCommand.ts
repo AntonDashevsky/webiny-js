@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
+import { Command, GetProjectSdkService, UiService } from "~/abstractions/index.js";
 import chalk from "chalk";
 
 interface IAboutCommandParams {
@@ -11,14 +11,13 @@ const NO_VALUE = "-";
 export class AboutCommand implements Command.Interface<IAboutCommandParams> {
     constructor(
         private getProjectSdkService: GetProjectSdkService.Interface,
-        private stdioService: StdioService.Interface,
         private uiService: UiService.Interface
     ) {}
 
     execute(): Command.CommandDefinition<IAboutCommandParams> {
         return {
             name: "about",
-            description: "Uis out information helpful for debugging purposes.",
+            description: "Display information about the current Webiny project.",
             options: [
                 {
                     name: "json",
@@ -29,7 +28,6 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
             ],
             handler: async (args: IAboutCommandParams) => {
                 const data = await this.getProjectSdkService.execute().getProjectInfo();
-                const stdio = this.stdioService;
                 const ui = this.uiService;
 
                 if (args.json) {
@@ -39,7 +37,7 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
 
                 const { pulumi, host, wcp, webiny } = data;
 
-                [
+                const sections = [
                     {
                         sectionName: "Webiny Project",
                         data: {
@@ -80,14 +78,15 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
                             "Using Password": pulumi.usingPassword ? "Yes" : "No"
                         }
                     }
-                ].forEach(({ sectionName, data }, index) => {
+                ];
+
+                sections.forEach(({ sectionName, data }, index) => {
                     ui.text(chalk.bold(sectionName));
-                    ui.newLine();
 
                     for (const key of Object.keys(data) as Array<keyof typeof data>) {
-                        ui.text(key.padEnd(36));
-                        ui.text(data[key] || NO_VALUE);
-                        ui.text("\n");
+                        ui.raw(key.padEnd(36));
+                        ui.raw(data[key] || NO_VALUE);
+                        ui.newLine();
                     }
 
                     const isLastSection = index === 3;
@@ -103,5 +102,5 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
 export const aboutCommand = createImplementation({
     abstraction: Command,
     implementation: AboutCommand,
-    dependencies: [GetProjectSdkService, StdioService, UiService]
+    dependencies: [GetProjectSdkService, UiService]
 });

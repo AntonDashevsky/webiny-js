@@ -1,5 +1,5 @@
 import { Container } from "@webiny/di-container";
-
+import path from "path";
 import {
     commandsRegistryService,
     getCliRunnerService,
@@ -15,6 +15,7 @@ import {
     aboutCommand,
     buildCommand,
     deployCommand,
+    destroyCommand,
     infoCommand,
     outputCommand,
     watchCommand,
@@ -25,15 +26,20 @@ import {
     pendingOperationsGracefulErrorHandler
 } from "./features/index.js";
 
-import { commandsWithGracefulErrorHandling, deployCommandWithTelemetry} from "./decorators/index.js";
+import {
+    commandsWithGracefulErrorHandling,
+    deployCommandWithTelemetry
+} from "./decorators/index.js";
+import { GetProjectSdkService } from "~/abstractions";
 
-export const createCliContainer = () => {
+export const createCliContainer = async () => {
     const container = new Container();
 
     // Features (commands).
     container.register(aboutCommand).inSingletonScope();
     container.register(buildCommand).inSingletonScope();
     container.register(deployCommand).inSingletonScope();
+    container.register(destroyCommand).inSingletonScope();
     container.register(infoCommand).inSingletonScope();
     container.register(outputCommand).inSingletonScope();
     container.register(watchCommand).inSingletonScope();
@@ -57,5 +63,23 @@ export const createCliContainer = () => {
     container.registerDecorator(commandsWithGracefulErrorHandling);
     container.registerDecorator(deployCommandWithTelemetry);
 
+    // Register CLI extensions.
+    const projectSdk = container.resolve(GetProjectSdkService).execute();
+    const project = await projectSdk.getProject();
+    const projectConfig = await projectSdk.getProjectConfig<{
+        cliCommands?: { src: string; name: string }[];
+    }>();
+
+    console.log('projectConfig', projectConfig.config)
+
+    if (projectConfig.config.cliCommands) {
+        for (const command of projectConfig.config.cliCommands) {
+            const importPath = path.join(project.paths.rootFolder.absolute, command.src);
+            const {default: commandImplementation} = await import(importPath)
+            container.register(commandImplementation).inSingletonScope();
+        }
+    }
+
+    container.registerDecorator(deployCommandWithTelemetry);
     return container;
 };

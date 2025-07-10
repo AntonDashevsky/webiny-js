@@ -6,6 +6,7 @@ import {
     getApp,
     getAppOutput,
     getProject,
+    getProjectConfig,
     getProjectInfo,
     isCi,
     refreshApp,
@@ -17,6 +18,7 @@ import {
     getIsCiService,
     getNpmVersionService,
     getNpxVersionService,
+    getProjectConfigService,
     getProjectService,
     getPulumiService,
     getPulumiVersionService,
@@ -41,6 +43,7 @@ export const createProjectSdkContainer = () => {
     container.register(getIsCiService).inSingletonScope();
     container.register(getNpmVersionService).inSingletonScope();
     container.register(getNpxVersionService).inSingletonScope();
+    container.register(getProjectConfigService).inSingletonScope();
     container.register(getProjectService).inSingletonScope();
     container.register(getPulumiService).inSingletonScope();
     container.register(getPulumiVersionService).inSingletonScope();
@@ -63,6 +66,7 @@ export const createProjectSdkContainer = () => {
     container.register(getApp).inSingletonScope();
     container.register(getAppOutput).inSingletonScope();
     container.register(getProject).inSingletonScope();
+    container.register(getProjectConfig).inSingletonScope();
     container.register(getProjectInfo).inSingletonScope();
     container.register(isCi).inSingletonScope();
     container.register(refreshApp).inSingletonScope();

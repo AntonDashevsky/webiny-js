@@ -30,8 +30,13 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
 
         return {
             name: "deploy",
-            description: "Deploys specified app",
-            examples: ["$0 deploy api --env dev", "$0 deploy admin --env prod"],
+            description: "Deploys specified app or all apps in the project",
+            examples: [
+                "$0 deploy api --env dev",
+                "$0 deploy admin --env prod",
+                "$0 deploy --env prod",
+                "$0 deploy",
+            ],
             params: [
                 {
                     name: "app",

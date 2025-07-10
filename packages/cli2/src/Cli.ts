@@ -5,8 +5,8 @@ import { RunCliRunnerService } from "~/abstractions/index.js";
 export class Cli {
     private container: Container;
 
-    private constructor() {
-        this.container = createCliContainer();
+    private constructor(container: Container) {
+        this.container = container;
     }
 
     run(argv: string[]) {
@@ -14,6 +14,7 @@ export class Cli {
     }
 
     static async init() {
-        return new Cli();
+        const container = await createCliContainer();
+        return new Cli(container);
     }
 }

@@ -5,7 +5,13 @@ import findUp from "find-up";
 import { dirname, join, relative } from "path";
 
 export class DefaultGetProjectService implements GetProjectService.Interface {
+    cachedProject: ProjectModel | null = null;
+
     async execute(cwd = process.cwd()) {
+        if (this.cachedProject) {
+            return this.cachedProject;
+        }
+
         const manifestFileAbsPath = findUp.sync("webiny.config.tsx", { cwd });
         if (!manifestFileAbsPath) {
             throw new Error(`Could not detect project in given directory (${cwd}).`);
@@ -29,7 +35,7 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
             localPulumiStateFilesFolderAbsPath
         );
 
-        return ProjectModel.fromDto({
+        this.cachedProject = ProjectModel.fromDto({
             name: "webiny-project",
             paths: {
                 appsFolder: {
@@ -54,6 +60,8 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
                 }
             }
         });
+
+        return this.cachedProject;
     }
 }
 

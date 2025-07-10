@@ -7,6 +7,7 @@ import {
     GetApp,
     GetAppOutput,
     GetProject,
+    GetProjectConfig,
     GetProjectInfo,
     IsCi,
     RefreshApp,
@@ -31,6 +32,10 @@ export class ProjectSdk {
     // Project-related methods.
     getProject() {
         return this.container.resolve(GetProject).execute(this.cwd);
+    }
+
+    getProjectConfig<TConfig extends Record<string, any> = Record<string, any>>() {
+        return this.container.resolve(GetProjectConfig).execute<TConfig>();
     }
 
     getProjectInfo() {

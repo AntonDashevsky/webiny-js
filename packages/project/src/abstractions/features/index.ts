@@ -4,6 +4,7 @@ export { DestroyApp } from "./DestroyApp.js";
 export { GetApp } from "./GetApp.js";
 export { GetAppOutput } from "./GetAppOutput.js";
 export { GetProject } from "./GetProject.js";
+export { GetProjectConfig } from "./GetProjectConfig.js";
 export { GetProjectInfo } from "./GetProjectInfo.js";
 export { IsCi } from "./IsCi.js";
 export { RefreshApp } from "./RefreshApp.js";
