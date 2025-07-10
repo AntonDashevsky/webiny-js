@@ -1,8 +1,12 @@
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { CliCommandComponent } from "./CliCommand/CliCommandComponent";
+import { cliCommand } from "./CliCommand.js";
 
 const base = createConfigurableComponent("Cli");
 
 export const Cli = Object.assign(base.Config, {
-    Command: CliCommandComponent
+    Command: cliCommand.ReactComponent
 });
+
+export const definitions = [
+    cliCommand.Definition
+]

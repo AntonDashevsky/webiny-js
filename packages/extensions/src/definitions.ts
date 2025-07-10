@@ -1,3 +1,3 @@
-import { definitions as cliDefinitions } from "./Cli/definitions";
+import { definitions as cliDefinitions } from "./Cli/index.js";
 
 export const definitions = [...cliDefinitions];

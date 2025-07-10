@@ -1,40 +1,48 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 
-
-interface CreateExtensionParams {
+interface CreateExtensionParams<TParams extends Record<string, any> = Record<string, any>> {
     type: string;
     description?: string;
     array?: boolean;
-    build?: () => void;
-    validate?: () => void;
+    build?: (params: TParams) => Promise<void> | void;
+    validate?: (params: TParams) => Promise<void> | void;
 }
 
-export interface ReactComponentProps<TParams extends Record<string, any> = Record<string, any>> {
+export type ReactComponentProps<TProps extends Record<string, any> = Record<string, any>> =
+    TProps & {
     name: string;
     remove?: boolean;
     before?: string;
     after?: string;
-}
+};
 
 export function createExtension<TParams extends Record<string, any> = Record<string, any>>(
-    params: CreateExtensionParams
+    extensionParams: CreateExtensionParams<TParams>
 ) {
+    const { type, description, array, build, validate } = extensionParams;
+
     class Definition {
-        type = params.type;
-        description = params.description || "";
+        static type = type;
+        static description = description || "";
+        static array = array || false;
+
+        params: TParams;
+
+        constructor(params: TParams) {
+            this.params = params || ({} as TParams);
+        }
+
         build() {
-            if (params.build) {
-                return params.build();
-            }
-            return Promise.resolve();
+            return build?.(this.params);
         }
 
         validate() {
-            if (params.validate) {
-                return params.validate();
-            }
-            return Promise.resolve();
+            return validate?.(this.params);
+        }
+
+        fromDto(dto: TParams) {
+            return new Definition(dto);
         }
     }
 
@@ -47,15 +55,15 @@ export function createExtension<TParams extends Record<string, any> = Record<str
 
         return (
             <Property
-                id={getId(params.type)}
-                array={params.array}
-                name={params.type}
+                id={getId(extensionParams.type)}
+                array={extensionParams.array}
+                name={extensionParams.type}
                 remove={remove}
                 before={placeBefore}
                 after={placeAfter}
             >
                 <Property id={getId(name, "name")} name={"name"} value={name} />
-                <Property id={getId(name, "__type")} name={"__type"} value={params.type} />
+                <Property id={getId(name, "__type")} name={"__type"} value={extensionParams.type} />
                 {Object.entries(extraProps).map(([key, value]) => (
                     <Property key={key} id={getId(name, key)} name={key} value={value} />
                 ))}
