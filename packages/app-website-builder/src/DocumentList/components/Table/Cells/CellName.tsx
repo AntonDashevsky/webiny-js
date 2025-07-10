@@ -66,7 +66,7 @@ interface EntryCellNameProps {
 export const DocumentCellName = ({ document }: EntryCellNameProps) => {
     const { getEditPageUrl } = useGetEditPageUrl();
     return (
-        <Link to={getEditPageUrl(document)} variant={"secondary"} className={"wby-truncate"}>
+        <Link to={getEditPageUrl(document.id)} variant={"secondary"} className={"wby-truncate"}>
             <DocumentCellRowTitle document={document} />
         </Link>
     );

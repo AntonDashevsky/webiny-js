@@ -1,11 +1,10 @@
 import WebinyError from "@webiny/error";
-import { createSettingsEntity } from "./definitions/settings";
-import { createTable } from "./definitions/table";
+import { createStandardEntity, createTable } from "@webiny/db-dynamodb";
 import { StorageOperationsFactory } from "./types";
 import { createSettingsStorageOperations } from "~/storage/operations/settings";
 
 export const createStorageOperations: StorageOperationsFactory = async params => {
-    const { table, documentClient } = params;
+    const { documentClient } = params;
 
     if (!documentClient) {
         throw new WebinyError(
@@ -15,13 +14,13 @@ export const createStorageOperations: StorageOperationsFactory = async params =>
     }
 
     const tableInstance = createTable({
-        table,
+        name: process.env.DB_TABLE_ADMIN_SETTINGS || (process.env.DB_TABLE as string),
         documentClient
     });
 
     const entities = {
-        settings: createSettingsEntity({
-            entityName: "AdminSettings",
+        settings: createStandardEntity({
+            name: "AdminSettings",
             table: tableInstance
         })
     };

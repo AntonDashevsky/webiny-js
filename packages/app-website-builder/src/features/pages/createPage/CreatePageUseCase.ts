@@ -10,7 +10,7 @@ export class CreatePageUseCase implements ICreatePageUseCase {
     }
 
     async execute(params: CreatePageParams) {
-        await this.repository.execute(
+        return await this.repository.execute(
             Page.create({
                 location: params.location,
                 properties: params.properties,

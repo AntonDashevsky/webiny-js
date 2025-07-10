@@ -16,7 +16,7 @@ const SimpleTextComponent = ({
     return (
         <div>
             <p>{text}</p>
-            <img src={image.url} />{" "}
+            {image?.src ? <img src={image.src} /> : null}
         </div>
     );
 };

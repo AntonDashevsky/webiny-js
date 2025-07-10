@@ -12,7 +12,7 @@ export class CreatePageUseCaseWithLoading implements ICreatePageUseCase {
     }
 
     async execute(params: CreatePageParams) {
-        await this.loadingRepository.runCallBack(
+        return await this.loadingRepository.runCallBack(
             this.useCase.execute(params),
             loadingActions.create
         );

@@ -52,6 +52,8 @@ export type DocumentBindings = {
 };
 
 export type Document = {
+    id: string;
+    status: string;
     properties: Record<string, any>;
     state: DocumentState;
     bindings: DocumentBindings;

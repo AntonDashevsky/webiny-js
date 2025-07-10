@@ -1,12 +1,11 @@
-import { TenancyContext } from "@webiny/api-tenancy/types";
+import { GenericRecord } from "@webiny/api/types";
 
-export interface AdminSettings {
-    appUrl: string;
+export interface ISaveSettingsUseCase {
+    execute(name: string, data: GenericRecord<string>): Promise<void>;
 }
-export type AdminSettingsVariant = "default" | string;
-export interface AdminSettingsService {
-    getSettings: (variant?: AdminSettingsVariant) => Promise<AdminSettings | null>;
-}
-export interface AdminSettingsContext extends TenancyContext {
-    settings: AdminSettingsService;
+
+export interface IGetSettingsUseCase {
+    execute<TData extends GenericRecord<string> = GenericRecord<string>>(
+        name: string
+    ): Promise<TData | undefined>;
 }

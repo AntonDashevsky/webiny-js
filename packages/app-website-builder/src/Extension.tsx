@@ -10,7 +10,7 @@ export const Extension = () => {
             <AdminConfig.Route name="wb.pages.list" path={PAGE_LIST_ROUTE} element={<PageList />} />
             <AdminConfig.Route
                 name="wb.pages.editor"
-                path={PAGE_EDITOR_ROUTE}
+                path={`${PAGE_EDITOR_ROUTE}/:id`}
                 element={<PageEditor />}
             />
         </AdminConfig>

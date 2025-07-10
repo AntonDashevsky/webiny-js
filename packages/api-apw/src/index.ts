@@ -6,11 +6,9 @@ import graphql from "~/plugins/graphql";
 import { createApwPageBuilderContext as createPageBuilder } from "./plugins/context";
 import { CreateApwContextParams } from "./scheduler/types";
 import { createMailerContext, createMailerGraphQL } from "@webiny/api-mailer";
-import { createAdminSettingsContext } from "@webiny/api-admin-settings";
 
 export const createApwPageBuilderContext = (params: CreateApwContextParams) => {
     return [
-        ...createAdminSettingsContext(),
         ...createMailerContext(),
         ...createMailerGraphQL(),
         createPageBuilder(params)

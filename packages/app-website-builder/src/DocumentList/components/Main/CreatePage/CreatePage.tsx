@@ -6,10 +6,14 @@ import { useDialogs } from "@webiny/app-admin";
 import { useCreatePage } from "~/features/pages";
 import { CreatePageParams } from "~/features/pages/createPage/ICreatePageUseCase";
 import { usePageTypes } from "~/ecommerce/usePageTypes";
+import { useGetEditPageUrl } from "~/DocumentList/hooks/useGetEditPageUrl";
+import { useRouter } from "@webiny/react-router";
 
 export const useCreatePageDialog = (folderId: string) => {
     const dialog = useDialogs();
     const { createPage } = useCreatePage();
+    const { getEditPageUrl } = useGetEditPageUrl();
+    const { history } = useRouter();
 
     const showCreatePageDialog = () => {
         dialog.showDialog({
@@ -52,8 +56,8 @@ export const useCreatePageDialog = (folderId: string) => {
                     };
                 }
 
-                const result = await createPage(input)
-                console.log("result", result);
+                const result = await createPage(input);
+                history.push(getEditPageUrl(result.id));
             }
         });
     };

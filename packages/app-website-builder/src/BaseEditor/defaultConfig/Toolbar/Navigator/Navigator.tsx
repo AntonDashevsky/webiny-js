@@ -57,7 +57,9 @@ function flattenElements(elements: Record<string, ElementNodeData>, activeElemen
             droppable: asArray.filter(el => el.parent?.id === node.id).length > 0,
             data: {
                 parent: node.parent,
-                icon: <InlineSvg src={node.image} className={"wby-fill-neutral-strong"} />,
+                icon: node.image ? (
+                    <InlineSvg src={node.image} className={"wby-fill-neutral-strong"} />
+                ) : <></>,
                 draggable: node.canDrag
             }
         });
@@ -107,7 +109,11 @@ function getElementNodeData({
             };
         }
 
-        const component = components[element.component.name];
+        const component = components[element.component.name] ?? {
+            label: "",
+            image: null,
+            canDrag: false
+        };
 
         const parentId = element.parent!.id;
         const slot = element.parent!.slot;
@@ -116,7 +122,7 @@ function getElementNodeData({
             ...acc,
             [element.id]: {
                 id: element.id,
-                label: component.label ?? component.name,
+                label: component?.label ?? component?.name ?? "",
                 image: component.image,
                 canDrag: component.canDrag,
                 parent: {

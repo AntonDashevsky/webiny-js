@@ -12,6 +12,9 @@ export class GetPageUseCaseWithLoading implements IGetPageUseCase {
     }
 
     async execute(params: GetPageParams) {
-        await this.loadingRepository.runCallBack(this.useCase.execute(params), loadingActions.get);
+        return await this.loadingRepository.runCallBack(
+            this.useCase.execute(params),
+            loadingActions.get
+        );
     }
 }
