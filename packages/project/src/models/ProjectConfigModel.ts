@@ -1,19 +1,18 @@
-import { IProjectConfigModel } from "~/abstractions/models/index.js";
+import { IHydratedProjectConfig, IProjectConfigModel } from "~/abstractions/models/index.js";
+import { ExtensionDefinition } from "~/createExtension";
 
-type ProjectConfigModelDto = IProjectConfigModel;
+export class ProjectConfigModel implements IProjectConfigModel {
+    public readonly config: IHydratedProjectConfig;
 
-export class ProjectConfigModel<TConfig extends Record<string, any> = Record<string, any>>
-    implements IProjectConfigModel
-{
-    public readonly config: TConfig;
-
-    private constructor(dto: TConfig) {
-        this.config = dto;
+    private constructor(config: IHydratedProjectConfig) {
+        this.config = config;
     }
 
-    static fromDto<TConfig extends Record<string, any> = Record<string, any>>(
-        dto: TConfig
-    ): IProjectConfigModel<TConfig> {
-        return new ProjectConfigModel<TConfig>(dto);
+    static create(config: IHydratedProjectConfig) {
+        return new ProjectConfigModel(config);
+    }
+
+    extensionsByType<TParams extends Record<string, any> = Record<string, any>>(type: string) {
+        return (this.config[type] || []) as unknown as Array<ExtensionDefinition<TParams>>;
     }
 }

@@ -10,32 +10,37 @@ import {
     GetProjectConfig,
     GetProjectInfo,
     IsCi,
+    ProjectSdkParamsService,
     RefreshApp,
     RunPulumiCommand,
+    ValidateProjectConfigService,
     Watch
 } from "~/abstractions/index.js";
 import { isValidRegionName, isValidVariantName } from "./utils/index.js";
 
 export class ProjectSdk {
-    cwd?: string;
     container: Container;
 
-    protected constructor(cwd?: string) {
-        this.cwd = cwd;
-        this.container = createProjectSdkContainer();
+    protected constructor(container: Container) {
+        this.container = container;
     }
 
-    static init(cwd?: string) {
-        return new ProjectSdk(cwd);
+    static init(params: ProjectSdkParamsService.Params) {
+        const container = createProjectSdkContainer(params);
+        return new ProjectSdk(container);
     }
 
     // Project-related methods.
     getProject() {
-        return this.container.resolve(GetProject).execute(this.cwd);
+        return this.container.resolve(GetProject).execute();
     }
 
-    getProjectConfig<TConfig extends Record<string, any> = Record<string, any>>() {
-        return this.container.resolve(GetProjectConfig).execute<TConfig>();
+    getProjectConfig() {
+        return this.container.resolve(GetProjectConfig).execute();
+    }
+
+    validateProjectConfig(projectConfig: ValidateProjectConfigService.Params) {
+        return this.container.resolve(ValidateProjectConfigService).execute(projectConfig);
     }
 
     getProjectInfo() {

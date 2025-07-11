@@ -1,11 +1,9 @@
 import { ProjectSdk } from "./ProjectSdk.js";
 
-const cwd = process.cwd();
-const projectSdk = ProjectSdk.init(cwd);
-
-const buildProcesses = await projectSdk.buildApp({
-    app: 'core',
-    env: 'dev',
+const projectSdk = ProjectSdk.init({
+    cwd: process.cwd()
 });
 
-console.log('buildProcesses', await buildProcesses)
+const buildProcesses = await projectSdk.getProjectConfig();
+
+console.log("buildProcesses", await buildProcesses);

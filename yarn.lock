@@ -17166,6 +17166,49 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@webiny/cli-core@npm:0.0.0, @webiny/cli-core@workspace:packages/cli-core":
+  version: 0.0.0-use.local
+  resolution: "@webiny/cli-core@workspace:packages/cli-core"
+  dependencies:
+    "@types/lodash": "npm:^4.17.13"
+    "@webiny/di-container": "npm:0.0.0"
+    "@webiny/project": "npm:0.0.0"
+    "@webiny/project-utils": "npm:0.0.0"
+    "@webiny/system-requirements": "npm:0.0.0"
+    "@webiny/telemetry": "npm:0.0.0"
+    jest: "npm:^29.7.0"
+    ora: "npm:4.1.1"
+    pino: "npm:^8.21.0"
+    pino-pretty: "npm:^9.4.0"
+    rimraf: "npm:^6.0.1"
+    typescript: "npm:5.3.3"
+    yargs: "npm:^17.7.2"
+    yargs-parser: "npm:^21.1.1"
+  languageName: unknown
+  linkType: soft
+
+"@webiny/cli-new@workspace:packages/cli-new":
+  version: 0.0.0-use.local
+  resolution: "@webiny/cli-new@workspace:packages/cli-new"
+  dependencies:
+    "@types/lodash": "npm:^4.17.13"
+    "@webiny/di-container": "npm:0.0.0"
+    "@webiny/extensions": "npm:0.0.0"
+    "@webiny/project": "npm:0.0.0"
+    "@webiny/project-utils": "npm:0.0.0"
+    "@webiny/system-requirements": "npm:0.0.0"
+    "@webiny/telemetry": "npm:0.0.0"
+    jest: "npm:^29.7.0"
+    ora: "npm:4.1.1"
+    pino: "npm:^8.21.0"
+    pino-pretty: "npm:^9.4.0"
+    rimraf: "npm:^6.0.1"
+    typescript: "npm:5.3.3"
+    yargs: "npm:^17.7.2"
+    yargs-parser: "npm:^21.1.1"
+  languageName: unknown
+  linkType: soft
+
 "@webiny/cli-plugin-dependencies@workspace:packages/cli-plugin-dependencies":
   version: 0.0.0-use.local
   resolution: "@webiny/cli-plugin-dependencies@workspace:packages/cli-plugin-dependencies"
@@ -17361,27 +17404,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/cli2@workspace:packages/cli2":
-  version: 0.0.0-use.local
-  resolution: "@webiny/cli2@workspace:packages/cli2"
-  dependencies:
-    "@types/lodash": "npm:^4.17.13"
-    "@webiny/di-container": "npm:0.0.0"
-    "@webiny/project": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-    "@webiny/system-requirements": "npm:0.0.0"
-    "@webiny/telemetry": "npm:0.0.0"
-    jest: "npm:^29.7.0"
-    ora: "npm:4.1.1"
-    pino: "npm:^8.21.0"
-    pino-pretty: "npm:^9.4.0"
-    rimraf: "npm:^6.0.1"
-    typescript: "npm:5.3.3"
-    yargs: "npm:^17.7.2"
-    yargs-parser: "npm:^21.1.1"
-  languageName: unknown
-  linkType: soft
-
 "@webiny/cli@npm:0.0.0, @webiny/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@webiny/cli@workspace:packages/cli"
@@ -17524,12 +17546,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/extensions@workspace:packages/extensions":
+"@webiny/extensions@npm:0.0.0, @webiny/extensions@workspace:packages/extensions":
   version: 0.0.0-use.local
   resolution: "@webiny/extensions@workspace:packages/extensions"
   dependencies:
-    "@webiny/project": "npm:0.0.0"
+    "@webiny/cli-core": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
+    "@webiny/react-properties": "npm:0.0.0"
     react: "npm:18.2.0"
     rimraf: "npm:^6.0.1"
     typescript: "npm:5.3.3"

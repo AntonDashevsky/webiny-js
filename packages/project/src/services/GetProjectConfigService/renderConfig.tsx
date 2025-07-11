@@ -5,11 +5,12 @@ import debounce from "debounce";
 
 // @ts-expect-error jsdom types are messing up with the repo, so they're disabled in the root package.json.
 import { JSDOM } from "jsdom";
+import { IProjectConfigDto } from "~/abstractions/models";
 
-export async function renderConfig<TConfig extends Record<string, any> = Record<string, any>>(path: string) {
+export async function renderConfig(path: string): Promise<IProjectConfigDto> {
     const { default: ManifestComponent } = await import(path);
 
-    return new Promise<TConfig>(resolve => {
+    return new Promise<IProjectConfigDto>(resolve => {
         const onChange = debounce((value: any) => {
             resolve(toObject(value));
         });

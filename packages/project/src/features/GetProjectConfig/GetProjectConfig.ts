@@ -4,8 +4,8 @@ import { GetProjectConfig, GetProjectConfigService } from "~/abstractions/index.
 export class DefaultGetProjectConfig implements GetProjectConfig.Interface {
     constructor(private getProjectConfigService: GetProjectConfigService.Interface) {}
 
-    async execute<TConfig extends Record<string, any> = Record<string, any>>() {
-        return this.getProjectConfigService.execute<TConfig>();
+    async execute() {
+        return this.getProjectConfigService.execute();
     }
 }
 

@@ -1,11 +1,11 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, UiService } from "@webiny/cli2/abstractions/index.js";
+import { Command, UiService } from "@webiny/cli-core/abstractions/index.js";
 
 export interface IMyCustomCommandParams {
     name: string;
 }
 
-class MyCustomCommandCommand implements Command.Interface<IMyCustomCommandParams> {
+class MyCustomCommand implements Command.Interface<IMyCustomCommandParams> {
     constructor(private ui: UiService.Interface) {}
 
     execute(): Command.CommandDefinition<IMyCustomCommandParams> {
@@ -31,6 +31,6 @@ class MyCustomCommandCommand implements Command.Interface<IMyCustomCommandParams
 
 export default createImplementation({
     abstraction: Command,
-    implementation: MyCustomCommandCommand,
+    implementation: MyCustomCommand,
     dependencies: [UiService]
 });

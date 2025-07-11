@@ -13,6 +13,7 @@ import {
     runPulumiCommand,
     watch
 } from "./features/index.js";
+
 import {
     getAppPackagesService,
     getIsCiService,
@@ -27,18 +28,22 @@ import {
     listPackagesService,
     loggerService,
     projectInfoService,
+    projectSdkParamsService,
     pulumiGetConfigPassphraseService,
     pulumiGetSecretsProviderService,
     pulumiGetStackExportService,
     pulumiGetStackOutputService,
     pulumiLoginService,
-    pulumiSelectStackService
+    pulumiSelectStackService,
+    validateProjectConfigService
 } from "./services/index.js";
+import { ProjectSdkParamsService } from "~/abstractions";
 
-export const createProjectSdkContainer = () => {
+export const createProjectSdkContainer = (params: ProjectSdkParamsService.Params) => {
     const container = new Container();
 
     // Services.
+    container.register(projectSdkParamsService).inSingletonScope();
     container.register(getAppPackagesService).inSingletonScope();
     container.register(getIsCiService).inSingletonScope();
     container.register(getNpmVersionService).inSingletonScope();
@@ -58,6 +63,7 @@ export const createProjectSdkContainer = () => {
     container.register(pulumiGetStackOutputService).inSingletonScope();
     container.register(pulumiLoginService).inSingletonScope();
     container.register(pulumiSelectStackService).inSingletonScope();
+    container.register(validateProjectConfigService).inSingletonScope();
 
     // Features.
     container.register(buildApp).inSingletonScope();
@@ -72,6 +78,9 @@ export const createProjectSdkContainer = () => {
     container.register(refreshApp).inSingletonScope();
     container.register(runPulumiCommand).inSingletonScope();
     container.register(watch).inSingletonScope();
+
+    // Immediately set the params in the ProjectSdkParamsService.
+    container.resolve(ProjectSdkParamsService).set(params);
 
     return container;
 };
