@@ -25,7 +25,7 @@ export class ProjectSdk {
         this.container = container;
     }
 
-    static init(params: ProjectSdkParamsService.Params) {
+    static init(params: Partial<ProjectSdkParamsService.Params>) {
         const container = createProjectSdkContainer(params);
         return new ProjectSdk(container);
     }

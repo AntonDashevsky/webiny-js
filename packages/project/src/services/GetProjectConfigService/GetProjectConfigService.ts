@@ -7,6 +7,7 @@ import {
 import { renderConfig } from "./renderConfig";
 import { ProjectConfigModel } from "~/models/ProjectConfigModel";
 import { ExtensionType, IHydratedProjectConfig, IProjectConfigDto } from "~/abstractions/models";
+import { createWithValidationExtensionInstanceModel } from "./createWithValidationExtensionInstanceModel";
 
 export class DefaultGetProjectConfigService implements GetProjectConfigService.Interface {
     cachedProjectConfig: ProjectConfigModel | null = null;
@@ -27,24 +28,27 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
     }
 
     private hydrateConfig(configDto: IProjectConfigDto): IHydratedProjectConfig {
-        const { extensions: extDefinitionClasses = [] } = this.projectSdkParamsService.get();
+        const projectSdkParams = this.projectSdkParamsService.get();
 
-        return Object.keys(configDto).reduce<IHydratedProjectConfig>(
+        const extensionsTypes = Object.keys(configDto) as ExtensionType[];
+        return extensionsTypes.reduce<IHydratedProjectConfig>(
             (acc, extensionType: ExtensionType) => {
                 acc[extensionType] = configDto[extensionType]
-                    .map(extensionDto => {
-                        const DefinitionClass = extDefinitionClasses.find(DefinitionClass => {
-                            return DefinitionClass.type === extensionType;
+                    .map(extensionParams => {
+                        const extDef = projectSdkParams.extensions?.find(e => {
+                            return e.type === extensionType;
                         });
 
-                        if (!DefinitionClass) {
+                        if (!extDef) {
                             throw new Error(
-                                "Could not find extension definition class for type: " +
-                                    extensionType
+                                "Could not find extension definition for type: " + extensionType
                             );
                         }
 
-                        return new DefinitionClass(extensionDto);
+                        const WithValidationExtensionInstanceModel =
+                            createWithValidationExtensionInstanceModel(projectSdkParams);
+
+                        return new WithValidationExtensionInstanceModel(extDef, extensionParams);
                     })
                     .filter(Boolean);
 

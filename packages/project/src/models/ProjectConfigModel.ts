@@ -1,5 +1,5 @@
 import { IHydratedProjectConfig, IProjectConfigModel } from "~/abstractions/models/index.js";
-import { ExtensionDefinition } from "~/createExtension";
+import { ExtensionInstanceModel } from "~/extensions/models/index.js"
 
 export class ProjectConfigModel implements IProjectConfigModel {
     public readonly config: IHydratedProjectConfig;
@@ -13,6 +13,6 @@ export class ProjectConfigModel implements IProjectConfigModel {
     }
 
     extensionsByType<TParams extends Record<string, any> = Record<string, any>>(type: string) {
-        return (this.config[type] || []) as unknown as Array<ExtensionDefinition<TParams>>;
+        return (this.config[type] || []) as unknown as Array<ExtensionInstanceModel<TParams>>;
     }
 }

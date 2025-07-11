@@ -16,6 +16,7 @@ import {
 
 import {
     getAppPackagesService,
+    getCwdService,
     getIsCiService,
     getNpmVersionService,
     getNpxVersionService,
@@ -39,12 +40,13 @@ import {
 } from "./services/index.js";
 import { ProjectSdkParamsService } from "~/abstractions";
 
-export const createProjectSdkContainer = (params: ProjectSdkParamsService.Params) => {
+export const createProjectSdkContainer = (params: Partial<ProjectSdkParamsService.Params>) => {
     const container = new Container();
 
     // Services.
     container.register(projectSdkParamsService).inSingletonScope();
     container.register(getAppPackagesService).inSingletonScope();
+    container.register(getCwdService).inSingletonScope();
     container.register(getIsCiService).inSingletonScope();
     container.register(getNpmVersionService).inSingletonScope();
     container.register(getNpxVersionService).inSingletonScope();

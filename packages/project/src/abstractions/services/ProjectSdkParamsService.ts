@@ -1,14 +1,14 @@
 import { Abstraction } from "@webiny/di-container";
-import { ExtensionDefinitionClass } from "~/createExtension";
+import { ExtensionDefinitionModel } from "~/extensions/models/ExtensionDefinitionModel";
 
 export interface IProjectSdkParams {
-    cwd?: string;
-    extensions?: ExtensionDefinitionClass[];
+    cwd: string;
+    extensions: ExtensionDefinitionModel[];
 }
 
 export interface IProjectSdkParamsService {
     get(): IProjectSdkParams;
-    set(params: IProjectSdkParams): void;
+    set(params: Partial<IProjectSdkParams>): void;
 }
 
 export const ProjectSdkParamsService = new Abstraction<IProjectSdkParamsService>(

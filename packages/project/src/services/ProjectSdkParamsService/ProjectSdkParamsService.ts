@@ -2,7 +2,11 @@ import { createImplementation } from "@webiny/di-container";
 import { ProjectSdkParamsService } from "~/abstractions/index.js";
 
 export class DefaultProjectSdkParamsService implements ProjectSdkParamsService.Interface {
-    params: ProjectSdkParamsService.Params = {};
+    params: ProjectSdkParamsService.Params;
+
+    constructor() {
+        this.params = { cwd: "", extensions: [] };
+    }
 
     get() {
         return this.params;

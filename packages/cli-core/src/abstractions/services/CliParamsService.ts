@@ -1,9 +1,9 @@
 import { Abstraction } from "@webiny/di-container";
-import { ExtensionDefinitionClass } from "@webiny/project";
+import { ExtensionDefinitionModel } from "@webiny/project/extensions";
 
 export interface ICliParams {
     cwd?: string;
-    extensions?: ExtensionDefinitionClass[]
+    extensions?: ExtensionDefinitionModel[]
 }
 
 export interface ICliParamsService {

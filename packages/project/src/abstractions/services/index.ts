@@ -1,4 +1,5 @@
 export * from "./ProjectInfoService/index.js";
+export { GetCwdService } from "./GetCwdService.js";
 export { GetProjectConfigService } from "./GetProjectConfigService.js";
 export { GetProjectService } from "./GetProjectService.js";
 export { GetPulumiService } from "./GetPulumiService.js";
