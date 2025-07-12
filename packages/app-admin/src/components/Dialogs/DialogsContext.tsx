@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import { GenericFormData } from "@webiny/form";
 import { useSnackbar } from "~/hooks";
-import { Dialog } from "./Dialog";
+import { Dialog, type DialogProps } from "./Dialog";
 import { CustomDialog } from "./CustomDialog";
 import { createProvider } from "@webiny/app";
 import { generateId } from "@webiny/utils";
@@ -15,9 +15,10 @@ interface ShowDialogParams {
     acceptLabel?: ReactNode;
     cancelLabel?: ReactNode;
     loadingLabel?: ReactNode;
+    dataLoadingLabel?: ReactNode;
     onAccept?: (data: GenericFormData) => void;
     onClose?: () => void;
-    formData?: GenericFormData;
+    formData?: DialogProps["formData"];
     size?: "sm" | "md" | "lg" | "xl" | "full";
 }
 
@@ -50,7 +51,8 @@ export const initializeState = (params: Partial<DialogState> = {}): DialogState 
     content: params.content,
     acceptLabel: params.acceptLabel === null ? null : params.acceptLabel ?? `Confirm`,
     cancelLabel: params.cancelLabel === null ? null : params.cancelLabel ?? `Cancel`,
-    loadingLabel: params.loadingLabel ?? `Loading`,
+    loadingLabel: params.loadingLabel ?? `Loading...`,
+    dataLoadingLabel: params.dataLoadingLabel ?? `Loading...`,
     onAccept: params.onAccept,
     onClose: params.onClose,
     open: params.open ?? false,
@@ -149,6 +151,7 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
                         acceptLabel={dialog.acceptLabel}
                         cancelLabel={dialog.cancelLabel}
                         loadingLabel={dialog.loadingLabel}
+                        dataLoadingLabel={dialog.dataLoadingLabel}
                         loading={dialog.loading}
                         closeDialog={() => closeDialog(dialog.id)}
                         onSubmit={data => onSubmit(dialog.id, data)}

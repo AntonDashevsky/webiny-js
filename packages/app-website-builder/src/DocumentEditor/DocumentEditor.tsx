@@ -28,7 +28,6 @@ export const DocumentEditor = observer(({ document, children }: DocumentEditorPr
 
     return (
         <DndProvider backend={HTML5Backend}>
-            <DefaultEditorConfig />
             <StateInspector editor={editor} />
             <DocumentEditorContext.Provider value={editor}>
                 {children ? <>{children}</> : null}

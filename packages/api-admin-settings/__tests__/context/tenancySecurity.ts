@@ -1,16 +1,15 @@
-import { createTenancyContext, createTenancyGraphQL } from "@webiny/api-tenancy";
-import { createSecurityContext, createSecurityGraphQL } from "@webiny/api-security";
+import { createTenancyContext } from "@webiny/api-tenancy";
+import { createSecurityContext } from "@webiny/api-security";
 import {
+    SecurityContext,
     SecurityIdentity,
     SecurityPermission,
     SecurityStorageOperations
 } from "@webiny/api-security/types";
 import { ContextPlugin } from "@webiny/api";
 import { BeforeHandlerPlugin } from "@webiny/handler";
-import { createPermissions } from "./helpers";
-import { MailerContext } from "~/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { TenancyStorageOperations } from "@webiny/api-tenancy/types";
+import { TenancyContext, TenancyStorageOperations } from "@webiny/api-tenancy/types";
 
 interface Config {
     permissions: SecurityPermission[];
@@ -22,15 +21,9 @@ export const createTenancyAndSecurity = ({ permissions, identity }: Config) => {
     const securityStorage = getStorageOps<SecurityStorageOperations>("security");
 
     return [
-        createTenancyContext({
-            storageOperations: tenancyStorage.storageOperations
-        }),
-        createTenancyGraphQL(),
-        createSecurityContext({
-            storageOperations: securityStorage.storageOperations
-        }),
-        createSecurityGraphQL(),
-        new ContextPlugin<MailerContext>(context => {
+        createTenancyContext({ storageOperations: tenancyStorage.storageOperations }),
+        createSecurityContext({ storageOperations: securityStorage.storageOperations }),
+        new ContextPlugin<SecurityContext & TenancyContext>(context => {
             context.tenancy.setCurrentTenant({
                 id: "root",
                 name: "Root",
@@ -47,32 +40,20 @@ export const createTenancyAndSecurity = ({ permissions, identity }: Config) => {
             });
 
             context.security.addAuthenticator(async () => {
-                const base = identity || {
-                    id: "12345678",
-                    type: "admin",
-                    displayName: "John Doe"
-                };
-                return {
-                    ...base,
-                    permissions: createPermissions().concat({ name: "pb.*" })
-                };
+                return (
+                    identity || {
+                        id: "12345678",
+                        type: "admin",
+                        displayName: "John Doe"
+                    }
+                );
             });
 
             context.security.addAuthorizer(async () => {
-                const { headers = {} } = context.request || {};
-                if (headers["authorization"]) {
-                    return null;
-                }
-
                 return permissions || [{ name: "*" }];
             });
         }),
-        new BeforeHandlerPlugin<MailerContext>(context => {
-            const { headers = {} } = context.request || {};
-            if (headers["authorization"]) {
-                return context.security.authenticate(headers["authorization"]);
-            }
-
+        new BeforeHandlerPlugin<SecurityContext>(context => {
             return context.security.authenticate("");
         })
     ].filter(Boolean);

@@ -3,7 +3,7 @@ import capitalize from "lodash/capitalize";
 import { createResourcePicker } from "./createResourcePicker";
 import { createResourceListPicker } from "./createResourceListPicker";
 import { Editor } from "~/index.js";
-import { useEcommerceApi } from "./features/apis/useEcommerceApi";
+import { useEcommerceApi } from "~/features/ecommerce/apis";
 
 const { ElementInput } = Editor.EditorConfig;
 

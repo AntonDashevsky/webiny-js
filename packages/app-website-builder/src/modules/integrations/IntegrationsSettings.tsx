@@ -1,14 +1,14 @@
 import React from "react";
-import { Grid, Input, Select, Switch, Tabs } from "@webiny/admin-ui";
-import { useEcommerceApiProvider } from "~/ecommerce/features/apis";
-import { EcommerceApiManifest } from "~/ecommerce/features/apis/EcommerceApiManifest";
+import { Alert, Grid, Input, Select, Switch, Tabs } from "@webiny/admin-ui";
 import { Bind } from "@webiny/form";
 import { toTitleCaseLabel } from "~/ecommerce/components/toTitleCaseLabel";
 import { validation } from "@webiny/validation";
+import { type EcommerceApiManifest } from "~/features";
 
-export const IntegrationsSettings = () => {
-    const provider = useEcommerceApiProvider();
-    const manifests = provider.getApiManifests();
+export const IntegrationsSettings = ({ manifests }: { manifests: EcommerceApiManifest[] }) => {
+    if (!manifests.length) {
+        return <Alert type={"info"}>There are no integrations to configure.</Alert>;
+    }
 
     const tabs = manifests.map(manifest => {
         const name = manifest.getName();
@@ -17,13 +17,12 @@ export const IntegrationsSettings = () => {
                 key={name}
                 trigger={toTitleCaseLabel(name)}
                 value={name}
-                spacing={"sm"}
                 content={<IntegrationForm manifest={manifest} />}
             />
         );
     });
 
-    return <Tabs tabs={tabs} />;
+    return <Tabs tabs={tabs} size={"md"} spacing={"sm"} />;
 };
 
 interface IntegrationFormProps {
@@ -35,7 +34,7 @@ const IntegrationForm = ({ manifest }: IntegrationFormProps) => {
         <Grid>
             {manifest.getSettingsInputs().map(input => {
                 const bindProps = {
-                    name: input.name,
+                    name: `${manifest.getName()}.${input.name}`,
                     validators: input.required ? validation.create("required") : undefined,
                     defaultValue: input.defaultValue
                 };

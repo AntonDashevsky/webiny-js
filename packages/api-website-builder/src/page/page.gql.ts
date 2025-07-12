@@ -1,6 +1,7 @@
 import { renderFields } from "@webiny/api-headless-cms/utils/renderFields";
 import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields";
 import { renderListFilterFields } from "@webiny/api-headless-cms/utils/renderListFilterFields";
+import { GetSettings, SaveSettings } from "@webiny/api-admin-settings";
 import {
     ErrorResponse,
     GraphQLSchemaPlugin,
@@ -13,6 +14,8 @@ import { PAGE_MODEL_ID } from "~/page/page.model";
 import type { CmsFieldTypePlugins, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
 import type { WebsiteBuilderContext } from "~/types";
 import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "@webiny/api-headless-cms/constants";
+import { WEBSITE_BUILDER_INTEGRATIONS, WEBSITE_BUILDER_SETTINGS } from "~/constants";
+import { ListWbPagesParams } from "~/page/page.types";
 
 export interface CreatePageTypeDefsParams {
     model: CmsModel;
@@ -78,7 +81,7 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
 
     return /* GraphQL */ `
         ${fieldTypes.map(f => f.typeDefs).join("\n")}
-       
+
         type WbPage {
             id: ID!
             entryId: String!
@@ -86,46 +89,64 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
             status: String!
             version: Number!
             locked: Boolean!
-            ${onByMetaGqlFields}
-            ${fieldTypes.map(f => f.fields).join("\n")}
+        ${onByMetaGqlFields}
+        ${fieldTypes.map(f => f.fields).join("\n")}
         }
-        
+
         ${inputCreateFields.map(f => f.typeDefs).join("\n")}
-        
+
         input WbPageCreateInput {
-             wbyAco_location: WbLocationInput
-             ${inputCreateFields.map(f => f.fields).join("\n")}
+            wbyAco_location: WbLocationInput
+            ${inputCreateFields.map(f => f.fields).join("\n")}
         }
-                
-         input WbPageUpdateInput {
+
+        input WbPageUpdateInput {
             ${inputUpdateFields.map(f => f.fields).join("\n")}
         }
-        
+
         input WbPagesListWhereInput {
             wbyAco_location: WbLocationWhereInput
             ${listFilterFieldsRender}
             AND: [WbPagesListWhereInput!]
             OR: [WbPagesListWhereInput!]
         }
-        
+
+        type WbSettings {
+            previewDomain: String!
+        }
+
         type WbPageResponse {
             data: WbPage
             error: WbError
         }
 
+        type WbSettingsResponse {
+            data: WbSettings
+            error: WbError
+        }
+
+        type WbIntegrationsResponse {
+            data: JSON!
+            error: WbError
+        }
+
+        input WbSettingsInput {
+            previewDomain: String!
+        }
+        
         type WbPagesListResponse {
             data: [WbPage]
             error: WbError
             meta: WbMeta
         }
 
-         type WbPageModelResponse {
+        type WbPageModelResponse {
             data: JSON
             error: WbError
         }
 
         extend type WbQuery {
-            getPageModel: WbPageModelResponse!
+            getPageModel: WbPageModelResponse
             getPageByPath(path: String!, preview: Boolean): WbPageResponse
             getPage(id: ID!): WbPageResponse
             listPages(
@@ -135,6 +156,8 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
                 sort: WbSort
                 search: String
             ): WbPagesListResponse
+            getSettings: WbSettingsResponse
+            getIntegrations: WbIntegrationsResponse
         }
 
         extend type WbMutation {
@@ -146,6 +169,8 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
             movePage(id: ID!, folderId: ID!): WbBooleanResponse
             createPageRevisionFrom(id: ID!): WbPageResponse
             deletePage(id: ID!): WbBooleanResponse
+            updateSettings(data: WbSettingsInput!): BooleanResponse
+            updateIntegrations(data: JSON!): BooleanResponse
         }
     `;
 };
@@ -165,12 +190,20 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                     return resolve(async () => {
                         ensureAuthentication(context);
 
+                        const where: ListWbPagesParams["where"] = {
+                            properties: {
+                                path
+                            }
+                        };
+
+                        if (preview) {
+                            where.latest = true;
+                        } else {
+                            where.published = true;
+                        }
+
                         const [[page]] = await context.websiteBuilder.page.list({
-                            where: {
-                                properties: {
-                                    path
-                                }
-                            },
+                            where,
                             limit: 1,
                             after: null,
                             sort: ["savedOn_DESC"]
@@ -187,7 +220,7 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                 getPage: async (_, { id }, context) => {
                     return resolve(() => {
                         ensureAuthentication(context);
-                        return context.websiteBuilder.page.get(id);
+                        return context.websiteBuilder.page.get({ id });
                     });
                 },
                 listPages: async (_, args: any, context) => {
@@ -198,6 +231,22 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                     } catch (e) {
                         return new ErrorResponse(e);
                     }
+                },
+                getSettings: async (_, args, context) => {
+                    ensureAuthentication(context);
+                    const getSettings = GetSettings.create(context);
+                    const settings = await getSettings.execute(WEBSITE_BUILDER_SETTINGS);
+                    const data = settings.getData();
+
+                    return new Response({
+                        previewDomain: data.previewDomain ?? ""
+                    });
+                },
+                getIntegrations: async (_, args, context) => {
+                    ensureAuthentication(context);
+                    const getSettings = GetSettings.create(context);
+                    const settings = await getSettings.execute(WEBSITE_BUILDER_INTEGRATIONS);
+                    return new Response(settings.getData());
                 }
             },
             WbMutation: {
@@ -245,6 +294,24 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                 deletePage: async (_, { id }, context) => {
                     ensureAuthentication(context);
                     await context.websiteBuilder.page.delete({ id });
+                    return new Response(true);
+                },
+                updateSettings: async (_, args, context) => {
+                    ensureAuthentication(context);
+                    const saveSettings = SaveSettings.create(context);
+                    await saveSettings.execute({
+                        name: WEBSITE_BUILDER_SETTINGS,
+                        settings: args.data
+                    });
+                    return new Response(true);
+                },
+                updateIntegrations: async (_, args, context) => {
+                    ensureAuthentication(context);
+                    const saveSettings = SaveSettings.create(context);
+                    await saveSettings.execute({
+                        name: WEBSITE_BUILDER_INTEGRATIONS,
+                        settings: args.data
+                    });
                     return new Response(true);
                 }
             }

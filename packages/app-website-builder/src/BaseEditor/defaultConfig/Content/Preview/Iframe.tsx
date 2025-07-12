@@ -6,7 +6,7 @@ import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Previ
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { ViewportManager } from "~/sdk/ViewportManager";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { usePreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/usePreviewUrl";
+import { useEditorPreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useEditorPreviewUrl";
 
 interface IframeProps {
     showLoading: boolean;
@@ -16,11 +16,15 @@ interface IframeProps {
 
 export const Iframe = React.memo((props: IframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
-    const { previewUrl } = usePreviewUrl();
+    const { previewUrl } = useEditorPreviewUrl();
     const previewWidth = useResponsiveContainer(props.viewportManager);
 
     const iframeSrc = useSelectFromDocument(
         document => {
+            if (!previewUrl) {
+                return undefined;
+            }
+
             const url = new URL(previewUrl);
             url.searchParams.set("width", previewWidth);
             const searchParams = url.searchParams;
@@ -40,7 +44,9 @@ export const Iframe = React.memo((props: IframeProps) => {
             className={"wby-relative wby-flex wby-flex-col wby-items-center"}
             data-role={"responsive-container"}
         >
-            <ConnectEditorToPreview iframeRef={iframeRef} onConnected={props.onConnected} />
+            {iframeSrc ? (
+                <ConnectEditorToPreview iframeRef={iframeRef} onConnected={props.onConnected} />
+            ) : null}
             {props.showLoading ? (
                 <OverlayLoader
                     size="lg"

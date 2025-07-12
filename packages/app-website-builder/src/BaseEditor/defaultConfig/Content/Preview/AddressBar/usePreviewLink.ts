@@ -1,10 +1,13 @@
 import { useMemo } from "react";
-import { usePreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/usePreviewUrl";
+import { useEditorPreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useEditorPreviewUrl";
 
 export const usePreviewLink = () => {
-    const { previewUrl } = usePreviewUrl();
+    const { previewUrl } = useEditorPreviewUrl();
 
     return useMemo(() => {
+        if(!previewUrl) {
+            return "";
+        }
         const url = new URL(previewUrl);
         url.searchParams.set("wb.preview", "true");
         return url.toString();

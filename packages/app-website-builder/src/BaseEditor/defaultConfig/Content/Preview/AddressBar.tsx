@@ -2,13 +2,13 @@ import React, { useCallback, useState } from "react";
 import { Input } from "@webiny/admin-ui";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { BreakpointSelector } from "./BreakpointSelector";
-import { usePreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/usePreviewUrl";
+import { useEditorPreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useEditorPreviewUrl";
 import { PreviewInNewTab } from "./AddressBar/PreviewInNewTab";
 import { OpenInNewTab } from "./AddressBar/OpenInNewTab";
 
 export const AddressBar = () => {
     const editor = useDocumentEditor();
-    const { previewUrl } = usePreviewUrl();
+    const { previewUrl } = useEditorPreviewUrl();
 
     const [urlInput, setInputUrl] = useState<string | null>(null);
 

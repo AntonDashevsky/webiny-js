@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { Editor } from "~/index";
 import type { IEcommerceApiFactory, SettingsInput } from "./types";
 import { CreateInputRenderers } from "./CreateInputRenderers";
-import { useEcommerceApiProvider } from "~/ecommerce/features/apis";
 import { ResourcePage, ResourcePageProps } from "./components/ResourcePage";
 import { createGenericContext } from "@webiny/app";
 import { usePageTypes } from "./usePageTypes";
-import { EcommerceApiManifest } from "~/ecommerce/features/apis/EcommerceApiManifest";
+import { EcommerceApiManifest, useEcommerceApiProvider } from "~/features";
 
 export interface CustomResourcePickerProps<T = any> {
     value?: T;
@@ -26,7 +25,7 @@ const EcommercePluginBase = (props: EcommercePluginProps) => {
     const provider = useEcommerceApiProvider();
 
     useEffect(() => {
-        provider.setApiManifest(new EcommerceApiManifest(props.name, props.init, props.settings));
+        provider.addApiManifest(new EcommerceApiManifest(props.name, props.init, props.settings));
     }, []);
 
     return (

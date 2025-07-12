@@ -16463,6 +16463,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/api-admin-settings@workspace:packages/api-admin-settings"
   dependencies:
+    "@webiny/api": "npm:0.0.0"
+    "@webiny/api-i18n": "npm:0.0.0"
+    "@webiny/api-security": "npm:0.0.0"
+    "@webiny/api-serverless-cms": "npm:0.0.0"
     "@webiny/api-tenancy": "npm:0.0.0"
     "@webiny/aws-sdk": "npm:0.0.0"
     "@webiny/db-dynamodb": "npm:0.0.0"
@@ -16470,7 +16474,9 @@ __metadata:
     "@webiny/handler": "npm:0.0.0"
     "@webiny/handler-aws": "npm:0.0.0"
     "@webiny/handler-db": "npm:0.0.0"
+    "@webiny/plugins": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
+    "@webiny/utils": "npm:0.0.0"
     apollo-graphql: "npm:^0.9.5"
     jest: "npm:^29.7.0"
     jest-dynalite: "npm:^3.6.1"
@@ -16548,7 +16554,6 @@ __metadata:
   resolution: "@webiny/api-apw@workspace:packages/api-apw"
   dependencies:
     "@webiny/api": "npm:0.0.0"
-    "@webiny/api-admin-settings": "npm:0.0.0"
     "@webiny/api-headless-cms": "npm:0.0.0"
     "@webiny/api-i18n": "npm:0.0.0"
     "@webiny/api-mailer": "npm:0.0.0"
@@ -17878,6 +17883,7 @@ __metadata:
   resolution: "@webiny/api-website-builder@workspace:packages/api-website-builder"
   dependencies:
     "@webiny/api": "npm:0.0.0"
+    "@webiny/api-admin-settings": "npm:0.0.0"
     "@webiny/api-admin-users": "npm:0.0.0"
     "@webiny/api-file-manager": "npm:0.0.0"
     "@webiny/api-headless-cms": "npm:0.0.0"

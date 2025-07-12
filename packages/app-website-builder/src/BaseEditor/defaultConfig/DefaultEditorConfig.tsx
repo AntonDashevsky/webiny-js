@@ -4,19 +4,15 @@ import { Breadcrumbs } from "./Content/Breadcrumbs";
 import { Background } from "./Content/Background";
 import { EditorConfig } from "~/BaseEditor/config";
 import { InfoMessage } from "./Sidebar/InfoMessage";
-// import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { StyleSettingsGroup } from "./Sidebar/StyleSettings/StyleSettingsGroup";
 import { StyleProperties } from "./Sidebar/StyleSettings/StyleProperties";
 import { ElementSettingsGroup } from "./Sidebar/ElementSettings/ElementSettingsGroup";
-import { PageOptionsDropdown } from "./TopBar/DropdownActions/PageOptionsDropdown";
 import { Preview } from "./Content/Preview";
 import { InsertElementsTab } from "./Toolbar/InsertElements/InsertElementsTab";
 import { NavigatorTab } from "./Toolbar/Navigator/NavigatorTab";
 import { CommandHandlers } from "~/BaseEditor/commandHandlers";
 import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { ElementInputRenderers } from "./ElementInputRenderers";
-import { BackButton } from "./TopBar/BackButton";
-import { Title } from "./TopBar/Title";
 
 const { Ui } = EditorConfig;
 
@@ -37,9 +33,6 @@ export const DefaultEditorConfig = React.memo(() => {
             <EditorConfig>
                 <CommandHandlers />
                 <ElementInputRenderers />
-                <Ui.TopBar.Element name={"buttonBack"} group={"left"} element={<BackButton />} />
-                <Ui.TopBar.Element name={"title"} group={"left"} element={<Title />} />
-                <Ui.TopBar.Action name={"dropdownActions"} element={<PageOptionsDropdown />} />
                 <Ui.Content.Element name={"breadcrumbs"} element={<Breadcrumbs />} />
                 <Ui.Content.Element name={"background"} element={<Background />} />
                 <Ui.Content.Element name={"preview"} element={<Preview />} />

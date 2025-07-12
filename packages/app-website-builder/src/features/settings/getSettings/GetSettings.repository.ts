@@ -1,0 +1,34 @@
+import type { IGetSettings } from "./IGetSettings";
+import { SettingsCache } from "~/shared/settingsCache";
+
+export interface WebsiteBuilderSettings {
+    previewDomain: string;
+}
+
+const SETTINGS_KEY = "WebsiteBuilder/Settings";
+
+export class GetSettingsRepository implements IGetSettings {
+    private gateway: IGetSettings;
+    private cache: SettingsCache;
+
+    constructor(cache: SettingsCache, gateway: IGetSettings) {
+        this.cache = cache;
+        this.gateway = gateway;
+    }
+
+    async execute(): Promise<WebsiteBuilderSettings> {
+        if (this.cache.has(SETTINGS_KEY)) {
+            return this.cache.get(SETTINGS_KEY) as WebsiteBuilderSettings;
+        }
+
+        let settings = await this.gateway.execute();
+
+        if (!settings) {
+            settings = { previewDomain: "" };
+        }
+
+        this.cache.set(SETTINGS_KEY, settings);
+
+        return settings;
+    }
+}

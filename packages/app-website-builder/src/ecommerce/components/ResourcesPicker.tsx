@@ -4,7 +4,16 @@ import { observer, useLocalObservable } from "mobx-react";
 import pluralize from "pluralize";
 import throttle from "lodash/throttle";
 import { useDialogs, useSnackbar } from "@webiny/app-admin";
-import { Avatar, Button, Loader, List, Input, Text, DelayedOnChange } from "@webiny/admin-ui";
+import {
+    Avatar,
+    Button,
+    Loader,
+    List,
+    Input,
+    Text,
+    DelayedOnChange,
+    useToast
+} from "@webiny/admin-ui";
 import { Resource } from "../types";
 import { CustomResourcePickerProps } from "~/ecommerce";
 
@@ -75,7 +84,7 @@ export type ResourcePickerProps = CustomResourcePickerProps<Resource> & {
 };
 
 export const ResourcePicker = observer((props: ResourcePickerProps) => {
-    const { showSnackbar } = useSnackbar();
+    const { showToast } = useToast();
 
     const store = useLocalObservable(() => ({
         searchInputText: "",
@@ -87,7 +96,10 @@ export const ResourcePicker = observer((props: ResourcePickerProps) => {
             });
             const catchError = (err: any) => {
                 console.error("search error:", err);
-                showSnackbar("Oh no! There was an error searching for resources");
+                showToast({
+                    title: `Failed to load ${props.resourceName}s!`,
+                    description: `We were unable to get ${props.resourceName}s from the remote API.`
+                });
             };
 
             const resourcesResponse = await props.api[props.resourceName]
@@ -148,7 +160,7 @@ export const ResourcePicker = observer((props: ResourcePickerProps) => {
 });
 
 export const ResourcesPickerButton: React.FC<ResourcesPickerButtonProps> = observer(props => {
-    const { showSnackbar } = useSnackbar();
+    const { showToast } = useToast();
     const dialog = useDialogs();
 
     const store = useLocalObservable(() => ({
@@ -176,9 +188,10 @@ export const ResourcesPickerButton: React.FC<ResourcesPickerButtonProps> = obser
                 runInAction(() => {
                     this.error = e as any;
                 });
-                showSnackbar(
-                    `Oh no! There was an error fetching ${pluralize.plural(props.resourceName)}`
-                );
+                showToast({
+                    title: `Failed to load ${props.resourceName}!`,
+                    description: `We were unable to get ${props.resourceName} from the remote API.`
+                });
             }
             runInAction(() => {
                 this.loading = false;

@@ -5,10 +5,12 @@ import { DocumentEditor } from "~/DocumentEditor/DocumentEditor.js";
 import type { Page } from "~/sdk";
 import { useGetPage } from "~/features/pages";
 import { OverlayLoader } from "@webiny/admin-ui";
-import { EditorConfig } from "~/BaseEditor";
-import { AutoSaveIndicator, PageAutoSave } from "./PageAutoSave";
+import { useGetWebsiteBuilderSettings } from "~/features";
+import { DefaultPageEditorConfig } from "./editor/DefaultPageEditorConfig";
+import { DefaultEditorConfig } from "~/BaseEditor";
 
 export const PageEditor = () => {
+    const { getSettings } = useGetWebsiteBuilderSettings();
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState<Page | null>(null);
 
@@ -16,16 +18,20 @@ export const PageEditor = () => {
     const { getPage } = useGetPage();
 
     useEffect(() => {
-        getPage({ id: params.id }).then(page => {
-            setPage({
-                id: page.id,
-                status: page.status,
-                properties: page.properties,
-                state: {},
-                bindings: page.bindings,
-                elements: page.elements,
-                metadata: page.metadata
-            });
+        Promise.all([
+            getSettings(),
+            getPage({ id: params.id }).then(page => {
+                setPage({
+                    id: page.id,
+                    status: page.status,
+                    properties: page.properties,
+                    state: {},
+                    bindings: page.bindings,
+                    elements: page.elements,
+                    metadata: page.metadata
+                });
+            })
+        ]).then(() => {
             setLoading(false);
         });
     }, [params.id]);
@@ -35,17 +41,10 @@ export const PageEditor = () => {
     }
 
     return (
-        <CompositionScope name={"websiteBuilder"}>
+        <CompositionScope name={"WebsiteBuilder/PageEditor"} inherit={true}>
             <DocumentEditor document={page}>
-                <EditorConfig>
-                    <PageAutoSave />
-                    <EditorConfig.Ui.TopBar.Element
-                        group={"left"}
-                        name={"autoSave"}
-                        after={"title"}
-                        element={<AutoSaveIndicator />}
-                    />
-                </EditorConfig>
+                <DefaultEditorConfig />
+                <DefaultPageEditorConfig />
             </DocumentEditor>
         </CompositionScope>
     );

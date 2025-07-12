@@ -1,20 +1,38 @@
 import React from "react";
 import { useDialogs } from "@webiny/app-admin";
 import { IntegrationsSettings } from "./IntegrationsSettings";
+import {
+    useEcommerceApiProvider,
+    useGetEcommerceSettings,
+    useUpdateEcommerceSettings
+} from "~/features";
+import { useToast } from "@webiny/admin-ui";
 
 export const useIntegrationsDialog = () => {
+    const { showToast } = useToast();
     const dialogs = useDialogs();
+    const provider = useEcommerceApiProvider();
+    const manifests = provider.getApiManifests();
+    const { getSettings } = useGetEcommerceSettings();
+    const { updateSettings } = useUpdateEcommerceSettings();
+
+    const noIntegrations = manifests.length === 0;
 
     const showIntegrationsDialog = () => {
         dialogs.showDialog({
             title: `Website Builder Integrations`,
-            description: "Configure your website builder integrations",
-            dismissible: false,
-            acceptLabel: "Save Settings",
-            cancelLabel: "Cancel",
-            content: <IntegrationsSettings />,
-            onAccept: data => {
-                console.log(data);
+            formData: getSettings,
+            description: "Configure your website builder integrations here.",
+            acceptLabel: noIntegrations ? null : "Save Settings",
+            cancelLabel: noIntegrations ? "Close" : "Cancel",
+            content: <IntegrationsSettings manifests={manifests} />,
+            onAccept: async data => {
+                await updateSettings(data);
+                showToast({
+                    title: "Success!",
+                    description: "Integrations settings were saved successfully.",
+                    duration: 3000
+                });
             }
         });
     };

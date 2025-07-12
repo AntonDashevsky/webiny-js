@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo } from "react";
 import { Grid, Input, Skeleton } from "@webiny/admin-ui";
-import { UnsetOnUnmount, useBind, useForm } from "@webiny/form";
+import { UnsetOnUnmount, useBind } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { createResourcePicker } from "~/ecommerce/createResourcePicker";
-import { useEcommerceApi } from "~/ecommerce/features/apis";
 import { adaptInputToBind } from "./adaptInputToBind";
 import { Resource } from "../types";
 import { toTitleCaseLabel } from "~/ecommerce/components/toTitleCaseLabel";
+import { useEcommerceApi } from "~/features";
 
 export interface ResourcePageProps {
     apiName: string;
