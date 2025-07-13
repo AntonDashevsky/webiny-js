@@ -12,7 +12,9 @@ export class OutputCommand implements Command.Interface<IOutputCommandParams> {
         private stdioService: StdioService.Interface
     ) {}
 
-    execute(): Command.CommandDefinition<IOutputCommandParams> {
+    async execute(): Promise<Command.CommandDefinition<IOutputCommandParams>> {
+        const projectSdk = await this.getProjectSdkService.execute();
+
         return {
             name: "output",
             description: "Prints Pulumi stack output for given project application and environment",
@@ -28,8 +30,31 @@ export class OutputCommand implements Command.Interface<IOutputCommandParams> {
                 {
                     name: "env",
                     description: "Environment name (dev, prod, etc.)",
+                    type: "string"
+                },
+                {
+                    name: "variant",
+                    description: "Variant of the app to watch",
                     type: "string",
-                    required: true
+                    validation: (params) => {
+                        const isValid = projectSdk.isValidVariantName(params.variant);
+                        if (isValid.isErr()) {
+                            throw isValid.error;
+                        }
+                        return true;
+                    }
+                },
+                {
+                    name: "region",
+                    description: "Region to target",
+                    type: "string",
+                    validation: (params) => {
+                        const isValid = projectSdk.isValidRegionName(params.region)
+                        if (isValid.isErr()) {
+                            throw isValid.error;
+                        }
+                        return true;
+                    }
                 },
                 {
                     name: "json",
@@ -38,7 +63,7 @@ export class OutputCommand implements Command.Interface<IOutputCommandParams> {
                 }
             ],
             handler: async (params: IOutputCommandParams) => {
-                const projectSdk = this.getProjectSdkService.execute();
+                const projectSdk = await this.getProjectSdkService.execute();
                 const stdio = this.stdioService;
 
                 const { pulumiProcess } = await projectSdk.getAppOutput(params);

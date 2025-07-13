@@ -4,9 +4,7 @@ import { GetProjectConfigService, ValidateProjectConfigService } from "~/abstrac
 export class DefaultValidateProjectConfigService implements ValidateProjectConfigService.Interface {
     constructor(private readonly getProjectConfigService: GetProjectConfigService.Interface) {}
 
-    async execute() {
-        const projectConfig = await this.getProjectConfigService.execute();
-
+    async execute(projectConfig: ValidateProjectConfigService.Params): Promise<void> {
         const extensionTypes = Object.keys(projectConfig.config);
         for (const extensionType of extensionTypes) {
             const extensionsCollection = projectConfig.config[extensionType] || [];

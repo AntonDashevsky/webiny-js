@@ -22,7 +22,7 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
 
     private yargsRunner: Argv | null = null;
 
-    execute() {
+    async execute() {
         if (this.yargsRunner) {
             return this.yargsRunner;
         }
@@ -110,7 +110,7 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
         const commands = this.commandsRegistryService.execute();
 
         for (const command of commands) {
-            const { name, description, params = [], options = [], handler } = command.execute();
+            const { name, description, params = [], options = [], handler } = await command.execute();
 
             let yargsCommand = name;
             if (params.length > 0) {

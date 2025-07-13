@@ -5,9 +5,9 @@ import { CliParamsService, GetProjectSdkService } from "~/abstractions/index.js"
 export class DefaultGetProjectSdkService implements GetProjectSdkService.Interface {
     constructor(private readonly cliParamsService: CliParamsService.Interface) {}
 
-    execute() {
+    async execute() {
         const cliParams = this.cliParamsService.get();
-        const sdk = ProjectSdk.init(cliParams);
+        const sdk = await ProjectSdk.init(cliParams);
         if (!sdk) {
             throw new Error("Project SDK is not initialized.");
         }

@@ -29,7 +29,7 @@ export interface ICommandDefinition<TCommandParams> {
 }
 
 export interface ICommand<TCommandParams> {
-    execute(): ICommandDefinition<TCommandParams>;
+    execute(): Promise<ICommandDefinition<TCommandParams>> | ICommandDefinition<TCommandParams>;
 }
 
 export const Command = new Abstraction<ICommand<any>>("Command");

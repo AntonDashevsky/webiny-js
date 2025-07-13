@@ -1,9 +1,9 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
-import { Transform } from "node:stream";
 import chalk from "chalk";
 import { getRandomColorForString } from "./getRandomColorForString";
+import { createPrefixer } from "./createPrefixer";
 
 export interface IWatchCommandParams extends IBaseAppParams {}
 
@@ -14,8 +14,8 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
         private uiService: UiService.Interface
     ) {}
 
-    execute(): Command.CommandDefinition<IWatchCommandParams> {
-        const projectSdk = this.getProjectSdkService.execute();
+    async execute(): Promise<Command.CommandDefinition<IWatchCommandParams>> {
+        const projectSdk = await this.getProjectSdkService.execute();
         const stdio = this.stdioService;
         const ui = this.uiService;
 
@@ -77,7 +77,6 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
 
                 if (watchProcesses.length === 1) {
                     const [watchProcess] = watchProcesses;
-                    console.log('aaaaaaa')
                     watchProcess.process.stdout!.pipe(stdio.getStdout());
                     watchProcess.process.stderr!.pipe(stdio.getStderr());
                 } else {
@@ -109,80 +108,8 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
     }
 }
 
-function createPrefixer(prefix: string) {
-    // This returns a Transform stream that prefixes each line
-    return new Transform({
-        readableObjectMode: true,
-        writableObjectMode: true,
-        transform(chunk, encoding, callback) {
-            const str = chunk.toString();
-            const lines = str.split(/\r?\n/);
-            for (let i = 0; i < lines.length; i++) {
-                if (lines[i].trim() !== "") {
-                    this.push(`${prefix}: ${lines[i]}\n`);
-                }
-            }
-            callback();
-        }
-    });
-}
-
 export const watchCommand = createImplementation({
     abstraction: Command,
     implementation: WatchCommand,
     dependencies: [GetProjectSdkService, StdioService, UiService]
 });
-
-/*
-
-yargs
-    .option("region", {
-        describe: `Region to target`,
-        type: "string",
-        required: false
-    })
-    .check(validateRegion);
-    .option("variant", {
-        describe: `Variant`,
-        type: "string",
-        required: false
-    })
-    .check(validateVariant);
-
-yargs.option("function", {
-    alias: "f",
-    describe:
-        "One or more functions that will invoked locally (used with local AWS Lambda development)",
-    type: "string"
-});
-yargs.option("inspect", {
-    alias: "i",
-    describe:
-        "[EXPERIMENTAL] Enable Node debugger (used with local AWS Lambda development)",
-    type: "boolean"
-});
-yargs.option("depth", {
-    describe: `The level of dependencies that will be watched for code changes`,
-    type: "number",
-    default: 2
-});
-yargs.option("debug", {
-    default: false,
-    describe: `Turn on debug logs`,
-    type: "boolean"
-});
-yargs.option("increase-timeout", {
-    default: 120,
-    describe: `Increase AWS Lambda function timeout (passed as number of seconds, used with local AWS Lambda development)`,
-    type: "number"
-});
-yargs.option("increase-handshake-timeout", {
-    default: 5,
-    describe: `Increase timeout for the initial handshake between a single AWS Lambda invocation and local code execution (passed as number of seconds, used with local AWS Lambda development)`,
-    type: "number"
-});
-yargs.option("allow-production", {
-    default: false,
-    describe: `Enables running the watch command with "prod" and "production" environments (not recommended).`,
-    type: "boolean"
-});*/

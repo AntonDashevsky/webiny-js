@@ -16,8 +16,8 @@ const isDeployCommand = (
 export class DeployCommandWithTelemetry<TParams> implements Command.Interface<TParams> {
     constructor(private decoratee: Command.Interface<TParams>) {}
 
-    execute() {
-        const command = this.decoratee.execute();
+    async execute() {
+        const command = await this.decoratee.execute();
 
         if (!isTelemetryEnabled()) {
             return command;

@@ -13,7 +13,7 @@ import {
     ProjectSdkParamsService,
     RefreshApp,
     RunPulumiCommand,
-    ValidateProjectConfigService,
+    ValidateProjectConfig,
     Watch
 } from "~/abstractions/index.js";
 import { isValidRegionName, isValidVariantName } from "./utils/index.js";
@@ -25,8 +25,8 @@ export class ProjectSdk {
         this.container = container;
     }
 
-    static init(params: Partial<ProjectSdkParamsService.Params>) {
-        const container = createProjectSdkContainer(params);
+    static async init(params: Partial<ProjectSdkParamsService.Params>) {
+        const container = await createProjectSdkContainer(params);
         return new ProjectSdk(container);
     }
 
@@ -39,8 +39,8 @@ export class ProjectSdk {
         return this.container.resolve(GetProjectConfig).execute();
     }
 
-    validateProjectConfig(projectConfig: ValidateProjectConfigService.Params) {
-        return this.container.resolve(ValidateProjectConfigService).execute(projectConfig);
+    validateProjectConfig(projectConfig: ValidateProjectConfig.Params) {
+        return this.container.resolve(ValidateProjectConfig).execute(projectConfig);
     }
 
     getProjectInfo() {

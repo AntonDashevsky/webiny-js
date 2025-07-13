@@ -1,3 +1,4 @@
+export * from "./hooks/index.js";
 export { BuildApp } from "./BuildApp.js";
 export { DeployApp } from "./DeployApp.js";
 export { DestroyApp } from "./DestroyApp.js";
@@ -9,4 +10,5 @@ export { GetProjectInfo } from "./GetProjectInfo.js";
 export { IsCi } from "./IsCi.js";
 export { RefreshApp } from "./RefreshApp.js";
 export { RunPulumiCommand } from "./RunPulumiCommand.js";
+export { ValidateProjectConfig } from "./ValidateProjectConfig.js";
 export { Watch } from "./Watch.js";

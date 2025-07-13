@@ -17551,6 +17551,7 @@ __metadata:
   resolution: "@webiny/extensions@workspace:packages/extensions"
   dependencies:
     "@webiny/cli-core": "npm:0.0.0"
+    "@webiny/project": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/react-properties": "npm:0.0.0"
     react: "npm:18.2.0"

@@ -4,7 +4,7 @@
     "src",
     "__tests__"
   ],
-  "references": [],
+  "references": [{ "path": "../project/tsconfig.build.json" }],
   "compilerOptions": {
     "rootDirs": [
       "./src",
@@ -18,7 +18,9 @@
       ],
       "~tests/*": [
         "./__tests__/*"
-      ]
+      ],
+      "@webiny/project/*": ["../project/src/*"],
+      "@webiny/project": ["../project/src"]
     },
     "baseUrl": "."
   }

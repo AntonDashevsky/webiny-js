@@ -1,3 +1,5 @@
+export * from "./ApiBeforeBuild/index.js";
+export * from "./ApiBeforeDeploy/index.js";
 export * from "./BuildApp/index.js";
 export * from "./DeployApp/index.js";
 export * from "./DestroyApp/index.js";
@@ -9,4 +11,5 @@ export * from "./GetProjectInfo/index.js";
 export * from "./IsCi/index.js";
 export * from "./RefreshApp/index.js";
 export * from "./RunPulumiCommand/index.js";
+export * from "./ValidateProjectConfig/index.js";
 export * from "./Watch/index.js";

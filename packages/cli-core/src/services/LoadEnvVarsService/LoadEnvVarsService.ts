@@ -14,7 +14,7 @@ export class DefaultLoadEnvVarsService implements LoadEnvVarsService.Interface {
     ) {}
 
     async execute() {
-        const projectSdk =  this.getProjectSdk.execute();
+        const projectSdk =  await this.getProjectSdk.execute();
         const logger = this.loggerService;
 
         const project = await projectSdk.getProject();

@@ -1,5 +1,7 @@
 import { Container } from "@webiny/di-container";
 import {
+    apiBeforeBuild,
+    apiBeforeDeploy,
     buildApp,
     deployApp,
     destroyApp,
@@ -11,6 +13,7 @@ import {
     isCi,
     refreshApp,
     runPulumiCommand,
+    validateProjectConfig,
     watch
 } from "./features/index.js";
 
@@ -38,9 +41,20 @@ import {
     pulumiSelectStackService,
     validateProjectConfigService
 } from "./services/index.js";
-import { ProjectSdkParamsService } from "~/abstractions";
 
-export const createProjectSdkContainer = (params: Partial<ProjectSdkParamsService.Params>) => {
+import { buildAppWithHooks, deployAppWithHooks } from "./decorators/index.js";
+
+import {
+    GetProject,
+    GetProjectConfig,
+    ProjectSdkParamsService,
+    ValidateProjectConfig,
+} from "~/abstractions";
+import path from "path";
+
+export const createProjectSdkContainer = async (
+    params: Partial<ProjectSdkParamsService.Params>
+) => {
     const container = new Container();
 
     // Services.
@@ -79,10 +93,35 @@ export const createProjectSdkContainer = (params: Partial<ProjectSdkParamsServic
     container.register(isCi).inSingletonScope();
     container.register(refreshApp).inSingletonScope();
     container.register(runPulumiCommand).inSingletonScope();
+    container.register(validateProjectConfig).inSingletonScope();
     container.register(watch).inSingletonScope();
+    container.registerComposite(apiBeforeBuild);
+    container.registerComposite(apiBeforeDeploy);
 
-    // Immediately set the params in the ProjectSdkParamsService.
+    // Decorators.
+    container.registerDecorator(buildAppWithHooks);
+    container.registerDecorator(deployAppWithHooks);
+
+    // Immediately set CLI instance params via the `CliParamsService`.
     container.resolve(ProjectSdkParamsService).set(params);
+
+    // Extensions.
+    const project = await container.resolve(GetProject).execute();
+    const projectConfig = await container.resolve(GetProjectConfig).execute();
+    await container.resolve(ValidateProjectConfig).execute(projectConfig);
+
+    const hooksExtensions = [
+        ...projectConfig.extensionsByType<{ src: string }>("Api/BeforeBuild"),
+        ...projectConfig.extensionsByType<{ src: string }>("Api/BeforeDeploy"),
+        ...projectConfig.extensionsByType<{ src: string }>("Api/AfterBuild"),
+        ...projectConfig.extensionsByType<{ src: string }>("Api/AfterDeploy")
+    ];
+
+    for (const hookExtension of hooksExtensions) {
+        const importPath = path.join(project.paths.rootFolder.absolute, hookExtension.params.src);
+        const { default: commandImplementation } = await import(importPath);
+        container.register(commandImplementation).inSingletonScope();
+    }
 
     return container;
 };

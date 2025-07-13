@@ -1,0 +1,49 @@
+import { createDecorator } from "@webiny/di-container";
+import { BuildApp } from "~/abstractions";
+import { ApiBeforeBuild, ApiAfterBuild } from "~/abstractions";
+
+export class BuildAppWithHooks implements BuildApp.Interface {
+    constructor(
+        private apiBeforeBuild: ApiBeforeBuild.Interface,
+        private apiAfterBuild: ApiAfterBuild.Interface,
+        private decoratee: BuildApp.Interface
+    ) {}
+
+    async execute(params: BuildApp.Params) {
+        if (params.app === "core") {
+            await this.apiBeforeBuild.execute(params);
+            const result = await this.decoratee.execute(params);
+            await this.apiAfterBuild.execute(params);
+            return result;
+        }
+
+        if (params.app === "api") {
+            await this.apiBeforeBuild.execute(params);
+            const result = await this.decoratee.execute(params);
+            await this.apiAfterBuild.execute(params);
+            return result;
+        }
+
+        if (params.app === "admin") {
+            await this.apiBeforeBuild.execute(params);
+            const result = await this.decoratee.execute(params);
+            await this.apiAfterBuild.execute(params);
+            return result;
+        }
+
+        if (params.app === "website") {
+            await this.apiBeforeBuild.execute(params);
+            const result = await this.decoratee.execute(params);
+            await this.apiAfterBuild.execute(params);
+            return result;
+        }
+
+        return this.decoratee.execute(params);
+    }
+}
+
+export const buildAppWithHooks = createDecorator({
+    abstraction: BuildApp,
+    decorator: BuildAppWithHooks,
+    dependencies: [ApiBeforeBuild, ApiAfterBuild]
+});

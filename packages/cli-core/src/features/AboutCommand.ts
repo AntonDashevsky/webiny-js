@@ -27,7 +27,8 @@ export class AboutCommand implements Command.Interface<IAboutCommandParams> {
                 }
             ],
             handler: async (args: IAboutCommandParams) => {
-                const data = await this.getProjectSdkService.execute().getProjectInfo();
+                const projectSdk = await this.getProjectSdkService.execute();
+                const data = await projectSdk.getProjectInfo();
                 const ui = this.uiService;
 
                 if (args.json) {

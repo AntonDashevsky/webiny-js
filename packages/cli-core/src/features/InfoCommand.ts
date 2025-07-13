@@ -23,25 +23,7 @@ export class InfoCommand implements Command.Interface {
             ],
 
             handler: async (args: any) => {
-                const data = await this.getProjectSdkService.execute().getProjectInfo();
-
-                console.log("info");
-                // if (args.json) {
-                //     console.log(JSON.stringify(data, null, 2));
-                //     return;
-                // }
-                //
-                // data.forEach(({ sectionName, data }, index) => {
-                //     if (index > 0) {
-                //         console.log();
-                //     }
-                //
-                //     console.log(chalk.bold(sectionName));
-                //
-                //     Object.keys(data).forEach(key => {
-                //         console.log(key.padEnd(36), data[key] || NO_VALUE);
-                //     });
-                // });
+                console.log('TODO!')
             }
         };
     }

@@ -8,8 +8,8 @@ export class CommandsWithGracefulErrorHandling<TParams> implements Command.Inter
         private decoratee: Command.Interface<TParams>
     ) {}
 
-    execute() {
-        const command = this.decoratee.execute();
+    async execute() {
+        const command = await this.decoratee.execute();
 
         const originalCommandHandler = command.handler;
 

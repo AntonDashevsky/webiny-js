@@ -16,30 +16,30 @@ export function createWithValidationExtensionInstanceModel<
 
             const name = "name" in this.params ? this.params.name : "unknown";
 
-            if (!fs.existsSync(src)) {
-                throw new Error(`Source file for CLI command "${name}" does not exist: ${src}`);
+            const absoluteSrcPath = path.join(projectSdkParams.cwd, src);
+            if (!fs.existsSync(absoluteSrcPath)) {
+                throw new Error(`Source file for extension "${name}" does not exist: ${src}`);
             }
 
             if (this.definition.abstraction) {
-                const filePath = path.resolve(projectSdkParams.cwd, src);
-                const { default: ExportedImplementation } = await import(filePath);
+                const { default: exportedImplementation } = await import(absoluteSrcPath);
 
-                if (!ExportedImplementation) {
+                if (!exportedImplementation) {
                     throw new Error(
                         `Source file for extension "${name}" (type: ${this.definition.type}) must have a default export.`
                     );
                 }
 
-                const metadata = new Metadata(ExportedImplementation);
+                const metadata = new Metadata(exportedImplementation);
+                const metadataName = metadata.getAbstraction().toString();
+                const defName = this.definition.abstraction.toString();
                 const isCorrectAbstraction =
                     metadata.getAbstraction() === this.definition.abstraction;
                 if (!isCorrectAbstraction) {
                     throw new Error(
                         `Source file for extension "${name}" (type: ${
                             this.definition.type
-                        }) must export a class that implements the "${metadata
-                            .getAbstraction()
-                            .toString()}" abstraction.`
+                        }) must export a class that implements the "${this.definition.abstraction.toString()}" abstraction.`
                     );
                 }
             }

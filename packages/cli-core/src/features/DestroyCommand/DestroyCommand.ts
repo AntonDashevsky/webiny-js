@@ -24,8 +24,8 @@ export class DestroyCommand implements Command.Interface<IDestroyCommandParams> 
         private stdioService: StdioService.Interface
     ) {}
 
-    execute(): Command.CommandDefinition<IDestroyCommandParams> {
-        const projectSdk = this.getProjectSdkService.execute();
+    async execute(): Promise<Command.CommandDefinition<IDestroyCommandParams>> {
+        const projectSdk = await this.getProjectSdkService.execute();
 
         return {
             name: "destroy",
@@ -95,7 +95,7 @@ export class DestroyCommand implements Command.Interface<IDestroyCommandParams> 
     }
 
     private async destroyApp(params: IDestroyWithAppParams) {
-        const projectSdk = this.getProjectSdkService.execute();
+        const projectSdk = await this.getProjectSdkService.execute();
         const ui = this.uiService;
         const stdio = this.stdioService;
 

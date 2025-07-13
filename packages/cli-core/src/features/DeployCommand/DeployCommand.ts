@@ -25,8 +25,8 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
         private stdioService: StdioService.Interface
     ) {}
 
-    execute(): Command.CommandDefinition<IDeployCommandParams> {
-        const projectSdk = this.getProjectSdkService.execute();
+    async execute(): Promise<Command.CommandDefinition<IDeployCommandParams>> {
+        const projectSdk = await this.getProjectSdkService.execute();
 
         return {
             name: "deploy",
@@ -35,7 +35,7 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                 "$0 deploy api --env dev",
                 "$0 deploy admin --env prod",
                 "$0 deploy --env prod",
-                "$0 deploy",
+                "$0 deploy"
             ],
             params: [
                 {
@@ -114,7 +114,8 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
     }
 
     private async deployApp(params: IDeployWithAppParams) {
-        const projectSdk = this.getProjectSdkService.execute();
+        const projectSdk = await this.getProjectSdkService.execute();
+
         const ui = this.uiService;
         const stdio = this.stdioService;
 

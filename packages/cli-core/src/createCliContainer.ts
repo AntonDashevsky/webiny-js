@@ -72,7 +72,7 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
         // Immediately set CLI instance params via the `CliParamsService`.
         container.resolve(CliParamsService).set(params);
 
-        const projectSdk = container.resolve(GetProjectSdkService).execute();
+        const projectSdk = await container.resolve(GetProjectSdkService).execute();
         const project = await projectSdk.getProject();
         const projectConfig = await projectSdk.getProjectConfig();
 

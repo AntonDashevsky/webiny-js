@@ -12,8 +12,8 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
         private ui: UiService.Interface
     ) {}
 
-    execute(): Command.CommandDefinition<IBuildCommandParams> {
-        const projectSdk = this.getProjectSdkService.execute();
+    async execute(): Promise<Command.CommandDefinition<IBuildCommandParams>> {
+        const projectSdk = await this.getProjectSdkService.execute();
 
         return {
             name: "build",
@@ -60,7 +60,6 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                 },
             ],
             handler: async (params: IBuildCommandParams) => {
-                const projectSdk = this.getProjectSdkService.execute();
                 const stdio = this.stdioService;
                 const ui = this.ui;
 
