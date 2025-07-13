@@ -1,8 +1,9 @@
-import type { GetPageOptions, IDataProvider, Page } from "~/sdk/types.js";
+import type { IDataProvider, Page } from "~/sdk/types.js";
 import mockPage1 from "~/sdk/mocks/mockPage1";
 import emptyPage from "~/sdk/mocks/emptyPage";
 import type { ApiClient } from "~/sdk/dataProviders/ApiClient";
 import { GET_PAGE_BY_PATH } from "./GET_PAGE_BY_PATH";
+import { GET_PAGE_BY_ID } from "./GET_PAGE_BY_ID";
 
 interface DefaultDataProviderConfig {
     apiClient: ApiClient;
@@ -15,25 +16,26 @@ export class DefaultDataProvider implements IDataProvider {
         this.config = config;
     }
 
-    public async getPage(path: string, options: GetPageOptions = {}): Promise<Page | null> {
-        const { preview = false } = options;
-
+    public async getPageByPath(path: string): Promise<Page | null> {
         const result = await this.config.apiClient.query({
             query: GET_PAGE_BY_PATH,
             variables: {
-                path,
-                preview
-            },
-            preview
+                path
+            }
         });
 
-        const page = result.websiteBuilder.getPageByPath.data;
+        return result.websiteBuilder.getPageByPath.data;
+    }
 
-        return page;
+    public async getPageById(id: string): Promise<Page | null> {
+        const result = await this.config.apiClient.query({
+            query: GET_PAGE_BY_ID,
+            variables: {
+                id
+            }
+        });
 
-        // const res = await fetch(`${this.apiEndpoint}?url=${encodeURIComponent(path)}&preview=${isServerPreview ? "1" : "0"}`);
-        // return preview ? previewPage1 : mockPage1;
-        // return path === "/page-1" ? mockPage1 : emptyPage;
+        return result.websiteBuilder.getPageById.data;
     }
 
     public async listPages() {

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { Tag } from "@webiny/admin-ui";
 import { PageListConfig } from "~/configs/index.js";
-import { statuses } from "~/constants.js";
+import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel";
 
 export const CellStatus = () => {
     const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;
@@ -23,7 +23,7 @@ export const CellStatus = () => {
     }, [row.data.status]);
 
     const statusLabel = useMemo(() => {
-        return statuses[row.data.status as keyof typeof statuses];
+        return toTitleCaseLabel(row.data.status);
     }, [row.data.status]);
 
     return (

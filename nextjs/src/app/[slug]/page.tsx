@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 // This function fetches page data for a given path, considering preview (draft) mode.
 // It is critical to initialize the SDK **before** using the `contentSdk` because this function
 // runs **before** any React components mount, so our ContentSdkInitializer has no effect.
-async function getPage(path: string) {
+async function getPage(path: string, params: any) {
     const { isEnabled } = await draftMode();
 
     // Initialize the SDK with the preview flag to ensure correct data fetching.
@@ -39,7 +39,7 @@ export default async function ProductPage({
     const search = await searchParams;
 
     const isEditing = search["wb.editing"] === "true";
-    const page = await getPage(`/${slug}`);
+    const page = await getPage(`/${slug}`, { query: search });
 
     return (
         <PageLayout>

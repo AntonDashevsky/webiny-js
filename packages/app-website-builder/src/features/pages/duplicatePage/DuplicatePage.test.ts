@@ -1,5 +1,5 @@
 import { DuplicatePage } from "./DuplicatePage.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageCacheFactory } from "~/domains/Page/index.js";
 
 describe("DuplicatePage", () => {
@@ -7,7 +7,7 @@ describe("DuplicatePage", () => {
         execute: jest.fn().mockResolvedValue({
             id: "page-1-duplicated#0001",
             entryId: "page-1-duplicated",
-            status: statuses.draft,
+            status: WbPageStatus.Draft,
             wbyAco_location: {
                 folderId: "folder-1"
             },
@@ -34,7 +34,7 @@ describe("DuplicatePage", () => {
             Page.create({
                 id: "page-1#0001",
                 entryId: "page-1",
-                status: statuses.draft,
+                status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },

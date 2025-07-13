@@ -1,7 +1,7 @@
-export const GET_PAGE_BY_PATH = /* GraphQL*/ `
-    query GetPageByPath($path: String!) {
+export const GET_PAGE_BY_ID = /* GraphQL*/ `
+    query GetPageById($id: ID!) {
         websiteBuilder {
-            getPageByPath(path: $path) {
+            getPageById(id: $id) {
                 data {
                     id
                     properties

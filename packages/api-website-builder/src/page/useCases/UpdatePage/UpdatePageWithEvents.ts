@@ -5,12 +5,12 @@ import { WebinyError } from "@webiny/error";
 
 export class UpdatePageWithEvents implements IUpdatePage {
     private topics: UpdatePageUseCasesTopics;
-    private readonly getOperation: WbPagesStorageOperations["get"];
+    private readonly getOperation: WbPagesStorageOperations["getById"];
     private readonly decoretee: IUpdatePage;
 
     constructor(
         topics: UpdatePageUseCasesTopics,
-        getOperation: WbPagesStorageOperations["get"],
+        getOperation: WbPagesStorageOperations["getById"],
         decoretee: IUpdatePage
     ) {
         this.topics = topics;
@@ -19,7 +19,7 @@ export class UpdatePageWithEvents implements IUpdatePage {
     }
 
     async execute(id: string, data: UpdateWbPageData) {
-        const original = await this.getOperation({ id });
+        const original = await this.getOperation(id);
 
         if (!original) {
             throw new WebinyError(`Page with id ${id} not found`, "UPDATE_PAGE_WITH_EVENTS_ERROR");

@@ -1,5 +1,5 @@
 import { ListPages } from "~/features/pages/listPages/ListPages.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { pageCacheFactory } from "~/domains/Page/index.js";
 
 describe("ListPages", () => {
@@ -9,7 +9,7 @@ describe("ListPages", () => {
                 {
                     id: "page-1#0001",
                     entryId: "page-1",
-                    status: statuses.draft,
+                    status: WbPageStatus.Draft,
                     wbyAco_location: {
                         folderId: "folder-1"
                     },
@@ -29,7 +29,7 @@ describe("ListPages", () => {
                 {
                     id: "page-2#0001",
                     entryId: "page-2",
-                    status: statuses.draft,
+                    status: WbPageStatus.Draft,
                     wbyAco_location: {
                         folderId: "folder-1"
                     },
@@ -49,7 +49,7 @@ describe("ListPages", () => {
                 {
                     id: "page-3#0001",
                     entryId: "page-3",
-                    status: statuses.draft,
+                    status: WbPageStatus.Draft,
                     wbyAco_location: {
                         folderId: "folder-1"
                     },
@@ -118,7 +118,7 @@ describe("ListPages", () => {
                         {
                             id: "page-1#0001",
                             entryId: "page-1",
-                            status: statuses.draft,
+                            status: WbPageStatus.Draft,
                             wbyAco_location: {
                                 folderId: "folder-1"
                             },
@@ -138,7 +138,7 @@ describe("ListPages", () => {
                         {
                             id: "page-2#0001",
                             entryId: "page-2",
-                            status: statuses.draft,
+                            status: WbPageStatus.Draft,
                             wbyAco_location: {
                                 folderId: "folder-1"
                             },
@@ -167,7 +167,7 @@ describe("ListPages", () => {
                         {
                             id: "page-3#0001",
                             entryId: "page-3",
-                            status: statuses.draft,
+                            status: WbPageStatus.Draft,
                             wbyAco_location: {
                                 folderId: "folder-2"
                             },
@@ -187,7 +187,7 @@ describe("ListPages", () => {
                         {
                             id: "page-4#0001",
                             entryId: "page-4",
-                            status: statuses.draft,
+                            status: WbPageStatus.Draft,
                             wbyAco_location: {
                                 folderId: "folder-2"
                             },

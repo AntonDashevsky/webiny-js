@@ -1,5 +1,9 @@
 import type { WbIdentity, WbListMeta, WbLocation } from "~/types";
-import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import {
+    CmsEntryGetParams,
+    CmsEntryListSort,
+    CmsEntryListWhere
+} from "@webiny/api-headless-cms/types";
 import type { Topic } from "@webiny/pubsub/types";
 
 export interface WbPage {
@@ -81,12 +85,7 @@ export interface CreateWbPageRevisionFromParams {
  * @category PagesStorageOperations
  * @category PagesStorageOperationsParams
  */
-export interface WbPagesStorageOperationsGetParams {
-    id?: string;
-    entryId?: string;
-    path?: string;
-    templateSlug?: string;
-}
+export interface WbPagesStorageOperationsGetParams extends CmsEntryGetParams {}
 
 /**
  * @category StorageOperations
@@ -241,9 +240,13 @@ export interface OnWebsiteBuilderPageAfterDeleteTopicParams {
  */
 export interface WbPagesStorageOperations {
     /**
-     * Get a single page with given ID from the storage.
+     * Get a published page using a filter.
      */
     get: (params: WbPagesStorageOperationsGetParams) => Promise<WbPage | null>;
+    /**
+     * Get a single page by ID (can be draft or published).
+     */
+    getById: (id: string) => Promise<WbPage | null>;
     /**
      * Get a list of pages filtered by given parameters.
      */
@@ -284,7 +287,11 @@ export interface WbPageCrud {
     /**
      * Get a single page with given ID from the storage.
      */
-    get(params: GetWbPageParams): Promise<WbPage | null>;
+    getById(id: string): Promise<WbPage | null>;
+    /**
+     * Get a single published page by given path.
+     */
+    getByPath(path: string): Promise<WbPage | null>;
     /**
      * Get a list of pages filtered by given parameters.
      */

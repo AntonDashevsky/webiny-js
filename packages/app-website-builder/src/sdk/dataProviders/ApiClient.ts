@@ -1,7 +1,7 @@
 interface QueryParams {
     query: string;
     variables: Record<string, any>;
-    preview: boolean;
+    preview?: boolean;
 }
 
 export class ApiClient {
@@ -19,6 +19,7 @@ export class ApiClient {
                 revalidate: preview ? 0 : 60
             }
         };
+
         const request = {
             ...fetchOptions,
             method: "POST",

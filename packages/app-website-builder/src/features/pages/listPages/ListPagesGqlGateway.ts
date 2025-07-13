@@ -67,7 +67,13 @@ export class ListPagesGqlGateway implements IListPagesGateway {
             ListPagesQueryVariables
         >({
             query: LIST_PAGES(this.modelFields),
-            variables: params,
+            variables: {
+                ...params,
+                where: {
+                    ...(params.where ?? {}),
+                    latest: true
+                }
+            },
             fetchPolicy: "network-only"
         });
 

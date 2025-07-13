@@ -1,5 +1,5 @@
 import type { WbIdentity, WbLocation } from "~/types.js";
-import { ROOT_FOLDER, statuses, type WbStatus } from "~/constants.js";
+import { ROOT_FOLDER, WbPageStatus, type WbStatus } from "~/constants.js";
 
 export interface PageData {
     id?: string;
@@ -42,7 +42,7 @@ export class Page {
     protected constructor(data: PageData) {
         this.id = data.id ?? "";
         this.entryId = data.entryId ?? "";
-        this.status = data.status ?? statuses.draft;
+        this.status = data.status ?? WbPageStatus.Draft;
         this.version = data.version ?? 1;
         this.location = this.createLocation(data);
         this.properties = data.properties ?? {};

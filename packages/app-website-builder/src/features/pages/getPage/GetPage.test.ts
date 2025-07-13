@@ -1,5 +1,5 @@
 import { GetPage } from "~/features/pages/getPage/GetPage.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { pageCacheFactory } from "~/domains/Page/index.js";
 
 describe("GetPage", () => {
@@ -7,7 +7,7 @@ describe("GetPage", () => {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0001",
             entryId: "page-1",
-            status: statuses.draft,
+            status: WbPageStatus.Draft,
             wbyAco_location: {
                 folderId: "folder-1"
             },

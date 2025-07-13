@@ -29,22 +29,19 @@ export class CmsPagesStorage implements WbPagesStorageOperations {
     }
 
     public get = async (params: WbPagesStorageOperationsGetParams): Promise<WbPage | null> => {
-        const where: Record<string, any> = { latest: true };
+        const entry = await this.cms.getEntry(this.model, params);
+        return entry ? this.getWbPageFieldValues(entry) : null;
+    };
 
-        if (params.id) {
-            where.id = params.id;
-        } else if (params.entryId) {
-            where.entryId = params.entryId;
-        }
-
-        const entry = await this.cms.getEntry(this.model, { where });
+    public getById = async (id: string): Promise<WbPage | null> => {
+        const entry = await this.cms.getEntryById(this.model, id);
         return entry ? this.getWbPageFieldValues(entry) : null;
     };
 
     public list = async (
         params: WbPagesStorageOperationsListParams
     ): Promise<WbPagesStorageOperationsListResponse> => {
-        const [entries, meta] = await this.cms.listLatestEntries(this.model, {
+        const [entries, meta] = await this.cms.listEntries(this.model, {
             after: params.after,
             limit: params.limit,
             sort: params.sort,

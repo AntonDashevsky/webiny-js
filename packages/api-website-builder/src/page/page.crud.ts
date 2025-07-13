@@ -4,7 +4,7 @@ import {
     getCreatePageUseCase,
     getDeletePageUseCase,
     getDuplicatePageUseCase,
-    getGetPageUseCase,
+    getGetPageByPathUseCase,
     getListPagesUseCase,
     getPublishPageUseCase,
     getUnpublishPageUseCase,
@@ -32,6 +32,7 @@ import type {
 } from "~/page/page.types";
 import type { WebsiteBuilderConfig } from "~/types";
 import { getMovePageUseCase } from "~/page/useCases/MovePage";
+import { getGetPageByIdUseCase } from "~/page/useCases/GetPageById";
 
 export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
     // create
@@ -56,7 +57,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { updatePageUseCase } = getUpdatePagerUseCase({
         updateOperation: config.storageOperations.pages.update,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeUpdate,
             onWebsiteBuilderPageAfterUpdate
@@ -157,9 +158,14 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
         }
     });
 
-    // get
-    const { getPageUseCase } = getGetPageUseCase({
+    // get by path
+    const { getPageByPathUseCase } = getGetPageByPathUseCase({
         getOperation: config.storageOperations.pages.get
+    });
+
+    // get by id
+    const { getPageByIdUseCase } = getGetPageByIdUseCase({
+        getOperation: config.storageOperations.pages.getById
     });
 
     // list
@@ -188,8 +194,11 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
         list: async params => {
             return listPagesUseCase.execute(params);
         },
-        get: async params => {
-            return getPageUseCase.execute(params);
+        getById: async id => {
+            return getPageByIdUseCase.execute(id);
+        },
+        getByPath: async path => {
+            return getPageByPathUseCase.execute(path);
         },
         create: async data => {
             return createPageUseCase.execute(data);

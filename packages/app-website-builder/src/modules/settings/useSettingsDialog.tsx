@@ -5,7 +5,7 @@ import { WebsiteBuilderSettings } from "./WebsiteBuilderSettings";
 import { useGetWebsiteBuilderSettings, useUpdateWebsiteBuilderSettings } from "~/features";
 
 export const useSettingsDialog = () => {
-    const { showToast } = useToast();
+    const { showSuccessToast } = useToast();
     const dialogs = useDialogs();
     const { getSettings } = useGetWebsiteBuilderSettings();
     const { updateSettings } = useUpdateWebsiteBuilderSettings();
@@ -22,7 +22,7 @@ export const useSettingsDialog = () => {
             content: <WebsiteBuilderSettings />,
             onAccept: async data => {
                 await updateSettings(data as SettingsType);
-                showToast({
+                showSuccessToast({
                     title: "Success!",
                     description: "Settings were saved successfully.",
                     duration: 3000

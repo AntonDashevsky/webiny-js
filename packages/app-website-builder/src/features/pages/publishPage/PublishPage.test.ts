@@ -1,5 +1,5 @@
 import { PublishPage } from "./PublishPage.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageCacheFactory } from "~/domains/Page/index.js";
 
 describe("PublishPage", () => {
@@ -7,7 +7,7 @@ describe("PublishPage", () => {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0001",
             entryId: "page-1",
-            status: statuses.published,
+            status: WbPageStatus.Published,
             wbyAco_location: {
                 folderId: "folder-1"
             },
@@ -35,7 +35,7 @@ describe("PublishPage", () => {
             Page.create({
                 id: "page-1#0001",
                 entryId: "page-1",
-                status: statuses.draft,
+                status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },
@@ -73,7 +73,7 @@ describe("PublishPage", () => {
         const publishedItem = pagesCache.getItem(page => page.entryId === "page-1");
 
         expect(publishedItem?.id).toEqual("page-1#0001");
-        expect(publishedItem?.status).toEqual(statuses.published);
+        expect(publishedItem?.status).toEqual(WbPageStatus.Published);
     });
 
     it("should not publish a page if id is missing", async () => {
@@ -88,6 +88,6 @@ describe("PublishPage", () => {
         const publishedItem = pagesCache.getItem(page => page.entryId === "page-1");
 
         expect(publishedItem?.id).toEqual("page-1#0001");
-        expect(publishedItem?.status).toEqual(statuses.draft);
+        expect(publishedItem?.status).toEqual(WbPageStatus.Draft);
     });
 });

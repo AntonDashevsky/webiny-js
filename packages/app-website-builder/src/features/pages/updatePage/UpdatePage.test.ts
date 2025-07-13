@@ -1,5 +1,5 @@
 import { UpdatePage } from "./UpdatePage.js";
-import { statuses } from "~/constants";
+import { WbPageStatus } from "~/constants";
 import { Page, pageCacheFactory } from "~/domains/Page/index.js";
 
 describe("UpdatePage", () => {
@@ -12,7 +12,7 @@ describe("UpdatePage", () => {
             Page.create({
                 id: "page-1#0001",
                 entryId: "page-1",
-                status: statuses.draft,
+                status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },
@@ -37,7 +37,7 @@ describe("UpdatePage", () => {
             execute: jest.fn().mockResolvedValue({
                 id: "page-1#0001",
                 entryId: "page-1",
-                status: statuses.draft,
+                status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },

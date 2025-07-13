@@ -6,6 +6,7 @@ import {
     ErrorResponse,
     GraphQLSchemaPlugin,
     ListResponse,
+    NotFoundError,
     Response
 } from "@webiny/handler-graphql";
 import { ensureAuthentication } from "~/utils/ensureAuthentication";
@@ -15,7 +16,6 @@ import type { CmsFieldTypePlugins, CmsModel, CmsModelField } from "@webiny/api-h
 import type { WebsiteBuilderContext } from "~/types";
 import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "@webiny/api-headless-cms/constants";
 import { WEBSITE_BUILDER_INTEGRATIONS, WEBSITE_BUILDER_SETTINGS } from "~/constants";
-import { ListWbPagesParams } from "~/page/page.types";
 
 export interface CreatePageTypeDefsParams {
     model: CmsModel;
@@ -106,6 +106,8 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
 
         input WbPagesListWhereInput {
             wbyAco_location: WbLocationWhereInput
+            latest: Boolean
+            published: Boolean
             ${listFilterFieldsRender}
             AND: [WbPagesListWhereInput!]
             OR: [WbPagesListWhereInput!]
@@ -147,8 +149,8 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
 
         extend type WbQuery {
             getPageModel: WbPageModelResponse
-            getPageByPath(path: String!, preview: Boolean): WbPageResponse
-            getPage(id: ID!): WbPageResponse
+            getPageByPath(path: String!): WbPageResponse
+            getPageById(id: ID!): WbPageResponse
             listPages(
                 where: WbPagesListWhereInput
                 limit: Int
@@ -186,28 +188,15 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                         return context.cms.getModel(PAGE_MODEL_ID);
                     });
                 },
-                getPageByPath: async (_, { path, preview }, context) => {
+                getPageByPath: async (_, { path }, context) => {
                     return resolve(async () => {
                         ensureAuthentication(context);
 
-                        const where: ListWbPagesParams["where"] = {
-                            properties: {
-                                path
-                            }
-                        };
+                        const page = await context.websiteBuilder.page.getByPath(path);
 
-                        if (preview) {
-                            where.latest = true;
-                        } else {
-                            where.published = true;
+                        if (!page) {
+                            throw new NotFoundError(`Page ${path} was not found!`);
                         }
-
-                        const [[page]] = await context.websiteBuilder.page.list({
-                            where,
-                            limit: 1,
-                            after: null,
-                            sort: ["savedOn_DESC"]
-                        });
 
                         return {
                             id: page.id,
@@ -217,10 +206,10 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                         };
                     });
                 },
-                getPage: async (_, { id }, context) => {
+                getPageById: async (_, { id }, context) => {
                     return resolve(() => {
                         ensureAuthentication(context);
-                        return context.websiteBuilder.page.get({ id });
+                        return context.websiteBuilder.page.getById(id);
                     });
                 },
                 listPages: async (_, args: any, context) => {

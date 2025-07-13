@@ -1,11 +1,12 @@
 export const BASE_BREAKPOINT = "desktop";
 export { ROOT_FOLDER } from "@webiny/app-aco/constants";
 
-export type WbStatus = (typeof statuses)[keyof typeof statuses];
-export const statuses = {
-    draft: "Draft",
-    published: "Published",
-    unpublished: "Unpublished"
+export type WbStatus = (typeof WbPageStatus)[keyof typeof WbPageStatus];
+
+export const WbPageStatus = {
+    Draft: "draft",
+    Published: "published",
+    Unpublished: "unpublished"
 } as const;
 
 export type WbLoading = (typeof loadingActions)[keyof typeof loadingActions];

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { toast as sonnerToast, type ToasterProps as SonnerToasterProps } from "sonner";
+import { ReactComponent as Check } from "@webiny/icons/check.svg";
 import { ToastActions, ToastDescription, ToastTitle, type ToastRootProps } from "./components";
 import { Toast } from "./Toast";
 import { Icon } from "~/Icon";
@@ -93,9 +94,17 @@ const useToast = () => {
         });
     }, [sonnerToast]);
 
+    const showSuccessToast = (params: ShowToastParams) => {
+        showToast({
+            icon: <Icon icon={<Check />} label={""} className={"wby-fill-success"} />,
+            ...params
+        });
+    };
+
     return React.useMemo(
         () => ({
             showToast,
+            showSuccessToast,
             hideToast,
             hideAllToasts
         }),

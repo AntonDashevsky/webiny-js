@@ -1,26 +1,24 @@
-import type { ResolveElementParams } from "~/sdk/ComponentResolver.js";
-import type { Component, IContentSdk, Page, ResolvedComponent } from "~/sdk/types.js";
+import type { IContentSdk, IDataProvider, Page } from "~/sdk/types.js";
+import { PreviewDocument } from "~/sdk/PreviewDocument";
 
 export class PreviewSdk implements IContentSdk {
     private liveSdk: IContentSdk;
+    private dataProvider: IDataProvider;
 
-    constructor(liveSdk: IContentSdk) {
+    constructor(dataProvider: IDataProvider, liveSdk: IContentSdk) {
         this.liveSdk = liveSdk;
+        this.dataProvider = dataProvider;
     }
 
     async getPage(path: string): Promise<Page | null> {
-        return this.liveSdk.getPage(path, { preview: true });
+        const previewDocument = await PreviewDocument.createFromCookie();
+        if (!previewDocument.matches({ type: "page", path })) {
+            return this.liveSdk.getPage(path);
+        }
+        return this.dataProvider.getPageById(previewDocument.getId());
     }
 
     async listPages(): Promise<Page[]> {
         return this.liveSdk.listPages();
-    }
-
-    registerComponent(blueprint: Component): void {
-        this.liveSdk.registerComponent(blueprint);
-    }
-
-    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null {
-        return this.liveSdk.resolveElement(params);
     }
 }

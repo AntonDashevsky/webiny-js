@@ -15,7 +15,7 @@ export class CreatePageRevisionFromUseCaseWithLoading implements ICreatePageRevi
     }
 
     async execute(params: CreatePageRevisionFromParams) {
-        await this.loadingRepository.runCallBack(
+        return await this.loadingRepository.runCallBack(
             this.useCase.execute(params),
             loadingActions.createRevisionFrom
         );

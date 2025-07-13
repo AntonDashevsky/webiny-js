@@ -29,10 +29,10 @@ export const Iframe = React.memo((props: IframeProps) => {
             url.searchParams.set("width", previewWidth);
             const searchParams = url.searchParams;
             searchParams.set("wb.editing", "true");
-            searchParams.set("wb.editing.type", document.metadata.documentType);
-            searchParams.set("wb.editing.id", document.id);
-            searchParams.set("wb.editing.pathname", url.pathname);
-            searchParams.set("wb.editing.referrer", window.location.origin);
+            searchParams.set("wb.type", document.metadata.documentType);
+            searchParams.set("wb.id", document.id);
+            searchParams.set("wb.path", url.pathname);
+            searchParams.set("wb.referrer", window.location.origin);
 
             return url.toString();
         },

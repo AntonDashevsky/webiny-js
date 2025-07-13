@@ -1,5 +1,5 @@
 import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageCacheFactory } from "~/domains/Page/index.js";
 
 describe("CreatePageRevisionFrom", () => {
@@ -7,7 +7,7 @@ describe("CreatePageRevisionFrom", () => {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0002",
             entryId: "page-1",
-            status: statuses.draft,
+            status: WbPageStatus.Draft,
             version: 2,
             wbyAco_location: {
                 folderId: "folder-1"
@@ -36,7 +36,7 @@ describe("CreatePageRevisionFrom", () => {
             Page.create({
                 id: "page-1#0001",
                 entryId: "page-1",
-                status: statuses.draft,
+                status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },

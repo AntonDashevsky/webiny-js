@@ -1,5 +1,5 @@
 import { UnpublishPage } from "./UnpublishPage.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageCacheFactory } from "~/domains/Page/index.js";
 
 describe("UnpublishPage", () => {
@@ -7,7 +7,7 @@ describe("UnpublishPage", () => {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0001",
             entryId: "page-1",
-            status: statuses.unpublished,
+            status: WbPageStatus.Unpublished,
             wbyAco_location: {
                 folderId: "folder-1"
             },
@@ -35,7 +35,7 @@ describe("UnpublishPage", () => {
             Page.create({
                 id: "page-1#0001",
                 entryId: "page-1",
-                status: statuses.published,
+                status: WbPageStatus.Published,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },
@@ -70,7 +70,7 @@ describe("UnpublishPage", () => {
         const publishedItem = pagesCache.getItem(page => page.entryId === "page-1");
 
         expect(publishedItem?.id).toEqual("page-1#0001");
-        expect(publishedItem?.status).toEqual(statuses.unpublished);
+        expect(publishedItem?.status).toEqual(WbPageStatus.Unpublished);
     });
 
     it("should not unpublish a page if id is missing", async () => {
@@ -85,6 +85,6 @@ describe("UnpublishPage", () => {
         const publishedItem = pagesCache.getItem(page => page.entryId === "page-1");
 
         expect(publishedItem?.id).toEqual("page-1#0001");
-        expect(publishedItem?.status).toEqual(statuses.published);
+        expect(publishedItem?.status).toEqual(WbPageStatus.Published);
     });
 });

@@ -196,15 +196,14 @@ export type PreviewViewportData = {
     viewport: PreviewViewportInfo;
 };
 
-export type ApiOptions = {
-    preview?: boolean;
-};
+export type ApiOptions = {};
 
 export type GetPageOptions = ApiOptions;
 export type ListPagesOptions = ApiOptions;
 
 export interface IDataProvider {
-    getPage(path: string, options?: GetPageOptions): Promise<Page | null>;
+    getPageByPath(path: string, options?: GetPageOptions): Promise<Page | null>;
+    getPageById(id: string, options?: GetPageOptions): Promise<Page | null>;
     listPages(options?: ListPagesOptions): Promise<Page[]>;
 }
 
@@ -214,9 +213,9 @@ export interface IEnvironment {
     isPreview(): boolean;
 }
 
-export interface IContentSdk extends IDataProvider {
-    registerComponent(component: Component): void;
-    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null;
+export interface IContentSdk {
+    getPage(path: string, options?: GetPageOptions): Promise<Page | null>;
+    listPages(options?: ListPagesOptions): Promise<Page[]>;
 }
 
 export type Breakpoint = {

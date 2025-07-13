@@ -12,6 +12,7 @@ interface ShowDialogParams {
     dismissible?: boolean;
     content: ReactNode;
     actions?: JSX.Element;
+    icon?: JSX.Element;
     acceptLabel?: ReactNode;
     cancelLabel?: ReactNode;
     loadingLabel?: ReactNode;
@@ -48,6 +49,7 @@ export const initializeState = (params: Partial<DialogState> = {}): DialogState 
     title: params.title ?? `Confirmation`,
     description: params.description,
     dismissible: params.dismissible,
+    icon: params.icon,
     content: params.content,
     acceptLabel: params.acceptLabel === null ? null : params.acceptLabel ?? `Confirm`,
     cancelLabel: params.cancelLabel === null ? null : params.cancelLabel ?? `Cancel`,
@@ -145,6 +147,7 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
                         key={dialog.id}
                         description={dialog.description}
                         dismissible={dialog.dismissible ?? true}
+                        icon={dialog.icon ?? undefined}
                         title={dialog.title}
                         content={dialog.content}
                         open={dialog.open}

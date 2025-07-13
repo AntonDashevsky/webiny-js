@@ -1,4 +1,4 @@
-import { draftMode } from "next/headers";
+import { draftMode, cookies } from "next/headers";
 import { NextResponse, type NextRequest } from "next/server";
 
 // Pathname prefixes to ignore for middleware processing.
@@ -36,19 +36,17 @@ export async function middleware(request: NextRequest) {
 
         // If preview mode is not enabled yet, redirect to the preview API route
         // which will enable draft mode and set necessary cookies.
-        // Passes along the preview token and the current path for proper routing.
-        const token = searchParams.get("wb.preview.token");
+        // Passes along all query parameters.
+        const url = new URL(request.url);
+        url.pathname = "/api/preview";
 
-        return NextResponse.redirect(
-            new URL(
-                `/api/preview?wb.preview.token=${token}&wb.preview.pathname=${pathname}`,
-                request.url
-            )
-        );
+        return NextResponse.redirect(url);
     } else if (!previewRequested && previewMode.isEnabled) {
         // If the preview query param is missing but draft mode is enabled,
         // disable draft mode to exit preview mode.
         previewMode.disable();
+        const cookieStore = await cookies();
+        cookieStore.delete("__wb_preview_params");
 
         // Redirect to the same URL to clear draft mode cookies properly.
         return NextResponse.redirect(request.url);

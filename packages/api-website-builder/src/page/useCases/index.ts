@@ -2,7 +2,7 @@ export * from "./CreatePage";
 export * from "./CreatePageRevisionFrom";
 export * from "./DeletePage";
 export * from "./DuplicatePage";
-export * from "./GetPage";
+export * from "./GetPageByPath";
 export * from "./ListPages";
 export * from "./PublishPage";
 export * from "./UnpublishPage";

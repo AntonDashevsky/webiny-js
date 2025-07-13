@@ -9,7 +9,7 @@ import {
 import { useToast } from "@webiny/admin-ui";
 
 export const useIntegrationsDialog = () => {
-    const { showToast } = useToast();
+    const { showSuccessToast } = useToast();
     const dialogs = useDialogs();
     const provider = useEcommerceApiProvider();
     const manifests = provider.getApiManifests();
@@ -28,7 +28,7 @@ export const useIntegrationsDialog = () => {
             content: <IntegrationsSettings manifests={manifests} />,
             onAccept: async data => {
                 await updateSettings(data);
-                showToast({
+                showSuccessToast({
                     title: "Success!",
                     description: "Integrations settings were saved successfully.",
                     duration: 3000
