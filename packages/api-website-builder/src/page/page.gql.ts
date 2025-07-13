@@ -84,7 +84,7 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
 
         type WbPage {
             id: ID!
-            entryId: String!
+            pageId: String!
             wbyAco_location: WbLocation
             status: String!
             version: Number!
@@ -146,11 +146,27 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
             data: JSON
             error: WbError
         }
+            
+        type WbPageRevision {
+            id: ID!
+            pageId: ID!
+            version: Int!
+            title: String!
+            status: String!
+            locked: Boolean!
+            savedOn: Boolean!
+        }
+            
+        type WbPageRevisionsResponse {
+            data: [WbPageRevision!]!
+            error: WbError
+        }
 
         extend type WbQuery {
             getPageModel: WbPageModelResponse
             getPageByPath(path: String!): WbPageResponse
             getPageById(id: ID!): WbPageResponse
+            getPageRevisions(pageId: ID!): WbPageRevisionsResponse
             listPages(
                 where: WbPagesListWhereInput
                 limit: Int
@@ -210,6 +226,26 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                     return resolve(() => {
                         ensureAuthentication(context);
                         return context.websiteBuilder.page.getById(id);
+                    });
+                },
+                getPageRevisions: async (_, { pageId }, context) => {
+                    return resolve(async () => {
+                        ensureAuthentication(context);
+                        const revisions = await context.websiteBuilder.page.getPageRevisions(
+                            pageId
+                        );
+
+                        return revisions.map(page => {
+                            return {
+                                id: page.id,
+                                pageId: page.pageId,
+                                version: page.version,
+                                title: page.properties.title,
+                                status: page.status,
+                                locked: page.locked,
+                                savedOn: page.savedOn
+                            };
+                        });
                     });
                 },
                 listPages: async (_, args: any, context) => {

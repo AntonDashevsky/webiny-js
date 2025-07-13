@@ -7,7 +7,7 @@ const IGNORE_PATHS = ["/_next", "/favicon.ico", "/.well-known", "/api", "/static
 
 export async function middleware(request: NextRequest) {
     const { searchParams, pathname } = request.nextUrl;
-    // Check if the preview flag is requested via query param `wb.preview=true`
+    // Check if the preview/editing flag is set.
     const previewRequested =
         searchParams.get("wb.preview") === "true" || searchParams.get("wb.editing") === "true";
 

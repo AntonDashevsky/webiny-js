@@ -8,7 +8,7 @@ import type { Topic } from "@webiny/pubsub/types";
 
 export interface WbPage {
     id: string;
-    entryId: string;
+    pageId: string;
     wbyAco_location: WbLocation;
     status: string;
     version: number;
@@ -248,6 +248,10 @@ export interface WbPagesStorageOperations {
      */
     getById: (id: string) => Promise<WbPage | null>;
     /**
+     * Get all revisions for the given page.
+     */
+    getRevisions: (pageId: string) => Promise<WbPage[]>;
+    /**
      * Get a list of pages filtered by given parameters.
      */
     list: (
@@ -292,6 +296,11 @@ export interface WbPageCrud {
      * Get a single published page by given path.
      */
     getByPath(path: string): Promise<WbPage | null>;
+
+    /**
+     * Get information about page revisions.
+     */
+    getPageRevisions(pageID: string): Promise<WbPage[]>;
     /**
      * Get a list of pages filtered by given parameters.
      */

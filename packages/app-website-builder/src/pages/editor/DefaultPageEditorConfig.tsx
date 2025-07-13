@@ -12,6 +12,11 @@ const { Ui } = PageEditorConfig;
 export const DefaultPageEditorConfig = () => {
     return (
         <PageEditorConfig>
+            <Ui.TopBar.Element name={"buttonBack"} group={"left"} element={<BackButton />} />
+            <Ui.TopBar.Element name={"title"} group={"left"} element={<Title />} />
+            <Ui.TopBar.Action name={"revisionsMenu"} element={<RevisionsMenu />} />
+            <Ui.TopBar.Action name={"buttonSettings"} element={<SettingsButton />} />
+            <Ui.TopBar.Action name={"buttonPublish"} element={<PublishButton />} />
             <PageAutoSave />
             <Ui.TopBar.Element
                 group={"left"}
@@ -19,11 +24,6 @@ export const DefaultPageEditorConfig = () => {
                 after={"title"}
                 element={<AutoSaveIndicator />}
             />
-            <Ui.TopBar.Element name={"buttonBack"} group={"left"} element={<BackButton />} />
-            <Ui.TopBar.Element name={"title"} group={"left"} element={<Title />} />
-            <Ui.TopBar.Action name={"revisionsMenu"} element={<RevisionsMenu />} />
-            <Ui.TopBar.Action name={"buttonSettings"} element={<SettingsButton />} />
-            <Ui.TopBar.Action name={"buttonPublish"} element={<PublishButton />} />
         </PageEditorConfig>
     );
 };

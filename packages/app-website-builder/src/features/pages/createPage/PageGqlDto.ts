@@ -3,7 +3,7 @@ import type { WbStatus } from "~/constants.js";
 
 export interface PageGqlDto {
     id: string;
-    entryId: string;
+    pageId: string;
     status: WbStatus;
     wbyAco_location: WbLocation;
     properties: Record<string, any>;

@@ -33,6 +33,7 @@ import type {
 import type { WebsiteBuilderConfig } from "~/types";
 import { getMovePageUseCase } from "~/page/useCases/MovePage";
 import { getGetPageByIdUseCase } from "~/page/useCases/GetPageById";
+import { getGetPageRevisionsUseCase } from "~/page/useCases/GetPageRevisions";
 
 export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
     // create
@@ -168,6 +169,11 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
         getOperation: config.storageOperations.pages.getById
     });
 
+    // get page revisions
+    const { getPageRevisionsUseCase } = getGetPageRevisionsUseCase({
+        getRevisions: config.storageOperations.pages.getRevisions
+    });
+
     // list
     const { listPagesUseCase } = getListPagesUseCase({
         listOperation: config.storageOperations.pages.list
@@ -199,6 +205,9 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
         },
         getByPath: async path => {
             return getPageByPathUseCase.execute(path);
+        },
+        getPageRevisions: async (pageId: string) => {
+            return getPageRevisionsUseCase.execute(pageId);
         },
         create: async data => {
             return createPageUseCase.execute(data);

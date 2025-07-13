@@ -11,7 +11,7 @@ describe("UpdatePage", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                entryId: "page-1",
+                pageId: "page-1",
                 status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
@@ -36,7 +36,7 @@ describe("UpdatePage", () => {
         const gateway = {
             execute: jest.fn().mockResolvedValue({
                 id: "page-1#0001",
-                entryId: "page-1",
+                pageId: "page-1",
                 status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
@@ -59,10 +59,10 @@ describe("UpdatePage", () => {
         const updatePage = UpdatePage.getInstance(gateway);
 
         expect(pagesCache.hasItems()).toBeTrue();
-        const item = pagesCache.getItem(page => page.entryId === "page-1");
+        const item = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(item?.id).toEqual("page-1#0001");
-        expect(item?.entryId).toEqual("page-1");
+        expect(item?.pageId).toEqual("page-1");
         expect(item?.properties).toMatchObject({
             title: "Page 1"
         });
@@ -81,11 +81,11 @@ describe("UpdatePage", () => {
         });
 
         expect(gateway.execute).toHaveBeenCalledTimes(1);
-        const updatedItem = pagesCache.getItem(page => page.entryId === "page-1");
+        const updatedItem = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(updatedItem).toBeDefined();
         expect(updatedItem?.id).toEqual("page-1#0001");
-        expect(updatedItem?.entryId).toEqual("page-1");
+        expect(updatedItem?.pageId).toEqual("page-1");
         expect(updatedItem?.properties).toMatchObject({
             title: "Page 1 - Updated"
         });
@@ -112,11 +112,11 @@ describe("UpdatePage", () => {
         });
 
         expect(gateway.execute).toHaveBeenCalledTimes(1);
-        const updatedItem = pagesCache.getItem(page => page.entryId === "page-1");
+        const updatedItem = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(updatedItem).toBeDefined();
         expect(updatedItem?.id).toEqual("page-1#0001");
-        expect(updatedItem?.entryId).toEqual("page-1");
+        expect(updatedItem?.pageId).toEqual("page-1");
         expect(updatedItem?.properties).toMatchObject({
             title: "Page 1"
         });

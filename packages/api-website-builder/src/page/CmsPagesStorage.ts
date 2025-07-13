@@ -38,6 +38,11 @@ export class CmsPagesStorage implements WbPagesStorageOperations {
         return entry ? this.getWbPageFieldValues(entry) : null;
     };
 
+    public getRevisions = async (pageId: string): Promise<WbPage[]> => {
+        const revisions = await this.cms.getEntryRevisions(this.model, pageId);
+        return revisions.map(entry => this.getWbPageFieldValues(entry));
+    };
+
     public list = async (
         params: WbPagesStorageOperationsListParams
     ): Promise<WbPagesStorageOperationsListResponse> => {
@@ -97,7 +102,7 @@ export class CmsPagesStorage implements WbPagesStorageOperations {
     private getWbPageFieldValues(entry: CmsEntry) {
         return {
             id: entry.id,
-            entryId: entry.entryId,
+            pageId: entry.entryId,
             wbyAco_location: entry.location,
             status: entry.status,
             version: entry.version,

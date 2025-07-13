@@ -6,7 +6,7 @@ describe("UnpublishPage", () => {
     const gateway = {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0001",
-            entryId: "page-1",
+            pageId: "page-1",
             status: WbPageStatus.Unpublished,
             wbyAco_location: {
                 folderId: "folder-1"
@@ -34,7 +34,7 @@ describe("UnpublishPage", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                entryId: "page-1",
+                pageId: "page-1",
                 status: WbPageStatus.Published,
                 wbyAco_location: {
                     folderId: "folder-1"
@@ -67,7 +67,7 @@ describe("UnpublishPage", () => {
         expect(gateway.execute).toHaveBeenLastCalledWith("page-1#0001");
 
         expect(pagesCache.hasItems()).toBeTrue();
-        const publishedItem = pagesCache.getItem(page => page.entryId === "page-1");
+        const publishedItem = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(publishedItem?.id).toEqual("page-1#0001");
         expect(publishedItem?.status).toEqual(WbPageStatus.Unpublished);
@@ -82,7 +82,7 @@ describe("UnpublishPage", () => {
 
         expect(gateway.execute).toHaveBeenCalledTimes(1);
 
-        const publishedItem = pagesCache.getItem(page => page.entryId === "page-1");
+        const publishedItem = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(publishedItem?.id).toEqual("page-1#0001");
         expect(publishedItem?.status).toEqual(WbPageStatus.Published);

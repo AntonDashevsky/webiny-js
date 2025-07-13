@@ -12,7 +12,7 @@ export const useGetPageGraphQLSelection = () => {
 
     return /* GraphQL */ `{
         id
-        entryId
+        pageId
         status
         version
         wbyAco_location {
