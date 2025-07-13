@@ -14,4 +14,6 @@ export * from "./PulumiGetStackExportService/index.js";
 export * from "./PulumiGetStackOutputService/index.js";
 export * from "./PulumiLoginService/index.js";
 export * from "./PulumiSelectStackService/index.js";
+export * from "./StdioService/index.js";
+export * from "./UiService/index.js";
 export * from "./ValidateProjectConfigService/index.js";

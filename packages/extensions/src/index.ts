@@ -1,5 +1,10 @@
 import { CliCommand } from "@webiny/cli-core/extensions/index.js";
-import { ApiBeforeBuild, ApiBeforeDeploy } from "@webiny/project/extensions/index.js";
+import {
+    ApiAfterBuild,
+    ApiAfterDeploy,
+    ApiBeforeBuild,
+    ApiBeforeDeploy
+} from "@webiny/project/extensions/index.js";
 
 export const Cli = {
     Command: CliCommand
@@ -7,5 +12,7 @@ export const Cli = {
 
 export const Api = {
     BeforeBuild: ApiBeforeBuild,
-    BeforeDeploy: ApiBeforeDeploy
+    BeforeDeploy: ApiBeforeDeploy,
+    AfterBuild: ApiAfterBuild,
+    AfterDeploy: ApiAfterDeploy
 };

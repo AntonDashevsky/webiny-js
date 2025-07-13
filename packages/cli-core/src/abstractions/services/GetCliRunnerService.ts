@@ -1,7 +1,7 @@
 import { Abstraction } from "@webiny/di-container";
 
 export interface IGetCliRunnerService {
-    execute(): any;
+    execute(): Promise<any>;
 }
 
 export const GetCliRunnerService = new Abstraction<IGetCliRunnerService>("GetCliRunnerService");

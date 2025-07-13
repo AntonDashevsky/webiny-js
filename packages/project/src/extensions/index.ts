@@ -3,8 +3,17 @@ export * from "./models";
 
 import { apiBeforeBuild } from "./ApiBeforeBuild.js";
 import { apiBeforeDeploy } from "./ApiBeforeDeploy.js";
+import { apiAfterBuild } from "./ApiAfterBuild.js";
+import { apiAfterDeploy } from "./ApiAfterDeploy.js";
 
 export const ApiBeforeBuild = apiBeforeBuild.ReactComponent;
 export const ApiBeforeDeploy = apiBeforeDeploy.ReactComponent;
+export const ApiAfterBuild = apiAfterBuild.ReactComponent;
+export const ApiAfterDeploy = apiAfterDeploy.ReactComponent;
 
-export const definitions = [apiBeforeBuild.definition, apiBeforeDeploy.definition];
+export const definitions = [
+    apiAfterBuild.definition,
+    apiAfterDeploy.definition,
+    apiBeforeBuild.definition, 
+    apiBeforeDeploy.definition
+];

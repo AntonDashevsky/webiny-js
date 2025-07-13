@@ -1,5 +1,7 @@
 import { Container } from "@webiny/di-container";
 import {
+    apiAfterBuild,
+    apiAfterDeploy,
     apiBeforeBuild,
     apiBeforeDeploy,
     buildApp,
@@ -39,6 +41,8 @@ import {
     pulumiGetStackOutputService,
     pulumiLoginService,
     pulumiSelectStackService,
+    stdioService,
+    uiService,
     validateProjectConfigService
 } from "./services/index.js";
 
@@ -79,6 +83,8 @@ export const createProjectSdkContainer = async (
     container.register(pulumiGetStackOutputService).inSingletonScope();
     container.register(pulumiLoginService).inSingletonScope();
     container.register(pulumiSelectStackService).inSingletonScope();
+    container.register(stdioService).inSingletonScope();
+    container.register(uiService).inSingletonScope();
     container.register(validateProjectConfigService).inSingletonScope();
 
     // Features.
@@ -97,6 +103,8 @@ export const createProjectSdkContainer = async (
     container.register(watch).inSingletonScope();
     container.registerComposite(apiBeforeBuild);
     container.registerComposite(apiBeforeDeploy);
+    container.registerComposite(apiAfterBuild);
+    container.registerComposite(apiAfterDeploy);
 
     // Decorators.
     container.registerDecorator(buildAppWithHooks);
