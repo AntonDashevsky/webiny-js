@@ -1,1 +1,1 @@
-export * from "./useGetPage.js";
+export * from "./useGetPageRevisions.js";

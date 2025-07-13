@@ -154,7 +154,7 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
             title: String!
             status: String!
             locked: Boolean!
-            savedOn: Boolean!
+            savedOn: DateTime!
         }
             
         type WbPageRevisionsResponse {

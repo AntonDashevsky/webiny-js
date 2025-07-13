@@ -25,7 +25,7 @@ interface DocumentEditorProps {
 }
 
 export const DocumentEditor = observer(({ document, name, children }: DocumentEditorProps) => {
-    const editor = useMemo(() => new Editor(document), []);
+    const editor = useMemo(() => new Editor(document), [document]);
 
     return (
         <DndProvider backend={HTML5Backend}>
