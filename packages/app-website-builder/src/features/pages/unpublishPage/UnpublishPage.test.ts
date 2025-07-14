@@ -1,6 +1,6 @@
 import { UnpublishPage } from "./UnpublishPage.js";
 import { WbPageStatus } from "~/constants.js";
-import { Page, pageCacheFactory } from "~/domains/Page/index.js";
+import { Page, pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("UnpublishPage", () => {
     const gateway = {

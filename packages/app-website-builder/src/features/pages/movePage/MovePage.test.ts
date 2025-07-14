@@ -1,6 +1,6 @@
 import { MovePage } from "./MovePage.js";
 import { WbPageStatus } from "~/constants.js";
-import { Page, pageCacheFactory } from "~/domains/Page/index.js";
+import { Page, pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("MovePage", () => {
     const gateway = {

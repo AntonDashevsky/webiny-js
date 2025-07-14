@@ -1,4 +1,4 @@
-import { Page } from "~/domains/Page";
+import { Page } from "~/domain/Page";
 
 export interface CreatePageRevisionFromParams {
     id: string;

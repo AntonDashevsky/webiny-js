@@ -1,6 +1,6 @@
 import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom.js";
 import { WbPageStatus } from "~/constants.js";
-import { Page, pageCacheFactory } from "~/domains/Page/index.js";
+import { Page, pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("CreatePageRevisionFrom", () => {
     const gateway = {

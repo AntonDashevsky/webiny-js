@@ -1,4 +1,4 @@
-import { PageRevision } from "~/domains/PageRevision";
+import { PageRevision } from "~/domain/PageRevision";
 
 export interface GetPageRevisionsParams {
     pageId: string;

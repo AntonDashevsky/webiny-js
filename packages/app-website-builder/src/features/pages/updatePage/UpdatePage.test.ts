@@ -1,6 +1,6 @@
 import { UpdatePage } from "./UpdatePage.js";
 import { WbPageStatus } from "~/constants";
-import { Page, pageCacheFactory } from "~/domains/Page/index.js";
+import { Page, pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("UpdatePage", () => {
     const pagesCache = pageCacheFactory.getCache();

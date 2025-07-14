@@ -1,5 +1,5 @@
 import { LoadingRepository, loadingRepositoryFactory } from "@webiny/app-utils";
-import { pageRevisionsCacheFactory } from "~/domains/PageRevision/index.js";
+import { pageRevisionsCacheFactory } from "~/domain/PageRevision/index.js";
 import { IGetPageRevisionsUseCase } from "~/features/pages/getPageRevisions/IGetPageRevisionsUseCase";
 import { IGetPageRevisionsGateway } from "~/features/pages/getPageRevisions/IGetPageRevisionsGateway";
 import { GetPageRevisionsRepository } from "~/features/pages/getPageRevisions/GetPageRevisionsRepository";

@@ -7,7 +7,7 @@ import { ReactComponent as Published } from "@webiny/icons/remove_red_eye.svg";
 import { useRouter } from "@webiny/react-router";
 import { useGetPageRevisions } from "~/features/pages";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { PageRevision } from "~/domains/PageRevision";
+import { PageRevision } from "~/domain/PageRevision";
 import { PAGE_EDITOR_ROUTE } from "~/constants";
 
 const { Item } = DropdownMenu;

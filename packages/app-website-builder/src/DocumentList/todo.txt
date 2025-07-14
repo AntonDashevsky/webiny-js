@@ -1,8 +1,4 @@
-- Check duplicate action: newly created page does not appear in the list
-- Check double query on search
-- add search query string
-- load search from query string
-- selection and bulk actions
-- sorting
-- check on folder tree item click
-- add trash-bin
+- create separate cache for full pages +
+- check on folder tree item click +
+- add trash-bin ---
+- load search from query string ---

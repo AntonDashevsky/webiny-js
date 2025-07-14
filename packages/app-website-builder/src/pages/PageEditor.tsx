@@ -8,7 +8,7 @@ import { DefaultPageEditorConfig } from "./editor/DefaultPageEditorConfig";
 import { DefaultEditorConfig } from "~/BaseEditor";
 import { EDITOR_NAME } from "~/pages/constants";
 import { PAGE_EDITOR_ROUTE, WbPageStatus } from "~/constants";
-import type { Page } from "~/domains/Page";
+import type { Page } from "~/domain/Page";
 import type { Page as EditorPage } from "~/sdk";
 
 const getPageDataFromPage = (page: Page) => {
