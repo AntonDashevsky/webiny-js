@@ -1,4 +1,3 @@
 - create separate cache for full pages +
-- check on folder tree item click +
 - add trash-bin ---
 - load search from query string ---
