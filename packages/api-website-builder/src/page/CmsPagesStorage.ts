@@ -67,8 +67,6 @@ export class CmsPagesStorage implements WbPagesStorageOperations {
 
         const values = omit(data, ["id", "tenant", "locale", "webinyVersion"]);
 
-        console.log("Update", id, values);
-
         const updatedEntry = await this.cms.updateEntry(this.model, entry.id, values);
 
         return this.getWbPageFieldValues(updatedEntry);

@@ -182,7 +182,7 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
                 where: WbPagesListWhereInput
                 limit: Int
                 after: String
-                sort: WbPageListSorter
+                sort: [WbPageListSorter]
                 search: String
             ): WbPagesListResponse
             getSettings: WbSettingsResponse
