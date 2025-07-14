@@ -33,6 +33,7 @@ export const PageEditor = () => {
     const { createPageRevisionFrom } = useCreatePageRevisionFrom();
 
     useEffect(() => {
+        setLoading(true);
         Promise.all([
             getSettings(),
             getPage({ id: params.id }).then(page => {
@@ -44,7 +45,9 @@ export const PageEditor = () => {
 
                 return createPageRevisionFrom({ id: page.id }).then(page => {
                     history.push(
-                        `${PAGE_EDITOR_ROUTE}/${page.id}?folderId=${page.location.folderId}`
+                        `${PAGE_EDITOR_ROUTE}/${encodeURIComponent(page.id)}?folderId=${
+                            page.location.folderId
+                        }`
                     );
                 });
             })
@@ -58,7 +61,7 @@ export const PageEditor = () => {
     }
 
     return (
-        <DocumentEditor document={page} name={EDITOR_NAME}>
+        <DocumentEditor key={page.id} document={page} name={EDITOR_NAME}>
             <DefaultEditorConfig />
             <DefaultPageEditorConfig />
         </DocumentEditor>

@@ -17,5 +17,10 @@ export function useSelectFromEditor<T>(
 ): T {
     const editor = useDocumentEditor();
 
-    return useSelectFromState(() => editor.getEditorState().read(), selector, deps, equals);
+    return useSelectFromState(
+        () => editor.getEditorState().read(),
+        selector,
+        [editor, ...deps],
+        equals
+    );
 }

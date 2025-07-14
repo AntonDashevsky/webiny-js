@@ -3,11 +3,11 @@ import { Button, DropdownMenu } from "@webiny/admin-ui";
 import { ReactComponent as ArrowDown } from "@webiny/icons/keyboard_arrow_down.svg";
 import { ReactComponent as Draft } from "@webiny/icons/draw.svg";
 import { ReactComponent as Unpublished } from "@webiny/icons/lock.svg";
-import { ReactComponent as Published } from "@webiny/icons/check_box.svg";
+import { ReactComponent as Published } from "@webiny/icons/remove_red_eye.svg";
+import { useRouter } from "@webiny/react-router";
 import { useGetPageRevisions } from "~/features/pages";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import { PageRevision } from "~/domains/PageRevision";
-import { useRouter } from "@webiny/react-router";
 import { PAGE_EDITOR_ROUTE } from "~/constants";
 
 const { Item } = DropdownMenu;
@@ -39,8 +39,6 @@ export const RevisionsMenu = () => {
     }, []);
 
     const currentRevision = revisions.find(r => r.id === id);
-
-    console.log("currentRevision", currentRevision);
 
     const goToRevision = useCallback((id: string) => {
         const folderId = encodeURIComponent(search[0].get("folderId") ?? "");

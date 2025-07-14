@@ -16,12 +16,12 @@ export class PreviewDocument {
         return new PreviewDocument("wb", query);
     }
 
-    static async createFromCookie(): Promise<PreviewDocument> {
-        const { cookies } = await import("next/headers");
-        const cookieStore = await cookies();
-        const previewParams = cookieStore.get("__wb_preview_params");
+    static async createFromHeaders(): Promise<PreviewDocument> {
+        const { headers } = await import("next/headers");
+        const headersStore = await headers();
+        const previewFromHeaders = headersStore.get("X-Preview-Params");
 
-        return new PreviewDocument("wb", new URLSearchParams(previewParams?.value ?? ""));
+        return new PreviewDocument("wb", new URLSearchParams(previewFromHeaders ?? ""));
     }
 
     matches(params: Record<string, string>) {

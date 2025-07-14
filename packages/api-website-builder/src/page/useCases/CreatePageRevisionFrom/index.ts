@@ -14,7 +14,7 @@ export interface CreatePageRevisionFromUseCasesTopics {
 
 interface CreatePageRevisionFromUseCasesParams {
     createRevisionFromOperation: WbPagesStorageOperations["createRevisionFrom"];
-    getOperation: WbPagesStorageOperations["get"];
+    getOperation: WbPagesStorageOperations["getById"];
     topics: CreatePageRevisionFromUseCasesTopics;
 }
 

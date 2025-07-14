@@ -73,7 +73,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { publishPageUseCase } = getPublishPageUseCase({
         publishOperation: config.storageOperations.pages.publish,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforePublish,
             onWebsiteBuilderPageAfterPublish
@@ -88,7 +88,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { unpublishPageUseCase } = getUnpublishPageUseCase({
         unpublishOperation: config.storageOperations.pages.unpublish,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeUnpublish,
             onWebsiteBuilderPageAfterUnpublish
@@ -137,7 +137,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { createPageRevisionFromUseCase } = getCreatePageRevisionFromUseCase({
         createRevisionFromOperation: config.storageOperations.pages.createRevisionFrom,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeCreateRevisionFrom,
             onWebsiteBuilderPageAfterCreateRevisionFrom
@@ -152,7 +152,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { deletePageUseCase } = getDeletePageUseCase({
         deleteOperation: config.storageOperations.pages.delete,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeDelete,
             onWebsiteBuilderPageAfterDelete

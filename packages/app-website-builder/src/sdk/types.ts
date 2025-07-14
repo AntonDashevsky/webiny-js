@@ -214,7 +214,7 @@ export interface IEnvironment {
 }
 
 export interface IContentSdk {
-    getPage(path: string, options?: GetPageOptions): Promise<Page | null>;
+    getPage(path: string): Promise<Page | null>;
     listPages(options?: ListPagesOptions): Promise<Page[]>;
 }
 

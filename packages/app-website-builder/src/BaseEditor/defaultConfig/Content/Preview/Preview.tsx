@@ -101,7 +101,10 @@ export const Preview = () => {
         return () => {
             dropzoneManager.stop();
             mouseTracker.stop();
-            scrollTracker.stop();
+            scrollTracker.destroy();
+            viewportManager.destroy();
+            hoverManager.destroy();
+
         };
     }, [dropzoneManager, scrollTracker, mouseTracker]);
 
@@ -203,7 +206,7 @@ export const Preview = () => {
             mouseTracker.setPosition(globalX, globalY);
         });
 
-        editor.onDocumentStateChange(event => {
+        const offDocumentStateChange = editor.onDocumentStateChange(event => {
             if (event.reason === "update") {
                 messenger.send("document.patch", event.diff);
             } else {
@@ -222,6 +225,10 @@ export const Preview = () => {
         setTimeout(() => {
             setShowLoading(false);
         }, 100);
+
+        return () => {
+            offDocumentStateChange();
+        }
     }, []);
 
     return (

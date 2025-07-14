@@ -1,4 +1,4 @@
-import type { Component, GetPageOptions, IContentSdk, Page, ResolvedComponent } from "~/sdk/types";
+import type { Component, IContentSdk, Page, ResolvedComponent } from "~/sdk/types";
 import { environment } from "./Environment.js";
 import { LiveSdk, type LiveSdkConfig } from "./LiveSdk.js";
 import { EditingSdk } from "./EditingSdk.js";
@@ -25,8 +25,8 @@ class InternalContentSdk implements IContentSdk {
         return this.editingSdk;
     }
 
-    async getPage(path: string, options?: GetPageOptions): Promise<Page | null> {
-        return this.activeSdk.getPage(path, options);
+    async getPage(path: string): Promise<Page | null> {
+        return this.activeSdk.getPage(path);
     }
 
     listPages(): Promise<Page[]> {
@@ -74,9 +74,9 @@ export class ContentSdk implements IContentSdk {
         return this.sdk.getEditingSdk();
     }
 
-    public getPage(path: string, params: any) {
+    public getPage(path: string) {
         this.assertInitialized();
-        return this.sdk.getPage(path, params);
+        return this.sdk.getPage(path);
     }
 
     public listPages() {

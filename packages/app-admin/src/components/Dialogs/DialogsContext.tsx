@@ -147,7 +147,7 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
                         key={dialog.id}
                         description={dialog.description}
                         dismissible={dialog.dismissible ?? true}
-                        icon={dialog.icon ?? undefined}
+                        icon={dialog.icon ?? <></>}
                         title={dialog.title}
                         content={dialog.content}
                         open={dialog.open}

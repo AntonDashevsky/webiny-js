@@ -5,12 +5,12 @@ import type { IPublishPage } from "~/page/useCases/PublishPage/IPublishPage";
 
 export class PublishPageWithEvents implements IPublishPage {
     private topics: PublishPageUseCasesTopics;
-    private readonly getOperation: WbPagesStorageOperations["get"];
+    private readonly getOperation: WbPagesStorageOperations["getById"];
     private readonly decoretee: IPublishPage;
 
     constructor(
         topics: PublishPageUseCasesTopics,
-        getOperation: WbPagesStorageOperations["get"],
+        getOperation: WbPagesStorageOperations["getById"],
         decoretee: IPublishPage
     ) {
         this.topics = topics;
@@ -19,7 +19,7 @@ export class PublishPageWithEvents implements IPublishPage {
     }
 
     async execute(params: PublishWbPageParams) {
-        const page = await this.getOperation({ where: { id: params.id } });
+        const page = await this.getOperation(params.id);
 
         if (!page) {
             throw new WebinyError(

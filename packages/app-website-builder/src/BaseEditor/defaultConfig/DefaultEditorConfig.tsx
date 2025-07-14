@@ -7,12 +7,12 @@ import { InfoMessage } from "./Sidebar/InfoMessage";
 import { StyleSettingsGroup } from "./Sidebar/StyleSettings/StyleSettingsGroup";
 import { StyleProperties } from "./Sidebar/StyleSettings/StyleProperties";
 import { ElementSettingsGroup } from "./Sidebar/ElementSettings/ElementSettingsGroup";
-import { Preview } from "./Content/Preview";
 import { InsertElementsTab } from "./Toolbar/InsertElements/InsertElementsTab";
 import { NavigatorTab } from "./Toolbar/Navigator/NavigatorTab";
 import { CommandHandlers } from "~/BaseEditor/commandHandlers";
 import { ElementSettings } from "./Sidebar/ElementSettings/ElementSettings";
 import { ElementInputRenderers } from "./ElementInputRenderers";
+import { DocumentPreview } from "./Content/Preview/DocumentPreview";
 
 const { Ui } = EditorConfig;
 
@@ -35,7 +35,7 @@ export const DefaultEditorConfig = React.memo(() => {
                 <ElementInputRenderers />
                 <Ui.Content.Element name={"breadcrumbs"} element={<Breadcrumbs />} />
                 <Ui.Content.Element name={"background"} element={<Background />} />
-                <Ui.Content.Element name={"preview"} element={<Preview />} />
+                <Ui.Content.Element name={"preview"} element={<DocumentPreview />} />
                 <Ui.Toolbar.Element
                     name={"insertElements"}
                     group={"tabs"}

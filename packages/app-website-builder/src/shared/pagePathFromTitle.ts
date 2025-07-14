@@ -1,6 +1,6 @@
 import slugify from "slugify";
 
-export const pagePathFromTitle = (title: string) => () => {
+export const pagePathFromTitle = (title: string) => {
     const slugified = slugify(title, {
         replacement: "-",
         lower: true,

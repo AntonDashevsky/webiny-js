@@ -5,12 +5,12 @@ import { WebinyError } from "@webiny/error";
 
 export class CreatePageRevisionFromWithEvents implements ICreatePageRevisionFrom {
     private topics: CreatePageRevisionFromUseCasesTopics;
-    private readonly getOperation: WbPagesStorageOperations["get"];
+    private readonly getOperation: WbPagesStorageOperations["getById"];
     private readonly decoretee: ICreatePageRevisionFrom;
 
     constructor(
         topics: CreatePageRevisionFromUseCasesTopics,
-        getOperation: WbPagesStorageOperations["get"],
+        getOperation: WbPagesStorageOperations["getById"],
         decoretee: ICreatePageRevisionFrom
     ) {
         this.topics = topics;
@@ -19,7 +19,7 @@ export class CreatePageRevisionFromWithEvents implements ICreatePageRevisionFrom
     }
 
     async execute(params: CreateWbPageRevisionFromParams) {
-        const original = await this.getOperation({ where: { id: params.id}});
+        const original = await this.getOperation(params.id);
 
         if (!original) {
             throw new WebinyError(

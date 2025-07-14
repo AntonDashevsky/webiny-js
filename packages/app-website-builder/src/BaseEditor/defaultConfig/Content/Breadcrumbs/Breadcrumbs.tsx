@@ -21,6 +21,10 @@ export const Breadcrumbs = () => {
 
             while (element) {
                 const component = $getComponentManifestByElementId(editor, element.id)!;
+                if (!component) {
+                    continue;
+                }
+
                 items.push({
                     id: element.id,
                     label: component.label

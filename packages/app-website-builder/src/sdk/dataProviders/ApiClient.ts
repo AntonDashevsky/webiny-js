@@ -20,6 +20,8 @@ export class ApiClient {
             }
         };
 
+        console.log({ query, variables });
+
         const request = {
             ...fetchOptions,
             method: "POST",

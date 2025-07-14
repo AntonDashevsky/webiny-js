@@ -8,8 +8,7 @@ const generatePath = (form: FormAPI) => () => {
     if (form.data.path) {
         return;
     }
-
-    form.setValue("path", pagePathFromTitle(form.data.title));
+    form.setValue("path", pagePathFromTitle(form.data.title) ?? "");
 };
 
 export const StaticPageForm = () => {

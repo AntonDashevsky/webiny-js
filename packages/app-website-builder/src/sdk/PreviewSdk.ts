@@ -11,7 +11,7 @@ export class PreviewSdk implements IContentSdk {
     }
 
     async getPage(path: string): Promise<Page | null> {
-        const previewDocument = await PreviewDocument.createFromCookie();
+        const previewDocument = await PreviewDocument.createFromHeaders();
         if (!previewDocument.matches({ type: "page", path })) {
             return this.liveSdk.getPage(path);
         }

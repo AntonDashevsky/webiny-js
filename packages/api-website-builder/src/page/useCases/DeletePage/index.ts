@@ -14,7 +14,7 @@ export interface DeletePageUseCasesTopics {
 
 interface DeletePageUseCasesParams {
     deleteOperation: WbPagesStorageOperations["delete"];
-    getOperation: WbPagesStorageOperations["get"];
+    getOperation: WbPagesStorageOperations["getById"];
     topics: DeletePageUseCasesTopics;
 }
 

@@ -158,7 +158,7 @@ export const createPageTypeDefs = (params: CreatePageTypeDefsParams): string => 
         }
             
         type WbPageRevisionsResponse {
-            data: [WbPageRevision!]!
+            data: [WbPageRevision!]
             error: WbError
         }
 

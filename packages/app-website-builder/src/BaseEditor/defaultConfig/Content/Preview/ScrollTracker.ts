@@ -26,9 +26,10 @@ export class ScrollTracker {
         this.isTracking = true;
     }
 
-    stop() {
+    destroy() {
         this.isTracking = false;
         this.window.removeEventListener("wheel", this.onScroll);
+        this.callbacks.clear();
     }
 
     private onScroll = (e: Event) => {

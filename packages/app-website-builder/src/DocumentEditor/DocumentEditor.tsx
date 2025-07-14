@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import type { Document } from "~/sdk/types.js";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
@@ -25,17 +25,20 @@ interface DocumentEditorProps {
 }
 
 export const DocumentEditor = observer(({ document, name, children }: DocumentEditorProps) => {
+    const ref = useRef<HTMLDivElement | null>(null);
     const editor = useMemo(() => new Editor(document), [document]);
 
     return (
-        <DndProvider backend={HTML5Backend}>
-            <StateInspector editor={editor} />
-            <DocumentEditorContext.Provider value={editor}>
-                {children ? <>{children}</> : null}
-                <CompositionScope name={name}>
-                    <EditorComponent />
-                </CompositionScope>
-            </DocumentEditorContext.Provider>
-        </DndProvider>
+        <div ref={ref}>
+            <DndProvider backend={HTML5Backend} options={{ rootElement: ref }}>
+                <StateInspector editor={editor} />
+                <DocumentEditorContext.Provider value={editor}>
+                    {children ? <>{children}</> : null}
+                    <CompositionScope name={name}>
+                        <EditorComponent />
+                    </CompositionScope>
+                </DocumentEditorContext.Provider>
+            </DndProvider>
+        </div>
     );
 });

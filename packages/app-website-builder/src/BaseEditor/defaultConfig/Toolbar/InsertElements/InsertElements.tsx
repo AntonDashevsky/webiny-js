@@ -58,11 +58,13 @@ export const InsertElements = () => {
                                         type="ELEMENT"
                                         item={{ componentName: item.name }}
                                     >
-                                        {({ dragRef }) => (
-                                            <div ref={dragRef}>
-                                                <GroupComponent item={item} />
-                                            </div>
-                                        )}
+                                        {({ dragRef }) =>
+                                            dragRef(
+                                                <div>
+                                                    <GroupComponent item={item} />
+                                                </div>
+                                            )
+                                        }
                                     </Draggable>
                                 );
                             })}

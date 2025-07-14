@@ -17,11 +17,6 @@ export const DropBox = React.memo(
     ({ box, onDrop }: DropBoxProps) => {
         const isDragging = useIsDragging();
 
-        const canAcceptItem = (item: any) => {
-            return true;
-            // return item.name !== "Webiny/BlockRef";
-        };
-
         const [{ item, isOver }, dropRef] = useDrop<
             any,
             unknown,
@@ -29,9 +24,6 @@ export const DropBox = React.memo(
         >(() => ({
             accept: "ELEMENT",
             drop: item => {
-                if (!canAcceptItem(item)) {
-                    return;
-                }
                 onDrop({
                     item,
                     target: { parentId: box.parentId, index: 0, slot: box.parentSlot }
@@ -43,7 +35,7 @@ export const DropBox = React.memo(
             })
         }));
 
-        const canAccept = isDragging ? canAcceptItem(item) : true;
+        const canAccept = isDragging;
         const disabled = "wby-border-neutral-muted wby-fill-neutral-disabled";
         const enabled = "wby-border-success-default wby-fill-success";
         const mouseOver = "wby-border-accent-default wby-fill-accent-default";
@@ -55,11 +47,10 @@ export const DropBox = React.memo(
             !canAccept && disabled
         );
 
-        return (
+        return dropRef(
             <div
                 data-role={"element-slot"}
                 data-slot-id={box.id}
-                ref={dropRef}
                 className={classes}
                 style={{
                     zIndex: 1000 + box.depth,

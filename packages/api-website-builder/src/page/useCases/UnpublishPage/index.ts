@@ -14,7 +14,7 @@ export interface UnpublishPageUseCasesTopics {
 
 interface UnpublishPageUseCasesParams {
     unpublishOperation: WbPagesStorageOperations["unpublish"];
-    getOperation: WbPagesStorageOperations["get"];
+    getOperation: WbPagesStorageOperations["getById"];
     topics: UnpublishPageUseCasesTopics;
 }
 
