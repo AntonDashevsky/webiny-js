@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import debounce from "lodash/debounce";
 import { useCreateDialog, useGetFolderLevelPermission } from "@webiny/app-aco";
 import { Scrollbar } from "@webiny/admin-ui";
@@ -6,25 +6,33 @@ import { useDocumentList } from "~/DocumentList/useDocumentList.js";
 import { Header } from "~/DocumentList/components/Header/index.js";
 import { BottomInfoBar } from "~/DocumentList/components/BottomInfoBar/index.js";
 import { Table } from "~/DocumentList/components/Table/index.js";
-import { useListMorePages } from "~/features/pages/index.js";
 import { Empty } from "~/DocumentList/components/Empty/index.js";
+import { useLoadMorePages } from "~/features/pages/index.js";
+import { BulkActions } from "../BulkActions";
+import { Filters } from "~/DocumentList/components/Filters/index.js";
 
 const Main = () => {
     const { vm } = useDocumentList();
-    const { listMorePages } = useListMorePages();
+    const { loadMorePages } = useLoadMorePages();
     const { showDialog: showCreateFolderDialog } = useCreateDialog();
     const { getFolderLevelPermission: canManageContent } =
         useGetFolderLevelPermission("canManageContent");
     const { getFolderLevelPermission: canManageStructure } =
         useGetFolderLevelPermission("canManageStructure");
 
-    const canCreateFolder = useMemo(() => {
-        return canManageStructure(vm.folderId);
-    }, [canManageContent, vm.folderId]);
+    const canCreateContent = useCallback(
+        (folderId: string) => {
+            return canManageContent(folderId);
+        },
+        [canManageContent]
+    );
 
-    const canCreateContent = useMemo(() => {
-        return canManageContent(vm.folderId);
-    }, [canManageContent, vm.folderId]);
+    const canCreateFolder = useCallback(
+        (folderId: string) => {
+            return canManageStructure(folderId);
+        },
+        [canManageStructure]
+    );
 
     const onCreateFolder = useCallback(() => {
         showCreateFolderDialog({ currentParentId: vm.folderId });
@@ -32,7 +40,7 @@ const Main = () => {
 
     const onTableScroll = debounce(async ({ scrollFrame }) => {
         if (scrollFrame.top > 0.8) {
-            await listMorePages();
+            await loadMorePages();
         }
     }, 200);
 
@@ -40,8 +48,8 @@ const Main = () => {
         <div className={"wby-h-full wby-relative wby-overflow-hidden"}>
             <Header
                 title={vm.title}
-                canCreateFolder={canCreateFolder}
-                canCreateContent={canCreateContent}
+                canCreateFolder={canCreateFolder(vm.folderId)}
+                canCreateContent={canCreateContent(vm.folderId)}
                 onCreateFolder={onCreateFolder}
                 onCreateDocument={() => alert("Create document")}
                 isRoot={vm.isRoot}
@@ -52,25 +60,25 @@ const Main = () => {
                     "wby-w-full wby-overflow-hidden wby-absolute wby-top-0 wby-bottom-0 wby-left-0"
                 }
             >
-                <>
-                    <Scrollbar
-                        data-testid="default-data-list"
-                        onScrollFrame={scrollFrame => onTableScroll({ scrollFrame })}
-                    >
-                        {vm.isEmpty ? (
-                            <Empty
-                                isSearch={vm.isSearch}
-                                canCreateFolder={canCreateFolder}
-                                canCreateContent={canCreateContent}
-                                onCreateFolder={onCreateFolder}
-                                onCreateDocument={() => alert("Create document")}
-                            />
-                        ) : (
-                            <Table />
-                        )}
-                    </Scrollbar>
-                    <BottomInfoBar />
-                </>
+                <BulkActions />
+                <Filters />
+                <Scrollbar
+                    data-testid="default-data-list"
+                    onScrollFrame={scrollFrame => onTableScroll({ scrollFrame })}
+                >
+                    {vm.isEmpty ? (
+                        <Empty
+                            isSearch={vm.isSearch}
+                            canCreateFolder={canCreateFolder(vm.folderId)}
+                            canCreateContent={canCreateContent(vm.folderId)}
+                            onCreateFolder={onCreateFolder}
+                            onCreateDocument={() => alert("Create document")}
+                        />
+                    ) : (
+                        <Table />
+                    )}
+                </Scrollbar>
+                <BottomInfoBar />
             </div>
         </div>
     );

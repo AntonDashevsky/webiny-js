@@ -25,14 +25,13 @@ interface PageListConfig {
 export function usePageListConfig() {
     const config = base.useConfig();
 
-    console.log("usePageListConfig", config);
-
     const browser = config.browser || {};
 
     return useMemo(
         () => ({
             browser: {
                 ...browser,
+                bulkActions: [...(browser.bulkActions || [])],
                 filters: [...(browser.filters || [])],
                 filtersToWhere: [...(browser.filtersToWhere || [])]
             }

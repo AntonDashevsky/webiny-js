@@ -1,15 +1,24 @@
 import { makeAutoObservable } from "mobx";
+import orderBy from "lodash/orderBy";
 import { loadingActions, ROOT_FOLDER, WB_PAGE_APP } from "~/constants.js";
 import {
     type ILoadingRepository,
     type IMetaRepository,
+    ISortingRepository,
     loadingRepositoryFactory,
-    metaRepositoryFactory
+    metaRepositoryFactory,
+    SortingMapper,
+    sortRepositoryFactory
 } from "@webiny/app-utils";
-import { type IParamsRepository, paramsRepositoryFactory } from "~/domains/Params/index.js";
-import { type IListCache, type Page, pageCacheFactory } from "~/domains/Page/index.js";
+import { type IListCache, type Page, pageCacheFactory } from "~/domain/Page/index.js";
 import { Folder, folderCacheFactory } from "@webiny/app-aco";
 import { DocumentListMapper } from "~/DocumentList/presenters/DocumentListMapper.js";
+import { type ISearchRepository, searchRepositoryFactory } from "~/domain/Search/index.js";
+import {
+    type ISelectedItemsRepository,
+    selectedItemsRepositoryFactory
+} from "~/domain/SelectedItem/index.js";
+import { filterRepositoryFactory, type IFilterRepository } from "~/domain/Filter/index.js";
 
 interface DocumentListPresenterParams {
     folderId: string;
@@ -21,16 +30,23 @@ class DocumentListPresenter {
     private foldersLoadingRepository: ILoadingRepository;
     private documentsCache: IListCache<Page>;
     private documentsLoadingRepository: ILoadingRepository;
-    private paramsRepository: IParamsRepository;
+    private searchRepository: ISearchRepository;
     private metaRepository: IMetaRepository;
+    private sortingRepository: ISortingRepository;
+    private filterRepository: IFilterRepository;
+    private selectedRepository: ISelectedItemsRepository;
+    private filtersVisible: boolean = false;
 
     constructor() {
         this.foldersCache = folderCacheFactory.getCache(WB_PAGE_APP);
         this.foldersLoadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
         this.documentsCache = pageCacheFactory.getCache();
         this.documentsLoadingRepository = loadingRepositoryFactory.getRepository("WbPage");
+        this.searchRepository = searchRepositoryFactory.getRepository("WbPage");
         this.metaRepository = metaRepositoryFactory.getRepository("WbPage");
-        this.paramsRepository = paramsRepositoryFactory.getRepository("WbPage");
+        this.sortingRepository = sortRepositoryFactory.getRepository("WbPage");
+        this.filterRepository = filterRepositoryFactory.getRepository("WbPage");
+        this.selectedRepository = selectedItemsRepositoryFactory.getRepository("WbPage");
         makeAutoObservable(this);
     }
 
@@ -43,18 +59,25 @@ class DocumentListPresenter {
             folderId: this.folderId,
             title: this.getVmTitle(),
             data: this.getData(),
+            selected: this.getSelected(),
             meta: {
                 totalCount: this.metaRepository.get().totalCount ?? 0,
                 currentCount: this.documentsCache.count() ?? 0
             },
-            searchQuery: this.paramsRepository.get().search || "",
+            sorting: this.getSorting(),
+            searchQuery: this.searchRepository.get() || "",
             isSearch: this.getIsSearch(),
             isEmpty: this.getIsEmpty(),
             isRoot: this.getIsRoot(),
             isLoading: this.getIsLoading(),
-            isLoadingMore: this.getIsLoadingMore()
+            isLoadingMore: this.getIsLoadingMore(),
+            isFilterVisible: this.filtersVisible
         };
     }
+
+    public showFilters = (show: boolean) => {
+        this.filtersVisible = show;
+    };
 
     private getIsRoot = () => {
         return this.folderId === ROOT_FOLDER;
@@ -67,35 +90,49 @@ class DocumentListPresenter {
     };
 
     private getVmDocuments = () => {
-        return this.documentsCache
-            .getItems()
-            .filter(d => d.location.folderId === this.folderId)
-            .map(d => DocumentListMapper.fromPage(d));
+        return this.documentsCache.getItems().map(d => DocumentListMapper.fromPage(d));
     };
 
     private getVmFolders = () => {
-        return this.foldersCache
-            .getItems()
-            .filter(f => {
-                if (this.folderId === ROOT_FOLDER) {
-                    return f.parentId === null;
-                } else {
-                    return f.parentId === this.folderId;
-                }
-            })
-            .map(f => DocumentListMapper.fromFolder(f));
+        const folders = this.foldersCache.getItems().filter(f => {
+            if (this.folderId === ROOT_FOLDER) {
+                return f.parentId === null;
+            } else {
+                return f.parentId === this.folderId;
+            }
+        });
+
+        return folders.map(f => DocumentListMapper.fromFolder(f));
     };
 
     private getData = () => {
         if (this.getIsSearch()) {
-            return this.getVmDocuments();
+            // Only documents, sorted if needed
+            return this.sortItems(this.getVmDocuments());
         }
 
-        return this.getVmFolders().concat(this.getVmDocuments());
+        // Not in search: folders first, then documents, both sorted if needed
+        const folders = this.sortItems(this.getVmFolders());
+        const documents = this.sortItems(this.getVmDocuments());
+        return [...folders, ...documents];
     };
 
+    private getSelected = () => {
+        return this.selectedRepository.getSelectedItems();
+    };
+
+    private sortItems<T>(items: T[]): T[] {
+        const sorts = this.sortingRepository.get();
+        if (sorts.length === 0) {
+            return items;
+        }
+        const iteratees = sorts.map(sort => sort.field);
+        const orders = sorts.map(sort => sort.order);
+        return orderBy(items, iteratees, orders);
+    }
+
     private getIsSearch = () => {
-        return Boolean(this.paramsRepository.get().search);
+        return Boolean(this.searchRepository.get() || this.filterRepository.hasFilters());
     };
 
     private getIsLoading = () => {
@@ -113,6 +150,12 @@ class DocumentListPresenter {
     private getIsEmpty() {
         return !this.getIsLoading() && !this.getData().length;
     }
+
+    private getSorting = () => {
+        return this.sortingRepository.get().map(sort => {
+            return SortingMapper.fromDTOtoColumn(sort);
+        });
+    };
 }
 
 export { DocumentListPresenter, type DocumentListPresenterParams };
