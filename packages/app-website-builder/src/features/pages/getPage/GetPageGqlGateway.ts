@@ -6,7 +6,7 @@ import type { WbError } from "~/types.js";
 
 export interface GetPageResponse {
     websiteBuilder: {
-        getPage: {
+        getPageById: {
             data: PageGatewayDto | null;
             error: WbError | null;
         };
@@ -20,7 +20,7 @@ export interface GetPageQueryVariables {
 export const GET_PAGE = (PAGE_FIELDS: string) => gql`
     query GetPage($id: ID!) {
         websiteBuilder {
-            getPage(id: $id) {
+            getPageById(id: $id) {
                 data ${PAGE_FIELDS}
                 error {
                     code
@@ -56,7 +56,7 @@ export class GetPageGqlGateway implements IGetPageGateway {
             throw new Error("Network error while fetch page.");
         }
 
-        const { data, error } = response.websiteBuilder.getPage;
+        const { data, error } = response.websiteBuilder.getPageById;
 
         if (!data) {
             throw new Error(error?.message || `Could not fetch page with id: ${id}.`);

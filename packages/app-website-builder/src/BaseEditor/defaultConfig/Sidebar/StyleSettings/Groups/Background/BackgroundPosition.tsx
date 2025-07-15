@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { observer } from "mobx-react-lite";
 import { Select } from "@webiny/admin-ui";
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
 import { BackgroundImageParser } from "./BackgroundImageParser";
@@ -19,7 +20,7 @@ const POSITIONS = [
 
 const options = POSITIONS.map(key => ({ label: toTitleCaseLabel(key), value: key }));
 
-export const BackgroundPosition = ({ elementId }: { elementId: string }) => {
+export const BackgroundPosition = observer(({ elementId }: { elementId: string }) => {
     const { styles, onChange, inheritanceMap } = useStyles(elementId);
     const [localValue, setLocalValue] = useState<string>(styles.backgroundPosition);
     const hasBackgroundImage = useMemo(() => {
@@ -65,4 +66,4 @@ export const BackgroundPosition = ({ elementId }: { elementId: string }) => {
             options={options}
         />
     );
-};
+});

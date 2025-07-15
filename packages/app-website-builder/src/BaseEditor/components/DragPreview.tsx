@@ -74,7 +74,9 @@ const DragPreview = () => {
             className="wby-fixed wby-pointer-events-none wby-left-0 wby-top-0 wby-w-full wby-h-full"
         >
             <div
-                ref={el => (dragPreviewRef = el)}
+                ref={el => {
+                    dragPreviewRef = el;
+                }}
                 className="wby-transition-opacity wby-duration-250 wby-ease-in-out wby-block"
                 style={{ opacity: dragHelperOpacity }}
             >

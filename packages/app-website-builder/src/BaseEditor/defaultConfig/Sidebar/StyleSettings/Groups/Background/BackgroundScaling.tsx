@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { observer } from "mobx-react-lite";
 import { Select } from "@webiny/admin-ui";
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
 import { BackgroundImageParser } from "./BackgroundImageParser";
@@ -46,7 +47,7 @@ const SCALING_MAP: Scaling[] = [
 
 const options = SCALING_MAP.map(item => ({ label: toTitleCaseLabel(item.name), value: item.name }));
 
-export const BackgroundScaling = ({ elementId }: { elementId: string }) => {
+export const BackgroundScaling = observer(({ elementId }: { elementId: string }) => {
     const { styles, onChange, inheritanceMap } = useStyles(elementId);
 
     const scaling = SCALING_MAP.find(item => {
@@ -98,4 +99,4 @@ export const BackgroundScaling = ({ elementId }: { elementId: string }) => {
             options={options}
         />
     );
-};
+});

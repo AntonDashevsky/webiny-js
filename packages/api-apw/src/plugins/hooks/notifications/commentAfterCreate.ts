@@ -5,7 +5,7 @@ import { createContentUrl } from "./contentUrl";
 import { createCommentUrl } from "./commentUrl";
 import { fetchReviewers } from "./reviewers";
 import { sendCommentNotification } from "./sendCommentNotification";
-import { getAppUrl } from "~/plugins/hooks/notifications/appUrl";
+import { getAppUrl } from "~/plugins/hooks/notifications/getAppUrl";
 
 export const attachCommentAfterCreate = (context: ApwContext): void => {
     context.apw.comment.onCommentAfterCreate.subscribe(async ({ comment }) => {
@@ -27,7 +27,7 @@ export const attachCommentAfterCreate = (context: ApwContext): void => {
                 });
             }
 
-            const settings = await getAppUrl(context);
+            const settings = await getAppUrl();
             if (!settings) {
                 return;
             }

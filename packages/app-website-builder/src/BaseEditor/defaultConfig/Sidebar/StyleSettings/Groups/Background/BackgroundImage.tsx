@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { observer } from "mobx-react-lite";
 import { FileManager } from "@webiny/app-admin";
 import { FilePicker } from "@webiny/admin-ui";
 import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
@@ -28,7 +29,7 @@ export const parseValue = (value: string) => {
     return;
 };
 
-export const BackgroundImage = ({ elementId }: { elementId: string }) => {
+export const BackgroundImage = observer(({ elementId }: { elementId: string }) => {
     const { isBaseBreakpoint } = useBreakpoint();
     const { styles, metadata, onChange, inheritanceMap } = useStyles(elementId);
     const [localValue, setLocalValue] = useState<string | null>(styles.backgroundImage);
@@ -131,4 +132,4 @@ export const BackgroundImage = ({ elementId }: { elementId: string }) => {
             )}
         />
     );
-};
+});

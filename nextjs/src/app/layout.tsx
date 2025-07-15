@@ -1,7 +1,7 @@
 import React from "react";
 import { draftMode } from "next/headers";
+import { ContentSdkInitializer } from "@/src/contentSdk";
 import "./globals.css";
-import { ContentSdkInitializer } from "@/webiny/ContentSdkInitializer";
 
 export default async function RootLayout({
     children

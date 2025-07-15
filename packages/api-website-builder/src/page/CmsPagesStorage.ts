@@ -29,22 +29,24 @@ export class CmsPagesStorage implements WbPagesStorageOperations {
     }
 
     public get = async (params: WbPagesStorageOperationsGetParams): Promise<WbPage | null> => {
-        const where: Record<string, any> = { latest: true };
-
-        if (params.id) {
-            where.id = params.id;
-        } else if (params.entryId) {
-            where.entryId = params.entryId;
-        }
-
-        const entry = await this.cms.getEntry(this.model, { where });
+        const entry = await this.cms.getEntry(this.model, params);
         return entry ? this.getWbPageFieldValues(entry) : null;
+    };
+
+    public getById = async (id: string): Promise<WbPage | null> => {
+        const entry = await this.cms.getEntryById(this.model, id);
+        return entry ? this.getWbPageFieldValues(entry) : null;
+    };
+
+    public getRevisions = async (pageId: string): Promise<WbPage[]> => {
+        const revisions = await this.cms.getEntryRevisions(this.model, pageId);
+        return revisions.map(entry => this.getWbPageFieldValues(entry));
     };
 
     public list = async (
         params: WbPagesStorageOperationsListParams
     ): Promise<WbPagesStorageOperationsListResponse> => {
-        const [entries, meta] = await this.cms.listLatestEntries(this.model, {
+        const [entries, meta] = await this.cms.listEntries(this.model, {
             after: params.after,
             limit: params.limit,
             sort: params.sort,
@@ -61,9 +63,7 @@ export class CmsPagesStorage implements WbPagesStorageOperations {
     };
 
     public update = async ({ id, data }: WbPagesStorageOperationsUpdateParams): Promise<WbPage> => {
-        const entry = await this.cms.getEntry(this.model, {
-            where: { id, latest: true }
-        });
+        const entry = await this.cms.getEntryById(this.model, id);
 
         const values = omit(data, ["id", "tenant", "locale", "webinyVersion"]);
 
@@ -100,7 +100,7 @@ export class CmsPagesStorage implements WbPagesStorageOperations {
     private getWbPageFieldValues(entry: CmsEntry) {
         return {
             id: entry.id,
-            entryId: entry.entryId,
+            pageId: entry.entryId,
             wbyAco_location: entry.location,
             status: entry.status,
             version: entry.version,

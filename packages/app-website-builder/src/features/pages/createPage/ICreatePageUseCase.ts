@@ -1,4 +1,5 @@
 import type { WbLocation } from "~/types.js";
+import { Page } from "~/domain/Page";
 
 export interface CreatePageParams {
     location: WbLocation;
@@ -10,5 +11,5 @@ export interface CreatePageParams {
 }
 
 export interface ICreatePageUseCase {
-    execute: (params: CreatePageParams) => Promise<void>;
+    execute: (params: CreatePageParams) => Promise<Page>;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 
 export interface CompositionScopeContext {
+    inherit: boolean;
     scope: string[];
 }
 
@@ -8,14 +9,19 @@ const CompositionScopeContext = React.createContext<CompositionScopeContext | un
 
 interface CompositionScopeProps {
     name: string;
+    /**
+     * Use this prop on components that are used to register decorators.
+     * Components are inherited at the time of registration, and then cached.
+     */
+    inherit?: boolean;
     children: React.ReactNode;
 }
 
-export const CompositionScope = ({ name, children }: CompositionScopeProps) => {
+export const CompositionScope = ({ name, inherit = false, children }: CompositionScopeProps) => {
     const parentScope = useCompositionScope();
 
     return (
-        <CompositionScopeContext.Provider value={{ scope: [...parentScope, name] }}>
+        <CompositionScopeContext.Provider value={{ scope: [...parentScope.scope, name], inherit }}>
             {children}
         </CompositionScopeContext.Provider>
     );
@@ -23,8 +29,10 @@ export const CompositionScope = ({ name, children }: CompositionScopeProps) => {
 
 export function useCompositionScope() {
     const context = React.useContext(CompositionScopeContext);
+
     if (!context) {
-        return [];
+        return { scope: [], inherit: false };
     }
-    return context.scope;
+
+    return context;
 }

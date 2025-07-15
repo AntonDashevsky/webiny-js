@@ -1,57 +1,27 @@
 import React from "react";
-import { ValueSelector } from "./ValueSelector";
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
+import { observer } from "mobx-react-lite";
+import { useStyles } from "../../useStyles";
 import { LinkedEditing } from "./LinkedEditing";
-import { useStyleValue } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/Groups/MarginPadding/useStyleValue";
+import { ValueSelector } from "../../ValueSelector";
+import { UnitsOptions } from "../../UnitsOptions";
+import { useStyleValue } from "../../useStyleValue";
 
-const autoOption = {
-    label: "auto",
-    value: "auto"
-};
+const additionalUnits = ["auto", "unset"];
 
-const marginUnitOptions = [
-    {
-        label: "px",
-        value: "px"
-    },
-    {
-        label: "%",
-        value: "%"
-    },
+const widthOptions = UnitsOptions.widthUnits()
+    .add(...additionalUnits)
+    .getOptions();
 
-    {
-        label: "em",
-        value: "em"
-    },
-    {
-        label: "rem",
-        value: "rem"
-    }
-];
-
-const widthUnitOptions = [
-    {
-        label: "vw",
-        value: "vw"
-    }
-];
-
-const heightUnitOptions = [
-    {
-        label: "vh",
-        value: "vh"
-    }
-];
+const heightOptions = UnitsOptions.heightUnits()
+    .add(...additionalUnits)
+    .getOptions();
 
 interface MarginProps {
     elementId: string;
     children: React.ReactNode;
 }
 
-const heightOptions = [...marginUnitOptions, ...heightUnitOptions, autoOption];
-const widthOptions = [...marginUnitOptions, ...widthUnitOptions, autoOption];
-
-export const Margin = ({ elementId, children }: MarginProps) => {
+export const Margin = observer(({ elementId, children }: MarginProps) => {
     const { onChange, onPreviewChange, metadata } = useStyles(elementId);
 
     const marginTop = useStyleValue(elementId, "marginTop");
@@ -64,7 +34,8 @@ export const Margin = ({ elementId, children }: MarginProps) => {
     const onToggleLinkedEditing = (linked: boolean) => {
         onChange(({ styles, metadata }) => {
             if (linked) {
-                const value = `${marginTop.value ?? 0}${marginTop.unit}`;
+                const isKeyword = marginTop.isKeyword;
+                const value = isKeyword ? marginTop.value : `${marginTop.value ?? 0}${marginTop.unit}`;
                 styles.set("marginRight", value);
                 styles.set("marginBottom", value);
                 styles.set("marginLeft", value);
@@ -163,4 +134,4 @@ export const Margin = ({ elementId, children }: MarginProps) => {
             </div>
         </div>
     );
-};
+});

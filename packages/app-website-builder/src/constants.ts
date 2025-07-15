@@ -1,11 +1,12 @@
 export const BASE_BREAKPOINT = "desktop";
 export { ROOT_FOLDER } from "@webiny/app-aco/constants";
 
-export type WbStatus = (typeof statuses)[keyof typeof statuses];
-export const statuses = {
-    draft: "Draft",
-    published: "Published",
-    unpublished: "Unpublished"
+export type WbStatus = (typeof WbPageStatus)[keyof typeof WbPageStatus];
+
+export const WbPageStatus = {
+    Draft: "draft",
+    Published: "published",
+    Unpublished: "unpublished"
 } as const;
 
 export type WbLoading = (typeof loadingActions)[keyof typeof loadingActions];
@@ -28,3 +29,10 @@ export const WB_PAGE_APP = "wb:page";
 export const LOCAL_STORAGE_KEY_LATEST_VISITED_FOLDER = "webiny_wb_page_latest_visited_folder";
 export const PAGE_LIST_ROUTE = "/website-builder/pages";
 export const PAGE_EDITOR_ROUTE = "/website-builder/pages/editor";
+
+export const StyleSettings = {
+    Layout: "layout",
+    Visibility: "visibility",
+    Background: "background",
+    MarginPadding: "marginPadding"
+};

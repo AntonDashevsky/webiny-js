@@ -23,3 +23,36 @@ export interface IEcommerceApi {
 export interface IEcommerceApiFactory {
     (settings: any): Promise<IEcommerceApi> | IEcommerceApi;
 }
+
+export type BaseInput<T = any> = {
+    type: string;
+    name: string;
+    defaultValue?: T;
+    label?: string;
+    description?: string;
+    note?: string;
+    required?: boolean;
+};
+
+export type TextInput = BaseInput<string> & {
+    type: "text";
+    placeholder?: string;
+};
+
+export type NumberInput = BaseInput<number> & {
+    type: "number";
+    min?: number;
+    max?: number;
+};
+
+export type BooleanInput = BaseInput<boolean> & {
+    type: "boolean";
+    required?: never;
+};
+
+export type SelectInput = BaseInput<string> & {
+    type: "select";
+    options: { label: string; value: string }[];
+};
+
+export type SettingsInput = TextInput | SelectInput | NumberInput | BooleanInput;

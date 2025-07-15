@@ -14,7 +14,7 @@ export interface UpdatePageUseCasesTopics {
 
 interface UpdatePageUseCasesParams {
     updateOperation: WbPagesStorageOperations["update"];
-    getOperation: WbPagesStorageOperations["get"];
+    getOperation: WbPagesStorageOperations["getById"];
     topics: UpdatePageUseCasesTopics;
 }
 

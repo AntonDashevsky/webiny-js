@@ -63,13 +63,6 @@ module.exports = {
                     }
                 ]
             }
-        ],
-        "import/dynamic-import-chunkname": [
-            2,
-            {
-                importFunctions: ["dynamicImport"],
-                allowEmpty: false
-            }
         ]
     },
     settings: {

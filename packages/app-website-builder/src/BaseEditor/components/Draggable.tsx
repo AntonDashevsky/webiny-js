@@ -1,4 +1,4 @@
-import { useDrag } from "react-dnd";
+import { ConnectDragSource, useDrag } from "react-dnd";
 import React, { useEffect } from "react";
 import { getEmptyImage } from "react-dnd-html5-backend";
 
@@ -6,7 +6,7 @@ interface DraggableProps<T> {
     type: string;
     item: T;
     canDrag?: boolean;
-    children: (props: { isDragging: boolean; dragRef: React.Ref<any> }) => React.ReactNode;
+    children: (props: { isDragging: boolean; dragRef: ConnectDragSource }) => React.ReactNode;
 }
 
 export const Draggable = React.memo(

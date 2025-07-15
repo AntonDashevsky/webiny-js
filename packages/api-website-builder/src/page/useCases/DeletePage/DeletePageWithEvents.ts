@@ -5,12 +5,12 @@ import { WebinyError } from "@webiny/error";
 
 export class DeletePageWithEvents implements IDeletePage {
     private topics: DeletePageUseCasesTopics;
-    private readonly getOperation: WbPagesStorageOperations["get"];
+    private readonly getOperation: WbPagesStorageOperations["getById"];
     private readonly decoretee: IDeletePage;
 
     constructor(
         topics: DeletePageUseCasesTopics,
-        getOperation: WbPagesStorageOperations["get"],
+        getOperation: WbPagesStorageOperations["getById"],
         decoretee: IDeletePage
     ) {
         this.topics = topics;
@@ -19,7 +19,7 @@ export class DeletePageWithEvents implements IDeletePage {
     }
 
     async execute(params: DeleteWbPageParams) {
-        const page = await this.getOperation({ id: params.id });
+        const page = await this.getOperation(params.id);
 
         if (!page) {
             throw new WebinyError(

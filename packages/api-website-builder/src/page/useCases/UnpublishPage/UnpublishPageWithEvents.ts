@@ -5,12 +5,12 @@ import type { IUnpublishPage } from "./IUnpublishPage";
 
 export class UnpublishPageWithEvents implements IUnpublishPage {
     private topics: UnpublishPageUseCasesTopics;
-    private readonly getOperation: WbPagesStorageOperations["get"];
+    private readonly getOperation: WbPagesStorageOperations["getById"];
     private readonly decoretee: IUnpublishPage;
 
     constructor(
         topics: UnpublishPageUseCasesTopics,
-        getOperation: WbPagesStorageOperations["get"],
+        getOperation: WbPagesStorageOperations["getById"],
         decoretee: IUnpublishPage
     ) {
         this.topics = topics;
@@ -19,7 +19,7 @@ export class UnpublishPageWithEvents implements IUnpublishPage {
     }
 
     async execute(params: UnpublishWbPageParams) {
-        const page = await this.getOperation({ id: params.id });
+        const page = await this.getOperation(params.id);
 
         if (!page) {
             throw new WebinyError(

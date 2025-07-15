@@ -19,7 +19,7 @@ export class DuplicatePageWithEvents implements IDuplicatePage {
     }
 
     async execute(params: DuplicateWbPageParams) {
-        const original = await this.getOperation({ id: params.id });
+        const original = await this.getOperation({ where: { id: params.id } });
 
         if (!original) {
             throw new WebinyError(

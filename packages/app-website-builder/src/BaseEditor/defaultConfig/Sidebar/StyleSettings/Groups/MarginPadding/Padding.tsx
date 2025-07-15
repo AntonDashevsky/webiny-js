@@ -1,50 +1,19 @@
 import React from "react";
-import { ValueSelector } from "./ValueSelector";
-import { LinkedEditing } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/Groups/MarginPadding/LinkedEditing";
-import { useStyles } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/useStyles";
-import { useStyleValue } from "~/BaseEditor/defaultConfig/Sidebar/StyleSettings/Groups/MarginPadding/useStyleValue";
+import { observer } from "mobx-react-lite";
+import { LinkedEditing } from "./LinkedEditing";
+import { useStyles } from "../../useStyles";
+import { ValueSelector } from "../../ValueSelector";
+import { useStyleValue } from "../../useStyleValue";
+import { UnitsOptions } from "../../UnitsOptions";
 
-const paddingUnitOptions = [
-    {
-        label: "px",
-        value: "px"
-    },
-    {
-        label: "%",
-        value: "%"
-    },
-    {
-        label: "em",
-        value: "em"
-    },
-    {
-        label: "rem",
-        value: "rem"
-    }
-];
-
-const widthUnitOptions = [
-    {
-        label: "vw",
-        value: "vw"
-    }
-];
-
-const heightUnitOptions = [
-    {
-        label: "vh",
-        value: "vh"
-    }
-];
-
-const heightOptions = [...paddingUnitOptions, ...heightUnitOptions];
-const widthOptions = [...paddingUnitOptions, ...widthUnitOptions];
+const widthOptions = UnitsOptions.widthUnits().getOptions();
+const heightOptions = UnitsOptions.heightUnits().getOptions();
 
 interface PaddingProps {
     elementId: string;
 }
 
-export const Padding = ({ elementId }: PaddingProps) => {
+export const Padding = observer(({ elementId }: PaddingProps) => {
     const { onChange, onPreviewChange, metadata } = useStyles(elementId);
 
     const paddingTop = useStyleValue(elementId, "paddingTop");
@@ -161,4 +130,4 @@ export const Padding = ({ elementId }: PaddingProps) => {
             </div>
         </div>
     );
-};
+});

@@ -3,13 +3,16 @@ import { FilePicker, FileItemDto } from "@webiny/admin-ui";
 import { ElementInputRendererProps } from "~/BaseEditor";
 import { FileManager } from "@webiny/app-admin";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
+import { FileInput } from "~/sdk";
 
 export const FileInputRenderer = ({
     value,
     metadata,
     onChange,
-    label
+    label,
+    ...props
 }: ElementInputRendererProps) => {
+    const input = props.input as FileInput;
     const { isBaseBreakpoint } = useBreakpoint();
     const onFileChange = (file: any) => {
         const metaItems = file.meta || [];
@@ -27,14 +30,20 @@ export const FileInputRenderer = ({
         };
 
         onChange(({ value, metadata }) => {
-            value.set(file.src);
+            value.set({
+                id: file.id,
+                name: getName(),
+                size: getSize(),
+                mimeType: getType(),
+                src: file.src || ""
+            });
 
             metadata.set("image", {
                 id: file.id,
                 name: getName(),
                 size: getSize(),
                 mimeType: getType(),
-                url: file.src || ""
+                src: file.src || ""
             });
         });
     };
@@ -55,11 +64,12 @@ export const FileInputRenderer = ({
 
     return (
         <FileManager
+            accept={input.allowedFileTypes}
             onChange={onFileChange}
             render={({ showFileManager }) => (
                 <FilePicker
                     label={label}
-                    description="Select a background image"
+                    description={input.description}
                     type="compact"
                     value={preview}
                     onSelectItem={() => showFileManager()}

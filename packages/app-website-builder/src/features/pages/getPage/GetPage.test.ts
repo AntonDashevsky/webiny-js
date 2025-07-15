@@ -1,13 +1,13 @@
 import { GetPage } from "~/features/pages/getPage/GetPage.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("GetPage", () => {
     const gateway = {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0001",
-            entryId: "page-1",
-            status: statuses.draft,
+            pageId: "page-1",
+            status: WbPageStatus.Draft,
             wbyAco_location: {
                 folderId: "folder-1"
             },
@@ -46,10 +46,10 @@ describe("GetPage", () => {
         const items = pagesCache.getItems();
         expect(items.length).toEqual(1);
 
-        const item = pagesCache.getItem(p => p.entryId === "page-1");
+        const item = pagesCache.getItem(p => p.pageId === "page-1");
         expect(item).toBeDefined();
         expect(item?.id).toEqual("page-1#0001");
-        expect(item?.entryId).toEqual("page-1");
+        expect(item?.pageId).toEqual("page-1");
     });
 
     it("should be able to get a page more than once", async () => {
@@ -72,10 +72,10 @@ describe("GetPage", () => {
         const items = pagesCache.getItems();
         expect(items.length).toEqual(1);
 
-        const item = pagesCache.getItem(p => p.entryId === "page-1");
+        const item = pagesCache.getItem(p => p.pageId === "page-1");
         expect(item).toBeDefined();
         expect(item?.id).toEqual("page-1#0001");
-        expect(item?.entryId).toEqual("page-1");
+        expect(item?.pageId).toEqual("page-1");
     });
 
     it("should handle gateway errors gracefully", async () => {

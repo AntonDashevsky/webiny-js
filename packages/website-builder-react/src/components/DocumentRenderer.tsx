@@ -3,6 +3,7 @@ import { type Component, contentSdk, type Document } from "@webiny/app-website-b
 import { ElementRenderer } from "./ElementRenderer";
 import { DocumentStoreProvider } from "./DocumentStoreProvider";
 import { ConnectToEditor } from "./ConnectToEditor";
+import { editorComponents } from "../editorComponents/index";
 
 interface DocumentRendererProps {
     document: Document;
@@ -10,7 +11,8 @@ interface DocumentRendererProps {
 }
 
 export const DocumentRenderer = ({ document, components }: DocumentRendererProps) => {
-    components.forEach(blueprint => contentSdk.registerComponent(blueprint));
+    const allComponents = [...editorComponents, ...components];
+    allComponents.forEach(blueprint => contentSdk.registerComponent(blueprint));
 
     return (
         <div data-role={"document-renderer"}>

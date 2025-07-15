@@ -1,13 +1,13 @@
 import { UnpublishPage } from "./UnpublishPage.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("UnpublishPage", () => {
     const gateway = {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0001",
-            entryId: "page-1",
-            status: statuses.unpublished,
+            pageId: "page-1",
+            status: WbPageStatus.Unpublished,
             wbyAco_location: {
                 folderId: "folder-1"
             },
@@ -34,8 +34,8 @@ describe("UnpublishPage", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                entryId: "page-1",
-                status: statuses.published,
+                pageId: "page-1",
+                status: WbPageStatus.Published,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },
@@ -67,10 +67,10 @@ describe("UnpublishPage", () => {
         expect(gateway.execute).toHaveBeenLastCalledWith("page-1#0001");
 
         expect(pagesCache.hasItems()).toBeTrue();
-        const publishedItem = pagesCache.getItem(page => page.entryId === "page-1");
+        const publishedItem = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(publishedItem?.id).toEqual("page-1#0001");
-        expect(publishedItem?.status).toEqual(statuses.unpublished);
+        expect(publishedItem?.status).toEqual(WbPageStatus.Unpublished);
     });
 
     it("should not unpublish a page if id is missing", async () => {
@@ -82,9 +82,9 @@ describe("UnpublishPage", () => {
 
         expect(gateway.execute).toHaveBeenCalledTimes(1);
 
-        const publishedItem = pagesCache.getItem(page => page.entryId === "page-1");
+        const publishedItem = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(publishedItem?.id).toEqual("page-1#0001");
-        expect(publishedItem?.status).toEqual(statuses.published);
+        expect(publishedItem?.status).toEqual(WbPageStatus.Published);
     });
 });

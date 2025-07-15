@@ -27,9 +27,25 @@ export interface CreateAdminPulumiAppParams {
 }
 
 export const createAdminPulumiApp = (projectAppParams: CreateAdminPulumiAppParams) => {
-    return createReactPulumiApp({
+    const adminApp = createReactPulumiApp({
         name: "admin",
         folder: "apps/admin",
         ...projectAppParams
     });
+
+    adminApp.addHandler(() => {
+        const cdn = adminApp.resources.cloudfront;
+
+        adminApp.addServiceManifest({
+            name: "admin",
+            manifest: {
+                cloudfront: {
+                    distributionId: cdn.output.id,
+                    domainName: cdn.output.domainName
+                }
+            }
+        });
+    });
+
+    return adminApp;
 };

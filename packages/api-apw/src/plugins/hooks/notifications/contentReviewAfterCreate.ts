@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { ApwContext } from "~/types";
-import { getAppUrl } from "./appUrl";
+import { getAppUrl } from "./getAppUrl";
 import { createContentReviewUrl } from "./contentReviewUrl";
 import { createContentUrl } from "./contentUrl";
 import { fetchReviewers } from "./reviewers";
@@ -16,7 +16,7 @@ export const attachContentReviewAfterCreate = (context: ApwContext): void => {
             if (!step?.id) {
                 return;
             }
-            const settings = await getAppUrl(context);
+            const settings = await getAppUrl();
             if (!settings) {
                 return;
             }

@@ -1,5 +1,5 @@
 import { MovePage } from "./MovePage.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("MovePage", () => {
@@ -14,8 +14,8 @@ describe("MovePage", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                entryId: "page-1",
-                status: statuses.draft,
+                pageId: "page-1",
+                status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },
@@ -51,7 +51,7 @@ describe("MovePage", () => {
         expect(gateway.execute).toHaveBeenLastCalledWith("page-1#0001", "folder-2");
 
         expect(pagesCache.hasItems()).toBeTrue();
-        const movedItem = pagesCache.getItem(page => page.entryId === "page-1");
+        const movedItem = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(movedItem?.id).toEqual("page-1#0001");
         expect(movedItem?.location?.folderId).toEqual("folder-2");

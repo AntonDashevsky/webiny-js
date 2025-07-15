@@ -1,5 +1,5 @@
 "use client";
-import type { Component, ComponentGroup, IContentSdk, Page, ResolvedComponent } from "./types.js";
+import type { ComponentGroup, IContentSdk, Page } from "./types.js";
 import { Messenger, MessageOrigin } from "./messenger";
 import { logger } from "./Logger";
 import { PreviewViewport } from "./PreviewViewport";
@@ -10,36 +10,9 @@ import { functionConverter } from "./FunctionConverter";
 import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 import { DocumentStore } from "~/sdk/DocumentStore";
 import { HotkeyManager } from "~/sdk/HotkeyManager";
-import { ResolveElementParams } from "./ComponentResolver.js";
-
-interface PreviewDocumentProps {
-    id: string;
-    [key: string]: string;
-}
-
-class PreviewDocument {
-    public readonly props: Record<string, string>;
-
-    constructor(props: PreviewDocumentProps) {
-        this.props = props;
-    }
-
-    matches(params: Record<string, string>) {
-        for (const [key, value] of Object.entries(params)) {
-            if (this.props[key] !== value) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    getId() {
-        return this.props.id;
-    }
-}
+import { PreviewDocument } from "./PreviewDocument.js";
 
 export class EditingSdk implements IContentSdk {
-    private initialized = false;
     public readonly messenger: Messenger;
     private positionReportingEnabled = false;
     private previewViewport: PreviewViewport | null = null;
@@ -53,7 +26,7 @@ export class EditingSdk implements IContentSdk {
         const source = new MessageOrigin(window, window.location.origin);
         const target = new MessageOrigin(window.parent, this.getReferrerOrigin());
 
-        this.previewDocument = this.getPreviewDocument();
+        this.previewDocument = PreviewDocument.createFromWindow();
 
         this.documentStore = documentStoreManager.getStore(this.previewDocument.getId());
 
@@ -64,16 +37,6 @@ export class EditingSdk implements IContentSdk {
         componentRegistry.onRegister(reg => {
             this.messenger.send("preview.component.register", reg.component.manifest);
         });
-    }
-
-    public init(): void {
-        if (this.initialized) {
-            return;
-        }
-
-        this.initialized = true;
-
-        logger.info("Editing SDK initialized!");
 
         this.setupListeners();
 
@@ -84,9 +47,9 @@ export class EditingSdk implements IContentSdk {
         this.setupHotkeyListeners();
     }
 
-    public async getPage(pathname: string): Promise<Page | null> {
-        if (!this.previewDocument.matches({ type: "page", pathname })) {
-            return this.liveSdk.getPage(pathname);
+    public async getPage(path: string): Promise<Page | null> {
+        if (!this.previewDocument.matches({ type: "page", path })) {
+            return this.liveSdk.getPage(path);
         }
 
         await this.documentStore.waitForDocument();
@@ -97,10 +60,6 @@ export class EditingSdk implements IContentSdk {
         return this.liveSdk.listPages();
     }
 
-    registerComponent(component: Component): void {
-        componentRegistry.register(component);
-    }
-
     registerComponentGroup(group: ComponentGroup) {
         this.messenger.send("preview.componentGroup.register", {
             ...group,
@@ -108,14 +67,14 @@ export class EditingSdk implements IContentSdk {
         });
     }
 
-    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null {
-        return this.liveSdk.resolveElement(params);
+    refreshOverlays() {
+        this.reportBoxes();
     }
 
     private getReferrerOrigin(): string {
         try {
-            const referrer = new URL(document.referrer);
-            return `${referrer.protocol}//${referrer.host}`;
+            const searchParams = new URLSearchParams(window.location.search);
+            return searchParams.get("wb.referrer")!;
         } catch {
             return "";
         }
@@ -215,27 +174,6 @@ export class EditingSdk implements IContentSdk {
             boxes: this.previewViewport.getVisibleBoxes(),
             viewport: this.previewViewport.getViewport()
         });
-    }
-
-    private getPreviewDocument() {
-        const search = new URLSearchParams(window.location.search);
-        const result: Record<string, string> = {};
-        const prefix = "wb.editing";
-
-        for (const [key, value] of search.entries()) {
-            if (key.startsWith(prefix + ".")) {
-                const strippedKey = key.slice(prefix.length + 1); // +1 for the dot
-                result[strippedKey] = value;
-            }
-        }
-
-        if (!result.id) {
-            throw new Error(
-                "Editing document ID is required! Pass a `wb.editing.id` query parameter."
-            );
-        }
-
-        return new PreviewDocument(result as PreviewDocumentProps);
     }
 
     private disableLinks() {

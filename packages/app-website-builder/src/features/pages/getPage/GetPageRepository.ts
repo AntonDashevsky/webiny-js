@@ -12,7 +12,14 @@ export class GetPageRepository implements IGetPageRepository {
     }
 
     async execute(id: string) {
+        const existingPage = this.cache.getItem(page => page.id === id);
+        if (existingPage) {
+            return existingPage;
+        }
+
         const response = await this.gateway.execute(id);
-        this.cache.addItems([Page.create(response)]);
+        const page = Page.create(response);
+        this.cache.addItems([page]);
+        return page;
     }
 }

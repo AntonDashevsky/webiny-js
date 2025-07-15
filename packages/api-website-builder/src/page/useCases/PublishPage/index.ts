@@ -14,7 +14,7 @@ export interface PublishPageUseCasesTopics {
 
 interface PublishPageUseCasesParams {
     publishOperation: WbPagesStorageOperations["publish"];
-    getOperation: WbPagesStorageOperations["get"];
+    getOperation: WbPagesStorageOperations["getById"];
     topics: PublishPageUseCasesTopics;
 }
 

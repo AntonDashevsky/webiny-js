@@ -6,13 +6,13 @@ import { redirect } from "next/navigation";
  */
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
-    const pathname = searchParams.get("wb.preview.pathname");
+    const path = searchParams.get("wb.path");
 
-    const targetPathname = `${pathname}?wb.preview=true`;
+    const targetPathname = `${path}?${searchParams.toString()}`;
 
     // TODO: implement access control, if you want to secure your preview.
 
-    // Enable Draft Mode by setting the cookie
+    // Enable Draft Mode
     const draft = await draftMode();
     draft.enable();
 

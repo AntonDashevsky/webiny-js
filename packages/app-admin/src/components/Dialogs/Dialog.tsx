@@ -1,18 +1,22 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { Dialog as AdminDialog, OverlayLoader } from "@webiny/admin-ui";
 import { Form, FormOnSubmit, GenericFormData } from "@webiny/form";
 
-interface DialogProps {
+export interface DialogProps {
     title: ReactNode;
+    description: ReactNode;
+    dismissible: boolean;
     content: ReactNode;
+    icon: ReactNode;
     acceptLabel?: ReactNode;
     cancelLabel?: ReactNode;
     loadingLabel?: ReactNode;
+    dataLoadingLabel?: ReactNode;
     onSubmit: (data: GenericFormData) => void;
     closeDialog: () => void;
     loading: boolean;
     open: boolean;
-    formData?: GenericFormData;
+    formData?: GenericFormData | (() => Promise<GenericFormData>);
     size?: "sm" | "md" | "lg" | "xl" | "full";
 }
 
@@ -24,14 +28,31 @@ export const Dialog = ({
     acceptLabel,
     cancelLabel,
     loadingLabel = "Loading...",
+    dataLoadingLabel = "Loading...",
     closeDialog,
     onSubmit,
-    formData,
-    size
+    size,
+    ...props
 }: DialogProps) => {
     const handleSubmit: FormOnSubmit = data => {
-        onSubmit(data);
+        return onSubmit(data);
     };
+
+    const [dataIsLoading, setDataIsLoading] = useState(false);
+
+    const [formData, setFormData] = useState<GenericFormData | undefined>(
+        typeof props.formData === "function" ? undefined : props.formData
+    );
+
+    useEffect(() => {
+        if (typeof props.formData === "function") {
+            setDataIsLoading(true);
+            props.formData().then((data: GenericFormData) => {
+                setFormData(data);
+                setDataIsLoading(false);
+            });
+        }
+    }, [props.formData]);
 
     return (
         <Form onSubmit={handleSubmit} data={formData}>
@@ -41,6 +62,9 @@ export const Dialog = ({
                     onClose={closeDialog}
                     size={size}
                     title={title}
+                    description={props.description}
+                    icon={<AdminDialog.Icon icon={props.icon} label={""} />}
+                    dismissible={props.dismissible}
                     actions={
                         <>
                             {cancelLabel ? (
@@ -58,6 +82,7 @@ export const Dialog = ({
                     {open ? (
                         <>
                             {loading && <OverlayLoader text={loadingLabel} />}
+                            {dataIsLoading && <OverlayLoader text={dataLoadingLabel} />}
                             {content}
                         </>
                     ) : null}

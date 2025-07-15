@@ -5,7 +5,7 @@ import { createContentUrl } from "./contentUrl";
 import { sendChangeRequestNotification } from "./sendChangeRequestNotification";
 import { fetchReviewers } from "./reviewers";
 import { createChangeRequestUrl } from "./changeRequestUrl";
-import { getAppUrl } from "~/plugins/hooks/notifications/appUrl";
+import { getAppUrl } from "~/plugins/hooks/notifications/getAppUrl";
 
 export const attachChangeRequestAfterCreate = (context: ApwContext): void => {
     context.apw.changeRequest.onChangeRequestAfterCreate.subscribe(async ({ changeRequest }) => {
@@ -19,7 +19,7 @@ export const attachChangeRequestAfterCreate = (context: ApwContext): void => {
                 });
             }
 
-            const settings = await getAppUrl(context);
+            const settings = await getAppUrl();
             if (!settings) {
                 return;
             }

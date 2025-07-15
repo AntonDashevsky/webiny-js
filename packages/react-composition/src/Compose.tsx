@@ -11,7 +11,7 @@ export interface ComposeProps {
 
 export const Compose = (props: ComposeProps) => {
     const { composeComponent } = useComposition();
-    const scope = useCompositionScope();
+    const { scope, inherit } = useCompositionScope();
 
     const targetFn = (props.function ?? props.component) as Decoratable;
 
@@ -33,7 +33,8 @@ export const Compose = (props: ComposeProps) => {
         return composeComponent(
             targetFn.original,
             decorators as Enumerable<ComposeWith>,
-            scope[scope.length - 1]
+            scope[scope.length - 1],
+            inherit
         );
     }, [props.with]);
 

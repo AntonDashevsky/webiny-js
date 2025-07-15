@@ -9,14 +9,14 @@ import {
 } from "~/BaseEditor/metadata";
 import { Commands } from "~/BaseEditor";
 import { Editor } from "~/editorSdk/Editor";
-import { autorun, makeAutoObservable, runInAction, toJS } from "mobx";
+import { autorun, makeAutoObservable, runInAction } from "mobx";
 import { type InheritanceInfo, InheritanceProcessor } from "~/sdk/InheritanceProcessor";
 import { BindingsProcessor, type DocumentElementBindings, type Document } from "~/sdk";
 import { $getComponentManifestByElementId } from "~/editorSdk/utils";
 import { ComponentManifestToAstConverter } from "~/sdk/ComponentManifestToAstConverter";
 import { BASE_BREAKPOINT } from "~/constants";
 
-export type StyleStoreVm = {
+export type ElementBreakpointStyles = {
     styles: Record<string, any>;
     metadata: IMetadata;
     inheritanceMap: InheritanceInfo["styles"];
@@ -68,7 +68,7 @@ export class StylesStore {
         makeAutoObservable(this);
     }
 
-    get vm(): StyleStoreVm {
+    get vm(): ElementBreakpointStyles {
         return {
             styles: this.localPreviewStyles ?? this.devFriendlyStyles,
             metadata: this.elementMetadata,

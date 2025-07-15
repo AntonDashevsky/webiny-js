@@ -27,6 +27,11 @@ export class HoverManager {
         };
     }
 
+    destroy() {
+        this.callbacks.clear();
+        this.stop();
+    }
+
     private notify(id: string | null) {
         if (id !== this.hoveredId) {
             this.hoveredId = id;

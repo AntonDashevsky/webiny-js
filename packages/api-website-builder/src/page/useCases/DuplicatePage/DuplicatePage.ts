@@ -15,7 +15,7 @@ export class DuplicatePage implements IDuplicatePage {
     }
 
     async execute({ id }: DuplicateWbPageParams): Promise<WbPage> {
-        const page = await this.getOperation({ id });
+        const page = await this.getOperation({ where: { id } });
 
         if (!page) {
             throw new Error(`Page with id ${id} not found`);

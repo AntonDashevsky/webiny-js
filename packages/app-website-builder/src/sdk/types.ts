@@ -10,6 +10,7 @@ export type DocumentState = Record<string, any>;
 export type InputValueBinding<T = any> = ValueBinding<T> & {
     id: string;
     type: string;
+    translatable?: boolean;
     list?: boolean;
 };
 
@@ -52,9 +53,14 @@ export type DocumentBindings = {
 };
 
 export type Document = {
+    id: string;
+    status: string;
     properties: Record<string, any>;
     state: DocumentState;
     bindings: DocumentBindings;
+    metadata: {
+        [key: string]: any;
+    };
     elements: ElementMap;
 };
 
@@ -108,6 +114,7 @@ export type ComponentManifest = {
     canDelete?: boolean;
     acceptsChildren?: boolean;
     hideFromToolbar?: boolean;
+    hideStyleSettings?: string[];
     autoApplyStyles?: boolean;
     defaults?: {
         inputs?: Record<string, any>;
@@ -189,15 +196,14 @@ export type PreviewViewportData = {
     viewport: PreviewViewportInfo;
 };
 
-export type ApiOptions = {
-    preview?: boolean;
-};
+export type ApiOptions = {};
 
 export type GetPageOptions = ApiOptions;
 export type ListPagesOptions = ApiOptions;
 
 export interface IDataProvider {
-    getPage(path: string, options?: GetPageOptions): Promise<Page | null>;
+    getPageByPath(path: string, options?: GetPageOptions): Promise<Page | null>;
+    getPageById(id: string, options?: GetPageOptions): Promise<Page | null>;
     listPages(options?: ListPagesOptions): Promise<Page[]>;
 }
 
@@ -207,9 +213,9 @@ export interface IEnvironment {
     isPreview(): boolean;
 }
 
-export interface IContentSdk extends IDataProvider {
-    registerComponent(component: Component): void;
-    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null;
+export interface IContentSdk {
+    getPage(path: string): Promise<Page | null>;
+    listPages(options?: ListPagesOptions): Promise<Page[]>;
 }
 
 export type Breakpoint = {
@@ -237,6 +243,7 @@ export type BaseInput<T = any> = {
     hideFromUi?: boolean;
     renderer?: string;
     list?: boolean;
+    translatable?: boolean;
 };
 
 // Discriminated union per input type
@@ -286,6 +293,7 @@ export type LexicalInput = BaseInput<string> & {
 export type SelectInput = BaseInput<string> & {
     type: "select";
     options: { label: string; value: string }[];
+    showResetAction?: boolean;
 };
 
 export type RadioInput = BaseInput<string> & {

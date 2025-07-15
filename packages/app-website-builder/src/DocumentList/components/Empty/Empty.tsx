@@ -65,10 +65,10 @@ export const Empty = ({
 
     return (
         <EmptyView
-            title={`Nothing to show here ${
+            title={`Nothing to show here. ${
                 canCreateContent
-                    ? "navigate to a different folder or create a..."
-                    : "click on the left side to navigate to a different folder."
+                    ? "Navigate to a different folder or create a..."
+                    : "Click on the left side to navigate to a different folder."
             }`}
             action={
                 <>

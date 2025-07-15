@@ -1,5 +1,2 @@
-import { createContext } from "~/context";
-
-export const createAdminSettingsContext = () => {
-    return [createContext()];
-};
+export { SaveSettings } from "./features/saveSettings/SaveSettings.feature";
+export { GetSettings } from "./features/getSettings/GetSettings.feature";

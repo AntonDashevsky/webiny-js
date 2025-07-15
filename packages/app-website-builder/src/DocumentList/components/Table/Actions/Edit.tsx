@@ -9,5 +9,5 @@ export const Edit = () => {
     const { getEditPageUrl } = useGetEditPageUrl();
     const { OptionsMenuLink } = PageListConfig.Browser.Page.Action;
 
-    return <OptionsMenuLink icon={<EditIcon />} label={"Edit"} to={getEditPageUrl(document)} />;
+    return <OptionsMenuLink icon={<EditIcon />} label={"Edit"} to={getEditPageUrl(document.id)} />;
 };

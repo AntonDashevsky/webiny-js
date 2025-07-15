@@ -1,5 +1,5 @@
 import { DeletePage } from "./DeletePage.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("DeletePage", () => {
@@ -13,8 +13,8 @@ describe("DeletePage", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                entryId: "page-1",
-                status: statuses.draft,
+                pageId: "page-1",
+                status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },

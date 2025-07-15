@@ -1,12 +1,12 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import type { Document } from "~/sdk/types.js";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import { Editor as EditorComponent } from "~/BaseEditor/components";
-import { DefaultEditorConfig } from "~/BaseEditor";
 import { Editor } from "~/editorSdk/Editor";
 import { observer } from "mobx-react-lite";
 import { StateInspector } from "./StateInspector";
+import { CompositionScope } from "@webiny/react-composition";
 
 export const DocumentEditorContext = React.createContext<Editor | undefined>(undefined);
 
@@ -20,20 +20,25 @@ export const useDocumentEditor = () => {
 
 interface DocumentEditorProps {
     document: Document;
+    name: string;
     children?: React.ReactNode;
 }
 
-export const DocumentEditor = observer(({ document, children }: DocumentEditorProps) => {
-    const editor = useMemo(() => new Editor(document), []);
+export const DocumentEditor = observer(({ document, name, children }: DocumentEditorProps) => {
+    const ref = useRef<HTMLDivElement | null>(null);
+    const editor = useMemo(() => new Editor(document), [document]);
 
     return (
-        <DndProvider backend={HTML5Backend}>
-            <DefaultEditorConfig />
-            <StateInspector editor={editor} />
-            <DocumentEditorContext.Provider value={editor}>
-                {children ? <>{children}</> : null}
-                <EditorComponent />
-            </DocumentEditorContext.Provider>
-        </DndProvider>
+        <div ref={ref}>
+            <DndProvider backend={HTML5Backend} options={{ rootElement: ref }}>
+                <StateInspector editor={editor} />
+                <DocumentEditorContext.Provider value={editor}>
+                    {children ? <>{children}</> : null}
+                    <CompositionScope name={name}>
+                        <EditorComponent />
+                    </CompositionScope>
+                </DocumentEditorContext.Provider>
+            </DndProvider>
+        </div>
     );
 });

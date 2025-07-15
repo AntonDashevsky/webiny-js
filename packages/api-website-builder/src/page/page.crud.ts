@@ -4,7 +4,7 @@ import {
     getCreatePageUseCase,
     getDeletePageUseCase,
     getDuplicatePageUseCase,
-    getGetPageUseCase,
+    getGetPageByPathUseCase,
     getListPagesUseCase,
     getPublishPageUseCase,
     getUnpublishPageUseCase,
@@ -32,6 +32,8 @@ import type {
 } from "~/page/page.types";
 import type { WebsiteBuilderConfig } from "~/types";
 import { getMovePageUseCase } from "~/page/useCases/MovePage";
+import { getGetPageByIdUseCase } from "~/page/useCases/GetPageById";
+import { getGetPageRevisionsUseCase } from "~/page/useCases/GetPageRevisions";
 
 export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
     // create
@@ -56,7 +58,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { updatePageUseCase } = getUpdatePagerUseCase({
         updateOperation: config.storageOperations.pages.update,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeUpdate,
             onWebsiteBuilderPageAfterUpdate
@@ -71,7 +73,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { publishPageUseCase } = getPublishPageUseCase({
         publishOperation: config.storageOperations.pages.publish,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforePublish,
             onWebsiteBuilderPageAfterPublish
@@ -86,7 +88,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { unpublishPageUseCase } = getUnpublishPageUseCase({
         unpublishOperation: config.storageOperations.pages.unpublish,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeUnpublish,
             onWebsiteBuilderPageAfterUnpublish
@@ -135,7 +137,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { createPageRevisionFromUseCase } = getCreatePageRevisionFromUseCase({
         createRevisionFromOperation: config.storageOperations.pages.createRevisionFrom,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeCreateRevisionFrom,
             onWebsiteBuilderPageAfterCreateRevisionFrom
@@ -150,16 +152,26 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { deletePageUseCase } = getDeletePageUseCase({
         deleteOperation: config.storageOperations.pages.delete,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeDelete,
             onWebsiteBuilderPageAfterDelete
         }
     });
 
-    // get
-    const { getPageUseCase } = getGetPageUseCase({
+    // get by path
+    const { getPageByPathUseCase } = getGetPageByPathUseCase({
         getOperation: config.storageOperations.pages.get
+    });
+
+    // get by id
+    const { getPageByIdUseCase } = getGetPageByIdUseCase({
+        getOperation: config.storageOperations.pages.getById
+    });
+
+    // get page revisions
+    const { getPageRevisionsUseCase } = getGetPageRevisionsUseCase({
+        getRevisions: config.storageOperations.pages.getRevisions
     });
 
     // list
@@ -188,8 +200,14 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
         list: async params => {
             return listPagesUseCase.execute(params);
         },
-        get: async params => {
-            return getPageUseCase.execute(params);
+        getById: async id => {
+            return getPageByIdUseCase.execute(id);
+        },
+        getByPath: async path => {
+            return getPageByPathUseCase.execute(path);
+        },
+        getPageRevisions: async (pageId: string) => {
+            return getPageRevisionsUseCase.execute(pageId);
         },
         create: async data => {
             return createPageUseCase.execute(data);

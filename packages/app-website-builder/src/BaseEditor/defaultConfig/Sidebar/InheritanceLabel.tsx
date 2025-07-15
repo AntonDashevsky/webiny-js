@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Text, Tag, Icon, Button, Separator, DropdownMenu } from "@webiny/admin-ui";
+import { Text, Tag, Icon, Button, Separator, DropdownMenu, FormComponentLabel } from "@webiny/admin-ui";
 import { EditorBreakpoint, useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 
 export interface InheritanceLabelProps {
@@ -14,7 +14,7 @@ const getBreakpointIcon = (breakpoints: EditorBreakpoint[], name: string) => {
     return bp ? bp.icon : null;
 };
 
-const iconClassName = "wby-cursor-pointer wby-mr-xs";
+const iconClassName = "wby-cursor-pointer wby-mr-xs wby-mb-[2px]";
 
 export const InheritanceLabel = ({
     inheritedFrom,
@@ -31,7 +31,7 @@ export const InheritanceLabel = ({
     }, [inheritedFrom, breakpoint.name]);
 
     if (isBaseBreakpoint) {
-        return <>{text}</>;
+        return <FormComponentLabel text={text}/>;
     }
 
     return (
@@ -69,7 +69,7 @@ export const InheritanceLabel = ({
                     />
                 </div>
             </DropdownMenu>
-            {text}
+            <FormComponentLabel text={text}/>
         </div>
     );
 };

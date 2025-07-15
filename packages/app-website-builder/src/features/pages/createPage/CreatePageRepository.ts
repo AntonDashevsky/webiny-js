@@ -23,6 +23,8 @@ export class CreatePageRepository implements ICreatePageRepository {
         };
 
         const result = await this.gateway.execute(dto);
-        this.cache.addItems([Page.create(result)]);
+        const newPage = Page.create(result);
+        this.cache.addItems([newPage]);
+        return newPage;
     }
 }

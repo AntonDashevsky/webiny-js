@@ -3,7 +3,8 @@ import type {
     DocumentElement,
     ComponentManifest,
     InputValueBinding,
-    StyleValueBinding
+    StyleValueBinding,
+    CssProperties
 } from "~/sdk/types";
 import { type IDocumentOperation, DocumentOperations } from "./documentOperations";
 import {
@@ -11,6 +12,16 @@ import {
     type InputAstNode
 } from "./ComponentManifestToAstConverter";
 import { ComponentInputTraverser } from "./ComponentInputTraverser";
+
+const defaultStyles = {
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden"
+};
+
+const withDefaultStyles = (styles: CssProperties) => {
+    return { ...defaultStyles, ...styles };
+};
 
 interface CreateElementParams {
     componentName: string;
@@ -113,7 +124,9 @@ export class ElementFactory {
                 inputsAst,
                 bindings: {
                     inputs: bindings?.inputs ?? componentManifest.defaults?.inputs ?? {},
-                    styles: bindings?.styles ?? componentManifest.defaults?.styles ?? {},
+                    styles: withDefaultStyles(
+                        bindings?.styles ?? componentManifest.defaults?.styles ?? {}
+                    ),
                     overrides: bindings?.overrides ?? {}
                 },
                 operations: defaultOperations
@@ -210,6 +223,7 @@ export class ElementFactory {
                         id: generateAlphaNumericLowerCaseId(),
                         static: node.list ? [newElementId] : newElementId,
                         type: node.type,
+                        translatable: node.input.translatable,
                         list: node.list
                     })
                 );
@@ -221,7 +235,8 @@ export class ElementFactory {
                         id: generateAlphaNumericLowerCaseId(),
                         static: ignoreDefaultValues ? undefined : value ?? node.input.defaultValue,
                         type: node.type,
-                        list: node.list
+                        list: node.list,
+                        translatable: node.input.translatable
                     })
                 );
             }

@@ -43,7 +43,6 @@ export type ShorthandCssProperties =
     | "transition"
     | "boxShadow"
     | "textShadow"
-    | "overflow"
     | "scrollMargin"
     | "scrollPadding"
     | "size"

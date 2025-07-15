@@ -4,11 +4,13 @@ import { NextResponse, type NextRequest } from "next/server";
 // Pathname prefixes to ignore for middleware processing.
 // These include Next.js internals and common static or API routes.
 const IGNORE_PATHS = ["/_next", "/favicon.ico", "/.well-known", "/api", "/static"];
+const ENABLE_DRAFT_MODE_ROUTE = "/api/preview";
 
 export async function middleware(request: NextRequest) {
     const { searchParams, pathname } = request.nextUrl;
-    // Check if the preview flag is requested via query param `wb.preview=true`
-    const previewRequested = searchParams.get("wb.preview") === "true";
+    // Check if the preview/editing flag is set.
+    const previewRequested =
+        searchParams.get("wb.preview") === "true" || searchParams.get("wb.editing") === "true";
 
     // Skip processing for excluded paths to improve performance.
     const isExcluded = IGNORE_PATHS.some(path => pathname.startsWith(path));
@@ -24,6 +26,7 @@ export async function middleware(request: NextRequest) {
         // This ensures fresh content when in preview.
         if (previewMode.isEnabled) {
             const res = NextResponse.next();
+            res.headers.set("X-Preview-Params", searchParams.toString());
             res.headers.set(
                 "Cache-Control",
                 "no-store, no-cache, must-revalidate, proxy-revalidate"
@@ -34,16 +37,12 @@ export async function middleware(request: NextRequest) {
         }
 
         // If preview mode is not enabled yet, redirect to the preview API route
-        // which will enable draft mode and set necessary cookies.
-        // Passes along the preview token and the current path for proper routing.
-        const token = searchParams.get("wb.preview.token");
+        // which will enable draft mode and set the necessary cookies.
+        // Passes along all query parameters.
+        const url = new URL(request.url);
+        url.pathname = ENABLE_DRAFT_MODE_ROUTE;
 
-        return NextResponse.redirect(
-            new URL(
-                `/api/preview?wb.preview.token=${token}&wb.preview.pathname=${pathname}`,
-                request.url
-            )
-        );
+        return NextResponse.redirect(url);
     } else if (!previewRequested && previewMode.isEnabled) {
         // If the preview query param is missing but draft mode is enabled,
         // disable draft mode to exit preview mode.

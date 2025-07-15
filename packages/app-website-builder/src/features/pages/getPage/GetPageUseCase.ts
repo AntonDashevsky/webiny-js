@@ -9,6 +9,6 @@ export class GetPageUseCase implements IGetPageUseCase {
     }
 
     async execute(params: GetPageParams) {
-        await this.repository.execute(params.id);
+        return await this.repository.execute(params.id);
     }
 }

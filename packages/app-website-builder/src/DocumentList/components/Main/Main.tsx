@@ -7,6 +7,7 @@ import { Header } from "~/DocumentList/components/Header/index.js";
 import { BottomInfoBar } from "~/DocumentList/components/BottomInfoBar/index.js";
 import { Table } from "~/DocumentList/components/Table/index.js";
 import { Empty } from "~/DocumentList/components/Empty/index.js";
+import { useCreatePageDialog } from "./CreatePage/CreatePage";
 import { useLoadMorePages } from "~/features/pages/index.js";
 import { BulkActions } from "../BulkActions";
 import { Filters } from "~/DocumentList/components/Filters/index.js";
@@ -15,8 +16,11 @@ const Main = () => {
     const { vm } = useDocumentList();
     const { loadMorePages } = useLoadMorePages();
     const { showDialog: showCreateFolderDialog } = useCreateDialog();
+
+    const { showCreatePageDialog } = useCreatePageDialog(vm.folderId);
     const { getFolderLevelPermission: canManageContent } =
         useGetFolderLevelPermission("canManageContent");
+
     const { getFolderLevelPermission: canManageStructure } =
         useGetFolderLevelPermission("canManageStructure");
 
@@ -51,7 +55,7 @@ const Main = () => {
                 canCreateFolder={canCreateFolder(vm.folderId)}
                 canCreateContent={canCreateContent(vm.folderId)}
                 onCreateFolder={onCreateFolder}
-                onCreateDocument={() => alert("Create document")}
+                onCreateDocument={showCreatePageDialog}
                 isRoot={vm.isRoot}
             />
             <div

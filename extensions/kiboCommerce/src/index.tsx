@@ -95,22 +95,50 @@ function initEcommerceApi(settings: KiboCommerceSettings) {
 
 export const Extension = () => {
     return (
-        <EcommercePlugin
-            name={"KiboCommerce"}
-            init={(settings: KiboCommerceSettings) => initEcommerceApi(settings)}
-        >
-            <EcommercePlugin.PageType
-                name={"kiboProductPage"}
-                label={"Kibo Product Page"}
-                resourceType="product"
-                previewPath={resource => `/product/${resource.id}`}
-            />
-            <EcommercePlugin.PageType
-                name={"kiboCategoryPage"}
-                label={"Kibo Category Page"}
-                resourceType="category"
-                previewPath={resource => `/category/${resource.id}`}
-            />
-        </EcommercePlugin>
+        <>
+            {/*<WebsiteBuilderConfig>
+                <WebsiteBuilderConfig.EditorPreviewUrl getUrl={url => url}/>
+            </WebsiteBuilderConfig>*/}
+
+            <EcommercePlugin
+                name={"KiboCommerce"}
+                init={(settings: KiboCommerceSettings) => initEcommerceApi(settings)}
+                settings={[
+                    {
+                        name: "apiHost",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        name: "sharedSecret",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        name: "clientId",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        name: "authToken",
+                        type: "text",
+                        required: true
+                    }
+                ]}
+            >
+                <EcommercePlugin.PageType
+                    name={"kiboProductPage"}
+                    label={"Kibo Product Page"}
+                    resourceType="product"
+                    previewPath={resource => `/product/${resource.id}`}
+                />
+                <EcommercePlugin.PageType
+                    name={"kiboCategoryPage"}
+                    label={"Kibo Category Page"}
+                    resourceType="category"
+                    previewPath={resource => `/category/${resource.id}`}
+                />
+            </EcommercePlugin>
+        </>
     );
 };

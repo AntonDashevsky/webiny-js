@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import defaultImage from "@webiny/icons/extension.svg";
 import { Messenger } from "~/sdk/messenger";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { AddressBar } from "./AddressBar";
@@ -100,7 +101,10 @@ export const Preview = () => {
         return () => {
             dropzoneManager.stop();
             mouseTracker.stop();
-            scrollTracker.stop();
+            scrollTracker.destroy();
+            viewportManager.destroy();
+            hoverManager.destroy();
+
         };
     }, [dropzoneManager, scrollTracker, mouseTracker]);
 
@@ -172,7 +176,10 @@ export const Preview = () => {
                 if (!state.components) {
                     state.components = {};
                 }
-                state.components[component.name] = component;
+                state.components[component.name] = {
+                    ...component,
+                    image: component.image ?? defaultImage
+                };
             });
         });
 
@@ -199,7 +206,7 @@ export const Preview = () => {
             mouseTracker.setPosition(globalX, globalY);
         });
 
-        editor.onDocumentStateChange(event => {
+        const offDocumentStateChange = editor.onDocumentStateChange(event => {
             if (event.reason === "update") {
                 messenger.send("document.patch", event.diff);
             } else {
@@ -218,6 +225,10 @@ export const Preview = () => {
         setTimeout(() => {
             setShowLoading(false);
         }, 100);
+
+        return () => {
+            offDocumentStateChange();
+        }
     }, []);
 
     return (

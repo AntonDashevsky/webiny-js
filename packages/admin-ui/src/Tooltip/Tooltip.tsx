@@ -12,6 +12,7 @@ const TooltipTrigger = TooltipPrimitive.Trigger;
 interface TooltipProps extends Omit<TooltipPrimitive.TooltipContentProps, "content" | "children"> {
     align?: TooltipPrimitive.TooltipContentProps["align"];
     content: React.ReactNode;
+    delay?: number;
     onOpenChange?: TooltipPrimitive.TooltipProps["onOpenChange"];
     showArrow?: boolean;
     side?: TooltipPrimitive.TooltipContentProps["side"];
@@ -28,10 +29,11 @@ const DecoratableTooltip = ({
     side,
     variant,
     trigger,
+    delay = 500,
     ...props
 }: TooltipProps) => {
     return (
-        <TooltipRoot delayDuration={500} onOpenChange={onOpenChange}>
+        <TooltipRoot delayDuration={delay} onOpenChange={onOpenChange}>
             <TooltipTrigger asChild>
                 <span className={"wby-inline-block wby-text-0 wby-leading-none"}>{trigger}</span>
             </TooltipTrigger>

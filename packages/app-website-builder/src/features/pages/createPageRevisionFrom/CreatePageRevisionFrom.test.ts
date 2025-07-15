@@ -1,13 +1,13 @@
 import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom.js";
-import { statuses } from "~/constants.js";
+import { WbPageStatus } from "~/constants.js";
 import { Page, pageCacheFactory } from "~/domain/Page/index.js";
 
 describe("CreatePageRevisionFrom", () => {
     const gateway = {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0002",
-            entryId: "page-1",
-            status: statuses.draft,
+            pageId: "page-1",
+            status: WbPageStatus.Draft,
             version: 2,
             wbyAco_location: {
                 folderId: "folder-1"
@@ -35,8 +35,8 @@ describe("CreatePageRevisionFrom", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                entryId: "page-1",
-                status: statuses.draft,
+                pageId: "page-1",
+                status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
                 },
@@ -70,7 +70,7 @@ describe("CreatePageRevisionFrom", () => {
         expect(gateway.execute).toHaveBeenCalledTimes(1);
 
         expect(pagesCache.hasItems()).toBeTrue();
-        const newRevision = pagesCache.getItem(page => page.entryId === "page-1");
+        const newRevision = pagesCache.getItem(page => page.pageId === "page-1");
         expect(newRevision?.id).toEqual("page-1#0002");
         expect(newRevision?.version).toEqual(2);
     });
@@ -84,7 +84,7 @@ describe("CreatePageRevisionFrom", () => {
 
         expect(gateway.execute).toHaveBeenCalledTimes(1);
 
-        const newRevision = pagesCache.getItem(page => page.entryId === "page-1");
+        const newRevision = pagesCache.getItem(page => page.pageId === "page-1");
 
         expect(newRevision?.id).toEqual("page-1#0001");
         expect(newRevision?.id).toEqual("page-1#0001");

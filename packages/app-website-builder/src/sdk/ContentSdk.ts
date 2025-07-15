@@ -1,9 +1,12 @@
-import type { Component, GetPageOptions, IContentSdk, Page, ResolvedComponent } from "~/sdk/types";
+import type { Component, IContentSdk, Page, ResolvedComponent } from "~/sdk/types";
 import { environment } from "./Environment.js";
 import { LiveSdk, type LiveSdkConfig } from "./LiveSdk.js";
 import { EditingSdk } from "./EditingSdk.js";
-import { ResolveElementParams } from "~/sdk/ComponentResolver";
+import { ComponentResolver, ResolveElementParams } from "~/sdk/ComponentResolver";
 import { PreviewSdk } from "./PreviewSdk.js";
+import { componentRegistry } from "~/sdk/ComponentRegistry";
+import { ApiClient } from "~/sdk/dataProviders/ApiClient";
+import { DefaultDataProvider } from "~/sdk/dataProviders/DefaultDataProvider";
 
 export type ContentSDKConfig = LiveSdkConfig & {
     preview?: boolean;
@@ -22,20 +25,12 @@ class InternalContentSdk implements IContentSdk {
         return this.editingSdk;
     }
 
-    async getPage(path: string, options?: GetPageOptions): Promise<Page | null> {
-        return this.activeSdk.getPage(path, options);
+    async getPage(path: string): Promise<Page | null> {
+        return this.activeSdk.getPage(path);
     }
 
     listPages(): Promise<Page[]> {
         return this.activeSdk.listPages();
-    }
-
-    registerComponent(component: Component): void {
-        this.activeSdk.registerComponent(component);
-    }
-
-    resolveElement(params: ResolveElementParams): ResolvedComponent[] | null {
-        return this.activeSdk.resolveElement(params);
     }
 }
 
@@ -51,19 +46,20 @@ export class ContentSdk implements IContentSdk {
         }
 
         this.lastConfig = configHash;
+        const apiClient = new ApiClient(config.apiEndpoint, config.apiKey);
 
-        let liveSdk: IContentSdk = new LiveSdk();
-        (liveSdk as LiveSdk).init(config);
+        const dataProvider = new DefaultDataProvider({ apiClient });
+
+        let liveSdk: IContentSdk = new LiveSdk(dataProvider);
 
         if (config.preview && !environment.isEditing()) {
             this.isPreview = true;
-            liveSdk = new PreviewSdk(liveSdk);
+            liveSdk = new PreviewSdk(dataProvider, liveSdk);
         }
 
         let editingSdk;
         if (environment.isEditing()) {
             editingSdk = new EditingSdk(liveSdk);
-            editingSdk.init();
         }
 
         this.sdk = new InternalContentSdk(liveSdk as LiveSdk, editingSdk);
@@ -90,12 +86,12 @@ export class ContentSdk implements IContentSdk {
 
     registerComponent(blueprint: Component): void {
         this.assertInitialized();
-        this.sdk.registerComponent(blueprint);
+        componentRegistry.register(blueprint);
     }
 
     resolveElement(params: ResolveElementParams): ResolvedComponent[] | null {
         this.assertInitialized();
-        return this.sdk.resolveElement(params);
+        return new ComponentResolver(componentRegistry).resolve(params);
     }
 
     isEditing() {

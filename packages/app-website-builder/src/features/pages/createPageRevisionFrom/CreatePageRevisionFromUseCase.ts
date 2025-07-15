@@ -13,7 +13,7 @@ export class CreatePageRevisionFromUseCase implements ICreatePageRevisionFromUse
     }
 
     async execute(params: CreatePageRevisionFromParams) {
-        await this.repository.execute(
+        return await this.repository.execute(
             Page.create({
                 id: params.id
             })
