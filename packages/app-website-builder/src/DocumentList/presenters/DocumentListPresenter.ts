@@ -10,7 +10,7 @@ import {
     SortingMapper,
     sortRepositoryFactory
 } from "@webiny/app-utils";
-import { type IListCache, type Page, pageCacheFactory } from "~/domain/Page/index.js";
+import { type IListCache, type Page, pageListCache } from "~/domain/Page/index.js";
 import { Folder, folderCacheFactory } from "@webiny/app-aco";
 import { DocumentListMapper } from "~/DocumentList/presenters/DocumentListMapper.js";
 import { type ISearchRepository, searchRepositoryFactory } from "~/domain/Search/index.js";
@@ -40,7 +40,7 @@ class DocumentListPresenter {
     constructor() {
         this.foldersCache = folderCacheFactory.getCache(WB_PAGE_APP);
         this.foldersLoadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
-        this.documentsCache = pageCacheFactory.getCache();
+        this.documentsCache = pageListCache;
         this.documentsLoadingRepository = loadingRepositoryFactory.getRepository("WbPage");
         this.searchRepository = searchRepositoryFactory.getRepository("WbPage");
         this.metaRepository = metaRepositoryFactory.getRepository("WbPage");

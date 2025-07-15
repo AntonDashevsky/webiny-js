@@ -1,31 +1,15 @@
 import { makeAutoObservable, runInAction, toJS } from "mobx";
 import unionBy from "lodash/unionBy";
+import type { IListCache, IListCacheItemUpdater, IListCachePredicate } from "./IListCache";
 
 export type Constructor<T> = new (...args: any[]) => T;
 
-export interface IListCachePredicate<T> {
-    (item: T): boolean;
-}
-
-export interface IListCacheItemUpdater<T> {
-    (item: T): T;
-}
-
-export interface IListCache<T> {
-    count(): number;
-    clear(): void;
-    hasItems(): boolean;
-    getItems(): T[];
-    getItem(predicate: IListCachePredicate<T>): T | undefined;
-    addItems(items: T[]): void;
-    updateItems(updater: IListCacheItemUpdater<T>): void;
-    removeItems(predicate: IListCachePredicate<T>): void;
-}
-
 export class ListCache<T> implements IListCache<T> {
     private state: T[];
+    private key: string;
 
-    constructor() {
+    constructor(key: string) {
+        this.key = key;
         this.state = [];
 
         makeAutoObservable(this);
@@ -57,7 +41,7 @@ export class ListCache<T> implements IListCache<T> {
 
     addItems(items: T[]) {
         runInAction(() => {
-            this.state = unionBy(this.state, items, "id");
+            this.state = unionBy(this.state, items, this.key);
         });
     }
 

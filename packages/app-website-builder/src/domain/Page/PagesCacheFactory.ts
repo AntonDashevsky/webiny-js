@@ -1,12 +1,5 @@
-import { type IListCache, ListCache } from "./ListCache.js";
 import type { Page } from "./Page.js";
+import { ListCache } from "~/shared/cache/ListCache";
 
-export class PagesCacheFactory {
-    private cache: IListCache<Page> = new ListCache<Page>();
-
-    getCache(): IListCache<Page> {
-        return this.cache;
-    }
-}
-
-export const pageCacheFactory = new PagesCacheFactory();
+export const fullPageCache = new ListCache<Page>("id");
+export const pageListCache = new ListCache<Page>("pageId");
