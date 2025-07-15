@@ -1,3 +1,4 @@
+import type { Document } from "~/sdk";
 import { DocumentStore } from "./DocumentStore";
 
 class DocumentStoreManager {
@@ -7,11 +8,11 @@ class DocumentStoreManager {
         return this.stores;
     }
 
-    getStore(id: string): DocumentStore {
+    getStore<TDocument extends Document>(id: string): DocumentStore<TDocument> {
         if (!this.stores.has(id)) {
-            this.stores.set(id, new DocumentStore());
+            this.stores.set(id, new DocumentStore<TDocument>());
         }
-        return this.stores.get(id)!;
+        return this.stores.get(id)! as DocumentStore<TDocument>;
     }
 
     removeStore(id: string) {

@@ -1,5 +1,9 @@
 import * as React from "react";
-import { FormComponentLabel, type FormComponentProps } from "~/FormComponent";
+import {
+    FormComponentDescription,
+    FormComponentLabel,
+    type FormComponentProps
+} from "~/FormComponent";
 
 type FormPickerLabelProps = Pick<
     FormComponentProps,
@@ -18,14 +22,16 @@ const FormPickerLabel = ({
     className
 }: FormPickerLabelProps) => {
     return (
-        <FormComponentLabel
-            text={label}
-            required={required}
-            disabled={disabled}
-            hint={description}
-            className={className}
-            invalid={invalid}
-        />
+        <>
+            <FormComponentLabel
+                text={label}
+                required={required}
+                disabled={disabled}
+                className={className}
+                invalid={invalid}
+            />
+            <FormComponentDescription text={description} disabled={disabled} />
+        </>
     );
 };
 

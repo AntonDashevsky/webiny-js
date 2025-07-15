@@ -2,13 +2,14 @@ import React from "react";
 import Monaco from "@monaco-editor/react";
 import { Tabs } from "@webiny/admin-ui";
 import { FloatingPanel } from "@webiny/app-admin/components";
+import type { EditorDocument } from "~/sdk";
 import { Editor } from "~/editorSdk/Editor";
 import { observer } from "mobx-react-lite";
 
 const monacoTheme = "vs-light";
 const monacoOptions = { minimap: { enabled: false } };
 
-export const StateInspector = observer(({ editor }: { editor: Editor }) => {
+function BaseStateInspector<TDocument extends EditorDocument>({ editor }: { editor: Editor<TDocument> }) {
     const document = editor.getDocumentState().read();
     const editorState = editor.getEditorState().read();
 
@@ -53,4 +54,6 @@ export const StateInspector = observer(({ editor }: { editor: Editor }) => {
             )}
         </FloatingPanel>
     );
-});
+}
+
+export const StateInspector = observer(BaseStateInspector);

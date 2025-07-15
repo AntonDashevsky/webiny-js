@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { toJS } from "mobx";
 import { observer } from "mobx-react-lite";
 import { IconButton } from "@webiny/admin-ui";
@@ -6,10 +6,13 @@ import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { useDialogs } from "@webiny/app-admin";
 import { SettingsDialogBody } from "./Settings/SettingsDialogBody";
 import { useDocumentEditor } from "~/DocumentEditor";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { EditorPage } from "~/sdk";
 
 export const SettingsButton = observer(() => {
     const dialogs = useDialogs();
     const editor = useDocumentEditor();
+    useUpdatePreviewUrl();
 
     const formData = {
         properties: editor.getDocumentState().read().properties,
@@ -19,7 +22,7 @@ export const SettingsButton = observer(() => {
     const showDialog = () => {
         dialogs.showDialog({
             title: "Page Settings",
-            description: "This dialog contain various page related settings.",
+            description: "Configure your page settings, SEO and Social metadata.",
             dismissible: false,
             acceptLabel: "Save Settings",
             formData: structuredClone(toJS(formData)),
@@ -43,3 +46,14 @@ export const SettingsButton = observer(() => {
         </div>
     );
 });
+
+const useUpdatePreviewUrl = () => {
+    const editor = useDocumentEditor();
+    const { path } = useSelectFromDocument<any, EditorPage>(document => {
+        return { path: document.properties };
+    });
+
+    useEffect(() => {
+        // console.log("new path", toJS(path));
+    }, [path]);
+};

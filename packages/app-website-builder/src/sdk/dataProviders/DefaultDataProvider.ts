@@ -1,4 +1,4 @@
-import type { IDataProvider, Page } from "~/sdk/types.js";
+import type { IDataProvider, Page, PublicPage } from "~/sdk/types.js";
 import mockPage1 from "~/sdk/mocks/mockPage1";
 import emptyPage from "~/sdk/mocks/emptyPage";
 import type { ApiClient } from "~/sdk/dataProviders/ApiClient";
@@ -39,6 +39,6 @@ export class DefaultDataProvider implements IDataProvider {
     }
 
     public async listPages() {
-        return [mockPage1, emptyPage];
+        return [mockPage1, emptyPage] as PublicPage[];
     }
 }

@@ -6,6 +6,7 @@ import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { ReactComponent as SeoIcon } from "@webiny/icons/search.svg";
 import { ReactComponent as SocialIcon } from "@webiny/icons/thumb_up.svg";
 import { MetaTags } from "./MetaTags";
+import { SimpleTags } from "~/pages/editor/TopBar/Settings/SimpleTags";
 
 export const SettingsDialogBody = () => {
     return (
@@ -51,19 +52,6 @@ const GeneralSettingsForm = () => {
                 </Bind>
             </Grid.Column>
             <Grid.Column span={12}>
-                <Bind name={"properties.tags"}>
-                    {({ value, onChange }) => (
-                        <MultiAutoComplete
-                            label={"Tags"}
-                            options={[]}
-                            allowFreeInput
-                            value={value}
-                            onValuesChange={onChange}
-                        />
-                    )}
-                </Bind>
-            </Grid.Column>
-            <Grid.Column span={12}>
                 <Bind name={"properties.snippet"}>
                     <Textarea label={"Snippet"} />
                 </Bind>
@@ -88,6 +76,15 @@ const GeneralSettingsForm = () => {
                     )}
                 </Bind>
             </Grid.Column>
+            <Grid.Column span={12}>
+                <SimpleTags
+                    bindName={"properties.tags"}
+                    label={"Tags"}
+                    description={
+                        "Add page tags. These can be used for page rendering, filtering, etc."
+                    }
+                />
+            </Grid.Column>
         </Grid>
     );
 };
@@ -97,16 +94,18 @@ const SeoSettingsForm = () => {
         <Grid className={"wby-mt-md"}>
             <Grid.Column span={12}>
                 <Bind name={"properties.seo.title"}>
-                    <Input label={"Title"} description={"SEO title"}/>
+                    <Input label={"Title"} description={"SEO title"} />
                 </Bind>
             </Grid.Column>
             <Grid.Column span={12}>
                 <Bind name={"properties.seo.description"}>
-                    <Textarea label={"Description"} />
+                    <Textarea label={"Description"} description={"SEO description"} />
                 </Bind>
             </Grid.Column>
             <Grid.Column span={12}>
                 <MetaTags
+                    label={"Meta Tags"}
+                    description={"Add SEO tags"}
                     bindName={"properties.seo.metaTags"}
                     keyName={"name"}
                     keyLabel={"Name"}
@@ -123,19 +122,44 @@ const SocialSettingsForm = () => {
         <Grid className={"wby-mt-md"}>
             <Grid.Column span={12}>
                 <Bind name={"properties.social.title"}>
-                    <Input label={"Title"} description={"Search engine optimized title"} />
+                    <Input label={"Title"} description={"Title for social platforms (og:title)"} />
                 </Bind>
             </Grid.Column>
             <Grid.Column span={12}>
                 <Bind name={"properties.social.description"}>
-                    <Textarea label={"Description"} description={"Search engine optimized description"}/>
+                    <Textarea
+                        label={"Description"}
+                        description={"Description for social platforms (og:description)"}
+                    />
+                </Bind>
+            </Grid.Column>
+            <Grid.Column span={12}>
+                <Bind name={"properties.social.image"}>
+                    {({ value, onChange }) => (
+                        <FileManager
+                            images={true}
+                            render={({ showFileManager }) => (
+                                <FilePicker
+                                    label={"Image"}
+                                    description="Select an image for social platforms (og:image)"
+                                    type="compact"
+                                    value={value}
+                                    onSelectItem={() => showFileManager()}
+                                    onRemoveItem={() => onChange(undefined)}
+                                    onEditItem={() => showFileManager()}
+                                />
+                            )}
+                        />
+                    )}
                 </Bind>
             </Grid.Column>
             <Grid.Column span={12}>
                 <MetaTags
-                    bindName={"properties.seo.metaTags"}
-                    keyName={"name"}
-                    keyLabel={"Name"}
+                    label={"Meta Tags"}
+                    description={"Add more Open Graph tags"}
+                    bindName={"properties.social.metaTags"}
+                    keyName={"property"}
+                    keyLabel={"Property"}
                     valueName={"content"}
                     valueLabel={"Content"}
                 />

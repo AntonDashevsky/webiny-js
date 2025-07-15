@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import type { ResolveElementParams } from "~/sdk/ComponentResolver";
 import type { BindingsApi } from "~/sdk/BindingsApi";
 import { ShorthandCssProperties } from "./types/ShorthandCssProperties";
 
@@ -50,18 +49,6 @@ export type DocumentElementBindings = {
 
 export type DocumentBindings = {
     [elementId: string]: DocumentElementBindings;
-};
-
-export type Document = {
-    id: string;
-    status: string;
-    properties: Record<string, any>;
-    state: DocumentState;
-    bindings: DocumentBindings;
-    metadata: {
-        [key: string]: any;
-    };
-    elements: ElementMap;
 };
 
 export type ResolvedComponent<TComponent = any> = {
@@ -149,7 +136,58 @@ export type SerializableCSSStyleDeclaration = {
     [K in keyof CssProperties]?: CssProperties[K];
 };
 
-export type Page = Document;
+export type Document = {
+    id: string;
+    version: number;
+    properties: Record<string, any>;
+    bindings: DocumentBindings;
+    elements: ElementMap;
+};
+
+export type PublicPage = Pick<Page, "id" | "version" | "properties" | "bindings" | "elements">;
+
+export type EditorPage = EditorDocument & Pick<Page, "properties" | "status">;
+
+export type EditorDocument = Document & {
+    state: DocumentState;
+    metadata: Record<string, any>;
+};
+
+export type Page = Document & {
+    id: string;
+    status: string;
+    version: number;
+    properties: {
+        title: string;
+        snippet: string;
+        image: {
+            id: string;
+            name: string;
+            size: number;
+            mimeType: string;
+            src: string;
+        };
+        path: string;
+        tags: string[];
+        seo: {
+            title: string;
+            description: string;
+            metaTags: Array<{ name: string; content: string }>;
+        };
+        social: {
+            title: string;
+            description: string;
+            image: {
+                id: string;
+                name: string;
+                size: number;
+                mimeType: string;
+                src: string;
+            };
+            metaTags: Array<{ property: string; content: string }>;
+        };
+    };
+};
 
 export type Box = {
     depth: number;
@@ -196,15 +234,15 @@ export type PreviewViewportData = {
     viewport: PreviewViewportInfo;
 };
 
-export type ApiOptions = {};
+export type ApiOptions = Record<string, any>;
 
 export type GetPageOptions = ApiOptions;
 export type ListPagesOptions = ApiOptions;
 
 export interface IDataProvider {
-    getPageByPath(path: string, options?: GetPageOptions): Promise<Page | null>;
-    getPageById(id: string, options?: GetPageOptions): Promise<Page | null>;
-    listPages(options?: ListPagesOptions): Promise<Page[]>;
+    getPageByPath(path: string, options?: GetPageOptions): Promise<PublicPage | null>;
+    getPageById(id: string, options?: GetPageOptions): Promise<PublicPage | null>;
+    listPages(options?: ListPagesOptions): Promise<PublicPage[]>;
 }
 
 export interface IEnvironment {
@@ -214,8 +252,8 @@ export interface IEnvironment {
 }
 
 export interface IContentSdk {
-    getPage(path: string): Promise<Page | null>;
-    listPages(options?: ListPagesOptions): Promise<Page[]>;
+    getPage(path: string): Promise<PublicPage | null>;
+    listPages(options?: ListPagesOptions): Promise<PublicPage[]>;
 }
 
 export type Breakpoint = {

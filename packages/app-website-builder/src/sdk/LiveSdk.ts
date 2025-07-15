@@ -1,4 +1,4 @@
-import { GetPageOptions, IContentSdk, IDataProvider, ListPagesOptions, Page } from "~/sdk/types.js";
+import { GetPageOptions, IContentSdk, IDataProvider, ListPagesOptions, PublicPage } from "~/sdk/types.js";
 import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 
 export type LiveSdkConfig = {
@@ -13,15 +13,15 @@ export class LiveSdk implements IContentSdk {
         this.dataProvider = dataProvider;
     }
 
-    async getPage(path: string, options?: GetPageOptions): Promise<Page | null> {
+    async getPage(path: string, options?: GetPageOptions): Promise<PublicPage | null> {
         const page = await this.dataProvider.getPageByPath(path, options);
         if (page) {
-            documentStoreManager.getStore(page.properties.id).setDocument(page);
+            documentStoreManager.getStore<PublicPage>(page.properties.id).setDocument(page);
         }
         return page;
     }
 
-    listPages(options?: ListPagesOptions): Promise<Page[]> {
+    listPages(options?: ListPagesOptions): Promise<PublicPage[]> {
         return this.dataProvider.listPages(options);
     }
 }

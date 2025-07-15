@@ -1,4 +1,4 @@
-import { Document } from "~/sdk/types";
+import { PublicPage } from "~/sdk/types";
 
 export default {
     properties: {
@@ -300,4 +300,4 @@ export default {
             }
         }
     }
-} as any as Document;
+} as any as PublicPage;

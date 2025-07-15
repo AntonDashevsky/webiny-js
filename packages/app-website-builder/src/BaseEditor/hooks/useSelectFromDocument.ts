@@ -1,5 +1,5 @@
 import deepEqual from "deep-equal";
-import { Document } from "~/sdk/types";
+import type { EditorDocument } from "~/sdk/types";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromState } from "./useSelectFromState";
 
@@ -10,12 +10,12 @@ type Equals<T> = (a: T, b: T) => boolean;
  * @param selector   Pick the slice of state you care about.
  * @param equals     (optional) comparator, defaults to Object.is
  */
-export function useSelectFromDocument<T>(
-    selector: (doc: Document) => T,
+export function useSelectFromDocument<TReturn, TDocument extends EditorDocument>(
+    selector: (doc: TDocument) => TReturn,
     deps: React.DependencyList = [],
-    equals: Equals<T> = deepEqual
-): T {
-    const editor = useDocumentEditor();
+    equals: Equals<TReturn> = deepEqual
+): TReturn {
+    const editor = useDocumentEditor<TDocument>();
 
     return useSelectFromState(
         () => editor.getDocumentState().read(),

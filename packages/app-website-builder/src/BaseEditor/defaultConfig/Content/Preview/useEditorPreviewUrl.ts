@@ -40,7 +40,7 @@ export const useEditorPreviewUrl = () => {
                 });
             }
         });
-    }, [lastPreviewUrl]);
+    }, [lastPreviewUrl, path]);
 
     return { previewUrl: lastPreviewUrl };
 };

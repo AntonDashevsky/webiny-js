@@ -1,4 +1,4 @@
-import type { Component, IContentSdk, Page, ResolvedComponent } from "~/sdk/types";
+import type { Component, IContentSdk, PublicPage, ResolvedComponent } from "~/sdk/types";
 import { environment } from "./Environment.js";
 import { LiveSdk, type LiveSdkConfig } from "./LiveSdk.js";
 import { EditingSdk } from "./EditingSdk.js";
@@ -25,11 +25,11 @@ class InternalContentSdk implements IContentSdk {
         return this.editingSdk;
     }
 
-    async getPage(path: string): Promise<Page | null> {
+    async getPage(path: string): Promise<PublicPage | null> {
         return this.activeSdk.getPage(path);
     }
 
-    listPages(): Promise<Page[]> {
+    listPages(): Promise<PublicPage[]> {
         return this.activeSdk.listPages();
     }
 }

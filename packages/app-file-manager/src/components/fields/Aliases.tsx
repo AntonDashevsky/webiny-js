@@ -41,15 +41,6 @@ const Footer = ({ addAlias }: FooterProps) => {
 export const Aliases = () => {
     const { value, onChange } = useBind({ name: "aliases" });
 
-    const addAlias = () => {
-        const newValue = Array.isArray(value) ? [...value] : [];
-        newValue.push("");
-        if (!onChange) {
-            return;
-        }
-        onChange(newValue);
-    };
-
     const aliasValidator = useMemo(() => {
         return [
             validation.create("required"),
@@ -63,7 +54,7 @@ export const Aliases = () => {
 
     return (
         <div className={"wby-my-lg"}>
-            <DynamicFieldset value={value || [""]} onChange={onChange}>
+            <DynamicFieldset value={value || [""]} onChange={onChange} onAdd={() => ""}>
                 {({ actions, header, footer, row, empty }) => (
                     <>
                         {row(({ index }) => (
@@ -85,7 +76,7 @@ export const Aliases = () => {
                             </div>
                         ))}
                         {footer(() => (
-                            <Footer addAlias={addAlias} />
+                            <Footer addAlias={actions.add()} />
                         ))}
                         {header(() => (
                             <Header />
@@ -93,7 +84,7 @@ export const Aliases = () => {
                         {empty(() => (
                             <>
                                 <Header />
-                                <Footer addAlias={addAlias} />
+                                <Footer addAlias={actions.add()} />
                             </>
                         ))}
                     </>

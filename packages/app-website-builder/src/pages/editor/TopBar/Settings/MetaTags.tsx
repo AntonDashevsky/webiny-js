@@ -11,24 +11,29 @@ import {
     Input
 } from "@webiny/admin-ui";
 
-const Header = () => {
+interface HeaderProps {
+    label: string;
+    description: string;
+}
+
+const Header = ({ label, description }: HeaderProps) => {
     return (
         <>
-            <FormComponentLabel text={"Meta Tags"} />
-            <FormComponentDescription text={"Add custom SEO meta tags"} />
+            <FormComponentLabel text={label} />
+            <FormComponentDescription text={description} />
         </>
     );
 };
 
 interface FooterProps {
-    addAlias: () => void;
+    onClick: () => void;
 }
 
-const Footer = ({ addAlias }: FooterProps) => {
+const Footer = ({ onClick }: FooterProps) => {
     return (
         <div className={"wby-mt-md"}>
             <Button
-                onClick={addAlias}
+                onClick={onClick}
                 text="Add tag"
                 variant={"secondary"}
                 size={"sm"}
@@ -38,9 +43,9 @@ const Footer = ({ addAlias }: FooterProps) => {
     );
 };
 
-const bindingPath = "properties.seo.metaTags";
-
 export interface MetaTagsProps {
+    label: string;
+    description: string;
     bindName: string;
     keyName: string;
     keyLabel: string;
@@ -49,46 +54,44 @@ export interface MetaTagsProps {
 }
 
 export const MetaTags = (props: MetaTagsProps) => {
-    const { value, onChange } = useBind({ name: props.bindName });
+    const { value, onChange } = useBind({ name: props.bindName, defaultValue: [] });
 
     return (
-        <div className={"wby-my-lg"}>
-            <DynamicFieldset value={value || [""]} onChange={onChange}>
-                {({ actions, header, footer, row, empty }) => (
-                    <>
-                        {row(({ index }) => (
-                            <div className={"wby-mt-md"}>
-                                <div className={"wby-flex wby-items-start wby-gap-sm"}>
-                                    <Bind name={`${bindingPath}.${index}.${props.keyName}`}>
-                                        <Input placeholder={props.keyLabel} size={"lg"} />
-                                    </Bind>
-                                    <Bind name={`${bindingPath}.${index}.${props.valueName}`}>
-                                        <Input placeholder={props.valueLabel} size={"lg"} />
-                                    </Bind>
-                                    <IconButton
-                                        variant={"ghost"}
-                                        size={"lg"}
-                                        icon={<DeleteIcon />}
-                                        onClick={actions.remove(index)}
-                                    />
-                                </div>
+        <DynamicFieldset value={value} onChange={onChange}>
+            {({ actions, header, footer, row, empty }) => (
+                <>
+                    {row(({ index }) => (
+                        <div className={"wby-mt-md"}>
+                            <div className={"wby-flex wby-items-start wby-gap-sm"}>
+                                <Bind name={`${props.bindName}.${index}.${props.keyName}`}>
+                                    <Input placeholder={props.keyLabel} size={"lg"} />
+                                </Bind>
+                                <Bind name={`${props.bindName}.${index}.${props.valueName}`}>
+                                    <Input placeholder={props.valueLabel} size={"lg"} />
+                                </Bind>
+                                <IconButton
+                                    variant={"ghost"}
+                                    size={"lg"}
+                                    icon={<DeleteIcon />}
+                                    onClick={actions.remove(index)}
+                                />
                             </div>
-                        ))}
-                        {footer(() => (
-                            <Footer addAlias={actions.add()} />
-                        ))}
-                        {header(() => (
-                            <Header />
-                        ))}
-                        {empty(() => (
-                            <>
-                                <Header />
-                                <Footer addAlias={actions.add()} />
-                            </>
-                        ))}
-                    </>
-                )}
-            </DynamicFieldset>
-        </div>
+                        </div>
+                    ))}
+                    {footer(() => (
+                        <Footer onClick={actions.add()} />
+                    ))}
+                    {header(() => (
+                        <Header label={props.label} description={props.description} />
+                    ))}
+                    {empty(() => (
+                        <>
+                            <Header label={props.label} description={props.description} />
+                            <Footer onClick={actions.add()} />
+                        </>
+                    ))}
+                </>
+            )}
+        </DynamicFieldset>
     );
 };

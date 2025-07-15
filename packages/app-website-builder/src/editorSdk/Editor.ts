@@ -1,6 +1,6 @@
 import {
     ComponentManifest,
-    Document,
+    EditorDocument,
     EditorViewportData,
     PreviewViewportData,
     SerializedComponentGroup
@@ -26,7 +26,7 @@ export type EditorState = {
     [key: string]: any;
 };
 
-export class Editor<TDocument extends Document = Document> {
+export class Editor<TDocument extends EditorDocument = EditorDocument> {
     private readonly documentState: StateWithHistory<TDocument>;
     private readonly editorState: State<EditorState>;
     private readonly commandBus: CommandBus;
@@ -34,25 +34,28 @@ export class Editor<TDocument extends Document = Document> {
     constructor(initialState: TDocument) {
         this.commandBus = new CommandBus();
         this.documentState = new StateWithHistory(initialState);
-        this.editorState = new State<EditorState>({
-            showOverlays: true,
-            selectedElement: null,
-            highlightedElement: null,
-            boxes: {
-                preview: {},
-                editor: {}
+        this.editorState = new State<EditorState>(
+            {
+                showOverlays: true,
+                selectedElement: null,
+                highlightedElement: null,
+                boxes: {
+                    preview: {},
+                    editor: {}
+                },
+                viewport: {
+                    top: 0,
+                    left: 0,
+                    width: 0,
+                    height: 0,
+                    scrollX: 0,
+                    scrollY: 0
+                },
+                components: {},
+                componentGroups: {}
             },
-            viewport: {
-                top: 0,
-                left: 0,
-                width: 0,
-                height: 0,
-                scrollX: 0,
-                scrollY: 0
-            },
-            components: {},
-            componentGroups: {}
-        }, false);
+            false
+        );
     }
 
     registerCommandHandler<T>(

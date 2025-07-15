@@ -34,6 +34,8 @@ interface DynamicFieldsetProps {
     description?: string;
     validation?: { isValid: null | boolean; message?: string };
     onChange: (value: any) => void;
+    // Create a new value to be added to the fieldset.
+    onAdd: () => any;
     children: (props: ChildrenRenderProp) => React.ReactNode;
 }
 
@@ -67,15 +69,18 @@ class DynamicFieldset extends React.Component<DynamicFieldsetProps> {
     };
 
     addData = (index = -1) => {
-        const { onChange } = this.props;
+        const { onChange, onAdd } = this.props;
         let value = this.props.value;
         if (!value) {
             value = [];
         }
+
+        const newValue = typeof onAdd === "function" ? onAdd() : {};
+
         if (index < 0) {
-            onChange([...value, {}]);
+            onChange([...value, newValue]);
         } else {
-            onChange([...value.slice(0, index + 1), {}, ...value.slice(index + 1)]);
+            onChange([...value.slice(0, index + 1), newValue, ...value.slice(index + 1)]);
         }
     };
 

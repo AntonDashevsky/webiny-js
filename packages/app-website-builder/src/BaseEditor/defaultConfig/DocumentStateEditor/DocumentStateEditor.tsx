@@ -6,6 +6,7 @@ import { Bind, GenericFormData } from "@webiny/form";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { autorun, toJS } from "mobx";
 import { observer } from "mobx-react-lite";
+import { EditorDocument } from "~/sdk";
 
 const monacoOptions = { minimap: { enabled: false } };
 
@@ -28,7 +29,7 @@ const DialogForm = () => {
 
 export const DocumentStateEditor = observer(() => {
     const dialog = useDialogs();
-    const editor = useDocumentEditor();
+    const editor = useDocumentEditor<EditorDocument>();
     const [state, setState] = useState(() =>
         JSON.stringify(toJS(editor.getDocumentState().read().state), null, 2)
     );

@@ -8,18 +8,19 @@ import { DefaultPageEditorConfig } from "./editor/DefaultPageEditorConfig";
 import { DefaultEditorConfig } from "~/BaseEditor";
 import { EDITOR_NAME } from "~/pages/constants";
 import { PAGE_EDITOR_ROUTE, WbPageStatus } from "~/constants";
-import type { Page } from "~/domain/Page";
-import type { Page as EditorPage } from "~/sdk";
+import type { EditorPage } from "~/sdk";
+import { Page } from "~/domain/Page";
 
-const getPageDataFromPage = (page: Page) => {
+const getPageDataFromPage = (page: Page): EditorPage => {
     return {
         id: page.id,
+        version: page.version,
         status: page.status,
-        properties: page.properties,
-        state: {},
+        properties: page.properties as EditorPage["properties"],
         bindings: page.bindings,
         elements: page.elements,
-        metadata: page.metadata
+        metadata: page.metadata,
+        state: {}
     };
 };
 
@@ -61,7 +62,7 @@ export const PageEditor = () => {
     }
 
     return (
-        <DocumentEditor key={page.id} document={page} name={EDITOR_NAME}>
+        <DocumentEditor<EditorPage> key={page.id} document={page} name={EDITOR_NAME}>
             <DefaultEditorConfig />
             <DefaultPageEditorConfig />
         </DocumentEditor>

@@ -1,9 +1,9 @@
 import { jsonPatch, type JsonPatchOperation } from "~/sdk/jsonPatch";
+import type { Document } from "~/sdk";
 import { makeAutoObservable, runInAction, observable } from "mobx";
-import type { Document } from "~/sdk/types";
 
-export class DocumentStore {
-    private document: Document | null = null;
+export class DocumentStore<TDocument extends Document = Document> {
+    private document: TDocument | null = null;
     private documentReady = false;
     private readyResolvers: (() => void)[] = [];
 
@@ -11,7 +11,7 @@ export class DocumentStore {
         makeAutoObservable(this);
     }
 
-    setDocument(doc: Document) {
+    setDocument(doc: TDocument) {
         runInAction(() => {
             if (this.document) {
                 Object.assign(this.document, doc);
@@ -24,7 +24,7 @@ export class DocumentStore {
         });
     }
 
-    updateDocument(cb: (document: Document) => void) {
+    updateDocument(cb: (document: TDocument) => void) {
         runInAction(() => {
             if (this.document) {
                 cb(this.document);
@@ -61,14 +61,14 @@ export class DocumentStore {
         });
     }
 
-    async waitForDocument(): Promise<Document> {
+    async waitForDocument(): Promise<TDocument> {
         if (this.documentReady) {
-            return this.document as Document;
+            return this.document as TDocument;
         }
 
         return new Promise(resolve => {
             this.readyResolvers.push(() => {
-                resolve(this.document as Document);
+                resolve(this.document as TDocument);
             });
         });
     }

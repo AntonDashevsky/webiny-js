@@ -1,5 +1,5 @@
 "use client";
-import type { ComponentGroup, IContentSdk, Page } from "./types.js";
+import type { ComponentGroup, IContentSdk, PublicPage } from "./types.js";
 import { Messenger, MessageOrigin } from "./messenger";
 import { logger } from "./Logger";
 import { PreviewViewport } from "./PreviewViewport";
@@ -17,7 +17,7 @@ export class EditingSdk implements IContentSdk {
     private positionReportingEnabled = false;
     private previewViewport: PreviewViewport | null = null;
     private liveSdk: IContentSdk;
-    private documentStore: DocumentStore;
+    private documentStore: DocumentStore<PublicPage>;
     private previewDocument: PreviewDocument;
     private hotkeyManager: HotkeyManager;
 
@@ -28,7 +28,7 @@ export class EditingSdk implements IContentSdk {
 
         this.previewDocument = PreviewDocument.createFromWindow();
 
-        this.documentStore = documentStoreManager.getStore(this.previewDocument.getId());
+        this.documentStore = documentStoreManager.getStore<PublicPage>(this.previewDocument.getId());
 
         this.messenger = new Messenger(source, target, "wb.editor.*");
 
@@ -47,7 +47,7 @@ export class EditingSdk implements IContentSdk {
         this.setupHotkeyListeners();
     }
 
-    public async getPage(path: string): Promise<Page | null> {
+    public async getPage(path: string): Promise<PublicPage | null> {
         if (!this.previewDocument.matches({ type: "page", path })) {
             return this.liveSdk.getPage(path);
         }
@@ -56,7 +56,7 @@ export class EditingSdk implements IContentSdk {
         return this.documentStore.getDocument();
     }
 
-    public async listPages(): Promise<Page[]> {
+    public async listPages(): Promise<PublicPage[]> {
         return this.liveSdk.listPages();
     }
 

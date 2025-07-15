@@ -1,4 +1,4 @@
-import type { IContentSdk, IDataProvider, Page } from "~/sdk/types.js";
+import type { IContentSdk, IDataProvider, PublicPage } from "~/sdk/types.js";
 import { PreviewDocument } from "~/sdk/PreviewDocument";
 
 export class PreviewSdk implements IContentSdk {
@@ -10,7 +10,7 @@ export class PreviewSdk implements IContentSdk {
         this.dataProvider = dataProvider;
     }
 
-    async getPage(path: string): Promise<Page | null> {
+    async getPage(path: string): Promise<PublicPage | null> {
         const previewDocument = await PreviewDocument.createFromHeaders();
         if (!previewDocument.matches({ type: "page", path })) {
             return this.liveSdk.getPage(path);
@@ -18,7 +18,7 @@ export class PreviewSdk implements IContentSdk {
         return this.dataProvider.getPageById(previewDocument.getId());
     }
 
-    async listPages(): Promise<Page[]> {
+    async listPages(): Promise<PublicPage[]> {
         return this.liveSdk.listPages();
     }
 }
