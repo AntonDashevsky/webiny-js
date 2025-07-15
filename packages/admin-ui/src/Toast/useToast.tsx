@@ -1,6 +1,7 @@
 import * as React from "react";
 import { toast as sonnerToast, type ToasterProps as SonnerToasterProps } from "sonner";
 import { ReactComponent as Check } from "@webiny/icons/check.svg";
+import { ReactComponent as Warning } from "@webiny/icons/warning.svg";
 import { ToastActions, ToastDescription, ToastTitle, type ToastRootProps } from "./components";
 import { Toast } from "./Toast";
 import { Icon } from "~/Icon";
@@ -95,8 +96,15 @@ const useToast = () => {
     }, [sonnerToast]);
 
     const showSuccessToast = (params: ShowToastParams) => {
-        showToast({
+        return showToast({
             icon: <Icon icon={<Check />} label={""} className={"wby-fill-success"} />,
+            ...params
+        });
+    };
+
+    const showWarningToast = (params: ShowToastParams) => {
+        return showToast({
+            icon: <Icon icon={<Warning />} label={""} className={"wby-fill-warning"} />,
             ...params
         });
     };
@@ -105,6 +113,7 @@ const useToast = () => {
         () => ({
             showToast,
             showSuccessToast,
+            showWarningToast,
             hideToast,
             hideAllToasts
         }),

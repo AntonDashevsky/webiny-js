@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import {
     getBackendOptions,
     MultiBackend,
@@ -8,6 +8,7 @@ import {
     type NodeModel,
     type RenderParams
 } from "@minoru/react-dnd-treeview";
+
 import { DndProvider, type DragSourceMonitor } from "react-dnd";
 import { makeDecoratable, withStaticProps } from "~/utils";
 import { Item } from "./components";
@@ -70,101 +71,95 @@ function renderTreeNode<TData>({ node, params, renderer }: RenderTreeNodeParams<
 }
 
 const BaseTree = <TData,>(props: TreeProps<TData>) => {
-    const dndProviderRef = useRef<HTMLDivElement>(null);
     const { vm, handleDrop, changeOpen, canDrag, canDrop, sort } = useTree<TData>(props);
 
     return (
-        <div ref={dndProviderRef}>
-            <DndProvider
-                backend={MultiBackend}
-                options={{ ...getBackendOptions(), rootElement: dndProviderRef }}
-            >
-                <DndTree
-                    tree={vm.nodes}
-                    rootId={vm.rootId}
-                    initialOpen={vm.openNodeIds}
-                    listComponent={ListComponent}
-                    insertDroppableFirst={props.insertDroppableFirst}
-                    render={(node, params) => {
-                        const nodeData = node.data as WithDefaultNodeData<TData>;
+        <DndProvider backend={MultiBackend} options={getBackendOptions()}>
+            <DndTree
+                tree={vm.nodes}
+                rootId={vm.rootId}
+                initialOpen={vm.openNodeIds}
+                listComponent={ListComponent}
+                insertDroppableFirst={props.insertDroppableFirst}
+                render={(node, params) => {
+                    const nodeData = node.data as WithDefaultNodeData<TData>;
 
-                        // Indentation logic: increase padding by 20 px per level with a base of 10 px
-                        const indent = 10 + params.depth * 20;
+                    // Indentation logic: increase padding by 20 px per level with a base of 10 px
+                    const indent = 10 + params.depth * 20;
 
-                        // Use the drag over hook to handle drag and drop interactions
-                        const dragOverProps = useDragOver(node.id, params.isOpen, params.onToggle);
+                    // Use the drag over hook to handle drag and drop interactions
+                    const dragOverProps = useDragOver(node.id, params.isOpen, params.onToggle);
 
-                        const itemProps = props.autoExpandOnDragOver === false ? {} : dragOverProps;
+                    const itemProps = props.autoExpandOnDragOver === false ? {} : dragOverProps;
 
-                        const onToggle = (e: React.MouseEvent) => {
-                            e.stopPropagation();
-                            params.onToggle && params.onToggle();
-                        };
+                    const onToggle = (e: React.MouseEvent) => {
+                        e.stopPropagation();
+                        params.onToggle && params.onToggle();
+                    };
 
-                        const isLocked = vm.lockedOpenNodeIds.includes(nodeData.id);
-                        const isCollapsable = !isLocked && node.droppable;
+                    const isLocked = vm.lockedOpenNodeIds.includes(nodeData.id);
+                    const isCollapsable = !isLocked && node.droppable;
 
-                        return (
-                            <Item
-                                active={nodeData.active}
-                                loading={nodeData.loading}
-                                style={{ paddingInlineStart: indent }}
-                                {...itemProps}
+                    return (
+                        <Item
+                            active={nodeData.active}
+                            loading={nodeData.loading}
+                            style={{ paddingInlineStart: indent }}
+                            {...itemProps}
+                        >
+                            {isCollapsable && (
+                                <Tree.Item.CollapseTrigger
+                                    open={params.isOpen}
+                                    loading={nodeData.loading}
+                                    onClick={onToggle}
+                                />
+                            )}
+
+                            <Item.Content
+                                onClick={() => {
+                                    if (props.onNodeClick) {
+                                        props.onNodeClick(nodeData);
+                                    }
+                                }}
                             >
-                                {isCollapsable && (
-                                    <Tree.Item.CollapseTrigger
-                                        open={params.isOpen}
-                                        loading={nodeData.loading}
-                                        onClick={onToggle}
-                                    />
-                                )}
-
-                                <Item.Content
-                                    onClick={() => {
-                                        if (props.onNodeClick) {
-                                            props.onNodeClick(nodeData);
-                                        }
-                                    }}
-                                >
-                                    {renderTreeNode({
-                                        node: nodeData,
-                                        params,
-                                        renderer: props.renderer
-                                    })}
-                                </Item.Content>
-
-                                {params.draggable && (
-                                    <Tree.Item.DragHandle handleRef={params.handleRef} />
-                                )}
-                            </Item>
-                        );
-                    }}
-                    dragPreviewRender={monitorProps => (
-                        <Item>
-                            <Item.Content>
                                 {renderTreeNode({
-                                    node: monitorProps.item.data as WithDefaultNodeData<TData>,
+                                    node: nodeData,
+                                    params,
                                     renderer: props.renderer
                                 })}
                             </Item.Content>
+
+                            {params.draggable && (
+                                <Tree.Item.DragHandle handleRef={params.handleRef} />
+                            )}
                         </Item>
-                    )}
-                    dropTargetOffset={props.dropTargetOffset}
-                    onDragStart={props.onDragStart}
-                    onDrop={handleDrop}
-                    onChangeOpen={changeOpen}
-                    canDrag={canDrag}
-                    canDrop={canDrop}
-                    placeholderRender={props.placeholderRender}
-                    classes={{
-                        dropTarget: "wby-bg-neutral-dark/5",
-                        draggingSource: "wby-opacity-50 wby-bg-neutral-dimmed",
-                        placeholder: "wby-relative"
-                    }}
-                    sort={typeof props.sort === "function" ? sort : props.sort}
-                />
-            </DndProvider>
-        </div>
+                    );
+                }}
+                dragPreviewRender={monitorProps => (
+                    <Item>
+                        <Item.Content>
+                            {renderTreeNode({
+                                node: monitorProps.item.data as WithDefaultNodeData<TData>,
+                                renderer: props.renderer
+                            })}
+                        </Item.Content>
+                    </Item>
+                )}
+                dropTargetOffset={props.dropTargetOffset}
+                onDragStart={props.onDragStart}
+                onDrop={handleDrop}
+                onChangeOpen={changeOpen}
+                canDrag={canDrag}
+                canDrop={canDrop}
+                placeholderRender={props.placeholderRender}
+                classes={{
+                    dropTarget: "wby-bg-neutral-dark/5",
+                    draggingSource: "wby-opacity-50 wby-bg-neutral-dimmed",
+                    placeholder: "wby-relative"
+                }}
+                sort={typeof props.sort === "function" ? sort : props.sort}
+            />
+        </DndProvider>
     );
 };
 

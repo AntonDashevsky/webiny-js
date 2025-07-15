@@ -139,8 +139,10 @@ export const Navigator = observer(() => {
     const editor = useDocumentEditor();
     const [activeElement] = useActiveElement();
 
-    const elements = editor.getDocumentState().read().elements;
-    const bindings = editor.getDocumentState().read().bindings;
+    const document = editor.getDocumentState().read();
+    const elements = document.elements;
+    const bindings = document.bindings;
+    const treeKey = document.id;
 
     const components = useSelectFromEditor(state => {
         return state.components;
@@ -208,6 +210,7 @@ export const Navigator = observer(() => {
 
     return (
         <Tree
+            key={treeKey}
             autoExpandOnDragOver={false}
             insertDroppableFirst={false}
             nodes={nodes}
