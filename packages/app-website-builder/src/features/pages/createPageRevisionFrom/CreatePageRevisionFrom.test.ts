@@ -1,6 +1,6 @@
 import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom.js";
 import { WbPageStatus } from "~/constants.js";
-import { Page, pageCacheFactory } from "~/domain/Page/index.js";
+import { Page, pageListCache } from "~/domain/Page/index.js";
 
 describe("CreatePageRevisionFrom", () => {
     const gateway = {
@@ -27,7 +27,7 @@ describe("CreatePageRevisionFrom", () => {
         })
     };
 
-    const pagesCache = pageCacheFactory.getCache();
+    const pagesCache = pageListCache;
 
     beforeEach(() => {
         jest.clearAllMocks();

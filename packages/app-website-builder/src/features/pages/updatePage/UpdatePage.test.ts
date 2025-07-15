@@ -1,9 +1,9 @@
 import { UpdatePage } from "./UpdatePage.js";
 import { WbPageStatus } from "~/constants";
-import { Page, pageCacheFactory } from "~/domain/Page/index.js";
+import { Page, pageListCache } from "~/domain/Page/index.js";
 
 describe("UpdatePage", () => {
-    const pagesCache = pageCacheFactory.getCache();
+    const pagesCache = pageListCache
 
     beforeEach(() => {
         jest.clearAllMocks();

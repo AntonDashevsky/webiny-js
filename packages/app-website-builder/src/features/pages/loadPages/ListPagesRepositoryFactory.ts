@@ -3,7 +3,7 @@ import {
     metaRepositoryFactory,
     sortRepositoryFactory
 } from "@webiny/app-utils";
-import { pageCacheFactory } from "~/domain/Page/index.js";
+import { pageListCache } from "~/domain/Page/index.js";
 import { paramsRepositoryFactory } from "~/domain/Params/index.js";
 import { searchRepositoryFactory } from "~/domain/Search/index.js";
 import type { IListPagesGateway } from "~/features/pages/loadPages/IListPagesGateway.js";
@@ -17,7 +17,6 @@ export class ListPagesRepositoryFactory {
     getRepository(gateway: IListPagesGateway): IListPagesRepository {
         const namespace = "WbPage";
 
-        const pagesCache = pageCacheFactory.getCache();
         const loadingRepository = loadingRepositoryFactory.getRepository(namespace);
         const metaRepository = metaRepositoryFactory.getRepository(namespace);
         const paramsRepository = paramsRepositoryFactory.getRepository(namespace);
@@ -32,7 +31,7 @@ export class ListPagesRepositoryFactory {
         );
 
         return new ListPagesRepository(
-            pagesCache,
+            pageListCache,
             loadingRepository,
             metaRepository,
             paramsRepository,

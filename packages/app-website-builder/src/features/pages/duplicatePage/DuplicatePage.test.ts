@@ -1,6 +1,6 @@
 import { DuplicatePage } from "./DuplicatePage.js";
 import { WbPageStatus } from "~/constants.js";
-import { Page, pageCacheFactory } from "~/domain/Page/index.js";
+import { Page, pageListCache } from "~/domain/Page/index.js";
 
 describe("DuplicatePage", () => {
     const gateway = {
@@ -26,7 +26,7 @@ describe("DuplicatePage", () => {
         })
     };
 
-    const pagesCache = pageCacheFactory.getCache();
+    const pagesCache = pageListCache;
 
     beforeEach(() => {
         pagesCache.clear();

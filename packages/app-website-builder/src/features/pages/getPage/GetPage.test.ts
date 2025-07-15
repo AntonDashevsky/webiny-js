@@ -1,6 +1,6 @@
 import { GetPage } from "~/features/pages/getPage/GetPage.js";
 import { WbPageStatus } from "~/constants.js";
-import { pageCacheFactory } from "~/domain/Page/index.js";
+import { pageListCache } from "~/domain/Page/index.js";
 
 describe("GetPage", () => {
     const gateway = {
@@ -25,7 +25,7 @@ describe("GetPage", () => {
             }
         })
     };
-    const pagesCache = pageCacheFactory.getCache();
+    const pagesCache = pageListCache;
 
     beforeEach(() => {
         pagesCache.clear();

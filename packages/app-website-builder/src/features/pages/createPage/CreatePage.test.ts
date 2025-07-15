@@ -1,5 +1,5 @@
 import { CreatePage } from "~/features/pages/createPage/CreatePage.js";
-import { pageCacheFactory } from "~/domain/Page/index.js";
+import { pageListCache } from "~/domain/Page/index.js";
 
 describe("CreatePage", () => {
     const gateway = {
@@ -23,7 +23,7 @@ describe("CreatePage", () => {
             }
         })
     };
-    const pageCache = pageCacheFactory.getCache();
+    const pageCache = pageListCache;
 
     beforeEach(() => {
         pageCache.clear();

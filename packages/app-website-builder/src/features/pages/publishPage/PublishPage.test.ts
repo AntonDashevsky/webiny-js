@@ -1,6 +1,6 @@
 import { PublishPage } from "./PublishPage.js";
 import { WbPageStatus } from "~/constants.js";
-import { Page, pageCacheFactory } from "~/domain/Page/index.js";
+import { Page, pageListCache } from "~/domain/Page/index.js";
 
 describe("PublishPage", () => {
     const gateway = {
@@ -26,7 +26,7 @@ describe("PublishPage", () => {
         })
     };
 
-    const pagesCache = pageCacheFactory.getCache();
+    const pagesCache = pageListCache;
 
     beforeEach(() => {
         jest.clearAllMocks();
