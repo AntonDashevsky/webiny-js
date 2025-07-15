@@ -20,6 +20,7 @@ export class GetPageRepository implements IGetPageRepository {
         const response = await this.gateway.execute(id);
         const page = Page.create(response);
         this.cache.addItems([page]);
+        console.log("GetPageRepository", this.cache.getItems());
         return page;
     }
 }
