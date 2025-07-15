@@ -18,10 +18,10 @@ export function ConnectEditorToPreview({ iframeRef, onConnected }: ConnectEditor
             return;
         }
 
-        const targetWindow = iframeRef.current.contentWindow;
+        const targetWindow = () => iframeRef.current!.contentWindow!;
         const targetOrigin = new URL(iframeRef.current.src).origin;
 
-        const editorOrigin = new MessageOrigin(window, window.location.origin);
+        const editorOrigin = new MessageOrigin(() => window, window.location.origin);
         const previewTarget = new MessageOrigin(targetWindow, targetOrigin);
 
         const messenger = new Messenger(editorOrigin, previewTarget, "wb.editor.*");

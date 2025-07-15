@@ -29,19 +29,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         return {};
     }
 
-    const title = page.properties.seo.title ?? page.properties.title;
-    const ogTitle = page.properties.social.title ?? title;
+    const title = page.properties.seo?.title ?? page.properties.title;
+    const ogTitle = page.properties.social?.title ?? title;
 
-    const description = page.properties.seo.description ?? page.properties.description;
-    const ogDescription = page.properties.social.description ?? description;
-    const ogImage = page.properties.social.image?.src ?? page.properties.image?.src;
+    const description = page.properties.seo?.description ?? page.properties.description;
+    const ogDescription = page.properties.social?.description ?? description;
+    const ogImage = page.properties.social?.image?.src ?? page.properties.image?.src;
 
     // Custom tags
-    const otherSeoTags = page.properties.seo.metaTags.reduce((acc, item) => {
+    const otherSeoTags = page.properties.seo?.metaTags.reduce((acc, item) => {
         return { ...acc, [item.name]: item.content };
     }, {});
 
-    const otherOgTags = page.properties.social.metaTags.reduce((acc, item) => {
+    const otherOgTags = page.properties.social?.metaTags.reduce((acc, item) => {
         return { ...acc, [item.property]: item.content };
     }, {});
 

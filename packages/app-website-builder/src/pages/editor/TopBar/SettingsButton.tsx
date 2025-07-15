@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { toJS } from "mobx";
+import { toJS, observable } from "mobx";
 import { observer } from "mobx-react-lite";
 import { IconButton } from "@webiny/admin-ui";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
@@ -29,8 +29,8 @@ export const SettingsButton = observer(() => {
             content: <SettingsDialogBody />,
             onAccept: data => {
                 editor.updateDocument(document => {
-                    document.properties = data.properties;
-                    document.metadata = data.metadata;
+                    document.properties = observable(data.properties);
+                    document.metadata = observable(data.metadata);
                 });
             }
         });
@@ -49,11 +49,21 @@ export const SettingsButton = observer(() => {
 
 const useUpdatePreviewUrl = () => {
     const editor = useDocumentEditor();
-    const { path } = useSelectFromDocument<any, EditorPage>(document => {
-        return { path: document.properties };
+    const path = useSelectFromDocument<any, EditorPage>(document => {
+        return document.properties.path;
     });
 
     useEffect(() => {
-        // console.log("new path", toJS(path));
+        editor.updateDocument(document => {
+            const lastPreviewUrl = document.metadata.lastPreviewUrl;
+            if (!lastPreviewUrl) {
+                return;
+            }
+            const url = new URL(lastPreviewUrl);
+            if (url.pathname !== path) {
+                url.pathname = path;
+                document.metadata.lastPreviewUrl = url.toString();
+            }
+        });
     }, [path]);
 };

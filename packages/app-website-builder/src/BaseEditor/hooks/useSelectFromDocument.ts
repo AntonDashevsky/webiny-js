@@ -20,7 +20,7 @@ export function useSelectFromDocument<TReturn, TDocument extends EditorDocument>
     return useSelectFromState(
         () => editor.getDocumentState().read(),
         selector,
-        [editor, ...deps],
+        [editor, editor.getDocumentState().read(), ...deps],
         equals
     );
 }

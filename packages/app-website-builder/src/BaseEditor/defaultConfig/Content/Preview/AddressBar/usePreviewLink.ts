@@ -17,6 +17,15 @@ export const usePreviewLink = () => {
             return "";
         }
         const url = new URL(previewUrl);
+
+        // Remove all `wb.` params
+        url.searchParams.forEach((_, key) => {
+            if (key.startsWith("wb.")) {
+                url.searchParams.delete(key);
+            }
+        });
+
+        // Add preview params
         url.searchParams.set("wb.preview", "true");
         url.searchParams.set("wb.type", documentType);
         url.searchParams.set("wb.id", String(id));

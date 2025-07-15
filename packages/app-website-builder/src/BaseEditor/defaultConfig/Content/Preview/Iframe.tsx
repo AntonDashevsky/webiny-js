@@ -5,7 +5,6 @@ import { Messenger } from "~/sdk/messenger";
 import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Preview/useResponsiveContainer";
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { ViewportManager } from "~/sdk/ViewportManager";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import { useEditorPreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useEditorPreviewUrl";
 
 interface IframeProps {
@@ -19,35 +18,15 @@ export const Iframe = React.memo((props: IframeProps) => {
     const { previewUrl } = useEditorPreviewUrl();
     const previewWidth = useResponsiveContainer(props.viewportManager);
 
-    const iframeSrc = useSelectFromDocument(
-        document => {
-            if (!previewUrl) {
-                return undefined;
-            }
-
-            const url = new URL(previewUrl);
-            url.searchParams.set("width", previewWidth);
-            const searchParams = url.searchParams;
-            searchParams.set("wb.editing", "true");
-            searchParams.set("wb.type", document.metadata.documentType);
-            searchParams.set("wb.id", document.id);
-            searchParams.set("wb.path", url.pathname);
-            searchParams.set("wb.referrer", window.location.origin);
-
-            return url.toString();
-        },
-        [previewUrl]
-    );
-
     return (
         <div
             className={"wby-relative wby-flex wby-flex-col wby-items-center"}
             data-role={"responsive-container"}
         >
-            {iframeSrc ? (
+            {previewUrl ? (
                 <ConnectEditorToPreview iframeRef={iframeRef} onConnected={props.onConnected} />
             ) : null}
-            {props.showLoading ? (
+            {props.showLoading || !previewUrl ? (
                 <OverlayLoader
                     size="lg"
                     variant="accent"
@@ -65,8 +44,8 @@ export const Iframe = React.memo((props: IframeProps) => {
                     className={
                         "wby-w-full wby-bg-white wby-border-none wby-overflow-scroll wby-min-h-[inherit]"
                     }
-                    key={iframeSrc}
-                    src={iframeSrc}
+                    key={previewUrl}
+                    src={previewUrl}
                     ref={iframeRef}
                     sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-modals allow-forms"
                 />

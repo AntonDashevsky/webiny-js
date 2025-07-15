@@ -1,11 +1,17 @@
-// iframe-sdk/message-origin.ts
 export class MessageOrigin {
-    constructor(
-        public window: Window,
-        public origin: string
-    ) {}
+    private readonly getWindow: () => Window;
+    public readonly origin: string;
+
+    constructor(getWindow: () => Window, origin: string) {
+        this.getWindow = getWindow;
+        this.origin = origin;
+    }
 
     matches(event: MessageEvent): boolean {
         return event.source === this.window && event.origin === this.origin;
+    }
+
+    get window() {
+        return this.getWindow();
     }
 }
