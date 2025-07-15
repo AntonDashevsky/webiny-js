@@ -326,6 +326,10 @@
     @apply wby-text-accent-primary hover:wby-underline focus-visible:wby-outline-none focus-visible:wby-ring-lg focus-visible:wby-ring-primary-dimmed wby-rounded-xs;
   }
 
+  #root {
+    @apply wby-isolate;
+  }
+
   b,
   strong {
     @apply wby-font-semibold;

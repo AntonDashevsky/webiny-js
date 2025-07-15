@@ -9,7 +9,7 @@ export const DrawerOverlay = React.forwardRef<
     <DrawerPrimitive.Overlay
         ref={ref}
         className={cn(
-            "wby-fixed wby-inset-0 wby-z-50 wby-bg-neutral-dark/50 data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=open]:wby-fade-in-0",
+            "wby-fixed wby-inset-0 wby-bg-neutral-dark/50 data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=open]:wby-fade-in-0",
             className
         )}
         {...props}

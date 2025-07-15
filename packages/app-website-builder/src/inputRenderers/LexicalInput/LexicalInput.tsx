@@ -8,6 +8,10 @@ import {
     ExpandedEditorProvider,
     useExpandedEditor
 } from "~/inputRenderers/LexicalInput/ExpandedEditor";
+import { Dialog } from "@webiny/admin-ui";
+import { FloatingLinkEditorPlugin, LexicalEditorConfig } from "@webiny/lexical-editor";
+import { LinkEditForm } from "~/inputRenderers/LexicalInput/LinkEditForm.js";
+const { Plugin } = LexicalEditorConfig;
 
 type LexicalInputRendererProps = Omit<ElementInputRendererProps, "onChange" | "metadata"> & {
     onChange: (value: string) => void;
@@ -36,8 +40,6 @@ export const LexicalInputRenderer = (props: ElementInputRendererProps) => {
     );
 };
 
-import { Dialog } from "@webiny/admin-ui";
-
 interface EditorDialogProps extends Omit<LexicalInputRendererProps, "onPreviewChange" | "label"> {
     open: boolean;
     onClose: () => void;
@@ -52,6 +54,7 @@ const EditorDialog = (props: EditorDialogProps) => {
 
     return (
         <Dialog
+            id={"lexical-editor-dialog"}
             open={props.open}
             className={"wby-w-[900px] wby-max-w-[900px] wby-overflow-visible"}
             data-hover-manager={"ignore"}
@@ -74,6 +77,22 @@ const EditorDialog = (props: EditorDialogProps) => {
                 <DelayedOnChange value={localValue} onChange={setLocalValue}>
                     {({ value, onChange }) => <LexicalEditor value={value} onChange={onChange} />}
                 </DelayedOnChange>
+                <LexicalEditorConfig>
+                    <Plugin
+                        name={"floatingLinkEditor"}
+                        element={
+                            <FloatingLinkEditorPlugin
+                                anchorElem={() => {
+                                    return (
+                                        document.getElementById("lexical-editor-dialog") ??
+                                        document.body
+                                    );
+                                }}
+                                LinkEditForm={LinkEditForm}
+                            />
+                        }
+                    />
+                </LexicalEditorConfig>
             </CompositionScope>
         </Dialog>
     );

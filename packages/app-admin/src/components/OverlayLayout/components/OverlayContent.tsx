@@ -11,7 +11,7 @@ const OverlayContent = ({ visible, className, style, children, ...props }: Overl
             data-state={visible ? "open" : "closed"}
             className={cn(
                 [
-                    "wby-fixed wby-inset-x-0 wby-top-lg wby-z-20",
+                    "wby-fixed wby-inset-x-0 wby-top-lg",
                     "wby-w-screen",
                     "wby-rounded-t-lg wby-overflow-hidden",
                     "wby-bg-neutral-base",

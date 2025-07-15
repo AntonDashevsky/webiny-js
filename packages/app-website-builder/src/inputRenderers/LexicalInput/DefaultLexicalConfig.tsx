@@ -39,7 +39,10 @@ const sharedPlugins = (
         <Plugin
             name={"floatingLinkEditor"}
             element={
-                <FloatingLinkEditorPlugin anchorElem={document.body} LinkEditForm={LinkEditForm} />
+                <FloatingLinkEditorPlugin
+                    anchorElem={() => document.body}
+                    LinkEditForm={LinkEditForm}
+                />
             }
         />
         <Plugin name={"images"} element={<ImagesPlugin />} />

@@ -31,6 +31,7 @@ export * from "./List";
 export * from "./Loader";
 export * from "./MultiAutoComplete";
 export * from "./MultiFilePicker";
+export * from "./Portal";
 export * from "./Popover";
 export * from "./ProgressBar";
 export * from "./Providers";

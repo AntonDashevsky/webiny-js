@@ -51,6 +51,7 @@ export const OverlayLayout: React.FC<OverlayLayoutProps> = ({
 
     return (
         <OverlayRoot visible={visible} onExited={onExited}>
+            <OverlayBackdrop visible={visible} hideOverlay={hideOverlay} />
             <OverlayContent visible={visible}>
                 <>
                     <OverlayHeader
@@ -64,7 +65,6 @@ export const OverlayLayout: React.FC<OverlayLayoutProps> = ({
                     {children}
                 </>
             </OverlayContent>
-            <OverlayBackdrop visible={visible} hideOverlay={hideOverlay} />
         </OverlayRoot>
     );
 };

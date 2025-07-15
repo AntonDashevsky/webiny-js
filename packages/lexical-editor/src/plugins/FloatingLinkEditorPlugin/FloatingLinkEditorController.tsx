@@ -18,7 +18,7 @@ import { FloatingLinkEditor } from "./FloatingLinkEditor";
 import { LinkEditForm } from "./LinkEditForm";
 
 interface FloatingLinkEditorProps {
-    anchorElem: HTMLElement;
+    anchorElem: () => HTMLElement;
     LinkEditForm?: typeof LinkEditForm;
 }
 
@@ -91,9 +91,9 @@ export const FloatingLinkEditorController = (props: FloatingLinkEditorProps) => 
         <FloatingLinkEditor
             isVisible={isLink}
             editor={editor}
-            anchorElem={props.anchorElem}
+            anchorElem={props.anchorElem()}
             LinkEditForm={props.LinkEditForm}
         />,
-        props.anchorElem
+        props.anchorElem()
     );
 };
