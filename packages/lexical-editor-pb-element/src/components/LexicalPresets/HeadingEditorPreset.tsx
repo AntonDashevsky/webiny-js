@@ -49,7 +49,7 @@ export const HeadingEditorPreset = () => {
             <Plugin name={"link"} element={<LinkPlugin />} />
             <Plugin
                 name={"floatingLinkEditor"}
-                element={<FloatingLinkEditorPlugin anchorElem={document.body} />}
+                element={<FloatingLinkEditorPlugin anchorElem={() => document.body} />}
             />
             <Plugin name={"typography"} element={<TypographyPlugin />} />
         </LexicalEditorConfig>
