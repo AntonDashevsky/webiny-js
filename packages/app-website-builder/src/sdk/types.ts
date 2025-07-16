@@ -138,18 +138,18 @@ export type SerializableCSSStyleDeclaration = {
 
 export type Document = {
     id: string;
+    state: DocumentState;
     version: number;
     properties: Record<string, any>;
     bindings: DocumentBindings;
     elements: ElementMap;
 };
 
-export type PublicPage = Pick<Page, "id" | "version" | "properties" | "bindings" | "elements">;
+export type PublicPage = Pick<Page, "id" | "version" | "properties" | "bindings" | "elements" | "state">;
 
 export type EditorPage = EditorDocument & Pick<Page, "properties" | "status" | "location">;
 
 export type EditorDocument = Document & {
-    state: DocumentState;
     metadata: Record<string, any>;
 };
 
