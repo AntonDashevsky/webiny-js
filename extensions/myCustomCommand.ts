@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { Command, UiService } from "@webiny/cli-core/abstractions/index.js";
+import { Command, UiService } from "@webiny/extensions/cli";
 
 export interface IMyCustomCommandParams {
     name: string;
