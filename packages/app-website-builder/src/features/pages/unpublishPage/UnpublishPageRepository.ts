@@ -3,22 +3,41 @@ import type { IUnpublishPageGateway } from "~/features/pages/unpublishPage/IUnpu
 import { type IListCache, Page } from "~/domain/Page/index.js";
 
 export class UnpublishPageRepository implements IUnpublishPageRepository {
-    private cache: IListCache<Page>;
     private gateway: IUnpublishPageGateway;
+    private detailsCache: IListCache<Page>;
+    private listCache: IListCache<Page>;
 
-    constructor(cache: IListCache<Page>, gateway: IUnpublishPageGateway) {
-        this.cache = cache;
+    constructor(
+        listCache: IListCache<Page>,
+        detailsCache: IListCache<Page>,
+        gateway: IUnpublishPageGateway
+    ) {
+        this.detailsCache = detailsCache;
+        this.listCache = listCache;
         this.gateway = gateway;
     }
 
     async execute(page: Page) {
         const result = await this.gateway.execute(page.id);
-        this.cache.updateItems(p => {
-            if (p.id === page.id) {
+
+        this.listCache.updateItems(existingPage => {
+            if (existingPage.id === page.id) {
                 return Page.create(result);
             }
 
-            return Page.create(p);
+            return existingPage;
+        });
+
+        this.detailsCache.updateItems(existingPage => {
+            if (existingPage.id === page.id) {
+                return Page.create({
+                    ...result,
+                    elements: page.elements,
+                    bindings: page.bindings
+                });
+            }
+
+            return existingPage;
         });
     }
 }

@@ -19,11 +19,10 @@ export class PublishPageRepository implements IPublishPageRepository {
 
     async execute(page: Page) {
         const result = await this.gateway.execute(page.id);
-        const newPage = Page.create(result);
 
         this.listCache.updateItems(existingPage => {
             if (existingPage.id === page.id) {
-                return newPage;
+                return Page.create(result);
             }
 
             return existingPage;
@@ -31,7 +30,11 @@ export class PublishPageRepository implements IPublishPageRepository {
 
         this.detailsCache.updateItems(existingPage => {
             if (existingPage.id === page.id) {
-                return newPage;
+                return Page.create({
+                    ...result,
+                    elements: page.elements,
+                    bindings: page.bindings
+                });
             }
 
             return existingPage;

@@ -12,6 +12,7 @@ import {
     ToastTitle,
     type ToastRootProps
 } from "./components";
+import { createPortal } from "react-dom";
 
 interface ToastProps extends Omit<ToastRootProps, "title" | "content" | "children"> {
     title: React.ReactElement<typeof ToastTitle>;
@@ -57,9 +58,11 @@ const Toast = withStaticProps(makeDecoratable("Toast", DecoratableToast), {
     Title: ToastTitle,
     Description: ToastDescription,
     Actions: ToastActions,
-    Provider: (props: ToasterProps) => (
-        <Toaster expand={true} duration={6000} position={"top-right"} {...props} />
-    )
+    Provider: (props: ToasterProps) =>
+        createPortal(
+            <Toaster expand={true} duration={6000} position={"top-right"} {...props} />,
+            document.body
+        )
 });
 
 export { Toast, type ToastProps };

@@ -30,11 +30,9 @@ export class UpdatePageRepository implements IUpdatePageRepository {
 
         const result = await this.gateway.execute(dto);
 
-        const newPage = Page.create(result);
-
         this.listCache.updateItems(existingPage => {
             if (existingPage.id === page.id) {
-                return newPage;
+                return Page.create(result);
             }
 
             return existingPage;
@@ -42,7 +40,11 @@ export class UpdatePageRepository implements IUpdatePageRepository {
 
         this.detailsCache.updateItems(existingPage => {
             if (existingPage.id === page.id) {
-                return newPage;
+                return Page.create({
+                    ...result,
+                    elements: dto.elements,
+                    bindings: dto.bindings
+                });
             }
 
             return existingPage;
