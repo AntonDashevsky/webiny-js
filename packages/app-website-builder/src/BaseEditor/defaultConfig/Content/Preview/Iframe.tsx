@@ -5,7 +5,7 @@ import { Messenger } from "~/sdk/messenger";
 import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Preview/useResponsiveContainer";
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { ViewportManager } from "~/sdk/ViewportManager";
-import { useEditorPreviewUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useEditorPreviewUrl";
+import { useIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useIframeUrl";
 
 interface IframeProps {
     showLoading: boolean;
@@ -15,7 +15,7 @@ interface IframeProps {
 
 export const Iframe = React.memo((props: IframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
-    const { previewUrl } = useEditorPreviewUrl();
+    const { iframeUrl } = useIframeUrl();
     const previewWidth = useResponsiveContainer(props.viewportManager);
 
     return (
@@ -23,10 +23,10 @@ export const Iframe = React.memo((props: IframeProps) => {
             className={"wby-relative wby-flex wby-flex-col wby-items-center"}
             data-role={"responsive-container"}
         >
-            {previewUrl ? (
+            {iframeUrl ? (
                 <ConnectEditorToPreview iframeRef={iframeRef} onConnected={props.onConnected} />
             ) : null}
-            {props.showLoading || !previewUrl ? (
+            {props.showLoading || !iframeUrl ? (
                 <OverlayLoader
                     size="lg"
                     variant="accent"
@@ -44,8 +44,8 @@ export const Iframe = React.memo((props: IframeProps) => {
                     className={
                         "wby-w-full wby-bg-white wby-border-none wby-overflow-scroll wby-min-h-[inherit]"
                     }
-                    key={previewUrl}
-                    src={previewUrl}
+                    key={iframeUrl}
+                    src={iframeUrl}
                     ref={iframeRef}
                     sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-modals allow-forms"
                 />

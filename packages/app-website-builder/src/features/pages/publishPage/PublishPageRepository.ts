@@ -3,22 +3,38 @@ import type { IPublishPageGateway } from "~/features/pages/publishPage/IPublishP
 import { type IListCache, Page } from "~/domain/Page/index.js";
 
 export class PublishPageRepository implements IPublishPageRepository {
-    private cache: IListCache<Page>;
+    private listCache: IListCache<Page>;
+    private detailsCache: IListCache<Page>;
     private gateway: IPublishPageGateway;
 
-    constructor(cache: IListCache<Page>, gateway: IPublishPageGateway) {
-        this.cache = cache;
+    constructor(
+        listCache: IListCache<Page>,
+        detailsCache: IListCache<Page>,
+        gateway: IPublishPageGateway
+    ) {
+        this.detailsCache = detailsCache;
+        this.listCache = listCache;
         this.gateway = gateway;
     }
 
     async execute(page: Page) {
         const result = await this.gateway.execute(page.id);
-        this.cache.updateItems(p => {
-            if (p.id === page.id) {
-                return Page.create(result);
+        const newPage = Page.create(result);
+
+        this.listCache.updateItems(existingPage => {
+            if (existingPage.id === page.id) {
+                return newPage;
             }
 
-            return Page.create(p);
+            return existingPage;
+        });
+
+        this.detailsCache.updateItems(existingPage => {
+            if (existingPage.id === page.id) {
+                return newPage;
+            }
+
+            return existingPage;
         });
     }
 }

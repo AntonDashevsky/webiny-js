@@ -64,11 +64,15 @@ export class Page {
 
     private createLocation(data: PageData): WbLocation {
         if (data.wbyAco_location) {
-            return data.wbyAco_location;
+            return {
+                folderId: data.wbyAco_location.folderId
+            };
         }
 
         if (data.location) {
-            return data.location;
+            return {
+                folderId: data.location.folderId
+            };
         }
 
         return {
