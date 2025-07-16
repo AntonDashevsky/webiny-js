@@ -1,6 +1,6 @@
 import type { Component, IContentSdk, PublicPage, ResolvedComponent } from "~/sdk/types";
 import { environment } from "./Environment.js";
-import { LiveSdk, type LiveSdkConfig } from "./LiveSdk.js";
+import { LiveSdk } from "./LiveSdk.js";
 import { EditingSdk } from "./EditingSdk.js";
 import { ComponentResolver, ResolveElementParams } from "~/sdk/ComponentResolver";
 import { PreviewSdk } from "./PreviewSdk.js";
@@ -8,7 +8,13 @@ import { componentRegistry } from "~/sdk/ComponentRegistry";
 import { ApiClient } from "~/sdk/dataProviders/ApiClient";
 import { DefaultDataProvider } from "~/sdk/dataProviders/DefaultDataProvider";
 
-export type ContentSDKConfig = LiveSdkConfig & {
+export type ApiConfig = {
+    apiKey: string;
+    apiHost: string;
+    apiTenant: string;
+};
+
+export type ContentSDKConfig = ApiConfig & {
     preview?: boolean;
 };
 
@@ -46,7 +52,7 @@ export class ContentSdk implements IContentSdk {
         }
 
         this.lastConfig = configHash;
-        const apiClient = new ApiClient(config.apiEndpoint, config.apiKey);
+        const apiClient = new ApiClient(config.apiHost, config.apiKey, config.apiTenant);
 
         const dataProvider = new DefaultDataProvider({ apiClient });
 

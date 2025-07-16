@@ -1,11 +1,6 @@
 import { GetPageOptions, IContentSdk, IDataProvider, ListPagesOptions, PublicPage } from "~/sdk/types.js";
 import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 
-export type LiveSdkConfig = {
-    apiKey: string;
-    apiEndpoint: string;
-};
-
 export class LiveSdk implements IContentSdk {
     private dataProvider: IDataProvider;
 

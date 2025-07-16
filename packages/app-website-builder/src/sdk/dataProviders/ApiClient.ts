@@ -7,9 +7,11 @@ interface QueryParams {
 export class ApiClient {
     private readonly apiEndpoint: string;
     private readonly apiKey: string;
+    private readonly apiTenant: string;
 
-    constructor(apiEndpoint: string, apiKey: string) {
-        this.apiEndpoint = apiEndpoint;
+    constructor(apiHost: string, apiKey: string, apiTenant: string) {
+        this.apiTenant = apiTenant;
+        this.apiEndpoint = apiHost + "/graphql";
         this.apiKey = apiKey;
     }
 
@@ -25,6 +27,7 @@ export class ApiClient {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "X-Tenant": this.apiTenant,
                 Authorization: "Bearer " + this.apiKey
             },
             body: JSON.stringify({
@@ -35,6 +38,11 @@ export class ApiClient {
 
         const res = await fetch(this.apiEndpoint, request);
         const json = await res.json();
+
+        if (json.message?.includes("Cannot read properties of undefined")) {
+            throw new Error(`Invalid tenant ID!`);
+        }
+
         if (json.errors) {
             console.error(json.errors);
             throw new Error("Failed to fetch API");
