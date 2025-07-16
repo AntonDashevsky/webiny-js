@@ -56,7 +56,7 @@ const GeneralSettingsForm = () => {
                     <Textarea label={"Snippet"} />
                 </Bind>
             </Grid.Column>
-            <Grid.Column span={12}>
+            {/*<Grid.Column span={12}>
                 <Bind name={"properties.image"}>
                     {({ value, onChange }) => (
                         <FileManager
@@ -75,7 +75,7 @@ const GeneralSettingsForm = () => {
                         />
                     )}
                 </Bind>
-            </Grid.Column>
+            </Grid.Column>*/}
             <Grid.Column span={12}>
                 <SimpleTags
                     bindName={"properties.tags"}
@@ -133,7 +133,7 @@ const SocialSettingsForm = () => {
                     />
                 </Bind>
             </Grid.Column>
-            <Grid.Column span={12}>
+            {/*<Grid.Column span={12}>
                 <Bind name={"properties.social.image"}>
                     {({ value, onChange }) => (
                         <FileManager
@@ -152,7 +152,7 @@ const SocialSettingsForm = () => {
                         />
                     )}
                 </Bind>
-            </Grid.Column>
+            </Grid.Column>*/}
             <Grid.Column span={12}>
                 <MetaTags
                     label={"Meta Tags"}

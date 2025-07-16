@@ -34,7 +34,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const description = page.properties.seo?.description ?? page.properties.description;
     const ogDescription = page.properties.social?.description ?? description;
-    const ogImage = page.properties.social?.image?.src ?? page.properties.image?.src;
 
     // Custom tags
     const otherSeoTags = page.properties.seo?.metaTags.reduce((acc, item) => {
@@ -53,8 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             url: `https://example.com/${slug}`,
             title: ogTitle,
             description: ogDescription,
-            siteName: "My Website",
-            images: ogImage ? [{ url: ogImage }] : []
+            siteName: "My Website"
         },
         other: {
             ...otherSeoTags,

@@ -8,7 +8,7 @@ export class MessageOrigin {
     }
 
     matches(event: MessageEvent): boolean {
-        return event.source === this.window && event.origin === this.origin;
+        return event.origin === this.origin;
     }
 
     get window() {

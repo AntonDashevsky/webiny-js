@@ -29,8 +29,8 @@ export function useSelectFromState<TState, T>(
         const disposer = autorun(() => {
             const next = selector(getState());
             if (!equals(previous, next)) {
-                previous = next;
                 setValue(next);
+                previous = next;
             }
         });
 

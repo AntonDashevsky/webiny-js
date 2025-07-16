@@ -9,6 +9,15 @@ export type Message<T = any> = {
 
 type Handler<T = any> = (payload: T, logicalType: string, wildcardMatch?: string) => void;
 
+const ignored = [
+    "preview.mouse.move",
+    "preview.component.register",
+    "preview.scroll",
+    "preview.viewport",
+    "preview.viewport.change.start",
+    "preview.viewport.change.end"
+];
+
 export class Messenger {
     private listeners = new Map<string, Set<Handler>>();
     private readonly pattern: string;
@@ -38,7 +47,12 @@ export class Messenger {
 
         const logicalType = this.stripPrefix(type);
 
-        logger.debug(`--> [${this.source.origin}][${logicalType}]`, { type, payload });
+        if (!this.isIgnored(logicalType)) {
+            logger.debug(`${this.getTime()} --> [${this.source.origin}][${logicalType}]`, {
+                type,
+                payload
+            });
+        }
 
         const handlers = this.listeners.get(logicalType);
         if (handlers) {
@@ -63,6 +77,10 @@ export class Messenger {
             : fullType;
     }
 
+    private isIgnored(logicalType: string): boolean {
+        return ignored.includes(logicalType);
+    }
+
     on<T = any>(logicalType: string, handler: Handler<T>) {
         if (!this.listeners.has(logicalType)) {
             this.listeners.set(logicalType, new Set());
@@ -74,13 +92,24 @@ export class Messenger {
     send<T = any>(logicalType: string, payload?: T) {
         const fullType = this.prefixGlob + logicalType;
 
-        logger.debug(`<-- [${this.source.origin}][${logicalType}]`, { type: fullType, payload });
+        if (!this.isIgnored(logicalType)) {
+            logger.debug(`${this.getTime()} <-- [${this.source.origin}][${logicalType}]`, {
+                type: fullType,
+                payload
+            });
+        }
 
         this.target.window.postMessage({ type: fullType, payload }, this.target.origin);
+
     }
 
     dispose() {
         this.source.window.removeEventListener("message", this.handleMessage);
         this.listeners.clear();
+    }
+
+    getTime() {
+        const date = new Date();
+        return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}.${date.getMilliseconds()}`;
     }
 }

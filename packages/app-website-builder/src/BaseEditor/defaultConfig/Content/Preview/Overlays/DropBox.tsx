@@ -51,9 +51,10 @@ export const DropBox = React.memo(
             <div
                 data-role={"element-slot"}
                 data-slot-id={box.id}
+                data-depth={box.depth}
                 className={classes}
                 style={{
-                    zIndex: 1000 + box.depth,
+                    zIndex: 100 + box.depth,
                     top: box.top,
                     left: box.left,
                     width: box.width,

@@ -160,13 +160,13 @@ export type Page = Document & {
     properties: {
         title: string;
         snippet: string;
-        image: {
+        /*image: {
             id: string;
             name: string;
             size: number;
             mimeType: string;
             src: string;
-        };
+        };*/
         path: string;
         tags: string[];
         seo: {
@@ -177,13 +177,13 @@ export type Page = Document & {
         social: {
             title: string;
             description: string;
-            image: {
+            /*image: {
                 id: string;
                 name: string;
                 size: number;
                 mimeType: string;
                 src: string;
-            };
+            };*/
             metaTags: Array<{ property: string; content: string }>;
         };
     };
