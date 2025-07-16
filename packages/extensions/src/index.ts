@@ -3,8 +3,13 @@ import {
     ApiAfterBuild,
     ApiAfterDeploy,
     ApiBeforeBuild,
-    ApiBeforeDeploy
+    ApiBeforeDeploy,
+    Telemetry
 } from "@webiny/project/extensions/index.js";
+
+export const Project = {
+    Telemetry
+};
 
 export const Cli = {
     Command: CliCommand

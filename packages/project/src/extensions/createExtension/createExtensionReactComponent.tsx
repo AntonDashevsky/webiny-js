@@ -4,7 +4,7 @@ import { CreateExtensionParams } from "./types";
 
 export type ExtensionReactComponentProps<TProps extends Record<string, any> = Record<string, any>> =
     TProps & {
-        name: string;
+        name?: string;
         remove?: boolean;
         before?: string;
         after?: string;
@@ -15,7 +15,7 @@ export function createExtensionReactComponent<
 >(extensionParams: CreateExtensionParams<TParams>) {
     return function ExtensionReactComponent(props: ExtensionReactComponentProps<TParams>) {
         const { name, remove, before, after, ...extraProps } = props;
-        const getId = useIdGenerator(name);
+        const getId = useIdGenerator(name || "");
 
         const placeAfter = after !== undefined ? getId(after) : undefined;
         const placeBefore = before !== undefined ? getId(before) : undefined;
@@ -29,10 +29,11 @@ export function createExtensionReactComponent<
                 before={placeBefore}
                 after={placeAfter}
             >
-                <Property id={getId(name, "name")} name={"name"} value={name} />
-                {Object.entries(extraProps).map(([key, value]) => (
-                    <Property key={key} id={getId(name, key)} name={key} value={value} />
-                ))}
+                {name && <Property id={getId(name, "name")} name={"name"} value={name} />}
+                {Object.entries(extraProps).map(([key, value]) => {
+                    const id = name ? `${name}.${key}` : key;
+                    return <Property key={key} id={id} name={key} value={value} />;
+                })}
             </Property>
         );
     };

@@ -21,6 +21,7 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
         const project = await this.getProjectService.execute();
 
         const renderedConfig = await renderConfig(project.paths.manifestFile.absolute);
+
         const hydratedConfig = this.hydrateConfig(renderedConfig);
 
         this.cachedProjectConfig = ProjectConfigModel.create(hydratedConfig);
@@ -33,7 +34,12 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
         const extensionsTypes = Object.keys(configDto) as ExtensionType[];
         return extensionsTypes.reduce<IHydratedProjectConfig>(
             (acc, extensionType: ExtensionType) => {
-                acc[extensionType] = configDto[extensionType]
+                const oneOrMoreExtensions = configDto[extensionType];
+                const extensionsArray = Array.isArray(oneOrMoreExtensions)
+                    ? [...oneOrMoreExtensions]
+                    : [oneOrMoreExtensions];
+
+                acc[extensionType] = extensionsArray
                     .map(extensionParams => {
                         const extDef = projectSdkParams.extensions?.find(e => {
                             return e.type === extensionType;

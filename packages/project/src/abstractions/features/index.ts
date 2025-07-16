@@ -8,6 +8,7 @@ export { GetProject } from "./GetProject.js";
 export { GetProjectConfig } from "./GetProjectConfig.js";
 export { GetProjectInfo } from "./GetProjectInfo.js";
 export { IsCi } from "./IsCi.js";
+export { IsTelemetryEnabled } from "./IsTelemetryEnabled.js";
 export { RefreshApp } from "./RefreshApp.js";
 export { RunPulumiCommand } from "./RunPulumiCommand.js";
 export { ValidateProjectConfig } from "./ValidateProjectConfig.js";

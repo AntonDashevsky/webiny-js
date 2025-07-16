@@ -6,5 +6,5 @@ export interface IProjectConfigModel {
 
     extensionsByType<TParams extends Record<string, any> = Record<string, any>>(
         type: string
-    ): Array<ExtensionInstanceModel<TParams>>;
+    ): ExtensionInstanceModel<TParams>[];
 }

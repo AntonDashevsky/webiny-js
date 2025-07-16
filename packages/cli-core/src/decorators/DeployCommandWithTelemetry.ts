@@ -1,9 +1,9 @@
 import { createDecorator } from "@webiny/di-container";
 import {
-    isEnabled as isTelemetryEnabled,
+    isEnabled as globalIsTelemetryEnabled,
     sendEvent as telemetrySendEvent
 } from "@webiny/telemetry/cli.js";
-import { Command } from "~/abstractions/index.js";
+import { Command, GetProjectSdkService } from "~/abstractions/index.js";
 import { IDeployCommandParams } from "~/features";
 import { GracefulError } from "~/utils/GracefulError";
 
@@ -14,17 +14,27 @@ const isDeployCommand = (
 };
 
 export class DeployCommandWithTelemetry<TParams> implements Command.Interface<TParams> {
-    constructor(private decoratee: Command.Interface<TParams>) {}
+    constructor(
+        private getProjectSdkService: GetProjectSdkService.Interface,
+        private decoratee: Command.Interface<TParams>
+    ) {}
 
     async execute() {
         const command = await this.decoratee.execute();
 
-        if (!isTelemetryEnabled()) {
+        if (!isDeployCommand(command)) {
+            // If the command is not a `deploy` command, we do not need to wrap it with telemetry.
             return command;
         }
 
-        if (!isDeployCommand(command)) {
-            // If the command is not a `deploy` command, we do not need to wrap it with telemetry.
+        if (!globalIsTelemetryEnabled()) {
+            return command;
+        }
+
+        // Check if telemetry is disabled via an extension.
+        const projectSdk = await this.getProjectSdkService.execute();
+        const projectSdkTelemetryEnabled = await projectSdk.isTelemetryEnabled();
+        if (!projectSdkTelemetryEnabled) {
             return command;
         }
 
@@ -108,5 +118,5 @@ export class DeployCommandWithTelemetry<TParams> implements Command.Interface<TP
 export const deployCommandWithTelemetry = createDecorator({
     abstraction: Command,
     decorator: DeployCommandWithTelemetry,
-    dependencies: []
+    dependencies: [GetProjectSdkService]
 });

@@ -11,9 +11,9 @@ export class BuildAppWithHooks implements BuildApp.Interface {
 
     async execute(params: BuildApp.Params) {
         if (params.app === "core") {
-            // await this.coreBeforeBuild.execute(params);
+            // TODO: await this.coreBeforeBuild.execute(params);
             const result = await this.decoratee.execute(params);
-            // await this.coreAfterBuild.execute(params);
+            // TODO: await this.coreAfterBuild.execute(params);
             return result;
         }
 
@@ -25,16 +25,16 @@ export class BuildAppWithHooks implements BuildApp.Interface {
         }
 
         if (params.app === "admin") {
-            // await this.adminBeforeBuild.execute(params);
+            // TODO: await this.adminBeforeBuild.execute(params);
             const result = await this.decoratee.execute(params);
-            // await this.adminAfterBuild.execute(params);
+            // TODO: await this.adminAfterBuild.execute(params);
             return result;
         }
 
         if (params.app === "website") {
-            // await this.websiteBeforeBuild.execute(params);
+            // TODO: await this.websiteBeforeBuild.execute(params);
             const result = await this.decoratee.execute(params);
-            // await this.websiteAfterBuild.execute(params);
+            // TODO: await this.websiteAfterBuild.execute(params);
             return result;
         }
 

@@ -91,6 +91,8 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
             container.register(commandImplementation).inSingletonScope();
         }
     } catch (error) {
+
+        console.log(error);
         const ui = container.resolve(UiService);
         if (error && error instanceof GracefulError) {
             ui.newLine();

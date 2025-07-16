@@ -1,17 +1,10 @@
 import { createImplementation } from "@webiny/di-container";
-import {
-    BuildApp,
-    GetApp,
-    GetProject,
-    ListPackagesService,
-    LoggerService
-} from "~/abstractions/index.js";
+import { BuildApp, GetApp, ListPackagesService, LoggerService } from "~/abstractions/index.js";
 import { createAppWorkspace } from "~/utils/index.js";
 import { PackagesBuilder } from "./builders/PackagesBuilder.js";
 
 export class DefaultBuildApp implements BuildApp.Interface {
     constructor(
-        private getProject: GetProject.Interface,
         private getApp: GetApp.Interface,
         private logger: LoggerService.Interface,
         private listPackagesService: ListPackagesService.Interface
@@ -44,5 +37,5 @@ export class DefaultBuildApp implements BuildApp.Interface {
 export const buildApp = createImplementation({
     abstraction: BuildApp,
     implementation: DefaultBuildApp,
-    dependencies: [GetProject, GetApp, LoggerService, ListPackagesService]
+    dependencies: [GetApp, LoggerService, ListPackagesService]
 });

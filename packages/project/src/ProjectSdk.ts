@@ -10,6 +10,7 @@ import {
     GetProjectConfig,
     GetProjectInfo,
     IsCi,
+    IsTelemetryEnabled,
     ProjectSdkParamsService,
     RefreshApp,
     RunPulumiCommand,
@@ -87,6 +88,10 @@ export class ProjectSdk {
 
     isValidVariantName(name?: string) {
         return isValidVariantName(name);
+    }
+
+    isTelemetryEnabled() {
+        return this.container.resolve(IsTelemetryEnabled).execute();
     }
 
     isCi() {

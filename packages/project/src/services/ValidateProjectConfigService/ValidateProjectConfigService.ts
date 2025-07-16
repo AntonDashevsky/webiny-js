@@ -7,7 +7,7 @@ export class DefaultValidateProjectConfigService implements ValidateProjectConfi
     async execute(projectConfig: ValidateProjectConfigService.Params): Promise<void> {
         const extensionTypes = Object.keys(projectConfig.config);
         for (const extensionType of extensionTypes) {
-            const extensionsCollection = projectConfig.config[extensionType] || [];
+            const extensionsCollection = projectConfig.extensionsByType(extensionType);
             for (const extension of extensionsCollection) {
                 if (extension.validate) {
                     try {

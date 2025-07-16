@@ -13,6 +13,7 @@ import {
     getProjectConfig,
     getProjectInfo,
     isCi,
+    isTelemetryEnabled,
     refreshApp,
     runPulumiCommand,
     validateProjectConfig,
@@ -97,6 +98,7 @@ export const createProjectSdkContainer = async (
     container.register(getProjectConfig).inSingletonScope();
     container.register(getProjectInfo).inSingletonScope();
     container.register(isCi).inSingletonScope();
+    container.register(isTelemetryEnabled).inSingletonScope();
     container.register(refreshApp).inSingletonScope();
     container.register(runPulumiCommand).inSingletonScope();
     container.register(validateProjectConfig).inSingletonScope();
