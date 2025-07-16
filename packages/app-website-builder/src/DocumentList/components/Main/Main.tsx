@@ -76,7 +76,7 @@ const Main = () => {
                             canCreateFolder={canCreateFolder(vm.folderId)}
                             canCreateContent={canCreateContent(vm.folderId)}
                             onCreateFolder={onCreateFolder}
-                            onCreateDocument={() => alert("Create document")}
+                            onCreateDocument={showCreatePageDialog}
                         />
                     ) : (
                         <Table />
