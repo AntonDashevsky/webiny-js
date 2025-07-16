@@ -2,7 +2,11 @@ import WebinyError from "@webiny/error";
 import { CmsModelPlugin, isHeadlessCmsReady } from "@webiny/api-headless-cms";
 import { createPageModel, PAGE_MODEL_ID } from "~/page/page.model";
 import type { SecurityPermission } from "@webiny/api-security/types";
-import type { WebsiteBuilderContext, WebsiteBuilderStorageOperations } from "~/types";
+import type {
+    WebsiteBuilderContext,
+    WebsiteBuilderContextObject,
+    WebsiteBuilderStorageOperations
+} from "~/types";
 import { createWebsiteBuilder } from "~/createWebsiteBuilder";
 import { CmsModelModifierPlugin } from "~/page/page.modelModifier";
 import { CmsPagesStorage } from "~/page/CmsPagesStorage";
@@ -23,17 +27,19 @@ export class WebsiteBuilderContextSetup {
 
         if (pageStorageOps) {
             storageOperations.pages = pageStorageOps;
+
+            return createWebsiteBuilder({
+                storageOperations,
+                getTenantId: this.getTenantId.bind(this),
+                getLocaleCode: this.getLocaleCode.bind(this),
+                getIdentity: this.getIdentity.bind(this),
+                getPermissions: this.getPermissions.bind(this),
+                // TODO: maybe this is no longer necessary, as this wil be managed by CMS?
+                WEBINY_VERSION: this.context.WEBINY_VERSION
+            });
         }
 
-        return createWebsiteBuilder({
-            storageOperations,
-            getTenantId: this.getTenantId.bind(this),
-            getLocaleCode: this.getLocaleCode.bind(this),
-            getIdentity: this.getIdentity.bind(this),
-            getPermissions: this.getPermissions.bind(this),
-            // TODO: maybe this is no longer necessary, as this wil be managed by CMS?
-            WEBINY_VERSION: this.context.WEBINY_VERSION
-        });
+        return {} as WebsiteBuilderContextObject;
     }
 
     private getLocaleCode() {
