@@ -7,7 +7,8 @@ import { PageLayout } from "@/src/components/PageLayout";
 import { DocumentRenderer } from "@/src/components/DocumentRenderer";
 
 type PageProps = {
-    params: Promise<{ slug: string }>;
+    // If it's a catch-all route, you get an array of path segments.
+    params: Promise<{ slug: string[] }>;
     searchParams: Promise<Record<string, string>>;
 };
 
@@ -15,9 +16,19 @@ type PageProps = {
 // We must initialize the SDK here because the SDK needs to be ready before fetching the list of pages.
 export async function generateStaticParams() {
     initContentSdk();
+
+    // List all published pages
     const pages = await contentSdk.listPages();
 
-    return pages.map(page => ({ slug: page.properties.path }));
+    return pages.map(page => {
+        const path = page.properties.path;
+
+        return {
+            // The starter kit defines one single catch-all route, which expects an array of path segments.
+            // We split by `/` and remove the leading segment (which is a `/`)
+            slug: path.split("/").slice(1)
+        };
+    });
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -76,11 +87,11 @@ async function getPage(path: string) {
 // The main page component, rendered server-side, receives parameters and search params.
 // It takes into account the live editing mode (`wb.editing` query parameter).
 export default async function ProductPage({ params, searchParams }: PageProps) {
-    const { slug } = await params;
+    const { slug = [] } = await params;
     const search = await searchParams;
 
     const isEditing = search["wb.editing"] === "true";
-    const page = await getPage(`/${slug}`);
+    const page = await getPage(`/${slug.join("/")}`);
 
     return (
         <PageLayout>
