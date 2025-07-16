@@ -8,12 +8,14 @@ import { CreatePageParams } from "~/features/pages/createPage/ICreatePageUseCase
 import { usePageTypes } from "~/ecommerce/usePageTypes";
 import { useGetEditPageUrl } from "~/DocumentList/hooks/useGetEditPageUrl";
 import { useRouter } from "@webiny/react-router";
+import { useGetWebsiteBuilderSettings } from "~/features";
 
 export const useCreatePageDialog = (folderId: string) => {
     const dialog = useDialogs();
     const { createPage } = useCreatePage();
     const { getEditPageUrl } = useGetEditPageUrl();
     const { history } = useRouter();
+    const { getSettings } = useGetWebsiteBuilderSettings();
 
     const showCreatePageDialog = () => {
         dialog.showDialog({
@@ -23,6 +25,8 @@ export const useCreatePageDialog = (folderId: string) => {
             content: <CreatePageWizard />,
             formData: {},
             onAccept: async formData => {
+                const settings = await getSettings();
+
                 const input: CreatePageParams = {
                     location: {
                         folderId
@@ -42,17 +46,21 @@ export const useCreatePageDialog = (folderId: string) => {
                     }
                 };
 
+                const previewUrl = `${settings.previewDomain}${formData.path}`;
+
                 if (formData.type === "static") {
                     input.metadata = {
                         documentType: "page",
-                        pageType: "static"
+                        pageType: "static",
+                        lastPreviewUrl: previewUrl
                     };
                 } else {
                     input.metadata = {
                         documentType: "page",
                         pageType: formData.type,
                         resourceType: formData.resourceType,
-                        resourceId: formData.resourceId
+                        resourceId: formData.resourceId,
+                        lastPreviewUrl: previewUrl
                     };
                 }
 
