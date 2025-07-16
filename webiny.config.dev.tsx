@@ -4,6 +4,7 @@ import { Cli, Api, Project } from "@webiny/extensions";
 export default function Webiny() {
     return (
         <>
+            <Project.Name name={'My project'} />
             <Project.Telemetry enabled={false} />
             <Project.OpenSearch enabled={false} />
 
