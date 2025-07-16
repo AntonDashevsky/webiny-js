@@ -8,6 +8,7 @@ import { useGetPageRevisions } from "~/features/pages";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import { PageRevision } from "~/domain/PageRevision";
 import { PAGE_EDITOR_ROUTE } from "~/constants";
+import type { EditorPage } from "~/sdk";
 
 const { Item } = DropdownMenu;
 
@@ -20,11 +21,11 @@ const statusIcon: Record<string, JSX.Element> = {
 export const RevisionsMenu = () => {
     const [revisions, setRevisions] = useState<PageRevision[]>([]);
     const { loading, getPageRevisions } = useGetPageRevisions();
-    const { id, pageId } = useSelectFromDocument(document => {
-        return { id: document.id, pageId: document.id.split("#")[0] };
-    });
+    const id = useSelectFromDocument(document => document.id);
+    const status = useSelectFromDocument<string, EditorPage>(document => document.status);
 
     useEffect(() => {
+        const [pageId] = id.split("#");
         getPageRevisions({ pageId }).then(revisions => {
             setRevisions(
                 revisions
@@ -34,7 +35,7 @@ export const RevisionsMenu = () => {
                     .reverse()
             );
         });
-    }, [pageId]);
+    }, [id, status]);
 
     const currentRevision = revisions.find(r => r.id === id);
 
@@ -60,6 +61,7 @@ export const RevisionsMenu = () => {
                     key={revision.id}
                     className={"wby-cursor-pointer"}
                     onClick={() => goToRevision(revision.id)}
+                    disabled={revision.locked}
                     icon={
                         <Item.Icon
                             label={revision.getLabel()}

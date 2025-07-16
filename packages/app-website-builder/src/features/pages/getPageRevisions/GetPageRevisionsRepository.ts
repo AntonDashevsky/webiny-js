@@ -12,14 +12,6 @@ export class GetPageRevisionsRepository implements IGetPageRevisionsRepository {
     }
 
     async execute(pageId: string) {
-        const existingRevisions = this.cache.getItems().filter(revision => {
-            return revision.pageId === pageId;
-        })
-
-        if (existingRevisions.length > 0) {
-            return existingRevisions;
-        }
-
         const response = await this.gateway.execute(pageId);
         const revisions = response.map(revision => PageRevision.create(revision));
         this.cache.addItems(revisions);

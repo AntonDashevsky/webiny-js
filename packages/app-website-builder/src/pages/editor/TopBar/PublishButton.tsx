@@ -4,14 +4,19 @@ import { useDialogs } from "@webiny/app-admin";
 import { ReactComponent as PublishIcon } from "@webiny/icons/publish.svg";
 import { usePublishPage } from "~/features/pages";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
+import { PAGE_LIST_ROUTE } from "~/constants";
+import { useRouter } from "@webiny/react-router";
+import { EditorPage } from "~/sdk";
 
 export const PublishButton = () => {
+    const { history } = useRouter();
     const { showSuccessToast } = useToast();
     const { publishPage } = usePublishPage();
     const { showDialog } = useDialogs();
-    const { id } = useSelectFromDocument(document => {
-        return { id: document.id };
-    });
+    const folderId = useSelectFromDocument<string, EditorPage>(
+        document => document.location.folderId
+    );
+    const id = useSelectFromDocument(document => document.id);
 
     const publish = () => {
         showDialog({
@@ -22,9 +27,12 @@ export const PublishButton = () => {
             cancelLabel: "Cancel",
             onAccept: async () => {
                 await publishPage({ id });
+
                 showSuccessToast({
                     title: "Page was published successfully!"
                 });
+
+                history.push(`${PAGE_LIST_ROUTE}?folderId=${encodeURIComponent(folderId)}`);
             }
         });
     };

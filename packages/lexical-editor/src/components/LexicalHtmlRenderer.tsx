@@ -18,6 +18,9 @@ import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue
 import { LexicalValue } from "~/types";
 import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin";
 import { RichTextEditorProvider } from "~/context/RichTextEditorContext";
+import { LinkAction } from "~/components/ToolbarActions/LinkAction.js";
+import { ToolbarElement } from "~/components/LexicalEditorConfig/components/ToolbarElement.js";
+import { LexicalEditorConfig } from "~/components/LexicalEditorConfig/LexicalEditorConfig.js";
 
 interface LexicalHtmlRendererProps {
     nodes?: Klass<LexicalNode>[];

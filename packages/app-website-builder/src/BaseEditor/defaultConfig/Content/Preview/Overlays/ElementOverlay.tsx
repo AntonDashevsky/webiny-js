@@ -64,6 +64,7 @@ export const ElementOverlay = React.memo(
                                 data-state={boxState}
                                 data-element-id={elementId}
                                 data-role={"element-overlay"}
+                                data-depth={previewBox.depth}
                                 style={{
                                     zIndex: 100 + previewBox.depth,
                                     top: previewBox.top,

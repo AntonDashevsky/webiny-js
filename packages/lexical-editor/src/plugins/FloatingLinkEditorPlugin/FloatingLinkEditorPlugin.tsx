@@ -4,10 +4,10 @@ import { LinkEditForm } from "./LinkEditForm";
 import "./FloatingLinkEditorPlugin.css";
 
 export function FloatingLinkEditorPlugin({
-    anchorElem = document.body,
+    anchorElem = () => document.body,
     ...props
 }: {
-    anchorElem?: HTMLElement;
+    anchorElem?: () => HTMLElement;
     LinkEditForm?: typeof LinkEditForm;
 }): JSX.Element | null {
     return (

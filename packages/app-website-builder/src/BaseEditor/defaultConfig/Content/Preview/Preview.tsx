@@ -104,7 +104,6 @@ export const Preview = () => {
             scrollTracker.destroy();
             viewportManager.destroy();
             hoverManager.destroy();
-
         };
     }, [dropzoneManager, scrollTracker, mouseTracker]);
 
@@ -228,7 +227,7 @@ export const Preview = () => {
 
         return () => {
             offDocumentStateChange();
-        }
+        };
     }, []);
 
     return (

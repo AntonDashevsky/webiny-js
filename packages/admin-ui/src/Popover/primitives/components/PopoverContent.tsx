@@ -4,7 +4,7 @@ import { cn, cva, type VariantProps } from "~/utils";
 
 const popoverContentVariants = cva(
     [
-        "wby-z-50 wby-bg-neutral-base wby-rounded-sm wby-shadow-md wby-overflow-hidden wby-outline-none",
+        "wby-bg-neutral-base wby-rounded-sm wby-shadow-md wby-overflow-hidden wby-outline-none",
         "data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[state=closed]:wby-fade-out-0 data-[state=open]:wby-fade-in-0 data-[state=closed]:wby-zoom-out-95 data-[state=open]:wby-zoom-in-95 wby-origin-(--radix-popover-content-transform-origin)",
         "data-[side=bottom]:wby-slide-in-from-top-2 data-[side=left]:wby-slide-in-from-right-2 data-[side=right]:wby-slide-in-from-left-2 data-[side=top]:wby-slide-in-from-bottom-2"
     ],

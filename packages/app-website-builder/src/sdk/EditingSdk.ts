@@ -23,12 +23,14 @@ export class EditingSdk implements IContentSdk {
 
     constructor(liveSdk: IContentSdk) {
         this.liveSdk = liveSdk;
-        const source = new MessageOrigin(window, window.location.origin);
-        const target = new MessageOrigin(window.parent, this.getReferrerOrigin());
+        const source = new MessageOrigin(() => window, window.location.origin);
+        const target = new MessageOrigin(() => window.parent, this.getReferrerOrigin());
 
         this.previewDocument = PreviewDocument.createFromWindow();
 
-        this.documentStore = documentStoreManager.getStore<PublicPage>(this.previewDocument.getId());
+        this.documentStore = documentStoreManager.getStore<PublicPage>(
+            this.previewDocument.getId()
+        );
 
         this.messenger = new Messenger(source, target, "wb.editor.*");
 

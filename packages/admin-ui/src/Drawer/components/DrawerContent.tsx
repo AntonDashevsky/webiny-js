@@ -11,7 +11,7 @@ export interface DrawerContentProps
 
 const drawerVariants = cva(
     [
-        "wby-fixed wby-z-50 wby-gap-4 wby-bg-neutral-base wby-text-md wby-text-neutral-strong focus-visible:outline-none wby-shadow-lg",
+        "wby-fixed wby-gap-4 wby-bg-neutral-base wby-text-md wby-text-neutral-strong focus-visible:outline-none wby-shadow-lg",
         "wby-transition wby-ease-in-out data-[state=open]:wby-animate-in data-[state=closed]:wby-animate-out data-[state=closed]:wby-duration-300 data-[state=open]:wby-duration-500",
         "wby-max-w-full wby-h-full"
     ],

@@ -146,7 +146,7 @@ export type Document = {
 
 export type PublicPage = Pick<Page, "id" | "version" | "properties" | "bindings" | "elements">;
 
-export type EditorPage = EditorDocument & Pick<Page, "properties" | "status">;
+export type EditorPage = EditorDocument & Pick<Page, "properties" | "status" | "location">;
 
 export type EditorDocument = Document & {
     state: DocumentState;
@@ -157,16 +157,19 @@ export type Page = Document & {
     id: string;
     status: string;
     version: number;
+    location: {
+        folderId: string;
+    };
     properties: {
         title: string;
         snippet: string;
-        image: {
+        /*image: {
             id: string;
             name: string;
             size: number;
             mimeType: string;
             src: string;
-        };
+        };*/
         path: string;
         tags: string[];
         seo: {
@@ -177,13 +180,13 @@ export type Page = Document & {
         social: {
             title: string;
             description: string;
-            image: {
+            /*image: {
                 id: string;
                 name: string;
                 size: number;
                 mimeType: string;
                 src: string;
-            };
+            };*/
             metaTags: Array<{ property: string; content: string }>;
         };
     };

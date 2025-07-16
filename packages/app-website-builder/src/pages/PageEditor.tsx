@@ -16,6 +16,7 @@ const getPageDataFromPage = (page: Page): EditorPage => {
         id: page.id,
         version: page.version,
         status: page.status,
+        location: page.location,
         properties: page.properties as EditorPage["properties"],
         bindings: page.bindings,
         elements: page.elements,
@@ -45,10 +46,10 @@ export const PageEditor = () => {
                 }
 
                 return createPageRevisionFrom({ id: page.id }).then(page => {
+                    const encodedPageId = encodeURIComponent(page.id);
+                    const encodedFolderId = encodeURIComponent(page.location.folderId);
                     history.push(
-                        `${PAGE_EDITOR_ROUTE}/${encodeURIComponent(page.id)}?folderId=${
-                            page.location.folderId
-                        }`
+                        `${PAGE_EDITOR_ROUTE}/${encodedPageId}?folderId=${encodedFolderId}`
                     );
                 });
             })
