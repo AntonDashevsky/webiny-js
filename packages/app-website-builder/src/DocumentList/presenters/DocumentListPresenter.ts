@@ -66,6 +66,7 @@ class DocumentListPresenter {
             },
             sorting: this.getSorting(),
             searchQuery: this.searchRepository.get() || "",
+            searchLabel: this.getSearchLabel(),
             isSearch: this.getIsSearch(),
             isEmpty: this.getIsEmpty(),
             isRoot: this.getIsRoot(),
@@ -133,6 +134,16 @@ class DocumentListPresenter {
 
     private getIsSearch = () => {
         return Boolean(this.searchRepository.get() || this.filterRepository.hasFilters());
+    };
+
+    private getSearchLabel = () => {
+        const currentFolder = this.foldersCache.getItem(f => f.id === this.folderId);
+
+        if (this.folderId === ROOT_FOLDER || !currentFolder) {
+            return "Search...";
+        }
+
+        return `Search in "${currentFolder.title}"...`;
     };
 
     private getIsLoading = () => {
