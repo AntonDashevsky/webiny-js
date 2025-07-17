@@ -14,7 +14,12 @@ export const RefreshIframe = () => {
         });
 
         editor.updateEditor(state => {
+            // Unset boxes to remove old overlays.
             state.loadingPreview = true;
+            state.boxes = {
+                preview: {},
+                editor: {}
+            };
         });
     };
 

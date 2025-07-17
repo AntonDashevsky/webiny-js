@@ -11,6 +11,7 @@ import { documentStoreManager } from "~/sdk/DocumentStoreManager";
 import { DocumentStore } from "~/sdk/DocumentStore";
 import { HotkeyManager } from "~/sdk/HotkeyManager";
 import { PreviewDocument } from "./PreviewDocument.js";
+import { hashObject } from "~/sdk/HashObject";
 
 export class EditingSdk implements IContentSdk {
     public readonly messenger: Messenger;
@@ -20,6 +21,7 @@ export class EditingSdk implements IContentSdk {
     private documentStore: DocumentStore<PublicPage>;
     private previewDocument: PreviewDocument;
     private hotkeyManager: HotkeyManager;
+    private lastBoxesHash = 0;
 
     constructor(liveSdk: IContentSdk) {
         this.liveSdk = liveSdk;
@@ -69,10 +71,6 @@ export class EditingSdk implements IContentSdk {
         });
     }
 
-    refreshOverlays() {
-        this.reportBoxes();
-    }
-
     private getReferrerOrigin(): string {
         try {
             const searchParams = new URLSearchParams(window.location.search);
@@ -93,37 +91,19 @@ export class EditingSdk implements IContentSdk {
             if (!this.positionReportingEnabled) {
                 // Initialize position reporting
                 this.initPositionReporting();
-            } else {
-                setTimeout(() => this.reportBoxes(), 20);
             }
         });
 
         this.messenger.on("element.set", data => {
             this.documentStore.updateElement(data.id, data.patch);
-            setTimeout(() => {
-                this.reportBoxes();
-            }, 50);
         });
 
         this.messenger.on("document.patch", patch => {
             this.documentStore.applyPatch(patch);
-            setTimeout(() => {
-                this.reportBoxes();
-            }, 50);
-        });
-
-        this.messenger.on("preview.element.positions.get", () => {
-            this.reportBoxes();
         });
 
         this.messenger.on("preview.scroll", data => {
             window.scrollBy(data.deltaX, data.deltaY);
-        });
-
-        this.messenger.on("element.patch.*", () => {
-            setTimeout(() => {
-                this.reportBoxes();
-            }, 50);
         });
     }
 
@@ -147,9 +127,6 @@ export class EditingSdk implements IContentSdk {
         viewportManager.onViewportChangeEnd(() => {
             if (this.messenger) {
                 this.messenger.send("preview.viewport.change.end");
-                setTimeout(() => {
-                    this.reportBoxes();
-                }, 50);
             }
         });
 
@@ -161,8 +138,8 @@ export class EditingSdk implements IContentSdk {
         // Enable position reporting by default
         this.positionReportingEnabled = true;
 
-        // Report initial positions after a short delay to ensure elements are rendered
-        setTimeout(() => this.reportBoxes(), 500);
+        // Report positions periodically
+        setInterval(() => this.reportBoxes(), 300);
     }
 
     private reportBoxes(): void {
@@ -171,6 +148,13 @@ export class EditingSdk implements IContentSdk {
             return;
         }
 
+        const newBoxes = this.previewViewport.getVisibleBoxes();
+        const hash = hashObject.hash(newBoxes);
+        if (hash === this.lastBoxesHash) {
+            return;
+        }
+
+        this.lastBoxesHash = hash;
         // Send positions to the editor
         this.messenger.send("preview.viewport", {
             boxes: this.previewViewport.getVisibleBoxes(),

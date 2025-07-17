@@ -101,14 +101,14 @@ export const PickResourceList = observer((props: PickResourceListProps) => {
                             <>
                                 <List.Item.Action
                                     icon={<Delete />}
-                                    onClick={() => {
+                                    onClick={action(() => {
                                         const res = [
                                             ...store.value!.slice(0, store.value!.indexOf(item)),
                                             ...store.value!.slice(store.value!.indexOf(item) + 1)
                                         ];
                                         store.value = res;
                                         props.onChange(res);
-                                    }}
+                                    })}
                                 />
                             </>
                         }

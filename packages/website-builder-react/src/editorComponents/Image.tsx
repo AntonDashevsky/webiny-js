@@ -126,9 +126,6 @@ const useImage = ({ inputs, styles }: ImageProps) => {
         if (contentSdk.isEditing()) {
             setTimeout(() => {
                 setIsLoaded(true);
-                setTimeout(() => {
-                    contentSdk.getEditingSdk()?.refreshOverlays();
-                }, 100);
             }, 100);
         } else {
             setIsLoaded(true);
