@@ -39,8 +39,8 @@ export class ApiClient {
         const res = await fetch(this.apiEndpoint, request);
         const json = await res.json();
 
-        if (json.message?.includes("Cannot read properties of undefined")) {
-            throw new Error(`Invalid tenant ID!`);
+        if (json.message) {
+            throw new Error(json.message);
         }
 
         if (json.errors) {
