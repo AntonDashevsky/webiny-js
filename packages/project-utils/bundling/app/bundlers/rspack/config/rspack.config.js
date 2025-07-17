@@ -31,14 +31,6 @@ const STATIC_FOLDER = "static";
  * @param {{ paths: any, options: any }} param1
  */
 export async function createRspackConfig(webpackEnv, { paths, options }) {
-    const project = ProjectSdk.init(options.cwd);
-    let app;
-    try {
-        app = await project.getApp(options.cwd);
-    } catch {
-        // No need to do anything.
-    }
-
     const isEnvDevelopment = webpackEnv === "development";
     const isEnvProduction = webpackEnv === "production";
     const isEnvProductionProfile = isEnvProduction && process.argv.includes("--profile");
@@ -50,7 +42,7 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
     const publicPath = isEnvProduction ? paths.servedPath : isEnvDevelopment && "/";
     const shouldUseSourceMap = isEnvDevelopment || process.env.GENERATE_SOURCEMAP === "true";
     const publicUrl = isEnvProduction ? publicPath.slice(0, -1) : isEnvDevelopment && "";
-    const env = getClientEnvironment({ publicUrl, projectApplication: app });
+    const env = getClientEnvironment({ publicUrl });
 
     const htmlTemplate = fs.readFileSync(paths.appHtml, "utf8");
 

@@ -31,7 +31,7 @@ import {
     commandsWithGracefulErrorHandling,
     deployCommandWithTelemetry
 } from "./decorators/index.js";
-import { CliParamsService, GetProjectSdkService, UiService } from "~/abstractions";
+import { CliParamsService, GetProjectSdkService, LoadEnvVarsService, UiService } from "~/abstractions";
 import { GracefulError } from "~/utils/GracefulError";
 import chalk from "chalk";
 
@@ -68,12 +68,15 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
     // Extensions.
     const ui = container.resolve(UiService);
 
+    // TODO: not sure how I feel about this. We should probably revisit this.
     try {
         // Immediately set CLI instance params via the `CliParamsService`.
         container.resolve(CliParamsService).set(params);
+        await container.resolve(LoadEnvVarsService).execute();
 
         const projectSdk = await container.resolve(GetProjectSdkService).execute();
-        const project = await projectSdk.getProject();
+
+
         const projectConfig = await projectSdk.getProjectConfig();
 
         try {
@@ -84,6 +87,8 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
             throw error;
         }
 
+        const project = await projectSdk.getProject();
+
         const commands = projectConfig.extensionsByType<{ src: string }>("cliCommand");
         for (const command of commands) {
             const importPath = path.join(project.paths.rootFolder.absolute, command.params.src);
@@ -91,8 +96,6 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
             container.register(commandImplementation).inSingletonScope();
         }
     } catch (error) {
-
-        console.log(error);
         const ui = container.resolve(UiService);
         if (error && error instanceof GracefulError) {
             ui.newLine();

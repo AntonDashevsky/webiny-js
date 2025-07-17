@@ -2,7 +2,6 @@ import rspack from "@rspack/core";
 import formatWebpackMessages from "react-dev-utils/formatWebpackMessages";
 import { BaseFunctionBundler } from "./BaseFunctionBundler.js";
 import { createRspackConfig } from "./rspack/createRspackConfig.js";
-import { ProjectSdk } from "../../../ProjectSdk/index.js";
 
 export class RspackBundler extends BaseFunctionBundler {
     constructor(params) {
@@ -12,17 +11,8 @@ export class RspackBundler extends BaseFunctionBundler {
 
     build() {
         return new Promise(async (resolve, reject) => {
-            const project = await ProjectSdk.init(this.params.cwd);
-            let app;
-            try {
-                app = await project.getApp(this.params.cwd);
-            } catch {
-                // No need to do anything.
-            }
-
             const rspackConfig = await createRspackConfig({
                 ...this.params,
-                app,
                 production: true
             });
 
@@ -73,17 +63,8 @@ export class RspackBundler extends BaseFunctionBundler {
 
     watch() {
         return new Promise(async (resolve, reject) => {
-            const project = await ProjectSdk.init(this.params.cwd);
-            let app;
-            try {
-                app = await project.getApp(this.params.cwd);
-            } catch {
-                // No need to do anything.
-            }
-
             const rspackConfig = await createRspackConfig({
                 ...this.params,
-                app,
                 production: false
             });
 

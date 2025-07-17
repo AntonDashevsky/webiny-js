@@ -1,10 +1,7 @@
 import path from "path";
 
-const getDefaults = ({ cwd, app }) => {
+const getDefaults = ({ cwd }) => {
     let outputPath = path.join(cwd, "build");
-    if (app) {
-        outputPath = path.join(app.paths.workspaceFolder.absolute, "build");
-    }
 
     return {
         outputPath,

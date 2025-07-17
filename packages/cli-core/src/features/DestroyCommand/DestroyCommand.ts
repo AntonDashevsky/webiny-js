@@ -2,6 +2,7 @@ import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { measureDuration } from "~/features/utils";
 import { PulumiError } from "@webiny/pulumi-sdk";
+import { AppName } from "~/abstractions/features/types";
 
 export interface IDestroyNoAppParams {
     variant?: string;
@@ -10,7 +11,7 @@ export interface IDestroyNoAppParams {
 }
 
 export interface IDestroyWithAppParams extends IDestroyNoAppParams {
-    app: string;
+    app: AppName;
     build?: boolean;
     preview?: boolean;
 }

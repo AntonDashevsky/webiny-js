@@ -2,6 +2,7 @@ import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
 import { DeployOutput } from "./deployOutputs/DeployOutput.js";
+import { AppName } from "~/abstractions/features/types.js";
 
 export interface IDeployNoAppParams {
     variant?: string;
@@ -11,7 +12,7 @@ export interface IDeployNoAppParams {
 }
 
 export interface IDeployWithAppParams extends IDeployNoAppParams {
-    app: string;
+    app: AppName;
     build?: boolean;
     preview?: boolean;
 }

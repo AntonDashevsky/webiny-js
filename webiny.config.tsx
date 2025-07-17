@@ -5,7 +5,7 @@ export default function Webiny() {
     return (
         <>
             <Project.Telemetry enabled={false} />
-            <Project.OpenSearch enabled={false} />
+           {/* <Project.OpenSearch enabled={false} />
 
             <Project.Deployments.PulumiResourceNamePrefix prefix={"wby-"} />
             <IsEnvironment name={"prod"}>
@@ -26,7 +26,7 @@ export default function Webiny() {
                 <Project.Deployments.AwsTags.Tag name={"webiny:region"} value={"us-east-1"} />
             </Project.Deployments.AwsTags>
 
-            <Core.Pulumi src={"./extensions/myCorePulumiHandler.ts"} />
+            <Core.Pulumi src={"./extensions/myCorePulumiHandler.ts"} />*/}
 
             <Cli.Command name={"my-custom-command"} src={"./extensions/myCustomCommand.ts"} />
             <Api.BeforeDeploy

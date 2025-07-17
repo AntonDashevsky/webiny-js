@@ -54,12 +54,13 @@ export class MultipleBuildsOutput extends BaseBuildOutput {
 
                 err.errors.forEach((err: Error, i: number) => {
                     const { pkg, error } = err.cause as Record<string, any>;
-                    const number = `${i + 1}.`;
-                    const name = chalk.red(pkg.name);
-                    const relativePath = chalk.gray(`(${pkg.paths.relative})`);
-                    const title = [number, name, relativePath].join(" ");
+                    // console.log('pkg', pkg)
+                    // const number = `${i + 1}.`;
+                    // const name = chalk.red(pkg.name);
+                    // const relativePath = chalk.gray(`(${pkg.paths.relative})`);
+                    // const title = [number, name, relativePath].join(" ");
 
-                    ui.text(title);
+                    // ui.text(title);
                     ui.newLine();
                     ui.text(error.message);
                     ui.newLine();

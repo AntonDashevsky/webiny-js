@@ -5,6 +5,7 @@ export * from "./GetProjectService/index.js";
 export * from "./GetPulumiService/index.js";
 export * from "./ListAppLambdaFunctionsService/index.js";
 export * from "./ListPackagesService/index.js";
+export * from "./ListPackagesInAppWorkspaceService/index.js";
 export * from "./LoggerService/index.js";
 export * from "./ProjectInfoService/index.js";
 export * from "./ProjectSdkParamsService/index.js";

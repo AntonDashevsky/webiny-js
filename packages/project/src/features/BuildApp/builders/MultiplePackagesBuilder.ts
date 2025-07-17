@@ -9,7 +9,7 @@ export class MultiplePackagesBuilder extends BasePackagesBuilder {
         const packages = this.packages;
         const params = this.params;
         this.logger.debug(`Building %s packages...`, packages.length);
-        this.logger.debug("The following packages will be builded for changes:", packages);
+        this.logger.debug("The following packages will be built for changes:", packages);
 
         return packages.map(pkg => {
             const buildConfig = JSON.stringify({ ...params, package: { paths: pkg.paths } });

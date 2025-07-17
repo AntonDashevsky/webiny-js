@@ -5,6 +5,7 @@ export { GetProjectService } from "./GetProjectService.js";
 export { GetPulumiService } from "./GetPulumiService.js";
 export { ListAppLambdaFunctionsService } from "./ListAppLambdaFunctionsService.js";
 export { ListPackagesService } from "./ListPackagesService.js";
+export { ListPackagesInAppWorkspaceService } from "./ListPackagesInAppWorkspaceService.js";
 export { LoggerService } from "./LoggerService.js";
 export { ProjectSdkParamsService } from "./ProjectSdkParamsService.js";
 export { PulumiGetConfigPassphraseService } from "./PulumiGetConfigPassphraseService.js";

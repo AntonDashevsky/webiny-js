@@ -1,0 +1,23 @@
+import { Abstraction } from "@webiny/di-container";
+import { AppName } from "~/abstractions/types";
+
+export interface IListPackagesInAppWorkspacePackage {
+    name: string;
+    webinyConfig: Record<string, any>;
+    paths: {
+        packageFolder: string;
+        webinyConfigFile: string;
+    };
+}
+
+export type IListPackagesInAppWorkspaceServiceResult = Promise<IListPackagesInAppWorkspacePackage[]>;
+
+export interface IListPackagesInAppWorkspaceService {
+    execute(app: AppName): IListPackagesInAppWorkspaceServiceResult;
+}
+
+export const ListPackagesInAppWorkspaceService = new Abstraction<IListPackagesInAppWorkspaceService>("ListPackagesInAppWorkspaceService");
+
+export namespace ListPackagesInAppWorkspaceService {
+    export type Interface = IListPackagesInAppWorkspaceService;
+}

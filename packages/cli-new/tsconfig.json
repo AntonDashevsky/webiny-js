@@ -6,6 +6,9 @@
   ],
   "references": [
     {
+      "path": "../cli-core"
+    },
+    {
       "path": "../di-container"
     },
     {
@@ -28,6 +31,12 @@
       ],
       "~tests/*": [
         "./__tests__/*"
+      ],
+      "@webiny/cli-core": [
+        "../cli-core/src"
+      ],
+      "@webiny/cli-core/*": [
+        "../cli-core/src/*"
       ],
       "@webiny/di-container": [
         "../di-container/src"

@@ -10,6 +10,7 @@
   "description": "A command line interface (CLI) for managing Webiny projects.",
   "license": "MIT",
   "dependencies": {
+    "@webiny/cli-core": "0.0.0",
     "@webiny/di-container": "0.0.0",
     "@webiny/extensions": "0.0.0",
     "@webiny/project": "0.0.0",

@@ -1,6 +1,10 @@
 import path from "path";
 import invariant from "invariant";
 import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+// TODO: `getStackOutput` should be replaced with:
+// import { ProjectSdk } from "@webiny/project";
+// const sdk = await ProjectSdk.init();
+// sdk.getAppOutput(...);
 import { type BuildAppConfigOverrides, createBuildApp, createWatchApp } from "@webiny/project-utils";
 import { type Configuration as WebpackConfig } from "webpack";
 import { type PulumiAppModule } from "@webiny/pulumi";
