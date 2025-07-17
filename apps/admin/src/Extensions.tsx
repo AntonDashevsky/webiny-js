@@ -1,12 +1,12 @@
 // This file is automatically updated via scaffolding utilities.
 // Learn more about extensions: https://webiny.link/extensions
 import React from "react";
-import { Extension as KiboCommerceExtension } from "kibo-commerce";
+import { Extension as SampleEcommerceExtension } from "sample-ecommerce";
 
 export const Extensions = () => {
     return (
         <>
-            <KiboCommerceExtension />
+            <SampleEcommerceExtension />
         </>
     );
 };

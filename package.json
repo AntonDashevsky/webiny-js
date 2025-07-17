@@ -18,11 +18,9 @@
 			"apps/api/pageBuilder/import/*",
 			"apps/api/pageBuilder/export/*",
 			"extensions/theme",
-			"nextjs",
-			"nextjs-pages-router",
 			"scripts/buildPackages",
 			"scripts/prepublishOnly",
-			"extensions/kiboCommerce"
+			"extensions/sampleEcommerce"
 		]
 	},
 	"author": "Webiny Ltd.",
