@@ -94,7 +94,8 @@ export const createEntry = (index = 0) => {
             ],
             settings: {
                 general: {
-                    title: `Settings title #${index}`
+                    title: `Settings title #${index}`,
+                    slug: `page-${index}`
                 }
             }
         }
