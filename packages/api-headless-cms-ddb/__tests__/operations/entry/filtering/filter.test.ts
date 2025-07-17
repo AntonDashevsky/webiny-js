@@ -417,6 +417,21 @@ describe("filtering", () => {
             }
         });
         expect(resultsRed).toHaveLength(3);
+
+        /**
+         * Find page slug inside settings.
+         */
+        const resultsPage3 = filter({
+            items: records,
+            where: {},
+            plugins,
+            fields,
+            fullTextSearch: {
+                term: "page-3",
+                fields: searchableFields
+            }
+        });
+        expect(resultsPage3).toHaveLength(1);
     });
 
     it("should filter by nested keys in a JSON", async () => {

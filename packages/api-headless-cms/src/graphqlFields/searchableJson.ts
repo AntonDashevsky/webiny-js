@@ -8,6 +8,7 @@ export const createSearchableJsonField = (): CmsModelFieldToGraphQLPlugin => {
         fieldType: "searchable-json",
         isSortable: true,
         isSearchable: true,
+        fullTextSearch: true,
         read: {
             createTypeField({ field }) {
                 if (field.multipleValues) {
