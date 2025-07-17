@@ -10,17 +10,13 @@ const SidebarContainer = styled.div`
 `
 
 export const Layout = makeDecoratable("SidebarLayout", () => {
-    const { activeGroup, setActiveGroup } = Sidebar.useActiveGroup();
-
     return (
         <SidebarContainer>
             <Tabs
                 size="md"
                 spacing={"md"}
                 separator={true}
-                value={activeGroup}
                 defaultValue={"element"}
-                onValueChange={setActiveGroup}
                 tabs={[<Sidebar.Elements group="groups" key={"groups"} />]}
             />
         </SidebarContainer>

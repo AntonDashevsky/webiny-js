@@ -4,7 +4,6 @@ import { Element as CoreElement, ElementProps as CoreElementProps } from "../Ele
 import { Layout } from "./Layout";
 import { Elements as BaseElements, ElementsProps as BaseElementsProps } from "../Elements";
 import { Tab } from "./Tab";
-import { useActiveGroup } from "../Sidebar/useActiveGroup";
 import { createGetId } from "../createGetId";
 import { ScrollableContainer } from "../Sidebar/ScrollableContainer";
 
@@ -60,6 +59,5 @@ export const Sidebar = Object.assign(BaseSidebar, {
     Element: BaseElement,
     Elements,
     Group: Object.assign(BaseGroup, { Tab }),
-    ScrollableContainer,
-    useActiveGroup
+    ScrollableContainer
 });

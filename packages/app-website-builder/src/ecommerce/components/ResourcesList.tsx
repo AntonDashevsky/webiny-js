@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { action, runInAction } from "mobx";
-import { observer, useLocalObservable } from "mobx-react";
+import { observer, useLocalObservable } from "mobx-react-lite";
 import capitalize from "lodash/capitalize";
 import pluralize from "pluralize";
 import {
