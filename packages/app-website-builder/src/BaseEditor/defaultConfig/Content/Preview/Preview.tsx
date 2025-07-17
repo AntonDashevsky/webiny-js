@@ -161,6 +161,12 @@ export const Preview = () => {
             editor.redo();
         });
 
+        messenger.on("document.slots", ({ slots }) => {
+            editor.updateEditor(state => {
+                state.slots = slots;
+            });
+        });
+
         messenger.on("preview.viewport", ({ boxes, viewport }: PreviewViewportData) => {
             const iframeBox = getIframeBox();
 
