@@ -56,7 +56,7 @@ const GeneralSettingsForm = () => {
                     <Textarea label={"Snippet"} />
                 </Bind>
             </Grid.Column>
-            {/*<Grid.Column span={12}>
+            <Grid.Column span={12}>
                 <Bind name={"properties.image"}>
                     {({ value, onChange }) => (
                         <FileManager
@@ -75,7 +75,7 @@ const GeneralSettingsForm = () => {
                         />
                     )}
                 </Bind>
-            </Grid.Column>*/}
+            </Grid.Column>
             <Grid.Column span={12}>
                 <SimpleTags
                     bindName={"properties.tags"}
