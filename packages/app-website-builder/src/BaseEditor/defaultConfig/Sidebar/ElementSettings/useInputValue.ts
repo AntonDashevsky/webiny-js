@@ -164,7 +164,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
         (cb: (params: OnChangeParams) => void) => {
             const deepInputs = inputsProcessor.toDeepInputs(resolvedBindings.inputs);
 
-            const valueObject = new InputValueObject(value);
+            const valueObject = new InputValueObject(localState ?? value);
 
             const updaterInput = {
                 value: valueObject,
@@ -190,7 +190,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
                 patch: updatedInputs.createJsonPatch(rawBindings)
             });
         },
-        [elementId, rawBindings]
+        [elementId, rawBindings, localState]
     );
 
     const setBindingType = useCallback(

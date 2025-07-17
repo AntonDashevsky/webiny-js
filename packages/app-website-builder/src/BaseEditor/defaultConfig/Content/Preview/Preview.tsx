@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import defaultImage from "@webiny/icons/extension.svg";
 import { Messenger } from "~/sdk/messenger";
 import { useDocumentEditor } from "~/DocumentEditor";
@@ -21,10 +21,19 @@ import { KeyboardShortcuts } from "./KeyboardShortcuts";
 import { ViewportManager } from "~/sdk/ViewportManager";
 import { mouseTracker } from "~/sdk";
 import { Commands } from "~/BaseEditor";
+import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 
 export const Preview = () => {
-    const [showLoading, setShowLoading] = useState(true);
     const editor = useDocumentEditor();
+
+    const loadingPreview = useSelectFromEditor(state => state.loadingPreview);
+
+    useEffect(() => {
+        // On first mount, show loading.
+        editor.updateEditor(state => {
+            state.loadingPreview = true;
+        });
+    }, []);
 
     const getIframeBox = useCallback(() => {
         const iframe = document.getElementById("preview-iframe");
@@ -222,7 +231,9 @@ export const Preview = () => {
         });
 
         setTimeout(() => {
-            setShowLoading(false);
+            editor.updateEditor(state => {
+                state.loadingPreview = false;
+            });
         }, 100);
 
         return () => {
@@ -237,7 +248,7 @@ export const Preview = () => {
                 <Iframe
                     viewportManager={viewportManager}
                     onConnected={onConnected}
-                    showLoading={showLoading}
+                    showLoading={loadingPreview}
                 />
             </DropZoneManagerProvider>
             <MouseStatus />

@@ -27,12 +27,12 @@ export const CreateInputRenderers = ({
             <React.Fragment key={resourceName}>
                 {/* Single resource. */}
                 <ElementInput.Renderer
-                    name={`${pluginName}${capitalize(resourceName)}`}
+                    name={`${pluginName}/${capitalize(resourceName)}`}
                     component={createResourcePicker(pluginName, api, resourceName)}
                 />
                 {/* List of resources. */}
                 <ElementInput.Renderer
-                    name={`${pluginName}${capitalize(resourceName)}List`}
+                    name={`${pluginName}/${capitalize(resourceName)}List`}
                     component={createResourceListPicker(pluginName, api, resourceName)}
                 />
             </React.Fragment>

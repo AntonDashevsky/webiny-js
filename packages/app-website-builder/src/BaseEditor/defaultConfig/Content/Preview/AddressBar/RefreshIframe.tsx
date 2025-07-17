@@ -12,6 +12,10 @@ export const RefreshIframe = () => {
             url.searchParams.set("wb.ts", Date.now().toString());
             document.metadata.lastPreviewUrl = url.toString();
         });
+
+        editor.updateEditor(state => {
+            state.loadingPreview = true;
+        });
     };
 
     return (
