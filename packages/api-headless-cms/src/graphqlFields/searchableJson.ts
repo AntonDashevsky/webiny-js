@@ -7,7 +7,7 @@ export const createSearchableJsonField = (): CmsModelFieldToGraphQLPlugin => {
         type: "cms-model-field-to-graphql",
         fieldType: "searchable-json",
         isSortable: true,
-        isSearchable: false,
+        isSearchable: true,
         fullTextSearch: true,
         read: {
             createTypeField({ field }) {
