@@ -7,7 +7,7 @@ export function $createElement(
     editor: Editor,
     payload: CommandPayload<typeof Commands.CreateElement>
 ) {
-    const { componentName, index, parentId, slot } = payload;
+    const { componentName, index, parentId, slot, bindings } = payload;
     const componentsManifest = editor.getEditorState().read().components;
 
     const elementFactory = new ElementFactory(componentsManifest);
@@ -16,7 +16,7 @@ export function $createElement(
         parentId,
         slot,
         index,
-        bindings: componentsManifest[componentName].defaults ?? {}
+        bindings: bindings ?? componentsManifest[componentName].defaults ?? {}
     });
 
     editor.updateDocument(document => {

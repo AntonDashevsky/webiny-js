@@ -23,7 +23,7 @@ const withDefaultStyles = (styles: CssProperties) => {
     return { ...defaultStyles, ...styles };
 };
 
-interface CreateElementParams {
+export interface CreateElementParams {
     componentName: string;
     parentId: string;
     slot: string;

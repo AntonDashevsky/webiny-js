@@ -10,7 +10,7 @@ import { SlotInputRenderer } from "~/inputRenderers/SlotInput";
 import { GridLayoutInputRenderer } from "~/inputRenderers/GridLayoutInput";
 import { SelectInputRenderer } from "~/inputRenderers/SelectInput";
 import { FileInputRenderer } from "~/inputRenderers/FileInput";
-import { SlotSelectorInputRenderer } from "~/inputRenderers/SlotSelectorInput";
+import { FragmentSelectorInputRenderer } from "~/inputRenderers/FragmentSelectorInput";
 
 export const ElementInputRenderers = () => {
     return (
@@ -54,8 +54,8 @@ export const ElementInputRenderers = () => {
                 component={FileInputRenderer}
             />
             <EditorConfig.ElementInput.Renderer
-                name={"Webiny/SlotSelector"}
-                component={SlotSelectorInputRenderer}
+                name={"Webiny/FragmentSelector"}
+                component={FragmentSelectorInputRenderer}
             />
         </>
     );

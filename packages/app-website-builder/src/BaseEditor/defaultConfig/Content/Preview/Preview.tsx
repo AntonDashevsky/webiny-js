@@ -22,6 +22,7 @@ import { ViewportManager } from "~/sdk/ViewportManager";
 import { mouseTracker } from "~/sdk";
 import { Commands } from "~/BaseEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
+import { $createElement } from "~/editorSdk/utils";
 
 export const Preview = () => {
     const editor = useDocumentEditor();
@@ -161,10 +162,32 @@ export const Preview = () => {
             editor.redo();
         });
 
-        messenger.on("document.slots", ({ slots }) => {
+        messenger.on("document.fragments", payload => {
+            const fragments: string[] = payload.fragments;
             editor.updateEditor(state => {
-                state.slots = slots;
+                state.fragments = fragments;
             });
+
+            const document = editor.getDocumentState().read();
+
+            if (Object.keys(document.elements).length === 1) {
+                // We only have the default "root" element, create fragment elements.
+                let index = 0;
+                fragments.forEach(fragment => {
+                    $createElement(editor, {
+                        componentName: "Webiny/Fragment",
+                        parentId: "root",
+                        slot: "children",
+                        index,
+                        bindings: {
+                            inputs: {
+                                name: fragment
+                            }
+                        }
+                    });
+                    index++;
+                });
+            }
         });
 
         messenger.on("preview.viewport", ({ boxes, viewport }: PreviewViewportData) => {

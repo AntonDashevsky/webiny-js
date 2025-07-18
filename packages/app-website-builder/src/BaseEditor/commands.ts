@@ -1,4 +1,5 @@
 import { createCommand } from "~/editorSdk/createCommand";
+import type { CreateElementParams } from "~/sdk/ElementFactory";
 
 const CreateElement = createCommand<{
     // Name of the component to use.
@@ -9,6 +10,8 @@ const CreateElement = createCommand<{
     slot: string;
     // Index within the slot.
     index: number;
+    // Bindings
+    bindings?: CreateElementParams["bindings"];
 }>("CREATE_ELEMENT");
 
 const MoveElement = createCommand<{

@@ -4,19 +4,19 @@ import { ElementInputRendererProps } from "~/BaseEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel";
 
-export const SlotSelectorInputRenderer = ({
+export const FragmentSelectorInputRenderer = ({
     value,
     onChange,
     label,
     input
 }: ElementInputRendererProps) => {
-    const slotNames = useSelectFromEditor<string[]>(state => state.slots ?? []);
+    const fragmentNames = useSelectFromEditor<string[]>(state => state.fragments ?? []);
     const options = useMemo(() => {
-        return slotNames.sort().map(name => ({
+        return fragmentNames.sort().map(name => ({
             label: toTitleCaseLabel(name),
             value: name
         }));
-    }, [slotNames]);
+    }, [fragmentNames]);
 
     return (
         <Select
