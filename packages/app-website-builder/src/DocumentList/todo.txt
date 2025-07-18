@@ -1,3 +1,0 @@
-- create separate cache for full pages +
-- add trash-bin ---
-- load search from query string ---
