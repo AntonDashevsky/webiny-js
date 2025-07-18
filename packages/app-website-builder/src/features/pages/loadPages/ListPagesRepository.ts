@@ -59,72 +59,51 @@ export class ListPagesRepository implements IListPagesRepository {
             cursor: null,
             hasMoreItems: false
         });
-
-        const callback = async () => {
-            const { pages, meta } = await this.gateway.execute(this.getGatewayParams());
-            this.pages.clear();
-            this.pages.addItems(pages.map(page => Page.create(page)));
-            await this.meta.set(MetaMapper.toDto(meta));
-        };
-
-        await this.loading.runCallBack(callback(), loadingActions.list);
+        await this.fetchAndSetPages(loadingActions.list);
     }
 
     async loadMorePages() {
         const after = this.meta.get().cursor;
-
         if (!after) {
             return;
         }
-
-        const callback = async () => {
-            const { pages, meta } = await this.gateway.execute(this.getGatewayParams());
-            this.pages.addItems(pages.map(page => Page.create(page)));
-            await this.meta.set(MetaMapper.toDto(meta));
-        };
-
-        await this.loading.runCallBack(callback(), loadingActions.listMore);
+        await this.fetchAndAddPages(loadingActions.listMore);
     }
 
     async searchPages(query: string, where: Record<string, any>) {
         await this.params.set({ where });
         await this.search.set(query);
-
-        const callback = async () => {
-            const { pages, meta } = await this.gateway.execute(this.getGatewayParams());
-            this.pages.clear();
-            this.pages.addItems(pages.map(page => Page.create(page)));
-            await this.meta.set(MetaMapper.toDto(meta));
-        };
-
-        await this.loading.runCallBack(callback(), loadingActions.list);
+        await this.fetchAndSetPages(loadingActions.list);
     }
 
     async sortPages(sorts: Sorting[]) {
         this.sorting.set(sorts);
-
-        const callback = async () => {
-            const { pages, meta } = await this.gateway.execute(this.getGatewayParams());
-            this.pages.clear();
-            this.pages.addItems(pages.map(page => Page.create(page)));
-            await this.meta.set(MetaMapper.toDto(meta));
-        };
-
-        await this.loading.runCallBack(callback(), loadingActions.list);
+        await this.fetchAndSetPages(loadingActions.list);
     }
 
     async filterPages(filters: Record<string, any>, where: Record<string, any>) {
         await this.params.set({ where });
         await this.filter.set(filters);
+        await this.fetchAndSetPages(loadingActions.list);
+    }
 
+    private async fetchAndSetPages(action: string) {
         const callback = async () => {
             const { pages, meta } = await this.gateway.execute(this.getGatewayParams());
             this.pages.clear();
             this.pages.addItems(pages.map(page => Page.create(page)));
             await this.meta.set(MetaMapper.toDto(meta));
         };
+        await this.loading.runCallBack(callback(), action);
+    }
 
-        await this.loading.runCallBack(callback(), loadingActions.list);
+    private async fetchAndAddPages(action: string) {
+        const callback = async () => {
+            const { pages, meta } = await this.gateway.execute(this.getGatewayParams());
+            this.pages.addItems(pages.map(page => Page.create(page)));
+            await this.meta.set(MetaMapper.toDto(meta));
+        };
+        await this.loading.runCallBack(callback(), action);
     }
 
     private getGatewayParams(): ListPagesGatewayParams {
