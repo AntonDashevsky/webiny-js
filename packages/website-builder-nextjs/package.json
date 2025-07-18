@@ -37,6 +37,7 @@
   "adio": {
     "ignore": {
       "dependencies": [
+        "next",
         "@webiny/website-builder-react"
       ]
     }
