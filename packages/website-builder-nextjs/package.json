@@ -19,6 +19,9 @@
   "dependencies": {
     "@webiny/website-builder-react": "0.0.0"
   },
+  "peerDependencies": {
+    "next": "^15"
+  },
   "devDependencies": {
     "@webiny/project-utils": "0.0.0",
     "typescript": "5.3.3"

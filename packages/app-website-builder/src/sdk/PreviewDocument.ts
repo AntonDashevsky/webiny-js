@@ -1,3 +1,5 @@
+import { getHeadersProvider } from "./headersProvider";
+
 export class PreviewDocument {
     public readonly props: Record<string, string>;
 
@@ -17,9 +19,9 @@ export class PreviewDocument {
     }
 
     static async createFromHeaders(): Promise<PreviewDocument> {
-        const { headers } = await import("next/headers");
-        const headersStore = await headers();
-        const previewFromHeaders = headersStore.get("X-Preview-Params");
+        const headersProvider = getHeadersProvider();
+        const headers = await headersProvider();
+        const previewFromHeaders = headers.get("X-Preview-Params");
 
         return new PreviewDocument("wb", new URLSearchParams(previewFromHeaders ?? ""));
     }

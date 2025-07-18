@@ -19,6 +19,8 @@ export {
     createElement,
     contentSdk,
     environment,
+    setHeadersProvider,
+    getHeadersProvider,
     registerComponentGroup,
     type Document,
     type DocumentElement,
