@@ -34,11 +34,9 @@ export const MOVE_PAGE = gql`
 
 export class MovePageGqlGateway implements IMovePageGateway {
     private client: ApolloClient<any>;
-    private modelFields: string;
 
-    constructor(client: ApolloClient<any>, modelFields: string) {
+    constructor(client: ApolloClient<any>) {
         this.client = client;
-        this.modelFields = modelFields;
     }
 
     async execute(id: string, folderId: string) {
