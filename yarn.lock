@@ -19499,17 +19499,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/website-builder-nextjs@workspace:packages/website-builder-nextjs":
+"@webiny/website-builder-nextjs@npm:*, @webiny/website-builder-nextjs@workspace:packages/website-builder-nextjs":
   version: 0.0.0-use.local
   resolution: "@webiny/website-builder-nextjs@workspace:packages/website-builder-nextjs"
   dependencies:
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/website-builder-react": "npm:0.0.0"
     typescript: "npm:5.3.3"
+  peerDependencies:
+    next: ^15
   languageName: unknown
   linkType: soft
 
-"@webiny/website-builder-react@npm:*, @webiny/website-builder-react@npm:0.0.0, @webiny/website-builder-react@workspace:packages/website-builder-react":
+"@webiny/website-builder-react@npm:0.0.0, @webiny/website-builder-react@workspace:packages/website-builder-react":
   version: 0.0.0-use.local
   resolution: "@webiny/website-builder-react@workspace:packages/website-builder-react"
   dependencies:
@@ -34671,7 +34673,7 @@ __metadata:
     "@types/node": "npm:^20"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
-    "@webiny/website-builder-react": "npm:*"
+    "@webiny/website-builder-nextjs": "npm:*"
     next: "npm:^15.4.1"
     next-i18next: "npm:^10.2.0"
     next-logger: "npm:^3.0.2"
