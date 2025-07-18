@@ -14,7 +14,7 @@ export interface MovePageUseCasesTopics {
 
 interface MovePageUseCasesParams {
     moveOperation: WbPagesStorageOperations["move"];
-    getOperation: WbPagesStorageOperations["get"];
+    getOperation: WbPagesStorageOperations["getById"];
     topics: MovePageUseCasesTopics;
 }
 

@@ -14,7 +14,7 @@ export interface DuplicatePageUseCasesTopics {
 
 interface DuplicatePageUseCasesParams {
     createOperation: WbPagesStorageOperations["create"];
-    getOperation: WbPagesStorageOperations["get"];
+    getOperation: WbPagesStorageOperations["getById"];
     topics: DuplicatePageUseCasesTopics;
 }
 

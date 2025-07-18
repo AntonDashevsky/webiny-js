@@ -103,7 +103,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { duplicatePageUseCase } = getDuplicatePageUseCase({
         createOperation: config.storageOperations.pages.create,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeDuplicate,
             onWebsiteBuilderPageAfterDuplicate
@@ -118,7 +118,7 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
 
     const { movePageUseCase } = getMovePageUseCase({
         moveOperation: config.storageOperations.pages.move,
-        getOperation: config.storageOperations.pages.get,
+        getOperation: config.storageOperations.pages.getById,
         topics: {
             onWebsiteBuilderPageBeforeMove,
             onWebsiteBuilderPageAfterMove

@@ -5,12 +5,12 @@ import { WebinyError } from "@webiny/error";
 
 export class MovePageWithEvents implements IMovePage {
     private topics: MovePageUseCasesTopics;
-    private readonly getOperation: WbPagesStorageOperations["get"];
+    private readonly getOperation: WbPagesStorageOperations["getById"];
     private readonly decoretee: IMovePage;
 
     constructor(
         topics: MovePageUseCasesTopics,
-        getOperation: WbPagesStorageOperations["get"],
+        getOperation: WbPagesStorageOperations["getById"],
         decoretee: IMovePage
     ) {
         this.topics = topics;
@@ -19,7 +19,7 @@ export class MovePageWithEvents implements IMovePage {
     }
 
     async execute(params: MoveWbPageParams) {
-        const page = await this.getOperation({ where: { id: params.id } });
+        const page = await this.getOperation(params.id);
 
         if (!page) {
             throw new WebinyError(

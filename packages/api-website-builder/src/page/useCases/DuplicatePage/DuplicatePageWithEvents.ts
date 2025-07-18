@@ -5,12 +5,12 @@ import { WebinyError } from "@webiny/error";
 
 export class DuplicatePageWithEvents implements IDuplicatePage {
     private topics: DuplicatePageUseCasesTopics;
-    private readonly getOperation: WbPagesStorageOperations["get"];
+    private readonly getOperation: WbPagesStorageOperations["getById"];
     private readonly decoretee: IDuplicatePage;
 
     constructor(
         topics: DuplicatePageUseCasesTopics,
-        getOperation: WbPagesStorageOperations["get"],
+        getOperation: WbPagesStorageOperations["getById"],
         decoretee: IDuplicatePage
     ) {
         this.topics = topics;
@@ -19,7 +19,7 @@ export class DuplicatePageWithEvents implements IDuplicatePage {
     }
 
     async execute(params: DuplicateWbPageParams) {
-        const original = await this.getOperation({ where: { id: params.id } });
+        const original = await this.getOperation(params.id);
 
         if (!original) {
             throw new WebinyError(

@@ -3,11 +3,11 @@ import type { IDuplicatePage } from "./IDuplicatePage";
 import type { DuplicateWbPageParams, WbPage, WbPagesStorageOperations } from "~/page/page.types";
 
 export class DuplicatePage implements IDuplicatePage {
-    private readonly getOperation: WbPagesStorageOperations["get"];
+    private readonly getOperation: WbPagesStorageOperations["getById"];
     private readonly createOperation: WbPagesStorageOperations["create"];
 
     constructor(
-        getOperation: WbPagesStorageOperations["get"],
+        getOperation: WbPagesStorageOperations["getById"],
         createOperation: WbPagesStorageOperations["create"]
     ) {
         this.getOperation = getOperation;
@@ -15,7 +15,7 @@ export class DuplicatePage implements IDuplicatePage {
     }
 
     async execute({ id }: DuplicateWbPageParams): Promise<WbPage> {
-        const page = await this.getOperation({ where: { id } });
+        const page = await this.getOperation(id);
 
         if (!page) {
             throw new Error(`Page with id ${id} not found`);
