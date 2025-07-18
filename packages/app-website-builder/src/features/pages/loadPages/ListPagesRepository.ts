@@ -50,15 +50,19 @@ export class ListPagesRepository implements IListPagesRepository {
         this.gateway = gateway;
     }
 
-    async loadPages(params: LoadPagesRepositoryParams) {
+    async loadPages({ resetSearch, ...params }: LoadPagesRepositoryParams) {
         await this.params.set(params);
-        await this.search.set("");
         await this.filter.reset();
         await this.meta.set({
             totalCount: 0,
             cursor: null,
             hasMoreItems: false
         });
+
+        if (resetSearch) {
+            await this.search.set("");
+        }
+
         await this.fetchAndSetPages(loadingActions.list);
     }
 

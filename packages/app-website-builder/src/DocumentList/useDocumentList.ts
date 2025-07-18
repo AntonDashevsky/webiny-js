@@ -1,4 +1,4 @@
-import { useCallback, useState, useMemo, useEffect } from "react";
+import { useCallback, useState, useMemo, useEffect, useRef } from "react";
 import { autorun } from "mobx";
 import {
     useGetFolderHierarchy,
@@ -10,6 +10,7 @@ import { useFilterPages, useLoadPages } from "~/features/pages/index.js";
 import { useSelectPages } from "~/features/pages/selectPages/useSelectPages.js";
 
 export const useDocumentList = () => {
+    const isFirstLoad = useRef(true);
     const { folders, getFolderHierarchy } = useGetFolderHierarchy();
     const { listFoldersByParentIds } = useListFoldersByParentIds();
     const { currentFolderId } = useNavigateFolder();
@@ -66,8 +67,10 @@ export const useDocumentList = () => {
 
         // List all documents when the current folder changes.
         listDocuments({
-            folderId: vm.folderId
+            folderId: vm.folderId,
+            resetSearch: !isFirstLoad.current
         });
+        isFirstLoad.current = false;
     }, [vm.folderId]);
 
     return {

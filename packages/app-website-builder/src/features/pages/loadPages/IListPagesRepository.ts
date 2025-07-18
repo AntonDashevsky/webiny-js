@@ -2,10 +2,7 @@ import { Sorting } from "@webiny/app-utils";
 
 export interface LoadPagesRepositoryParams {
     where?: Record<string, any>;
-    sort?: string[];
-    limit?: number;
-    after?: string;
-    search?: string;
+    resetSearch?: boolean;
 }
 
 export interface IListPagesRepository {

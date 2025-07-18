@@ -11,13 +11,14 @@ export class LoadPagesUseCase implements ILoadPagesUseCase {
         this.repository = repository;
     }
 
-    async execute({ folderId }: LoadPagesUseCaseParams) {
+    async execute({ folderId, resetSearch }: LoadPagesUseCaseParams) {
         const params = {
             where: {
                 wbyAco_location: {
                     folderId
                 }
-            }
+            },
+            resetSearch
         };
 
         await this.repository.loadPages(params);

@@ -1,5 +1,6 @@
 export interface LoadPagesUseCaseParams {
     folderId: string;
+    resetSearch?: boolean;
 }
 
 export interface ILoadPagesUseCase {
