@@ -17,12 +17,11 @@
 			"apps/api/pageBuilder/updateSettings",
 			"apps/api/pageBuilder/import/*",
 			"apps/api/pageBuilder/export/*",
-			"extensions/theme",
 			"nextjs",
-			"nextjs-pages-router",
+			"extensions/theme",
 			"scripts/buildPackages",
 			"scripts/prepublishOnly",
-			"extensions/kiboCommerce"
+			"extensions/sampleEcommerce"
 		]
 	},
 	"author": "Webiny Ltd.",
