@@ -2,8 +2,8 @@ import pino from "pino";
 
 export const logger = pino({
     name: "Website Builder SDK",
-    level: "debug",
-    transport: {
+    level: "silent"
+    /*transport: {
         target: "pino-pretty"
-    }
+    }*/
 });

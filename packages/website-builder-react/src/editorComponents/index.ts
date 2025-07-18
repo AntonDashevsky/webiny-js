@@ -4,6 +4,6 @@ import { Image } from "./Image.manifest.js";
 import { Lexical } from "./Lexical.manifest.js";
 import { Root } from "./Root.manifest.js";
 import { GridColumn } from "./GridColumn.manifest";
-import { Slot } from "./Slot.manifest";
+import { Fragment } from "./Fragment.manifest";
 
-export const editorComponents = [Root, Box, Grid, GridColumn, Image, Lexical, Slot];
+export const editorComponents = [Root, Box, Grid, GridColumn, Image, Lexical, Fragment];

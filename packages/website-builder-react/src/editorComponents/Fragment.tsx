@@ -1,24 +1,24 @@
 import React from "react";
-import { useDocumentSlots } from "~/components/SlotsProvider";
+import { useDocumentFragments } from "~/components/FragmentsProvider";
 import type { ComponentProps } from "~/types";
 import { contentSdk } from "@webiny/app-website-builder/sdk";
 
-type SlotComponentProps = ComponentProps<{
+type FragmentComponentProps = ComponentProps<{
     name: string;
 }>;
 
-export const SlotComponent = ({ inputs }: SlotComponentProps) => {
+export const FragmentComponent = ({ inputs }: FragmentComponentProps) => {
     const isEditing = contentSdk.isEditing();
-    const slots = useDocumentSlots();
-    const element = slots[inputs.name] ?? null;
+    const fragments = useDocumentFragments();
+    const element = fragments[inputs.name] ?? null;
     if (!element && isEditing) {
-        return <SlotPlaceholder name={inputs.name} />;
+        return <FragmentPlaceholder name={inputs.name} />;
     }
     return <>{element}</>;
 };
 
-const SlotPlaceholder = ({ name }: { name: string }) => {
-    const slotName = name ? (
+const FragmentPlaceholder = ({ name }: { name: string }) => {
+    const fragmentName = name ? (
         <>
             &nbsp;<strong>{name}</strong>&nbsp;
         </>
@@ -36,7 +36,7 @@ const SlotPlaceholder = ({ name }: { name: string }) => {
                 fill: "#ffffff"
             }}
         >
-            This is a placeholder for{slotName}content coming from your frontend app.
+            This is a placeholder for{fragmentName}content coming from your frontend app.
         </div>
     );
 };

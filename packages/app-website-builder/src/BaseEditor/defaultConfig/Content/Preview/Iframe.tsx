@@ -6,6 +6,7 @@ import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Previ
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { ViewportManager } from "~/sdk/ViewportManager";
 import { useIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useIframeUrl";
+import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging";
 
 interface IframeProps {
     showLoading: boolean;
@@ -17,6 +18,7 @@ export const Iframe = React.memo((props: IframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const { iframeUrl } = useIframeUrl();
     const previewWidth = useResponsiveContainer(props.viewportManager);
+    const isDragging = useIsDragging();
 
     return (
         <div
@@ -49,6 +51,9 @@ export const Iframe = React.memo((props: IframeProps) => {
                     src={iframeUrl}
                     ref={iframeRef}
                     sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-modals allow-forms"
+                    style={{
+                        pointerEvents: isDragging ? "none" : "auto"
+                    }}
                 />
             </div>
         </div>
