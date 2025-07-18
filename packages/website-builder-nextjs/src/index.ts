@@ -3,7 +3,8 @@ export * from "@webiny/website-builder-react";
 import { setHeadersProvider } from "@webiny/website-builder-react";
 
 setHeadersProvider(async () => {
-    // @ts-expect-error This is a peer dependency.
+    // Settings @ts-expect-error breaks the build if the dependency is installed in the repo.
+    // @ts-ignore This is a peer dependency.
     const { headers } = await import("next/headers");
     return await headers();
 });
