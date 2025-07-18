@@ -4,21 +4,36 @@ import { ElementRenderer } from "./ElementRenderer";
 import { DocumentStoreProvider } from "./DocumentStoreProvider";
 import { ConnectToEditor } from "./ConnectToEditor";
 import { editorComponents } from "../editorComponents/index";
-import { SlotsProvider } from "./SlotsProvider";
+import { DocumentFragments, FragmentsProvider } from "./FragmentsProvider";
 
 interface DocumentRendererProps {
-    document: Document;
+    document: Document | null;
     components: Component[];
-    slots?: { [key: string]: React.ReactNode };
+    children?: React.ReactNode | React.ReactNode[];
 }
 
-export const DocumentRenderer = ({ document, components, slots }: DocumentRendererProps) => {
+export const DocumentRenderer = ({ document, components, children }: DocumentRendererProps) => {
     const allComponents = [...editorComponents, ...components];
     allComponents.forEach(blueprint => contentSdk.registerComponent(blueprint));
+    const fragments: DocumentFragments = {};
+
+    React.Children.toArray(children).forEach(child => {
+        // @ts-expect-error Need to properly type this.
+        const { name, children } = child.props;
+        if (!name || !children) {
+            return;
+        }
+
+        fragments[name] = <>{children}</>;
+    });
+
+    if (!document) {
+        return <div data-role={"document-renderer"}>{children}</div>;
+    }
 
     return (
         <div data-role={"document-renderer"}>
-            <SlotsProvider slots={slots ?? {}}>
+            <FragmentsProvider fragments={fragments ?? {}}>
                 {contentSdk.isEditing() ? (
                     <ConnectToEditor document={document} components={components} />
                 ) : (
@@ -26,7 +41,7 @@ export const DocumentRenderer = ({ document, components, slots }: DocumentRender
                         <ElementRenderer id={"root"} />
                     </DocumentStoreProvider>
                 )}
-            </SlotsProvider>
+            </FragmentsProvider>
         </div>
     );
 };
