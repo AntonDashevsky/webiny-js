@@ -1,6 +1,5 @@
 import React from "react";
-import { Tabs, Grid, Input, MultiAutoComplete, Textarea, FilePicker } from "@webiny/admin-ui";
-import { FileManager } from "@webiny/app-admin";
+import { Tabs, Grid, Input, Textarea } from "@webiny/admin-ui";
 import { Bind } from "@webiny/form";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { ReactComponent as SeoIcon } from "@webiny/icons/search.svg";
@@ -56,7 +55,7 @@ const GeneralSettingsForm = () => {
                     <Textarea label={"Snippet"} />
                 </Bind>
             </Grid.Column>
-            <Grid.Column span={12}>
+            {/*<Grid.Column span={12}>
                 <Bind name={"properties.image"}>
                     {({ value, onChange }) => (
                         <FileManager
@@ -75,7 +74,7 @@ const GeneralSettingsForm = () => {
                         />
                     )}
                 </Bind>
-            </Grid.Column>
+            </Grid.Column>*/}
             <Grid.Column span={12}>
                 <SimpleTags
                     bindName={"properties.tags"}
