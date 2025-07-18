@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Text, IconButton } from "@webiny/admin-ui";
+import { Text, IconButton, cn } from "@webiny/admin-ui";
 import { ReactComponent as Close } from "@webiny/icons/close.svg";
 import { Buttons } from "@webiny/app-admin";
 import { useDocumentList } from "~/DocumentList/useDocumentList.js";
@@ -20,12 +20,13 @@ export const BulkActions = () => {
         return `${label} selected`;
     }, [vm.selected]);
 
-    if (!vm.selected.length) {
-        return null;
-    }
-
     return (
-        <div className={"wby-w-full wby-bg-neutral-disabled wby-px-md wby-py-sm"}>
+        <div
+            className={cn(
+                "wby-w-full wby-bg-neutral-disabled wby-px-md wby-py-sm",
+                vm.selected.length > 0 ? "wby-block" : "wby-hidden"
+            )}
+        >
             <div className={"wby-flex wby-items-center wby-justify-between wby-gap-sm"}>
                 <div className={"wby-flex wby-items-center wby-gap-sm"}>
                     <Text size={"sm"} className={"wby-text-neutral-strong"}>

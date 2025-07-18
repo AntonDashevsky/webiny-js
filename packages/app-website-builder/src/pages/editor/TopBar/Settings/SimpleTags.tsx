@@ -53,40 +53,38 @@ export const SimpleTags = (props: MetaTagsProps) => {
     const { value, onChange } = useBind({ name: props.bindName, defaultValue: [] });
 
     return (
-        <div className={"wby-my-lg"}>
-            <DynamicFieldset value={value} onChange={onChange} onAdd={() => ""}>
-                {({ actions, header, footer, row, empty }) => (
-                    <>
-                        {row(({ index }) => (
-                            <div className={"wby-mt-md"}>
-                                <div className={"wby-flex wby-items-start wby-gap-sm"}>
-                                    <Bind name={`${props.bindName}.${index}`}>
-                                        <Input size={"lg"} />
-                                    </Bind>
-                                    <IconButton
-                                        variant={"ghost"}
-                                        size={"lg"}
-                                        icon={<DeleteIcon />}
-                                        onClick={actions.remove(index)}
-                                    />
-                                </div>
+        <DynamicFieldset value={value} onChange={onChange} onAdd={() => ""}>
+            {({ actions, header, footer, row, empty }) => (
+                <>
+                    {row(({ index }) => (
+                        <div className={"wby-mt-md"}>
+                            <div className={"wby-flex wby-items-start wby-gap-sm"}>
+                                <Bind name={`${props.bindName}.${index}`}>
+                                    <Input size={"lg"} />
+                                </Bind>
+                                <IconButton
+                                    variant={"ghost"}
+                                    size={"lg"}
+                                    icon={<DeleteIcon />}
+                                    onClick={actions.remove(index)}
+                                />
                             </div>
-                        ))}
-                        {footer(() => (
-                            <Footer onClick={actions.add()} />
-                        ))}
-                        {header(() => (
+                        </div>
+                    ))}
+                    {footer(() => (
+                        <Footer onClick={actions.add()} />
+                    ))}
+                    {header(() => (
+                        <Header label={props.label} description={props.description} />
+                    ))}
+                    {empty(() => (
+                        <>
                             <Header label={props.label} description={props.description} />
-                        ))}
-                        {empty(() => (
-                            <>
-                                <Header label={props.label} description={props.description} />
-                                <Footer onClick={actions.add()} />
-                            </>
-                        ))}
-                    </>
-                )}
-            </DynamicFieldset>
-        </div>
+                            <Footer onClick={actions.add()} />
+                        </>
+                    ))}
+                </>
+            )}
+        </DynamicFieldset>
     );
 };

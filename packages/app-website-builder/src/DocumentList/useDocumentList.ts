@@ -16,24 +16,6 @@ export const useDocumentList = () => {
     const { filterPages: filterDocuments } = useFilterPages();
     const presenter = useDocumentListPresenter();
 
-    useEffect(() => {
-        // List all documents when the current folder changes. Let's reset both search and after params
-        listDocuments({
-            folderId: currentFolderId
-        });
-
-        // The folders collection is empty, it must be the first render, let's load the full hierarchy.
-        if (folders.length === 0) {
-            getFolderHierarchy(currentFolderId);
-        } else {
-            // Otherwise let's load only the current folder sub-tree
-            listFoldersByParentIds([currentFolderId]);
-        }
-
-        // Close the filter list
-        presenter.showFilters(false);
-    }, [currentFolderId]);
-
     const params = useMemo(
         () => ({
             folderId: currentFolderId
@@ -64,6 +46,24 @@ export const useDocumentList = () => {
         },
         [presenter]
     );
+
+    useEffect(() => {
+        // The folders collection is empty, it must be the first render, let's load the full hierarchy.
+        if (folders.length === 0) {
+            getFolderHierarchy(vm.folderId);
+        } else {
+            // Otherwise let's load only the current folder sub-tree
+            listFoldersByParentIds([vm.folderId]);
+        }
+
+        // Close the filter list
+        presenter.showFilters(false);
+
+        // List all documents when the current folder changes.
+        listDocuments({
+            folderId: vm.folderId
+        });
+    }, [vm.folderId]);
 
     return {
         vm,
