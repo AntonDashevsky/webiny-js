@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "include": ["src", "__tests__"],
-  "references": [{ "path": "../app-website-builder-react" }],
+  "references": [{ "path": "../website-builder-react" }],
   "compilerOptions": {
     "rootDirs": ["./src", "./__tests__"],
     "outDir": "./dist",
@@ -9,8 +9,8 @@
     "paths": {
       "~/*": ["./src/*"],
       "~tests/*": ["./__tests__/*"],
-      "@webiny/website-builder-react/*": ["../app-website-builder-react/src/*"],
-      "@webiny/website-builder-react": ["../app-website-builder/src"]
+      "@webiny/website-builder-react/*": ["../website-builder-react/src/*"],
+      "@webiny/website-builder-react": ["../website-builder-react/src"]
     },
     "baseUrl": "."
   }
