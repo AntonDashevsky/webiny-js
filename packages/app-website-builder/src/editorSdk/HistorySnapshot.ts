@@ -1,4 +1,4 @@
-import type { JsonPatchOperation } from "~/sdk/jsonPatch";
+import type { JsonPatchOperation } from "@webiny/website-builder-sdk";
 
 export type SnapshotState = Record<string, any>;
 

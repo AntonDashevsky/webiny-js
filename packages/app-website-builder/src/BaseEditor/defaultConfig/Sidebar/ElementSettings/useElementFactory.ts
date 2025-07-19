@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { ElementFactory } from "~/sdk/ElementFactory";
+import { ElementFactory } from "@webiny/website-builder-sdk";
 
 export const useElementFactory = () => {
     const components = useSelectFromEditor(state => {

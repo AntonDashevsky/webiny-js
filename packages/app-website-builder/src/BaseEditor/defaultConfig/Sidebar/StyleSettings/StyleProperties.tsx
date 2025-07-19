@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import { Accordion } from "@webiny/admin-ui";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
-import { DocumentElement } from "~/sdk/types";
+import { DocumentElement } from "@webiny/website-builder-sdk";
 import { Background } from "./Groups/Background";
 import { MarginPadding } from "./Groups/MarginPadding";
 import { VisibilityGroup } from "./Groups/VisibilityGroup";
 import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
-import { StyleSettings } from "~/constants";
+import { StyleSettings } from "@webiny/website-builder-sdk";
 import { Layout } from "./Groups/Layout";
 
 export const StyleProperties = () => {

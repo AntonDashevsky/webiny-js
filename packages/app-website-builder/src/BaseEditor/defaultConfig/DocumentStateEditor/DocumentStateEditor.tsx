@@ -6,7 +6,7 @@ import { Bind, GenericFormData } from "@webiny/form";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { autorun, toJS } from "mobx";
 import { observer } from "mobx-react-lite";
-import { EditorDocument } from "~/sdk";
+import { EditorDocument } from "@webiny/website-builder-sdk";
 
 const monacoOptions = { minimap: { enabled: false } };
 

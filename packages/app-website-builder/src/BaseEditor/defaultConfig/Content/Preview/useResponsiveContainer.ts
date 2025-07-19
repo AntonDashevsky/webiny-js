@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { ViewportManager } from "~/sdk/ViewportManager";
+import { ViewportManager } from "@webiny/website-builder-sdk";
 
 /**
  * Calculate the real width of the preview container, taking into account the current display mode

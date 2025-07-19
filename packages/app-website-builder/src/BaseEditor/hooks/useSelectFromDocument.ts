@@ -1,5 +1,5 @@
 import deepEqual from "deep-equal";
-import type { EditorDocument } from "~/sdk/types";
+import type { EditorDocument } from "@webiny/website-builder-sdk";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromState } from "./useSelectFromState";
 

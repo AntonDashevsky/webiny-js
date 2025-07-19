@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { Breakpoint } from "~/sdk/types";
+import { Breakpoint } from "@webiny/website-builder-sdk";
 import { ReactComponent as LaptopIcon } from "@webiny/icons/laptop_mac.svg";
 import { ReactComponent as TabletIcon } from "@webiny/icons/tablet_mac.svg";
 import { ReactComponent as MobileIcon } from "@webiny/icons/phone_iphone.svg";

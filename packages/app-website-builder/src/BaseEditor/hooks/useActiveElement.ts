@@ -1,7 +1,7 @@
 import { autorun, toJS } from "mobx";
 import { useCallback, useEffect, useState } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
-import { DocumentElement } from "~/sdk/types";
+import { DocumentElement } from "@webiny/website-builder-sdk";
 import { Commands } from "../commands";
 import deepEqual from "deep-equal";
 

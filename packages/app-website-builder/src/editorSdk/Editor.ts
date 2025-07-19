@@ -1,10 +1,10 @@
-import {
+import type {
     ComponentManifest,
     EditorDocument,
     EditorViewportData,
     PreviewViewportData,
     SerializedComponentGroup
-} from "../sdk/types";
+} from "@webiny/website-builder-sdk";
 import { CommandBus, type Command, CommandHandler, CommandPriority } from "./CommandBus.js";
 import { type StateChangeListener, StateWithHistory } from "./StateWithHistory.js";
 import { type MutableState, State } from "./State.js";

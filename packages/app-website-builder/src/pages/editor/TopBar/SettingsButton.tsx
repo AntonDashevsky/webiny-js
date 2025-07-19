@@ -6,7 +6,7 @@ import { useDialogs } from "@webiny/app-admin";
 import { SettingsDialogBody } from "./Settings/SettingsDialogBody";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { EditorPage } from "~/sdk";
+import { EditorPage } from "@webiny/website-builder-sdk";
 
 export const SettingsButton = () => {
     const dialogs = useDialogs();

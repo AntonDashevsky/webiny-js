@@ -1,4 +1,4 @@
-import type { Document } from "~/sdk/types";
+import type { Document } from "@webiny/website-builder-sdk";
 import type { IMetadata } from "./IMetadata";
 
 export class BreakpointElementMetadata implements IMetadata {

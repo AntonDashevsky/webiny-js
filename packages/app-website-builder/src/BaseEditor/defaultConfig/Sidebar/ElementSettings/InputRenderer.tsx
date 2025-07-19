@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid } from "@webiny/admin-ui";
-import type { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
+import type { InputAstNode } from "@webiny/website-builder-sdk";
 import { InputField } from "./InputField";
-import type { DocumentElement, DocumentElementBindings } from "~/sdk/types";
+import type { DocumentElement, DocumentElementBindings } from "@webiny/website-builder-sdk";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
 
 export const InputRenderer = ({

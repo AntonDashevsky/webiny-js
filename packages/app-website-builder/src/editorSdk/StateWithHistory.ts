@@ -2,7 +2,7 @@ import { makeObservable, autorun, observable } from "mobx";
 import type { GenericRecord } from "@webiny/app/types.js";
 import { EditorHistory } from "./EditorHistory.js";
 import { type IState, type MutableState, State } from "./State";
-import { jsonPatch, type JsonPatchOperation } from "~/sdk/jsonPatch";
+import { jsonPatch, type JsonPatchOperation } from "@webiny/website-builder-sdk";
 
 export type StateChangeEvent<TState> = {
     reason: "undo" | "redo" | "update";

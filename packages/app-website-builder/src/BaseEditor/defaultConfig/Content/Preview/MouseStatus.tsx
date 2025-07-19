@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { mouseTracker } from "~/sdk";
+import { mouseTracker } from "@webiny/website-builder-sdk";
 
 export const MouseStatus = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });

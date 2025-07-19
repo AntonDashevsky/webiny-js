@@ -1,9 +1,9 @@
 import { toJS } from "mobx";
-import { BindingsProcessor } from "~/sdk/BindingsProcessor";
+import { BindingsProcessor } from "@webiny/website-builder-sdk";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
-import { InheritanceProcessor } from "~/sdk/InheritanceProcessor";
+import { InheritanceProcessor } from "@webiny/website-builder-sdk";
 
 export const useBindingsForElement = (elementId: string) => {
     const { breakpoint, breakpoints } = useBreakpoint();

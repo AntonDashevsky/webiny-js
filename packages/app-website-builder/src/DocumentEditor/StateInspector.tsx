@@ -2,7 +2,7 @@ import React from "react";
 import Monaco from "@monaco-editor/react";
 import { Tabs } from "@webiny/admin-ui";
 import { FloatingPanel } from "@webiny/app-admin/components";
-import type { EditorDocument } from "~/sdk";
+import type { EditorDocument } from "@webiny/website-builder-sdk";
 import { Editor } from "~/editorSdk/Editor";
 import { observer } from "mobx-react-lite";
 

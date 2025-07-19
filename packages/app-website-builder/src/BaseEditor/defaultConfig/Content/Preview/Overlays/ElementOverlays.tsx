@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 import { usePreviewData } from "~/BaseEditor/hooks/usePreviewData";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { ElementOverlay } from "./ElementOverlay";
-import { PreviewViewportInfo, SlotInput } from "~/sdk/types";
+import { PreviewViewportInfo, SlotInput } from "@webiny/website-builder-sdk";
 import { useIsDragging } from "../useIsDragging";
 import { Box } from "../Box";
 import { DropEvent } from "../useProximityDropzone";
@@ -17,8 +17,8 @@ import { useDropZoneManager } from "../DropZoneManagerProvider";
 import { mergeRefs } from "../mergeRefs";
 import { Commands } from "~/BaseEditor";
 import { Editor } from "~/editorSdk/Editor";
-import { ComponentManifestToAstConverter } from "~/sdk/ComponentManifestToAstConverter";
-import { findMatchingAstNode } from "~/sdk/findMatchingAstNode";
+import { ComponentManifestToAstConverter } from "@webiny/website-builder-sdk";
+import { findMatchingAstNode } from "@webiny/website-builder-sdk";
 
 const OverlayContainer = styled("div")({
     overflow: "hidden",

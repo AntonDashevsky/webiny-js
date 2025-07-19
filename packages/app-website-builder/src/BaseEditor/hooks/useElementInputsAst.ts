@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
-import { ComponentManifestToAstConverter } from "~/sdk/ComponentManifestToAstConverter";
+import { ComponentManifestToAstConverter } from "@webiny/website-builder-sdk";
 
 export const useElementInputsAst = (elementId?: string) => {
     const componentManifest = useElementComponentManifest(elementId ?? "");

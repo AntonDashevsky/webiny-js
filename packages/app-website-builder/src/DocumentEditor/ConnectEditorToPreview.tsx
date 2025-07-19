@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { MessageOrigin, Messenger } from "../sdk/messenger";
+import { MessageOrigin, Messenger } from "@webiny/website-builder-sdk";
 import { usePreviewData } from "~/BaseEditor/hooks/usePreviewData";
 
 type ConnectEditorToPreviewProps = {

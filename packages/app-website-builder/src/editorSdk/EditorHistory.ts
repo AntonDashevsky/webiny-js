@@ -1,5 +1,5 @@
 import pick from "lodash/pick";
-import { jsonPatch } from "~/sdk/jsonPatch";
+import { jsonPatch } from "@webiny/website-builder-sdk";
 import { HistorySnapshot, type SnapshotState } from "./HistorySnapshot.js";
 
 interface EditorHistoryParams {
