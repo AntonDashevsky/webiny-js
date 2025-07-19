@@ -1,6 +1,5 @@
 import React from "react";
-import AceEditor from "react-ace";
-import "ace-builds/webpack-resolver";
+import AceEditor from "react-ace/lib/ace";
 import { makeDecoratable } from "~/utils";
 
 // Modes
