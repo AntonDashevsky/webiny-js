@@ -79,7 +79,7 @@
     "@types/randomcolor": "^0.5.9",
     "@types/react-images": "^0.5.3",
     "@types/react-resizable": "^3.0.8",
-    "@types/react-virtualized": "^9.21.16",
+    "@types/react-virtualized": "^9.22.0",
     "@types/resize-observer-browser": "^0.1.4",
     "@types/store": "^2.0.2",
     "@webiny/cli": "0.0.0",
