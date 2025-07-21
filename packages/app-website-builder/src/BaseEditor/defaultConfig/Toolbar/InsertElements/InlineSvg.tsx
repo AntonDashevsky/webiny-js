@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 interface InlineSvgProps {
     src: string;
@@ -7,7 +7,6 @@ interface InlineSvgProps {
 
 export const InlineSvg = ({ src, className = "" }: InlineSvgProps) => {
     const ref = useRef<HTMLObjectElement | null>(null);
-    const [dataUrl, setDataUrl] = useState<string | null>(null);
 
     const setSvg = useCallback((svg: string) => {
         if (ref.current) {
@@ -26,7 +25,8 @@ export const InlineSvg = ({ src, className = "" }: InlineSvgProps) => {
         }
 
         if (src.startsWith("data:image/svg+xml")) {
-            setDataUrl(src);
+            const base64 = src.split(",")[1];
+            setSvg(atob(base64));
             return;
         }
 
@@ -35,10 +35,6 @@ export const InlineSvg = ({ src, className = "" }: InlineSvgProps) => {
             .then(svg => setSvg(svg))
             .catch(console.error);
     }, [src]);
-
-    if (dataUrl) {
-        return <object data={src} />;
-    }
 
     return <div ref={ref} />;
 };
