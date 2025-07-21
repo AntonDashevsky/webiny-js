@@ -161,10 +161,12 @@ export class InputsBindingsProcessor {
         // Extracts a nested value from an object based on a flat string path.
         // Supports array indexes like 'rows/0/columns/1/children'.
         const getValue = (obj: any, path: string): any => {
-            const keys = path
-                .split(/\.|\/(\d+)\//) // Split by dot or array index
-                .filter(Boolean)
-                .map(k => (/\d+/.test(k) ? +k : k));
+            const segments = path.split("/");
+            const keys = segments.flatMap(segment => {
+                return segment.split(".").map(part => {
+                    return /^\d+$/.test(part) ? parseInt(part, 10) : part;
+                });
+            });
             return keys.reduce((acc, key) => (acc ? acc[key] : undefined), obj);
         };
 

@@ -19,7 +19,6 @@ import {
     type IMetadata
 } from "~/BaseEditor/metadata";
 import { useElementFactory } from "./useElementFactory";
-import { toJS } from "mobx";
 
 export type OnChangeParams = {
     value: InputValueObject;
@@ -118,6 +117,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
                 valuePath,
                 valueObject.get()
             );
+
             const devFriendlyStyles = stylesProcessor.toDeepStyles(rawBindings.styles ?? {});
 
             // Process input's `onChange`.
@@ -185,11 +185,9 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
             setLocalValue({ static: valueObject.get() });
 
             const updatedInputs = inputsProcessor.createUpdate(devFriendlyInputs, breakpoint.name);
+            const patch = updatedInputs.createJsonPatch(rawBindings);
 
-            editor.executeCommand(Commands.PreviewPatchElement, {
-                elementId: elementId,
-                patch: updatedInputs.createJsonPatch(rawBindings)
-            });
+            editor.executeCommand(Commands.PreviewPatchElement, { elementId, patch });
         },
         [elementId, rawBindings, localState]
     );
