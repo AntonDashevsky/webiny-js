@@ -14,7 +14,6 @@ import type {
 import { HoverManager } from "./HoverManager";
 import { DropZoneManager } from "./DropZoneManager";
 import { DropZoneManagerProvider } from "./DropZoneManagerProvider";
-import { MouseStatus } from "~/BaseEditor/defaultConfig/Content/Preview/MouseStatus";
 import { Boxes } from "~/BaseEditor/hooks/Boxes";
 import { ScrollTracker } from "~/BaseEditor/defaultConfig/Content/Preview/ScrollTracker";
 import { KeyboardShortcuts } from "./KeyboardShortcuts";
@@ -280,7 +279,6 @@ export const Preview = () => {
                     showLoading={loadingPreview}
                 />
             </DropZoneManagerProvider>
-            <MouseStatus />
             <KeyboardShortcuts />
         </>
     );

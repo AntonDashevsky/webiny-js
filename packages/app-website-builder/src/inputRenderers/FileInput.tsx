@@ -1,9 +1,10 @@
 import React from "react";
 import { FilePicker, FileItemDto } from "@webiny/admin-ui";
 import { ElementInputRendererProps } from "~/BaseEditor";
-import { FileManager } from "@webiny/app-admin";
+import { FileManager, type FileManagerFileItem } from "@webiny/app-admin";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { FileInput } from "@webiny/website-builder-sdk";
+import { fileManagerItemToValue } from "~/shared/fileManagerItemToValue";
 
 export const FileInputRenderer = ({
     value,
@@ -14,37 +15,12 @@ export const FileInputRenderer = ({
 }: ElementInputRendererProps) => {
     const input = props.input as FileInput;
     const { isBaseBreakpoint } = useBreakpoint();
-    const onFileChange = (file: any) => {
-        const metaItems = file.meta || [];
-        const getName = () => {
-            const nameItem = metaItems.find((item: { key: string }) => item.key === "name");
-            return nameItem ? nameItem.value : "";
-        };
-        const getSize = () => {
-            const sizeItem = metaItems.find((item: { key: string }) => item.key === "size");
-            return sizeItem ? sizeItem.value : 0;
-        };
-        const getType = () => {
-            const typeItem = metaItems.find((item: { key: string }) => item.key === "type");
-            return typeItem ? typeItem.value : "";
-        };
-
+    const onFileChange = (file: FileManagerFileItem) => {
         onChange(({ value, metadata }) => {
-            value.set({
-                id: file.id,
-                name: getName(),
-                size: getSize(),
-                mimeType: getType(),
-                src: file.src || ""
-            });
+            const newValue = fileManagerItemToValue(file);
+            value.set(newValue);
 
-            metadata.set("image", {
-                id: file.id,
-                name: getName(),
-                size: getSize(),
-                mimeType: getType(),
-                src: file.src || ""
-            });
+            metadata.set("image", newValue);
         });
     };
 

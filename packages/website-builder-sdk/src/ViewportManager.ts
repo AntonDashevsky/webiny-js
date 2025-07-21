@@ -30,7 +30,7 @@ export class ViewportManager {
         {
             name: "mobile",
             minWidth: 0,
-            maxWidth: 767
+            maxWidth: 430
         }
     ];
 

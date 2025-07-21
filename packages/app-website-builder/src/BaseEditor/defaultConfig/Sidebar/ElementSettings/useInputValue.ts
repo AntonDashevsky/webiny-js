@@ -51,6 +51,17 @@ function convertBracketPathToDotPath(path: string): string {
     return path.replace(/\/(\d+)\//g, ".$1");
 }
 
+/**
+ * This makes UI interaction smoother (input blur in particular).
+ */
+const withTimeout = <T extends (...args: any[]) => unknown>(cb: T): T => {
+    return ((...args: Parameters<T>) => {
+        setTimeout(() => {
+            cb(...args);
+        }, 0);
+    }) as unknown as T;
+};
+
 export const useInputValue = (elementId: string, node: InputAstNode) => {
     const { breakpoint, breakpoints } = useBreakpoint();
     const editor = useDocumentEditor();
@@ -98,7 +109,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
     const [localState, setLocalValue] = useState<ValueBinding>();
 
     const onChange = useCallback(
-        (cb: (params: OnChangeParams) => void) => {
+        withTimeout((cb: (params: OnChangeParams) => void) => {
             const deepInputs = inputsProcessor.toDeepInputs(resolvedBindings.inputs);
 
             const valueObject = new InputValueObject(value);
@@ -154,7 +165,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
 
             // Clear local value
             setLocalValue(undefined);
-        },
+        }),
         [elementId, resolvedBindings, breakpoint]
     );
 
@@ -162,7 +173,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
      * In preview, we do not update the editor document. Instead, we create a patch and send it to the preview app.
      */
     const onPreviewChange = useCallback(
-        (cb: (params: OnChangeParams) => void) => {
+        withTimeout((cb: (params: OnChangeParams) => void) => {
             const deepInputs = inputsProcessor.toDeepInputs(resolvedBindings.inputs);
 
             const valueObject = new InputValueObject(localState ?? value);
@@ -188,7 +199,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
             const patch = updatedInputs.createJsonPatch(rawBindings);
 
             editor.executeCommand(Commands.PreviewPatchElement, { elementId, patch });
-        },
+        }),
         [elementId, rawBindings, localState]
     );
 

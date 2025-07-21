@@ -1,4 +1,5 @@
 import React from "react";
+import { FileManager } from "@webiny/app-admin";
 import { Tabs, Grid, Input, Textarea, FilePicker } from "@webiny/admin-ui";
 import { Bind } from "@webiny/form";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
@@ -6,7 +7,7 @@ import { ReactComponent as SeoIcon } from "@webiny/icons/search.svg";
 import { ReactComponent as SocialIcon } from "@webiny/icons/thumb_up.svg";
 import { MetaTags } from "./MetaTags";
 import { SimpleTags } from "~/pages/editor/TopBar/Settings/SimpleTags";
-import { FileManager } from "@webiny/app-admin";
+import { fileManagerItemToValue } from "~/shared/fileManagerItemToValue";
 
 export const SettingsDialogBody = () => {
     return (
@@ -67,7 +68,11 @@ const GeneralSettingsForm = () => {
                                     description="Select an image to represent this page"
                                     type="compact"
                                     value={value}
-                                    onSelectItem={() => showFileManager(file => onChange(file.src))}
+                                    onSelectItem={() =>
+                                        showFileManager(file => {
+                                            onChange(fileManagerItemToValue(file));
+                                        })
+                                    }
                                     onRemoveItem={() => onChange(undefined)}
                                 />
                             )}
@@ -143,7 +148,11 @@ const SocialSettingsForm = () => {
                                     description="Select an image for social platforms (og:image)"
                                     type="compact"
                                     value={value}
-                                    onSelectItem={() => showFileManager(file => onChange(file.src))}
+                                    onSelectItem={() =>
+                                        showFileManager(file => {
+                                            onChange(fileManagerItemToValue(file));
+                                        })
+                                    }
                                     onRemoveItem={() => onChange(undefined)}
                                 />
                             )}
