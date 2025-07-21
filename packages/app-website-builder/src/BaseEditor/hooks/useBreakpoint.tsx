@@ -33,10 +33,10 @@ const BREAKPOINTS: EditorBreakpoint[] = [
     {
         name: "mobile",
         title: "Mobile",
-        description: `Styles added here will apply at 767px and down.`,
+        description: `Styles added here will apply at 430px and down.`,
         icon: <MobileIcon />,
         minWidth: 0,
-        maxWidth: 767
+        maxWidth: 430
     }
 ];
 

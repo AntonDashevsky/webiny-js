@@ -58,17 +58,6 @@ export class Messenger {
         if (handlers) {
             handlers.forEach(fn => fn(payload, logicalType));
         }
-
-        // Additionally, handle wildcard listeners that match this event
-        this.listeners.forEach((handlers, key) => {
-            if (key.includes("*")) {
-                if (micromatch.isMatch(type, this.prefixGlob + key)) {
-                    // Pass the matched wildcard part (after the prefix and wildcard portion)
-                    const wildcardPart = type.slice((this.prefixGlob + key).indexOf("*") - 1);
-                    handlers.forEach(fn => fn(payload, logicalType, wildcardPart));
-                }
-            }
-        });
     }
 
     private stripPrefix(fullType: string): string {

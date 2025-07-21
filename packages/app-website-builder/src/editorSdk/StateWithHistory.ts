@@ -33,9 +33,7 @@ export class StateWithHistory<TState extends GenericRecord = GenericRecord>
             state: observable
         });
 
-        autorun(() => {
-            const newState = this.state.toJson();
-
+        const handleStateUpdate = (newState: any) => {
             if (!this.timeTravel) {
                 return;
             }
@@ -53,6 +51,11 @@ export class StateWithHistory<TState extends GenericRecord = GenericRecord>
                     state: newState
                 });
             }
+        };
+
+        autorun(() => {
+            const newState = this.state.toJson();
+            handleStateUpdate(newState);
         });
     }
 
