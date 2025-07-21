@@ -34,6 +34,17 @@ const useToast = () => {
         []
     );
 
+    const getActions = React.useCallback(
+        (actions: React.ReactElement<typeof ToastActions> | any | undefined) => {
+            return typeof actions === typeof ToastActions ? (
+                actions
+            ) : (
+                <ToastActions>{actions}</ToastActions>
+            );
+        },
+        []
+    );
+
     const showToast = React.useCallback(
         (params: ShowToastParams) => {
             const {
@@ -55,7 +66,7 @@ const useToast = () => {
                         title={getTitle(title)}
                         description={getDescription(description)}
                         icon={icon}
-                        actions={actions}
+                        actions={getActions(actions)}
                         variant={variant}
                         onCloseClick={() => sonnerToast.dismiss(toast)}
                         dismissible={dismissible}
