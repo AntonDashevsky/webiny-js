@@ -5,11 +5,9 @@ import { logger } from "./Logger";
 import { PreviewViewport } from "./PreviewViewport";
 import { ViewportManager } from "./ViewportManager";
 import { componentRegistry } from "./ComponentRegistry";
-import { mouseTracker } from "./MouseTracker";
 import { functionConverter } from "./FunctionConverter";
 import { documentStoreManager } from "~/DocumentStoreManager";
 import { DocumentStore } from "~/DocumentStore";
-import { HotkeyManager } from "~/HotkeyManager";
 import { PreviewDocument } from "./PreviewDocument.js";
 import { hashObject } from "~/HashObject";
 
@@ -20,7 +18,6 @@ export class EditingSdk implements IContentSdk {
     private liveSdk: IContentSdk;
     private documentStore: DocumentStore<PublicPage>;
     private previewDocument: PreviewDocument;
-    private hotkeyManager: HotkeyManager;
     private lastBoxesHash = 0;
 
     constructor(liveSdk: IContentSdk) {
@@ -36,8 +33,6 @@ export class EditingSdk implements IContentSdk {
 
         this.messenger = new Messenger(source, target, "wb.editor.*");
 
-        this.hotkeyManager = new HotkeyManager();
-
         componentRegistry.onRegister(reg => {
             this.messenger.send("preview.component.register", reg.component.manifest);
         });
@@ -47,8 +42,6 @@ export class EditingSdk implements IContentSdk {
         this.messenger.send("preview.ready", true);
 
         this.disableLinks();
-
-        this.setupHotkeyListeners();
     }
 
     public async getPage(path: string): Promise<PublicPage | null> {
@@ -130,11 +123,6 @@ export class EditingSdk implements IContentSdk {
             }
         });
 
-        mouseTracker.start();
-        mouseTracker.subscribe(position => {
-            this.messenger.send("preview.mouse.move", position);
-        });
-
         // Enable position reporting by default
         this.positionReportingEnabled = true;
 
@@ -180,22 +168,5 @@ export class EditingSdk implements IContentSdk {
             // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#usecapture
             true
         );
-    }
-
-    private setupHotkeyListeners() {
-        this.hotkeyManager.add("escape", e => {
-            e.preventDefault();
-            this.messenger.send("preview.escape");
-        });
-
-        this.hotkeyManager.add("mod+z", e => {
-            e.preventDefault();
-            this.messenger.send("preview.undo");
-        });
-
-        this.hotkeyManager.add("mod+shift+z", e => {
-            e.preventDefault();
-            this.messenger.send("preview.redo");
-        });
     }
 }
