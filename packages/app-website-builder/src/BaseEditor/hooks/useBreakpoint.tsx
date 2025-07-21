@@ -17,7 +17,7 @@ const BREAKPOINTS: EditorBreakpoint[] = [
     {
         name: "desktop",
         title: "Desktop",
-        description: `Desktop styles apply at all breakpoints, unless they're edited at a smaller breakpoint. Start your styling here.`,
+        description: `Desktop styles apply at all breakpoints, unless they're edited at a lower breakpoint. Start your styling here.`,
         icon: <LaptopIcon />,
         minWidth: 0,
         maxWidth: 4000
@@ -25,7 +25,7 @@ const BREAKPOINTS: EditorBreakpoint[] = [
     {
         name: "tablet",
         title: "Tablet",
-        description: `Styles added here will apply at 991px and down, unless they're edited at a smaller breakpoint.`,
+        description: `Styles added here will apply at 991px and below, unless they're edited at a smaller breakpoint.`,
         icon: <TabletIcon />,
         minWidth: 0,
         maxWidth: 991
@@ -33,7 +33,7 @@ const BREAKPOINTS: EditorBreakpoint[] = [
     {
         name: "mobile",
         title: "Mobile",
-        description: `Styles added here will apply at 430px and down.`,
+        description: `Styles added here will apply at 430px and below.`,
         icon: <MobileIcon />,
         minWidth: 0,
         maxWidth: 430
