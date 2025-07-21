@@ -173,7 +173,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
      * In preview, we do not update the editor document. Instead, we create a patch and send it to the preview app.
      */
     const onPreviewChange = useCallback(
-        withTimeout((cb: (params: OnChangeParams) => void) => {
+        (cb: (params: OnChangeParams) => void) => {
             const deepInputs = inputsProcessor.toDeepInputs(resolvedBindings.inputs);
 
             const valueObject = new InputValueObject(localState ?? value);
@@ -199,7 +199,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
             const patch = updatedInputs.createJsonPatch(rawBindings);
 
             editor.executeCommand(Commands.PreviewPatchElement, { elementId, patch });
-        }),
+        },
         [elementId, rawBindings, localState]
     );
 
