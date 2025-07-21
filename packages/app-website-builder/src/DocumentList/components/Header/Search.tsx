@@ -22,7 +22,7 @@ export const Search = () => {
                 }
 
                 if (!searchQuery) {
-                    loadPages({ folderId: currentFolderId });
+                    loadPages({ folderId: currentFolderId, resetSearch: true });
                     return;
                 }
 
