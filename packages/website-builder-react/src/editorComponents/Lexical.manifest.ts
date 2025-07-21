@@ -1,5 +1,5 @@
 "use client";
-import { createLexicalInput } from "@webiny/app-website-builder/sdk";
+import { createLexicalInput } from "@webiny/website-builder-sdk";
 import { createComponent } from "~/createComponent";
 import { LexicalComponent, createLexicalValue } from "./Lexical";
 

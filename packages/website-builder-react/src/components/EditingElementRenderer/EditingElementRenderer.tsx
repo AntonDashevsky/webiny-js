@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
-import { type DocumentElement } from "@webiny/app-website-builder/sdk";
+import { type DocumentElement } from "@webiny/website-builder-sdk";
 import { EditingElementRendererPresenter } from "./EditingElementRenderer.presenter";
 import { LiveElementRenderer } from "../LiveElementRenderer";
 import { useElementSlotDepth } from "../ElementSlotDepthProvider";

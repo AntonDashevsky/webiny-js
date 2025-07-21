@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { contentSdk } from "@webiny/app-website-builder/sdk";
+import { contentSdk } from "@webiny/website-builder-sdk";
 
 export type DocumentFragments = Record<string, React.ReactNode>;
 

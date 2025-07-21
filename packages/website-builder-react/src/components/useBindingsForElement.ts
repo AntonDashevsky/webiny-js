@@ -1,5 +1,5 @@
 import { toJS } from "mobx";
-import { BindingsProcessor } from "@webiny/app-website-builder/sdk";
+import { BindingsProcessor } from "@webiny/website-builder-sdk";
 import { useViewport } from "./useViewportInfo";
 import { useDocumentStore } from "./DocumentStoreProvider";
 import { useSelectFromState } from "./useSelectFromState";

@@ -1,5 +1,5 @@
 "use client";
-import { StyleSettings } from "@webiny/app-website-builder/sdk";
+import { StyleSettings } from "@webiny/website-builder-sdk";
 import { createComponent } from "~/createComponent";
 import { GridColumnComponent } from "./GridColumn";
 

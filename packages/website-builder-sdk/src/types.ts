@@ -1,4 +1,5 @@
 import * as CSS from "csstype";
+// import { CSSProperties } from "react";
 import type { BindingsApi } from "~/BindingsApi";
 import { ShorthandCssProperties } from "./types/ShorthandCssProperties";
 
