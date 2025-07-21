@@ -36,6 +36,9 @@ const useToast = () => {
 
     const getActions = React.useCallback(
         (actions: React.ReactElement<typeof ToastActions> | any | undefined) => {
+            if (!actions) {
+                return null;
+            }
             return typeof actions === typeof ToastActions ? (
                 actions
             ) : (
