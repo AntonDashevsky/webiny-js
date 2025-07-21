@@ -53,7 +53,7 @@ export function InputField({ element, node }: InputFieldProps) {
         <Renderer
             metadata={metadata}
             label={label}
-            value={value.static}
+            value={value?.static}
             onChange={onChange}
             onPreviewChange={onPreviewChange}
             input={node.input}

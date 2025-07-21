@@ -33,9 +33,11 @@ export const LexicalInputRenderer = (props: ElementInputRendererProps) => {
         });
     };
 
+    const value = props.value ?? {};
+
     return (
         <ExpandedEditorProvider>
-            <ExpandableLexicalInputRenderer {...props} onChange={onChange} />
+            <ExpandableLexicalInputRenderer {...props} value={value} onChange={onChange} />
         </ExpandedEditorProvider>
     );
 };

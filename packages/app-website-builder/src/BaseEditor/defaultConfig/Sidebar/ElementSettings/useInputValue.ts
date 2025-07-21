@@ -77,7 +77,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
     }, [elementId, rawBindings]);
 
     // This value is the final calculated breakpoint value.
-    const value = resolvedBindings.inputs[node.path] ?? {};
+    const value = resolvedBindings.inputs[node.path];
 
     const inputMetadata = useMemo((): IMetadata => {
         let elementMetadata: IMetadata = new ElementMetadata(elementId, rawBindings.metadata);
