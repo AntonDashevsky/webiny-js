@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import defaultImage from "@webiny/icons/extension.svg";
-import { Messenger } from "~/sdk/messenger";
+import { Messenger } from "@webiny/website-builder-sdk";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { AddressBar } from "./AddressBar";
 import { Iframe } from "./Iframe";
@@ -10,7 +10,7 @@ import type {
     BoxesData,
     PreviewViewportData,
     SerializedComponentGroup
-} from "~/sdk/types";
+} from "@webiny/website-builder-sdk";
 import { HoverManager } from "./HoverManager";
 import { DropZoneManager } from "./DropZoneManager";
 import { DropZoneManagerProvider } from "./DropZoneManagerProvider";
@@ -18,8 +18,8 @@ import { MouseStatus } from "~/BaseEditor/defaultConfig/Content/Preview/MouseSta
 import { Boxes } from "~/BaseEditor/hooks/Boxes";
 import { ScrollTracker } from "~/BaseEditor/defaultConfig/Content/Preview/ScrollTracker";
 import { KeyboardShortcuts } from "./KeyboardShortcuts";
-import { ViewportManager } from "~/sdk/ViewportManager";
-import { mouseTracker } from "~/sdk";
+import { ViewportManager } from "@webiny/website-builder-sdk";
+import { mouseTracker } from "@webiny/website-builder-sdk";
 import { Commands } from "~/BaseEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { $createElement } from "~/editorSdk/utils";

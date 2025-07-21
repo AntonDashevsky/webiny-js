@@ -1,6 +1,6 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import type { ComponentInput } from "~/sdk/types";
+import type { ComponentInput } from "@webiny/website-builder-sdk";
 import type { InputBindingOnChange } from "../defaultConfig/Sidebar/ElementSettings/useInputValue";
 import type { IMetadata } from "~/BaseEditor/metadata";
 

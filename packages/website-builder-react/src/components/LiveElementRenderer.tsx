@@ -5,8 +5,8 @@ import type {
     DocumentElement,
     DocumentElementBindings,
     OnResolved
-} from "@webiny/app-website-builder/sdk";
-import { contentSdk } from "@webiny/app-website-builder/sdk";
+} from "@webiny/website-builder-sdk";
+import { contentSdk } from "@webiny/website-builder-sdk";
 import { ElementSlot } from "./ElementSlot";
 import { useViewport } from "./useViewportInfo";
 import { useBindingsForElement } from "./useBindingsForElement";

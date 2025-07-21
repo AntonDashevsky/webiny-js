@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { observer } from "mobx-react-lite";
-import { environment } from "@webiny/app-website-builder/sdk";
+import { environment } from "@webiny/website-builder-sdk";
 import { EditingElementRenderer } from "./EditingElementRenderer/EditingElementRenderer.js";
 import { LiveElementRenderer } from "./LiveElementRenderer.js";
 import { useDocumentStore } from "./DocumentStoreProvider.js";

@@ -1,5 +1,5 @@
 "use client";
-import { createFileInput, createTextInput } from "@webiny/app-website-builder/sdk";
+import { createFileInput, createTextInput } from "@webiny/website-builder-sdk";
 import { createComponent } from "~/createComponent";
 import { ImageComponent } from "./Image";
 

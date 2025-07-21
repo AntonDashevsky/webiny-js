@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon, Card } from "@webiny/admin-ui";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import type { ComponentGroupItem, ComponentManifest } from "~/sdk/types";
+import type { ComponentGroupItem, ComponentManifest } from "@webiny/website-builder-sdk";
 import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";
 import { Draggable } from "~/BaseEditor/components/Draggable";
 import { useComponentGroups } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/useComponentGroups";

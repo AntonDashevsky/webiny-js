@@ -3,7 +3,7 @@ import get from "lodash/get";
 import { observer } from "mobx-react-lite";
 import { type NodeDto, Tree, type TreeProps, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as VisibilityNone } from "@webiny/icons/visibility_off.svg";
-import type { Document } from "~/sdk";
+import type { Document } from "@webiny/website-builder-sdk";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { EditorState } from "~/editorSdk/Editor";

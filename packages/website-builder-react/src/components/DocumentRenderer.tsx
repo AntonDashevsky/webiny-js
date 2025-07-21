@@ -1,5 +1,5 @@
 import React from "react";
-import { type Component, contentSdk, type Document } from "@webiny/app-website-builder/sdk";
+import { type Component, contentSdk, type Document } from "@webiny/website-builder-sdk";
 import { ElementRenderer } from "./ElementRenderer";
 import { DocumentStoreProvider } from "./DocumentStoreProvider";
 import { ConnectToEditor } from "./ConnectToEditor";

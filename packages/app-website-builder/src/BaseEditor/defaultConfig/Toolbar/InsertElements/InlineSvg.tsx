@@ -6,7 +6,7 @@ interface InlineSvgProps {
 }
 
 export const InlineSvg = ({ src, className = "" }: InlineSvgProps) => {
-    const ref = useRef<HTMLImageElement>(null);
+    const ref = useRef<HTMLObjectElement | null>(null);
 
     const setSvg = useCallback((svg: string) => {
         if (ref.current) {
@@ -24,11 +24,17 @@ export const InlineSvg = ({ src, className = "" }: InlineSvgProps) => {
             return;
         }
 
+        if (src.startsWith("data:image/svg+xml")) {
+            const base64 = src.split(",")[1];
+            setSvg(atob(base64));
+            return;
+        }
+
         fetch(src)
             .then(res => res.text())
             .then(svg => setSvg(svg))
             .catch(console.error);
     }, [src]);
 
-    return <img ref={ref} src={src} alt="" />;
+    return <div ref={ref} />;
 };

@@ -5,9 +5,9 @@ import { useIsDragging } from "../useIsDragging";
 import { useProximityDropzone } from "../useProximityDropzone";
 import { Box } from "../Box";
 import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
-import { ComponentManifestToAstConverter } from "~/sdk/ComponentManifestToAstConverter";
-import { findMatchingAstNode } from "~/sdk/findMatchingAstNode";
-import { SlotInput } from "~/sdk/types";
+import { ComponentManifestToAstConverter } from "@webiny/website-builder-sdk";
+import { findMatchingAstNode } from "@webiny/website-builder-sdk";
+import { SlotInput } from "@webiny/website-builder-sdk";
 
 interface ElementDropZonesProps {
     editorBox: Box;

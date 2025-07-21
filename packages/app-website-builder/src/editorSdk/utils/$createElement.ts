@@ -1,7 +1,7 @@
 import type { Editor } from "../Editor";
 import type { CommandPayload } from "~/editorSdk/createCommand";
 import { Commands } from "~/BaseEditor";
-import { ElementFactory } from "~/sdk/ElementFactory";
+import { ElementFactory } from "@webiny/website-builder-sdk";
 
 export function $createElement(
     editor: Editor,

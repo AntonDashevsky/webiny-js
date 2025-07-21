@@ -1,5 +1,5 @@
-import type { Document } from "~/sdk/types.js";
-import type { InputValueBinding } from "~/sdk/types";
+import type { Document } from "@webiny/website-builder-sdk";
+import type { InputValueBinding } from "@webiny/website-builder-sdk";
 
 interface Params {
     elementId: string;

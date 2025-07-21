@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import type { EditorDocument } from "~/sdk/types.js";
+import type { EditorDocument } from "@webiny/website-builder-sdk";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import { Editor as EditorComponent } from "~/BaseEditor/components";

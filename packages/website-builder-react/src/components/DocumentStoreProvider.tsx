@@ -4,7 +4,7 @@ import {
     type Document,
     documentStoreManager,
     DocumentStore
-} from "@webiny/app-website-builder/sdk";
+} from "@webiny/website-builder-sdk";
 
 const DocumentStoreContext = React.createContext<DocumentStore | undefined>(undefined);
 

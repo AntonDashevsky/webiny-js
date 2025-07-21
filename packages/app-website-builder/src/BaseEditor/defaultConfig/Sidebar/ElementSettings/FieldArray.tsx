@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from "react";
-import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
+import { InputAstNode } from "@webiny/website-builder-sdk";
 import { InputField } from "./InputField";
 
 export function FieldArray({

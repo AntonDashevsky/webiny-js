@@ -24,7 +24,7 @@ export class GetSettingsRepository implements IGetSettings {
         let settings = await this.gateway.execute();
 
         if (!settings) {
-            settings = { previewDomain: "" };
+            settings = { previewDomain: "http://localhost:3000" };
         }
 
         this.cache.set(SETTINGS_KEY, settings);

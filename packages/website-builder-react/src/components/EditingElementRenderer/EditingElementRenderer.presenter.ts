@@ -6,7 +6,7 @@ import {
     DocumentStore,
     type EditingSdk,
     type DocumentElement
-} from "@webiny/app-website-builder/sdk";
+} from "@webiny/website-builder-sdk";
 
 export class EditingElementRendererPresenter {
     private element: DocumentElement;

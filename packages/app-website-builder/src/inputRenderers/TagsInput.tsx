@@ -1,5 +1,5 @@
 import React from "react";
-import type { TextInput } from "~/sdk/types";
+import type { TextInput } from "@webiny/website-builder-sdk";
 
 interface ElementInputProps<T> {
     value: T;

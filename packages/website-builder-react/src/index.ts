@@ -30,6 +30,6 @@ export {
     type ComponentManifest,
     type ComponentInput,
     StyleSettings
-} from "@webiny/app-website-builder/sdk";
+} from "@webiny/website-builder-sdk";
 
 export type { ComponentProps, ComponentPropsWithChildren } from "./types.js";

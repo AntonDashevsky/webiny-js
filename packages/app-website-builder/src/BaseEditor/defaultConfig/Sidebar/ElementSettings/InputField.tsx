@@ -1,9 +1,9 @@
 import React from "react";
-import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
+import { InputAstNode } from "@webiny/website-builder-sdk";
 // import { FieldArray } from "./FieldArray";
 import { useInputRenderer } from "./useInputRenderer";
 import { useInputValue } from "./useInputValue";
-import type { DocumentElement, DocumentElementBindings } from "~/sdk/types";
+import type { DocumentElement, DocumentElementBindings } from "@webiny/website-builder-sdk";
 import { InheritanceLabel } from "../InheritanceLabel";
 
 interface InputFieldProps {
@@ -53,7 +53,7 @@ export function InputField({ element, node }: InputFieldProps) {
         <Renderer
             metadata={metadata}
             label={label}
-            value={value.static}
+            value={value?.static}
             onChange={onChange}
             onPreviewChange={onPreviewChange}
             input={node.input}

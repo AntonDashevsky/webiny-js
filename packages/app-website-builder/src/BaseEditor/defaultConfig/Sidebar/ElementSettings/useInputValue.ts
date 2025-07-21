@@ -2,16 +2,16 @@ import { useCallback, useMemo, useState } from "react";
 import set from "lodash/set";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils/generateId";
 import { useDocumentEditor } from "~/DocumentEditor";
-import type { ValueBinding } from "~/sdk/types";
+import type { ValueBinding } from "@webiny/website-builder-sdk";
 import { Commands } from "~/BaseEditor";
-import { InputAstNode } from "~/sdk/ComponentManifestToAstConverter";
-import { functionConverter } from "~/sdk";
+import { InputAstNode } from "@webiny/website-builder-sdk";
+import { functionConverter } from "@webiny/website-builder-sdk";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useBindingsForElement } from "./useBindingsForElement";
 import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
-import { InputsBindingsProcessor } from "~/sdk/InputBindingsProcessor";
-import { StylesBindingsProcessor } from "~/sdk/StylesBindingsProcessor";
-import { createElement, CreateElementParams } from "~/sdk/createElement";
+import { InputsBindingsProcessor } from "@webiny/website-builder-sdk";
+import { StylesBindingsProcessor } from "@webiny/website-builder-sdk";
+import { createElement, CreateElementParams } from "@webiny/website-builder-sdk";
 import {
     BreakpointElementMetadata,
     ElementMetadata,
@@ -117,6 +117,7 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
                 valuePath,
                 valueObject.get()
             );
+
             const devFriendlyStyles = stylesProcessor.toDeepStyles(rawBindings.styles ?? {});
 
             // Process input's `onChange`.
@@ -184,11 +185,9 @@ export const useInputValue = (elementId: string, node: InputAstNode) => {
             setLocalValue({ static: valueObject.get() });
 
             const updatedInputs = inputsProcessor.createUpdate(devFriendlyInputs, breakpoint.name);
+            const patch = updatedInputs.createJsonPatch(rawBindings);
 
-            editor.executeCommand(Commands.PreviewPatchElement, {
-                elementId: elementId,
-                patch: updatedInputs.createJsonPatch(rawBindings)
-            });
+            editor.executeCommand(Commands.PreviewPatchElement, { elementId, patch });
         },
         [elementId, rawBindings, localState]
     );

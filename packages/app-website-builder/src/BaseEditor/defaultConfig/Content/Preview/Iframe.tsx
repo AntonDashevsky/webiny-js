@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { ElementOverlays } from "./Overlays/ElementOverlays";
 import { ConnectEditorToPreview } from "~/DocumentEditor/ConnectEditorToPreview";
-import { Messenger } from "~/sdk/messenger";
+import { Messenger } from "@webiny/website-builder-sdk";
 import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Preview/useResponsiveContainer";
 import { OverlayLoader } from "@webiny/admin-ui";
-import type { ViewportManager } from "~/sdk/ViewportManager";
+import type { ViewportManager } from "@webiny/website-builder-sdk";
 import { useIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useIframeUrl";
 import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging";
 

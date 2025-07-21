@@ -3,7 +3,7 @@ import { FilePicker, FileItemDto } from "@webiny/admin-ui";
 import { ElementInputRendererProps } from "~/BaseEditor";
 import { FileManager } from "@webiny/app-admin";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { FileInput } from "~/sdk";
+import { FileInput } from "@webiny/website-builder-sdk";
 
 export const FileInputRenderer = ({
     value,

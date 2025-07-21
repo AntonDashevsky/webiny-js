@@ -1,5 +1,5 @@
 import { createCommand } from "~/editorSdk/createCommand";
-import type { CreateElementParams } from "~/sdk/ElementFactory";
+import type { ElementFactoryCreateElementParams } from "@webiny/website-builder-sdk";
 
 const CreateElement = createCommand<{
     // Name of the component to use.
@@ -11,7 +11,7 @@ const CreateElement = createCommand<{
     // Index within the slot.
     index: number;
     // Bindings
-    bindings?: CreateElementParams["bindings"];
+    bindings?: ElementFactoryCreateElementParams["bindings"];
 }>("CREATE_ELEMENT");
 
 const MoveElement = createCommand<{

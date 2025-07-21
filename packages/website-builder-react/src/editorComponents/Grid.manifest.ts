@@ -7,7 +7,7 @@ import {
     createSelectInput,
     createSlotInput,
     createTextInput
-} from "@webiny/app-website-builder/sdk";
+} from "@webiny/website-builder-sdk";
 import { createComponent } from "~/createComponent";
 import { GridComponent } from "./Grid";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Select } from "@webiny/admin-ui";
 import { ElementInputRendererProps } from "~/BaseEditor";
-import type { SelectInput } from "~/sdk/types";
+import type { SelectInput } from "@webiny/website-builder-sdk";
 
 export const SelectInputRenderer = ({
     value,

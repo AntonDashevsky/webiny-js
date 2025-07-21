@@ -1,4 +1,4 @@
-import type { Document } from "~/sdk/types.js";
+import type { Document } from "@webiny/website-builder-sdk";
 import { $getElementById } from "./$getElementById";
 import { $removeElementReferenceFromParent } from "./$removeElementReferenceFromParent";
 

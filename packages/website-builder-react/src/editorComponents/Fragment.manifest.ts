@@ -1,7 +1,7 @@
 "use client";
 import { createComponent } from "~/createComponent";
 import { FragmentComponent } from "./Fragment";
-import { createTextInput } from "@webiny/app-website-builder/sdk";
+import { createTextInput } from "@webiny/website-builder-sdk";
 
 export const Fragment = createComponent(FragmentComponent, {
     name: "Webiny/Fragment",

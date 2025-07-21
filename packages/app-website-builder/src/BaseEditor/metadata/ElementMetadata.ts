@@ -1,5 +1,5 @@
 import micromatch from "micromatch";
-import type { Document } from "~/sdk/types";
+import type { Document } from "@webiny/website-builder-sdk";
 import type { IMetadata, Metadata } from "./IMetadata";
 
 export class ElementMetadata implements IMetadata {

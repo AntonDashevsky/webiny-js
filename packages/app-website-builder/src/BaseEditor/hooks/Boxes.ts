@@ -1,4 +1,4 @@
-import { BoxData } from "~/sdk/types";
+import { BoxData } from "@webiny/website-builder-sdk";
 import { Box } from "~/BaseEditor/defaultConfig/Content/Preview/Box";
 
 export class Boxes {

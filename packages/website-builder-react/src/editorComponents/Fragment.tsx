@@ -1,7 +1,7 @@
 import React from "react";
 import { useDocumentFragments } from "~/components/FragmentsProvider";
 import type { ComponentProps } from "~/types";
-import { contentSdk } from "@webiny/app-website-builder/sdk";
+import { contentSdk } from "@webiny/website-builder-sdk";
 
 type FragmentComponentProps = ComponentProps<{
     name: string;

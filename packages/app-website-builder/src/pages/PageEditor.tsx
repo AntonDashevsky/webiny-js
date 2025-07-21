@@ -8,7 +8,7 @@ import { DefaultPageEditorConfig } from "./editor/DefaultPageEditorConfig";
 import { DefaultEditorConfig } from "~/BaseEditor";
 import { EDITOR_NAME } from "~/pages/constants";
 import { PAGE_EDITOR_ROUTE, WbPageStatus } from "~/constants";
-import type { EditorPage } from "~/sdk";
+import type { EditorPage } from "@webiny/website-builder-sdk";
 import { Page } from "~/domain/Page";
 
 const getPageDataFromPage = (page: Page): EditorPage => {

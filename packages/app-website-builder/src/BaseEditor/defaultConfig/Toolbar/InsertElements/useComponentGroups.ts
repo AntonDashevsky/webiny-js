@@ -1,6 +1,6 @@
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { ComponentManifest, SerializedComponentGroup } from "~/sdk/types";
-import { functionConverter } from "~/sdk";
+import { ComponentManifest, SerializedComponentGroup } from "@webiny/website-builder-sdk";
+import { functionConverter } from "@webiny/website-builder-sdk";
 
 type WithItems<T> = T & { items: ComponentManifest[] };
 
