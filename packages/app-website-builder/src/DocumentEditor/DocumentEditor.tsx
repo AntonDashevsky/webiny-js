@@ -7,6 +7,7 @@ import { Editor } from "~/editorSdk/Editor";
 import { observer } from "mobx-react-lite";
 import { StateInspector } from "./StateInspector";
 import { CompositionScope } from "@webiny/react-composition";
+import { DialogsProvider } from "@webiny/app-admin";
 
 export const DocumentEditorContext = React.createContext<Editor<any> | undefined>(undefined);
 
@@ -32,15 +33,17 @@ function BaseDocumentEditor<TDocument extends EditorDocument>({
     const editor = useMemo(() => new Editor<TDocument>(document), [document]);
 
     return (
-        <DndProvider backend={HTML5Backend}>
-            <StateInspector editor={editor} />
-            <DocumentEditorContext.Provider value={editor as Editor<TDocument>}>
-                {children ? <>{children}</> : null}
-                <CompositionScope name={name}>
-                    <EditorComponent />
-                </CompositionScope>
-            </DocumentEditorContext.Provider>
-        </DndProvider>
+        <DialogsProvider>
+            <DndProvider backend={HTML5Backend}>
+                <StateInspector editor={editor} />
+                <DocumentEditorContext.Provider value={editor as Editor<TDocument>}>
+                    {children ? <>{children}</> : null}
+                    <CompositionScope name={name}>
+                        <EditorComponent />
+                    </CompositionScope>
+                </DocumentEditorContext.Provider>
+            </DndProvider>
+        </DialogsProvider>
     );
 }
 

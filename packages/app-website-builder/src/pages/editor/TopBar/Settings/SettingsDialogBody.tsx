@@ -1,11 +1,12 @@
 import React from "react";
-import { Tabs, Grid, Input, Textarea } from "@webiny/admin-ui";
+import { Tabs, Grid, Input, Textarea, FilePicker } from "@webiny/admin-ui";
 import { Bind } from "@webiny/form";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { ReactComponent as SeoIcon } from "@webiny/icons/search.svg";
 import { ReactComponent as SocialIcon } from "@webiny/icons/thumb_up.svg";
 import { MetaTags } from "./MetaTags";
 import { SimpleTags } from "~/pages/editor/TopBar/Settings/SimpleTags";
+import { FileManager } from "@webiny/app-admin";
 
 export const SettingsDialogBody = () => {
     return (
@@ -55,7 +56,7 @@ const GeneralSettingsForm = () => {
                     <Textarea label={"Snippet"} />
                 </Bind>
             </Grid.Column>
-            {/*<Grid.Column span={12}>
+            <Grid.Column span={12}>
                 <Bind name={"properties.image"}>
                     {({ value, onChange }) => (
                         <FileManager
@@ -66,15 +67,14 @@ const GeneralSettingsForm = () => {
                                     description="Select an image to represent this page"
                                     type="compact"
                                     value={value}
-                                    onSelectItem={() => showFileManager()}
+                                    onSelectItem={() => showFileManager(file => onChange(file.src))}
                                     onRemoveItem={() => onChange(undefined)}
-                                    onEditItem={() => showFileManager()}
                                 />
                             )}
                         />
                     )}
                 </Bind>
-            </Grid.Column>*/}
+            </Grid.Column>
             <Grid.Column span={12}>
                 <SimpleTags
                     bindName={"properties.tags"}
@@ -132,7 +132,7 @@ const SocialSettingsForm = () => {
                     />
                 </Bind>
             </Grid.Column>
-            {/*<Grid.Column span={12}>
+            <Grid.Column span={12}>
                 <Bind name={"properties.social.image"}>
                     {({ value, onChange }) => (
                         <FileManager
@@ -143,15 +143,14 @@ const SocialSettingsForm = () => {
                                     description="Select an image for social platforms (og:image)"
                                     type="compact"
                                     value={value}
-                                    onSelectItem={() => showFileManager()}
+                                    onSelectItem={() => showFileManager(file => onChange(file.src))}
                                     onRemoveItem={() => onChange(undefined)}
-                                    onEditItem={() => showFileManager()}
                                 />
                             )}
                         />
                     )}
                 </Bind>
-            </Grid.Column>*/}
+            </Grid.Column>
             <Grid.Column span={12}>
                 <MetaTags
                     label={"Meta Tags"}
