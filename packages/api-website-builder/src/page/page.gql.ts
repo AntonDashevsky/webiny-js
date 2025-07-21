@@ -270,12 +270,13 @@ export const createPagesSchema = (params: CreatePageTypeDefsParams) => {
                 },
                 getSettings: async (_, args, context) => {
                     ensureAuthentication(context);
+                    // TODO: add a GetSettings use case and a Settings domain model with defaults.
                     const getSettings = GetSettings.create(context);
                     const settings = await getSettings.execute(WEBSITE_BUILDER_SETTINGS);
                     const data = settings.getData();
 
                     return new Response({
-                        previewDomain: data.previewDomain ?? ""
+                        previewDomain: data.previewDomain ?? "http://localhost:3000"
                     });
                 },
                 getIntegrations: async (_, args, context) => {
