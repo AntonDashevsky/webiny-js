@@ -20,7 +20,8 @@
 			"extensions/theme",
 			"scripts/buildPackages",
 			"scripts/prepublishOnly",
-			"extensions/sampleEcommerce"
+			"extensions/sampleEcommerce",
+			"extensions/customPageTypes"
 		]
 	},
 	"author": "Webiny Ltd.",

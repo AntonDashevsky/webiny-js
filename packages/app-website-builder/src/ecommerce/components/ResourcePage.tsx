@@ -29,17 +29,24 @@ export const ResourcePage = (props: ResourcePageProps) => {
     }, [api]);
 
     const resourceIdBind = useBind({
-        name: "resourceId",
+        name: "metadata.resourceId",
         validators: [validation.create("required")]
     });
 
     const resourceTypeBind = useBind({
-        name: "resourceType",
+        name: "metadata.resourceType",
         defaultValue: props.resourceType
     });
 
-    const titleBind = useBind({ name: "title", validators: [validation.create("required")] });
-    const pathBind = useBind({ name: "path", validators: [validation.create("required")] });
+    const titleBind = useBind({
+        name: "properties.title",
+        validators: [validation.create("required")]
+    });
+
+    const pathBind = useBind({
+        name: "properties.path",
+        validators: [validation.create("required")]
+    });
 
     useEffect(() => {
         if (!api || !resourceIdBind) {
@@ -60,13 +67,13 @@ export const ResourcePage = (props: ResourcePageProps) => {
 
     return (
         <>
-            <UnsetOnUnmount name={"resourceType"}>
+            <UnsetOnUnmount name={"metadata.resourceType"}>
                 <Input {...resourceTypeBind} type={"hidden"} />
             </UnsetOnUnmount>
             <Grid.Column span={12}>
                 <div className={"wby-border-sm wby-rounded-md wby-border-neutral-muted wby-p-sm"}>
                     {api ? (
-                        <UnsetOnUnmount name={"resourceId"}>
+                        <UnsetOnUnmount name={"metadata.resourceId"}>
                             <ResourcePicker
                                 {...resourceIdBind}
                                 label={toTitleCaseLabel(props.resourceType)}
@@ -79,12 +86,12 @@ export const ResourcePage = (props: ResourcePageProps) => {
                 </div>
             </Grid.Column>
             <Grid.Column span={12}>
-                <UnsetOnUnmount name={"title"}>
+                <UnsetOnUnmount name={"properties.title"}>
                     <Input label={"Title"} {...titleBind} disabled={!resourceIdBind.value} />
                 </UnsetOnUnmount>
             </Grid.Column>
             <Grid.Column span={12}>
-                <UnsetOnUnmount name={"path"}>
+                <UnsetOnUnmount name={"properties.path"}>
                     <Input label={"Path"} {...pathBind} disabled={!resourceIdBind.value} />
                 </UnsetOnUnmount>
             </Grid.Column>

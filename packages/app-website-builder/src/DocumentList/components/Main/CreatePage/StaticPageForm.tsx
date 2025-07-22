@@ -8,7 +8,8 @@ const generatePath = (form: FormAPI) => () => {
     if (form.data.path) {
         return;
     }
-    form.setValue("path", pagePathFromTitle(form.data.title) ?? "");
+    const titlePath = pagePathFromTitle(form.data.title) ?? "";
+    form.setValue("path", `/${titlePath}`);
 };
 
 export const StaticPageForm = () => {
@@ -22,12 +23,12 @@ export const StaticPageForm = () => {
     return (
         <>
             <Grid.Column span={12}>
-                <UnsetOnUnmount name={"title"}>
+                <UnsetOnUnmount name={"properties.title"}>
                     <Input label={"Title"} {...titleBind} onBlur={generatePath(form)} />
                 </UnsetOnUnmount>
             </Grid.Column>
             <Grid.Column span={12}>
-                <UnsetOnUnmount name={"path"}>
+                <UnsetOnUnmount name={"properties.path"}>
                     <Input label={"Path"} {...pathBind} />
                 </UnsetOnUnmount>
             </Grid.Column>

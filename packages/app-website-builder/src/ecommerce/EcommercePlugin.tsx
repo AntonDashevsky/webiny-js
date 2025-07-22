@@ -4,8 +4,7 @@ import type { IEcommerceApiFactory, SettingsInput } from "./types";
 import { CreateInputRenderers } from "./CreateInputRenderers";
 import { ResourcePage, ResourcePageProps } from "./components/ResourcePage";
 import { createGenericContext } from "@webiny/app";
-import { usePageTypes } from "./usePageTypes";
-import { EcommerceApiManifest, useEcommerceApiProvider } from "~/features";
+import { EcommerceApiManifest, useEcommerceApiProvider, usePageTypes } from "~/features";
 
 export interface CustomResourcePickerProps<T = any> {
     value?: T;

@@ -22,6 +22,7 @@ import {
     BulkActionUnpublish
 } from "~/DocumentList/components/BulkActions/index.js";
 import { FilterByStatus } from "~/DocumentList/components/Filters/index.js";
+import { StaticPageForm } from "~/DocumentList/components/Main/CreatePage/StaticPageForm";
 
 const { Browser } = PageListConfig;
 
@@ -29,6 +30,11 @@ export const PagesConfig = () => {
     return (
         <>
             <PageListConfig>
+                <PageListConfig.PageType
+                    name={"static"}
+                    label={"Static Page"}
+                    element={<StaticPageForm />}
+                />
                 <Browser.Filter name={"status"} element={<FilterByStatus />} />
                 <Browser.Folder.Action name={"edit"} element={<EditFolder />} />
                 <Browser.Folder.Action name={"permissions"} element={<SetFolderPermissions />} />

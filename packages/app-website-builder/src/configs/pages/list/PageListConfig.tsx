@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
 import { CompositionScope } from "@webiny/react-composition";
-import { Browser, BrowserConfig } from "./Browser";
+import { Browser, type BrowserConfig } from "./Browser";
+import { PageType } from "./PageType";
 
 const base = createConfigurableComponent<PageListConfig>("WbPageListConfig");
 
@@ -15,7 +16,7 @@ const ScopedPageListConfig = ({ children }: { children: React.ReactNode }) => {
 
 ScopedPageListConfig.displayName = "WbPageListConfig";
 
-export const PageListConfig = Object.assign(ScopedPageListConfig, { Browser });
+export const PageListConfig = Object.assign(ScopedPageListConfig, { Browser, PageType });
 export const PageListWithConfig = base.WithConfig;
 
 interface PageListConfig {

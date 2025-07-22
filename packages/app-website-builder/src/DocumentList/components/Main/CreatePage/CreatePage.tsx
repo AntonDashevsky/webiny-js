@@ -5,10 +5,9 @@ import { validation } from "@webiny/validation";
 import { useDialogs } from "@webiny/app-admin";
 import { useCreatePage } from "~/features/pages";
 import { CreatePageParams } from "~/features/pages/createPage/ICreatePageUseCase";
-import { usePageTypes } from "~/ecommerce/usePageTypes";
 import { useGetEditPageUrl } from "~/DocumentList/hooks/useGetEditPageUrl";
 import { useRouter } from "@webiny/react-router";
-import { useGetWebsiteBuilderSettings } from "~/features";
+import { useGetPageType, useGetWebsiteBuilderSettings, usePageTypes } from "~/features";
 
 export const useCreatePageDialog = (folderId: string) => {
     const dialog = useDialogs();
@@ -16,6 +15,7 @@ export const useCreatePageDialog = (folderId: string) => {
     const { getEditPageUrl } = useGetEditPageUrl();
     const { history } = useRouter();
     const { getSettings } = useGetWebsiteBuilderSettings();
+    const { getPageType } = useGetPageType();
 
     const showCreatePageDialog = () => {
         dialog.showDialog({
@@ -24,16 +24,30 @@ export const useCreatePageDialog = (folderId: string) => {
             cancelLabel: "Cancel",
             content: <CreatePageWizard />,
             formData: {},
-            onAccept: async formData => {
+            onAccept: async ({ type, ...formData }) => {
+                const pageType = getPageType(type);
+
+                if (!pageType) {
+                    // This edge-case can hardly happen, but let's still check for it.
+                    return;
+                }
+
                 const settings = await getSettings();
+
+                const previewUrl = `${settings.previewDomain}${formData.properties.path}`;
 
                 const input: CreatePageParams = {
                     location: {
                         folderId
                     },
                     properties: {
-                        title: formData.title,
-                        path: formData.path
+                        ...(formData.properties ?? {})
+                    },
+                    metadata: {
+                        documentType: "page",
+                        pageType: type,
+                        lastPreviewUrl: previewUrl,
+                        ...(formData.metadata ?? {})
                     },
                     elements: {
                         root: {
@@ -45,24 +59,6 @@ export const useCreatePageDialog = (folderId: string) => {
                         }
                     }
                 };
-
-                const previewUrl = `${settings.previewDomain}${formData.path}`;
-
-                if (formData.type === "static") {
-                    input.metadata = {
-                        documentType: "page",
-                        pageType: "static",
-                        lastPreviewUrl: previewUrl
-                    };
-                } else {
-                    input.metadata = {
-                        documentType: "page",
-                        pageType: formData.type,
-                        resourceType: formData.resourceType,
-                        resourceId: formData.resourceId,
-                        lastPreviewUrl: previewUrl
-                    };
-                }
 
                 const result = await createPage(input);
                 history.push(getEditPageUrl(result.id));
@@ -88,7 +84,7 @@ const CreatePageWizard = () => {
         validators: [validation.create("required")]
     });
 
-    const pageType = pageTypes.get(pageTypeBind.value);
+    const pageType = pageTypes.find(type => type.name === pageTypeBind.value);
 
     return (
         <Grid>
