@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { toJS, observable } from "mobx";
 import { IconButton } from "@webiny/admin-ui";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { useDialogs } from "@webiny/app-admin";
 import { SettingsDialogBody } from "./Settings/SettingsDialogBody";
 import { useDocumentEditor } from "~/DocumentEditor";
-import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { EditorPage } from "@webiny/website-builder-sdk";
 
 export const SettingsButton = () => {
     const dialogs = useDialogs();
     const editor = useDocumentEditor();
-    useUpdatePreviewUrl();
 
     const showDialog = () => {
         dialogs.showDialog({
@@ -45,25 +42,4 @@ export const SettingsButton = () => {
             ></IconButton>
         </div>
     );
-};
-
-const useUpdatePreviewUrl = () => {
-    const editor = useDocumentEditor();
-    const path = useSelectFromDocument<any, EditorPage>(document => {
-        return document.properties.path;
-    });
-
-    useEffect(() => {
-        editor.updateDocument(document => {
-            const lastPreviewUrl = document.metadata.lastPreviewUrl;
-            if (!lastPreviewUrl) {
-                return;
-            }
-            const url = new URL(lastPreviewUrl);
-            if (url.pathname !== path) {
-                url.pathname = path;
-                document.metadata.lastPreviewUrl = url.toString();
-            }
-        });
-    }, [path]);
 };

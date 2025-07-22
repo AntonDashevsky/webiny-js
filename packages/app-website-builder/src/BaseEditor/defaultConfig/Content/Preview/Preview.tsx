@@ -1,16 +1,8 @@
-import React, { useCallback, useEffect, useMemo } from "react";
-import defaultImage from "@webiny/icons/extension.svg";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Messenger } from "@webiny/website-builder-sdk";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { AddressBar } from "./AddressBar";
 import { Iframe } from "./Iframe";
-import type {
-    ComponentManifest,
-    EditorViewportInfo,
-    BoxesData,
-    PreviewViewportData,
-    SerializedComponentGroup
-} from "@webiny/website-builder-sdk";
 import { HoverManager } from "./HoverManager";
 import { DropZoneManager } from "./DropZoneManager";
 import { DropZoneManagerProvider } from "./DropZoneManagerProvider";
@@ -21,10 +13,12 @@ import { ViewportManager } from "@webiny/website-builder-sdk";
 import { mouseTracker } from "@webiny/website-builder-sdk";
 import { Commands } from "~/BaseEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { $createElement } from "~/editorSdk/utils";
+import { AwaitIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/AwaitIframeUrl";
+import { PreviewEvents } from "~/BaseEditor/defaultConfig/Content/Preview/PreviewEvents";
 
 export const Preview = () => {
     const editor = useDocumentEditor();
+    const [iframeTimestamp, setIframeTimestamp] = useState(Date.now());
 
     const loadingPreview = useSelectFromEditor(state => state.loadingPreview);
 
@@ -33,46 +27,24 @@ export const Preview = () => {
         editor.updateEditor(state => {
             state.loadingPreview = true;
         });
-    }, []);
 
-    const getIframeBox = useCallback(() => {
-        const iframe = document.getElementById("preview-iframe");
-        if (!iframe) {
-            return {
-                top: 0,
-                left: 0,
-                width: 0,
-                height: 0
-            };
-        }
+        const offRefreshPreview = editor.registerCommandHandler(Commands.RefreshPreview, () => {
+            setIframeTimestamp(Date.now());
 
-        const iframeRect = iframe.getBoundingClientRect();
+            editor.updateEditor(state => {
+                // Unset boxes to remove old overlays.
+                state.loadingPreview = true;
+                state.boxes = {
+                    preview: {},
+                    editor: {}
+                };
+            });
+        });
 
-        return {
-            top: iframeRect.top,
-            left: iframeRect.left,
-            width: iframeRect.width,
-            height: iframeRect.height
+        return () => {
+            offRefreshPreview();
         };
     }, []);
-
-    const mapCoordinatesToEditorSpace = useCallback(
-        (viewport: EditorViewportInfo, boxes: PreviewViewportData["boxes"]) => {
-            const newBoxes: BoxesData = {};
-
-            for (const key in boxes) {
-                const box = boxes[key];
-                newBoxes[key] = {
-                    ...box,
-                    top: box.top + viewport.top,
-                    left: box.left + viewport.left
-                };
-            }
-
-            return newBoxes;
-        },
-        [getIframeBox]
-    );
 
     const hoverManager = useMemo(() => {
         return new HoverManager(mouseTracker, () => {
@@ -97,6 +69,10 @@ export const Preview = () => {
         });
     }, []);
 
+    const previewEvents = useMemo(() => {
+        return new PreviewEvents(editor, scrollTracker);
+    }, []);
+
     const dropzoneManager = useMemo(() => {
         return new DropZoneManager(mouseTracker);
     }, [mouseTracker]);
@@ -113,6 +89,7 @@ export const Preview = () => {
             scrollTracker.destroy();
             viewportManager.destroy();
             hoverManager.destroy();
+            previewEvents.destroy();
         };
     }, [dropzoneManager, scrollTracker, mouseTracker]);
 
@@ -137,147 +114,24 @@ export const Preview = () => {
     }, []);
 
     const onConnected = useCallback((messenger: Messenger) => {
-        messenger.send("document.set", editor.getDocumentState().toJson());
-
-        editor.registerCommandHandler(Commands.PreviewPatchElement, payload => {
-            messenger.send(`element.patch.${payload.elementId}`, payload.patch);
-        });
-
-        messenger.on("preview.viewport.change.start", () => {
-            editor.updateEditor(state => {
-                state.showOverlays = false;
-            });
-        });
-
-        messenger.on("preview.escape", () => {
-            editor.executeCommand(Commands.DeselectElement);
-        });
-
-        messenger.on("preview.undo", () => {
-            editor.undo();
-        });
-
-        messenger.on("preview.redo", () => {
-            editor.redo();
-        });
-
-        messenger.on("document.fragments", payload => {
-            const fragments: string[] = payload.fragments;
-            editor.updateEditor(state => {
-                state.fragments = fragments;
-            });
-
-            const document = editor.getDocumentState().read();
-
-            if (Object.keys(document.elements).length === 1) {
-                // We only have the default "root" element, create fragment elements.
-                let index = 0;
-                fragments.forEach(fragment => {
-                    $createElement(editor, {
-                        componentName: "Webiny/Fragment",
-                        parentId: "root",
-                        slot: "children",
-                        index,
-                        bindings: {
-                            inputs: {
-                                name: fragment
-                            }
-                        }
-                    });
-                    index++;
-                });
-            }
-        });
-
-        messenger.on("preview.viewport", ({ boxes, viewport }: PreviewViewportData) => {
-            const iframeBox = getIframeBox();
-
-            editor.updateEditor(state => {
-                state.viewport = {
-                    ...viewport,
-                    top: iframeBox.top,
-                    left: iframeBox.left
-                };
-
-                state.boxes = {
-                    preview: boxes,
-                    editor: mapCoordinatesToEditorSpace(state.viewport, boxes)
-                };
-                state.showOverlays = true;
-            });
-        });
-
-        messenger.on("preview.component.register", (component: ComponentManifest) => {
-            editor.updateEditor(state => {
-                if (!state.components) {
-                    state.components = {};
-                }
-                state.components[component.name] = {
-                    ...component,
-                    image: component.image ?? defaultImage
-                };
-            });
-        });
-
-        messenger.on("preview.componentGroup.register", (group: SerializedComponentGroup) => {
-            editor.updateEditor(state => {
-                if (!state.componentGroups) {
-                    state.componentGroups = {};
-                }
-                state.componentGroups[group.name] = group;
-            });
-        });
-
-        messenger.on("preview.element.click", ({ id }) => {
-            editor.updateEditor(state => {
-                state.selectedElement = id;
-            });
-        });
-
-        messenger.on("preview.mouse.move", ({ x, y }) => {
-            const iframeBox = getIframeBox();
-            const globalX = x + iframeBox.left;
-            const globalY = y + iframeBox.top;
-
-            mouseTracker.setPosition(globalX, globalY);
-        });
-
-        const offDocumentStateChange = editor.onDocumentStateChange(event => {
-            if (event.reason === "update") {
-                messenger.send("document.patch", event.diff);
-            } else {
-                messenger.send("document.set", event.state);
-            }
-        });
-
-        // Scroll wheel
-        scrollTracker.onChange(event => {
-            messenger.send("preview.scroll", {
-                deltaX: event.deltaX,
-                deltaY: event.deltaY
-            });
-        });
-
-        setTimeout(() => {
-            editor.updateEditor(state => {
-                state.loadingPreview = false;
-            });
-        }, 100);
-
-        return () => {
-            offDocumentStateChange();
-        };
+        previewEvents.onConnected(messenger);
     }, []);
 
     return (
         <>
             <DropZoneManagerProvider dropzoneManager={dropzoneManager}>
                 <AddressBar />
-                <Iframe
-                    viewportManager={viewportManager}
-                    onConnected={onConnected}
-                    showLoading={loadingPreview}
-                />
+                <AwaitIframeUrl>
+                    {({ url }) => (
+                        <Iframe
+                            url={url}
+                            timestamp={iframeTimestamp}
+                            viewportManager={viewportManager}
+                            onConnected={onConnected}
+                            showLoading={loadingPreview}
+                        />
+                    )}
+                </AwaitIframeUrl>
             </DropZoneManagerProvider>
             <KeyboardShortcuts />
         </>

@@ -1,33 +1,38 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { ElementOverlays } from "./Overlays/ElementOverlays";
 import { ConnectEditorToPreview } from "~/DocumentEditor/ConnectEditorToPreview";
 import { Messenger } from "@webiny/website-builder-sdk";
 import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Preview/useResponsiveContainer";
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { ViewportManager } from "@webiny/website-builder-sdk";
-import { useIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useIframeUrl";
 import { observer } from "mobx-react-lite";
 
 interface IframeProps {
+    url: string;
+    timestamp: number;
     showLoading: boolean;
     viewportManager: ViewportManager;
     onConnected: (messenger: Messenger) => void;
 }
 
-export const Iframe = observer((props: IframeProps) => {
+export const Iframe = observer(({ url, timestamp, ...props }: IframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
-    const iframeUrl = useIframeUrl();
     const previewWidth = useResponsiveContainer(props.viewportManager);
+
+    const iframeUrl = useMemo(() => {
+        const localUrl = new URL(url);
+        localUrl.searchParams.set("wb.ts", timestamp.toString());
+        return localUrl.toString();
+    }, [url, timestamp]);
 
     return (
         <div
+            key={iframeUrl}
             className={"wby-relative wby-flex wby-flex-col wby-items-center"}
             data-role={"responsive-container"}
         >
-            {iframeUrl ? (
-                <ConnectEditorToPreview iframeRef={iframeRef} onConnected={props.onConnected} />
-            ) : null}
-            {props.showLoading || !iframeUrl ? (
+            <ConnectEditorToPreview iframeRef={iframeRef} onConnected={props.onConnected} />
+            {props.showLoading ? (
                 <OverlayLoader
                     size="lg"
                     variant="accent"
@@ -46,7 +51,6 @@ export const Iframe = observer((props: IframeProps) => {
                     className={
                         "wby-w-full wby-bg-white wby-border-none wby-overflow-scroll wby-min-h-[inherit] wby-pointer-events-none"
                     }
-                    key={iframeUrl}
                     src={iframeUrl}
                     ref={iframeRef}
                     sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-modals allow-forms"

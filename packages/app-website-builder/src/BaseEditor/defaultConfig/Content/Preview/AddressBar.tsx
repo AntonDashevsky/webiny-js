@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BreakpointSelector } from "./BreakpointSelector";
 import { PreviewInNewTab } from "./AddressBar/PreviewInNewTab";
 import { OpenInNewTab } from "./AddressBar/OpenInNewTab";
-import { RefreshIframe } from "./AddressBar/RefreshIframe";
+import { RefreshPreview } from "./AddressBar/RefreshPreview";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import { PreviewDomain } from "./AddressBar/PreviewDomain";
 import { usePreviewDomain } from "./usePreviewDomain";
@@ -33,7 +33,7 @@ export const AddressBar = () => {
                     {addressBarUrl}
                 </div>
                 <div className={"wby-absolute wby-right-0 wby-top-0"}>
-                    <RefreshIframe />
+                    <RefreshPreview />
                     <PreviewInNewTab />
                     <OpenInNewTab />
                 </div>

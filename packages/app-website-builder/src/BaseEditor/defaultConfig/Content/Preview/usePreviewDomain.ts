@@ -19,9 +19,16 @@ export const usePreviewDomain = () => {
         setCustomDomain(newValue);
     });
 
-    const setPreviewDomain = useCallback((domain: string) => {
-        localStorage.set(domain);
-    }, []);
+    const setPreviewDomain = useCallback(
+        (domain: string) => {
+            if (domain === previewDomain) {
+                localStorage.unset();
+            } else {
+                localStorage.set(domain);
+            }
+        },
+        [previewDomain]
+    );
 
     const unsetPreviewDomain = useCallback(() => {
         localStorage.unset();
@@ -39,6 +46,6 @@ export const usePreviewDomain = () => {
         previewDomain: customDomain ?? previewDomain,
         setPreviewDomain,
         unsetPreviewDomain,
-        isOverridden: customDomain !== null
+        isOverridden: customDomain && customDomain !== previewDomain
     };
 };

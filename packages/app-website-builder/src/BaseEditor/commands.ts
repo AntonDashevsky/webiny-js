@@ -35,6 +35,8 @@ const HighlightElement = createCommand<{ id: string }>("HIGHLIGHT_ELEMENT");
 
 const DeselectElement = createCommand<never>("DESELECT_ELEMENT");
 
+const RefreshPreview = createCommand<never>("REFRESH_PREVIEW");
+
 const PreviewPatchElement = createCommand<{ elementId: string; patch: any[] }>(
     "PREVIEW_PATCH_ELEMENT"
 );
@@ -46,5 +48,6 @@ export const Commands = {
     SelectElement,
     DeselectElement,
     HighlightElement,
+    RefreshPreview,
     PreviewPatchElement
 };

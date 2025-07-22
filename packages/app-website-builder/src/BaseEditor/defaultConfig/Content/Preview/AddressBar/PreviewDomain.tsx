@@ -1,11 +1,14 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ReactComponent as GlobeIcon } from "@webiny/icons/language.svg";
-import { Button, DropdownMenu, IconButton, Separator, Input } from "@webiny/admin-ui";
+import { Button, DropdownMenu, IconButton, Separator, Input, cn } from "@webiny/admin-ui";
 import { usePreviewDomain } from "../usePreviewDomain";
 import { Bind, Form, GenericFormData } from "@webiny/form";
 import { validation } from "@webiny/validation";
+import { useDocumentEditor } from "~/DocumentEditor";
+import { Commands } from "~/BaseEditor";
 
 export const PreviewDomain = () => {
+    const editor = useDocumentEditor();
     const [isOpen, setIsOpen] = useState(false);
 
     const { previewDomain, isOverridden, unsetPreviewDomain, setPreviewDomain } =
@@ -26,6 +29,19 @@ export const PreviewDomain = () => {
         setIsOpen(false);
     }, []);
 
+    useEffect(() => {
+        if (!previewDomain) {
+            return;
+        }
+
+        editor.executeCommand(Commands.RefreshPreview);
+    }, [previewDomain]);
+
+    const classNames = cn(
+        "wby-absolute wby-left-0 wby-top-0",
+        isOverridden ? "wby-fill-accent-default" : "wby-fill-neutral-disabled"
+    );
+
     return (
         <DropdownMenu
             open={isOpen}
@@ -39,15 +55,12 @@ export const PreviewDomain = () => {
                     size="md"
                     onClick={() => {}}
                     variant={"ghost"}
-                    className={"wby-absolute wby-left-0 wby-top-0 wby-fill-neutral-disabled"}
+                    className={classNames}
                 />
             }
         >
             <div className={"wby-p-sm wby-text-sm"} style={{ width: 300 }}>
-                <Form
-                    data={{ previewDomain: isOverridden ? previewDomain : "" }}
-                    onSubmit={commitValue}
-                >
+                <Form data={{ previewDomain }} onSubmit={commitValue}>
                     {form => (
                         <Bind name={"previewDomain"} validators={[validation.create("url")]}>
                             <Input

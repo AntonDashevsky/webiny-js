@@ -7,14 +7,13 @@ import { useCreatePage } from "~/features/pages";
 import { CreatePageParams } from "~/features/pages/createPage/ICreatePageUseCase";
 import { useGetEditPageUrl } from "~/DocumentList/hooks/useGetEditPageUrl";
 import { useRouter } from "@webiny/react-router";
-import { useGetPageType, useGetWebsiteBuilderSettings, usePageTypes } from "~/features";
+import { useGetPageType, usePageTypes } from "~/features";
 
 export const useCreatePageDialog = (folderId: string) => {
     const dialog = useDialogs();
     const { createPage } = useCreatePage();
     const { getEditPageUrl } = useGetEditPageUrl();
     const { history } = useRouter();
-    const { getSettings } = useGetWebsiteBuilderSettings();
     const { getPageType } = useGetPageType();
 
     const showCreatePageDialog = () => {
@@ -32,10 +31,6 @@ export const useCreatePageDialog = (folderId: string) => {
                     return;
                 }
 
-                const settings = await getSettings();
-
-                const previewUrl = `${settings.previewDomain}${formData.properties.path}`;
-
                 const input: CreatePageParams = {
                     location: {
                         folderId
@@ -46,7 +41,6 @@ export const useCreatePageDialog = (folderId: string) => {
                     metadata: {
                         documentType: "page",
                         pageType: type,
-                        lastPreviewUrl: previewUrl,
                         ...(formData.metadata ?? {})
                     },
                     elements: {
