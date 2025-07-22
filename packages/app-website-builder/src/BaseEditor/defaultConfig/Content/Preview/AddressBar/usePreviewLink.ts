@@ -3,7 +3,7 @@ import { useIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useIfra
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 
 export const usePreviewLink = () => {
-    const { iframeUrl } = useIframeUrl();
+    const iframeUrl = useIframeUrl();
     const id = useSelectFromDocument(document => document.id);
     const path = useSelectFromDocument(document => document.properties.path);
     const documentType = useSelectFromDocument(document => document.metadata.documentType);

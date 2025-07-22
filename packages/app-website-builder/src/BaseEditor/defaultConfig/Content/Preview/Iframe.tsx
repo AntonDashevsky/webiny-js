@@ -6,6 +6,7 @@ import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Previ
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { ViewportManager } from "@webiny/website-builder-sdk";
 import { useIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/useIframeUrl";
+import { observer } from "mobx-react-lite";
 
 interface IframeProps {
     showLoading: boolean;
@@ -13,9 +14,9 @@ interface IframeProps {
     onConnected: (messenger: Messenger) => void;
 }
 
-export const Iframe = React.memo((props: IframeProps) => {
+export const Iframe = observer((props: IframeProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
-    const { iframeUrl } = useIframeUrl();
+    const iframeUrl = useIframeUrl();
     const previewWidth = useResponsiveContainer(props.viewportManager);
 
     return (

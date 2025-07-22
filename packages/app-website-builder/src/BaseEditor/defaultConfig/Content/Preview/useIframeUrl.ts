@@ -1,11 +1,11 @@
 import { useEffect, useMemo } from "react";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { useGetWebsiteBuilderSettings } from "~/features";
 import { useDocumentEditor } from "~/DocumentEditor";
+import { usePreviewDomain } from "./usePreviewDomain";
 
 export const useIframeUrl = () => {
     const editor = useDocumentEditor();
-    const { getSettings } = useGetWebsiteBuilderSettings();
+    const { previewDomain } = usePreviewDomain();
 
     const id = useSelectFromDocument(document => document.id);
     const documentType = useSelectFromDocument(document => document.metadata.documentType);
@@ -19,26 +19,29 @@ export const useIframeUrl = () => {
     }, [lastPreviewUrl]);
 
     useEffect(() => {
-        getSettings().then(settings => {
-            // In an odd case, when lastPreviewUrl is not set, ensure it is set.
-            if (!iframeUrl) {
-                const url = new URL(`${settings.previewDomain}${path}`);
-                addSearchParamsFromDocument(url, id, documentType);
-                editor.updateDocument(document => {
-                    document.metadata.lastPreviewUrl = url.toString();
-                });
-                return;
-            }
+        if (!previewDomain) {
+            return;
+        }
 
-            const newUrl = new URL(`${settings.previewDomain}${path}`);
-            addSearchParamsFromDocument(newUrl, id, documentType);
+        // In an odd case, when lastPreviewUrl is not set, ensure it is set.
+        if (!iframeUrl) {
+            const url = new URL(`${previewDomain}${path}`);
+            addSearchParamsFromDocument(url, id, documentType);
             editor.updateDocument(document => {
-                document.metadata.lastPreviewUrl = newUrl.toString();
+                document.metadata.lastPreviewUrl = url.toString();
             });
-        });
-    }, [iframeUrl, path]);
+            return;
+        }
 
-    return { iframeUrl };
+        const newUrl = new URL(`${previewDomain}${path}`);
+        addSearchParamsFromDocument(newUrl, id, documentType);
+
+        editor.updateDocument(document => {
+            document.metadata.lastPreviewUrl = newUrl.toString();
+        });
+    }, [previewDomain, iframeUrl, path]);
+
+    return iframeUrl;
 };
 
 function addSearchParamsFromDocument(url: URL, id: string, documentType: string) {
