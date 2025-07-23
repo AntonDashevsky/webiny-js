@@ -46,7 +46,8 @@ export const BulkActionDelete = observer(() => {
                 showResultsDialog({
                     results: worker.results,
                     title: "Delete pages",
-                    message: "Finished deleting pages! See full report below:"
+                    message: "Finished deleting pages! See full report below:",
+                    onCancel: worker.resetResults
                 });
             }
         });

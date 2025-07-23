@@ -54,7 +54,8 @@ export const BulkActionMovePage = observer(() => {
                     showResultsDialog({
                         results: worker.results,
                         title: "Move pages",
-                        message: "Finished moving pages! See full report below:"
+                        message: "Finished moving pages! See full report below:",
+                        onCancel: worker.resetResults
                     });
                 }
             });

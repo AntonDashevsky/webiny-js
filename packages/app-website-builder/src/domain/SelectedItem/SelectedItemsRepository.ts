@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, toJS } from "mobx";
 import { ISelectedItemsRepository } from "./ISelectedItemsRepository";
 
 export class SelectedItemsRepository<T = any> implements ISelectedItemsRepository<T> {
@@ -10,7 +10,7 @@ export class SelectedItemsRepository<T = any> implements ISelectedItemsRepositor
     }
 
     getSelectedItems() {
-        return this.items;
+        return toJS(this.items);
     }
 
     getSelectedAllItems() {
