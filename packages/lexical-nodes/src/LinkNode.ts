@@ -195,8 +195,7 @@ export class LinkNode extends ElementNode {
             title: this.getTitle(),
             alt: this.getAlt(),
             type: "link",
-            url: this.getURL(),
-            version: 1
+            url: this.getURL()
         };
     }
 
@@ -367,8 +366,7 @@ export class AutoLinkNode extends LinkNode {
     override exportJSON(): SerializedAutoLinkNode {
         return {
             ...super.exportJSON(),
-            type: "autolink",
-            version: 1
+            type: "autolink"
         };
     }
 

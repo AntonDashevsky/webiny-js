@@ -1,7 +1,7 @@
 import * as CSS from "csstype";
-// import { CSSProperties } from "react";
 import type { BindingsApi } from "~/BindingsApi";
 import { ShorthandCssProperties } from "./types/ShorthandCssProperties";
+export type { WebsiteBuilderTheme } from "./types/WebsiteBuilderTheme";
 
 interface CSSProperties extends CSS.Properties<string | number> {}
 

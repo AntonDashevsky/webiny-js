@@ -1,4 +1,5 @@
-import { Breakpoint } from "~/types";
+"use client";
+import type { Breakpoint } from "~/types";
 import { environment } from "~/Environment";
 
 export interface ViewportInfo {
@@ -16,21 +17,15 @@ export class ViewportManager {
     private readonly changeEndSubscribers: Set<(info: ViewportInfo) => void>;
     private isChanging: boolean;
     private changeTimer: number | null;
+
+    /**
+     * We need this fallback breakpoint for server environments.
+     */
     private breakpoints: Breakpoint[] = [
         {
             name: "desktop",
             minWidth: 0,
             maxWidth: 4000
-        },
-        {
-            name: "tablet",
-            minWidth: 0,
-            maxWidth: 991
-        },
-        {
-            name: "mobile",
-            minWidth: 0,
-            maxWidth: 430
         }
     ];
 
@@ -49,6 +44,10 @@ export class ViewportManager {
             window.addEventListener("scroll", this.handleScroll, { passive: true });
             window.addEventListener("resize", this.handleResize, { passive: true });
         }
+    }
+
+    public setBreakpoints(breakpoints: Breakpoint[]) {
+        this.breakpoints = breakpoints;
     }
 
     public onViewportChangeStart(callback: (info: ViewportInfo) => void): () => void {

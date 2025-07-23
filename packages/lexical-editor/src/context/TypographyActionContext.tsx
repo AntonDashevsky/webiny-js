@@ -1,11 +1,13 @@
 import React from "react";
-import { TypographyValue } from "@webiny/lexical-theme";
+import type { TypographyValue } from "@webiny/lexical-theme";
+
+export type ActiveTypography = Pick<TypographyValue, "id" | "name">;
 
 export interface TypographyActionContextProps {
     /*
      * @desc Current selected typography
      * */
-    value: TypographyValue | undefined;
+    value: ActiveTypography | undefined;
 
     /*
      * @desc Apply font family to selected text.

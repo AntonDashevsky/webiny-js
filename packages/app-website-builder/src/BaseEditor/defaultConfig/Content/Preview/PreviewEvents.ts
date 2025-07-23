@@ -88,16 +88,8 @@ export class PreviewEvents {
             });
         });
 
-        messenger.on("preview.escape", () => {
-            this.editor.executeCommand(Commands.DeselectElement);
-        });
-
-        messenger.on("preview.undo", () => {
-            this.editor.undo();
-        });
-
-        messenger.on("preview.redo", () => {
-            this.editor.redo();
+        messenger.on("preview.theme", ({ theme }) => {
+            this.editor.executeCommand(Commands.SetTheme, { theme });
         });
 
         messenger.on("document.fragments", payload => {

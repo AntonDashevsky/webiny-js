@@ -2,15 +2,16 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { DelayedOnChange, FormComponentLabel } from "@webiny/admin-ui";
 import { createLexicalStateTransformer } from "@webiny/lexical-converter";
 import { CompositionScope } from "@webiny/app-admin/index";
+import { Dialog } from "@webiny/admin-ui";
+import { FloatingLinkEditorPlugin, LexicalEditorConfig } from "@webiny/lexical-editor";
 import { LexicalEditor } from "./LexicalEditor";
 import { ElementInputRendererProps } from "~/BaseEditor";
 import {
     ExpandedEditorProvider,
     useExpandedEditor
 } from "~/inputRenderers/LexicalInput/ExpandedEditor";
-import { Dialog } from "@webiny/admin-ui";
-import { FloatingLinkEditorPlugin, LexicalEditorConfig } from "@webiny/lexical-editor";
 import { LinkEditForm } from "~/inputRenderers/LexicalInput/LinkEditForm.js";
+
 const { Plugin } = LexicalEditorConfig;
 
 type LexicalInputRendererProps = Omit<ElementInputRendererProps, "onChange" | "metadata"> & {

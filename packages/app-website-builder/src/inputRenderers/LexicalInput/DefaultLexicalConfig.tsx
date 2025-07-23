@@ -67,7 +67,6 @@ export const DefaultLexicalConfig = () => {
                 <TypographyAction.TypographyDropDown element={<TypographyDropDown />} />
                 <LexicalEditorConfig>
                     {sharedPlugins}
-                    <ToolbarElement name="fontSize" element={<FontSizeAction />} />
                     <ToolbarElement name="fontColor" element={<FontColorAction />} />
                     <ToolbarElement name="typography" element={<TypographyAction />} />
                     <ToolbarElement name="textAlignment" element={<TextAlignmentAction />} />

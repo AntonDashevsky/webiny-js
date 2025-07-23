@@ -48,8 +48,7 @@ export type SerializedFontColorNode = Spread<
     {
         themeColor: string;
         color: string;
-        type: "font-color-node";
-        version: 1;
+        type: "font-color-node"
     },
     SerializedTextNode
 >;
@@ -129,8 +128,7 @@ export class FontColorNode extends TextNode {
             ...super.exportJSON(),
             themeColor: this.__color.getName(),
             color: this.__color.getValue(),
-            type: "font-color-node",
-            version: 1
+            type: "font-color-node"
         };
     }
 

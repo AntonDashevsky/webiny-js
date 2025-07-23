@@ -2,35 +2,43 @@ import {
     DOMConversion,
     DOMConversionMap,
     DOMConversionOutput,
+    DOMExportOutput,
     EditorConfig,
     ElementNode,
+    LexicalEditor,
     LexicalNode,
     NodeKey,
     SerializedElementNode,
     Spread
 } from "lexical";
-import { EditorTheme, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import { EditorTheme, findTypographyStyleByHtmlTag, ThemeEmotionMap } from "@webiny/lexical-theme";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
 import { ListNodeTagType } from "@lexical/list/LexicalListNode";
 import { $getListDepth, wrapInListItem } from "~/utils/listNode";
 import { $isListItemNode, ListItemNode } from "./ListItemNode";
 import { ListType } from "@lexical/list";
-
-const TypographyStyleAttrName = "data-theme-list-style-id";
+import { TypographyStylesNode } from "~/types";
 
 export type SerializedWebinyListNode = Spread<
     {
-        themeStyleId: string;
+        styleId?: string;
+        className?: string;
         listType: ListType;
         start: number;
         tag: ListNodeTagType;
         type: "webiny-list";
-        version: 1;
     },
     SerializedElementNode
 >;
 
-export class ListNode extends ElementNode {
+type ListNodeOptions = {
+    styleId?: string;
+    className?: string;
+    start?: number;
+    key?: NodeKey;
+};
+
+export class ListNode extends ElementNode implements TypographyStylesNode {
     /** @internal */
     __tag: ListNodeTagType;
     /** @internal */
@@ -38,11 +46,14 @@ export class ListNode extends ElementNode {
     /** @internal */
     __listType: ListType;
 
-    private __themeStyleId: string;
+    private __styleId: string;
+    private __className: string | undefined;
 
-    constructor(listType: ListType, themeStyleId?: string, start?: number, key?: NodeKey) {
+    constructor(listType: ListType, options: ListNodeOptions = {}) {
+        const { styleId, key, className, start } = options;
         super(key);
-        this.__themeStyleId = themeStyleId || "";
+        this.__styleId = styleId ?? "";
+        this.__className = className;
         const _listType = TAG_TO_WEBINY_LIST_TYPE[listType] || listType;
         this.__listType = _listType;
         this.__tag = _listType === "number" ? "ol" : "ul";
@@ -55,55 +66,83 @@ export class ListNode extends ElementNode {
 
     override createDOM(config: EditorConfig): HTMLElement {
         const tag = this.__tag;
-        const dom = document.createElement(tag);
-        const wTheme = config.theme as EditorTheme;
+        const element = document.createElement(tag);
 
         if (this.__start !== 1) {
-            dom.setAttribute("start", String(this.__start));
+            element.setAttribute("start", String(this.__start));
         }
 
-        // If styleId is not set or user removed from theme, set default style
-        if (!this.hasThemeStyle() || !this.isStyleExistInTheme(wTheme)) {
-            this.setDefaultThemeListStyleByTag(this.__tag, wTheme);
-        }
+        this.updateElementWithThemeClasses(element, config.theme as EditorTheme);
 
         // @ts-expect-error Internal field.
-        dom.__lexicalListType = this.__listType;
+        element.__lexicalListType = this.__listType;
         const theme = config.theme as EditorTheme;
-        setListThemeClassNames(dom, theme, this, this.__themeStyleId);
-        dom.setAttribute(TypographyStyleAttrName, this.__themeStyleId);
-        return dom;
+        setListThemeClassNames(element, theme, this, this.__styleId);
+        return element;
+    }
+
+    override exportDOM(editor: LexicalEditor): DOMExportOutput {
+        const base = super.exportDOM(editor);
+
+        const element = base.element as HTMLElement;
+        console.log("exportDOM", element, this);
+        if (element && this.__className) {
+            element.classList.add(this.__className);
+        }
+
+        return { ...base, element };
     }
 
     static override clone(node: ListNode): ListNode {
-        return new ListNode(node.getListType(), node.getStyleId(), node.getStart(), node.__key);
+        return new ListNode(node.getListType(), {
+            className: node.getClassName(),
+            styleId: node.getStyleId(),
+            start: node.getStart(),
+            key: node.getKey()
+        });
     }
 
-    getStyleId(): string {
-        return this.__themeStyleId;
+    getStyleId(): string | undefined {
+        return this.__styleId;
+    }
+
+    setStyleId(styleId: string | undefined) {
+        this.__styleId = styleId ?? "";
+    }
+
+    setClassName(className: string | undefined) {
+        this.__className = className;
+    }
+
+    getClassName(): string | undefined {
+        return this.__className;
     }
 
     static override importJSON(serializedNode: SerializedWebinyListNode): ListNode {
         const node = $createListNode(
             serializedNode.listType,
-            serializedNode.themeStyleId,
+            // `styleId` is for backwards compatibility
+            serializedNode.styleId ?? serializedNode.styleId,
             serializedNode.start
         );
         node.setFormat(serializedNode.format);
         node.setIndent(serializedNode.indent);
         node.setDirection(serializedNode.direction);
+
+        node.setClassName(serializedNode.className);
+
         return node;
     }
 
     override exportJSON(): SerializedWebinyListNode {
         return {
             ...super.exportJSON(),
-            themeStyleId: this.getStyleId(),
+            styleId: this.__styleId,
+            className: this.__className,
             listType: this.getListType(),
             start: this.getStart(),
             tag: this.getTag(),
-            type: "webiny-list",
-            version: 1
+            type: "webiny-list"
         };
     }
 
@@ -126,19 +165,11 @@ export class ListNode extends ElementNode {
     }
 
     override updateDOM(prevNode: ListNode, dom: HTMLElement, config: EditorConfig): boolean {
-        const wTheme = config.theme as EditorTheme;
-
         if (prevNode.__tag !== this.__tag) {
             return true;
         }
 
-        // if styleId is not set or user removed from theme, set default style.
-        if (!this.hasThemeStyle() || !this.isStyleExistInTheme(wTheme)) {
-            this.setDefaultThemeListStyleByTag(this.__tag, wTheme);
-        }
-
-        setListThemeClassNames(dom, config.theme as EditorTheme, this, this.__themeStyleId);
-        dom.setAttribute(TypographyStyleAttrName, this.__themeStyleId);
+        setListThemeClassNames(dom, config.theme as EditorTheme, this, this.__styleId);
         return false;
     }
 
@@ -154,36 +185,32 @@ export class ListNode extends ElementNode {
         return this.__start;
     }
 
-    /*
-     * Set default styleId from first style that is found in the theme that contains current ul or ol tag
-     */
-    private setDefaultThemeListStyleByTag(tag: string, theme: EditorTheme) {
-        if (!tag) {
-            return;
-        }
-
-        const themeEmotionMap = theme?.emotionMap;
-        if (!themeEmotionMap) {
-            return;
-        }
-
-        const style = findTypographyStyleByHtmlTag(tag, themeEmotionMap);
-
-        if (style) {
-            this.__themeStyleId = style.id;
-        }
-    }
-
-    private hasThemeStyle(): boolean {
-        return !!this.__themeStyleId;
-    }
-
     private getTag(): ListNodeTagType {
         return this.__tag;
     }
 
-    private isStyleExistInTheme(theme: EditorTheme): boolean {
-        return theme?.emotionMap ? !!theme?.emotionMap[this.__themeStyleId] : false;
+    protected updateElementWithThemeClasses(element: HTMLElement, theme: EditorTheme): HTMLElement {
+        if (!theme?.emotionMap) {
+            return element;
+        }
+
+        if (!this.__styleId || !this.__className) {
+            this.setDefaultTypography(theme.emotionMap);
+        }
+
+        if (this.__className) {
+            addClassNamesToElement(element, this.__className);
+        }
+
+        return element;
+    }
+
+    private setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
+        const typographyStyle = findTypographyStyleByHtmlTag(this.getTag(), themeEmotionMap);
+        if (typographyStyle) {
+            this.__styleId = typographyStyle.id;
+            this.__className = typographyStyle.className;
+        }
     }
 }
 
@@ -191,7 +218,7 @@ function setListThemeClassNames(
     dom: HTMLElement,
     editorTheme: EditorTheme,
     node: ListNode,
-    themeStyleId: string
+    styleId: string
 ): void {
     const editorThemeClasses = editorTheme;
     const classesToAdd = [];
@@ -203,9 +230,7 @@ function setListThemeClassNames(
         const listDepth = $getListDepth(node) - 1;
         const normalizedListDepth = listDepth % listLevelsClassNames.length;
         const listLevelClassName = listLevelsClassNames[normalizedListDepth];
-        const listClassName = `${listTheme[node.__tag]} ${
-            emotionMap[themeStyleId]?.className ?? ""
-        }`;
+        const listClassName = `${listTheme[node.__tag]} ${emotionMap[styleId]?.className ?? ""}`;
         let nestedListClassName;
         const nestedListTheme = listTheme.nested;
 
@@ -292,8 +317,11 @@ const TAG_TO_WEBINY_LIST_TYPE: Record<string, ListType> = {
     ul: "bullet"
 };
 
-export function $createListNode(listType: ListType, themeStyleId?: string, start = 1): ListNode {
-    return new ListNode(listType, themeStyleId, start);
+export function $createListNode(listType: ListType, styleId?: string, start = 1): ListNode {
+    return new ListNode(listType, {
+        start,
+        styleId
+    });
 }
 
 export function $isListNode(node: LexicalNode | null | undefined): node is ListNode {

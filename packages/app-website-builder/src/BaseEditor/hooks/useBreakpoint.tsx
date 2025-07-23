@@ -2,10 +2,8 @@ import React, { useCallback, useMemo } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { Breakpoint } from "@webiny/website-builder-sdk";
-import { ReactComponent as LaptopIcon } from "@webiny/icons/laptop_mac.svg";
-import { ReactComponent as TabletIcon } from "@webiny/icons/tablet_mac.svg";
-import { ReactComponent as MobileIcon } from "@webiny/icons/phone_iphone.svg";
 import { BASE_BREAKPOINT } from "~/constants";
+import { useWebsiteBuilderTheme } from "~/BaseEditor/components";
 
 export type EditorBreakpoint = Breakpoint & {
     title: string;
@@ -13,42 +11,24 @@ export type EditorBreakpoint = Breakpoint & {
     icon: React.ReactNode;
 };
 
-const BREAKPOINTS: EditorBreakpoint[] = [
-    {
-        name: "desktop",
-        title: "Desktop",
-        description: `Desktop styles apply at all breakpoints, unless they're edited at a lower breakpoint. Start your styling here.`,
-        icon: <LaptopIcon />,
-        minWidth: 0,
-        maxWidth: 4000
-    },
-    {
-        name: "tablet",
-        title: "Tablet",
-        description: `Styles added here will apply at 991px and below, unless they're edited at a smaller breakpoint.`,
-        icon: <TabletIcon />,
-        minWidth: 0,
-        maxWidth: 991
-    },
-    {
-        name: "mobile",
-        title: "Mobile",
-        description: `Styles added here will apply at 430px and below.`,
-        icon: <MobileIcon />,
-        minWidth: 0,
-        maxWidth: 430
-    }
-];
-
 export const useBreakpoint = () => {
+    const { theme } = useWebsiteBuilderTheme();
+    const breakpoints = theme?.breakpoints ?? [];
+
     const editor = useDocumentEditor();
     const activeBreakpoint = useSelectFromEditor<string>(state => {
-        return state.breakpoint || BREAKPOINTS[0].name;
+        return state.breakpoint ?? breakpoints[0]?.name ?? "desktop";
     });
 
     const breakpoint = useMemo(() => {
-        return BREAKPOINTS.find(bp => bp.name === activeBreakpoint)!;
-    }, [activeBreakpoint]);
+        const bp = breakpoints.find(bp => bp.name === activeBreakpoint);
+        return (
+            bp ?? {
+                name: BASE_BREAKPOINT,
+                maxWidth: 4000
+            }
+        );
+    }, [activeBreakpoint, breakpoints]);
 
     const setBreakpoint = useCallback(
         (mode: string) => {
@@ -62,7 +42,7 @@ export const useBreakpoint = () => {
     return {
         isBaseBreakpoint: breakpoint.name === BASE_BREAKPOINT,
         breakpoint,
-        breakpoints: BREAKPOINTS,
+        breakpoints,
         setBreakpoint
     };
 };

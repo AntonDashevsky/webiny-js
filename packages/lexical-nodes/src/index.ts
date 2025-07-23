@@ -8,7 +8,6 @@ import { OverflowNode } from "@lexical/overflow";
 
 import { AutoLinkNode, LinkNode } from "./LinkNode";
 import { FontColorNode } from "./FontColorNode";
-import { TypographyNode } from "./TypographyNode";
 import { ListNode } from "./ListNode";
 import { ListItemNode } from "./ListItemNode";
 import { HeadingNode } from "./HeadingNode";
@@ -17,7 +16,6 @@ import { QuoteNode } from "./QuoteNode";
 import { ImageNode } from "./ImageNode";
 
 export * from "./FontColorNode";
-export * from "./TypographyNode";
 export * from "./ListNode";
 export * from "./ListItemNode";
 export * from "./HeadingNode";
@@ -56,10 +54,8 @@ export const allNodes: ReadonlyArray<
     AutoLinkNode,
     OverflowNode,
     MarkNode,
-
     // Our custom nodes.
     FontColorNode,
-    TypographyNode,
 
     // The following code replaces the built-in Lexical nodes with our custom ones.
     // https://lexical.dev/docs/concepts/node-replacement

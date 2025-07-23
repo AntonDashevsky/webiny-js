@@ -4,7 +4,9 @@ import {
     LexicalNode,
     NodeKey,
     RangeSelection,
-    Spread
+    Spread,
+    LexicalEditor,
+    DOMExportOutput
 } from "lexical";
 import { addClassNamesToElement } from "@lexical/utils";
 import {
@@ -14,55 +16,52 @@ import {
 } from "@lexical/rich-text";
 import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { ParagraphNode } from "~/ParagraphNode";
-import { TypographyStylesNode, ThemeStyleValue, TextNodeThemeStyles } from "~/types";
+import { TypographyStylesNode, ThemeStyleValue } from "~/types";
+import { getStyleId } from "~/utils/getStyleId";
 
 export type SerializeHeadingNode = Spread<
     {
-        styles: ThemeStyleValue[];
+        styles?: ThemeStyleValue[];
+        styleId?: string;
+        className?: string;
         type: "heading-element";
     },
     BaseSerializedHeadingNode
 >;
 
-export class HeadingNode
-    extends BaseHeadingNode
-    implements TextNodeThemeStyles, TypographyStylesNode
-{
-    __styles: ThemeStyleValue[] = [];
+interface HeadingNodeOptions {
+    className?: string;
+    styleId?: string;
+    key?: NodeKey;
+}
 
-    constructor(tag: HeadingTagType, typographyStyleId?: string, key?: NodeKey) {
+export class HeadingNode extends BaseHeadingNode implements TypographyStylesNode {
+    private __styleId: string | undefined;
+    private __className: string | undefined;
+
+    constructor(tag: HeadingTagType, options: HeadingNodeOptions = {}) {
+        const { styleId, key, className } = options;
+
         super(tag, key);
 
-        if (typographyStyleId) {
-            this.__styles.push({ styleId: typographyStyleId, type: "typography" });
-        }
+        this.__styleId = styleId;
+        this.__className = className;
     }
 
-    private setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
-        const typographyStyle = findTypographyStyleByHtmlTag(this.__tag, themeEmotionMap);
-        if (typographyStyle) {
-            this.__styles.push({ styleId: typographyStyle.id, type: "typography" });
-        }
+    getStyleId(): string | undefined {
+        return this.__styleId;
     }
 
-    getTypographyStyleId(): string | undefined {
-        const style = this.__styles.find(x => x.type === "typography");
-        return style?.styleId || undefined;
+    setStyleId(styleId: string | undefined) {
+        this.__styleId = styleId;
     }
 
-    private hasTypographyStyle(): boolean {
-        return !!this.getTypographyStyleId();
+    setClassName(className: string | undefined) {
+        this.__className = className;
     }
 
-    getThemeStyles(): ThemeStyleValue[] {
-        const self = super.getLatest();
-        return self.__styles;
-    }
-
-    setThemeStyles(styles: ThemeStyleValue[]) {
-        const self = super.getWritable();
-        self.__styles = [...styles];
-        return self;
+    getClassName(): string | undefined {
+        return this.__className;
     }
 
     static override getType(): string {
@@ -70,35 +69,11 @@ export class HeadingNode
     }
 
     static override clone(node: HeadingNode): HeadingNode {
-        return new HeadingNode(node.getTag(), node.getTypographyStyleId(), node.__key);
-    }
-
-    protected updateElementWithThemeClasses(element: HTMLElement, theme: EditorTheme): HTMLElement {
-        if (!theme?.emotionMap) {
-            return element;
-        }
-
-        if (!this.hasTypographyStyle()) {
-            this.setDefaultTypography(theme.emotionMap);
-        }
-
-        const typoStyleId = this.getTypographyStyleId();
-
-        let themeClasses;
-
-        // Typography css class
-        if (typoStyleId) {
-            const typographyStyle = theme.emotionMap[typoStyleId];
-            if (typographyStyle) {
-                themeClasses = typographyStyle.className;
-            }
-        }
-
-        if (themeClasses) {
-            addClassNamesToElement(element, themeClasses);
-        }
-
-        return element;
+        return new HeadingNode(node.getTag(), {
+            key: node.getKey(),
+            styleId: node.getStyleId(),
+            className: node.getClassName()
+        });
     }
 
     override createDOM(config: EditorConfig): HTMLElement {
@@ -106,21 +81,40 @@ export class HeadingNode
         return this.updateElementWithThemeClasses(element, config.theme as EditorTheme);
     }
 
+    override exportDOM(editor: LexicalEditor): DOMExportOutput {
+        const base = super.exportDOM(editor);
+
+        const element = base.element as HTMLElement;
+        if (element && this.__className) {
+            element.classList.add(this.__className);
+        }
+
+        return { ...base, element };
+    }
+
     static override importJSON(serializedNode: SerializeHeadingNode): BaseHeadingNode {
         const node = $createHeadingNode(serializedNode.tag);
         node.setFormat(serializedNode.format);
         node.setIndent(serializedNode.indent);
         node.setDirection(serializedNode.direction);
-        node.setThemeStyles(serializedNode.styles);
+
+        const styleId = getStyleId({
+            styleId: serializedNode.styleId,
+            styles: serializedNode.styles
+        });
+
+        node.setStyleId(styleId);
+        node.setClassName(serializedNode.className);
+
         return node;
     }
 
     override exportJSON(): SerializeHeadingNode {
         return {
             ...super.exportJSON(),
-            styles: this.__styles,
             type: "heading-element",
-            version: 1
+            styleId: this.__styleId,
+            className: this.__className
         };
     }
 
@@ -144,10 +138,34 @@ export class HeadingNode
         this.replace(newElement);
         return true;
     }
+
+    protected updateElementWithThemeClasses(element: HTMLElement, theme: EditorTheme): HTMLElement {
+        if (!theme?.emotionMap) {
+            return element;
+        }
+
+        if (!this.__styleId || !this.__className) {
+            this.setDefaultTypography(theme.emotionMap);
+        }
+
+        if (this.__className) {
+            addClassNamesToElement(element, this.__className);
+        }
+
+        return element;
+    }
+
+    private setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
+        const typographyStyle = findTypographyStyleByHtmlTag(this.getTag(), themeEmotionMap);
+        if (typographyStyle) {
+            this.__styleId = typographyStyle.id;
+            this.__className = typographyStyle.className;
+        }
+    }
 }
 
-export function $createHeadingNode(tag: HeadingTagType, typographyStyleId?: string): HeadingNode {
-    return $applyNodeReplacement(new HeadingNode(tag, typographyStyleId));
+export function $createHeadingNode(tag: HeadingTagType, styleId?: string): HeadingNode {
+    return $applyNodeReplacement(new HeadingNode(tag, { styleId }));
 }
 
 export function $isHeadingNode(node: LexicalNode | null | undefined): node is HeadingNode {

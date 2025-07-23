@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { IconButton, Tooltip, Text, Heading } from "@webiny/admin-ui";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
+import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";
 
 export const BreakpointSelector = () => {
     const { breakpoint, breakpoints, setBreakpoint } = useBreakpoint();
@@ -25,7 +26,7 @@ export const BreakpointSelector = () => {
                         trigger={
                             <IconButton
                                 size={"md"}
-                                icon={bp.icon}
+                                icon={<InlineSvg src={bp.icon} />}
                                 variant={breakpoint.name === bp.name ? "tertiary" : "ghost"}
                                 onClick={() => setBreakpoint(bp.name)}
                             />

@@ -4,15 +4,16 @@ import type { CSSObject } from "@emotion/react";
 export type ListHtmlTag = "ol" | "ul";
 export type HeadingHtmlTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 export type ParagraphHtmlTag = "p";
-export type QuoteBlockHtmlTag = "quoteblock";
+export type BlockQuoteHtmlTag = "blockquote";
 
-export type TypographyHTMLTag = HeadingHtmlTag | ParagraphHtmlTag | ListHtmlTag | QuoteBlockHtmlTag;
+export type TypographyHTMLTag = HeadingHtmlTag | ParagraphHtmlTag | ListHtmlTag | BlockQuoteHtmlTag;
 
 export type TypographyValue = {
-    css: CSSObject;
     id: string;
     tag: TypographyHTMLTag;
     name: string;
+    css: CSSObject;
+    className?: string;
 };
 
 /*
@@ -23,8 +24,8 @@ export type ThemeEmotionMap = {
         id: string;
         tag: TypographyHTMLTag;
         name: string;
-        styles: Record<string, any>;
-        // emotion generated class
+        styles?: Record<string, any>;
+        // emotion generated class or user provided class
         className: string;
     };
 };

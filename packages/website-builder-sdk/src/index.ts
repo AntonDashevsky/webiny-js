@@ -1,3 +1,4 @@
+export * from "./createTheme";
 export * from "./EditingSdk.js";
 export * from "./LiveSdk.js";
 export * from "./NullSdk.js";

@@ -28,8 +28,7 @@ export type SerializedWebinyListItemNode = Spread<
     {
         checked: boolean | undefined;
         type: "webiny-listitem";
-        value: number;
-        version: 1;
+        value: number
     },
     SerializedElementNode
 >;
@@ -101,8 +100,7 @@ export class ListItemNode extends ElementNode {
             ...super.exportJSON(),
             checked: this.getChecked(),
             type: "webiny-listitem",
-            value: this.getValue(),
-            version: 1
+            value: this.getValue()
         };
     }
 

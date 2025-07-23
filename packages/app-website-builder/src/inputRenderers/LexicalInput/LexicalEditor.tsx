@@ -1,7 +1,9 @@
 import React, { useCallback } from "react";
-import { StaticToolbar } from "@webiny/lexical-editor";
+import { RichTextEditor, StaticToolbar } from "@webiny/lexical-editor";
 import type { RichTextEditorProps } from "@webiny/lexical-editor/types";
-import { LexicalEditor as BaseLexicalEditor } from "@webiny/app-admin/components/LexicalEditor";
+import { FileManager } from "@webiny/app-admin";
+import { EditorTheme } from "@webiny/lexical-theme";
+import { useWebsiteBuilderTheme } from "~/BaseEditor/components";
 import "./wbStaticToolbar.css";
 
 const placeholderStyles: React.CSSProperties = { position: "absolute", top: 40, left: 25 };
@@ -23,6 +25,8 @@ const styles: React.CSSProperties = {
 const toolbar = <StaticToolbar className={"wb-static-toolbar"} />;
 
 export const LexicalEditor = (props: Omit<RichTextEditorProps, "theme">) => {
+    const { theme } = useWebsiteBuilderTheme();
+
     const onChange = useCallback(
         (jsonString: string) => {
             if (props?.onChange) {
@@ -32,17 +36,33 @@ export const LexicalEditor = (props: Omit<RichTextEditorProps, "theme">) => {
         [props?.onChange]
     );
 
+    const editorTheme: EditorTheme = {
+        emotionMap: {},
+        styles: theme?.styles ?? {}
+    };
+
+    /**
+     * To use Website Builder theme, we can't use the LexicalEditor component from @webiny/app-admin.
+     */
     return (
-        <BaseLexicalEditor
-            {...props}
-            value={props.value}
-            onChange={onChange}
-            staticToolbar={toolbar}
-            tag={"p"}
-            placeholder={props?.placeholder || "Enter your text here..."}
-            placeholderStyles={placeholderStyles}
-            contentEditableStyles={contentEditableStyles}
-            styles={styles}
-        />
+        <FileManager accept={["image/*"]}>
+            {({ showFileManager }) => (
+                <RichTextEditor
+                    {...props}
+                    onChange={onChange}
+                    staticToolbar={toolbar}
+                    tag={"p"}
+                    placeholder={props?.placeholder || "Enter your text here..."}
+                    placeholderStyles={placeholderStyles}
+                    contentEditableStyles={contentEditableStyles}
+                    styles={styles}
+                    theme={editorTheme}
+                    toolbarActionPlugins={[
+                        ...(props.toolbarActionPlugins || []),
+                        { targetAction: "image-action", plugin: showFileManager }
+                    ]}
+                />
+            )}
+        </FileManager>
     );
 };

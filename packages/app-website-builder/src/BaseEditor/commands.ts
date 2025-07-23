@@ -1,5 +1,6 @@
 import { createCommand } from "~/editorSdk/createCommand";
 import type { ElementFactoryCreateElementParams } from "@webiny/website-builder-sdk";
+import { WebsiteBuilderTheme } from "@webiny/website-builder-sdk/types/WebsiteBuilderTheme";
 
 const CreateElement = createCommand<{
     // Name of the component to use.
@@ -33,6 +34,8 @@ const SelectElement = createCommand<{ id: string }>("SELECT_ELEMENT");
 
 const HighlightElement = createCommand<{ id: string }>("HIGHLIGHT_ELEMENT");
 
+const SetTheme = createCommand<{ theme: WebsiteBuilderTheme }>("SET_THEME");
+
 const DeselectElement = createCommand<never>("DESELECT_ELEMENT");
 
 const RefreshPreview = createCommand<never>("REFRESH_PREVIEW");
@@ -49,5 +52,6 @@ export const Commands = {
     DeselectElement,
     HighlightElement,
     RefreshPreview,
-    PreviewPatchElement
+    PreviewPatchElement,
+    SetTheme
 };

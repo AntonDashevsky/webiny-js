@@ -13,7 +13,9 @@ export const InlineSvg = ({ src, className = "" }: InlineSvgProps) => {
             const domParser = new DOMParser();
             const svgElement = domParser.parseFromString(svg, "image/svg+xml");
 
-            svgElement.documentElement.classList.add(...className.split(" "));
+            if (className.length > 0) {
+                svgElement.documentElement.classList.add(...className.split(" "));
+            }
             ref.current.outerHTML = svgElement.documentElement.outerHTML;
         }
     }, []);

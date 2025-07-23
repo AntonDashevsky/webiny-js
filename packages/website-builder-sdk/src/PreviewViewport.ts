@@ -1,13 +1,7 @@
 import { ElementBoxData, ElementSlotBoxData } from "~/types.js";
-import { ViewportManager } from "./ViewportManager";
+import { viewportManager } from "./ViewportManager";
 
 export class PreviewViewport {
-    private viewportManager: ViewportManager | null = null;
-
-    constructor() {
-        this.viewportManager = new ViewportManager();
-    }
-
     getBoxes() {
         const elementBoxes: Record<string, ElementBoxData> = {};
 
@@ -71,16 +65,7 @@ export class PreviewViewport {
     }
 
     getViewport() {
-        const viewport = this.viewportManager
-            ? this.viewportManager.getViewport()
-            : {
-                  width: window.innerWidth,
-                  height: window.innerHeight,
-                  scrollX: window.scrollX,
-                  scrollY: window.scrollY
-              };
-
-        return viewport;
+        return viewportManager.getViewport();
     }
 
     getVisibleBoxes(): Record<string, ElementBoxData | ElementSlotBoxData> {
@@ -106,10 +91,5 @@ export class PreviewViewport {
         return visibleBoxes;
     }
 
-    destroy(): void {
-        if (this.viewportManager) {
-            this.viewportManager.destroy();
-            this.viewportManager = null;
-        }
-    }
+    destroy(): void {}
 }

@@ -66,7 +66,13 @@ export const PreviewDomain = () => {
                             <Input
                                 autoFocus={true}
                                 label={"Preview Domain"}
-                                description={"Set a custom preview domain for your user session."}
+                                description={
+                                    <>
+                                        Set a custom preview domain for your session.
+                                        <br />
+                                        This doesn&apos;t affect other users.
+                                    </>
+                                }
                                 size={"md"}
                                 onBlur={() => form.submit()}
                                 onEnter={() => form.submit()}

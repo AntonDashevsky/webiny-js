@@ -1,6 +1,14 @@
+import { css as EmotionCSS } from "emotion";
 import { ThemeEmotionMap, TypographyHTMLTag } from "~/types";
 import { EditorTheme } from "~/createTheme";
-import { css as EmotionCSS } from "emotion";
+
+type StyleItem = {
+    id: string;
+    tag: TypographyHTMLTag;
+    name: string;
+    styles?: Record<string, any>;
+    className?: string;
+};
 
 /*
  *  Creates a map of style key ID's and typography style objects that include 'className' property which contains the
@@ -18,28 +26,27 @@ export const toTypographyEmotionMap = (
     }
 
     for (const key in typographyStyles) {
-        const typographyTypeData = typographyStyles[key] as {
-            id: string;
-            tag: TypographyHTMLTag;
-            name: string;
-            styles: Record<string, any>;
-        }[];
+        const typographyTypeData = typographyStyles[key] as StyleItem[];
         if (typographyTypeData) {
             typographyTypeData.forEach(styleItem => {
+                // If `className` is already defined, use the style as is.
+                if (styleItem.className !== undefined) {
+                    map[styleItem.id] = styleItem as StyleItem & { className: string };
+                    return;
+                }
+
                 // 'lx' (abbreviation of lexical) variable will lead to generate shorter class names.
                 // for example: instead of default 'css-181qz4b-453f345f'
                 // the last segment will always end with 'lx' or 'css-181qz4b-lx'
-
                 let transformedStyles = styleItem.styles;
                 if (themeStylesTransformer) {
                     transformedStyles = themeStylesTransformer(styleItem.styles);
                 }
 
-                const lx = {
+                map[styleItem.id] = {
                     ...styleItem,
                     className: [css(transformedStyles)].filter(Boolean).join(" ")
                 };
-                map[styleItem.id] = lx;
             });
         }
     }

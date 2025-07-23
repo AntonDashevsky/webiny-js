@@ -7,65 +7,58 @@ import {
     NodeKey,
     ParagraphNode as BaseParagraphNode,
     SerializedParagraphNode as SerializedBaseParagraphNode,
-    Spread
+    Spread,
+    LexicalEditor,
+    DOMExportOutput
 } from "lexical";
 import { EditorConfig } from "lexical";
 import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
-import { TypographyStylesNode, ThemeStyleValue, TextNodeThemeStyles } from "~/types";
+import { TypographyStylesNode, ThemeStyleValue } from "~/types";
+import { getStyleId } from "./utils/getStyleId";
 
 export type SerializeParagraphNode = Spread<
     {
-        styles: ThemeStyleValue[];
+        styles?: ThemeStyleValue[];
+        styleId?: string;
+        className?: string;
         type: "paragraph-element";
     },
     SerializedBaseParagraphNode
 >;
 
-export class ParagraphNode
-    extends BaseParagraphNode
-    implements TextNodeThemeStyles, TypographyStylesNode
-{
-    __styles: ThemeStyleValue[] = [];
+interface ParagraphNodeOptions {
+    className?: string;
+    styleId?: string;
+    key?: NodeKey;
+}
 
-    constructor(typographyStyleId?: string, key?: NodeKey) {
+export class ParagraphNode extends BaseParagraphNode implements TypographyStylesNode {
+    private __styleId: string | undefined;
+    private __className: string | undefined;
+
+    constructor(options: ParagraphNodeOptions = {}) {
+        const { styleId, key, className } = options;
         super(key);
 
-        if (typographyStyleId) {
-            this.__styles.push({ styleId: typographyStyleId, type: "typography" });
-        }
+        this.__styleId = styleId;
+        this.__className = className;
     }
 
-    protected setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
-        const typographyStyle = findTypographyStyleByHtmlTag("p", themeEmotionMap);
-        if (typographyStyle) {
-            this.__styles.push({ styleId: typographyStyle.id, type: "typography" });
-        }
+    getStyleId(): string | undefined {
+        return this.__styleId;
     }
 
-    getTypographyStyleId(): string | undefined {
-        const style = this.__styles.find(x => x.type === "typography");
-        return style?.styleId || undefined;
+    setStyleId(styleId: string | undefined) {
+        this.__styleId = styleId;
     }
 
-    private hasTypographyStyle(): boolean {
-        return !!this.getTypographyStyleId();
+    setClassName(className: string | undefined) {
+        this.__className = className;
     }
 
-    getThemeStyles(): ThemeStyleValue[] {
-        // getLatest() ensures we are getting the most
-        // up-to-date value from the EditorState.
-        const self = super.getLatest();
-        return self.__styles;
-    }
-
-    setThemeStyles(styles: ThemeStyleValue[]) {
-        // getWritable() creates a clone of the node
-        // if needed, to ensure we don't try and mutate
-        // a stale version of this node.
-        const self = super.getWritable();
-        self.__styles = [...styles];
-        return self;
+    getClassName(): string | undefined {
+        return this.__className;
     }
 
     static override getType(): string {
@@ -73,35 +66,11 @@ export class ParagraphNode
     }
 
     static override clone(node: ParagraphNode): ParagraphNode {
-        return new ParagraphNode(node.getTypographyStyleId(), node.__key);
-    }
-
-    private updateElementWithThemeClasses(element: HTMLElement, theme: EditorTheme): HTMLElement {
-        if (!theme?.emotionMap) {
-            return element;
-        }
-
-        if (!this.hasTypographyStyle()) {
-            this.setDefaultTypography(theme.emotionMap);
-        }
-
-        const typoStyleId = this.getTypographyStyleId();
-
-        let themeClasses;
-
-        // Typography css class
-        if (typoStyleId) {
-            const typographyStyle = theme.emotionMap[typoStyleId];
-            if (typographyStyle) {
-                themeClasses = typographyStyle.className;
-            }
-        }
-
-        if (themeClasses) {
-            addClassNamesToElement(element, themeClasses);
-        }
-
-        return element;
+        return new ParagraphNode({
+            styleId: node.getStyleId(),
+            className: node.getClassName(),
+            key: node.getKey()
+        });
     }
 
     override createDOM(config: EditorConfig): HTMLElement {
@@ -109,9 +78,20 @@ export class ParagraphNode
         return this.updateElementWithThemeClasses(element, config.theme as EditorTheme);
     }
 
+    override exportDOM(editor: LexicalEditor): DOMExportOutput {
+        const base = super.exportDOM(editor);
+
+        const element = base.element as HTMLElement;
+        if (element && this.__className) {
+            element.classList.add(this.__className);
+        }
+
+        return { ...base, element };
+    }
+
     override updateDOM(prevNode: ParagraphNode, dom: HTMLElement, config: EditorConfig): boolean {
-        const prevTypoStyleId = prevNode.getTypographyStyleId();
-        const nextTypoStyleId = this.getTypographyStyleId();
+        const prevTypoStyleId = prevNode.getStyleId();
+        const nextTypoStyleId = this.getStyleId();
 
         if (!nextTypoStyleId) {
             this.updateElementWithThemeClasses(dom, config.theme as EditorTheme);
@@ -146,7 +126,14 @@ export class ParagraphNode
         node.setFormat(serializedNode.format);
         node.setIndent(serializedNode.indent);
         node.setDirection(serializedNode.direction);
-        node.setThemeStyles(serializedNode.styles);
+
+        const styleId = getStyleId({
+            styleId: serializedNode.styleId,
+            styles: serializedNode.styles
+        });
+
+        node.setStyleId(styleId);
+        node.setClassName(serializedNode.className);
         return node;
     }
 
@@ -156,10 +143,34 @@ export class ParagraphNode
     override exportJSON(): SerializeParagraphNode {
         return {
             ...super.exportJSON(),
-            styles: this.__styles,
-            type: "paragraph-element",
-            version: 1
+            styleId: this.__styleId,
+            className: this.__className,
+            type: "paragraph-element"
         };
+    }
+
+    protected updateElementWithThemeClasses(element: HTMLElement, theme: EditorTheme): HTMLElement {
+        if (!theme?.emotionMap) {
+            return element;
+        }
+
+        if (!this.__styleId || !this.__className) {
+            this.setDefaultTypography(theme.emotionMap);
+        }
+
+        if (this.__className) {
+            addClassNamesToElement(element, this.__className);
+        }
+
+        return element;
+    }
+
+    private setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
+        const typographyStyle = findTypographyStyleByHtmlTag("p", themeEmotionMap);
+        if (typographyStyle) {
+            this.__styleId = typographyStyle.id;
+            this.__className = typographyStyle.className;
+        }
     }
 }
 
@@ -172,8 +183,8 @@ function convertParagraphElement(element: HTMLElement): DOMConversionOutput {
     return { node };
 }
 
-export function $createParagraphNode(typographyStyleId?: string): ParagraphNode {
-    return $applyNodeReplacement(new ParagraphNode(typographyStyleId));
+export function $createParagraphNode(styleId?: string): ParagraphNode {
+    return $applyNodeReplacement(new ParagraphNode({ styleId }));
 }
 
 export function $isParagraphNode(node: LexicalNode | null | undefined): node is ParagraphNode {

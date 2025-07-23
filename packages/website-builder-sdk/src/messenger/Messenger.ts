@@ -75,7 +75,12 @@ export class Messenger {
             this.listeners.set(logicalType, new Set());
         }
         this.listeners.get(logicalType)!.add(handler);
-        return () => this.listeners.get(logicalType)!.delete(handler);
+        return () => {
+            const listeners = this.listeners.get(logicalType);
+            if (listeners) {
+                listeners.delete(handler);
+            }
+        };
     }
 
     send<T = any>(logicalType: string, payload?: T) {
@@ -89,7 +94,6 @@ export class Messenger {
         }
 
         this.target.window.postMessage({ type: fullType, payload }, this.target.origin);
-
     }
 
     dispose() {

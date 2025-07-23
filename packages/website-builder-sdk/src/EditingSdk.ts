@@ -1,15 +1,16 @@
 "use client";
-import type { ComponentGroup, IContentSdk, PublicPage } from "./types.js";
+import type { Breakpoint, ComponentGroup, IContentSdk, PublicPage } from "./types.js";
 import { Messenger, MessageOrigin } from "./messenger";
 import { logger } from "./Logger";
 import { PreviewViewport } from "./PreviewViewport";
-import { ViewportManager } from "./ViewportManager";
+import { viewportManager } from "./ViewportManager";
 import { componentRegistry } from "./ComponentRegistry";
 import { functionConverter } from "./FunctionConverter";
 import { documentStoreManager } from "~/DocumentStoreManager";
 import { DocumentStore } from "~/DocumentStore";
 import { PreviewDocument } from "./PreviewDocument.js";
 import { hashObject } from "~/HashObject";
+import { WebsiteBuilderTheme } from "~/types/WebsiteBuilderTheme";
 
 export class EditingSdk implements IContentSdk {
     public readonly messenger: Messenger;
@@ -20,8 +21,9 @@ export class EditingSdk implements IContentSdk {
     private previewDocument: PreviewDocument;
     private lastBoxesHash = 0;
 
-    constructor(liveSdk: IContentSdk) {
+    constructor(liveSdk: IContentSdk, theme: WebsiteBuilderTheme) {
         this.liveSdk = liveSdk;
+
         const source = new MessageOrigin(() => window, window.location.origin);
         const target = new MessageOrigin(() => window.parent, this.getReferrerOrigin());
 
@@ -40,6 +42,10 @@ export class EditingSdk implements IContentSdk {
         this.setupListeners();
 
         this.messenger.send("preview.ready", true);
+
+        if (theme) {
+            this.messenger.send("preview.theme", { theme });
+        }
 
         this.disableLinks();
     }
@@ -109,8 +115,6 @@ export class EditingSdk implements IContentSdk {
         this.previewViewport = new PreviewViewport();
 
         // Add event listeners
-        const viewportManager = new ViewportManager();
-
         viewportManager.onViewportChangeStart(() => {
             if (this.messenger) {
                 this.messenger.send("preview.viewport.change.start");

@@ -15,6 +15,7 @@ import { Commands } from "~/BaseEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
 import { AwaitIframeUrl } from "~/BaseEditor/defaultConfig/Content/Preview/AwaitIframeUrl";
 import { PreviewEvents } from "~/BaseEditor/defaultConfig/Content/Preview/PreviewEvents";
+import { LoadThemeStylesheet } from "./LoadThemeStylesheet";
 
 export const Preview = () => {
     const editor = useDocumentEditor();
@@ -120,6 +121,7 @@ export const Preview = () => {
     return (
         <>
             <DropZoneManagerProvider dropzoneManager={dropzoneManager}>
+                <LoadThemeStylesheet />
                 <AddressBar />
                 <AwaitIframeUrl>
                     {({ url }) => (

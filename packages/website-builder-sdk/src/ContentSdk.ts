@@ -7,6 +7,9 @@ import { PreviewSdk } from "./PreviewSdk.js";
 import { componentRegistry } from "~/ComponentRegistry";
 import { ApiClient } from "~/dataProviders/ApiClient";
 import { DefaultDataProvider } from "~/dataProviders/DefaultDataProvider";
+import type { WebsiteBuilderThemeInput } from "./types/WebsiteBuilderTheme.js";
+import { Theme } from "./Theme.js";
+import { viewportManager } from "./ViewportManager.js";
 
 export type ApiConfig = {
     apiKey: string;
@@ -16,6 +19,7 @@ export type ApiConfig = {
 
 export type ContentSDKConfig = ApiConfig & {
     preview?: boolean;
+    theme?: WebsiteBuilderThemeInput;
 };
 
 class InternalContentSdk implements IContentSdk {
@@ -63,9 +67,15 @@ export class ContentSdk implements IContentSdk {
             liveSdk = new PreviewSdk(dataProvider, liveSdk);
         }
 
+        const theme = Theme.from(config.theme ?? {});
+
+        if (environment.isClient()) {
+            viewportManager.setBreakpoints(theme.breakpoints);
+        }
+
         let editingSdk;
         if (environment.isEditing()) {
-            editingSdk = new EditingSdk(liveSdk);
+            editingSdk = new EditingSdk(liveSdk, theme);
         }
 
         this.sdk = new InternalContentSdk(liveSdk as LiveSdk, editingSdk);

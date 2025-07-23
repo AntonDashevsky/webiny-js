@@ -17,6 +17,7 @@ export {
     createSlotInput,
     createInput,
     createElement,
+    createTheme,
     contentSdk,
     environment,
     setHeadersProvider,

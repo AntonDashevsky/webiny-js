@@ -19,13 +19,12 @@ import type {
 } from "lexical";
 import { $applyNodeReplacement, createEditor, DecoratorNode } from "lexical";
 
-const ImageComponent = React.lazy(
-    () =>
-        import(
-            /* webpackChunkName: "LexicalNodesComponentsImageNodeImageComponent" */
-            "./components/ImageNode/ImageComponent"
-        )
-);
+const ImageComponent = React.lazy(() => {
+    return import(
+        /* webpackChunkName: "LexicalNodesComponentsImageNodeImageComponent" */
+        "./components/ImageNode/ImageComponent"
+    );
+});
 
 export type SerializedImageNode = Spread<
     {
@@ -152,8 +151,8 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
             showCaption: this.__showCaption,
             src: this.getSrc(),
             type: "image",
-            version: 1,
-            width: this.__width === "inherit" ? 0 : this.__width
+            width: this.__width === "inherit" ? 0 : this.__width,
+            version: 1
         };
     }
 

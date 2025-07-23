@@ -5,14 +5,9 @@ export interface ThemeStyleValue {
     type: ThemeStyleType;
 }
 
-export interface TextNodeThemeStyles {
-    getThemeStyles: () => ThemeStyleValue[];
-    setThemeStyles: (styles: ThemeStyleValue[]) => void;
-}
-
-/*
- * Indicates that the node is implementing the typography styles
- */
 export interface TypographyStylesNode {
-    getTypographyStyleId: () => string | undefined;
+    getStyleId: () => string | undefined;
+    setStyleId: (id: string) => void;
+    getClassName: () => string | undefined;
+    setClassName: (className: string) => void;
 }
