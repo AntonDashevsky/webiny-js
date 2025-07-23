@@ -145,7 +145,8 @@ export class PreviewEvents {
                 }
                 state.components[component.name] = {
                     ...component,
-                    image: component.image ?? defaultImage
+                    image: component.image ?? defaultImage,
+                    tags: component.tags ?? []
                 };
             });
         });

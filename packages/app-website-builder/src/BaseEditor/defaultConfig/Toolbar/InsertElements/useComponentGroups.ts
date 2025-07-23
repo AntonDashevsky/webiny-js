@@ -1,12 +1,17 @@
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { ComponentManifest, SerializedComponentGroup } from "@webiny/website-builder-sdk";
+import {
+    ComponentGroupFilterContext,
+    ComponentManifest,
+    SerializedComponentGroup
+} from "@webiny/website-builder-sdk";
 import { functionConverter } from "@webiny/website-builder-sdk";
+import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 
 type WithItems<T> = T & { items: ComponentManifest[] };
 
 const getComponentFilter = (
     group: SerializedComponentGroup
-): ((cmp: ComponentManifest) => boolean) => {
+): ((cmp: ComponentManifest, context: ComponentGroupFilterContext) => boolean) => {
     if (group.name === "custom") {
         return cmp => !cmp.group;
     }
@@ -19,6 +24,8 @@ const getComponentFilter = (
 };
 
 export const useComponentGroups = () => {
+    const document = useSelectFromDocument(document => document);
+
     return useSelectFromEditor<WithItems<SerializedComponentGroup>[]>(state => {
         const groups = Object.values(state.componentGroups);
         const components = Object.values(state.components).filter(item => !item.hideFromToolbar);
@@ -28,7 +35,9 @@ export const useComponentGroups = () => {
 
             return {
                 ...group,
-                items: components.filter(filter)
+                items: components.filter(component => {
+                    return filter(component, { document });
+                })
             };
         });
     });

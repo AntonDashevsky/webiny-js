@@ -83,11 +83,15 @@ export type SerializedComponentGroup = ComponentGroup & {
     filter?: string;
 };
 
+export type ComponentGroupFilterContext = {
+    document: EditorDocument;
+};
+
 export type ComponentGroup = {
     name: string;
     label: string;
     description?: string;
-    filter?: (component: ComponentManifest) => boolean;
+    filter?: (component: ComponentManifest, context: ComponentGroupFilterContext) => boolean;
 };
 
 export type ResponsiveStyles = {
@@ -106,6 +110,7 @@ export type ComponentManifest = {
     hideFromToolbar?: boolean;
     hideStyleSettings?: string[];
     autoApplyStyles?: boolean;
+    tags?: string[];
     defaults?: {
         inputs?: Record<string, any>;
         styles?: SerializableCSSStyleDeclaration;
