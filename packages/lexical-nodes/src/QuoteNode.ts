@@ -6,7 +6,8 @@ import {
     LexicalEditor,
     LexicalNode,
     NodeKey,
-    Spread
+    Spread,
+    $applyNodeReplacement
 } from "lexical";
 import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
@@ -22,7 +23,7 @@ export type SerializedQuoteNode = Spread<
         styleId?: string;
         styles?: ThemeStyleValue[];
         className?: string;
-        type: "webiny-quote";
+        type: "quote";
     },
     BaseSerializedQuoteNode
 >;
@@ -73,7 +74,7 @@ export class QuoteNode extends BaseQuoteNode implements TypographyStylesNode {
     }
 
     static override getType(): string {
-        return "webiny-quote";
+        return "quote";
     }
 
     static override clone(node: QuoteNode): QuoteNode {
@@ -135,7 +136,7 @@ export class QuoteNode extends BaseQuoteNode implements TypographyStylesNode {
     override exportJSON(): SerializedQuoteNode {
         return {
             ...super.exportJSON(),
-            type: "webiny-quote",
+            type: "quote",
             className: this.__className,
             styleId: this.__styleId
         };
@@ -166,7 +167,7 @@ function convertBlockquoteElement() {
 }
 
 export function $createQuoteNode(styleId?: string, key?: NodeKey): QuoteNode {
-    return new QuoteNode({ styleId, key });
+    return $applyNodeReplacement(new QuoteNode({ styleId, key }));
 }
 
 export function $isQuoteNode(node: LexicalNode | null | undefined): node is QuoteNode {

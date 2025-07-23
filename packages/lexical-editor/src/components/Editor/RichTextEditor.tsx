@@ -33,6 +33,7 @@ import {
     useLexicalEditorConfig
 } from "~/components/LexicalEditorConfig/LexicalEditorConfig";
 import { normalizeInputValue } from "./normalizeInputValue";
+import { prepareLexicalState } from "~/utils/prepareLexicalState";
 
 export interface RichTextEditorProps {
     children?: React.ReactNode | React.ReactNode[];
@@ -106,7 +107,7 @@ const BaseRichTextEditor = ({
     ));
 
     const value = normalizeInputValue(props.value);
-    const editorValue = isValidLexicalData(value) ? value : generateInitialValue();
+    const editorValue = prepareLexicalState(value);
 
     const initialConfig = {
         editorState: null,

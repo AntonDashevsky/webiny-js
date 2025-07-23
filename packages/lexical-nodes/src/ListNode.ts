@@ -26,7 +26,7 @@ export type SerializedWebinyListNode = Spread<
         listType: ListType;
         start: number;
         tag: ListNodeTagType;
-        type: "webiny-list";
+        type: "list";
     },
     SerializedElementNode
 >;
@@ -61,7 +61,7 @@ export class ListNode extends ElementNode implements TypographyStylesNode {
     }
 
     static override getType() {
-        return "webiny-list";
+        return "list";
     }
 
     override createDOM(config: EditorConfig): HTMLElement {
@@ -85,7 +85,6 @@ export class ListNode extends ElementNode implements TypographyStylesNode {
         const base = super.exportDOM(editor);
 
         const element = base.element as HTMLElement;
-        console.log("exportDOM", element, this);
         if (element && this.__className) {
             element.classList.add(this.__className);
         }
@@ -142,7 +141,7 @@ export class ListNode extends ElementNode implements TypographyStylesNode {
             listType: this.getListType(),
             start: this.getStart(),
             tag: this.getTag(),
-            type: "webiny-list"
+            type: "list"
         };
     }
 

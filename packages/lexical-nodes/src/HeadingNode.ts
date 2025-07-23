@@ -24,7 +24,7 @@ export type SerializeHeadingNode = Spread<
         styles?: ThemeStyleValue[];
         styleId?: string;
         className?: string;
-        type: "heading-element";
+        type: "heading";
     },
     BaseSerializedHeadingNode
 >;
@@ -65,7 +65,7 @@ export class HeadingNode extends BaseHeadingNode implements TypographyStylesNode
     }
 
     static override getType(): string {
-        return "heading-element";
+        return "heading";
     }
 
     static override clone(node: HeadingNode): HeadingNode {
@@ -112,7 +112,7 @@ export class HeadingNode extends BaseHeadingNode implements TypographyStylesNode
     override exportJSON(): SerializeHeadingNode {
         return {
             ...super.exportJSON(),
-            type: "heading-element",
+            type: "heading",
             styleId: this.__styleId,
             className: this.__className
         };

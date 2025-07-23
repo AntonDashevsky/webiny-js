@@ -24,11 +24,13 @@ import {
 import { $createParagraphNode, $isParagraphNode } from "~/ParagraphNode";
 import { isNestedListNode } from "~/utils/listNode";
 
+export const LIST_ITEM_TYPE = "list-item";
+
 export type SerializedWebinyListItemNode = Spread<
     {
         checked: boolean | undefined;
-        type: "webiny-listitem";
-        value: number
+        type: typeof LIST_ITEM_TYPE;
+        value: number;
     },
     SerializedElementNode
 >;
@@ -41,7 +43,7 @@ export class ListItemNode extends ElementNode {
     __checked?: boolean;
 
     static override getType(): string {
-        return "webiny-listitem";
+        return LIST_ITEM_TYPE;
     }
 
     static override clone(node: ListItemNode): ListItemNode {
@@ -99,7 +101,7 @@ export class ListItemNode extends ElementNode {
         return {
             ...super.exportJSON(),
             checked: this.getChecked(),
-            type: "webiny-listitem",
+            type: LIST_ITEM_TYPE,
             value: this.getValue()
         };
     }

@@ -22,7 +22,7 @@ export type SerializeParagraphNode = Spread<
         styles?: ThemeStyleValue[];
         styleId?: string;
         className?: string;
-        type: "paragraph-element";
+        type: "paragraph";
     },
     SerializedBaseParagraphNode
 >;
@@ -62,7 +62,7 @@ export class ParagraphNode extends BaseParagraphNode implements TypographyStyles
     }
 
     static override getType(): string {
-        return "paragraph-element";
+        return "paragraph";
     }
 
     static override clone(node: ParagraphNode): ParagraphNode {
@@ -145,7 +145,7 @@ export class ParagraphNode extends BaseParagraphNode implements TypographyStyles
             ...super.exportJSON(),
             styleId: this.__styleId,
             className: this.__className,
-            type: "paragraph-element"
+            type: "paragraph"
         };
     }
 

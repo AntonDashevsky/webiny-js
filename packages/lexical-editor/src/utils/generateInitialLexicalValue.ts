@@ -9,7 +9,7 @@ const defaultLexicalValue = JSON.stringify({
                 format: "",
                 indent: 0,
                 styles: [],
-                type: "paragraph-element",
+                type: "paragraph",
                 version: 1
             }
         ],
