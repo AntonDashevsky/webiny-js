@@ -9,7 +9,7 @@ import {
     overlayHeaderVariants,
     OverlayRoot
 } from "./components";
-import type { VariantProps } from "@webiny/admin-ui";
+import { Portal, type VariantProps } from "@webiny/admin-ui";
 
 const noScrollBodyClassNames = ["wby-overflow-hidden", "wby-h-screen"];
 
@@ -50,21 +50,23 @@ export const OverlayLayout: React.FC<OverlayLayoutProps> = ({
     }, []);
 
     return (
-        <OverlayRoot visible={visible} onExited={onExited}>
-            <OverlayBackdrop visible={visible} hideOverlay={hideOverlay} />
-            <OverlayContent visible={visible}>
-                <>
-                    <OverlayHeader
-                        start={barLeft}
-                        middle={barMiddle}
-                        end={barRight}
-                        variant={variant}
-                        hideOverlay={hideOverlay}
-                    />
+        <Portal>
+            <OverlayRoot visible={visible} onExited={onExited}>
+                <OverlayBackdrop visible={visible} hideOverlay={hideOverlay} />
+                <OverlayContent visible={visible}>
+                    <>
+                        <OverlayHeader
+                            start={barLeft}
+                            middle={barMiddle}
+                            end={barRight}
+                            variant={variant}
+                            hideOverlay={hideOverlay}
+                        />
 
-                    {children}
-                </>
-            </OverlayContent>
-        </OverlayRoot>
+                        {children}
+                    </>
+                </OverlayContent>
+            </OverlayRoot>
+        </Portal>
     );
 };

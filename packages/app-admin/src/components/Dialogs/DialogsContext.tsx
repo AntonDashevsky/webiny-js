@@ -31,6 +31,7 @@ interface ShowCustomDialogParams {
 export interface DialogsContext {
     showDialog: (params: ShowDialogParams) => () => void;
     showCustomDialog: (params: ShowCustomDialogParams) => () => void;
+    closeAllDialogs: () => void;
 }
 
 interface DialogsProviderProps {
@@ -94,6 +95,10 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
         });
     };
 
+    const closeAllDialogs = () => {
+        setDialogs(new Map());
+    };
+
     const onSubmit = async (id: string, data: GenericFormData) => {
         const dialog = dialogs.get(id);
         if (!dialog) {
@@ -125,7 +130,8 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
     const context = {
         showDialog,
         showCustomDialog,
-        closeDialog
+        closeDialog,
+        closeAllDialogs
     };
 
     return (
@@ -156,7 +162,10 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
                         loadingLabel={dialog.loadingLabel}
                         dataLoadingLabel={dialog.dataLoadingLabel}
                         loading={dialog.loading}
-                        closeDialog={() => closeDialog(dialog.id)}
+                        closeDialog={() => {
+                            closeDialog(dialog.id);
+                            dialog.onClose && dialog.onClose();
+                        }}
                         onSubmit={data => onSubmit(dialog.id, data)}
                         formData={dialog.formData}
                         size={dialog.size}

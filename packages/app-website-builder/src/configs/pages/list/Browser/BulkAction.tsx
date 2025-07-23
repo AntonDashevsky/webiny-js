@@ -70,6 +70,11 @@ const useWorker = () => {
         selectPages([]);
     }, []);
 
+    // Reset results in Worker
+    const resetResults = useCallback(async () => {
+        worker.resetResults();
+    }, []);
+
     return {
         items,
         process: (callback: (pages: PageDto[]) => void) => worker.process(callback),
@@ -78,7 +83,8 @@ const useWorker = () => {
             chunkSize?: number
         ) => worker.processInSeries(callback, chunkSize),
         resetItems: resetItems,
-        results: worker.results
+        results: worker.results,
+        resetResults
     };
 };
 

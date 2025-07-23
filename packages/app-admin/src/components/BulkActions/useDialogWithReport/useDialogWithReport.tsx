@@ -1,9 +1,8 @@
 import React from "react";
-import { OverlayLoader } from "@webiny/admin-ui";
-import { useUi } from "@webiny/app/hooks/useUi";
 import { i18n } from "@webiny/app/i18n";
 import { ResultDialogMessage } from "./DialogMessage";
 import { Result } from "../Worker";
+import { useDialogs } from "~/components/Dialogs/useDialogs.js";
 
 const t = i18n.ns("app-admin/hooks/use-dialog-with-report");
 
@@ -28,7 +27,7 @@ export interface UseDialogWithReportResponse {
 }
 
 export const useDialogWithReport = (): UseDialogWithReportResponse => {
-    const ui = useUi();
+    const { showDialog, closeAllDialogs } = useDialogs();
 
     const showConfirmationDialog = ({
         execute,
@@ -36,56 +35,30 @@ export const useDialogWithReport = (): UseDialogWithReportResponse => {
         message,
         loadingLabel
     }: ShowConfirmationDialogParams) => {
-        ui.setState(ui => {
-            return {
-                ...ui,
-                dialog: {
-                    message: message || t`Are you sure you want to continue?`,
-                    options: {
-                        title: title || t`Confirm`,
-                        loading: <OverlayLoader text={loadingLabel} />,
-                        actions: {
-                            accept: {
-                                label: t`Confirm`,
-                                onClick: async () => {
-                                    await execute();
-                                }
-                            },
-                            cancel: {
-                                label: t`Cancel`
-                            }
-                        }
-                    }
-                }
-            };
+        showDialog({
+            title: title || t`Confirm`,
+            content: message || t`Are you sure you want to continue?`,
+            loadingLabel: loadingLabel || t`Processing...`,
+            acceptLabel: t`Confirm`,
+            onAccept: execute,
+            cancelLabel: t`Cancel`
         });
     };
 
-    const showResultsDialog = ({ title, ...params }: ShowResultsDialogParams) => {
+    const showResultsDialog = ({ title, onCancel, ...params }: ShowResultsDialogParams) => {
         setTimeout(() => {
-            ui.setState(ui => {
-                return {
-                    ...ui,
-                    dialog: {
-                        message: <ResultDialogMessage {...params} />,
-                        options: {
-                            title: title || t`Results`,
-                            actions: {
-                                cancel: {
-                                    label: t`Close`
-                                }
-                            }
-                        }
-                    }
-                };
+            showDialog({
+                title: title || t`Results`,
+                content: <ResultDialogMessage {...params} />,
+                cancelLabel: t`Close`,
+                onClose: onCancel,
+                acceptLabel: null
             });
         }, 10);
     };
 
     const hideResultsDialog = () => {
-        ui.setState(ui => {
-            return { ...ui, dialog: null };
-        });
+        closeAllDialogs();
     };
 
     return {

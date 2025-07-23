@@ -46,7 +46,8 @@ export const BulkActionPublish = observer(() => {
                 showResultsDialog({
                     results: worker.results,
                     title: "Publish pages",
-                    message: "Finished publishing pages! See full report below:"
+                    message: "Finished publishing pages! See full report below:",
+                    onCancel: worker.resetResults
                 });
             }
         });

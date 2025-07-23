@@ -46,7 +46,8 @@ export const BulkActionDuplicate = observer(() => {
                 showResultsDialog({
                     results: worker.results,
                     title: "Duplicate pages",
-                    message: "Finished duplicating pages! See full report below:"
+                    message: "Finished duplicating pages! See full report below:",
+                    onCancel: worker.resetResults
                 });
             }
         });
