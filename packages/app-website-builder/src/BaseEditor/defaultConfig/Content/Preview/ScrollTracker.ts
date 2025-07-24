@@ -1,57 +1,87 @@
-type ScrollCallback = (event: WheelEvent) => void;
 type ScrollFilter = (event: WheelEvent) => boolean;
+type ScrollHandler = (event: WheelEvent) => void;
 
 export class ScrollTracker {
-    private callbacks = new Set<ScrollCallback>();
-    private scrollEvent: WheelEvent | null = null;
-    private frameId: number | null = null;
-    private isTracking = false;
+    private readonly changeTimeout: number;
+    private readonly scrollStartSubscribers: Set<ScrollHandler>;
+    private readonly scrollSubscribers: Set<ScrollHandler>;
+    private readonly scrollEndSubscribers: Set<ScrollHandler>;
+    private isChanging: boolean;
+    private changeTimer: number | null;
+    private filter: ScrollFilter;
+    private window: Window;
 
-    constructor(private window: Window, private filter: ScrollFilter = () => true) {}
-
-    onChange(cb: ScrollCallback) {
-        this.callbacks.add(cb);
-
-        return () => {
-            this.callbacks.delete(cb);
-        };
+    constructor(window: Window, filter: ScrollFilter = () => true) {
+        this.window = window;
+        this.filter = filter;
+        this.changeTimeout = 150;
+        this.scrollStartSubscribers = new Set();
+        this.scrollSubscribers = new Set();
+        this.scrollEndSubscribers = new Set();
+        this.isChanging = false;
+        this.changeTimer = null;
     }
 
-    start() {
-        if (this.isTracking) {
-            return;
-        }
-
-        this.window.addEventListener("wheel", this.onScroll, { passive: true });
-        this.isTracking = true;
+    public onScrollStart(callback: ScrollHandler): () => void {
+        this.scrollStartSubscribers.add(callback);
+        return () => this.scrollStartSubscribers.delete(callback);
     }
 
-    destroy() {
-        this.isTracking = false;
-        this.window.removeEventListener("wheel", this.onScroll);
-        this.callbacks.clear();
+    public onScroll(callback: ScrollHandler): () => void {
+        this.scrollSubscribers.add(callback);
+        return () => this.scrollSubscribers.delete(callback);
     }
 
-    private onScroll = (e: Event) => {
-        this.scrollEvent = e as WheelEvent;
-        if (this.frameId === null) {
-            this.frameId = this.window.requestAnimationFrame(this.tick);
+    public onScrollEnd(callback: ScrollHandler): () => void {
+        this.scrollEndSubscribers.add(callback);
+        return () => this.scrollEndSubscribers.delete(callback);
+    }
+
+    public start() {
+        this.window.addEventListener("wheel", this.handleScroll, { passive: true });
+    }
+
+    public destroy(): void {
+        this.window.removeEventListener("wheel", this.handleScroll);
+
+        if (this.changeTimer !== null) {
+            clearTimeout(this.changeTimer);
         }
-    };
+        this.scrollStartSubscribers.clear();
+        this.scrollSubscribers.clear();
+        this.scrollEndSubscribers.clear();
+    }
 
-    private tick = () => {
-        this.frameId = null;
+    private handleScroll = (e: Event): void => {
+        const scrollEvent = e as WheelEvent;
+        const isValidSource = this.filter(scrollEvent);
 
-        if (!this.scrollEvent) {
-            return;
+        if (this.changeTimer !== null) {
+            clearTimeout(this.changeTimer);
         }
 
-        if (this.filter(this.scrollEvent)) {
-            for (const cb of this.callbacks) {
-                cb(this.scrollEvent);
+        if (!this.isChanging) {
+            if (isValidSource) {
+                this.isChanging = true;
+                this.notifySubscribers(this.scrollStartSubscribers, scrollEvent);
             }
         }
 
-        this.scrollEvent = null;
+        if (this.isChanging && isValidSource) {
+            this.notifySubscribers(this.scrollSubscribers, scrollEvent);
+        }
+
+        this.changeTimer = window.setTimeout(() => {
+            this.isChanging = false;
+            this.notifySubscribers(this.scrollEndSubscribers, scrollEvent);
+        }, this.changeTimeout);
     };
+
+    private notifySubscribers(subscribers: Set<ScrollHandler>, event: WheelEvent): void {
+        subscribers.forEach(callback => {
+            if (typeof callback === "function") {
+                callback(event);
+            }
+        });
+    }
 }

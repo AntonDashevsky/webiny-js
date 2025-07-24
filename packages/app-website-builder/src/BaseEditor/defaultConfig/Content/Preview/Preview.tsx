@@ -23,6 +23,37 @@ export const Preview = () => {
 
     const loadingPreview = useSelectFromEditor(state => state.loadingPreview);
 
+    const scrollTracker = useMemo(() => {
+        return new ScrollTracker(window, e => {
+            const source = e.target as HTMLDivElement | null;
+
+            if (!source) {
+                return false;
+            }
+
+            return source.dataset.role === "element-overlay";
+        });
+    }, []);
+
+    const hoverManager = useMemo(() => {
+        return new HoverManager(mouseTracker, () => {
+            const editorState = editor.getEditorState().read();
+            return new Boxes(editorState.boxes.editor).filter(box => box.id !== "root");
+        });
+    }, [mouseTracker]);
+
+    const viewportManager = useMemo(() => {
+        return new ViewportManager();
+    }, []);
+
+    const previewEvents = useMemo(() => {
+        return new PreviewEvents(editor, scrollTracker);
+    }, []);
+
+    const dropzoneManager = useMemo(() => {
+        return new DropZoneManager(mouseTracker);
+    }, [mouseTracker]);
+
     useEffect(() => {
         // On first mount, show loading.
         editor.updateEditor(state => {
@@ -47,41 +78,10 @@ export const Preview = () => {
         };
     }, []);
 
-    const hoverManager = useMemo(() => {
-        return new HoverManager(mouseTracker, () => {
-            const editorState = editor.getEditorState().read();
-            return new Boxes(editorState.boxes.editor).filter(box => box.id !== "root");
-        });
-    }, [mouseTracker]);
-
-    const viewportManager = useMemo(() => {
-        return new ViewportManager();
-    }, []);
-
-    const scrollTracker = useMemo(() => {
-        return new ScrollTracker(window, e => {
-            const source = e.target as HTMLDivElement | null;
-
-            if (!source) {
-                return false;
-            }
-
-            return source.dataset.role === "element-overlay";
-        });
-    }, []);
-
-    const previewEvents = useMemo(() => {
-        return new PreviewEvents(editor, scrollTracker);
-    }, []);
-
-    const dropzoneManager = useMemo(() => {
-        return new DropZoneManager(mouseTracker);
-    }, [mouseTracker]);
-
     // Start various trackers
     useEffect(() => {
-        mouseTracker.start();
         scrollTracker.start();
+        mouseTracker.start();
         dropzoneManager.start();
 
         return () => {

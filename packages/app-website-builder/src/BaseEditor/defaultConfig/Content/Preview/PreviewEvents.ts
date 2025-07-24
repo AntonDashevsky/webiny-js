@@ -64,13 +64,28 @@ export class PreviewEvents {
                     this.getMessenger().send("document.set", event.state);
                 }
             }),
-            // Scroll wheel
-            this.scrollTracker.onChange(event => {
+            // Scroll start
+            this.scrollTracker.onScrollStart(() => {
+                this.editor.updateEditor(state => {
+                    state.showOverlays = false;
+                });
+            }),
+
+            // Scrolling
+            this.scrollTracker.onScroll(event => {
                 this.getMessenger().send("preview.scroll", {
                     deltaX: event.deltaX,
                     deltaY: event.deltaY
                 });
             }),
+
+            // Scroll end
+            this.scrollTracker.onScrollEnd(() => {
+                this.editor.updateEditor(state => {
+                    state.showOverlays = true;
+                });
+            }),
+
             // Element preview
             this.editor.registerCommandHandler(Commands.PreviewPatchElement, payload => {
                 this.getMessenger().send(`element.patch.${payload.elementId}`, payload.patch);
@@ -81,12 +96,6 @@ export class PreviewEvents {
     private subscribeToIframe(messenger: Messenger) {
         // When `onConnected` is executed, we need to send new data to the live preview.
         messenger.send("document.set", this.editor.getDocumentState().toJson());
-
-        messenger.on("preview.viewport.change.start", () => {
-            this.editor.updateEditor(state => {
-                state.showOverlays = false;
-            });
-        });
 
         messenger.on("preview.theme", ({ theme }) => {
             this.editor.executeCommand(Commands.SetTheme, { theme });
@@ -134,7 +143,6 @@ export class PreviewEvents {
                     preview: boxes,
                     editor: this.mapCoordinatesToEditorSpace(state.viewport, boxes)
                 };
-                state.showOverlays = true;
             });
         });
 

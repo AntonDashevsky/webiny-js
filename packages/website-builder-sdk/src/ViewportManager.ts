@@ -37,11 +37,9 @@ export class ViewportManager {
         this.changeTimer = null;
 
         this.handleViewportChange = this.handleViewportChange.bind(this);
-        this.handleScroll = this.handleScroll.bind(this);
         this.handleResize = this.handleResize.bind(this);
 
         if (environment.isClient()) {
-            window.addEventListener("scroll", this.handleScroll, { passive: true });
             window.addEventListener("resize", this.handleResize, { passive: true });
         }
     }
@@ -69,7 +67,6 @@ export class ViewportManager {
 
     public destroy(): void {
         if (environment.isClient()) {
-            window.removeEventListener("scroll", this.handleScroll);
             window.removeEventListener("resize", this.handleResize);
             if (this.changeTimer !== null) {
                 clearTimeout(this.changeTimer);
@@ -79,9 +76,6 @@ export class ViewportManager {
         }
     }
 
-    private handleScroll(): void {
-        this.handleViewportChange();
-    }
 
     private handleResize(): void {
         this.handleViewportChange();
