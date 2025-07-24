@@ -10,6 +10,7 @@ import { ListNode } from "./ListNode";
 import { ListItemNode } from "./ListItemNode";
 import { HeadingNode } from "./HeadingNode";
 import { ParagraphNode } from "./ParagraphNode";
+// import { TextNode } from "./TextNode";
 import { QuoteNode } from "./QuoteNode";
 import { ImageNode } from "./ImageNode";
 
@@ -21,6 +22,7 @@ export * from "./ParagraphNode";
 export * from "./QuoteNode";
 export * from "./ImageNode";
 export * from "./LinkNode";
+// export * from "./TextNode";
 
 export * from "./utils/formatList";
 export * from "./utils/listNode";
@@ -32,6 +34,7 @@ export * from "./utils/toggleLink";
 
 // This is a list of all the nodes that our Lexical implementation supports OOTB.
 export const allNodes: ReadonlyArray<Klass<LexicalNode> | LexicalNodeReplacement> = [
+    // TextNode,
     ImageNode,
     ListNode,
     ListItemNode,

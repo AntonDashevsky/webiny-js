@@ -5,6 +5,7 @@ import {
     WebsiteBuilderThemeInput
 } from "~/types/WebsiteBuilderTheme";
 import { defaultBreakpoints } from "~/defaultBreakpoints";
+import { createLexicalTheme } from "~/lexical/createLexicalTheme";
 
 export class Theme {
     static from(input: WebsiteBuilderThemeInput): WebsiteBuilderTheme {
@@ -26,8 +27,9 @@ export class Theme {
         });
 
         return {
-            themeUrl: input?.themeUrl ?? "/webiny/theme.css",
+            themeUrl: input?.themeUrl,
             breakpoints: breakpoints.sort((a, b) => b.maxWidth - a.maxWidth),
+            lexical: createLexicalTheme(input?.lexical),
             styles: {
                 colors: {
                     ...input?.styles?.colors

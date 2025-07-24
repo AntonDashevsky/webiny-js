@@ -86,6 +86,8 @@ export class ParagraphNode extends BaseParagraphNode implements TypographyStyles
             element.classList.add(this.__className);
         }
 
+        console.log("PNode", this);
+
         return { ...base, element };
     }
 

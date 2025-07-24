@@ -7,7 +7,7 @@ export const LoadThemeStylesheet = () => {
     const { previewDomain } = usePreviewDomain();
 
     useEffect(() => {
-        if (theme) {
+        if (theme && theme.themeUrl) {
             const url = theme.themeUrl.startsWith("/")
                 ? `${previewDomain}${theme.themeUrl}`
                 : theme.themeUrl;

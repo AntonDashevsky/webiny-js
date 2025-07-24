@@ -1,3 +1,5 @@
+import type { LexicalEditorTheme } from "./LexicalEditorTheme";
+
 export type Breakpoint = {
     name: string;
     title: string;
@@ -8,12 +10,13 @@ export type Breakpoint = {
 };
 
 export type WebsiteBuilderTheme = {
-    themeUrl: string;
+    themeUrl: string | undefined;
     breakpoints: Breakpoint[];
     styles: {
         colors: Record<string, any>;
         typography: Typography;
     };
+    lexical: LexicalEditorTheme;
 };
 type KnownKeys = "desktop" | "tablet" | "mobile";
 
@@ -53,6 +56,7 @@ export type WebsiteBuilderThemeInput = {
      * }
      */
     breakpoints?: Breakpoints;
+    lexical?: LexicalEditorTheme;
     styles?: {
         /**
          * color1: "#fa5723",

@@ -38,7 +38,8 @@ export const LexicalEditor = (props: Omit<RichTextEditorProps, "theme">) => {
 
     const editorTheme: EditorTheme = {
         emotionMap: {},
-        styles: theme?.styles ?? {}
+        styles: theme?.styles ?? {},
+        ...theme?.lexical
     };
 
     /**
