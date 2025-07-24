@@ -23,7 +23,7 @@ export const BulkActionDuplicate = observer(() => {
         showConfirmationDialog({
             title: "Duplicate pages",
             message: `You are about to duplicate ${pagesLabel}. Are you sure you want to continue?`,
-            loadingLabel: `Processing ${pagesLabel}`,
+            loadingLabel: `Processing ${pagesLabel}...`,
             execute: async () => {
                 await worker.processInSeries(async ({ item, report }) => {
                     try {

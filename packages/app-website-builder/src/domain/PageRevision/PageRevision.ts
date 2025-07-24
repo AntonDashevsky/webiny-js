@@ -3,7 +3,7 @@ import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel";
 
 export interface PageRevisionData {
     id: string;
-    pageId: string;
+    entryId: string;
     status: WbStatus;
     version: number;
     savedOn: string;
@@ -13,7 +13,7 @@ export interface PageRevisionData {
 
 export class PageRevision {
     public readonly id: string;
-    public readonly pageId: string;
+    public readonly entryId: string;
     public readonly status: WbStatus;
     public readonly version: number;
     public readonly savedOn: string;
@@ -22,7 +22,7 @@ export class PageRevision {
 
     protected constructor(data: PageRevisionData) {
         this.id = data.id;
-        this.pageId = data.pageId;
+        this.entryId = data.entryId;
         this.status = data.status;
         this.version = data.version;
         this.savedOn = data.savedOn;

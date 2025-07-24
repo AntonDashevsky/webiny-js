@@ -1,7 +1,7 @@
 import { PageRevision } from "~/domain/PageRevision";
 
 export interface GetPageRevisionsParams {
-    pageId: string;
+    entryId: string;
 }
 
 export interface IGetPageRevisionsUseCase {

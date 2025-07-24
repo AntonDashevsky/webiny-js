@@ -23,7 +23,7 @@ export const BulkActionPublish = observer(() => {
         showConfirmationDialog({
             title: "Publish pages",
             message: `You are about to publish ${pagesLabel}. Are you sure you want to continue?`,
-            loadingLabel: `Processing ${pagesLabel}`,
+            loadingLabel: `Processing ${pagesLabel}...`,
             execute: async () => {
                 await worker.processInSeries(async ({ item, report }) => {
                     try {

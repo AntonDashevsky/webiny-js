@@ -4,7 +4,7 @@ import { Page } from "~/domain/Page/index.js";
 
 export interface PageDto {
     id: string;
-    pageId: string;
+    entryId: string;
     status: WbStatus;
     location: WbLocation;
     properties: Record<string, any>;
@@ -24,7 +24,7 @@ export class PageDtoMapper {
     static toDTO(page: Page): PageDto {
         return {
             id: page.id,
-            pageId: page.pageId,
+            entryId: page.entryId,
             status: page.status,
             location: page.location,
             properties: page.properties,

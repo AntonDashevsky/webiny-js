@@ -14,7 +14,7 @@ describe("MovePage", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                pageId: "page-1",
+                entryId: "page-1",
                 status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
@@ -51,7 +51,7 @@ describe("MovePage", () => {
         expect(gateway.execute).toHaveBeenLastCalledWith("page-1#0001", "folder-2");
 
         expect(pagesCache.hasItems()).toBeTrue();
-        const movedItem = pagesCache.getItem(page => page.pageId === "page-1");
+        const movedItem = pagesCache.getItem(page => page.entryId === "page-1");
 
         expect(movedItem?.id).toEqual("page-1#0001");
         expect(movedItem?.location?.folderId).toEqual("folder-2");

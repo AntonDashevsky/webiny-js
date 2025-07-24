@@ -25,8 +25,8 @@ export const RevisionsMenu = () => {
     const status = useSelectFromDocument<string, EditorPage>(document => document.status);
 
     useEffect(() => {
-        const [pageId] = id.split("#");
-        getPageRevisions({ pageId }).then(revisions => {
+        const [entryId] = id.split("#");
+        getPageRevisions({ entryId }).then(revisions => {
             setRevisions(
                 revisions
                     .sort((a, b) => {

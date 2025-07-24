@@ -206,8 +206,8 @@ export const createPagesCrud = (config: WebsiteBuilderConfig): WbPageCrud => {
         getByPath: async path => {
             return getPageByPathUseCase.execute(path);
         },
-        getPageRevisions: async (pageId: string) => {
-            return getPageRevisionsUseCase.execute(pageId);
+        getPageRevisions: async (entryId: string) => {
+            return getPageRevisionsUseCase.execute(entryId);
         },
         create: async data => {
             return createPageUseCase.execute(data);

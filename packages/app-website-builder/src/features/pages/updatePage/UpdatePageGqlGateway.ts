@@ -20,7 +20,7 @@ export interface UpdatePageVariables {
         Omit<
             PageDto,
             | "id"
-            | "pageId"
+            | "entryId"
             | "wbyAco_location"
             | "status"
             | "createdOn"

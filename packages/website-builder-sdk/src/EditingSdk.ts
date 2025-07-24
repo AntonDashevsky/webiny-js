@@ -1,5 +1,5 @@
 "use client";
-import type { Breakpoint, ComponentGroup, IContentSdk, PublicPage } from "./types.js";
+import type { ComponentGroup, IContentSdk, PublicPage } from "./types.js";
 import { Messenger, MessageOrigin } from "./messenger";
 import { logger } from "./Logger";
 import { PreviewViewport } from "./PreviewViewport";

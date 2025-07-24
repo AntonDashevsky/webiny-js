@@ -14,27 +14,49 @@ import type {
     WbPagesStorageOperationsUnpublishParams,
     WbPagesStorageOperationsUpdateParams
 } from "~/page/page.types";
+import { entryFromStorageTransform } from "@webiny/api-headless-cms";
+import type { PluginsContainer } from "@webiny/plugins";
 
 export class CmsPagesStorage implements WbPagesStorageOperations {
     private readonly cms: HeadlessCms;
     private readonly model: CmsModel;
+    private readonly plugins: PluginsContainer;
 
-    static async create(params: { pageModel: CmsModel; cms: HeadlessCms }) {
-        return new CmsPagesStorage(params.pageModel, params.cms);
+    static async create(params: {
+        pageModel: CmsModel;
+        cms: HeadlessCms;
+        plugins: PluginsContainer;
+    }) {
+        return new CmsPagesStorage(params.pageModel, params.cms, params.plugins);
     }
 
-    private constructor(pageModel: CmsModel, cms: HeadlessCms) {
+    private constructor(pageModel: CmsModel, cms: HeadlessCms, plugins: PluginsContainer) {
+        this.plugins = plugins;
         this.model = pageModel;
         this.cms = cms;
     }
 
     public get = async (params: WbPagesStorageOperationsGetParams): Promise<WbPage | null> => {
-        const entry = await this.cms.getEntry(this.model, params);
+        const rawEntry = await this.cms.getEntry(this.model, params);
+
+        const entry = await entryFromStorageTransform(
+            { plugins: this.plugins },
+            this.model,
+            rawEntry
+        );
+
         return entry ? this.getWbPageFieldValues(entry) : null;
     };
 
     public getById = async (id: string): Promise<WbPage | null> => {
-        const entry = await this.cms.getEntryById(this.model, id);
+        const rawEntry = await this.cms.getEntryById(this.model, id);
+
+        const entry = await entryFromStorageTransform(
+            { plugins: this.plugins },
+            this.model,
+            rawEntry
+        );
+
         return entry ? this.getWbPageFieldValues(entry) : null;
     };
 
@@ -100,7 +122,7 @@ export class CmsPagesStorage implements WbPagesStorageOperations {
     private getWbPageFieldValues(entry: CmsEntry) {
         return {
             id: entry.id,
-            pageId: entry.entryId,
+            entryId: entry.entryId,
             wbyAco_location: entry.location,
             status: entry.status,
             version: entry.version,

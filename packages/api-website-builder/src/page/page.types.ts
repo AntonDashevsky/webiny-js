@@ -8,7 +8,7 @@ import type { Topic } from "@webiny/pubsub/types";
 
 export interface WbPage {
     id: string;
-    pageId: string;
+    entryId: string;
     wbyAco_location: WbLocation;
     status: string;
     version: number;
@@ -300,7 +300,7 @@ export interface WbPageCrud {
     /**
      * Get information about page revisions.
      */
-    getPageRevisions(pageID: string): Promise<WbPage[]>;
+    getPageRevisions(entryId: string): Promise<WbPage[]>;
     /**
      * Get a list of pages filtered by given parameters.
      */

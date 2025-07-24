@@ -9,6 +9,6 @@ export class GetPageRevisionsUseCase implements IGetPageRevisionsUseCase {
     }
 
     async execute(params: GetPageRevisionsParams) {
-        return await this.repository.execute(params.pageId);
+        return await this.repository.execute(params.entryId);
     }
 }

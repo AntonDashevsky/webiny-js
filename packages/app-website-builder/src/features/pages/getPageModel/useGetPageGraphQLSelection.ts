@@ -4,7 +4,7 @@ import { usePageModel } from "./usePageModel.js";
 export const useGetPageGraphQLFields = (fields: string[]) => {
     return /* GraphQL */ `{
         id
-        pageId
+        entryId
         status
         version
         wbyAco_location {
@@ -46,7 +46,7 @@ export const useGetPageGraphQLSelection = () => {
 
     return /* GraphQL */ `{
         id
-        pageId
+        entryId
         status
         version
         wbyAco_location {

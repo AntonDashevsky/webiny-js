@@ -5,7 +5,7 @@ describe("CreatePage", () => {
     const gateway = {
         execute: jest.fn().mockResolvedValue({
             id: "page-1#0001",
-            pageId: "page-1",
+            entryId: "page-1",
             wbyAco_location: {
                 folderId: "folder-1"
             },
@@ -43,11 +43,11 @@ describe("CreatePage", () => {
         expect(gateway.execute).toHaveBeenCalledTimes(1);
         expect(pageCache.hasItems()).toBeTrue();
 
-        const item = pageCache.getItem(page => page.pageId === "page-1");
+        const item = pageCache.getItem(page => page.entryId === "page-1");
 
         expect(item).toBeDefined();
         expect(item?.id).toEqual("page-1#0001");
-        expect(item?.pageId).toEqual("page-1");
+        expect(item?.entryId).toEqual("page-1");
         expect(item?.location).toEqual({
             folderId: "folder-1"
         });

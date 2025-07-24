@@ -9,7 +9,7 @@ const propertiesField = () =>
 const metadataField = () =>
     createModelField({
         label: "Metadata",
-        type: "json"
+        type: "searchable-json"
     });
 
 const bindingsField = () =>
@@ -28,11 +28,7 @@ const extensionsField = () =>
     createModelField({
         label: "Extensions",
         fieldId: "extensions",
-        type: "object",
-        settings: {
-            layout: [],
-            fields: []
-        }
+        type: "searchable-json"
     });
 
 export const PAGE_MODEL_ID = "wbPage";

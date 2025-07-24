@@ -8,8 +8,8 @@ import type {
     WebsiteBuilderStorageOperations
 } from "~/types";
 import { createWebsiteBuilder } from "~/createWebsiteBuilder";
-import { CmsModelModifierPlugin } from "~/page/page.modelModifier";
 import { CmsPagesStorage } from "~/page/CmsPagesStorage";
+import context from "@webiny/api-i18n/graphql/context";
 
 export class WebsiteBuilderContextSetup {
     private readonly context: WebsiteBuilderContext;
@@ -76,14 +76,6 @@ export class WebsiteBuilderContextSetup {
         // This registers code plugins (model group, models)
         const pageModelDefinition = createPageModel();
 
-        const modelModifiers = this.context.plugins.byType<CmsModelModifierPlugin>(
-            CmsModelModifierPlugin.type
-        );
-
-        for (const modifier of modelModifiers) {
-            await modifier.modifyModel(pageModelDefinition);
-        }
-
         // Finally, register all plugins
         this.context.plugins.register([new CmsModelPlugin(pageModelDefinition)]);
 
@@ -93,7 +85,8 @@ export class WebsiteBuilderContextSetup {
         // Overwrite the original `pages` storage ops
         return await CmsPagesStorage.create({
             pageModel,
-            cms: this.context.cms
+            cms: this.context.cms,
+            plugins: this.context.plugins
         });
     }
 

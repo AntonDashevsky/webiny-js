@@ -13,7 +13,7 @@ describe("DeletePage", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                pageId: "page-1",
+                entryId: "page-1",
                 status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"

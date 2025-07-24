@@ -19,16 +19,16 @@ export interface GetPageRevisionsResponse {
 }
 
 export interface GetPageRevisionsQueryVariables {
-    pageId: string;
+    entryId: string;
 }
 
 export const GET_PAGE_REVISIONS = gql`
-    query GetPageRevisions($pageId: ID!) {
+    query GetPageRevisions($entryId: ID!) {
         websiteBuilder {
-            getPageRevisions(pageId: $pageId) {
+            getPageRevisions(entryId: $entryId) {
                 data {
                     id
-                    pageId
+                    entryId
                     title
                     version
                     status
@@ -52,8 +52,8 @@ export class GetPageRevisionsGqlGateway implements IGetPageRevisionsGateway {
         this.client = client;
     }
 
-    async execute(pageId: string) {
-        if (!pageId) {
+    async execute(entryId: string) {
+        if (!entryId) {
             throw new Error("Page `id` is mandatory");
         }
 
@@ -62,7 +62,7 @@ export class GetPageRevisionsGqlGateway implements IGetPageRevisionsGateway {
             GetPageRevisionsQueryVariables
         >({
             query: GET_PAGE_REVISIONS,
-            variables: { pageId },
+            variables: { entryId },
             fetchPolicy: "network-only"
         });
 
@@ -73,7 +73,7 @@ export class GetPageRevisionsGqlGateway implements IGetPageRevisionsGateway {
         const { data, error } = response.websiteBuilder.getPageRevisions;
 
         if (!data) {
-            throw new Error(error?.message || `Could not fetch revisions for page: ${pageId}.`);
+            throw new Error(error?.message || `Could not fetch revisions for page: ${entryId}.`);
         }
 
         return data;

@@ -6,7 +6,7 @@ describe("DuplicatePage", () => {
     const gateway = {
         execute: jest.fn().mockResolvedValue({
             id: "page-1-duplicated#0001",
-            pageId: "page-1-duplicated",
+            entryId: "page-1-duplicated",
             status: WbPageStatus.Draft,
             wbyAco_location: {
                 folderId: "folder-1"
@@ -33,7 +33,7 @@ describe("DuplicatePage", () => {
         pagesCache.addItems([
             Page.create({
                 id: "page-1#0001",
-                pageId: "page-1",
+                entryId: "page-1",
                 status: WbPageStatus.Draft,
                 wbyAco_location: {
                     folderId: "folder-1"
@@ -72,11 +72,11 @@ describe("DuplicatePage", () => {
         expect(pagesCache.hasItems()).toBeTrue();
         expect(pagesCache.count()).toBe(2);
 
-        const duplicatedItem = pagesCache.getItem(page => page.pageId === "page-1-duplicated");
+        const duplicatedItem = pagesCache.getItem(page => page.entryId === "page-1-duplicated");
 
         expect(duplicatedItem).toBeDefined();
         expect(duplicatedItem?.id).toEqual("page-1-duplicated#0001");
-        expect(duplicatedItem?.pageId).toEqual("page-1-duplicated");
+        expect(duplicatedItem?.entryId).toEqual("page-1-duplicated");
         expect(duplicatedItem?.location).toEqual({
             folderId: "folder-1"
         });

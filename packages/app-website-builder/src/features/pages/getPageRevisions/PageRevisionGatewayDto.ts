@@ -2,7 +2,7 @@ import type { WbStatus } from "~/constants.js";
 
 export interface PageRevisionGatewayDto {
     id: string;
-    pageId: string;
+    entryId: string;
     version: number;
     title: string;
     status: WbStatus;

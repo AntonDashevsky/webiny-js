@@ -41,7 +41,7 @@ export class PublishPageGqlGateway implements IPublishPageGateway {
         this.modelFields = modelFields;
     }
 
-    async execute(id: string) {
+    async execute(id: string): Promise<PageGatewayDto> {
         const { data: response } = await this.client.mutate<
             PublishPageResponse,
             PublishPageVariables

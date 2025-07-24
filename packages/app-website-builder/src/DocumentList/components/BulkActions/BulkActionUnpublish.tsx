@@ -23,7 +23,7 @@ export const BulkActionUnpublish = observer(() => {
         showConfirmationDialog({
             title: "Unpublish pages",
             message: `You are about to unpublish ${pagesLabel}. Are you sure you want to continue?`,
-            loadingLabel: `Processing ${pagesLabel}`,
+            loadingLabel: `Processing ${pagesLabel}...`,
             execute: async () => {
                 await worker.processInSeries(async ({ item, report }) => {
                     try {

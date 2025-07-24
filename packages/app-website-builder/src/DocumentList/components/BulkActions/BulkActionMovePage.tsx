@@ -28,7 +28,7 @@ export const BulkActionMovePage = observer(() => {
             showConfirmationDialog({
                 title: "Move pages",
                 message: `You are about to move ${pagesLabel} to ${folder.label}. Are you sure you want to continue?`,
-                loadingLabel: `Processing ${pagesLabel}`,
+                loadingLabel: `Processing ${pagesLabel}...`,
                 execute: async () => {
                     await worker.processInSeries(async ({ item, report }) => {
                         try {
@@ -67,7 +67,7 @@ export const BulkActionMovePage = observer(() => {
         showMoveDialog({
             title: "Select folder",
             message: "Select a new location for selected pages:",
-            loadingLabel: `Processing ${pagesLabel}`,
+            loadingLabel: `Processing ${pagesLabel}...`,
             acceptLabel: `Move`,
             focusedFolderId: currentFolderId || ROOT_FOLDER,
             async onAccept({ folder }) {
