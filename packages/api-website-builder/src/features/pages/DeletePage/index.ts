@@ -5,7 +5,7 @@ import type {
     OnPageAfterDeleteTopicParams,
     OnPageBeforeDeleteTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/page.types";
+} from "~/context/pages/pages.types";
 
 export interface DeletePageUseCasesTopics {
     onPageBeforeDelete: Topic<OnPageBeforeDeleteTopicParams>;

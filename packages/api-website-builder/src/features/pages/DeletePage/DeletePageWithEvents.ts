@@ -1,6 +1,6 @@
 import { WebinyError } from "@webiny/error";
 import type { IDeletePage } from "./IDeletePage";
-import { DeleteWbPageParams, WbPagesStorageOperations } from "~/context/pages/page.types";
+import { DeleteWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
 import { DeletePageUseCasesTopics } from "~/features/pages";
 
 export class DeletePageWithEvents implements IDeletePage {

@@ -1,6 +1,6 @@
 import { WebinyError } from "@webiny/error";
 import type { PublishPageUseCasesTopics } from "./index";
-import type { PublishWbPageParams, WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { PublishWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
 import type { IPublishPage } from "~/features/pages/PublishPage/IPublishPage";
 
 export class PublishPageWithEvents implements IPublishPage {

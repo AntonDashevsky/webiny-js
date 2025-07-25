@@ -1,5 +1,5 @@
 import type { MovePageUseCasesTopics } from "./index";
-import type { MoveWbPageParams, WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { MoveWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
 import type { IMovePage } from "~/features/pages/MovePage/IMovePage";
 import { WebinyError } from "@webiny/error";
 

@@ -30,7 +30,7 @@ import {
     UpdateWbPageData,
     WbPageCrud,
     WbPagesStorageOperations
-} from "~/context/pages/page.types";
+} from "~/context/pages/pages.types";
 import type { WebsiteBuilderConfig } from "~/context/types";
 import { getMovePageUseCase } from "~/features/pages/MovePage";
 import { getGetPageByIdUseCase } from "~/features/pages/GetPageById";

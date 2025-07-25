@@ -1,4 +1,4 @@
-export const pageTypeDefs = /* GraphQL */ `
+export const pagesTypeDefs = /* GraphQL */ `
     type WbPage {
         id: ID!
         entryId: String!

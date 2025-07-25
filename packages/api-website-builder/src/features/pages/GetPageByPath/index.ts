@@ -1,5 +1,5 @@
 import { GetPageByPath } from "./GetPageByPath";
-import type { WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
 
 interface GetPageByPathUseCasesParams {
     getOperation: WbPagesStorageOperations["get"];

@@ -5,7 +5,7 @@ import type {
     OnPageAfterUnpublishTopicParams,
     OnPageBeforeUnpublishTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/page.types";
+} from "~/context/pages/pages.types";
 
 export interface UnpublishPageUseCasesTopics {
     onPageBeforeUnpublish: Topic<OnPageBeforeUnpublishTopicParams>;

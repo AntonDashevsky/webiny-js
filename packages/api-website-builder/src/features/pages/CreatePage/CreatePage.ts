@@ -1,5 +1,5 @@
 import type { ICreatePage } from "./ICreatePage";
-import type { CreateWbPageData, WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { CreateWbPageData, WbPagesStorageOperations } from "~/context/pages/pages.types";
 
 export class CreatePage implements ICreatePage {
     private readonly createOperation: WbPagesStorageOperations["create"];

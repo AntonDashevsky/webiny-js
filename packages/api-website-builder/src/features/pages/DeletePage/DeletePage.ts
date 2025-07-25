@@ -1,5 +1,5 @@
 import type { IDeletePage } from "./IDeletePage";
-import type { DeleteWbPageParams, WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { DeleteWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
 
 export class DeletePage implements IDeletePage {
     private readonly deleteOperation: WbPagesStorageOperations["delete"];

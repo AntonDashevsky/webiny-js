@@ -1,5 +1,5 @@
 import type { DuplicatePageUseCasesTopics } from "./index";
-import type { DuplicateWbPageParams, WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { DuplicateWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
 import type { IDuplicatePage } from "./IDuplicatePage";
 import { WebinyError } from "@webiny/error";
 

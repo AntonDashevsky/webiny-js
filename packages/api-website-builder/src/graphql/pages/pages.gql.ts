@@ -10,12 +10,12 @@ import { ensureAuthentication } from "~/utils/ensureAuthentication";
 import { resolve } from "~/utils/resolve";
 import { WEBSITE_BUILDER_INTEGRATIONS, WEBSITE_BUILDER_SETTINGS } from "~/constants";
 import { WebsiteBuilderContext } from "~/context/types";
-import { pageTypeDefs } from "~/graphql/pages/page.typeDefs";
-import { PAGE_MODEL_ID } from "~/context/pages/page.model";
+import { pagesTypeDefs } from "~/graphql/pages/pages.typeDefs";
+import { PAGE_MODEL_ID } from "~/context/pages/pages.context";
 
 export const createPagesSchema = () => {
     const pageGraphQL = new GraphQLSchemaPlugin<WebsiteBuilderContext>({
-        typeDefs: pageTypeDefs,
+        typeDefs: pagesTypeDefs,
         resolvers: {
             WbQuery: {
                 getPageModel: async (_, __, context) => {

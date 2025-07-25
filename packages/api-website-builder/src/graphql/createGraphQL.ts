@@ -1,5 +1,6 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { createPagesSchema } from "~/graphql/pages/page.gql";
+import { createPagesSchema } from "~/graphql/pages/pages.gql";
+import { createRedirectsSchema } from "./redirects/redirects.gql";
 
 const emptyResolver = () => ({});
 
@@ -77,7 +78,5 @@ const baseSchema = new GraphQLSchemaPlugin({
 });
 
 export const createGraphQL = () => {
-    const pageSchema = createPagesSchema();
-
-    return [baseSchema, pageSchema];
+    return [baseSchema, createPagesSchema(), createRedirectsSchema()];
 };

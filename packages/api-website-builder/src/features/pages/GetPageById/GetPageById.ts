@@ -1,5 +1,5 @@
 import type { IGetPageById } from "./IGetPageById";
-import type { WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
 
 export class GetPageById implements IGetPageById {
     private readonly getOperation: WbPagesStorageOperations["getById"];

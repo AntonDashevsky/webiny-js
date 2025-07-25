@@ -5,7 +5,7 @@ import type {
     OnPageAfterDuplicateTopicParams,
     OnPageBeforeDuplicateTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/page.types";
+} from "~/context/pages/pages.types";
 
 export interface DuplicatePageUseCasesTopics {
     onPageBeforeDuplicate: Topic<OnPageBeforeDuplicateTopicParams>;

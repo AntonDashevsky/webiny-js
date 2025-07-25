@@ -1,5 +1,5 @@
 import type { IGetPageByPath } from "./IGetPageByPath";
-import type { WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
 
 /**
  * Get published page by path.

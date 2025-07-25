@@ -73,74 +73,29 @@ export interface CreateWbPageRevisionFromParams {
     id: string;
 }
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export interface WbPagesStorageOperationsGetParams extends CmsEntryGetParams {}
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export interface WbPagesStorageOperationsCreateParams {
     data: CreateWbPageData;
 }
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export interface WbPagesStorageOperationsUpdateParams {
     id: string;
     data: UpdateWbPageData;
 }
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export type WbPagesStorageOperationsPublishParams = PublishWbPageParams;
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export type WbPagesStorageOperationsUnpublishParams = UnpublishWbPageParams;
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export type WbPagesStorageOperationsMoveParams = MoveWbPageParams;
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export type WbPagesStorageOperationsCreateRevisionFromParams = CreateWbPageRevisionFromParams;
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export interface WbPagesStorageOperationsDeleteParams {
     id: string;
 }
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsParams
- */
 export interface WbPagesStorageOperationsListParams {
     where: CmsEntryListWhere;
     sort: CmsEntryListSort;
@@ -149,11 +104,6 @@ export interface WbPagesStorageOperationsListParams {
     search?: string;
 }
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- * @category PagesStorageOperationsResponse
- */
 export type WbPagesStorageOperationsListResponse = [WbPage[], WbListMeta];
 
 export interface OnPageBeforeCreateTopicParams {
@@ -227,10 +177,6 @@ export interface OnPageAfterDeleteTopicParams {
     page: WbPage;
 }
 
-/**
- * @category StorageOperations
- * @category PagesStorageOperations
- */
 export interface WbPagesStorageOperations {
     /**
      * Get a published page using a filter.

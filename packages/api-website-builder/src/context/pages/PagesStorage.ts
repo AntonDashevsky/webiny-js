@@ -13,26 +13,22 @@ import type {
     WbPagesStorageOperationsPublishParams,
     WbPagesStorageOperationsUnpublishParams,
     WbPagesStorageOperationsUpdateParams
-} from "~/context/pages/page.types";
+} from "~/context/pages/pages.types";
 import { entryFromStorageTransform } from "@webiny/api-headless-cms";
 import type { PluginsContainer } from "@webiny/plugins";
 
-export class CmsPagesStorage implements WbPagesStorageOperations {
+export class PagesStorage implements WbPagesStorageOperations {
     private readonly cms: HeadlessCms;
     private readonly model: CmsModel;
     private readonly plugins: PluginsContainer;
 
-    static async create(params: {
-        pageModel: CmsModel;
-        cms: HeadlessCms;
-        plugins: PluginsContainer;
-    }) {
-        return new CmsPagesStorage(params.pageModel, params.cms, params.plugins);
+    static async create(params: { model: CmsModel; cms: HeadlessCms; plugins: PluginsContainer }) {
+        return new PagesStorage(params.model, params.cms, params.plugins);
     }
 
-    private constructor(pageModel: CmsModel, cms: HeadlessCms, plugins: PluginsContainer) {
+    private constructor(model: CmsModel, cms: HeadlessCms, plugins: PluginsContainer) {
         this.plugins = plugins;
-        this.model = pageModel;
+        this.model = model;
         this.cms = cms;
     }
 

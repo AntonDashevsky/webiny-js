@@ -3,7 +3,7 @@ import type {
     CreateWbPageRevisionFromParams,
     WbPage,
     WbPagesStorageOperations
-} from "~/context/pages/page.types";
+} from "~/context/pages/pages.types";
 
 export class CreatePageRevisionFrom implements ICreatePageRevisionFrom {
     private readonly createRevisionFromOperation: WbPagesStorageOperations["createRevisionFrom"];

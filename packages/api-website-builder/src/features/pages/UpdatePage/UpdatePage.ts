@@ -1,5 +1,5 @@
 import type { IUpdatePage } from "./IUpdatePage";
-import type { UpdateWbPageData, WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { UpdateWbPageData, WbPagesStorageOperations } from "~/context/pages/pages.types";
 
 export class UpdatePage implements IUpdatePage {
     private readonly updateOperation: WbPagesStorageOperations["update"];

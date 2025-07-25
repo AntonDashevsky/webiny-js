@@ -5,7 +5,7 @@ import type {
     OnPageAfterCreateRevisionFromTopicParams,
     OnPageBeforeCreateRevisionFromTopicParams,
     WbPagesStorageOperations
-} from "~/context/pages/page.types";
+} from "~/context/pages/pages.types";
 
 export interface CreatePageRevisionFromUseCasesTopics {
     onPageBeforeCreateRevisionFrom: Topic<OnPageBeforeCreateRevisionFromTopicParams>;

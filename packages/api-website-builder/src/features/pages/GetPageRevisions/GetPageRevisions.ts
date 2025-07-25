@@ -1,4 +1,4 @@
-import type { WbPagesStorageOperations } from "~/context/pages/page.types";
+import type { WbPagesStorageOperations } from "~/context/pages/pages.types";
 import type { IGetPageRevisions } from "./IGetPageById";
 
 export class GetPageRevisions implements IGetPageRevisions {

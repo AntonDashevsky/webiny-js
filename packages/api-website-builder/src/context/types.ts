@@ -8,7 +8,8 @@ import {
 } from "@webiny/api-security/types";
 import { AdminUsersContext } from "@webiny/api-admin-users/types";
 import { CmsContext, type CmsIdentity } from "@webiny/api-headless-cms/types";
-import { WbPageCrud } from "~/context/pages/page.types";
+import { WbPageCrud } from "~/context/pages/pages.types";
+import { WbRedirectCrud } from "~/context/redirects/redirects.types";
 
 export interface WbLocation {
     folderId: string;
@@ -18,6 +19,7 @@ export type WbIdentity = CmsIdentity;
 
 export interface WebsiteBuilderContextObject {
     pages: WbPageCrud;
+    redirects: WbRedirectCrud;
 }
 
 export interface WebsiteBuilderContext
