@@ -2,12 +2,12 @@ import React from "react";
 import { AdminConfig } from "@webiny/app-admin";
 import { HasPermission } from "@webiny/app-security";
 import { ReactComponent as PagesIcon } from "@webiny/icons/table_chart.svg";
-import { PageEditor } from "./pages/PageEditor.js";
-import { PageList } from "~/pages/PageList.js";
+import { PageEditor } from "~/modules/pages/PageEditor.js";
+import { PageList } from "~/modules/pages/PageList.js";
 import { PAGE_EDITOR_ROUTE, PAGE_LIST_ROUTE } from "~/constants.js";
 import { useSettingsDialog } from "~/modules/settings/useSettingsDialog";
 import { useIntegrationsDialog } from "./modules/integrations/useIntegrationsDialog.js";
-import { PagesConfig } from "~/pages/PagesConfig";
+import { PagesConfig } from "~/modules/pages/PagesConfig";
 
 const { Menu } = AdminConfig;
 
