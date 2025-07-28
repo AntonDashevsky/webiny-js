@@ -13,16 +13,16 @@ import {
     Duplicate,
     Edit,
     Move
-} from "~/DocumentList/components/Table/index.js";
+} from "~/pages/PagesList/components/Table/index.js";
 import {
     BulkActionDelete,
     BulkActionDuplicate,
     BulkActionMovePage,
     BulkActionPublish,
     BulkActionUnpublish
-} from "~/DocumentList/components/BulkActions/index.js";
-import { FilterByStatus } from "~/DocumentList/components/Filters/index.js";
-import { StaticPageForm } from "~/DocumentList/components/Main/CreatePage/StaticPageForm";
+} from "~/pages/PagesList/components/BulkActions/index.js";
+import { FilterByStatus } from "~/pages/PagesList/components/Filters/index.js";
+import { StaticPageForm } from "~/pages/PagesList/components/Main/CreatePage/StaticPageForm";
 
 const { Browser } = PageListConfig;
 
