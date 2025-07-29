@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
 import { i18n } from "@webiny/app/i18n";
-import { AdminInstallationPlugin } from "@webiny/app-admin/types";
+import type { AdminInstallationPlugin } from "@webiny/app-admin/types";
 import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm";
 import { config as appConfig } from "@webiny/app/config";
 import { Alert, OverlayLoader } from "@webiny/admin-ui";

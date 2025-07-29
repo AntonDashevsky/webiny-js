@@ -3,7 +3,7 @@ import { MenuDivider, MenuItem } from "@webiny/ui/Menu";
 import { ListItemGraphic } from "@webiny/ui/List";
 import { Icon } from "@webiny/ui/Icon";
 import { ReactComponent as DeleteIcon } from "~/admin/assets/delete.svg";
-import { PbPageData } from "~/types";
+import type { PbPageData } from "~/types";
 import { makeDecoratable } from "@webiny/app-admin";
 import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
 

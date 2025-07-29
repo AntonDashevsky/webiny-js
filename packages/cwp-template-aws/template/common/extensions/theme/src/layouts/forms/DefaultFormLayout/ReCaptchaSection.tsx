@@ -4,7 +4,7 @@ import { FieldErrorMessage } from "./fields/components/FieldErrorMessage";
 import { useBind } from "@webiny/form";
 import { Row } from "./Row";
 import { Cell } from "./Cell";
-import { ReCaptchaComponent } from "@webiny/app-page-builder-elements/renderers/form/types";
+import type { ReCaptchaComponent } from "@webiny/app-page-builder-elements/renderers/form/types";
 
 interface Props {
     component: ReCaptchaComponent;

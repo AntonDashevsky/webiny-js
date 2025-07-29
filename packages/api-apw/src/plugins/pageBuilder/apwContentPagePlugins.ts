@@ -1,5 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
-import { ApwContentTypes, ApwContext, PageWithWorkflow } from "~/types";
+import type { ApwContext, PageWithWorkflow } from "~/types";
+import { ApwContentTypes } from "~/types";
 
 export const apwContentPagePlugins = () =>
     new ContextPlugin<ApwContext>(async context => {

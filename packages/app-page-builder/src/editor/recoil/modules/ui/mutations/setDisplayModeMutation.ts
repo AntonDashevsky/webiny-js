@@ -1,5 +1,5 @@
-import { DisplayMode, EventActionHandlerMutationActionCallable } from "~/types";
-import { UiAtomType } from "../uiAtom";
+import type { DisplayMode, EventActionHandlerMutationActionCallable } from "~/types";
+import type { UiAtomType } from "../uiAtom";
 
 export const setDisplayModeMutation: EventActionHandlerMutationActionCallable<
     UiAtomType,

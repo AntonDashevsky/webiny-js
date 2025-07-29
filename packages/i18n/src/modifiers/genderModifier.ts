@@ -1,4 +1,4 @@
-import { Modifier } from "~/types";
+import type { Modifier } from "~/types";
 
 export default (): Modifier => {
     return {

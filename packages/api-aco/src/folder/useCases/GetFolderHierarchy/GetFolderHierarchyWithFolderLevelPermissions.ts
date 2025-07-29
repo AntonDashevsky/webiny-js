@@ -1,5 +1,5 @@
 import type { FolderPermission } from "~/flp/flp.types";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 import type { IGetFolderHierarchy } from "./IGetFolderHierarchy";
 import type { Folder, GetFolderHierarchyParams } from "~/folder/folder.types";
 

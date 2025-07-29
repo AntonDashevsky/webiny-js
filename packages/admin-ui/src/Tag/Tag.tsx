@@ -2,7 +2,8 @@ import * as React from "react";
 import { ReactComponent as Close } from "@webiny/icons/close.svg";
 import { cn, cva, makeDecoratable, type VariantProps } from "~/utils";
 import { Icon, type IconProps } from "~/Icon";
-import { IconButton, iconButtonVariants } from "~/Button";
+import type { iconButtonVariants } from "~/Button";
+import { IconButton } from "~/Button";
 
 const tagVariants = cva(
     [

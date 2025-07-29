@@ -1,4 +1,4 @@
-import { ApwContext } from "~/types";
+import type { ApwContext } from "~/types";
 import { attachContentReviewAfterCreate } from "./notifications/contentReviewAfterCreate";
 import { attachCommentAfterCreate } from "./notifications/commentAfterCreate";
 import { attachChangeRequestAfterCreate } from "./notifications/changeRequestAfterCreate";

@@ -1,5 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { type DuplicatePageParams, IDuplicatePageUseCase } from "./IDuplicatePageUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { IDuplicatePageUseCase } from "./IDuplicatePageUseCase.js";
+import { type DuplicatePageParams } from "./IDuplicatePageUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class DuplicatePageUseCaseWithLoading implements IDuplicatePageUseCase {

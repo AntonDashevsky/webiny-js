@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import { Plugin } from "@webiny/plugins";
 
 interface Permission {

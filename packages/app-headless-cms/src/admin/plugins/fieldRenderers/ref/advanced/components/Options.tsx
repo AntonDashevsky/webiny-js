@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import { OptionsModelList } from "~/admin/plugins/fieldRenderers/ref/advanced/components/options/OptionsModelList";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as LinkIcon } from "@webiny/icons/link.svg";

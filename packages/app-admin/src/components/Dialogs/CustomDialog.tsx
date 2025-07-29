@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { Form, FormOnSubmit, GenericFormData, useForm } from "@webiny/form";
+import type { FormOnSubmit, GenericFormData } from "@webiny/form";
+import { Form, useForm } from "@webiny/form";
 import { Dialog } from "@webiny/admin-ui";
 
 interface DialogProps {

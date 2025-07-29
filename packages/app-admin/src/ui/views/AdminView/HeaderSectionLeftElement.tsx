@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "emotion";
-import { UIElement, UiElementRenderProps } from "~/ui/UIElement";
+import type { UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
 import { TopAppBarSection } from "@webiny/ui/TopAppBar";
 
 const edgeBars = css({

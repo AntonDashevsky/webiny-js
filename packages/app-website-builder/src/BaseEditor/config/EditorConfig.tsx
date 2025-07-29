@@ -1,5 +1,6 @@
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Element, ElementConfig } from "./Element";
+import type { ElementConfig } from "./Element";
+import { Element } from "./Element";
 import { TopBar } from "./TopBar/TopBar";
 import { Layout } from "./Layout";
 import { Content } from "./Content/Content";
@@ -10,7 +11,8 @@ import { OnActiveElement } from "./OnActiveElement";
 import { NoActiveElement } from "./NoActiveElement";
 import { ElementProperties, ElementProperty } from "./ElementProperty";
 import { ElementAction, ElementActions } from "./ElementAction";
-import { ElementInput, ElementInputConfig } from "./ElementInput";
+import type { ElementInputConfig } from "./ElementInput";
+import { ElementInput } from "./ElementInput";
 
 interface EditorConfig {
     elements: ElementConfig[];

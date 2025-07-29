@@ -1,6 +1,6 @@
 import execa from "execa";
 import semver from "semver";
-import { IBasicPackage, IVersionedPackage } from "./types";
+import type { IBasicPackage, IVersionedPackage } from "./types";
 
 export interface IGetUpdatableParams {
     packages: IBasicPackage[];

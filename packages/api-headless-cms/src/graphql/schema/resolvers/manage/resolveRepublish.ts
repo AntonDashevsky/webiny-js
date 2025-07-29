@@ -1,5 +1,5 @@
 import { Response, ErrorResponse } from "@webiny/handler-graphql/responses";
-import { CmsEntryResolverFactory as ResolverFactory } from "~/types";
+import type { CmsEntryResolverFactory as ResolverFactory } from "~/types";
 
 interface ResolveRepublishArgs {
     revision: string;

@@ -1,4 +1,4 @@
-import { IRecordLockingError } from "~/types";
+import type { IRecordLockingError } from "~/types";
 
 export interface IError extends Error {
     code?: string;

@@ -1,13 +1,13 @@
 import { useState, useMemo, useEffect } from "react";
 import { autorun, toJS } from "mobx";
 import { useApolloClient } from "@apollo/react-hooks";
-import { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
-import { IGetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionRepository";
-import { IGetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionGateway";
+import type { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
+import type { IGetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionRepository";
+import type { IGetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionGateway";
 import { GetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/GetTranslatedCollectionGateway";
 import { GetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/GetTranslatedCollectionRepository";
 import { translatedCollectionCache } from "~/translations/translatedCollection/translatedCollectionCache";
-import { GenericRecord } from "@webiny/app/types";
+import type { GenericRecord } from "@webiny/app/types";
 
 export const useTranslatedCollection = <
     TContext extends GenericRecord<string> = GenericRecord<string>

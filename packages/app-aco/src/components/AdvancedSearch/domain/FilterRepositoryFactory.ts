@@ -1,8 +1,6 @@
-import { ApolloClient } from "apollo-client";
-import {
-    FiltersGatewayInterface,
-    FiltersGraphQLGateway
-} from "~/components/AdvancedSearch/gateways";
+import type { ApolloClient } from "apollo-client";
+import type { FiltersGatewayInterface } from "~/components/AdvancedSearch/gateways";
+import { FiltersGraphQLGateway } from "~/components/AdvancedSearch/gateways";
 import { FilterRepository } from "./FilterRepository";
 
 class FilterRepositoryFactory {

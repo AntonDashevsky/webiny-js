@@ -1,4 +1,4 @@
-import { Context, IUserCommandInput, ProjectApplication } from "~/types";
+import type { Context, IUserCommandInput, ProjectApplication } from "~/types";
 import os from "os";
 import fs from "fs";
 import chalk from "chalk";

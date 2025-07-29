@@ -1,14 +1,16 @@
 import { TrashBinPresenter } from "./TrashBinPresenter";
-import { LoadingRepository, MetaRepository, Sorting, SortingRepository } from "@webiny/app-utils";
-import { LoadingActions, TrashBinIdentity, TrashBinLocation } from "~/types";
+import type { Sorting } from "@webiny/app-utils";
+import { LoadingRepository, MetaRepository, SortingRepository } from "@webiny/app-utils";
+import type { TrashBinIdentity, TrashBinLocation } from "~/types";
+import { LoadingActions } from "~/types";
 import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers";
-import {
+import type {
     ITrashBinBulkActionsGateway,
     ITrashBinDeleteItemGateway,
     ITrashBinListGateway,
     ITrashBinRestoreItemGateway
 } from "~/Gateways";
-import { ITrashBinItemMapper } from "~/Domain/Models/TrashBinItem";
+import type { ITrashBinItemMapper } from "~/Domain/Models/TrashBinItem";
 import { SearchRepository } from "~/Domain/Repositories/Search";
 import { SelectedItemsRepository } from "~/Domain/Repositories/SelectedItems";
 import { SortingRepositoryWithDefaults } from "~/Domain/Repositories/Sorting";

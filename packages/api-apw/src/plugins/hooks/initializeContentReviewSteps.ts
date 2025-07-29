@@ -1,10 +1,6 @@
 import lodashSet from "lodash/set";
-import {
-    ApwContentReviewStatus,
-    ApwContentReviewStepStatus,
-    ApwContext,
-    ApwWorkflowStepTypes
-} from "~/types";
+import type { ApwContentReviewStepStatus, ApwContext } from "~/types";
+import { ApwContentReviewStatus, ApwWorkflowStepTypes } from "~/types";
 import { getContentReviewStepInitialStatus } from "~/plugins/utils";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { getContentApwSettingsPlugin } from "~/utils/contentApwSettingsPlugin";

@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { PbDataSource } from "~/types";
+import type { PbDataSource } from "~/types";
 import { useDynamicDocument } from "~/dataInjection/useDynamicDocument";
 
 export interface DataSourceUpdater {

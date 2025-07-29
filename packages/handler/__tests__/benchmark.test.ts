@@ -1,6 +1,6 @@
 import { createHandler } from "~/fastify";
 import { createRoute } from "~/plugins/RoutePlugin";
-import { FastifyInstance } from "fastify";
+import type { FastifyInstance } from "fastify";
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 

@@ -1,4 +1,4 @@
-import {
+import type {
     OnPageElementAfterCreateTopicParams,
     OnPageElementAfterDeleteTopicParams,
     OnPageElementAfterUpdateTopicParams,
@@ -20,7 +20,7 @@ import {
     createPageElementsUpdateValidation
 } from "~/graphql/crud/pageElements/validation";
 import { createZodError, mdbid, removeUndefinedValues } from "@webiny/utils";
-import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions";
+import type { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions";
 
 export interface CreatePageElementsCrudParams {
     context: PbContext;

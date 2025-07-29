@@ -2,16 +2,16 @@ import { useCallback, useMemo, useState } from "react";
 import set from "lodash/set";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils/generateId";
 import { useDocumentEditor } from "~/DocumentEditor";
-import type { ValueBinding } from "@webiny/website-builder-sdk";
+import type { ValueBinding, CreateElementParams } from "@webiny/website-builder-sdk";
 import { Commands } from "~/BaseEditor";
-import { InputAstNode } from "@webiny/website-builder-sdk";
+import type { InputAstNode } from "@webiny/website-builder-sdk";
 import { functionConverter } from "@webiny/website-builder-sdk";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 import { useBindingsForElement } from "./useBindingsForElement";
 import { useElementInputsAst } from "~/BaseEditor/hooks/useElementInputsAst";
 import { InputsBindingsProcessor } from "@webiny/website-builder-sdk";
 import { StylesBindingsProcessor } from "@webiny/website-builder-sdk";
-import { createElement, CreateElementParams } from "@webiny/website-builder-sdk";
+import { createElement } from "@webiny/website-builder-sdk";
 import {
     BreakpointElementMetadata,
     ElementMetadata,

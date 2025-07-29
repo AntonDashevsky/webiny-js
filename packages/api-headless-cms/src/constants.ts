@@ -1,4 +1,4 @@
-import { CmsIdentity } from "~/types";
+import type { CmsIdentity } from "~/types";
 
 export const ROOT_FOLDER = "root";
 

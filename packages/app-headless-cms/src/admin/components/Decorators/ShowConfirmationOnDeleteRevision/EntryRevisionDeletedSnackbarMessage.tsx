@@ -1,5 +1,5 @@
 import React from "react";
-import { CmsContentEntryRevision } from "@webiny/app-headless-cms-common/types";
+import type { CmsContentEntryRevision } from "@webiny/app-headless-cms-common/types";
 
 interface RevisionDeletedSnackbarMessageProps {
     deletedRevision: CmsContentEntryRevision;

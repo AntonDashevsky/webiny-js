@@ -7,7 +7,7 @@
  * If more is needed, check ~/fastify.ts and implement that possibility.
  */
 import { Plugin } from "@webiny/plugins/Plugin";
-import { Request, Context as BaseContext, Reply } from "~/types";
+import type { Request, Context as BaseContext, Reply } from "~/types";
 
 export interface EventPluginCallableParams<Payload, Context extends BaseContext> {
     context: Context;

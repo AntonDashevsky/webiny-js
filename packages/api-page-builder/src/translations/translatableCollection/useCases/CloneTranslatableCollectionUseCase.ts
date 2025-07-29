@@ -1,10 +1,10 @@
 import { WebinyError } from "@webiny/error";
-import { PbContext } from "~/graphql/types";
+import type { PbContext } from "~/graphql/types";
 import {
     GetTranslatableCollectionUseCase,
     SaveTranslatableCollectionUseCase
 } from "~/translations";
-import { TranslatableCollection } from "../domain/TranslatableCollection";
+import type { TranslatableCollection } from "../domain/TranslatableCollection";
 
 interface CloneTranslatableCollectionParams {
     sourceCollectionId: string;

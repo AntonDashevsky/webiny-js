@@ -1,19 +1,21 @@
-import {
-    batchReadAll,
+import type {
     BatchReadItem,
     BatchReadParams,
-    batchWriteAll,
     BatchWriteItem,
     BatchWriteParams,
-    get,
     GetRecordParams,
+    ScanParams,
+    ScanResponse
+} from "@webiny/db-dynamodb/utils";
+import {
+    batchReadAll,
+    batchWriteAll,
+    get,
     count,
     queryAll,
     queryAllWithCallback as ddbQueryAllWithCallback,
     queryOne,
     scan,
-    ScanParams,
-    ScanResponse,
     scanWithCallback as ddbScanWithCallback
 } from "@webiny/db-dynamodb/utils";
 

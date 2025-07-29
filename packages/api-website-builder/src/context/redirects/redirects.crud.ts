@@ -7,7 +7,7 @@ import {
     getMoveRedirectUseCase,
     getGetRedirectByIdUseCase
 } from "~/features/redirects";
-import {
+import type {
     OnRedirectAfterCreateTopicParams,
     OnRedirectAfterDeleteTopicParams,
     OnRedirectAfterMoveTopicParams,

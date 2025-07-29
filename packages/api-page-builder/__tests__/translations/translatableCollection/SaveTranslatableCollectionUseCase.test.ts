@@ -1,7 +1,7 @@
 import { useHandler } from "~tests/translations/useHandler";
 import { SaveTranslatableCollectionUseCase } from "~/translations";
 import { defaultIdentity } from "~tests/tenancySecurity";
-import { Identity } from "~/translations/Identity";
+import type { Identity } from "~/translations/Identity";
 
 const anotherIdentity: Identity = {
     id: "87654321",

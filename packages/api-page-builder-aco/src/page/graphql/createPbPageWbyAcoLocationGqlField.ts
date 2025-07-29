@@ -1,5 +1,5 @@
-import { PbAcoContext } from "~/types";
-import { Page } from "@webiny/api-page-builder/types";
+import type { PbAcoContext } from "~/types";
+import type { Page } from "@webiny/api-page-builder/types";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
 import { ROOT_FOLDER } from "~/contants";
 

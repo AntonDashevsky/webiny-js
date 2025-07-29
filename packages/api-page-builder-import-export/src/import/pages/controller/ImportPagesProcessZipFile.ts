@@ -1,9 +1,6 @@
-import {
-    IImportPagesControllerTaskParams,
-    IImportPagesProcessPagesInput,
-    PageImportTask
-} from "../types";
-import { ITaskResponseResult } from "@webiny/tasks";
+import type { IImportPagesControllerTaskParams, IImportPagesProcessPagesInput } from "../types";
+import { PageImportTask } from "../types";
+import type { ITaskResponseResult } from "@webiny/tasks";
 import { extractAndUploadZipFileContents } from "~/import/utils";
 import lodashChunk from "lodash/chunk";
 

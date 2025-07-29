@@ -1,5 +1,5 @@
-import { GenericRecord } from "@webiny/app/types";
-import {
+import type { GenericRecord } from "@webiny/app/types";
+import type {
     IGenericData,
     IWebsocketsManagerCloseEvent,
     IWebsocketsManagerErrorEvent,

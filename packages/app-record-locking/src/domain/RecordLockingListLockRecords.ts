@@ -1,17 +1,17 @@
 import { WebinyError } from "@webiny/error";
-import { ApolloClient } from "apollo-client";
-import {
+import type { ApolloClient } from "apollo-client";
+import type {
     IRecordLockingListLockRecords,
     IRecordLockingListLockRecordsParams,
     IRecordLockingListLockRecordsResult
 } from "./abstractions/IRecordLockingListLockRecords";
-import { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
+import type { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
 import { createRecordLockingClient } from "./utils/createRecordLockingClient";
-import {
+import type {
     IRecordLockingListLockedRecordsResponse,
-    IRecordLockingListLockedRecordsVariables,
-    LIST_LOCK_RECORDS
+    IRecordLockingListLockedRecordsVariables
 } from "~/domain/graphql/listLockRecords";
+import { LIST_LOCK_RECORDS } from "~/domain/graphql/listLockRecords";
 
 interface Params {
     client: IRecordLockingClient | ApolloClient<any>;

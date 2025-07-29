@@ -1,7 +1,7 @@
 import React, { createContext } from "react";
 import { usePageElements } from "~/hooks/usePageElements";
-import { GetElement, RendererContextValue, RendererProviderProps } from "~/types";
-import { ElementInputs, ElementInputValues } from "~/inputs/ElementInput";
+import type { GetElement, RendererContextValue, RendererProviderProps } from "~/types";
+import type { ElementInputs, ElementInputValues } from "~/inputs/ElementInput";
 import { useElementInputs } from "~/contexts/ElementRendererInputs";
 
 export const RendererContext = createContext<RendererContextValue | undefined>(undefined);

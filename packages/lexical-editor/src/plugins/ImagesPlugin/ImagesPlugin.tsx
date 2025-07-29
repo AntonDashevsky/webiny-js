@@ -8,6 +8,7 @@
  */
 import { useEffect } from "react";
 import { mergeRegister } from "@lexical/utils";
+import type { LexicalEditor } from "lexical";
 import {
     $createRangeSelection,
     $getSelection,
@@ -18,11 +19,11 @@ import {
     COMMAND_PRIORITY_LOW,
     DRAGOVER_COMMAND,
     DRAGSTART_COMMAND,
-    DROP_COMMAND,
-    LexicalEditor
+    DROP_COMMAND
 } from "lexical";
 import { $isImageNode, ImageNode } from "@webiny/lexical-nodes";
-import { ImagePayload, INSERT_IMAGE_COMMAND } from "~/commands";
+import type { ImagePayload } from "~/commands";
+import { INSERT_IMAGE_COMMAND } from "~/commands";
 import { CAN_USE_DOM } from "~/utils/canUseDOM";
 import { insertImage } from "~/utils/insertImage";
 import { useRichTextEditor } from "~/hooks";

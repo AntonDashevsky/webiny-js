@@ -1,6 +1,6 @@
 import { TaskDataStatus, TaskResponseStatus } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     IResponse,
     IResponseAsync,
     IResponseContinueParams,
@@ -11,7 +11,7 @@ import {
     IResponseErrorResult,
     IResponseResult
 } from "./abstractions";
-import { ITaskManagerStorePrivate } from "~/runner/abstractions";
+import type { ITaskManagerStorePrivate } from "~/runner/abstractions";
 import { getErrorProperties } from "~/utils/getErrorProperties";
 
 export class DatabaseResponse implements IResponseAsync {

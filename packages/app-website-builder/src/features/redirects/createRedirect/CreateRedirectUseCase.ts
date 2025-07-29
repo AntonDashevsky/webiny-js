@@ -1,5 +1,5 @@
 import type { CreateRedirectParams, ICreateRedirectUseCase } from "./ICreateRedirectUseCase.js";
-import { ICreateRedirectRepository } from "./ICreateRedirectRepository.js";
+import type { ICreateRedirectRepository } from "./ICreateRedirectRepository.js";
 import { Redirect } from "~/domain/Redirect/index.js";
 
 export class CreateRedirectUseCase implements ICreateRedirectUseCase {

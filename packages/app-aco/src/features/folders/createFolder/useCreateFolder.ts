@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { CreateFolderGqlGateway } from "./CreateFolderGqlGateway";
-import { CreateFolderParams } from "./ICreateFolderUseCase";
+import type { CreateFolderParams } from "./ICreateFolderUseCase";
 import { CreateFolder } from "./CreateFolder";
 import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks";
 

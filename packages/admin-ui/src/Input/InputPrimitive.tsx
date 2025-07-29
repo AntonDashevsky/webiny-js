@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Icon as BaseIcon } from "~/Icon";
+import type { Icon as BaseIcon } from "~/Icon";
 import { cn, cva, type VariantProps, makeDecoratable } from "~/utils";
 
 interface InputIconProps extends React.HTMLAttributes<HTMLDivElement> {

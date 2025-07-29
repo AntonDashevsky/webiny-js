@@ -12,7 +12,7 @@ import { PreviewTab } from "./PreviewTab";
 import Header from "./Header";
 import DragPreview from "../DragPreview";
 import { useModelEditor } from "./useModelEditor";
-import { CmsEditorFieldsLayout, CmsModelField } from "~/types";
+import type { CmsEditorFieldsLayout, CmsModelField } from "~/types";
 import { ContentEntryEditorWithConfig } from "~/admin/config/contentEntries";
 import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext";
 import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext";

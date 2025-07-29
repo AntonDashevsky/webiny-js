@@ -1,4 +1,4 @@
-import { IRecordLockingError, IRecordLockingLockRecord } from "~/types";
+import type { IRecordLockingError, IRecordLockingLockRecord } from "~/types";
 
 export interface IRecordLockingUnlockEntryParams {
     id: string;

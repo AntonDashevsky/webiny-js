@@ -1,5 +1,5 @@
 import chunk from "lodash/chunk";
-import { ElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
+import type { ElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 
 /**
  * Takes an array of raw Elasticsearch records and imports them into Elasticsearch.

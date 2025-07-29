@@ -2,13 +2,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import noop from "lodash/noop";
 import type { ExitHandler } from "react-transition-group/Transition";
 import { OverlayView } from "~/ui/views/OverlayView";
-import {
-    OverlayBackdrop,
-    OverlayContent,
-    OverlayHeader,
-    overlayHeaderVariants,
-    OverlayRoot
-} from "./components";
+import type { overlayHeaderVariants } from "./components";
+import { OverlayBackdrop, OverlayContent, OverlayHeader, OverlayRoot } from "./components";
 import { Portal, type VariantProps } from "@webiny/admin-ui";
 
 const noScrollBodyClassNames = ["wby-overflow-hidden", "wby-h-screen"];

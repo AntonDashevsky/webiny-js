@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { CompositionScope } from "@webiny/app-admin";
-import { CmsModel } from "@webiny/app-headless-cms/types";
+import type { CmsModel } from "@webiny/app-headless-cms/types";
 import { ModelProvider } from "@webiny/app-headless-cms/admin/components/ModelProvider";
 import { Fields } from "@webiny/app-headless-cms/admin/components/ContentEntryForm/Fields";
 import { Bind } from "@webiny/form";

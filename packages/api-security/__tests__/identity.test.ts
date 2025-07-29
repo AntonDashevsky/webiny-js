@@ -1,4 +1,4 @@
-import { Security, SecurityStorageOperations } from "~/types";
+import type { Security, SecurityStorageOperations } from "~/types";
 import { createSecurity } from "~/createSecurity";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 

@@ -2,12 +2,13 @@ import React, { useCallback, useState } from "react";
 import slugify from "slugify";
 import { Grid, Input } from "@webiny/admin-ui";
 import { useDialogs, useSnackbar } from "@webiny/app-admin";
-import { Bind, GenericFormData, useForm } from "@webiny/form";
+import type { GenericFormData } from "@webiny/form";
+import { Bind, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { Extensions, FolderTree } from "~/components";
 import { useCreateFolder } from "~/features";
 import { ROOT_FOLDER } from "~/constants";
-import { FolderItem } from "~/types";
+import type { FolderItem } from "~/types";
 import { ParentFolderField } from "./ParentFolderField";
 
 interface ShowDialogParams {

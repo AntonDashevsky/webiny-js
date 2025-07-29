@@ -1,5 +1,5 @@
 import { createBlankQuery } from "../../helpers";
-import { ElasticsearchBoolQueryConfig } from "~/types";
+import type { ElasticsearchBoolQueryConfig } from "~/types";
 import { ElasticsearchQueryBuilderOperatorGreaterThanPlugin } from "~/plugins/operator";
 
 describe("ElasticsearchQueryBuilderOperatorGreaterThanPlugin", () => {

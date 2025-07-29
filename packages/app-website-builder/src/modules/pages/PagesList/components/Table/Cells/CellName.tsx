@@ -6,7 +6,7 @@ import { ReactComponent as FolderShared } from "@webiny/icons/folder_shared.svg"
 import { ReactComponent as File } from "@webiny/icons/description.svg";
 import { useNavigateFolder } from "@webiny/app-aco";
 
-import { FolderTableItem } from "@webiny/app-aco/types";
+import type { FolderTableItem } from "@webiny/app-aco/types";
 import { PageListConfig } from "~/configs/index.js";
 import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
 import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl.js";

@@ -1,5 +1,5 @@
-import { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
-import { FileManagerFilesStorageOperationsListParamsWhere } from "~/types";
+import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import type { FileManagerFilesStorageOperationsListParamsWhere } from "~/types";
 
 type StandardFileKey = keyof FileManagerFilesStorageOperationsListParamsWhere;
 type CmsEntryListWhereKey = keyof CmsEntryListWhere;

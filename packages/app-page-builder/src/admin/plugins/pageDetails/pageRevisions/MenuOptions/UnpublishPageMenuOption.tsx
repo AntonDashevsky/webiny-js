@@ -3,7 +3,7 @@ import { MenuItem } from "@webiny/ui/Menu";
 import { ListItemGraphic } from "@webiny/ui/List";
 import { Icon } from "@webiny/ui/Icon";
 import { ReactComponent as UnpublishIcon } from "~/admin/assets/unpublish.svg";
-import { PbPageData, PbPageRevision } from "~/types";
+import type { PbPageData, PbPageRevision } from "~/types";
 import { makeDecoratable } from "@webiny/app-admin";
 
 export interface UnpublishPageMenuOptionProps {

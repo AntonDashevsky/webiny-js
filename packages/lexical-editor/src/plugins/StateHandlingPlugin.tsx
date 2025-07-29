@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useMemo } from "react";
 import debounce from "lodash/debounce";
 import { OnChangePlugin as BaseOnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import { EditorState, LexicalEditor } from "lexical";
+import type { EditorState, LexicalEditor } from "lexical";
 import { $isRootTextContentEmpty } from "@lexical/text";
 import { generateInitialLexicalValue, prepareLexicalState } from "@webiny/lexical-nodes";
 import { normalizeInputValue } from "~/components/Editor/normalizeInputValue";

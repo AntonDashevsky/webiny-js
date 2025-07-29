@@ -1,4 +1,4 @@
-import { ApwContext, ApwReviewerWithEmail, ApwWorkflow, ApwWorkflowStep } from "~/types";
+import type { ApwContext, ApwReviewerWithEmail, ApwWorkflow, ApwWorkflowStep } from "~/types";
 
 interface GetReviewerIdListParams {
     steps: ApwWorkflowStep[];

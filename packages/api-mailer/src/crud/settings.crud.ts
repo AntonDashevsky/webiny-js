@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     ExtendedTransportSettings,
     MailerContext,
     MailerContextObject,
@@ -20,7 +20,7 @@ import { SETTINGS_MODEL_ID } from "./settings/model";
 import { transformInputToEntryValues, transformValuesFromEntry } from "~/crud/settings/transform";
 import { getSecret } from "~/crud/settings/secret";
 import { createValidation, updateValidation } from "~/crud/settings/validation";
-import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
 import { attachPasswordObfuscatingHooks } from "~/crud/settings/hooks";
 import { NotAuthorizedError } from "@webiny/api-security";
 

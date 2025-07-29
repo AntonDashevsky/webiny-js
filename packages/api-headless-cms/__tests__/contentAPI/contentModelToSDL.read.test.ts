@@ -6,7 +6,7 @@ import categorySDL from "./snapshots/category.read";
 import productSDL from "./snapshots/product.read";
 import reviewSDL from "./snapshots/review.read";
 import pageSDL from "./snapshots/page.read";
-import { CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
+import type { CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
 import { pageModel } from "./mocks/pageWithDynamicZonesModel";
 
 /**

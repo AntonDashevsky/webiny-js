@@ -1,8 +1,9 @@
 import React from "react";
-import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AccordionItem } from "@webiny/ui/Accordion";
 import { Bind } from "@webiny/form";
-import {
+import type {
     CmsDynamicZoneTemplate,
     CmsModelFieldValidatorConfig,
     CmsModelFieldValidatorPlugin

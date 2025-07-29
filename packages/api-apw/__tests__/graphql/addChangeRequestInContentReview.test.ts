@@ -1,6 +1,6 @@
 import { mocks as changeRequestMock } from "./mocks/changeRequest";
 import { createSetupForPageContentReview } from "../utils/helpers";
-import { ApwContentReview, PageWithWorkflow } from "~/types";
+import type { ApwContentReview, PageWithWorkflow } from "~/types";
 import { useGraphQlHandler } from "~tests/utils/useGraphQlHandler";
 
 const richTextMock = [

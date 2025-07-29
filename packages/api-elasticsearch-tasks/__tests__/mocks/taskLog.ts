@@ -1,4 +1,4 @@
-import { ITaskLog } from "@webiny/tasks";
+import type { ITaskLog } from "@webiny/tasks";
 import { createMockIdentity } from "~tests/mocks/identity";
 
 export const createTaskLogMock = (): ITaskLog => {

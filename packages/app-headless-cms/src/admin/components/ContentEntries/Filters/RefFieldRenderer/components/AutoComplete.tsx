@@ -1,7 +1,7 @@
 import React from "react";
 import { Bind } from "@webiny/form";
 import { AutoComplete as BaseAutocomplete } from "@webiny/ui/AutoComplete";
-import { RefPresenterViewModel } from "./RefPresenter";
+import type { RefPresenterViewModel } from "./RefPresenter";
 
 export interface AutoCompleteProps {
     vm: RefPresenterViewModel;

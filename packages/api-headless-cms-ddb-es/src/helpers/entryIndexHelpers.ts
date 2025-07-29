@@ -1,7 +1,11 @@
 import WebinyError from "@webiny/error";
-import { CmsEntry, CmsModel, CmsModelFieldToGraphQLPlugin } from "@webiny/api-headless-cms/types";
-import { CmsIndexEntry, CmsModelFieldToElasticsearchPlugin } from "~/types";
-import { PluginsContainer } from "@webiny/plugins";
+import type {
+    CmsEntry,
+    CmsModel,
+    CmsModelFieldToGraphQLPlugin
+} from "@webiny/api-headless-cms/types";
+import type { CmsIndexEntry, CmsModelFieldToElasticsearchPlugin } from "~/types";
+import type { PluginsContainer } from "@webiny/plugins";
 import { getFieldIdentifier, getFieldIdentifiers } from "~/helpers/fieldIdentifier";
 
 interface SetupEntriesIndexHelpersParams {

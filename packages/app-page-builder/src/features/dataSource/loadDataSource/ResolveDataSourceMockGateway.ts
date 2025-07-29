@@ -1,6 +1,6 @@
-import { IResolveDataSourceGateway } from "./IResolveDataSourceGateway";
-import { GenericRecord } from "@webiny/app/types";
-import {
+import type { IResolveDataSourceGateway } from "./IResolveDataSourceGateway";
+import type { GenericRecord } from "@webiny/app/types";
+import type {
     DataRequest,
     DataSourceData
 } from "~/features/dataSource/loadDataSource/IResolveDataSourceRepository";

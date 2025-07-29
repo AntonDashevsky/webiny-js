@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useBind } from "@webiny/form";
-import { FormRenderFbFormModelField } from "@webiny/app-form-builder/types";
+import type { FormRenderFbFormModelField } from "@webiny/app-form-builder/types";
 import { Field } from "./components/Field";
 import { FieldErrorMessage } from "./components/FieldErrorMessage";
 import { FieldHelperMessage } from "./components/FieldHelperMessage";

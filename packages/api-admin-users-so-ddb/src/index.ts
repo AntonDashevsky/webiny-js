@@ -1,8 +1,9 @@
-import { AdminUsersStorageOperations, CreateAdminUsersStorageOperations, ENTITIES } from "~/types";
+import type { AdminUsersStorageOperations, CreateAdminUsersStorageOperations } from "~/types";
+import { ENTITIES } from "~/types";
 import WebinyError from "@webiny/error";
 import { createTable } from "~/definitions/table";
 import { createSystemEntity, createUserEntity } from "~/definitions/entities";
-import {
+import type {
     AdminUser,
     StorageOperationsGetUserParams,
     StorageOperationsListUsersParams,

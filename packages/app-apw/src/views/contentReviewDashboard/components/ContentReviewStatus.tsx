@@ -1,6 +1,7 @@
 import React from "react";
 import upperCase from "lodash/upperCase";
-import { ApwContentReviewContent, ApwContentReviewStatus } from "~/types";
+import type { ApwContentReviewContent } from "~/types";
+import { ApwContentReviewStatus } from "~/types";
 import { Box, Columns, Stack } from "~/components/Layout";
 import {
     Circle,

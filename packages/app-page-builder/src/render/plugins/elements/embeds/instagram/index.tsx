@@ -1,6 +1,7 @@
 import React from "react";
-import { OEmbed, OEmbedProps } from "~/render/components/OEmbed";
-import { PbRenderElementPlugin } from "~/types";
+import type { OEmbedProps } from "~/render/components/OEmbed";
+import { OEmbed } from "~/render/components/OEmbed";
+import type { PbRenderElementPlugin } from "~/types";
 
 const oembed: Partial<OEmbedProps> = {
     global: "instgrm",

@@ -7,10 +7,10 @@ import { viewportManager } from "./ViewportManager";
 import { componentRegistry } from "./ComponentRegistry";
 import { functionConverter } from "./FunctionConverter";
 import { documentStoreManager } from "~/DocumentStoreManager";
-import { DocumentStore } from "~/DocumentStore";
+import type { DocumentStore } from "~/DocumentStore";
 import { PreviewDocument } from "./PreviewDocument.js";
 import { hashObject } from "~/HashObject";
-import { WebsiteBuilderTheme } from "~/types/WebsiteBuilderTheme";
+import type { WebsiteBuilderTheme } from "~/types/WebsiteBuilderTheme";
 
 export class EditingSdk implements IContentSdk {
     public readonly messenger: Messenger;

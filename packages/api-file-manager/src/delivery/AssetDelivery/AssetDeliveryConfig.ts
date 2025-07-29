@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import {
+import type {
     AssetRequestResolver,
     AssetResolver,
     AssetProcessor,
@@ -7,10 +7,10 @@ import {
     AssetRequest,
     Asset,
     AssetTransformationStrategy,
-    ResponseHeadersSetter,
-    SetResponseHeaders
+    ResponseHeadersSetter
 } from "~/delivery";
-import { FileManagerContext } from "~/types";
+import { SetResponseHeaders } from "~/delivery";
+import type { FileManagerContext } from "~/types";
 import { NullRequestResolver } from "~/delivery/AssetDelivery/NullRequestResolver";
 import { NullAssetResolver } from "~/delivery/AssetDelivery/NullAssetResolver";
 import { NullAssetOutputStrategy } from "./NullAssetOutputStrategy";

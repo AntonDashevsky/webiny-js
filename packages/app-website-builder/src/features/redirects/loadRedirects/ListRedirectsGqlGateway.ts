@@ -1,7 +1,8 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import type { RedirectGatewayDto } from "~/features/redirects/loadRedirects/RedirectGatewayDto.js";
-import { IListRedirectsGateway, type ListRedirectsGatewayParams } from "./IListRedirectsGateway.js";
+import type { IListRedirectsGateway } from "./IListRedirectsGateway.js";
+import { type ListRedirectsGatewayParams } from "./IListRedirectsGateway.js";
 import { type WbError, type WbListMeta } from "~/types";
 
 const LIST_META_FIELD = /* GraphQL */ `

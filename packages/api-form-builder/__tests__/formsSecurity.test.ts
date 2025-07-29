@@ -1,6 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { IdentityPermissions } from "./types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { IdentityPermissions } from "./types";
 
 class Mock {
     public readonly name: string;

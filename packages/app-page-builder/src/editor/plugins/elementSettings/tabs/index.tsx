@@ -1,6 +1,6 @@
 import React from "react";
 import TabsList from "./TabsList";
-import { PbEditorPageElementAdvancedSettingsPlugin } from "~/types";
+import type { PbEditorPageElementAdvancedSettingsPlugin } from "~/types";
 
 export default {
     name: "pb-editor-page-element-advanced-settings-tabs",

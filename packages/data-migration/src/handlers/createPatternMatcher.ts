@@ -1,5 +1,5 @@
 import minimatch from "minimatch";
-import { IsMigrationApplicable } from "~/MigrationRunner";
+import type { IsMigrationApplicable } from "~/MigrationRunner";
 
 export const createPatternMatcher = (pattern: string): IsMigrationApplicable => {
     return migration => {

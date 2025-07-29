@@ -1,5 +1,5 @@
 import type { IListPages, ListWbPagesParams, WbListMeta } from "./IListPages";
-import { WbPage, WbPagesStorageOperations } from "~/context/pages/pages.types";
+import type { WbPage, WbPagesStorageOperations } from "~/context/pages/pages.types";
 
 export class ListPages implements IListPages {
     private readonly listOperation: WbPagesStorageOperations["list"];

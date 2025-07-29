@@ -1,6 +1,7 @@
 import type { IMoveRedirectRepository } from "~/features/redirects/moveRedirect/IMoveRedirectRepository.js";
 import type { IMoveRedirectGateway } from "~/features/redirects/moveRedirect/IMoveRedirectGateway.js";
-import { type IListCache, Redirect } from "~/domain/Redirect/index.js";
+import type { Redirect } from "~/domain/Redirect/index.js";
+import { type IListCache } from "~/domain/Redirect/index.js";
 
 export class MoveRedirectRepository implements IMoveRedirectRepository {
     private cache: IListCache<Redirect>;

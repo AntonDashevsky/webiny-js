@@ -28,16 +28,16 @@ import { createLimit, encodeCursor } from "@webiny/api-elasticsearch";
 import { createElasticsearchQueryBody } from "./elasticsearchQueryBody";
 import { SearchLatestPagesPlugin } from "~/plugins/definitions/SearchLatestPagesPlugin";
 import { SearchPublishedPagesPlugin } from "~/plugins/definitions/SearchPublishedPagesPlugin";
+import type { QueryAllParams } from "@webiny/db-dynamodb";
 import {
     createEntityWriteBatch,
     getClean,
     put,
     queryAll,
-    QueryAllParams,
     queryOne,
     sortItems
 } from "@webiny/db-dynamodb";
-import { SearchPagesPlugin } from "~/plugins/definitions/SearchPagesPlugin";
+import type { SearchPagesPlugin } from "~/plugins/definitions/SearchPagesPlugin";
 import { getESLatestPageData, getESPublishedPageData } from "./helpers";
 import type { PluginsContainer } from "@webiny/plugins";
 import {

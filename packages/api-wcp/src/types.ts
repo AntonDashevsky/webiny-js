@@ -1,6 +1,6 @@
-import { Context } from "@webiny/api/types";
-import { ILicense, ProjectPackageFeatures, WcpProjectEnvironment } from "@webiny/wcp/types";
-import { WCP_FEATURE_LABEL } from "@webiny/wcp";
+import type { Context } from "@webiny/api/types";
+import type { ILicense, ProjectPackageFeatures, WcpProjectEnvironment } from "@webiny/wcp/types";
+import type { WCP_FEATURE_LABEL } from "@webiny/wcp";
 
 export interface WcpContext extends Context {
     wcp: WcpContextObject;

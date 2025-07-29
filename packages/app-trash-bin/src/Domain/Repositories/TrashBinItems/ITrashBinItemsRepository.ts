@@ -1,6 +1,6 @@
-import { Meta } from "@webiny/app-utils";
-import { TrashBinItem } from "~/Domain";
-import { TrashBinBulkActionsParams, TrashBinListQueryVariables } from "~/types";
+import type { Meta } from "@webiny/app-utils";
+import type { TrashBinItem } from "~/Domain";
+import type { TrashBinBulkActionsParams, TrashBinListQueryVariables } from "~/types";
 
 export interface ITrashBinItemsRepository {
     listItems: (params?: TrashBinListQueryVariables) => Promise<void>;

@@ -1,4 +1,4 @@
-import { CmsIdentity } from "./identity";
+import type { CmsIdentity } from "./identity";
 
 /**
  * @category Database model

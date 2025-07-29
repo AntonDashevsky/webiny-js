@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash/get";
-import { CmsModelFieldRendererPlugin } from "~/types";
+import type { CmsModelFieldRendererPlugin } from "~/types";
 import { DelayedOnChange, Textarea } from "@webiny/admin-ui";
 import { i18n } from "@webiny/app/i18n";
 

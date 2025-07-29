@@ -1,6 +1,6 @@
 import Zipper from "~/export/zipper";
-import { FbForm } from "@webiny/api-form-builder/types";
-import { File } from "@webiny/api-file-manager/types";
+import type { FbForm } from "@webiny/api-form-builder/types";
+import type { File } from "@webiny/api-file-manager/types";
 
 export interface ExportedFormData {
     form: Pick<

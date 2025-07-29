@@ -1,6 +1,6 @@
 import React from "react";
 import { Content } from "@webiny/app-page-builder-elements/components/Content";
-import { PbPageBlock, PbEditorElement } from "~/types";
+import type { PbPageBlock, PbEditorElement } from "~/types";
 
 interface PreviewBlockProps {
     element: PbPageBlock | PbEditorElement;

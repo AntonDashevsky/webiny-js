@@ -1,5 +1,5 @@
 import { DEFAULT_SCOPE } from "~/constants";
-import { TagItem } from "@webiny/app-aco/types";
+import type { TagItem } from "@webiny/app-aco/types";
 import { useSecurity } from "@webiny/app-security";
 
 interface GetTagsInitialParams {

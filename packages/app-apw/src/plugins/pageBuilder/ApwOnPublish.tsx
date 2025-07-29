@@ -5,12 +5,13 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { i18n } from "@webiny/app/i18n";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
 import { useAdminPageBuilder } from "@webiny/app-page-builder/admin/hooks/useAdminPageBuilder";
-import { ApwContentReviewContent, ApwContentTypes } from "~/types";
-import {
-    CREATE_CONTENT_REVIEW_MUTATION,
+import type { ApwContentReviewContent } from "~/types";
+import { ApwContentTypes } from "~/types";
+import type {
     CreateContentReviewMutationResponse,
     CreateApwContentReviewMutationVariables
 } from "~/graphql/contentReview.gql";
+import { CREATE_CONTENT_REVIEW_MUTATION } from "~/graphql/contentReview.gql";
 import { IS_REVIEW_REQUIRED_QUERY } from "../graphql";
 import { routePaths } from "~/utils";
 

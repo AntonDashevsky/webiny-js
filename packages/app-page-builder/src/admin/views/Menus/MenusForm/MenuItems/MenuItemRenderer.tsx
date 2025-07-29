@@ -9,7 +9,7 @@ import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { ReactComponent as HandleIcon } from "@webiny/icons/drag_indicator.svg";
 import { FolderTreeItemWrapper } from "./Styled";
-import { TreeItemComponentProps, MenuTreeItem } from "~/admin/views/Menus/types";
+import type { TreeItemComponentProps, MenuTreeItem } from "~/admin/views/Menus/types";
 import { cn, Icon, IconButton, Text } from "@webiny/admin-ui";
 export interface NodeRendererDefaultProps {
     editItem: (item: MenuTreeItem) => void;

@@ -1,5 +1,5 @@
 import React from "react";
-import { FormComponentProps } from "../types";
+import type { FormComponentProps } from "../types";
 import { Alert } from "@webiny/admin-ui";
 
 interface MultiImageUploadProps extends FormComponentProps {

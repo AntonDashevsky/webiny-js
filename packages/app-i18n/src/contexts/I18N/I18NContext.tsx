@@ -1,7 +1,7 @@
 import React, { useState, memo, useMemo } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { GetI18NInformationResponse, I18NCurrentLocaleItem, I18NLocaleItem } from "~/types";
+import type { GetI18NInformationResponse, I18NCurrentLocaleItem, I18NLocaleItem } from "~/types";
 
 export const GET_I18N_INFORMATION = gql`
     query GetI18NInformation {

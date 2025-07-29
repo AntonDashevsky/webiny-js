@@ -4,7 +4,7 @@ import { useActiveElement } from "~/editor/hooks/useActiveElement";
 import { ElementNotLinked } from "~/blockEditor/components/elementSettingsTab/ElementNotLinked";
 import VariableSettings from "~/blockEditor/components/elementSettingsTab/VariableSettings";
 import VariablesList from "~/blockEditor/components/elementSettingsTab/VariablesList";
-import { PbBlockEditorCreateVariablePlugin } from "~/types";
+import type { PbBlockEditorCreateVariablePlugin } from "~/types";
 import { EditorConfig } from "~/editor/config";
 
 export const ElementSettingsDecorator = EditorConfig.Ui.Sidebar.Elements.createDecorator(

@@ -1,7 +1,7 @@
 import { GetFolderHierarchy } from "./GetFolderHierarchy";
 import { GetFolderHierarchyWithFolderLevelPermissions } from "./GetFolderHierarchyWithFolderLevelPermissions";
 import type { AcoFolderStorageOperations } from "~/folder/folder.types";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 
 interface GetFolderHierarchyUseCasesParams {
     listOperation: AcoFolderStorageOperations["listFolders"];

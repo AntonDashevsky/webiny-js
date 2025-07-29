@@ -1,5 +1,5 @@
 import { createGenericContext } from "@webiny/app-admin";
-import { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinItemDTO } from "~/Domain";
 
 export interface TrashBinItemContext {
     item: TrashBinItemDTO;

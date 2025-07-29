@@ -1,5 +1,5 @@
-import { CmsModel } from "@webiny/api-headless-cms/types";
-import {
+import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type {
     ApwReviewerStorageOperations as BaseApwReviewerStorageOperations,
     ApwWorkflowStorageOperations as BaseApwWorkflowStorageOperations,
     ApwContentReviewStorageOperations as BaseApwContentReviewStorageOperations,

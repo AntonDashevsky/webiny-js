@@ -1,6 +1,6 @@
 import type { CmsMetaResponse } from "@webiny/app-headless-cms-common/types/index.js";
 import type { SchedulerEntry } from "~/types.js";
-import { ScheduleType } from "~/types.js";
+import type { ScheduleType } from "~/types.js";
 
 export interface ISchedulerListExecuteParamsWhere {
     targetId?: string;

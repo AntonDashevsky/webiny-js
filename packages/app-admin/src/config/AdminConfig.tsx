@@ -1,7 +1,8 @@
 import React from "react";
 import { AppContainer, Plugin } from "@webiny/app";
 import { Menu, type MenuConfig } from "./AdminConfig/Menu";
-import { Tenant, TenantConfig } from "./AdminConfig/Tenant";
+import type { TenantConfig } from "./AdminConfig/Tenant";
+import { Tenant } from "./AdminConfig/Tenant";
 import type { SupportMenuConfig } from "./AdminConfig/Menu/SupportMenu";
 import type { UserMenuConfig } from "./AdminConfig/Menu/UserMenu";
 import { Route } from "./AdminConfig/Route";

@@ -1,5 +1,5 @@
 import { BaseEventAction } from "~/editor/recoil/eventActions";
-import { SaveBlockActionArgsType } from "./types";
+import type { SaveBlockActionArgsType } from "./types";
 
 export class SaveBlockActionEvent extends BaseEventAction<SaveBlockActionArgsType> {
     public getName(): string {

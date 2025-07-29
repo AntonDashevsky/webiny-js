@@ -1,10 +1,6 @@
 import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter";
-import {
-    BatchDTO,
-    FieldDTO,
-    OperatorDTO,
-    OperatorType
-} from "~/components/BulkActions/ActionEdit/domain";
+import type { BatchDTO, FieldDTO, OperatorDTO } from "~/components/BulkActions/ActionEdit/domain";
+import { OperatorType } from "~/components/BulkActions/ActionEdit/domain";
 
 describe("BatchEditorDialogPresenter", () => {
     const batch: BatchDTO = {

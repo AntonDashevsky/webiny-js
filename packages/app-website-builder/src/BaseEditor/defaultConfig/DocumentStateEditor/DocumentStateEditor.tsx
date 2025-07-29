@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import MonacoEditor from "@monaco-editor/react";
 import { Button } from "@webiny/admin-ui";
 import { useDialogs } from "@webiny/app-admin";
-import { Bind, GenericFormData } from "@webiny/form";
+import type { GenericFormData } from "@webiny/form";
+import { Bind } from "@webiny/form";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { autorun, toJS } from "mobx";
 import { observer } from "mobx-react-lite";
-import { EditorDocument } from "@webiny/website-builder-sdk";
+import type { EditorDocument } from "@webiny/website-builder-sdk";
 
 const monacoOptions = { minimap: { enabled: false } };
 

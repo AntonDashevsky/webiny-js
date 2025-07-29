@@ -1,4 +1,5 @@
-import { createField, CreateFieldInput } from "./fields";
+import type { CreateFieldInput } from "./fields";
+import { createField } from "./fields";
 import { createDateGteValidation, createDateLteValidation } from "./validations";
 
 export const createDateField = (params: Partial<CreateFieldInput> = {}) => {

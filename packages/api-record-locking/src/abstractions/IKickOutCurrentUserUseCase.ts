@@ -1,4 +1,4 @@
-import { IRecordLockingLockRecord } from "~/types";
+import type { IRecordLockingLockRecord } from "~/types";
 
 export type IKickOutCurrentUserUseCaseExecuteParams = IRecordLockingLockRecord;
 

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ModelContext } from "./ModelContext";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 type UseModelReturnType = {
     model: CmsModel;

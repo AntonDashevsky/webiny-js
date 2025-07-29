@@ -4,11 +4,11 @@ import FormElementAdvancedSettings from "./components/FormElementAdvancedSetting
 import formElement from "../../../page-builder/render/plugins/formElement";
 import FormElement from "./components/FormElement";
 import { ReactComponent as FormLogo } from "./components/icons/round-description-24px.svg";
-import {
+import type {
     PbEditorPageElementAdvancedSettingsPlugin,
-    PbEditorPageElementPlugin,
-    OnCreateActions
+    PbEditorPageElementPlugin
 } from "@webiny/app-page-builder/types";
+import { OnCreateActions } from "@webiny/app-page-builder/types";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

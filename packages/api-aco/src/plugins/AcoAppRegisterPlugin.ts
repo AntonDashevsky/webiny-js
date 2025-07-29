@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { IAcoAppRegisterParams } from "~/types";
+import type { IAcoAppRegisterParams } from "~/types";
 
 export class AcoAppRegisterPlugin extends Plugin {
     public static override type = "aco.apps.create.app";

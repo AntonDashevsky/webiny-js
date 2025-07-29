@@ -1,5 +1,5 @@
 import dot from "dot-prop-immutable";
-import {
+import type {
     CmsModelField,
     CmsEditorFieldId,
     CmsModel as BaseCmsModel,

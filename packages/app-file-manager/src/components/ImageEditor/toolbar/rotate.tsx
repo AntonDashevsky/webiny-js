@@ -1,7 +1,7 @@
 import React from "react";
 import { IconButton, Slider, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as RotateRight } from "@webiny/icons/rotate_right.svg";
-import { ImageEditorTool } from "./types";
+import type { ImageEditorTool } from "./types";
 
 import Cropper from "cropperjs";
 import "cropperjs/dist/cropper.css";

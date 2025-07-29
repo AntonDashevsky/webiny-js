@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { Editor } from "~/index";
 import type { IEcommerceApiFactory, SettingsInput } from "./types";
 import { CreateInputRenderers } from "./CreateInputRenderers";
-import { ResourcePage, ResourcePageProps } from "./components/ResourcePage";
+import type { ResourcePageProps } from "./components/ResourcePage";
+import { ResourcePage } from "./components/ResourcePage";
 import { createGenericContext } from "@webiny/app";
 import { EcommerceApiManifest, useEcommerceApiProvider, usePageTypes } from "~/features";
 

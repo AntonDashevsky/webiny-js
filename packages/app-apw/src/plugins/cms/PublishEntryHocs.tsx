@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@webiny/admin-ui";
 import { useNavigate } from "@webiny/react-router";
-import { HigherOrderComponent } from "@webiny/app-admin";
+import type { HigherOrderComponent } from "@webiny/app-admin";
 import { i18n } from "@webiny/app/i18n";
 import { ReactComponent as AddTaskIcon } from "@webiny/icons/add_task.svg";
 import { useContentReviewId } from "./useContentReviewId";

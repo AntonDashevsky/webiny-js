@@ -6,7 +6,7 @@ import { Form } from "@webiny/form";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { i18n } from "@webiny/app/i18n";
 import * as SF from "@webiny/app-admin/components/SimpleForm";
-import { CmsEditorFormSettingsPlugin } from "~/types";
+import type { CmsEditorFormSettingsPlugin } from "~/types";
 import { useModelEditor } from "~/admin/hooks";
 import { Button, Heading, Icon, List } from "@webiny/admin-ui";
 

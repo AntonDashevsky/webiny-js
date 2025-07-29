@@ -2,7 +2,7 @@ import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
 import { useHandler } from "~tests/useHandler";
 import { createTable } from "~/createTable";
 import { createDdbMigration } from "~tests/createDdbMigration";
-import {
+import type {
     MigrationInvocationErrorResponse,
     MigrationItem,
     MigrationRepository,
@@ -11,7 +11,8 @@ import {
 } from "~/types";
 import { MigrationRepositoryImpl } from "~/repository/migrations.repository";
 import { createDdbProjectMigration } from "~/handlers/createDdbProjectMigration";
-import { DbItem, scan } from "@webiny/db-dynamodb";
+import type { DbItem } from "@webiny/db-dynamodb";
+import { scan } from "@webiny/db-dynamodb";
 
 jest.retryTimes(0);
 

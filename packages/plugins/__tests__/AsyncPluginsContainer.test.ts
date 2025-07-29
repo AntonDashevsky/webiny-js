@@ -1,5 +1,5 @@
 import { AsyncPluginsContainer } from "~/AsyncPluginsContainer";
-import { PluginCollection } from "~/types";
+import type { PluginCollection } from "~/types";
 
 describe("AsyncPluginsContainer", () => {
     it("should flatten plugins and run plugin loaders", async () => {

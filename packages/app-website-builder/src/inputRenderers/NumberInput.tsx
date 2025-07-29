@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Input } from "@webiny/admin-ui";
-import { ElementInputRendererProps } from "~/BaseEditor";
-import { NumberInput } from "@webiny/website-builder-sdk";
+import type { ElementInputRendererProps } from "~/BaseEditor";
+import type { NumberInput } from "@webiny/website-builder-sdk";
 
 export const NumberInputRenderer = ({
     value,

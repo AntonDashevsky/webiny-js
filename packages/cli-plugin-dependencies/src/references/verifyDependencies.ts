@@ -1,4 +1,4 @@
-import { IDependencyTree } from "~/types";
+import type { IDependencyTree } from "~/types";
 import loadJsonFile from "load-json-file";
 import { getDuplicatesFilePath, getReferencesFilePath } from "~/references/files";
 import fs from "fs";

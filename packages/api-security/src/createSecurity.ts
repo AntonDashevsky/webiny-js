@@ -1,10 +1,10 @@
 import { AsyncLocalStorage } from "async_hooks";
 import minimatch from "minimatch";
 import { createTopic } from "@webiny/pubsub";
-import { AaclPermission } from "@webiny/api-wcp/types";
-import { Identity } from "@webiny/api-authentication/types";
+import type { AaclPermission } from "@webiny/api-wcp/types";
+import type { Identity } from "@webiny/api-authentication/types";
 import { createAuthentication } from "@webiny/api-authentication/createAuthentication";
-import {
+import type {
     Authorizer,
     Security,
     SecurityPermission,

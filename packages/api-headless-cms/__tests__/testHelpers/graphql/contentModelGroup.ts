@@ -1,4 +1,4 @@
-import { CmsGroupCreateInput } from "~/types";
+import type { CmsGroupCreateInput } from "~/types";
 
 const DATA_FIELD = /* GraphQL*/ `
     {

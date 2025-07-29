@@ -1,4 +1,4 @@
-import {
+import type {
     Menu,
     MenuStorageOperations,
     MenuStorageOperationsCreateParams,
@@ -7,15 +7,16 @@ import {
     MenuStorageOperationsListParams,
     MenuStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import WebinyError from "@webiny/error";
 import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
 import { MenuDynamoDbElasticFieldPlugin } from "~/plugins/definitions/MenuDynamoDbElasticFieldPlugin";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

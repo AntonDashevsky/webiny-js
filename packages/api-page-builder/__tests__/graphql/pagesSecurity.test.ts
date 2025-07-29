@@ -1,8 +1,8 @@
 import { mdbid } from "@webiny/utils";
 import useGqlHandler from "./useGqlHandler";
 import { identityA, identityB, NOT_AUTHORIZED_RESPONSE } from "./mocks";
-import { Category } from "~/types";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { Category } from "~/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 
 const defaultHandler = useGqlHandler({
     permissions: [{ name: "content.i18n" }, { name: "pb.*" }],

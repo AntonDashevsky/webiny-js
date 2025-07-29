@@ -1,7 +1,7 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 import type { IPreHandler } from "~/PreHandler/IPreHandler";
 import { Action } from "~/PreHandler/IPreHandler";
-import { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin";
+import type { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin";
 import { stringifyError } from "~/stringifyError";
 import type { Context } from "~/types";
 

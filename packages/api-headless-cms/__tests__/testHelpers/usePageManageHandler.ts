@@ -1,5 +1,6 @@
-import { GraphQLHandlerParams, useGraphQLHandler } from "./useGraphQLHandler";
-import { CmsEntryListParams, CmsModel } from "~/types";
+import type { GraphQLHandlerParams } from "./useGraphQLHandler";
+import { useGraphQLHandler } from "./useGraphQLHandler";
+import type { CmsEntryListParams, CmsModel } from "~/types";
 import { pageModel } from "~tests/contentAPI/mocks/pageWithDynamicZonesModel";
 
 const singularPageApiName = pageModel.singularApiName;

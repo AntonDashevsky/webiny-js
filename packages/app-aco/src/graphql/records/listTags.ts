@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { AcoAppMode, AcoModel } from "~/types";
+import type { AcoAppMode, AcoModel } from "~/types";
 import { ERROR_FIELD, LIST_META_FIELD } from "./common";
 
 export const createListTags = (model: AcoModel, mode: AcoAppMode) => {

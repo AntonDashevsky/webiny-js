@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import { ImportModelData } from "~/admin/views/contentModels/importing/types";
+import type { ImportModelData } from "~/admin/views/contentModels/importing/types";
 import { DataListModelItemError } from "~/admin/views/contentModels/importing/components/Model/DataListModelItemError";
 import { DataListModelItemInfo } from "./DataListModelItemInfo";
-import { ToggleModelCb } from "~/admin/views/contentModels/importing/ImportContext";
+import type { ToggleModelCb } from "~/admin/views/contentModels/importing/ImportContext";
 
 const ContainerBase = styled("div")(() => {
     return {

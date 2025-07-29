@@ -1,13 +1,14 @@
 import WebinyError from "@webiny/error";
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
-import { CmsContext, CmsEntry, CmsEntryListWhere, CmsIdentity, CmsModel } from "~/types";
+import type { CmsContext, CmsEntry, CmsEntryListWhere, CmsIdentity, CmsModel } from "~/types";
 import { NotAuthorizedResponse } from "@webiny/api-security";
 import { getEntryTitle } from "~/utils/getEntryTitle";
-import { createCmsGraphQLSchemaPlugin, ICmsGraphQLSchemaPlugin } from "~/plugins";
+import type { ICmsGraphQLSchemaPlugin } from "~/plugins";
+import { createCmsGraphQLSchemaPlugin } from "~/plugins";
 import { getEntryDescription } from "~/utils/getEntryDescription";
 import { getEntryImage } from "~/utils/getEntryImage";
 import { entryFieldFromStorageTransform } from "~/utils/entryStorage";
-import { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
+import type { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
 import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
 
 interface EntriesByModel {

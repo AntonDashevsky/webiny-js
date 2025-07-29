@@ -1,9 +1,9 @@
-import { Plugin } from "@webiny/plugins/types";
-import { TenancyContext } from "@webiny/api-tenancy/types";
-import { SecurityPermission } from "@webiny/api-security/types";
-import { FileManagerContext } from "@webiny/api-file-manager/types";
-import { I18NContext } from "@webiny/api-i18n/types";
-import { Topic } from "@webiny/pubsub/types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { SecurityPermission } from "@webiny/api-security/types";
+import type { FileManagerContext } from "@webiny/api-file-manager/types";
+import type { I18NContext } from "@webiny/api-i18n/types";
+import type { Topic } from "@webiny/pubsub/types";
 
 interface FbFormTriggerData {
     urls?: string[];

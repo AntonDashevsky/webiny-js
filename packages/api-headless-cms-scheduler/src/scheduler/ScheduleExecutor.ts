@@ -1,10 +1,10 @@
+import type { ScheduleType } from "~/scheduler/types.js";
 import {
     type IScheduleAction,
     type IScheduleExecutor,
     type IScheduleFetcher,
     type IScheduleRecord,
-    type ISchedulerInput,
-    ScheduleType
+    type ISchedulerInput
 } from "~/scheduler/types.js";
 import { createScheduleRecordIdWithVersion } from "~/scheduler/createScheduleRecordId.js";
 import type { PublishScheduleActionCms } from "~/scheduler/actions/PublishScheduleAction.js";

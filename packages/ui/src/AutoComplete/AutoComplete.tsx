@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import { AutoCompleteBaseProps } from "./types";
+import type { AutoCompleteBaseProps } from "./types";
 import { AutoComplete as AdminAutoComplete } from "@webiny/admin-ui";
 
 export enum Placement {

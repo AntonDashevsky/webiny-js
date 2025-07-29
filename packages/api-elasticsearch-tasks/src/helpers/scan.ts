@@ -1,6 +1,7 @@
-import { scan as tableScan, ScanOptions } from "@webiny/db-dynamodb";
-import { TableDef } from "@webiny/db-dynamodb/toolbox";
-import { IElasticsearchIndexingTaskValuesKeys } from "~/types";
+import type { ScanOptions } from "@webiny/db-dynamodb";
+import { scan as tableScan } from "@webiny/db-dynamodb";
+import type { TableDef } from "@webiny/db-dynamodb/toolbox";
+import type { IElasticsearchIndexingTaskValuesKeys } from "~/types";
 
 interface Params {
     table: TableDef;

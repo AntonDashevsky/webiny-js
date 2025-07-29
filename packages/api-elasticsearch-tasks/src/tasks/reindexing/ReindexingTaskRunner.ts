@@ -1,14 +1,15 @@
-import {
+import type {
     IDynamoDbElasticsearchRecord,
     IElasticsearchIndexingTaskValues,
     IElasticsearchIndexingTaskValuesKeys,
     IManager
 } from "~/types";
-import { ITaskResponse, ITaskResponseResult } from "@webiny/tasks/response/abstractions";
+import type { ITaskResponse, ITaskResponseResult } from "@webiny/tasks/response/abstractions";
 import { scan } from "~/helpers/scan";
-import { createTableWriteBatch, ScanResponse } from "@webiny/db-dynamodb";
-import { IndexManager } from "~/settings";
-import { IIndexManager } from "~/settings/types";
+import type { ScanResponse } from "@webiny/db-dynamodb";
+import { createTableWriteBatch } from "@webiny/db-dynamodb";
+import type { IndexManager } from "~/settings";
+import type { IIndexManager } from "~/settings/types";
 
 const getKeys = (results: ScanResponse): IElasticsearchIndexingTaskValuesKeys | undefined => {
     if (results.lastEvaluatedKey?.PK && results.lastEvaluatedKey?.SK) {

@@ -1,10 +1,10 @@
 import React from "react";
 import kebabCase from "lodash/kebabCase";
 import { Link } from "@webiny/react-router";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { createDefaultPagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/pagesListComponents";
 import { PePagesList } from "./PePagesList";
-import {
+import type {
     PbRenderElementPluginArgs,
     PbRenderElementPlugin,
     PbPageElementPagesListComponentPlugin

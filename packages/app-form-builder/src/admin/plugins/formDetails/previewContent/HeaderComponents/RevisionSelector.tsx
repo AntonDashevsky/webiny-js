@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as ArrowDownIcon } from "@webiny/icons/expand_more.svg";
 import { Button, DropdownMenu, Text } from "@webiny/admin-ui";
-import { FbRevisionModel } from "~/types";
+import type { FbRevisionModel } from "~/types";
 
 interface RevisionSelectorProps {
     revisions: FbRevisionModel[];

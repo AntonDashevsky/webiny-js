@@ -3,7 +3,7 @@ import dotPropImmutable from "dot-prop-immutable";
 import pick from "lodash/pick";
 import { useStateIfMounted } from "@webiny/app-admin";
 import { useSecurity } from "@webiny/app-security";
-import {
+import type {
     FolderItem,
     GenericSearchData,
     ListMeta,

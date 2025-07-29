@@ -1,4 +1,4 @@
-import { QuestionCollection } from "inquirer";
+import type { QuestionCollection } from "inquirer";
 import Case from "case";
 import path from "path";
 import fs from "node:fs";

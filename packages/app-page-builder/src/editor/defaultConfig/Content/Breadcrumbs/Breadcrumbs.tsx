@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useRecoilCallback, useRecoilSnapshot } from "recoil";
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import { breadcrumbs } from "./styles";
 import { useActiveElement } from "~/editor/hooks/useActiveElement";
 import { useHighlightElement } from "~/editor/hooks/useHighlightElement";
-import { elementByIdSelector, elementsAtom, ElementsAtomType } from "~/editor/recoil/modules";
+import type { ElementsAtomType } from "~/editor/recoil/modules";
+import { elementByIdSelector, elementsAtom } from "~/editor/recoil/modules";
 import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
 
 type ItemsState = Pick<ElementsAtomType, "id" | "type">;

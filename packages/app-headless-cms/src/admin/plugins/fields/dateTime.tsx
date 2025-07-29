@@ -1,7 +1,7 @@
 import React from "react";
 import get from "lodash/get";
 
-import { CmsModelField, CmsModelFieldTypePlugin } from "~/types";
+import type { CmsModelField, CmsModelFieldTypePlugin } from "~/types";
 import { i18n } from "@webiny/app/i18n";
 import { ReactComponent as DateTimeIcon } from "./icons/schedule-black-24px.svg";
 import { useModel, useModelField } from "~/admin/hooks";

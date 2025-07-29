@@ -1,9 +1,9 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { GenericRecord } from "@webiny/app/types";
+import type { GenericRecord } from "@webiny/app/types";
 import { WebinyError } from "@webiny/error";
-import { IResolveDataSourceGateway } from "./IResolveDataSourceGateway";
-import { DataRequest, DataSourceData } from "./IResolveDataSourceRepository";
+import type { IResolveDataSourceGateway } from "./IResolveDataSourceGateway";
+import type { DataRequest, DataSourceData } from "./IResolveDataSourceRepository";
 
 const LOAD_DATA_SOURCE = gql`
     query LoadDataSource($type: String!, $config: JSON!, $paths: [String!]) {

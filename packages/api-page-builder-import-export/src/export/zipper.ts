@@ -1,12 +1,13 @@
 // TODO: Move "archive" in layer
-import vending, { ArchiverError } from "archiver";
-import { CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
+import type { ArchiverError } from "archiver";
+import vending from "archiver";
+import type { CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
 import { Readable } from "stream";
 import * as path from "path";
 import kebabCase from "lodash/kebabCase";
 import uniqueId from "uniqid";
 import { s3Stream } from "./s3Stream";
-import { File } from "@webiny/api-file-manager/types";
+import type { File } from "@webiny/api-file-manager/types";
 
 interface FileStreamDetails {
     stream: Readable;

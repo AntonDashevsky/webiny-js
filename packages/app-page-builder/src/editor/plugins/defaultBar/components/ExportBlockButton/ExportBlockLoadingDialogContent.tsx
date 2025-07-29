@@ -5,10 +5,8 @@ import { i18n } from "@webiny/app/i18n";
 import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as SuccessIcon } from "@webiny/icons/check_circle_outline.svg";
 import { ReactComponent as ErrorIcon } from "@webiny/icons/error_outline.svg";
-import {
-    GET_BLOCK_IMPORT_EXPORT_TASK,
-    GetBlockImportExportTaskResponse
-} from "~/admin/graphql/blockImportExport.gql";
+import type { GetBlockImportExportTaskResponse } from "~/admin/graphql/blockImportExport.gql";
+import { GET_BLOCK_IMPORT_EXPORT_TASK } from "~/admin/graphql/blockImportExport.gql";
 import { LoadingDialog } from "~/editor/plugins/defaultBar/components/ImportButton/styledComponents";
 import ProgressBar from "~/editor/plugins/defaultBar/components/ImportButton/ProgressBar";
 import useExportBlockDialog from "./useExportBlockDialog";

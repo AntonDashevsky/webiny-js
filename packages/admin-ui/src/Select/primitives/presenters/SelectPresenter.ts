@@ -1,10 +1,10 @@
 import { makeAutoObservable } from "mobx";
-import {
+import type {
     SelectOptionsVm,
     SelectTriggerVm,
-    SelectOption as SelectOptionParams,
-    type SelectRootVm
+    SelectOption as SelectOptionParams
 } from "../SelectPrimitive";
+import { type SelectRootVm } from "../SelectPrimitive";
 import { SelectOption, SelectOptionMapper } from "../../domains";
 
 interface SelectPresenterParams {

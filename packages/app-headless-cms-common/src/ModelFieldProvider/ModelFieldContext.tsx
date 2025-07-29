@@ -1,5 +1,5 @@
 import React from "react";
-import { CmsModelField } from "~/types";
+import type { CmsModelField } from "~/types";
 import { createGenericContext } from "@webiny/app-admin";
 
 export type ModelFieldContext = CmsModelField;

@@ -1,6 +1,7 @@
 import { BasePackagesBuilder } from "./BasePackagesBuilder";
 import { gray } from "chalk";
-import { IRequireConfigOptions, requireConfigWithExecute } from "~/utils";
+import type { IRequireConfigOptions } from "~/utils";
+import { requireConfigWithExecute } from "~/utils";
 
 export class SinglePackageBuilder extends BasePackagesBuilder {
     public override async build() {

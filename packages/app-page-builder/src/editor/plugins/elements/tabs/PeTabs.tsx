@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
 import { createRenderer, useRenderer, Elements } from "@webiny/app-page-builder-elements";
-import { Element as ElementType } from "@webiny/app-page-builder-elements/types";
+import type { Element as ElementType } from "@webiny/app-page-builder-elements/types";
 import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
 import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
 import { ClassNames } from "@emotion/react";

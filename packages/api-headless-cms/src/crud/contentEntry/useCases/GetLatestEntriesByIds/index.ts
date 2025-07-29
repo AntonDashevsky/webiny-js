@@ -1,8 +1,8 @@
 import { GetLatestEntriesByIds } from "./GetLatestEntriesByIds";
 import { GetLatestEntriesByIdsNotDeleted } from "./GetLatestEntriesByIdsNotDeleted";
 import { GetLatestEntriesByIdsSecure } from "./GetLatestEntriesByIdsSecure";
-import { CmsEntryStorageOperations } from "~/types";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { CmsEntryStorageOperations } from "~/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
 
 interface GetLatestEntriesByIdsUseCasesParams {
     operation: CmsEntryStorageOperations["getLatestByIds"];

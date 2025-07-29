@@ -1,5 +1,5 @@
 import React from "react";
-import { FormEditorFieldError } from "~/admin/components/FormEditor/Context";
+import type { FormEditorFieldError } from "~/admin/components/FormEditor/Context";
 import { Alert, Text } from "@webiny/admin-ui";
 
 const keyNames: Record<string, string> = {

@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { FbFormLayout } from "~/types";
+import type { FbFormLayout } from "~/types";
 
 export class FbFormLayoutPlugin extends Plugin {
     public static override readonly type: string = "form-layout";

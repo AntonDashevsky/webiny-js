@@ -1,5 +1,5 @@
-import { GenericRecord } from "@webiny/api/types";
-import { Settings } from "~/domain/Settings";
+import type { GenericRecord } from "@webiny/api/types";
+import type { Settings } from "~/domain/Settings";
 
 export type SettingsDto = {
     name: string;

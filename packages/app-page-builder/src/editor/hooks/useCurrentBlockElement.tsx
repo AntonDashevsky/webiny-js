@@ -1,4 +1,4 @@
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import { useCurrentElement } from "~/editor/hooks/useCurrentElement";
 import { useActiveElement } from "~/editor/hooks/useActiveElement";
 import { elementByIdSelector } from "~/editor/recoil/modules";

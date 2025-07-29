@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
+import type { Sorting } from "@webiny/app-utils";
 import {
     loadingRepositoryFactory,
     metaRepositoryFactory,
-    Sorting,
     sortRepositoryFactory
 } from "@webiny/app-utils";
 import { SchedulerProvider } from "../hooks";

@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
-import { createAuthentication, CreateAuthenticationConfig } from "~/createAuthentication";
+import type { CreateAuthenticationConfig } from "~/createAuthentication";
+import { createAuthentication } from "~/createAuthentication";
 import { AdminConfig, LoginScreenRenderer } from "@webiny/app-admin";
 import { UserInfo } from "~/plugins/userMenu/UserInfo";
 import { SignOut } from "~/plugins/userMenu/SignOut";

@@ -1,6 +1,6 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { AcoContext } from "~/types";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { AcoContext } from "~/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import lodashOmit from "lodash/omit";
 import { ensureAuthentication } from "~/utils/ensureAuthentication";
 import { resolve } from "~/utils/resolve";

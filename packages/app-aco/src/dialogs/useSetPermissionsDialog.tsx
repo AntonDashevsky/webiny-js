@@ -2,12 +2,13 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { Grid } from "@webiny/admin-ui";
 import { useDialogs, useSnackbar } from "@webiny/app-admin";
-import { GenericFormData, useBind } from "@webiny/form";
+import type { GenericFormData } from "@webiny/form";
+import { useBind } from "@webiny/form";
 import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete";
 import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection";
 import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql";
 import { useUpdateFolder } from "~/features";
-import { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import type { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
 
 interface ShowDialogParams {
     folder: FolderItem;

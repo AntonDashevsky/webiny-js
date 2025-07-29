@@ -1,10 +1,10 @@
-import { Client } from "@elastic/elasticsearch";
+import type { Client } from "@elastic/elasticsearch";
 import {
     createElasticsearchClient as createClient,
     ElasticsearchClientOptions
 } from "@webiny/api-elasticsearch/client";
-import * as RequestParams from "@elastic/elasticsearch/api/requestParams";
-import { TransportRequestOptions } from "@elastic/elasticsearch/lib/Transport";
+import type * as RequestParams from "@elastic/elasticsearch/api/requestParams";
+import type { TransportRequestOptions } from "@elastic/elasticsearch/lib/Transport";
 
 const ELASTICSEARCH_PORT = process.env.ELASTICSEARCH_PORT || 9200;
 

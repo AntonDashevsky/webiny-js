@@ -1,5 +1,5 @@
-import { Abstraction } from "./Abstraction";
-import { Constructor, Dependency, GetInterface, MapDependencies } from "./types";
+import type { Abstraction } from "./Abstraction";
+import type { Constructor, Dependency, GetInterface, MapDependencies } from "./types";
 import { Metadata } from "./Metadata";
 
 type DropLast<T> = T extends [...infer P, any] ? [...P] : never;

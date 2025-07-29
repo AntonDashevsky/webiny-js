@@ -4,7 +4,8 @@ import { ElementRenderer } from "./ElementRenderer";
 import { DocumentStoreProvider } from "./DocumentStoreProvider";
 import { ConnectToEditor } from "./ConnectToEditor";
 import { editorComponents } from "../editorComponents/index";
-import { DocumentFragments, FragmentsProvider } from "./FragmentsProvider";
+import type { DocumentFragments } from "./FragmentsProvider";
+import { FragmentsProvider } from "./FragmentsProvider";
 
 interface DocumentRendererProps {
     document: Document | null;

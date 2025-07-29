@@ -4,7 +4,7 @@ import { useSnackbar } from "@webiny/app-admin";
 import { CREATE_PAGE } from "~/admin/graphql/pages";
 import * as GQLCache from "~/admin/views/Pages/cache";
 
-import { PbPageDataItem, PbPageRevision } from "~/types";
+import type { PbPageDataItem, PbPageRevision } from "~/types";
 
 interface UseEditPageParams {
     page: PbPageDataItem;

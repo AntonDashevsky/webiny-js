@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { ColumnsPresenter } from "../Columns/ColumnsPresenter";
+import type { ColumnsPresenter } from "../Columns/ColumnsPresenter";
 
 export class ColumnsVisibilityPresenter {
     private columnsPresenter: ColumnsPresenter;

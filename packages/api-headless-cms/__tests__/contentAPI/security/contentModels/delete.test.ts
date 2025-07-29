@@ -1,5 +1,5 @@
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { expectNotAuthorized, CmsTestPermissions } from "../utils";
 
 const identityA: SecurityIdentity = { id: "a", type: "admin", displayName: "A" };

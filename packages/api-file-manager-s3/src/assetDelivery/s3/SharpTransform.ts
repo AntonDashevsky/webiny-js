@@ -1,6 +1,6 @@
 import sharp from "sharp";
-import { S3 } from "@webiny/aws-sdk/client-s3";
-import {
+import type { S3 } from "@webiny/aws-sdk/client-s3";
+import type {
     Asset,
     AssetRequest,
     AssetRequestOptions,

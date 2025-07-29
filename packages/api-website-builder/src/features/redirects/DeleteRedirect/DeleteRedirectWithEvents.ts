@@ -1,10 +1,10 @@
 import { WebinyError } from "@webiny/error";
 import type { IDeleteRedirect } from "./IDeleteRedirect";
-import {
+import type {
     DeleteWbRedirectParams,
     WbRedirectsStorageOperations
 } from "~/context/redirects/redirects.types";
-import { DeleteRedirectUseCasesTopics } from "~/features/redirects";
+import type { DeleteRedirectUseCasesTopics } from "~/features/redirects";
 
 export class DeleteRedirectWithEvents implements IDeleteRedirect {
     private topics: DeleteRedirectUseCasesTopics;

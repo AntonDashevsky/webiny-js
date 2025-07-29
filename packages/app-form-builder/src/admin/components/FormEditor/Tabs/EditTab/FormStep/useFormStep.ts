@@ -1,5 +1,5 @@
 import { useCallback, useContext } from "react";
-import {
+import type {
     DropDestination,
     DropSource,
     DropTarget,
@@ -8,7 +8,7 @@ import {
     DropPosition
 } from "~/types";
 import { useFormEditor } from "~/admin/components/FormEditor";
-import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable";
+import type { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable";
 import cloneDeep from "lodash/cloneDeep";
 import { FormStepContext } from "./FormStepContext/FormStepContext";
 

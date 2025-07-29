@@ -11,9 +11,9 @@ import { runYarnInstall } from "@webiny/cli-plugin-scaffold/utils";
 import chalk from "chalk";
 import { Extension } from "./extensions/Extension";
 import glob from "fast-glob";
-import { CliContext } from "@webiny/cli/types";
-import { Ora } from "ora";
-import { ExtensionJson, ExtensionMessage } from "~/types";
+import type { CliContext } from "@webiny/cli/types";
+import type { Ora } from "ora";
+import type { ExtensionJson, ExtensionMessage } from "~/types";
 
 const EXTENSIONS_ROOT_FOLDER = "extensions";
 const S3_BUCKET_NAME = "webiny-examples";

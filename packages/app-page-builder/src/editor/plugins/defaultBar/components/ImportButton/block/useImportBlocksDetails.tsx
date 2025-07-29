@@ -3,8 +3,8 @@ import get from "lodash/get";
 import { Text, Scrollbar } from "@webiny/admin-ui";
 import { i18n } from "@webiny/app/i18n";
 import { ShowDetails } from "../styledComponents";
-import { ListBlockImportExportSubTasksResponse } from "~/admin/graphql/blockImportExport.gql";
-import { PageBuilderImportExportSubTask } from "~/types";
+import type { ListBlockImportExportSubTasksResponse } from "~/admin/graphql/blockImportExport.gql";
+import type { PageBuilderImportExportSubTask } from "~/types";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importBlock");
 

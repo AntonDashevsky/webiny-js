@@ -3,7 +3,7 @@ import type { IDeployment } from "~/resolver/deployment/types.js";
 import type { PluginsContainer } from "@webiny/plugins/types";
 import { TransformRecordPlugin } from "~/resolver/plugins/TransformRecordPlugin.js";
 import { middleware } from "./middleware.js";
-import { IStoreItem } from "../storer/types";
+import type { IStoreItem } from "../storer/types";
 
 export interface IMiddlewareParams {
     readonly plugins: PluginsContainer;

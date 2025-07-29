@@ -1,7 +1,7 @@
 import { createBulkActionGraphQL } from "./createBulkActionGraphQL";
 import { createBulkActionTasks } from "~/plugins/createBulkActionTasks";
-import { IListEntries, IProcessEntry } from "~/abstractions";
-import { HcmsBulkActionsContext } from "~/types";
+import type { IListEntries, IProcessEntry } from "~/abstractions";
+import type { HcmsBulkActionsContext } from "~/types";
 
 export interface CreateBulkActionConfig {
     name: string;

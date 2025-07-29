@@ -3,7 +3,7 @@ import { FolderProvider, useAcoConfig } from "@webiny/app-aco";
 import { OptionsMenu } from "@webiny/app-admin";
 import { PageListConfig } from "~/admin/config/pages";
 import { PageProvider } from "~/admin/contexts/Page";
-import { PbPageTableItem } from "~/types";
+import type { PbPageTableItem } from "~/types";
 
 export const CellActions = () => {
     const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;

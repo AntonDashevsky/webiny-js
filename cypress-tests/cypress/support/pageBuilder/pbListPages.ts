@@ -1,5 +1,6 @@
 import { gqlClient } from "../utils";
-import { login, User } from "../login";
+import type { User } from "../login";
+import { login } from "../login";
 
 const LIST_PAGES = /* GraphQL */ `
     query PbListPages(

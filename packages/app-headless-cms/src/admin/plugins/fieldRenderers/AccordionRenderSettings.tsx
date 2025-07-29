@@ -1,7 +1,7 @@
 import React from "react";
 import { Bind } from "@webiny/form";
 import { Grid, Switch } from "@webiny/admin-ui";
-import {
+import type {
     CmsModelField,
     CmsModelFieldRendererSettingsProps
 } from "@webiny/app-headless-cms-common/types";

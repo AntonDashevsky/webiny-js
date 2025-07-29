@@ -1,7 +1,7 @@
 import { useHandler } from "~tests/testHelpers/useHandler";
 import { articleModel } from "./mocks/article.model";
 import { CmsModelPlugin } from "~/plugins";
-import { CmsModelAst } from "~/types";
+import type { CmsModelAst } from "~/types";
 
 describe("Model to AST", () => {
     it("should generate content model AST", async () => {

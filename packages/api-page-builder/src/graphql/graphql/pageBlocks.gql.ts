@@ -2,8 +2,8 @@ import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSche
 import { compress } from "@webiny/utils/compression/gzip";
 
 import resolve from "./utils/resolve";
-import { PbContext } from "../types";
-import { PageBlock } from "~/types";
+import type { PbContext } from "../types";
+import type { PageBlock } from "~/types";
 
 export const createPageBlockGraphQL = new GraphQLSchemaPlugin<PbContext>({
     typeDefs: /* GraphQL */ `

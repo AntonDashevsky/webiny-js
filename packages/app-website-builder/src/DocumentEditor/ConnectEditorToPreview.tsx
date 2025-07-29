@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import type React from "react";
+import { useEffect, useRef } from "react";
 import { MessageOrigin, Messenger } from "@webiny/website-builder-sdk";
-import { usePreviewData } from "~/BaseEditor/hooks/usePreviewData";
+import type { usePreviewData } from "~/BaseEditor/hooks/usePreviewData";
 
 type ConnectEditorToPreviewProps = {
     iframeRef: React.RefObject<HTMLIFrameElement>;

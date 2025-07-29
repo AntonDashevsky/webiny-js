@@ -1,5 +1,5 @@
-import { PbState } from "../modules/types";
-import {
+import type { PbState } from "../modules/types";
+import type {
     EventActionHandlerCallableArgs,
     EventActionCallable,
     EventActionHandlerActionCallableResponse,

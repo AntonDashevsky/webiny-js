@@ -1,12 +1,12 @@
 import "@fastify/cookie";
-import {
+import type {
     FastifyRequest,
     FastifyReply,
     HTTPMethods as BaseHttpMethods,
     RouteHandlerMethod
 } from "fastify";
 export { FastifyInstance } from "fastify";
-import { ClientContext } from "@webiny/handler-client/types";
+import type { ClientContext } from "@webiny/handler-client/types";
 
 export interface RouteMethodOptions {
     override?: boolean;

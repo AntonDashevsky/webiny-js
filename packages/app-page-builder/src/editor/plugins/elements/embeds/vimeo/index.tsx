@@ -12,8 +12,8 @@ import {
     ButtonContainer,
     SimpleButton
 } from "../../../elementSettings/components/StyledComponents";
-import { PbEditorElementPluginArgs } from "~/types";
-import { EmbedPluginConfigRenderCallable } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
+import type { PbEditorElementPluginArgs } from "~/types";
+import type { EmbedPluginConfigRenderCallable } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
 
 import { PeVimeo } from "./PeVimeo";
 

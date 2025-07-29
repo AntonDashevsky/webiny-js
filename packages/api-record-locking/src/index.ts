@@ -1,6 +1,6 @@
 import { createGraphQLSchema } from "~/graphql/schema";
 import { ContextPlugin } from "@webiny/api";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { createRecordLockingCrud } from "~/crud/crud";
 import { createLockingModel } from "~/crud/model";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";

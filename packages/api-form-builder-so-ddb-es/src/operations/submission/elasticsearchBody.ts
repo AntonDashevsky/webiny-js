@@ -1,4 +1,4 @@
-import { PrimitiveValue, SearchBody as esSearchBody } from "elastic-ts";
+import type { PrimitiveValue, SearchBody as esSearchBody } from "elastic-ts";
 import {
     applyWhere,
     createLimit,
@@ -6,13 +6,13 @@ import {
     ElasticsearchQueryBuilderOperatorPlugin,
     isSharedElasticsearchIndex
 } from "@webiny/api-elasticsearch";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
 import { SubmissionElasticsearchFieldPlugin } from "~/plugins/SubmissionElasticsearchFieldPlugin";
 import { SubmissionElasticsearchSortModifierPlugin } from "~/plugins/SubmissionElasticsearchSortModifierPlugin";
 import { SubmissionElasticsearchBodyModifierPlugin } from "~/plugins/SubmissionElasticsearchBodyModifierPlugin";
-import { FormBuilderStorageOperationsListSubmissionsParams } from "@webiny/api-form-builder/types";
+import type { FormBuilderStorageOperationsListSubmissionsParams } from "@webiny/api-form-builder/types";
 import { SubmissionElasticsearchQueryModifierPlugin } from "~/plugins/SubmissionElasticsearchQueryModifierPlugin";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 
 const createInitialQueryValue = (): ElasticsearchBoolQueryConfig => {
     return {

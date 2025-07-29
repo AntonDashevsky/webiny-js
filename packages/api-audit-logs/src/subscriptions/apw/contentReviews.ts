@@ -2,7 +2,7 @@ import WebinyError from "@webiny/error";
 
 import { AUDIT } from "~/config";
 import { getAuditConfig } from "~/utils/getAuditConfig";
-import { AuditLogsContext } from "~/types";
+import type { AuditLogsContext } from "~/types";
 
 export const onContentReviewAfterCreateHook = (context: AuditLogsContext) => {
     context.apw.contentReview.onContentReviewAfterCreate.subscribe(async ({ contentReview }) => {

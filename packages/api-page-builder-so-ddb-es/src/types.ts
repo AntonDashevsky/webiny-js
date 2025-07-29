@@ -1,4 +1,4 @@
-import {
+import type {
     BlockCategoryStorageOperations as BaseBlockCategoryStorageOperations,
     CategoryStorageOperations as BaseCategoryStorageOperations,
     PageBlockStorageOperations as BasePageBlockStorageOperations,
@@ -7,10 +7,15 @@ import {
     PageTemplateStorageOperations as BasePageTemplateStorageOperations,
     PbContext as BasePbContext
 } from "@webiny/api-page-builder/types";
-import { AttributeDefinition, Entity, Table, TableConstructor } from "@webiny/db-dynamodb/toolbox";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Client } from "@elastic/elasticsearch";
-import { PluginCollection } from "@webiny/plugins/types";
+import type {
+    AttributeDefinition,
+    Entity,
+    Table,
+    TableConstructor
+} from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { Client } from "@elastic/elasticsearch";
+import type { PluginCollection } from "@webiny/plugins/types";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

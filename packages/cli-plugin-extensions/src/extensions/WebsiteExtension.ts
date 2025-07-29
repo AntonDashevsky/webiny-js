@@ -1,11 +1,12 @@
 import { AbstractExtension } from "./AbstractExtension";
 import path from "path";
 import { EXTENSIONS_ROOT_FOLDER } from "~/utils/constants";
-import { JsxFragment, Node, Project } from "ts-morph";
+import type { JsxFragment } from "ts-morph";
+import { Node, Project } from "ts-morph";
 import { formatCode } from "@webiny/cli-plugin-scaffold/utils";
 import { updateDependencies, updateWorkspaces } from "~/utils";
 import Case from "case";
-import { ExtensionMessage } from "~/types";
+import type { ExtensionMessage } from "~/types";
 
 export class WebsiteExtension extends AbstractExtension {
     async link() {

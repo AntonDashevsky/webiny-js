@@ -1,10 +1,7 @@
-import {
-    SendMessageBatchCommand,
-    SendMessageBatchRequestEntry,
-    SQSClient
-} from "@webiny/aws-sdk/client-sqs";
+import type { SendMessageBatchRequestEntry } from "@webiny/aws-sdk/client-sqs";
+import { SendMessageBatchCommand, SQSClient } from "@webiny/aws-sdk/client-sqs";
 import lodashChunk from "lodash/chunk";
-import {
+import type {
     PrerenderingServiceStorageOperations,
     RenderEvent,
     RenderPagesEvent

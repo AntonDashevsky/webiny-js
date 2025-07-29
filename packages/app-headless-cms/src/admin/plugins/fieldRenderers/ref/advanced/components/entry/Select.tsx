@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import {
+import type {
     CmsReferenceContentEntry,
     CmsReferenceValue
 } from "~/admin/plugins/fieldRenderers/ref/components/types";

@@ -1,10 +1,11 @@
 import { useHandler } from "~tests/testHelpers/useHandler";
 import models, { createModelPlugins } from "~tests/contentAPI/mocks/contentModels";
 import { ModelFieldTraverser } from "~/utils";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 import { pageModel } from "~tests/contentAPI/mocks/pageWithDynamicZonesModel";
-import { CmsModelToAstConverter } from "~/utils/contentModelAst";
-import { CmsModelInput, createCmsModelPlugin } from "~/plugins";
+import type { CmsModelToAstConverter } from "~/utils/contentModelAst";
+import type { CmsModelInput } from "~/plugins";
+import { createCmsModelPlugin } from "~/plugins";
 
 describe("model field traverser", () => {
     const { handler } = useHandler({

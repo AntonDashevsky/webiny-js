@@ -1,14 +1,7 @@
-import { ITaskManager, ITaskManagerStorePrivate, ITaskRunner } from "./abstractions";
-import {
-    Context,
-    ITask,
-    ITaskDataInput,
-    ITaskDefinition,
-    ITaskTriggerParams,
-    TaskDataStatus,
-    TaskResponseStatus
-} from "~/types";
-import {
+import type { ITaskManager, ITaskManagerStorePrivate, ITaskRunner } from "./abstractions";
+import type { Context, ITask, ITaskDataInput, ITaskDefinition, ITaskTriggerParams } from "~/types";
+import { TaskDataStatus, TaskResponseStatus } from "~/types";
+import type {
     IResponse,
     IResponseResult,
     ITaskResponse,

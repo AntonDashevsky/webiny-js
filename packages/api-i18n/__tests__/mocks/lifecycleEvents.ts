@@ -1,6 +1,6 @@
 import { LifecycleEventTracker } from "@webiny/project-utils/testing/helpers/lifecycleTracker";
 import { ContextPlugin } from "@webiny/api";
-import { I18NContext } from "~/types";
+import type { I18NContext } from "~/types";
 
 export const lifecycleTracker = new LifecycleEventTracker();
 

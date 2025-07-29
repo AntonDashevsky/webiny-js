@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase";
-import {
+import type {
     PbEditorPageElementPlugin,
     PbEditorPageElementAdvancedSettingsPlugin,
-    DisplayMode,
-    PbEditorElementPluginArgs,
-    OnCreateActions
+    PbEditorElementPluginArgs
 } from "~/types";
+import { DisplayMode, OnCreateActions } from "~/types";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 import ImagesList from "./ImagesList";
 import ImagesListImagesSettings from "./ImagesListImagesSettings";

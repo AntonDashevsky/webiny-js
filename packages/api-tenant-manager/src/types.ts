@@ -1,4 +1,4 @@
-import { Context } from "@webiny/handler/types";
+import type { Context } from "@webiny/handler/types";
 
 export interface TenantManagerContext extends Context {
     tenantManager: boolean;

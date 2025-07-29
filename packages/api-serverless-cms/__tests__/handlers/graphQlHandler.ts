@@ -1,9 +1,9 @@
 import { createHandler } from "@webiny/handler-aws";
 import { createInvoke } from "./helpers/invoke";
 import { createLambdaContext } from "./helpers/lambdaContext";
-import { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { createCore } from "./helpers/core";
-import { PathType } from "./types";
+import type { PathType } from "./types";
 import { getIntrospectionQuery } from "graphql";
 import { createGraphQl } from "./graphql";
 import { createQueryFactory } from "~tests/handlers/helpers/factory";

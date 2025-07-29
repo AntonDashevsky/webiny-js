@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog, useRecords } from "@webiny/app-aco";
-import { EntryTableItem } from "~/types";
+import type { EntryTableItem } from "~/types";
 
 interface UseMoveContentEntryToFolder {
     record: EntryTableItem;

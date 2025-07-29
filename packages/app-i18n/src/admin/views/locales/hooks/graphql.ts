@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { I18NLocaleItem } from "~/types";
+import type { I18NLocaleItem } from "~/types";
 
 const BASE_FIELDS = `
     code

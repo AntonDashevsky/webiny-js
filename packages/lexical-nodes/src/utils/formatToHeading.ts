@@ -1,6 +1,7 @@
-import { $getSelection, $isRangeSelection, LexicalEditor } from "lexical";
+import type { LexicalEditor } from "lexical";
+import { $getSelection, $isRangeSelection } from "lexical";
 import { $setBlocksType } from "@lexical/selection";
-import { HeadingTagType } from "@lexical/rich-text";
+import type { HeadingTagType } from "@lexical/rich-text";
 import { $createHeadingNode } from "~/HeadingNode";
 
 /*

@@ -1,5 +1,6 @@
-import React from "react";
-import { UIElement, UIElementConfig } from "~/ui/UIElement";
+import type React from "react";
+import type { UIElementConfig } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
 
 export interface LabelElementConfig extends UIElementConfig {
     text: string;

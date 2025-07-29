@@ -1,4 +1,4 @@
-import {
+import type {
     GetValueResult,
     GetValuesResult,
     IListValuesParams,
@@ -10,8 +10,8 @@ import {
     StoreValueResult,
     StoreValuesResult
 } from "./types";
-import { GenericRecord } from "@webiny/api/types";
-import { DbDriver } from "~/index";
+import type { GenericRecord } from "@webiny/api/types";
+import type { DbDriver } from "~/index";
 
 export interface IStoreParams<T> {
     driver: DbDriver<T>;

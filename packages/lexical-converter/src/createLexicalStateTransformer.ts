@@ -1,12 +1,5 @@
-import {
-    CreateEditorArgs,
-    LexicalEditor,
-    SerializedEditorState,
-    $getRoot,
-    $createNodeSelection,
-    $isElementNode,
-    LexicalNode
-} from "lexical";
+import type { CreateEditorArgs, LexicalEditor, SerializedEditorState, LexicalNode } from "lexical";
+import { $getRoot, $createNodeSelection, $isElementNode } from "lexical";
 import { $generateHtmlFromNodes } from "@lexical/html";
 import { createHeadlessEditor } from "@lexical/headless";
 import { allNodes, prepareLexicalState } from "@webiny/lexical-nodes";

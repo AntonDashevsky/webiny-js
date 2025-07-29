@@ -1,6 +1,6 @@
-import { ICreateRedirectRepository } from "./ICreateRedirectRepository.js";
-import { ICreateRedirectGateway } from "./ICreateRedirectGateway.js";
-import { RedirectDto } from "./RedirectDto.js";
+import type { ICreateRedirectRepository } from "./ICreateRedirectRepository.js";
+import type { ICreateRedirectGateway } from "./ICreateRedirectGateway.js";
+import type { RedirectDto } from "./RedirectDto.js";
 import { type IListCache, Redirect } from "~/domain/Redirect/index.js";
 
 export class CreateRedirectRepository implements ICreateRedirectRepository {

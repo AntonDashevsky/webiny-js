@@ -1,5 +1,5 @@
 import { plugins } from "@webiny/plugins";
-import { PbEditorPageElementPlugin, PbEditorPageElementStyleSettingsPlugin } from "~/types";
+import type { PbEditorPageElementPlugin, PbEditorPageElementStyleSettingsPlugin } from "~/types";
 import { userElementStyleSettingsPlugins } from "../../../helpers";
 import { useActiveElement } from "~/editor/hooks/useActiveElement";
 import { useDeactivateOnEsc } from "~/editor/plugins/elementSettings/hooks/useDeactivateOnEsc";

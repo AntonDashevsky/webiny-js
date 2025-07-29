@@ -1,5 +1,6 @@
 import React from "react";
-import { UIElement, UIElementConfig } from "../UIElement";
+import type { UIElementConfig } from "../UIElement";
+import { UIElement } from "../UIElement";
 import { Typography } from "@webiny/ui/Typography";
 
 export type TypographyT =

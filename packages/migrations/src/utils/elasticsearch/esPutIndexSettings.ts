@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { Client } from "@elastic/elasticsearch";
+import type { Client } from "@elastic/elasticsearch";
 
 export interface PutIndexSettingsParams {
     elasticsearchClient: Client;

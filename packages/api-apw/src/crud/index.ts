@@ -3,7 +3,7 @@ import { createReviewerMethods } from "./createReviewerMethods";
 import { createCommentMethods } from "./createCommentMethods";
 import { createChangeRequestMethods } from "./createChangeRequestMethods";
 import { createContentReviewMethods } from "./createContentReviewMethods";
-import {
+import type {
     AdvancedPublishingWorkflow,
     ApwContentTypes,
     ContentGetter,

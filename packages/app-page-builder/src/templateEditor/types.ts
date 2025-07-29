@@ -1,4 +1,4 @@
-import { EventActionCallable, EventActionHandlerCallableArgs, PbPageTemplate } from "~/types";
+import type { EventActionCallable, EventActionHandlerCallableArgs, PbPageTemplate } from "~/types";
 
 export interface TemplateEditorEventActionCallableState {
     template: PbPageTemplate;

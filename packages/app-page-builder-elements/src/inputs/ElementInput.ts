@@ -1,4 +1,4 @@
-import { Element } from "~/types";
+import type { Element } from "~/types";
 
 export interface GetElementInputValueParams<TElementData> {
     element: Element<TElementData>;

@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { IconButton } from "@webiny/ui/Button";
 import { Tooltip } from "@webiny/ui/Tooltip";
 import { Typography } from "@webiny/ui/Typography";
-import { DisplayMode } from "~/types";
+import type { DisplayMode } from "~/types";
 import { useDisplayMode } from "~/editor";
 
 const classes = {

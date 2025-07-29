@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import { SliderPrimitiveProps } from "./SliderPrimitive";
-import { SliderPresenter, SliderPresenterParams } from "./presenters/SliderPresenter";
+import type { SliderPrimitiveProps } from "./SliderPrimitive";
+import type { SliderPresenterParams } from "./presenters/SliderPresenter";
+import { SliderPresenter } from "./presenters/SliderPresenter";
 
 export const useSlider = (props: SliderPrimitiveProps) => {
     const params: SliderPresenterParams = useMemo(

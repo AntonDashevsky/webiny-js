@@ -1,5 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { type DeleteRedirectParams, IDeleteRedirectUseCase } from "./IDeleteRedirectUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { IDeleteRedirectUseCase } from "./IDeleteRedirectUseCase.js";
+import { type DeleteRedirectParams } from "./IDeleteRedirectUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class DeleteRedirectUseCaseWithLoading implements IDeleteRedirectUseCase {

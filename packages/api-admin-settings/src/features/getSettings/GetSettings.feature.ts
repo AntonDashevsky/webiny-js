@@ -1,7 +1,7 @@
 import type { Context as BaseContext } from "@webiny/api-serverless-cms";
 import type { IGetSettingsFeature } from "./abstractions/IGetSettings.feature";
 import type { IGetSettingsRepository } from "./abstractions/IGetSettings.repository";
-import { Settings } from "~/domain/Settings";
+import type { Settings } from "~/domain/Settings";
 import { GetSettingsRepository } from "./GetSettings.repository";
 import { GetSettingsGateway } from "~/infrastructure/GetSettings.gateway";
 

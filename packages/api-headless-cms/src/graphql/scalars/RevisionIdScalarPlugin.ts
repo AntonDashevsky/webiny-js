@@ -1,4 +1,4 @@
-import { GraphQLScalarPlugin } from "@webiny/handler-graphql/types";
+import type { GraphQLScalarPlugin } from "@webiny/handler-graphql/types";
 import { RevisionIdScalar } from "~/graphql/scalars/RevisionId";
 
 export const createRevisionIdScalarPlugin = (): GraphQLScalarPlugin[] => {

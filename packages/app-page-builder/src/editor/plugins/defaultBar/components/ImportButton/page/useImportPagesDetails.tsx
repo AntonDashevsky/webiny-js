@@ -3,7 +3,7 @@ import { Text, Scrollbar } from "@webiny/admin-ui";
 import { i18n } from "@webiny/app/i18n";
 import { Link } from "@webiny/react-router";
 import { ShowDetails } from "../styledComponents";
-import { ListImportedPagesResponse } from "~/admin/graphql/pageImportExport.gql";
+import type { ListImportedPagesResponse } from "~/admin/graphql/pageImportExport.gql";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importPage");
 

@@ -1,8 +1,9 @@
-import { createHandlerCore, CreateHandlerCoreParams } from "./plugins";
+import type { CreateHandlerCoreParams } from "./plugins";
+import { createHandlerCore } from "./plugins";
 import { createRawEventHandler, createRawHandler } from "@webiny/handler-aws";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { defaultIdentity } from "./tenancySecurity";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 import { getElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch";
 
 interface CmsHandlerEvent {

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Form, FormAPI, FormOnSubmit } from "@webiny/form";
+import type { FormAPI, FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { CmsDynamicZoneTemplate } from "~/types";
+import type { CmsDynamicZoneTemplate } from "~/types";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
 import { IconPicker } from "~/admin/components/IconPicker";
 import { Tags } from "@webiny/ui/Tags";

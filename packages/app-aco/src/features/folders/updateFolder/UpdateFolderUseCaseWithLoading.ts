@@ -1,6 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
+import type { ILoadingRepository } from "@webiny/app-utils";
 import { LoadingActionsEnum } from "~/types";
-import { IUpdateFolderUseCase, UpdateFolderParams } from "./IUpdateFolderUseCase";
+import type { IUpdateFolderUseCase, UpdateFolderParams } from "./IUpdateFolderUseCase";
 
 export class UpdateFolderUseCaseWithLoading implements IUpdateFolderUseCase {
     private loadingRepository: ILoadingRepository;

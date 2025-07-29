@@ -1,5 +1,5 @@
-import { IGetEntry, IListEntriesOperation } from "~/crud/contentEntry/abstractions";
-import { CmsEntryGetParams, CmsModel } from "~/types";
+import type { IGetEntry, IListEntriesOperation } from "~/crud/contentEntry/abstractions";
+import type { CmsEntryGetParams, CmsModel } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 
 export class GetEntry implements IGetEntry {

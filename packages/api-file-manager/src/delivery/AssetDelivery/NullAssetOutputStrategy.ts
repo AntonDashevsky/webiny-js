@@ -1,4 +1,4 @@
-import { AssetOutputStrategy, AssetReply } from "~/delivery";
+import type { AssetOutputStrategy, AssetReply } from "~/delivery";
 import { NullAssetReply } from "./NullAssetReply";
 
 export class NullAssetOutputStrategy implements AssetOutputStrategy {

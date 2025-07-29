@@ -1,5 +1,5 @@
-import { CmsGroup, CmsModel } from "~/types";
-import { SanitizedCmsGroup, SanitizedCmsModel } from "~/export/types";
+import type { CmsGroup, CmsModel } from "~/types";
+import type { SanitizedCmsGroup, SanitizedCmsModel } from "~/export/types";
 
 export const sanitizeGroup = (group: CmsGroup): SanitizedCmsGroup => {
     return {

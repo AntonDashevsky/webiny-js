@@ -1,5 +1,5 @@
 import dot from "dot-prop-immutable";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 interface Params {
     source: number;

@@ -1,5 +1,6 @@
-import React, { ErrorInfo } from "react";
-import { Element as ElementType } from "~/types";
+import type { ErrorInfo } from "react";
+import React from "react";
+import type { Element as ElementType } from "~/types";
 
 type State =
     | {

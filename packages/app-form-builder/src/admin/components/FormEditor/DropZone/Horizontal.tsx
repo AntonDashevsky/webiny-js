@@ -1,5 +1,6 @@
 import React from "react";
-import { Droppable, IsVisibleCallable, OnDropCallable } from "../Droppable";
+import type { IsVisibleCallable, OnDropCallable } from "../Droppable";
+import { Droppable } from "../Droppable";
 import { cn } from "@webiny/admin-ui";
 
 interface OuterDivProps {

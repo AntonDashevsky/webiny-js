@@ -1,6 +1,7 @@
-import { DocumentNode } from "graphql";
+import type { DocumentNode } from "graphql";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Group, GroupConfig } from "./Group";
+import type { GroupConfig } from "./Group";
+import { Group } from "./Group";
 import { Element } from "./Element";
 import { GET_SETTINGS, UPDATE_SETTINGS } from "../graphql";
 import { createDocumentNodeModifier } from "./DocumentNodeModifier";

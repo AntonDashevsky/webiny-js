@@ -1,4 +1,4 @@
-import { CmsIdentity, FolderPermission } from "~/types";
+import type { CmsIdentity, FolderPermission } from "~/types";
 
 export interface FolderGqlDto {
     id: string;

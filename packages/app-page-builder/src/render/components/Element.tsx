@@ -1,7 +1,7 @@
 import React from "react";
-import { PbElement } from "~/types";
+import type { PbElement } from "~/types";
 import { Element as PeElement } from "@webiny/app-page-builder-elements/components/Element";
-import { Element as ElementType } from "@webiny/app-page-builder-elements/types";
+import type { Element as ElementType } from "@webiny/app-page-builder-elements/types";
 
 export interface ElementProps {
     element: PbElement | null;

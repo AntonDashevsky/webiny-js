@@ -1,5 +1,5 @@
-import { SwitchItemFormatted } from "./SwitchItemFormatted";
-import { SwitchItem } from "./SwitchItem";
+import type { SwitchItemFormatted } from "./SwitchItemFormatted";
+import type { SwitchItem } from "./SwitchItem";
 
 export class SwitchItemMapper {
     static toFormatted(item: SwitchItem): SwitchItemFormatted {

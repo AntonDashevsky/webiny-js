@@ -1,4 +1,4 @@
-import { CmsModelFieldValidatorPlugin } from "~/types";
+import type { CmsModelFieldValidatorPlugin } from "~/types";
 import { validation } from "@webiny/validation";
 
 const plugin: CmsModelFieldValidatorPlugin = {

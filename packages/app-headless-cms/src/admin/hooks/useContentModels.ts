@@ -1,8 +1,8 @@
 import * as GQL from "~/admin/viewsGraphql";
-import { ListCmsModelsQueryResponse, ListCmsModelsQueryVariables } from "~/admin/viewsGraphql";
+import type { ListCmsModelsQueryResponse, ListCmsModelsQueryVariables } from "~/admin/viewsGraphql";
 import { useQuery } from "~/admin/hooks/index";
 import { useMemo } from "react";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 /**
  * @deprecated Use `useModels` hook instead.

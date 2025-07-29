@@ -1,4 +1,4 @@
-import { ApwChangeRequest, ApwContentReviewCrud, LifeCycleHookCallbackParams } from "~/types";
+import type { ApwChangeRequest, ApwContentReviewCrud, LifeCycleHookCallbackParams } from "~/types";
 import {
     extractContentReviewIdAndStep,
     updateContentReview,

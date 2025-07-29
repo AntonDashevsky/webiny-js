@@ -1,6 +1,7 @@
 import React from "react";
 import { cn, makeDecoratable } from "~/utils";
-import { CheckboxItemDto, CheckboxItemFormatted, CheckboxPrimitiveRenderer } from "~/Checkbox";
+import type { CheckboxItemDto, CheckboxItemFormatted } from "~/Checkbox";
+import { CheckboxPrimitiveRenderer } from "~/Checkbox";
 import { useCheckboxGroup } from "./useCheckboxGroup";
 
 interface CheckboxGroupPrimitiveProps<TValue = any> {

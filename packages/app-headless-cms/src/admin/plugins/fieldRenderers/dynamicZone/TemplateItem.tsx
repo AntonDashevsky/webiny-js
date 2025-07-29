@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { CmsDynamicZoneTemplate } from "~/types";
+import type { CmsDynamicZoneTemplate } from "~/types";
 import { TemplateIcon } from "~/admin/plugins/fieldRenderers/dynamicZone/TemplateIcon";
 import { Button, Heading, Text } from "@webiny/admin-ui";
 

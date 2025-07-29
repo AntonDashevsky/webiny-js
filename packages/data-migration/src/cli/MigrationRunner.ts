@@ -1,6 +1,7 @@
-import { InvokeCommand, LambdaClient } from "@webiny/aws-sdk/client-lambda";
-import { MigrationStatusReporter } from "~/cli/MigrationStatusReporter";
-import {
+import type { LambdaClient } from "@webiny/aws-sdk/client-lambda";
+import { InvokeCommand } from "@webiny/aws-sdk/client-lambda";
+import type { MigrationStatusReporter } from "~/cli/MigrationStatusReporter";
+import type {
     MigrationEventHandlerResponse,
     MigrationInvocationErrorResponse,
     MigrationStatus,

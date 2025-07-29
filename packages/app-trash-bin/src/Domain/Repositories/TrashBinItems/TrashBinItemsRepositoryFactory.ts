@@ -1,6 +1,6 @@
-import { IMetaRepository } from "@webiny/app-utils";
-import { ITrashBinItemMapper } from "~/Domain";
-import {
+import type { IMetaRepository } from "@webiny/app-utils";
+import type { ITrashBinItemMapper } from "~/Domain";
+import type {
     ITrashBinBulkActionsGateway,
     ITrashBinDeleteItemGateway,
     ITrashBinListGateway,

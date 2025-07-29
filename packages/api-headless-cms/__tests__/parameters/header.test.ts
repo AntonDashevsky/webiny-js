@@ -1,5 +1,5 @@
 import { createHeaderParameterPlugin } from "~/parameters";
-import { ApiEndpoint, CmsContext } from "~/types";
+import type { ApiEndpoint, CmsContext } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 
 const TYPE = "x-webiny-cms-endpoint";

@@ -15,7 +15,7 @@ import {
 } from "lexical";
 import { $findMatchingParent, mergeRegister } from "@lexical/utils";
 import { FloatingLinkEditor } from "./FloatingLinkEditor";
-import { LinkEditForm } from "./LinkEditForm";
+import type { LinkEditForm } from "./LinkEditForm";
 
 interface FloatingLinkEditorProps {
     anchorElem: () => HTMLElement;

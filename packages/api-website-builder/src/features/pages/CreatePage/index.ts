@@ -1,7 +1,7 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { CreatePage } from "./CreatePage";
 import { CreatePageWithEvents } from "./CreatePageWithEvents";
-import {
+import type {
     OnPageAfterCreateTopicParams,
     OnPageBeforeCreateTopicParams,
     WbPagesStorageOperations

@@ -1,11 +1,12 @@
-import { ExportRevisionType, ImportExportTaskStatus, PbImportExportContext } from "~/types";
+import type { PbImportExportContext } from "~/types";
+import { ExportRevisionType, ImportExportTaskStatus } from "~/types";
 import { invokeHandlerClient } from "~/client";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { Payload as ExtractPayload } from "../combine";
+import type { Payload as ExtractPayload } from "../combine";
 import { mockSecurity } from "~/mockSecurity";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { zeroPad } from "@webiny/utils";
-import { Configuration, Payload, Response } from "~/export/process";
+import type { Configuration, Payload, Response } from "~/export/process";
 import { FormExporter } from "./exporters/FormExporter";
 
 /**

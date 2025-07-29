@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
 import { createEntryHooks } from "~/hooks/entry";
-import { HcmsAcoContext } from "~/types";
+import type { HcmsAcoContext } from "~/types";
 
 export const createAcoHcmsContext = () => {
     const plugin = new ContextPlugin<HcmsAcoContext>(async context => {

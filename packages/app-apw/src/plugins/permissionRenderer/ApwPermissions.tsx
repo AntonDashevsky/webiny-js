@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from "react";
 import { i18n } from "@webiny/app/i18n";
 import { PermissionInfo, gridWithPaddingClass } from "@webiny/app-admin/components/Permissions";
 import { Form } from "@webiny/form";
-import { ApwSecurityPermission } from "~/types";
+import type { ApwSecurityPermission } from "~/types";
 import { Grid, Select } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-apw/plugins/permissionRenderer");

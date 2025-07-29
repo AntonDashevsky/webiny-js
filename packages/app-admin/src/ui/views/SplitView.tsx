@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { css } from "emotion";
 import { Grid } from "@webiny/ui/Grid";
-import { UIElement } from "~/ui/UIElement";
+import type { UIElement } from "~/ui/UIElement";
 import { SplitViewPanelElement } from "./SplitView/SplitViewPanelElement";
 import { UIView } from "../UIView";
 

@@ -1,4 +1,4 @@
-import {
+import type {
     IResponse,
     IResponseError,
     ITaskResponse,
@@ -9,7 +9,7 @@ import {
     ITaskResponseDoneResultOutput,
     ITaskResponseErrorResult
 } from "./abstractions";
-import { ITaskDataInput } from "~/types";
+import type { ITaskDataInput } from "~/types";
 import { getErrorProperties } from "~/utils/getErrorProperties";
 
 /**

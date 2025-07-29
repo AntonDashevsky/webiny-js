@@ -1,4 +1,4 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import useGqlHandler from "./useGqlHandler";
 import * as mocks from "./mocks/form.mocks";
 

@@ -1,11 +1,11 @@
-import {
+import type {
     CmsEntry as BaseCmsEntry,
     OnEntryBeforePublishTopicParams,
     OnEntryAfterPublishTopicParams,
     OnEntryAfterUnpublishTopicParams,
     CmsEntryListSort
 } from "@webiny/api-headless-cms/types";
-import {
+import type {
     Page,
     OnPageBeforeCreateTopicParams,
     OnPageBeforeCreateFromTopicParams,
@@ -13,17 +13,17 @@ import {
     OnPageBeforePublishTopicParams,
     PageSettings
 } from "@webiny/api-page-builder/types";
-import { Context } from "@webiny/api/types";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { Topic } from "@webiny/pubsub/types";
-import { ApwScheduleActionCrud, ScheduleActionContext } from "~/scheduler/types";
-import HandlerClient from "@webiny/handler-client/HandlerClient";
-import { PluginsContainer } from "@webiny/plugins";
-import { WcpContextObject } from "@webiny/api-wcp/types";
-import { MailerContext } from "@webiny/api-mailer/types";
+import type { Context } from "@webiny/api/types";
+import type { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { ApwScheduleActionCrud, ScheduleActionContext } from "~/scheduler/types";
+import type HandlerClient from "@webiny/handler-client/HandlerClient";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { WcpContextObject } from "@webiny/api-wcp/types";
+import type { MailerContext } from "@webiny/api-mailer/types";
 
 export interface ApwCmsEntry extends BaseCmsEntry {
     title: string;

@@ -1,4 +1,4 @@
-import { ICreateQueryFactory } from "./types";
+import type { ICreateQueryFactory } from "./types";
 
 export const createQueryFactory: ICreateQueryFactory = ({ invoke }) => {
     return ({ query }) => {

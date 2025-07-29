@@ -1,18 +1,20 @@
 import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
+import type {
     Cell,
     Column,
     ColumnDef,
     ColumnSort,
-    flexRender,
-    getCoreRowModel,
-    getSortedRowModel,
     OnChangeFn,
     Row,
     RowSelectionState,
     SortingState,
-    useReactTable,
     VisibilityState
+} from "@tanstack/react-table";
+import {
+    flexRender,
+    getCoreRowModel,
+    getSortedRowModel,
+    useReactTable
 } from "@tanstack/react-table";
 import { CheckboxPrimitive } from "~/Checkbox";
 import { Skeleton } from "~/Skeleton";

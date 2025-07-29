@@ -1,4 +1,4 @@
-import { FieldFactory } from "~tests/validations/fields/types";
+import type { FieldFactory } from "~tests/validations/fields/types";
 
 const createFieldFactory: FieldFactory = base => {
     return field => {

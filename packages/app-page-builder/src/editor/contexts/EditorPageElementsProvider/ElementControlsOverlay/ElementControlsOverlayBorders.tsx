@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { CSSObject } from "@emotion/react";
+import type { CSSObject } from "@emotion/react";
 
 declare global {
     // eslint-disable-next-line

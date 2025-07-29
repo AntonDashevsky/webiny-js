@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { HeadlessCmsImport, ValidCmsGroupResult, ValidCmsModelResult } from "~/export/types";
-import { CmsContext } from "~/types";
+import type { HeadlessCmsImport, ValidCmsGroupResult, ValidCmsModelResult } from "~/export/types";
+import type { CmsContext } from "~/types";
 import { importData } from "./imports/importData";
 import { validateInput } from "./imports/validateInput";
 

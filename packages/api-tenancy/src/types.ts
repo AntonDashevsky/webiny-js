@@ -1,7 +1,7 @@
-import { DbContext } from "@webiny/handler-db/types";
-import { Topic } from "@webiny/pubsub/types";
-import { WcpContext } from "@webiny/api-wcp/types";
-import { Context as BaseContext } from "@webiny/handler/types";
+import type { DbContext } from "@webiny/handler-db/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { WcpContext } from "@webiny/api-wcp/types";
+import type { Context as BaseContext } from "@webiny/handler/types";
 
 export interface TenantDomain {
     fqdn: string;

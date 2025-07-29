@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useEffect, useState } from "react";
 import { ThemeProvider } from "@emotion/react";
-import {
+import type {
     AssignStylesCallback,
     ElementStylesCallback,
     GetElementAttributes,

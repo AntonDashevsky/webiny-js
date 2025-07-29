@@ -1,4 +1,4 @@
-import { SecurityPermission, SecurityIdentity, CreatedBy } from "~/types";
+import type { SecurityPermission, SecurityIdentity, CreatedBy } from "~/types";
 import NotAuthorizedError from "~/NotAuthorizedError";
 
 const FULL_ACCESS_PERMISSION_NAME = "*";

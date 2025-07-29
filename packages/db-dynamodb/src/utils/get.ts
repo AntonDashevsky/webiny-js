@@ -1,4 +1,4 @@
-import { Entity } from "~/toolbox";
+import type { Entity } from "~/toolbox";
 import { cleanupItem } from "~/utils/cleanup";
 
 export interface GetRecordParamsKeys {

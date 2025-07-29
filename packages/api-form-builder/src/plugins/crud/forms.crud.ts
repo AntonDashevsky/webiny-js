@@ -1,6 +1,6 @@
 import slugify from "slugify";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     FbForm,
     FbFormStats,
     FormBuilder,
@@ -23,12 +23,12 @@ import {
     OnFormRevisionBeforeDeleteTopicParams
 } from "~/types";
 import WebinyError from "@webiny/error";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 import { createIdentifier, createZodError, mdbid } from "@webiny/utils";
 import { createTopic } from "@webiny/pubsub";
 import { getStatus } from "./utils";
-import { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions";
+import type { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions";
 import { FormCreateDataModel, FormSettingsModel, FormUpdateDataModel } from "./forms.models";
 
 export interface CreateFormsCrudParams {

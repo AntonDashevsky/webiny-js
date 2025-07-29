@@ -1,5 +1,6 @@
-import { CmsContext } from "~/types";
-import { CmsImportAction, CmsModelImportResult, ValidCmsModelResult } from "~/export/types";
+import type { CmsContext } from "~/types";
+import type { CmsModelImportResult, ValidCmsModelResult } from "~/export/types";
+import { CmsImportAction } from "~/export/types";
 
 interface Params {
     context: CmsContext;

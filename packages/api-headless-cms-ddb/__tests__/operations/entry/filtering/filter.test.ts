@@ -1,8 +1,9 @@
 import { createEntries } from "./mocks/entry.model";
-import { createExpressions, Expression } from "~/operations/entry/filtering/createExpressions";
-import { PluginsContainer } from "@webiny/plugins";
-import { CmsModel } from "@webiny/api-headless-cms/types";
-import { Field } from "~/operations/entry/filtering/types";
+import type { Expression } from "~/operations/entry/filtering/createExpressions";
+import { createExpressions } from "~/operations/entry/filtering/createExpressions";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type { Field } from "~/operations/entry/filtering/types";
 import { createPluginsContainer } from "../../helpers/pluginsContainer";
 import { createModel } from "../../helpers/createModel";
 import { createFields } from "~/operations/entry/filtering/createFields";

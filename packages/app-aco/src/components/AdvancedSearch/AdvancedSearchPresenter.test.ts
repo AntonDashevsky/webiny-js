@@ -1,12 +1,7 @@
 import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter";
-import {
-    FilterDTO,
-    FilterGroupDTO,
-    FilterGroupFilterDTO,
-    FilterRepository,
-    Operation
-} from "./domain";
-import { FiltersGatewayInterface } from "./gateways";
+import type { FilterDTO, FilterGroupDTO, FilterGroupFilterDTO } from "./domain";
+import { FilterRepository, Operation } from "./domain";
+import type { FiltersGatewayInterface } from "./gateways";
 
 const mockGateway: FiltersGatewayInterface = {
     list: jest.fn(),

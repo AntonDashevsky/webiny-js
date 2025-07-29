@@ -2,14 +2,13 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { renderPlugins } from "@webiny/app/plugins";
 import { useRouter } from "@webiny/react-router";
-import {
-    GET_FORM,
-    GET_FORM_REVISIONS,
+import type {
     GetFormRevisionQueryResponse,
     GetFormRevisionQueryVariables,
     GetFormRevisionsQueryResponse,
     GetFormRevisionsQueryVariables
 } from "../../graphql";
+import { GET_FORM, GET_FORM_REVISIONS } from "../../graphql";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useSecurity } from "@webiny/app-security";
 import EmptyView from "@webiny/app-admin/components/EmptyView";
@@ -18,7 +17,7 @@ import { ReactComponent as CheckboxIcon } from "@webiny/icons/check_box.svg";
 import { i18n } from "@webiny/app/i18n";
 import { useForms } from "./useForms";
 import { Button, OverlayLoader, Tabs } from "@webiny/admin-ui";
-import { TabProps } from "@webiny/admin-ui/Tabs/components";
+import type { TabProps } from "@webiny/admin-ui/Tabs/components";
 
 const t = i18n.ns("app-form-builder/admin/views/forms/form-details");
 

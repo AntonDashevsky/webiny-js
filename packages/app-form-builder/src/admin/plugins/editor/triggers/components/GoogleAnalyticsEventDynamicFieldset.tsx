@@ -6,7 +6,7 @@ import { Input } from "@webiny/ui/Input";
 import { Typography } from "@webiny/ui/Typography";
 import { ButtonSecondary, ButtonDefault } from "@webiny/ui/Button";
 import { validation } from "@webiny/validation";
-import { BindComponent } from "@webiny/form";
+import type { BindComponent } from "@webiny/form";
 
 const Header = styled.div`
     display: flex;

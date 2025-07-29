@@ -1,5 +1,5 @@
-import { ModelField, ModelFields } from "~/operations/entry/elasticsearch/types";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { ModelField, ModelFields } from "~/operations/entry/elasticsearch/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 export interface Fields extends ModelFields {
     id: ModelField;

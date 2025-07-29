@@ -6,7 +6,8 @@ import type {
     ResolvedComponent
 } from "~/types";
 import { logger } from "./Logger";
-import { BindingsResolver, OnResolved } from "./BindingsResolver";
+import type { OnResolved } from "./BindingsResolver";
+import { BindingsResolver } from "./BindingsResolver";
 import { ComponentManifestToAstConverter } from "~/ComponentManifestToAstConverter";
 
 export type ResolveElementParams = {

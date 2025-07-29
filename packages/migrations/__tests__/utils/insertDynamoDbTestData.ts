@@ -1,5 +1,5 @@
 import chunk from "lodash/chunk";
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { BatchWriteCommand } from "@webiny/aws-sdk/client-dynamodb";
 

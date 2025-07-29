@@ -2,7 +2,7 @@ import uniqid from "uniqid";
 import lodashGet from "lodash/get";
 import DataLoader from "dataloader";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     CreatedBy,
     OnPageBeforeCreateTopicParams,
     Page,
@@ -24,7 +24,7 @@ import {
 import { processPageContent } from "./pages/processPageContent";
 import WebinyError from "@webiny/error";
 import lodashTrimEnd from "lodash/trimEnd";
-import {
+import type {
     FlushParams,
     OnPageAfterCreateFromTopicParams,
     OnPageAfterCreateTopicParams,
@@ -50,7 +50,7 @@ import {
     zeroPad
 } from "@webiny/utils";
 import { createCompression } from "~/graphql/crud/pages/compression";
-import { PagesPermissions } from "./permissions/PagesPermissions";
+import type { PagesPermissions } from "./permissions/PagesPermissions";
 import { PageContent } from "./pages/PageContent";
 import { getDate } from "~/graphql/crud/utils/getDate";
 import { getIdentity } from "~/graphql/crud/utils/getIdentity";

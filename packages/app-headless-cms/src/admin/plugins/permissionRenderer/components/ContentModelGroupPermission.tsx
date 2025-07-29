@@ -2,8 +2,8 @@ import React, { useCallback } from "react";
 import { i18n } from "@webiny/app/i18n";
 import { PermissionSelector } from "./PermissionSelector";
 import { useCmsData } from "./useCmsData";
-import { BindComponent } from "@webiny/form/types";
-import { CmsSecurityPermission } from "~/types";
+import type { BindComponent } from "@webiny/form/types";
+import type { CmsSecurityPermission } from "~/types";
 import { Grid, Select } from "@webiny/admin-ui";
 import { PermissionsGroup } from "@webiny/app-admin/components/Permissions";
 

@@ -1,4 +1,4 @@
-import { IRecordLockingLockRecord, IRecordLockingLockRecordEntryType } from "~/types";
+import type { IRecordLockingLockRecord, IRecordLockingLockRecordEntryType } from "~/types";
 
 export interface ILockEntryUseCaseExecuteParams {
     id: string;

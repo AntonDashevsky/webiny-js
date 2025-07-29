@@ -1,4 +1,4 @@
-import { CmsModel, CmsModelField, CmsModelFieldTypePlugin } from "~/types";
+import type { CmsModel, CmsModelField, CmsModelFieldTypePlugin } from "~/types";
 import { plugins } from "@webiny/plugins";
 
 interface CreateFieldsListParams {

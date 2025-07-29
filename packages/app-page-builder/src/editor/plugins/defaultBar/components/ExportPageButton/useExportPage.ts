@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useDialog } from "@webiny/app-admin/hooks/useDialog";
-import {
-    EXPORT_PAGES,
+import type {
     ExportPagesResponse,
     ExportPagesVariables
 } from "~/admin/graphql/pageImportExport.gql";
+import { EXPORT_PAGES } from "~/admin/graphql/pageImportExport.gql";
 import useExportPageDialog from "./useExportPageDialog";
 
 const useExportPage = () => {

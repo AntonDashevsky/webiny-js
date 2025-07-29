@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { ApwContext } from "~/types";
+import type { ApwContext } from "~/types";
 import { deleteCommentsAfterChangeRequest } from "./deleteCommentsAfterChangeRequest";
 import { deleteChangeRequestsWithContentReview } from "./deleteChangeRequestsAfterContentReview";
 import { createReviewerFromIdentity } from "./createReviewerFromIdentity";

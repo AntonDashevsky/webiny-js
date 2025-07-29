@@ -1,6 +1,5 @@
 import React from "react";
-import {
-    DataTable as AdminDataTable,
+import type {
     DataTableColumn,
     DataTableColumns,
     DataTableColumnSort,
@@ -12,6 +11,7 @@ import {
     OnDataTableColumnVisibilityChange,
     OnDataTableSortingChange
 } from "@webiny/admin-ui";
+import { DataTable as AdminDataTable } from "@webiny/admin-ui";
 
 /**
  * @deprecated @webiny/ui package is deprecated and will be removed in future releases.

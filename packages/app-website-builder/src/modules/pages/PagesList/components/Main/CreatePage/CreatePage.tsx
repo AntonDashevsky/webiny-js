@@ -4,7 +4,7 @@ import { useBind } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { useDialogs } from "@webiny/app-admin";
 import { useCreatePage } from "~/features/pages";
-import { CreatePageParams } from "~/features/pages/createPage/ICreatePageUseCase";
+import type { CreatePageParams } from "~/features/pages/createPage/ICreatePageUseCase";
 import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl";
 import { useRouter } from "@webiny/react-router";
 import { useGetPageType, usePageTypes } from "~/features";

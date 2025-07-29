@@ -1,4 +1,4 @@
-import { CmsModelFieldPatternValidatorPlugin } from "~/types";
+import type { CmsModelFieldPatternValidatorPlugin } from "~/types";
 
 export const createUpperCasePatternValidator = (): CmsModelFieldPatternValidatorPlugin => {
     return {

@@ -14,8 +14,8 @@ import {
     SimpleButton,
     ButtonContainer
 } from "../../elementSettings/components/StyledComponents";
-import { BindComponent } from "@webiny/form";
-import { FileManagerFileItem } from "@webiny/app-admin";
+import type { BindComponent } from "@webiny/form";
+import type { FileManagerFileItem } from "@webiny/app-admin";
 
 const style = {
     addImagesButton: css({ clear: "both", padding: "20px 10px", textAlign: "center" }),

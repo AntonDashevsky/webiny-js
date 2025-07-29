@@ -1,9 +1,9 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { GenericRecord } from "@webiny/app/types";
+import type { GenericRecord } from "@webiny/app/types";
 import { WebinyError } from "@webiny/error";
-import { IGetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionGateway";
-import { TranslatedCollectionDto } from "~/translations/translatedCollection/getTranslatedCollection/TranslatedCollectionDto";
+import type { IGetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionGateway";
+import type { TranslatedCollectionDto } from "~/translations/translatedCollection/getTranslatedCollection/TranslatedCollectionDto";
 
 const QUERY = gql`
     query GetTranslatedCollection($collectionId: ID!, $languageCode: String!) {

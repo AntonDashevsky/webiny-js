@@ -1,7 +1,7 @@
 import omit from "lodash/omit";
-import { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
-import { Security } from "@webiny/api-security/types";
-import {
+import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { Security } from "@webiny/api-security/types";
+import type {
     File,
     FileManagerAliasesStorageOperations,
     FileManagerFilesStorageOperations,

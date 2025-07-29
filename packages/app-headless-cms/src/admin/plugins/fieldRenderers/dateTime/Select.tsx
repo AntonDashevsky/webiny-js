@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Select as UiSelect, SelectProps as UiSelectProps } from "@webiny/admin-ui";
+import type { SelectProps as UiSelectProps } from "@webiny/admin-ui";
+import { Select as UiSelect } from "@webiny/admin-ui";
 
 export interface Option {
     value: string;

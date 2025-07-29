@@ -2,14 +2,14 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useTenancy } from "@webiny/app-tenancy";
 import { useI18N } from "@webiny/app-i18n";
 import { useSecurity } from "@webiny/app-security";
-import {
+import type {
     IncomingGenericData,
     IWebsocketsContext,
     IWebsocketsContextSendCallable,
     IWebsocketsManagerCloseEvent,
-    IWebsocketsManagerErrorEvent,
-    WebsocketsCloseCode
+    IWebsocketsManagerErrorEvent
 } from "~/types";
+import { WebsocketsCloseCode } from "~/types";
 import {
     createWebsocketsAction,
     createWebsocketsActions,
@@ -17,7 +17,7 @@ import {
     createWebsocketsManager,
     createWebsocketsSubscriptionManager
 } from "./domain";
-import { IGenericData, IWebsocketsManager } from "./domain/types";
+import type { IGenericData, IWebsocketsManager } from "./domain/types";
 import { getUrl } from "./utils/getUrl";
 
 export interface IWebsocketsContextProviderProps {

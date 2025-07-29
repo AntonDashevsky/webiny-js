@@ -4,8 +4,8 @@ import { Text, Scrollbar } from "@webiny/admin-ui";
 import { i18n } from "@webiny/app/i18n";
 import { Link } from "@webiny/react-router";
 import { ShowDetails } from "../styledComponents";
-import { ListTemplateImportExportSubTasksResponse } from "~/admin/graphql/templateImportExport.gql";
-import { PageBuilderImportExportSubTask } from "~/types";
+import type { ListTemplateImportExportSubTasksResponse } from "~/admin/graphql/templateImportExport.gql";
+import type { PageBuilderImportExportSubTask } from "~/types";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importTemplate");
 

@@ -3,8 +3,8 @@ import { Form } from "@webiny/form";
 import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete";
 import { CategoriesAutocomplete } from "~/admin/components/CategoriesAutocomplete";
 import { validation } from "@webiny/validation";
-import { FormOnSubmit } from "@webiny/form/types";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import type { FormOnSubmit } from "@webiny/form/types";
+import type { MenuTreeItem } from "~/admin/views/Menus/types";
 import { Button, Grid, Heading, Input, Select } from "@webiny/admin-ui";
 
 interface LinkFormProps {

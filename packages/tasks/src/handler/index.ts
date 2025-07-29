@@ -1,11 +1,12 @@
 import { createHandler as createBaseHandler } from "@webiny/handler";
 import { registerDefaultPlugins } from "@webiny/handler-aws/plugins";
 import { execute } from "@webiny/handler-aws/execute";
-import { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types";
-import { Context, TaskResponseStatus } from "~/types";
-import { HandlerParams, ITaskRawEvent } from "~/handler/types";
+import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types";
+import type { Context } from "~/types";
+import { TaskResponseStatus } from "~/types";
+import type { HandlerParams, ITaskRawEvent } from "~/handler/types";
 import { TaskRunner } from "~/runner";
-import WebinyError from "@webiny/error";
+import type WebinyError from "@webiny/error";
 import { timerFactory } from "@webiny/handler-aws/utils";
 import { TaskEventValidation } from "~/runner/TaskEventValidation";
 

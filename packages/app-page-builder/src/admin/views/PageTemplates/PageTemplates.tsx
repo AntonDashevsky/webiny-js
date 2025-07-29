@@ -8,7 +8,7 @@ import { useStateWithCallback } from "@webiny/app-admin/hooks";
 import PageTemplatesDataList from "./PageTemplatesDataList";
 import { PageTemplateDetails } from "./PageTemplateDetails";
 import { CreatePageTemplateDialog } from "./CreatePageTemplateDialog";
-import { PbPageTemplate } from "~/types";
+import type { PbPageTemplate } from "~/types";
 import { useTemplatesPermissions } from "~/hooks/permissions";
 import { useCreatePageTemplate, useDeletePageTemplate } from "~/features";
 

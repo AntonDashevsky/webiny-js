@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { OverlayLoader } from "@webiny/admin-ui";
-import { CmsModel } from "@webiny/app-headless-cms/types";
+import type { CmsModel } from "@webiny/app-headless-cms/types";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_FILE_MODEL } from "~/modules/FileManagerApiProvider/graphql";
 

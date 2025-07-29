@@ -1,13 +1,7 @@
-import React, {
-    ComponentType,
-    createContext,
-    useCallback,
-    useContext,
-    useMemo,
-    useState
-} from "react";
+import type { ComponentType } from "react";
+import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { useCompositionScope } from "~/CompositionScope";
-import {
+import type {
     ComposedFunction,
     ComposeWith,
     Decoratable,

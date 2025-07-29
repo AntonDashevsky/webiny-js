@@ -6,7 +6,7 @@ import {
 } from "@webiny/handler-graphql";
 import { ensureAuthentication } from "~/utils/ensureAuthentication";
 import { resolve } from "~/utils/resolve";
-import { WebsiteBuilderContext } from "~/context/types";
+import type { WebsiteBuilderContext } from "~/context/types";
 import { redirectsTypeDefs } from "~/graphql/redirects/redirects.typeDefs";
 
 export const createRedirectsSchema = () => {

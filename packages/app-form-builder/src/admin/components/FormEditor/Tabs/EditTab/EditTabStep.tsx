@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 import { Button, cn } from "@webiny/admin-ui";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import Draggable, { BeginDragProps } from "~/admin/components/FormEditor/Draggable";
-import { FbFormStep } from "~/types";
+import type { BeginDragProps } from "~/admin/components/FormEditor/Draggable";
+import Draggable from "~/admin/components/FormEditor/Draggable";
+import type { FbFormStep } from "~/types";
 import { Horizontal } from "~/admin/components/FormEditor/DropZone";
 import { useEditTab } from "./EditFieldDialog/useEditTab";
 import { EditTabStepRow } from "./EditTabStepRow";

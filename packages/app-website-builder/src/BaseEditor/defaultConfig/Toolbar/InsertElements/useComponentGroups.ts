@@ -1,5 +1,5 @@
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import {
+import type {
     ComponentGroupFilterContext,
     ComponentManifest,
     SerializedComponentGroup

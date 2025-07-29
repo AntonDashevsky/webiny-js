@@ -4,7 +4,7 @@ import {
     onLocaleAfterDeleteHook
 } from "./locales";
 
-import { AuditLogsContext } from "~/types";
+import type { AuditLogsContext } from "~/types";
 
 export const createI18NHooks = (context: AuditLogsContext) => {
     onLocaleAfterCreateHook(context);

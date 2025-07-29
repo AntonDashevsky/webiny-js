@@ -6,7 +6,8 @@ import { DropdownMenuSubTrigger } from "./DropdownMenuSubTrigger";
 import { DropdownMenuPortal } from "./DropdownMenuPortal";
 import { DropdownMenuSubContent } from "./DropdownMenuSubContent";
 import { DropdownMenuItemIcon, type DropdownMenuItemIconProps } from "./DropdownMenuItemIcon";
-import { Link, LinkProps, To } from "@webiny/react-router";
+import type { LinkProps, To } from "@webiny/react-router";
+import { Link } from "@webiny/react-router";
 
 interface DropdownMenuItemBaseProps {
     icon?: React.ReactNode;

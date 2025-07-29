@@ -1,4 +1,4 @@
-import { Field, FieldDTO, Operator, OperatorDTO } from "./Field";
+import type { Field, FieldDTO, Operator, OperatorDTO } from "./Field";
 
 export class FieldMapper {
     static toDTO(configuration: Field[]): FieldDTO[] {

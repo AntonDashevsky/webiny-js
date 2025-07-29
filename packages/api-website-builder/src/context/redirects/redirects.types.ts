@@ -1,7 +1,7 @@
 import type { WbIdentity, WbLocation } from "~/context/types";
-import { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
 import type { Topic } from "@webiny/pubsub/types";
-import {
+import type {
     ListWbRedirectsParams,
     WbListMeta
 } from "~/features/redirects/ListRedirects/IListRedirects";

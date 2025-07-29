@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { CmsEntry, CmsGroup, CmsModel } from "~/types";
+import type { CmsEntry, CmsGroup, CmsModel } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";

@@ -1,4 +1,4 @@
-import {
+import type {
     IGenericData,
     IWebsocketsActions,
     IWebsocketsActionsRunParams,

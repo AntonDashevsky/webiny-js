@@ -24,7 +24,7 @@ import {
 
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { PbMenu } from "~/types";
+import type { PbMenu } from "~/types";
 import { useMenusPermissions } from "~/hooks/permissions";
 
 const t = i18n.ns("app-page-builder/admin/menus/data-list");

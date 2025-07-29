@@ -10,7 +10,7 @@ import {
     getUnpublishPageUseCase,
     getUpdatePagerUseCase
 } from "~/features/pages";
-import {
+import type {
     OnPageAfterCreateRevisionFromTopicParams,
     OnPageAfterCreateTopicParams,
     OnPageAfterDeleteTopicParams,

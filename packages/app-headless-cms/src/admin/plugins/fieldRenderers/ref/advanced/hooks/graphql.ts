@@ -1,13 +1,13 @@
 import gql from "graphql-tag";
-import {
+import type {
     CmsContentEntryStatusType,
     CmsIdentity,
     CmsErrorResponse,
     CmsMetaResponse,
     CmsModel
 } from "~/types";
-import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
-import { CmsEntryGetEntryVariable } from "~/admin/plugins/fieldRenderers/ref/components/graphql";
+import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import type { CmsEntryGetEntryVariable } from "~/admin/plugins/fieldRenderers/ref/components/graphql";
 
 const fields = `
     data {

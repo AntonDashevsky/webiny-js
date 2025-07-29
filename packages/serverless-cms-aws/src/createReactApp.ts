@@ -1,6 +1,7 @@
-import { createReactPulumiApp, CreateReactPulumiAppParams } from "@webiny/pulumi-aws";
+import type { CreateReactPulumiAppParams } from "@webiny/pulumi-aws";
+import { createReactPulumiApp } from "@webiny/pulumi-aws";
 import { uploadAppToS3 } from "./react/plugins";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 
 export interface CreateReactAppParams extends CreateReactPulumiAppParams {
     plugins?: PluginCollection;

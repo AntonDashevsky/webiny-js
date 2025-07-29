@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins/Plugin";
-import { Context, RouteMethod } from "~/types";
+import type { Context, RouteMethod } from "~/types";
 
 interface RoutePluginCbParams<T extends Context> {
     context: T;

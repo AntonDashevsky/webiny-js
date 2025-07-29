@@ -1,4 +1,5 @@
-import { execute, IExecuteParams } from "~/execute";
+import type { IExecuteParams } from "~/execute";
+import { execute } from "~/execute";
 import { NotEnoughRemainingTimeError } from "~/NotEnoughRemainingTimeError";
 import pRetry from "p-retry";
 import { getNumberEnvVariable } from "./helpers/getNumberEnvVariable";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, useToast } from "@webiny/admin-ui";
 import { useEcommerceApiProvider } from "~/features";
-import { IEcommerceApi } from "~/ecommerce";
+import type { IEcommerceApi } from "~/ecommerce";
 import { useIntegrationsDialog } from "~/modules/integrations/useIntegrationsDialog";
 
 const warningShown = new Set<string>();

@@ -1,5 +1,5 @@
 import sanitizeFilename from "sanitize-filename";
-import { PresignedPostPayloadData } from "~/types";
+import type { PresignedPostPayloadData } from "~/types";
 import { FileExtension } from "~/utils/FileExtension";
 
 export class FileKey {

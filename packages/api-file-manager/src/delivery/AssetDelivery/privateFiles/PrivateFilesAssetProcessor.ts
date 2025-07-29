@@ -1,6 +1,6 @@
-import { File, FileManagerContext } from "~/types";
-import { Asset, AssetProcessor, AssetRequest } from "~/delivery";
-import { AssetAuthorizer } from "./AssetAuthorizer";
+import type { File, FileManagerContext } from "~/types";
+import type { Asset, AssetProcessor, AssetRequest } from "~/delivery";
+import type { AssetAuthorizer } from "./AssetAuthorizer";
 import { NotAuthorizedOutputStrategy } from "./NotAuthorizedOutputStrategy";
 import { RedirectToPublicUrlOutputStrategy } from "./RedirectToPublicUrlOutputStrategy";
 import { RedirectToPrivateUrlOutputStrategy } from "./RedirectToPrivateUrlOutputStrategy";

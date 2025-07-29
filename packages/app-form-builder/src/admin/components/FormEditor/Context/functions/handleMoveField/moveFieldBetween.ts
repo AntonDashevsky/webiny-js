@@ -1,4 +1,4 @@
-import {
+import type {
     FbFormModel,
     FbFormModelField,
     FbFormStep,

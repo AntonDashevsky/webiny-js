@@ -1,7 +1,7 @@
-import { ITaskRunner } from "~/runner/abstractions";
-import { IResponse, IResponseResult } from "~/response/abstractions";
-import { Context } from "~/types";
-import { ITaskEvent } from "~/handler/types";
+import type { ITaskRunner } from "~/runner/abstractions";
+import type { IResponse, IResponseResult } from "~/response/abstractions";
+import type { Context } from "~/types";
+import type { ITaskEvent } from "~/handler/types";
 
 export interface ITaskControl {
     runner: ITaskRunner;

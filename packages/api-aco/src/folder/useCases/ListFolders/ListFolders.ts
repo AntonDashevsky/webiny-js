@@ -1,6 +1,6 @@
 import type { IListFolders } from "./IListFolders";
 import type { AcoFolderStorageOperations, Folder, ListFoldersParams } from "~/folder/folder.types";
-import { ListMeta } from "~/types";
+import type { ListMeta } from "~/types";
 
 export class ListFolders implements IListFolders {
     private readonly listOperation: AcoFolderStorageOperations["listFolders"];

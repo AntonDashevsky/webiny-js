@@ -1,22 +1,26 @@
-import { Plugin } from "@webiny/plugins/types";
-import { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
-import { Context, GenericRecord } from "@webiny/api/types";
-import { GraphQLFieldResolver, GraphQLRequestBody, Resolvers } from "@webiny/handler-graphql/types";
-import { processRequestBody } from "@webiny/handler-graphql";
-import { SecurityPermission } from "@webiny/api-security/types";
-import { DbContext } from "@webiny/handler-db/types";
-import { Topic } from "@webiny/pubsub/types";
-import { CmsModelConverterCallable } from "~/utils/converters/ConverterCollection";
-import { HeadlessCmsExport, HeadlessCmsImport } from "~/export/types";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { CmsModelToAstConverter } from "~/utils/contentModelAst/CmsModelToAstConverter";
-import { CmsModelFieldToGraphQLPlugin } from "./plugins";
-import { CmsEntryContext } from "./context";
-import { CmsModelField, CmsModelFieldValidation, CmsModelUpdateInput } from "./modelField";
-import { CmsModel, CmsModelCreateFromInput, CmsModelCreateInput } from "./model";
-import { CmsGroup } from "./modelGroup";
-import { CmsIdentity } from "./identity";
-import { ISingletonModelManager } from "~/modelManager";
+import type { Plugin } from "@webiny/plugins/types";
+import type { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
+import type { Context, GenericRecord } from "@webiny/api/types";
+import type {
+    GraphQLFieldResolver,
+    GraphQLRequestBody,
+    Resolvers
+} from "@webiny/handler-graphql/types";
+import type { processRequestBody } from "@webiny/handler-graphql";
+import type { SecurityPermission } from "@webiny/api-security/types";
+import type { DbContext } from "@webiny/handler-db/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { CmsModelConverterCallable } from "~/utils/converters/ConverterCollection";
+import type { HeadlessCmsExport, HeadlessCmsImport } from "~/export/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { CmsModelToAstConverter } from "~/utils/contentModelAst/CmsModelToAstConverter";
+import type { CmsModelFieldToGraphQLPlugin } from "./plugins";
+import type { CmsEntryContext } from "./context";
+import type { CmsModelField, CmsModelFieldValidation, CmsModelUpdateInput } from "./modelField";
+import type { CmsModel, CmsModelCreateFromInput, CmsModelCreateInput } from "./model";
+import type { CmsGroup } from "./modelGroup";
+import type { CmsIdentity } from "./identity";
+import type { ISingletonModelManager } from "~/modelManager";
 
 export interface CmsError {
     message: string;

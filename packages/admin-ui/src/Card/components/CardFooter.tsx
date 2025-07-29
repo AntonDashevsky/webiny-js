@@ -1,5 +1,5 @@
 import React from "react";
-import { CardProps } from "~/Card";
+import type { CardProps } from "~/Card";
 
 type CardFooterProps = Pick<CardProps, "actions">;
 

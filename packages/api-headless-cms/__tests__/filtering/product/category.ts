@@ -1,4 +1,4 @@
-import { CategoryManager, ProductCategory } from "../../types";
+import type { CategoryManager, ProductCategory } from "../../types";
 
 export const createCategoryFactory = (manager: CategoryManager) => {
     return async (): Promise<ProductCategory> => {

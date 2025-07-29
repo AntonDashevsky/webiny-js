@@ -1,6 +1,7 @@
 import * as React from "react";
 import { makeDecoratable } from "~/utils";
-import { Icon as IconComponent, IconProps as IconComponentProps } from "~/Icon";
+import type { IconProps as IconComponentProps } from "~/Icon";
+import { Icon as IconComponent } from "~/Icon";
 
 type ListItemIconProps = IconComponentProps;
 

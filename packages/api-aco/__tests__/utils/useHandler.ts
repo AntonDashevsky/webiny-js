@@ -1,17 +1,17 @@
 import createGraphQLHandler from "@webiny/handler-graphql";
 import i18nContext from "@webiny/api-i18n/graphql/context";
 import { createEventHandler, createHandler } from "@webiny/handler-aws/raw";
-import { AcoContext } from "~/types";
+import type { AcoContext } from "~/types";
 import { createTenancyAndSecurity } from "./tenancySecurity";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
 import { createAco } from "~/index";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { createIdentity } from "./identity";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 
 export interface UseHandlerParams {

@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Input, Label, Select } from "@webiny/admin-ui";
 import { plugins } from "@webiny/plugins";
 import { validation } from "@webiny/validation";
-import {
+import type {
     FbBuilderFormFieldPatternValidatorPlugin,
     FbBuilderFormFieldValidatorPlugin
 } from "~/types";

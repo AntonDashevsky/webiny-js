@@ -1,7 +1,7 @@
 import { RawEventHandler } from "@webiny/handler-aws/raw";
 import { createScheduledCmsActionEventHandler } from "~/handler/index.js";
 import { registry } from "@webiny/handler-aws/registry.js";
-import { LambdaContext } from "@webiny/handler-aws/types.js";
+import type { LambdaContext } from "@webiny/handler-aws/types.js";
 import { SCHEDULED_CMS_ACTION_EVENT_IDENTIFIER } from "~/constants.js";
 import type { IWebinyScheduledCmsActionEvent } from "~/handler/Handler.js";
 import { createScheduleRecordId } from "~/scheduler/createScheduleRecordId.js";

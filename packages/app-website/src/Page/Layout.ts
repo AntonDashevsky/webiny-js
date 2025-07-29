@@ -1,7 +1,8 @@
-import React, { useMemo, createElement } from "react";
+import type React from "react";
+import { useMemo, createElement } from "react";
 import { plugins } from "@webiny/plugins";
 import { makeDecoratable } from "@webiny/app";
-import { PbPageLayoutPlugin } from "@webiny/app-page-builder/types";
+import type { PbPageLayoutPlugin } from "@webiny/app-page-builder/types";
 import { usePage } from "@webiny/app-page-builder-elements";
 
 export interface LayoutProps {

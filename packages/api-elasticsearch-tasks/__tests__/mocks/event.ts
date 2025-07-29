@@ -1,4 +1,4 @@
-import { ITaskEvent } from "@webiny/tasks/handler/types";
+import type { ITaskEvent } from "@webiny/tasks/handler/types";
 
 export const createMockEvent = (event?: Partial<ITaskEvent>): ITaskEvent => {
     return {

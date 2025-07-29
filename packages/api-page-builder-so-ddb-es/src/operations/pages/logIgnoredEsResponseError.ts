@@ -1,4 +1,4 @@
-import WebinyError from "@webiny/error";
+import type WebinyError from "@webiny/error";
 
 interface LogIgnoredElasticsearchExceptionParams {
     error: WebinyError;

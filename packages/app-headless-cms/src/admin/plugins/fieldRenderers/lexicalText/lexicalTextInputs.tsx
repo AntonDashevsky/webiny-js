@@ -1,7 +1,7 @@
 import React from "react";
 import get from "lodash/get";
 import { i18n } from "@webiny/app/i18n";
-import { CmsModelField, CmsModelFieldRendererPlugin } from "~/types";
+import type { CmsModelField, CmsModelFieldRendererPlugin } from "~/types";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete_outline.svg";
 import DynamicSection from "../DynamicSection";
 import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor";

@@ -1,4 +1,5 @@
-import React, { ReactElement } from "react";
+import type { ReactElement } from "react";
+import React from "react";
 import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as FileIcon } from "@webiny/icons/description.svg";
 

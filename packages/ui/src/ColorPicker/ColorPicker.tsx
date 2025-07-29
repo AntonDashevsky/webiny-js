@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from "react";
 import { ColorPicker as AdminColorPicker } from "@webiny/admin-ui";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 
 interface ColorPickerProps extends FormComponentProps<string> {
     // Component label.

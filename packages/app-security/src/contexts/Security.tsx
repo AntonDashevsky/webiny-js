@@ -1,6 +1,7 @@
 import minimatch from "minimatch";
-import React, { Dispatch, SetStateAction, useCallback, useMemo, useState } from "react";
-import { IdTokenProvider, SecurityIdentity, SecurityPermission } from "~/types";
+import type { Dispatch, SetStateAction } from "react";
+import React, { useCallback, useMemo, useState } from "react";
+import type { IdTokenProvider, SecurityIdentity, SecurityPermission } from "~/types";
 
 export interface SecurityContext {
     identity: SecurityIdentity | null;

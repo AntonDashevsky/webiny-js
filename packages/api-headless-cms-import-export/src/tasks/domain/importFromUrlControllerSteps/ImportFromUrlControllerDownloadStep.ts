@@ -5,7 +5,8 @@ import type {
 } from "~/tasks/domain/abstractions/ImportFromUrlDownload";
 import { IMPORT_FROM_URL_DOWNLOAD_TASK } from "~/tasks/constants";
 import { getBackOffSeconds } from "~/tasks/utils/helpers/getBackOffSeconds";
-import { CmsImportExportFileType, Context } from "~/types";
+import type { Context } from "~/types";
+import { CmsImportExportFileType } from "~/types";
 import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput

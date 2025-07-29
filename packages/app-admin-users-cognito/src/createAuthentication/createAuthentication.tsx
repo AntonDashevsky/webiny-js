@@ -1,14 +1,12 @@
 import React, { useMemo, useState } from "react";
-import { DocumentNode } from "graphql";
-import {
-    createAuthentication as baseCreateAuthentication,
-    AuthenticationFactoryConfig as BaseConfig
-} from "@webiny/app-admin-cognito";
+import type { DocumentNode } from "graphql";
+import type { AuthenticationFactoryConfig as BaseConfig } from "@webiny/app-admin-cognito";
+import { createAuthentication as baseCreateAuthentication } from "@webiny/app-admin-cognito";
 import { useTags } from "@webiny/app-admin";
 import { useTenancy, withTenant } from "@webiny/app-tenancy";
 import { NotAuthorizedError } from "./NotAuthorizedError";
 import { createGetIdentityData, LOGIN_ST, LOGIN_MT } from "~/createGetIdentityData";
-import { GetIdentityDataCallable } from "~/createGetIdentityData/createGetIdentityData";
+import type { GetIdentityDataCallable } from "~/createGetIdentityData/createGetIdentityData";
 
 export interface CreateAuthenticationConfig extends Partial<BaseConfig> {
     loginMutation?: DocumentNode;

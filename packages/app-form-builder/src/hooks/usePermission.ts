@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { FormBuilderSecurityPermission } from "~/types";
+import type { FormBuilderSecurityPermission } from "~/types";
 
 interface CreatableItem {
     createdBy?: {

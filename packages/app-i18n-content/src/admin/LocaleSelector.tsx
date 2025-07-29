@@ -3,7 +3,7 @@ import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
 import { Select } from "@webiny/admin-ui";
 import { LocaleSelector as BaseLocaleSelector } from "@webiny/app-admin";
 import { useSecurity } from "@webiny/app-security";
-import { I18NSecurityPermission } from "@webiny/app-i18n/types";
+import type { I18NSecurityPermission } from "@webiny/app-i18n/types";
 
 export const LocaleSelector = BaseLocaleSelector.createDecorator(() => {
     return function LocaleSelector() {

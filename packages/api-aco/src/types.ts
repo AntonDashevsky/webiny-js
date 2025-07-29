@@ -1,11 +1,11 @@
-import { TenancyContext, Tenant } from "@webiny/api-tenancy/types";
-import { Context as BaseContext } from "@webiny/handler/types";
-import { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
-import { SecurityContext } from "@webiny/api-security/types";
-import { AdminUsersContext } from "@webiny/api-admin-users/types";
-import { FileManagerContext } from "@webiny/api-file-manager/types";
-import { Context as TasksContext } from "@webiny/tasks/types";
-import { CmsContext, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import type { TenancyContext, Tenant } from "@webiny/api-tenancy/types";
+import type { Context as BaseContext } from "@webiny/handler/types";
+import type { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityContext } from "@webiny/api-security/types";
+import type { AdminUsersContext } from "@webiny/api-admin-users/types";
+import type { FileManagerContext } from "@webiny/api-file-manager/types";
+import type { Context as TasksContext } from "@webiny/tasks/types";
+import type { CmsContext, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
 import type {
     AcoSearchRecordCrud,
     AcoSearchRecordCrudBase,
@@ -19,7 +19,7 @@ import type {
     AcoFolderLevelPermissionsCrud,
     AcoFolderLevelPermissionsStorageOperations
 } from "~/flp/flp.types";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 
 export * from "./filter/filter.types";
 export * from "./folder/folder.types";

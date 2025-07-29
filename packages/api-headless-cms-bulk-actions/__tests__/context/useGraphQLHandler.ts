@@ -2,21 +2,21 @@ import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
 import { createHandler } from "@webiny/handler-aws";
 import createGraphQLHandler from "@webiny/handler-graphql";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { createTenancyAndSecurity } from "./tenancySecurity";
 import { until } from "@webiny/project-utils/testing/helpers/until";
 import { getIntrospectionQuery } from "graphql";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import { createDummyLocales, createIdentity, createPermissions } from "~tests/context/helpers";
 import { createBackgroundTaskContext, createBackgroundTaskGraphQL } from "@webiny/tasks";
 import { createHcmsBulkActions } from "~/index";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createI18NContext } from "@webiny/api-i18n";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
-import { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
-import { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
+import type { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
 import createAdminUsersApp from "@webiny/api-admin-users";
 import graphQLHandlerPlugins from "@webiny/handler-graphql";
 

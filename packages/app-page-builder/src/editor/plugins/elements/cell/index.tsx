@@ -2,14 +2,14 @@ import React from "react";
 import kebabCase from "lodash/kebabCase";
 import set from "lodash/set";
 import Cell from "./Cell";
-import {
-    DisplayMode,
+import type {
     PbEditorPageElementPlugin,
     PbEditorPageElementSaveActionPlugin,
     PbEditorElement,
     PbEditorElementPluginArgs
 } from "~/types";
-import { Plugin } from "@webiny/plugins/types";
+import { DisplayMode } from "~/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
 import { createElement } from "~/editor/helpers";
 

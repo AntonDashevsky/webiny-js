@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { reCaptchaEnabled } from "./../functions";
-import { CreateFormParams, FormData } from "../../types";
+import type { CreateFormParams, FormData } from "../../types";
 
 type CreateReCaptchaComponentArgs = {
     createFormParams: CreateFormParams;

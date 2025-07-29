@@ -5,7 +5,7 @@ import type {
     IEntityReadBatchKey
 } from "./types";
 import { WebinyError } from "@webiny/error";
-import { Entity } from "./Entity";
+import type { Entity } from "./Entity";
 import type { EntityOption } from "./getEntity";
 import { getEntity } from "./getEntity";
 

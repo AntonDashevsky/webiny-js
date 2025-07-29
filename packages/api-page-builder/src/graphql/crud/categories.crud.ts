@@ -1,4 +1,4 @@
-import {
+import type {
     CategoriesCrud,
     Category,
     CategoryStorageOperationsGetParams,
@@ -21,8 +21,8 @@ import {
     createCategoryUpdateValidation
 } from "~/graphql/crud/categories/validation";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { CategoriesPermissions } from "~/graphql/crud/permissions/CategoriesPermissions";
-import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions";
+import type { CategoriesPermissions } from "~/graphql/crud/permissions/CategoriesPermissions";
+import type { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions";
 import { getDate } from "~/graphql/crud/utils/getDate";
 import { getIdentity } from "~/graphql/crud/utils/getIdentity";
 

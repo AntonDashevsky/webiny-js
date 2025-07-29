@@ -1,15 +1,13 @@
 import React, { useCallback, useMemo } from "react";
-import {
-    LIST_CONTENT_MODELS,
-    ListCmsModelsQueryResponse,
-    withoutBeingDeletedModels
-} from "../../viewsGraphql";
+import type { ListCmsModelsQueryResponse } from "../../viewsGraphql";
+import { LIST_CONTENT_MODELS, withoutBeingDeletedModels } from "../../viewsGraphql";
 import { validation, ValidationError } from "@webiny/validation";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CmsModel, CmsModelFieldTypePlugin } from "~/types";
+import type { CmsModel, CmsModelFieldTypePlugin } from "~/types";
 import { ReactComponent as RefIcon } from "@webiny/icons/link.svg";
 import { i18n } from "@webiny/app/i18n";
-import { Bind, BindComponentRenderProp, useForm } from "@webiny/form";
+import type { BindComponentRenderProp } from "@webiny/form";
+import { Bind, useForm } from "@webiny/form";
 import { useModel, useQuery } from "~/admin/hooks";
 import { renderInfo } from "./ref/renderInfo";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";

@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/react-hooks";
 import dotPropImmutable from "dot-prop-immutable";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import { IS_REVIEW_REQUIRED_QUERY } from "~/plugins/graphql";
 
 export const useContentReviewId = (id: string, model: CmsModel): string | null => {

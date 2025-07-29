@@ -2,15 +2,14 @@
  * TODO @ts-refactor
  * Added a lot of casts so clean those and write proper checks.
  */
-import {
-    Project,
+import type {
     InterfaceDeclaration,
     ImportDeclaration,
-    Node,
     ImportClause,
     ImportSpecifier,
     Identifier
 } from "ts-morph";
+import { Project, Node } from "ts-morph";
 
 interface ContextMeta {
     i18n: boolean;

@@ -1,8 +1,8 @@
-import { Sort as esSort } from "@webiny/api-elasticsearch/types";
+import type { Sort as esSort } from "@webiny/api-elasticsearch/types";
 import { createSort, ElasticsearchFieldPlugin } from "@webiny/api-elasticsearch";
-import { PluginsContainer } from "@webiny/plugins";
-import { CmsEntryListSort, CmsModel } from "@webiny/api-headless-cms/types";
-import { ModelFields } from "./types";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { CmsEntryListSort, CmsModel } from "@webiny/api-headless-cms/types";
+import type { ModelFields } from "./types";
 import { hasKeyword } from "~/operations/entry/elasticsearch/keyword";
 import { createSearchPluginList } from "~/operations/entry/elasticsearch/plugins/search";
 import { createFieldPathFactory } from "~/operations/entry/elasticsearch/filtering/path";

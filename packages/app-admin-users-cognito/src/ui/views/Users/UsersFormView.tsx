@@ -1,12 +1,10 @@
 import React from "react";
 import { UIView } from "@webiny/app-admin/ui/UIView";
-import { FormAPI, GenericFormData } from "@webiny/form";
+import type { FormAPI, GenericFormData } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement";
-import {
-    AccordionElement,
-    AccordionItemElement
-} from "@webiny/app-admin/ui/elements/AccordionElement";
+import type { AccordionItemElement } from "@webiny/app-admin/ui/elements/AccordionElement";
+import { AccordionElement } from "@webiny/app-admin/ui/elements/AccordionElement";
 import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement";
 import { ReactComponent as SecurityIcon } from "@webiny/icons/gpp_maybe.svg";
 import { ReactComponent as SecurityTeamsIcon } from "@webiny/icons/admin_panel_settings.svg";
@@ -14,9 +12,10 @@ import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { AvatarImage } from "../../components/AvatarImage";
 import { GroupsMultiAutocompleteElement } from "~/ui/elements/GroupsMultiAutocompleteElement";
 import { TeamsMultiAutocompleteElement } from "~/ui/elements/TeamsMultiAutocompleteElement";
-import { UseUserForm, useUserForm } from "~/ui/views/Users/hooks/useUserForm";
+import type { UseUserForm } from "~/ui/views/Users/hooks/useUserForm";
+import { useUserForm } from "~/ui/views/Users/hooks/useUserForm";
 import { FormView } from "@webiny/app-admin/ui/views/FormView";
-import { FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement";
+import type { FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement";
 import { config as appConfig } from "@webiny/app/config";
 
 interface UsersFormViewParams {

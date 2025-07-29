@@ -1,4 +1,4 @@
-import { File } from "@webiny/api-file-manager/types";
+import type { File } from "@webiny/api-file-manager/types";
 
 export class CdnPathsGenerator {
     generate(file: File) {

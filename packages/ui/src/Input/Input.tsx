@@ -1,6 +1,7 @@
-import React, { useCallback, useMemo, ReactElement } from "react";
+import type { ReactElement } from "react";
+import React, { useCallback, useMemo } from "react";
 import pick from "lodash/pick";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 import { Input as AdminInput, Textarea as AdminTextarea } from "@webiny/admin-ui";
 
 export interface TextFieldHelperTextProps {

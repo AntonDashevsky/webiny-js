@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { ApwContext } from "~/types";
+import type { ApwContext } from "~/types";
 import { getAppUrl } from "./getAppUrl";
 import { createContentReviewUrl } from "./contentReviewUrl";
 import { createContentUrl } from "./contentUrl";

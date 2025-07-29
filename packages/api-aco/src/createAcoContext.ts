@@ -1,12 +1,12 @@
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { createAcoHooks } from "~/createAcoHooks";
 import { createAcoStorageOperations } from "~/createAcoStorageOperations";
-import { AcoContext, CreateAcoParams, IAcoAppRegisterParams } from "~/types";
+import type { AcoContext, CreateAcoParams, IAcoAppRegisterParams } from "~/types";
 import { createFolderCrudMethods } from "~/folder/folder.crud";
 import { createSearchRecordCrudMethods } from "~/record/record.crud";
 import { AcoApps } from "./apps";

@@ -1,6 +1,6 @@
 import { IndexingEnableError } from "~/errors";
-import { IIndexSettingsValues } from "~/types";
-import { IndexSettingsManager } from "./IndexSettingsManager";
+import type { IIndexSettingsValues } from "~/types";
+import type { IndexSettingsManager } from "./IndexSettingsManager";
 
 export class EnableIndexing {
     private readonly settings: IndexSettingsManager;

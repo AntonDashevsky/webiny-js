@@ -3,10 +3,8 @@ import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { View } from "~/components/View";
 import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator";
-import {
-    useSetNewPassword,
-    UseSetNewPasswordCallableParams
-} from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword";
+import type { UseSetNewPasswordCallableParams } from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword";
+import { useSetNewPassword } from "@webiny/app-cognito-authenticator/hooks/useSetNewPassword";
 import { Button, Grid, Input, Link, OverlayLoader, Text } from "@webiny/admin-ui";
 
 export const SetNewPassword = () => {

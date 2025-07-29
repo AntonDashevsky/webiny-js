@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { RichTextEditor } from "@webiny/ui/RichTextEditor";
-import { ApwComment } from "~/types";
+import type { ApwComment } from "~/types";
 import { Box, Columns, Stack } from "~/components/Layout";
 import { fromNow } from "~/utils";
 import { Avatar } from "~/views/publishingWorkflows/components/ReviewersList";

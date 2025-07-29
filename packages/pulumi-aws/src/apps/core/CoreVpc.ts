@@ -1,5 +1,6 @@
 import * as aws from "@pulumi/aws";
-import { createAppModule, PulumiAppModule } from "@webiny/pulumi";
+import type { PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule } from "@webiny/pulumi";
 
 export type CoreVpc = PulumiAppModule<typeof CoreVpc>;
 

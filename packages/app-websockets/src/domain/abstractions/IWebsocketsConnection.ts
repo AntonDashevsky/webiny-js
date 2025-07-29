@@ -1,5 +1,5 @@
-import { IWebsocketsSubscriptionManager } from "./IWebsocketsSubscriptionManager";
-import { IGenericData, WebsocketsCloseCode } from "./types";
+import type { IWebsocketsSubscriptionManager } from "./IWebsocketsSubscriptionManager";
+import type { IGenericData, WebsocketsCloseCode } from "./types";
 
 export type IWebsocketsConnectProtocol = string | string[] | undefined;
 

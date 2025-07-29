@@ -3,7 +3,7 @@ import { ReactComponent as DraftIcon } from "@webiny/icons/draw.svg";
 import { ReactComponent as PublishedIcon } from "@webiny/icons/visibility.svg";
 import { ReactComponent as UnpublishedIcon } from "@webiny/icons/visibility_off.svg";
 import { Box } from "./Box";
-import { CmsContentEntryStatusType } from "~/types";
+import type { CmsContentEntryStatusType } from "~/types";
 import { Icon } from "@webiny/admin-ui";
 
 const getIcon = (status: CmsContentEntryStatusType) => {

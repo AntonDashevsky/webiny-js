@@ -1,4 +1,4 @@
-import { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
 import { FOLDER_MODEL_ID } from "~/folder/folder.model";
 
 /**

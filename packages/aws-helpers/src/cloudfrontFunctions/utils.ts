@@ -1,4 +1,4 @@
-import { CloudFrontRequestHandler, CloudFrontResponseHandler } from "./types";
+import type { CloudFrontRequestHandler, CloudFrontResponseHandler } from "./types";
 
 declare const global: typeof globalThis & {
     // CloudFront Functions use global handler value, not exports.

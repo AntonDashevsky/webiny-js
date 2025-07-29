@@ -6,7 +6,7 @@ import type {
     PutCommandOutput
 } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import { DeleteCommand, PutCommand } from "@webiny/aws-sdk/client-dynamodb/index.js";
-import { CommandType } from "~/types";
+import type { CommandType } from "~/types";
 import type { ITable } from "~/sync/types.js";
 import { createRetry } from "../utils/Retry";
 import { convertException } from "@webiny/utils";

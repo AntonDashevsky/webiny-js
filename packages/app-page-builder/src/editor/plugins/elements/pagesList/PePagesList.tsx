@@ -1,8 +1,6 @@
-import { PbPageElementPagesListComponentPlugin } from "~/types";
-import {
-    createPagesList,
-    PagesListRenderer
-} from "@webiny/app-page-builder-elements/renderers/pagesList";
+import type { PbPageElementPagesListComponentPlugin } from "~/types";
+import type { PagesListRenderer } from "@webiny/app-page-builder-elements/renderers/pagesList";
+import { createPagesList } from "@webiny/app-page-builder-elements/renderers/pagesList";
 import React, { useMemo } from "react";
 import { plugins } from "@webiny/plugins";
 import { useApolloClient } from "@apollo/react-hooks";

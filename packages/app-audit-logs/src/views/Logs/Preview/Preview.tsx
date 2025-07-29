@@ -8,7 +8,7 @@ import { Tooltip } from "@webiny/ui/Tooltip";
 
 import { Action } from "~/views/Logs/Table";
 import { Text } from "~/components/Text";
-import { Entry } from "~/utils/transformCmsContentEntriesToRecordEntries";
+import type { Entry } from "~/utils/transformCmsContentEntriesToRecordEntries";
 import { PayloadWrapper, previewDialog } from "./styled";
 
 type HeaderProps = {

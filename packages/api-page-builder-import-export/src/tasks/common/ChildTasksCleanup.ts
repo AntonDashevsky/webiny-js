@@ -2,7 +2,8 @@
  * Cleanup of the child tasks.
  * This code will remove all the child tasks and their logs, which have no errors in them.
  */
-import { ITask, Context, TaskLogItemType } from "@webiny/tasks";
+import type { ITask, Context } from "@webiny/tasks";
+import { TaskLogItemType } from "@webiny/tasks";
 
 export interface IChildTasksCleanupExecuteParams {
     context: Context;

@@ -1,7 +1,7 @@
 import { createCompression } from "@webiny/api-page-builder/graphql/crud/pages/compression";
 
-import { Page, PbPageElement } from "@webiny/api-page-builder/types";
-import { PbAcoContext, PageSearchProcessor } from "~/types";
+import type { Page, PbPageElement } from "@webiny/api-page-builder/types";
+import type { PbAcoContext, PageSearchProcessor } from "~/types";
 
 interface ElementCallback {
     (element: PbPageElement): Promise<void>;

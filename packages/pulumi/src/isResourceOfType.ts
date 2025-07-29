@@ -1,4 +1,4 @@
-import { PulumiAppResource, PulumiAppResourceConstructor } from "~/PulumiAppResource";
+import type { PulumiAppResource, PulumiAppResourceConstructor } from "~/PulumiAppResource";
 
 export function isResourceOfType<T extends PulumiAppResourceConstructor>(
     resource: PulumiAppResource<PulumiAppResourceConstructor>,

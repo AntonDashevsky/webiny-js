@@ -1,7 +1,8 @@
 import { createHandler, createEventHandler } from "@webiny/handler-aws/raw";
 import { until, sleep } from "./context/helpers";
-import { CreateHandlerParams, createHandlerPlugins } from "./handlerPlugins";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { CreateHandlerParams } from "./handlerPlugins";
+import { createHandlerPlugins } from "./handlerPlugins";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 export const createContextHandler = (params?: CreateHandlerParams) => {
     const handle = createHandler({

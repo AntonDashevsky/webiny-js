@@ -1,5 +1,6 @@
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { Attributes } from "~/types";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
+import { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { Attributes } from "~/types";
 
 export interface CreateModelEntityParams {
     table: Table<string, string, string>;

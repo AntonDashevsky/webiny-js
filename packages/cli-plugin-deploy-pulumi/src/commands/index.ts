@@ -1,6 +1,6 @@
 import { red } from "chalk";
-import { CliCommandPlugin } from "@webiny/cli/types";
-import { IUserCommandInput } from "~/types";
+import type { CliCommandPlugin } from "@webiny/cli/types";
+import type { IUserCommandInput } from "~/types";
 import { regions } from "@webiny/cli/regions";
 import { attachPrimaryVariantCommands } from "~/commands/attachPrimaryVariantCommands";
 import { validateVariantName } from "~/utils";

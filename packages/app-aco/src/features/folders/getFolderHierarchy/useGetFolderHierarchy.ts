@@ -5,7 +5,8 @@ import { GetFolderHierarchyGqlGateway } from "./GetFolderHierarchyGqlGateway";
 import { GetFolderHierarchy } from "./GetFolderHierarchy";
 import { FolderDtoMapper } from "./FolderDto";
 import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks";
-import { FolderItem, LoadingActionsEnum } from "~/types";
+import type { FolderItem } from "~/types";
+import { LoadingActionsEnum } from "~/types";
 
 export const useGetFolderHierarchy = () => {
     const client = useApolloClient();

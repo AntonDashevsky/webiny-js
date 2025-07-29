@@ -1,7 +1,7 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IUpdatePageGateway } from "./IUpdatePageGateway.js";
-import { PageDto } from "./PageDto.js";
+import type { IUpdatePageGateway } from "./IUpdatePageGateway.js";
+import type { PageDto } from "./PageDto.js";
 import { type WbError } from "~/types";
 import type { PageGqlDto } from "~/features/pages/createPage/PageGqlDto.js";
 

@@ -1,4 +1,4 @@
-import * as aws from "@pulumi/aws";
+import type * as aws from "@pulumi/aws";
 
 import { createAppModule } from "@webiny/pulumi";
 import { CoreOutput } from "./CoreOutput";

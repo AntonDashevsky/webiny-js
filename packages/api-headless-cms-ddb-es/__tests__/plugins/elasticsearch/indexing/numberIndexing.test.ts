@@ -1,5 +1,5 @@
 import numberIndexing from "~/elasticsearch/indexing/numberIndexing";
-import {
+import type {
     CmsModelFieldToElasticsearchFromParams,
     CmsModelFieldToElasticsearchPlugin,
     CmsModelFieldToElasticsearchToParams

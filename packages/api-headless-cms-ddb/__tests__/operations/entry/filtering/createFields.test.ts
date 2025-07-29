@@ -1,8 +1,8 @@
 import { createFields } from "~/operations/entry/filtering/createFields";
-import { PluginsContainer } from "@webiny/plugins";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import { createModel } from "../../helpers/createModel";
-import { Field } from "~/operations/entry/filtering/types";
+import type { Field } from "~/operations/entry/filtering/types";
 import { createPluginsContainer } from "../../helpers/pluginsContainer";
 
 const expectedSystemFields: Record<string, Field> = {

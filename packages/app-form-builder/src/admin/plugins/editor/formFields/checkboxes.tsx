@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@webiny/admin-ui";
 import { ReactComponent as Icon } from "@webiny/icons/check_box.svg";
 import OptionsList from "./components/OptionsList";
-import { FbBuilderFieldPlugin } from "~/types";
+import type { FbBuilderFieldPlugin } from "~/types";
 
 const plugin: FbBuilderFieldPlugin = {
     type: "form-editor-field-type",

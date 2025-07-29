@@ -1,4 +1,4 @@
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 
 type ScanTableOptions = Parameters<Table<string, string, string>["scan"]>[0];
 

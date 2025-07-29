@@ -1,8 +1,8 @@
 import React from "react";
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import PeDocument from "./PeDocument";
 
-import { Element } from "@webiny/app-page-builder-elements/types";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 
 interface DocumentProps {
     element: PbEditorElement;

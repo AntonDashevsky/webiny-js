@@ -1,4 +1,4 @@
-import { CmsEntry, CmsEntryListParams, CmsEntryMeta, CmsEntryValues, CmsModel } from "~/types";
+import type { CmsEntry, CmsEntryListParams, CmsEntryMeta, CmsEntryValues, CmsModel } from "~/types";
 
 export interface IListEntries {
     execute: <T extends CmsEntryValues>(

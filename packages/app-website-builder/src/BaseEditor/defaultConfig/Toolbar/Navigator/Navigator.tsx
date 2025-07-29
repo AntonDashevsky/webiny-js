@@ -6,7 +6,7 @@ import { ReactComponent as VisibilityNone } from "@webiny/icons/visibility_off.s
 import type { Document } from "@webiny/website-builder-sdk";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { EditorState } from "~/editorSdk/Editor";
+import type { EditorState } from "~/editorSdk/Editor";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { Commands } from "~/BaseEditor";
 import { InlineSvg } from "~/BaseEditor/defaultConfig/Toolbar/InsertElements/InlineSvg";

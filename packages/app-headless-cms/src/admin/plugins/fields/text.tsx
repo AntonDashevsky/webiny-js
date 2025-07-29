@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as TextIcon } from "@webiny/icons/text_fields.svg";
-import { CmsModelFieldTypePlugin } from "~/types";
+import type { CmsModelFieldTypePlugin } from "~/types";
 import { i18n } from "@webiny/app/i18n";
 import PredefinedValuesDynamicFieldset from "./PredefinedValuesDynamicFieldset";
 import { Bind } from "@webiny/form";

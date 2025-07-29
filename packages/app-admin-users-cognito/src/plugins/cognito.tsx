@@ -2,12 +2,13 @@ import React, { Fragment } from "react";
 import { Cell } from "@webiny/ui/Grid";
 import { Input } from "@webiny/ui/Input";
 import { validation } from "@webiny/validation";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { ViewPlugin } from "@webiny/app/plugins/ViewPlugin";
 import { UIViewPlugin } from "@webiny/app-admin/ui/UIView";
 import { UsersFormView } from "~/ui/views/Users/UsersFormView";
 import { PasswordElement } from "@webiny/app-admin/ui/elements/form/PasswordElement";
-import { createPasswordValidator, PasswordPolicy } from "~/createPasswordValidator";
+import type { PasswordPolicy } from "~/createPasswordValidator";
+import { createPasswordValidator } from "~/createPasswordValidator";
 import { config as appConfig } from "@webiny/app/config";
 
 export default (): PluginCollection => {

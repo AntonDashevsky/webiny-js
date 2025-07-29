@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 import { format } from "date-fns";
-import { FbFormTriggerHandlerPlugin } from "~/types";
+import type { FbFormTriggerHandlerPlugin } from "~/types";
 
 const plugin: FbFormTriggerHandlerPlugin = {
     type: "form-trigger-handler",

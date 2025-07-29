@@ -5,7 +5,7 @@ import type { IncomingGenericData } from "@webiny/app-websockets";
 import { useWebsockets } from "@webiny/app-websockets";
 import { parseIdentifier } from "@webiny/utils";
 import { useDialogs } from "@webiny/app-admin";
-import { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types";
+import type { CmsContentEntry, CmsModel } from "@webiny/app-headless-cms/types";
 
 const autoUpdateTimeout = 20;
 

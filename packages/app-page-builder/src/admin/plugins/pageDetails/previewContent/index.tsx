@@ -1,6 +1,6 @@
 import React from "react";
 import { renderPlugins } from "@webiny/app/plugins";
-import {
+import type {
     PbPageDetailsRevisionContentPlugin,
     PbPageDetailsRevisionContentPreviewPlugin
 } from "~/types";

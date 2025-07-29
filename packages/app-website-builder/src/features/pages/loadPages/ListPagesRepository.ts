@@ -3,12 +3,12 @@ import type {
     LoadPagesRepositoryParams
 } from "~/features/pages/loadPages/IListPagesRepository.js";
 import { type IListCache, Page } from "~/domain/Page/index.js";
+import type { Sorting } from "@webiny/app-utils";
 import {
     type ILoadingRepository,
     type IMetaRepository,
     type ISortingRepository,
     MetaMapper,
-    Sorting,
     SortingMapper
 } from "@webiny/app-utils";
 import type { IParamsRepository } from "~/domain/Params/index.js";

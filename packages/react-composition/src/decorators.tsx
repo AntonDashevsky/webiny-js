@@ -1,7 +1,7 @@
 import React from "react";
 import { Compose } from "~/Compose";
-import { GetDecoratee, GetDecorateeParams } from "~/createDecorator";
-import {
+import type { GetDecoratee, GetDecorateeParams } from "~/createDecorator";
+import type {
     DecoratableComponent,
     GenericComponent,
     Decorator,

@@ -1,4 +1,4 @@
-import { FolderItem } from "~/types";
+import type { FolderItem } from "~/types";
 import { ROOT_FOLDER } from "~/constants";
 import type { NodeDto } from "@webiny/admin-ui";
 

@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import pick from "lodash/pick";
 import WebinyError from "@webiny/error";
-import {
+import type {
     FbForm,
     FbFormFieldValidatorPlugin,
     FbFormTriggerHandlerPlugin,
@@ -24,7 +24,7 @@ import { NotAuthorizedError } from "@webiny/api-security";
 import { createTopic } from "@webiny/pubsub";
 import { sanitizeFormSubmissionData } from "~/plugins/crud/utils/sanitizeFormSubmissionData";
 import { createZodError, mdbid } from "@webiny/utils";
-import { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions";
+import type { FormsPermissions } from "~/plugins/crud/permissions/FormsPermissions";
 import { isRecaptchaEnabled } from "~/plugins/crud/utils/isRecaptchaEnabled";
 import {
     FormSubmissionCreateDataModel,

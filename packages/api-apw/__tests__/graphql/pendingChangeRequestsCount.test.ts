@@ -1,7 +1,7 @@
 import { useGraphQlHandler } from "~tests/utils/useGraphQlHandler";
 import { mocks as changeRequestMock } from "./mocks/changeRequest";
 import { createSetupForPageContentReview } from "../utils/helpers";
-import { ApwContentReview, PageWithWorkflow } from "~/types";
+import type { ApwContentReview, PageWithWorkflow } from "~/types";
 
 describe(`Pending change requests count test`, () => {
     const gqlHandler = useGraphQlHandler({

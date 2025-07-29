@@ -1,11 +1,11 @@
 import { makeAutoObservable } from "mobx";
 import { CommandOption } from "~/Command/domain/CommandOption";
-import {
+import type {
     AutoCompleteInputPresenterParams,
     IAutoCompleteInputPresenter
 } from "./AutoCompleteInputPresenter";
-import { IAutoCompleteListOptionsPresenter } from "./AutoCompleteListOptionsPresenter";
-import { AutoCompleteOption } from "../../domains";
+import type { IAutoCompleteListOptionsPresenter } from "./AutoCompleteListOptionsPresenter";
+import type { AutoCompleteOption } from "../../domains";
 
 interface AutoCompletePresenterParams {
     emptyMessage?: any;

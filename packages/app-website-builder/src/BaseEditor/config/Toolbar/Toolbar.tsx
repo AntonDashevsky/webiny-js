@@ -1,8 +1,10 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Element as BaseElement, ElementProps as BaseElementProps } from "../Element";
+import type { ElementProps as BaseElementProps } from "../Element";
+import { Element as BaseElement } from "../Element";
 import { Layout } from "./Layout";
-import { Elements as BaseElements, ElementsProps as BaseElementsProps } from "../Elements";
+import type { ElementsProps as BaseElementsProps } from "../Elements";
+import { Elements as BaseElements } from "../Elements";
 import { createGetId } from "../createGetId";
 
 const SCOPE = "toolbar";

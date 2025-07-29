@@ -1,7 +1,7 @@
 /**
  * This test will check if the user, which has access to a single model, can do valid actions.
  */
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import { accessTestGroup, accessTestModel } from "./mocks/access/plugins";
 import { permissions } from "./mocks/access/permissions";
 import mocks from "./mocks/workflows";

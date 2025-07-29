@@ -1,20 +1,20 @@
 import { attachApwHooks } from "./hooks";
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { ApwContext } from "~/types";
+import type { ApwContext } from "~/types";
 import { createApw } from "~/crud";
 import { apwPageBuilderHooks } from "./pageBuilder";
 import { createStorageOperations } from "~/storageOperations";
-import { SecurityPermission } from "@webiny/api-security/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { CreateApwContextParams } from "~/scheduler/types";
+import type { SecurityPermission } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { CreateApwContextParams } from "~/scheduler/types";
 import { createScheduler } from "~/scheduler";
 import { createCustomAuth } from "~/scheduler/handlers/executeAction/security";
 import { isInstallationPending } from "./utils";
 import { extendPbPageSettingsSchema } from "~/plugins/pageBuilder/extendPbPageSettingsSchema";
 import { apwContentPagePlugins } from "~/plugins/pageBuilder/apwContentPagePlugins";
 import { apwCmsHooks } from "~/plugins/cms";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 
 const setupApwContext = (params: CreateApwContextParams) =>
     new ContextPlugin<ApwContext>(async context => {

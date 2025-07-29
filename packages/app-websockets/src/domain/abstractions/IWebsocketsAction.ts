@@ -1,4 +1,4 @@
-import { IGenericData } from "./types";
+import type { IGenericData } from "./types";
 
 export interface IWebsocketActionOnResponse<R extends IGenericData = IGenericData> {
     (response: R | null): R | null;

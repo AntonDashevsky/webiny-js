@@ -1,4 +1,4 @@
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { Table as BaseTable } from "~/toolbox";
 
 export interface CreateTableParams {

@@ -1,4 +1,4 @@
-import { FolderModelDto } from "./FolderModelDto";
+import type { FolderModelDto } from "./FolderModelDto";
 
 export interface IGetFolderModelGateway {
     execute: () => Promise<FolderModelDto>;

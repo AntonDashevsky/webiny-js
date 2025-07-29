@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import lodashNoop from "lodash/noop";
 import isEqual from "lodash/isEqual";
 import { Bind } from "./Bind";
-import { FormProps, GenericFormData } from "~/types";
+import type { FormProps, GenericFormData } from "~/types";
 import { FormContext } from "./FormContext";
 import { FormPresenter } from "./FormPresenter";
 import { FormAPI } from "./FormApi";

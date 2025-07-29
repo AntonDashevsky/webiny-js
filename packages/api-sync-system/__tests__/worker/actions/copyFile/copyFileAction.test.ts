@@ -1,10 +1,10 @@
+import type { HeadObjectCommandInput } from "@webiny/aws-sdk/client-s3";
 import {
     AbortMultipartUploadCommand,
     CompleteMultipartUploadCommand,
     CreateMultipartUploadCommand,
     createS3Client,
     HeadObjectCommand,
-    HeadObjectCommandInput,
     ListPartsCommand,
     S3Client,
     UploadPartCopyCommand

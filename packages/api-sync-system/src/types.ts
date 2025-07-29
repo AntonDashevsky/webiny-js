@@ -1,4 +1,4 @@
-import { Context as BaseContext } from "@webiny/handler-aws/types";
+import type { Context as BaseContext } from "@webiny/handler-aws/types";
 
 export type CommandType = "put" | "delete";
 export type ExtendedCommandType = "put" | "delete" | "update";

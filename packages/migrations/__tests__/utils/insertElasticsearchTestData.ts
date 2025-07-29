@@ -1,6 +1,6 @@
 import chunk from "lodash/chunk";
-import { ElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { ElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { scanTable } from "~tests/utils/scanTable";
 import { getDecompressedData } from "./getDecompressedData";
 import { esPutIndexSettings } from "~/utils";

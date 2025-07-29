@@ -1,4 +1,4 @@
-import {
+import type {
     FbSubmission,
     FormBuilderStorageOperationsCreateSubmissionParams,
     FormBuilderStorageOperationsDeleteSubmissionParams,
@@ -7,8 +7,8 @@ import {
     FormBuilderStorageOperationsListSubmissionsResponse,
     FormBuilderStorageOperationsUpdateSubmissionParams
 } from "@webiny/api-form-builder/types";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { Client } from "@elastic/elasticsearch";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { Client } from "@elastic/elasticsearch";
 import WebinyError from "@webiny/error";
 import { batchReadAll } from "@webiny/db-dynamodb";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort";
@@ -17,15 +17,15 @@ import {
     createElasticsearchBody,
     createSubmissionElasticType
 } from "~/operations/submission/elasticsearchBody";
-import { PluginsContainer } from "@webiny/plugins";
-import {
+import type { PluginsContainer } from "@webiny/plugins";
+import type {
     FormBuilderSubmissionStorageOperations,
     FormBuilderSubmissionStorageOperationsCreatePartitionKeyParams
 } from "~/types";
 import { configurations } from "~/configurations";
 import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
 import { parseIdentifier } from "@webiny/utils";
-import { ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types";
+import type { ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 export interface CreateSubmissionStorageOperationsParams {

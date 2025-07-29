@@ -1,5 +1,5 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { CustomFieldsPage } from "~tests/types";
+import type { CustomFieldsPage } from "~tests/types";
 
 /**
  * This code extends the Page GraphQL schema with the customViews field.

@@ -1,6 +1,6 @@
-import { CmsContext, CmsEntry, CmsModel } from "~/types";
+import type { CmsContext, CmsEntry, CmsModel } from "~/types";
 import { STATUS_PUBLISHED } from "./statuses";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation";
 import { getIdentity } from "~/utils/identity";
 import { getDate } from "~/utils/date";

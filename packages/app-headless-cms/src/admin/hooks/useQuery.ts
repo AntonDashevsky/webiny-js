@@ -1,8 +1,8 @@
 import { useQuery as apolloUseQuery } from "@apollo/react-hooks";
 import useCms from "./useCms";
-import { DocumentNode } from "graphql";
-import { OperationVariables, QueryResult } from "@apollo/react-common";
-import { QueryHookOptions } from "@apollo/react-hooks/lib/types";
+import type { DocumentNode } from "graphql";
+import type { OperationVariables, QueryResult } from "@apollo/react-common";
+import type { QueryHookOptions } from "@apollo/react-hooks/lib/types";
 
 const useQuery = function <TData = any, TVariables = OperationVariables>(
     query: DocumentNode,

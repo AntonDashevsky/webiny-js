@@ -1,5 +1,6 @@
 import React from "react";
-import { AutoComplete, AutoCompleteProps } from "@webiny/ui/AutoComplete";
+import type { AutoCompleteProps } from "@webiny/ui/AutoComplete";
+import { AutoComplete } from "@webiny/ui/AutoComplete";
 import { LIST_TEAMS } from "./graphql";
 import { useQuery } from "@apollo/react-hooks";
 

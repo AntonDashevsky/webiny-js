@@ -1,10 +1,7 @@
 import { resolve, resolveList } from "~/utils/resolve";
-import { Context } from "~/types";
-import {
-    createGraphQLSchemaPlugin,
-    IGraphQLSchemaPlugin,
-    NotFoundError
-} from "@webiny/handler-graphql";
+import type { Context } from "~/types";
+import type { IGraphQLSchemaPlugin } from "@webiny/handler-graphql";
+import { createGraphQLSchemaPlugin, NotFoundError } from "@webiny/handler-graphql";
 import { renderFields } from "@webiny/api-headless-cms/utils/renderFields";
 import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords";
 import { renderListFilterFields } from "@webiny/api-headless-cms/utils/renderListFilterFields";

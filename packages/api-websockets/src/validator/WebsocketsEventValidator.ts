@@ -1,10 +1,7 @@
 import zod from "zod";
-import {
-    IWebsocketsEvent,
-    IWebsocketsEventData,
-    WebsocketsEventRequestContextEventType
-} from "~/handler/types";
-import {
+import type { IWebsocketsEvent, IWebsocketsEventData } from "~/handler/types";
+import { WebsocketsEventRequestContextEventType } from "~/handler/types";
+import type {
     IWebsocketsEventValidator,
     IWebsocketsEventValidatorValidateParams
 } from "./abstractions/IWebsocketsEventValidator";

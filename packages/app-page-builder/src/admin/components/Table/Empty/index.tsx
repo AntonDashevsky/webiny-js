@@ -1,4 +1,5 @@
-import React, { ReactElement } from "react";
+import type { ReactElement } from "react";
+import React from "react";
 
 import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
 import { i18n } from "@webiny/app/i18n";

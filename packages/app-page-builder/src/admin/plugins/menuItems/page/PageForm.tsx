@@ -2,8 +2,8 @@ import * as React from "react";
 import { Form } from "@webiny/form";
 import { PagesAutocomplete } from "~/admin/components/PagesAutocomplete";
 import { validation } from "@webiny/validation";
-import { FormOnSubmit } from "@webiny/form/types";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import type { FormOnSubmit } from "@webiny/form/types";
+import type { MenuTreeItem } from "~/admin/views/Menus/types";
 import { Button, Grid, Heading, Input } from "@webiny/admin-ui";
 
 interface LinkFormProps {

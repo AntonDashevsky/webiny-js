@@ -1,5 +1,6 @@
 import React from "react";
-import { cn, cva, VariantProps } from "~/utils";
+import type { VariantProps } from "~/utils";
+import { cn, cva } from "~/utils";
 
 const cardRootVariants = cva(
     "wby-flex wby-flex-col wby-bg-neutral-base wby-gap-y-md-plus wby-text-sm",

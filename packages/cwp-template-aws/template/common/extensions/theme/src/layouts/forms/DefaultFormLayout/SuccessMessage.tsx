@@ -1,5 +1,5 @@
 import React from "react";
-import { FbFormModel } from "@webiny/app-form-builder/types";
+import type { FbFormModel } from "@webiny/app-form-builder/types";
 import { RichTextRenderer } from "@webiny/react-rich-text-renderer";
 import styled from "@emotion/styled";
 

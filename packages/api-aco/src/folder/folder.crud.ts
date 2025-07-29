@@ -1,7 +1,6 @@
 import { createTopic } from "@webiny/pubsub";
-import {
+import type {
     AcoFolderCrud,
-    type ListFoldersParams,
     OnFolderAfterCreateTopicParams,
     OnFolderAfterDeleteTopicParams,
     OnFolderAfterUpdateTopicParams,
@@ -9,6 +8,7 @@ import {
     OnFolderBeforeDeleteTopicParams,
     OnFolderBeforeUpdateTopicParams
 } from "./folder.types";
+import { type ListFoldersParams } from "./folder.types";
 import {
     getCreateFolderUseCases,
     getDeleteFolderUseCases,
@@ -19,7 +19,8 @@ import {
     getUpdateFolderUseCase,
     getGetFolderHierarchyUseCases
 } from "~/folder/useCases";
-import { type AcoContext, CreateAcoParams, Folder } from "~/types";
+import type { CreateAcoParams, Folder } from "~/types";
+import { type AcoContext } from "~/types";
 
 const FIXED_FOLDER_LISTING_LIMIT = 10_000;
 

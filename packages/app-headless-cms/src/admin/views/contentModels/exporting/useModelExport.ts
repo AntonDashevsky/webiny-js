@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import { useApolloClient } from "~/admin/hooks";
 import { runExport } from "./runExport";
 import { useSnackbar } from "@webiny/app-admin";

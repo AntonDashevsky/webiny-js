@@ -1,15 +1,16 @@
 import React, { useCallback, useMemo } from "react";
 import { observer } from "mobx-react-lite";
+import type { OnDataTableSortingChange } from "@webiny/admin-ui";
 import {
     DataTable,
     type DataTableColumns,
     type DataTableDefaultData,
-    type DataTableSorting,
-    OnDataTableSortingChange
+    type DataTableSorting
 } from "@webiny/admin-ui";
-import { ColumnMapper, ColumnsPresenter } from "./Columns";
-import { ColumnsVisibilityPresenter, ColumnsVisibilityUpdater } from "./ColumnVisibility";
-import { TablePresenter } from "./TablePresenter";
+import type { ColumnsPresenter } from "./Columns";
+import { ColumnMapper } from "./Columns";
+import type { ColumnsVisibilityPresenter, ColumnsVisibilityUpdater } from "./ColumnVisibility";
+import type { TablePresenter } from "./TablePresenter";
 import { TableRowProvider } from "~/components";
 
 export interface TableInnerProps<T> {

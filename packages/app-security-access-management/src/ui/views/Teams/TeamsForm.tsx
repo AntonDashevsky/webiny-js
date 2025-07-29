@@ -18,7 +18,7 @@ import isEmpty from "lodash/isEmpty";
 import EmptyView from "@webiny/app-admin/components/EmptyView";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { GroupsMultiAutocomplete } from "~/components/GroupsMultiAutocomplete";
-import { Team } from "~/types";
+import type { Team } from "~/types";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
 import { Alert, Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 

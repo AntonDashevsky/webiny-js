@@ -1,5 +1,7 @@
-import { IImportPagesControllerTaskParams, PageImportTask } from "~/import/pages/types";
-import { ITaskResponseResult, TaskDataStatus } from "@webiny/tasks";
+import type { IImportPagesControllerTaskParams } from "~/import/pages/types";
+import { PageImportTask } from "~/import/pages/types";
+import type { ITaskResponseResult } from "@webiny/tasks";
+import { TaskDataStatus } from "@webiny/tasks";
 
 export const PROCESS_PAGES_WAIT_TIME = 5; // seconds
 

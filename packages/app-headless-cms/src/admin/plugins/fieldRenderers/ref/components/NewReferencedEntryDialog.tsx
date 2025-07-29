@@ -3,26 +3,23 @@ import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/
 import { FoldersProvider } from "@webiny/app-aco/contexts/folders";
 import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext";
 import { i18n } from "@webiny/app/i18n";
-import { CmsContentEntry, CmsModel } from "~/types";
+import type { CmsContentEntry, CmsModel } from "~/types";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
 import { ModelProvider } from "~/admin/components/ModelProvider";
 import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
-import {
-    GET_CONTENT_MODEL,
+import type {
     GetCmsModelQueryResponse,
     GetCmsModelQueryVariables
 } from "~/admin/graphql/contentModels";
+import { GET_CONTENT_MODEL } from "~/admin/graphql/contentModels";
 import { useCms } from "~/admin/hooks";
 import { NavigateFolderProvider as AbstractNavigateFolderProvider } from "@webiny/app-aco/contexts/navigateFolder";
 import { SearchRecordsProvider } from "@webiny/app-aco/contexts/records";
 import { FolderTree, useNavigateFolder } from "@webiny/app-aco";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
 import { usePersistEntry } from "~/admin/hooks/usePersistEntry";
-import {
-    AcoAppContext,
-    AcoAppProviderContext,
-    createAppFromModel
-} from "@webiny/app-aco/contexts/app";
+import type { AcoAppProviderContext } from "@webiny/app-aco/contexts/app";
+import { AcoAppContext, createAppFromModel } from "@webiny/app-aco/contexts/app";
 import { Drawer, OverlayLoader } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");

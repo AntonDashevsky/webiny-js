@@ -1,4 +1,4 @@
-import { TaskResponseStatus } from "~/types";
+import type { TaskResponseStatus } from "~/types";
 
 export interface IResponseBaseResult {
     status: TaskResponseStatus;

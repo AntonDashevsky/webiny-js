@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { CommandOption } from "~/Command/domain/CommandOption";
-import { CommandOptionFormatted } from "~/Command/domain/CommandOptionFormatted";
+import type { CommandOption } from "~/Command/domain/CommandOption";
+import type { CommandOptionFormatted } from "~/Command/domain/CommandOptionFormatted";
 import { CommandOptionFormatter } from "~/Command/domain/CommandOptionFormatter";
 import { ListCache } from "../../domains";
 

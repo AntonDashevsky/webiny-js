@@ -1,4 +1,5 @@
-import React, { RefObject } from "react";
+import type { RefObject } from "react";
+import React from "react";
 import { ReactComponent as DragIndicator } from "@webiny/icons/drag_indicator.svg";
 import { IconButton } from "~/Button";
 import { Icon } from "~/Icon";

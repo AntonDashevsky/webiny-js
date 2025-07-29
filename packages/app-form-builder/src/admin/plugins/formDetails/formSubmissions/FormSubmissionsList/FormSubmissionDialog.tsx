@@ -9,7 +9,7 @@ import { i18n } from "@webiny/app/i18n";
 import { useSnackbar } from "@webiny/app-admin";
 import { ReactComponent as ObjectIcon } from "@webiny/icons/data_object.svg";
 import { ReactComponent as TableIcon } from "@webiny/icons/table_rows.svg";
-import { FbFormModelField, FbFormSubmissionData } from "~/types";
+import type { FbFormModelField, FbFormSubmissionData } from "~/types";
 
 const t = i18n.namespace("FormEditor.FormSubmissionDialog");
 

@@ -1,4 +1,4 @@
-import { WcpContext } from "./types";
+import type { WcpContext } from "./types";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses";
 

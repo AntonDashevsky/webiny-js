@@ -1,5 +1,5 @@
-import { CheckboxItemFormatted } from "./CheckboxItemFormatted";
-import { CheckboxItem } from "./CheckboxItem";
+import type { CheckboxItemFormatted } from "./CheckboxItemFormatted";
+import type { CheckboxItem } from "./CheckboxItem";
 
 export class CheckboxItemMapper {
     static toFormatted(item: CheckboxItem): CheckboxItemFormatted {

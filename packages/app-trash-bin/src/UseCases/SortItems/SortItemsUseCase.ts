@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { ISortingRepository, SortingDTO } from "@webiny/app-utils";
-import { ISortItemsUseCase } from "./ISortItemsUseCase";
+import type { ISortingRepository, SortingDTO } from "@webiny/app-utils";
+import type { ISortItemsUseCase } from "./ISortItemsUseCase";
 
 export class SortItemsUseCase implements ISortItemsUseCase {
     private sortingRepository: ISortingRepository;

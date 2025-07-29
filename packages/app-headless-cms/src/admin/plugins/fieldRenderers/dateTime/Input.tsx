@@ -1,6 +1,6 @@
 import * as React from "react";
-import { CmsModelField } from "~/types";
-import { BindComponentRenderProp } from "@webiny/form";
+import type { CmsModelField } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
 import { Input as UiInput, Icon } from "@webiny/admin-ui";
 
 export interface TrailingIcon {

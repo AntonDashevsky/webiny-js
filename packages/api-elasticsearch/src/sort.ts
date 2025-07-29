@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { FieldSortOptions, SortOrder, SortType } from "~/types";
+import type { FieldSortOptions, SortOrder, SortType } from "~/types";
 import { ElasticsearchFieldPlugin } from "~/plugins";
 
 const sortRegExp = new RegExp(/^([a-zA-Z-0-9_@]+)_(ASC|DESC)$/);

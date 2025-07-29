@@ -1,11 +1,11 @@
-import { FolderLevelPermissions } from "~/flp";
-import {
+import type { FolderLevelPermissions } from "~/flp";
+import type {
     CmsEntry,
     CmsEntryListParams,
     CmsEntryMeta,
-    CmsEntryValues,
-    type CmsModel
+    CmsEntryValues
 } from "@webiny/api-headless-cms/types";
+import { type CmsModel } from "@webiny/api-headless-cms/types";
 import { hasRootFolderId } from "~/utils/decorators/hasRootFolderId";
 import type { FolderPermission } from "~/flp/flp.types";
 

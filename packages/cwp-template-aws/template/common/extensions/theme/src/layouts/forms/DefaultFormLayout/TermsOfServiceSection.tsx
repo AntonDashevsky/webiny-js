@@ -8,7 +8,7 @@ import { Row } from "./Row";
 import { Cell } from "./Cell";
 import { FieldLabelStyled } from "./fields/components/FieldLabel";
 import { CheckboxButton, CheckboxGroup } from "./fields/Checkbox";
-import {
+import type {
     TermsOfServiceComponent,
     TermsOfServiceChildrenFunction
 } from "@webiny/app-page-builder-elements/renderers/form/types";

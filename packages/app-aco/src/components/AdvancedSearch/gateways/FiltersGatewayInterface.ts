@@ -1,5 +1,5 @@
-import { FilterDTO } from "../domain";
-import {
+import type { FilterDTO } from "../domain";
+import type {
     CreateFilterPayload,
     UpdateFilterPayload
 } from "~/components/AdvancedSearch/gateways/filters.types";

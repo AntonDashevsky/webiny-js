@@ -3,7 +3,7 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { UpdateSettingsRepository } from "./UpdateSettings.repository";
 import { settingsCache } from "~/shared/settingsCache";
 import { UpdateSettingsGateway } from "./UpdateSettings.gateway";
-import { AllEcommerceSettings } from "~/features/ecommerce/settings/types";
+import type { AllEcommerceSettings } from "~/features/ecommerce/settings/types";
 
 export const useUpdateEcommerceSettings = () => {
     const client = useApolloClient();

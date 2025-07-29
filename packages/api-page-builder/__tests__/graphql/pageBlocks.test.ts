@@ -1,6 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 import { defaultIdentity } from "../tenancySecurity";
-import { ErrorOptions } from "@webiny/error";
+import type { ErrorOptions } from "@webiny/error";
 import { expectCompressed } from "~tests/graphql/utils/expectCompressed";
 
 jest.setTimeout(100000);

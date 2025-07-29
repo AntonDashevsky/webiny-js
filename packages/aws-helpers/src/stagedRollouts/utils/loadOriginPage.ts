@@ -1,7 +1,8 @@
-import { CloudFrontResponse } from "~/lambdaEdge";
+import type { CloudFrontResponse } from "~/lambdaEdge";
 import { get } from "https";
 import { load } from "cheerio";
-import { parse as parseSrcset, SrcSetDefinition, stringify as stringifySrcset } from "srcset";
+import type { SrcSetDefinition } from "srcset";
+import { parse as parseSrcset, stringify as stringifySrcset } from "srcset";
 import { isHeaderBlacklisted } from "./headerBlacklist";
 import { logDebug } from "./log";
 

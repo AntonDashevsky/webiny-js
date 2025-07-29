@@ -1,4 +1,4 @@
-import { PbEditorElement, PbEditorElementTree } from "~/types";
+import type { PbEditorElement, PbEditorElementTree } from "~/types";
 
 export interface UpdateElementActionArgsType {
     element: PbEditorElement | PbEditorElementTree;

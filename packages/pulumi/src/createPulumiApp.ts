@@ -1,8 +1,8 @@
 import findUp from "find-up";
 import path from "path";
 import * as pulumi from "@pulumi/pulumi";
-import { PulumiAppModuleDefinition } from "./PulumiAppModule";
-import {
+import type { PulumiAppModuleDefinition } from "./PulumiAppModule";
+import type {
     CreatePulumiAppResourceParams,
     PulumiAppResource,
     PulumiAppResourceArgs,
@@ -12,7 +12,7 @@ import {
     PulumiAppResourceConstructor,
     PulumiAppResourceType
 } from "./PulumiAppResource";
-import {
+import type {
     CreatePulumiAppParams,
     ProgramDecorator,
     PulumiApp,
@@ -21,7 +21,7 @@ import {
     PulumiProgram,
     ResourceHandler
 } from "~/types";
-import { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource";
+import type { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource";
 import cloneDeep from "lodash/cloneDeep";
 import { DEFAULT_PROD_ENV_NAMES } from "./constants";
 

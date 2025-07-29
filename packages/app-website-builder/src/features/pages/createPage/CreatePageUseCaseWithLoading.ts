@@ -1,5 +1,5 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { CreatePageParams, ICreatePageUseCase } from "./ICreatePageUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { CreatePageParams, ICreatePageUseCase } from "./ICreatePageUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class CreatePageUseCaseWithLoading implements ICreatePageUseCase {

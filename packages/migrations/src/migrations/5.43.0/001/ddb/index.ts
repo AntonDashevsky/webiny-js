@@ -1,7 +1,7 @@
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { count } from "@webiny/db-dynamodb";
 import { inject, makeInjectable } from "@webiny/ioc";
-import { DataMigration, DataMigrationContext } from "@webiny/data-migration";
+import type { DataMigration, DataMigrationContext } from "@webiny/data-migration";
 import { PrimaryDynamoTableSymbol } from "@webiny/data-migration/symbols";
 import { StepFunctionService } from "@webiny/tasks/service/StepFunctionServicePlugin";
 import { createDdbEntryEntity } from "../entities/createEntryEntity";

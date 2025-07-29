@@ -1,5 +1,5 @@
 const { version: webinyVersion } = require("@webiny/cli/package.json");
-import {
+import type {
     CmsModel as BaseCmsModel,
     CmsModelField as BaseCmsModelField,
     CmsModelFieldSettings as BaseCmsModelFieldSettings

@@ -1,5 +1,5 @@
 import "./handler/register";
-import { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { createWebsocketsContext } from "~/context";
 import { createWebsocketsGraphQL } from "~/graphql";
 

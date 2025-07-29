@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FbFormModelField, FbFormStep } from "~/types";
+import type { FbFormModelField, FbFormStep } from "~/types";
 import { Accordion } from "@webiny/admin-ui";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";

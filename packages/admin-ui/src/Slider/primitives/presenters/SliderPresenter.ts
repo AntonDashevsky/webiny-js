@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { SliderPrimitiveVm } from "../SliderPrimitive";
+import type { SliderPrimitiveVm } from "../SliderPrimitive";
 
 interface SliderPresenterParams {
     min?: number;

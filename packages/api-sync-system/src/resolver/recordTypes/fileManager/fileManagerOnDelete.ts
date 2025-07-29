@@ -1,7 +1,7 @@
 import { createStorerAfterEachPluginWithName } from "~/resolver/plugins/StorerAfterEachPlugin.js";
 import { shouldBeHandled } from "./shouldBeHandled.js";
 import { convertException } from "@webiny/utils";
-import { IDeleteFile } from "./types.js";
+import type { IDeleteFile } from "./types.js";
 
 export interface ICreateFileManagerOnDeletePluginParams {
     deleteFile: IDeleteFile;

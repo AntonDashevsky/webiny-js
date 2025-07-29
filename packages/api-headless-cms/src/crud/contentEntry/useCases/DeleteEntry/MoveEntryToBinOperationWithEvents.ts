@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { IMoveEntryToBinOperation } from "../../abstractions";
-import { CmsEntryStorageOperationsMoveToBinParams, CmsModel } from "~/types";
-import { DeleteEntryUseCasesTopics } from "./index";
+import type { IMoveEntryToBinOperation } from "../../abstractions";
+import type { CmsEntryStorageOperationsMoveToBinParams, CmsModel } from "~/types";
+import type { DeleteEntryUseCasesTopics } from "./index";
 
 export class MoveEntryToBinOperationWithEvents implements IMoveEntryToBinOperation {
     private topics: DeleteEntryUseCasesTopics;

@@ -1,5 +1,5 @@
-import { IGetEntriesByIds } from "../../abstractions";
-import {
+import type { IGetEntriesByIds } from "../../abstractions";
+import type {
     CmsEntryStorageOperations,
     CmsEntryStorageOperationsGetByIdsParams,
     CmsModel

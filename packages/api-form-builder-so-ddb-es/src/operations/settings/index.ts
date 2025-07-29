@@ -1,12 +1,12 @@
-import {
+import type {
     FormBuilderStorageOperationsCreateSettingsParams,
     FormBuilderStorageOperationsDeleteSettingsParams,
     FormBuilderStorageOperationsGetSettingsParams,
     FormBuilderStorageOperationsUpdateSettingsParams,
     Settings
 } from "@webiny/api-form-builder/types";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import {
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type {
     FormBuilderSettingsStorageOperations,
     FormBuilderSettingsStorageOperationsCreatePartitionKeyParams
 } from "~/types";

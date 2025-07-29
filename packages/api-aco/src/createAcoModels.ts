@@ -1,4 +1,4 @@
-import { CmsContext } from "@webiny/api-headless-cms/types";
+import type { CmsContext } from "@webiny/api-headless-cms/types";
 import { createFilterModel } from "~/filter/filter.model";
 import { createFolderModel } from "~/folder/folder.model";
 import { createSearchModel } from "~/record/record.model";

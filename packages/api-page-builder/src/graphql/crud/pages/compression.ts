@@ -1,7 +1,8 @@
-import { PluginsContainer } from "@webiny/plugins";
-import { CompressedValue, ContentCompressionPlugin } from "~/plugins/ContentCompressionPlugin";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { CompressedValue } from "~/plugins/ContentCompressionPlugin";
+import { ContentCompressionPlugin } from "~/plugins/ContentCompressionPlugin";
 import WebinyError from "@webiny/error";
-import { Page } from "~/types";
+import type { Page } from "~/types";
 
 export interface CreateCompressionParams {
     plugins: PluginsContainer;

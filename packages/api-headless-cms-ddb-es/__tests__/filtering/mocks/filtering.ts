@@ -3,7 +3,7 @@ import {
     CreateExecFilteringResponse
 } from "~/operations/entry/elasticsearch/filtering";
 import { createFields, createModel } from "./fields";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 
 export { CreateExecFilteringResponse };
 

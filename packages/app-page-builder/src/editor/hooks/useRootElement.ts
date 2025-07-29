@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { elementWithChildrenByIdSelector, rootElementAtom } from "~/editor/recoil/modules";
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 
 export function useRootElement() {
     const rootElementId = useRecoilValue(rootElementAtom);

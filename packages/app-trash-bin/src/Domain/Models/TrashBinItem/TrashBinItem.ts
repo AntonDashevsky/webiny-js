@@ -1,4 +1,4 @@
-import { TrashBinIdentity, TrashBinLocation } from "~/types";
+import type { TrashBinIdentity, TrashBinLocation } from "~/types";
 
 export interface TrashBinItemDTO {
     id: string;

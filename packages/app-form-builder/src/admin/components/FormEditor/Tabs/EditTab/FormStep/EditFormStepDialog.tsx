@@ -1,6 +1,7 @@
 import React from "react";
 import { Dialog, Input } from "@webiny/admin-ui";
-import { Form, FormOnSubmit } from "@webiny/form";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
 
 export interface DialogProps {

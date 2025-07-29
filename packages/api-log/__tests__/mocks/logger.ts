@@ -1,5 +1,5 @@
 import { DynamoDbLogger } from "~/logger";
-import { ILogger, ILoggerStorageOperations } from "~/types";
+import type { ILogger, ILoggerStorageOperations } from "~/types";
 
 export interface ICreateMockLoggerParams {
     locale?: string;

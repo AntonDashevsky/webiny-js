@@ -1,6 +1,6 @@
 import React from "react";
 import AccordionItemSettings from "./AccordionItemSettings";
-import { PbEditorPageElementStyleSettingsPlugin } from "~/types";
+import type { PbEditorPageElementStyleSettingsPlugin } from "~/types";
 
 export default {
     name: "pb-editor-page-element-style-settings-accordion-item",

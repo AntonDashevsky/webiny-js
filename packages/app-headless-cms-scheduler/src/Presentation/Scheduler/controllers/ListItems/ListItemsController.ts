@@ -1,5 +1,5 @@
-import { IListItemsController } from "./IListItemsController";
-import { IListItemsUseCase } from "~/UseCases";
+import type { IListItemsController } from "./IListItemsController";
+import type { IListItemsUseCase } from "~/UseCases";
 import type { ISchedulerListExecuteParams } from "~/Gateways/index.js";
 
 export class ListItemsController implements IListItemsController {

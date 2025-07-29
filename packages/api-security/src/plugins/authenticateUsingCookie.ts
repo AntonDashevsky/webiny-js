@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { createContextPlugin } from "@webiny/api";
 import { createBeforeHandlerPlugin } from "@webiny/handler";
-import { SecurityContext } from "~/types";
+import type { SecurityContext } from "~/types";
 
 const get24HoursFromNow = () => {
     const oneHour = 1000 * 60 * 60;

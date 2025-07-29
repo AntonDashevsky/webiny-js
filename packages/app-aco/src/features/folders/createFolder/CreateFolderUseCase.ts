@@ -1,5 +1,5 @@
-import { CreateFolderParams, ICreateFolderUseCase } from "./ICreateFolderUseCase";
-import { ICreateFolderRepository } from "./ICreateFolderRepository";
+import type { CreateFolderParams, ICreateFolderUseCase } from "./ICreateFolderUseCase";
+import type { ICreateFolderRepository } from "./ICreateFolderRepository";
 import { Folder } from "../Folder";
 
 export class CreateFolderUseCase implements ICreateFolderUseCase {

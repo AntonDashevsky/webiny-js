@@ -1,5 +1,6 @@
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Table, TableConstructor, TableDef } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { TableConstructor, TableDef } from "@webiny/db-dynamodb/toolbox";
+import { Table } from "@webiny/db-dynamodb/toolbox";
 
 interface Params {
     documentClient: DynamoDBDocument;

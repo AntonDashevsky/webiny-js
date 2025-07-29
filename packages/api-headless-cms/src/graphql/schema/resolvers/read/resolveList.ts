@@ -1,5 +1,5 @@
 import { ListResponse, ListErrorResponse } from "@webiny/handler-graphql/responses";
-import {
+import type {
     CmsEntryMeta,
     CmsEntryResolverFactory as ResolverFactory,
     CmsEntry,

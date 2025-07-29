@@ -1,5 +1,5 @@
-import { LoadedCache } from "../cache";
-import {
+import type { LoadedCache } from "../cache";
+import type {
     IListFoldersByParentIdsRepository,
     ListFoldersByParentIdsRepositoryParams
 } from "./IListFoldersByParentIdsRepository";

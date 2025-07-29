@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import {
     type AcoFolderStorageOperations,
     type OnFolderAfterCreateTopicParams,
@@ -7,7 +7,7 @@ import {
 import { CreateFolder } from "./CreateFolder";
 import { CreateFolderWithEvents } from "./CreateFolderWithEvents";
 import { CreateFolderWithFolderLevelPermissions } from "./CreateFolderWithFolderLevelPermissions";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 
 export interface CreateFolderUseCasesTopics {
     onFolderBeforeCreate: Topic<OnFolderBeforeCreateTopicParams>;

@@ -1,7 +1,7 @@
 import { createTopic } from "@webiny/pubsub";
 
-import { CreateAcoParams } from "~/types";
-import {
+import type { CreateAcoParams } from "~/types";
+import type {
     AcoFilterCrud,
     OnFilterAfterCreateTopicParams,
     OnFilterAfterDeleteTopicParams,

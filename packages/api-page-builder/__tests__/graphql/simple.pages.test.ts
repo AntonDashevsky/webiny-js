@@ -1,5 +1,5 @@
 import useGqlHandler from "./useGqlHandler";
-import { Page } from "~/types";
+import type { Page } from "~/types";
 
 const sort: string[] = ["createdOn_DESC"];
 

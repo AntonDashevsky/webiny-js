@@ -1,6 +1,6 @@
-import { CoreOptions } from "medium-editor";
+import type { CoreOptions } from "medium-editor";
 import { plugins } from "@webiny/plugins";
-import { MediumEditorOptions } from "~/types";
+import type { MediumEditorOptions } from "~/types";
 
 import { ThemePlugin } from "@webiny/app-theme";
 

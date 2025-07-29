@@ -1,8 +1,9 @@
 import { ErrorResponse, NotFoundError, Response } from "@webiny/handler-graphql";
-import { CmsContext } from "~/types";
-import { Resolvers } from "@webiny/handler-graphql/types";
+import type { CmsContext } from "~/types";
+import type { Resolvers } from "@webiny/handler-graphql/types";
 import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";
-import { createCmsGraphQLSchemaPlugin, ICmsGraphQLSchemaPlugin } from "~/plugins";
+import type { ICmsGraphQLSchemaPlugin } from "~/plugins";
+import { createCmsGraphQLSchemaPlugin } from "~/plugins";
 
 interface Params {
     context: CmsContext;

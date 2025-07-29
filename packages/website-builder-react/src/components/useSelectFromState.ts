@@ -1,6 +1,7 @@
 import deepEqual from "deep-equal";
 import { useState, useEffect, useMemo } from "react";
-import { reaction, IReactionDisposer } from "mobx";
+import type { IReactionDisposer } from "mobx";
+import { reaction } from "mobx";
 
 type Equals<T> = (a: T, b: T) => boolean;
 

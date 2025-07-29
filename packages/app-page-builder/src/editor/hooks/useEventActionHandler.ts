@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { EventActionHandlerContext } from "../contexts/EventActionHandlerProvider";
-import { EventActionHandler } from "~/types";
+import type { EventActionHandler } from "~/types";
 
 export function useEventActionHandler<
     TCallableState = unknown

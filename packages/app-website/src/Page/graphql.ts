@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 import { plugins } from "@webiny/plugins";
-import {
+import type {
     PbPageSettingsFieldsPlugin,
     PbPageData,
     PbErrorResponse

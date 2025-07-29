@@ -1,4 +1,4 @@
-import { FolderPermission } from "~/types";
+import type { FolderPermission } from "~/types";
 
 export interface UpdateFolderParams {
     id: string;

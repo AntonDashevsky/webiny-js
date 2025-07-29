@@ -1,4 +1,4 @@
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { createS3Client } from "~/tasks/utils/helpers/s3Client";
 import { ImportFromUrlProcessAssets } from "./importFromUrlProcessAssets/ImportFromUrlProcessAssets";
 import type {

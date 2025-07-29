@@ -1,6 +1,6 @@
 import React from "react";
 import { createRenderer, useRenderer } from "@webiny/app-page-builder-elements";
-import { EmbedPluginConfig } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
+import type { EmbedPluginConfig } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
 import PinterestEmbed from "./PinterestEmbed";
 
 interface Props {

@@ -1,16 +1,16 @@
 import { createEventHandler, createHandler } from "@webiny/handler-aws/raw";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import i18nContext from "@webiny/api-i18n/graphql/context";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
 import { CmsParametersPlugin, createHeadlessCmsContext } from "@webiny/api-headless-cms";
 import { createFileManagerContext } from "@webiny/api-file-manager";
-import { PbContext } from "~/graphql/types";
-import { PageBuilderStorageOperations } from "~/types";
+import type { PbContext } from "~/graphql/types";
+import type { PageBuilderStorageOperations } from "~/types";
 import { createTenancyAndSecurity } from "~tests/tenancySecurity";
 import { createPageBuilderContext } from "~/graphql";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 export const useHandler = () => {
     const i18nStorage = getStorageOps<any>("i18n");

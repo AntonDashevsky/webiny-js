@@ -1,15 +1,15 @@
-import * as React from "react";
-import { Plugin } from "@webiny/plugins/types";
-import { ReCaptchaComponent } from "./components/Form/components/createReCaptchaComponent";
-import { TermsOfServiceComponent } from "./components/Form/components/createTermsOfServiceComponent";
-import {
+import type * as React from "react";
+import type { Plugin } from "@webiny/plugins/types";
+import type { ReCaptchaComponent } from "./components/Form/components/createReCaptchaComponent";
+import type { TermsOfServiceComponent } from "./components/Form/components/createTermsOfServiceComponent";
+import type {
     BindComponent,
     FormRenderPropParams,
     FormRenderPropParamsSubmit,
     FormAPI
 } from "@webiny/form/types";
-import { ApolloClient } from "apollo-client";
-import { SecurityPermission } from "@webiny/app-security/types";
+import type { ApolloClient } from "apollo-client";
+import type { SecurityPermission } from "@webiny/app-security/types";
 import type { SourceType } from "dnd-core";
 
 export type DragObjectWithType = {

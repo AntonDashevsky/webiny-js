@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
 import Accordion from "~/admin/plugins/fieldRenderers/Accordion";
-import { GenericRecord } from "@webiny/app/types";
+import type { GenericRecord } from "@webiny/app/types";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete_outline.svg";
 import { ReactComponent as ArrowUp } from "@webiny/icons/arrow_drop_up.svg";
 import { ReactComponent as ArrowDown } from "@webiny/icons/arrow_drop_down.svg";

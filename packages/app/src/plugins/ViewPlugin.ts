@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 import { Plugin } from "@webiny/plugins";
 
 interface Config<Props> {

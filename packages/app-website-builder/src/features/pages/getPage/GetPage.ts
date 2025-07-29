@@ -1,4 +1,5 @@
-import { LoadingRepository, loadingRepositoryFactory } from "@webiny/app-utils";
+import type { LoadingRepository } from "@webiny/app-utils";
+import { loadingRepositoryFactory } from "@webiny/app-utils";
 import type { IGetPageUseCase } from "~/features/pages/getPage/IGetPageUseCase.js";
 import type { IGetPageGateway } from "~/features/pages/getPage/IGetPageGateway.js";
 import { GetPageRepository } from "~/features/pages/getPage/GetPageRepository.js";

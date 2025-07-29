@@ -1,6 +1,6 @@
 import React from "react";
 import { PublishRevision, EditRevision, DeleteForm, RevisionSelector } from "./HeaderComponents";
-import { FbFormDetailsPluginRenderParams, FbRevisionModel } from "~/types";
+import type { FbFormDetailsPluginRenderParams, FbRevisionModel } from "~/types";
 
 interface HeaderProps extends FbFormDetailsPluginRenderParams {
     revision: FbRevisionModel;

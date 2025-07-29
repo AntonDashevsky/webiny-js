@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { MovePage } from "./MovePage";
 import { MovePageWithEvents } from "./MovePageWithEvents";
 import type {

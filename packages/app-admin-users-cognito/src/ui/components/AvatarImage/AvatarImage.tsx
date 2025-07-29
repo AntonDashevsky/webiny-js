@@ -1,5 +1,6 @@
 import * as React from "react";
-import { SingleImageUpload, SingleImageUploadProps } from "@webiny/app-admin";
+import type { SingleImageUploadProps } from "@webiny/app-admin";
+import { SingleImageUpload } from "@webiny/app-admin";
 import { AvatarImagePreview } from "./AvatarImagePreview";
 import { AvatarImageTrigger } from "~/ui/components/AvatarImage/AvatarImageTrigger";
 import { cn } from "@webiny/admin-ui";

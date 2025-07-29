@@ -1,8 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import {
-    ICreatePageRevisionFromUseCase,
-    type CreatePageRevisionFromParams
-} from "./ICreatePageRevisionFromUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { ICreatePageRevisionFromUseCase } from "./ICreatePageRevisionFromUseCase.js";
+import { type CreatePageRevisionFromParams } from "./ICreatePageRevisionFromUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class CreatePageRevisionFromUseCaseWithLoading implements ICreatePageRevisionFromUseCase {

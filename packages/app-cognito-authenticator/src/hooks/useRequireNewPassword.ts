@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { Auth } from "@aws-amplify/auth";
 import get from "lodash/get";
 import { useAuthenticator } from "./useAuthenticator";
-import { AuthData } from "~/Authenticator";
+import type { AuthData } from "~/Authenticator";
 
 interface RequireNewPasswordConfirmParams {
     password: string;

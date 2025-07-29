@@ -1,11 +1,13 @@
-import { LoadingRepository, loadingRepositoryFactory } from "@webiny/app-utils";
-import { IGetFolderHierarchyUseCase } from "./IGetFolderHierarchyUseCase";
-import { IGetFolderHierarchyGateway } from "./IGetFolderHierarchyGateway";
+import type { LoadingRepository } from "@webiny/app-utils";
+import { loadingRepositoryFactory } from "@webiny/app-utils";
+import type { IGetFolderHierarchyUseCase } from "./IGetFolderHierarchyUseCase";
+import type { IGetFolderHierarchyGateway } from "./IGetFolderHierarchyGateway";
 import { GetFolderHierarchyUseCaseWithLoading } from "./GetFolderHierarchyUseCaseWithLoading";
 import { GetFolderHierarchyRepository } from "./GetFolderHierarchyRepository";
 import { GetFolderHierarchyUseCase } from "./GetFolderHierarchyUseCase";
-import { folderCacheFactory, ListCache, loadedFolderCacheFactory } from "../cache";
-import { Folder } from "../Folder";
+import type { ListCache } from "../cache";
+import { folderCacheFactory, loadedFolderCacheFactory } from "../cache";
+import type { Folder } from "../Folder";
 
 interface IGetFolderHierarchyInstance {
     useCase: IGetFolderHierarchyUseCase;

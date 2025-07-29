@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import type React from "react";
+import { useEffect } from "react";
 import { usePageTypes } from "~/features";
 
 export type PageTypeProps =

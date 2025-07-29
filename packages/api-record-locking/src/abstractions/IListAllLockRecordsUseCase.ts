@@ -1,4 +1,4 @@
-import {
+import type {
     IRecordLockingListAllLockRecordsParams,
     IRecordLockingListAllLockRecordsResponse
 } from "~/types";

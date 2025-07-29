@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
-import styled, { CSSObject } from "@emotion/styled";
+import type { CSSObject } from "@emotion/styled";
+import styled from "@emotion/styled";
 import { ClassNames } from "@emotion/react";
 import isEqual from "lodash/isEqual";
-import { LinkComponent } from "~/types";
+import type { LinkComponent } from "~/types";
 import { DefaultLinkComponent } from "~/renderers/components";
 import { createRenderer } from "~/createRenderer";
 import { useRenderer } from "~/hooks/useRenderer";

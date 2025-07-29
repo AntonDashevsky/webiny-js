@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import capitalize from "lodash/capitalize";
 import { ButtonPrimary } from "@webiny/ui/Button";
 import { ReactComponent as InfoIcon } from "@webiny/app-admin/assets/icons/info.svg";
-import { PbEditorElement, PbBlockVariable } from "~/types";
+import type { PbEditorElement, PbBlockVariable } from "~/types";
 import TextInput from "./TextInput";
 import { useCurrentBlockElement } from "~/editor/hooks/useCurrentBlockElement";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";

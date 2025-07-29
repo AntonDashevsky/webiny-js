@@ -4,7 +4,7 @@ import { Bind } from "@webiny/form";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
 import { validation } from "@webiny/validation";
 import { Switch } from "@webiny/ui/Switch";
-import { PbPageElementActionTypePlugin } from "~/types";
+import type { PbPageElementActionTypePlugin } from "~/types";
 import Wrapper from "../../components/Wrapper";
 import InputField from "../../components/InputField";
 

@@ -1,6 +1,6 @@
-import { PbContext } from "~/types";
+import type { PbContext } from "~/types";
 import { GetModel } from "~/translations/GetModel";
-import { TranslatedCollectionDTO } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionDTO";
+import type { TranslatedCollectionDTO } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionDTO";
 
 export interface DeleteTranslatedCollectionParams {
     collectionId: string;

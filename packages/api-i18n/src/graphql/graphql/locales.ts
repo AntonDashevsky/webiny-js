@@ -4,8 +4,8 @@ import {
     NotFoundResponse,
     ListResponse
 } from "@webiny/handler-graphql/responses";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
-import { I18NContext } from "~/types";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import type { I18NContext } from "~/types";
 import searchLocaleCodes from "./resolvers/searchLocaleCodes";
 import getI18NInformation from "./resolvers/getI18NInformation";
 import NotAuthorizedResponse from "@webiny/api-security/NotAuthorizedResponse";

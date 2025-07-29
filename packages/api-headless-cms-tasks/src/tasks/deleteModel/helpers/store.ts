@@ -1,5 +1,5 @@
-import { IStoreValue } from "~/tasks/deleteModel/types";
-import { StorageKey } from "@webiny/db/types";
+import type { IStoreValue } from "~/tasks/deleteModel/types";
+import type { StorageKey } from "@webiny/db/types";
 
 export interface ICreateStoreKeyParams {
     modelId: string;

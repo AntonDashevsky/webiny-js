@@ -1,5 +1,5 @@
-import { CmsFieldTypePlugins, CmsModelFieldToGraphQLPlugin } from "~/types";
-import { PluginsContainer } from "@webiny/plugins";
+import type { CmsFieldTypePlugins, CmsModelFieldToGraphQLPlugin } from "~/types";
+import type { PluginsContainer } from "@webiny/plugins";
 
 export const createFieldTypePluginRecords = (plugins: PluginsContainer) => {
     return plugins

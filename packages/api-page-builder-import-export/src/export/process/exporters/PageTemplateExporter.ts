@@ -1,5 +1,5 @@
-import { PageTemplate } from "@webiny/api-page-builder/types";
-import { File, FileManagerContext } from "@webiny/api-file-manager/types";
+import type { PageTemplate } from "@webiny/api-page-builder/types";
+import type { File, FileManagerContext } from "@webiny/api-file-manager/types";
 import Zipper from "~/export/zipper";
 import { extractFilesFromData } from "~/export/utils";
 

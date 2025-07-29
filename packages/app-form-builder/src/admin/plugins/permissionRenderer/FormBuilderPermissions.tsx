@@ -10,10 +10,10 @@ import {
 } from "@webiny/app-admin/components/Permissions";
 import { Form } from "@webiny/form";
 import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox";
-import { SecurityPermission } from "@webiny/app-security/types";
-import { FormBuilderSecurityPermission } from "~/types";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { FormBuilderSecurityPermission } from "~/types";
 import { useSecurity } from "@webiny/app-security";
-import { AaclPermission } from "@webiny/app-admin";
+import type { AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-form-builder/admin/plugins/permissionRenderer");
 

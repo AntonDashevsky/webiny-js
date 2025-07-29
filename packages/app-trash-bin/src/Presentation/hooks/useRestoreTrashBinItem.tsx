@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
 import { useTrashBin } from "./useTrashBin";
 import { SnackbarAction } from "@webiny/ui/Snackbar";
-import { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinItemDTO } from "~/Domain";
 
 interface UseRestoreItemParams {
     item: TrashBinItemDTO;

@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import {
     type AcoFolderStorageOperations,
     type OnFolderAfterDeleteTopicParams,
@@ -7,7 +7,7 @@ import {
 import { DeleteFolder } from "./DeleteFolder";
 import { DeleteFolderWithEvents } from "./DeleteFolderWithEvents";
 import { DeleteFolderWithFolderLevelPermissions } from "./DeleteFolderWithFolderLevelPermissions";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 
 export interface DeleteFolderUseCasesTopics {
     onFolderBeforeDelete: Topic<OnFolderBeforeDeleteTopicParams>;

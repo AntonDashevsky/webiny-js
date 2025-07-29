@@ -1,5 +1,5 @@
 import React from "react";
-import { CmsIdentity } from "~/types";
+import type { CmsIdentity } from "~/types";
 import { Box } from "./Box";
 import { TimeAgo } from "@webiny/ui/TimeAgo";
 

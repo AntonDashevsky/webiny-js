@@ -1,7 +1,7 @@
-import { CmsContext, CmsEntryStorageOperations, EntryBeforeListTopicParams } from "~/types";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { CmsContext, CmsEntryStorageOperations, EntryBeforeListTopicParams } from "~/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
 
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { ListEntriesOperationWithSearchableFields } from "./ListEntriesOperationWithSearchableFields";
 import { ListEntriesOperation } from "./ListEntriesOperation";
 import { ListEntriesOperationWithEvents } from "./ListEntriesOperationWithEvents";
@@ -15,7 +15,7 @@ import { ListEntriesOperationPublished } from "./ListEntriesOperationPublished";
 import { ListEntries } from "./ListEntries";
 import { GetEntry } from "./GetEntry";
 import { GetEntrySecure } from "./GetEntrySecure";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 
 export interface ListEntriesUseCasesTopics {
     onEntryBeforeList: Topic<EntryBeforeListTopicParams>;

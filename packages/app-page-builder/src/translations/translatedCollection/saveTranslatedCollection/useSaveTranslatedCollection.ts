@@ -1,10 +1,10 @@
 import { autorun } from "mobx";
 import { useMemo, useCallback, useState, useEffect } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
+import type { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
 import { translatedCollectionCache } from "~/translations/translatedCollection/translatedCollectionCache";
-import { ISaveTranslatedCollectionGateway } from "~/translations/translatedCollection/saveTranslatedCollection/ISaveTranslatedCollectionGateway";
-import { ISaveTranslatedCollectionRepository } from "~/translations/translatedCollection/saveTranslatedCollection/ISaveTranslatedCollectionRepository";
+import type { ISaveTranslatedCollectionGateway } from "~/translations/translatedCollection/saveTranslatedCollection/ISaveTranslatedCollectionGateway";
+import type { ISaveTranslatedCollectionRepository } from "~/translations/translatedCollection/saveTranslatedCollection/ISaveTranslatedCollectionRepository";
 import { SaveTranslatedCollectionGqlGateway } from "~/translations/translatedCollection/saveTranslatedCollection/SaveTranslatedCollectionGqlGateway";
 import { SaveTranslatedCollectionRepository } from "~/translations/translatedCollection/saveTranslatedCollection/SaveTranslatedCollectionRepository";
 

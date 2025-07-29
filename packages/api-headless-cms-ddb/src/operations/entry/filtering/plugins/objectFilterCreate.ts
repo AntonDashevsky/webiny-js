@@ -1,7 +1,7 @@
 import { CmsEntryFieldFilterPlugin } from "~/plugins/CmsEntryFieldFilterPlugin";
 import { extractWhereParams } from "~/operations/entry/filtering/where";
 import WebinyError from "@webiny/error";
-import { CmsFieldFilterValueTransformPlugin } from "~/types";
+import type { CmsFieldFilterValueTransformPlugin } from "~/types";
 import { transformValue } from "~/operations/entry/filtering/transform";
 
 export const objectFilterCreate = () => {

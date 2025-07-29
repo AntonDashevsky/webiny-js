@@ -1,5 +1,5 @@
 import { Entity as ToolboxEntity } from "~/toolbox";
-import { Entity } from "./Entity";
+import type { Entity } from "./Entity";
 
 export type EntityOption = ToolboxEntity | Entity;
 

@@ -5,14 +5,16 @@ import { useContentReviewId, useCurrentStepId } from "~/hooks/useContentReviewId
 import { useSnackbar } from "@webiny/app-admin";
 import { GET_CHANGE_REQUEST_QUERY } from "~/graphql/changeRequest.gql";
 import { useActiveChangeRequestId } from "~/hooks/useCurrentChangeRequestId";
+import type {
+    ProvideSignOffMutationResponse,
+    ProvideSignOffMutationVariables,
+    RetractSignOffMutationResponse,
+    RetractSignOffMutationVariables
+} from "~/graphql/contentReview.gql";
 import {
     GET_CONTENT_REVIEW_QUERY,
     PROVIDE_SIGN_OFF_MUTATION,
-    ProvideSignOffMutationResponse,
-    ProvideSignOffMutationVariables,
-    RETRACT_SIGN_OFF_MUTATION,
-    RetractSignOffMutationResponse,
-    RetractSignOffMutationVariables
+    RETRACT_SIGN_OFF_MUTATION
 } from "~/graphql/contentReview.gql";
 
 interface UseStepSignOffResult {

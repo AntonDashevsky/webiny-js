@@ -1,5 +1,6 @@
 import React from "react";
-import { Heading, HeadingLevels, Text } from "@webiny/admin-ui";
+import type { HeadingLevels } from "@webiny/admin-ui";
+import { Heading, Text } from "@webiny/admin-ui";
 
 export declare type TypographyT =
     | "headline1"

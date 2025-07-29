@@ -1,7 +1,7 @@
 import React from "react";
 import { i18n } from "@webiny/app/i18n";
 import { ReactComponent as DateIcon } from "@webiny/icons/calendar_month.svg";
-import { FbBuilderFieldPlugin } from "~/types";
+import type { FbBuilderFieldPlugin } from "~/types";
 import { Grid, Select } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields");

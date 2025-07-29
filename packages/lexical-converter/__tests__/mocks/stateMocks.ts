@@ -1,4 +1,4 @@
-import { SerializedEditorState } from "lexical";
+import type { SerializedEditorState } from "lexical";
 
 // `any` is passed as a generic type because lexical is complaining about its own data structure. ¯\_(ツ)_/¯
 export const stateMock: SerializedEditorState<any> = {

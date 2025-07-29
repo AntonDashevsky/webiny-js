@@ -1,16 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useApolloClient, useModelFieldGraphqlContext } from "~/admin/hooks";
-import {
-    SEARCH_CONTENT_ENTRIES,
-    GET_CONTENT_ENTRY,
+import type {
     CmsEntryGetQueryResponse,
     CmsEntryGetQueryVariables,
     CmsEntrySearchQueryResponse,
     CmsEntrySearchQueryVariables
 } from "./graphql";
-import { CmsModelField, CmsModel } from "~/types";
-import { BindComponentRenderProp } from "@webiny/form";
-import { OptionItem, OptionItemCollection } from "./types";
+import { SEARCH_CONTENT_ENTRIES, GET_CONTENT_ENTRY } from "./graphql";
+import type { CmsModelField, CmsModel } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
+import type { OptionItem, OptionItemCollection } from "./types";
 import {
     convertReferenceEntriesToOptionCollection,
     convertReferenceEntryToOption

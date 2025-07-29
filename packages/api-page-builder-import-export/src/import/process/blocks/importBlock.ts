@@ -2,16 +2,16 @@ import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
 import { ensureDirSync, createWriteStream } from "fs-extra";
-import { PbImportExportContext } from "~/graphql/types";
-import { FileUploadsData } from "~/types";
-import { PageBlock } from "@webiny/api-page-builder/types";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { FileUploadsData } from "~/types";
+import type { PageBlock } from "@webiny/api-page-builder/types";
 import { s3Stream } from "~/export/s3Stream";
 import { uploadAssets } from "~/import/utils/uploadAssets";
 import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
 import { deleteS3Folder } from "~/import/utils/deleteS3Folder";
 import { updateFilesInData } from "~/import/utils/updateFilesInData";
 import { INSTALL_EXTRACT_DIR } from "~/import/constants";
-import { ExportedBlockData } from "~/export/process/exporters/BlockExporter";
+import type { ExportedBlockData } from "~/export/process/exporters/BlockExporter";
 import { ElementIdsProcessor } from "~/import/process/blocks/ElementIdsProcessor";
 
 interface ImportBlockParams {

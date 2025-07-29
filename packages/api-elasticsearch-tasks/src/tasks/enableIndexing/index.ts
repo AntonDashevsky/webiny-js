@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context, IElasticsearchTaskConfig } from "~/types";
-import { IElasticsearchEnableIndexingTaskInput } from "./types";
+import type { Context, IElasticsearchTaskConfig } from "~/types";
+import type { IElasticsearchEnableIndexingTaskInput } from "./types";
 
 export const createEnableIndexingTask = (params?: IElasticsearchTaskConfig) => {
     return createTaskDefinition<Context, IElasticsearchEnableIndexingTaskInput>({

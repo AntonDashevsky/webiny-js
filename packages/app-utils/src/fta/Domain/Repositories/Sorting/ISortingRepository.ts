@@ -1,4 +1,4 @@
-import { Sorting } from "~/fta/Domain/Models";
+import type { Sorting } from "~/fta/Domain/Models";
 
 export interface ISortingRepository {
     set: (sorts: Sorting[]) => Promise<void>;

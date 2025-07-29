@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { ISearchRepository } from "~/Domain";
-import { IListItemsUseCase } from "./IListItemsUseCase";
-import { TrashBinListQueryVariables } from "~/types";
+import type { ISearchRepository } from "~/Domain";
+import type { IListItemsUseCase } from "./IListItemsUseCase";
+import type { TrashBinListQueryVariables } from "~/types";
 
 export class ListItemsUseCaseWithSearch implements IListItemsUseCase {
     private searchRepository: ISearchRepository;

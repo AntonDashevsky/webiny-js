@@ -1,8 +1,8 @@
 import React, { useRef, cloneElement } from "react";
-import { Validator } from "@webiny/validation/types";
+import type { Validator } from "@webiny/validation/types";
 import { useForm } from "@webiny/form";
 import { createValidators } from "~/createValidators";
-import { BindComponent, CmsModelField } from "~/types";
+import type { BindComponent, CmsModelField } from "~/types";
 import { useModelField } from "~/ModelFieldProvider";
 import { createValidationContainer } from "~/createValidationContainer";
 

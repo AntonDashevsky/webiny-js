@@ -1,4 +1,4 @@
-import { Context } from "~/types";
+import type { Context } from "~/types";
 
 export default class TargetDataModelsResolver {
     protected readonly context: Context;

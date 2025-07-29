@@ -10,8 +10,8 @@ import { ContentEntryListConfig } from "~/admin/config/contentEntries";
 import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
 import { usePermission } from "~/admin/hooks";
 
-import { FolderTableItem } from "@webiny/app-aco/types";
-import { EntryTableItem } from "~/types";
+import type { FolderTableItem } from "@webiny/app-aco/types";
+import type { EntryTableItem } from "~/types";
 
 interface FolderCellNameProps {
     folder: FolderTableItem;

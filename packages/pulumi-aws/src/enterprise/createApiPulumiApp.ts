@@ -1,10 +1,9 @@
 import * as aws from "@pulumi/aws";
-import { isResourceOfType, PulumiAppParam } from "@webiny/pulumi";
+import type { PulumiAppParam } from "@webiny/pulumi";
+import { isResourceOfType } from "@webiny/pulumi";
 import { License } from "@webiny/wcp";
-import {
-    createApiPulumiApp as baseCreateApiPulumiApp,
-    CreateApiPulumiAppParams as BaseCreateApiPulumiAppParams
-} from "~/apps/api/createApiPulumiApp";
+import type { CreateApiPulumiAppParams as BaseCreateApiPulumiAppParams } from "~/apps/api/createApiPulumiApp";
+import { createApiPulumiApp as baseCreateApiPulumiApp } from "~/apps/api/createApiPulumiApp";
 import { handleGuardDutyEvents } from "~/enterprise/api/handleGuardDutyEvents";
 
 export type ApiPulumiApp = ReturnType<typeof createApiPulumiApp>;

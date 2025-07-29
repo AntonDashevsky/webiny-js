@@ -1,5 +1,5 @@
 import { BaseEventAction } from "../../eventActions";
-import { AfterDropElementActionArgsType } from "./types";
+import type { AfterDropElementActionArgsType } from "./types";
 
 export class AfterDropElementActionEvent extends BaseEventAction<AfterDropElementActionArgsType> {
     public getName(): string {

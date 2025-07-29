@@ -1,4 +1,4 @@
-import { Context } from "@webiny/api/types";
+import type { Context } from "@webiny/api/types";
 import { FileNormalizer } from "~/utils/FileNormalizer";
 import { createModifierFromPlugins, FileUploadModifierPlugin } from "~/utils/FileUploadModifier";
 

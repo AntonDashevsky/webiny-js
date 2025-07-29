@@ -11,14 +11,8 @@ import {
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm";
 import { validation } from "@webiny/validation";
-import {
-    GET_MENU,
-    CREATE_MENU,
-    UPDATE_MENU,
-    LIST_MENUS,
-    GetMenuQueryResponse,
-    GetMenuQueryVariables
-} from "./graphql";
+import type { GetMenuQueryResponse, GetMenuQueryVariables } from "./graphql";
+import { GET_MENU, CREATE_MENU, UPDATE_MENU, LIST_MENUS } from "./graphql";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import MenuItems from "./MenusForm/MenuItems";
@@ -29,7 +23,7 @@ import isEmpty from "lodash/isEmpty";
 import omit from "lodash/omit";
 import EmptyView from "@webiny/app-admin/components/EmptyView";
 import { useMenusPermissions } from "~/hooks/permissions";
-import { PbMenu } from "~/types";
+import type { PbMenu } from "~/types";
 import { Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-page-builder/admin/menus/form");

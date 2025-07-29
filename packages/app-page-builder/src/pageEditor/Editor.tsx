@@ -4,31 +4,30 @@ import { plugins } from "@webiny/plugins";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { PageProvider } from "@webiny/app-page-builder-elements/contexts/Page";
-import { Page } from "@webiny/app-page-builder-elements/types";
+import type { Page } from "@webiny/app-page-builder-elements/types";
 import get from "lodash/get";
 import { Editor as PbEditor } from "~/admin/components/Editor";
 import { createElement } from "~/editor/helpers";
-import {
-    GET_PAGE,
-    CREATE_PAGE_FROM,
+import type {
     CreatePageFromMutationResponse,
     CreatePageFromMutationVariables,
     GetPageQueryResponse,
     GetPageQueryVariables
 } from "./graphql";
+import { GET_PAGE, CREATE_PAGE_FROM } from "./graphql";
 import { EditorLoadingScreen } from "~/admin/components/EditorLoadingScreen";
-import {
-    LIST_PAGE_ELEMENTS,
+import type {
     ListPageElementsQueryResponse,
     ListPageElementsQueryResponseData
 } from "~/admin/graphql/pages";
-import { ListPageBlocksQueryResponse } from "~/admin/views/PageBlocks/graphql";
+import { LIST_PAGE_ELEMENTS } from "~/admin/graphql/pages";
+import type { ListPageBlocksQueryResponse } from "~/admin/views/PageBlocks/graphql";
 import { LIST_BLOCK_CATEGORIES } from "~/admin/views/BlockCategories/graphql";
 import createElementPlugin from "~/admin/utils/createElementPlugin";
 import dotProp from "dot-prop-immutable";
-import { PbErrorResponse, PbBlockCategory } from "~/types";
+import type { PbErrorResponse, PbBlockCategory } from "~/types";
 import createBlockCategoryPlugin from "~/admin/utils/createBlockCategoryPlugin";
-import { PageWithContent, RevisionsAtomType } from "~/pageEditor/state";
+import type { PageWithContent, RevisionsAtomType } from "~/pageEditor/state";
 import { createStateInitializer } from "./createStateInitializer";
 import elementVariableRendererPlugins from "~/editor/plugins/elementVariables";
 import { useNavigatePage } from "~/admin/hooks/useNavigatePage";

@@ -1,9 +1,9 @@
 "use client";
 import { makeAutoObservable, observable, toJS } from "mobx";
+import type { DocumentStore } from "@webiny/website-builder-sdk";
 import {
     contentSdk,
     jsonPatch,
-    DocumentStore,
     type EditingSdk,
     type DocumentElement
 } from "@webiny/website-builder-sdk";

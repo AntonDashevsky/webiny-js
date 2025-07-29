@@ -1,4 +1,4 @@
-import { IconPickerIconDto } from "./IconPickerIconDto";
+import type { IconPickerIconDto } from "./IconPickerIconDto";
 
 export class IconPickerIcon {
     private readonly _prefix: string;

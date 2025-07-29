@@ -5,7 +5,7 @@ import { ListFoldersByParentIdsGqlGateway } from "./ListFoldersByParentIdsGqlGat
 import { ListFoldersByParentIds } from "./ListFoldersByParentIds";
 import { FolderDtoMapper } from "./FolderDto";
 import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks";
-import { FolderItem } from "~/types";
+import type { FolderItem } from "~/types";
 import { ROOT_FOLDER } from "~/constants";
 
 export const useListFoldersByParentIds = () => {

@@ -6,7 +6,7 @@ import { ButtonPrimary } from "@webiny/ui/Button";
 import get from "lodash/get";
 import { i18n } from "@webiny/app/i18n";
 import { Alert } from "@webiny/ui/Alert";
-import { FbEditorTrigger } from "~/types";
+import type { FbEditorTrigger } from "~/types";
 const t = i18n.namespace("FormsApp.Editor.RedirectTriggerSettings");
 
 const plugin: FbEditorTrigger = {

@@ -2,7 +2,7 @@ import { useCallback, useReducer, useEffect } from "react";
 import { Graph, alg } from "graphlib";
 import { useApolloClient } from "@apollo/react-hooks";
 import { plugins } from "@webiny/plugins";
-import { AdminInstallationPlugin } from "~/types";
+import type { AdminInstallationPlugin } from "~/types";
 import { config as appConfig } from "@webiny/app/config";
 
 interface GetInstallersResult {

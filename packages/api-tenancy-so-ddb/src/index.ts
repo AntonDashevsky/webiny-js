@@ -5,13 +5,15 @@ import {
     getClean,
     put
 } from "@webiny/db-dynamodb";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import WebinyError from "@webiny/error";
 import { createTable } from "~/definitions/table";
 import { createTenantEntity } from "~/definitions/tenantEntity";
 import { createSystemEntity } from "~/definitions/systemEntity";
 import { createDomainEntity } from "~/definitions/domainEntity";
-import { CreateTenancyStorageOperations, ENTITIES } from "~/types";
+import type { CreateTenancyStorageOperations } from "~/types";
+import { ENTITIES } from "~/types";
 import type { ListTenantsParams, System, Tenant, TenantDomain } from "@webiny/api-tenancy/types";
 
 interface TenantDomainRecord {

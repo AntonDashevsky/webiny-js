@@ -1,5 +1,5 @@
 import React from "react";
-import {
+import type {
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
 } from "@webiny/app-headless-cms/types";

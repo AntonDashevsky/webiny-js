@@ -1,5 +1,5 @@
 import { Response, GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 
 export const acceptIncomingChanges = () => {
     const plugin = new GraphQLSchemaPlugin<CmsContext>({

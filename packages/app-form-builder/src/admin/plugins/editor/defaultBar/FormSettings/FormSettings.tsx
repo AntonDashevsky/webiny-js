@@ -15,7 +15,7 @@ import {
     SimpleFormContent,
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm";
-import { FbEditorFormSettingsPlugin } from "~/types";
+import type { FbEditorFormSettingsPlugin } from "~/types";
 import { Button, Heading, Icon, List } from "@webiny/admin-ui";
 
 const Title = () => {

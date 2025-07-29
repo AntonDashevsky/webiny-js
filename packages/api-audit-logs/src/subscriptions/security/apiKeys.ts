@@ -2,8 +2,8 @@ import WebinyError from "@webiny/error";
 
 import { AUDIT } from "~/config";
 import { getAuditConfig } from "~/utils/getAuditConfig";
-import { AuditLogsContext } from "~/types";
-import { ApiKey } from "@webiny/api-security/types";
+import type { AuditLogsContext } from "~/types";
+import type { ApiKey } from "@webiny/api-security/types";
 
 /**
  * We need to remove the token from the API Key object, as it is a security risk.

@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
-import { RecoilRoot, MutableSnapshot } from "recoil";
+import type { MutableSnapshot } from "recoil";
+import { RecoilRoot } from "recoil";
 import { Editor as EditorComponent } from "./components/Editor";
 import { EditorConfigApply } from "./components/Editor/EditorConfig";
 import { EditorProvider } from "./contexts/EditorProvider";
@@ -8,7 +9,7 @@ import { DndProvider } from "react-dnd";
 import { elementsAtom, rootElementAtom } from "~/editor/recoil/modules";
 import { flattenElements } from "~/editor/helpers";
 import { EditorWithConfig } from "~/editor/config";
-import { PbEditorElementTree } from "~/types";
+import type { PbEditorElementTree } from "~/types";
 
 export interface EditorStateInitializerFactory {
     (): EditorStateInitializer;

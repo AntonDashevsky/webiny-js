@@ -1,8 +1,9 @@
-import { Client as ElasticsearchClient } from "@elastic/elasticsearch";
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Client as ElasticsearchClient } from "@elastic/elasticsearch";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { createRawEventHandler } from "@webiny/handler-aws";
-import { Constructor, createContainer } from "@webiny/ioc";
-import {
+import type { Constructor } from "@webiny/ioc";
+import { createContainer } from "@webiny/ioc";
+import type {
     DataMigration,
     ExecutionTimeLimiter,
     MigrationEventHandlerResponse,
@@ -17,7 +18,8 @@ import {
     MigrationSymbol,
     PrimaryDynamoTableSymbol
 } from "~/symbols";
-import { IsMigrationApplicable, MigrationRunner } from "~/MigrationRunner";
+import type { IsMigrationApplicable } from "~/MigrationRunner";
+import { MigrationRunner } from "~/MigrationRunner";
 import { MigrationRepositoryImpl } from "~/repository/migrations.repository";
 import { devVersionErrorResponse } from "~/handlers/devVersionErrorResponse";
 import { createPatternMatcher } from "~/handlers/createPatternMatcher";

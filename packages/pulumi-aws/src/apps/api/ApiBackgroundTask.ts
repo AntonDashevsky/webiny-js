@@ -1,6 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { createAppModule, PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule } from "@webiny/pulumi";
 import { ApiGraphql, CoreOutput } from "~/apps";
 import { createBackgroundTaskDefinition } from "./backgroundTask/definition";
 import { createBackgroundTaskStepFunctionPolicy } from "~/apps/api/backgroundTask/policy";

@@ -1,4 +1,4 @@
-import { Identity } from "~/translations/Identity";
+import type { Identity } from "~/translations/Identity";
 
 interface TranslatableItemProps {
     itemId: string;

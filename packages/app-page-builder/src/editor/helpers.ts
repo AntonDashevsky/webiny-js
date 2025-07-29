@@ -1,9 +1,9 @@
 import invariant from "invariant";
 import { customAlphabet } from "nanoid";
 import { set } from "dot-prop-immutable";
-import { DragObjectWithTypeWithTarget as BaseDragObjectWithTypeWithTarget } from "./components/Droppable";
+import type { DragObjectWithTypeWithTarget as BaseDragObjectWithTypeWithTarget } from "./components/Droppable";
 import { plugins } from "@webiny/plugins";
-import {
+import type {
     PbBlockVariable,
     PbEditorBlockPlugin,
     PbEditorElement,
@@ -13,12 +13,12 @@ import {
     PbEditorPageElementStyleSettingsPlugin,
     PbElement
 } from "~/types";
+import type { UpdateElementActionArgsType } from "~/editor/recoil/actions";
 import {
     CreateElementActionEvent,
     DeleteElementActionEvent,
     UpdateDocumentActionEvent,
-    updateElementAction,
-    UpdateElementActionArgsType
+    updateElementAction
 } from "~/editor/recoil/actions";
 import { AfterDropElementActionEvent } from "~/editor/recoil/actions/afterDropElement";
 import { executeAction } from "~/editor/recoil/eventActions";

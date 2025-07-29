@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
 import { AcoApp } from "./AcoApp";
 import { AcoAppModifierPlugin } from "~/plugins";
-import { AcoContext, IAcoApp, IAcoAppParams, IAcoApps, IAcoAppsOptions } from "~/types";
+import type { AcoContext, IAcoApp, IAcoAppParams, IAcoApps, IAcoAppsOptions } from "~/types";
 import { CmsModelPlugin } from "@webiny/api-headless-cms";
 import { createSchema } from "~/record/record.gql";
 

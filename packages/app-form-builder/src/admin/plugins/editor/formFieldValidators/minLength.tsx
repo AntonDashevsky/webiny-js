@@ -1,6 +1,6 @@
 import React from "react";
 import { validation } from "@webiny/validation";
-import { FbBuilderFormFieldValidatorPlugin } from "~/types";
+import type { FbBuilderFormFieldValidatorPlugin } from "~/types";
 import { Grid, Input } from "@webiny/admin-ui";
 
 const plugin: FbBuilderFormFieldValidatorPlugin = {

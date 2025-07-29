@@ -4,7 +4,7 @@ import {
 } from "~/tasks/createMockDataManagerTask";
 import { useHandler } from "~tests/context/useHandler";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
-import { Context, IMockDataManagerInput, IMockDataManagerOutput } from "~/types";
+import type { Context, IMockDataManagerInput, IMockDataManagerOutput } from "~/types";
 import { TaskResponseStatus } from "@webiny/tasks";
 import { CARS_MODEL_ID } from "~/tasks/MockDataManager/constants";
 

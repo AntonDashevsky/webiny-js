@@ -1,4 +1,4 @@
-import { Folder } from "~/folder/folder.types";
+import type { Folder } from "~/folder/folder.types";
 import { ListCache } from "~/utils/ListCache";
 
 export class FoldersCacheFactory {

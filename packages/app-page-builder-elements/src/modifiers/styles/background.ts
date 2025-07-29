@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import type { ElementStylesModifier } from "~/types";
 
 interface Scaling {
     backgroundSize: string;

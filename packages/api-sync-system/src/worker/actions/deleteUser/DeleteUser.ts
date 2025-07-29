@@ -1,11 +1,11 @@
+import type { CognitoIdentityProviderClientConfig } from "@webiny/aws-sdk/client-cognito-identity-provider";
 import {
     AdminDeleteUserCommand,
     type AdminDeleteUserCommandInput,
     AdminGetUserCommand,
     type AdminGetUserCommandInput,
     type AdminGetUserCommandOutput,
-    type CognitoIdentityProvider,
-    CognitoIdentityProviderClientConfig
+    type CognitoIdentityProvider
 } from "@webiny/aws-sdk/client-cognito-identity-provider";
 import { convertException } from "@webiny/utils/exception.js";
 

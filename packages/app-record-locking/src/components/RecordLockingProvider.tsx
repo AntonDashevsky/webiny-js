@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { createRecordLocking } from "~/domain/RecordLocking";
-import {
+import type {
     IFetchLockedEntryLockRecordParams,
     IFetchLockRecordParams,
     IPossiblyRecordLockingRecord,

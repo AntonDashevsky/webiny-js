@@ -1,5 +1,5 @@
 import { CompressorPlugin, Context } from "~/index";
-import { Context as ContextInterface } from "~/types";
+import type { Context as ContextInterface } from "~/types";
 import { Benchmark } from "~/Benchmark";
 import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin";
 import { GzipCompression, JsonpackCompression } from "@webiny/utils/compression";

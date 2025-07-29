@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFormEditor } from "~/admin/components/FormEditor";
-import { FbFormStep } from "~/types";
+import type { FbFormStep } from "~/types";
 
 import { EditFormStepDialog } from "./FormStep/EditFormStepDialog";
 

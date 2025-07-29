@@ -5,7 +5,7 @@ import { useDialogs, useSnackbar } from "@webiny/app-admin";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks";
 import { CircularProgress } from "@webiny/ui/Progress";
 import { EntryRevisionDeletedSnackbarMessage } from "./ShowConfirmationOnDeleteRevision/EntryRevisionDeletedSnackbarMessage";
-import {
+import type {
     DeleteEntryRevisionParams,
     DeleteEntryRevisionResponse
 } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext";

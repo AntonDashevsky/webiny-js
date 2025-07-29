@@ -1,7 +1,7 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { CreateRevision } from "./CreateRevision";
 import { CreateRedirectWithEvents } from "./CreateRedirectWithEvents";
-import {
+import type {
     OnRedirectAfterCreateTopicParams,
     OnRedirectBeforeCreateTopicParams,
     WbRedirectsStorageOperations

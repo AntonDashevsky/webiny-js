@@ -1,13 +1,13 @@
-import { Abstraction } from "./Abstraction";
-import {
+import type { Abstraction } from "./Abstraction";
+import type {
     Constructor,
     Registration,
     DecoratorRegistration,
     InstanceRegistration,
     Dependencies,
-    DependencyOptions,
-    LifetimeScope
+    DependencyOptions
 } from "./types";
+import { LifetimeScope } from "./types";
 import { Metadata } from "./Metadata";
 
 export class Container {

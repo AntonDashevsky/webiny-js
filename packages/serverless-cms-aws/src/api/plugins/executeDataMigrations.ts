@@ -1,12 +1,12 @@
 import { LambdaClient } from "@webiny/aws-sdk/client-lambda";
-import { CliContext } from "@webiny/cli/types";
+import type { CliContext } from "@webiny/cli/types";
 import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
+import type { MigrationStatusReporter } from "@webiny/data-migration/cli";
 import {
     CliMigrationRunReporter,
     InteractiveCliStatusReporter,
     LogReporter,
     MigrationRunner,
-    MigrationStatusReporter,
     NonInteractiveCliStatusReporter,
     VoidStatusReporter
 } from "@webiny/data-migration/cli";

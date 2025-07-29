@@ -1,6 +1,6 @@
-import { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
-import { CmsContext, CmsModelField } from "~/types";
-import { RichTextContents } from "~/plugins";
+import type { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
+import type { CmsContext, CmsModelField } from "~/types";
+import type { RichTextContents } from "~/plugins";
 import { RichTextRenderer } from "~/utils/RichTextRenderer";
 
 interface ResolverArgs {

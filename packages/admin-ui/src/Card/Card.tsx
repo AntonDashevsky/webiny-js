@@ -1,12 +1,7 @@
 import React from "react";
 import { makeDecoratable, type VariantProps } from "~/utils";
-import {
-    CardFooter,
-    CardHeader,
-    CardRoot,
-    type CardRootProps,
-    cardRootVariants
-} from "./components";
+import type { cardRootVariants } from "./components";
+import { CardFooter, CardHeader, CardRoot, type CardRootProps } from "./components";
 
 interface CardProps extends CardRootProps, VariantProps<typeof cardRootVariants> {
     title?: React.ReactNode;

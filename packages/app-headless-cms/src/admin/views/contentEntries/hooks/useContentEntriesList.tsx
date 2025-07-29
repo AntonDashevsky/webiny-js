@@ -4,8 +4,8 @@ import omit from "lodash/omit";
 import { useRouter } from "@webiny/react-router";
 import { makeDecoratable } from "@webiny/react-composition";
 import { useContentEntries } from "./useContentEntries";
-import { CmsContentEntry, EntryTableItem, TableItem } from "~/types";
-import { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
+import type { CmsContentEntry, EntryTableItem, TableItem } from "~/types";
+import type { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
 import {
     createFoldersData,
     createRecordsData,
@@ -14,7 +14,7 @@ import {
     useNavigateFolder
 } from "@webiny/app-aco";
 import { CMS_ENTRY_LIST_LINK, ROOT_FOLDER } from "~/admin/constants";
-import { FolderTableItem, ListMeta } from "@webiny/app-aco/types";
+import type { FolderTableItem, ListMeta } from "@webiny/app-aco/types";
 
 interface UpdateSearchCallableParams {
     search: string;

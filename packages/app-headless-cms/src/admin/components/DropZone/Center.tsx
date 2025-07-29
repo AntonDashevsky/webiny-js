@@ -1,5 +1,7 @@
-import React, { CSSProperties } from "react";
-import { Droppable, DroppableProps, OnDropCallable } from "./../Droppable";
+import type { CSSProperties } from "react";
+import React from "react";
+import type { DroppableProps, OnDropCallable } from "./../Droppable";
+import { Droppable } from "./../Droppable";
 import { cn, cva } from "@webiny/admin-ui";
 
 const droppableContainerVariants = cva(

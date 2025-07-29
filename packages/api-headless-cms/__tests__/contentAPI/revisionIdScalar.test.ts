@@ -1,6 +1,6 @@
 import { createContentModelGroup } from "~tests/contentAPI/mocks/contentModelGroup";
 import models from "~tests/contentAPI/mocks/contentModels";
-import { CmsGroup, CmsModel } from "~/types";
+import type { CmsGroup, CmsModel } from "~/types";
 import { useArticleManageHandler } from "~tests/testHelpers/useArticleManageHandler";
 
 describe("revision id scalar", () => {

@@ -1,12 +1,13 @@
-import React, { KeyboardEvent } from "react";
+import type { KeyboardEvent } from "react";
+import React from "react";
 import { Command } from "~/Command";
 import { PopoverPrimitive } from "~/Popover";
-import { InputPrimitiveProps } from "~/Input";
+import type { InputPrimitiveProps } from "~/Input";
 import { useAutoComplete } from "./useAutoComplete";
 import { AutoCompleteInputIcons, AutoCompleteList } from "./components";
-import { AutoCompleteOption } from "../domains";
+import type { AutoCompleteOption } from "../domains";
 import { makeDecoratable } from "~/utils";
-import { Icon } from "~/Icon";
+import type { Icon } from "~/Icon";
 
 interface AutoCompletePrimitiveProps {
     /**

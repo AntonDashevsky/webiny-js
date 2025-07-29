@@ -1,4 +1,4 @@
-import { FbFormModelField, FieldIdType, FieldLayoutPositionType, FbFormStep } from "~/types";
+import type { FbFormModelField, FieldIdType, FieldLayoutPositionType, FbFormStep } from "~/types";
 
 interface GetFieldPositionResult extends Omit<FieldLayoutPositionType, "index"> {
     index: number;

@@ -1,6 +1,6 @@
-import { IconPickerIcon } from "./IconPickerIcon";
-import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
-import { IconPickerFontAwesome } from "./IconPickerFontAwesome";
+import type { IconPickerIcon } from "./IconPickerIcon";
+import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
+import type { IconPickerFontAwesome } from "./IconPickerFontAwesome";
 
 export class IconPickerIconFormatter {
     static formatFontAwesome(icon: IconPickerIcon): IconPickerFontAwesome {

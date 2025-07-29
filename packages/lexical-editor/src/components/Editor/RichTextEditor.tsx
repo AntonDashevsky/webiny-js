@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState } from "react";
 import { css } from "emotion";
-import { CSSObject } from "@emotion/react";
-import { Klass, LexicalNode } from "lexical";
+import type { CSSObject } from "@emotion/react";
+import type { Klass, LexicalNode } from "lexical";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { ClearEditorPlugin } from "@lexical/react/LexicalClearEditorPlugin";
@@ -10,16 +10,12 @@ import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { makeDecoratable } from "@webiny/react-composition";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import {
-    createTheme,
-    EditorTheme,
-    ThemeEmotionMap,
-    toTypographyEmotionMap
-} from "@webiny/lexical-theme";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { createTheme, toTypographyEmotionMap } from "@webiny/lexical-theme";
 import { allNodes } from "@webiny/lexical-nodes";
 import { RichTextEditorProvider } from "~/context/RichTextEditorContext";
 import { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin";
-import { LexicalValue, ToolbarActionPlugin } from "~/types";
+import type { LexicalValue, ToolbarActionPlugin } from "~/types";
 import { Placeholder } from "~/ui/Placeholder";
 import { SharedHistoryContext, useSharedHistoryContext } from "~/context/SharedHistoryContext";
 import {

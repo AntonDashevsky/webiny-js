@@ -7,7 +7,7 @@ import { makeDecoratable } from "@webiny/app-admin";
 import { ReactComponent as LockIcon } from "~/admin/assets/lock.svg";
 import { ReactComponent as BeenHereIcon } from "~/admin/assets/beenhere.svg";
 import { ReactComponent as GestureIcon } from "~/admin/assets/gesture.svg";
-import { PbPageRevision } from "~/types";
+import type { PbPageRevision } from "~/types";
 import { useRevision } from "~/admin/plugins/pageDetails/pageRevisions/RevisionsList";
 
 const primaryColor = css({ color: "var(--mdc-theme-primary)" });

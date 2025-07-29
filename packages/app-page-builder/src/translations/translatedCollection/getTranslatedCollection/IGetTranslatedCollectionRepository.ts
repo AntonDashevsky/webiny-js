@@ -1,6 +1,6 @@
-import { Loading } from "~/translations/Loading";
-import { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
-import { GenericRecord } from "@webiny/app/types";
+import type { Loading } from "~/translations/Loading";
+import type { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
+import type { GenericRecord } from "@webiny/app/types";
 
 export interface IGetTranslatedCollectionRepository {
     execute(collectionId: string, languageCode: string): Promise<TranslatedCollection | undefined>;

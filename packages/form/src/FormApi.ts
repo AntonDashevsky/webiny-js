@@ -1,5 +1,5 @@
-import { FormPresenter } from "~/FormPresenter";
-import {
+import type { FormPresenter } from "~/FormPresenter";
+import type {
     BindComponentProps,
     FormOnSubmit,
     FormPropsState,

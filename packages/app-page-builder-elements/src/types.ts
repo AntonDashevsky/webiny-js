@@ -2,11 +2,12 @@ import type { createRenderer } from "~/createRenderer";
 
 export * from "@webiny/theme/types";
 
-import React, { HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
+import type React from "react";
 import { type CSSObject } from "@emotion/react";
-import { StylesObject, ThemeBreakpoints, Theme } from "@webiny/theme/types";
-import { ElementInputs, ElementInputValues } from "~/inputs/ElementInput";
-import { ILoaderCache } from "~/hooks/useLoader/ILoaderCache";
+import type { StylesObject, ThemeBreakpoints, Theme } from "@webiny/theme/types";
+import type { ElementInputs, ElementInputValues } from "~/inputs/ElementInput";
+import type { ILoaderCache } from "~/hooks/useLoader/ILoaderCache";
 
 export interface Page {
     id: string;

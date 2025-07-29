@@ -1,14 +1,14 @@
-import { useDocumentEditor } from "~/DocumentEditor";
+import type { useDocumentEditor } from "~/DocumentEditor";
 import { StylesBindingsProcessor } from "@webiny/website-builder-sdk";
+import type { IMetadata } from "~/BaseEditor/metadata";
 import {
     BreakpointElementMetadata,
     ElementMetadata,
-    IMetadata,
     NullMetadata,
     StylesMetadata
 } from "~/BaseEditor/metadata";
 import { Commands } from "~/BaseEditor";
-import { Editor } from "~/editorSdk/Editor";
+import type { Editor } from "~/editorSdk/Editor";
 import { autorun, makeAutoObservable, runInAction } from "mobx";
 import { type InheritanceInfo, InheritanceProcessor } from "@webiny/website-builder-sdk";
 import {

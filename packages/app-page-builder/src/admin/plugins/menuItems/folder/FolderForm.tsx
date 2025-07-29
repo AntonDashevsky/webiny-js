@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { FormOnSubmit } from "@webiny/form/types";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import type { FormOnSubmit } from "@webiny/form/types";
+import type { MenuTreeItem } from "~/admin/views/Menus/types";
 import { Grid } from "@webiny/admin-ui/Grid";
 import { Button, Heading, Input } from "@webiny/admin-ui";
 

@@ -1,5 +1,5 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { CreateRedirectParams, ICreateRedirectUseCase } from "./ICreateRedirectUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { CreateRedirectParams, ICreateRedirectUseCase } from "./ICreateRedirectUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class CreateRedirectUseCaseWithLoading implements ICreateRedirectUseCase {

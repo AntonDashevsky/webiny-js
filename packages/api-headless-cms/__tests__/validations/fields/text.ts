@@ -1,4 +1,4 @@
-import { FieldFactory } from "./types";
+import type { FieldFactory } from "./types";
 
 const createFieldFactory: FieldFactory = base => {
     return field => {

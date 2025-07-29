@@ -1,7 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { IconButton } from "@webiny/ui/Button";
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import { ReactComponent as AddCircleOutline } from "~/editor/assets/icons/baseline-add_circle-24px.svg";
 
 const defaultOnClick = () => {

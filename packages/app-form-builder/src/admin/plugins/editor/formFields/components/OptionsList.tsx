@@ -4,14 +4,12 @@ import cloneDeep from "lodash/cloneDeep";
 import { OptionsListItem, AddOptionInput, EditFieldOptionDialog } from "./OptionsListComponents";
 import { ReactComponent as HandleIcon } from "@webiny/icons/drag_indicator.svg";
 import { validation } from "@webiny/validation";
-import { FormRenderPropParams } from "@webiny/form/types";
-import { FieldOption } from "./types";
-import { DragEndEvent } from "@dnd-kit/core";
+import type { FormRenderPropParams } from "@webiny/form/types";
+import type { FieldOption } from "./types";
+import type { DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
-import {
-    SortableContainerContextProvider,
-    FieldOptionWithId
-} from "./OptionsListComponents/OptionsListItem";
+import type { FieldOptionWithId } from "./OptionsListComponents/OptionsListItem";
+import { SortableContainerContextProvider } from "./OptionsListComponents/OptionsListItem";
 import { Grid, Icon, Label, Switch } from "@webiny/admin-ui";
 
 const DragHandle = () => (

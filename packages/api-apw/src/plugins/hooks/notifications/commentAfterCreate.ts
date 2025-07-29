@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { ApwContext } from "~/types";
+import type { ApwContext } from "~/types";
 import { extractContentReviewIdAndStep } from "~/plugins/utils";
 import { createContentUrl } from "./contentUrl";
 import { createCommentUrl } from "./commentUrl";

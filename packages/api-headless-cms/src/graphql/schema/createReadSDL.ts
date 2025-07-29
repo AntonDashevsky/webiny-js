@@ -1,9 +1,9 @@
-import { CmsModel, CmsFieldTypePlugins, ApiEndpoint } from "~/types";
+import type { CmsModel, CmsFieldTypePlugins, ApiEndpoint } from "~/types";
 import { renderListFilterFields } from "~/utils/renderListFilterFields";
 import { renderSortEnum } from "~/utils/renderSortEnum";
 import { renderFields } from "~/utils/renderFields";
 import { renderGetFilterFields } from "~/utils/renderGetFilterFields";
-import { CmsGraphQLSchemaSorterPlugin } from "~/plugins";
+import type { CmsGraphQLSchemaSorterPlugin } from "~/plugins";
 import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
 
 interface CreateReadSDLParams {

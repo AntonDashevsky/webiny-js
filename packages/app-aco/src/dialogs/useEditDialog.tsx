@@ -1,12 +1,13 @@
 import React, { useCallback, useState } from "react";
 import { Grid, Input } from "@webiny/admin-ui";
 import { useSnackbar, useDialogs } from "@webiny/app-admin";
-import { Bind, GenericFormData } from "@webiny/form";
+import type { GenericFormData } from "@webiny/form";
+import { Bind } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { Extensions, FolderTree } from "~/components";
 import { ROOT_FOLDER } from "~/constants";
 import { useUpdateFolder } from "~/features";
-import { FolderItem } from "~/types";
+import type { FolderItem } from "~/types";
 import { ParentFolderField } from "./ParentFolderField";
 
 interface ShowDialogParams {

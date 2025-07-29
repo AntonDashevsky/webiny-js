@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "@webiny/admin-ui";
-import { ElementInputRendererProps } from "~/BaseEditor";
+import type { ElementInputRendererProps } from "~/BaseEditor";
 
 export const TextInputRenderer = ({
     value,

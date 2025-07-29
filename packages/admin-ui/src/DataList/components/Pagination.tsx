@@ -1,7 +1,7 @@
 import React from "react";
 import { DropdownMenu } from "~/DropdownMenu";
 import { NextPageIcon, OptionsIcon, PreviousPageIcon } from "../DataListIcons";
-import { DataListProps } from "../types";
+import type { DataListProps } from "../types";
 import { Tooltip } from "~/Tooltip";
 
 const Pagination = (props: DataListProps) => {

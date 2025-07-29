@@ -1,6 +1,6 @@
 import { createTimeLteValidator } from "~/validators/timeLte";
 import { createTimeGteValidator } from "~/validators/timeGte";
-import { CmsModel, CmsModelField, CmsModelFieldValidation } from "~/types";
+import type { CmsModel, CmsModelField, CmsModelFieldValidation } from "~/types";
 
 const createValidator = (args: Record<string, any>): CmsModelFieldValidation => {
     return {

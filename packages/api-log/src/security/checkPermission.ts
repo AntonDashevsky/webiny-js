@@ -1,4 +1,4 @@
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 export interface ICheckPermissionFactoryParams {

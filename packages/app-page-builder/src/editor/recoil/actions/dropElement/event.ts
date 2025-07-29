@@ -1,4 +1,4 @@
-import { DropElementActionArgsType } from "./types";
+import type { DropElementActionArgsType } from "./types";
 import { BaseEventAction } from "../../eventActions";
 
 export class DropElementActionEvent extends BaseEventAction<DropElementActionArgsType> {

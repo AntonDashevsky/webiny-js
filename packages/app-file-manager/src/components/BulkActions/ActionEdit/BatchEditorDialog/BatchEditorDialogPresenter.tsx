@@ -1,12 +1,12 @@
 import { makeAutoObservable } from "mobx";
 
-import {
-    Batch,
+import type {
     BatchDTO,
     FieldDTO,
     OperationDTO,
     OperatorDTO
 } from "~/components/BulkActions/ActionEdit/domain";
+import { Batch } from "~/components/BulkActions/ActionEdit/domain";
 import type { FormInvalidFields } from "@webiny/form";
 
 export interface IBatchEditorDialogPresenter {

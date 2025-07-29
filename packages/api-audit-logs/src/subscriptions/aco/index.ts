@@ -4,7 +4,7 @@ import {
     onFolderAfterDeleteHook
 } from "./folders";
 
-import { AuditLogsContext } from "~/types";
+import type { AuditLogsContext } from "~/types";
 
 export const createAcoHooks = (context: AuditLogsContext) => {
     if (!context.aco) {

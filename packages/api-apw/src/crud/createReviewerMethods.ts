@@ -1,4 +1,4 @@
-import {
+import type {
     ApwReviewerCrud,
     CreateApwParams,
     OnReviewerAfterCreateTopicParams,

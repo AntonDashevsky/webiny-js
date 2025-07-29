@@ -5,7 +5,7 @@ import { plugins } from "@webiny/plugins";
 import set from "lodash/set";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { i18n } from "@webiny/app/i18n";
-import { FbEditorTrigger } from "~/types";
+import type { FbEditorTrigger } from "~/types";
 import { Accordion, Icon, Text } from "@webiny/admin-ui";
 const t = i18n.namespace("FormsApp.Editor.TriggersTab");
 

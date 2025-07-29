@@ -1,15 +1,15 @@
-import { IManager } from "~/types";
-import { PrimitiveValue } from "@webiny/api-elasticsearch/types";
-import { IIndexManager } from "~/settings/types";
-import {
+import type { IManager } from "~/types";
+import type { PrimitiveValue } from "@webiny/api-elasticsearch/types";
+import type { IIndexManager } from "~/settings/types";
+import type {
     ITaskResponseAbortedResult,
     ITaskResponseContinueResult,
     ITaskResponseDoneResult,
     ITaskResponseDoneResultOutput,
     ITaskResponseErrorResult
 } from "@webiny/tasks";
-import { IElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/abstractions/ElasticsearchSynchronize";
-import { IElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/abstractions/ElasticsearchFetcher";
+import type { IElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/abstractions/ElasticsearchSynchronize";
+import type { IElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/abstractions/ElasticsearchFetcher";
 
 export interface IDataSynchronizationInputValue {
     finished?: boolean;

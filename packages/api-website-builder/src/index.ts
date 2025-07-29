@@ -1,5 +1,5 @@
 import { createContextPlugin } from "@webiny/api";
-import { WebsiteBuilderContext } from "./context/types";
+import type { WebsiteBuilderContext } from "./context/types";
 import { WebsiteBuilder } from "./context/WebsiteBuilder";
 import { createGraphQL } from "~/graphql/createGraphQL";
 

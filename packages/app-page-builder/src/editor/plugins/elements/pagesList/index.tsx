@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase";
-import { PluginCollection } from "@webiny/plugins/types";
-import {
+import type { PluginCollection } from "@webiny/plugins/types";
+import type {
     PbEditorPageElementPlugin,
     PbEditorPageElementAdvancedSettingsPlugin,
-    DisplayMode,
-    PbEditorElementPluginArgs,
-    OnCreateActions
+    PbEditorElementPluginArgs
 } from "~/types";
+import { DisplayMode, OnCreateActions } from "~/types";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 import { ReactComponent as PageListIcon } from "./page-list-icon.svg";
 import { PagesList } from "./PagesList";

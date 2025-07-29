@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { FormRenderFbFormModelField } from "@webiny/app-form-builder/types";
+import type { FormRenderFbFormModelField } from "@webiny/app-form-builder/types";
 
 export const FieldLabelStyled = styled.label`
     width: 100%;

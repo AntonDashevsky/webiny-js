@@ -1,7 +1,7 @@
-import { IDeleteFolderRepository } from "./IDeleteFolderRepository";
-import { ListCache } from "../cache";
-import { Folder } from "../Folder";
-import { IDeleteFolderGateway } from "./IDeleteFolderGateway";
+import type { IDeleteFolderRepository } from "./IDeleteFolderRepository";
+import type { ListCache } from "../cache";
+import type { Folder } from "../Folder";
+import type { IDeleteFolderGateway } from "./IDeleteFolderGateway";
 
 export class DeleteFolderRepository implements IDeleteFolderRepository {
     private cache: ListCache<Folder>;

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { IncomingGenericData, useWebsockets } from "@webiny/app-websockets";
+import type { IncomingGenericData } from "@webiny/app-websockets";
+import { useWebsockets } from "@webiny/app-websockets";
 import { useSnackbar } from "@webiny/app-admin";
 import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageEditorTool } from "./types";
+import type { ImageEditorTool } from "./types";
 import { IconButton, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as CropIcon } from "@webiny/icons/crop.svg";
 import Cropper from "cropperjs";

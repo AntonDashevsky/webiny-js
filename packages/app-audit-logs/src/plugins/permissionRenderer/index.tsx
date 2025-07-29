@@ -4,7 +4,7 @@ import { ReactComponent as PermissionsIcon } from "@webiny/icons/manage_search.s
 import { i18n } from "@webiny/app/i18n";
 import { plugins } from "@webiny/plugins";
 import { Accordion } from "@webiny/admin-ui";
-import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
 
 import { AuditLogsPermissions as AuditLogsPermissionsComponent } from "./AuditLogsPermissions";
 

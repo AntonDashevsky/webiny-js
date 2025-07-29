@@ -1,4 +1,4 @@
-import { PbRenderElementPlugin } from "~/types";
+import type { PbRenderElementPlugin } from "~/types";
 import { createCodesandbox } from "@webiny/app-page-builder-elements/renderers/embeds/codesandbox";
 
 export default (): PbRenderElementPlugin => {

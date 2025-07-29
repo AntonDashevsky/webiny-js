@@ -1,4 +1,4 @@
-import { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types";
 
 export const createModel = (): CmsModel => {
     const group: Pick<CmsGroup, "id" | "name"> = {

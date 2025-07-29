@@ -1,4 +1,5 @@
-import React, { ReactElement, useCallback, useState } from "react";
+import type { ReactElement } from "react";
+import React, { useCallback, useState } from "react";
 import { css } from "emotion";
 import classNames from "classnames";
 import { COLORS } from "./StyledComponents";

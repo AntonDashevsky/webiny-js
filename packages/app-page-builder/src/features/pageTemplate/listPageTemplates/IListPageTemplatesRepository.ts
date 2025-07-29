@@ -1,4 +1,4 @@
-import { PbPageTemplateWithContent } from "~/types";
+import type { PbPageTemplateWithContent } from "~/types";
 
 export interface IListPageTemplatesRepository {
     getLoading(): boolean;

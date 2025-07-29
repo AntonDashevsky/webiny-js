@@ -3,10 +3,10 @@ import lodashGet from "lodash/get";
 import lodashSet from "lodash/set";
 import lodashNoop from "lodash/noop";
 import lodashIsEqual from "lodash/isEqual";
-import { BindComponentProps, FormValidationOptions, GenericFormData } from "~/types";
+import type { BindComponentProps, FormValidationOptions, GenericFormData } from "~/types";
 import { FormField } from "./FormField";
 import { FormValidator } from "./FormValidator";
-import { FieldValidationResult } from "./FormFieldValidator";
+import type { FieldValidationResult } from "./FormFieldValidator";
 
 export interface FormInvalidFields {
     [name: string]: string;

@@ -1,4 +1,4 @@
-import { PbContext } from "~/types";
+import type { PbContext } from "~/types";
 import { GetTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/GetTranslatedCollectionRepository";
 import type { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
 

@@ -1,19 +1,20 @@
-import { createPrivateTaskDefinition, ITask } from "@webiny/tasks";
-import { IListEntries, IProcessEntry } from "~/abstractions";
+import type { ITask } from "@webiny/tasks";
+import { createPrivateTaskDefinition } from "@webiny/tasks";
+import type { IListEntries, IProcessEntry } from "~/abstractions";
 import {
     ChildTasksCleanup,
     CreateTasksByModel,
     ProcessTask,
     ProcessTasksByModel
 } from "~/useCases/internals";
-import {
-    BulkActionOperationByModelAction,
+import type {
     HcmsBulkActionsContext,
     IBulkActionOperationByModelInput,
     IBulkActionOperationByModelOutput,
     IBulkActionOperationInput,
     IBulkActionOperationOutput
 } from "~/types";
+import { BulkActionOperationByModelAction } from "~/types";
 
 export interface CreateBackgroundTasksConfig {
     name: string;

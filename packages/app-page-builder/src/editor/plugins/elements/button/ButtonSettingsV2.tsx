@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { css } from "emotion";
 import startCase from "lodash/startCase";
 import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
 // Components
 import { IconPicker } from "@webiny/app-admin/components/IconPicker";
 import { ICON_PICKER_SIZE } from "@webiny/app-admin/components/IconPicker/types";

@@ -1,9 +1,13 @@
 import { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { AdvancedSearch, AdvancedSearchConfig } from "./advanced-search";
-import { Record, RecordConfig } from "./record";
-import { Folder, FolderConfig } from "./folder";
-import { Table, TableConfig } from "~/config/table";
+import type { AdvancedSearchConfig } from "./advanced-search";
+import { AdvancedSearch } from "./advanced-search";
+import type { RecordConfig } from "./record";
+import { Record } from "./record";
+import type { FolderConfig } from "./folder";
+import { Folder } from "./folder";
+import type { TableConfig } from "~/config/table";
+import { Table } from "~/config/table";
 
 export { FieldRendererConfig as AdvancedSearchFieldRendererConfig } from "./advanced-search/FieldRenderer";
 export { ActionConfig as RecordActionConfig } from "./record/Action";

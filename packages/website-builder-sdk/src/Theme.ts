@@ -1,5 +1,5 @@
 import deepMerge from "deepmerge";
-import {
+import type {
     Breakpoint,
     WebsiteBuilderTheme,
     WebsiteBuilderThemeInput

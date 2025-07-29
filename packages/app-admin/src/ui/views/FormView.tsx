@@ -1,8 +1,9 @@
 import React from "react";
-import { FormOnSubmit } from "@webiny/form";
+import type { FormOnSubmit } from "@webiny/form";
 import { CircularProgress } from "@webiny/ui/Progress";
-import { UIElement, UIElementConfig } from "~/ui/UIElement";
-import { FormElement, FormElementRenderProps } from "~/ui/elements/form/FormElement";
+import type { UIElement, UIElementConfig } from "~/ui/UIElement";
+import type { FormElementRenderProps } from "~/ui/elements/form/FormElement";
+import { FormElement } from "~/ui/elements/form/FormElement";
 import { ButtonElement } from "~/ui/elements/ButtonElement";
 import { GenericElement } from "~/ui/elements/GenericElement";
 import { FormContentElement } from "./FormView/FormContentElement";

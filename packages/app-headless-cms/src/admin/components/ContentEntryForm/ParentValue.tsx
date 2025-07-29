@@ -1,8 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef } from "react";
 import get from "lodash/get";
-import { CmsModelField } from "@webiny/app-headless-cms-common/types";
+import type { CmsModelField } from "@webiny/app-headless-cms-common/types";
 import { useModelField } from "~/admin/components/ModelFieldProvider";
-import { useForm, FormAPI } from "@webiny/form";
+import type { FormAPI } from "@webiny/form";
+import { useForm } from "@webiny/form";
 
 declare global {
     // eslint-disable-next-line

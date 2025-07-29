@@ -1,7 +1,9 @@
-import { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { createQuery, Query, createPluginsContainer } from "./mocks";
-import { createExecFiltering, CreateExecFilteringResponse } from "./mocks/filtering";
+import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import type { Query } from "./mocks";
+import { createQuery, createPluginsContainer } from "./mocks";
+import type { CreateExecFilteringResponse } from "./mocks/filtering";
+import { createExecFiltering } from "./mocks/filtering";
 
 describe("not_between filter", () => {
     let query: Query;

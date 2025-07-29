@@ -1,10 +1,10 @@
-import { Plugin } from "@webiny/plugins/types";
-import { Context } from "@webiny/handler/types";
-import { Authentication, Identity } from "@webiny/api-authentication/types";
-import { Topic } from "@webiny/pubsub/types";
-import { GetTenant } from "~/createSecurity";
-import { ProjectPackageFeatures } from "@webiny/wcp/types";
-import { TenancyContext } from "@webiny/api-tenancy/types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { Context } from "@webiny/handler/types";
+import type { Authentication, Identity } from "@webiny/api-authentication/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { GetTenant } from "~/createSecurity";
+import type { ProjectPackageFeatures } from "@webiny/wcp/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
 
 // Backwards compatibility - START
 export type SecurityIdentity = Identity;

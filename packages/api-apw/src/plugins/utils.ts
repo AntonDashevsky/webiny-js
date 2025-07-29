@@ -1,18 +1,16 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import {
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type {
     ApwChangeRequest,
     ApwContentReview,
     ApwContentReviewCrud,
     ApwContentReviewStep,
-    ApwContentReviewStepStatus,
     ApwContext,
     ApwReviewerCrud,
     ApwWorkflow,
-    ApwWorkflowStep,
-    ApwWorkflowStepTypes,
-    WorkflowScopeTypes
+    ApwWorkflowStep
 } from "~/types";
+import { ApwContentReviewStepStatus, ApwWorkflowStepTypes, WorkflowScopeTypes } from "~/types";
 
 export interface CreateModelFieldParams
     extends Omit<CmsModelField, "id" | "storageId" | "fieldId"> {

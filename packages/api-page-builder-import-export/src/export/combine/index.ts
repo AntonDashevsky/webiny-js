@@ -1,5 +1,5 @@
-import { PbImportExportContext } from "~/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { PbImportExportContext } from "~/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { createRawEventHandler } from "@webiny/handler-aws";
 import { blocksHandler } from "~/export/combine/blocksHandler";
 import { formsHandler } from "~/export/combine/formsHandler";

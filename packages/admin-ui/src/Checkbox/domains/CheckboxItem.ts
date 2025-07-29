@@ -1,4 +1,4 @@
-import { CheckboxItemDto } from "./CheckboxItemDto";
+import type { CheckboxItemDto } from "./CheckboxItemDto";
 import { generateId } from "~/utils";
 
 export class CheckboxItem {

@@ -18,7 +18,7 @@ import {
 import SearchUI from "@webiny/app-admin/components/SearchUI";
 import { useTenantsList } from "./hooks/useTenantsList";
 import { useTenancy } from "@webiny/app-tenancy";
-import { TenantItem } from "~/types";
+import type { TenantItem } from "~/types";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

@@ -9,7 +9,7 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useI18N } from "~/hooks/useI18N";
 import { GET_LOCALE, CREATE_LOCALE, UPDATE_LOCALE, LIST_LOCALES } from "./graphql";
 import { useCurrentLocale } from "./useCurrentLocale";
-import { I18NLocaleItem } from "~/types";
+import type { I18NLocaleItem } from "~/types";
 
 const t = i18n.ns("app-i18n/admin/locales/form");
 

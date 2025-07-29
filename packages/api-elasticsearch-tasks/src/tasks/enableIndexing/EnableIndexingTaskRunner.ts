@@ -1,8 +1,8 @@
-import { IManager } from "~/types";
-import { ITaskResponse, ITaskResponseResult } from "@webiny/tasks/response/abstractions";
-import { IndexManager } from "~/settings";
-import { IIndexManager } from "~/settings/types";
-import { IElasticsearchEnableIndexingTaskInput } from "~/tasks/enableIndexing/types";
+import type { IManager } from "~/types";
+import type { ITaskResponse, ITaskResponseResult } from "@webiny/tasks/response/abstractions";
+import type { IndexManager } from "~/settings";
+import type { IIndexManager } from "~/settings/types";
+import type { IElasticsearchEnableIndexingTaskInput } from "~/tasks/enableIndexing/types";
 
 export class EnableIndexingTaskRunner {
     private readonly manager: IManager<IElasticsearchEnableIndexingTaskInput>;

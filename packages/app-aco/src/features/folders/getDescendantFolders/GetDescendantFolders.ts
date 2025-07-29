@@ -1,4 +1,4 @@
-import { IGetDescendantFoldersUseCase } from "./IGetDescendantFoldersUseCase";
+import type { IGetDescendantFoldersUseCase } from "./IGetDescendantFoldersUseCase";
 import { GetDescendantFoldersRepository } from "./GetDescendantFoldersRepository";
 import { GetDescendantFoldersUseCase } from "./GetDescendantFoldersUseCase";
 import { folderCacheFactory } from "../cache";

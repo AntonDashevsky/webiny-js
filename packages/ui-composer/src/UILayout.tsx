@@ -1,5 +1,5 @@
-import React from "react";
-import { UIElement, UIElementConfig } from "./UIElement";
+import type React from "react";
+import type { UIElement, UIElementConfig } from "./UIElement";
 import { Plugin, plugins } from "@webiny/plugins";
 
 interface LayoutItem {

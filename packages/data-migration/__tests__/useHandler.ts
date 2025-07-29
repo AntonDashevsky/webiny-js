@@ -1,6 +1,6 @@
 import { createHandler } from "@webiny/handler-aws/raw";
-import { LambdaContext } from "@webiny/handler-aws/types";
-import { MigrationEventHandlerResponse } from "~/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
+import type { MigrationEventHandlerResponse } from "~/types";
 
 interface Payload {
     command?: string;

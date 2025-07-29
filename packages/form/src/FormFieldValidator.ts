@@ -1,7 +1,7 @@
 import lodashCamelCase from "lodash/camelCase";
-import { Validator } from "@webiny/validation/types";
+import type { Validator } from "@webiny/validation/types";
 import { ValidationError } from "~/ValidationError";
-import { FormValidationOptions } from "~/types";
+import type { FormValidationOptions } from "~/types";
 
 export interface FieldValidationResult {
     isValid: boolean | null;

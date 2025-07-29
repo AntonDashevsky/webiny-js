@@ -13,10 +13,10 @@ import {
     FilePhysicalStoragePlugin
 } from "~/index";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { FileManagerStorageOperations } from "~/types";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { FileManagerStorageOperations } from "~/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { createWcpContext, createWcpGraphQL } from "@webiny/api-wcp";
 
 export interface HandlerParams {

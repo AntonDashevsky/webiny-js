@@ -1,11 +1,7 @@
 import WebinyError from "@webiny/error";
-import { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
-import {
-    AdvancedPublishingWorkflow,
-    ApwWorkflow,
-    ApwWorkflowApplications,
-    WorkflowScopeTypes
-} from "~/types";
+import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { AdvancedPublishingWorkflow, ApwWorkflow } from "~/types";
+import { ApwWorkflowApplications, WorkflowScopeTypes } from "~/types";
 import { workflowByCreatedOnDesc, workflowByPrecedenceDesc } from "~/plugins/utils";
 import { CHANGE_REQUEST_MODEL_ID } from "~/storageOperations/models/changeRequest.model";
 import { COMMENT_MODEL_ID } from "~/storageOperations/models/comment.model";

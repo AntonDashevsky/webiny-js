@@ -1,5 +1,5 @@
-import { MailerContext } from "~/types";
-import {
+import type { MailerContext } from "~/types";
+import type {
     OnEntryAfterCreateTopicParams,
     OnEntryAfterUpdateTopicParams,
     OnEntryCreateErrorTopicParams,

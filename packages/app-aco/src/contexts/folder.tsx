@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { FolderItem } from "~/types";
+import type { FolderItem } from "~/types";
 
 export interface FolderContext {
     folder: FolderItem;

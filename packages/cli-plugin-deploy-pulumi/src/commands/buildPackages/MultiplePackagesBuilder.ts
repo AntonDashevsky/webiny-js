@@ -3,7 +3,7 @@ import Listr from "listr";
 import { BasePackagesBuilder } from "./BasePackagesBuilder";
 import { gray } from "chalk";
 import { measureDuration } from "~/utils";
-import { IProjectApplicationPackage } from "@webiny/cli/types";
+import type { IProjectApplicationPackage } from "@webiny/cli/types";
 import { fork } from "child_process";
 import { deserializeError } from "serialize-error";
 

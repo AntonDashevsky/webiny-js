@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { UpdatePage } from "./UpdatePage";
 import { UpdatePageWithEvents } from "./UpdatePageWithEvents";
 import type {

@@ -1,12 +1,12 @@
 import React from "react";
 import kebabCase from "lodash/kebabCase";
-import {
-    DisplayMode,
+import type {
     PbEditorElement,
     PbEditorPageElementPlugin,
     PbEditorTextElementPluginsArgs,
     PbElement
 } from "~/types";
+import { DisplayMode } from "~/types";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 import { createInitialTextValue } from "../utils/textUtils";
 import { Heading } from "./Heading";

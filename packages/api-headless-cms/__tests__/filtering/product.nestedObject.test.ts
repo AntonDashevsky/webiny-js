@@ -3,7 +3,7 @@ import { createInitFactory } from "./product/init";
 import { createEntriesFactory } from "./product/entries";
 import { createCategoryFactory } from "./product/category";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
-import { Product, ProductCategory } from "../types";
+import type { Product, ProductCategory } from "../types";
 import { createGetProduct } from "./product/getProductFactory";
 
 describe("complex product nestedObject filtering", () => {

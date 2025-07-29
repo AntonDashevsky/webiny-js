@@ -9,7 +9,7 @@ import {
 } from "~/editor/plugins/elementSettings/components/StyledComponents";
 import InputField from "~/editor/plugins/elementSettings/components/InputField";
 import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
 
 const DATA_NAMESPACE = "data.settings.tab";
 

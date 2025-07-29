@@ -1,5 +1,5 @@
 import kebabCase from "lodash/kebabCase";
-import { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types";
+import type { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types";
 import { createList } from "@webiny/app-page-builder-elements/renderers/list";
 
 export default (args: PbRenderElementPluginArgs = {}): PbRenderElementPlugin => {

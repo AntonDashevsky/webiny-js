@@ -1,5 +1,5 @@
-import { IListItemsUseCase, ISearchItemsUseCase } from "~/UseCases";
-import { ISearchItemsController } from "./ISearchItemsController";
+import type { IListItemsUseCase, ISearchItemsUseCase } from "~/UseCases";
+import type { ISearchItemsController } from "./ISearchItemsController";
 
 export class SearchItemsController implements ISearchItemsController {
     private readonly listItemsUseCaseFactory: () => IListItemsUseCase;

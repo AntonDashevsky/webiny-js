@@ -4,7 +4,7 @@ import { useActiveElement } from "~/editor/hooks/useActiveElement";
 import { ElementNotLinked } from "~/blockEditor/components/elementSettingsTab/ElementNotLinked";
 import VariableSettings from "~/blockEditor/components/elementSettingsTab/VariableSettings";
 import VariablesList from "~/blockEditor/components/elementSettingsTab/VariablesList";
-import { PbBlockEditorCreateVariablePlugin } from "~/types";
+import type { PbBlockEditorCreateVariablePlugin } from "~/types";
 import { useBlockReference } from "~/templateEditor/config/Sidebar/useBlockReference";
 
 export const ElementSettingsGroup = () => {

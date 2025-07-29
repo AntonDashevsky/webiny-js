@@ -8,7 +8,7 @@ import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
 import { ContentWrapper } from "~/editor/plugins/elementSettings/components/StyledComponents";
 import InputField from "~/editor/plugins/elementSettings/components/InputField";
 import { useActiveElement } from "~/editor/hooks/useActiveElement";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
 
 const classes = {
     grid: css`

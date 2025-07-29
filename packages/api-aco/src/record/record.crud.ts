@@ -1,10 +1,10 @@
 import { createTopic } from "@webiny/pubsub";
-import {
+import type {
     CreateAcoParams,
     OnSearchRecordAfterMoveTopicParams,
     OnSearchRecordBeforeMoveTopicParams
 } from "~/types";
-import {
+import type {
     AcoSearchRecordCrud,
     OnSearchRecordAfterCreateTopicParams,
     OnSearchRecordAfterDeleteTopicParams,

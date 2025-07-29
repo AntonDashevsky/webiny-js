@@ -23,7 +23,7 @@ import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
 import * as GQL from "./graphql";
 import { deserializeSorters } from "../utils";
-import { ApiKey } from "~/types";
+import type { ApiKey } from "~/types";
 
 const t = i18n.ns("app-security/admin/groups/data-list");
 

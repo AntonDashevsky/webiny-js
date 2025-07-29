@@ -1,5 +1,5 @@
-import { SerializedEditorState } from "lexical";
-import { LexicalValue } from "~/types";
+import type { SerializedEditorState } from "lexical";
+import type { LexicalValue } from "~/types";
 
 export const parseLexicalState = (
     editorStateValue: LexicalValue | null

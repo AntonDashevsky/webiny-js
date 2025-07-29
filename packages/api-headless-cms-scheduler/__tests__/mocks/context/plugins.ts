@@ -5,14 +5,15 @@ import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createTenancyAndSecurity } from "./tenancySecurity";
-import { createDummyLocales, createPermissions, PermissionsArg } from "./helpers";
-import { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
-import { ContextPlugin } from "@webiny/api";
-import { ScheduleContext } from "~/types.js";
+import type { PermissionsArg } from "./helpers";
+import { createDummyLocales, createPermissions } from "./helpers";
+import type { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
+import type { ContextPlugin } from "@webiny/api";
+import type { ScheduleContext } from "~/types.js";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import { createHeadlessCmsSchedule } from "~/index.js";
 import type {
     SchedulerClient,

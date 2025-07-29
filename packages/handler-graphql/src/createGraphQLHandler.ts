@@ -1,9 +1,10 @@
 import { boolean } from "boolean";
-import { GraphQLSchema } from "graphql";
-import { Context, RoutePlugin } from "@webiny/handler";
+import type { GraphQLSchema } from "graphql";
+import type { Context } from "@webiny/handler";
+import { RoutePlugin } from "@webiny/handler";
 import WebinyError from "@webiny/error";
-import { Plugin } from "@webiny/plugins/types";
-import { GraphQLRequestBody, HandlerGraphQLOptions } from "./types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { GraphQLRequestBody, HandlerGraphQLOptions } from "./types";
 import { createGraphQLSchema, getSchemaPlugins } from "./createGraphQLSchema";
 import debugPlugins from "./debugPlugins";
 import { processRequestBody } from "./processRequestBody";

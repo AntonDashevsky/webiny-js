@@ -1,19 +1,14 @@
 import * as React from "react";
 import { Label } from "~/Label";
 import { makeDecoratable } from "~/utils";
-import {
-    SliderPrimitiveRenderer,
-    SliderPrimitiveProps,
-    SliderPrimitiveRendererProps,
-    useSlider,
-    SliderValue
-} from "./primitives";
+import type { SliderPrimitiveProps, SliderPrimitiveRendererProps } from "./primitives";
+import { SliderPrimitiveRenderer, useSlider, SliderValue } from "./primitives";
+import type { FormComponentProps } from "~/FormComponent";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
-    FormComponentNote,
-    FormComponentProps
+    FormComponentNote
 } from "~/FormComponent";
 
 /**

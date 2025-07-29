@@ -1,7 +1,7 @@
 import { GetLatestRevisionByEntryId } from "./GetLatestRevisionByEntryId";
 import { GetLatestRevisionByEntryIdDeleted } from "./GetLatestRevisionByEntryIdDeleted";
 import { GetLatestRevisionByEntryIdNotDeleted } from "./GetLatestRevisionByEntryIdNotDeleted";
-import { CmsEntryStorageOperations } from "~/types";
+import type { CmsEntryStorageOperations } from "~/types";
 
 interface GetLatestRevisionByEntryIdUseCasesParams {
     operation: CmsEntryStorageOperations["getLatestRevisionByEntryId"];

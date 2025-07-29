@@ -4,7 +4,7 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache";
 import { ListPageTemplatesGqlGateway } from "~/features/pageTemplate/listPageTemplates/ListPageTemplatesGqlGateway";
 import { RefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/RefreshPageTemplatesRepository";
-import { IRefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/IRefreshPageTemplatesRepository";
+import type { IRefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/IRefreshPageTemplatesRepository";
 
 class RepositoryFactory {
     private cache: Map<ApolloClient<any>, IRefreshPageTemplatesRepository> = new Map();

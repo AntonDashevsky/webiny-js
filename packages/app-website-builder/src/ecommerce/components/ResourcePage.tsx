@@ -4,7 +4,7 @@ import { UnsetOnUnmount, useBind } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { createResourcePicker } from "~/ecommerce/createResourcePicker";
 import { adaptInputToBind } from "./adaptInputToBind";
-import { Resource } from "../types";
+import type { Resource } from "../types";
 import { toTitleCaseLabel } from "~/ecommerce/components/toTitleCaseLabel";
 import { useEcommerceApi } from "~/features";
 

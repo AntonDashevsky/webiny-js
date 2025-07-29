@@ -1,4 +1,4 @@
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { createLegacyEntity } from "~/utils";
 
 export const createLocaleEntity = (table: Table<string, string, string>) => {

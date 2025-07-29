@@ -15,7 +15,7 @@ import {
     createSNSEventHandler,
     createSQSEventHandler
 } from "~/index";
-import { LambdaContext } from "~/types";
+import type { LambdaContext } from "~/types";
 
 interface S3EventHandlerResponse {
     isS3MainEventHandler?: boolean;

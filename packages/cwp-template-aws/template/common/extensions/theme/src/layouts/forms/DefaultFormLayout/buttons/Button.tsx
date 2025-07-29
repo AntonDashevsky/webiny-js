@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { FormRenderPropParamsSubmit } from "@webiny/form";
+import type { FormRenderPropParamsSubmit } from "@webiny/form";
 
 export const Wrapper = styled.div<{ fullWidth: boolean; type: "primary" | "default" }>`
     ${({ theme, type }) => theme.styles.elements["button"][`${type}`]}

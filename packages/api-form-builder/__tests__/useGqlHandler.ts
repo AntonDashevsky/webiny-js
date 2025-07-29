@@ -6,7 +6,7 @@ import graphqlHandlerPlugins from "@webiny/handler-graphql";
 import { createFileManagerContext, createFileManagerGraphQL } from "@webiny/api-file-manager";
 import i18nContext from "@webiny/api-i18n/graphql/context";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 import { createFormBuilder } from "~/index";
 import { createI18NGraphQL } from "@webiny/api-i18n/graphql";
 
@@ -41,15 +41,15 @@ import {
 } from "./graphql/formSubmission";
 import { until } from "@webiny/project-utils/testing/helpers/until";
 import { createTenancyAndSecurity, defaultIdentity } from "./tenancySecurity";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
-import { FormBuilderStorageOperations } from "~/types";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { FormBuilderStorageOperations } from "~/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 import { createPageBuilderContext } from "@webiny/api-page-builder";
-import { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
+import type { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
 
 export interface UseGqlHandlerParams {
     permissions?: SecurityPermission[];

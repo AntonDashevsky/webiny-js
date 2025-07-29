@@ -2,7 +2,8 @@ import React, { useCallback } from "react";
 import slugify from "slugify";
 import { css } from "emotion";
 import pick from "lodash/pick";
-import { Form, FormAPI } from "@webiny/form";
+import type { FormAPI } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
 import { ButtonPrimary } from "@webiny/ui/Button";
 import { Grid, Cell } from "@webiny/ui/Grid";
@@ -15,7 +16,7 @@ import { useTemplate } from "~/templateEditor/hooks/useTemplate";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
 import { Input } from "@webiny/ui/Input";
-import { PbPageLayoutPlugin, PbPageTemplate } from "~/types";
+import type { PbPageLayoutPlugin, PbPageTemplate } from "~/types";
 import { Tags } from "@webiny/ui/Tags";
 
 const narrowDialog = css`

@@ -1,14 +1,11 @@
 import { createTopic } from "@webiny/pubsub";
 import Error from "@webiny/error";
-import {
+import type {
     AdvancedPublishingWorkflow,
     ApwContentReview,
     ApwContentReviewCrud,
-    ApwContentReviewStatus,
-    ApwContentReviewStepStatus,
     ApwReviewerCrud,
     ApwScheduleActionData,
-    ApwWorkflowStepTypes,
     CreateApwContentReviewParams,
     CreateApwParams,
     OnContentReviewAfterCreateTopicParams,
@@ -20,6 +17,7 @@ import {
     OnContentReviewBeforeUpdateTopicParams,
     UpdateApwContentReviewParams
 } from "~/types";
+import { ApwContentReviewStatus, ApwContentReviewStepStatus, ApwWorkflowStepTypes } from "~/types";
 import { getNextStepStatus, hasReviewer } from "~/plugins/utils";
 import {
     NoSignOffProvidedError,
@@ -36,7 +34,7 @@ import {
     INITIAL_CONTENT_REVIEW_CONTENT_SCHEDULE_META
 } from "./utils";
 import { getContentApwSettingsPlugin } from "~/utils/contentApwSettingsPlugin";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 
 export interface CreateContentReviewMethodsParams extends CreateApwParams {
     getReviewer: ApwReviewerCrud["get"];

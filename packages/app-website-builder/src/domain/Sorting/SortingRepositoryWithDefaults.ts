@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { ISortingRepository, Sorting } from "@webiny/app-utils";
+import type { ISortingRepository, Sorting } from "@webiny/app-utils";
 
 export class SortingRepositoryWithDefaults implements ISortingRepository {
     private defaults: Sorting[];

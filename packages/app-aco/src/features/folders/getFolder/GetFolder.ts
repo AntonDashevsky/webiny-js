@@ -1,6 +1,6 @@
 import { loadingRepositoryFactory } from "@webiny/app-utils";
-import { IGetFolderUseCase } from "./IGetFolderUseCase";
-import { IGetFolderGateway } from "./IGetFolderGateway";
+import type { IGetFolderUseCase } from "./IGetFolderUseCase";
+import type { IGetFolderGateway } from "./IGetFolderGateway";
 import { GetFolderRepository } from "./GetFolderRepository";
 import { GetFolderUseCase } from "./GetFolderUseCase";
 import { GetFolderUseCaseWithLoading } from "./GetFolderUseCaseWithLoading";

@@ -1,6 +1,6 @@
 import path from "path";
-import { CliContext } from "@webiny/cli/types";
-import { IDependencyTree } from "~/types";
+import type { CliContext } from "@webiny/cli/types";
+import type { IDependencyTree } from "~/types";
 import { ListAllPackages } from "~/references/ListAllPackages";
 import { ListAllPackageJsonFiles } from "./ListAllPackageJsonFiles";
 import { BuildDependencyTree } from "./BuildDependencyTree";

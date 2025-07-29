@@ -1,4 +1,4 @@
-import { HeadlessCmsStorageOperations } from "~/types";
+import type { HeadlessCmsStorageOperations } from "~/types";
 
 interface Params {
     storageOperations: HeadlessCmsStorageOperations;

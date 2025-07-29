@@ -1,5 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { IUpdateRedirectUseCase, type UpdateRedirectParams } from "./IUpdateRedirectUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { IUpdateRedirectUseCase } from "./IUpdateRedirectUseCase.js";
+import { type UpdateRedirectParams } from "./IUpdateRedirectUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class UpdateRedirectUseCaseWithLoading implements IUpdateRedirectUseCase {

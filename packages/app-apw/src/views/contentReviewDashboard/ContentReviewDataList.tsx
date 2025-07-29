@@ -4,7 +4,7 @@ import SearchUI from "@webiny/app-admin/components/SearchUI";
 import styled from "@emotion/styled";
 import { DataList, DataListModalOverlayAction, List, ListItem } from "@webiny/ui/List";
 import { i18n } from "@webiny/app/i18n";
-import { ApwContentReviewListItem } from "~/types";
+import type { ApwContentReviewListItem } from "~/types";
 import { ContentReviewListItem } from "./components/ContentReviewItem";
 import { useContentReviewsList } from "~/hooks/useContentReviewsList";
 import { ContentReviewsFilterModal } from "./components/ContentReviewsFilterOverlay";

@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses";
-import { CmsEntryResolverFactory as ResolverFactory } from "~/types";
+import type { CmsEntryResolverFactory as ResolverFactory } from "~/types";
 import { parseIdentifier } from "@webiny/utils";
 
 interface ResolveGetArgs {

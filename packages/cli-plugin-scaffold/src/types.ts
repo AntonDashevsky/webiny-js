@@ -1,13 +1,9 @@
-import { QuestionCollection } from "inquirer";
-import {
-    CliContext,
-    GenericRecord,
-    CliCommandPlugin,
-    CliCommandPluginArgs
-} from "@webiny/cli/types";
-import { Plugin } from "@webiny/plugins/types";
-import { Ora } from "ora";
-import inquirer from "inquirer";
+import type { QuestionCollection } from "inquirer";
+import type { CliContext, GenericRecord } from "@webiny/cli/types";
+import { CliCommandPlugin, CliCommandPluginArgs } from "@webiny/cli/types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { Ora } from "ora";
+import type inquirer from "inquirer";
 
 export { CliCommandPlugin, CliCommandPluginArgs };
 

@@ -1,5 +1,5 @@
 import loadJson from "load-json-file";
-import { MetaJSON } from "./types";
+import type { MetaJSON } from "./types";
 import { META_FILE_PATH } from "./constants";
 
 export function getBuildMeta() {

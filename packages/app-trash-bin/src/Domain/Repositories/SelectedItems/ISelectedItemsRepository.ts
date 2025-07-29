@@ -1,4 +1,4 @@
-import { TrashBinItem } from "~/Domain";
+import type { TrashBinItem } from "~/Domain";
 
 export interface ISelectedItemsRepository {
     selectItems: (items: TrashBinItem[]) => Promise<void>;

@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { ReactComponent as More } from "@webiny/icons/arrow_drop_down.svg";
 import { Button, DropdownMenu, Text, Tooltip } from "@webiny/admin-ui";
 import { useSecurity } from "@webiny/app-security";
-import { FolderAccessLevel, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import type { FolderAccessLevel, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
 
 const TARGET_LEVELS = [
     {

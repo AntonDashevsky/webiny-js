@@ -3,7 +3,7 @@
 // React hook is checked instead (a `null` value means the provider React component wasn't mounted).
 import { type CSSObject } from "@emotion/react";
 
-import {
+import type {
     AssignAttributesCallback,
     AssignStylesCallback,
     AttributesObject,
@@ -13,7 +13,12 @@ import {
     StylesCallback
 } from "~/types";
 
-import { StylesObject, ThemeBreakpoints, Typography, TypographyStyle } from "@webiny/theme/types";
+import type {
+    StylesObject,
+    ThemeBreakpoints,
+    Typography,
+    TypographyStyle
+} from "@webiny/theme/types";
 
 let usingPageElementsFlag = false;
 

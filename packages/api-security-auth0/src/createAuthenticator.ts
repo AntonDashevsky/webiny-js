@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import jwkToPem from "jwk-to-pem";
 import fetch from "node-fetch";
-import { SecurityContext, SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityContext, SecurityIdentity } from "@webiny/api-security/types";
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/handler";
 

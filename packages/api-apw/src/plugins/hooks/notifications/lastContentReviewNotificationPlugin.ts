@@ -1,4 +1,4 @@
-import { ApwContentTypes, ApwContext } from "~/types";
+import type { ApwContentTypes, ApwContext } from "~/types";
 import { ApwContentReviewNotification } from "~/ApwContentReviewNotification";
 
 interface GetLastContentReviewNotificationPluginParams {

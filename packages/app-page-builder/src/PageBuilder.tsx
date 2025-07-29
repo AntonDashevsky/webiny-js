@@ -9,7 +9,8 @@ import { AdminPageBuilderContextProvider } from "~/admin/contexts/AdminPageBuild
 import { DefaultOnPagePublish } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPagePublish";
 import { DefaultOnPageUnpublish } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageUnpublish";
 import { DefaultOnPageDelete } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageDelete";
-import { EditorProps, EditorRenderer } from "./admin/components/Editor";
+import type { EditorProps } from "./admin/components/Editor";
+import { EditorRenderer } from "./admin/components/Editor";
 import { PagesModule } from "~/admin/views/Pages/PagesModule";
 import { AddButtonLinkComponent } from "~/elementDecorators/AddButtonLinkComponent";
 import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandlers";

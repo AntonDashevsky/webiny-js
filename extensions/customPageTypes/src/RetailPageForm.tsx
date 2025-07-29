@@ -1,7 +1,8 @@
 import React from "react";
 import { Grid, Input, Select } from "@webiny/admin-ui";
 import { pagePathFromTitle } from "@webiny/app-website-builder";
-import { Bind, FormAPI, UnsetOnUnmount, useForm } from "@webiny/form";
+import type { FormAPI } from "@webiny/form";
+import { Bind, UnsetOnUnmount, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
 
 const generatePath = (form: FormAPI) => () => {

@@ -1,10 +1,7 @@
 import merge from "lodash/merge";
-import { PulumiApp } from "@webiny/pulumi";
-import {
-    addServiceManifestTableItem,
-    ServiceManifest,
-    TableDefinition
-} from "./addServiceManifestTableItem";
+import type { PulumiApp } from "@webiny/pulumi";
+import type { ServiceManifest, TableDefinition } from "./addServiceManifestTableItem";
+import { addServiceManifestTableItem } from "./addServiceManifestTableItem";
 import { CoreOutput } from "~/apps";
 
 export interface WithServiceManifest {

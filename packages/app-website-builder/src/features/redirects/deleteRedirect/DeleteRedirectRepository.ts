@@ -1,7 +1,8 @@
 import type { IMetaRepository } from "@webiny/app-utils";
 import type { IDeleteRedirectRepository } from "~/features/redirects/deleteRedirect/IDeleteRedirectRepository.js";
 import type { IDeleteRedirectGateway } from "~/features/redirects/deleteRedirect/IDeleteRedirectGateway.js";
-import { type IListCache, Redirect } from "~/domain/Redirect/index.js";
+import type { Redirect } from "~/domain/Redirect/index.js";
+import { type IListCache } from "~/domain/Redirect/index.js";
 
 export class DeleteRedirectRepository implements IDeleteRedirectRepository {
     private cache: IListCache<Redirect>;

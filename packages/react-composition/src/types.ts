@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 export type GenericHook<TParams = any, TReturn = any> = (...args: TParams[]) => TReturn;
 

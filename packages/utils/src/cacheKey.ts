@@ -1,4 +1,5 @@
-import crypto, { BinaryToTextEncoding } from "crypto";
+import type { BinaryToTextEncoding } from "crypto";
+import crypto from "crypto";
 
 export type ICacheKeyKeys = Record<string, any> | string | number;
 

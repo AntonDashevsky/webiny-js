@@ -1,4 +1,5 @@
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
+import { Entity } from "@webiny/db-dynamodb/toolbox";
 
 interface Params {
     table: Table<string, string, string>;

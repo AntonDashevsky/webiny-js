@@ -4,10 +4,11 @@ import createGraphQLHandler from "@webiny/handler-graphql";
 import { createI18NContext, createI18NGraphQL } from "@webiny/api-i18n";
 import { createHandler } from "@webiny/handler-aws";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import apiKeyAuthentication from "@webiny/api-security/plugins/apiKeyAuthentication";
 import apiKeyAuthorization from "@webiny/api-security/plugins/apiKeyAuthorization";
-import { createPermissions, PermissionsArg, sleep, until } from "./helpers";
+import type { PermissionsArg } from "./helpers";
+import { createPermissions, sleep, until } from "./helpers";
 import {
     CREATE_WORKFLOW_MUTATION,
     DELETE_WORKFLOW_MUTATION,
@@ -15,7 +16,7 @@ import {
     LIST_WORKFLOWS_QUERY,
     UPDATE_WORKFLOW_MUTATION
 } from "./graphql/workflow";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { createApwGraphQL, createApwPageBuilderContext } from "~/index";
 import {
     CmsParametersPlugin,
@@ -61,7 +62,7 @@ import { contextCommon, contextSecurity } from "./context";
 import { createDummyTransport, createTransport } from "@webiny/api-mailer";
 import { CREATE_CONTENT_MODEL_GROUP_MUTATION } from "~tests/utils/graphql/cms.group";
 import { CREATE_CONTENT_MODEL_MUTATION } from "~tests/utils/graphql/cms.model";
-import { CmsModel, HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { CmsModel, HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import {
     contentEntryCreateFromMutationFactory,
     contentEntryCreateMutationFactory,
@@ -69,9 +70,9 @@ import {
     contentEntryUpdateMutationFactory
 } from "~tests/utils/graphql/cms.entry";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
-import { ApwScheduleActionStorageOperations } from "~/scheduler/types";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
+import type { ApwScheduleActionStorageOperations } from "~/scheduler/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 
 export interface GQLHandlerCallableParams {
     setupTenancyAndSecurityGraphQL?: boolean;

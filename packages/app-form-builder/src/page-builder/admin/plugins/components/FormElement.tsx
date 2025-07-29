@@ -1,8 +1,8 @@
 import React from "react";
 import { useTenancy } from "@webiny/app-tenancy";
-import { PbEditorElement } from "@webiny/app-page-builder/types";
+import type { PbEditorElement } from "@webiny/app-page-builder/types";
 import PeForm from "./PeFormElement";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 
 interface FormProps {
     element: PbEditorElement;

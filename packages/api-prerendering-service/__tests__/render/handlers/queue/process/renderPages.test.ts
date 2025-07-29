@@ -2,8 +2,8 @@ import useHandler from "./useHandler";
 import createRenderEntry from "./mocks/createRenderEntry";
 import createTagLinkEntry from "./mocks/createTagLinkEntry";
 import createQueueJobEntry from "./mocks/createQueueJobEntry";
-import { Render, RenderEvent, TagPathLink } from "~/types";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { Render, RenderEvent, TagPathLink } from "~/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 const tenant = "root";
 const locale = "en-US";

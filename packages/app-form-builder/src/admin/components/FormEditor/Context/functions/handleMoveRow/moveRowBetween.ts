@@ -1,4 +1,4 @@
-import { FbFormStep } from "~/types";
+import type { FbFormStep } from "~/types";
 
 interface MoveRowBetweenParams {
     sourceContainer: FbFormStep;

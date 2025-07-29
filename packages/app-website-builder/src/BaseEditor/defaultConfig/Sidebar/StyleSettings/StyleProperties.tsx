@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Accordion } from "@webiny/admin-ui";
 import { useActiveElement } from "~/BaseEditor/hooks/useActiveElement";
-import { DocumentElement } from "@webiny/website-builder-sdk";
+import type { DocumentElement } from "@webiny/website-builder-sdk";
 import { Background } from "./Groups/Background";
 import { MarginPadding } from "./Groups/MarginPadding";
 import { VisibilityGroup } from "./Groups/VisibilityGroup";

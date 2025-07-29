@@ -1,11 +1,12 @@
 import React, { Fragment, useCallback, useEffect, useRef, useState } from "react";
-import { OktaAuth } from "@okta/okta-auth-js";
-import OktaSignIn from "@okta/okta-signin-widget";
+import type { OktaAuth } from "@okta/okta-auth-js";
+import type OktaSignIn from "@okta/okta-signin-widget";
 import get from "lodash/get";
 import { useApolloClient } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { Compose, LoginScreenRenderer, useTags, useTenancy } from "@webiny/app-serverless-cms";
-import { createAuthentication, Config } from "./createAuthentication";
+import type { Config } from "./createAuthentication";
+import { createAuthentication } from "./createAuthentication";
 import { UserMenuModule } from "~/modules/userMenu";
 import { AppClientModule } from "~/modules/appClient";
 import { NotAuthorizedError } from "./components";

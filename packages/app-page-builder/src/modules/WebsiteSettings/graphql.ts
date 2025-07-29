@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { PbErrorResponse } from "~/types";
+import type { PbErrorResponse } from "~/types";
 
 const fields = /* GraphQL */ `
     {

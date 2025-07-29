@@ -1,6 +1,6 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IDeletePageGateway } from "./IDeletePageGateway.js";
+import type { IDeletePageGateway } from "./IDeletePageGateway.js";
 import type { WbError } from "~/types.js";
 
 export interface DeletePageVariables {

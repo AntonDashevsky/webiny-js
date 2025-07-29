@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import cloneDeep from "lodash/cloneDeep";
 import { Dialog, Tabs } from "@webiny/admin-ui";
-import { Form, FormOnSubmit } from "@webiny/form";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { i18n } from "@webiny/app/i18n";
-import { CmsEditorContentModel, CmsModelField } from "~/types";
+import type { CmsEditorContentModel, CmsModelField } from "~/types";
 import GeneralTab from "./EditFieldDialog/GeneralTab";
 import AppearanceTab from "./EditFieldDialog/AppearanceTab";
 import PredefinedValues from "./EditFieldDialog/PredefinedValues";

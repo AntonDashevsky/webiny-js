@@ -6,8 +6,8 @@ import isEqual from "lodash/isEqual";
 import { prepareLoadListParams } from "./utils";
 import { getData, getError, getMeta } from "./functions";
 
-import { DocumentNode } from "graphql";
-import { ApolloClient } from "apollo-client";
+import type { DocumentNode } from "graphql";
+import type { ApolloClient } from "apollo-client";
 
 export interface UseDataListParams {
     useRouter?: boolean;

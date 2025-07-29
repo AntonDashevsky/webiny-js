@@ -6,7 +6,7 @@ import { AutoComplete, Grid, Select } from "@webiny/admin-ui";
 import { InputField } from "./InputField";
 import { RemoveFilter } from "./controls";
 
-import { FieldDTOWithElement, FilterGroupFilterDTO } from "../../../domain";
+import type { FieldDTOWithElement, FilterGroupFilterDTO } from "../../../domain";
 
 interface FilterProps {
     name: string;

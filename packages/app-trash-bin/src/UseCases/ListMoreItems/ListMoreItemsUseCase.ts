@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { ITrashBinItemsRepository } from "~/Domain/Repositories";
-import { IListMoreItemsUseCase } from "./IListMoreItemsUseCase";
+import type { ITrashBinItemsRepository } from "~/Domain/Repositories";
+import type { IListMoreItemsUseCase } from "./IListMoreItemsUseCase";
 
 export class ListMoreItemsUseCase implements IListMoreItemsUseCase {
     private itemsRepository: ITrashBinItemsRepository;

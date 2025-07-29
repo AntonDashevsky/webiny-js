@@ -1,4 +1,4 @@
-import { Context, IPulumi, IUserCommandInput } from "~/types";
+import type { Context, IPulumi, IUserCommandInput } from "~/types";
 import {
     createEnvConfiguration,
     withEnv,

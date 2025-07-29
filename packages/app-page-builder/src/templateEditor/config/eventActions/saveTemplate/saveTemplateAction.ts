@@ -1,9 +1,9 @@
 import lodashDebounce from "lodash/debounce";
 import { plugins } from "@webiny/plugins";
-import { SaveTemplateActionArgsType } from "./types";
-import { TemplateEventActionCallable } from "~/templateEditor/types";
-import { PbElement, PbBlockVariable, PbBlockEditorCreateVariablePlugin } from "~/types";
-import { useUpdatePageTemplate } from "~/features";
+import type { SaveTemplateActionArgsType } from "./types";
+import type { TemplateEventActionCallable } from "~/templateEditor/types";
+import type { PbElement, PbBlockVariable, PbBlockEditorCreateVariablePlugin } from "~/types";
+import type { useUpdatePageTemplate } from "~/features";
 
 export const findElementByVariableId = (elements: PbElement[], variableId: string): any => {
     for (const element of elements) {

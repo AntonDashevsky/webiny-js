@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins/Plugin.js";
-import { CommandType } from "~/types.js";
+import type { CommandType } from "~/types.js";
 import type { IStoreItem } from "~/resolver/app/storer/types.js";
 import type { ITable } from "~/sync/types.js";
 import type { IDeployment } from "~/resolver/deployment/types.js";

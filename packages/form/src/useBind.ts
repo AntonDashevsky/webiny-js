@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { makeDecoratable } from "@webiny/react-composition";
-import { BindComponentProps, UseBindHook } from "~/types";
+import type { BindComponentProps, UseBindHook } from "~/types";
 import { useBindPrefix } from "~/BindPrefix";
 import { useForm } from "./FormContext";
 

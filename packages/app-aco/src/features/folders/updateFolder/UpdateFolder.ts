@@ -1,6 +1,6 @@
 import { loadingRepositoryFactory } from "@webiny/app-utils";
-import { IUpdateFolderUseCase } from "./IUpdateFolderUseCase";
-import { IUpdateFolderGateway } from "./IUpdateFolderGateway";
+import type { IUpdateFolderUseCase } from "./IUpdateFolderUseCase";
+import type { IUpdateFolderGateway } from "./IUpdateFolderGateway";
 import { UpdateFolderRepository } from "./UpdateFolderRepository";
 import { UpdateFolderRepositoryWithPermissionsChange } from "./UpdateFolderRepositoryWithPermissionsChange";
 import { UpdateFolderUseCase } from "./UpdateFolderUseCase";

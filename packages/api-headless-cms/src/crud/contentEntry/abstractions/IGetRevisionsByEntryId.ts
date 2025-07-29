@@ -1,4 +1,8 @@
-import { CmsEntryStorageOperationsGetRevisionsParams, CmsModel, CmsStorageEntry } from "~/types";
+import type {
+    CmsEntryStorageOperationsGetRevisionsParams,
+    CmsModel,
+    CmsStorageEntry
+} from "~/types";
 
 export interface IGetRevisionsByEntryId {
     execute: (

@@ -5,7 +5,8 @@ import { ReactComponent as AccordionIcon } from "@webiny/icons/view_day.svg";
 import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
 import { createElement } from "~/editor/helpers";
 import Accordion from "./Accordion";
-import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types";
+import type { PbEditorPageElementPlugin, PbEditorElementPluginArgs } from "~/types";
+import { DisplayMode } from "~/types";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

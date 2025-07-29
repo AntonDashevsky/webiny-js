@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "emotion";
-import { UIElement, UIElementConfig, UiElementRenderProps } from "~/ui/UIElement";
+import type { UIElementConfig, UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
 import { TopAppBarSecondary, TopAppBarSection } from "@webiny/ui/TopAppBar";
 import { IconButton } from "@webiny/ui/Button";
 import { ReactComponent as CloseIcon } from "@webiny/icons/close.svg";

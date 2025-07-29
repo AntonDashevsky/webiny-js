@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch } from "@webiny/admin-ui";
-import { ElementInputRendererProps } from "~/BaseEditor";
+import type { ElementInputRendererProps } from "~/BaseEditor";
 
 export const BooleanInputRenderer = ({
     value,

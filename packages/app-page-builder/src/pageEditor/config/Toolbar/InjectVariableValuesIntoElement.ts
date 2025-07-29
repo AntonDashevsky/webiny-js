@@ -1,5 +1,5 @@
 import { plugins } from "@webiny/plugins";
-import {
+import type {
     PbBlockVariable,
     PbEditorElementTree,
     PbEditorPageElementVariableRendererPlugin

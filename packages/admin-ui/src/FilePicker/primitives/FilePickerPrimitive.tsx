@@ -1,8 +1,9 @@
 import * as React from "react";
 import { cn, cva, type VariantProps, makeDecoratable, withStaticProps } from "~/utils";
 import { FilePickerLabel, FilePickerDescription, Trigger } from "./components";
-import { Label } from "~/Label";
-import { InputPrimitiveProps, inputVariants } from "~/Input";
+import type { Label } from "~/Label";
+import type { InputPrimitiveProps } from "~/Input";
+import { inputVariants } from "~/Input";
 import { ImagePreview, RichItemPreview, TextOnlyPreview, FilePreview } from "./components";
 import { FileItem, type FileItemDto, type FileItemFormatted } from "../domains";
 import { useFilePicker } from "./useFilePicker";

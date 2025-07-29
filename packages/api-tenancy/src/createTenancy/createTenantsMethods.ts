@@ -1,5 +1,5 @@
 import DataLoader from "dataloader";
-import {
+import type {
     CreateTenantInput,
     Tenant,
     TenancyStorageOperations,

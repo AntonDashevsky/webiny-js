@@ -1,6 +1,6 @@
-import { ApolloClient } from "apollo-client";
+import type { ApolloClient } from "apollo-client";
 
-import {
+import type {
     CreateFilterPayload,
     CreateFilterResponse,
     CreateFilterVariables,
@@ -14,7 +14,7 @@ import {
     UpdateFilterResponse,
     UpdateFilterVariables
 } from "./filters.types";
-import { FiltersGatewayInterface } from "./FiltersGatewayInterface";
+import type { FiltersGatewayInterface } from "./FiltersGatewayInterface";
 import {
     CREATE_FILTER,
     DELETE_FILTER,

@@ -1,4 +1,4 @@
-import { Box } from "./Box";
+import type { Box } from "./Box";
 
 type DropPosition = number | null;
 

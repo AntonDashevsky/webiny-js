@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     Category,
     CategoryStorageOperationsCreateParams,
     CategoryStorageOperationsDeleteParams,
@@ -7,16 +7,17 @@ import {
     CategoryStorageOperationsListParams,
     CategoryStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter";
 import { CategoryDataLoader } from "./dataLoader";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
 import { CategoryDynamoDbFieldPlugin } from "~/plugins/definitions/CategoryDynamoDbFieldPlugin";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 import { createPartitionKey, createSortKey } from "~/operations/category/keys";
-import { CategoryStorageOperations } from "~/types";
+import type { CategoryStorageOperations } from "~/types";
 import { deleteItem, put } from "@webiny/db-dynamodb";
 
 const createType = (): string => {

@@ -1,7 +1,7 @@
-import { CmsGroup } from "~/types";
+import type { CmsGroup } from "~/types";
 import models from "../contentAPI/mocks/contentModels";
-import { useGraphQLHandler } from "./useGraphQLHandler";
-import { CmsModel } from "../types";
+import type { useGraphQLHandler } from "./useGraphQLHandler";
+import type { CmsModel } from "../types";
 
 interface SetupContentModelParams {
     manager: ReturnType<typeof useGraphQLHandler>;

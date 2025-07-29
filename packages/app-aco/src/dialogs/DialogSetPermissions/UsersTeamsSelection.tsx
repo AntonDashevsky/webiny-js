@@ -3,7 +3,7 @@ import { List, Scrollbar, Text } from "@webiny/admin-ui";
 import { ListItemGraphic } from "./UsersTeamsSelection/ListItemGraphic";
 import { ListItemText } from "./UsersTeamsSelection/ListItemText";
 import { ListItemMeta } from "./UsersTeamsSelection/ListItemMeta";
-import { FolderLevelPermissionsTarget, FolderPermission } from "~/types";
+import type { FolderLevelPermissionsTarget, FolderPermission } from "~/types";
 
 interface UsersTeamsSelectionProps {
     targetsList: FolderLevelPermissionsTarget[];

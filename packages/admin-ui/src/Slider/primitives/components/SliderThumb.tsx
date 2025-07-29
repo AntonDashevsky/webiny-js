@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Slider as SliderPrimitives } from "radix-ui";
 import { cn } from "~/utils";
-import { SliderTooltip, SliderTooltipProps } from "./SliderTooltip";
+import type { SliderTooltipProps } from "./SliderTooltip";
+import { SliderTooltip } from "./SliderTooltip";
 
 type SliderThumbProps = SliderTooltipProps;
 

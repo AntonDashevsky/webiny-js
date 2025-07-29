@@ -1,9 +1,11 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
-import { createPulumiApp, PulumiAppParam, PulumiAppParamCallback } from "@webiny/pulumi";
+import type { PulumiAppParam, PulumiAppParamCallback } from "@webiny/pulumi";
+import { createPulumiApp } from "@webiny/pulumi";
 import { addDomainsUrlsOutputs, tagResources } from "~/utils";
 import { createPrivateAppBucket } from "../createAppBucket";
-import { applyCustomDomain, CustomDomainParams } from "../customDomain";
+import type { CustomDomainParams } from "../customDomain";
+import { applyCustomDomain } from "../customDomain";
 import { withServiceManifest } from "~/utils/withServiceManifest";
 import { ApiOutput, CoreOutput } from "~/apps";
 import { getEnvVariableWebinyVariant } from "~/env/variant";

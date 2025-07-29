@@ -1,6 +1,6 @@
-import { ITasksContextObject } from "@webiny/tasks";
-import { IImportFromUrlUseCaseExecuteResponse } from "../importFromUrl";
-import {
+import type { ITasksContextObject } from "@webiny/tasks";
+import type { IImportFromUrlUseCaseExecuteResponse } from "../importFromUrl";
+import type {
     IAbortImportFromUrlUseCase,
     IAbortImportFromUrlUseCaseExecuteParams
 } from "./abstractions/AbortImportFromUrlUseCase";
@@ -10,7 +10,7 @@ import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput
 } from "~/tasks/domain/abstractions/ImportFromUrlController";
-import { IGetImportFromUrlUseCase } from "~/crud/useCases/getImportFromUrl";
+import type { IGetImportFromUrlUseCase } from "~/crud/useCases/getImportFromUrl";
 
 export interface IAbortImportFromUrlUseCaseParams {
     getTaskUseCase: IGetImportFromUrlUseCase;

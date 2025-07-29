@@ -6,8 +6,9 @@ import set from "lodash/set";
 import get from "lodash/get";
 import { plugins } from "@webiny/plugins";
 import { Tooltip } from "@webiny/ui/Tooltip";
-import { Form, FormOnSubmit } from "@webiny/form";
-import {
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
+import type {
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorElement,
     PbEditorResponsiveModePlugin
@@ -25,7 +26,7 @@ import { classes } from "../components/StyledComponents";
 import Accordion from "../components/Accordion";
 import Wrapper from "../components/Wrapper";
 import SpacingPicker from "../components/SpacingPicker";
-import { Validator } from "@webiny/validation/types";
+import type { Validator } from "@webiny/validation/types";
 
 const rightCellStyle = css({
     justifySelf: "end"

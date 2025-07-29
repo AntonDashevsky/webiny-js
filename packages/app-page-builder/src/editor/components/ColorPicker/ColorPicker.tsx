@@ -4,7 +4,8 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 import classNames from "classnames";
 import isEqual from "lodash/isEqual";
-import { ChromePicker, ColorState, RGBColor } from "react-color";
+import type { ColorState, RGBColor } from "react-color";
+import { ChromePicker } from "react-color";
 import { Menu } from "@webiny/ui/Menu";
 import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements";
 

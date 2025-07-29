@@ -25,7 +25,7 @@ import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDi
 import SearchUI from "@webiny/app-admin/components/SearchUI";
 import { DELETE_USER, LIST_USERS } from "./graphql";
 import { deserializeSorters } from "../utils";
-import { UserItem } from "~/UserItem";
+import type { UserItem } from "~/UserItem";
 
 const t = i18n.ns("app-identity/admin/users/data-list");
 

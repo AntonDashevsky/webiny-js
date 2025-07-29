@@ -1,5 +1,5 @@
 import { createModelGroupPlugin, createModelPlugin } from "@webiny/api-headless-cms";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 const group = {
     id: "default",

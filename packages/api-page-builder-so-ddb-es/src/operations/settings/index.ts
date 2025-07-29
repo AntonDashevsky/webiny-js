@@ -1,4 +1,4 @@
-import {
+import type {
     DefaultSettings,
     DefaultSettingsCrudOptions,
     Settings,
@@ -7,7 +7,7 @@ import {
     SettingsStorageOperationsGetParams,
     SettingsStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import { getClean } from "@webiny/db-dynamodb/utils/get";
 import WebinyError from "@webiny/error";
 import { put } from "@webiny/db-dynamodb";

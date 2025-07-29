@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { ImportModelData } from "~/admin/views/contentModels/importing/types";
+import type { ImportModelData } from "~/admin/views/contentModels/importing/types";
 
 const Text = styled("p")({
     fontSize: "9px",

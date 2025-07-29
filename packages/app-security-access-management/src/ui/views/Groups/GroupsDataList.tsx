@@ -18,10 +18,11 @@ import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import { LIST_GROUPS, DELETE_GROUP, ListGroupsResponse } from "./graphql";
+import type { ListGroupsResponse } from "./graphql";
+import { LIST_GROUPS, DELETE_GROUP } from "./graphql";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
 import { deserializeSorters } from "../utils";
-import { Group } from "~/types";
+import type { Group } from "~/types";
 import { Button, Grid, Select, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 

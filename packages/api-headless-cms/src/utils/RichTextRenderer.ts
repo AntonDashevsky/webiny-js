@@ -1,5 +1,6 @@
-import { CmsRichTextRendererPlugin, RichTextContents } from "~/plugins";
-import { CmsContext } from "~/types";
+import type { RichTextContents } from "~/plugins";
+import { CmsRichTextRendererPlugin } from "~/plugins";
+import type { CmsContext } from "~/types";
 import { RichTextPluginsProcessor } from "~/graphqlFields/richText/RichTextPluginsProcessor";
 
 export class RichTextRenderer {

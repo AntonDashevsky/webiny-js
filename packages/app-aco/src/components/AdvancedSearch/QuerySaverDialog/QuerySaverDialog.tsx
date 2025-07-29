@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo } from "react";
 import { Dialog, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 import { Form } from "@webiny/form";
-import { QuerySaverDialogFormData, QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter";
-import { FilterDTO } from "../domain";
+import type { QuerySaverDialogFormData } from "./QuerySaverDialogPresenter";
+import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter";
+import type { FilterDTO } from "../domain";
 
 interface QuerySaverDialogProps {
     onClose: () => void;

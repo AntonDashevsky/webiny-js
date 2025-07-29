@@ -20,7 +20,7 @@ import SearchUI from "@webiny/app-admin/components/SearchUI";
 import { useSnackbar, useStateIfMounted, useStateWithCallback } from "@webiny/app-admin/hooks";
 import { Icon } from "~/admin/utils/createBlockCategoryPlugin";
 import { OptionsMenu } from "~/admin/components/OptionsMenu";
-import { PbBlockCategory } from "~/types";
+import type { PbBlockCategory } from "~/types";
 import { LIST_PAGE_CATEGORIES } from "./graphql";
 import useImportBlock from "~/admin/views/PageBlocks/hooks/useImportBlock";
 import useExportBlockDialog from "~/editor/plugins/defaultBar/components/ExportBlockButton/useExportBlockDialog";

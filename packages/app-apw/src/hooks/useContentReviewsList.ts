@@ -2,12 +2,12 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import debounce from "lodash/debounce";
 import { useNavigate } from "@webiny/react-router";
 import { useQuery } from "@apollo/react-hooks";
-import {
-    LIST_CONTENT_REVIEWS_QUERY,
+import type {
     ListContentReviewsQueryResponse,
     ListContentReviewsQueryVariables
 } from "~/graphql/contentReview.gql";
-import { ApwContentReview, ApwContentReviewListItem, ApwContentReviewStatus } from "~/types";
+import { LIST_CONTENT_REVIEWS_QUERY } from "~/graphql/contentReview.gql";
+import type { ApwContentReview, ApwContentReviewListItem, ApwContentReviewStatus } from "~/types";
 
 const BASE_URL = "/apw/content-reviews";
 

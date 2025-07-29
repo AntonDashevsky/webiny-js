@@ -2,7 +2,7 @@ import type {
     IRecordLocking,
     IRecordLockingUpdateEntryLockResult
 } from "./abstractions/IRecordLocking";
-import { ApolloClient } from "apollo-client";
+import type { ApolloClient } from "apollo-client";
 import { RecordLockingGetLockRecord } from "./RecordLockingGetLockRecord";
 import { RecordLockingIsEntryLocked } from "./RecordLockingIsEntryLocked";
 import { RecordLockingListLockRecords } from "./RecordLockingListLockRecords";

@@ -1,7 +1,7 @@
 import { createDeleteUserAction } from "~/worker/actions/deleteUser/deleteUserAction.js";
+import type { AdminDeleteUserCommandInput } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import {
     AdminDeleteUserCommand,
-    AdminDeleteUserCommandInput,
     AdminGetUserCommand,
     type AdminGetUserCommandInput,
     CognitoIdentityProviderClient,

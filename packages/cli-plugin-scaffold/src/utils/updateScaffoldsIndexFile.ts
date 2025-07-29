@@ -1,4 +1,5 @@
-import { Project, ArrayLiteralExpression, Node } from "ts-morph";
+import type { ArrayLiteralExpression } from "ts-morph";
+import { Project, Node } from "ts-morph";
 
 interface Params {
     scaffoldsIndexPath: string;

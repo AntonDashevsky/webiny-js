@@ -3,7 +3,7 @@ import { getAncestorFoldersByPage } from "~/page/getAncestorFoldersByPage";
 import { createImportExportPageHooks, createPageHooks } from "~/page/hooks";
 import { createPageProcessors } from "~/page/processors";
 import { getSearchablePageContent } from "~/utils/getSearchableContent";
-import { PageSearchProcessor, PbAcoContext } from "~/types";
+import type { PageSearchProcessor, PbAcoContext } from "~/types";
 import { createApp } from "~/app";
 import { PageBuilderCrudDecorators } from "~/utils/PageBuilderCrudDecorators";
 import { createPbPageWbyAcoLocationGqlField } from "~/page/graphql/createPbPageWbyAcoLocationGqlField";

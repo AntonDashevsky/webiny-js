@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import noop from "lodash/noop";
 import { useSnackbar } from "@webiny/app-admin";
-import { FileItem } from "@webiny/app-admin/types";
+import type { FileItem } from "@webiny/app-admin/types";
 import { FileManagerProvider } from "~/modules/FileManagerRenderer/FileManagerView";
 import { FileDetails } from "~/components/FileDetails";
 import { EditFileUsingUrlPresenter } from "./EditFileUsingUrlPresenter";

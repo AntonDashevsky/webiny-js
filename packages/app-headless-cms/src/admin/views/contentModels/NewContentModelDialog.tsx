@@ -14,13 +14,13 @@ import { Cell, Grid } from "@webiny/ui/Grid";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";
 import { addModelToGroupCache, addModelToListCache } from "./cache";
 import * as GQL from "../../viewsGraphql";
-import {
+import type {
     CreateCmsModelMutationResponse,
     CreateCmsModelMutationVariables,
     ListMenuCmsGroupsQueryResponse
 } from "../../viewsGraphql";
-import { CmsModel } from "~/types";
-import { CmsGroupOption } from "./types";
+import type { CmsModel } from "~/types";
+import type { CmsGroupOption } from "./types";
 import { Dialog } from "~/admin/components/Dialog";
 import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator";
 import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator";

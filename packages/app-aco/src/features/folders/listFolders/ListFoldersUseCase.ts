@@ -1,5 +1,5 @@
-import { IListFoldersUseCase } from "./IListFoldersUseCase";
-import { IListFoldersRepository } from "./IListFoldersRepository";
+import type { IListFoldersUseCase } from "./IListFoldersUseCase";
+import type { IListFoldersRepository } from "./IListFoldersRepository";
 
 export class ListFoldersUseCase implements IListFoldersUseCase {
     private repository: IListFoldersRepository;

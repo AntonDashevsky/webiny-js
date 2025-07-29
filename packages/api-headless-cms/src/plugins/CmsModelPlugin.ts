@@ -4,7 +4,7 @@ import camelCase from "lodash/camelCase";
 import upperFirst from "lodash/upperFirst";
 import pluralize from "pluralize";
 import { Plugin } from "@webiny/plugins";
-import {
+import type {
     CmsModel as CmsModelBase,
     CmsModelField as CmsModelFieldBase,
     CmsModelFieldSettings as BaseCmsModelFieldSettings

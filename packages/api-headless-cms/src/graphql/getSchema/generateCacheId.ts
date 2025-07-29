@@ -1,6 +1,6 @@
-import { ApiEndpoint } from "~/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { ApiEndpoint } from "~/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 
 interface GenerateCacheIdParams {
     type: ApiEndpoint;

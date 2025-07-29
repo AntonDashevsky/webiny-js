@@ -1,4 +1,4 @@
-import { SecurityContext } from "@webiny/api-security/types";
+import type { SecurityContext } from "@webiny/api-security/types";
 import { ContextPlugin } from "@webiny/handler";
 
 type Context = SecurityContext;

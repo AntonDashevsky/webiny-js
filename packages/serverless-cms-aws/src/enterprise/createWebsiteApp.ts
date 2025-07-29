@@ -1,14 +1,12 @@
-import {
-    createWebsitePulumiApp,
-    CreateWebsitePulumiAppParams
-} from "@webiny/pulumi-aws/enterprise";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { CreateWebsitePulumiAppParams } from "@webiny/pulumi-aws/enterprise";
+import { createWebsitePulumiApp } from "@webiny/pulumi-aws/enterprise";
+import type { PluginCollection } from "@webiny/plugins/types";
+import type { IRenderWebsiteParams } from "~/website/plugins";
 import {
     generateCommonHandlers,
     lambdaEdgeWarning,
     renderWebsite,
-    telemetryNoLongerNewUser,
-    IRenderWebsiteParams
+    telemetryNoLongerNewUser
 } from "~/website/plugins";
 import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed";
 

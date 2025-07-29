@@ -1,7 +1,7 @@
 import { createHandler } from "@webiny/handler-aws";
 import graphqlServerPlugins from "~/index";
-import { PluginCollection } from "@webiny/plugins/types";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { PluginCollection } from "@webiny/plugins/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 
 interface Params {
     debug?: boolean;

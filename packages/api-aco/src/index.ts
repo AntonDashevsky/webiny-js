@@ -1,6 +1,6 @@
 import { createAcoContext } from "~/createAcoContext";
 import { createAcoGraphQL } from "~/createAcoGraphQL";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { createAcoTasks } from "~/createAcoTasks";
 
 export { SEARCH_RECORD_MODEL_ID } from "./record/record.model";

@@ -1,9 +1,9 @@
-import {
+import type {
     FilterDTO,
     FilterGroupDTO,
-    FilterGroupFilterDTO,
-    Operation
+    FilterGroupFilterDTO
 } from "~/components/AdvancedSearch/domain";
+import { Operation } from "~/components/AdvancedSearch/domain";
 import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter";
 
 describe("QuerySaverDialogPresenter", () => {

@@ -1,4 +1,4 @@
-import { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { composeAsync } from "@webiny/utils";
 
 type WrappedInput<TInput, TOutput> = TInput & {

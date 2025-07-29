@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 
 export const createDummyLocales = () => {
     return new ContextPlugin<Context>(async context => {

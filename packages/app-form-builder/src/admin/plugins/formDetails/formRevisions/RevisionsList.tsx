@@ -1,6 +1,6 @@
 import React from "react";
 import Revision from "./Revision";
-import { FbFormModel, FbRevisionModel } from "~/types";
+import type { FbFormModel, FbRevisionModel } from "~/types";
 import { SimpleForm } from "@webiny/app-admin/components/SimpleForm";
 import { List, OverlayLoader } from "@webiny/admin-ui";
 

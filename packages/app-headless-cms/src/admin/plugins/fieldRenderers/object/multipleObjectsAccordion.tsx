@@ -1,6 +1,6 @@
 import React from "react";
 import { i18n } from "@webiny/app/i18n";
-import { CmsModelFieldRendererPlugin, CmsModelFieldRendererProps } from "~/types";
+import type { CmsModelFieldRendererPlugin, CmsModelFieldRendererProps } from "~/types";
 import { FieldSettings } from "./FieldSettings";
 import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings";
 import { MultiValueContainer } from "~/admin/plugins/fieldRenderers/object/MultiValueContainer";

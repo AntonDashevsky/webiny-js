@@ -1,10 +1,10 @@
 import { useQuery } from "@apollo/react-hooks";
-import {
-    LIST_REVIEWS_QUERY,
+import type {
     ListReviewersQueryResponse,
     ListReviewersQueryVariables
 } from "~/graphql/reviewer.gql";
-import { ApwReviewer } from "~/types";
+import { LIST_REVIEWS_QUERY } from "~/graphql/reviewer.gql";
+import type { ApwReviewer } from "~/types";
 import dotPropImmutable from "dot-prop-immutable";
 import { useMemo } from "react";
 

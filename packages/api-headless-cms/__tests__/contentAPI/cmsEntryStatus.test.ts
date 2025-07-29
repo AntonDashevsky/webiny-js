@@ -1,6 +1,6 @@
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 import camelCase from "lodash/camelCase";
-import { CmsGroup } from "~/types";
+import type { CmsGroup } from "~/types";
 import models from "./mocks/contentModels";
 
 const categories = [

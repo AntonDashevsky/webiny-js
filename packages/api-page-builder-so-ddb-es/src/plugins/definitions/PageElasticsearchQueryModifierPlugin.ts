@@ -1,8 +1,6 @@
-import {
-    ElasticsearchQueryModifierPlugin,
-    ModifyQueryParams as BaseModifyQueryParams
-} from "@webiny/api-elasticsearch";
-import { SortType } from "@webiny/api-elasticsearch/types";
+import type { ModifyQueryParams as BaseModifyQueryParams } from "@webiny/api-elasticsearch";
+import { ElasticsearchQueryModifierPlugin } from "@webiny/api-elasticsearch";
+import type { SortType } from "@webiny/api-elasticsearch/types";
 
 export interface ModifyQueryParams extends BaseModifyQueryParams {
     limit: number;

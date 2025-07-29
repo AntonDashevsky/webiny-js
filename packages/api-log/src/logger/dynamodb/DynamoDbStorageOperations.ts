@@ -1,5 +1,5 @@
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import {
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type {
     ILoggerCrudDeleteLogParams,
     ILoggerCrudDeleteLogsParams,
     ILoggerCrudGetLogsParams,
@@ -11,7 +11,7 @@ import {
     ILoggerStorageOperationsInsertParams,
     LogType
 } from "~/types";
-import { DynamoDbLoggerKeys } from "./DynamoDbLoggerKeys";
+import type { DynamoDbLoggerKeys } from "./DynamoDbLoggerKeys";
 import {
     batchReadAll,
     batchWriteAll,
@@ -19,7 +19,7 @@ import {
     getClean,
     queryPerPageClean
 } from "@webiny/db-dynamodb";
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 import { compress, decompress } from "@webiny/utils/compression/gzip";
 import { convertAfterToStartKey, convertLastEvaluatedKeyToAfterKey } from "./convertKeys";
 

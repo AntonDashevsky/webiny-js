@@ -1,6 +1,6 @@
-import { IGetDescendantFoldersRepository } from "./IGetDescendantFoldersRepository";
-import { ListCache } from "../cache";
-import { Folder } from "../Folder";
+import type { IGetDescendantFoldersRepository } from "./IGetDescendantFoldersRepository";
+import type { ListCache } from "../cache";
+import type { Folder } from "../Folder";
 import { ROOT_FOLDER } from "~/constants";
 
 export class GetDescendantFoldersRepository implements IGetDescendantFoldersRepository {

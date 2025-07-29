@@ -1,4 +1,4 @@
-import {
+import type {
     ImportExportTask,
     ImportExportTaskStatus,
     ImportExportTaskStorageOperationsCreateParams,
@@ -15,11 +15,12 @@ import {
     ImportExportTaskStorageOperationsUpdateTaskStatsParams
 } from "@webiny/api-page-builder-import-export/types";
 import WebinyError from "@webiny/error";
-import { queryAllClean, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAllClean } from "@webiny/db-dynamodb/utils/query";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
 import { createTable } from "~/definitions/table";
 import { createImportExportTaskEntity } from "~/definitions/importExportTaskEntity";
-import { CreateStorageOperations } from "./types";
+import type { CreateStorageOperations } from "./types";
 import { deleteItem, getClean, put, update } from "@webiny/db-dynamodb";
 
 interface PartitionKeyOptions {

@@ -1,4 +1,4 @@
-import { IRecordLockingListLockRecordsParams } from "~/types";
+import type { IRecordLockingListLockRecordsParams } from "~/types";
 import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
 
 type IWhere = IRecordLockingListLockRecordsParams["where"] | undefined;

@@ -5,17 +5,17 @@ import ImageSettings from "./ImageSettings";
 import { imageCreatedEditorAction } from "./imageCreatedEditorAction";
 import { CreateElementActionEvent } from "../../../recoil/actions";
 import { ReactComponent as ImageIcon } from "./round-image-24px.svg";
-import {
+import type {
     PbEditorPageElementPlugin,
     PbEditorPageElementStyleSettingsPlugin,
     PbEditorEventActionPlugin,
-    DisplayMode,
     PbEditorElementPluginArgs,
     PbEditorElement
 } from "~/types";
-import { Plugin } from "@webiny/plugins/types";
+import { DisplayMode } from "~/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 import { PeImage } from "~/editor/plugins/elements/image/PeImage";
 
 const PreviewBox = styled("div")({

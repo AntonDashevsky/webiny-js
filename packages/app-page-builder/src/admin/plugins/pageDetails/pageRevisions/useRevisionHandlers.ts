@@ -6,7 +6,7 @@ import { usePublishRevisionHandler } from "./usePublishRevisionHandler";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import * as GQLCache from "~/admin/views/Pages/cache";
 import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
-import { PbPageData, PbPageRevision } from "~/types";
+import type { PbPageData, PbPageRevision } from "~/types";
 import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
 import { useRecords } from "@webiny/app-aco";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
+import type { LayoutProps } from "@webiny/app-admin";
 import {
-    LayoutProps,
     LayoutRenderer,
     LocaleSelector,
     Navigation,

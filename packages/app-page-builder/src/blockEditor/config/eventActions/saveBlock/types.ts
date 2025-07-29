@@ -1,4 +1,4 @@
-import { UpdatePageBlockInput } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlockGatewayInterface";
+import type { UpdatePageBlockInput } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlockGatewayInterface";
 
 export interface SaveBlockActionArgsType {
     execute(data: UpdatePageBlockInput): Promise<void>;

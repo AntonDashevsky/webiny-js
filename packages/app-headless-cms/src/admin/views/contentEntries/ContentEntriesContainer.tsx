@@ -3,13 +3,13 @@ import get from "lodash/get";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { i18n } from "@webiny/app/i18n";
-import {
-    GET_CONTENT_MODEL,
+import type {
     GetCmsModelQueryResponse,
     GetCmsModelQueryVariables
 } from "~/admin/graphql/contentModels";
+import { GET_CONTENT_MODEL } from "~/admin/graphql/contentModels";
 import { useQuery } from "../../hooks";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import { ModelProvider } from "~/admin/components/ModelProvider";
 import { LoadingContentModel } from "~/admin/components/ContentEntries/LoadingContentModel";
 

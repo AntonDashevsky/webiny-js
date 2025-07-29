@@ -2,7 +2,7 @@ import { CmsModelPlugin, createModelField, createPrivateModel } from "@webiny/ap
 import type { WebsiteBuilderContext } from "~/context/types";
 import { BaseContext } from "~/context/BaseContext";
 import { RedirectsStorage } from "./RedirectsStorage";
-import { WbRedirectCrud } from "~/context/redirects/redirects.types";
+import type { WbRedirectCrud } from "~/context/redirects/redirects.types";
 import { createRedirectsCrud } from "~/context/redirects/redirects.crud";
 
 export const REDIRECT_MODEL_ID = "wbRedirect";

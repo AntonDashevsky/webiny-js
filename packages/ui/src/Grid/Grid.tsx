@@ -1,6 +1,8 @@
-import React, { CSSProperties } from "react";
+import type { CSSProperties } from "react";
+import React from "react";
 import cn from "classnames";
-import { Grid as AdminUiGrid, ColumnProps as AdminUiColumnProps } from "@webiny/admin-ui";
+import type { ColumnProps as AdminUiColumnProps } from "@webiny/admin-ui";
+import { Grid as AdminUiGrid } from "@webiny/admin-ui";
 
 export interface RmwcGridProps {
     /** Specifies the grid should have fixed column width. */

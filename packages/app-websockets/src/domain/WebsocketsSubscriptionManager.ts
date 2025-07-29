@@ -1,5 +1,5 @@
 import { generateId } from "@webiny/utils/generateId";
-import {
+import type {
     IGenericData,
     IWebsocketsManagerCloseEvent,
     IWebsocketsManagerErrorEvent,
@@ -7,7 +7,7 @@ import {
     IWebsocketsManagerMessageEvent,
     IWebsocketsManagerOpenEvent
 } from "./types";
-import {
+import type {
     IWebsocketsSubscriptionManagerSubscriptions,
     IWebsocketsSubscription,
     IWebsocketsSubscriptionCallback,

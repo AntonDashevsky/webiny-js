@@ -1,4 +1,4 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 
 const defaultIdentity = {
     id: "id-12345678",

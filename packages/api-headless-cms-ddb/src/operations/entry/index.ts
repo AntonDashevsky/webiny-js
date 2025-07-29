@@ -18,14 +18,13 @@ import {
     createPublishedSortKey,
     createRevisionSortKey
 } from "~/operations/entry/keys";
+import type { QueryAllParams, QueryOneParams } from "@webiny/db-dynamodb";
 import {
     cleanupItem,
     cleanupItems,
     createEntityWriteBatch,
     queryAll,
-    QueryAllParams,
-    queryOne,
-    QueryOneParams
+    queryOne
 } from "@webiny/db-dynamodb";
 import type { PluginsContainer } from "@webiny/plugins";
 import { decodeCursor, encodeCursor } from "@webiny/utils/cursor";

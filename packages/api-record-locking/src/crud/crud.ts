@@ -1,5 +1,5 @@
 import { WebinyError } from "@webiny/error";
-import {
+import type {
     Context,
     IGetIdentity,
     IGetWebsocketsContextCallable,
@@ -19,17 +19,17 @@ import {
     RecordLockingSecurityPermission
 } from "~/types";
 import { RECORD_LOCKING_MODEL_ID } from "./model";
-import { IGetLockRecordUseCaseExecute } from "~/abstractions/IGetLockRecordUseCase";
-import { IIsEntryLockedUseCaseExecute } from "~/abstractions/IIsEntryLocked";
-import { ILockEntryUseCaseExecute } from "~/abstractions/ILockEntryUseCase";
-import { IUnlockEntryUseCaseExecute } from "~/abstractions/IUnlockEntryUseCase";
+import type { IGetLockRecordUseCaseExecute } from "~/abstractions/IGetLockRecordUseCase";
+import type { IIsEntryLockedUseCaseExecute } from "~/abstractions/IIsEntryLocked";
+import type { ILockEntryUseCaseExecute } from "~/abstractions/ILockEntryUseCase";
+import type { IUnlockEntryUseCaseExecute } from "~/abstractions/IUnlockEntryUseCase";
 import { createUseCases } from "~/useCases";
-import { IUnlockEntryRequestUseCaseExecute } from "~/abstractions/IUnlockEntryRequestUseCase";
+import type { IUnlockEntryRequestUseCaseExecute } from "~/abstractions/IUnlockEntryRequestUseCase";
 import { createTopic } from "@webiny/pubsub";
-import { IListAllLockRecordsUseCaseExecute } from "~/abstractions/IListAllLockRecordsUseCase";
-import { IListLockRecordsUseCaseExecute } from "~/abstractions/IListLockRecordsUseCase";
-import { IUpdateEntryLockUseCaseExecute } from "~/abstractions/IUpdateEntryLockUseCase";
-import { IGetLockedEntryLockRecordUseCaseExecute } from "~/abstractions/IGetLockedEntryLockRecordUseCase";
+import type { IListAllLockRecordsUseCaseExecute } from "~/abstractions/IListAllLockRecordsUseCase";
+import type { IListLockRecordsUseCaseExecute } from "~/abstractions/IListLockRecordsUseCase";
+import type { IUpdateEntryLockUseCaseExecute } from "~/abstractions/IUpdateEntryLockUseCase";
+import type { IGetLockedEntryLockRecordUseCaseExecute } from "~/abstractions/IGetLockedEntryLockRecordUseCase";
 import { getTimeout as baseGetTimeout } from "~/utils/getTimeout";
 
 interface Params {

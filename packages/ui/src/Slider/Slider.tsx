@@ -1,7 +1,7 @@
 import React from "react";
 import omit from "lodash/omit";
 import { Slider as AdminSlider } from "@webiny/admin-ui";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 
 type Props = FormComponentProps & {
     // Component label.

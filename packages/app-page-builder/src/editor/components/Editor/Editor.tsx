@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import classSet from "classnames";
 import { plugins } from "@webiny/plugins";
 import { useEventActionHandler } from "../../hooks/useEventActionHandler";
-import { EventActionHandler, PbEditorEventActionPlugin } from "~/types";
+import type { EventActionHandler, PbEditorEventActionPlugin } from "~/types";
 import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
 import "./Editor.scss";
 import DragPreview from "./DragPreview";

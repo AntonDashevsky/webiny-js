@@ -8,8 +8,8 @@ import { useRouter } from "@webiny/react-router";
 import EmptyView from "@webiny/app-admin/components/EmptyView";
 import { i18n } from "@webiny/app/i18n";
 
-import { CreatableItem } from "./PageTemplates";
-import { PbPageTemplate } from "~/types";
+import type { CreatableItem } from "./PageTemplates";
+import type { PbPageTemplate } from "~/types";
 import { useListPageTemplates } from "~/features";
 import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview";
 import {

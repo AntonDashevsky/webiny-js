@@ -1,4 +1,4 @@
-import {
+import type {
     ElasticsearchQuerySearchValuePlugins,
     ModelField
 } from "~/operations/entry/elasticsearch/types";

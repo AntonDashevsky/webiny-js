@@ -1,5 +1,5 @@
 import type { Context } from "~/types";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 export const listModels = async (context: Context): Promise<CmsModel[]> => {
     return await context.security.withoutAuthorization(async () => {

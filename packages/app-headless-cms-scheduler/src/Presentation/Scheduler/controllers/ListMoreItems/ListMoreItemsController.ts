@@ -1,5 +1,5 @@
-import { IListItemsUseCase, IListMoreItemsUseCase } from "~/UseCases";
-import { IListMoreItemsController } from "./IListMoreItemsController";
+import type { IListItemsUseCase, IListMoreItemsUseCase } from "~/UseCases";
+import type { IListMoreItemsController } from "./IListMoreItemsController";
 
 export class ListMoreItemsController implements IListMoreItemsController {
     private readonly useCaseFactory: () => IListItemsUseCase;

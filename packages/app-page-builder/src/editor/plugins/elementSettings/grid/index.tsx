@@ -1,7 +1,7 @@
 import React from "react";
 import { GridSize } from "./GridSize";
 import { GridSettings } from "./GridSettings";
-import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
 
 export default [
     {

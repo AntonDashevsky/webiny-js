@@ -1,10 +1,10 @@
 import { Context as BaseContext } from "@webiny/api";
-import { Context } from "@webiny/handler/types";
+import type { Context } from "@webiny/handler/types";
 import { PluginsContainer } from "@webiny/plugins";
 import type { Client } from "@webiny/project-utils/testing/elasticsearch/createClient.js";
 import type { ElasticsearchContext } from "@webiny/api-elasticsearch/types.js";
 import type { ILogger } from "@webiny/api-log/types.js";
-import { Reply, Request } from "@webiny/handler-aws/types.js";
+import type { Reply, Request } from "@webiny/handler-aws/types.js";
 
 export interface ICreateMockContextParams {
     plugins?: PluginsContainer;

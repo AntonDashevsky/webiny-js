@@ -1,10 +1,10 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { PbImportExportContext } from "~/graphql/types";
-import {
+import type { PbImportExportContext } from "~/graphql/types";
+import type {
     IExportPagesControllerInput,
-    IExportPagesControllerOutput,
-    PageExportTask
+    IExportPagesControllerOutput
 } from "~/export/pages/types";
+import { PageExportTask } from "~/export/pages/types";
 import { ChildTasksCleanup } from "../common/ChildTasksCleanup";
 
 export const createExportPagesControllerTask = () => {

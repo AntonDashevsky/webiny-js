@@ -1,7 +1,7 @@
-import { PbContext } from "~/types";
+import type { PbContext } from "~/types";
 import { GetModel } from "~/translations/GetModel";
-import { TranslatedCollectionDTO } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionDTO";
-import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
+import type { TranslatedCollectionDTO } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionDTO";
+import type { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
 import { TranslatedCollectionMapper } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionMapper";
 
 export class CreateTranslatedCollectionRepository {

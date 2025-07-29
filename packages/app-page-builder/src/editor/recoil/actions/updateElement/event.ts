@@ -1,4 +1,4 @@
-import { UpdateElementActionArgsType } from "./types";
+import type { UpdateElementActionArgsType } from "./types";
 import { BaseEventAction } from "../../eventActions";
 
 export class UpdateElementActionEvent extends BaseEventAction<UpdateElementActionArgsType> {

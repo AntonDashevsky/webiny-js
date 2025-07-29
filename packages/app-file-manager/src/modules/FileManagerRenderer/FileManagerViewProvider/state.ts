@@ -1,6 +1,6 @@
-import { FileItem } from "@webiny/app-admin/types";
-import { ListFilesSort } from "~/modules/FileManagerApiProvider/graphql";
-import { Settings } from "~/types";
+import type { FileItem } from "@webiny/app-admin/types";
+import type { ListFilesSort } from "~/modules/FileManagerApiProvider/graphql";
+import type { Settings } from "~/types";
 
 export interface State {
     activeTags: string[];

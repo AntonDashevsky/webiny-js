@@ -9,7 +9,7 @@ import {
     useUpdateFolder
 } from "~/features";
 import { ROOT_FOLDER } from "~/constants";
-import { FolderItem } from "~/types";
+import type { FolderItem } from "~/types";
 import { FolderProvider } from "~/contexts/folder";
 
 interface ListProps {

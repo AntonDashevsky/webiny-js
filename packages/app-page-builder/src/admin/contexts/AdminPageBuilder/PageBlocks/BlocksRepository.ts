@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { plugins } from "@webiny/plugins";
 import { Loading } from "./Loading";
-import { BlockGatewayInterface } from "./BlockGatewayInterface";
-import { PbEditorBlockPlugin, PbPageBlock } from "~/types";
+import type { BlockGatewayInterface } from "./BlockGatewayInterface";
+import type { PbEditorBlockPlugin, PbPageBlock } from "~/types";
 import { getDefaultBlockContent } from "./defaultBlockContent";
 import { createBlockPlugin } from "./createBlockPlugin";
 

@@ -3,7 +3,7 @@ import get from "lodash/get";
 import set from "lodash/set";
 import merge from "lodash/merge";
 import { Tooltip } from "@webiny/ui/Tooltip";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
 import { applyFallbackDisplayMode } from "../elementSettingsUtils";
 // Components
 import Accordion from "../components/Accordion";

@@ -8,7 +8,7 @@ import {
     onFormMounted
 } from "./FormRender/functions";
 
-import {
+import type {
     FormLayoutComponent as FormLayoutComponentType,
     FormData,
     FormDataField,

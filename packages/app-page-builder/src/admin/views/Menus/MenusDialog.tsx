@@ -2,13 +2,8 @@ import React from "react";
 import { css } from "emotion";
 import { useRouter } from "@webiny/react-router";
 import { Query } from "@apollo/react-components";
-import {
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogActions,
-    DialogOnClose
-} from "@webiny/ui/Dialog";
+import type { DialogOnClose } from "@webiny/ui/Dialog";
+import { Dialog, DialogTitle, DialogContent, DialogActions } from "@webiny/ui/Dialog";
 import {
     List,
     ListItem,
@@ -18,7 +13,7 @@ import {
 } from "@webiny/ui/List";
 import { ButtonDefault } from "@webiny/ui/Button";
 import { LIST_MENUS } from "./graphql";
-import { PbMenu } from "~/types";
+import type { PbMenu } from "~/types";
 
 const narrowDialog = css({
     ".mdc-dialog__surface": {

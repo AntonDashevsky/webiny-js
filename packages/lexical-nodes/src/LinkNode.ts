@@ -15,7 +15,8 @@ import type {
     LexicalCommand,
     LexicalNode,
     NodeKey,
-    SerializedElementNode
+    SerializedElementNode,
+    Spread
 } from "lexical";
 
 import { addClassNamesToElement, isHTMLAnchorElement } from "@lexical/utils";
@@ -24,8 +25,7 @@ import {
     $isElementNode,
     $isRangeSelection,
     createCommand,
-    ElementNode,
-    Spread
+    ElementNode
 } from "lexical";
 
 export type LinkAttributes = {

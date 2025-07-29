@@ -1,5 +1,6 @@
 import * as React from "react";
-import Lightbox, { Image } from "react-images";
+import type { Image } from "react-images";
+import Lightbox from "react-images";
 /**
  * Package react-columned does not have types.
  */

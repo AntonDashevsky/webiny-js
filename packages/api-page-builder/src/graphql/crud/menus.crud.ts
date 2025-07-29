@@ -1,6 +1,6 @@
 import prepareMenuItems from "./menus/prepareMenuItems";
 import WebinyError from "@webiny/error";
-import {
+import type {
     Menu,
     MenusCrud,
     MenuStorageOperationsGetParams,
@@ -22,7 +22,7 @@ import {
     createMenuUpdateValidation
 } from "~/graphql/crud/menus/validation";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { MenusPermissions } from "~/graphql/crud/permissions/MenusPermissions";
+import type { MenusPermissions } from "~/graphql/crud/permissions/MenusPermissions";
 import { getIdentity } from "./utils/getIdentity";
 import { getDate } from "./utils/getDate";
 

@@ -1,23 +1,25 @@
-import {
+import type {
     DOMConversion,
     DOMConversionMap,
     DOMConversionOutput,
     DOMExportOutput,
     EditorConfig,
-    ElementNode,
     LexicalEditor,
     LexicalNode,
     NodeKey,
     SerializedElementNode,
     Spread
 } from "lexical";
-import { EditorTheme, findTypographyStyleByHtmlTag, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { ElementNode } from "lexical";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
-import { ListNodeTagType } from "@lexical/list/LexicalListNode";
+import type { ListNodeTagType } from "@lexical/list/LexicalListNode";
 import { $getListDepth, wrapInListItem } from "~/utils/listNode";
-import { $isListItemNode, ListItemNode } from "./ListItemNode";
-import { ListType } from "@lexical/list";
-import { TypographyStylesNode } from "~/types";
+import type { ListItemNode } from "./ListItemNode";
+import { $isListItemNode } from "./ListItemNode";
+import type { ListType } from "@lexical/list";
+import type { TypographyStylesNode } from "~/types";
 
 export type SerializedWebinyListNode = Spread<
     {

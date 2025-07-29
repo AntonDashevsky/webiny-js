@@ -2,7 +2,7 @@ import * as React from "react";
 import { Toaster, type ToasterProps } from "sonner";
 import { makeDecoratable, withStaticProps } from "~/utils";
 import { type IconButtonProps } from "~/Button";
-import { Icon as BaseIcon } from "~/Icon";
+import type { Icon as BaseIcon } from "~/Icon";
 import { Portal } from "~/Portal";
 import {
     ToastActions,

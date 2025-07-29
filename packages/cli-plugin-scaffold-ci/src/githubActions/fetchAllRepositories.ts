@@ -1,4 +1,4 @@
-import { Octokit } from "octokit";
+import type { Octokit } from "octokit";
 
 // TODO: try to add octokit types properly based on
 // https://www.npmjs.com/package/@octokit/types

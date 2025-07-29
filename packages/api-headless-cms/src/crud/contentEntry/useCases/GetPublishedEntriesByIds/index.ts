@@ -1,8 +1,8 @@
 import { GetPublishedEntriesByIds } from "./GetPublishedEntriesByIds";
 import { GetPublishedEntriesByIdsNotDeleted } from "./GetPublishedEntriesByIdsNotDeleted";
 import { GetPublishedEntriesByIdsSecure } from "./GetPublishedEntriesByIdsSecure";
-import { CmsEntryStorageOperations } from "~/types";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { CmsEntryStorageOperations } from "~/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
 
 interface GetPublishedEntriesByIdsUseCasesParams {
     operation: CmsEntryStorageOperations["getPublishedByIds"];

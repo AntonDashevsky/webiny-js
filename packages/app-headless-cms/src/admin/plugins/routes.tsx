@@ -4,7 +4,7 @@ import { SecureRoute } from "@webiny/app-security/components";
 import { CircularProgress } from "@webiny/ui/Progress";
 import { Route } from "@webiny/react-router";
 import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
-import { RoutePlugin } from "@webiny/app/types";
+import type { RoutePlugin } from "@webiny/app/types";
 import { i18n } from "@webiny/app/i18n";
 import { ContentEntriesContainer } from "~/admin/views/contentEntries/ContentEntriesContainer";
 import { ContentEntries } from "~/admin/views/contentEntries/ContentEntries";

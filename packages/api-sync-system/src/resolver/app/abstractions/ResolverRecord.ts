@@ -1,7 +1,7 @@
 import type { GenericRecord } from "@webiny/api/types.js";
 import type { IDetail } from "~/sync/handler/types.js";
 import type { DynamoDBTableType, ExtendedCommandType } from "~/types.js";
-import { SQS_EVENT_NAME } from "~/constants.js";
+import type { SQS_EVENT_NAME } from "~/constants.js";
 
 export interface IResolverRecordBodyItem {
     PK: string;

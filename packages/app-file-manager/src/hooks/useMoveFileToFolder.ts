@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog } from "@webiny/app-aco";
-import { FileItem } from "@webiny/app-admin/types";
+import type { FileItem } from "@webiny/app-admin/types";
 import { useFileManagerView } from "~/index";
 
 export function useMoveFileToFolder(file: FileItem) {

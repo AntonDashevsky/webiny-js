@@ -1,4 +1,4 @@
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 import type { IInputItem, IItem, ISourceDataContainer } from "~/resolver/app/data/types.js";
 import type { IStoreItem } from "~/resolver/app/storer/types.js";
 

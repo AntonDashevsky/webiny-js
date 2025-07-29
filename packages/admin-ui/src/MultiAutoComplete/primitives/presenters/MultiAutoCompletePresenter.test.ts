@@ -1,7 +1,5 @@
-import {
-    IMultiAutoCompletePresenter,
-    MultiAutoCompletePresenter
-} from "./MultiAutoCompletePresenter";
+import type { IMultiAutoCompletePresenter } from "./MultiAutoCompletePresenter";
+import { MultiAutoCompletePresenter } from "./MultiAutoCompletePresenter";
 import { MultiAutoCompleteInputPresenter } from "./MultiAutoCompleteInputPresenter";
 import { MultiAutoCompleteSelectedOptionPresenter } from "./MultiAutoCompleteSelectedOptionsPresenter";
 import { MultiAutoCompleteListOptionsPresenter } from "./MultiAutoCompleteListOptionsPresenter";

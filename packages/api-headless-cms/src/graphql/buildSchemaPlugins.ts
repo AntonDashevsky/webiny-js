@@ -1,10 +1,10 @@
-import { CmsContext, CmsModel } from "~/types";
+import type { CmsContext, CmsModel } from "~/types";
 import { createModelsSchema } from "./schema/contentModels";
 import { createContentEntriesSchema } from "./schema/contentEntries";
 import { createGroupsSchema } from "./schema/contentModelGroups";
 import { createBaseContentSchema } from "./schema/baseContentSchema";
 import { generateSchemaPlugins } from "./schema/schemaPlugins";
-import { ICmsGraphQLSchemaPlugin } from "~/plugins";
+import type { ICmsGraphQLSchemaPlugin } from "~/plugins";
 
 /**
  * This factory is called whenever we need to generate graphql-schema plugins using the current context.

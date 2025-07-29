@@ -1,10 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { CmsModel as BaseCmsModel, CmsModelField } from "~/types";
+import type { CmsModel as BaseCmsModel, CmsModelField } from "~/types";
 import { useQuery } from "~/admin/hooks";
-import {
-    LIST_REFERENCED_MODELS,
-    ListReferencedModelsQueryResult
-} from "~/admin/plugins/fields/ref/graphql";
+import type { ListReferencedModelsQueryResult } from "~/admin/plugins/fields/ref/graphql";
+import { LIST_REFERENCED_MODELS } from "~/admin/plugins/fields/ref/graphql";
 import { useSnackbar } from "@webiny/app-admin";
 import { Tag } from "@webiny/admin-ui";
 

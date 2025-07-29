@@ -3,7 +3,7 @@ import { useActiveElement } from "~/editor/hooks/useActiveElement";
 import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import { removeElementVariableIds } from "~/pageEditor/helpers";
-import { PbElement } from "~/types";
+import type { PbElement } from "~/types";
 
 interface UnlinkBlockActionPropsType {
     children: React.ReactElement;

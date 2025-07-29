@@ -2,17 +2,17 @@ import { PruneLogs } from "~/tasks/pruneLogs/PruneLogs";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { DynamoDbLoggerKeys, DynamoDbStorageOperations } from "~/logger";
 import { Response, TaskResponse } from "@webiny/tasks";
-import {
+import type {
     ILogger,
     ILoggerCrudListLogsCallable,
     ILoggerStorageOperations,
-    ILoggerStorageOperationsListLogsCallable,
-    LogType
+    ILoggerStorageOperationsListLogsCallable
 } from "~/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+import { LogType } from "~/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import { create } from "~/db";
 import { createMockLogger } from "~tests/mocks/logger";
-import { GetValueResult, IStore, RemoveValueResult, StorageKey } from "@webiny/db";
+import type { GetValueResult, IStore, RemoveValueResult, StorageKey } from "@webiny/db";
 import { getIdentity } from "~tests/mocks/getIdentity";
 
 describe("PruneLogs", () => {

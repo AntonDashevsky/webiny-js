@@ -1,23 +1,25 @@
-import { ApolloClient } from "apollo-client";
-import {
-    CREATE_PAGE_BLOCK,
+import type { ApolloClient } from "apollo-client";
+import type {
     CreatePageBlockMutationResponse,
     CreatePageBlockMutationVariables,
-    DELETE_PAGE_BLOCK,
     DeletePageBlockMutationResponse,
     DeletePageBlockMutationVariables,
-    GET_PAGE_BLOCK,
     GetPageBlockQueryResponse,
     GetPageBlockQueryVariables,
-    LIST_PAGE_BLOCKS,
     ListPageBlocksQueryResponse,
     ListPageBlocksQueryVariables,
-    UPDATE_PAGE_BLOCK,
     UpdatePageBlockMutationResponse,
     UpdatePageBlockMutationVariables
 } from "~/admin/views/PageBlocks/graphql";
-import { PbPageBlock } from "~/types";
 import {
+    CREATE_PAGE_BLOCK,
+    DELETE_PAGE_BLOCK,
+    GET_PAGE_BLOCK,
+    LIST_PAGE_BLOCKS,
+    UPDATE_PAGE_BLOCK
+} from "~/admin/views/PageBlocks/graphql";
+import type { PbPageBlock } from "~/types";
+import type {
     BlockGatewayInterface,
     CreatePageBlockInput,
     UpdatePageBlockInput

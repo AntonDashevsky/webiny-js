@@ -1,5 +1,5 @@
-import { IGetRestoredItemUseCase } from "~/UseCases";
-import { IGetRestoredItemByIdController } from "./IGetRestoredItemByIdController";
+import type { IGetRestoredItemUseCase } from "~/UseCases";
+import type { IGetRestoredItemByIdController } from "./IGetRestoredItemByIdController";
 import { TrashBinItemMapper } from "~/Domain/Repositories/TrashBinItems/TrashBinItemMapper";
 
 export class GetRestoredItemByIdController implements IGetRestoredItemByIdController {

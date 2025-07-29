@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { BindComponentRenderProp, CmsModelField } from "~/types";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import type { BindComponentRenderProp, CmsModelField } from "~/types";
+import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
 import { useContentModels } from "./useContentModels";
 import { useReferences } from "./useReferences";
 import { Loader } from "~/admin/plugins/fieldRenderers/ref/simple/components/Loader";

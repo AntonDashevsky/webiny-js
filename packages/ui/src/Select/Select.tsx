@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 import { Select as AdminSelect } from "@webiny/admin-ui";
-import { SelectOptionDto } from "@webiny/admin-ui";
+import type { SelectOptionDto } from "@webiny/admin-ui";
 
 export interface FormattedOption extends Omit<React.AllHTMLAttributes<any>, "label"> {
     label: React.ReactNode;

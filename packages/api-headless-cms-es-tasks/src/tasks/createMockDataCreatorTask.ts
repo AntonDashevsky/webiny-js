@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context } from "~/types";
-import { IMockDataCreatorInput, IMockDataCreatorOutput } from "~/tasks/MockDataCreator/types";
+import type { Context } from "~/types";
+import type { IMockDataCreatorInput, IMockDataCreatorOutput } from "~/tasks/MockDataCreator/types";
 
 export const MOCK_DATA_CREATOR_TASK_ID = "mockDataCreator";
 

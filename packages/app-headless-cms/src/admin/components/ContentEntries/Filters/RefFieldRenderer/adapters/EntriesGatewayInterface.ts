@@ -1,4 +1,4 @@
-import { EntryReference } from "../domain";
+import type { EntryReference } from "../domain";
 
 export interface EntriesGatewayInterface {
     list: (modelIds: string[], query: string) => Promise<EntryReference[]>;

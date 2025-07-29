@@ -1,5 +1,5 @@
 import type { IGetSettings } from "./IGetSettings";
-import { SettingsCache } from "~/shared/settingsCache";
+import type { SettingsCache } from "~/shared/settingsCache";
 
 export interface WebsiteBuilderSettings {
     previewDomain: string;

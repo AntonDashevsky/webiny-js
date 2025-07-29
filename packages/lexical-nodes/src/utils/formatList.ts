@@ -1,20 +1,19 @@
+import type { ElementNode, LexicalEditor, LexicalNode, NodeKey } from "lexical";
 import {
     $getSelection,
     $isElementNode,
     $isLeafNode,
     $isParagraphNode,
     $isRangeSelection,
-    $isRootOrShadowRoot,
-    ElementNode,
-    LexicalEditor,
-    LexicalNode,
-    NodeKey
+    $isRootOrShadowRoot
 } from "lexical";
-import { $createListNode, $isListNode, ListNode } from "~/ListNode";
+import type { ListNode } from "~/ListNode";
+import { $createListNode, $isListNode } from "~/ListNode";
 import { $getNearestNodeOfType } from "@lexical/utils";
 import { $createListItemNode, $isListItemNode, ListItemNode } from "~/ListItemNode";
-import { ListType } from "@lexical/list";
-import { $createParagraphNode, ParagraphNode } from "~/ParagraphNode";
+import type { ListType } from "@lexical/list";
+import type { ParagraphNode } from "~/ParagraphNode";
+import { $createParagraphNode } from "~/ParagraphNode";
 import {
     $getAllListItems,
     $getTopListNode,

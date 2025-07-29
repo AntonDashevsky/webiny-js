@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
-import { useDrag, useDrop, DropTargetMonitor, DragSourceMonitor } from "react-dnd";
-import { DraggableItem } from "~/editor/components/Draggable";
-import { CollectedProps } from "~/types";
+import type { DropTargetMonitor, DragSourceMonitor } from "react-dnd";
+import { useDrag, useDrop } from "react-dnd";
+import type { DraggableItem } from "~/editor/components/Draggable";
+import type { CollectedProps } from "~/types";
 
 export const moveInPlace = (arr: any[], from: number, to: number): any[] => {
     const newArray = [...arr];

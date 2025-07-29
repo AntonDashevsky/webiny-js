@@ -4,8 +4,8 @@ import {
     createEnableIndexingTask,
     createIndexesTaskDefinition
 } from "~/tasks";
-import { Plugin } from "@webiny/plugins/types";
-import { IElasticsearchTaskConfig } from "~/types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { IElasticsearchTaskConfig } from "~/types";
 
 export type CreateElasticsearchBackgroundTasksParams = IElasticsearchTaskConfig;
 

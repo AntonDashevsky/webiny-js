@@ -4,8 +4,8 @@ import {
     ErrorResponse,
     NotFoundResponse
 } from "@webiny/handler-graphql/responses";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
-import { Page, PbContext, PageContentWithTemplate } from "~/types";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import type { Page, PbContext, PageContentWithTemplate } from "~/types";
 import WebinyError from "@webiny/error";
 import resolve from "./utils/resolve";
 import { createPageSettingsGraphQL } from "./pages/pageSettings";

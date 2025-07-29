@@ -1,10 +1,11 @@
-import { IconName, library } from "@fortawesome/fontawesome-svg-core";
+import type { IconName } from "@fortawesome/fontawesome-svg-core";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
-import { IconPrefix } from "@fortawesome/fontawesome-common-types";
-import { IconPickerIconDto } from "@webiny/admin-ui";
-import { PbIconsPlugin } from "~/types";
+import type { IconPrefix } from "@fortawesome/fontawesome-common-types";
+import type { IconPickerIconDto } from "@webiny/admin-ui";
+import type { PbIconsPlugin } from "~/types";
 
 const icons: IconPickerIconDto[] = [];
 

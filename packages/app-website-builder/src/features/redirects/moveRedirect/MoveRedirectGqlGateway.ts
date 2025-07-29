@@ -1,6 +1,6 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IMoveRedirectGateway } from "./IMoveRedirectGateway.js";
+import type { IMoveRedirectGateway } from "./IMoveRedirectGateway.js";
 import type { WbError } from "~/types.js";
 
 export interface MoveRedirectVariables {

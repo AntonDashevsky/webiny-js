@@ -2,7 +2,7 @@ import isString from "lodash/isString";
 import isEmpty from "lodash/isEmpty";
 import trim from "lodash/trim";
 import ValidationError from "./validationError";
-import { ParsedValidators, ValidateOptions, Validator } from "./types";
+import type { ParsedValidators, ValidateOptions, Validator } from "./types";
 
 const entries = (validators: ParsedValidators): Array<[string, Array<string>]> => {
     return Object.entries(validators);

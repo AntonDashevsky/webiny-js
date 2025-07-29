@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { autorun } from "mobx";
-import { PageType } from "./PageType";
+import type { PageType } from "./PageType";
 import { pageTypesCache } from "./pageTypesCache";
 
 export const usePageTypes = () => {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Separator } from "@webiny/admin-ui";
-import { Form, FormOnSubmit, FormProps, GenericFormData } from "@webiny/form";
+import type { FormOnSubmit, FormProps, GenericFormData } from "@webiny/form";
+import { Form } from "@webiny/form";
 
 type Filter = {
     name: string;

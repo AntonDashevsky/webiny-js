@@ -1,4 +1,4 @@
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { createPulumiCommand, runHook } from "~/utils";
 import { PackagesBuilder } from "./buildPackages/PackagesBuilder";
 

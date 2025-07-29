@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     CmsContext,
     CmsEntry,
     CmsModel,

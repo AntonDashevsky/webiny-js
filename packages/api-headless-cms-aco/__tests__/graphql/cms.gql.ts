@@ -1,4 +1,4 @@
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 const ERROR_FIELD = /* GraphQL */ `
     {

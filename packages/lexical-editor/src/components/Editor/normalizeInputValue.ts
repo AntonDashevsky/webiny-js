@@ -1,4 +1,4 @@
-import { LexicalValue, NormalizedInputValue } from "~/types";
+import type { LexicalValue, NormalizedInputValue } from "~/types";
 
 const isValueEmpty = (value: any) => {
     return [undefined, null, "", '""', "null"].includes(value);

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo } from "react";
 import { SearchRecordsContext } from "~/contexts/records";
-import { ListTagsWhereQueryVariables, TagItem } from "~/types";
+import type { ListTagsWhereQueryVariables, TagItem } from "~/types";
 import { useAcoApp } from "~/hooks/useAcoApp";
 
 interface UseTagsParams {

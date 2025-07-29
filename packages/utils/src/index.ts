@@ -16,7 +16,8 @@ export * from "./getObjectProperties";
 export * from "./middleware";
 export type { GenericRecord } from "./GenericRecord";
 
-import { AsyncProcessor, composeAsync, NextAsyncProcessor } from "~/compose";
+import type { AsyncProcessor, NextAsyncProcessor } from "~/compose";
+import { composeAsync } from "~/compose";
 
 export { composeAsync };
 export type { AsyncProcessor, NextAsyncProcessor };

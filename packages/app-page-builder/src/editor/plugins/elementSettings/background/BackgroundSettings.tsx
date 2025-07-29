@@ -8,8 +8,8 @@ import { Tooltip } from "@webiny/ui/Tooltip";
 import { plugins } from "@webiny/plugins";
 import { Cell, Grid } from "@webiny/ui/Grid";
 import SingleImageUpload from "@webiny/app-admin/components/SingleImageUpload";
-import { FileManagerFileItem } from "@webiny/app-admin";
-import {
+import type { FileManagerFileItem } from "@webiny/app-admin";
+import type {
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin
 } from "~/types";

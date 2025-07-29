@@ -1,6 +1,6 @@
 import { mdbid } from "@webiny/utils";
 import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
-import { CmsEntry, CmsModel } from "~/types";
+import type { CmsEntry, CmsModel } from "~/types";
 import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
 
 const NUMBER_OF_FRUITS = 200;

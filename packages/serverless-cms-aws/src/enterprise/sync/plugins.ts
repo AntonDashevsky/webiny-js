@@ -1,4 +1,4 @@
-import { Plugin } from "@webiny/plugins";
+import type { Plugin } from "@webiny/plugins";
 import {
     createAfterDeployPlugin,
     createAfterDestroyPlugin

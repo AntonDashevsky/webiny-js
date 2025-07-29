@@ -1,7 +1,7 @@
 import React from "react";
 import { BlockRenderer } from "@webiny/app-page-builder-elements/renderers/block";
 import { EmptyCell } from "~/editor/plugins/elements/cell/EmptyCell";
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import { useElementWithChildren } from "~/editor";
 
 type Props = Omit<React.ComponentProps<typeof BlockRenderer>, "element"> & {

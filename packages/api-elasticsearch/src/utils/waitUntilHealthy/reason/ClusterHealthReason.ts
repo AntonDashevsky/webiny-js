@@ -1,5 +1,5 @@
-import { ElasticsearchCatClusterHealthStatus } from "~/operations";
-import { IReason } from "~/utils/waitUntilHealthy/reason/IReason";
+import type { ElasticsearchCatClusterHealthStatus } from "~/operations";
+import type { IReason } from "~/utils/waitUntilHealthy/reason/IReason";
 
 export interface IClusterHealthReasonParams {
     minimum: ElasticsearchCatClusterHealthStatus;

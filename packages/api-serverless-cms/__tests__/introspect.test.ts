@@ -1,5 +1,5 @@
 import { useGraphQlHandler } from "./handlers/graphQlHandler";
-import { PathType } from "~tests/handlers/types";
+import type { PathType } from "~tests/handlers/types";
 
 jest.setTimeout(90000);
 

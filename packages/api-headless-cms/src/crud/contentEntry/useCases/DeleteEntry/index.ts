@@ -7,17 +7,17 @@ import { MoveEntryToBinOperation } from "./MoveEntryToBinOperation";
 import { MoveEntryToBinOperationWithEvents } from "./MoveEntryToBinOperationWithEvents";
 import { TransformEntryDelete } from "./TransformEntryDelete";
 import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin";
-import { Topic } from "@webiny/pubsub/types";
-import {
+import type { Topic } from "@webiny/pubsub/types";
+import type {
     CmsContext,
     CmsEntryStorageOperations,
     OnEntryAfterDeleteTopicParams,
     OnEntryBeforeDeleteTopicParams,
     OnEntryDeleteErrorTopicParams
 } from "~/types";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions";
 
 export interface DeleteEntryUseCasesTopics {
     onEntryBeforeDelete: Topic<OnEntryBeforeDeleteTopicParams>;

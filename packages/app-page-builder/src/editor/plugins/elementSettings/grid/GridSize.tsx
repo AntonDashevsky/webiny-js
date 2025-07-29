@@ -6,12 +6,12 @@ import get from "lodash/get";
 import set from "lodash/set";
 import merge from "lodash/merge";
 import { Cell, Grid } from "@webiny/ui/Grid";
-import {
-    DisplayMode,
+import type {
     PbEditorElement,
     PbEditorGridPresetPluginType,
     PbEditorPageElementSettingsRenderComponentProps
 } from "~/types";
+import { DisplayMode } from "~/types";
 import { useEventActionHandler } from "~/editor";
 import { createElement } from "~/editor/helpers";
 import { calculatePresetPluginCells, getPresetPlugins } from "~/editor/plugins/gridPresets";

@@ -1,4 +1,4 @@
-import { QueueJob } from "~/types";
+import type { QueueJob } from "~/types";
 import { mdbid } from "@webiny/utils";
 
 const tenant = "root";

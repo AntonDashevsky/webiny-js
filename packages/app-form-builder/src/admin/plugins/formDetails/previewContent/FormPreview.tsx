@@ -4,7 +4,7 @@ import { Form } from "../../../../components/Form";
 import { DATA_FIELDS } from "~/components/Form/graphql";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { FbErrorResponse, FbFormModel, FbRevisionModel } from "~/types";
+import type { FbErrorResponse, FbFormModel, FbRevisionModel } from "~/types";
 
 interface GetFormQueryResponse {
     formBuilder: {

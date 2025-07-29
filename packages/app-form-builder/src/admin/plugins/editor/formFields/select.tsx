@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Icon } from "@webiny/icons/list.svg";
 import OptionsList from "./components/OptionsList";
-import { FbBuilderFieldPlugin } from "~/types";
+import type { FbBuilderFieldPlugin } from "~/types";
 import { Grid, Input } from "@webiny/admin-ui";
 
 const plugin: FbBuilderFieldPlugin = {

@@ -1,7 +1,7 @@
-import { EntryTableItem } from "@webiny/app-headless-cms/types";
-import { GenericRecord } from "@webiny/app/types";
-import { IRecordLockingUnlockEntryResult } from "~/domain/abstractions/IRecordLockingUnlockEntry";
-import { SecurityPermission } from "@webiny/app-security/types";
+import type { EntryTableItem } from "@webiny/app-headless-cms/types";
+import type { GenericRecord } from "@webiny/app/types";
+import type { IRecordLockingUnlockEntryResult } from "~/domain/abstractions/IRecordLockingUnlockEntry";
+import type { SecurityPermission } from "@webiny/app-security/types";
 import type { IRecordLockingUpdateEntryLockResult } from "~/domain/abstractions/IRecordLocking.js";
 
 export interface IRecordLockingIdentity {

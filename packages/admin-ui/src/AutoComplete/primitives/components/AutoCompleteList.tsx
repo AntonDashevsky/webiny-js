@@ -1,5 +1,5 @@
 import React from "react";
-import { CommandOptionFormatted } from "~/Command/domain/CommandOptionFormatted";
+import type { CommandOptionFormatted } from "~/Command/domain/CommandOptionFormatted";
 import { Command } from "~/Command";
 
 interface AutoCompleteListProps extends React.ComponentPropsWithoutRef<typeof Command.List> {

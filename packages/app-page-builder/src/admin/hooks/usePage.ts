@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/react-hooks";
-import {
-    GET_PAGE,
+import type {
     GetPageQueryResponse,
     GetPageQueryVariables,
     PageResponseData
 } from "~/admin/graphql/pages";
-import { PbErrorResponse } from "~/types";
+import { GET_PAGE } from "~/admin/graphql/pages";
+import type { PbErrorResponse } from "~/types";
 
 export type Page = PageResponseData & { settings: Record<string, any> };
 

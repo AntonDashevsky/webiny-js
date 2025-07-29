@@ -1,5 +1,5 @@
-import { Abstraction } from "./Abstraction";
-import { Constructor, Dependencies, Implementation, GetInterface } from "./types";
+import type { Abstraction } from "./Abstraction";
+import type { Constructor, Dependencies, Implementation, GetInterface } from "./types";
 import { Metadata } from "./Metadata";
 
 export function createImplementation<

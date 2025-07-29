@@ -1,4 +1,4 @@
-import { OktaFactory } from "@webiny/app-admin-okta";
+import type { OktaFactory } from "@webiny/app-admin-okta";
 import OktaSignIn from "@okta/okta-signin-widget";
 import { OktaAuth } from "@okta/okta-auth-js";
 import "@okta/okta-signin-widget/dist/css/okta-sign-in.min.css";

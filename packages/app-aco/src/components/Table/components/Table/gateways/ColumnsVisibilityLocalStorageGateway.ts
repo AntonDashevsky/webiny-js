@@ -1,5 +1,5 @@
 import { LocalStorage } from "./LocalStorage";
-import { IColumnsVisibilityGateway } from "./IColumnsVisibilityGateway";
+import type { IColumnsVisibilityGateway } from "./IColumnsVisibilityGateway";
 
 export class ColumnsVisibilityLocalStorageGateway implements IColumnsVisibilityGateway {
     private localStorage: LocalStorage<Record<string, boolean>>;

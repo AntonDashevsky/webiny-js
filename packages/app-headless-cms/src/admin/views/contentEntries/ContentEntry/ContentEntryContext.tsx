@@ -2,21 +2,21 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "@webiny/react-router";
 import { useIsMounted, useSnackbar } from "@webiny/app-admin";
 import { useCms, useQuery } from "~/admin/hooks";
-import { ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext";
+import type { ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext";
 import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries";
-import { CmsContentEntry, CmsContentEntryRevision } from "~/types";
+import type { CmsContentEntry, CmsContentEntryRevision } from "~/types";
 import { parseIdentifier } from "@webiny/utils";
-import {
+import type {
     CmsEntryGetQueryResponse,
-    CmsEntryGetQueryVariables,
-    createReadQuery
+    CmsEntryGetQueryVariables
 } from "@webiny/app-headless-cms-common";
+import { createReadQuery } from "@webiny/app-headless-cms-common";
 import { getFetchPolicy } from "~/utils/getFetchPolicy";
 import { useRecords } from "@webiny/app-aco";
-import * as Cms from "~/admin/contexts/Cms";
+import type * as Cms from "~/admin/contexts/Cms";
 import { useMockRecords } from "./useMockRecords";
 import { ROOT_FOLDER } from "~/admin/constants";
-import { OperationError } from "~/admin/contexts/Cms";
+import type { OperationError } from "~/admin/contexts/Cms";
 
 interface UpdateListCacheOptions {
     options?: {

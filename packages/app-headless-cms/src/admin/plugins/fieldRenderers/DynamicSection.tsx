@@ -3,10 +3,10 @@ import classSet from "classnames";
 import { css } from "@emotion/css";
 import { i18n } from "@webiny/app/i18n";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
-import { GetBindCallable } from "~/admin/components/ContentEntryForm/useBind";
+import type { GetBindCallable } from "~/admin/components/ContentEntryForm/useBind";
 import { ParentFieldProvider } from "~/admin/hooks";
 import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider";
-import { BindComponent, BindComponentRenderProp, CmsModelField } from "~/types";
+import type { BindComponent, BindComponentRenderProp, CmsModelField } from "~/types";
 import { getMultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";
 import {
     Button,

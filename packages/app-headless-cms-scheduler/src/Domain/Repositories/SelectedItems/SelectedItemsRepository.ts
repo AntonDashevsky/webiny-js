@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { SchedulerItem } from "~/Domain";
-import { ISelectedItemsRepository } from "./ISelectedItemsRepository";
+import type { SchedulerItem } from "~/Domain";
+import type { ISelectedItemsRepository } from "./ISelectedItemsRepository";
 
 export class SelectedItemsRepository implements ISelectedItemsRepository {
     private items: SchedulerItem[] = [];

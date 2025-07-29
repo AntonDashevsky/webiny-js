@@ -1,5 +1,6 @@
-import { UIElement } from "~/ui/UIElement";
-import { FormFieldElement, FormFieldElementConfig } from "./FormFieldElement";
+import type { UIElement } from "~/ui/UIElement";
+import type { FormFieldElementConfig } from "./FormFieldElement";
+import { FormFieldElement } from "./FormFieldElement";
 import { FileManagerElementRenderer } from "./FileManagerElement/FileManagerElementRenderer";
 import { EmptyStateElement } from "./FileManagerElement/EmptyStateElement";
 

@@ -1,6 +1,6 @@
-import { MigrationStatusReporter } from "~/cli/MigrationStatusReporter";
-import { MigrationStatus } from "~/types";
-import { LogReporter } from "~/cli/LogReporter";
+import type { MigrationStatusReporter } from "~/cli/MigrationStatusReporter";
+import type { MigrationStatus } from "~/types";
+import type { LogReporter } from "~/cli/LogReporter";
 
 export class NonInteractiveCliStatusReporter implements MigrationStatusReporter {
     private logReporter: LogReporter;

@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { LexicalNode } from "lexical";
+import type { LexicalNode } from "lexical";
 import { $isHeadingNode } from "@webiny/lexical-nodes";
 import { createMocks } from "./mocks/htmlMocks";
 import { createHtmlToLexicalParser } from "~/index";

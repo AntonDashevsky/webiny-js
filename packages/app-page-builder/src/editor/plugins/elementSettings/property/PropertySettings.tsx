@@ -7,9 +7,10 @@ import get from "lodash/get";
 import { plugins } from "@webiny/plugins";
 import { Tooltip } from "@webiny/ui/Tooltip";
 import { Switch } from "@webiny/ui/Switch";
-import { Form, FormOnSubmit } from "@webiny/form";
-import { Validator } from "@webiny/validation/types";
-import {
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
+import type { Validator } from "@webiny/validation/types";
+import type {
     PbEditorElement,
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin

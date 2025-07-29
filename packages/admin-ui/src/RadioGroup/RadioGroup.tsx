@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
 import { makeDecoratable } from "~/utils";
-import { RadioGroupPrimitive, RadioGroupPrimitiveProps } from "./primitives";
+import type { RadioGroupPrimitiveProps } from "./primitives";
+import { RadioGroupPrimitive } from "./primitives";
+import type { FormComponentProps } from "~/FormComponent";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
-    FormComponentNote,
-    FormComponentProps
+    FormComponentNote
 } from "~/FormComponent";
 
 type RadioGroupProps = RadioGroupPrimitiveProps & FormComponentProps;

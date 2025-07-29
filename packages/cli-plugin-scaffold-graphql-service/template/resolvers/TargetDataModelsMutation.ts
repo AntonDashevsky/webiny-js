@@ -1,4 +1,4 @@
-import { TargetDataModelEntity } from "../types";
+import type { TargetDataModelEntity } from "../types";
 import { mdbid } from "@webiny/utils";
 import { TargetDataModel } from "../entities";
 import TargetDataModelsResolver from "./TargetDataModelsResolver";

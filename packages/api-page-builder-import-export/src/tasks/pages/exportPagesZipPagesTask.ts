@@ -1,10 +1,7 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import {
-    IExportPagesZipPagesInput,
-    IExportPagesZipPagesOutput,
-    PageExportTask
-} from "~/export/pages/types";
-import { PbImportExportContext } from "~/graphql/types";
+import type { IExportPagesZipPagesInput, IExportPagesZipPagesOutput } from "~/export/pages/types";
+import { PageExportTask } from "~/export/pages/types";
+import type { PbImportExportContext } from "~/graphql/types";
 
 export const createExportPagesZipPagesTask = () => {
     return createPrivateTaskDefinition<

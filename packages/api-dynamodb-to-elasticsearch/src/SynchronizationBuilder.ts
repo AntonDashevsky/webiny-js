@@ -1,4 +1,4 @@
-import {
+import type {
     Context,
     IDeleteOperationParams,
     IInsertOperationParams,
@@ -6,8 +6,9 @@ import {
     IOperations
 } from "~/types";
 import { Operations } from "~/Operations";
-import { executeWithRetry, IExecuteWithRetryParams } from "~/executeWithRetry";
-import { ITimer } from "@webiny/handler-aws";
+import type { IExecuteWithRetryParams } from "~/executeWithRetry";
+import { executeWithRetry } from "~/executeWithRetry";
+import type { ITimer } from "@webiny/handler-aws";
 
 export type ISynchronizationBuilderExecuteWithRetryParams = Omit<
     IExecuteWithRetryParams,

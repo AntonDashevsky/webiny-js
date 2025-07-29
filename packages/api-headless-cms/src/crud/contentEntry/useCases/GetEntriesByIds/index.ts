@@ -1,8 +1,8 @@
 import { GetEntriesByIds } from "./GetEntriesByIds";
 import { GetEntriesByIdsSecure } from "./GetEntriesByIdsSecure";
 import { GetEntriesByIdsNotDeleted } from "./GetEntriesByIdsNotDeleted";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { CmsEntryStorageOperations } from "~/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { CmsEntryStorageOperations } from "~/types";
 
 interface GetEntriesByIdsUseCasesParams {
     operation: CmsEntryStorageOperations["getByIds"];

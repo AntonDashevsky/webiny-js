@@ -1,4 +1,4 @@
-import { File } from "@webiny/api-file-manager/types";
+import type { File } from "@webiny/api-file-manager/types";
 import get from "lodash/get";
 
 const FILE_ID_MAP = {

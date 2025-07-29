@@ -4,7 +4,8 @@ import styled from "@emotion/styled";
 import { createElement } from "~/editor/helpers";
 import { ReactComponent as CarouselIcon } from "@webiny/icons/view_carousel.svg";
 import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
-import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types";
+import type { PbEditorPageElementPlugin, PbEditorElementPluginArgs } from "~/types";
+import { DisplayMode } from "~/types";
 import Carousel from "./Carousel";
 
 const PreviewBox = styled.div`

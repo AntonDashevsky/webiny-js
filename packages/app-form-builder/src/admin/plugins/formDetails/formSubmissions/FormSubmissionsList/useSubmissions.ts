@@ -3,13 +3,12 @@ import { useCallback, useReducer } from "react";
 import debounce from "lodash/debounce";
 import get from "lodash/get";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { FbFormModel } from "~/types";
-import {
+import type { FbFormModel } from "~/types";
+import type {
     ExportFormSubmissionsMutationResponse,
-    ExportFormSubmissionsMutationVariables,
-    EXPORT_FORM_SUBMISSIONS,
-    LIST_FORM_SUBMISSIONS
+    ExportFormSubmissionsMutationVariables
 } from "~/admin/graphql";
+import { EXPORT_FORM_SUBMISSIONS, LIST_FORM_SUBMISSIONS } from "~/admin/graphql";
 
 interface State {
     loading: boolean;

@@ -1,4 +1,4 @@
-import { RadioItemParams } from "./RadioItemParams";
+import type { RadioItemParams } from "./RadioItemParams";
 import { generateId } from "~/utils";
 
 export class RadioItem {

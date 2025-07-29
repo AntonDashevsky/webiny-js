@@ -5,7 +5,7 @@ import { CompositionScope } from "@webiny/app-admin/index";
 import { Dialog } from "@webiny/admin-ui";
 import { FloatingLinkEditorPlugin, LexicalEditorConfig } from "@webiny/lexical-editor";
 import { LexicalEditor } from "./LexicalEditor";
-import { ElementInputRendererProps } from "~/BaseEditor";
+import type { ElementInputRendererProps } from "~/BaseEditor";
 import {
     ExpandedEditorProvider,
     useExpandedEditor

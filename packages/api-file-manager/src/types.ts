@@ -1,13 +1,13 @@
-import { I18NContext } from "@webiny/api-i18n/types";
-import { FileStorage } from "./storage/FileStorage";
-import { TenancyContext } from "@webiny/api-tenancy/types";
-import { SecurityContext, SecurityPermission } from "@webiny/api-security/types";
-import { Context } from "@webiny/api/types";
-import { FileLifecycleEvents } from "./types/file.lifecycle";
-import { CreatedBy, File } from "./types/file";
-import { Topic } from "@webiny/pubsub/types";
-import { CmsContext, CmsEntryListSort } from "@webiny/api-headless-cms/types";
-import { Context as TasksContext } from "@webiny/tasks/types";
+import type { I18NContext } from "@webiny/api-i18n/types";
+import type { FileStorage } from "./storage/FileStorage";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { SecurityContext, SecurityPermission } from "@webiny/api-security/types";
+import type { Context } from "@webiny/api/types";
+import type { FileLifecycleEvents } from "./types/file.lifecycle";
+import type { CreatedBy, File } from "./types/file";
+import type { Topic } from "@webiny/pubsub/types";
+import type { CmsContext, CmsEntryListSort } from "@webiny/api-headless-cms/types";
+import type { Context as TasksContext } from "@webiny/tasks/types";
 
 export * from "./types/file.lifecycle";
 export * from "./types/file";

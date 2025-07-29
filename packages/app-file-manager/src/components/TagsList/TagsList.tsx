@@ -5,7 +5,7 @@ import { FilterSelect } from "./FilterSelect";
 import { FilterStatus } from "./FilterStatus";
 import { Tags } from "./Tags";
 
-import { TagItem } from "@webiny/app-aco/types";
+import type { TagItem } from "@webiny/app-aco/types";
 
 interface TagListProps {
     loading: boolean;

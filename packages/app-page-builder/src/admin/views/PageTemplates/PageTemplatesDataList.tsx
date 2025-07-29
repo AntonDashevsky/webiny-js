@@ -21,12 +21,12 @@ import {
     UploadIcon
 } from "@webiny/ui/List";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { CreatableItem } from "./PageTemplates";
+import type { CreatableItem } from "./PageTemplates";
 import { useMultiSelect } from "~/admin/views/Pages/hooks/useMultiSelect";
 import { ExportTemplatesButton } from "~/editor/plugins/defaultBar/components/ExportTemplateButton";
 import useImportTemplate from "~/admin/views/PageTemplates/hooks/useImportTemplate";
 import { OptionsMenu } from "~/admin/components/OptionsMenu";
-import { PbPageTemplate } from "~/types";
+import type { PbPageTemplate } from "~/types";
 import { useListPageTemplates } from "~/features";
 
 const t = i18n.ns("app-page-builder/admin/views/page-templates/page-templates-details");

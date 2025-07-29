@@ -1,5 +1,6 @@
 import React from "react";
-import { UIElement, UiElementRenderProps } from "~/ui/UIElement";
+import type { UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
 import { SimpleFormFooter } from "~/components/SimpleForm";
 
 export class FormFooterElement extends UIElement {

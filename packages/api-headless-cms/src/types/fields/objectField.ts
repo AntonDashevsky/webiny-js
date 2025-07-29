@@ -1,4 +1,4 @@
-import { CmsModelField } from "../modelField";
+import type { CmsModelField } from "../modelField";
 
 /**
  * A definition for object field to show possible type of the field in settings.

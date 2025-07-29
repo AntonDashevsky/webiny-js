@@ -1,8 +1,8 @@
 import { makeAutoObservable, toJS } from "mobx";
 
-import { IconRepository } from "./IconRepository";
-import { Icon } from "./types";
-import { IconType } from "./config";
+import type { IconRepository } from "./IconRepository";
+import type { Icon } from "./types";
+import type { IconType } from "./config";
 
 export interface IconPickerPresenterInterface {
     load(icon: Icon): Promise<void>;

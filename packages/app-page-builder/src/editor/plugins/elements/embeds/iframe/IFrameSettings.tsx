@@ -6,7 +6,7 @@ import { withActiveElement } from "~/editor/components";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import { UpdateElementActionEvent } from "~/editor/recoil/actions";
-import { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types";
+import type { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types";
 // Components
 import Accordion from "../../../elementSettings/components/Accordion";
 import Wrapper from "../../../elementSettings/components/Wrapper";

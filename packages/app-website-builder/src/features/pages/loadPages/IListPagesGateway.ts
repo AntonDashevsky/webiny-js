@@ -1,4 +1,4 @@
-import { PageGatewayDto } from "./PageGatewayDto.js";
+import type { PageGatewayDto } from "./PageGatewayDto.js";
 import type { WbListMeta } from "~/types.js";
 
 export interface ListPagesGatewayParams {

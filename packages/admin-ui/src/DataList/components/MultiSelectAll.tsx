@@ -1,6 +1,6 @@
 import React from "react";
 import { CheckboxPrimitive } from "~/Checkbox";
-import { DataListProps } from "../types";
+import type { DataListProps } from "../types";
 
 const MultiSelectAll = (props: DataListProps) => {
     const { multiSelectActions } = props;

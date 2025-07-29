@@ -1,7 +1,7 @@
+import type { DeleteObjectCommandInput } from "@webiny/aws-sdk/client-s3";
 import {
     createS3Client,
     DeleteObjectCommand,
-    DeleteObjectCommandInput,
     HeadObjectCommand,
     S3Client
 } from "@webiny/aws-sdk/client-s3";

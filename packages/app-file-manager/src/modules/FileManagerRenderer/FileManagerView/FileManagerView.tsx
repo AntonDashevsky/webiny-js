@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import Files, { FilesRenderChildren } from "react-butterfiles";
+import type { FilesRenderChildren } from "react-butterfiles";
+import Files from "react-butterfiles";
 import debounce from "lodash/debounce";
 import omit from "lodash/omit";
-import { positionValues } from "react-custom-scrollbars";
+import type { positionValues } from "react-custom-scrollbars";
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
 import { observer } from "mobx-react-lite";
@@ -16,10 +17,10 @@ import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerVie
 import { outputFileSelectionError } from "./outputFileSelectionError";
 import { LeftSidebar } from "./LeftSidebar";
 import { useFileManagerViewConfig } from "~/index";
-import { FileItem } from "@webiny/app-admin/types";
+import type { FileItem } from "@webiny/app-admin/types";
 import { BatchFileUploader } from "~/BatchFileUploader";
-import { ListFilesSort, ListFilesSortItem } from "~/modules/FileManagerApiProvider/graphql";
-import { TableItem } from "~/types";
+import type { ListFilesSort, ListFilesSortItem } from "~/modules/FileManagerApiProvider/graphql";
+import type { TableItem } from "~/types";
 
 import { BottomInfoBar } from "~/components/BottomInfoBar";
 import { BulkActions } from "~/components/BulkActions";
@@ -30,7 +31,8 @@ import { Filters } from "~/components/Filters";
 import { Grid } from "~/components/Grid";
 import { Header } from "~/components/Header";
 import { SearchWidget } from "~/components/SearchWidget";
-import { Table, TableProps } from "~/components/Table";
+import type { TableProps } from "~/components/Table";
+import { Table } from "~/components/Table";
 import { TagsList } from "~/components/TagsList";
 import { UploadStatus } from "~/components/UploadStatus";
 

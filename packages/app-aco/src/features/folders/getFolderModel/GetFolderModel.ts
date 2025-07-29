@@ -1,8 +1,8 @@
-import { IGetFolderModelGateway } from "./IGetFolderModelGateway";
+import type { IGetFolderModelGateway } from "./IGetFolderModelGateway";
 import { GetFolderModelRepository } from "./GetFolderModelRepository";
 import { GetFolderModelUseCase } from "./GetFolderModelUseCase";
-import { IGetFolderModelUseCase } from "./IGetFolderModelUseCase";
-import { IGetFolderModelRepository } from "./IGetFolderModelRepository";
+import type { IGetFolderModelUseCase } from "./IGetFolderModelUseCase";
+import type { IGetFolderModelRepository } from "./IGetFolderModelRepository";
 
 interface IGetFolderModelInstance {
     useCase: IGetFolderModelUseCase;

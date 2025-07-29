@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid } from "@webiny/admin-ui";
-import { ElementInputRendererProps } from "~/BaseEditor";
+import type { ElementInputRendererProps } from "~/BaseEditor";
 import { ReactComponent as GridLayout12 } from "./assets/grid-12.svg";
 import { ReactComponent as GridLayout66 } from "./assets/grid-6-6.svg";
 import { ReactComponent as GridLayout84 } from "./assets/grid-8-4.svg";

@@ -1,4 +1,4 @@
-import { IExportPagesZipPagesDone, IExportPagesZipPagesInput } from "~/export/pages/types";
+import type { IExportPagesZipPagesDone, IExportPagesZipPagesInput } from "~/export/pages/types";
 
 export class ZipPagesDataManager {
     private readonly input: IExportPagesZipPagesInput;

@@ -3,7 +3,7 @@ import { Button, IconButton, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as FlipIcon } from "@webiny/icons/flip.svg";
 import Cropper from "cropperjs";
 import "cropperjs/dist/cropper.css";
-import { ImageEditorTool } from "./types";
+import type { ImageEditorTool } from "./types";
 
 let cropper: Cropper;
 

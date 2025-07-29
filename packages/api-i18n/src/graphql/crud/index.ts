@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { I18NContext } from "~/types";
+import type { I18NContext } from "~/types";
 import { LocalesStorageOperationsProviderPlugin } from "~/plugins/LocalesStorageOperationsProviderPlugin";
 import { SystemStorageOperationsProviderPlugin } from "~/plugins/SystemStorageOperationsProviderPlugin";
 import WebinyError from "@webiny/error";

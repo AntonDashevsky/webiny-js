@@ -1,4 +1,4 @@
-import { WcpProjectEnvironment } from "~/types";
+import type { WcpProjectEnvironment } from "~/types";
 import { decrypt } from "~/encryption";
 
 export function getWcpProjectEnvironment(): WcpProjectEnvironment | null {

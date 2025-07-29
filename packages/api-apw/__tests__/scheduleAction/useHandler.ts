@@ -2,13 +2,13 @@ import { createEventHandler, createHandler } from "@webiny/handler-aws/raw";
 import graphqlHandler from "@webiny/handler-graphql";
 import { createScheduler } from "~/scheduler";
 import { ContextPlugin } from "@webiny/api";
-import { PageBuilderContextObject, PbContext } from "@webiny/api-page-builder/graphql/types";
+import type { PageBuilderContextObject, PbContext } from "@webiny/api-page-builder/graphql/types";
 import { createTenancyAndSecurity } from "./tenancySecurity";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 import { createPermissions } from "../utils/helpers";
-import { ApwContext } from "~/types";
+import type { ApwContext } from "~/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { ApwScheduleActionStorageOperations } from "~/scheduler/types";
+import type { ApwScheduleActionStorageOperations } from "~/scheduler/types";
 
 interface Params {
     plugins?: any;

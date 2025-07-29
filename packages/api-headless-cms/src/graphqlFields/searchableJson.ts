@@ -1,4 +1,4 @@
-import { CmsModelFieldToGraphQLPlugin } from "~/types";
+import type { CmsModelFieldToGraphQLPlugin } from "~/types";
 import { createGraphQLInputField } from "./helpers";
 
 export const createSearchableJsonField = (): CmsModelFieldToGraphQLPlugin => {

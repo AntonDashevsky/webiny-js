@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 /**
  * Cleans the update input entry data.

@@ -1,13 +1,8 @@
 import isString from "lodash/isString";
 import chunk from "lodash/chunk";
 import fs from "fs";
-import {
-    createS3,
-    HeadObjectCommand,
-    ObjectCannedACL,
-    PutObjectCommand,
-    PutObjectCommandInput
-} from "@webiny/aws-sdk/client-s3";
+import type { ObjectCannedACL, PutObjectCommandInput } from "@webiny/aws-sdk/client-s3";
+import { createS3, HeadObjectCommand, PutObjectCommand } from "@webiny/aws-sdk/client-s3";
 import mime from "mime";
 import { relative } from "path";
 import { crawlDirectory } from "../crawlDirectory";

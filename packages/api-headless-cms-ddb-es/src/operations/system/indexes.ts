@@ -1,6 +1,6 @@
-import { CmsContext } from "~/types";
-import { PluginsContainer } from "@webiny/plugins";
-import { Client } from "@elastic/elasticsearch";
+import type { CmsContext } from "~/types";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { Client } from "@elastic/elasticsearch";
 import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex";
 
 interface Params {

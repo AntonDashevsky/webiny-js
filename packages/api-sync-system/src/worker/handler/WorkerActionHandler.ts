@@ -1,5 +1,5 @@
 import type { IActionHandler } from "~/worker/types.js";
-import { WorkerActionPlugin } from "~/worker/plugins/WorkerActionPlugin.js";
+import type { WorkerActionPlugin } from "~/worker/plugins/WorkerActionPlugin.js";
 import { WebinyError } from "@webiny/error";
 
 export interface IActionHandlerParams {

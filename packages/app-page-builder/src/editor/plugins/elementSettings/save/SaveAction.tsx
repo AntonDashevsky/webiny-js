@@ -7,7 +7,7 @@ import SaveDialog from "./SaveDialog";
 import createElementPlugin from "~/admin/utils/createElementPlugin";
 import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
 import { CREATE_PAGE_ELEMENT } from "~/admin/graphql/pages";
-import {
+import type {
     PbEditorPageElementPlugin,
     PbEditorPageElementSaveActionPlugin,
     PbEditorElement as BasePbEditorElement,

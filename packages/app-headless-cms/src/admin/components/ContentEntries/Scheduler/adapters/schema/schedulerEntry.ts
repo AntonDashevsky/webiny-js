@@ -1,4 +1,4 @@
-import { CmsModel } from "@webiny/app-headless-cms-common/types/model.js";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types/model.js";
 import zod from "zod";
 import { ScheduleType } from "@webiny/app-headless-cms-scheduler/types.js";
 

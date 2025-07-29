@@ -1,5 +1,5 @@
-import { IListAllLockRecordsUseCaseExecuteParams } from "./IListAllLockRecordsUseCase";
-import { IRecordLockingListAllLockRecordsResponse } from "~/types";
+import type { IListAllLockRecordsUseCaseExecuteParams } from "./IListAllLockRecordsUseCase";
+import type { IRecordLockingListAllLockRecordsResponse } from "~/types";
 
 export type IListLockRecordsUseCaseExecuteParams = IListAllLockRecordsUseCaseExecuteParams;
 

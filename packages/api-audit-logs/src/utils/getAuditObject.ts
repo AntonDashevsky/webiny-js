@@ -1,4 +1,4 @@
-import { ActionObject, App, AuditObject, EntityObject } from "~/types";
+import type { ActionObject, App, AuditObject, EntityObject } from "~/types";
 
 export const getAuditObject = (apps: App[]) => {
     return apps.reduce<AuditObject>((result, app) => {

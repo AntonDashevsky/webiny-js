@@ -1,4 +1,4 @@
-import { PbBlockEditorCreateVariablePlugin } from "~/types";
+import type { PbBlockEditorCreateVariablePlugin } from "~/types";
 
 export default {
     name: "pb-block-editor-create-variable-vimeo",

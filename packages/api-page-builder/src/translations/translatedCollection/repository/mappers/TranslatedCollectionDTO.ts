@@ -1,4 +1,4 @@
-import { TranslatedItemDTO } from "./TranslatedItemDTO";
+import type { TranslatedItemDTO } from "./TranslatedItemDTO";
 
 export interface TranslatedCollectionDTO {
     collectionId: string;

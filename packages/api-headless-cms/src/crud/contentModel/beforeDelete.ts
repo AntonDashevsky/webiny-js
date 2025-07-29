@@ -1,5 +1,5 @@
-import { Topic } from "@webiny/pubsub/types";
-import { CmsContext, OnModelBeforeDeleteTopicParams } from "~/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { CmsContext, OnModelBeforeDeleteTopicParams } from "~/types";
 import WebinyError from "@webiny/error";
 import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
 import { CMS_MODEL_SINGLETON_TAG } from "~/constants";

@@ -1,5 +1,6 @@
-import { AssetRequest, AssetRequestResolver } from "~/delivery";
-import { Request } from "@webiny/handler/types";
+import type { AssetRequestResolver } from "~/delivery";
+import { AssetRequest } from "~/delivery";
+import type { Request } from "@webiny/handler/types";
 
 export class PrivateFileAssetRequestResolver implements AssetRequestResolver {
     private readonly resolver: AssetRequestResolver;

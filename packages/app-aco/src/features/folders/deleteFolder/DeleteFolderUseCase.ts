@@ -1,5 +1,5 @@
-import { DeleteFolderParams, IDeleteFolderUseCase } from "./IDeleteFolderUseCase";
-import { IDeleteFolderRepository } from "./IDeleteFolderRepository";
+import type { DeleteFolderParams, IDeleteFolderUseCase } from "./IDeleteFolderUseCase";
+import type { IDeleteFolderRepository } from "./IDeleteFolderRepository";
 import { Folder } from "../Folder";
 
 export class DeleteFolderUseCase implements IDeleteFolderUseCase {

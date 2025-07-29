@@ -1,7 +1,7 @@
 import React from "react";
 import get from "lodash/get";
 import { i18n } from "@webiny/app/i18n";
-import { CmsModelFieldRendererPlugin } from "~/types";
+import type { CmsModelFieldRendererPlugin } from "~/types";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import DynamicSection from "../DynamicSection";
 import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";

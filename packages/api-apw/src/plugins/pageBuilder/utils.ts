@@ -1,14 +1,8 @@
 import WebinyError from "@webiny/error";
-import {
-    ApwWorkflow,
-    ApwWorkflowApplications,
-    ApwWorkflowCrud,
-    ApwWorkflowScope,
-    PageWithWorkflow,
-    WorkflowScopeTypes
-} from "~/types";
+import type { ApwWorkflow, ApwWorkflowCrud, ApwWorkflowScope, PageWithWorkflow } from "~/types";
+import { ApwWorkflowApplications, WorkflowScopeTypes } from "~/types";
 import { workflowByCreatedOnDesc, workflowByPrecedenceDesc } from "~/plugins/utils";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
+import type { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
 
 const isWorkflowApplicable = (page: PageWithWorkflow, workflow: ApwWorkflow) => {
     const application = workflow.app;

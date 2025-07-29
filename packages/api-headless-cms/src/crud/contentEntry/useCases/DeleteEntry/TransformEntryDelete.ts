@@ -1,5 +1,10 @@
 import { entryFromStorageTransform } from "~/utils/entryStorage";
-import { CmsContext, CmsEntry, CmsEntryStorageOperationsDeleteParams, CmsModel } from "~/types";
+import type {
+    CmsContext,
+    CmsEntry,
+    CmsEntryStorageOperationsDeleteParams,
+    CmsModel
+} from "~/types";
 
 export class TransformEntryDelete {
     private context: CmsContext;

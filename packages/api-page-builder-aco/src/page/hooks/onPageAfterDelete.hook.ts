@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 
-import { PbAcoContext, PbPageRecordData } from "~/types";
+import type { PbAcoContext, PbPageRecordData } from "~/types";
 import { PB_PAGE_TYPE } from "~/contants";
 import { updatePageRecordPayload } from "~/utils/createRecordPayload";
 

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import styled from "@emotion/styled";
-import { PbEditorElement, PbBlockVariable, PbElement } from "~/types";
+import type { PbEditorElement, PbBlockVariable, PbElement } from "~/types";
 import { Typography } from "@webiny/ui/Typography";
 import { useMoveVariable } from "~/blockEditor/components/elementSettingsTab/variablesListHooks";
 import { useSortableList } from "~/hooks/useSortableList";

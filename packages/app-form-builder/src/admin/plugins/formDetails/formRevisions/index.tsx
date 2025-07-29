@@ -1,5 +1,5 @@
 import React from "react";
-import { FbFormDetailsPluginType } from "~/types";
+import type { FbFormDetailsPluginType } from "~/types";
 import { Tabs } from "@webiny/admin-ui";
 import { ReactComponent as RestoreIcon } from "@webiny/icons/restore.svg";
 import { RevisionsList } from "./RevisionsList";

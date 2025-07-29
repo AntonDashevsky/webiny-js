@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { UIRenderer, UIRenderParams } from "~/ui/UIRenderer";
+import type { UIRenderParams } from "~/ui/UIRenderer";
+import { UIRenderer } from "~/ui/UIRenderer";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage";
-import { FileManagerElement } from "~/ui/elements/form/FileManagerElement";
-import { FileManager, FileManagerFileItem } from "~/base/ui/FileManager";
-import { FormFieldElementRenderProps } from "~/ui/elements/form/FormFieldElement";
+import type { FileManagerElement } from "~/ui/elements/form/FileManagerElement";
+import type { FileManagerFileItem } from "~/base/ui/FileManager";
+import { FileManager } from "~/base/ui/FileManager";
+import type { FormFieldElementRenderProps } from "~/ui/elements/form/FormFieldElement";
 
 const ImageUploadWrapper = styled("div")({
     position: "relative",

@@ -1,10 +1,10 @@
 import DataLoader from "dataloader";
 import { batchReadAll } from "@webiny/db-dynamodb";
 import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup";
-import { CmsStorageEntry } from "@webiny/api-headless-cms/types";
+import type { CmsStorageEntry } from "@webiny/api-headless-cms/types";
 import { createBatchScheduleFn } from "./createBatchScheduleFn";
 import { createLatestSortKey, createPartitionKey } from "~/operations/entry/keys";
-import { DataLoaderParams } from "./types";
+import type { DataLoaderParams } from "./types";
 import { parseIdentifier } from "@webiny/utils";
 
 export const createGetLatestRevisionByEntryId = (params: DataLoaderParams) => {

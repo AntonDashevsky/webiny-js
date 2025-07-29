@@ -2,7 +2,7 @@ import { getWcpProjectEnvironment } from "~/getWcpProjectEnvironment";
 import type { DecryptedWcpProjectLicense, ILicense, WcpProject } from "~/types";
 import { getWcpProjectLicense } from "~/licenses";
 import { NullLicense } from "~/NullLicense";
-import { WCP_FEATURE_LABEL } from "~/index";
+import type { WCP_FEATURE_LABEL } from "~/index";
 
 export class License implements ILicense {
     private readonly license: DecryptedWcpProjectLicense;

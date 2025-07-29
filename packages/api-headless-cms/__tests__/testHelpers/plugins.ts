@@ -5,14 +5,15 @@ import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "~/index";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createTenancyAndSecurity } from "~tests/testHelpers/tenancySecurity";
-import { createDummyLocales, createPermissions, PermissionsArg } from "~tests/testHelpers/helpers";
-import { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
-import { ContextPlugin } from "@webiny/api";
-import { TestContext } from "~tests/testHelpers/types";
+import type { PermissionsArg } from "~tests/testHelpers/helpers";
+import { createDummyLocales, createPermissions } from "~tests/testHelpers/helpers";
+import type { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
+import type { ContextPlugin } from "@webiny/api";
+import type { TestContext } from "~tests/testHelpers/types";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { enableBenchmarkOnEnvironmentVariable } from "./enableBenchmarkOnEnvironmentVariable";
-import { HeadlessCmsStorageOperations } from "~/types";
+import type { HeadlessCmsStorageOperations } from "~/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 
 export interface CreateHandlerCoreParams {

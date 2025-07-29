@@ -1,3 +1,3 @@
-import { CommandOptionDto } from "~/Command";
+import type { CommandOptionDto } from "~/Command";
 
 export type AutoCompleteOptionDto = CommandOptionDto;

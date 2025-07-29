@@ -1,19 +1,18 @@
-import {
+import type {
     CmsContext,
-    CmsEntry,
     CmsEntryListParams,
     CmsEntryMeta,
-    CmsError,
     CmsIdentity,
     CmsModel,
     CmsModelManager
 } from "@webiny/api-headless-cms/types";
-import { Topic } from "@webiny/pubsub/types";
-import {
+import { CmsEntry, CmsError } from "@webiny/api-headless-cms/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type {
     Context as IWebsocketsContext,
     IWebsocketsContextObject
 } from "@webiny/api-websockets/types";
-import { SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityPermission } from "@webiny/api-security/types";
 
 export { CmsError, CmsEntry };
 

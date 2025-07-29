@@ -11,7 +11,8 @@ import { SignOut } from "./plugins/userMenu/SignOut";
 import installation from "./plugins/installation";
 import permissionRenderer from "./plugins/permissionRenderer";
 import cognito from "./plugins/cognito";
-import { CognitoLogin, CognitoProps } from "./CognitoLogin";
+import type { CognitoProps } from "./CognitoLogin";
+import { CognitoLogin } from "./CognitoLogin";
 import { AdminConfig } from "@webiny/app-admin";
 
 const { Route, Menu } = AdminConfig;

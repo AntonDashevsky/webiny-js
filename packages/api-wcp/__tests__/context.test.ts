@@ -1,7 +1,7 @@
 import { ContextPlugin } from "@webiny/api";
 import { Context } from "@webiny/api";
 import { createWcpContext } from "~/context";
-import { WcpContext } from "~/types";
+import type { WcpContext } from "~/types";
 
 describe("context", () => {
     it("should create wcp on the context", async () => {

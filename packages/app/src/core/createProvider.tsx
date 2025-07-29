@@ -1,5 +1,5 @@
-import React from "react";
-import { Decorator, GenericComponent } from "@webiny/react-composition";
+import type React from "react";
+import type { Decorator, GenericComponent } from "@webiny/react-composition";
 
 export interface ChildrenProps {
     children: React.ReactNode;

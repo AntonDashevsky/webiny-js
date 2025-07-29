@@ -1,10 +1,10 @@
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
 import { createI18NContext } from "@webiny/api-i18n";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 import { createHandler } from "@webiny/handler-aws";
 import createGraphQLHandler from "@webiny/handler-graphql";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { createTenancyAndSecurity } from "./tenancySecurity";
 import { until } from "@webiny/project-utils/testing/helpers/until";
 
@@ -55,19 +55,19 @@ import { createIdentity } from "./identity";
 import { getIntrospectionQuery } from "graphql";
 import { GET_APP_MODEL } from "~tests/graphql/app.gql";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
-import { CmsModel, HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { CmsModel, HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import {
     createFileManagerContext,
     createFileManagerGraphQL,
     FilePhysicalStoragePlugin
 } from "@webiny/api-file-manager";
-import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
-import { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
+import type { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
+import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
 import createAdminUsersApp from "@webiny/api-admin-users";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createTestWcpLicense } from "@webiny/wcp/testing/createTestWcpLicense";
-import { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
+import type { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 
 export interface UseGQLHandlerParams {

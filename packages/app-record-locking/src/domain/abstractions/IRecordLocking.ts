@@ -1,4 +1,4 @@
-import {
+import type {
     IFetchLockedEntryLockRecordParams,
     IFetchLockRecordParams,
     IFetchLockRecordResult,
@@ -10,7 +10,7 @@ import {
     IUnlockEntryParams,
     IUpdateEntryLockParams
 } from "~/types";
-import { IRecordLockingUnlockEntryResult } from "./IRecordLockingUnlockEntry";
+import type { IRecordLockingUnlockEntryResult } from "./IRecordLockingUnlockEntry";
 
 export interface IRecordLockingUpdateEntryLockResult {
     data: IRecordLockingLockRecord | null;

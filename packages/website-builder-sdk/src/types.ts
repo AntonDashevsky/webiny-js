@@ -1,6 +1,6 @@
-import * as CSS from "csstype";
+import type * as CSS from "csstype";
 import type { BindingsApi } from "~/BindingsApi";
-import { ShorthandCssProperties } from "./types/ShorthandCssProperties";
+import type { ShorthandCssProperties } from "./types/ShorthandCssProperties";
 export type { WebsiteBuilderTheme } from "./types/WebsiteBuilderTheme";
 
 interface CSSProperties extends CSS.Properties<string | number> {}

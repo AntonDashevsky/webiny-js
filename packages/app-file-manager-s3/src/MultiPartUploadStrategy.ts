@@ -1,5 +1,5 @@
-import { UploadedFile, UploadOptions } from "@webiny/app/types";
-import { FileUploadStrategy } from "~/index";
+import type { UploadedFile, UploadOptions } from "@webiny/app/types";
+import type { FileUploadStrategy } from "~/index";
 import { MultiPartUploader } from "~/MultiPartUploader";
 import { MultiPartUploadGraphQLAPI } from "~/MultiPartUploadGraphQLAPI";
 

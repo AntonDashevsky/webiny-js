@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import dot from "dot-prop-immutable";
 import useDeepCompareEffect from "use-deep-compare-effect";
-import {
+import type {
     CmsEditorFieldId,
     CmsEditorFieldRendererPlugin,
     CmsEditorFieldsLayout,
@@ -12,11 +12,11 @@ import {
 } from "~/types";
 import { plugins } from "@webiny/plugins";
 import * as utils from "./utils";
-import { FieldEditorProps } from "./FieldEditor";
-import { DragSourceMonitor } from "react-dnd";
+import type { FieldEditorProps } from "./FieldEditor";
+import type { DragSourceMonitor } from "react-dnd";
 import { useModelFieldEditor } from "~/admin/components/FieldEditor/useModelFieldEditor";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
-import { DragObject } from "../Droppable";
+import type { DragObject } from "../Droppable";
 
 interface DropTarget {
     row: number;

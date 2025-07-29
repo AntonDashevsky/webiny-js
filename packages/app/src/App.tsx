@@ -1,12 +1,8 @@
 import React, { createContext, useContext, useMemo, useState, useCallback } from "react";
-import { BrowserRouter, RouteProps, Route } from "@webiny/react-router";
-import {
-    CompositionProvider,
-    GenericComponent,
-    compose,
-    Decorator,
-    DecoratorsCollection
-} from "@webiny/react-composition";
+import type { RouteProps } from "@webiny/react-router";
+import { BrowserRouter, Route } from "@webiny/react-router";
+import type { GenericComponent, Decorator, DecoratorsCollection } from "@webiny/react-composition";
+import { CompositionProvider, compose } from "@webiny/react-composition";
 import { Routes as SortRoutes } from "./core/Routes";
 import { DebounceRender } from "./core/DebounceRender";
 import { PluginsProvider } from "./core/Plugins";

@@ -1,6 +1,6 @@
-import { createHandler } from "@webiny/handler-aws";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
-import { IInvokeCb } from "~tests/handlers/types";
+import type { createHandler } from "@webiny/handler-aws";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { IInvokeCb } from "~tests/handlers/types";
 
 export interface ICreateInvokeParams {
     handler: ReturnType<typeof createHandler>;

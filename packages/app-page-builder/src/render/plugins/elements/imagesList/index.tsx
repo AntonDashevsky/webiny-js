@@ -1,6 +1,6 @@
 import kebabCase from "lodash/kebabCase";
-import { PluginCollection } from "@webiny/plugins/types";
-import {
+import type { PluginCollection } from "@webiny/plugins/types";
+import type {
     PbRenderElementPluginArgs,
     PbRenderElementPlugin,
     PbPageElementImagesListComponentPlugin

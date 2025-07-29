@@ -12,9 +12,9 @@ import { Form } from "@webiny/form";
 import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox";
 import CustomSection from "./CustomSection";
 import { useSecurity } from "@webiny/app-security";
-import { SecurityPermission } from "@webiny/app-security/types";
-import { PageBuilderSecurityPermission } from "~/types";
-import { AaclPermission } from "@webiny/app-admin";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { PageBuilderSecurityPermission } from "~/types";
+import type { AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-page-builder/admin/plugins/permissionRenderer");
 

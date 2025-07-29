@@ -2,7 +2,8 @@ import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Layout } from "./Layout";
 import { Elements as BaseElements } from "../Elements";
-import { Element as BaseElement, ElementProps as BaseElementProps } from "../Element";
+import type { ElementProps as BaseElementProps } from "../Element";
+import { Element as BaseElement } from "../Element";
 import { createGetId } from "../createGetId";
 
 const SCOPE = "content";

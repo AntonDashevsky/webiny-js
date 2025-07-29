@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import type { ElementStylesModifier } from "~/types";
 
 const grid: ElementStylesModifier = ({ element, theme }) => {
     // This modifier can only be applied to Grid page element renderer.

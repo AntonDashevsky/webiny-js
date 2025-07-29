@@ -8,7 +8,7 @@ import { Typography } from "@webiny/ui/Typography";
 import { Scrollbar } from "@webiny/ui/Scrollbar";
 import FormSubmissionDialog from "./FormSubmissionDialog";
 import { useSubmissions } from "./useSubmissions";
-import { FbFormSubmissionData } from "~/types";
+import type { FbFormSubmissionData } from "~/types";
 import { DownloadIcon } from "@webiny/ui/List";
 import { SimpleFormContent, SimpleFormHeader } from "@webiny/app-admin/components/SimpleForm";
 

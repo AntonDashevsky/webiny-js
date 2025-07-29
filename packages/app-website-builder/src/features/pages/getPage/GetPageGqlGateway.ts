@@ -1,4 +1,4 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import type { IGetPageGateway } from "~/features/pages/getPage/IGetPageGateway.js";
 import type { PageGatewayDto } from "~/features/pages/getPage/PageGatewayDto.js";

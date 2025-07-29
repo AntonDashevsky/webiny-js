@@ -7,8 +7,8 @@ import { Box, Stack } from "~/components/Layout";
 import { validation } from "@webiny/validation";
 import { Select } from "@webiny/ui/Select/Select";
 import { i18n } from "@webiny/app/i18n";
-import { HigherOrderComponent } from "@webiny/app-admin";
-import { WorkflowScopeProps } from "../WorkflowScope";
+import type { HigherOrderComponent } from "@webiny/app-admin";
+import type { WorkflowScopeProps } from "../WorkflowScope";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/form/page-builder");
 

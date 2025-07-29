@@ -1,5 +1,5 @@
 import get from "lodash/get";
-import { PbAcoContext } from "~/types";
+import type { PbAcoContext } from "~/types";
 
 interface Image {
     id: string;

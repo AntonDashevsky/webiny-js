@@ -9,9 +9,10 @@ import { ReactComponent as LogoIcon } from "./youtube-brands.svg";
 import Accordion from "../../../elementSettings/components/Accordion";
 import InputField from "../../../elementSettings/components/InputField";
 import { SimpleButton } from "../../../elementSettings/components/StyledComponents";
-import { OnCreateActions, PbEditorElementPluginArgs } from "~/types";
+import type { PbEditorElementPluginArgs } from "~/types";
+import { OnCreateActions } from "~/types";
 import kebabCase from "lodash/kebabCase";
-import { EmbedPluginConfigRenderCallable } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
+import type { EmbedPluginConfigRenderCallable } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
 
 import { PElementsYouTube } from "./PElementsYouTube";
 

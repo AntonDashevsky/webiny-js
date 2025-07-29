@@ -2,8 +2,8 @@ import React, { useCallback, useState } from "react";
 import { makeDecoratable } from "@webiny/app";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { Validator } from "@webiny/validation/types";
-import { PbPageTemplate } from "~/types";
+import type { Validator } from "@webiny/validation/types";
+import type { PbPageTemplate } from "~/types";
 import { Dialog, Grid, Input, Textarea } from "@webiny/admin-ui";
 
 const slugValidator: Validator = (value: string) => {

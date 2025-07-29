@@ -1,6 +1,6 @@
 import models from "../../contentAPI/mocks/contentModels";
-import { CmsGroup, CmsModel } from "~/types";
-import { ProductManager } from "../../types";
+import type { CmsGroup, CmsModel } from "~/types";
+import type { ProductManager } from "../../types";
 
 const createModelFactory = (manager: ProductManager, group: CmsGroup) => {
     return async (modelId: string) => {

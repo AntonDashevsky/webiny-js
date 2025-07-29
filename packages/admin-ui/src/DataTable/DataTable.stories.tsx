@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { DataTableColumns, DataTable, DataTableDefaultData, DataTableSorting } from "./DataTable";
+import type { DataTableColumns, DataTableDefaultData, DataTableSorting } from "./DataTable";
+import { DataTable } from "./DataTable";
 import { Avatar } from "~/Avatar";
 import { Text } from "~/Text";
 

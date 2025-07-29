@@ -1,4 +1,4 @@
-import { ICreateMutationFactory } from "./types";
+import type { ICreateMutationFactory } from "./types";
 
 export const createMutationFactory: ICreateMutationFactory = ({ invoke }) => {
     return ({ mutation }) => {

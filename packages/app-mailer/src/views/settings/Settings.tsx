@@ -9,15 +9,14 @@ import {
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm";
 import { validation } from "@webiny/validation";
-import {
-    GET_SETTINGS_QUERY,
-    SAVE_SETTINGS_MUTATION,
+import type {
     SaveSettingsMutationResponse,
     SaveSettingsMutationVariables,
     SettingsQueryResponse
 } from "./graphql";
-import { TransportSettings, ValidationError } from "~/types";
-import { Validator } from "@webiny/validation/types";
+import { GET_SETTINGS_QUERY, SAVE_SETTINGS_MUTATION } from "./graphql";
+import type { TransportSettings, ValidationError } from "~/types";
+import type { Validator } from "@webiny/validation/types";
 import dotPropImmutable from "dot-prop-immutable";
 import { Alert, Button, Grid, Input, OverlayLoader } from "@webiny/admin-ui";
 

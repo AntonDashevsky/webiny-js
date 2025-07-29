@@ -1,6 +1,6 @@
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { useRawHandler } from "~tests/helpers/useRawHandler";
-import { Context } from "~tests/types";
+import type { Context } from "~tests/types";
 
 export interface CreateLiveContextParams<C extends Context = Context> {
     plugins?: PluginCollection;

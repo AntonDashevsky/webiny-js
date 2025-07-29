@@ -2,7 +2,8 @@ import type { Component, IContentSdk, PublicPage, ResolvedComponent } from "~/ty
 import { environment } from "./Environment.js";
 import { LiveSdk } from "./LiveSdk.js";
 import { EditingSdk } from "./EditingSdk.js";
-import { ComponentResolver, ResolveElementParams } from "~/ComponentResolver";
+import type { ResolveElementParams } from "~/ComponentResolver";
+import { ComponentResolver } from "~/ComponentResolver";
 import { PreviewSdk } from "./PreviewSdk.js";
 import { componentRegistry } from "~/ComponentRegistry";
 import { ApiClient } from "~/dataProviders/ApiClient";

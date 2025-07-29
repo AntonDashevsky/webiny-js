@@ -4,8 +4,9 @@ import noop from "lodash/noop";
 // @ts-expect-error This package has no types.
 import { useHotkeys } from "react-hotkeyz";
 import { Drawer, Grid, OverlayLoader, Tabs } from "@webiny/admin-ui";
-import { FileItem } from "@webiny/app-admin/types";
-import { Form, FormAPI, FormOnSubmit } from "@webiny/form";
+import type { FileItem } from "@webiny/app-admin/types";
+import type { FormAPI, FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
 import { FileDetailsProvider } from "~/components/FileDetails/FileDetailsProvider";
 import { Preview } from "./components/Preview";

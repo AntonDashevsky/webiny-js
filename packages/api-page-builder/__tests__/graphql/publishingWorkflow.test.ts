@@ -1,7 +1,7 @@
 import useGqlHandler from "./useGqlHandler";
 import { identityA, identityB, NOT_AUTHORIZED_RESPONSE } from "./mocks";
-import { Page } from "~/types";
-import { SecurityPermission, SecurityIdentity } from "@webiny/api-security/types";
+import type { Page } from "~/types";
+import type { SecurityPermission, SecurityIdentity } from "@webiny/api-security/types";
 
 jest.setTimeout(100000);
 

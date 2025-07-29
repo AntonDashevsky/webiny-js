@@ -1,16 +1,16 @@
 import { createTenancyContext, createTenancyGraphQL } from "@webiny/api-tenancy";
 import { createSecurityContext, createSecurityGraphQL } from "@webiny/api-security";
-import {
+import type {
     SecurityIdentity,
     SecurityPermission,
     SecurityStorageOperations
 } from "@webiny/api-security/types";
 import { ContextPlugin } from "@webiny/api";
 import { BeforeHandlerPlugin } from "@webiny/handler";
-import { TestContext } from "../types";
+import type { TestContext } from "../types";
 import { createPermissions } from "./helpers";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { TenancyStorageOperations } from "@webiny/api-tenancy/types";
+import type { TenancyStorageOperations } from "@webiny/api-tenancy/types";
 
 interface Config {
     permissions: SecurityPermission[];

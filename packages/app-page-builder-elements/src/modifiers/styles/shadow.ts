@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import type { ElementStylesModifier } from "~/types";
 
 const shadow: ElementStylesModifier = ({ element, theme }) => {
     const { shadow } = element.data.settings || {};

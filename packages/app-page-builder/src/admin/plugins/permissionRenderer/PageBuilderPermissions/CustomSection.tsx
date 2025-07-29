@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Cell } from "@webiny/ui/Grid";
 import { Select } from "@webiny/ui/Select";
 import { i18n } from "@webiny/app/i18n";
-import { BindComponent } from "@webiny/form/types";
+import type { BindComponent } from "@webiny/form/types";
 import { PermissionsGroup } from "@webiny/app-admin/components/Permissions";
 
 const t = i18n.ns("app-page-builder/admin/plugins/permission-renderer");

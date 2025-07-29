@@ -1,10 +1,10 @@
 import React from "react";
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
 import { CircularProgress } from "@webiny/ui/Progress";
 import { config as appConfig } from "@webiny/app/config";
-import { CmsContentEntry, CmsContentEntryRevision, CmsErrorResponse, CmsModel } from "~/types";
-import {
+import type { CmsContentEntry, CmsContentEntryRevision, CmsErrorResponse, CmsModel } from "~/types";
+import type {
     CmsEntriesListRevisionsQueryResponse,
     CmsEntriesListRevisionsQueryVariables,
     CmsEntryBulkActionMutationResponse,
@@ -25,7 +25,9 @@ import {
     CmsEntryUpdateMutationResponse,
     CmsEntryUpdateMutationVariables,
     CmsEntryUpdateSingletonMutationResponse,
-    CmsEntryUpdateSingletonMutationVariables,
+    CmsEntryUpdateSingletonMutationVariables
+} from "@webiny/app-headless-cms-common";
+import {
     createBulkActionMutation,
     createCreateFromMutation,
     createCreateMutation,

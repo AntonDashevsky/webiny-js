@@ -1,5 +1,6 @@
 import WebinyError from "@webiny/error";
-import { ENTITIES, PrerenderingServiceFactory, PrerenderingServiceFactoryParams } from "~/types";
+import type { PrerenderingServiceFactory, PrerenderingServiceFactoryParams } from "~/types";
+import { ENTITIES } from "~/types";
 import { createTable } from "~/definitions/table";
 import { createRenderEntity } from "~/definitions/render";
 import { createSettingsEntity } from "~/definitions/settings";

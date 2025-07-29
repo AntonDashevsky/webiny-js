@@ -1,8 +1,10 @@
 import React from "react";
 import { Transition } from "react-transition-group";
 import styled from "@emotion/styled";
-import { UIView, UIViewProps } from "~/ui/UIView";
-import { UseOverlayView, useOverlayView } from "./OverlayView/useOverlayView";
+import type { UIViewProps } from "~/ui/UIView";
+import { UIView } from "~/ui/UIView";
+import type { UseOverlayView } from "./OverlayView/useOverlayView";
+import { useOverlayView } from "./OverlayView/useOverlayView";
 import { HeaderElement } from "./OverlayView/HeaderElement";
 import { ContentElement } from "./OverlayView/ContentElement";
 

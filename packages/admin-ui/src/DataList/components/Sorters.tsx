@@ -1,7 +1,7 @@
 import React from "react";
 import { DropdownMenu } from "~/DropdownMenu";
 import { SortIcon } from "../DataListIcons";
-import { DataListProps } from "../types";
+import type { DataListProps } from "../types";
 
 const Sorters = (props: DataListProps) => {
     const sorters = props.sorters;

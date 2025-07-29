@@ -1,6 +1,7 @@
-import { ConstructorArgs, Db } from "@webiny/db";
+import type { ConstructorArgs } from "@webiny/db";
+import { Db } from "@webiny/db";
 import { ContextPlugin } from "@webiny/api";
-import { DbContext } from "./types";
+import type { DbContext } from "./types";
 
 export default <T = unknown>(args: ConstructorArgs<T>) => {
     const plugin = new ContextPlugin<DbContext>(context => {

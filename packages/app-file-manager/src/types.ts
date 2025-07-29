@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Plugin } from "@webiny/plugins/types";
-import { SecurityPermission } from "@webiny/app-security/types";
-import { FileItem } from "@webiny/app-admin/types";
-import { FolderTableItem, RecordTableItem } from "@webiny/app-aco/types";
+import type * as React from "react";
+import type { Plugin } from "@webiny/plugins/types";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { FileItem } from "@webiny/app-admin/types";
+import type { FolderTableItem, RecordTableItem } from "@webiny/app-aco/types";
 
 export { FileInput } from "./modules/FileManagerApiProvider/graphql";
 

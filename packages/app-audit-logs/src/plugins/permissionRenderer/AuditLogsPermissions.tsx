@@ -9,8 +9,8 @@ import {
 } from "@webiny/app-admin/components/Permissions";
 import { Form } from "@webiny/form";
 import { useSecurity } from "@webiny/app-security";
-import { SecurityPermission } from "@webiny/app-security/types";
-import { AaclPermission } from "@webiny/app-admin";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-audit-logs/plugins/permissionRenderer");
 

@@ -1,4 +1,5 @@
-import { DecryptedWcpProjectLicense, MT_OPTIONS_MAX_COUNT_TYPE } from "@webiny/wcp/types";
+import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
+import { MT_OPTIONS_MAX_COUNT_TYPE } from "@webiny/wcp/types";
 
 export const mockCreateGetWcpProjectLicense = (
     licenseModifier?: (license: DecryptedWcpProjectLicense) => void

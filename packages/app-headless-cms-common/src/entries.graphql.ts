@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import {
+import type {
     CmsContentEntryRevision,
     CmsContentEntry,
     CmsEditorContentModel,
@@ -10,7 +10,7 @@ import {
 } from "~/types";
 import { createFieldsList } from "./createFieldsList";
 import { getModelTitleFieldId } from "./getModelTitleFieldId";
-import { FormValidationOptions } from "@webiny/form";
+import type { FormValidationOptions } from "@webiny/form";
 import { CMS_MODEL_SINGLETON_TAG } from "./constants";
 
 const CONTENT_META_FIELDS = /* GraphQL */ `

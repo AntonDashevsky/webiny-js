@@ -4,7 +4,7 @@ import { useGetFolderHierarchy, useGetFolderLevelPermission } from "~/features";
 import { ButtonCreate } from "./ButtonCreate";
 import { Loader } from "./Loader";
 import { List } from "./List";
-import { FolderItem } from "~/types";
+import type { FolderItem } from "~/types";
 import { ROOT_FOLDER } from "~/constants";
 import { AcoWithConfig } from "~/config";
 

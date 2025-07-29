@@ -1,5 +1,5 @@
-import { Client } from "@elastic/elasticsearch";
-import {
+import type { Client } from "@elastic/elasticsearch";
+import type {
     ElasticsearchSearchResponse,
     PrimitiveValue,
     SearchBody

@@ -1,4 +1,4 @@
-import { FileUploaderPlugin, UploadOptions } from "@webiny/app/types";
+import type { FileUploaderPlugin, UploadOptions } from "@webiny/app/types";
 import { SimpleUploadStrategy } from "~/SimpleUploadStrategy";
 import { MultiPartUploadStrategy } from "~/MultiPartUploadStrategy";
 

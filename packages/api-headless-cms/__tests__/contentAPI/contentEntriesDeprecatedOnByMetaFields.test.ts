@@ -1,4 +1,4 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { PutCommand, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb";

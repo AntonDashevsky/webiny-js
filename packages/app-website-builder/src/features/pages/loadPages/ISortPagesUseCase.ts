@@ -1,4 +1,4 @@
-import { SortingDTO } from "@webiny/app-utils";
+import type { SortingDTO } from "@webiny/app-utils";
 
 export interface SortPagesUseCaseParams {
     sorts: SortingDTO[];

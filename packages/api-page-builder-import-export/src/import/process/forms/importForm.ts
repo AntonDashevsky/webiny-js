@@ -3,11 +3,11 @@ import { createWriteStream, ensureDirSync } from "fs-extra";
 import path from "path";
 import loadJson from "load-json-file";
 import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
-import { FileUploadsData } from "~/types";
+import type { FileUploadsData } from "~/types";
 import { s3Stream } from "~/export/s3Stream";
 import { deleteS3Folder } from "~/import/utils/deleteS3Folder";
 import { INSTALL_EXTRACT_DIR } from "~/import/constants";
-import { ExportedFormData } from "~/export/process/exporters/FormExporter";
+import type { ExportedFormData } from "~/export/process/exporters/FormExporter";
 
 interface ImportFormParams {
     key: string;

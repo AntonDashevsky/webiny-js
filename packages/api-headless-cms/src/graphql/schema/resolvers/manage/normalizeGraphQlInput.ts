@@ -1,7 +1,7 @@
 import set from "lodash/set";
-import { GenericRecord } from "@webiny/api/types";
-import { CmsEntryResolverFactory, CmsFieldTypePlugins, CmsModel } from "~/types";
-import { ContentEntryTraverser } from "~/utils/contentEntryTraverser/ContentEntryTraverser";
+import type { GenericRecord } from "@webiny/api/types";
+import type { CmsEntryResolverFactory, CmsFieldTypePlugins, CmsModel } from "~/types";
+import type { ContentEntryTraverser } from "~/utils/contentEntryTraverser/ContentEntryTraverser";
 
 /**
  * This decorates a resolver factory, and normalizes `args.data`.

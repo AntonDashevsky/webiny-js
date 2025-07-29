@@ -1,5 +1,5 @@
 import React from "react";
-import { FormRenderFbFormModelField } from "@webiny/app-form-builder/types";
+import type { FormRenderFbFormModelField } from "@webiny/app-form-builder/types";
 
 import { InputField } from "./fields/Input";
 import { SelectField } from "./fields/Select";

@@ -1,12 +1,12 @@
-import { CliCommandPlugin } from "@webiny/cli-plugin-scaffold/types";
+import type { CliCommandPlugin } from "@webiny/cli-plugin-scaffold/types";
 import inquirer from "inquirer";
 import { downloadAndLinkExtension } from "~/downloadAndLinkExtension";
 import { generateExtension } from "~/generateExtension";
 import { promptQuestions } from "~/promptQuestions";
 import ora from "ora";
-import { ExtensionCommandGenerateParams, ExtensionsCommandParams } from "~/types";
+import type { ExtensionCommandGenerateParams, ExtensionsCommandParams } from "~/types";
 import { runYarnInstall } from "~/utils/runYarnInstall";
-import { CliContext } from "@webiny/cli/types";
+import type { CliContext } from "@webiny/cli/types";
 
 export interface CliPluginExtensionParams {
     context: CliContext;

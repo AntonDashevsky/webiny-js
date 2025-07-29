@@ -1,4 +1,4 @@
-import { Transport, TransportSendData } from "~/types";
+import type { Transport, TransportSendData } from "~/types";
 
 export interface DummyTransport extends Transport {
     getAllSent: () => TransportSendData[];

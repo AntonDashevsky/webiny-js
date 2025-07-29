@@ -1,5 +1,5 @@
 import { PluginsContainer } from "@webiny/plugins";
-import { PartialDeep } from "type-fest";
+import type { PartialDeep } from "type-fest";
 import { createMockIdentity } from "~tests/mocks/identity";
 import type {
     Context,
@@ -7,7 +7,7 @@ import type {
     ITaskUpdateData,
     IUpdateTaskResponse
 } from "@webiny/tasks/types";
-import { ElasticsearchContext } from "@webiny/api-elasticsearch/types";
+import type { ElasticsearchContext } from "@webiny/api-elasticsearch/types";
 // @ts-expect-error
 import { createMockApiLog } from "@webiny/project-utils/testing/mockApiLog";
 import type { Tenant } from "@webiny/api-tenancy/types";

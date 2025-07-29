@@ -1,9 +1,9 @@
 import omit from "lodash/omit";
 import WebinyError from "@webiny/error";
-import { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations";
+import type { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations";
 import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues";
-import { AcoSearchRecordStorageOperations, SearchRecord } from "./record.types";
-import { CmsModel, UpdateCmsEntryInput } from "@webiny/api-headless-cms/types";
+import type { AcoSearchRecordStorageOperations, SearchRecord } from "./record.types";
+import type { CmsModel, UpdateCmsEntryInput } from "@webiny/api-headless-cms/types";
 import { attachAcoRecordPrefix } from "~/utils/acoRecordId";
 import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model";
 import { ENTRY_META_FIELDS, pickEntryMetaFields } from "@webiny/api-headless-cms/constants";

@@ -27,6 +27,13 @@ module.exports = {
     rules: {
         "react/prop-types": 0,
         "import/no-unresolved": 0, // [2, { commonjs: true, amd: true }],
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+                prefer: "type-imports",
+                disallowTypeAnnotations: false
+            }
+        ],
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-ts-comment": [

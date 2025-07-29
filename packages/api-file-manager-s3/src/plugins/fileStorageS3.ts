@@ -4,7 +4,7 @@ import { getPresignedPostPayload } from "~/utils/getPresignedPostPayload";
 import uploadFileToS3 from "../utils/uploadFileToS3";
 import { ContextPlugin } from "@webiny/api";
 import { createFileNormalizerFromContext } from "~/utils/createFileNormalizerFromContext";
-import { PresignedPostPayloadData } from "~/types";
+import type { PresignedPostPayloadData } from "~/types";
 
 const S3_BUCKET = process.env.S3_BUCKET;
 

@@ -1,11 +1,11 @@
 import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import {
+import type {
     IImportFromUrlController,
     IImportFromUrlControllerInput,
-    IImportFromUrlControllerInputStep,
     IImportFromUrlControllerInputStepsStep,
     IImportFromUrlControllerOutput
 } from "~/tasks/domain/abstractions/ImportFromUrlController";
+import { IImportFromUrlControllerInputStep } from "~/tasks/domain/abstractions/ImportFromUrlController";
 import type { Context } from "~/types";
 import { ImportFromUrlControllerDownloadStep } from "~/tasks/domain/importFromUrlControllerSteps/ImportFromUrlControllerDownloadStep";
 import { ImportFromUrlControllerProcessEntriesStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessEntriesStep";

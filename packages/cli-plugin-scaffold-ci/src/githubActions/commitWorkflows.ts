@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { Octokit } from "octokit";
+import type { Octokit } from "octokit";
 const { Base64 } = require("js-base64");
 
 interface Params {

@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
 import { autorun } from "mobx";
 import { useApolloClient } from "@apollo/react-hooks";
-import { PbPageBlock } from "~/types";
+import type { PbPageBlock } from "~/types";
 import { blocksRepositoryFactory } from "./BlocksRepositoryFactory";
 
 export function usePageBlocks() {

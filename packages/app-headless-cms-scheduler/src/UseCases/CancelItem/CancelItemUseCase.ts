@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { ISchedulerItemsRepository } from "~/Domain/Repositories";
-import { ICancelItemUseCase } from "./ICancelItemUseCase";
+import type { ISchedulerItemsRepository } from "~/Domain/Repositories";
+import type { ICancelItemUseCase } from "./ICancelItemUseCase";
 
 export class ScheduleCancelItemUseCase implements ICancelItemUseCase {
     private repository: ISchedulerItemsRepository;

@@ -1,4 +1,4 @@
-import { SecurityPermission } from "~/types";
+import type { SecurityPermission } from "~/types";
 
 // This filter was introduced when we added the `teams` feature and the ability to
 // have multiple security groups assigned to a user.

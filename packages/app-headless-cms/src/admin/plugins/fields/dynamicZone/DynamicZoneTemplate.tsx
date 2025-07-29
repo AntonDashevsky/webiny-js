@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { set } from "dot-prop-immutable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { ReactComponent as ArrowUpIcon } from "@webiny/icons/expand_less.svg";
@@ -9,7 +9,7 @@ import { ReactComponent as ArrowDownIcon } from "@webiny/icons/expand_more.svg";
 import { AccordionItem } from "@webiny/ui/Accordion";
 import { useConfirmationDialog } from "@webiny/app-admin";
 import { pullValueAtIndex, pushValueAtIndex, removeValueAtIndex } from "~/admin/plugins/arrayUtils";
-import { CmsDynamicZoneTemplate, CmsEditorFieldsLayout, CmsModelField } from "~/types";
+import type { CmsDynamicZoneTemplate, CmsEditorFieldsLayout, CmsModelField } from "~/types";
 import { TemplateDialog } from "./TemplateDialog";
 import { FieldEditor } from "~/admin/components/FieldEditor";
 

@@ -1,4 +1,4 @@
-import { GraphQLRequestBody } from "@webiny/handler-graphql/types";
+import type { GraphQLRequestBody } from "@webiny/handler-graphql/types";
 
 export const createRequestBody = (body: unknown): GraphQLRequestBody | GraphQLRequestBody[] => {
     /**

@@ -1,7 +1,7 @@
 import { WebinyError } from "@webiny/error";
 import type { IDeletePage } from "./IDeletePage";
-import { DeleteWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
-import { DeletePageUseCasesTopics } from "~/features/pages";
+import type { DeleteWbPageParams, WbPagesStorageOperations } from "~/context/pages/pages.types";
+import type { DeletePageUseCasesTopics } from "~/features/pages";
 
 export class DeletePageWithEvents implements IDeletePage {
     private topics: DeletePageUseCasesTopics;

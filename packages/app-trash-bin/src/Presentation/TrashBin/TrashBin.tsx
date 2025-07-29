@@ -1,24 +1,23 @@
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
+import type { Sorting } from "@webiny/app-utils";
 import {
     loadingRepositoryFactory,
     metaRepositoryFactory,
-    Sorting,
     sortRepositoryFactory
 } from "@webiny/app-utils";
 import { TrashBinProvider } from "../hooks";
 import { TrashBinOverlay } from "../components/TrashBinOverlay";
 import { TrashBinPresenter } from "./TrashBinPresenter";
+import type { ITrashBinItemMapper, TrashBinItemDTO } from "~/Domain";
 import {
     selectedItemsRepositoryFactory,
     searchRepositoryFactory,
     SortingRepositoryWithDefaults,
     trashBinItemsRepositoryFactory,
-    TrashBinItemsRepositoryWithLoading,
-    ITrashBinItemMapper,
-    TrashBinItemDTO
+    TrashBinItemsRepositoryWithLoading
 } from "~/Domain";
-import {
+import type {
     ITrashBinBulkActionsGateway,
     ITrashBinDeleteItemGateway,
     ITrashBinListGateway,

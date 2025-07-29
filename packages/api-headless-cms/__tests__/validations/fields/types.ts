@@ -1,4 +1,4 @@
-import { CmsModelField as BaseCmsModelField } from "~/types";
+import type { CmsModelField as BaseCmsModelField } from "~/types";
 
 export interface CmsModelField extends BaseCmsModelField {
     multipleValues: boolean;

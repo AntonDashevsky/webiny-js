@@ -1,9 +1,9 @@
 import React from "react";
-import { SetterOrUpdater } from "recoil";
+import type { SetterOrUpdater } from "recoil";
 import styled from "@emotion/styled";
 import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
 import { useElementById } from "~/editor/hooks/useElementById";
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton";
 
 const EmptyCellStyled = styled.div<{ isActive: boolean; zIndex: number }>`

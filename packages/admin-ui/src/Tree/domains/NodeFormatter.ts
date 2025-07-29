@@ -1,4 +1,4 @@
-import { Node } from "./Node";
+import type { Node } from "./Node";
 import type { NodeFormatted } from "~/Tree/domains/NodeFormatted";
 import type { NodeDto } from "~/Tree/domains/NodeDto";
 

@@ -1,12 +1,9 @@
 import React from "react";
-import {
-    GET_PUBLISHED_FORM,
-    GetPublishedFormQueryResponse,
-    GetPublishedFormQueryVariables
-} from "./graphql";
+import type { GetPublishedFormQueryResponse, GetPublishedFormQueryVariables } from "./graphql";
+import { GET_PUBLISHED_FORM } from "./graphql";
 import { useQuery } from "@apollo/react-hooks";
 import FormRender from "./FormRender";
-import { FormLoadComponentPropsType } from "~/types";
+import type { FormLoadComponentPropsType } from "~/types";
 
 const FormLoad = (props: FormLoadComponentPropsType) => {
     const variables: GetPublishedFormQueryVariables = {};

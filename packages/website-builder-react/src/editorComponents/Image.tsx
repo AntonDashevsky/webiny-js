@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { contentSdk, CssProperties } from "@webiny/website-builder-sdk";
+import type { CssProperties } from "@webiny/website-builder-sdk";
+import { contentSdk } from "@webiny/website-builder-sdk";
 import type { ComponentPropsWithChildren } from "~/types";
 
 const SUPPORTED_IMAGE_RESIZE_WIDTHS = [100, 300, 500, 750, 1000, 1500, 2500];

@@ -1,7 +1,9 @@
 import React, { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Browser, BrowserConfig } from "./configComponents/Browser";
-import { FileDetails, FileDetailsConfig } from "./configComponents/FileDetails";
+import type { BrowserConfig } from "./configComponents/Browser";
+import { Browser } from "./configComponents/Browser";
+import type { FileDetailsConfig } from "./configComponents/FileDetails";
+import { FileDetails } from "./configComponents/FileDetails";
 import { getThumbnailRenderer } from "./getThumbnailRenderer";
 import { CompositionScope } from "@webiny/react-composition";
 

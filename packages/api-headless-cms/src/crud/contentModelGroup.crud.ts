@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     CmsContext,
     CmsGroup,
     CmsGroupContext,
@@ -16,9 +16,9 @@ import {
     OnGroupUpdateErrorTopicParams
 } from "~/types";
 import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { createTopic } from "@webiny/pubsub";
 import { assignBeforeGroupUpdate } from "./contentModelGroup/beforeUpdate";
 import { assignBeforeGroupCreate } from "./contentModelGroup/beforeCreate";
@@ -31,7 +31,7 @@ import { createZodError, mdbid } from "@webiny/utils";
 import { filterAsync } from "~/utils/filterAsync";
 import { createCacheKey, createMemoryCache } from "~/utils";
 import { listGroupsFromDatabase } from "~/crud/contentModelGroup/listGroupsFromDatabase";
-import { AccessControl } from "./AccessControl/AccessControl";
+import type { AccessControl } from "./AccessControl/AccessControl";
 
 export interface CreateModelGroupsCrudParams {
     getTenant: () => Tenant;

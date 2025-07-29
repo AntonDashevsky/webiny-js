@@ -1,5 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { IPublishPageUseCase, type PublishPageParams } from "./IPublishPageUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { IPublishPageUseCase } from "./IPublishPageUseCase.js";
+import { type PublishPageParams } from "./IPublishPageUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class PublishPageUseCaseWithLoading implements IPublishPageUseCase {

@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
+import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
 
 interface IconPickerIconProps extends React.HTMLAttributes<HTMLDivElement> {
     name: IconName;

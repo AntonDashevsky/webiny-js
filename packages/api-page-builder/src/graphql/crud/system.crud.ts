@@ -3,7 +3,7 @@ import { NotAuthorizedError } from "@webiny/api-security";
 import { preparePageData } from "./install/welcomeToWebinyPageData";
 import { notFoundPageData } from "./install/notFoundPageData";
 import { savePageAssets } from "./install/utils/savePageAssets";
-import {
+import type {
     Category,
     OnSystemAfterInstallTopicParams,
     OnSystemBeforeInstallTopicParams,

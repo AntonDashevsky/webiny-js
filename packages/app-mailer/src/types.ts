@@ -1,4 +1,4 @@
-import { SecurityPermission } from "@webiny/app-security/types";
+import type { SecurityPermission } from "@webiny/app-security/types";
 
 /**
  * A base security permission for APW.

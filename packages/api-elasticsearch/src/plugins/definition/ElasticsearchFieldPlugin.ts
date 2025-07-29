@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { FieldSortOptions, SortOrder } from "elastic-ts";
+import type { FieldSortOptions, SortOrder } from "elastic-ts";
 
 export type UnmappedTypes = "date" | "long" | string;
 

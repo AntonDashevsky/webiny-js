@@ -9,7 +9,7 @@ import {
 import { ensureAuthentication } from "~/utils/ensureAuthentication";
 import { resolve } from "~/utils/resolve";
 import { WEBSITE_BUILDER_INTEGRATIONS, WEBSITE_BUILDER_SETTINGS } from "~/constants";
-import { WebsiteBuilderContext } from "~/context/types";
+import type { WebsiteBuilderContext } from "~/context/types";
 import { pagesTypeDefs } from "~/graphql/pages/pages.typeDefs";
 import { PAGE_MODEL_ID } from "~/context/pages/pages.context";
 

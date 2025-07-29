@@ -1,6 +1,6 @@
-import { useHandler } from "~tests/utils/useHandler";
-import { MigrationEventHandlerResponse } from "@webiny/data-migration";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { useHandler } from "~tests/utils/useHandler";
+import type { MigrationEventHandlerResponse } from "@webiny/data-migration";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 interface TimeLimiter {
     timeLeft: number;

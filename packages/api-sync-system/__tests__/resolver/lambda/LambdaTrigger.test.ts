@@ -1,9 +1,5 @@
-import {
-    createLambdaClient,
-    InvokeCommand,
-    InvokeCommandInput,
-    LambdaClient
-} from "@webiny/aws-sdk/client-lambda";
+import type { InvokeCommandInput } from "@webiny/aws-sdk/client-lambda";
+import { createLambdaClient, InvokeCommand, LambdaClient } from "@webiny/aws-sdk/client-lambda";
 import { mockClient } from "aws-sdk-client-mock";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
 

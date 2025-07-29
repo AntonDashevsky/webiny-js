@@ -1,5 +1,5 @@
-import { ITaskDataInput, TaskResponseStatus } from "~/types";
-import { IResponseBaseResult } from "./ResponseBaseResult";
+import type { ITaskDataInput, TaskResponseStatus } from "~/types";
+import type { IResponseBaseResult } from "./ResponseBaseResult";
 
 /**
  * Wait can be used to pause next iteration of the Lambda execution.

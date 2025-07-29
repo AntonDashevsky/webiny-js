@@ -2,7 +2,7 @@ import * as React from "react";
 import { ReactComponent as LinkIcon } from "@webiny/icons/link.svg";
 
 import LinkForm from "./LinkForm";
-import { PbMenuItemPlugin } from "../../../../types";
+import type { PbMenuItemPlugin } from "../../../../types";
 
 const plugin: PbMenuItemPlugin = {
     name: "pb-menu-item-link",

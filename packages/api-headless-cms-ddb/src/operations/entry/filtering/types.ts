@@ -1,5 +1,5 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types";
-import { CreatePathCallable } from "~/plugins";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CreatePathCallable } from "~/plugins";
 
 interface FieldValueTransform {
     (value: any): any;

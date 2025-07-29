@@ -1,5 +1,5 @@
-import { GenericRecord } from "@webiny/api/types";
-import {
+import type { GenericRecord } from "@webiny/api/types";
+import type {
     IDeleteOperationParams,
     IInsertOperationParams,
     IModifyOperationParams,

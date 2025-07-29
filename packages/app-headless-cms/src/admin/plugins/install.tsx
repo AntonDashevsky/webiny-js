@@ -6,8 +6,8 @@ import { Alert } from "@webiny/ui/Alert";
 import { CircularProgress } from "@webiny/ui/Progress";
 import { SimpleForm, SimpleFormContent } from "@webiny/app-admin/components/SimpleForm";
 import styled from "@emotion/styled";
-import { AdminInstallationPlugin } from "@webiny/app-admin/types";
-import { CmsErrorResponse } from "~/types";
+import type { AdminInstallationPlugin } from "@webiny/app-admin/types";
+import type { CmsErrorResponse } from "~/types";
 
 const SimpleFormPlaceholder = styled.div({
     minHeight: 300,

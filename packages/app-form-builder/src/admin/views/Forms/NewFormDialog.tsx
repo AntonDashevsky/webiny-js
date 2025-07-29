@@ -2,11 +2,8 @@ import React from "react";
 import { useRouter } from "@webiny/react-router";
 import { useMutation } from "@apollo/react-hooks";
 import { Form } from "@webiny/form";
-import {
-    CREATE_FORM,
-    CreateFormMutationResponse,
-    CreateFormMutationVariables
-} from "../../graphql";
+import type { CreateFormMutationResponse, CreateFormMutationVariables } from "../../graphql";
+import { CREATE_FORM } from "../../graphql";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { Dialog, Input, OverlayLoader } from "@webiny/admin-ui";
 import { addFormToListCache } from "../cache";

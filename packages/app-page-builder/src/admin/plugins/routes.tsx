@@ -3,7 +3,7 @@ import { Route } from "@webiny/react-router";
 import Helmet from "react-helmet";
 import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
 import { SecureRoute } from "@webiny/app-security/components";
-import { RoutePlugin } from "@webiny/app/types";
+import type { RoutePlugin } from "@webiny/app/types";
 import { CompositionScope } from "@webiny/react-composition";
 
 import Categories from "../views/Categories/Categories";

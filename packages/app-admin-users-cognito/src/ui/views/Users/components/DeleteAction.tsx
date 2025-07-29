@@ -2,7 +2,7 @@ import React from "react";
 import { i18n } from "@webiny/app/i18n";
 import { Tooltip } from "@webiny/ui/Tooltip";
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
-import { UserItem } from "~/UserItem";
+import type { UserItem } from "~/UserItem";
 import { useSecurity } from "@webiny/app-security";
 
 const t = i18n.ns("app-identity/admin/users/data-list");

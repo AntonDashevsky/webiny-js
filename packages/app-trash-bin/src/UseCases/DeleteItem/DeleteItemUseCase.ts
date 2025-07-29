@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { ITrashBinItemsRepository } from "~/Domain/Repositories";
-import { IDeleteItemUseCase } from "./IDeleteItemUseCase";
+import type { ITrashBinItemsRepository } from "~/Domain/Repositories";
+import type { IDeleteItemUseCase } from "./IDeleteItemUseCase";
 
 export class DeleteItemUseCase implements IDeleteItemUseCase {
     private repository: ITrashBinItemsRepository;

@@ -3,7 +3,7 @@ import { Heading, IconButton, Separator, Switch, Text } from "@webiny/admin-ui";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { useFormEditor } from "../../Context";
-import { FbFormModelField } from "~/types";
+import type { FbFormModelField } from "~/types";
 
 interface FieldProps {
     field: FbFormModelField;

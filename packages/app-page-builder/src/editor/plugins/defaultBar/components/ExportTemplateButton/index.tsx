@@ -1,6 +1,7 @@
 import React from "react";
 import { i18n } from "@webiny/app/i18n";
-import useExportTemplateDialog, { ExportTemplatesDialogProps } from "./useExportTemplateDialog";
+import type { ExportTemplatesDialogProps } from "./useExportTemplateDialog";
+import useExportTemplateDialog from "./useExportTemplateDialog";
 import { ReactComponent as DownloadIcon } from "@webiny/icons/file_download.svg";
 import { IconButton, Tooltip } from "@webiny/admin-ui";
 

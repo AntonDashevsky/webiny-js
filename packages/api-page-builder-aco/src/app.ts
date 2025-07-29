@@ -1,4 +1,4 @@
-import { IAcoAppRegisterParams } from "@webiny/api-aco/types";
+import type { IAcoAppRegisterParams } from "@webiny/api-aco/types";
 import { PB_PAGE_TYPE } from "~/contants";
 
 export const createApp = (): IAcoAppRegisterParams => {

@@ -4,7 +4,7 @@ import {
     FormComponentNote,
     Radio as AdminRadio
 } from "@webiny/admin-ui";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 import { generateId } from "@webiny/admin-ui/utils";
 
 type Props = FormComponentProps & {

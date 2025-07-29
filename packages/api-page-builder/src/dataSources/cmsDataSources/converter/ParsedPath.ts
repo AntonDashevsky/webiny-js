@@ -1,4 +1,4 @@
-import { SelectionPath } from "./types";
+import type { SelectionPath } from "./types";
 
 export class ParsedPath {
     public readonly key: string;

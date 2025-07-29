@@ -1,5 +1,5 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { FileManagerContext } from "~/types";
+import type { FileManagerContext } from "~/types";
 import { emptyResolver, resolve } from "./utils";
 
 export const createBaseSchema = () => {

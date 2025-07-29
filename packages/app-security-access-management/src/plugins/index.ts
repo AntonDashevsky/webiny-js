@@ -1,4 +1,4 @@
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import installation from "./installation";
 import permissionRenderer from "./permissionRenderer";
 import secureRouteError from "~/plugins/secureRouteError";

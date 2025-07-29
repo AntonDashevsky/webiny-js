@@ -1,5 +1,5 @@
-import { RadioItemFormatted } from "./RadioItemFormatted";
-import { RadioItem } from "./RadioItem";
+import type { RadioItemFormatted } from "./RadioItemFormatted";
+import type { RadioItem } from "./RadioItem";
 
 export class RadioItemFormatter {
     static format(item: RadioItem): RadioItemFormatted {

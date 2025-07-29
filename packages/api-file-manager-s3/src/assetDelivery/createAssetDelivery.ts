@@ -1,5 +1,5 @@
 import { createAssetDeliveryPluginLoader } from "@webiny/api-file-manager";
-import { PluginFactory } from "@webiny/plugins/types";
+import type { PluginFactory } from "@webiny/plugins/types";
 import { createThreatDetectionPluginLoader } from "~/assetDelivery/threatDetection";
 import type { AssetDeliveryParams } from "~/assetDelivery/types";
 

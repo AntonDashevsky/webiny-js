@@ -1,5 +1,6 @@
-import { IUpdateRedirectUseCase, type UpdateRedirectParams } from "./IUpdateRedirectUseCase.js";
-import { IUpdateRedirectRepository } from "./IUpdateRedirectRepository.js";
+import type { IUpdateRedirectUseCase } from "./IUpdateRedirectUseCase.js";
+import { type UpdateRedirectParams } from "./IUpdateRedirectUseCase.js";
+import type { IUpdateRedirectRepository } from "./IUpdateRedirectRepository.js";
 import { Redirect } from "~/domain/Redirect/index.js";
 
 export class UpdateRedirectUseCase implements IUpdateRedirectUseCase {

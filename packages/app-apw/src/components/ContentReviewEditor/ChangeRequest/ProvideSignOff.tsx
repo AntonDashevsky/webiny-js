@@ -8,7 +8,7 @@ import { Box } from "~/components/Layout";
 import { useStepSignOff } from "~/hooks/useStepSignoff";
 import { i18n } from "@webiny/app/i18n";
 import { Tooltip } from "@webiny/ui/Tooltip";
-import { ApwContentReviewStep } from "~/types";
+import type { ApwContentReviewStep } from "~/types";
 
 const t = i18n.ns("app-apw/content-reviews/editor/steps/changeRequest");
 

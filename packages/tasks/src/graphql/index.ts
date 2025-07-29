@@ -1,7 +1,7 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
 import { renderSortEnum } from "@webiny/api-headless-cms/utils/renderSortEnum";
 import { ContextPlugin } from "@webiny/handler";
-import {
+import type {
     Context,
     IListTaskLogParams,
     IListTaskParams,
@@ -14,7 +14,7 @@ import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/s
 import { emptyResolver, resolve, resolveList } from "./utils";
 import { renderFields } from "@webiny/api-headless-cms/utils/renderFields";
 import { checkPermissions } from "./checkPermissions";
-import { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types";
 
 interface IGetTaskQueryParams {
     id: string;

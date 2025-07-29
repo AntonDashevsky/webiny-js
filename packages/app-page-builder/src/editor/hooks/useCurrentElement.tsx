@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ElementContext } from "~/editor/contexts/ElementProvider";
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 
 export interface UseCurrentElement {
     element: PbEditorElement;

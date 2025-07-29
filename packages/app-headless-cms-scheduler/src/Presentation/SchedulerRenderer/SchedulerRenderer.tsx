@@ -1,7 +1,7 @@
 import React from "react";
 import { useAcoConfig } from "@webiny/app-aco";
 import { Sorting } from "@webiny/app-utils";
-import { SchedulerProps } from "~/Presentation";
+import type { SchedulerProps } from "~/Presentation";
 import { Scheduler } from "../Scheduler";
 
 export type SchedulerRendererProps = Omit<SchedulerProps, "render"> & {

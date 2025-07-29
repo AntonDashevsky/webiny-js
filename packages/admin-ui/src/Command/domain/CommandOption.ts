@@ -1,4 +1,4 @@
-import { CommandOptionDto } from "./CommandOptionDto";
+import type { CommandOptionDto } from "./CommandOptionDto";
 
 export class CommandOption {
     private readonly _label: string;

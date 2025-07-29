@@ -1,4 +1,4 @@
-import { Folder } from "../Folder";
+import type { Folder } from "../Folder";
 import { type IListCache, ListCache } from "~/features/folders/cache/ListCache";
 
 export class FoldersCacheFactory {

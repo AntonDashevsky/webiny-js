@@ -1,6 +1,6 @@
 import type { IEcommerceApi } from "~/ecommerce";
-import { EcommerceApiManifest } from "./EcommerceApiManifest";
-import { IEcommerceSettings } from "~/features/ecommerce/settings/types";
+import type { EcommerceApiManifest } from "./EcommerceApiManifest";
+import type { IEcommerceSettings } from "~/features/ecommerce/settings/types";
 
 interface IEcommerceApiProvider {
     addApiManifest(manifest: EcommerceApiManifest): void;

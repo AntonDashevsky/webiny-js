@@ -9,7 +9,7 @@ import { createBlockCategoryGraphQL } from "./graphql/blockCategories.gql";
 import { createPageBlockGraphQL } from "./graphql/pageBlocks.gql";
 import { createPageTemplateGraphQL } from "./graphql/pageTemplates.gql";
 
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
 import { createDynamicDataSchema } from "~/graphql/graphql/dynamicData.gql";
 
 export default () => {

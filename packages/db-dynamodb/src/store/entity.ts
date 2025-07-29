@@ -2,7 +2,7 @@
  * TODO determine if GSIs are needed
  */
 import { Entity } from "~/toolbox";
-import { Table } from "~/utils";
+import type { Table } from "~/utils";
 
 export interface ICreateEntityParams {
     table: Table;

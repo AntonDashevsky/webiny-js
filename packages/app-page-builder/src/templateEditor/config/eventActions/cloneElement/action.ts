@@ -1,7 +1,12 @@
-import { EventActionCallable, EventActionHandlerCallableState, PbEditorElement } from "~/types";
-import { CloneElementActionArgsType } from "../cloneElement/types";
+import type {
+    EventActionCallable,
+    EventActionHandlerCallableState,
+    PbEditorElement
+} from "~/types";
+import type { CloneElementActionArgsType } from "../cloneElement/types";
 import { UpdateElementActionEvent } from "~/editor/recoil/actions";
-import { getIdGenerator, IdGenerator } from "~/editor/recoil/actions/cloneElement/idGenerator";
+import type { IdGenerator } from "~/editor/recoil/actions/cloneElement/idGenerator";
+import { getIdGenerator } from "~/editor/recoil/actions/cloneElement/idGenerator";
 import { generateBlockVariableIds } from "~/editor/helpers";
 
 const replaceTemplateId = (data: PbEditorElement["data"], id: string) => {

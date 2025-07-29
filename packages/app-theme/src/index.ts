@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { Theme } from "@webiny/theme/types";
+import type { Theme } from "@webiny/theme/types";
 
 export class ThemePlugin extends Plugin {
     public static override readonly type: string = "theme";

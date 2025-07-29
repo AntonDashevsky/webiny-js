@@ -1,5 +1,5 @@
 import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
-import { WbPage } from "~/context/pages/pages.types";
+import type { WbPage } from "~/context/pages/pages.types";
 
 export interface ListWbPagesParams {
     where: CmsEntryListWhere;

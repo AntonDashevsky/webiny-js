@@ -1,18 +1,17 @@
 import React from "react";
 import { ReactComponent as PublishIcon } from "@webiny/icons/visibility.svg";
 import { ReactComponent as UnpublishIcon } from "@webiny/icons/visibility_off.svg";
-import {
-    PUBLISH_REVISION,
+import type {
     PublishRevisionMutationResponse,
     PublishRevisionMutationVariables,
-    UNPUBLISH_REVISION,
     UnpublishRevisionMutationResponse,
     UnpublishRevisionMutationVariable
 } from "~/admin/graphql";
+import { PUBLISH_REVISION, UNPUBLISH_REVISION } from "~/admin/graphql";
 import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
 import { useApolloClient } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { FbRevisionModel } from "~/types";
+import type { FbRevisionModel } from "~/types";
 import { usePermission } from "~/hooks/usePermission";
 import { Button, Tooltip } from "@webiny/admin-ui";
 

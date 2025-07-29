@@ -1,6 +1,6 @@
 import type { ITable } from "~/sync/types.js";
 import type { IDeployment } from "~/resolver/deployment/types.js";
-import { GenericRecord } from "@webiny/api/types.js";
+import type { GenericRecord } from "@webiny/api/types.js";
 import type { IStoreItem } from "~/resolver/app/storer/types.js";
 
 export interface IInputItem {

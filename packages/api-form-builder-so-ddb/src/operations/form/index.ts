@@ -15,7 +15,8 @@ import type {
     FormBuilderStorageOperationsUpdateFormParams
 } from "@webiny/api-form-builder/types";
 import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import { createEntityWriteBatch } from "@webiny/db-dynamodb";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort";

@@ -1,9 +1,9 @@
-import {
+import type {
     IWebsocketsTransport,
     IWebsocketsTransportSendConnection,
     IWebsocketsTransportSendData
 } from "~/transport/abstractions/IWebsocketsTransport";
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 export class MockWebsocketsTransport implements IWebsocketsTransport {
     public messages = new Map<string, IWebsocketsTransportSendData<any>>();

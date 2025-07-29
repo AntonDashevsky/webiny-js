@@ -3,7 +3,7 @@ import { Select } from "@webiny/admin-ui";
 
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import { StatePathsExtractor } from "~/BaseEditor/defaultConfig/Sidebar/ElementSettings/StatePathsExtractor";
-import { ComponentInput, DocumentElement } from "@webiny/website-builder-sdk";
+import type { ComponentInput, DocumentElement } from "@webiny/website-builder-sdk";
 
 interface ExpressionRendererProps {
     element: DocumentElement;

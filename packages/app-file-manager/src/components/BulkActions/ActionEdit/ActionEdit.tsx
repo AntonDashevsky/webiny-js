@@ -6,7 +6,7 @@ import {
     useFileManagerViewConfig
 } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
 import { useFileModel } from "~/hooks/useFileModel";
-import { BatchDTO } from "~/components/BulkActions/ActionEdit/domain";
+import type { BatchDTO } from "~/components/BulkActions/ActionEdit/domain";
 import { BatchEditorDialog } from "./BatchEditorDialog";
 import { ActionEditPresenter } from "./ActionEditPresenter";
 import { useActionEditWorker } from "~/components/BulkActions/ActionEdit/useActionEditWorker";

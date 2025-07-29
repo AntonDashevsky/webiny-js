@@ -7,7 +7,7 @@ import deepEqual from "deep-equal";
 import { createTopic } from "@webiny/pubsub";
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     GetTeamParams,
     ListTeamsParams,
     PermissionsTenantLink,

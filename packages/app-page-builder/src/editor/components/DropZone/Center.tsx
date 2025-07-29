@@ -1,5 +1,6 @@
 import React from "react";
-import Droppable, { DroppableIsVisiblePropType, DroppableOnDropPropType } from "./../Droppable";
+import type { DroppableIsVisiblePropType, DroppableOnDropPropType } from "./../Droppable";
+import Droppable from "./../Droppable";
 import styled from "@emotion/styled";
 import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
 

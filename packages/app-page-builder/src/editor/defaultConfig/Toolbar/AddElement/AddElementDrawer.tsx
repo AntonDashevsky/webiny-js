@@ -15,12 +15,12 @@ import {
 } from "~/editor/recoil/actions";
 import Draggable from "~/editor/components/Draggable";
 import { usePageBuilder } from "~/hooks/usePageBuilder";
-import {
+import type {
     PbEditorElement,
     PbEditorPageElementGroupPlugin,
     PbEditorPageElementPlugin
 } from "~/types";
-import { DropElementActionArgsType } from "~/editor/recoil/actions/dropElement/types";
+import type { DropElementActionArgsType } from "~/editor/recoil/actions/dropElement/types";
 import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
 import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton";
 import { useDrawer } from "~/editor/config/Toolbar/Drawers/DrawerProvider";

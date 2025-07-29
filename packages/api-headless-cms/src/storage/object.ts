@@ -1,10 +1,10 @@
 import pReduce from "p-reduce";
 import pMap from "p-map";
-import { CmsModel, CmsModelField } from "~/types";
-import { PluginsContainer } from "@webiny/plugins";
+import type { CmsModel, CmsModelField } from "~/types";
+import type { PluginsContainer } from "@webiny/plugins";
 import { StorageTransformPlugin } from "~/plugins/StorageTransformPlugin";
 import { getBaseFieldType } from "~/utils/getBaseFieldType";
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 interface ProcessValueParams {
     fields: CmsModelField[];

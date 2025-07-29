@@ -1,7 +1,8 @@
-import { createLiveContext, CreateLiveContextParams } from "./context";
+import type { CreateLiveContextParams } from "./context";
+import { createLiveContext } from "./context";
 import { TaskRunner } from "~/runner";
-import { Context as LambdaContext } from "@webiny/aws-sdk/types";
-import { Context } from "~tests/types";
+import type { Context as LambdaContext } from "@webiny/aws-sdk/types";
+import type { Context } from "~tests/types";
 import { TaskEventValidation } from "~/runner/TaskEventValidation";
 import { timerFactory } from "@webiny/handler-aws";
 

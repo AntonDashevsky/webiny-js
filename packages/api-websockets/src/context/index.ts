@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/handler";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { WebsocketsContext } from "./WebsocketsContext";
 import { WebsocketsConnectionRegistry } from "~/registry";
 import { WebsocketsTransport } from "~/transport";

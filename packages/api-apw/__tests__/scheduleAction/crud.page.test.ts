@@ -1,11 +1,8 @@
 import useHandler from "./useHandler";
 import { ApwContentTypes } from "~/types";
-import {
-    ApwScheduleAction,
-    ApwScheduleActionCrud,
-    ApwScheduleActionTypes
-} from "~/scheduler/types";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { ApwScheduleAction, ApwScheduleActionCrud } from "~/scheduler/types";
+import { ApwScheduleActionTypes } from "~/scheduler/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 const ONE_MINUTE = 1000 * 60;
 const TIME_SEPARATOR = ":";

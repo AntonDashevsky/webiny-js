@@ -1,6 +1,6 @@
 import { useContentEntry } from "~/admin/views/contentEntries/hooks";
-import { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
-import { PartialCmsContentEntryWithId } from "~/admin/contexts/Cms";
+import type { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
+import type { PartialCmsContentEntryWithId } from "~/admin/contexts/Cms";
 import { useCallback } from "react";
 
 interface UsePersistEntryOptions {

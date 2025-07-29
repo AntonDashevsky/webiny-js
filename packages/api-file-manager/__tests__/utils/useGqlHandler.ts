@@ -1,5 +1,5 @@
 import { createHandler } from "@webiny/handler-aws";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 import { until } from "@webiny/project-utils/testing/helpers/until";
 import {
     CREATE_FILE,
@@ -16,7 +16,8 @@ import {
     IS_INSTALLED,
     UPDATE_SETTINGS
 } from "~tests/graphql/fileManagerSettings";
-import { HandlerParams, handlerPlugins } from "./plugins";
+import type { HandlerParams } from "./plugins";
+import { handlerPlugins } from "./plugins";
 import { defaultIdentity } from "~tests/utils/tenancySecurity";
 
 interface InvokeParams {

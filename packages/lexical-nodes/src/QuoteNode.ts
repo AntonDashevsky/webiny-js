@@ -1,4 +1,4 @@
-import {
+import type {
     DOMConversion,
     DOMConversionMap,
     DOMExportOutput,
@@ -6,16 +6,15 @@ import {
     LexicalEditor,
     LexicalNode,
     NodeKey,
-    Spread,
-    $applyNodeReplacement
+    Spread
 } from "lexical";
-import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import { $applyNodeReplacement } from "lexical";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
-import {
-    QuoteNode as BaseQuoteNode,
-    SerializedQuoteNode as BaseSerializedQuoteNode
-} from "@lexical/rich-text";
-import { ThemeStyleValue, TypographyStylesNode } from "~/types";
+import type { SerializedQuoteNode as BaseSerializedQuoteNode } from "@lexical/rich-text";
+import { QuoteNode as BaseQuoteNode } from "@lexical/rich-text";
+import type { ThemeStyleValue, TypographyStylesNode } from "~/types";
 import { getStyleId } from "~/utils/getStyleId";
 
 export type SerializedQuoteNode = Spread<

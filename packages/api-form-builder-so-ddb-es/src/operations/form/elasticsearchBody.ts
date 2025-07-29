@@ -1,4 +1,4 @@
-import { PrimitiveValue, SearchBody as esSearchBody } from "elastic-ts";
+import type { PrimitiveValue, SearchBody as esSearchBody } from "elastic-ts";
 import {
     applyWhere,
     createLimit,
@@ -6,13 +6,13 @@ import {
     getElasticsearchOperatorPluginsByLocale,
     isSharedElasticsearchIndex
 } from "@webiny/api-elasticsearch";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
 import { FormElasticsearchFieldPlugin } from "~/plugins/FormElasticsearchFieldPlugin";
 import { FormElasticsearchSortModifierPlugin } from "~/plugins/FormElasticsearchSortModifierPlugin";
 import { FormElasticsearchBodyModifierPlugin } from "~/plugins/FormElasticsearchBodyModifierPlugin";
-import { FormBuilderStorageOperationsListFormsParams } from "@webiny/api-form-builder/types";
+import type { FormBuilderStorageOperationsListFormsParams } from "@webiny/api-form-builder/types";
 import { FormElasticsearchQueryModifierPlugin } from "~/plugins/FormElasticsearchQueryModifierPlugin";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 
 export const createFormElasticType = (): string => {
     return "fb.form";

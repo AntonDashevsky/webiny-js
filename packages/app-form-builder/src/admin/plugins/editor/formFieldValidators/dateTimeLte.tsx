@@ -1,5 +1,5 @@
 import React from "react";
-import { FbBuilderFormFieldValidatorPlugin } from "~/types";
+import type { FbBuilderFormFieldValidatorPlugin } from "~/types";
 import { DateTime } from "~/admin/plugins/editor/formFields/components/DateTime";
 
 const plugin: FbBuilderFormFieldValidatorPlugin = {

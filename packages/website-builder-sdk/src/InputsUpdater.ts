@@ -3,7 +3,7 @@ import set from "lodash/set";
 import type { Document, DocumentElementBindings } from "./types";
 import type { IBindingsUpdater } from "./IBindingsUpdater";
 import type { ElementInputsBindings } from "./InputBindingsProcessor";
-import { IDocumentOperation } from "~/documentOperations";
+import type { IDocumentOperation } from "~/documentOperations";
 
 export class InputsUpdater implements IBindingsUpdater {
     private readonly bindings: ElementInputsBindings;

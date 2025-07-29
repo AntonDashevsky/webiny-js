@@ -1,4 +1,5 @@
-import React, { ReactNode, useMemo } from "react";
+import type { ReactNode } from "react";
+import React, { useMemo } from "react";
 import sortBy from "lodash/sortBy";
 import unionBy from "lodash/unionBy";
 import lodashMerge from "lodash/merge";
@@ -12,7 +13,7 @@ import {
     createMoveRecord,
     createUpdateRecord
 } from "~/graphql/records.gql";
-import {
+import type {
     AcoAppMode,
     CreateSearchRecordResponse,
     CreateSearchRecordVariables,

@@ -1,7 +1,7 @@
 import { createRichTextStorageTransformPlugin } from "~/dynamoDb/storage/richText";
-import { FromStorageParams, ToStorageParams } from "@webiny/api-headless-cms";
+import type { FromStorageParams, ToStorageParams } from "@webiny/api-headless-cms";
 import { compress, getContextWithCompressor } from "~tests/mocks/compressor";
-import { Context } from "@webiny/api";
+import type { Context } from "@webiny/api";
 
 const defaultArgs = {
     field: {

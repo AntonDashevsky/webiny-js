@@ -1,7 +1,5 @@
-import {
-    pendingOperationsInfo,
-    IPendingOperationsInfoParamsContext
-} from "./pendingOperationsInfo";
+import type { IPendingOperationsInfoParamsContext } from "./pendingOperationsInfo";
+import { pendingOperationsInfo } from "./pendingOperationsInfo";
 import { ddbPutItemConditionalCheckFailed } from "./ddbPutItemConditionalCheckFailed";
 import { missingFilesInBuild } from "./missingFilesInBuild";
 

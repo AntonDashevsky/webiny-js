@@ -1,20 +1,25 @@
-import React, { ComponentType, ReactElement, ReactNode } from "react";
-import { DragObjectWithTypeWithTarget } from "./editor/components/Droppable";
-import { BaseEventAction, EventAction } from "./editor/recoil/eventActions";
-import { PbState } from "./editor/recoil/modules/types";
-import { GenericRecord, Plugin } from "@webiny/app/types";
-import { BindComponent } from "@webiny/form";
-import { Icon } from "@webiny/app-admin/components/IconPicker/types";
-import { FormAPI, FormOnSubmit, FormSetValue, GenericFormData } from "@webiny/form/types";
-import { CoreOptions } from "medium-editor";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
-import { SecurityPermission } from "@webiny/app-security/types";
-import { PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types";
-import { Theme } from "@webiny/app-theme/types";
-import { Renderer } from "@webiny/app-page-builder-elements/types";
-import { FolderTableItem, RecordTableItem, SearchRecordItem } from "@webiny/app-aco/table.types";
+import type { ComponentType, ReactElement, ReactNode } from "react";
+import type React from "react";
+import type { DragObjectWithTypeWithTarget } from "./editor/components/Droppable";
+import type { BaseEventAction, EventAction } from "./editor/recoil/eventActions";
+import type { PbState } from "./editor/recoil/modules/types";
+import type { GenericRecord, Plugin } from "@webiny/app/types";
+import type { BindComponent } from "@webiny/form";
+import type { Icon } from "@webiny/app-admin/components/IconPicker/types";
+import type { FormAPI, FormOnSubmit, FormSetValue, GenericFormData } from "@webiny/form/types";
+import type { CoreOptions } from "medium-editor";
+import type { MenuTreeItem } from "~/admin/views/Menus/types";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types";
+import type { Theme } from "@webiny/app-theme/types";
+import type { Renderer } from "@webiny/app-page-builder-elements/types";
+import type {
+    FolderTableItem,
+    RecordTableItem,
+    SearchRecordItem
+} from "@webiny/app-aco/table.types";
 import type { SourceType } from "dnd-core";
-import { IconPickerIconDto } from "@webiny/admin-ui";
+import type { IconPickerIconDto } from "@webiny/admin-ui";
 
 export type DragObjectWithType = {
     type: SourceType;

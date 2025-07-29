@@ -1,6 +1,6 @@
 import { createDynamoDbLogger, createStorageOperations, DynamoDbLoggerKeys } from "./dynamodb";
 import { create } from "~/db";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 
 export interface ILoggerFactoryParams {
     documentClient: DynamoDBDocument;

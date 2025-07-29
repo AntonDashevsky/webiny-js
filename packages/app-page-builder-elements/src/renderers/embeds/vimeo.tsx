@@ -1,6 +1,7 @@
 import React from "react";
-import { Element } from "~/types";
-import { OEmbed, OEmbedProps } from "./components/OEmbed";
+import type { Element } from "~/types";
+import type { OEmbedProps } from "./components/OEmbed";
+import { OEmbed } from "./components/OEmbed";
 import styled from "@emotion/styled";
 import { createRenderer } from "~/createRenderer";
 import { useRenderer } from "~/hooks/useRenderer";

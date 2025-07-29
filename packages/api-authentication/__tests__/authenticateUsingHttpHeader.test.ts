@@ -1,4 +1,4 @@
-import { AuthenticationContext, Authenticator, Identity } from "~/types";
+import type { AuthenticationContext, Authenticator, Identity } from "~/types";
 import { createAuthentication } from "~/createAuthentication";
 import { authenticateUsingHttpHeader } from "~/authenticateUsingHttpHeader";
 

@@ -1,4 +1,5 @@
-import { createField, CreateFieldInput } from "./fields";
+import type { CreateFieldInput } from "./fields";
+import { createField } from "./fields";
 
 export const createFileField = (params: Partial<CreateFieldInput> = {}) => {
     return createField({

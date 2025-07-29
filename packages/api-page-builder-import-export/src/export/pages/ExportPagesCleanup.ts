@@ -1,10 +1,10 @@
-import {
+import type {
     IExportPagesCleanupTaskParams,
     IExportPagesControllerOutput,
-    IExportPagesZipPagesOutput,
-    PageExportTask
+    IExportPagesZipPagesOutput
 } from "~/export/pages/types";
-import { ITaskResponseResult } from "@webiny/tasks";
+import { PageExportTask } from "~/export/pages/types";
+import type { ITaskResponseResult } from "@webiny/tasks";
 import { createS3 } from "@webiny/aws-sdk/client-s3";
 import lodashChunk from "lodash/chunk";
 

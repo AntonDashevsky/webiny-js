@@ -1,8 +1,8 @@
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import ddbPlugins from "@webiny/db-dynamodb/plugins";
 import { PluginsContainer } from "@webiny/plugins";
-import { PluginCollection } from "@webiny/plugins/types";
-import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
+import type { PluginCollection } from "@webiny/plugins/types";
+import type { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
 import { FilesStorageOperations } from "~/operations/FilesStorageOperations";
 import { SettingsStorageOperations } from "~/operations/SettingsStorageOperations";
 import { SystemStorageOperations } from "~/operations/SystemStorageOperations";

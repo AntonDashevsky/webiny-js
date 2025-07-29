@@ -6,7 +6,7 @@ import { ReactComponent as Unpublished } from "@webiny/icons/lock.svg";
 import { ReactComponent as Published } from "@webiny/icons/remove_red_eye.svg";
 import { useGetPageRevisions } from "~/features/pages";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { PageRevision } from "~/domain/PageRevision";
+import type { PageRevision } from "~/domain/PageRevision";
 import { PAGE_EDITOR_ROUTE } from "~/constants";
 import type { EditorPage } from "@webiny/website-builder-sdk";
 

@@ -1,10 +1,10 @@
 import { makeAutoObservable } from "mobx";
 import { CommandOption } from "~/Command/domain/CommandOption";
-import { MultiAutoCompleteOption } from "../../domains";
-import { IMultiAutoCompleteInputPresenter } from "./MultiAutoCompleteInputPresenter";
-import { IMultiAutoCompleteSelectedOptionsPresenter } from "./MultiAutoCompleteSelectedOptionsPresenter";
-import { IMultiAutoCompleteListOptionsPresenter } from "./MultiAutoCompleteListOptionsPresenter";
-import { IMultiAutoCompleteTemporaryOptionPresenter } from "./MultiAutoCompleteTemporaryOptionPresenter";
+import type { MultiAutoCompleteOption } from "../../domains";
+import type { IMultiAutoCompleteInputPresenter } from "./MultiAutoCompleteInputPresenter";
+import type { IMultiAutoCompleteSelectedOptionsPresenter } from "./MultiAutoCompleteSelectedOptionsPresenter";
+import type { IMultiAutoCompleteListOptionsPresenter } from "./MultiAutoCompleteListOptionsPresenter";
+import type { IMultiAutoCompleteTemporaryOptionPresenter } from "./MultiAutoCompleteTemporaryOptionPresenter";
 
 interface MultiAutoCompletePresenterParams {
     allowFreeInput?: boolean;

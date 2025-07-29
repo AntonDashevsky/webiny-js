@@ -1,4 +1,4 @@
-import { ILoadingRepository } from "@webiny/app-utils";
+import type { ILoadingRepository } from "@webiny/app-utils";
 import type {
     GetPageRevisionsParams,
     IGetPageRevisionsUseCase

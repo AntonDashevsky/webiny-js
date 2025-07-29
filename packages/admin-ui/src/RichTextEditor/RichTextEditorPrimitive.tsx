@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import EditorJS, {
+import type {
     LogLevels,
     OutputBlockData,
     OutputData,
     SanitizerConfig,
     ToolSettings
 } from "@editorjs/editorjs";
+import EditorJS from "@editorjs/editorjs";
 import { cn, cva, generateId, type VariantProps } from "~/utils";
 
 const richTextEditorVariants = cva(

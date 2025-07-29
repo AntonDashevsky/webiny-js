@@ -1,11 +1,6 @@
 import semver from "semver";
-import {
-    IDependency,
-    IDependencyTree,
-    IDependencyTreePushParams,
-    IReference,
-    PackageType
-} from "../types";
+import type { IDependency, IDependencyTree, IDependencyTreePushParams, IReference } from "../types";
+import { PackageType } from "../types";
 
 const keys = [
     PackageType.dependencies,

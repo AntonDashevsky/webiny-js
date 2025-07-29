@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
-import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
-import { ModelFields } from "~/operations/entry/elasticsearch/types";
-import { PluginsContainer } from "@webiny/plugins";
-import { ElasticsearchBoolQueryConfig, Query } from "@webiny/api-elasticsearch/types";
+import type { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
+import type { ModelFields } from "~/operations/entry/elasticsearch/types";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { ElasticsearchBoolQueryConfig, Query } from "@webiny/api-elasticsearch/types";
 import { createSearchPluginList } from "~/operations/entry/elasticsearch/plugins/search";
 import { createOperatorPluginList } from "~/operations/entry/elasticsearch/plugins/operator";
 import { createBaseQuery } from "~/operations/entry/elasticsearch/initialQuery";

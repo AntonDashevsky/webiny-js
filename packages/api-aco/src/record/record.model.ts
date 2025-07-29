@@ -1,4 +1,4 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
 import { createModelField } from "~/utils/createModelField";
 import { createPrivateModel } from "@webiny/api-headless-cms";
 

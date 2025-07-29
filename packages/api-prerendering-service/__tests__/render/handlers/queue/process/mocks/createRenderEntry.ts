@@ -1,4 +1,4 @@
-import { Render } from "~/types";
+import type { Render } from "~/types";
 
 export default function (args: Render): Render {
     return {

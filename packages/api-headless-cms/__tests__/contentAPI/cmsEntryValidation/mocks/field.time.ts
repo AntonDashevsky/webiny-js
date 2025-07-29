@@ -1,4 +1,5 @@
-import { createField, CreateFieldInput } from "./fields";
+import type { CreateFieldInput } from "./fields";
+import { createField } from "./fields";
 import { createTimeGteValidation } from "~tests/contentAPI/cmsEntryValidation/mocks/validations";
 
 export const createTimeField = (params: Partial<CreateFieldInput> = {}) => {

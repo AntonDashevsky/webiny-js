@@ -1,7 +1,8 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { QueryResult } from "@apollo/react-common";
-import { LIST_FORMS, ListFormsQueryResponse } from "../../graphql";
+import type { QueryResult } from "@apollo/react-common";
+import type { ListFormsQueryResponse } from "../../graphql";
+import { LIST_FORMS } from "../../graphql";
 import { NetworkStatus } from "apollo-client";
 import { usePermission } from "~/hooks/usePermission";
 

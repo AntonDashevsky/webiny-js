@@ -1,9 +1,9 @@
-import { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import { IMockDataCreatorInput, IMockDataCreatorOutput } from "./types";
-import { CmsModelManager } from "@webiny/api-headless-cms/types";
+import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
+import type { IMockDataCreatorInput, IMockDataCreatorOutput } from "./types";
+import type { CmsModelManager } from "@webiny/api-headless-cms/types";
 import { mockData } from "./mockData";
 import { createWaitUntilHealthy } from "@webiny/api-elasticsearch/utils/waitUntilHealthy";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { ElasticsearchCatClusterHealthStatus } from "@webiny/api-elasticsearch/operations/types";
 import { mdbid } from "@webiny/utils";
 

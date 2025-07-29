@@ -1,4 +1,4 @@
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
 import { moveInPlace } from "~/hooks/useSortableList";
 

@@ -1,6 +1,7 @@
-import { ITask, Context, TaskLogItemType } from "@webiny/tasks";
-import { IUseCase } from "~/abstractions";
-import { HcmsBulkActionsContext } from "~/types";
+import type { ITask, Context } from "@webiny/tasks";
+import { TaskLogItemType } from "@webiny/tasks";
+import type { IUseCase } from "~/abstractions";
+import type { HcmsBulkActionsContext } from "~/types";
 
 export interface IChildTasksCleanupExecuteParams {
     context: Context;

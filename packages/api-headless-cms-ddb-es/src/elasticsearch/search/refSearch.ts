@@ -1,8 +1,8 @@
-import {
-    CmsEntryElasticsearchQueryBuilderValueSearchPlugin,
+import type {
     CreatePathCallable,
     TransformCallable
 } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin";
+import { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/CmsEntryElasticsearchQueryBuilderValueSearchPlugin";
 
 const createPath: CreatePathCallable<string> = ({ field, key }) => {
     if (key && key.match("entryId") === null) {

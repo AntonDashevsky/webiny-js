@@ -1,4 +1,4 @@
-import {
+import type {
     CmsGroup,
     CmsGroupStorageOperations,
     CmsGroupStorageOperationsCreateParams,
@@ -7,12 +7,13 @@ import {
     CmsGroupStorageOperationsListParams,
     CmsGroupStorageOperationsUpdateParams
 } from "@webiny/api-headless-cms/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import WebinyError from "@webiny/error";
 import { getClean } from "@webiny/db-dynamodb/utils/get";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort";
 import { deleteItem, put } from "@webiny/db-dynamodb";

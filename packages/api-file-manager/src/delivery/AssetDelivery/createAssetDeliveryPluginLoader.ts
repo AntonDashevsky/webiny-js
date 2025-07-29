@@ -1,4 +1,4 @@
-import { PluginFactory } from "@webiny/plugins/types";
+import type { PluginFactory } from "@webiny/plugins/types";
 
 export const createAssetDeliveryPluginLoader = (cb: PluginFactory): PluginFactory => {
     if (process.env.WEBINY_FUNCTION_TYPE === "asset-delivery") {

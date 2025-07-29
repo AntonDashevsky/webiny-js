@@ -1,6 +1,6 @@
-import { DynamoDBTableType } from "~/types";
-import { SemVer } from "semver";
-import { ITable } from "~/sync/types";
+import type { DynamoDBTableType } from "~/types";
+import type { SemVer } from "semver";
+import type { ITable } from "~/sync/types";
 
 export interface IDeploymentServices {
     s3Id: string;

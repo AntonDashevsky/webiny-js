@@ -4,7 +4,7 @@ import { ReactComponent as NewTab } from "@webiny/icons/open_in_new.svg";
 import { PageListConfig } from "~/configs/index.js";
 import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel";
 import { usePagePreviewLink } from "~/modules/pages/PagesList/hooks/usePagePreviewLink";
-import { PageDto } from "~/domain/Page";
+import type { PageDto } from "~/domain/Page";
 
 const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;
 

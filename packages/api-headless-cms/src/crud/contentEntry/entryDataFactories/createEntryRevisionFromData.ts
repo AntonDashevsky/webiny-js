@@ -1,4 +1,4 @@
-import {
+import type {
     CmsContext,
     CmsEntry,
     CmsModel,
@@ -7,16 +7,16 @@ import {
 } from "~/types";
 import { getDate } from "~/utils/date";
 import { getIdentity } from "~/utils/identity";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 import { mapAndCleanUpdatedInputData } from ".//mapAndCleanUpdatedInputData";
 import { validateModelEntryDataOrThrow } from "../entryDataValidation";
 import { referenceFieldsMapping } from "../referenceFieldsMapping";
 import { createIdentifier, parseIdentifier } from "@webiny/utils";
 import WebinyError from "@webiny/error";
 import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
 
 type CreateEntryRevisionFromDataParams = {
     sourceId: string;

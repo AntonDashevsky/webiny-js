@@ -1,7 +1,7 @@
-import { ListCache } from "../cache";
+import type { ListCache } from "../cache";
 import { Folder } from "../Folder";
-import { IListFoldersGateway } from "./IListFoldersGateway";
-import { IListFoldersRepository } from "./IListFoldersRepository";
+import type { IListFoldersGateway } from "./IListFoldersGateway";
+import type { IListFoldersRepository } from "./IListFoldersRepository";
 
 export class ListFoldersRepository implements IListFoldersRepository {
     private cache: ListCache<Folder>;

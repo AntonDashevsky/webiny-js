@@ -1,6 +1,6 @@
-import { SecurityContext } from "~/types";
+import type { SecurityContext } from "~/types";
 import { ContextPlugin } from "@webiny/api";
-import { Context as BaseContext } from "@webiny/handler/types";
+import type { Context as BaseContext } from "@webiny/handler/types";
 
 interface Context extends BaseContext, SecurityContext {}
 

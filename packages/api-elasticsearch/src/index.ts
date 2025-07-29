@@ -2,9 +2,10 @@
  * TODO File should contain only exports from other files.
  */
 import WebinyError from "@webiny/error";
-import { ElasticsearchContext } from "~/types";
+import type { ElasticsearchContext } from "~/types";
 import { ContextPlugin } from "@webiny/api";
-import { createElasticsearchClient, ElasticsearchClientOptions } from "~/client";
+import type { ElasticsearchClientOptions } from "~/client";
+import { createElasticsearchClient } from "~/client";
 import { getElasticsearchOperators } from "~/operators";
 import { Client } from "@elastic/elasticsearch";
 

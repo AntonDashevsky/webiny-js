@@ -1,6 +1,6 @@
 import { Result } from "./Result";
-import { IBulkActionOperationTaskParams } from "~/types";
-import { IProcessEntry } from "~/abstractions";
+import type { IBulkActionOperationTaskParams } from "~/types";
+import type { IProcessEntry } from "~/abstractions";
 
 /**
  * The `ProcessTask` class is responsible for processing a batch of entries

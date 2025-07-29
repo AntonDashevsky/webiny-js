@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { HcmsTasksContext } from "~/types";
-import { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types";
+import type { HcmsTasksContext } from "~/types";
+import type { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types";
 import { createDeleteModelRunner } from "./DeleteModelRunner";
 import { DELETE_MODEL_TASK } from "./constants";
 import { createDeleteModelGraphQl } from "./graphql";

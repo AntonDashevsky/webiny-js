@@ -1,8 +1,8 @@
 import React from "react";
 import { CompositionScope } from "@webiny/app-admin";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 import { HeadingRenderer } from "@webiny/app-page-builder-elements/renderers/heading";
-import { MediumEditorOptions, PbEditorElement } from "~/types";
+import type { MediumEditorOptions, PbEditorElement } from "~/types";
 import { useActiveElementId } from "~/editor";
 import { ActiveHeadingRenderer } from "./ActiveHeadingRenderer";
 

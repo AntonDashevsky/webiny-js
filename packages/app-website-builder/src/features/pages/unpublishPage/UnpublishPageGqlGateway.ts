@@ -1,6 +1,6 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IUnpublishPageGateway } from "./IUnpublishPageGateway.js";
+import type { IUnpublishPageGateway } from "./IUnpublishPageGateway.js";
 import type { WbError } from "~/types.js";
 import type { PageGatewayDto } from "~/features/pages/getPage/PageGatewayDto.js";
 

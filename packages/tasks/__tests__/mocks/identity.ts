@@ -1,4 +1,4 @@
-import { ITaskIdentity } from "~/types";
+import type { ITaskIdentity } from "~/types";
 
 export const createMockIdentity = (): ITaskIdentity => {
     return {

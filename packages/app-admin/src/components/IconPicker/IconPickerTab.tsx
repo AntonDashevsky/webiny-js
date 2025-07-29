@@ -9,7 +9,8 @@ import { makeDecoratable } from "@webiny/react-composition";
 import { useIconPicker } from "./IconPickerPresenterProvider";
 import { useIconType } from "./config/IconType";
 import { IconPickerCell, IconPickerRow } from "./components";
-import { Icon, IconPickerGridRow, ICON_PICKER_SIZE } from "./types";
+import type { Icon, IconPickerGridRow } from "./types";
+import { ICON_PICKER_SIZE } from "./types";
 
 const COLUMN_COUNT = 8;
 

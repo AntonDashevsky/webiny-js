@@ -1,5 +1,5 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
 // Components
 import MarginPaddingSettings from "../components/MarginPaddingSettings";
 

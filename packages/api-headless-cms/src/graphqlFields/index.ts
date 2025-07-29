@@ -8,7 +8,7 @@ import { createRichTextField } from "./richText";
 import { createFileField } from "./file";
 import { createObjectField } from "./object";
 import { createDynamicZoneField } from "~/graphqlFields/dynamicZone";
-import { CmsModelFieldToGraphQLPlugin } from "~/types";
+import type { CmsModelFieldToGraphQLPlugin } from "~/types";
 import { createJsonField } from "~/graphqlFields/json";
 import { createSearchableJsonField } from "~/graphqlFields/searchableJson";
 

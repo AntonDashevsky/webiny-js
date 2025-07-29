@@ -1,4 +1,4 @@
-import {
+import type {
     I18NContext,
     I18NSystem,
     I18NSystemStorageOperations,
@@ -9,7 +9,7 @@ import {
 import WebinyError from "@webiny/error";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { createTopic } from "@webiny/pubsub";
-import { Tenant } from "@webiny/api-tenancy/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
 
 interface CreateSystemCrudParams {
     context: I18NContext;

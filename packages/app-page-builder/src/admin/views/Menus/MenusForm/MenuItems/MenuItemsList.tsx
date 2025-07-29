@@ -1,9 +1,11 @@
 import React, { useCallback } from "react";
 import { Text } from "@webiny/admin-ui";
-import NodeRendererDefault, { NodeRendererDefaultProps } from "./MenuItemRenderer";
-import { SortableTree, TreeItems, TreeItemComponentProps } from "dnd-kit-sortable-tree";
+import type { NodeRendererDefaultProps } from "./MenuItemRenderer";
+import NodeRendererDefault from "./MenuItemRenderer";
+import type { TreeItems, TreeItemComponentProps } from "dnd-kit-sortable-tree";
+import { SortableTree } from "dnd-kit-sortable-tree";
 import styled from "@emotion/styled";
-import { MenuTreeItem } from "~/admin/views/Menus/types";
+import type { MenuTreeItem } from "~/admin/views/Menus/types";
 
 const TreeWrapper = styled("div")({
     width: "100%",

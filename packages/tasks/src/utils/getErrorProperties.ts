@@ -1,4 +1,4 @@
-import { IResponseError } from "~/response/abstractions";
+import type { IResponseError } from "~/response/abstractions";
 import { getObjectProperties } from "~/utils/getObjectProperties";
 
 export const getErrorProperties = (error: Error | IResponseError): IResponseError => {

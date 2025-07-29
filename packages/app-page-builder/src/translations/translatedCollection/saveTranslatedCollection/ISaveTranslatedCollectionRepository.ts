@@ -1,4 +1,4 @@
-import { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
+import type { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
 
 export interface ISaveTranslatedCollectionRepository {
     getLoading(): boolean;

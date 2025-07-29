@@ -1,5 +1,6 @@
-import React, { ReactNode, useState } from "react";
-import { GenericFormData } from "@webiny/form";
+import type { ReactNode } from "react";
+import React, { useState } from "react";
+import type { GenericFormData } from "@webiny/form";
 import { useSnackbar } from "~/hooks";
 import { Dialog, type DialogProps } from "./Dialog";
 import { CustomDialog } from "./CustomDialog";

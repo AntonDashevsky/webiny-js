@@ -1,11 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import {
-    IconPickerIcon,
-    IconPickerIconDto,
-    IconPickerFontAwesome,
-    IconPickerIconFormatter,
-    ListCache
-} from "../../domains";
+import type { IconPickerIconDto, IconPickerFontAwesome } from "../../domains";
+import { IconPickerIcon, IconPickerIconFormatter, ListCache } from "../../domains";
 
 interface IconPickerParams {
     icons: IconPickerIconDto[];

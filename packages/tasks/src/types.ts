@@ -1,4 +1,4 @@
-import {
+import type {
     CmsContext as BaseContext,
     CmsEntryListParams,
     CmsEntryListWhere,
@@ -6,18 +6,18 @@ import {
     CmsModel,
     CmsModelField
 } from "@webiny/api-headless-cms/types";
-import { Topic } from "@webiny/pubsub/types";
-import {
+import type { Topic } from "@webiny/pubsub/types";
+import type {
     IResponseError,
     ITaskResponse,
     ITaskResponseDoneResultOutput,
     ITaskResponseResult
 } from "~/response/abstractions";
-import { IIsCloseToTimeoutCallable, ITaskManagerStore } from "./runner/abstractions";
-import { SecurityPermission } from "@webiny/api-security/types";
-import { GenericRecord } from "@webiny/api/types";
-import { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin";
-import { ITimer } from "@webiny/handler-aws";
+import type { IIsCloseToTimeoutCallable, ITaskManagerStore } from "./runner/abstractions";
+import type { SecurityPermission } from "@webiny/api-security/types";
+import type { GenericRecord } from "@webiny/api/types";
+import type { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin";
+import type { ITimer } from "@webiny/handler-aws";
 
 import type zod from "zod";
 

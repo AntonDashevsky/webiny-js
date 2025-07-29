@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     OnPageBlockAfterCreateTopicParams,
     OnPageBlockAfterDeleteTopicParams,
     OnPageBlockAfterUpdateTopicParams,
@@ -22,7 +22,7 @@ import {
     createPageBlocksUpdateValidation
 } from "~/graphql/crud/pageBlocks/validation";
 import { createZodError, mdbid, removeUndefinedValues } from "@webiny/utils";
-import { PageBlocksPermissions } from "./permissions/PageBlocksPermissions";
+import type { PageBlocksPermissions } from "./permissions/PageBlocksPermissions";
 import { PageElementId } from "~/graphql/crud/pages/PageElementId";
 
 export interface CreatePageBlocksCrudParams {

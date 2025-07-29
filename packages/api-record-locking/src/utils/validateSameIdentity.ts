@@ -1,5 +1,5 @@
 import { NotAuthorizedError } from "@webiny/api-security";
-import { IRecordLockingIdentity } from "~/types";
+import type { IRecordLockingIdentity } from "~/types";
 
 export interface IValidateSameIdentityParams {
     getIdentity: () => Pick<IRecordLockingIdentity, "id">;

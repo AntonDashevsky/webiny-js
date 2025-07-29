@@ -4,7 +4,7 @@ import { Prompt } from "@webiny/react-router";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import { createSaveAction, SaveTemplateActionEvent } from "./saveTemplate";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
-import { TemplateEditorEventActionCallableState } from "~/templateEditor/types";
+import type { TemplateEditorEventActionCallableState } from "~/templateEditor/types";
 import { createCloneElementPlugin } from "./cloneElement/plugin";
 import { useUpdatePageTemplate } from "~/features";
 

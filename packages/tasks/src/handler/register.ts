@@ -1,6 +1,6 @@
 import { registry } from "@webiny/handler-aws/registry";
 import { createSourceHandler } from "@webiny/handler-aws";
-import { HandlerParams, IIncomingEvent, ITaskEvent } from "./types";
+import type { HandlerParams, IIncomingEvent, ITaskEvent } from "./types";
 
 const handler = createSourceHandler<IIncomingEvent<ITaskEvent>, HandlerParams>({
     name: "handler-webiny-background-task",

@@ -1,6 +1,6 @@
 import { ColumnsVisibilityPresenter } from "./ColumnsVisibilityPresenter";
-import { IColumnsVisibilityGateway } from "../gateways";
-import { ColumnConfig } from "~/config/table/Column";
+import type { IColumnsVisibilityGateway } from "../gateways";
+import type { ColumnConfig } from "~/config/table/Column";
 import { Column, ColumnsPresenter, ColumnsRepository } from "../Columns";
 import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository";
 import { ColumnsVisibilityDecorator } from "./ColumnsVisibilityDecorator";

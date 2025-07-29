@@ -1,5 +1,5 @@
 import { ServiceDiscovery } from "@webiny/api";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import type { ApwContext } from "~/types.js";
 
 export const getAppUrl = async (context: Pick<ApwContext, "db">) => {

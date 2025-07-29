@@ -1,4 +1,4 @@
-import { WCP_FEATURE_LABEL } from "~/index";
+import type { WCP_FEATURE_LABEL } from "~/index";
 
 export interface WcpProject {
     orgId: string;

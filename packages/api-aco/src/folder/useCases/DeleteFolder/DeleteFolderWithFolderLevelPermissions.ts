@@ -1,4 +1,4 @@
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 import type { IDeleteFolder } from "./IDeleteFolder";
 import type { DeleteFolderParams } from "~/folder/folder.types";
 

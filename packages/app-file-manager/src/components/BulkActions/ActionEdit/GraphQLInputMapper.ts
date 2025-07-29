@@ -1,7 +1,8 @@
 import set from "lodash/set";
 import get from "lodash/get";
-import { FileItem } from "@webiny/app-admin/types";
-import { BatchDTO, OperatorType } from "~/components/BulkActions/ActionEdit/domain";
+import type { FileItem } from "@webiny/app-admin/types";
+import type { BatchDTO } from "~/components/BulkActions/ActionEdit/domain";
+import { OperatorType } from "~/components/BulkActions/ActionEdit/domain";
 
 export class GraphQLInputMapper {
     static applyOperations(data: FileItem, batch: BatchDTO) {

@@ -1,7 +1,9 @@
-import { Folder, FolderDtoMapper } from "@webiny/app-aco";
-import { Page, PageDtoMapper } from "~/domain/Page/index.js";
+import type { Folder } from "@webiny/app-aco";
+import { FolderDtoMapper } from "@webiny/app-aco";
+import type { Page } from "~/domain/Page/index.js";
+import { PageDtoMapper } from "~/domain/Page/index.js";
 import type { WbIdentity } from "~/types.js";
-import { CmsIdentity } from "@webiny/app-headless-cms-common/types/shared.js";
+import type { CmsIdentity } from "@webiny/app-headless-cms-common/types/shared.js";
 
 export interface DocumentDto {
     id: string;

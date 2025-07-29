@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context } from "@webiny/api-serverless-cms";
-import { ITaskResponseContinueOptions } from "@webiny/tasks/response/abstractions";
+import type { Context } from "@webiny/api-serverless-cms";
+import type { ITaskResponseContinueOptions } from "@webiny/tasks/response/abstractions";
 
 const MAX_RUNS = 5;
 

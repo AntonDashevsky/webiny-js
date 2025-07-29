@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { LexicalNode } from "lexical";
+import type { LexicalNode } from "lexical";
 import {
     $isHeadingNode,
     $isListNode,

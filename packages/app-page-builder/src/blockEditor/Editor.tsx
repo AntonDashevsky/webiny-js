@@ -5,16 +5,16 @@ import { useRouter } from "@webiny/react-router";
 import { plugins } from "@webiny/plugins";
 import { Editor as PbEditor } from "~/admin/components/Editor";
 import { EditorLoadingScreen } from "~/admin/components/EditorLoadingScreen";
-import {
-    LIST_PAGE_ELEMENTS,
+import type {
     ListPageElementsQueryResponse,
     ListPageElementsQueryResponseData
 } from "~/admin/graphql/pages";
+import { LIST_PAGE_ELEMENTS } from "~/admin/graphql/pages";
 import createElementPlugin from "~/admin/utils/createElementPlugin";
 import { createStateInitializer } from "./createStateInitializer";
-import { BlockWithContent } from "~/blockEditor/state";
+import type { BlockWithContent } from "~/blockEditor/state";
 import { createElement } from "~/editor/helpers";
-import { PbEditorElementTree } from "~/types";
+import type { PbEditorElementTree } from "~/types";
 import elementVariablePlugins from "~/blockEditor/plugins/elementVariables";
 import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
 import { DefaultBlockEditorConfig } from "~/blockEditor/config/DefaultBlockEditorConfig";

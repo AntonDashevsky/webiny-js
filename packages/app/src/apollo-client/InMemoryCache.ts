@@ -1,5 +1,6 @@
-import { InMemoryCache as BaseInMemoryCache, InMemoryCacheConfig } from "apollo-cache-inmemory";
-import { DocumentNode } from "graphql";
+import type { InMemoryCacheConfig } from "apollo-cache-inmemory";
+import { InMemoryCache as BaseInMemoryCache } from "apollo-cache-inmemory";
+import type { DocumentNode } from "graphql";
 import { plugins } from "@webiny/plugins";
 import { AddQuerySelectionPlugin } from "../plugins/AddQuerySelectionPlugin";
 import { ApolloLinkPlugin } from "../plugins/ApolloLinkPlugin";

@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { PbCategory, PbErrorResponse } from "~/types";
+import type { PbCategory, PbErrorResponse } from "~/types";
 
 const BASE_FIELDS = `
     slug

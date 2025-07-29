@@ -3,7 +3,7 @@ import { imageProcessor } from "./image";
 import { imagesProcessor } from "./images";
 import { paragraphProcessor } from "./paragraph";
 
-import { PbAcoContext } from "~/types";
+import type { PbAcoContext } from "~/types";
 
 export const createPageProcessors = (context: PbAcoContext) => {
     buttonProcessor(context);

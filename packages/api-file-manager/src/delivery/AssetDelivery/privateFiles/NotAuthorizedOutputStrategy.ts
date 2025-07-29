@@ -1,4 +1,4 @@
-import { AssetOutputStrategy, AssetReply } from "~/delivery";
+import type { AssetOutputStrategy, AssetReply } from "~/delivery";
 import { NotAuthorizedAssetReply } from "./NotAuthorizedAssetReply";
 
 export class NotAuthorizedOutputStrategy implements AssetOutputStrategy {

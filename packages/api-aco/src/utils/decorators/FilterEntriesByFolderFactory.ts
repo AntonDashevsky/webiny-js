@@ -1,5 +1,5 @@
-import { FolderLevelPermissions } from "~/flp";
-import { CmsEntry } from "@webiny/api-headless-cms/types";
+import type { FolderLevelPermissions } from "~/flp";
+import type { CmsEntry } from "@webiny/api-headless-cms/types";
 import { ROOT_FOLDER } from "~/constants";
 
 export class FilterEntriesByFolderFactory {

@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
-import { App, AppProps, Decorator, GenericComponent } from "@webiny/app";
+import type { AppProps, Decorator, GenericComponent } from "@webiny/app";
+import { App } from "@webiny/app";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider } from "@webiny/app-theme";
 import { PageBuilderProvider } from "@webiny/app-page-builder/contexts/PageBuilder";
 import { lexicalRendererDecorators } from "@webiny/app-page-builder/render/lexicalRendererDecorators";
 import { PageBuilder } from "@webiny/app-page-builder/render";
-import { RouteProps } from "@webiny/react-router";
+import type { RouteProps } from "@webiny/react-router";
 import { createApolloClient, createEmotionCache } from "~/utils";
 import { Page } from "./Page";
 import { LinkPreload } from "~/LinkPreload";

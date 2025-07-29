@@ -1,4 +1,4 @@
-import { SecurityContext, SecurityIdentity, SecurityPermission } from "~/types";
+import type { SecurityContext, SecurityIdentity, SecurityPermission } from "~/types";
 import { ContextPlugin } from "@webiny/api";
 
 export interface Config {

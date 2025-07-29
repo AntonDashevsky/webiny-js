@@ -3,12 +3,8 @@ import { action, runInAction } from "mobx";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import capitalize from "lodash/capitalize";
 import pluralize from "pluralize";
-import {
-    ResourcePreviewCell,
-    ResourcePreviewCellProps,
-    ResourcePicker,
-    ResourcePickerProps
-} from "./ResourcesPicker";
+import type { ResourcePreviewCellProps, ResourcePickerProps } from "./ResourcesPicker";
+import { ResourcePreviewCell, ResourcePicker } from "./ResourcesPicker";
 import { useDialogs } from "@webiny/app-admin";
 import { Loader, Button, Text, List } from "@webiny/admin-ui";
 import { ReactComponent as Delete } from "@webiny/icons/delete.svg";

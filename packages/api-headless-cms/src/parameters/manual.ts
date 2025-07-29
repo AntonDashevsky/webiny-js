@@ -2,11 +2,11 @@
  * This would be used for custom Lambdas when there is no path or header information about the endpoint type and locale.
  */
 import WebinyError from "@webiny/error";
-import {
-    CmsParametersPlugin,
+import type {
     CmsParametersPluginResponseLocale,
     CmsParametersPluginResponseType
 } from "~/plugins/CmsParametersPlugin";
+import { CmsParametersPlugin } from "~/plugins/CmsParametersPlugin";
 
 export interface ManualPluginParams {
     endpointType?: CmsParametersPluginResponseType;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import type { Plugin } from "@webiny/plugins/types";
-import { GenericRecord } from "@webiny/app/types";
+import type { GenericRecord } from "@webiny/app/types";
 import { plugins } from "@webiny/plugins";
 import { CircularProgress } from "@webiny/ui/Progress";
 import type { PbEditorPageElementPlugin, PbPluginsLoader, PbRenderElementPlugin } from "~/types";

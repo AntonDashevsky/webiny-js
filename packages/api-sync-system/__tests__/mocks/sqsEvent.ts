@@ -1,5 +1,5 @@
 import type { SQSMessageAttributes, SQSRecord, SQSRecordAttributes } from "@webiny/aws-sdk/types";
-import { SQSEvent } from "@webiny/aws-sdk/types/index.js";
+import type { SQSEvent } from "@webiny/aws-sdk/types/index.js";
 import { createMockSystem } from "~tests/mocks/system.js";
 import { generateAlphaNumericId } from "@webiny/utils/generateId.js";
 

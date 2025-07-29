@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import type {
     AcoFolderStorageOperations,
     OnFolderAfterUpdateTopicParams,
@@ -7,7 +7,7 @@ import type {
 import { UpdateFolder } from "./UpdateFolder";
 import { UpdateFolderWithEvents } from "./UpdateFolderWithEvents";
 import { UpdateFolderWithFolderLevelPermissions } from "./UpdateFolderWithFolderLevelPermissions";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 
 export interface UpdateFolderUseCasesTopics {
     onFolderBeforeUpdate: Topic<OnFolderBeforeUpdateTopicParams>;

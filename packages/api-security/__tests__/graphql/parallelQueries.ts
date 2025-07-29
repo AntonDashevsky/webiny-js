@@ -1,5 +1,5 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { SecurityContext } from "~/types";
+import type { SecurityContext } from "~/types";
 
 export const PARALLEL_QUERY = /* GraphQL */ `
     query ParallelQueries {

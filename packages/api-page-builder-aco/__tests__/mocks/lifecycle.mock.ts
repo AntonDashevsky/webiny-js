@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
 import { LifecycleEventTracker } from "@webiny/project-utils/testing/helpers/lifecycleTracker";
-import { PbAcoContext } from "~/types";
+import type { PbAcoContext } from "~/types";
 
 export const tracker = new LifecycleEventTracker();
 

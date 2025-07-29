@@ -1,7 +1,7 @@
 import type { HcmsBulkActionsContext } from "@webiny/api-headless-cms-bulk-actions/types";
 import type { AcoContext } from "@webiny/api-aco/types";
 import type { HeadlessCms } from "@webiny/api-headless-cms/types";
-import { IDeleteCmsModelTask, IStoreValue } from "~/tasks/deleteModel/types";
+import type { IDeleteCmsModelTask, IStoreValue } from "~/tasks/deleteModel/types";
 
 export interface HeadlessCmsFullyDeleteModel {
     fullyDeleteModel: (modelId: string) => Promise<IDeleteCmsModelTask>;

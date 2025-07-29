@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { Page, PageProviderProps } from "~/types";
+import type { Page, PageProviderProps } from "~/types";
 
 export interface PageContext {
     page: Page;

@@ -1,7 +1,7 @@
 import zod from "zod";
 import uniqid from "uniqid";
 
-import {
+import type {
     OnPageTemplateAfterCreateTopicParams,
     OnPageTemplateAfterDeleteTopicParams,
     OnPageTemplateAfterUpdateTopicParams,
@@ -24,7 +24,7 @@ import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import { mdbid } from "@webiny/utils";
-import { PageTemplatesPermissions } from "~/graphql/crud/permissions/PageTemplatesPermissions";
+import type { PageTemplatesPermissions } from "~/graphql/crud/permissions/PageTemplatesPermissions";
 import { dynamicData } from "~/graphql/crud/dynamicData.validation";
 
 const createSchema = zod.object({

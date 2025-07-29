@@ -1,8 +1,9 @@
-import { ITaskResponseResult } from "@webiny/tasks";
+import type { ITaskResponseResult } from "@webiny/tasks";
 import { TaskCache } from "./TaskCache";
-import { CmsEntryListParams } from "@webiny/api-headless-cms/types";
-import { IListEntries } from "~/abstractions";
-import { BulkActionOperationByModelAction, IBulkActionOperationByModelTaskParams } from "~/types";
+import type { CmsEntryListParams } from "@webiny/api-headless-cms/types";
+import type { IListEntries } from "~/abstractions";
+import type { IBulkActionOperationByModelTaskParams } from "~/types";
+import { BulkActionOperationByModelAction } from "~/types";
 
 const MAX_TASK_LIST_LENGTH = 10;
 

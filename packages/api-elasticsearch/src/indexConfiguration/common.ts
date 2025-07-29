@@ -1,4 +1,4 @@
-import { ElasticsearchIndexRequestBodyMappingsDynamicTemplate } from "~/types";
+import type { ElasticsearchIndexRequestBodyMappingsDynamicTemplate } from "~/types";
 
 const getDefaultMappings = (): ElasticsearchIndexRequestBodyMappingsDynamicTemplate[] => {
     return [

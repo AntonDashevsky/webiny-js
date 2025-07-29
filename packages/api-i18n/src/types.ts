@@ -1,9 +1,9 @@
-import { Plugin } from "@webiny/plugins/types";
-import { ClientContext } from "@webiny/handler-client/types";
-import { Context } from "@webiny/api/types";
-import { TenancyContext } from "@webiny/api-tenancy/types";
-import { Topic } from "@webiny/pubsub/types";
-import { SecurityContext } from "@webiny/api-security/types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { ClientContext } from "@webiny/handler-client/types";
+import type { Context } from "@webiny/api/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { SecurityContext } from "@webiny/api-security/types";
 
 export type LocaleKeys = "default" | "content";
 export interface I18NLocale {

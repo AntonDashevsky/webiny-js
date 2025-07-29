@@ -1,7 +1,7 @@
 import { createWcpContext, createWcpGraphQL } from "@webiny/api-wcp";
 import { createHandler } from "@webiny/handler-aws";
 import graphqlHandler from "@webiny/handler-graphql";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import tenantManagerPlugins from "../src";
 import {
     CREATE_TENANT,
@@ -13,7 +13,7 @@ import {
     INSTALL_SECURITY
 } from "./graphql/tenants";
 import { createTenancyAndSecurity } from "./tenancySecurity";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 
 type UseGqlHandlerParams = {
     plugins?: any;

@@ -7,8 +7,14 @@ import Draggable from "../Draggable";
 import EditFieldDialog from "./EditFieldDialog";
 import Field from "./Field";
 import { useModelFieldEditor } from "./useModelFieldEditor";
-import { FieldEditorProvider, IsVisibleCallable } from "./FieldEditorContext";
-import { CmsModelField, CmsEditorFieldsLayout, CmsModelFieldTypePlugin, DragSource } from "~/types";
+import type { IsVisibleCallable } from "./FieldEditorContext";
+import { FieldEditorProvider } from "./FieldEditorContext";
+import type {
+    CmsModelField,
+    CmsEditorFieldsLayout,
+    CmsModelFieldTypePlugin,
+    DragSource
+} from "~/types";
 import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider";
 import { cn, Icon } from "@webiny/admin-ui";
 

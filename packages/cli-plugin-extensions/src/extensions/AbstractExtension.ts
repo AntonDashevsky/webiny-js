@@ -1,4 +1,4 @@
-import { ExtensionMessage } from "~/types";
+import type { ExtensionMessage } from "~/types";
 
 export interface ExtensionTypeConstructorParams {
     name: string;

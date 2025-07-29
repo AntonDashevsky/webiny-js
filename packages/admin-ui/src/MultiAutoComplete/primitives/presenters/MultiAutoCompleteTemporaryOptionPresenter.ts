@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { CommandOption } from "~/Command/domain/CommandOption";
-import { CommandOptionFormatted } from "~/Command/domain/CommandOptionFormatted";
+import type { CommandOptionFormatted } from "~/Command/domain/CommandOptionFormatted";
 import { CommandOptionFormatter } from "~/Command/domain/CommandOptionFormatter";
 
 export interface IMultiAutoCompleteTemporaryOptionPresenter {

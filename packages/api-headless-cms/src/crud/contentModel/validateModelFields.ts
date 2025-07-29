@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 import WebinyError from "@webiny/error";
-import {
+import type {
     CmsContext,
     CmsModel,
     CmsModelField,
@@ -11,16 +11,13 @@ import {
 } from "~/types";
 import { createManageSDL } from "~/graphql/schema/createManageSDL";
 import { createFieldStorageId } from "./createFieldStorageId";
-import { GraphQLError } from "graphql";
+import type { GraphQLError } from "graphql";
 import { getBaseFieldType } from "~/utils/getBaseFieldType";
 import { getContentModelTitleFieldId } from "./fields/titleField";
 import { getContentModelDescriptionFieldId } from "./fields/descriptionField";
 import { getContentModelImageFieldId } from "./fields/imageField";
-import {
-    CmsGraphQLSchemaPlugin,
-    CmsGraphQLSchemaSorterPlugin,
-    ICmsGraphQLSchemaPlugin
-} from "~/plugins";
+import type { ICmsGraphQLSchemaPlugin } from "~/plugins";
+import { CmsGraphQLSchemaPlugin, CmsGraphQLSchemaSorterPlugin } from "~/plugins";
 import { buildSchemaPlugins } from "~/graphql/buildSchemaPlugins";
 import { createExecutableSchema } from "~/graphql/createExecutableSchema";
 import { generateAlphaNumericId } from "@webiny/utils";

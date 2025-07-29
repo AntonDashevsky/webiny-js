@@ -2,7 +2,7 @@ import React from "react";
 import { List, IconButton, Tooltip, DropdownMenu } from "@webiny/admin-ui";
 import { ReactComponent as SavedSearchIcon } from "@webiny/icons/saved_search.svg";
 import { ReactComponent as MoreIcon } from "@webiny/icons/more_vert.svg";
-import { QueryManagerFilter } from "../QueryManagerDialog";
+import type { QueryManagerFilter } from "../QueryManagerDialog";
 import { Description } from "./Description";
 
 type filterCallback = (filterId: string) => void;

@@ -5,7 +5,7 @@ import { Grid, Select } from "@webiny/admin-ui";
 import { Bind } from "@webiny/form";
 
 import { FieldRenderer } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/FieldRenderer";
-import { OperationFormData } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter";
+import type { OperationFormData } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditorDialogPresenter";
 
 export interface OperationProps {
     operation: OperationFormData;

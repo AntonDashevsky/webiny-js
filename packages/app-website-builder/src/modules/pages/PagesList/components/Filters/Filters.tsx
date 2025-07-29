@@ -1,5 +1,6 @@
 import React from "react";
-import { Filters as BaseFilters, FiltersOnSubmit } from "@webiny/app-admin";
+import type { FiltersOnSubmit } from "@webiny/app-admin";
+import { Filters as BaseFilters } from "@webiny/app-admin";
 import { usePageListConfig } from "~/configs/index.js";
 import { useFilterPages } from "~/features/pages/index.js";
 import { useDocumentList } from "~/modules/pages/PagesList/useDocumentList.js";

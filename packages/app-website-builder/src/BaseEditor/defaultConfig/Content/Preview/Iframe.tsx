@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from "react";
 import { ElementOverlays } from "./Overlays/ElementOverlays";
 import { ConnectEditorToPreview } from "~/DocumentEditor/ConnectEditorToPreview";
-import { Messenger } from "@webiny/website-builder-sdk";
+import type { Messenger } from "@webiny/website-builder-sdk";
 import { useResponsiveContainer } from "~/BaseEditor/defaultConfig/Content/Preview/useResponsiveContainer";
 import { OverlayLoader } from "@webiny/admin-ui";
 import type { ViewportManager } from "@webiny/website-builder-sdk";

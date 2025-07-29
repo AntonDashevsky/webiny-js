@@ -1,4 +1,4 @@
-import {
+import type {
     BlockCategoriesCrud,
     BlockCategory,
     BlockCategoryStorageOperationsListParams,
@@ -21,7 +21,7 @@ import {
     createBlockCategoryUpdateValidation
 } from "~/graphql/crud/blockCategories/validation";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { BlockCategoriesPermissions } from "~/graphql/crud/permissions/BlockCategoriesPermissions";
+import type { BlockCategoriesPermissions } from "~/graphql/crud/permissions/BlockCategoriesPermissions";
 
 export interface CreateBlockCategoriesCrudParams {
     context: PbContext;

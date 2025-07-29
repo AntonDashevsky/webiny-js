@@ -3,7 +3,8 @@ import { PluginsContainer } from "@webiny/plugins";
 
 import { ElasticsearchQueryBuilderOperatorPlugin } from "@webiny/api-elasticsearch";
 
-import { ENTITIES, StorageOperationsFactory } from "~/types";
+import type { StorageOperationsFactory } from "~/types";
+import { ENTITIES } from "~/types";
 import { createTable } from "~/definitions/table";
 import { createElasticsearchTable } from "~/definitions/tableElasticsearch";
 
@@ -48,7 +49,7 @@ import { createPageTemplateEntity } from "~/definitions/pageTemplateEntity";
 import { createPageTemplateDynamoDbFields } from "~/operations/pageTemplate/fields";
 import { createPageTemplateStorageOperations } from "~/operations/pageTemplate";
 
-import { PbContext } from "@webiny/api-page-builder/types";
+import type { PbContext } from "@webiny/api-page-builder/types";
 import {
     BlockCategoryDynamoDbElasticFieldPlugin,
     CategoryDynamoDbElasticFieldPlugin,

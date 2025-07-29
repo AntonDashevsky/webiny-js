@@ -20,7 +20,7 @@ import EmptyView from "@webiny/app-admin/components/EmptyView";
 import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as CopyIcon } from "@webiny/icons/content_copy.svg";
 import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
-import { ApiKey } from "~/types";
+import type { ApiKey } from "~/types";
 import {
     Alert,
     Button,

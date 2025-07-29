@@ -1,17 +1,18 @@
 import { makeAutoObservable } from "mobx";
 import orderBy from "lodash/orderBy";
 import { loadingActions, ROOT_FOLDER, WB_PAGE_APP } from "~/constants.js";
+import type { ISortingRepository } from "@webiny/app-utils";
 import {
     type ILoadingRepository,
     type IMetaRepository,
-    ISortingRepository,
     loadingRepositoryFactory,
     metaRepositoryFactory,
     SortingMapper,
     sortRepositoryFactory
 } from "@webiny/app-utils";
 import { type IListCache, type Page, pageListCache } from "~/domain/Page/index.js";
-import { Folder, folderCacheFactory } from "@webiny/app-aco";
+import type { Folder } from "@webiny/app-aco";
+import { folderCacheFactory } from "@webiny/app-aco";
 import { DocumentListMapper } from "~/modules/pages/PagesList/presenters/DocumentListMapper.js";
 import { type ISearchRepository, searchRepositoryFactory } from "~/domain/Search/index.js";
 import {

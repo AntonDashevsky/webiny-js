@@ -5,7 +5,7 @@ import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { ReactComponent as TitleIcon } from "@webiny/icons/title.svg";
 import { ReactComponent as MoreVerticalIcon } from "@webiny/icons/more_vert.svg";
 import { plugins } from "@webiny/plugins";
-import { CmsModelField, CmsEditorFieldOptionPlugin, CmsModel } from "~/types";
+import type { CmsModelField, CmsEditorFieldOptionPlugin, CmsModel } from "~/types";
 import { i18n } from "@webiny/app/i18n";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useModelEditor } from "~/admin/hooks";

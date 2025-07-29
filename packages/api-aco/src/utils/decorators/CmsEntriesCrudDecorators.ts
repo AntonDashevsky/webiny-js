@@ -1,4 +1,4 @@
-import { AcoContext } from "~/types";
+import type { AcoContext } from "~/types";
 import { ROOT_FOLDER } from "~/constants";
 import { ListEntriesFactory } from "./ListEntriesFactory";
 import { FilterEntriesByFolderFactory } from "./FilterEntriesByFolderFactory";

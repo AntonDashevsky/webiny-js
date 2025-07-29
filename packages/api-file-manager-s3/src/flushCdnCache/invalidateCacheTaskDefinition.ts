@@ -1,5 +1,5 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import { FileManagerContext } from "@webiny/api-file-manager/types";
+import type { FileManagerContext } from "@webiny/api-file-manager/types";
 import { InvalidateCloudfrontCacheTask } from "./InvalidateCacheTask";
 
 export const createInvalidateCacheTask = () => {

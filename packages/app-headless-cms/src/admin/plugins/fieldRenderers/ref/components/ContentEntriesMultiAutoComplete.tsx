@@ -7,9 +7,9 @@ import { useReferences } from "./useReferences";
 import { renderItem, renderListItemOptions } from "./renderItem";
 import { NewEntryButton } from "./NewEntryButton";
 import { useNewRefEntry } from "../hooks/useNewRefEntry";
-import { CmsModelField } from "~/types";
-import { BindComponentRenderProp } from "@webiny/form";
-import { OptionItem } from "./types";
+import type { CmsModelField } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
+import type { OptionItem } from "./types";
 import { useModels } from "~/admin/hooks";
 import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog";
 

@@ -1,8 +1,10 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Element as CoreElement, ElementProps as CoreElementProps } from "../Element";
+import type { ElementProps as CoreElementProps } from "../Element";
+import { Element as CoreElement } from "../Element";
 import { Layout } from "./Layout";
-import { Elements as BaseElements, ElementsProps as BaseElementsProps } from "../Elements";
+import type { ElementsProps as BaseElementsProps } from "../Elements";
+import { Elements as BaseElements } from "../Elements";
 import { Tab } from "./Tab";
 import { createGetId } from "../createGetId";
 import { ScrollableContainer } from "../Sidebar/ScrollableContainer";

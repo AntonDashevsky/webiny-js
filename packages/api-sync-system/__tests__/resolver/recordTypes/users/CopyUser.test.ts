@@ -5,10 +5,10 @@ import {
 } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import { CopyUser } from "~/resolver/recordTypes/users/CopyUser.js";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
+import type { InvokeCommandInput } from "@webiny/aws-sdk/client-lambda/index.js";
 import {
     createLambdaClient,
     InvokeCommand,
-    InvokeCommandInput,
     LambdaClient
 } from "@webiny/aws-sdk/client-lambda/index.js";
 import { mockClient } from "aws-sdk-client-mock";

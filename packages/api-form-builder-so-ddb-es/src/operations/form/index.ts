@@ -1,4 +1,4 @@
-import {
+import type {
     FbForm,
     FormBuilderStorageOperationsCreateFormFromParams,
     FormBuilderStorageOperationsCreateFormParams,
@@ -13,11 +13,13 @@ import {
     FormBuilderStorageOperationsUnpublishFormParams,
     FormBuilderStorageOperationsUpdateFormParams
 } from "@webiny/api-form-builder/types";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { Client } from "@elastic/elasticsearch";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { Client } from "@elastic/elasticsearch";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import WebinyError from "@webiny/error";
-import { createEntityWriteBatch, getClean, IPutParamsItem, put } from "@webiny/db-dynamodb";
+import type { IPutParamsItem } from "@webiny/db-dynamodb";
+import { createEntityWriteBatch, getClean, put } from "@webiny/db-dynamodb";
 import { configurations } from "~/configurations";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter";
 import fields from "./fields";
@@ -25,9 +27,9 @@ import { sortItems } from "@webiny/db-dynamodb/utils/sort";
 import { parseIdentifier, zeroPad } from "@webiny/utils";
 import { createElasticsearchBody, createFormElasticType } from "./elasticsearchBody";
 import { decodeCursor, encodeCursor } from "@webiny/api-elasticsearch";
-import { PluginsContainer } from "@webiny/plugins";
-import { FormBuilderFormCreateKeyParams, FormBuilderFormStorageOperations } from "~/types";
-import { ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { FormBuilderFormCreateKeyParams, FormBuilderFormStorageOperations } from "~/types";
+import type { ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types";
 
 export type DbRecord<T = any> = T & {
     PK: string;

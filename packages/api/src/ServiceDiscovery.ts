@@ -1,10 +1,6 @@
-import {
-    DynamoDBDocument,
-    getDocumentClient,
-    QueryCommand,
-    unmarshall
-} from "@webiny/aws-sdk/client-dynamodb";
-import { GenericRecord } from "~/types";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { getDocumentClient, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb";
+import type { GenericRecord } from "~/types";
 
 interface ServiceManifest {
     name: string;

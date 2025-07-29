@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { PbDataBinding, PbDataSource } from "~/types";
+import type { PbDataBinding, PbDataSource } from "~/types";
 
 const passthrough = (cb: Updater<any>) => cb([]);
 

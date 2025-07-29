@@ -1,4 +1,4 @@
-import {
+import type {
     CmsEntryStorageOperationsGetPreviousRevisionParams,
     CmsModel,
     CmsStorageEntry

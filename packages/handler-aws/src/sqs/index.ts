@@ -5,9 +5,10 @@ import type {
 } from "@webiny/aws-sdk/types";
 import { createHandler as createBaseHandler } from "@webiny/handler";
 import { registerDefaultPlugins } from "~/plugins";
-import { SQSEventHandler, SQSEventHandlerCallableParams } from "~/sqs/plugins/SQSEventHandler";
+import type { SQSEventHandlerCallableParams } from "~/sqs/plugins/SQSEventHandler";
+import { SQSEventHandler } from "~/sqs/plugins/SQSEventHandler";
 import { execute } from "~/execute";
-import { HandlerFactoryParams } from "~/types";
+import type { HandlerFactoryParams } from "~/types";
 /**
  * We need a class, not an interface exported from types.
  */

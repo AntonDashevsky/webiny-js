@@ -1,4 +1,5 @@
-import React, { useState, useCallback, SyntheticEvent } from "react";
+import type { SyntheticEvent } from "react";
+import React, { useState, useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { Input } from "@webiny/ui/Input";
 import { Tooltip } from "@webiny/ui/Tooltip";
@@ -13,7 +14,7 @@ import {
 } from "./Styled";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import { usePage } from "~/pageEditor/hooks/usePage";
-import { PageAtomType } from "~/pageEditor/state";
+import type { PageAtomType } from "~/pageEditor/state";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
 
 declare global {

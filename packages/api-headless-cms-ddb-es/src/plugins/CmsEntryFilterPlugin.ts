@@ -1,7 +1,7 @@
 import { Plugin } from "@webiny/plugins";
-import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
-import { ModelField, ModelFields } from "~/operations/entry/elasticsearch/types";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import type { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
+import type { ModelField, ModelFields } from "~/operations/entry/elasticsearch/types";
+import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
 
 interface CmsEntryFilterPluginConfig {
     fieldType: string;

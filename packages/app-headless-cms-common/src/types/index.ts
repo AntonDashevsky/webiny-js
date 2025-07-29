@@ -1,23 +1,23 @@
-import * as React from "react";
-import { ReactElement, ReactNode } from "react";
-import { Plugin } from "@webiny/plugins/types";
-import {
+import type * as React from "react";
+import type { ReactElement, ReactNode } from "react";
+import type { Plugin } from "@webiny/plugins/types";
+import type {
     BindComponent as BaseBindComponent,
     BindComponentProps as BaseBindComponentProps,
     BindComponentRenderProp as BaseBindComponentRenderProp,
     FormAPI
 } from "@webiny/form";
-import { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
-import { SecurityPermission } from "@webiny/app-security/types";
-import {
+import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type {
     CmsModelFieldValidator,
     CmsModelFieldValidatorsFactory,
     CmsModelFieldValidatorsGroup
 } from "./validation";
-import { CmsModel, CmsModelField } from "./model";
-import { CmsIdentity } from "~/types/shared";
+import type { CmsModel, CmsModelField } from "./model";
+import type { CmsIdentity } from "~/types/shared";
 import type { SourceType } from "dnd-core";
-import { IconPickerIconDto } from "@webiny/admin-ui";
+import type { IconPickerIconDto } from "@webiny/admin-ui";
 
 export type DragObjectWithType = {
     type: SourceType;

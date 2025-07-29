@@ -1,5 +1,5 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import {
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type {
     GetFolderHierarchyUseCaseParams,
     IGetFolderHierarchyUseCase
 } from "./IGetFolderHierarchyUseCase";

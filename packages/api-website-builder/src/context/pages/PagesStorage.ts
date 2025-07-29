@@ -1,5 +1,5 @@
 import omit from "lodash/omit";
-import { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
 import type {
     WbPage,
     WbPagesStorageOperations,

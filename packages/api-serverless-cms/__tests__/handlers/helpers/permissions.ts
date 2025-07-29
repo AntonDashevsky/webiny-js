@@ -1,5 +1,5 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { GenericRecord } from "@webiny/api/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 export interface Permission {
     name: string;

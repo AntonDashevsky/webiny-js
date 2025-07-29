@@ -1,7 +1,8 @@
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { createMailerContext as createMailerContextPlugin } from "~/context";
 import { createDummyTransport } from "~/transports/createDummyTransport";
-import { createSmtpTransport, SmtpTransportConfig } from "~/transports/createSmtpTransport";
+import type { SmtpTransportConfig } from "~/transports/createSmtpTransport";
+import { createSmtpTransport } from "~/transports/createSmtpTransport";
 import { createTransport } from "~/plugins";
 import { createSettingsModel } from "~/crud/settings/model";
 import { createGraphQL } from "~/graphql";

@@ -1,6 +1,6 @@
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import {
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type {
     FileManagerSettings,
     FileManagerSettingsStorageOperations,
     FileManagerSettingsStorageOperationsCreateParams,

@@ -1,5 +1,5 @@
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { CmsEntry } from "~/types";
+import type { CmsEntry } from "~/types";
 import { useReviewManageHandler } from "../testHelpers/useReviewManageHandler";
 import { useProductManageHandler } from "../testHelpers/useProductManageHandler";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";

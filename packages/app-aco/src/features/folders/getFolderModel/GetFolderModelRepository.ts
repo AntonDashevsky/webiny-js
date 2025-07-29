@@ -1,7 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { IGetFolderModelRepository } from "./IGetFolderModelRepository";
-import { IGetFolderModelGateway } from "./IGetFolderModelGateway";
-import { FolderModelDto } from "./FolderModelDto";
+import type { IGetFolderModelRepository } from "./IGetFolderModelRepository";
+import type { IGetFolderModelGateway } from "./IGetFolderModelGateway";
+import type { FolderModelDto } from "./FolderModelDto";
 
 export class GetFolderModelRepository implements IGetFolderModelRepository {
     private model: FolderModelDto | undefined;

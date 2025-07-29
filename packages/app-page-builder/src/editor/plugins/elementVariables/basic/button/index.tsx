@@ -1,5 +1,5 @@
 import React from "react";
-import { PbBlockVariable, PbEditorPageElementVariableRendererPlugin } from "~/types";
+import type { PbBlockVariable, PbEditorPageElementVariableRendererPlugin } from "~/types";
 import TextVariableInput from "~/editor/plugins/elementSettings/variable/TextVariableInput";
 import { useElementVariables } from "~/editor/hooks/useElementVariableValue";
 

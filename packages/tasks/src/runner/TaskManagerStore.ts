@@ -1,9 +1,8 @@
-import {
+import type {
     IListTaskParamsWhere,
     ITask,
     ITaskDataInput,
     ITaskLog,
-    TaskLogItemType,
     ITaskManagerStoreInfoLog,
     ITaskManagerStorePrivate,
     ITaskManagerStoreSetOutputOptions,
@@ -13,7 +12,8 @@ import {
     ITasksContextObject,
     TaskDataStatus
 } from "~/types";
-import {
+import { TaskLogItemType } from "~/types";
+import type {
     ITaskManagerStoreAddLogOptions,
     ITaskManagerStoreErrorLog,
     ITaskManagerStoreUpdateTaskInputParam,
@@ -25,7 +25,7 @@ import {
 import deepEqual from "deep-equal";
 import { getObjectProperties } from "~/utils/getObjectProperties";
 import { ObjectUpdater } from "~/utils/ObjectUpdater";
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 const getInput = <T extends ITaskDataInput = ITaskDataInput>(
     originalInput: T,

@@ -2,7 +2,7 @@ import useGqlHandler from "./useGqlHandler";
 import { booksSchema, booksCrudPlugin } from "~tests/mocks/booksSchema";
 import { createGraphQLSchemaPlugin } from "~/plugins";
 import { createResolverDecorator } from "~/index";
-import { Context } from "./types";
+import type { Context } from "./types";
 
 describe("GraphQL Handler", () => {
     test("should return errors if schema doesn't exist", async () => {

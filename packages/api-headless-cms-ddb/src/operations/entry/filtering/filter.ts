@@ -1,10 +1,11 @@
-import { CmsEntry, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import type { CmsEntry, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
 import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
 import WebinyError from "@webiny/error";
-import { PluginsContainer } from "@webiny/plugins";
-import { Field } from "./types";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { Field } from "./types";
 import { createFullTextSearch } from "./fullTextSearch";
-import { createExpressions, Expression, ExpressionCondition, Filter } from "./createExpressions";
+import type { Expression, ExpressionCondition, Filter } from "./createExpressions";
+import { createExpressions } from "./createExpressions";
 import { transformValue } from "./transform";
 import { getValue } from "~/operations/entry/filtering/getValue";
 

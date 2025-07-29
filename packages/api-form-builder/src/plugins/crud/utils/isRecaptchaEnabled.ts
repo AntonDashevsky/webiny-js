@@ -1,4 +1,4 @@
-import { FbForm, Settings } from "~/types";
+import type { FbForm, Settings } from "~/types";
 
 export const isRecaptchaEnabled = (settings: Settings, form: FbForm) => {
     if (!settings.reCaptcha.enabled) {

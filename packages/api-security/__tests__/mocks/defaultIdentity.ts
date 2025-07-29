@@ -1,6 +1,6 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
-import { SecurityContext } from "~/types";
-import { GenericRecord } from "@webiny/api/types";
+import type { SecurityContext } from "~/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 export const defaultIdentity = () => {
     return new GraphQLSchemaPlugin<SecurityContext>({

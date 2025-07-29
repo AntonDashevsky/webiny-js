@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Tooltip as TooltipPrimitive } from "radix-ui";
 import { withStaticProps, makeDecoratable } from "~/utils";
-import { TooltipArrow, TooltipContent, TooltipContentProps } from "./components";
+import type { TooltipContentProps } from "./components";
+import { TooltipArrow, TooltipContent } from "./components";
 
 const TooltipProvider = TooltipPrimitive.Provider;
 

@@ -18,7 +18,7 @@ import { CopyFile } from "~/resolver/recordTypes/fileManager/CopyFile.js";
 import { DeleteFile } from "./recordTypes/fileManager/DeleteFile.js";
 import { createUsersPlugins } from "~/resolver/recordTypes/users/users.js";
 import { CopyUser } from "./recordTypes/users/CopyUser.js";
-import {
+import type {
     CognitoIdentityProviderClient,
     CognitoIdentityProviderClientConfig
 } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";

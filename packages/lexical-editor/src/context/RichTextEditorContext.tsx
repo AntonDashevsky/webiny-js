@@ -1,8 +1,8 @@
 import React, { createContext } from "react";
-import { LexicalEditor } from "lexical";
+import type { LexicalEditor } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import type { ThemeEmotionMap, EditorTheme } from "@webiny/lexical-theme";
-import { ToolbarActionPlugin } from "~/types";
+import type { ToolbarActionPlugin } from "~/types";
 
 export interface RichTextEditorContext {
     editor: LexicalEditor;

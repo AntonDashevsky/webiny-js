@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import { MultiAutoCompletePrimitiveProps } from "./MultiAutoCompletePrimitive";
+import type { MultiAutoCompletePrimitiveProps } from "./MultiAutoCompletePrimitive";
+import type { MultiAutoCompletePresenterParams } from "./presenters";
 import {
     MultiAutoCompleteInputPresenter,
     MultiAutoCompleteListOptionsPresenter,
     MultiAutoCompleteListOptionsPresenterWithUniqueValues,
     MultiAutoCompletePresenter,
-    MultiAutoCompletePresenterParams,
     MultiAutoCompletePresenterWithFreeInput,
     MultiAutoCompleteSelectedOptionPresenter
 } from "./presenters";

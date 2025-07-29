@@ -1,4 +1,4 @@
-import { CmsEntry, CmsEntryGetParams, CmsModel } from "~/types";
+import type { CmsEntry, CmsEntryGetParams, CmsModel } from "~/types";
 
 export interface IGetEntry {
     execute: (model: CmsModel, params: CmsEntryGetParams) => Promise<CmsEntry>;

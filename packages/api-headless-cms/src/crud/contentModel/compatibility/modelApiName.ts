@@ -1,7 +1,7 @@
 import camelCase from "lodash/camelCase";
 import upperFirst from "lodash/upperFirst";
 import pluralize from "pluralize";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 export const ensureSingularApiName = (model: CmsModel): string => {
     if (!model.singularApiName) {

@@ -1,7 +1,7 @@
 import isEqual from "lodash/isEqual";
 import { Permissions } from "@webiny/shared-aco";
-import { IUpdateFolderRepository } from "./IUpdateFolderRepository";
-import { ListCache } from "../cache";
+import type { IUpdateFolderRepository } from "./IUpdateFolderRepository";
+import type { ListCache } from "../cache";
 import { Folder } from "../Folder";
 
 export class UpdateFolderRepositoryWithPermissionsChange implements IUpdateFolderRepository {

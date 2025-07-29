@@ -1,6 +1,6 @@
-import React from "react";
+import type React from "react";
 import type { DataTableColumn } from "@webiny/admin-ui";
-import { Column, ColumnDTO } from "./Column";
+import type { Column, ColumnDTO } from "./Column";
 
 export class ColumnMapper {
     static toDTO(column: Column | ColumnDTO): ColumnDTO {

@@ -1,12 +1,11 @@
 import React from "react";
-import {
-    elementInputs,
-    ParagraphRenderer
-} from "@webiny/app-page-builder-elements/renderers/paragraph";
+import type { elementInputs } from "@webiny/app-page-builder-elements/renderers/paragraph";
+import { ParagraphRenderer } from "@webiny/app-page-builder-elements/renderers/paragraph";
 import { usePageElements, useRenderer } from "@webiny/app-page-builder-elements";
 import { assignStyles } from "@webiny/app-page-builder-elements/utils";
 import { isValidLexicalData, LexicalHtmlRenderer } from "@webiny/lexical-editor";
-import { ComponentDecorator, CompositionScope } from "@webiny/app";
+import type { ComponentDecorator } from "@webiny/app";
+import { CompositionScope } from "@webiny/app";
 import type { Renderer } from "@webiny/app-page-builder-elements/types";
 
 export const LexicalParagraphDecorator: ComponentDecorator<Renderer> = Original => {

@@ -1,13 +1,14 @@
-import { AbstractExtension, ExtensionTypeConstructorParams } from "./AbstractExtension";
+import type { ExtensionTypeConstructorParams } from "./AbstractExtension";
+import { AbstractExtension } from "./AbstractExtension";
 import { AdminExtension } from "./AdminExtension";
 import { ApiExtension } from "./ApiExtension";
 import { PbElementExtension } from "./PbElementExtension";
 import { WorkspaceExtension } from "./WorkspaceExtension";
 import loadJson from "load-json-file";
-import { PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { PackageJson } from "@webiny/cli-plugin-scaffold/types";
 import path from "path";
 import { WebsiteExtension } from "~/extensions/WebsiteExtension";
-import { ExtensionMessage } from "~/types";
+import type { ExtensionMessage } from "~/types";
 
 type PackageJsonPath = string;
 

@@ -1,14 +1,14 @@
-import {
+import type {
     IRecordLockingIsEntryLocked,
     IRecordLockingIsEntryLockedParams,
     IRecordLockingIsEntryLockedResult
 } from "~/domain/abstractions/IRecordLockingIsEntryLocked";
-import { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
-import {
+import type { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
+import type {
     IRecordLockingIsEntryLockedResponse,
-    IRecordLockingIsEntryLockedVariables,
-    IS_ENTRY_LOCKED_QUERY
+    IRecordLockingIsEntryLockedVariables
 } from "~/domain/graphql/isEntryLocked";
+import { IS_ENTRY_LOCKED_QUERY } from "~/domain/graphql/isEntryLocked";
 
 interface Params {
     client: IRecordLockingClient;

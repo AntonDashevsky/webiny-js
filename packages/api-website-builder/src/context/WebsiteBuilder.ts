@@ -1,7 +1,7 @@
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { WebsiteBuilderContext } from "~/context/types";
-import { WbPageCrud } from "./pages/pages.types";
-import { WbRedirectCrud } from "./redirects/redirects.types";
+import type { WebsiteBuilderContext } from "~/context/types";
+import type { WbPageCrud } from "./pages/pages.types";
+import type { WbRedirectCrud } from "./redirects/redirects.types";
 import { PagesContext } from "./pages/pages.context";
 import { RedirectsContext } from "~/context/redirects/redirects.context";
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { css } from "emotion";
 import get from "lodash/get";
 import { Cell, Grid } from "@webiny/ui/Grid";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
 import useUpdateHandlers from "../useUpdateHandlers";
 // Components
 import DurationInput from "../components/SliderWithInput";

@@ -1,8 +1,9 @@
 import dotPropImmutable from "dot-prop-immutable";
 import { useContext, useEffect, useMemo } from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { ListRecordsParams, SearchRecordsContext } from "~/contexts/records";
-import { DeletableSearchRecordItem, MovableSearchRecordItem, SearchRecordItem } from "~/types";
+import type { ListRecordsParams } from "~/contexts/records";
+import { SearchRecordsContext } from "~/contexts/records";
+import type { DeletableSearchRecordItem, MovableSearchRecordItem, SearchRecordItem } from "~/types";
 import { useAcoApp } from "~/hooks/useAcoApp";
 import { useNavigateFolder } from "~/hooks/useNavigateFolder";
 

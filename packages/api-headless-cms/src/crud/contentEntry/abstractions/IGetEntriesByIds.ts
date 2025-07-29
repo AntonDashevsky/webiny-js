@@ -1,4 +1,4 @@
-import { CmsEntryStorageOperationsGetByIdsParams, CmsModel, CmsStorageEntry } from "~/types";
+import type { CmsEntryStorageOperationsGetByIdsParams, CmsModel, CmsStorageEntry } from "~/types";
 
 export interface IGetEntriesByIds {
     execute: (

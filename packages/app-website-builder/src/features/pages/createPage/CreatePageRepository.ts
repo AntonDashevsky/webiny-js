@@ -1,6 +1,6 @@
-import { ICreatePageRepository } from "./ICreatePageRepository.js";
-import { ICreatePageGateway } from "./ICreatePageGateway.js";
-import { PageDto } from "./PageDto.js";
+import type { ICreatePageRepository } from "./ICreatePageRepository.js";
+import type { ICreatePageGateway } from "./ICreatePageGateway.js";
+import type { PageDto } from "./PageDto.js";
 import { type IListCache, Page } from "~/domain/Page/index.js";
 
 export class CreatePageRepository implements ICreatePageRepository {

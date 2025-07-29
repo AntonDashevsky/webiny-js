@@ -1,13 +1,10 @@
-import {
-    EventBridgeClient,
-    PutEventsRequestEntry,
-    PutEventsCommand
-} from "@webiny/aws-sdk/client-eventbridge";
+import type { PutEventsRequestEntry } from "@webiny/aws-sdk/client-eventbridge";
+import { EventBridgeClient, PutEventsCommand } from "@webiny/aws-sdk/client-eventbridge";
 import WebinyError from "@webiny/error";
-import { ClientContext } from "@webiny/handler-client/types";
+import type { ClientContext } from "@webiny/handler-client/types";
 import { ContextPlugin } from "@webiny/api";
-import { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types";
-import { FlushJob, RenderJob } from "@webiny/api-prerendering-service/types";
+import type { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types";
+import type { FlushJob, RenderJob } from "@webiny/api-prerendering-service/types";
 
 export interface PrerenderingServiceClientArgs {
     eventBus: string;

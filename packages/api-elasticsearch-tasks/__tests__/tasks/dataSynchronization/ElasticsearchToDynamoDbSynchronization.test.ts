@@ -4,9 +4,10 @@ import { createManagers } from "./managers";
 import { ElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchFetcher";
 import { ElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchSynchronize";
 import { DATA_SYNCHRONIZATION_TASK } from "~/tasks";
-import { Context, SynchronizationBuilder } from "@webiny/api-dynamodb-to-elasticsearch";
-import { ITimer } from "@webiny/handler-aws";
-import { IIndexManager } from "~/settings/types";
+import type { Context } from "@webiny/api-dynamodb-to-elasticsearch";
+import { SynchronizationBuilder } from "@webiny/api-dynamodb-to-elasticsearch";
+import type { ITimer } from "@webiny/handler-aws";
+import type { IIndexManager } from "~/settings/types";
 
 const queryAllRecords = (index: string) => {
     return {

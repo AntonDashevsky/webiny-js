@@ -1,4 +1,4 @@
-import { EntriesGatewayInterface } from "../adapters";
+import type { EntriesGatewayInterface } from "../adapters";
 import { EntryRepository } from "./EntryRepository";
 
 export class EntryRepositoryFactory {

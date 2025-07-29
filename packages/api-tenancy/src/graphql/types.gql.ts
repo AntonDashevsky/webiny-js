@@ -1,5 +1,5 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
-import { TenancyContext } from "~/types";
+import type { TenancyContext } from "~/types";
 
 export default new GraphQLSchemaPlugin<TenancyContext>({
     typeDefs: /* GraphQL */ `

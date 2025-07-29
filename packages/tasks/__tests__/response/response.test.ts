@@ -6,7 +6,7 @@ import {
     ResponseErrorResult
 } from "~/response";
 import { createMockEvent } from "~tests/mocks";
-import { ITaskEvent } from "~/handler/types";
+import type { ITaskEvent } from "~/handler/types";
 import { TaskResponseStatus } from "~/types";
 import { WebinyError } from "@webiny/error";
 

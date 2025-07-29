@@ -1,6 +1,6 @@
-import { CmsModel } from "@webiny/api-headless-cms/types";
-import { IProcessEntry } from "~/abstractions";
-import { HcmsBulkActionsContext } from "~/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type { IProcessEntry } from "~/abstractions";
+import type { HcmsBulkActionsContext } from "~/types";
 
 interface MoveEntryToFolderData {
     folderId?: string;

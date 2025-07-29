@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { LexicalEditor, COMMAND_PRIORITY_LOW } from "lexical";
+import type { LexicalEditor } from "lexical";
+import { COMMAND_PRIORITY_LOW } from "lexical";
 import { mergeRegister } from "@lexical/utils";
 import { formatToQuote } from "@webiny/lexical-nodes";
 import { INSERT_QUOTE_COMMAND } from "~/commands";

@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable, withStaticProps, cva, type VariantProps, cn } from "~/utils";
-import { AccordionRoot } from "./components/AccordionRoot";
+import type { AccordionRoot } from "./components/AccordionRoot";
 import { AccordionItem, type AccordionItemProps } from "./components/AccordionItem";
 
 const accordionVariants = cva("wby-group wby-w-full", {

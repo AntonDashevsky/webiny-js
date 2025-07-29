@@ -1,5 +1,5 @@
-import { IGetPageRevisionsRepository } from "./IGetPageRevisionsRepository.js";
-import { IGetPageRevisionsGateway } from "./IGetPageRevisionsGateway.js";
+import type { IGetPageRevisionsRepository } from "./IGetPageRevisionsRepository.js";
+import type { IGetPageRevisionsGateway } from "./IGetPageRevisionsGateway.js";
 import { type IListCache, PageRevision } from "~/domain/PageRevision/index.js";
 
 export class GetPageRevisionsRepository implements IGetPageRevisionsRepository {

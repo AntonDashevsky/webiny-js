@@ -3,7 +3,7 @@ import { useRouter } from "@webiny/react-router";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import { PaginationProp } from "@webiny/ui/List/DataList/types";
+import type { PaginationProp } from "@webiny/ui/List/DataList/types";
 import { LIST_TARGET_DATA_MODELS, DELETE_TARGET_DATA_MODEL } from "./graphql";
 
 /**

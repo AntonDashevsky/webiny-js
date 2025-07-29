@@ -1,7 +1,7 @@
 import React from "react";
 import { HeadingRenderer } from "@webiny/app-page-builder-elements/renderers/heading";
 import { useElementVariables } from "~/hooks/useElementVariables";
-import { PbBlockVariable } from "~/types";
+import type { PbBlockVariable } from "~/types";
 
 const getVariableValues = (variables: PbBlockVariable<string>[]) => {
     return {

@@ -2,13 +2,13 @@ import React from "react";
 import kebabCase from "lodash/kebabCase";
 import Quote from "./Quote";
 
-import {
-    DisplayMode,
+import type {
     PbEditorElement,
     PbEditorPageElementPlugin,
     PbEditorTextElementPluginsArgs,
     PbElement
 } from "~/types";
+import { DisplayMode } from "~/types";
 import { createInitialTextValue } from "../utils/textUtils";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 

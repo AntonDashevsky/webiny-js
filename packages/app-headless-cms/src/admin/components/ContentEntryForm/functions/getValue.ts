@@ -1,5 +1,5 @@
-import { CmsModelField } from "~/types";
-import { BindComponentRenderProp } from "@webiny/form";
+import type { CmsModelField } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
 
 interface GetValueParams {
     bind: BindComponentRenderProp;

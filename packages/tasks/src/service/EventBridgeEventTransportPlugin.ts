@@ -1,14 +1,10 @@
-import {
-    ITaskService,
-    ITaskServiceCreatePluginParams,
-    ITaskServiceTask,
-    TaskServicePlugin
-} from "~/plugins";
+import type { ITaskService, ITaskServiceCreatePluginParams, ITaskServiceTask } from "~/plugins";
+import { TaskServicePlugin } from "~/plugins";
 import type { ITaskEventInput } from "~/types";
 import type { PutEventsCommandOutput } from "@webiny/aws-sdk/client-eventbridge";
 import { EventBridgeClient, PutEventsCommand } from "@webiny/aws-sdk/client-eventbridge";
 import { WebinyError } from "@webiny/error";
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 class EventBridgeService implements ITaskService {
     protected readonly getTenant: () => string;

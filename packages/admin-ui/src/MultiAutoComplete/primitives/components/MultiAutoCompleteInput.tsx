@@ -1,6 +1,8 @@
 import React from "react";
-import { InputIcon, InputPrimitiveProps, inputVariants } from "~/Input";
-import { Command, CommandOptionFormatted } from "~/Command";
+import type { InputPrimitiveProps } from "~/Input";
+import { InputIcon, inputVariants } from "~/Input";
+import type { CommandOptionFormatted } from "~/Command";
+import { Command } from "~/Command";
 import { Tag } from "~/Tag";
 import { cn, cva, type VariantProps } from "~/utils";
 

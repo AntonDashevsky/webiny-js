@@ -1,4 +1,4 @@
-import { ElementStylesModifier } from "~/types";
+import type { ElementStylesModifier } from "~/types";
 
 const horizontalAlign: ElementStylesModifier = ({ element, theme }) => {
     const { horizontalAlignFlex: horizontalAlign } = element.data.settings || {};

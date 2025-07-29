@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import debounce from "lodash/debounce";
-import { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import type { CmsReferenceContentEntry } from "~/admin/plugins/fieldRenderers/ref/components/types";
 import { Scrollbar } from "@webiny/admin-ui";
-import { positionValues as PositionValues } from "react-custom-scrollbars";
+import type { positionValues as PositionValues } from "react-custom-scrollbars";
 import { NoEntries } from "~/admin/plugins/fieldRenderers/ref/advanced/components/NoEntries";
 
 interface EntriesProps {

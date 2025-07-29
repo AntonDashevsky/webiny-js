@@ -1,7 +1,7 @@
-import { ListCache } from "../cache";
+import type { ListCache } from "../cache";
 import { Folder } from "../Folder";
-import { IListFoldersByParentIdsGateway } from "./IListFoldersByParentIdsGateway";
-import {
+import type { IListFoldersByParentIdsGateway } from "./IListFoldersByParentIdsGateway";
+import type {
     IListFoldersByParentIdsRepository,
     ListFoldersByParentIdsRepositoryParams
 } from "./IListFoldersByParentIdsRepository";

@@ -1,4 +1,4 @@
-import { AdminUsersContext } from "@webiny/api-admin-users/types";
+import type { AdminUsersContext } from "@webiny/api-admin-users/types";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
 
 export default new GraphQLSchemaPlugin<AdminUsersContext>({

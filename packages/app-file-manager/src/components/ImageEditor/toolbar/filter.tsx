@@ -6,7 +6,7 @@ import React from "react";
 import { ReactComponent as FilterIcon } from "@webiny/icons/tune.svg";
 import debounce from "lodash/debounce";
 import { Button, Grid, IconButton, Slider, Tooltip } from "@webiny/admin-ui";
-import { ImageEditorTool } from "./types";
+import type { ImageEditorTool } from "./types";
 
 interface RenderFormState {
     values: Record<string, any>;

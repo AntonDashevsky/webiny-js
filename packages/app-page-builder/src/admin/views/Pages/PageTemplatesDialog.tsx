@@ -4,7 +4,7 @@ import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout";
 import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
 import { ReactComponent as SearchIcon } from "~/editor/assets/icons/search.svg";
 import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
-import { PbPageTemplate, PbPageTemplateWithContent } from "~/types";
+import type { PbPageTemplate, PbPageTemplateWithContent } from "~/types";
 import { useListPageTemplates } from "~/features";
 import { PageTemplateContentPreview } from "~/admin/views/PageTemplates/PageTemplateContentPreview";
 import { Button, DelayedOnChange, Heading, Icon, Input, List, Separator } from "@webiny/admin-ui";

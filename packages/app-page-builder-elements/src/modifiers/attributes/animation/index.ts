@@ -1,4 +1,4 @@
-import { ElementAttributesModifier } from "~/types";
+import type { ElementAttributesModifier } from "~/types";
 
 export type CreateAnimationParams = {
     initializeAos: () => void | Promise<void>;

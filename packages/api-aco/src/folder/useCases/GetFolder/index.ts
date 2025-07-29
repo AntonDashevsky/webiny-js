@@ -1,7 +1,7 @@
 import type { AcoFolderStorageOperations } from "~/folder/folder.types";
 import { GetFolder } from "./GetFolder";
 import { GetFolderWithFolderLevelPermissions } from "./GetFolderWithFolderLevelPermissions";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 
 interface GetFolderUseCasesParams {
     getOperation: AcoFolderStorageOperations["getFolder"];

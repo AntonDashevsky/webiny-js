@@ -1,4 +1,4 @@
-import { BoxData } from "@webiny/website-builder-sdk";
+import type { BoxData } from "@webiny/website-builder-sdk";
 
 export class Box {
     private readonly box: BoxData;

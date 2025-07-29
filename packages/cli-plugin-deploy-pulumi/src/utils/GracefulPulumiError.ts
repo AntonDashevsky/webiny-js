@@ -1,5 +1,6 @@
 import { GracefulError } from "./GracefulError";
-import { Context, gracefulPulumiErrorHandlers } from "./gracefulPulumiErrorHandlers";
+import type { Context } from "./gracefulPulumiErrorHandlers";
+import { gracefulPulumiErrorHandlers } from "./gracefulPulumiErrorHandlers";
 
 export class GracefulPulumiError extends GracefulError {
     static from(ex: GracefulPulumiError | Error, context: Context) {

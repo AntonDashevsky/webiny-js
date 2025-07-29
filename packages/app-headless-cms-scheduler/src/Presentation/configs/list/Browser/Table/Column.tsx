@@ -1,6 +1,6 @@
 import React from "react";
 import { AcoConfig, TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import { SchedulerEntry } from "~/types";
+import type { SchedulerEntry } from "~/types";
 
 const { Table } = AcoConfig;
 

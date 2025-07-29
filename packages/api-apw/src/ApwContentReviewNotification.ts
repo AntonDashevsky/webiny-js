@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import {
+import type {
     ApwContentReview,
     ApwContentTypes,
     ApwContext,

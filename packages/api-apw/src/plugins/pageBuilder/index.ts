@@ -1,11 +1,11 @@
-import { Security } from "@webiny/api-security/types";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
-import { AdvancedPublishingWorkflow } from "~/types";
+import type { Security } from "@webiny/api-security/types";
+import type { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
+import type { AdvancedPublishingWorkflow } from "~/types";
 import { triggerContentReview } from "./triggerContentReview";
 import { linkContentReviewToPage } from "./linkContentReviewToPage";
 import { updateContentReviewStatus } from "./updateContentReviewStatus";
 import { linkWorkflowToPage } from "./linkWorkflowToPage";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 import { PageApwSettingsGetterPlugin } from "~/plugins/pageBuilder/PageApwSettingsGetterPlugin";
 import { createCommentNotification } from "./notifications/commentNotification";
 import { createContentUrlPlugin } from "./notifications/contentUrl";

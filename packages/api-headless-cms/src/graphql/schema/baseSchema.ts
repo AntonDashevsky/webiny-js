@@ -1,7 +1,8 @@
-import { CmsContext, CmsModelFieldValidatorPlugin } from "~/types";
+import type { CmsContext, CmsModelFieldValidatorPlugin } from "~/types";
 import { createCmsGraphQLSchemaPlugin } from "~/plugins";
-import { GraphQLSchemaPlugin, IGraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { PluginsContainer } from "@webiny/plugins";
+import type { IGraphQLSchemaPlugin } from "@webiny/handler-graphql";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
+import type { PluginsContainer } from "@webiny/plugins";
 import { ContextPlugin } from "@webiny/api";
 import camelCase from "lodash/camelCase";
 

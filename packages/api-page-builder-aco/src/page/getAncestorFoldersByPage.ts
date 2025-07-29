@@ -1,8 +1,8 @@
 import get from "lodash/get";
 import WebinyError from "@webiny/error";
 
-import { PbAcoContext, PbPageRecordData } from "~/types";
-import { Page } from "@webiny/api-page-builder/types";
+import type { PbAcoContext, PbPageRecordData } from "~/types";
+import type { Page } from "@webiny/api-page-builder/types";
 import { PB_PAGE_TYPE } from "~/contants";
 
 export const getAncestorFoldersByPage = async (context: PbAcoContext, page: Page) => {

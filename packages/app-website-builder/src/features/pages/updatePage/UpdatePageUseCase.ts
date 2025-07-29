@@ -1,5 +1,6 @@
-import { IUpdatePageUseCase, type UpdatePageParams } from "./IUpdatePageUseCase.js";
-import { IUpdatePageRepository } from "./IUpdatePageRepository.js";
+import type { IUpdatePageUseCase } from "./IUpdatePageUseCase.js";
+import { type UpdatePageParams } from "./IUpdatePageUseCase.js";
+import type { IUpdatePageRepository } from "./IUpdatePageRepository.js";
 import { Page } from "~/domain/Page/index.js";
 
 export class UpdatePageUseCase implements IUpdatePageUseCase {

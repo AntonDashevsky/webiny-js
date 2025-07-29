@@ -1,5 +1,5 @@
 import React from "react";
-import { PbPageData } from "~/types";
+import type { PbPageData } from "~/types";
 import { makeDecoratable } from "@webiny/app-admin";
 import { MenuItem } from "@webiny/ui/Menu";
 import { ListItemGraphic } from "@webiny/ui/List";

@@ -1,6 +1,6 @@
-import { Client } from "@webiny/api-elasticsearch";
+import type { Client } from "@webiny/api-elasticsearch";
 import { IndexSettingsGetError, IndexSettingsSetError } from "~/errors";
-import { IIndexSettingsValues } from "~/types";
+import type { IIndexSettingsValues } from "~/types";
 
 export class IndexSettingsManager {
     private readonly elasticsearch: Client;

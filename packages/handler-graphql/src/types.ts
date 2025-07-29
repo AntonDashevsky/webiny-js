@@ -1,13 +1,13 @@
-import {
+import type {
     GraphQLScalarType,
     GraphQLFieldResolver as BaseGraphQLFieldResolver,
     GraphQLSchema
 } from "graphql";
-import { Plugin } from "@webiny/plugins/types";
-import { Context, GenericRecord } from "@webiny/api/types";
-import { RouteMethodPath } from "@webiny/handler/types";
-import { ResolversComposition } from "@graphql-tools/resolvers-composition";
-import { IResolvers, TypeSource } from "@graphql-tools/utils";
+import type { Plugin } from "@webiny/plugins/types";
+import type { Context, GenericRecord } from "@webiny/api/types";
+import type { RouteMethodPath } from "@webiny/handler/types";
+import type { ResolversComposition } from "@graphql-tools/resolvers-composition";
+import type { IResolvers, TypeSource } from "@graphql-tools/utils";
 
 export interface GraphQLScalarPlugin extends Plugin {
     type: "graphql-scalar";

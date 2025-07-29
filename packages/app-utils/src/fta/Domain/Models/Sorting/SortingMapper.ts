@@ -1,4 +1,4 @@
-import { Sorting, SortingDTO } from "./Sorting";
+import type { Sorting, SortingDTO } from "./Sorting";
 
 export type DbSorting = `${string}_ASC` | `${string}_DESC`;
 

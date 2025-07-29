@@ -1,4 +1,5 @@
-import React, { HTMLAttributeAnchorTarget } from "react";
+import type { HTMLAttributeAnchorTarget } from "react";
+import React from "react";
 import { DropdownMenu } from "@webiny/admin-ui";
 
 export interface OptionsMenuLinkProps {

@@ -1,12 +1,12 @@
-import { AdvancedPublishingWorkflow } from "~/types";
+import type { AdvancedPublishingWorkflow } from "~/types";
 import { apwEntryPlugins } from "./apwEntryPlugins";
 import { linkContentReviewToEntry } from "./linkContentReviewToEntry";
 import { linkWorkflowToEntry } from "./linkWorkflowToEntry";
 import { triggerContentReview } from "./triggerContentReview";
 import { updateContentReviewStatus } from "./updateContentReviewStatus";
-import { HeadlessCms } from "@webiny/api-headless-cms/types";
-import { Security } from "@webiny/api-security/types";
-import { PluginsContainer } from "@webiny/plugins";
+import type { HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { Security } from "@webiny/api-security/types";
+import type { PluginsContainer } from "@webiny/plugins";
 import { CmsEntryApwSettingsGetterPlugin } from "./CmsEntryApwSettingsGetterPlugin";
 import { createCommentNotification } from "./notifications/commentNotification";
 import { createContentUrlPlugin } from "./notifications/contentUrl";

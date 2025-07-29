@@ -2,8 +2,8 @@ import { S3 } from "@webiny/aws-sdk/client-s3";
 import { join } from "path";
 import WebinyError from "@webiny/error";
 import { getStorageFolder, isMultiTenancyEnabled } from "~/utils";
-import { FlushHookPlugin, HandlerArgs } from "./types";
-import { PrerenderingServiceStorageOperations } from "~/types";
+import type { FlushHookPlugin, HandlerArgs } from "./types";
+import type { PrerenderingServiceStorageOperations } from "~/types";
 import { EventPlugin } from "@webiny/handler";
 
 const s3 = new S3({ region: process.env.AWS_REGION });

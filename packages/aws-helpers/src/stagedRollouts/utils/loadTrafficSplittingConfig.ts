@@ -1,5 +1,5 @@
 import { get } from "https";
-import { CloudFrontRequestEvent } from "~/lambdaEdge";
+import type { CloudFrontRequestEvent } from "~/lambdaEdge";
 import { logDebug } from "./log";
 
 // Config file has a fixed URL within CDN, so it can be properly cached.

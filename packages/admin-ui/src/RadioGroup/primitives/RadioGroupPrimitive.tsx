@@ -2,7 +2,7 @@ import * as React from "react";
 import { RadioGroup as RadioGroupPrimitives } from "radix-ui";
 import { cn } from "~/utils";
 import { Radio } from "./Radio";
-import { RadioItemParams, RadioItemFormatted } from "../domains";
+import type { RadioItemParams, RadioItemFormatted } from "../domains";
 import { useRadioGroup } from "./useRadioGroup";
 
 /**

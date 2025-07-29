@@ -1,7 +1,7 @@
 import type { ITask, ITaskResponseDoneResultOutput } from "@webiny/tasks";
 import { TaskDataStatus } from "@webiny/tasks";
 import type { Context } from "~/types";
-import { IStepFunctionServiceFetchResult } from "@webiny/tasks/service/StepFunctionServicePlugin";
+import type { IStepFunctionServiceFetchResult } from "@webiny/tasks/service/StepFunctionServicePlugin";
 
 export interface IGetChildTasksParams {
     context: Context;

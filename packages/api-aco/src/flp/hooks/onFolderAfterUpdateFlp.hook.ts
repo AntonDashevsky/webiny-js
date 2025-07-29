@@ -1,5 +1,6 @@
 import WebinyError from "@webiny/error";
-import { AcoContext, type IUpdateFlpTaskInput } from "~/types";
+import type { AcoContext } from "~/types";
+import { type IUpdateFlpTaskInput } from "~/types";
 import { UPDATE_FLP_TASK_ID } from "../tasks";
 import { UpdateFlp } from "~/flp/useCases";
 

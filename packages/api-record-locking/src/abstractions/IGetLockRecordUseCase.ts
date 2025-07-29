@@ -1,4 +1,4 @@
-import { IRecordLockingGetLockRecordParams, IRecordLockingLockRecord } from "~/types";
+import type { IRecordLockingGetLockRecordParams, IRecordLockingLockRecord } from "~/types";
 
 export type IGetLockRecordUseCaseExecuteParams = IRecordLockingGetLockRecordParams;
 

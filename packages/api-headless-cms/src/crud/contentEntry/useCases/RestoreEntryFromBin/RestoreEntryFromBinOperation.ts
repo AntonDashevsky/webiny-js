@@ -1,5 +1,5 @@
-import { IRestoreEntryFromBinOperation } from "~/crud/contentEntry/abstractions";
-import {
+import type { IRestoreEntryFromBinOperation } from "~/crud/contentEntry/abstractions";
+import type {
     CmsEntryStorageOperations,
     CmsEntryStorageOperationsRestoreFromBinParams,
     CmsModel

@@ -3,7 +3,7 @@
  */
 import { useHandler } from "~tests/helpers/useHandler";
 import { ResponseContinueResult, ResponseDoneResult } from "@webiny/tasks/response";
-import { ITaskEvent } from "@webiny/tasks/handler/types";
+import type { ITaskEvent } from "@webiny/tasks/handler/types";
 import { TaskDataStatus } from "@webiny/tasks/types";
 
 const createContextTaskAndEvent = async (handler: ReturnType<typeof useHandler>) => {

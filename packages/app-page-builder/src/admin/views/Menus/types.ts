@@ -1,4 +1,4 @@
-import { TreeItemComponentProps as DefaultTreeItemComponentProps } from "dnd-kit-sortable-tree";
+import type { TreeItemComponentProps as DefaultTreeItemComponentProps } from "dnd-kit-sortable-tree";
 export interface MenuTreeItem {
     id: string;
     type: string;

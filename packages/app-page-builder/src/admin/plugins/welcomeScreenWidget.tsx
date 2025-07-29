@@ -3,7 +3,7 @@ import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
 import { ReactComponent as PbPageIcon } from "@webiny/icons/table_chart.svg";
 import { Button, Link } from "@webiny/admin-ui";
 
-import { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types";
+import type { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types";
 
 const plugin: AdminWelcomeScreenWidgetPlugin = {
     type: "admin-welcome-screen-widget",

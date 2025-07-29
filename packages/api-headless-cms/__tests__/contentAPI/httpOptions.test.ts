@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 
 /**

@@ -1,12 +1,8 @@
 import * as React from "react";
-import { cn, Separator, ColumnProps } from "@webiny/admin-ui";
-import {
-    Panel,
-    PanelProps,
-    PanelGroup,
-    PanelResizeHandle,
-    PanelGroupProps
-} from "~/components/ResizablePanels";
+import type { ColumnProps } from "@webiny/admin-ui";
+import { cn, Separator } from "@webiny/admin-ui";
+import type { PanelProps, PanelGroupProps } from "~/components/ResizablePanels";
+import { Panel, PanelGroup, PanelResizeHandle } from "~/components/ResizablePanels";
 
 interface SplitViewProps extends Omit<PanelGroupProps, "direction" | "id" | "autoSaveId"> {
     layoutId?: string | null;

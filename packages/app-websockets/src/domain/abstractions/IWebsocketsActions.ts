@@ -1,5 +1,5 @@
-import { IWebsocketsManager } from "./IWebsocketsManager";
-import { IGenericData } from "./types";
+import type { IWebsocketsManager } from "./IWebsocketsManager";
+import type { IGenericData } from "./types";
 
 export interface IWebsocketsActionsRunParams<T extends IGenericData = IGenericData> {
     action: string;

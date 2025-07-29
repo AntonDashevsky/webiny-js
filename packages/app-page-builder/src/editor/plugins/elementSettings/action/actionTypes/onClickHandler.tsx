@@ -4,7 +4,7 @@ import { plugins } from "@webiny/plugins";
 import { useBind } from "@webiny/form";
 import { Typography } from "@webiny/ui/Typography";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
-import {
+import type {
     PbButtonElementClickHandlerVariable,
     PbPageElementActionTypePlugin,
     PbButtonElementClickHandlerPlugin

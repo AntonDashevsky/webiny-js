@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { ILoadingRepository } from "@webiny/app-utils";
-import { ISchedulerItemsRepository } from "./ISchedulerItemsRepository";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { ISchedulerItemsRepository } from "./ISchedulerItemsRepository";
 import { LoadingActions } from "~/types";
 import type { ISchedulerGetExecuteParams, ISchedulerListExecuteParams } from "~/Gateways/index.js";
 

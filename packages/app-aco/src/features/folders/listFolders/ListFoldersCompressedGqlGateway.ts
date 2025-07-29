@@ -1,8 +1,8 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import pako from "pako";
-import { IListFoldersGateway, ListFoldersGatewayParams } from "./IListFoldersGateway";
-import { AcoError, FolderItem } from "~/types";
+import type { IListFoldersGateway, ListFoldersGatewayParams } from "./IListFoldersGateway";
+import type { AcoError, FolderItem } from "~/types";
 import { ROOT_FOLDER } from "~/constants";
 
 export interface ListFoldersCompressedResponse {

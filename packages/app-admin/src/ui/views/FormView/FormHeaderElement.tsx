@@ -1,6 +1,7 @@
 import React from "react";
-import { UIElement, UIElementConfig } from "~/ui/UIElement";
-import { FormElementRenderProps } from "~/ui/elements/form/FormElement";
+import type { UIElementConfig } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
+import type { FormElementRenderProps } from "~/ui/elements/form/FormElement";
 import { SimpleFormHeader } from "~/components/SimpleForm";
 import { Icon } from "@webiny/admin-ui";
 

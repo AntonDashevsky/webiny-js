@@ -1,5 +1,5 @@
-import { CmsGroup, CmsModel } from "~/types";
-import {
+import type { CmsGroup, CmsModel } from "~/types";
+import type {
     CmsImportStructureParamsData,
     ValidatedCmsGroupResult,
     ValidatedCmsModelResult

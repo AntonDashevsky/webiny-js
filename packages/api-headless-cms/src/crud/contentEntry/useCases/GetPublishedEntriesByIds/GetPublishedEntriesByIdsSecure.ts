@@ -1,7 +1,7 @@
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
 import { filterAsync } from "~/utils/filterAsync";
-import { IGetPublishedEntriesByIds } from "../../abstractions";
-import { CmsEntryStorageOperationsGetPublishedByIdsParams, CmsModel } from "~/types";
+import type { IGetPublishedEntriesByIds } from "../../abstractions";
+import type { CmsEntryStorageOperationsGetPublishedByIdsParams, CmsModel } from "~/types";
 
 export class GetPublishedEntriesByIdsSecure implements IGetPublishedEntriesByIds {
     private accessControl: AccessControl;

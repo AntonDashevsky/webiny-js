@@ -1,6 +1,6 @@
-import { IUpdateRedirectRepository } from "./IUpdateRedirectRepository.js";
-import { IUpdateRedirectGateway } from "./IUpdateRedirectGateway.js";
-import { RedirectDto } from "./RedirectDto.js";
+import type { IUpdateRedirectRepository } from "./IUpdateRedirectRepository.js";
+import type { IUpdateRedirectGateway } from "./IUpdateRedirectGateway.js";
+import type { RedirectDto } from "./RedirectDto.js";
 import { type IListCache, Redirect } from "~/domain/Redirect/index.js";
 
 export class UpdateRedirectRepository implements IUpdateRedirectRepository {

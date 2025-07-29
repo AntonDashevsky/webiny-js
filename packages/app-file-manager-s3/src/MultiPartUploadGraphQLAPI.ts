@@ -1,6 +1,6 @@
-import { UploadOptions } from "@webiny/app/types";
+import type { UploadOptions } from "@webiny/app/types";
 import gql from "graphql-tag";
-import {
+import type {
     CompleteUploadParams,
     CreateUploadParams,
     MultiPartUpload,

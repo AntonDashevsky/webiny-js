@@ -1,8 +1,7 @@
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import { ContextPlugin } from "@webiny/api";
-import {
-    ImportExportTaskStatus,
+import type {
     BlocksImportExportCrud,
     PbImportExportContext,
     OnBlocksBeforeExportTopicParams,
@@ -10,10 +9,11 @@ import {
     OnBlocksBeforeImportTopicParams,
     OnBlocksAfterImportTopicParams
 } from "~/types";
+import { ImportExportTaskStatus } from "~/types";
 import { invokeHandlerClient } from "~/client";
-import { Payload as CreateHandlerPayload } from "~/import/create";
+import type { Payload as CreateHandlerPayload } from "~/import/create";
 import { initialStats } from "~/import/utils";
-import { Payload as ExportBlocksProcessHandlerPayload } from "~/export/process";
+import type { Payload as ExportBlocksProcessHandlerPayload } from "~/export/process";
 import { zeroPad } from "@webiny/utils";
 import { PageBlocksPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PageBlocksPermissions";
 

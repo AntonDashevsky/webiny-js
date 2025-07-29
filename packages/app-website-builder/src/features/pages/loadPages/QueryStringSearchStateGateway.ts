@@ -1,4 +1,4 @@
-import { ISearchStateGateway } from "./ISearchStateGateway";
+import type { ISearchStateGateway } from "./ISearchStateGateway";
 
 const SEARCH_PARAM_KEY = "search";
 

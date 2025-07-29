@@ -10,7 +10,7 @@ import { ReactComponent as MoreVerticalIcon } from "@webiny/icons/more_vert.svg"
 import { ReactComponent as PublishIcon } from "@webiny/icons/visibility.svg";
 import { ReactComponent as UnpublishIcon } from "@webiny/icons/visibility_off.svg";
 import { useRevision } from "./useRevision";
-import { FbFormModel, FbRevisionModel } from "~/types";
+import type { FbFormModel, FbRevisionModel } from "~/types";
 import { usePermission } from "~/hooks/usePermission";
 import { DropdownMenu, Icon, IconButton, List, TimeAgo, Tooltip } from "@webiny/admin-ui";
 

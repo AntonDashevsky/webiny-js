@@ -1,5 +1,5 @@
 import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { deleteItem, getClean, put, queryAllClean } from "@webiny/db-dynamodb";
 import { createEntityWriteBatch } from "@webiny/db-dynamodb/utils/entity/EntityWriteBatch";
 

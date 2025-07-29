@@ -1,5 +1,5 @@
-import { Topic } from "@webiny/pubsub/types";
-import { OnEntryBeforeUpdateTopicParams, CmsContext } from "~/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { OnEntryBeforeUpdateTopicParams, CmsContext } from "~/types";
 import { markLockedFields } from "./markLockedFields";
 
 interface AssignBeforeEntryUpdateParams {

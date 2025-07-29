@@ -19,7 +19,8 @@ import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 
 import { usePublishingWorkflowsList } from "~/hooks/usePublishingWorkflowsList";
-import { ApwWorkflow, ApwWorkflowApplications } from "~/types";
+import type { ApwWorkflow } from "~/types";
+import { ApwWorkflowApplications } from "~/types";
 import { Box, Columns } from "~/components/Layout";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/data-list");

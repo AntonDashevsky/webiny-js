@@ -8,7 +8,7 @@ import dateTimeModifier from "./dateTimeModifier";
 import timeModifier from "./timeModifier";
 import numberModifier from "./numberModifier";
 import priceModifier from "./priceModifier";
-import { Modifier, ModifierOptions } from "~/types";
+import type { Modifier, ModifierOptions } from "~/types";
 
 export default (options: ModifierOptions): Modifier[] => [
     countModifiers(),

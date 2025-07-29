@@ -1,4 +1,4 @@
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import { getNanoid } from "~/editor/helpers";
 
 export interface IdGenerator {

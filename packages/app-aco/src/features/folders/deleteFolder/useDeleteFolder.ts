@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { DeleteFolderGqlGateway } from "./DeleteFolderGqlGateway";
-import { DeleteFolderParams } from "./IDeleteFolderUseCase";
+import type { DeleteFolderParams } from "./IDeleteFolderUseCase";
 import { DeleteFolder } from "./DeleteFolder";
 import { useFoldersType } from "~/hooks";
 

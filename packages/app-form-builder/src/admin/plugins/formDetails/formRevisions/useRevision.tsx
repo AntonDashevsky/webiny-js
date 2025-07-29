@@ -2,16 +2,18 @@ import React from "react";
 import { useRouter } from "@webiny/react-router";
 import { useApolloClient } from "@apollo/react-hooks";
 import { useHandlers } from "@webiny/app/hooks/useHandlers";
+import type {
+    CreateRevisionFromMutationResponse,
+    CreateRevisionFromMutationVariables
+} from "~/admin/graphql";
 import {
     CREATE_REVISION_FROM,
-    CreateRevisionFromMutationResponse,
-    CreateRevisionFromMutationVariables,
     DELETE_REVISION,
     PUBLISH_REVISION,
     UNPUBLISH_REVISION
 } from "~/admin/graphql";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { FbRevisionModel } from "~/types";
+import type { FbRevisionModel } from "~/types";
 import {
     removeRevisionFromFormCache,
     updateLatestRevisionInListCache,

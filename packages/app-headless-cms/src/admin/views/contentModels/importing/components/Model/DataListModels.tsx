@@ -1,5 +1,5 @@
 import React from "react";
-import { ImportModelData } from "../../types";
+import type { ImportModelData } from "../../types";
 import styled from "@emotion/styled";
 import { DataListModelItem } from "./DataListModelItem";
 import { useImport } from "~/admin/views/contentModels/importing/useImport";

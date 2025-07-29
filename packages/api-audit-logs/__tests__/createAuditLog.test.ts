@@ -1,5 +1,5 @@
 import { getAuditConfig } from "~/utils/getAuditConfig";
-import { AuditAction } from "~/types";
+import type { AuditAction } from "~/types";
 import { useHandler } from "./helpers/useHandler";
 import { ActionType } from "~/config";
 import { AUDIT_LOGS_TYPE } from "~/app/contants";

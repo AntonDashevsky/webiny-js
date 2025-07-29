@@ -1,4 +1,5 @@
-import { Asset, AssetOutputStrategy, AssetReply, AssetRequest } from "~/delivery";
+import type { Asset, AssetOutputStrategy, AssetRequest } from "~/delivery";
+import { AssetReply } from "~/delivery";
 import { ResponseHeaders } from "@webiny/handler";
 
 export class RedirectToPrivateUrlOutputStrategy implements AssetOutputStrategy {

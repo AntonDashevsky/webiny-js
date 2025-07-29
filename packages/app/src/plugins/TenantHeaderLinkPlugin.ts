@@ -1,6 +1,6 @@
 import { setContext } from "apollo-link-context";
 import { ApolloLinkPlugin } from "./ApolloLinkPlugin";
-import { ApolloLink } from "apollo-link";
+import type { ApolloLink } from "apollo-link";
 import { getTenantId } from "~/utils";
 
 /**

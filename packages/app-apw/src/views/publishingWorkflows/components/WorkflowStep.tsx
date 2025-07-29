@@ -6,7 +6,7 @@ import { Typography } from "@webiny/ui/Typography";
 import { Input } from "@webiny/ui/Input";
 import { Select } from "@webiny/ui/Select";
 import { CheckboxGroup } from "@webiny/ui/Checkbox";
-import { BindComponent } from "@webiny/form";
+import type { BindComponent } from "@webiny/form";
 import { IconButton } from "@webiny/ui/Button";
 import { css } from "emotion";
 import { ReactComponent as CloseIcon } from "~/assets/icons/close_24dp.svg";

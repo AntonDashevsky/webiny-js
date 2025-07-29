@@ -1,4 +1,4 @@
-import { ColorState } from "react-color";
+import type { ColorState } from "react-color";
 import { ColorPickerPresenter } from "./ColorPickerPresenter";
 
 describe("ColorPickerPresenter", () => {

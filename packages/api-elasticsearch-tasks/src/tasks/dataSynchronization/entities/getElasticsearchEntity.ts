@@ -1,8 +1,8 @@
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { NonEmptyArray } from "@webiny/api/types";
-import { IRegistryItem } from "@webiny/db";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { NonEmptyArray } from "@webiny/api/types";
+import type { IRegistryItem } from "@webiny/db";
 import { EntityType } from "./getElasticsearchEntityType";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 
 export interface IGetElasticsearchEntityParams {
     type: EntityType | unknown;

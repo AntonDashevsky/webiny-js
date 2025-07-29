@@ -1,8 +1,6 @@
 import { LocalesStorageOperations } from "./LocalesStorageOperations";
-import {
-    LocalesStorageOperationsProviderPlugin,
-    LocalesStorageOperationsProviderPluginParams
-} from "@webiny/api-i18n/plugins/LocalesStorageOperationsProviderPlugin";
+import type { LocalesStorageOperationsProviderPluginParams } from "@webiny/api-i18n/plugins/LocalesStorageOperationsProviderPlugin";
+import { LocalesStorageOperationsProviderPlugin } from "@webiny/api-i18n/plugins/LocalesStorageOperationsProviderPlugin";
 import fields from "./fields";
 
 export class LocalesStorageOperationsProviderDdbPlugin extends LocalesStorageOperationsProviderPlugin {

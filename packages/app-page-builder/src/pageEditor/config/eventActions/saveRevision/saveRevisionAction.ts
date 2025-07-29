@@ -2,11 +2,11 @@ import gql from "graphql-tag";
 import lodashIsEqual from "lodash/isEqual";
 import lodashGet from "lodash/get";
 import lodashDebounce from "lodash/debounce";
-import { SaveRevisionActionArgsType, UpdatedPage } from "./types";
+import type { SaveRevisionActionArgsType, UpdatedPage } from "./types";
 import { ToggleSaveRevisionStateActionEvent } from "./event";
-import { PageAtomType } from "~/pageEditor/state";
-import { PageEventActionCallable } from "~/pageEditor/types";
-import { PbElement } from "~/types";
+import type { PageAtomType } from "~/pageEditor/state";
+import type { PageEventActionCallable } from "~/pageEditor/types";
+import type { PbElement } from "~/types";
 
 interface PageRevisionType
     extends Pick<

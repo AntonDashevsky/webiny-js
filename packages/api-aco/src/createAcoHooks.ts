@@ -3,7 +3,7 @@ import { onFolderBeforeDeleteHcmsHook } from "~/folder/onFolderBeforeDeleteHcms.
 import { onFolderBeforeDeleteFmHook } from "~/folder/onFolderBeforeDeleteFm.hook";
 import { createFlpHooks } from "~/flp";
 
-import { AcoContext } from "~/types";
+import type { AcoContext } from "~/types";
 
 export const createAcoHooks = (context: AcoContext) => {
     onFolderBeforeDeleteAcoHook(context);

@@ -8,7 +8,7 @@ import { replaceInPath } from "replace-in-path";
 import loadJsonFile from "load-json-file";
 import writeJsonFile from "write-json-file";
 import chalk from "chalk";
-import { CliCommandScaffoldTemplate, PackageJson } from "@webiny/cli-plugin-scaffold/types";
+import type { CliCommandScaffoldTemplate, PackageJson } from "@webiny/cli-plugin-scaffold/types";
 import findUp from "find-up";
 import execa from "execa";
 import link from "terminal-link";

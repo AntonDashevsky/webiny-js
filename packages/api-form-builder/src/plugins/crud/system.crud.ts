@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { NotAuthorizedError } from "@webiny/api-security";
-import {
+import type {
     OnSystemBeforeInstallTopic,
     OnSystemAfterInstallTopic,
     FormBuilder,
@@ -9,10 +9,10 @@ import {
     System,
     SystemCRUD
 } from "~/types";
-import { Tenant } from "@webiny/api-tenancy/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
 import { createTopic } from "@webiny/pubsub";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 
 interface CreateSystemCrudParams {
     getIdentity: () => SecurityIdentity;

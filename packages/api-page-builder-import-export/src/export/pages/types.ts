@@ -1,5 +1,5 @@
-import { ITaskResponseDoneResultOutput, ITaskRunParams } from "@webiny/tasks";
-import { PbImportExportContext } from "~/types";
+import type { ITaskResponseDoneResultOutput, ITaskRunParams } from "@webiny/tasks";
+import type { PbImportExportContext } from "~/types";
 
 export enum PageExportTask {
     Controller = "pageBuilderExportPagesController",

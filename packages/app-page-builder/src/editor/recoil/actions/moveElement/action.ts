@@ -1,5 +1,5 @@
-import { EventActionCallable } from "~/types";
-import { MoveElementActionArgsType } from "./types";
+import type { EventActionCallable } from "~/types";
+import type { MoveElementActionArgsType } from "./types";
 import { updateElementAction } from "~/editor/recoil/actions";
 import { addElementToParent, removeElementFromParent } from "~/editor/helpers";
 import { executeAction } from "~/editor/recoil/eventActions";

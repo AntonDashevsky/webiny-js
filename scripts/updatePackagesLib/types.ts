@@ -1,5 +1,5 @@
 export { PackageJson } from "type-fest";
-import { SemVer } from "semver";
+import type { SemVer } from "semver";
 
 export interface IBasicPackage {
     name: string;

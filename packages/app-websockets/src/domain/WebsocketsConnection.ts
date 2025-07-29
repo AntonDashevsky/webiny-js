@@ -1,13 +1,13 @@
-import {
+import type {
     IGenericData,
     IWebsocketsConnection,
     IWebsocketsConnectionFactory,
     IWebsocketsConnectProtocol,
     IWebsocketsManagerMessageEvent,
     IWebsocketsSubscriptionManager,
-    WebsocketsCloseCode,
-    WebsocketsReadyState
+    WebsocketsCloseCode
 } from "./types";
+import { WebsocketsReadyState } from "./types";
 
 interface ICreateUrlResult {
     token: string;

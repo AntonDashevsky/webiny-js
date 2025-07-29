@@ -8,12 +8,12 @@ import type {
     FilesCRUD,
     FilesListOpts
 } from "~/types";
-import { FileManagerConfig } from "~/createFileManager/types";
+import type { FileManagerConfig } from "~/createFileManager/types";
 import { ROOT_FOLDER } from "~/contants";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { getDate } from "@webiny/api-headless-cms/utils/date";
 import { getIdentity as utilsGetIdentity } from "@webiny/api-headless-cms/utils/identity";
-import { CmsEntryListSort } from "@webiny/api-headless-cms/types";
+import type { CmsEntryListSort } from "@webiny/api-headless-cms/types";
 
 export const createFilesCrud = (
     config: Pick<

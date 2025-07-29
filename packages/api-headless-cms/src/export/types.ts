@@ -1,4 +1,4 @@
-import { CmsGroup, CmsModel } from "~/types";
+import type { CmsGroup, CmsModel } from "~/types";
 
 export interface CmsImportError {
     message: string;

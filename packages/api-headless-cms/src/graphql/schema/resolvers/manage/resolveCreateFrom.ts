@@ -1,5 +1,5 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses";
-import {
+import type {
     CmsEntryResolverFactory as ResolverFactory,
     CreateFromCmsEntryInput,
     CreateRevisionCmsEntryOptionsInput

@@ -1,5 +1,5 @@
-import { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import WebinyError from "@webiny/error";
 
 interface CreateOperationsWrapperParams extends CreateAcoStorageOperationsParams {

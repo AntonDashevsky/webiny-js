@@ -1,5 +1,5 @@
 import { pageModel } from "../../contentAPI/mocks/pageWithDynamicZonesModel";
-import { CmsModel, CmsModelDynamicZoneField } from "~/types";
+import type { CmsModel, CmsModelDynamicZoneField } from "~/types";
 import { createDynamicZoneStorageTransform } from "~/storage/dynamicZone";
 import { createStorageTransform } from "~/storage/index";
 import { getStoragePluginFactory } from "~/utils/entryStorage";

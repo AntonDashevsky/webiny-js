@@ -1,4 +1,4 @@
-import { ApwScheduleActionData, ApwScheduleActionStorageOperations } from "~/scheduler/types";
+import type { ApwScheduleActionData, ApwScheduleActionStorageOperations } from "~/scheduler/types";
 import { getIsoStringTillMinutes, encodeToken, basePlugins } from "~/scheduler/handlers/utils";
 import { getApwSettings } from "~/scheduler/handlers/utils";
 import { ContextPlugin } from "@webiny/api";

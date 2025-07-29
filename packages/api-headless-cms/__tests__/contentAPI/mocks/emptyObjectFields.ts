@@ -1,4 +1,4 @@
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 export const emptyObjectFields: Pick<CmsModel, "fields" | "layout"> = {
     layout: [["T87zmyqoF"]],

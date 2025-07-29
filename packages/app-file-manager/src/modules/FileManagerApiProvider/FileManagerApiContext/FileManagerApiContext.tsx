@@ -3,32 +3,34 @@ import omit from "lodash/omit";
 import { useApolloClient } from "@apollo/react-hooks";
 import WebinyError from "@webiny/error";
 import { useSecurity } from "@webiny/app-security";
-import {
-    CREATE_FILE,
+import type {
     CreateFileMutationResponse,
     CreateFileMutationVariables,
-    DELETE_FILE,
     DeleteFileMutationResponse,
     DeleteFileMutationVariables,
     FileInput,
-    GET_FILE,
-    GET_FILE_SETTINGS,
     GetFileManagerSettingsQueryResponse,
-    LIST_FILES,
-    LIST_TAGS,
     ListFileTagsQueryResponse,
     ListFileTagsQueryVariables,
     ListFilesListFilesResponse,
     ListFilesQueryResponse,
     ListFilesQueryVariables,
-    UPDATE_FILE,
     UpdateFileMutationResponse,
     UpdateFileMutationVariables,
     FmError
 } from "../graphql";
-import { FileItem, FileManagerSecurityPermission } from "@webiny/app-admin/types";
+import {
+    CREATE_FILE,
+    DELETE_FILE,
+    GET_FILE,
+    GET_FILE_SETTINGS,
+    LIST_FILES,
+    LIST_TAGS,
+    UPDATE_FILE
+} from "../graphql";
+import type { FileItem, FileManagerSecurityPermission } from "@webiny/app-admin/types";
 import { getFileUploader } from "./getFileUploader";
-import { Settings } from "~/types";
+import type { Settings } from "~/types";
 import { useFileModel } from "~/hooks/useFileModel";
 import { getFileGraphQLSelection } from "./getFileGraphQLSelection";
 

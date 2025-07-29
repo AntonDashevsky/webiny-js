@@ -1,4 +1,4 @@
-import { FormData } from "./../types";
+import type { FormData } from "./../types";
 import { fetchData } from "./fetchData";
 import { GET_PUBLISHED_FORM } from "./graphql";
 

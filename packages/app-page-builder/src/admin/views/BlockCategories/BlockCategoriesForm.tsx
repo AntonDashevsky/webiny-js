@@ -14,11 +14,7 @@ import {
 import IconPicker from "./IconPicker";
 import { validation } from "@webiny/validation";
 import { blockCategorySlugValidator, blockCategoryDescriptionValidator } from "./validators";
-import {
-    GET_BLOCK_CATEGORY,
-    CREATE_BLOCK_CATEGORY,
-    UPDATE_BLOCK_CATEGORY,
-    LIST_BLOCK_CATEGORIES,
+import type {
     GetBlockCategoryQueryResponse,
     GetBlockCategoryQueryVariables,
     UpdateBlockCategoryMutationResponse,
@@ -26,9 +22,15 @@ import {
     CreateBlockCategoryMutationResponse,
     CreateBlockCategoryMutationVariables
 } from "./graphql";
+import {
+    GET_BLOCK_CATEGORY,
+    CREATE_BLOCK_CATEGORY,
+    UPDATE_BLOCK_CATEGORY,
+    LIST_BLOCK_CATEGORIES
+} from "./graphql";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { PbBlockCategory } from "~/types";
+import type { PbBlockCategory } from "~/types";
 import pick from "lodash/pick";
 import get from "lodash/get";
 import set from "lodash/set";

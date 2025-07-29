@@ -1,8 +1,9 @@
-import { CmsContext, CmsModel } from "~/types";
+import type { CmsContext, CmsModel } from "~/types";
 import { buildSchemaPlugins } from "./buildSchemaPlugins";
 import { createExecutableSchema } from "./createExecutableSchema";
-import { GraphQLSchema } from "graphql/type";
-import { CmsGraphQLSchemaPlugin, ICmsGraphQLSchemaPlugin } from "~/plugins";
+import type { GraphQLSchema } from "graphql/type";
+import type { ICmsGraphQLSchemaPlugin } from "~/plugins";
+import { CmsGraphQLSchemaPlugin } from "~/plugins";
 
 interface GenerateSchemaParams {
     context: CmsContext;

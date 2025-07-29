@@ -3,11 +3,11 @@ import { useRouter } from "@webiny/react-router";
 import { ReactComponent as DownButton } from "@webiny/icons/keyboard_arrow_down.svg";
 import { i18n } from "@webiny/app/i18n";
 import { useQuery } from "@apollo/react-hooks";
-import {
-    GET_FORM_REVISIONS,
+import type {
     GetFormRevisionsQueryResponse,
     GetFormRevisionsQueryVariables
 } from "~/admin/graphql";
+import { GET_FORM_REVISIONS } from "~/admin/graphql";
 import { useFormEditor } from "~/admin/components/FormEditor";
 import { Button, DropdownMenu, Text } from "@webiny/admin-ui";
 

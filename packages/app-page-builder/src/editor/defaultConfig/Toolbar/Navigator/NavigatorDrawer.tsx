@@ -8,7 +8,7 @@ import { TreeView } from "./TreeView";
 import { ReactComponent as UnfoldMoreIcon } from "./assets/unfold_more_24px.svg";
 import { ReactComponent as UnfoldLessIcon } from "./assets/unfold_less_24px.svg";
 import { UpdateElementTreeActionEvent } from "~/editor/recoil/actions";
-import { PbEditorElementTree } from "~/types";
+import type { PbEditorElementTree } from "~/types";
 
 const t = i18n.ns("app-page-builder/editor/plugins/toolbar/navigator");
 

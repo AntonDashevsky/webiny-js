@@ -1,9 +1,7 @@
 import React from "react";
-import { FormRenderPropParams } from "@webiny/form";
-import {
-    InputElement,
-    InputElementRenderProps
-} from "@webiny/app-admin/ui/elements/form/InputElement";
+import type { FormRenderPropParams } from "@webiny/form";
+import type { InputElementRenderProps } from "@webiny/app-admin/ui/elements/form/InputElement";
+import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement";
 import { GroupAutocomplete } from "@webiny/app-security-access-management/components/GroupAutocomplete";
 
 export class GroupAutocompleteElement extends InputElement {

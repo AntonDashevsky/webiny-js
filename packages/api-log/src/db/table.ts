@@ -1,6 +1,6 @@
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { Table } from "@webiny/db-dynamodb/toolbox";
-import { ITable } from "~/db/types";
+import type { ITable } from "~/db/types";
 
 interface Params {
     name: string;

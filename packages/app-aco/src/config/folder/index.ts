@@ -1,4 +1,5 @@
-import { Action, ActionConfig } from "./Action";
+import type { ActionConfig } from "./Action";
+import { Action } from "./Action";
 
 export interface FolderConfig {
     actions: ActionConfig[];

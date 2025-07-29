@@ -1,6 +1,6 @@
 // @ts-nocheck This is pending implementation!
 import React from "react";
-import { InputAstNode } from "@webiny/website-builder-sdk";
+import type { InputAstNode } from "@webiny/website-builder-sdk";
 import { InputField } from "./InputField";
 
 export function FieldArray({

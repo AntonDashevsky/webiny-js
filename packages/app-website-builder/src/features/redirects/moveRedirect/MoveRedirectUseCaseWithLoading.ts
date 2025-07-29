@@ -1,5 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { IMoveRedirectUseCase, type MoveRedirectParams } from "./IMoveRedirectUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { IMoveRedirectUseCase } from "./IMoveRedirectUseCase.js";
+import { type MoveRedirectParams } from "./IMoveRedirectUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class MoveRedirectUseCaseWithLoading implements IMoveRedirectUseCase {

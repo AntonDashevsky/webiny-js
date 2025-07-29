@@ -2,7 +2,7 @@ import type { CommandType } from "~/types.js";
 import type { IResolverSQSRecord } from "~/resolver/app/abstractions/ResolverRecord.js";
 import type { IDetailItem } from "~/sync/handler/types.js";
 import type { ITable } from "~/sync/types.js";
-import { IDeployment } from "~/resolver/deployment/types.js";
+import type { IDeployment } from "~/resolver/deployment/types.js";
 
 export interface IIngestorIngestParams {
     records: IResolverSQSRecord[];

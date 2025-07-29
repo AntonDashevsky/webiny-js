@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
 import { makeDecoratable } from "~/utils";
-import { RichTextEditorPrimitive, RichTextEditorPrimitiveProps } from "./RichTextEditorPrimitive";
+import type { RichTextEditorPrimitiveProps } from "./RichTextEditorPrimitive";
+import { RichTextEditorPrimitive } from "./RichTextEditorPrimitive";
+import type { FormComponentProps } from "~/FormComponent";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
-    FormComponentNote,
-    FormComponentProps
+    FormComponentNote
 } from "~/FormComponent";
 
 type RichTextEditorProps = RichTextEditorPrimitiveProps & FormComponentProps;

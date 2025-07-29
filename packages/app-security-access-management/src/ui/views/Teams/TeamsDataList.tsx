@@ -20,10 +20,11 @@ import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
-import { LIST_TEAMS, DELETE_TEAM, ListTeamsResponse } from "./graphql";
+import type { ListTeamsResponse } from "./graphql";
+import { LIST_TEAMS, DELETE_TEAM } from "./graphql";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
 import { deserializeSorters } from "../utils";
-import { Team } from "~/types";
+import type { Team } from "~/types";
 
 const t = i18n.ns("app-security/admin/teams/data-list");
 

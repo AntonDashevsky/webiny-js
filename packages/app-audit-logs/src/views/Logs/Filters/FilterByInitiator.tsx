@@ -5,7 +5,7 @@ import { useBind } from "@webiny/form";
 import { Select } from "@webiny/ui/Select";
 
 import { LIST_USERS } from "~/graphql";
-import { User } from "~/types";
+import type { User } from "~/types";
 
 const getValidFilterValue = (value: string): string | undefined => {
     if (value === "all" || value === "") {

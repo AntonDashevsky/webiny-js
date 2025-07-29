@@ -1,4 +1,4 @@
-import { FbFormModel, FbFormStep, DropSource, DropDestination } from "~/types";
+import type { FbFormModel, FbFormStep, DropSource, DropDestination } from "~/types";
 import moveRow from "./handleMoveRow/moveRow";
 import moveRowBetween from "./handleMoveRow/moveRowBetween";
 

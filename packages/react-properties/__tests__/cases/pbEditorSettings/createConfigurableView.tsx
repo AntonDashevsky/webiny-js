@@ -1,7 +1,9 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { Compose, GenericComponent, Decorator, makeDecoratable } from "@webiny/react-composition";
-import { Property, Properties } from "~/index";
+import type { GenericComponent, Decorator } from "@webiny/react-composition";
+import { Compose, makeDecoratable } from "@webiny/react-composition";
+import type { Property } from "~/index";
+import { Properties } from "~/index";
 
 const createHOC =
     (newChildren: React.ReactNode): Decorator<GenericComponent> =>

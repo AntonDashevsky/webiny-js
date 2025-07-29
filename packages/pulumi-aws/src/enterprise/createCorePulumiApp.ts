@@ -1,10 +1,9 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
-import {
-    createCorePulumiApp as baseCreateCorePulumiApp,
-    CreateCorePulumiAppParams as BaseCreateCorePulumiAppParams
-} from "~/apps/core/createCorePulumiApp";
-import { isResourceOfType, PulumiAppParam } from "@webiny/pulumi";
+import type { CreateCorePulumiAppParams as BaseCreateCorePulumiAppParams } from "~/apps/core/createCorePulumiApp";
+import { createCorePulumiApp as baseCreateCorePulumiApp } from "~/apps/core/createCorePulumiApp";
+import type { PulumiAppParam } from "@webiny/pulumi";
+import { isResourceOfType } from "@webiny/pulumi";
 import { getAwsRegion } from "~/apps/awsUtils";
 import { configureS3BucketMalwareProtection } from "~/enterprise/core/configureS3BucketMalwareProtection";
 import { License } from "@webiny/wcp";

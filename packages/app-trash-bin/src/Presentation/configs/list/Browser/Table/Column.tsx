@@ -1,6 +1,6 @@
 import React from "react";
 import { AcoConfig, TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinItemDTO } from "~/Domain";
 
 const { Table } = AcoConfig;
 

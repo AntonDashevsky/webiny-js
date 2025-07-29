@@ -1,7 +1,8 @@
 import * as React from "react";
 import { ReactComponent as DragHandleIcon } from "@webiny/icons/drag_indicator.svg";
 import { makeDecoratable } from "~/utils";
-import { Icon, IconProps as IconProps } from "~/Icon";
+import type { IconProps as IconProps } from "~/Icon";
+import { Icon } from "~/Icon";
 
 interface ListItemHandleProps extends Omit<IconProps, "icon" | "label"> {
     icon?: React.ReactElement;

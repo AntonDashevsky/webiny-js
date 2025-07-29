@@ -1,6 +1,6 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { CmsContentEntry, CmsEditorContentModel } from "~/types";
+import type { CmsContentEntry, CmsEditorContentModel } from "~/types";
 import { ModelProvider } from "~/admin/components/ModelProvider";
 import { useFormRenderer } from "~/admin/components/ContentEntryForm/useFormRenderer";
 import { CustomLayout } from "~/admin/components/ContentEntryForm/CustomLayout";

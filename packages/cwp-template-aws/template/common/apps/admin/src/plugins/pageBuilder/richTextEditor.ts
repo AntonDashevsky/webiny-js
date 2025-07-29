@@ -7,7 +7,7 @@ import TextColor from "@webiny/app-admin/components/RichTextEditor/tools/textCol
 import Header from "@webiny/app-admin/components/RichTextEditor/tools/header";
 import Paragraph from "@webiny/app-admin/components/RichTextEditor/tools/paragraph";
 import { plugins } from "@webiny/plugins";
-import { PbThemePlugin } from "@webiny/app-page-builder/types";
+import type { PbThemePlugin } from "@webiny/app-page-builder/types";
 
 /**
  * This file contains a RichTextEditor configuration used in Page Builder app.

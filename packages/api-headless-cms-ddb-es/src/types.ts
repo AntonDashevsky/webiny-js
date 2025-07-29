@@ -1,5 +1,5 @@
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
-import {
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type {
     CmsContext as BaseCmsContext,
     CmsEntry,
     CmsEntryStorageOperations as BaseCmsEntryStorageOperations,
@@ -9,10 +9,15 @@ import {
     CmsModelFieldType,
     HeadlessCmsStorageOperations as BaseHeadlessCmsStorageOperations
 } from "@webiny/api-headless-cms/types";
-import { AttributeDefinition, Entity, Table, TableConstructor } from "@webiny/db-dynamodb/toolbox";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Client } from "@elastic/elasticsearch";
-import { PluginsContainer } from "@webiny/plugins";
+import type {
+    AttributeDefinition,
+    Entity,
+    Table,
+    TableConstructor
+} from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { Client } from "@elastic/elasticsearch";
+import type { PluginsContainer } from "@webiny/plugins";
 
 /**
  * A definition of the entry that is being prepared for the Elasticsearch.

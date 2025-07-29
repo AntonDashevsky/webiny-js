@@ -1,4 +1,4 @@
-import { CloudFrontResponse } from "./types";
+import type { CloudFrontResponse } from "./types";
 import { setHeader } from "./headers";
 
 interface RedirectParams {

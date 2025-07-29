@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { makeAutoObservable } from "mobx";
 import { ContentEntryEditorConfig } from "@webiny/app-headless-cms";
-import { CmsContentEntry } from "@webiny/app-headless-cms/types";
+import type { CmsContentEntry } from "@webiny/app-headless-cms/types";
 import { useLoadDataSource } from "@webiny/app-page-builder/features";
-import {
+import type {
     DataRequest,
     DataSourceData,
     IResolveDataSourceRepository

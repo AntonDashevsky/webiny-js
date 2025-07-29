@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { autorun } from "mobx";
 import { createGenericContext } from "@webiny/app-admin";
-import { ITrashBinControllers, ITrashBinPresenter } from "~/Presentation/abstractions";
-import { TrashBinItemDTO } from "~/Domain";
-import { TrashBinBulkActionsParams } from "~/types";
+import type { ITrashBinControllers, ITrashBinPresenter } from "~/Presentation/abstractions";
+import type { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinBulkActionsParams } from "~/types";
 
 export interface TrashBinContext {
     controllers: ITrashBinControllers;

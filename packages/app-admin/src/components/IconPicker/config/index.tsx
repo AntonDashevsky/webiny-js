@@ -5,7 +5,7 @@ import { IconType } from "./IconType";
 import { SimpleIconPlugin } from "../plugins/iconsPlugin";
 import { EmojiPlugin } from "../plugins/emojisPlugin";
 import { CustomIconPlugin } from "../plugins/customPlugin";
-import { Icon } from "../types";
+import type { Icon } from "../types";
 import { createProvider } from "@webiny/app";
 import { Emojis } from "./Emojis";
 import { FontAwesomeIcons } from "./FontAwesomeIcons";

@@ -1,7 +1,5 @@
-import {
-    ElasticsearchBodyModifierPlugin,
-    ModifyBodyParams as BaseModifyBodyParams
-} from "@webiny/api-elasticsearch";
+import type { ModifyBodyParams as BaseModifyBodyParams } from "@webiny/api-elasticsearch";
+import { ElasticsearchBodyModifierPlugin } from "@webiny/api-elasticsearch";
 
 export interface ModifyBodyParams extends BaseModifyBodyParams {
     where: Record<string, any>;

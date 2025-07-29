@@ -1,6 +1,7 @@
 import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters";
 import dynamoDbPlugins from "./dynamoDb";
-import { ENTITIES, StorageOperationsFactory } from "~/types";
+import type { StorageOperationsFactory } from "~/types";
+import { ENTITIES } from "~/types";
 import { createTable } from "~/definitions/table";
 import { createSystemEntity } from "~/definitions/system";
 import { createGroupEntity } from "~/definitions/group";

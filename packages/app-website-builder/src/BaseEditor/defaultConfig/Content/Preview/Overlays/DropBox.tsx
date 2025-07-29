@@ -3,8 +3,8 @@ import { useDrop } from "react-dnd";
 import { cn, Icon } from "@webiny/admin-ui";
 import { ReactComponent as InsertIcon } from "@webiny/icons/add_circle.svg";
 import { ReactComponent as BlockIcon } from "@webiny/icons/block.svg";
-import { Box } from "~/BaseEditor/defaultConfig/Content/Preview/Box";
-import { DropEvent } from "~/BaseEditor/defaultConfig/Content/Preview/useProximityDropzone";
+import type { Box } from "~/BaseEditor/defaultConfig/Content/Preview/Box";
+import type { DropEvent } from "~/BaseEditor/defaultConfig/Content/Preview/useProximityDropzone";
 import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging";
 import deepEqual from "deep-equal";
 

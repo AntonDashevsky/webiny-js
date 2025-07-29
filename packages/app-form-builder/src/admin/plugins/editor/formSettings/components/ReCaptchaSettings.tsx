@@ -2,12 +2,13 @@ import React, { useState, useCallback } from "react";
 import { Grid, Cell } from "@webiny/ui/Grid";
 import { Switch } from "@webiny/ui/Switch";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_RECAPTCHA_SETTINGS, GetReCaptchaSettingsQueryResponse } from "./graphql";
+import type { GetReCaptchaSettingsQueryResponse } from "./graphql";
+import { GET_RECAPTCHA_SETTINGS } from "./graphql";
 import ReCaptchaSettingsDialog from "./ReCaptchaSettingsDialog";
 import { Alert } from "@webiny/ui/Alert";
 import { Input } from "@webiny/ui/Input";
-import { BindComponent } from "@webiny/form";
-import { FbSettings } from "~/types";
+import type { BindComponent } from "@webiny/form";
+import type { FbSettings } from "~/types";
 
 interface ReCaptchaSettingsProps {
     Bind: BindComponent;

@@ -1,4 +1,4 @@
-import { QueueJob } from "~/types";
+import type { QueueJob } from "~/types";
 
 const mocks = {
     job: (index: string): QueueJob => {

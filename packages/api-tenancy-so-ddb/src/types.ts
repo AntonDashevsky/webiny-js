@@ -1,11 +1,11 @@
-import {
+import type {
     TenancyStorageOperations,
     TenancyStorageOperations as BaseTenantsStorageOperations
 } from "@webiny/api-tenancy/types";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { TableConstructor } from "@webiny/db-dynamodb/toolbox";
-import { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { TableConstructor } from "@webiny/db-dynamodb/toolbox";
+import type { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

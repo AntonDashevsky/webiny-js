@@ -1,4 +1,4 @@
-import { DeleteElementActionArgsType } from "./types";
+import type { DeleteElementActionArgsType } from "./types";
 import { BaseEventAction } from "../../eventActions";
 
 export class DeleteElementActionEvent extends BaseEventAction<DeleteElementActionArgsType> {

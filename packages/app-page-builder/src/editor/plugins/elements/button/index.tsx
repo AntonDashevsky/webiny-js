@@ -1,14 +1,14 @@
 import React from "react";
 import { css } from "emotion";
 import kebabCase from "lodash/kebabCase";
-import { Element } from "@webiny/app-page-builder-elements/types";
-import {
-    DisplayMode,
+import type { Element } from "@webiny/app-page-builder-elements/types";
+import type {
     PbEditorPageElementPlugin,
     PbEditorPageElementStyleSettingsPlugin,
     PbEditorElementPluginArgs,
     PbEditorElement
 } from "~/types";
+import { DisplayMode } from "~/types";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 import ButtonSettings from "./ButtonSettings";
 import ButtonSettingsV2 from "./ButtonSettingsV2";

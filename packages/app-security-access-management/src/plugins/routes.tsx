@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import { Route } from "@webiny/react-router";
 import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
 import { SecureRoute } from "@webiny/app-security/components";
-import { RoutePlugin } from "@webiny/app/types";
+import type { RoutePlugin } from "@webiny/app/types";
 import { Groups } from "~/ui/views/Groups";
 import { ApiKeys } from "~/ui/views/ApiKeys";
 import { Permission } from "./constants";

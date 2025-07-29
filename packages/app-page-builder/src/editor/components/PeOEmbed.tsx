@@ -3,7 +3,8 @@
  * packages/app-page-builder/src/render/components/OEmbed.tsx
  * TODO @ts-refactor
  */
-import React, { useCallback, useEffect, ReactElement, useState } from "react";
+import type { ReactElement } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import gql from "graphql-tag";
 import { css } from "emotion";
 import { useQuery } from "@apollo/react-hooks";
@@ -12,7 +13,7 @@ import { Typography } from "@webiny/ui/Typography";
 import { useEventActionHandler } from "../hooks/useEventActionHandler";
 import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue";
 import { UpdateElementActionEvent } from "../recoil/actions";
-import { PbEditorElement } from "~/types";
+import type { PbEditorElement } from "~/types";
 import useRenderEmptyEmbed from "../plugins/elements/utils/oembed/useRenderEmptyEmbed";
 
 function appendSDK(props: OEmbedProps) {

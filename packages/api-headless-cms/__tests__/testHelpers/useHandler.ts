@@ -1,8 +1,9 @@
-import { createHandlerCore, CreateHandlerCoreParams } from "~tests/testHelpers/plugins";
+import type { CreateHandlerCoreParams } from "~tests/testHelpers/plugins";
+import { createHandlerCore } from "~tests/testHelpers/plugins";
 import { createRawEventHandler, createRawHandler } from "@webiny/handler-aws";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 import { defaultIdentity } from "~tests/testHelpers/tenancySecurity";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 interface CmsHandlerEvent {
     path: string;

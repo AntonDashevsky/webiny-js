@@ -5,7 +5,7 @@ import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useTenancy } from "@webiny/app-tenancy";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { GET_TENANT, UPDATE_TENANT } from "~/graphql";
-import { TenantItem } from "~/types";
+import type { TenantItem } from "~/types";
 
 interface Params {
     onSaved: () => void;

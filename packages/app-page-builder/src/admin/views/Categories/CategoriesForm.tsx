@@ -12,11 +12,7 @@ import {
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm";
 import { validation } from "@webiny/validation";
-import {
-    GET_CATEGORY,
-    CREATE_CATEGORY,
-    UPDATE_CATEGORY,
-    LIST_CATEGORIES,
+import type {
     GetCategoryQueryResponse,
     GetCategoryQueryVariables,
     UpdateCategoryMutationResponse,
@@ -24,11 +20,12 @@ import {
     CreateCategoryMutationResponse,
     CreateCategoryMutationVariables
 } from "./graphql";
+import { GET_CATEGORY, CREATE_CATEGORY, UPDATE_CATEGORY, LIST_CATEGORIES } from "./graphql";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { categoryUrlValidator } from "./validators";
 import { plugins } from "@webiny/plugins";
-import { PbCategory, PbPageLayoutPlugin } from "~/types";
+import type { PbCategory, PbPageLayoutPlugin } from "~/types";
 import pick from "lodash/pick";
 import get from "lodash/get";
 import set from "lodash/set";

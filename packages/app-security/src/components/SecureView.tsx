@@ -1,6 +1,6 @@
-import * as React from "react";
+import type * as React from "react";
 import { useSecurity } from "~/hooks/useSecurity";
-import { SecurityPermission } from "~/types";
+import type { SecurityPermission } from "~/types";
 
 interface ChildrenRenderFunctionArgs<T extends SecurityPermission> {
     hasPermission: boolean;

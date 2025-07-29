@@ -1,5 +1,6 @@
 import { UniqueResolver } from "~/tasks/utils/uniqueResolver/UniqueResolver";
-import { assets, IMockAsset } from "~tests/mocks/assets";
+import type { IMockAsset } from "~tests/mocks/assets";
+import { assets } from "~tests/mocks/assets";
 
 interface IItem {
     id: string;

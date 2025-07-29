@@ -8,7 +8,7 @@ import { css } from "emotion";
 import { Typography } from "@webiny/ui/Typography";
 import { Tooltip } from "@webiny/ui/Tooltip";
 import { plugins } from "@webiny/plugins";
-import {
+import type {
     PbEditorElement,
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin
@@ -18,7 +18,8 @@ import {
     elementWithChildrenByIdSelector,
     uiAtom
 } from "../../../recoil/modules";
-import useUpdateHandlers, { PostModifyElementArgs } from "../useUpdateHandlers";
+import type { PostModifyElementArgs } from "../useUpdateHandlers";
+import useUpdateHandlers from "../useUpdateHandlers";
 // Icons
 import { ReactComponent as LinkIcon } from "../../../assets/icons/link.svg";
 // Components

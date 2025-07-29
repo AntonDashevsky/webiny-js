@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import FormPreview from "./FormPreview";
 import Header from "./Header";
 import { i18n } from "@webiny/app/i18n";
-import { FbFormDetailsPluginRenderParams, FbFormDetailsPluginType } from "~/types";
+import type { FbFormDetailsPluginRenderParams, FbFormDetailsPluginType } from "~/types";
 import { OverlayLoader, Tabs } from "@webiny/admin-ui";
 import { ReactComponent as FullscreenIcon } from "@webiny/icons/fullscreen.svg";
 import {

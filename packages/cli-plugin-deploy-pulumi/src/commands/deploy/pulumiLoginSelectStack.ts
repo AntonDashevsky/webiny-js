@@ -1,4 +1,4 @@
-import { IPulumi, IUserCommandInput, ProjectApplication } from "~/types";
+import type { IPulumi, IUserCommandInput, ProjectApplication } from "~/types";
 import { getStackName, getStackOutput, login } from "~/utils";
 import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env";
 

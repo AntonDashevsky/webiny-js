@@ -1,5 +1,5 @@
 import { compress as gzip, decompress as ungzip } from "@webiny/utils/compression/gzip";
-import { PageBlock } from "@webiny/api-page-builder/types";
+import type { PageBlock } from "@webiny/api-page-builder/types";
 
 const GZIP = "gzip";
 const TO_STORAGE_ENCODING = "base64";

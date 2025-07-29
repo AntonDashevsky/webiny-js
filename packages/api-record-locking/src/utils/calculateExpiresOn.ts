@@ -1,4 +1,4 @@
-import { IHeadlessCmsLockRecordParams } from "./convertEntryToLockRecord";
+import type { IHeadlessCmsLockRecordParams } from "./convertEntryToLockRecord";
 
 export const calculateExpiresOn = (
     input: Pick<IHeadlessCmsLockRecordParams, "savedOn">,

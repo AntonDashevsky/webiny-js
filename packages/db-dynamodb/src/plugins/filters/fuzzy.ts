@@ -1,8 +1,6 @@
 import Fuse from "fuse.js";
-import {
-    ValueFilterPlugin,
-    ValueFilterPluginParamsMatchesParams
-} from "../definitions/ValueFilterPlugin";
+import type { ValueFilterPluginParamsMatchesParams } from "../definitions/ValueFilterPlugin";
+import { ValueFilterPlugin } from "../definitions/ValueFilterPlugin";
 
 const plugin = new ValueFilterPlugin({
     operation: "fuzzy",

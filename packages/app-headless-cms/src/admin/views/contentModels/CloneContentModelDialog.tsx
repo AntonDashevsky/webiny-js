@@ -12,16 +12,15 @@ import { i18n } from "@webiny/app/i18n";
 import { ButtonDefault } from "@webiny/ui/Button";
 import { Grid, Cell } from "@webiny/ui/Grid";
 import { addModelToGroupCache, addModelToListCache } from "./cache";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
-import {
-    CREATE_CONTENT_MODEL_FROM,
-    LIST_MENU_CONTENT_GROUPS_MODELS,
+import type {
     CreateCmsModelFromMutationResponse,
     CreateCmsModelFromMutationVariables,
     ListMenuCmsGroupsQueryResponse
 } from "../../viewsGraphql";
-import { CmsGroupOption } from "~/admin/views/contentModels/types";
+import { CREATE_CONTENT_MODEL_FROM, LIST_MENU_CONTENT_GROUPS_MODELS } from "../../viewsGraphql";
+import type { CmsGroupOption } from "~/admin/views/contentModels/types";
 import { Dialog } from "~/admin/components/Dialog";
 import { createNameValidator } from "~/admin/views/contentModels/helpers/nameValidator";
 import { createApiNameValidator } from "~/admin/views/contentModels/helpers/apiNameValidator";

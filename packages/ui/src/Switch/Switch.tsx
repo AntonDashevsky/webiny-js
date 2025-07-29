@@ -1,5 +1,5 @@
 import React from "react";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 import { Switch as AdminSwitch } from "@webiny/admin-ui";
 
 type SwitchProps = {

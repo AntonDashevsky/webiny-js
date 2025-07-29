@@ -1,4 +1,8 @@
-import { CmsEntryStorageOperationsRestoreFromBinParams, CmsModel, CmsStorageEntry } from "~/types";
+import type {
+    CmsEntryStorageOperationsRestoreFromBinParams,
+    CmsModel,
+    CmsStorageEntry
+} from "~/types";
 
 export interface IRestoreEntryFromBinOperation {
     execute: (

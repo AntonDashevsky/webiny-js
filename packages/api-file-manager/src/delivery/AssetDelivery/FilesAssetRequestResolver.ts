@@ -1,6 +1,7 @@
-import { Request } from "@webiny/handler/types";
-import { AssetRequestResolver } from "./abstractions/AssetRequestResolver";
-import { AssetRequest, AssetRequestOptions } from "./AssetRequest";
+import type { Request } from "@webiny/handler/types";
+import type { AssetRequestResolver } from "./abstractions/AssetRequestResolver";
+import type { AssetRequestOptions } from "./AssetRequest";
+import { AssetRequest } from "./AssetRequest";
 
 export class FilesAssetRequestResolver implements AssetRequestResolver {
     async resolve(request: Request): Promise<AssetRequest | undefined> {

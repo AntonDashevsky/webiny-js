@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
 import { createDeleteEntry, createListDeletedEntries } from "~/useCases";
-import {
+import type {
     HcmsBulkActionsContext,
     IEmptyTrashBinsInput,
     IEmptyTrashBinsOutput,

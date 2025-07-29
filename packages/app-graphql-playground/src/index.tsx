@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { ApolloClient } from "apollo-client";
+import type { ApolloClient } from "apollo-client";
 import { plugins } from "@webiny/plugins";
 import { AdminConfig, Layout } from "@webiny/app-admin";
 import Playground from "./plugins/Playground";

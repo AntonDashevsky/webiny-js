@@ -3,7 +3,7 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache";
 import { UpdatePageTemplateRepository } from "~/features/pageTemplate/updatePageTemplate/UpdatePageTemplateRepository";
 import { UpdatePageTemplateGqlGateway } from "~/features/pageTemplate/updatePageTemplate/UpdatePageTemplateGqlGateway";
-import { UpdatePageTemplateDto } from "~/features/pageTemplate/updatePageTemplate/UpdatePageTemplateDto";
+import type { UpdatePageTemplateDto } from "~/features/pageTemplate/updatePageTemplate/UpdatePageTemplateDto";
 
 export const useUpdatePageTemplate = () => {
     const client = useApolloClient();

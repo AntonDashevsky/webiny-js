@@ -1,7 +1,7 @@
-import { IdValue } from "apollo-utilities";
+import type { IdValue } from "apollo-utilities";
 import { invariant } from "ts-invariant";
 
-import {
+import type {
     ReadStoreContext,
     FragmentMatcherInterface,
     PossibleTypesMap,

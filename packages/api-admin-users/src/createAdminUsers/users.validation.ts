@@ -1,5 +1,5 @@
 import zod from "zod";
-import { AdminUsers } from "~/types";
+import type { AdminUsers } from "~/types";
 import { createZodError } from "@webiny/utils";
 
 const createUserDataValidation = zod.object({

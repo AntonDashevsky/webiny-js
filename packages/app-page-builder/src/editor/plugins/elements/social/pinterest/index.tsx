@@ -14,7 +14,7 @@ import {
     SimpleButton,
     classes
 } from "../../../elementSettings/components/StyledComponents";
-import { PbEditorElementPluginArgs } from "~/types";
+import type { PbEditorElementPluginArgs } from "~/types";
 
 import { PePinterest } from "~/editor/plugins/elements/social/pinterest/PePinterest";
 

@@ -1,4 +1,4 @@
-import { PeLoaderCacheEntry } from "./types";
+import type { PeLoaderCacheEntry } from "./types";
 
 const parsePeLoaderDataCacheTag = (content: string): PeLoaderCacheEntry | null => {
     const regex =

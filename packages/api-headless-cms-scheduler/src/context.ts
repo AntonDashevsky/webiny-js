@@ -12,7 +12,7 @@ import type { CmsModel } from "@webiny/api-headless-cms/types/index.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { SCHEDULE_MODEL_ID } from "./constants.js";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 
 export interface ICreateHeadlessCmsSchedulerContextParams {
     getClient(config?: SchedulerClientConfig): Pick<SchedulerClient, "send">;

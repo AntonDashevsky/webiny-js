@@ -1,6 +1,6 @@
 import { loadingRepositoryFactory } from "@webiny/app-utils";
-import { ICreateRedirectUseCase } from "./ICreateRedirectUseCase.js";
-import { ICreateRedirectGateway } from "./ICreateRedirectGateway.js";
+import type { ICreateRedirectUseCase } from "./ICreateRedirectUseCase.js";
+import type { ICreateRedirectGateway } from "./ICreateRedirectGateway.js";
 import { CreateRedirectRepository } from "./CreateRedirectRepository.js";
 import { CreateRedirectUseCase } from "./CreateRedirectUseCase.js";
 import { CreateRedirectUseCaseWithLoading } from "./CreateRedirectUseCaseWithLoading.js";

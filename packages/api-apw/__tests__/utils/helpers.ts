@@ -1,7 +1,9 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
-import workflowMocks, { CreateWorkflowParams } from "../graphql/mocks/workflows";
-import { Category } from "@webiny/api-page-builder/types";
-import { ApwWorkflow, ApwWorkflowApplications } from "~/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { CreateWorkflowParams } from "../graphql/mocks/workflows";
+import workflowMocks from "../graphql/mocks/workflows";
+import type { Category } from "@webiny/api-page-builder/types";
+import type { ApwWorkflow } from "~/types";
+import { ApwWorkflowApplications } from "~/types";
 
 export { until } from "@webiny/project-utils/testing/helpers/until";
 export { sleep } from "@webiny/project-utils/testing/helpers/sleep";

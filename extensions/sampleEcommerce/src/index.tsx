@@ -1,10 +1,8 @@
 import React from "react";
-import {
-    EcommercePlugin,
-    type IEcommerceApi,
-    Resource
-} from "@webiny/app-website-builder/ecommerce";
-import { SampleApi, SampleProduct } from "./SampleApi";
+import type { Resource } from "@webiny/app-website-builder/ecommerce";
+import { EcommercePlugin, type IEcommerceApi } from "@webiny/app-website-builder/ecommerce";
+import type { SampleProduct } from "./SampleApi";
+import { SampleApi } from "./SampleApi";
 
 type SampleSettings = {
     apiHost: string;

@@ -1,5 +1,5 @@
-import { ITaskResponseDoneResultOutput, TaskResponseStatus } from "~/types";
-import { IResponseBaseResult } from "./ResponseBaseResult";
+import type { ITaskResponseDoneResultOutput, TaskResponseStatus } from "~/types";
+import type { IResponseBaseResult } from "./ResponseBaseResult";
 
 export interface IResponseDoneParams<
     O extends ITaskResponseDoneResultOutput = ITaskResponseDoneResultOutput

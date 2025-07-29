@@ -1,4 +1,4 @@
-import { LifeCycleHookCallbackParams } from "~/types";
+import type { LifeCycleHookCallbackParams } from "~/types";
 import {
     extractContentReviewIdAndStep,
     safelyGetContentReview,

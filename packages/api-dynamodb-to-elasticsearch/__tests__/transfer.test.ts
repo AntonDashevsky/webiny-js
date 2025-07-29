@@ -2,7 +2,7 @@ import { createEventHandler, OperationType } from "~/index";
 import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 // @ts-expect-error
 import { createMockApiLog } from "@webiny/project-utils/testing/mockApiLog";
-import { LambdaContext, Reply, Request } from "@webiny/handler-aws/types";
+import type { LambdaContext, Reply, Request } from "@webiny/handler-aws/types";
 import { marshall } from "@webiny/aws-sdk/client-dynamodb";
 import { createMockContext } from "~tests/mocks/context";
 

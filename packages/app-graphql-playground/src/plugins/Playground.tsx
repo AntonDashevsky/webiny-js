@@ -14,9 +14,9 @@ import { CircularProgress } from "@webiny/ui/Progress";
 import { playgroundDialog, PlaygroundContainer } from "./Playground.styles";
 import { settings } from "./settings";
 import { config as appConfig } from "@webiny/app/config";
-import ApolloClient from "apollo-client";
-import { GraphQLPlaygroundTabPlugin } from "~/types";
-import { SecurityIdentity } from "@webiny/app-security/types";
+import type ApolloClient from "apollo-client";
+import type { GraphQLPlaygroundTabPlugin } from "~/types";
+import type { SecurityIdentity } from "@webiny/app-security/types";
 import { ORIGINAL_GQL_PLAYGROUND_URL, PATCHED_GQL_PLAYGROUND_URL } from "./constants";
 
 const withHeaders = (link: ApolloLink, headers: Record<string, string>): ApolloLink => {

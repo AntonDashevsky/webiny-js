@@ -5,7 +5,8 @@ import { ReactComponent as TabsIcon } from "@webiny/icons/tab.svg";
 import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
 import { createElement } from "~/editor/helpers";
 import Tabs from "./Tabs";
-import { PbEditorPageElementPlugin, PbEditorElementPluginArgs, DisplayMode } from "~/types";
+import type { PbEditorPageElementPlugin, PbEditorElementPluginArgs } from "~/types";
+import { DisplayMode } from "~/types";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

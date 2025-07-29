@@ -1,12 +1,13 @@
 import { ErrorResponse, ListResponse } from "@webiny/handler-graphql/responses";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
 
-import { createFolderTypeDefs, CreateFolderTypeDefsParams } from "./createFolderTypeDefs";
+import type { CreateFolderTypeDefsParams } from "./createFolderTypeDefs";
+import { createFolderTypeDefs } from "./createFolderTypeDefs";
 import { ensureAuthentication } from "~/utils/ensureAuthentication";
 import { resolve } from "~/utils/resolve";
 import { compress } from "~/utils/compress";
 
-import { AcoContext, Folder } from "~/types";
+import type { AcoContext, Folder } from "~/types";
 import type { FolderLevelPermission } from "~/flp/flp.types";
 import { FOLDER_MODEL_ID } from "~/folder/folder.model";
 

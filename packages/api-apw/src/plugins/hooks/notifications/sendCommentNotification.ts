@@ -1,5 +1,5 @@
 import { getLastCommentNotificationPlugin } from "./lastCommentNotificationPlugin";
-import { ApwCommentNotificationCbParams } from "~/ApwCommentNotification";
+import type { ApwCommentNotificationCbParams } from "~/ApwCommentNotification";
 
 export const sendCommentNotification = async (
     params: ApwCommentNotificationCbParams

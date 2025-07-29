@@ -1,4 +1,4 @@
-import { PbEditorElementTree } from "~/types";
+import type { PbEditorElementTree } from "~/types";
 import { InjectVariableValuesIntoElement } from "~/pageEditor/config/Toolbar/InjectVariableValuesIntoElement";
 
 export class UnlinkPageFromTemplate {

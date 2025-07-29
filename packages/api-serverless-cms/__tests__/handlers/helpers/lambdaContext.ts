@@ -1,4 +1,4 @@
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 export const createLambdaContext = (input?: Partial<LambdaContext>): LambdaContext => {
     return {

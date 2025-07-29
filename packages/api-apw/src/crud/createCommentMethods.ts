@@ -1,5 +1,5 @@
 import { createTopic } from "@webiny/pubsub";
-import {
+import type {
     ApwCommentCrud,
     CreateApwParams,
     OnCommentBeforeCreateTopicParams,

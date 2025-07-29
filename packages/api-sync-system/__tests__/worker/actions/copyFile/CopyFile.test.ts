@@ -1,8 +1,8 @@
+import type { HeadObjectCommandInput } from "@webiny/aws-sdk/client-s3";
 import {
     CreateMultipartUploadCommand,
     createS3Client,
     HeadObjectCommand,
-    HeadObjectCommandInput,
     S3Client
 } from "@webiny/aws-sdk/client-s3";
 import { mockClient } from "aws-sdk-client-mock";

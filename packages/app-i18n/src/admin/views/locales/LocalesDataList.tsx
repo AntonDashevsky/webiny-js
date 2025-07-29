@@ -17,7 +17,7 @@ import {
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
 import { useLocalesList } from "./hooks/useLocalesList";
-import { I18NLocaleItem } from "~/types";
+import type { I18NLocaleItem } from "~/types";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

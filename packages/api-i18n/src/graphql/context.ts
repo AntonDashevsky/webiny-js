@@ -1,5 +1,5 @@
 import acceptLanguageParser from "accept-language-parser";
-import {
+import type {
     ContextI18NGetLocales,
     I18NContext,
     I18NContextObject,

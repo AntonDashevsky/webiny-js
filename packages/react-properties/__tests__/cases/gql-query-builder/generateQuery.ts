@@ -1,4 +1,4 @@
-import { Operation, Selection, Variable } from "./components";
+import type { Operation, Selection, Variable } from "./components";
 
 export const generateQuery = (operation: Operation): string => {
     const generator = new GraphQLQueryGenerator();

@@ -1,5 +1,5 @@
 import { createGenericContext } from "@webiny/app-admin";
-import { DropZoneManager } from "./DropZoneManager";
+import type { DropZoneManager } from "./DropZoneManager";
 
 const DropZoneManagerContext = createGenericContext<{ dropzoneManager: DropZoneManager }>(
     "DropzoneManager"

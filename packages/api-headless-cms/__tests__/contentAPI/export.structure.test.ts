@@ -1,7 +1,7 @@
 import { useGraphQLHandler } from "~tests/testHelpers/useGraphQLHandler";
-import { CmsGroup } from "~tests/types";
+import type { CmsGroup } from "~tests/types";
 import models from "./mocks/contentModels";
-import { CmsModel, CmsModelField } from "~/types";
+import type { CmsModel, CmsModelField } from "~/types";
 
 interface JsonResult {
     groups: CmsGroup[];

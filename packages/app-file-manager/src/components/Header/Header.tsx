@@ -1,5 +1,5 @@
 import React from "react";
-import { FilesRenderChildren } from "react-butterfiles";
+import type { FilesRenderChildren } from "react-butterfiles";
 import { Grid, Separator } from "@webiny/admin-ui";
 
 import { Actions } from "./Actions";

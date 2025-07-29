@@ -1,4 +1,4 @@
-import { CloudFrontQuery, CloudFrontResponse } from "./types";
+import type { CloudFrontQuery, CloudFrontResponse } from "./types";
 import { setNoCacheHeaders } from "./headers";
 import { stringifyQuery } from "./querystring";
 

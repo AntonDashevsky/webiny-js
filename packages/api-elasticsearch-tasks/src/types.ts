@@ -8,7 +8,7 @@ import type {
 } from "@webiny/tasks/types";
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import type { Client } from "@webiny/api-elasticsearch";
-import { createTable } from "~/definitions";
+import type { createTable } from "~/definitions";
 import type { BatchReadItem, IEntity } from "@webiny/db-dynamodb";
 import type { ITimer } from "@webiny/handler-aws";
 import type { GenericRecord } from "@webiny/api/types";

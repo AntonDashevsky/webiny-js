@@ -12,7 +12,8 @@ import { ReactComponent as Upload } from "@webiny/icons/file_upload.svg";
 import { ReactComponent as ListView } from "@webiny/icons/list.svg";
 import { ReactComponent as Clone } from "@webiny/icons/library_add.svg";
 import { ReactComponent as Login } from "@webiny/icons/login.svg";
-import { IconButton, IconButtonProps } from "~/Button";
+import type { IconButtonProps } from "~/Button";
+import { IconButton } from "~/Button";
 import { List } from "~/List";
 
 export const RefreshIcon = (props: IconButtonProps) => {

@@ -1,4 +1,4 @@
-import {
+import type {
     FbSubmission,
     FormBuilderStorageOperationsCreateSubmissionParams,
     FormBuilderStorageOperationsDeleteSubmissionParams,
@@ -7,15 +7,16 @@ import {
     FormBuilderStorageOperationsListSubmissionsResponse,
     FormBuilderStorageOperationsUpdateSubmissionParams
 } from "@webiny/api-form-builder/types";
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
 import WebinyError from "@webiny/error";
-import { PluginsContainer } from "@webiny/plugins";
-import {
+import type { PluginsContainer } from "@webiny/plugins";
+import type {
     FormBuilderSubmissionStorageOperations,
     FormBuilderSubmissionStorageOperationsCreatePartitionKeyParams
 } from "~/types";
 import { parseIdentifier } from "@webiny/utils";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import { decodeCursor, encodeCursor } from "@webiny/db-dynamodb/utils/cursor";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter";

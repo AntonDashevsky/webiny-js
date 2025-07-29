@@ -1,5 +1,5 @@
-import { IAcoAppRegisterParams } from "~/types";
-import { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { IAcoAppRegisterParams } from "~/types";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
 import { registerAcoApp } from "~/plugins";
 
 export const createMockAppTextField = (): CmsModelField => {

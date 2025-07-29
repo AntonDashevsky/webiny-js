@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { ISearchItemsUseCase } from "./ISearchItemsUseCase";
-import { ISearchRepository } from "~/Domain/Repositories";
+import type { ISearchItemsUseCase } from "./ISearchItemsUseCase";
+import type { ISearchRepository } from "~/Domain/Repositories";
 
 export class SearchItemsUseCase implements ISearchItemsUseCase {
     private searchRepository: ISearchRepository;

@@ -2,14 +2,13 @@ import React, { useCallback } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useSearchParams, useLocation } from "@webiny/react-router";
 import { PageRenderer } from "./PageRenderer";
-import {
-    GET_SETTINGS,
-    GET_PUBLISHED_PAGE,
+import type {
     PublishedPageQueryResponse,
     PublishedPageQueryVariables,
     SettingsQueryResponse,
     SettingsQueryResponseData
 } from "./graphql";
+import { GET_SETTINGS, GET_PUBLISHED_PAGE } from "./graphql";
 
 declare global {
     interface Window {

@@ -1,7 +1,7 @@
 import { Provider } from "~/index";
 import React from "react";
 import { AppInstaller as Installer } from "./AppInstaller";
-import { ComponentWithChildren } from "~/types";
+import type { ComponentWithChildren } from "~/types";
 
 interface AppInstallerProviderProps {
     children: React.ReactNode;

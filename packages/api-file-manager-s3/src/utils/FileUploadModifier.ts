@@ -1,6 +1,6 @@
 import pReduce from "p-reduce";
 import { Plugin } from "@webiny/plugins";
-import { FileToSign } from "~/utils/FileNormalizer";
+import type { FileToSign } from "~/utils/FileNormalizer";
 
 interface Setter<T> {
     (param: T): T;

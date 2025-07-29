@@ -1,17 +1,11 @@
 import React from "react";
 import { createDecorator } from "@webiny/react-composition";
-import {
-    DialogsProvider,
-    FileManagerFileItem,
-    FileManagerOnChange,
-    FileManagerRenderer as BaseFileManagerRenderer
-} from "@webiny/app-admin";
-import { FileItem } from "@webiny/app-admin/types";
+import type { FileManagerFileItem, FileManagerOnChange } from "@webiny/app-admin";
+import { DialogsProvider, FileManagerRenderer as BaseFileManagerRenderer } from "@webiny/app-admin";
+import type { FileItem } from "@webiny/app-admin/types";
 import FileManagerView from "./FileManagerView";
-import {
-    FileManagerViewProvider,
-    FileManagerViewProviderProps
-} from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import type { FileManagerViewProviderProps } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { FileManagerViewProvider } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
 import { FM_ACO_APP } from "~/constants";
 import { FileManagerViewWithConfig } from "./FileManagerViewConfig";
 import { FoldersProvider } from "@webiny/app-aco/contexts/folders";

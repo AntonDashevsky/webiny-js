@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     IWebsocketsConnectionRegistry,
     IWebsocketsConnectionRegistryData,
     IWebsocketsConnectionRegistryRegisterParams,
@@ -7,8 +7,8 @@ import {
 } from "./abstractions/IWebsocketsConnectionRegistry";
 import { createEntity } from "~/registry/entity";
 import { batchReadAll, deleteItem, get, put, queryAll } from "@webiny/db-dynamodb";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { EntityQueryOptions } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { EntityQueryOptions } from "@webiny/db-dynamodb/toolbox";
 
 const PK = `WS#CONNECTIONS`;
 const GSI1_PK = "WS#CONNECTIONS#IDENTITY";

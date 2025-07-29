@@ -3,7 +3,7 @@ import { useFormEditor } from "./Context";
 import { plugins } from "@webiny/plugins";
 import { ReactComponent as HandleIcon } from "@webiny/icons/drag_indicator.svg";
 import Draggable from "./Draggable";
-import { FbBuilderFieldPlugin, FbEditorFieldGroup, FbFormModelField } from "~/types";
+import type { FbBuilderFieldPlugin, FbEditorFieldGroup, FbFormModelField } from "~/types";
 import { Accordion, cn, Heading, Icon } from "@webiny/admin-ui";
 
 interface FieldProps {

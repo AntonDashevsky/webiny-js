@@ -1,5 +1,5 @@
 import React from "react";
-import { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
 import VerticalAlignSettings from "./VerticalAlignSettings";
 
 export default {

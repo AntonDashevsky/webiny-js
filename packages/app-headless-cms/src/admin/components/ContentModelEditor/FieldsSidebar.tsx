@@ -1,7 +1,8 @@
-import React, { DragEventHandler } from "react";
+import type { DragEventHandler } from "react";
+import React from "react";
 import { plugins } from "@webiny/plugins";
 import Draggable from "../Draggable";
-import { CmsModelFieldTypePlugin } from "~/types";
+import type { CmsModelFieldTypePlugin } from "~/types";
 import { Heading, Icon, Text } from "@webiny/admin-ui";
 
 interface FieldProps {

@@ -1,6 +1,6 @@
-import zod from "zod";
+import type zod from "zod";
 import { Plugin } from "@webiny/plugins";
-import {
+import type {
     createPageValidation,
     updatePageValidation,
     updatePageSettingsValidation

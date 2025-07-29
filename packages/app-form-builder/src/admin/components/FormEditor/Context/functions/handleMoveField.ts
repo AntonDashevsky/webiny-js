@@ -1,4 +1,10 @@
-import { FbFormModel, FbFormModelField, DropTarget, DropSource, DropDestination } from "~/types";
+import type {
+    FbFormModel,
+    FbFormModelField,
+    DropTarget,
+    DropSource,
+    DropDestination
+} from "~/types";
 import moveField from "./handleMoveField/moveField";
 import moveFieldBetween from "./handleMoveField/moveFieldBetween";
 

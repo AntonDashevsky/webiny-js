@@ -1,5 +1,7 @@
-import React, { CSSProperties, PropsWithChildren } from "react";
-import { Skeleton as AdminSkeleton, SkeletonProps as AdminSkeletonProps } from "@webiny/admin-ui";
+import type { CSSProperties, PropsWithChildren } from "react";
+import React from "react";
+import type { SkeletonProps as AdminSkeletonProps } from "@webiny/admin-ui";
+import { Skeleton as AdminSkeleton } from "@webiny/admin-ui";
 
 export interface SkeletonProps extends AdminSkeletonProps {
     //SkeletonStyleProps from "react-loading-skeleton"

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FormRenderFbFormModelField } from "@webiny/app-form-builder/types";
+import type { FormRenderFbFormModelField } from "@webiny/app-form-builder/types";
 import { useBind } from "@webiny/form";
 
 interface InputProps {

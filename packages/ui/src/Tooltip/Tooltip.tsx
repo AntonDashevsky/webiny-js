@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
-import { Tooltip as TooltipBase, TooltipProps as TooltipPropsBase } from "@webiny/admin-ui";
+import type { TooltipProps as TooltipPropsBase } from "@webiny/admin-ui";
+import { Tooltip as TooltipBase } from "@webiny/admin-ui";
 
 export interface TooltipProps {
     // A component (eg. button) which will trigger the tooltip.

@@ -5,11 +5,11 @@ import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { i18n } from "@webiny/app/i18n";
 import { useFormEditor } from "~/admin/components/FormEditor";
-import {
-    PUBLISH_REVISION,
+import type {
     PublishRevisionMutationResponse,
     PublishRevisionMutationVariables
 } from "~/admin/graphql";
+import { PUBLISH_REVISION } from "~/admin/graphql";
 import { usePermission } from "~/hooks/usePermission";
 import { Button } from "@webiny/admin-ui";
 

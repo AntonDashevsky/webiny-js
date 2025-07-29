@@ -18,7 +18,7 @@ import {
 } from "./mocks/fields";
 import { createError, createFieldErrors, isNestedError } from "./mocks/errors";
 import { pageModel } from "~tests/contentAPI/mocks/pageWithDynamicZonesModel";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 describe("content entry validation", () => {
     /**

@@ -1,4 +1,4 @@
-import { PbPageBlock } from "~/types";
+import type { PbPageBlock } from "~/types";
 
 export type CreatePageBlockInput = Pick<PbPageBlock, "name" | "blockCategory" | "content">;
 export type UpdatePageBlockInput = Pick<PbPageBlock, "id"> & CreatePageBlockInput;

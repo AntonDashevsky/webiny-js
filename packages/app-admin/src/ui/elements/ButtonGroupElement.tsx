@@ -1,6 +1,7 @@
 import React from "react";
 
-import { UIElement, UiElementRenderProps } from "~/ui/UIElement";
+import type { UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
 import styled from "@emotion/styled";
 
 const ButtonGroup = styled("div")({

@@ -1,6 +1,6 @@
-import * as pulumi from "@pulumi/pulumi";
-import { CognitoIdentityProviderConfig } from "./configure";
-import { IdentityProviderArgs } from "@pulumi/aws/cognito";
+import type * as pulumi from "@pulumi/pulumi";
+import type { CognitoIdentityProviderConfig } from "./configure";
+import type { IdentityProviderArgs } from "@pulumi/aws/cognito";
 
 export const getGoogleIdpConfig = (
     userPoolId: pulumi.Input<string>,

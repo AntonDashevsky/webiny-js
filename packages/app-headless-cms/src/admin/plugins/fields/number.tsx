@@ -1,5 +1,5 @@
 import React from "react";
-import { CmsModelFieldTypePlugin } from "~/types";
+import type { CmsModelFieldTypePlugin } from "~/types";
 import { i18n } from "@webiny/app/i18n";
 import PredefinedValuesDynamicFieldset from "./PredefinedValuesDynamicFieldset";
 import { ReactComponent as FloatIcon } from "@webiny/icons/looks_3.svg";

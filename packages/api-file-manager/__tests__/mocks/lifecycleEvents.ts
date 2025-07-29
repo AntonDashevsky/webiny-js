@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
 import { LifecycleEventTracker } from "@webiny/project-utils/testing/helpers/lifecycleTracker";
-import { FileManagerContext } from "~/types";
+import type { FileManagerContext } from "~/types";
 
 export const tracker = new LifecycleEventTracker();
 

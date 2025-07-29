@@ -1,13 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { List } from "@webiny/ui/List";
-import {
-    ApwContentReviewStatus,
-    ApwContentReviewStep,
-    ApwContentReviewStepStatus,
-    ApwWorkflowStepTypes,
-    CreatedBy
-} from "~/types";
+import type { ApwContentReviewStatus, ApwContentReviewStep, CreatedBy } from "~/types";
+import { ApwContentReviewStepStatus, ApwWorkflowStepTypes } from "~/types";
 import { formatDate } from "~/utils";
 import { PanelBox } from "./Styled";
 import { ContentReviewStep } from "./ContentReviewStep";

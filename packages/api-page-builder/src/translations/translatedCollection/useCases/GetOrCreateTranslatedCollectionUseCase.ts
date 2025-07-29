@@ -1,4 +1,4 @@
-import { PbContext } from "~/types";
+import type { PbContext } from "~/types";
 import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
 import { GetTranslatedCollectionUseCase } from "~/translations/translatedCollection/useCases/GetTranslatedCollectionUseCase";
 import { GetOrCreateTranslatableCollectionUseCase } from "~/translations/translatableCollection/useCases/GetOrCreateTranslatableCollectionUseCase";

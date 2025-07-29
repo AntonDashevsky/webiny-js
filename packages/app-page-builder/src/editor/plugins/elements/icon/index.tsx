@@ -2,15 +2,15 @@ import React from "react";
 import styled from "@emotion/styled";
 import kebabCase from "lodash/kebabCase";
 import { IconRenderer } from "@webiny/app-page-builder-elements/renderers/icon";
-import { Element } from "@webiny/app-page-builder-elements/types";
-import {
+import type { Element } from "@webiny/app-page-builder-elements/types";
+import type {
     PbEditorPageElementPlugin,
     PbEditorPageElementStyleSettingsPlugin,
-    DisplayMode,
     PbEditorElementPluginArgs,
     PbEditorElement,
     PbElementDataIconV2
 } from "~/types";
+import { DisplayMode } from "~/types";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 // Icons
 import { ReactComponent as IconSvg } from "./round-star_border-24px.svg";

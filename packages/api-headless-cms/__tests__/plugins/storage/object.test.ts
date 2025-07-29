@@ -2,7 +2,7 @@ import { createObjectStorageTransform } from "~/storage/object";
 import { createStoragePluginsContainer } from "./container";
 import { StorageTransformPlugin } from "~/plugins";
 import { createObjectMockModel } from "./object/model";
-import { CmsModelField } from "~/types";
+import type { CmsModelField } from "~/types";
 import { entryToStorageTransform } from "~/utils/entryStorage";
 
 const container = createStoragePluginsContainer();

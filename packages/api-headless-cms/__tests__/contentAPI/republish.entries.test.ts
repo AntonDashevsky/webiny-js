@@ -1,7 +1,7 @@
 import { mdbid } from "@webiny/utils";
 import models from "./mocks/contentModels";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { CmsEntry, CmsGroup, CmsModel, StorageOperationsCmsModel } from "~/types";
+import type { CmsEntry, CmsGroup, CmsModel, StorageOperationsCmsModel } from "~/types";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
 import { useProductManageHandler } from "../testHelpers/useProductManageHandler";

@@ -1,5 +1,5 @@
-import { IRestoreItemUseCase } from "~/UseCases";
-import { IRestoreItemController } from "./IRestoreItemController";
+import type { IRestoreItemUseCase } from "~/UseCases";
+import type { IRestoreItemController } from "./IRestoreItemController";
 
 export class RestoreItemController implements IRestoreItemController {
     private readonly useCaseFactory: () => IRestoreItemUseCase;

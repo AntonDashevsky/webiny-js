@@ -1,7 +1,7 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IUpdateRedirectGateway } from "./IUpdateRedirectGateway.js";
-import { RedirectDto } from "./RedirectDto.js";
+import type { IUpdateRedirectGateway } from "./IUpdateRedirectGateway.js";
+import type { RedirectDto } from "./RedirectDto.js";
 import { type WbError } from "~/types";
 import type { RedirectGqlDto } from "~/features/redirects/createRedirect/RedirectGqlDto.js";
 

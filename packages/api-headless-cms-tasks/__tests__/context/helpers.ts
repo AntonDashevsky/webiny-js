@@ -1,6 +1,6 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { ContextPlugin } from "@webiny/api";
-import { HcmsTasksContext } from "~/types";
+import type { HcmsTasksContext } from "~/types";
 
 export interface PermissionsArg {
     name: string;

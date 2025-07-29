@@ -1,6 +1,6 @@
 import debugPlugins from "@webiny/handler-graphql/debugPlugins";
-import { CmsContext } from "~/types";
-import { Plugin } from "@webiny/plugins/types";
+import type { CmsContext } from "~/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { RoutePlugin } from "@webiny/handler";
 import { handleRequest } from "./handleRequest";
 

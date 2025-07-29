@@ -1,9 +1,9 @@
-import React from "react";
+import type React from "react";
 import pWaitFor from "p-wait-for";
 import { Plugin, plugins } from "@webiny/plugins";
 import { UILayout } from "./UILayout";
 import { UIView } from "./UIView";
-import { UIRenderer } from "./UIRenderer";
+import type { UIRenderer } from "./UIRenderer";
 
 type Class<T> = new (...args: any[]) => T;
 

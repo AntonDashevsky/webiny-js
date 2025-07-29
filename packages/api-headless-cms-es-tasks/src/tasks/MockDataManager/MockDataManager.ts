@@ -1,11 +1,12 @@
-import { ITask, ITaskResponseResult, ITaskRunParams, TaskDataStatus } from "@webiny/tasks";
-import { IMockDataManagerInput, IMockDataManagerOutput } from "~/tasks/MockDataManager/types";
+import type { ITask, ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
+import { TaskDataStatus } from "@webiny/tasks";
+import type { IMockDataManagerInput, IMockDataManagerOutput } from "~/tasks/MockDataManager/types";
 import { calculateAmounts } from "./calculateAmounts";
-import { IMockDataCreatorInput } from "~/tasks/MockDataCreator/types";
+import type { IMockDataCreatorInput } from "~/tasks/MockDataCreator/types";
 import { calculateSeconds, WAIT_MAX_SECONDS } from "./calculateSeconds";
 import { MOCK_DATA_CREATOR_TASK_ID } from "~/tasks/createMockDataCreatorTask";
 import { createModelAndGroup } from "~/tasks/MockDataManager/createModelAndGroup";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { disableIndexing, enableIndexing } from "~/utils";
 
 export class MockDataManager<

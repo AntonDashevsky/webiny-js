@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { DuplicatePage } from "./DuplicatePage";
 import { DuplicatePageWithEvents } from "./DuplicatePageWithEvents";
 import type {

@@ -1,4 +1,4 @@
-import { CliCommandPlugin } from "./types";
+import type { CliCommandPlugin } from "./types";
 import { scaffold } from "./scaffold";
 
 export default (): CliCommandPlugin => ({

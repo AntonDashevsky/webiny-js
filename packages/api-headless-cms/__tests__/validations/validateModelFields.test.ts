@@ -1,6 +1,6 @@
 import { validateModelFields } from "~/crud/contentModel/validateModelFields";
 import { PluginsContainer } from "@webiny/plugins";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 import {
     createTextField,
     createTextFieldWithDuplicatedStorageId,
@@ -9,7 +9,7 @@ import {
     createTextFieldWithoutFieldId,
     createTextFieldWithoutStorageId
 } from "./fields/text";
-import { CmsModelField } from "./fields/types";
+import type { CmsModelField } from "./fields/types";
 import { createNumberField } from "~tests/validations/fields/number";
 import { createObjectField } from "~tests/validations/fields/object";
 import { useHandler } from "~tests/testHelpers/useHandler";

@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from "react";
+import type React from "react";
+import { useContext, useEffect } from "react";
 import { DeprecatedListItemContext } from "~/List";
 
 /** Text Wrapper for the ListItem */

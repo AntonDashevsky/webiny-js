@@ -1,7 +1,8 @@
-import { StorageTransformPlugin, ToStorageParams } from "~/plugins";
-import { GenericRecord } from "@webiny/api/types";
-import { CmsModel, CmsModelDynamicZoneField, CmsModelField } from "~/types";
-import { PluginsContainer } from "@webiny/plugins";
+import type { ToStorageParams } from "~/plugins";
+import { StorageTransformPlugin } from "~/plugins";
+import type { GenericRecord } from "@webiny/api/types";
+import type { CmsModel, CmsModelDynamicZoneField, CmsModelField } from "~/types";
+import type { PluginsContainer } from "@webiny/plugins";
 import pReduce from "p-reduce";
 
 interface IProcessParams {

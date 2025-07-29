@@ -4,8 +4,8 @@ import { i18n } from "@webiny/app/i18n";
 import { useDialog } from "@webiny/app-admin/hooks/useDialog";
 import { Form } from "@webiny/form";
 import { usePageBuilder } from "~/hooks/usePageBuilder";
-import { PbElementDataSettingsFormType } from "~/types";
-import { PbRevisionType } from "~/contexts/PageBuilder";
+import type { PbElementDataSettingsFormType } from "~/types";
+import type { PbRevisionType } from "~/contexts/PageBuilder";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/exportPageButton");
 

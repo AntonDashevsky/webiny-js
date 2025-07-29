@@ -1,6 +1,9 @@
-import { BulkAction, BulkActionConfig } from "./BulkAction";
-import { EntryAction, EntryActionConfig } from "./EntryAction";
-import { Table, TableConfig } from "./Table";
+import type { BulkActionConfig } from "./BulkAction";
+import { BulkAction } from "./BulkAction";
+import type { EntryActionConfig } from "./EntryAction";
+import { EntryAction } from "./EntryAction";
+import type { TableConfig } from "./Table";
+import { Table } from "./Table";
 
 export interface BrowserConfig {
     bulkActions: BulkActionConfig[];

@@ -1,20 +1,21 @@
-import {
+import type {
     DOMConversionMap,
     DOMConversionOutput,
     ElementFormatType,
     LexicalNode,
     NodeKey,
-    ParagraphNode as BaseParagraphNode,
     SerializedParagraphNode as SerializedBaseParagraphNode,
     Spread,
     LexicalEditor,
     DOMExportOutput,
     RangeSelection
 } from "lexical";
-import { EditorConfig } from "lexical";
-import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import { ParagraphNode as BaseParagraphNode } from "lexical";
+import type { EditorConfig } from "lexical";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
-import { TypographyStylesNode, ThemeStyleValue } from "~/types";
+import type { TypographyStylesNode, ThemeStyleValue } from "~/types";
 import { getStyleId } from "./utils/getStyleId";
 
 function convertParagraphElement(element: HTMLElement): DOMConversionOutput {

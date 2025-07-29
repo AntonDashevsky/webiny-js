@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { UpdateRedirect } from "./UpdateRedirect";
 import { UpdateRedirectWithEvents } from "./UpdateRedirectWithEvents";
 import type {

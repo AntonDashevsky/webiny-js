@@ -1,5 +1,6 @@
-import React, { Context, createContext, ReactNode, useContext } from "react";
-import { DataTableDefaultData } from "@webiny/admin-ui";
+import type { Context, ReactNode } from "react";
+import React, { createContext, useContext } from "react";
+import type { DataTableDefaultData } from "@webiny/admin-ui";
 
 export interface TableRowContextData<T> {
     row: T;

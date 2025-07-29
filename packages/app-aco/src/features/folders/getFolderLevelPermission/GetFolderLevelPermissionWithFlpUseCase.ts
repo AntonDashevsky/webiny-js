@@ -1,8 +1,8 @@
-import {
+import type {
     GetFolderLevelPermissionParams,
     IGetFolderLevelPermissionUseCase
 } from "./IGetFolderLevelPermissionUseCase";
-import { IGetFolderLevelPermissionRepository } from "./IGetFolderLevelPermissionRepository";
+import type { IGetFolderLevelPermissionRepository } from "./IGetFolderLevelPermissionRepository";
 
 export class GetFolderLevelPermissionWithFlpUseCase implements IGetFolderLevelPermissionUseCase {
     private repository: IGetFolderLevelPermissionRepository;

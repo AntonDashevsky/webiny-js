@@ -6,7 +6,7 @@ import { useIcon } from "..";
 import { IconPickerTab } from "../IconPickerTab";
 import { useIconPicker } from "../IconPickerPresenterProvider";
 import { IconPickerConfig } from "../config";
-import { Icon } from "../types";
+import type { Icon } from "../types";
 
 /**
  * NOTE: Avoid using `@emotion/styled` in icon renderer components across all plugins.

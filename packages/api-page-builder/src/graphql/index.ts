@@ -1,7 +1,8 @@
-import { createCrud, CreateCrudParams } from "./crud";
+import type { CreateCrudParams } from "./crud";
+import { createCrud } from "./crud";
 import graphql from "./graphql";
 import { createTranslations, createTranslationsGraphQl } from "~/translations/createTranslations";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { createDataSourcesContext } from "~/dataSources/context/createDataSourcesContext";
 import { createDataSourcesSchema } from "~/dataSources/graphql/createDataSourcesSchema";
 

@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { TrashBinItem, ISelectedItemsRepository } from "~/Domain";
-import { ISelectItemsUseCase } from "./ISelectItemsUseCase";
+import type { TrashBinItem, ISelectedItemsRepository } from "~/Domain";
+import type { ISelectItemsUseCase } from "./ISelectItemsUseCase";
 
 export class SelectItemsUseCase implements ISelectItemsUseCase {
     private repository: ISelectedItemsRepository;

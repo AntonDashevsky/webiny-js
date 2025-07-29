@@ -1,7 +1,7 @@
 import * as React from "react";
 import { plugins } from "@webiny/plugins";
 import { validation } from "@webiny/validation";
-import { PbPageElementPagesListComponentPlugin } from "~/types";
+import type { PbPageElementPagesListComponentPlugin } from "~/types";
 import Accordion from "../../elementSettings/components/Accordion";
 import Wrapper from "../../elementSettings/components/Wrapper";
 import InputField from "../../elementSettings/components/InputField";
@@ -12,7 +12,7 @@ import {
     SimpleButton
 } from "../../elementSettings/components/StyledComponents";
 import { Cell, Grid } from "@webiny/ui/Grid";
-import { BindComponent } from "@webiny/form";
+import type { BindComponent } from "@webiny/form";
 
 interface PagesListDesignSettingsProps {
     Bind: BindComponent;

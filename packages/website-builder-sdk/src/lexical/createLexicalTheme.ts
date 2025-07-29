@@ -1,4 +1,4 @@
-import { LexicalEditorTheme } from "~/types/LexicalEditorTheme";
+import type { LexicalEditorTheme } from "~/types/LexicalEditorTheme";
 import { createDefaultLexicalTheme } from "./createDefaultLexicalTheme";
 import { deepMerge } from "./deepMerge";
 

@@ -1,7 +1,7 @@
-import * as React from "react";
+import type * as React from "react";
 import { Plugin } from "@webiny/plugins/types";
-import { ApolloClient } from "apollo-client";
-import { CSSProperties } from "react";
+import type { ApolloClient } from "apollo-client";
+import type { CSSProperties } from "react";
 
 export type GenericRecordKey = string | number | symbol;
 

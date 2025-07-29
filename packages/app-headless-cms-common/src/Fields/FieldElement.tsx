@@ -6,7 +6,7 @@ import Label from "./Label";
 import { useBind } from "./useBind";
 import { useRenderPlugins } from "./useRenderPlugins";
 import { ModelFieldProvider, useModelField } from "../ModelFieldProvider";
-import { CmsModelField, CmsEditorContentModel, BindComponent } from "~/types";
+import type { CmsModelField, CmsEditorContentModel, BindComponent } from "~/types";
 import { ErrorBoundary } from "./ErrorBoundary";
 
 const t = i18n.ns("app-headless-cms/admin/components/content-form");

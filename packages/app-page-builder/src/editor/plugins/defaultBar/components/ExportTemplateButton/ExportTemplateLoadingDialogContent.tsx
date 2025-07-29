@@ -1,10 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useQuery } from "@apollo/react-hooks";
-import {
-    GET_TEMPLATE_IMPORT_EXPORT_TASK,
-    GetTemplateImportExportTaskResponse
-} from "~/admin/graphql/templateImportExport.gql";
+import type { GetTemplateImportExportTaskResponse } from "~/admin/graphql/templateImportExport.gql";
+import { GET_TEMPLATE_IMPORT_EXPORT_TASK } from "~/admin/graphql/templateImportExport.gql";
 import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as SuccessIcon } from "@webiny/icons/check_circle_outline.svg";
 import { ReactComponent as ErrorIcon } from "@webiny/icons/error_outline.svg";

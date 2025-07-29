@@ -1,7 +1,7 @@
 import { ContextPlugin } from "@webiny/api";
-import { WcpContext } from "~/types";
+import type { WcpContext } from "~/types";
 import { createWcp } from "~/createWcp";
-import { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
+import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
 
 export interface CreateWcpContextParams {
     testProjectLicense?: DecryptedWcpProjectLicense;

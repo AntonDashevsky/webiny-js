@@ -1,4 +1,4 @@
-import { ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types";
+import type { ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types";
 
 import { base } from "./base";
 import { japanese } from "./japanese";

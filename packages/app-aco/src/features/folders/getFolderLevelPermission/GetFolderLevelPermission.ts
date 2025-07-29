@@ -1,8 +1,8 @@
-import { IGetFolderLevelPermissionUseCase } from "./IGetFolderLevelPermissionUseCase";
+import type { IGetFolderLevelPermissionUseCase } from "./IGetFolderLevelPermissionUseCase";
 import { GetFolderLevelPermissionRepository } from "./GetFolderLevelPermissionRepository";
 import { GetFolderLevelPermissionWithFlpUseCase } from "./GetFolderLevelPermissionWithFlpUseCase";
 import { GetFolderLevelPermissionUseCase } from "./GetFolderLevelPermissionUseCase";
-import { FolderPermissionName } from "./FolderPermissionName";
+import type { FolderPermissionName } from "./FolderPermissionName";
 import { folderCacheFactory } from "../cache";
 
 export class GetFolderLevelPermission {

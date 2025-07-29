@@ -1,4 +1,4 @@
-import { GqlTranslatableItemDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableItemDTO";
+import type { GqlTranslatableItemDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableItemDTO";
 
 export interface GqlTranslatableCollectionDTO {
     id: string;

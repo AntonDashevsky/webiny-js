@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Tag as AdminTag } from "@webiny/admin-ui";
-import { TagItem } from "@webiny/app-aco/types";
+import type { TagItem } from "@webiny/app-aco/types";
 
 export interface TagsProps {
     tags: TagItem[];

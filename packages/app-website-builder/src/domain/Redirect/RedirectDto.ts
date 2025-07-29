@@ -1,5 +1,5 @@
 import type { WbIdentity, WbLocation } from "~/types";
-import { Redirect } from "~/domain/Redirect/index.js";
+import type { Redirect } from "~/domain/Redirect/index.js";
 
 export interface RedirectDto {
     id: string;

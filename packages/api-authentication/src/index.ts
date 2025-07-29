@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { AuthenticationContext } from "~/types";
+import type { AuthenticationContext } from "~/types";
 import { createAuthentication } from "~/createAuthentication";
 
 export default () => {

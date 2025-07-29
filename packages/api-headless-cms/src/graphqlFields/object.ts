@@ -1,6 +1,6 @@
 import upperFirst from "lodash/upperFirst";
 import lodashUpperFirst from "lodash/upperFirst";
-import {
+import type {
     CmsFieldTypePlugins,
     CmsModel,
     CmsModelField,

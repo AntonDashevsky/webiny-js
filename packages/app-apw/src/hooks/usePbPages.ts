@@ -4,7 +4,7 @@ import dotPropImmutable from "dot-prop-immutable";
 import pick from "lodash/pick";
 import debounce from "lodash/debounce";
 import { LIST_PAGES } from "~/graphql/workflow.gql";
-import { BindComponentRenderProp } from "@webiny/form";
+import type { BindComponentRenderProp } from "@webiny/form";
 
 interface UsePbPagesResult {
     loading: boolean;

@@ -1,4 +1,4 @@
-import { CmsRichTextRendererPlugin, RichTextContents } from "~/plugins";
+import type { CmsRichTextRendererPlugin, RichTextContents } from "~/plugins";
 
 interface RichTextRenderer {
     render(contents: RichTextContents): Promise<unknown>;

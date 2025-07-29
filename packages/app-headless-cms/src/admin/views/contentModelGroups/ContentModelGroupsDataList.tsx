@@ -22,11 +22,11 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useApolloClient, useQuery } from "../../hooks";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
 import * as GQL from "./graphql";
-import { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql";
+import type { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
 import { deserializeSorters } from "../utils";
 import usePermission from "../../hooks/usePermission";
-import { CmsGroup } from "~/types";
+import type { CmsGroup } from "~/types";
 import { Button, Select, Tooltip } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/data-list");

@@ -1,10 +1,11 @@
 import path from "path";
 import invariant from "invariant";
 import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
-import { BuildAppConfigOverrides, createBuildApp, createWatchApp } from "@webiny/project-utils";
-import { Configuration as WebpackConfig } from "webpack";
-import { PulumiAppModule } from "@webiny/pulumi";
-import { Unwrap } from "@pulumi/pulumi";
+import type { BuildAppConfigOverrides } from "@webiny/project-utils";
+import { createBuildApp, createWatchApp } from "@webiny/project-utils";
+import type { Configuration as WebpackConfig } from "webpack";
+import type { PulumiAppModule } from "@webiny/pulumi";
+import type { Unwrap } from "@pulumi/pulumi";
 
 export interface RunCommandOptions {
     cwd: string;

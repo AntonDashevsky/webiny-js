@@ -6,7 +6,7 @@ import set from "lodash/set";
 import merge from "lodash/merge";
 import { plugins } from "@webiny/plugins";
 import { Tooltip } from "@webiny/ui/Tooltip";
-import {
+import type {
     PbEditorElement,
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin,
@@ -27,7 +27,7 @@ import TextAlignment from "./TextAlignment";
 import { applyFallbackDisplayMode } from "../elementSettingsUtils";
 import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements";
 
-import { TypographyStyle } from "@webiny/app-theme/types";
+import type { TypographyStyle } from "@webiny/app-theme/types";
 
 const classes = {
     grid: css({

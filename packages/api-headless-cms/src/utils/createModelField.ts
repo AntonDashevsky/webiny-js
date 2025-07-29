@@ -1,5 +1,5 @@
 import camelCase from "lodash/camelCase";
-import { CmsModelField } from "~/types";
+import type { CmsModelField } from "~/types";
 
 export interface CreateModelFieldParams
     extends Omit<CmsModelField, "id" | "storageId" | "fieldId"> {

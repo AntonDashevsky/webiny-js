@@ -7,7 +7,7 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { usePageBuilder } from "~/hooks/usePageBuilder";
 import ExportPageLoadingDialogContent from "./ExportPageLoadingDialogContent";
 import useExportPage from "./useExportPage";
-import { PbListPagesWhereInput } from "~/admin/graphql/types";
+import type { PbListPagesWhereInput } from "~/admin/graphql/types";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/exportPageButton");
 

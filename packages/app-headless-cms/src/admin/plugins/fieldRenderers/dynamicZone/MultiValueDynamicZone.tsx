@@ -8,7 +8,7 @@ import { AddTemplateButton, AddTemplateIcon } from "./AddTemplate";
 import { TemplateIcon } from "./TemplateIcon";
 import { ParentFieldProvider, useModelField } from "~/admin/hooks";
 import { Fields } from "~/admin/components/ContentEntryForm/Fields";
-import {
+import type {
     BindComponent,
     BindComponentRenderProp,
     CmsDynamicZoneTemplate,

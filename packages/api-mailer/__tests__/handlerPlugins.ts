@@ -4,13 +4,14 @@ import apiKeyAuthorization from "@webiny/api-security/plugins/apiKeyAuthorizatio
 import { createI18NContext } from "@webiny/api-i18n";
 import { CmsParametersPlugin, createHeadlessCmsContext } from "@webiny/api-headless-cms";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import { createMailerContext, createMailerGraphQL } from "~/index";
 import { createTenancyAndSecurity } from "./context/tenancySecurity";
-import { createPermissions, PermissionsArg } from "./context/helpers";
+import type { PermissionsArg } from "./context/helpers";
+import { createPermissions } from "./context/helpers";
 import { contextSecurity } from "./graphQLHandler";
 
 export interface CreateHandlerParams {

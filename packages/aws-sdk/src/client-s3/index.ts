@@ -1,4 +1,5 @@
-import { S3, S3Client, S3ClientConfig as BaseS3ClientConfig } from "@aws-sdk/client-s3";
+import type { S3ClientConfig as BaseS3ClientConfig } from "@aws-sdk/client-s3";
+import { S3, S3Client } from "@aws-sdk/client-s3";
 import { createCacheKey } from "@webiny/utils";
 
 export {

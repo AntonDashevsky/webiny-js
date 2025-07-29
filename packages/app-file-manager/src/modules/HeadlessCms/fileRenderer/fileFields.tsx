@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import dotProp from "dot-prop-immutable";
-import {
+import type {
     BindComponentRenderProp,
     CmsModelFieldRendererPlugin,
     CmsModelFieldRendererProps
@@ -9,7 +9,7 @@ import { i18n } from "@webiny/app/i18n";
 import { FileManager } from "@webiny/app-admin/components";
 import { getSupportedExtensionsLabelHint } from "./utils";
 import { EditFileUsingUrl } from "~/components/EditFileUsingUrl";
-import { FileItem } from "@webiny/app-admin/types";
+import type { FileItem } from "@webiny/app-admin/types";
 import { MultiFilePicker } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/file");

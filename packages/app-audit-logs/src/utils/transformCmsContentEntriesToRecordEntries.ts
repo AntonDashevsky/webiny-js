@@ -1,7 +1,7 @@
-import { SearchRecordItem } from "@webiny/app-aco/types";
+import type { SearchRecordItem } from "@webiny/app-aco/types";
 import { auditLogsApps } from "@webiny/api-audit-logs/config";
 
-import { ActionType, AuditLog, User } from "~/types";
+import type { ActionType, AuditLog, User } from "~/types";
 
 export type Entry = {
     id: string;

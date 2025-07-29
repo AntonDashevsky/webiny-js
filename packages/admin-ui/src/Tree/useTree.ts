@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { DropOptions as DndDropOptions, NodeModel } from "@minoru/react-dnd-treeview";
+import type { DropOptions as DndDropOptions, NodeModel } from "@minoru/react-dnd-treeview";
 import { autorun } from "mobx";
 import { TreePresenter, type TreePresenterInitParams } from "./presenters";
 import type { TreeProps, DropOptions } from "./Tree";

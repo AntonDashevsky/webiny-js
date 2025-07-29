@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { Plugin } from "@webiny/plugins/Plugin";
-import { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
 
 export interface CreatePathCallableParams {
     field: Partial<CmsModelField> & Pick<CmsModelField, "fieldId" | "storageId" | "id">;

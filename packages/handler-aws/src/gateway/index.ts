@@ -3,7 +3,8 @@ import type {
     APIGatewayProxyEventHeaders,
     Context as LambdaContext
 } from "@webiny/aws-sdk/types";
-import awsLambdaFastify, { LambdaResponse } from "@fastify/aws-lambda";
+import type { LambdaResponse } from "@fastify/aws-lambda";
+import awsLambdaFastify from "@fastify/aws-lambda";
 import { createHandler as createBaseHandler, createRoute, RoutePlugin } from "@webiny/handler";
 import { registerDefaultPlugins } from "~/plugins";
 import type { HandlerFactoryParams } from "~/types";

@@ -1,8 +1,8 @@
 import sizeOfObject from "object-sizeof";
 
-import { ITaskEvent } from "~/handler/types";
+import type { ITaskEvent } from "~/handler/types";
 import { TaskResponseStatus } from "~/types";
-import {
+import type {
     IResponse,
     IResponseAbortedResult,
     IResponseContinueParams,

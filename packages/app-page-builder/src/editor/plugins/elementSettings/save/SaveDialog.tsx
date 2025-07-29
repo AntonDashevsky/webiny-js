@@ -6,25 +6,20 @@ import { CircularProgress } from "@webiny/ui/Progress";
 import { PageElementsProvider } from "~/contexts/PageBuilder/PageElementsProvider";
 import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache";
 
-import {
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogActions,
-    DialogCancel,
-    DialogOnClose
-} from "@webiny/ui/Dialog";
+import type { DialogOnClose } from "@webiny/ui/Dialog";
+import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog";
 import { Input } from "@webiny/ui/Input";
 import { Switch } from "@webiny/ui/Switch";
 import { Select } from "@webiny/ui/Select";
 import { Grid, Cell } from "@webiny/ui/Grid";
-import { Form, FormOnSubmit } from "@webiny/form";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
-import { PbEditorBlockCategoryPlugin, PbEditorElement, PbElement } from "~/types";
+import type { PbEditorBlockCategoryPlugin, PbEditorElement, PbElement } from "~/types";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import { ButtonPrimary } from "@webiny/ui/Button";
-import {
+import type {
     SaveBlockFormData,
     SaveElementFormData
 } from "~/editor/plugins/elementSettings/save/SaveAction";

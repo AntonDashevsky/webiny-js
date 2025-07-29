@@ -23,7 +23,7 @@ import {
 } from "@webiny/ui/List";
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { PbCategory } from "~/types";
+import type { PbCategory } from "~/types";
 import { useCategoriesPermissions } from "~/hooks/permissions";
 
 const t = i18n.ns("app-page-builder/admin/categories/data-list");

@@ -1,7 +1,7 @@
 import lodashGet from "lodash/get";
-import { FormField } from "./FormField";
-import { FormValidationOptions, GenericFormData } from "~/types";
-import { FieldValidationResult } from "~/FormFieldValidator";
+import type { FormField } from "./FormField";
+import type { FormValidationOptions, GenericFormData } from "~/types";
+import type { FieldValidationResult } from "~/FormFieldValidator";
 
 interface FormValidationResult {
     isValid: boolean;

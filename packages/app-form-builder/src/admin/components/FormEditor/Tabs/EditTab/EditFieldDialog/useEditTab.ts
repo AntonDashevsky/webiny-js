@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import { FbFormStep, MoveStepParams } from "~/types";
-import {
+import type { FbFormStep, MoveStepParams } from "~/types";
+import type {
     DragObjectWithFieldInfo,
     IsVisibleCallableParams
 } from "~/admin/components/FormEditor/Droppable";

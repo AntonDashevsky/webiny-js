@@ -1,5 +1,5 @@
 import { createConfiguration } from "./configuration";
-import { Project } from "~/types";
+import type { Project } from "~/types";
 
 export interface IWithProjectNameParams {
     project: Project;

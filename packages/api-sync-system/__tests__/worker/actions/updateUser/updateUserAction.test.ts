@@ -1,9 +1,9 @@
 import { createUpdateUserAction } from "~/worker/actions/updateUser/updateUserAction.js";
+import type { AdminUpdateUserAttributesCommandInput } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import {
     AdminGetUserCommand,
     type AdminGetUserCommandInput,
     AdminUpdateUserAttributesCommand,
-    AdminUpdateUserAttributesCommandInput,
     CognitoIdentityProviderClient,
     createCognitoIdentityProviderClient
 } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";

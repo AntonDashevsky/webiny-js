@@ -1,4 +1,4 @@
-import { S3Event, S3EventRecord } from "@webiny/aws-sdk/types";
+import type { S3Event, S3EventRecord } from "@webiny/aws-sdk/types";
 
 const defaultRecord: S3EventRecord = {
     awsRegion: "us-east-1",

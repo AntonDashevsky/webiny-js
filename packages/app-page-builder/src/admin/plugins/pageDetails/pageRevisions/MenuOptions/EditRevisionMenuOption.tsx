@@ -3,7 +3,7 @@ import { MenuItem } from "@webiny/ui/Menu";
 import { ListItemGraphic } from "@webiny/ui/List";
 import { Icon } from "@webiny/ui/Icon";
 import { ReactComponent as EditIcon } from "~/admin/assets/edit.svg";
-import { PbPageData, PbPageRevision } from "~/types";
+import type { PbPageData, PbPageRevision } from "~/types";
 import { makeDecoratable } from "@webiny/app-admin";
 
 export interface EditRevisionMenuOptionProps {

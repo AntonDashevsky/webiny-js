@@ -1,6 +1,6 @@
 import { NotAuthorizedError } from "@webiny/api-security";
 import WebinyError from "@webiny/error";
-import {
+import type {
     OnSystemAfterInstallTopicParams,
     OnSystemBeforeInstallTopicParams,
     CmsContext,
@@ -9,10 +9,10 @@ import {
     HeadlessCmsStorageOperations,
     OnSystemInstallErrorTopicParams
 } from "~/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { createTopic } from "@webiny/pubsub";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 
 const initialContentModelGroup = {
     name: "Ungrouped",

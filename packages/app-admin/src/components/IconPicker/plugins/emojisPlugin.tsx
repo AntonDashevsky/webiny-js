@@ -6,7 +6,7 @@ import { IconPickerTab } from "../IconPickerTab";
 import { IconProvider } from "../IconRenderer";
 import { useIconPicker } from "../IconPickerPresenterProvider";
 import { IconPickerConfig } from "../config";
-import { Icon } from "../types";
+import type { Icon } from "../types";
 
 const SKIN_TONES = ["", "\u{1f3fb}", "\u{1f3fc}", "\u{1f3fd}", "\u{1f3fe}", "\u{1f3ff}"];
 

@@ -1,19 +1,19 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import {
+import type {
     PbErrorResponse,
     PbPageData,
     PbPageDataSettingsSeo,
     PbPageDataSettingsSocial
 } from "@webiny/app-page-builder/types";
 import { makeDecoratable } from "@webiny/app";
-import { SettingsQueryResponseData } from "./graphql";
+import type { SettingsQueryResponseData } from "./graphql";
 import { ErrorPage } from "./ErrorPage";
 import { WebsiteScripts } from "./WebsiteScripts";
 import { MainContent } from "./MainContent";
 import { Layout } from "./Layout";
 import { PageProvider } from "@webiny/app-page-builder-elements";
-import { ApolloError } from "apollo-client";
+import type { ApolloError } from "apollo-client";
 
 interface Head {
     favicon?: {

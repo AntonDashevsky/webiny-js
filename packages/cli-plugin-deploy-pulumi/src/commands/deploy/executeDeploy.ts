@@ -1,4 +1,4 @@
-import { Context, IPulumi, IUserCommandInput } from "~/types";
+import type { Context, IPulumi, IUserCommandInput } from "~/types";
 import { measureDuration } from "~/utils";
 import ora from "ora";
 import { isCI } from "ci-info";

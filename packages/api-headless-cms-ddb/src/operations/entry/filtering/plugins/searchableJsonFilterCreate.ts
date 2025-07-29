@@ -1,8 +1,6 @@
 import dot from "dot-object";
-import {
-    CmsEntryFieldFilterPlugin,
-    CmsEntryFieldFilterPluginCreateResponse
-} from "~/plugins/CmsEntryFieldFilterPlugin";
+import type { CmsEntryFieldFilterPluginCreateResponse } from "~/plugins/CmsEntryFieldFilterPlugin";
+import { CmsEntryFieldFilterPlugin } from "~/plugins/CmsEntryFieldFilterPlugin";
 import { extractWhereParams } from "~/operations/entry/filtering/where";
 
 export const searchableJsonFilterCreate = () => {

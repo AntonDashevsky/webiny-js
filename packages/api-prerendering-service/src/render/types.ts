@@ -1,6 +1,6 @@
-import { Context as LoggerContext } from "@webiny/api-log/types";
-import { Plugin } from "@webiny/plugins/types";
-import { PrerenderingSettings, Render, RenderEvent } from "~/types";
+import type { Context as LoggerContext } from "@webiny/api-log/types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { PrerenderingSettings, Render, RenderEvent } from "~/types";
 
 export type Context = LoggerContext;
 

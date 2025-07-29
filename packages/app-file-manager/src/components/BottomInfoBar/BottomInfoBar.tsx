@@ -2,8 +2,10 @@ import React from "react";
 import mime from "mime/lite";
 import { Separator } from "@webiny/admin-ui";
 
-import SupportedFileTypes, { SupportedFileTypesProps } from "./SupportedFileTypes";
-import ListStatus, { ListStatusProps } from "./ListStatus";
+import type { SupportedFileTypesProps } from "./SupportedFileTypes";
+import SupportedFileTypes from "./SupportedFileTypes";
+import type { ListStatusProps } from "./ListStatus";
+import ListStatus from "./ListStatus";
 
 mime.define({ "image/x-icon": ["ico"] }, true);
 mime.define({ "image/jpg": ["jpg"] }, true);

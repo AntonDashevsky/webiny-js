@@ -1,11 +1,11 @@
-import { Client } from "@webiny/api-elasticsearch";
-import {
+import type { Client } from "@webiny/api-elasticsearch";
+import type {
     IElasticsearchFetcher,
     IElasticsearchFetcherFetchParams,
     IElasticsearchFetcherFetchResponse,
     IElasticsearchFetcherFetchResponseItem
 } from "./abstractions/ElasticsearchFetcher";
-import { ElasticsearchSearchResponse, PrimitiveValue } from "@webiny/api-elasticsearch/types";
+import type { ElasticsearchSearchResponse, PrimitiveValue } from "@webiny/api-elasticsearch/types";
 import { shouldIgnoreEsResponseError } from "./shouldIgnoreEsResponseError";
 import { inspect } from "node:util";
 

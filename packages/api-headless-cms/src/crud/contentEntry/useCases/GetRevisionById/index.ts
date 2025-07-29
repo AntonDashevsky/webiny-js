@@ -1,6 +1,6 @@
 import { GetRevisionById } from "./GetRevisionById";
 import { GetRevisionByIdNotDeleted } from "./GetRevisionByIdNotDeleted";
-import { CmsEntryStorageOperations } from "~/types";
+import type { CmsEntryStorageOperations } from "~/types";
 
 interface GetRevisionByIdUseCasesParams {
     operation: CmsEntryStorageOperations["getRevisionById"];

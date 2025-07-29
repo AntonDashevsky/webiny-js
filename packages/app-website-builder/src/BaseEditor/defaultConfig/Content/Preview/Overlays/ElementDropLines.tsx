@@ -3,11 +3,11 @@ import { useDragLayer } from "react-dnd";
 import { DropLine } from "./DropLine";
 import { useIsDragging } from "../useIsDragging";
 import { useProximityDropzone } from "../useProximityDropzone";
-import { Box } from "../Box";
+import type { Box } from "../Box";
 import { useElementComponentManifest } from "~/BaseEditor/defaultConfig/Content/Preview/useElementComponentManifest";
 import { ComponentManifestToAstConverter } from "@webiny/website-builder-sdk";
 import { findMatchingAstNode } from "@webiny/website-builder-sdk";
-import { SlotInput } from "@webiny/website-builder-sdk";
+import type { SlotInput } from "@webiny/website-builder-sdk";
 
 interface ElementDropZonesProps {
     editorBox: Box;

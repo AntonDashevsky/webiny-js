@@ -1,4 +1,4 @@
-import { FileManagerContext, FilePermission } from "@webiny/api-file-manager/types";
+import type { FileManagerContext, FilePermission } from "@webiny/api-file-manager/types";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 export const checkPermissions = async (

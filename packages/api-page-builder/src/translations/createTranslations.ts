@@ -1,6 +1,6 @@
 import lodashMerge from "lodash/merge";
 import { createGraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { PbContext } from "~/graphql/types";
+import type { PbContext } from "~/graphql/types";
 import { translatableCollectionResolvers } from "~/translations/translatableCollection/graphql/resolvers";
 import { translatableCollectionSchema } from "~/translations/translatableCollection/graphql/schema";
 import { translatedCollectionSchema } from "~/translations/translatedCollection/graphql/schema";

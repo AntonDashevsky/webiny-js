@@ -1,7 +1,7 @@
 import React from "react";
 import { i18n } from "@webiny/app/i18n";
 import { Accordion } from "@webiny/admin-ui";
-import { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
 import { ReactComponent as PermissionsIcon } from "@webiny/icons/check_box.svg";
 import { FormBuilderPermissions } from "./FormBuilderPermissions";
 

@@ -1,5 +1,5 @@
-import { Plugin } from "@webiny/plugins/types";
-import { HandlerGraphQLOptions } from "./types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { HandlerGraphQLOptions } from "./types";
 import createGraphQLHandler from "./createGraphQLHandler";
 
 export * from "./errors";

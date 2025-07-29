@@ -1,5 +1,5 @@
 import get from "lodash/get";
-import { PbAcoContext } from "~/types";
+import type { PbAcoContext } from "~/types";
 
 export const imageProcessor = (context: PbAcoContext) => {
     context.pageBuilderAco.addPageSearchProcessor(({ element }) => {

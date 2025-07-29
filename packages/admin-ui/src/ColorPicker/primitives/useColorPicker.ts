@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import { ColorPickerPrimitiveProps } from "./ColorPickerPrimitive";
-import { ColorPickerPresenter, ColorPickerPresenterParams } from "./presenters";
+import type { ColorPickerPrimitiveProps } from "./ColorPickerPrimitive";
+import type { ColorPickerPresenterParams } from "./presenters";
+import { ColorPickerPresenter } from "./presenters";
 
 export const useColorPicker = (props: ColorPickerPrimitiveProps) => {
     const params: ColorPickerPresenterParams = useMemo(

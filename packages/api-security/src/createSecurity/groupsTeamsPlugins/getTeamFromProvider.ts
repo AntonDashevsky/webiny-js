@@ -1,4 +1,4 @@
-import { SecurityConfig } from "~/types";
+import type { SecurityConfig } from "~/types";
 import { listTeamsFromProvider } from "./listTeamsFromProvider";
 
 export interface GetTeamFromPluginsParams {

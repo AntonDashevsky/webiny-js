@@ -6,13 +6,13 @@
 import path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import {
-    createAppModule,
+import type {
     PulumiApp,
     PulumiAppRemoteResource,
     PulumiAppResource,
     PulumiAppResourceConstructor
 } from "@webiny/pulumi";
+import { createAppModule } from "@webiny/pulumi";
 
 import { getAwsAccountId } from "../awsUtils";
 import { CoreVpc } from "./CoreVpc";

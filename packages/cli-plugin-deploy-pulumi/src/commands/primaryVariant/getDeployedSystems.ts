@@ -1,7 +1,8 @@
 import { getApplicationsStacksOutput } from "~/utils/stacks";
 import { GracefulError } from "~/utils";
 import type { Context, NonEmptyArray } from "~/types";
-import { createDeployedSystemFactory, IDeployedSystem } from "./DeployedSystem";
+import type { IDeployedSystem } from "./DeployedSystem";
+import { createDeployedSystemFactory } from "./DeployedSystem";
 import ora from "ora";
 
 export interface IGetStacksParams {

@@ -1,6 +1,6 @@
 import React from "react";
 import { RefreshIcon } from "../DataListIcons";
-import { DataListProps } from "../types";
+import type { DataListProps } from "../types";
 import { Tooltip } from "~/Tooltip";
 
 const RefreshButton = (props: DataListProps) => {

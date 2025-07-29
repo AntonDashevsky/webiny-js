@@ -1,4 +1,4 @@
-import { PbEditorEventActionPlugin } from "~/types";
+import type { PbEditorEventActionPlugin } from "~/types";
 import { UpdateElementTreeActionEvent } from "./event";
 
 export default (): PbEditorEventActionPlugin => {

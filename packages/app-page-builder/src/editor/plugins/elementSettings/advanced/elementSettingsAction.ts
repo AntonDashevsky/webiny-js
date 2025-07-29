@@ -1,5 +1,5 @@
-import { CreateElementEventActionArgsType } from "~/editor/recoil/actions/createElement/types";
-import { EventActionCallable, PbEditorPageElementPlugin } from "~/types";
+import type { CreateElementEventActionArgsType } from "~/editor/recoil/actions/createElement/types";
+import type { EventActionCallable, PbEditorPageElementPlugin } from "~/types";
 import { plugins } from "@webiny/plugins";
 
 export const elementSettingsAction: EventActionCallable<CreateElementEventActionArgsType> = (

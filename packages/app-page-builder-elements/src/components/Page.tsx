@@ -1,5 +1,5 @@
 import React from "react";
-import { Page as PageType } from "~/types";
+import type { Page as PageType } from "~/types";
 import { Content } from "./Content";
 import { PageProvider } from "~/contexts/Page";
 

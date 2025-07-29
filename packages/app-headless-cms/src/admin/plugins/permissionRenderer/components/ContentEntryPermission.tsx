@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import get from "lodash/get";
 import { i18n } from "@webiny/app/i18n";
-import { BindComponent } from "@webiny/form/types";
-import { CmsSecurityPermission } from "~/types";
+import type { BindComponent } from "@webiny/form/types";
+import type { CmsSecurityPermission } from "~/types";
 import { CheckboxGroup, FormComponentNote, Grid, Select } from "@webiny/admin-ui";
 import { PermissionsGroup } from "@webiny/app-admin/components/Permissions";
 

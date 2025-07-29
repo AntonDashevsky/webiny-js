@@ -1,7 +1,8 @@
 import fs from "fs";
 import fetch from "node-fetch";
 import FormData from "form-data";
-import { S3Client, PresignedPostOptions, HeadObjectCommand } from "@webiny/aws-sdk/client-s3";
+import type { PresignedPostOptions } from "@webiny/aws-sdk/client-s3";
+import { S3Client, HeadObjectCommand } from "@webiny/aws-sdk/client-s3";
 import mime from "mime";
 import chunk from "lodash/chunk";
 import { relative } from "path";

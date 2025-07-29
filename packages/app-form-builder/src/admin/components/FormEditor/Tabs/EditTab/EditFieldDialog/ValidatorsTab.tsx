@@ -1,11 +1,12 @@
 import React, { useMemo } from "react";
 import { plugins } from "@webiny/plugins";
 import { useFormEditor } from "../../../Context";
-import { BindComponentRenderPropOnChange, Form, FormRenderPropParams } from "@webiny/form";
+import type { BindComponentRenderPropOnChange, FormRenderPropParams } from "@webiny/form";
+import { Form } from "@webiny/form";
 import cloneDeep from "lodash/cloneDeep";
 import debounce from "lodash/debounce";
 import { validation } from "@webiny/validation";
-import {
+import type {
     FbBuilderFormFieldValidatorPlugin,
     FbBuilderFormFieldValidatorPluginValidator,
     FbFormModelField

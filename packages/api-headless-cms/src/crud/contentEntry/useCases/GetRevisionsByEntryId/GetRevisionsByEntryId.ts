@@ -1,5 +1,5 @@
-import { IGetRevisionsByEntryId } from "../../abstractions";
-import {
+import type { IGetRevisionsByEntryId } from "../../abstractions";
+import type {
     CmsEntryStorageOperations,
     CmsEntryStorageOperationsGetRevisionParams,
     CmsModel

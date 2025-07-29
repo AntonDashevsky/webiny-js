@@ -1,6 +1,7 @@
 import { createHandler as createBaseHandler } from "@webiny/handler";
 import { registerDefaultPlugins } from "~/plugins";
-import { S3EventHandler, S3EventHandlerCallableParams } from "~/s3/plugins/S3EventHandler";
+import type { S3EventHandlerCallableParams } from "~/s3/plugins/S3EventHandler";
+import { S3EventHandler } from "~/s3/plugins/S3EventHandler";
 import { execute } from "~/execute";
 import type { HandlerFactoryParams } from "~/types";
 /**

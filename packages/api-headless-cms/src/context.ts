@@ -1,9 +1,10 @@
-import { ApiEndpoint, CmsContext, HeadlessCmsStorageOperations } from "~/types";
+import type { ApiEndpoint, CmsContext, HeadlessCmsStorageOperations } from "~/types";
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { GraphQLRequestBody } from "@webiny/handler-graphql/types";
+import type { GraphQLRequestBody } from "@webiny/handler-graphql/types";
 import { processRequestBody } from "@webiny/handler-graphql";
-import { CmsParametersPlugin, CmsParametersPluginResponse } from "~/plugins/CmsParametersPlugin";
+import type { CmsParametersPluginResponse } from "~/plugins/CmsParametersPlugin";
+import { CmsParametersPlugin } from "~/plugins/CmsParametersPlugin";
 import { AccessControl } from "~/crud/AccessControl/AccessControl";
 import { createSystemCrud } from "~/crud/system.crud";
 import { createModelGroupsCrud } from "~/crud/contentModelGroup.crud";

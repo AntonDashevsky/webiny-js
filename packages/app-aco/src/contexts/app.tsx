@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ApolloClient } from "apollo-client";
+import type { ApolloClient } from "apollo-client";
 import { DialogsProvider } from "@webiny/app-admin";
-import { AcoApp, AcoAppMode, AcoError, AcoModel, AcoModelField } from "~/types";
-import { createGetAppQuery, GetAppResult, GetAppVariables } from "~/graphql/app.gql";
+import type { AcoApp, AcoAppMode, AcoError, AcoModel, AcoModelField } from "~/types";
+import type { GetAppResult, GetAppVariables } from "~/graphql/app.gql";
+import { createGetAppQuery } from "~/graphql/app.gql";
 import { FoldersProvider as FoldersContextProvider } from "./folders";
 import { SearchRecordsProvider as SearchRecordsContextProvider } from "./records";
 import { DisplayError } from "./DisplayError";

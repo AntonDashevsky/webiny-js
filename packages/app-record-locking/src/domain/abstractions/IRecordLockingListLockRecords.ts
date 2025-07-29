@@ -1,4 +1,4 @@
-import { IRecordLockingError, IRecordLockingLockRecord, IRecordLockingMeta } from "~/types";
+import type { IRecordLockingError, IRecordLockingLockRecord, IRecordLockingMeta } from "~/types";
 
 export interface IRecordLockingListLockRecordsParamsWhere {
     id_in?: string[];

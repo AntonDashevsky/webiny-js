@@ -1,4 +1,5 @@
-import React, { ReactElement } from "react";
+import type { ReactElement } from "react";
+import React from "react";
 import { Text, Icon } from "@webiny/admin-ui";
 
 export interface InfoMessageProps {

@@ -1,7 +1,7 @@
 import useGqlHandler from "./useGqlHandler";
 import { ContextPlugin } from "@webiny/api";
-import { TenancyContext } from "@webiny/api-tenancy/types";
-import { FormBuilderContext } from "~/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { FormBuilderContext } from "~/types";
 
 describe('Form Builder "Installation" Test', () => {
     test(`should publish a "tenancy.onTenantAfterInstall" event`, async () => {

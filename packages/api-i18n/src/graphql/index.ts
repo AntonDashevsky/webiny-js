@@ -3,7 +3,7 @@ import { createLocalesGraphQL } from "./graphql/locales";
 import { createInstallationGraphQL } from "./graphql/installation";
 import { createI18NBaseContext } from "./context";
 import localeContexts from "./localeContexts";
-import { ContextI18NGetLocales } from "~/types";
+import type { ContextI18NGetLocales } from "~/types";
 
 const getLocalesPlugin: ContextI18NGetLocales = {
     name: "context-i18n-get-locales",

@@ -1,11 +1,13 @@
 import React, { useMemo } from "react";
-import { Theme, StylesObject } from "@webiny/theme/types";
-import { CSSObject, ClassNames } from "@emotion/react";
-import { GenericComponent, makeDecoratable } from "@webiny/react-composition";
+import type { Theme, StylesObject } from "@webiny/theme/types";
+import type { CSSObject } from "@emotion/react";
+import { ClassNames } from "@emotion/react";
+import type { GenericComponent } from "@webiny/react-composition";
+import { makeDecoratable } from "@webiny/react-composition";
 import { usePageElements } from "~/hooks/usePageElements";
-import { Renderer, Element } from "~/types";
+import type { Renderer, Element } from "~/types";
 import { RendererProvider } from "~/contexts/Renderer";
-import { ElementInput, ElementInputs, ElementInputValues } from "~/inputs/ElementInput";
+import type { ElementInput, ElementInputs, ElementInputValues } from "~/inputs/ElementInput";
 import { ElementRendererInputs } from "~/contexts/ElementRendererInputs";
 
 interface GetStylesParams {

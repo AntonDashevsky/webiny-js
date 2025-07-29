@@ -1,6 +1,6 @@
 import type { EventBridgeEvent } from "@webiny/aws-sdk/types";
 import { registry } from "~/registry";
-import { HandlerFactoryParams } from "~/types";
+import type { HandlerFactoryParams } from "~/types";
 import { createSourceHandler } from "~/sourceHandler";
 import { createHandler } from "~/eventBridge/index";
 

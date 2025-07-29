@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { DropdownMenu, Text, Icon } from "@webiny/admin-ui";
 
 interface IconProps {

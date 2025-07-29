@@ -1,6 +1,6 @@
 import React from "react";
 import { cn, cva, type VariantProps } from "@webiny/admin-ui";
-import { Icon } from "~/components/IconPicker";
+import type { Icon } from "~/components/IconPicker";
 import { IconProvider, IconRenderer } from "~/components/IconPicker/IconRenderer";
 
 const iconPickerCellVariants = cva(

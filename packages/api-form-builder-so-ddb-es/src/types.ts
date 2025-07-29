@@ -1,4 +1,4 @@
-import {
+import type {
     FormBuilder,
     FormBuilderContext as BaseFormBuilderContext,
     FormBuilderFormStorageOperations as BaseFormBuilderFormStorageOperations,
@@ -7,10 +7,10 @@ import {
     FormBuilderSubmissionStorageOperations as BaseFormBuilderSubmissionStorageOperations,
     FormBuilderSystemStorageOperations as BaseFormBuilderSystemStorageOperations
 } from "@webiny/api-form-builder/types";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { AttributeDefinition, Entity, Table } from "@webiny/db-dynamodb/toolbox";
-import { Client } from "@elastic/elasticsearch";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { AttributeDefinition, Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { Client } from "@elastic/elasticsearch";
+import type { PluginCollection } from "@webiny/plugins/types";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

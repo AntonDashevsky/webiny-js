@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { FbErrorResponse, FbFormModel, FbUpdateFormInput } from "~/types";
+import type { FbErrorResponse, FbFormModel, FbUpdateFormInput } from "~/types";
 
 const ERROR_FIELDS = `
     {

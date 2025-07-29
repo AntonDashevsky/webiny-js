@@ -1,6 +1,6 @@
 import React from "react";
 import { ApolloProvider as Apollo } from "@apollo/react-components";
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 
 interface Options {
     uri: string;

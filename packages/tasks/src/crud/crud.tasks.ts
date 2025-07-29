@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     Context,
     IListTaskLogParams,
     IListTaskParams,
@@ -18,17 +18,17 @@ import {
     OnTaskAfterUpdateTopicParams,
     OnTaskBeforeCreateTopicParams,
     OnTaskBeforeDeleteTopicParams,
-    OnTaskBeforeUpdateTopicParams,
-    TaskDataStatus
+    OnTaskBeforeUpdateTopicParams
 } from "~/types";
+import { TaskDataStatus } from "~/types";
 import { WEBINY_TASK_LOG_MODEL_ID, WEBINY_TASK_MODEL_ID } from "./model";
-import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
 import { remapWhere } from "./where";
 import { createZodError, parseIdentifier } from "@webiny/utils";
 import zod from "zod";
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 const createRevisionId = (id: string) => {
     const { id: entryId } = parseIdentifier(id);

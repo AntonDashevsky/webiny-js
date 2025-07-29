@@ -1,4 +1,4 @@
-import * as pulumi from "@pulumi/pulumi";
+import type * as pulumi from "@pulumi/pulumi";
 import type { IStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
 
 export type PulumiOutput<T> = {

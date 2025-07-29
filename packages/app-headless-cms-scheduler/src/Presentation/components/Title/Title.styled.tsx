@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { Typography, TypographyProps } from "@webiny/ui/Typography";
+import type { TypographyProps } from "@webiny/ui/Typography";
+import { Typography } from "@webiny/ui/Typography";
 
 export const Name = styled(Typography)<TypographyProps>`
     color: var(--mdc-theme-text-primary-on-background);

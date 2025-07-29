@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography";
 import { createEntryUrl } from "./createEntryUrl";
 import { Link } from "@webiny/react-router";
-import { OptionItem } from "./types";
+import type { OptionItem } from "./types";
 import { EntryStatus } from "./EntryStatus";
 import { IconButton } from "@webiny/ui/Button";
 import { css } from "@emotion/css";

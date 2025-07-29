@@ -1,4 +1,4 @@
-import { GenericRecord } from "@webiny/utils";
+import type { GenericRecord } from "@webiny/utils";
 import { WorkerActionHandler } from "~/worker/handler/WorkerActionHandler.js";
 import { createWorkerActionPlugin } from "~/worker/plugins/WorkerActionPlugin.js";
 

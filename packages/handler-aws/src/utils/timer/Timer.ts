@@ -1,4 +1,4 @@
-import { ITimer } from "./abstractions/ITimer";
+import type { ITimer } from "./abstractions/ITimer";
 
 export interface ITimerCb {
     (): number;

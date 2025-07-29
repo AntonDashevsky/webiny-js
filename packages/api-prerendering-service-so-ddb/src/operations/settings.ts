@@ -1,10 +1,10 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     PrerenderingServiceSaveSettingsParams,
     PrerenderingServiceSettingsStorageOperations,
     PrerenderingSettings
 } from "@webiny/api-prerendering-service/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import { get } from "@webiny/db-dynamodb/utils/get";
 import { put } from "@webiny/db-dynamodb";
 

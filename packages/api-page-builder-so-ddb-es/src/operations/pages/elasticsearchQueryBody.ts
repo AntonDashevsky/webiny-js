@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { SearchBody as esSearchBody } from "elastic-ts";
+import type { SearchBody as esSearchBody } from "elastic-ts";
 import {
     applyWhere,
     createLimit,
@@ -8,13 +8,13 @@ import {
     getElasticsearchOperatorPluginsByLocale,
     isSharedElasticsearchIndex
 } from "@webiny/api-elasticsearch";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { PageStorageOperationsListWhere } from "@webiny/api-page-builder/types";
+import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import type { PageStorageOperationsListWhere } from "@webiny/api-page-builder/types";
 import { PageElasticsearchFieldPlugin } from "~/plugins/definitions/PageElasticsearchFieldPlugin";
 import { PageElasticsearchSortModifierPlugin } from "~/plugins/definitions/PageElasticsearchSortModifierPlugin";
 import { PageElasticsearchQueryModifierPlugin } from "~/plugins/definitions/PageElasticsearchQueryModifierPlugin";
 import { PageElasticsearchBodyModifierPlugin } from "~/plugins/definitions/PageElasticsearchBodyModifierPlugin";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 
 interface CreateElasticsearchQueryArgs {
     where: PageStorageOperationsListWhere;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Typography } from "@webiny/ui/Typography";
 import { Scrollbar } from "@webiny/ui/Scrollbar";
-import { ChildrenRenderProp } from "@webiny/ui/Checkbox/CheckboxGroup";
+import type { ChildrenRenderProp } from "@webiny/ui/Checkbox/CheckboxGroup";
 import { Box, Columns } from "~/components/Layout";
 import { useReviewers } from "~/hooks/useReviewers";
 import { ListItemWithCheckbox } from "./ListItemWithCheckbox";

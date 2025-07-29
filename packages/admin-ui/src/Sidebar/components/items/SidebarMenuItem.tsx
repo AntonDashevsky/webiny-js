@@ -4,7 +4,7 @@ import { SidebarMenuItemIcon, type SidebarMenuItemIconProps } from "./SidebarMen
 import { SidebarMenuItemAction, type SidebarMenuItemActionProps } from "./SidebarMenuItemAction";
 import { SidebarMenuSubItem } from "./SidebarMenuSubItem";
 import { useSidebarMenu } from "./SidebarMenuProvider";
-import { LinkProps, To } from "@webiny/react-router";
+import type { LinkProps, To } from "@webiny/react-router";
 import { SidebarMenuRootItem } from "~/Sidebar/components/items/SidebarMenuRootItem";
 
 export interface SidebarMenuItemBaseProps {

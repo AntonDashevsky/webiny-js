@@ -1,5 +1,5 @@
 import React from "react";
-import { DocumentNode } from "graphql";
+import type { DocumentNode } from "graphql";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 

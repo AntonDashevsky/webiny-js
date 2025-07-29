@@ -1,6 +1,6 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IMovePageGateway } from "./IMovePageGateway.js";
+import type { IMovePageGateway } from "./IMovePageGateway.js";
 import type { WbError } from "~/types.js";
 
 export interface MovePageVariables {

@@ -1,4 +1,6 @@
-import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
+import type { SyntheticEvent } from "react";
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ResizerProps = {
     axis: "x" | "y";

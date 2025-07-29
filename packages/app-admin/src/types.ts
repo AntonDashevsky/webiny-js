@@ -1,7 +1,8 @@
-import React, { ReactElement } from "react";
-import { Plugin } from "@webiny/plugins/types";
-import { ApolloClient } from "apollo-client";
-import { SecurityPermission } from "@webiny/app-security/types";
+import type { ReactElement } from "react";
+import type React from "react";
+import type { Plugin } from "@webiny/plugins/types";
+import type { ApolloClient } from "apollo-client";
+import type { SecurityPermission } from "@webiny/app-security/types";
 
 export { Icon } from "~/components/IconPicker/types";
 

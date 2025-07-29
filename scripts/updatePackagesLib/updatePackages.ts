@@ -4,7 +4,7 @@ import { BasicPackages } from "./BasicPackages";
 import { LatestVersionPackages } from "./LatestVersionPackages";
 import { ResolutionPackages } from "./ResolutionPackages";
 import { UpPackages } from "./UpPackages";
-import { IUserInputResponse } from "./getUserInput";
+import type { IUserInputResponse } from "./getUserInput";
 
 const getAllPackages = (): string[] => {
     const workspaces = allWorkspaces() as string[];

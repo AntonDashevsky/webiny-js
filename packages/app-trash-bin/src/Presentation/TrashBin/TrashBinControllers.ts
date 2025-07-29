@@ -1,5 +1,9 @@
-import { ISortingRepository } from "@webiny/app-utils";
-import { ISearchRepository, ISelectedItemsRepository, ITrashBinItemsRepository } from "~/Domain";
+import type { ISortingRepository } from "@webiny/app-utils";
+import type {
+    ISearchRepository,
+    ISelectedItemsRepository,
+    ITrashBinItemsRepository
+} from "~/Domain";
 import {
     BulkActionsController,
     DeleteItemController,

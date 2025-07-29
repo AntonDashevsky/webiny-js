@@ -27,9 +27,9 @@ import { createAnimationZIndexFix } from "./EditorPageElementsProvider/modifiers
 
 // Other.
 import { usePageBuilder } from "~/hooks/usePageBuilder";
-import { Theme } from "@webiny/app-theme/types";
+import type { Theme } from "@webiny/app-theme/types";
 import { plugins } from "@webiny/plugins";
-import { PbEditorPageElementPlugin } from "~/types";
+import type { PbEditorPageElementPlugin } from "~/types";
 import { ElementControls } from "./EditorPageElementsProvider/ElementControls";
 import { mediaToContainer } from "./EditorPageElementsProvider/mediaToContainer";
 import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache";

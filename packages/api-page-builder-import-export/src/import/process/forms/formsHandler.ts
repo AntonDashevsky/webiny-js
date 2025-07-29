@@ -1,9 +1,10 @@
-import { ImportExportTaskStatus, PbImportExportContext } from "~/types";
+import type { PbImportExportContext } from "~/types";
+import { ImportExportTaskStatus } from "~/types";
 import { importForm } from "./importForm";
 import { invokeHandlerClient } from "~/client";
 import { mockSecurity } from "~/mockSecurity";
 import { zeroPad } from "@webiny/utils";
-import { Configuration, Payload, Response } from "~/import/process";
+import type { Configuration, Payload, Response } from "~/import/process";
 
 export const formsHandler = async (
     configuration: Configuration,

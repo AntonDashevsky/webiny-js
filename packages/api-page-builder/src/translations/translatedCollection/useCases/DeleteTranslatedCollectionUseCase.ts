@@ -1,4 +1,4 @@
-import { PbContext } from "~/graphql/types";
+import type { PbContext } from "~/graphql/types";
 import { DeleteTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/DeleteTranslatedCollectionRepository";
 
 export interface DeleteTranslatedCollectionParams {

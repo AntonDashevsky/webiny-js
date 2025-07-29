@@ -1,7 +1,7 @@
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { getClean } from "@webiny/db-dynamodb";
 import { WebinyError } from "@webiny/error";
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 import { SettingsDynamoTable } from "./SettingsDynamoTable";
 import type {
     GetSettingsParams,

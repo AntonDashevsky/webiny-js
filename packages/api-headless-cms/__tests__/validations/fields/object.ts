@@ -1,4 +1,4 @@
-import { FieldFactory } from "./types";
+import type { FieldFactory } from "./types";
 import { createTextField } from "./text";
 import { createNumberField } from "./number";
 

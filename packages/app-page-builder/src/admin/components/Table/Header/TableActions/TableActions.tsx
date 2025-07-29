@@ -1,4 +1,5 @@
-import React, { ReactElement, useCallback, useMemo } from "react";
+import type { ReactElement } from "react";
+import React, { useCallback, useMemo } from "react";
 
 import { ReactComponent as ExportIcon } from "@webiny/icons/file_download.svg";
 import { ReactComponent as ImportIcon } from "@webiny/icons/file_upload.svg";
@@ -9,8 +10,8 @@ import { IconButton } from "@webiny/ui/Button";
 import useExportPageRevisionSelectorDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageRevisionSelectorDialog";
 import useExportPageDialog from "~/editor/plugins/defaultBar/components/ExportPageButton/useExportPageDialog";
 
-import { PbPageDataItem } from "~/types";
-import { SearchRecordItem } from "@webiny/app-aco/types";
+import type { PbPageDataItem } from "~/types";
+import type { SearchRecordItem } from "@webiny/app-aco/types";
 
 const t = i18n.ns("app-page-builder/admin/views/pages/table/header/buttons/table-actions");
 

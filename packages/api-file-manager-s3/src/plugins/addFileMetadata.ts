@@ -1,6 +1,6 @@
 import { S3 } from "@webiny/aws-sdk/client-s3";
 import { ContextPlugin } from "@webiny/api";
-import { FileManagerContext, File } from "@webiny/api-file-manager/types";
+import type { FileManagerContext, File } from "@webiny/api-file-manager/types";
 import { executeWithRetry } from "@webiny/utils";
 
 export class MetadataWriter {

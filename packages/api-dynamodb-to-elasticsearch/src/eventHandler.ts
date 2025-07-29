@@ -1,5 +1,5 @@
 import { createDynamoDBEventHandler, timerFactory } from "@webiny/handler-aws";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { OperationsBuilder } from "~/OperationsBuilder";
 import { executeWithRetry } from "~/executeWithRetry";
 

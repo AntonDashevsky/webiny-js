@@ -1,8 +1,8 @@
 import { createTopic } from "@webiny/pubsub";
-import { Tenant, TenancyStorageOperations, Tenancy } from "./types";
+import type { Tenant, TenancyStorageOperations, Tenancy } from "./types";
 import { createSystemMethods } from "~/createTenancy/createSystemMethods";
 import { createTenantsMethods } from "~/createTenancy/createTenantsMethods";
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 
 export interface TenancyConfig {
     tenant: string | null;

@@ -1,6 +1,6 @@
 import { LOGIN_ST } from "./graphql";
-import { DocumentNode } from "graphql";
-import { ApolloClient } from "apollo-client";
+import type { DocumentNode } from "graphql";
+import type { ApolloClient } from "apollo-client";
 
 export interface GetIdentityDataCallableParams {
     client: ApolloClient<any>;

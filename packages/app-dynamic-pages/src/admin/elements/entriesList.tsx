@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as RepeatIcon } from "@webiny/icons/repeat.svg";
-import { PbEditorPageElementPlugin, PbElement } from "@webiny/app-page-builder/types";
+import type { PbEditorPageElementPlugin, PbElement } from "@webiny/app-page-builder/types";
 import { AdminEntriesListRenderer } from "./renderers/EntriesList";
 import { createElement } from "@webiny/app-page-builder/editor/helpers";
 

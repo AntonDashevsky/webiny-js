@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import {
+import type {
     BindComponentRenderProp,
     CmsContentEntry,
     CmsModelFieldRendererProps,
@@ -12,10 +12,10 @@ import { ReferencesDialog } from "./ReferencesDialog";
 import { NoEntries } from "./NoEntries";
 import { Container } from "./Container";
 import { useQuery, useModelFieldGraphqlContext } from "~/admin/hooks";
-import { ListCmsModelsQueryResponse } from "~/admin/viewsGraphql";
+import type { ListCmsModelsQueryResponse } from "~/admin/viewsGraphql";
 import * as GQL from "~/admin/viewsGraphql";
 import { useSnackbar } from "@webiny/app-admin";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
 import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog";
 import { FormComponentErrorMessage, FormComponentLabel, OverlayLoader } from "@webiny/admin-ui";
 

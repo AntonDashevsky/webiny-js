@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "@webiny/form";
-import { FormLayoutComponent } from "@webiny/app-form-builder/types";
+import type { FormLayoutComponent } from "@webiny/app-form-builder/types";
 import styled from "@emotion/styled";
 import { Row } from "./DefaultFormLayout/Row";
 import { Cell } from "./DefaultFormLayout/Cell";

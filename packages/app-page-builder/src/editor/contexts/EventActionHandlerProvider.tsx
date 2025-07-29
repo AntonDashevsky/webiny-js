@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef } from "react";
+import type { Snapshot } from "recoil";
 import {
-    Snapshot,
     useGotoRecoilSnapshot,
     useRecoilCallback,
     useRecoilSnapshot,
@@ -12,6 +12,7 @@ import merge from "lodash/merge";
 import { useApolloClient } from "@apollo/react-hooks";
 import { makeDecoratable } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
+import type { SidebarAtomType, RootElementAtom, UiAtomType } from "../recoil/modules";
 import {
     rootElementAtom,
     elementsAtom,
@@ -19,15 +20,12 @@ import {
     uiAtom,
     elementByIdSelector,
     activeElementAtom,
-    highlightElementAtom,
-    SidebarAtomType,
-    RootElementAtom,
-    UiAtomType
+    highlightElementAtom
 } from "../recoil/modules";
 
-import { PbState } from "../recoil/modules/types";
-import { EventAction } from "~/editor/recoil/eventActions";
-import {
+import type { PbState } from "../recoil/modules/types";
+import type { EventAction } from "~/editor/recoil/eventActions";
+import type {
     EventActionHandlerCallableArgs,
     EventActionCallable,
     EventActionHandlerActionCallableResponse,
@@ -41,7 +39,8 @@ import {
     GetElementTreeProps,
     PbEditorElementTree
 } from "~/types";
-import { composeAsync, composeSync, AsyncProcessor, SyncProcessor } from "@webiny/utils/compose";
+import type { AsyncProcessor, SyncProcessor } from "@webiny/utils/compose";
+import { composeAsync, composeSync } from "@webiny/utils/compose";
 import { UpdateElementTreeActionEvent, UpdateDocumentActionEvent } from "~/editor/recoil/actions";
 
 type ListType = Map<symbol, EventActionCallable>;

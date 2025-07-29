@@ -1,9 +1,9 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import {
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type {
     IListFoldersByParentIdsUseCase,
     ListFoldersByParentIdsUseCaseParams
 } from "./IListFoldersByParentIdsUseCase";
-import { LoadedCache } from "~/features";
+import type { LoadedCache } from "~/features";
 import { LoadingActionsEnum } from "~/types";
 
 export class ListFoldersByParentIdsUseCaseWithLoading implements IListFoldersByParentIdsUseCase {

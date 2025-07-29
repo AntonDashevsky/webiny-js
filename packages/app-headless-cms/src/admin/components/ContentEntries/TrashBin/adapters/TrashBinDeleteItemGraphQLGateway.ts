@@ -1,11 +1,11 @@
-import { ApolloClient } from "apollo-client";
-import { ITrashBinDeleteItemGateway } from "@webiny/app-trash-bin";
-import { CmsModel } from "@webiny/app-headless-cms-common/types";
-import {
+import type { ApolloClient } from "apollo-client";
+import type { ITrashBinDeleteItemGateway } from "@webiny/app-trash-bin";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types";
+import type {
     CmsEntryDeleteMutationResponse,
-    CmsEntryDeleteMutationVariables,
-    createDeleteMutation
+    CmsEntryDeleteMutationVariables
 } from "@webiny/app-headless-cms-common";
+import { createDeleteMutation } from "@webiny/app-headless-cms-common";
 
 export class TrashBinDeleteItemGraphQLGateway implements ITrashBinDeleteItemGateway {
     private client: ApolloClient<any>;

@@ -1,5 +1,5 @@
-import { FolderTableItem, RecordTableItem } from "~/table.types";
-import { FolderItem } from "~/types";
+import type { FolderTableItem, RecordTableItem } from "~/table.types";
+import type { FolderItem } from "~/types";
 
 type Result<T> = Array<RecordTableItem & T>;
 

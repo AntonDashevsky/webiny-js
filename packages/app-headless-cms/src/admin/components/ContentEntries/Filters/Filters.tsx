@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Filters as BaseFilters, FiltersOnSubmit } from "@webiny/app-admin";
+import type { FiltersOnSubmit } from "@webiny/app-admin";
+import { Filters as BaseFilters } from "@webiny/app-admin";
 import { useContentEntryListConfig } from "~/admin/config/contentEntries";
 import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
 import { AdvancedSearch, GraphQLInputMapper, useFilterRepository } from "@webiny/app-aco";
 import { useModel } from "~/admin/hooks";
 import { FieldsMapper } from "./FieldsMapper";
-import { FieldRaw, FilterDTO } from "@webiny/app-aco/components/AdvancedSearch/domain";
+import type { FieldRaw, FilterDTO } from "@webiny/app-aco/components/AdvancedSearch/domain";
 
 export const Filters = () => {
     const { browser } = useContentEntryListConfig();

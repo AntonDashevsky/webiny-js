@@ -6,9 +6,10 @@ import { useQuery, useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
 import { useI18N } from "~/hooks/useI18N";
-import { LIST_LOCALES, DELETE_LOCALE, ListI18NLocalesResponse } from "./graphql";
+import type { ListI18NLocalesResponse } from "./graphql";
+import { LIST_LOCALES, DELETE_LOCALE } from "./graphql";
 import { useCurrentLocale } from "./useCurrentLocale";
-import { I18NLocaleItem } from "~/types";
+import type { I18NLocaleItem } from "~/types";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

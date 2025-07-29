@@ -6,7 +6,7 @@ import { usePublishPage } from "~/features/pages";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import { PAGE_LIST_ROUTE } from "~/constants";
 import { useRouter } from "@webiny/react-router";
-import { EditorPage } from "@webiny/website-builder-sdk";
+import type { EditorPage } from "@webiny/website-builder-sdk";
 
 export const PublishButton = () => {
     const { history } = useRouter();

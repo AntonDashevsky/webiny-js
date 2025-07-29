@@ -1,8 +1,9 @@
 import React from "react";
 import { ReactComponent as CloseIcon } from "@webiny/icons/highlight_off.svg";
 import { IconButton, Tooltip } from "@webiny/admin-ui";
-import { DecoratableComponent, makeDecoratable, withDecoratorFactory } from "@webiny/app-admin";
-import { CmsDynamicZoneTemplate } from "~/types";
+import type { DecoratableComponent } from "@webiny/app-admin";
+import { makeDecoratable, withDecoratorFactory } from "@webiny/app-admin";
+import type { CmsDynamicZoneTemplate } from "~/types";
 import { useModel, useModelField } from "~/admin/hooks";
 import { TemplateItem } from "./TemplateItem";
 

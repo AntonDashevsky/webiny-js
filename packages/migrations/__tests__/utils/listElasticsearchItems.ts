@@ -1,5 +1,5 @@
-import { Client } from "@elastic/elasticsearch";
-import { SearchBody } from "elastic-ts";
+import type { Client } from "@elastic/elasticsearch";
+import type { SearchBody } from "elastic-ts";
 
 interface ListElasticsearchItemsParams {
     index: string;

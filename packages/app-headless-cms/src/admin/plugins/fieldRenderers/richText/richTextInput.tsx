@@ -4,7 +4,7 @@ import { i18n } from "@webiny/app/i18n";
 import { createPropsFromConfig, RichTextEditor } from "@webiny/app-admin/components/RichTextEditor";
 import { plugins } from "@webiny/plugins";
 import { useForm } from "@webiny/form";
-import { CmsModelFieldRendererPlugin, CmsModelField } from "~/types";
+import type { CmsModelFieldRendererPlugin, CmsModelField } from "~/types";
 import { allowCmsLegacyRichTextInput } from "~/utils/allowCmsLegacyRichTextInput";
 import { modelHasLexicalField } from "~/admin/plugins/fieldRenderers/lexicalText/utils";
 import {

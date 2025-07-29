@@ -4,13 +4,13 @@ import Wrapper from "../../elementSettings/components/Wrapper";
 import SelectField from "../../elementSettings/components/SelectField";
 import { Grid, Cell } from "@webiny/ui/Grid";
 import { plugins } from "@webiny/plugins";
-import { PbPageElementImagesListComponentPlugin } from "~/types";
+import type { PbPageElementImagesListComponentPlugin } from "~/types";
 import {
     ButtonContainer,
     classes,
     SimpleButton
 } from "../../elementSettings/components/StyledComponents";
-import { BindComponent } from "@webiny/form";
+import type { BindComponent } from "@webiny/form";
 
 interface ImagesListDesignSettingsProps {
     Bind: BindComponent;

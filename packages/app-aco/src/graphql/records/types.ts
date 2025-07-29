@@ -1,4 +1,4 @@
-import { AcoError, ListMeta, ListSearchRecordsSort, SearchRecordItem, TagItem } from "~/types";
+import type { AcoError, ListMeta, ListSearchRecordsSort, SearchRecordItem, TagItem } from "~/types";
 
 export interface UpdateSearchRecordResponse {
     search: {

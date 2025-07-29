@@ -1,5 +1,5 @@
-import { IMoveEntryToBinOperation } from "~/crud/contentEntry/abstractions";
-import {
+import type { IMoveEntryToBinOperation } from "~/crud/contentEntry/abstractions";
+import type {
     CmsEntryStorageOperations,
     CmsEntryStorageOperationsMoveToBinParams,
     CmsModel

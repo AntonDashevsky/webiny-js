@@ -12,7 +12,8 @@ import {
     TypographySecondary,
     TypographyTitle
 } from "../Styled";
-import { ApwChangeRequest, ApwChangeRequestStatus } from "~/types";
+import type { ApwChangeRequest } from "~/types";
+import { ApwChangeRequestStatus } from "~/types";
 import { getTrimmedBody } from "./utils";
 
 const statusToBackgroundColor = {

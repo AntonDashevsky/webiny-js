@@ -5,10 +5,10 @@ import get from "lodash/get";
 import { Input } from "@webiny/ui/Input";
 import { Switch } from "@webiny/ui/Switch";
 import { plugins } from "@webiny/plugins";
-import { FbFormLayoutPlugin } from "~/types";
-import { PbTheme, PbThemePlugin } from "@webiny/app-page-builder/types";
+import type { FbFormLayoutPlugin } from "~/types";
+import type { PbTheme, PbThemePlugin } from "@webiny/app-page-builder/types";
 import { RichTextEditor, createPropsFromConfig } from "@webiny/app-admin/components/RichTextEditor";
-import { BindComponent } from "@webiny/form";
+import type { BindComponent } from "@webiny/form";
 
 type LayoutListItem = FbFormLayoutPlugin["layout"];
 interface GeneralSettingsProps {

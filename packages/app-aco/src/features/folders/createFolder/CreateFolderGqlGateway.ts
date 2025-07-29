@@ -1,8 +1,8 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { ICreateFolderGateway } from "./ICreateFolderGateway";
-import { FolderDto } from "./FolderDto";
-import { AcoError, FolderItem } from "~/types";
+import type { ICreateFolderGateway } from "./ICreateFolderGateway";
+import type { FolderDto } from "./FolderDto";
+import type { AcoError, FolderItem } from "~/types";
 
 export interface CreateFolderResponse {
     aco: {

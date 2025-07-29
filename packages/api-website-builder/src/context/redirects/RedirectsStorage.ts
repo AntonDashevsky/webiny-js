@@ -1,6 +1,6 @@
 import omit from "lodash/omit";
-import { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
-import {
+import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import type {
     WbRedirect,
     WbRedirectsStorageOperations,
     WbRedirectsStorageOperationsCreateParams,

@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { CreatePageTemplateRepository } from "~/features/pageTemplate/createPageTemplate/CreatePageTemplateRepository";
 import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache";
-import { PageTemplateInputDto } from "~/features/pageTemplate/createPageTemplate/PageTemplateInputDto";
+import type { PageTemplateInputDto } from "~/features/pageTemplate/createPageTemplate/PageTemplateInputDto";
 import { CreatePageTemplateGqlGateway } from "~/features/pageTemplate/createPageTemplate/CreatePageTemplateGqlGateway";
 
 export const useCreatePageTemplate = () => {

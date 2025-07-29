@@ -1,7 +1,7 @@
 import { ApolloLink } from "apollo-link";
-import { DocumentNode } from "graphql";
+import type { DocumentNode } from "graphql";
 import { ApolloLinkPlugin } from "./ApolloLinkPlugin";
-import { ExecutableDefinitionNode, FieldNode } from "graphql/language/ast";
+import type { ExecutableDefinitionNode, FieldNode } from "graphql/language/ast";
 
 declare module "graphql" {
     interface DocumentNode {

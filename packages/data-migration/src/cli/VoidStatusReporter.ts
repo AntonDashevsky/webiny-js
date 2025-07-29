@@ -1,4 +1,4 @@
-import { MigrationStatusReporter } from "./MigrationStatusReporter";
+import type { MigrationStatusReporter } from "./MigrationStatusReporter";
 
 export class VoidStatusReporter implements MigrationStatusReporter {
     report(): void {

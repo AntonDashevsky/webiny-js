@@ -1,6 +1,6 @@
 import React from "react";
 import { createElement } from "~/editor/helpers";
-import { PbEditorBlockPlugin, PbEditorElement } from "~/types";
+import type { PbEditorBlockPlugin, PbEditorElement } from "~/types";
 import preview from "~/admin/views/PageBlocks/assets/preview.png";
 
 const width = 1000;

@@ -25,7 +25,7 @@ import {
 
 import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
 import SearchUI from "@webiny/app-admin/components/SearchUI";
-import { PbBlockCategory } from "~/types";
+import type { PbBlockCategory } from "~/types";
 import { Icon } from "~/admin/utils/createBlockCategoryPlugin";
 import { useBlockCategoriesPermissions } from "~/hooks/permissions";
 

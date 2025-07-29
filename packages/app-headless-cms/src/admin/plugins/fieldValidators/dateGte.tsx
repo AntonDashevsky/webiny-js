@@ -1,7 +1,7 @@
 import React from "react";
 import { Cell } from "@webiny/ui/Grid";
 import { validation } from "@webiny/validation";
-import { CmsModelFieldValidatorPlugin } from "~/types";
+import type { CmsModelFieldValidatorPlugin } from "~/types";
 import { createInputField } from "./date/createDateInputField";
 import { getAvailableValidators } from "./date/availableValidators";
 import { FormElementMessage } from "@webiny/ui/FormElementMessage";

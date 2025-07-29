@@ -1,14 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
-import {
-    Batch,
-    BatchDTO,
-    BatchMapper,
-    Field,
-    FieldDTO,
-    FieldMapper,
-    FieldRaw
-} from "~/components/BulkActions/ActionEdit/domain";
+import type { BatchDTO, FieldDTO, FieldRaw } from "~/components/BulkActions/ActionEdit/domain";
+import { Batch, BatchMapper, Field, FieldMapper } from "~/components/BulkActions/ActionEdit/domain";
 
 function isBulkEditableField(field: FieldRaw) {
     return field.tags && field.tags.includes("$bulk-edit");

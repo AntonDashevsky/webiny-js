@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as NumberIcon } from "@webiny/icons/looks_3.svg";
 import { Grid, Input } from "@webiny/admin-ui";
-import { FbBuilderFieldPlugin } from "../../../../types";
+import type { FbBuilderFieldPlugin } from "../../../../types";
 
 const plugin: FbBuilderFieldPlugin = {
     type: "form-editor-field-type",

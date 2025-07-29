@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     I18NContext,
     I18NLocaleData,
     I18NLocalesStorageOperations,
@@ -13,8 +13,8 @@ import {
 } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { LocalesPermissions } from "./permissions/LocalesPermissions";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { LocalesPermissions } from "./permissions/LocalesPermissions";
 import { IdentityValue } from "@webiny/api-security";
 
 export interface CreateLocalesCrudParams {

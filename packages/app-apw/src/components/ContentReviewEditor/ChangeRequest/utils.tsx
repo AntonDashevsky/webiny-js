@@ -3,7 +3,7 @@ import { css } from "emotion";
 import { ReactComponent as FileIcon } from "@webiny/app-admin/assets/icons/insert_drive_file-24px.svg";
 import dotPropImmutable from "dot-prop-immutable";
 import cloneDeep from "lodash/cloneDeep";
-import { RichTextEditorProps } from "@webiny/ui/RichTextEditor";
+import type { RichTextEditorProps } from "@webiny/ui/RichTextEditor";
 
 export const imagePlugins = [".jpg", ".jpeg", ".gif", ".png", ".svg"];
 

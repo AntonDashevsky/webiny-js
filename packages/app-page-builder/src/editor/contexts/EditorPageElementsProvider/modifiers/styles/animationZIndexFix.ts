@@ -1,4 +1,4 @@
-import { ElementAttributesModifier } from "@webiny/app-page-builder-elements/types";
+import type { ElementAttributesModifier } from "@webiny/app-page-builder-elements/types";
 
 /**
  * This styles modifier adds additional `z-index: 1` CSS rule to all elements

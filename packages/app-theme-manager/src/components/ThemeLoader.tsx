@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { plugins } from "@webiny/plugins";
 import { useCurrentTheme } from "~/hooks/useCurrentTheme";
-import { ThemeSource } from "~/types";
+import type { ThemeSource } from "~/types";
 import { useTheme } from "@webiny/app-theme";
 
 export interface ThemeLoaderProps {

@@ -1,5 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { IMovePageUseCase, type MovePageParams } from "./IMovePageUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { IMovePageUseCase } from "./IMovePageUseCase.js";
+import { type MovePageParams } from "./IMovePageUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class MovePageUseCaseWithLoading implements IMovePageUseCase {

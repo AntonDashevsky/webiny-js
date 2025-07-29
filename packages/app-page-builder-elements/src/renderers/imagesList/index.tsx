@@ -1,5 +1,5 @@
 import React from "react";
-import {
+import type {
     ImagesListComponent as RenderImagesListComponent,
     Image
 } from "~/renderers/imagesList/types";

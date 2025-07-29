@@ -1,4 +1,4 @@
-import { ProductCategory, Product, ProductManager } from "../../types";
+import type { ProductCategory, Product, ProductManager } from "../../types";
 
 const createProducts = ({ id }: ProductCategory): Product[] => {
     const category = {

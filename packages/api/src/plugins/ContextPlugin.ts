@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 
 export interface ContextPluginCallable<T extends Context = Context> {
     (context: T): void | Promise<void>;

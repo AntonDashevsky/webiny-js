@@ -3,7 +3,7 @@ import { ReactComponent as ObjectIcon } from "@webiny/icons/ballot.svg";
 import { createFieldsList } from "@webiny/app-headless-cms-common";
 import { i18n } from "@webiny/app/i18n";
 import { ObjectFields } from "./object/ObjectFields";
-import { CmsModelFieldTypePlugin, CmsModelField } from "~/types";
+import type { CmsModelFieldTypePlugin, CmsModelField } from "~/types";
 import { createTypeName } from "~/utils/createTypeName";
 
 const t = i18n.ns("app-headless-cms/admin/fields");

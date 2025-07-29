@@ -1,4 +1,4 @@
-import { PbRenderElementPlugin } from "~/types";
+import type { PbRenderElementPlugin } from "~/types";
 import { createAccordionItem } from "@webiny/app-page-builder-elements/renderers/accordionItem";
 
 export default (): PbRenderElementPlugin => {

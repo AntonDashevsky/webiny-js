@@ -1,4 +1,4 @@
-import { GraphQLPlaygroundTabPlugin } from "~/types";
+import type { GraphQLPlaygroundTabPlugin } from "~/types";
 // @ts-expect-error
 import placeholder from "!!raw-loader!./placeholder.graphql";
 import { config as appConfig } from "@webiny/app/config";

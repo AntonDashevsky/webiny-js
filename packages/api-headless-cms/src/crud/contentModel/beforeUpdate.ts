@@ -1,5 +1,5 @@
-import { Topic } from "@webiny/pubsub/types";
-import { CmsContext, OnModelBeforeUpdateTopicParams } from "~/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { CmsContext, OnModelBeforeUpdateTopicParams } from "~/types";
 import { validateModel } from "./validateModel";
 import { validateSingularApiName } from "./validate/singularApiName";
 import { validatePluralApiName } from "./validate/pluralApiName";

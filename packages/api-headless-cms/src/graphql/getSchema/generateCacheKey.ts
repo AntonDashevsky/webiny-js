@@ -1,4 +1,4 @@
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import crypto from "crypto";
 
 interface GenerateCacheKeyParams {

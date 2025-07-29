@@ -1,11 +1,11 @@
-import * as pulumi from "@pulumi/pulumi";
-import { PulumiAppModuleDefinition } from "./PulumiAppModule";
-import {
+import type * as pulumi from "@pulumi/pulumi";
+import type { PulumiAppModuleDefinition } from "./PulumiAppModule";
+import type {
     CreatePulumiAppResourceParams,
     PulumiAppResource,
     PulumiAppResourceConstructor
 } from "./PulumiAppResource";
-import { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource";
+import type { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource";
 
 export interface ResourceHandler {
     (resource: PulumiAppResource<PulumiAppResourceConstructor>): void;

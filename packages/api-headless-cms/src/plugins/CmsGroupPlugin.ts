@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { CmsGroup as BaseCmsGroup } from "~/types";
+import type { CmsGroup as BaseCmsGroup } from "~/types";
 
 export interface CmsGroupInput
     extends Omit<BaseCmsGroup, "locale" | "tenant" | "webinyVersion" | "isPlugin"> {

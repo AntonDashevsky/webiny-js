@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import { AutoCompleteBaseProps } from "./types";
+import type { AutoCompleteBaseProps } from "./types";
 import { MultiAutoComplete as AdminMultiAutoComplete } from "@webiny/admin-ui";
 
 interface SelectionItem {

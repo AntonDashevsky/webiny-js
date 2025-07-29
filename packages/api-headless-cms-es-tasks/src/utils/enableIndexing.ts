@@ -1,5 +1,5 @@
-import { Client } from "@webiny/api-elasticsearch";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { Client } from "@webiny/api-elasticsearch";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import { configurations } from "@webiny/api-headless-cms-ddb-es/configurations";
 
 interface IEnableIndexingParams {

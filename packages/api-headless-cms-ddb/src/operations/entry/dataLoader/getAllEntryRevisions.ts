@@ -1,9 +1,10 @@
 import DataLoader from "dataloader";
-import { CmsStorageEntry } from "@webiny/api-headless-cms/types";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { CmsStorageEntry } from "@webiny/api-headless-cms/types";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import { createPartitionKey } from "~/operations/entry/keys";
 import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup";
-import { DataLoaderParams } from "./types";
+import type { DataLoaderParams } from "./types";
 import { createBatchScheduleFn } from "./createBatchScheduleFn";
 
 export const createGetAllEntryRevisions = (params: DataLoaderParams) => {

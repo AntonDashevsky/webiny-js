@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import {
+import type {
     CmsReferenceContentEntry,
     CmsReferenceValue
 } from "~/admin/plugins/fieldRenderers/ref/components/types";
@@ -11,7 +11,7 @@ import { Remove } from "./entry/Remove";
 import { MoveUp } from "./entry/MoveUp";
 import { MoveDown } from "./entry/MoveDown";
 import { Excerpt } from "./entry/Excerpt";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 interface EntryProps {
     model: CmsModel;

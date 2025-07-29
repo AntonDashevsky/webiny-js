@@ -9,7 +9,7 @@ import WebinyError from "@webiny/error";
 import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
 import { extractZipAndUploadToS3 } from "~/import/utils/extractZipAndUploadToS3";
 import { getFileNameWithoutExt } from "~/import/utils/getFileNameWithoutExt";
-import { ImportData } from "~/types";
+import type { ImportData } from "~/types";
 import { INSTALL_DIR } from "~/import/constants";
 import { ensureDirSync } from "fs-extra";
 

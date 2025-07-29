@@ -4,18 +4,18 @@ import { useRouter } from "@webiny/react-router";
 import styled from "@emotion/styled";
 import { renderPlugins } from "@webiny/app/plugins";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import {
-    GET_PAGE,
+import type {
     GetPageQueryResponse,
     GetPageQueryVariables,
     PageResponseData
 } from "../../graphql/pages";
+import { GET_PAGE } from "../../graphql/pages";
 import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button";
 import EmptyView from "@webiny/app-admin/components/EmptyView";
 import { i18n } from "@webiny/app/i18n";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 import { createUsePageHook, PageProvider } from "~/admin/contexts/Page";
-import { PbPageData } from "~/types";
+import type { PbPageData } from "~/types";
 
 const t = i18n.ns("app-page-builder/admin/views/pages/page-details");
 

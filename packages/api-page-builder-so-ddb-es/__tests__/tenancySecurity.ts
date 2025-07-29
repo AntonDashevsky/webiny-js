@@ -2,11 +2,11 @@ import { createTenancyContext, createTenancyGraphQL } from "@webiny/api-tenancy"
 import { createStorageOperations as tenancyStorageOperations } from "@webiny/api-tenancy-so-ddb";
 import { createSecurityContext, createSecurityGraphQL } from "@webiny/api-security";
 import { createStorageOperations as securityStorageOperations } from "@webiny/api-security-so-ddb";
-import { SecurityContext } from "@webiny/api-security/types";
+import type { SecurityContext } from "@webiny/api-security/types";
 import { ContextPlugin } from "@webiny/api";
 import { BeforeHandlerPlugin } from "@webiny/handler";
-import { TenancyContext } from "@webiny/api-tenancy/types";
-import { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 
 interface Params {
     documentClient: DynamoDBDocument;

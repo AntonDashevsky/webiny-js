@@ -1,7 +1,8 @@
-import React, { KeyboardEvent } from "react";
+import type { KeyboardEvent } from "react";
+import React from "react";
 import { Command } from "~/Command";
 import { PopoverPrimitive } from "~/Popover";
-import { InputPrimitiveProps } from "~/Input";
+import type { InputPrimitiveProps } from "~/Input";
 import { makeDecoratable } from "~/utils";
 import { useMultiAutoComplete } from "./useMultiAutoComplete";
 import {
@@ -9,8 +10,8 @@ import {
     MultiAutoCompleteInputIcons,
     MultiAutoCompleteList
 } from "./components";
-import { MultiAutoCompleteOption } from "../domains";
-import { Icon } from "~/Icon";
+import type { MultiAutoCompleteOption } from "../domains";
+import type { Icon } from "~/Icon";
 
 interface MultiAutoCompletePrimitiveProps {
     /**

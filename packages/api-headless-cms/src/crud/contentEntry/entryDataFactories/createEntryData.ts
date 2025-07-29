@@ -1,4 +1,4 @@
-import {
+import type {
     CmsContext,
     CmsEntry,
     CmsModel,
@@ -13,11 +13,11 @@ import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataVali
 import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping";
 import { createIdentifier, mdbid } from "@webiny/utils";
 import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
 import { getIdentity } from "~/utils/identity";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
 
 type DefaultValue = boolean | number | string | null;
 

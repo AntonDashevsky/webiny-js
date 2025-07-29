@@ -1,4 +1,4 @@
-import { CmsModelFieldValidatorConfig } from "~/types";
+import type { CmsModelFieldValidatorConfig } from "~/types";
 
 export const commonValidators: CmsModelFieldValidatorConfig[] = [
     {

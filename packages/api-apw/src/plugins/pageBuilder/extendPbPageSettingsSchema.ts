@@ -1,5 +1,5 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
-import { ApwContext } from "~/types";
+import type { ApwContext } from "~/types";
 
 export const extendPbPageSettingsSchema = () =>
     new GraphQLSchemaPlugin<ApwContext>({

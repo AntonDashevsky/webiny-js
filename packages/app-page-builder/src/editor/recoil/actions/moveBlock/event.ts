@@ -1,4 +1,4 @@
-import { MoveBlockActionArgsType } from "./types";
+import type { MoveBlockActionArgsType } from "./types";
 import { BaseEventAction } from "../../eventActions";
 
 export class MoveBlockActionEvent extends BaseEventAction<MoveBlockActionArgsType> {

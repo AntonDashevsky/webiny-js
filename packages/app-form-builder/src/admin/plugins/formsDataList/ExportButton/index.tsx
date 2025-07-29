@@ -2,7 +2,8 @@ import React from "react";
 import { i18n } from "@webiny/app/i18n";
 import { IconButton, Tooltip } from "@webiny/admin-ui";
 import { ReactComponent as DownloadIcon } from "@webiny/icons/file_download.svg";
-import useExportFormDialog, { ExportFormsDialogProps } from "./useExportFormDialog";
+import type { ExportFormsDialogProps } from "./useExportFormDialog";
+import useExportFormDialog from "./useExportFormDialog";
 import useExportFormRevisionSelectorDialog from "./useExportFormRevisionSelectorDialog";
 
 const t = i18n.ns("app-form-builder/admin/plugins/editor/defaultBar/exportFormButton");

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog, useRecords } from "@webiny/app-aco";
-import { PbPageTableItem } from "~/types";
+import type { PbPageTableItem } from "~/types";
 
 interface UseMovePageToFolderParams {
     record: PbPageTableItem;

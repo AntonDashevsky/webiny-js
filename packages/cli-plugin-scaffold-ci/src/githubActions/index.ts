@@ -1,4 +1,4 @@
-import { CliPluginsScaffoldCi } from "~/types";
+import type { CliPluginsScaffoldCi } from "~/types";
 import { Octokit } from "octokit";
 import chalk from "chalk";
 import commitWorkflows from "~/githubActions/commitWorkflows";

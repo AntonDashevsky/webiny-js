@@ -1,5 +1,6 @@
 import WebinyError from "@webiny/error";
-import { AcoContext, type IDeleteFlpTaskInput } from "~/types";
+import type { AcoContext } from "~/types";
+import { type IDeleteFlpTaskInput } from "~/types";
 import { DELETE_FLP_TASK_ID } from "../tasks";
 import { DeleteFlp } from "~/flp/useCases";
 

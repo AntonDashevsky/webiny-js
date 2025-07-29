@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from "react";
-import { Element } from "~/types";
+import type { Element } from "~/types";
 import styled from "@emotion/styled";
 
 export interface OEmbedPropsInitCallableParams {

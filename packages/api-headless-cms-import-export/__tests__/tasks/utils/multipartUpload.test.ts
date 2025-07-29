@@ -1,8 +1,5 @@
-import {
-    createMultipartUpload,
-    IMultipartUploadHandler,
-    MultipartUploadHandler
-} from "~/tasks/utils/upload";
+import type { IMultipartUploadHandler } from "~/tasks/utils/upload";
+import { createMultipartUpload, MultipartUploadHandler } from "~/tasks/utils/upload";
 import { createS3Client } from "~/tasks/utils/helpers/s3Client";
 import { getBucket } from "~/tasks/utils/helpers/getBucket";
 import {

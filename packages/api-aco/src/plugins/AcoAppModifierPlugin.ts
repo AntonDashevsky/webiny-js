@@ -1,12 +1,12 @@
 import { Plugin } from "@webiny/plugins";
-import {
+import type {
     AcoContext,
     IAcoApp,
     IAcoAppAddFieldCallable,
     IAcoAppModifyFieldCallable,
     IAcoAppRemoveFieldCallable
 } from "~/types";
-import { Context } from "@webiny/handler/types";
+import type { Context } from "@webiny/handler/types";
 
 export interface AcoAppModifierPluginModifyParams<T extends Context = AcoContext> {
     app: IAcoApp;

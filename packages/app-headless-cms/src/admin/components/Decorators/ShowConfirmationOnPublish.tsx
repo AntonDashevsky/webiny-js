@@ -3,7 +3,7 @@ import { useDialogs, useSnackbar } from "@webiny/app-admin";
 import { useBind } from "@webiny/form";
 import { CircularProgress } from "@webiny/ui/Progress";
 import styled from "@emotion/styled";
-import { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
+import type { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks";
 
 type GetEntry = ReturnType<typeof useContentEntry>["getEntry"];

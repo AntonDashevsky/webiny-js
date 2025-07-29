@@ -1,4 +1,4 @@
-import { SchedulerItem } from "~/Domain";
+import type { SchedulerItem } from "~/Domain";
 
 export interface ISelectedItemsRepository {
     selectItems: (items: SchedulerItem[]) => Promise<void>;

@@ -1,5 +1,5 @@
-import { ListSort } from "~/types";
-import {
+import type { ListSort } from "~/types";
+import type {
     CmsEntryListSort,
     CmsEntryListSortAsc,
     CmsEntryListSortDesc

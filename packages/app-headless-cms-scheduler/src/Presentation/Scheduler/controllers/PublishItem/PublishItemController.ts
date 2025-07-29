@@ -1,5 +1,5 @@
-import { IPublishItemUseCase } from "~/UseCases";
-import { IPublishItemController } from "./IPublishItemController";
+import type { IPublishItemUseCase } from "~/UseCases";
+import type { IPublishItemController } from "./IPublishItemController";
 
 export class PublishItemController implements IPublishItemController {
     private readonly useCaseFactory: () => IPublishItemUseCase;

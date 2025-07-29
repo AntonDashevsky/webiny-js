@@ -3,12 +3,12 @@ import type {
     LoadRedirectsRepositoryParams
 } from "~/features/redirects/loadRedirects/IListRedirectsRepository.js";
 import { type IListCache, Redirect } from "~/domain/Redirect/index.js";
+import type { Sorting } from "@webiny/app-utils";
 import {
     type ILoadingRepository,
     type IMetaRepository,
     type ISortingRepository,
     MetaMapper,
-    Sorting,
     SortingMapper
 } from "@webiny/app-utils";
 import type { IParamsRepository } from "~/domain/Params/index.js";

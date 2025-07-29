@@ -1,11 +1,10 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Element as CoreElement, ElementProps as CoreElementProps } from "../Element";
+import type { ElementProps as CoreElementProps } from "../Element";
+import { Element as CoreElement } from "../Element";
 import { Layout } from "./Layout";
-import {
-    Elements as BaseElements,
-    ElementsProps as BaseElementsProps
-} from "~/editor/config/Elements";
+import type { ElementsProps as BaseElementsProps } from "~/editor/config/Elements";
+import { Elements as BaseElements } from "~/editor/config/Elements";
 import { Tab } from "./Tab";
 import { useActiveGroup } from "~/editor/config/Sidebar/useActiveGroup";
 import { createGetId } from "~/editor/config/createGetId";

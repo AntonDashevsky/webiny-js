@@ -1,24 +1,24 @@
-import {
+import type {
     EditorConfig,
-    $applyNodeReplacement,
     LexicalNode,
     NodeKey,
     RangeSelection,
     Spread,
     LexicalEditor,
     DOMExportOutput,
-    setNodeIndentFromDOM,
     DOMConversionMap
 } from "lexical";
+import { $applyNodeReplacement, setNodeIndentFromDOM } from "lexical";
 import { addClassNamesToElement } from "@lexical/utils";
-import {
-    HeadingNode as BaseHeadingNode,
+import type {
     HeadingTagType,
     SerializedHeadingNode as BaseSerializedHeadingNode
 } from "@lexical/rich-text";
-import { EditorTheme, ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
-import { ParagraphNode } from "~/ParagraphNode";
-import { TypographyStylesNode, ThemeStyleValue } from "~/types";
+import { HeadingNode as BaseHeadingNode } from "@lexical/rich-text";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import type { ParagraphNode } from "~/ParagraphNode";
+import type { TypographyStylesNode, ThemeStyleValue } from "~/types";
 import { getStyleId } from "~/utils/getStyleId";
 
 export type SerializeHeadingNode = Spread<

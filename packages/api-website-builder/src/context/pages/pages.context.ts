@@ -1,5 +1,5 @@
-import { WebsiteBuilderContext } from "~/context/types";
-import { WbPageCrud } from "~/context/pages/pages.types";
+import type { WebsiteBuilderContext } from "~/context/types";
+import type { WbPageCrud } from "~/context/pages/pages.types";
 import { BaseContext } from "~/context/BaseContext";
 import { CmsModelPlugin, createModelField, createPrivateModel } from "@webiny/api-headless-cms";
 import { PagesStorage } from "~/context/pages/PagesStorage";

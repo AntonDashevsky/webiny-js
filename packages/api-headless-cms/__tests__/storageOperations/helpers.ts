@@ -1,4 +1,4 @@
-import {
+import type {
     CmsEntry,
     CmsIdentity,
     CmsModel,
@@ -8,7 +8,7 @@ import {
 import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";
 import { createIdentifier, generateAlphaNumericLowerCaseId, mdbid } from "@webiny/utils";
 import crypto from "crypto";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 
 const cliPackageJson = require("@webiny/cli/package.json");
 const webinyVersion = cliPackageJson.version;

@@ -1,10 +1,7 @@
 import Error from "@webiny/error";
-import {
-    AdvancedPublishingWorkflow,
-    ApwContentReviewStatus,
-    ApwOnPageBeforePublishTopicParams
-} from "~/types";
-import { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
+import type { AdvancedPublishingWorkflow, ApwOnPageBeforePublishTopicParams } from "~/types";
+import { ApwContentReviewStatus } from "~/types";
+import type { PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types";
 
 interface TriggerContentReviewParams {
     apw: AdvancedPublishingWorkflow;

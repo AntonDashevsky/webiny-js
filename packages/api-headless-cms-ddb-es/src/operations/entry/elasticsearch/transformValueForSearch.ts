@@ -2,8 +2,8 @@
  * We use any for input and output because they really can be anything.
  * Plugin, if exists, makes sure that response value is correct.
  */
-import { CmsModelField } from "@webiny/api-headless-cms/types";
-import { ElasticsearchQuerySearchValuePlugins } from "./types";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { ElasticsearchQuerySearchValuePlugins } from "./types";
 
 interface Params {
     plugins: ElasticsearchQuerySearchValuePlugins;

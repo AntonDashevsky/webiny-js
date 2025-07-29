@@ -1,7 +1,7 @@
-import { API } from "@editorjs/editorjs";
+import type { API } from "@editorjs/editorjs";
 import { make } from "./ui";
 import svgs from "./svgs";
-import { ImageToolData, Tune, TuneOnChangeCallable } from "./types";
+import type { ImageToolData, Tune, TuneOnChangeCallable } from "./types";
 
 interface TunesParams {
     api: API;

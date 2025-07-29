@@ -1,11 +1,8 @@
 import React, { useMemo } from "react";
-import {
-    IconPickerIconDto,
-    IconPicker as AdminIconPicker,
-    IconPickerProps
-} from "@webiny/admin-ui";
+import type { IconPickerIconDto, IconPickerProps } from "@webiny/admin-ui";
+import { IconPicker as AdminIconPicker } from "@webiny/admin-ui";
 import { plugins } from "@webiny/plugins";
-import { PbIconsPlugin } from "~/types";
+import type { PbIconsPlugin } from "~/types";
 
 const IconPicker = (props: Omit<IconPickerProps, "icons">) => {
     const icons: IconPickerIconDto[] = useMemo(() => {

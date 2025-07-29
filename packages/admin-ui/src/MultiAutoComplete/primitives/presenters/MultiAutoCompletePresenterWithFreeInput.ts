@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { IMultiAutoCompleteTemporaryOptionPresenter } from "./MultiAutoCompleteTemporaryOptionPresenter";
-import {
+import type { IMultiAutoCompleteTemporaryOptionPresenter } from "./MultiAutoCompleteTemporaryOptionPresenter";
+import type {
     IMultiAutoCompletePresenter,
     MultiAutoCompletePresenterParams
 } from "./MultiAutoCompletePresenter";

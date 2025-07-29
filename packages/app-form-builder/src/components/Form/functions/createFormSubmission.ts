@@ -1,12 +1,12 @@
-import { FbFormRenderComponentProps, FormSubmitResponseType } from "~/types";
+import type { FbFormRenderComponentProps, FormSubmitResponseType } from "~/types";
 
-import {
-    CREATE_FORM_SUBMISSION,
+import type {
     CreateFormSubmissionMutationResponse,
     CreateFormSubmissionMutationVariables
 } from "./graphql";
+import { CREATE_FORM_SUBMISSION } from "./graphql";
 import getClientIp from "./getClientIp";
-import { ApolloClient } from "apollo-client";
+import type { ApolloClient } from "apollo-client";
 
 interface CreateFormSubmissionParams {
     client: ApolloClient<any>;

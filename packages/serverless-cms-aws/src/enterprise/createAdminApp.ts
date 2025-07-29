@@ -1,6 +1,7 @@
-import { createAdminPulumiApp, CreateAdminPulumiAppParams } from "@webiny/pulumi-aws/enterprise";
+import type { CreateAdminPulumiAppParams } from "@webiny/pulumi-aws/enterprise";
+import { createAdminPulumiApp } from "@webiny/pulumi-aws/enterprise";
 import { uploadAppToS3 } from "~/react/plugins";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed";
 
 export interface CreateAdminAppParams extends CreateAdminPulumiAppParams {

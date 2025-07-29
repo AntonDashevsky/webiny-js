@@ -1,5 +1,5 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql/responses";
-import { CmsEntryListParams, CmsEntryResolverFactory as ResolverFactory } from "~/types";
+import type { CmsEntryListParams, CmsEntryResolverFactory as ResolverFactory } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 
 type ResolveGet = ResolverFactory<any, CmsEntryListParams>;

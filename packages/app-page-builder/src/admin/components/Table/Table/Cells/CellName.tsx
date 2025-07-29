@@ -9,8 +9,8 @@ import { PageListConfig } from "~/admin/config/pages";
 import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList";
 import { RowIcon, RowText, RowTitle } from "./Cells.styled";
 
-import { FolderTableItem } from "@webiny/app-aco/types";
-import { PbPageTableItem } from "~/types";
+import type { FolderTableItem } from "@webiny/app-aco/types";
+import type { PbPageTableItem } from "~/types";
 
 interface FolderCellNameProps {
     folder: FolderTableItem;

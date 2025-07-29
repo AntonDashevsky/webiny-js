@@ -1,6 +1,6 @@
 import React from "react";
 import TabSettings from "./TabSettings";
-import { PbEditorPageElementStyleSettingsPlugin } from "~/types";
+import type { PbEditorPageElementStyleSettingsPlugin } from "~/types";
 
 export default [
     {

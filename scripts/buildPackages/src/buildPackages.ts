@@ -1,13 +1,14 @@
 import { green, red } from "chalk";
 import yargs from "yargs";
 import writeJson from "write-json-file";
-import { Listr, ListrTask } from "listr2";
+import type { ListrTask } from "listr2";
+import { Listr } from "listr2";
 import { getBatches } from "./getBatches";
 import { META_FILE_PATH } from "./constants";
 import { getPackageSourceHash } from "./getPackageSourceHash";
 import { getBuildMeta } from "./getBuildMeta";
 import { buildPackageInNewProcess, buildPackageInSameProcess } from "./buildSinglePackage";
-import { MetaJSON, Package } from "./types";
+import type { MetaJSON, Package } from "./types";
 import { getHardwareInfo } from "./getHardwareInfo";
 import execa from "execa";
 

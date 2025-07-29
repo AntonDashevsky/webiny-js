@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { DeletePage } from "./DeletePage";
 import { DeletePageWithEvents } from "./DeletePageWithEvents";
 import type {

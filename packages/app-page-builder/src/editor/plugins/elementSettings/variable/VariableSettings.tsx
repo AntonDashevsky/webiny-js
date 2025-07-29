@@ -3,7 +3,7 @@ import { css } from "emotion";
 import { plugins } from "@webiny/plugins";
 import { useActiveElement } from "~/editor/hooks/useActiveElement";
 import { Typography } from "@webiny/ui/Typography";
-import { PbBlockVariable, PbEditorPageElementVariableRendererPlugin } from "~/types";
+import type { PbBlockVariable, PbEditorPageElementVariableRendererPlugin } from "~/types";
 
 const wrapperStyle = css({
     padding: "16px",

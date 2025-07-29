@@ -1,5 +1,5 @@
-import { IListFoldersByParentIdsRepository } from "./IListFoldersByParentIdsRepository";
-import {
+import type { IListFoldersByParentIdsRepository } from "./IListFoldersByParentIdsRepository";
+import type {
     IListFoldersByParentIdsUseCase,
     ListFoldersByParentIdsUseCaseParams
 } from "./IListFoldersByParentIdsUseCase";

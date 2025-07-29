@@ -1,10 +1,11 @@
 import React, { useMemo } from "react";
 import { css } from "emotion";
 import { merge } from "dot-prop-immutable";
-import { Form, FormOnSubmit } from "@webiny/form";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
 import { withActiveElement } from "../../../components";
-import {
+import type {
     PbEditorElement,
     PbEditorPageElementSettingsRenderComponentProps,
     PbPageElementActionTypePlugin

@@ -10,7 +10,7 @@ import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import * as Styled from "./StyledComponents";
 import kebabCase from "lodash/kebabCase";
-import { PbEditorBlockPlugin } from "~/types";
+import type { PbEditorBlockPlugin } from "~/types";
 import { useCallback } from "react";
 
 interface BlockPreviewProps {

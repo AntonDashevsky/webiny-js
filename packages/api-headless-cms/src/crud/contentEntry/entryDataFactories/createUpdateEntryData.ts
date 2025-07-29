@@ -1,4 +1,4 @@
-import {
+import type {
     CmsContext,
     CmsEntry,
     CmsEntryStatus,
@@ -8,9 +8,9 @@ import {
 } from "~/types";
 import { getDate } from "~/utils/date";
 import { getIdentity } from "~/utils/identity";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 import { validateModelEntryDataOrThrow } from "../entryDataValidation";
 import { referenceFieldsMapping } from "../referenceFieldsMapping";
 import { mapAndCleanUpdatedInputData } from "./mapAndCleanUpdatedInputData";

@@ -9,10 +9,10 @@ import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import ImportBlocksDetails from "./useImportBlocksDetails";
 import ProgressBar from "../ProgressBar";
 import { LoadingDialog } from "../styledComponents";
+import type { GetBlockImportExportTaskResponse } from "~/admin/graphql/blockImportExport.gql";
 import {
     GET_BLOCK_IMPORT_EXPORT_TASK,
-    LIST_BLOCK_IMPORT_EXPORT_SUB_TASKS,
-    GetBlockImportExportTaskResponse
+    LIST_BLOCK_IMPORT_EXPORT_SUB_TASKS
 } from "~/admin/graphql/blockImportExport.gql";
 import { ImportExportTaskStatus } from "~/types";
 

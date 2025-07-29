@@ -1,5 +1,5 @@
 import { ColumnsRepository } from "./ColumnsRepository";
-import { ColumnDTO } from "./Column";
+import type { ColumnDTO } from "./Column";
 
 class ColumnsRepositoryFactory {
     private cache: Map<string, ColumnsRepository> = new Map();

@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { ApwContentReview, LifeCycleHookCallbackParams } from "~/types";
+import type { ApwContentReview, LifeCycleHookCallbackParams } from "~/types";
 import { extractContentReviewIdAndStep } from "~/plugins/utils";
 import { parseIdentifier } from "@webiny/utils";
 

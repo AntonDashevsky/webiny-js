@@ -1,6 +1,8 @@
-import React, { ReactElement } from "react";
-import { Container, DragObjectWithType } from "~/types";
-import { useDrag, DragPreviewImage, ConnectDragSource, DragSourceMonitor } from "react-dnd";
+import type { ReactElement } from "react";
+import React from "react";
+import type { Container, DragObjectWithType } from "~/types";
+import type { ConnectDragSource, DragSourceMonitor } from "react-dnd";
+import { useDrag, DragPreviewImage } from "react-dnd";
 
 const emptyImage = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
 

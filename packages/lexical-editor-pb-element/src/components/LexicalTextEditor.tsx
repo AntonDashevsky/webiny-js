@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import useUpdateHandlers from "@webiny/app-page-builder/editor/plugins/elementSettings/useUpdateHandlers";
-import { PbEditorElement } from "@webiny/app-page-builder/types";
+import type { PbEditorElement } from "@webiny/app-page-builder/types";
 import { useRenderer } from "@webiny/app-page-builder-elements";
 import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
 import { LexicalEditor } from "~/LexicalEditor";

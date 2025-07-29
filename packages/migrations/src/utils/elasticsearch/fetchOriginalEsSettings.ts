@@ -1,6 +1,6 @@
 import { esGetIndexSettings } from "~/utils";
-import { Logger } from "@webiny/data-migration";
-import { Client } from "@elastic/elasticsearch";
+import type { Logger } from "@webiny/data-migration";
+import type { Client } from "@elastic/elasticsearch";
 
 interface FetchOriginalElasticsearchSettingsParams {
     elasticsearchClient: Client;

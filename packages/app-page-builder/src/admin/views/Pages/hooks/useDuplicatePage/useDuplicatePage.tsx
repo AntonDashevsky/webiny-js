@@ -1,8 +1,8 @@
 import { useRecords } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
 import { useDuplicatePageCase } from "./useDuplicatePageCase";
-import { PbPageData } from "~/types";
-import { PageItem } from "./types";
+import type { PbPageData } from "~/types";
+import type { PageItem } from "./types";
 
 interface UseDuplicatePageParams {
     page: PageItem;

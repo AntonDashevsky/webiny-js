@@ -3,7 +3,7 @@ import { ReactComponent as EmptyIcon } from "@webiny/icons/remove.svg";
 import { ReactComponent as ChevronDown } from "@webiny/icons/keyboard_arrow_down.svg";
 import { cn, cva, Icon as IconComponent, inputVariants, type VariantProps } from "@webiny/admin-ui";
 import { IconProvider, IconRenderer } from "~/components/IconPicker/IconRenderer";
-import { Icon } from "~/components/IconPicker/types";
+import type { Icon } from "~/components/IconPicker/types";
 
 const iconPickerTriggerVariants = cva("wby-cursor-pointer fill-neutral-xstrong", {
     variants: {

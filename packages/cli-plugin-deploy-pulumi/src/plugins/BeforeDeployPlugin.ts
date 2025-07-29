@@ -1,7 +1,5 @@
-import {
-    Callable,
-    PulumiCommandLifecycleEventHookPlugin
-} from "./PulumiCommandLifecycleEventHookPlugin";
+import type { Callable } from "./PulumiCommandLifecycleEventHookPlugin";
+import { PulumiCommandLifecycleEventHookPlugin } from "./PulumiCommandLifecycleEventHookPlugin";
 
 export class BeforeDeployPlugin extends PulumiCommandLifecycleEventHookPlugin {
     public static override type: string = "hook-before-deploy";

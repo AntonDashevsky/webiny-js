@@ -1,8 +1,8 @@
-import { ICreateFolderRepository } from "./ICreateFolderRepository";
-import { ListCache } from "../cache";
+import type { ICreateFolderRepository } from "./ICreateFolderRepository";
+import type { ListCache } from "../cache";
 import { Folder } from "../Folder";
-import { ICreateFolderGateway } from "./ICreateFolderGateway";
-import { FolderDto } from "./FolderDto";
+import type { ICreateFolderGateway } from "./ICreateFolderGateway";
+import type { FolderDto } from "./FolderDto";
 
 export class CreateFolderRepository implements ICreateFolderRepository {
     private cache: ListCache<Folder>;

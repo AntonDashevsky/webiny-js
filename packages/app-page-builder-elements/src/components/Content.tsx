@@ -1,5 +1,5 @@
 import React from "react";
-import { Content as ContentType } from "~/types";
+import type { Content as ContentType } from "~/types";
 import { Element } from "./Element";
 
 export interface ContentProps {

@@ -1,5 +1,5 @@
-import { AssetResolver } from "./abstractions/AssetResolver";
-import { Asset } from "./Asset";
+import type { AssetResolver } from "./abstractions/AssetResolver";
+import type { Asset } from "./Asset";
 
 export class NullAssetResolver implements AssetResolver {
     resolve(): Promise<Asset | undefined> {

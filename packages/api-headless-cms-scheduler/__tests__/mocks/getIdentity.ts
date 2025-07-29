@@ -1,4 +1,4 @@
-import { CmsIdentity } from "@webiny/api-headless-cms/types";
+import type { CmsIdentity } from "@webiny/api-headless-cms/types";
 
 export const createMockGetIdentity = (identity?: CmsIdentity) => {
     return (): CmsIdentity => {

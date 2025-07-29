@@ -1,5 +1,5 @@
 import { toJS } from "mobx";
-import {
+import type {
     DocumentElement,
     DocumentState,
     ResolvedElement,

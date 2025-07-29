@@ -1,4 +1,4 @@
-import { Topic } from "@webiny/pubsub/types";
+import type { Topic } from "@webiny/pubsub/types";
 import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom";
 import { CreatePageRevisionFromWithEvents } from "./CreatePageRevisionFromWithEvents";
 import type {

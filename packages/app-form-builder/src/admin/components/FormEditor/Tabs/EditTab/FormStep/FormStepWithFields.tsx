@@ -1,5 +1,5 @@
 import React from "react";
-import { FbFormModelField, FbFormStep } from "~/types";
+import type { FbFormModelField, FbFormStep } from "~/types";
 import { FormStepRow } from "./FormStepWithFields/FormStepRow";
 
 export interface FormStepWithFieldsProps {

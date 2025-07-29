@@ -1,5 +1,5 @@
 import lodashTrim from "lodash/trim";
-import { Modifier, Processor } from "~/types";
+import type { Modifier, Processor } from "~/types";
 
 const processTextPart = (
     part: string,

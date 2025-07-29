@@ -9,7 +9,8 @@
 import "./LinkPreview.css";
 
 import * as React from "react";
-import { CSSProperties, Suspense } from "react";
+import type { CSSProperties } from "react";
+import { Suspense } from "react";
 
 type Preview = {
     title: string;

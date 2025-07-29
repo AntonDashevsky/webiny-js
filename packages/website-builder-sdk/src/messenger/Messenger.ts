@@ -1,5 +1,5 @@
 import micromatch from "micromatch";
-import { MessageOrigin } from "./MessageOrigin.js";
+import type { MessageOrigin } from "./MessageOrigin.js";
 import { logger } from "../Logger.js";
 
 export type Message<T = any> = {

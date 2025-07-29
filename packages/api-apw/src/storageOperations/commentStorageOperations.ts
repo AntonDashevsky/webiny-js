@@ -1,12 +1,12 @@
-import { ApwStorageOperations } from "./types";
-import { ApwCommentStorageOperations } from "./types";
-import { CreateApwStorageOperationsParams } from "~/storageOperations/index";
+import type { ApwStorageOperations } from "./types";
+import type { ApwCommentStorageOperations } from "./types";
+import type { CreateApwStorageOperationsParams } from "~/storageOperations/index";
 import { getFieldValues, getTransformer } from "~/utils/fieldResolver";
 import { baseFields } from "~/utils/pickEntryFieldValues";
 
 import WebinyError from "@webiny/error";
-import { ApwComment } from "~/types";
-import { CmsEntryListParams } from "@webiny/api-headless-cms/types";
+import type { ApwComment } from "~/types";
+import type { CmsEntryListParams } from "@webiny/api-headless-cms/types";
 import { COMMENT_MODEL_ID } from "~/storageOperations/models/comment.model";
 
 const pickIdFromChangeRequest = (obj: Record<string, any>): ApwComment => {

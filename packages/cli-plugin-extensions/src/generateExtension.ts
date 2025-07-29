@@ -7,12 +7,12 @@ import fs from "node:fs";
 import fsAsync from "node:fs/promises";
 import { setTimeout } from "node:timers/promises";
 import { getProject, log } from "@webiny/cli/utils";
-import { ExtensionCommandGenerateParams } from "./types";
+import type { ExtensionCommandGenerateParams } from "./types";
 import { runYarnInstall } from "@webiny/cli-plugin-scaffold/utils";
 import chalk from "chalk";
 import { Extension } from "~/extensions/Extension";
-import { CliContext } from "@webiny/cli/types";
-import { Ora } from "ora";
+import type { CliContext } from "@webiny/cli/types";
+import type { Ora } from "ora";
 import { updateDependencies } from "./utils";
 import { setWebinyPackageVersions } from "~/utils/setWebinyPackageVersions";
 

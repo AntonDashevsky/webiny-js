@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { CmsModel, CmsModelField } from "~/types";
+import type { CmsModel, CmsModelField } from "~/types";
 import { useContentModels as useBaseContentModels } from "~/admin/hooks";
 
 interface Props {

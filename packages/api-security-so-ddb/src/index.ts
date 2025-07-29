@@ -1,4 +1,5 @@
-import { ENTITIES, SecurityStorageParams } from "~/types";
+import type { SecurityStorageParams } from "~/types";
+import { ENTITIES } from "~/types";
 import type {
     ApiKey,
     Group,

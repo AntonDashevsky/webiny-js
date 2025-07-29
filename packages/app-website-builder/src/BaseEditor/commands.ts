@@ -1,6 +1,6 @@
 import { createCommand } from "~/editorSdk/createCommand";
 import type { ElementFactoryCreateElementParams } from "@webiny/website-builder-sdk";
-import { WebsiteBuilderTheme } from "@webiny/website-builder-sdk/types/WebsiteBuilderTheme";
+import type { WebsiteBuilderTheme } from "@webiny/website-builder-sdk/types/WebsiteBuilderTheme";
 
 const CreateElement = createCommand<{
     // Name of the component to use.

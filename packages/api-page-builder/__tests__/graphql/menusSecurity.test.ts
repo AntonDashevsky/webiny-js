@@ -1,6 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 import { identityA, identityB, NOT_AUTHORIZED_RESPONSE } from "./mocks";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 
 class Mock {
     public readonly slug: string;

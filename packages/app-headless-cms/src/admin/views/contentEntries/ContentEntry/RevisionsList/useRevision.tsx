@@ -2,9 +2,9 @@ import React from "react";
 import { useRouter } from "@webiny/react-router";
 import { useHandlers } from "@webiny/app/hooks/useHandlers";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
-import { CmsContentEntry } from "~/types";
+import type { CmsContentEntry } from "~/types";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
-import { PublishEntryRevisionResponse } from "~/admin/contexts/Cms";
+import type { PublishEntryRevisionResponse } from "~/admin/contexts/Cms";
 
 export interface CreateRevisionHandler {
     (id?: string): Promise<void>;

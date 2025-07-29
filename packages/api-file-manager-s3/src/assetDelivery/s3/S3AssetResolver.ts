@@ -1,5 +1,6 @@
-import { S3 } from "@webiny/aws-sdk/client-s3";
-import { Asset, AssetRequest, AssetResolver } from "@webiny/api-file-manager";
+import type { S3 } from "@webiny/aws-sdk/client-s3";
+import type { AssetRequest, AssetResolver } from "@webiny/api-file-manager";
+import { Asset } from "@webiny/api-file-manager";
 import { S3AssetMetadataReader } from "./S3AssetMetadataReader";
 import { S3ContentsReader } from "./S3ContentsReader";
 

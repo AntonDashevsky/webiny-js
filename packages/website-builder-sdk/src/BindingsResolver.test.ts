@@ -1,5 +1,10 @@
 import { BindingsResolver } from "./BindingsResolver";
-import { DocumentElement, DocumentState, DocumentElementBindings, DocumentBindings } from "~/types";
+import type {
+    DocumentElement,
+    DocumentState,
+    DocumentElementBindings,
+    DocumentBindings
+} from "~/types";
 import { createSlotInput, createTextInput } from "~/createInput";
 import { ComponentManifestToAstConverter } from "~/ComponentManifestToAstConverter";
 

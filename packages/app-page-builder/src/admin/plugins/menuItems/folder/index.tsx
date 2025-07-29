@@ -2,7 +2,7 @@ import * as React from "react";
 import { ReactComponent as FolderIcon } from "@webiny/icons/folder.svg";
 
 import FolderForm from "./FolderForm";
-import { PbMenuItemPlugin } from "../../../../types";
+import type { PbMenuItemPlugin } from "../../../../types";
 
 const plugin: PbMenuItemPlugin = {
     name: "pb-menu-item-folder",

@@ -5,7 +5,7 @@ import {
     type RichTextEditorValue,
     type OnReadyParams
 } from "@webiny/admin-ui";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 
 type RichTextEditorProps = FormComponentProps &
     AdminRichTextEditorProps & {

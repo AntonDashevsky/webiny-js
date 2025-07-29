@@ -1,10 +1,10 @@
-import { ListCache, LoadedCache } from "../cache";
+import type { ListCache, LoadedCache } from "../cache";
 import { Folder } from "../Folder";
-import {
+import type {
     GetFolderHierarchyRepositoryParams,
     IGetFolderHierarchyRepository
 } from "./IGetFolderHierarchyRepository";
-import { IGetFolderHierarchyGateway } from "./IGetFolderHierarchyGateway";
+import type { IGetFolderHierarchyGateway } from "./IGetFolderHierarchyGateway";
 
 export class GetFolderHierarchyRepository implements IGetFolderHierarchyRepository {
     private cache: ListCache<Folder>;

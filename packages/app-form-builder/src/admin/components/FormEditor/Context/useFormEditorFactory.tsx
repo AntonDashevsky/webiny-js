@@ -2,20 +2,19 @@ import React from "react";
 import { generateAlphaNumericId } from "@webiny/utils/generateId";
 import cloneDeep from "lodash/cloneDeep";
 import pick from "lodash/pick";
-import {
-    GET_FORM,
+import type {
     GetFormQueryResponse,
     GetFormQueryVariables,
-    UPDATE_REVISION,
     UpdateFormRevisionMutationResponse,
     UpdateFormRevisionMutationVariables
 } from "./graphql";
+import { GET_FORM, UPDATE_REVISION } from "./graphql";
 import { deleteField, moveStep, handleMoveRow, handleMoveField } from "./functions";
 import moveField from "./functions/handleMoveField/moveField";
 import getFieldPosition from "./functions/handleMoveField/getFieldPosition";
 import { plugins } from "@webiny/plugins";
 
-import {
+import type {
     FbFormModelField,
     FieldIdType,
     FieldLayoutPositionType,
@@ -29,8 +28,8 @@ import {
     DropDestination,
     DropSource
 } from "~/types";
-import { ApolloClient } from "apollo-client";
-import {
+import type { ApolloClient } from "apollo-client";
+import type {
     FormEditorFieldError,
     FormEditorProviderContext,
     FormEditorProviderContextState

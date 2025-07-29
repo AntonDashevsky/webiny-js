@@ -1,7 +1,7 @@
 import React from "react";
 import { DropdownMenu } from "~/DropdownMenu";
 import { FilterIcon } from "../DataListIcons";
-import { DataListProps } from "../types";
+import type { DataListProps } from "../types";
 
 const Filters = (props: DataListProps) => {
     const filters = props.filters;

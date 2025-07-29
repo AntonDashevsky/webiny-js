@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import cloneDeep from "lodash/cloneDeep";
 import { Grid, Dialog, Drawer, Button, Tabs } from "@webiny/admin-ui";
-import { Form, FormOnSubmit } from "@webiny/form";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
 import GeneralTab from "./EditFieldDialog/GeneralTab";
 import ValidatorsTab from "./EditFieldDialog/ValidatorsTab";
 import FieldTypeSelector from "./EditFieldDialog/FieldTypeSelector";
 import { i18n } from "@webiny/app/i18n";
 import { useFormEditor } from "../../Context";
-import { FbBuilderFieldPlugin, FbFormModelField } from "~/types";
+import type { FbBuilderFieldPlugin, FbFormModelField } from "~/types";
 
 const t = i18n.namespace("FormEditor.EditFieldDialog");
 

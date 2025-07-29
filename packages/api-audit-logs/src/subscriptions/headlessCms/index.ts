@@ -10,7 +10,7 @@ import {
     onEntryRevisionAfterDeleteHook,
     onEntryAfterRestoreFromTrashHook
 } from "./entries";
-import { AuditLogsContext } from "~/types";
+import type { AuditLogsContext } from "~/types";
 
 export const createHeadlessCmsHooks = (context: AuditLogsContext) => {
     // groups

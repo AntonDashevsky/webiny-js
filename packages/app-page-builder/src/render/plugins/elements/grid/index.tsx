@@ -1,4 +1,4 @@
-import { PbRenderElementPlugin } from "~/types";
+import type { PbRenderElementPlugin } from "~/types";
 import { GridRenderer } from "@webiny/app-page-builder-elements/renderers/grid";
 
 export default (): PbRenderElementPlugin => {

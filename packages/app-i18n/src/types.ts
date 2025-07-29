@@ -1,5 +1,5 @@
-import { Plugin } from "@webiny/app/types";
-import { SecurityPermission } from "@webiny/app-security/types";
+import type { Plugin } from "@webiny/app/types";
+import type { SecurityPermission } from "@webiny/app-security/types";
 
 export type I18NLocaleContextPlugin = Plugin<{
     name: "api-i18n-locale-context";

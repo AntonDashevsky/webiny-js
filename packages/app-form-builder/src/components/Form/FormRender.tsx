@@ -11,7 +11,7 @@ import {
     termsOfServiceEnabled
 } from "./functions";
 
-import {
+import type {
     FormRenderPropsType,
     FbFormRenderComponentProps,
     FormSubmitResponseType,
@@ -23,7 +23,7 @@ import {
     FbFormLayout
 } from "~/types";
 import { FbFormLayoutPlugin } from "~/plugins";
-import { ReCaptchaComponent } from "./components/createReCaptchaComponent";
+import type { ReCaptchaComponent } from "./components/createReCaptchaComponent";
 
 declare global {
     // eslint-disable-next-line

@@ -1,8 +1,10 @@
-import React, { useCallback, useState, SyntheticEvent, useEffect, useMemo } from "react";
+import type { SyntheticEvent } from "react";
+import React, { useCallback, useState, useEffect, useMemo } from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { ChromePicker, ColorState, RGBColor } from "react-color";
-import { OnChangeHandler } from "react-color/lib/components/common/ColorWrap";
+import type { ColorState, RGBColor } from "react-color";
+import { ChromePicker } from "react-color";
+import type { OnChangeHandler } from "react-color/lib/components/common/ColorWrap";
 import { Tooltip } from "@webiny/ui/Tooltip";
 
 // Icons

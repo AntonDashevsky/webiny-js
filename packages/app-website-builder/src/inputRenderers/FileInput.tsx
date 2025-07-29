@@ -1,9 +1,10 @@
 import React from "react";
-import { FilePicker, FileItemDto } from "@webiny/admin-ui";
-import { ElementInputRendererProps } from "~/BaseEditor";
+import type { FileItemDto } from "@webiny/admin-ui";
+import { FilePicker } from "@webiny/admin-ui";
+import type { ElementInputRendererProps } from "~/BaseEditor";
 import { FileManager, type FileManagerFileItem } from "@webiny/app-admin";
 import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
-import { FileInput } from "@webiny/website-builder-sdk";
+import type { FileInput } from "@webiny/website-builder-sdk";
 import { fileManagerItemToValue } from "~/shared/fileManagerItemToValue";
 
 export const FileInputRenderer = ({

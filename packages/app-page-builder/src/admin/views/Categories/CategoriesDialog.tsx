@@ -2,7 +2,7 @@ import React from "react";
 import { Dialog, Link, List, Loader } from "@webiny/admin-ui";
 import { Query } from "@apollo/react-components";
 import { LIST_CATEGORIES } from "./graphql";
-import { PageBuilderListCategoriesResponse, PbCategory } from "~/types";
+import type { PageBuilderListCategoriesResponse, PbCategory } from "~/types";
 
 export type CategoriesDialogProps = {
     open: boolean;

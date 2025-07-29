@@ -4,7 +4,7 @@ import { CREATE_PAGE, CREATE_PAGE_FROM_TEMPLATE } from "~/admin/graphql/pages";
 import * as GQLCache from "~/admin/views/Pages/cache";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useRecords } from "@webiny/app-aco";
-import { PbPageTemplate } from "~/types";
+import type { PbPageTemplate } from "~/types";
 import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
 
 interface UseCreatePageParams {

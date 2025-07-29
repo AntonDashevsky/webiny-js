@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     AcoContext,
     AcoRequestAction,
     AcoSearchRecordCrudBase,
@@ -16,7 +16,7 @@ import {
     SearchRecord,
     UpdateSearchRecordParams
 } from "~/types";
-import { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
 import lodashUpperFirst from "lodash/upperFirst";
 import lodashCamelCase from "lodash/camelCase";
 import { DEFAULT_FIELDS } from "~/record/record.model";

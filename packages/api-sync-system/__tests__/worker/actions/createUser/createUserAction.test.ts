@@ -1,7 +1,7 @@
 import { createCreateUserAction } from "~/worker/actions/createUser/createUserAction.js";
+import type { AdminCreateUserCommandInput } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import {
     AdminCreateUserCommand,
-    AdminCreateUserCommandInput,
     AdminGetUserCommand,
     type AdminGetUserCommandInput,
     CognitoIdentityProviderClient,

@@ -1,6 +1,6 @@
-import { HeadlessCmsStorageOperations, OnGroupBeforeCreateTopicParams } from "~/types";
-import { Topic } from "@webiny/pubsub/types";
-import { PluginsContainer } from "@webiny/plugins";
+import type { HeadlessCmsStorageOperations, OnGroupBeforeCreateTopicParams } from "~/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { PluginsContainer } from "@webiny/plugins";
 import WebinyError from "@webiny/error";
 import { toSlug } from "~/utils/toSlug";
 import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";

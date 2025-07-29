@@ -1,5 +1,5 @@
 import { setHeader } from "./headers";
-import { CloudFrontRequest } from "./types";
+import type { CloudFrontRequest } from "./types";
 
 export function setDomainOrigin(request: CloudFrontRequest, domain: string) {
     request.origin = {

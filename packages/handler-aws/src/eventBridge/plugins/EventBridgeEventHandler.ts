@@ -1,6 +1,6 @@
 import type { Context as LambdaContext, EventBridgeEvent } from "@webiny/aws-sdk/types";
 import { Plugin } from "@webiny/plugins/Plugin";
-import { Context, Reply, Request } from "@webiny/handler/types";
+import type { Context, Reply, Request } from "@webiny/handler/types";
 
 export interface EventBridgeEventHandlerCallableParams<
     DetailType extends string,

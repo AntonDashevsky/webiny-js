@@ -1,4 +1,4 @@
-import { ILoaderCache } from "./ILoaderCache";
+import type { ILoaderCache } from "./ILoaderCache";
 
 export class NullLoaderCache implements ILoaderCache {
     read() {

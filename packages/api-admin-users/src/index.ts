@@ -1,11 +1,11 @@
 import { ContextPlugin } from "@webiny/api";
 import { createAdminUsers } from "./createAdminUsers";
-import { AdminUsersContext, AdminUsersStorageOperations } from "./types";
+import type { AdminUsersContext, AdminUsersStorageOperations } from "./types";
 import baseGqlPlugins from "./graphql/base.gql";
 import adminUsersGqlPlugins from "./graphql/user.gql";
 import installGqlPlugins from "./graphql/install.gql";
 import { applyMultiTenancyPlugins } from "~/multiTenancy";
-import { SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityPermission } from "@webiny/api-security/types";
 
 export interface Config {
     storageOperations: AdminUsersStorageOperations;

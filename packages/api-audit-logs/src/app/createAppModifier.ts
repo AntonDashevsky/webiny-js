@@ -1,10 +1,8 @@
-import {
-    createAcoAppModifier as baseCreateAppModifier,
-    CreateAcoAppModifierCallable
-} from "@webiny/api-aco";
+import type { CreateAcoAppModifierCallable } from "@webiny/api-aco";
+import { createAcoAppModifier as baseCreateAppModifier } from "@webiny/api-aco";
 import { AUDIT_LOGS_TYPE } from "./contants";
-import { AuditLogsAcoContext } from "./types";
-import { Context } from "@webiny/handler/types";
+import type { AuditLogsAcoContext } from "./types";
+import type { Context } from "@webiny/handler/types";
 
 export const createAppModifier = <T extends Context = AuditLogsAcoContext>(
     cb: CreateAcoAppModifierCallable<T>

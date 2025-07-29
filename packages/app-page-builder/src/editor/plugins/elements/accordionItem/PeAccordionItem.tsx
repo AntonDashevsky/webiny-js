@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
 import { createRenderer, useRenderer, Elements } from "@webiny/app-page-builder-elements";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
 import EmptyCell from "~/editor/plugins/elements/cell/EmptyCell";
 

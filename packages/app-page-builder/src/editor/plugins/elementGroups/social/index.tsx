@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as SocialIcon } from "@webiny/icons/people.svg";
-import { PbEditorPageElementGroupPlugin } from "~/types";
+import type { PbEditorPageElementGroupPlugin } from "~/types";
 
 export default {
     name: "pb-editor-element-group-social",

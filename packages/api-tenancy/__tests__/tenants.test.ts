@@ -1,5 +1,5 @@
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { Tenancy, TenancyStorageOperations } from "~/types";
+import type { Tenancy, TenancyStorageOperations } from "~/types";
 import { createTenancy } from "~/createTenancy";
 
 describe(`Test "Tenancy" tenants`, () => {

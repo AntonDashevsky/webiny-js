@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
-import { IconPickerParams, IconPickerPresenter } from "./presenters";
-import { IconPickerPrimitiveProps } from "./IconPickerPrimitive";
+import type { IconPickerParams } from "./presenters";
+import { IconPickerPresenter } from "./presenters";
+import type { IconPickerPrimitiveProps } from "./IconPickerPrimitive";
 
 export const useIconPicker = (props: IconPickerPrimitiveProps) => {
     const params: IconPickerParams = useMemo(

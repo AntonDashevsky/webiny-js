@@ -1,12 +1,12 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
-import {
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import type {
     ExportPagesParams,
     ImportPagesParams,
     PbExportPagesResponse,
     PbImportExportContext
 } from "../types";
 import { resolve } from "./utils/resolve";
-import { ErrorResponse, Response } from "@webiny/handler-graphql";
+import type { ErrorResponse, Response } from "@webiny/handler-graphql";
 
 const plugin: GraphQLSchemaPlugin<PbImportExportContext> = {
     type: "graphql-schema",

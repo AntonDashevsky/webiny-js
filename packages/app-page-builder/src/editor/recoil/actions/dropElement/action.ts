@@ -1,12 +1,12 @@
-import { DragObjectWithTypeWithTarget } from "~/editor/components/Droppable";
-import {
+import type { DragObjectWithTypeWithTarget } from "~/editor/components/Droppable";
+import type {
     PbEditorPageElementPlugin,
     EventActionCallable,
     EventActionHandlerCallableState,
     PbEditorElement
 } from "~/types";
 import { plugins } from "@webiny/plugins";
-import { DropElementActionArgsType } from "./types";
+import type { DropElementActionArgsType } from "./types";
 import { onReceived } from "~/editor/helpers";
 
 const elementPluginType = "pb-editor-page-element";

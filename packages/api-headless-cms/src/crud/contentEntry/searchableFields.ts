@@ -1,5 +1,5 @@
-import { CmsModelField, CmsModelFieldToGraphQLPlugin } from "~/types";
-import { PluginsContainer } from "@webiny/plugins";
+import type { CmsModelField, CmsModelFieldToGraphQLPlugin } from "~/types";
+import type { PluginsContainer } from "@webiny/plugins";
 
 interface BuildParams {
     input: string[];

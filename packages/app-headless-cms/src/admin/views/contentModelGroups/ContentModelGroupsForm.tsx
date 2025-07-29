@@ -2,7 +2,8 @@ import React, { useCallback } from "react";
 import { ReactComponent as DevicesIcon } from "@webiny/icons/devices_other.svg";
 import isEmpty from "lodash/isEmpty";
 import get from "lodash/get";
-import { Form, FormRenderPropParams } from "@webiny/form";
+import type { FormRenderPropParams } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { i18n } from "@webiny/app/i18n";
 import { validation } from "@webiny/validation";
 
@@ -21,7 +22,7 @@ import { useMutation, useQuery } from "../../hooks";
 import * as GQL from "./graphql";
 import usePermission from "../../hooks/usePermission";
 import { Tooltip } from "@webiny/ui/Tooltip";
-import {
+import type {
     CmsGroup,
     CreateCmsGroupMutationResponse,
     CreateCmsGroupMutationVariables,

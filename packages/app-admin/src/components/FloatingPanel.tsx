@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Draggable, { type DraggableEventHandler } from "react-draggable";
-import { Resizable, ResizableProps } from "react-resizable";
+import type { ResizableProps } from "react-resizable";
+import { Resizable } from "react-resizable";
 import styled from "@emotion/styled";
 import { useKeyHandler } from "~/hooks";
 

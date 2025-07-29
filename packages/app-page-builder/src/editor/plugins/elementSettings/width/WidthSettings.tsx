@@ -5,10 +5,10 @@ import merge from "lodash/merge";
 import set from "lodash/set";
 import get from "lodash/get";
 import { Form } from "@webiny/form";
-import { FormAPI } from "@webiny/form/types";
+import type { FormAPI } from "@webiny/form/types";
 import { plugins } from "@webiny/plugins";
 import { Tooltip } from "@webiny/ui/Tooltip";
-import {
+import type {
     PbEditorPageElementSettingsRenderComponentProps,
     PbEditorResponsiveModePlugin,
     PbEditorElement
@@ -26,7 +26,7 @@ import Wrapper from "../components/Wrapper";
 import SpacingPicker from "../components/SpacingPicker";
 import { classes } from "../components/StyledComponents";
 import { applyFallbackDisplayMode } from "../elementSettingsUtils";
-import { Validator } from "@webiny/validation/types";
+import type { Validator } from "@webiny/validation/types";
 
 const rightCellStyle = css({
     justifySelf: "end"

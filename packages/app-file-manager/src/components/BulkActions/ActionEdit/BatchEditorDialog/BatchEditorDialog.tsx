@@ -2,11 +2,12 @@ import React, { useMemo, useEffect, useRef } from "react";
 
 import { Drawer } from "@webiny/admin-ui";
 import { observer } from "mobx-react-lite";
-import { FormAPI } from "@webiny/form";
+import type { FormAPI } from "@webiny/form";
 
-import { BatchEditorDialogPresenter, BatchEditorFormData } from "./BatchEditorDialogPresenter";
+import type { BatchEditorFormData } from "./BatchEditorDialogPresenter";
+import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter";
 import { BatchEditor } from "~/components/BulkActions/ActionEdit/BatchEditorDialog/BatchEditor";
-import { BatchDTO, FieldDTO } from "~/components/BulkActions/ActionEdit/domain";
+import type { BatchDTO, FieldDTO } from "~/components/BulkActions/ActionEdit/domain";
 
 interface BatchEditorDialogProps {
     fields: FieldDTO[];

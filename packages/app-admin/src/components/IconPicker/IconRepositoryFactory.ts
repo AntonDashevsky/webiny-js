@@ -1,5 +1,5 @@
 import { IconRepository } from "./IconRepository";
-import { IconPackProviderInterface as IconPackProvider, IconType } from "./config";
+import type { IconPackProviderInterface as IconPackProvider, IconType } from "./config";
 
 class IconRepositoryFactory {
     private cache: Map<string, IconRepository> = new Map();

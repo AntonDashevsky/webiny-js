@@ -1,6 +1,6 @@
 import { ColumnsPresenter } from "./ColumnsPresenter";
 import { Column } from "./Column";
-import { ColumnConfig } from "~/config/table/Column";
+import type { ColumnConfig } from "~/config/table/Column";
 import { ColumnsRepository } from "./ColumnsRepository";
 
 describe("ColumnsPresenter", () => {

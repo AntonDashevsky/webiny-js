@@ -1,9 +1,10 @@
-import React, { FC, Fragment, useCallback, useEffect, useRef, useState } from "react";
+import type { FC } from "react";
+import React, { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import type { LexicalEditor } from "lexical";
 import {
     $getSelection,
     BLUR_COMMAND,
     COMMAND_PRIORITY_LOW,
-    LexicalEditor,
     SELECTION_CHANGE_COMMAND
 } from "lexical";
 import { createPortal } from "react-dom";

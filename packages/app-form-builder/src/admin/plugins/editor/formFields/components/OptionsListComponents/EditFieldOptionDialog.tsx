@@ -1,6 +1,7 @@
 import React from "react";
 import { Dialog, Grid, Input } from "@webiny/admin-ui";
-import { Form, FormOnSubmit } from "@webiny/form";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { i18n } from "@webiny/app/i18n";
 /**
  * Package react-hotkeys does not have types.

@@ -1,4 +1,4 @@
-import {
+import type {
     Condition,
     ConditionDTO,
     Field,

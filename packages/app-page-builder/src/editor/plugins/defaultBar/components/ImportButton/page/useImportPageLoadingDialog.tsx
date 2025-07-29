@@ -8,15 +8,14 @@ import { ReactComponent as SuccessIcon } from "@webiny/icons/check_circle_outlin
 import { ReactComponent as ErrorIcon } from "@webiny/icons/error_outline.svg";
 import ProgressBar from "../ProgressBar";
 import { LoadingDialog } from "../styledComponents";
-import {
-    GET_PAGES_IMPORT_TASK,
+import type {
     GetPagesImportTaskResponse,
     GetPagesImportTaskResponseDataStats,
     GetPagesImportTaskVariables,
-    LIST_IMPORTED_PAGES,
     ListImportedPagesResponse,
     ListImportedPagesVariables
 } from "~/admin/graphql/pageImportExport.gql";
+import { GET_PAGES_IMPORT_TASK, LIST_IMPORTED_PAGES } from "~/admin/graphql/pageImportExport.gql";
 import { PbTaskStatus } from "~/admin/graphql/types";
 import ImportPagesDetails from "./useImportPagesDetails";
 

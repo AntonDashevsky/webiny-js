@@ -1,10 +1,10 @@
 import { S3 } from "@webiny/aws-sdk/client-s3";
 import { createEventBridgeEventHandler } from "@webiny/handler-aws";
 import { createHandlerOnRequest } from "@webiny/handler";
-import { GuardDutyEvent, ThreatDetectionContext } from "./types";
+import type { GuardDutyEvent, ThreatDetectionContext } from "./types";
 import { processThreatScanResult } from "./processThreatScanResult";
 import { S3AssetMetadataReader } from "~/assetDelivery/s3/S3AssetMetadataReader";
-import { EventBridgeEvent } from "@webiny/aws-sdk/types";
+import type { EventBridgeEvent } from "@webiny/aws-sdk/types";
 
 const detailType = "GuardDuty Malware Protection Object Scan Result";
 

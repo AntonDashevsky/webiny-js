@@ -3,7 +3,7 @@ import { Cell } from "@webiny/ui/Grid";
 import { Input } from "@webiny/ui/Input";
 import { validation } from "@webiny/validation";
 import { Bind } from "@webiny/form";
-import { CmsModelFieldValidatorPlugin } from "~/types";
+import type { CmsModelFieldValidatorPlugin } from "~/types";
 
 const plugin: CmsModelFieldValidatorPlugin = {
     type: "cms-model-field-validator",

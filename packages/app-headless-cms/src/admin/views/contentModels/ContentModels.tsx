@@ -3,7 +3,7 @@ import { CloneContentModelDialog } from "./CloneContentModelDialog";
 import NewContentModelDialog from "./NewContentModelDialog";
 import ContentModelsDataList from "./ContentModelsDataList";
 import { useSecurity } from "@webiny/app-security";
-import { CmsModel, CmsSecurityPermission } from "~/types";
+import type { CmsModel, CmsSecurityPermission } from "~/types";
 import { ImportContentModelsDialog } from "./importing/ImportContentModelsDialog";
 import { Grid } from "@webiny/admin-ui";
 

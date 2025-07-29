@@ -14,7 +14,7 @@ import { Box, Columns } from "~/components/Layout";
 import Spinner from "react-spinner-material";
 import { FileManager } from "@webiny/app-admin/components";
 import { richTextWrapperStyles } from "../Styled";
-import { ApwComment } from "~/types";
+import type { ApwComment } from "~/types";
 
 const richTextStyles = css`
     /**

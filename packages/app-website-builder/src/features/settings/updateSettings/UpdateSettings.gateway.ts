@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import type { GenericRecord } from "@webiny/app/types";
 import { WebinyError } from "@webiny/error";
 import type { IUpdateSettings } from "./IUpdateSettings";
-import { IWebsiteBuilderSettings } from "~/features/settings/IWebsiteBuilderSettings";
+import type { IWebsiteBuilderSettings } from "~/features/settings/IWebsiteBuilderSettings";
 
 const MUTATION = gql`
     mutation UpdateWebsiteBuilderSettings($settings: WbSettingsInput!) {

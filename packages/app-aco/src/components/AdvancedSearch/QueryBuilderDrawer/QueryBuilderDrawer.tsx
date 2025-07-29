@@ -1,14 +1,15 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { observer } from "mobx-react-lite";
 import { Button, Drawer } from "@webiny/admin-ui";
-import { FormAPI } from "@webiny/form";
+import type { FormAPI } from "@webiny/form";
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
 import { QueryBuilder } from "./QueryBuilder";
 
-import { FieldDTOWithElement, FilterDTO } from "~/components/AdvancedSearch/domain";
+import type { FieldDTOWithElement, FilterDTO } from "~/components/AdvancedSearch/domain";
 
-import { QueryBuilderDrawerPresenter, QueryBuilderFormData } from "./QueryBuilderDrawerPresenter";
+import type { QueryBuilderFormData } from "./QueryBuilderDrawerPresenter";
+import { QueryBuilderDrawerPresenter } from "./QueryBuilderDrawerPresenter";
 
 interface QueryBuilderDrawerProps {
     fields: FieldDTOWithElement[];

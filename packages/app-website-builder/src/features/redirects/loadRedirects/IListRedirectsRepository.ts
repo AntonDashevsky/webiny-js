@@ -1,4 +1,4 @@
-import { Sorting } from "@webiny/app-utils";
+import type { Sorting } from "@webiny/app-utils";
 
 export interface LoadRedirectsRepositoryParams {
     where?: Record<string, any>;

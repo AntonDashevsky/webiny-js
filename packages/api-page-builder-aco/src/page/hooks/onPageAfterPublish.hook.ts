@@ -2,7 +2,7 @@ import WebinyError from "@webiny/error";
 
 import { updatePageRecordPayload } from "~/utils/createRecordPayload";
 
-import { PbAcoContext, PbPageRecordData } from "~/types";
+import type { PbAcoContext, PbPageRecordData } from "~/types";
 import { PB_PAGE_TYPE } from "~/contants";
 
 export const onPageAfterPublishHook = (context: PbAcoContext) => {

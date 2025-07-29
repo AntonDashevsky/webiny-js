@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import slugify from "slugify";
-import { CmsModel } from "@webiny/app-headless-cms/types";
+import type { CmsModel } from "@webiny/app-headless-cms/types";
 import { useCreatePageTemplate } from "@webiny/app-page-builder/features";
 import { useListDynamicTemplates } from "~/features/pageTemplate/listDynamicTemplates/useListDynamicTemplates";
 

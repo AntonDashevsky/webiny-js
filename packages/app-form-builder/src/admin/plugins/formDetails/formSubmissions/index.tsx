@@ -1,6 +1,6 @@
 import * as React from "react";
 import { renderPlugins } from "@webiny/app/plugins";
-import { FbFormDetailsPluginType, FbFormDetailsSubmissionsPlugin } from "../../../../types";
+import type { FbFormDetailsPluginType, FbFormDetailsSubmissionsPlugin } from "../../../../types";
 import { i18n } from "@webiny/app/i18n";
 import { FormSubmissionsOverview } from "./FormSubmissionsOverview";
 import { FormSubmissionsList } from "./FormSubmissionsList";

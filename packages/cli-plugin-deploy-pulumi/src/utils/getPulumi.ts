@@ -6,7 +6,7 @@ import { getProject } from "@webiny/cli/utils";
 import path from "path";
 import fs from "fs";
 
-import { ProjectApplication } from "@webiny/cli/types";
+import type { ProjectApplication } from "@webiny/cli/types";
 
 export interface IGetPulumiParams {
     projectApplication?: Pick<ProjectApplication, "paths">;

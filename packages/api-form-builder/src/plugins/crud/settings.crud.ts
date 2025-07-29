@@ -1,4 +1,4 @@
-import {
+import type {
     FormBuilder,
     FormBuilderContext,
     OnSettingsAfterCreate,
@@ -11,11 +11,11 @@ import {
     SettingsCRUD
 } from "~/types";
 import WebinyError from "@webiny/error";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
-import { SettingsPermissions } from "./permissions/SettingsPermissions";
+import type { SettingsPermissions } from "./permissions/SettingsPermissions";
 import { createSettingsValidation, updateSettingsValidation } from "~/plugins/crud/settings.models";
 import { createZodError } from "@webiny/utils";
 

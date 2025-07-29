@@ -4,8 +4,8 @@ import afterPageDelete from "./afterPageDelete";
 import afterPagePublish from "./afterPagePublish";
 import afterPageUnpublish from "./afterPageUnpublish";
 import afterSettingsUpdate from "./afterSettingsUpdate";
-import { PbContext } from "~/graphql/types";
-import { ContextPlugin } from "@webiny/api";
+import type { PbContext } from "~/graphql/types";
+import type { ContextPlugin } from "@webiny/api";
 
 export default (): ContextPlugin<PbContext>[] => {
     return [

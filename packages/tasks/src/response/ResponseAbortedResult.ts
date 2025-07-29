@@ -1,5 +1,5 @@
 import { TaskResponseStatus } from "~/types";
-import { IResponseAbortedResult } from "./abstractions";
+import type { IResponseAbortedResult } from "./abstractions";
 
 export class ResponseAbortedResult implements IResponseAbortedResult {
     public readonly webinyTaskId: string;

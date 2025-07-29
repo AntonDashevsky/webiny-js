@@ -1,9 +1,11 @@
-import renderUrl, { File } from "./renderUrl";
+import type { File } from "./renderUrl";
+import renderUrl from "./renderUrl";
 import { join } from "path";
-import { S3, PutObjectCommandInput } from "@webiny/aws-sdk/client-s3";
+import type { PutObjectCommandInput } from "@webiny/aws-sdk/client-s3";
+import { S3 } from "@webiny/aws-sdk/client-s3";
 import { getStorageFolder, getRenderUrl, getIsNotFoundPage, isMultiTenancyEnabled } from "~/utils";
-import { Context, HandlerPayload, RenderHookPlugin } from "./types";
-import { PrerenderingServiceStorageOperations, Render, TagPathLink } from "~/types";
+import type { Context, HandlerPayload, RenderHookPlugin } from "./types";
+import type { PrerenderingServiceStorageOperations, Render, TagPathLink } from "~/types";
 import omit from "lodash/omit";
 import { EventPlugin } from "@webiny/handler";
 

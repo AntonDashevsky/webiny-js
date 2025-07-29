@@ -2,9 +2,10 @@ import React, { Fragment, useEffect } from "react";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete_outline.svg";
 
 import { Accordion } from "@webiny/admin-ui";
-import { Form, FormAPI, FormOnSubmit } from "@webiny/form";
+import type { FormAPI, FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 
-import { QueryBuilderFormData, QueryBuilderViewModel } from "../QueryBuilderDrawerPresenter";
+import type { QueryBuilderFormData, QueryBuilderViewModel } from "../QueryBuilderDrawerPresenter";
 
 import {
     AddFilter,
@@ -16,7 +17,7 @@ import {
     OperationSelector
 } from "./components";
 
-import { FieldDTOWithElement } from "~/components/AdvancedSearch/domain";
+import type { FieldDTOWithElement } from "~/components/AdvancedSearch/domain";
 
 export interface QueryBuilderProps {
     onForm: (form: FormAPI) => void;

@@ -1,9 +1,9 @@
-import { SearchBody } from "@webiny/api-elasticsearch/types";
+import type { SearchBody } from "@webiny/api-elasticsearch/types";
 import { useHandler } from "~tests/graphql/handler";
 import { createMockPlugins } from "./mocks";
 import { createElasticsearchEntryConvertedData, createEntryRawData } from "./mocks/data";
 import { configurations } from "~/configurations";
-import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
 import { get } from "@webiny/db-dynamodb";
 import { createPartitionKey } from "~/operations/entry/keys";
 import lodashMerge from "lodash/merge";

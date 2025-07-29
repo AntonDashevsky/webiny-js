@@ -1,4 +1,4 @@
-import { Context, IUserCommandInput } from "~/types";
+import type { Context, IUserCommandInput } from "~/types";
 
 export interface IBasePackagesWatcherPackage {
     name: string;

@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
 import noop from "lodash/noop";
 import { i18n } from "@webiny/app/i18n";
-import { ApwContentReviewStep, ApwContentReviewStepStatus } from "~/types";
+import type { ApwContentReviewStep } from "~/types";
+import { ApwContentReviewStepStatus } from "~/types";
 import { Box, Columns } from "~/components/Layout";
 import { BadgeBox, PanelListItem, TypographyBody, TypographySecondary } from "../Styled";
 import { useNavigate } from "@webiny/react-router";

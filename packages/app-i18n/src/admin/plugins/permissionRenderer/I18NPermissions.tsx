@@ -4,8 +4,8 @@ import { Select } from "@webiny/ui/Select";
 import { i18n } from "@webiny/app/i18n";
 import { PermissionInfo, gridWithPaddingClass } from "@webiny/app-admin/components/Permissions";
 import { Form } from "@webiny/form";
-import { SecurityPermission } from "@webiny/app-security/types";
-import { I18NSecurityPermission } from "~/types";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { I18NSecurityPermission } from "~/types";
 
 const t = i18n.ns("app-i18n/admin/plugins/permissionRenderer");
 

@@ -2,7 +2,7 @@ import { NotAuthorizedError } from "@webiny/api-security";
 import WError from "@webiny/error";
 import type { AcoFolderStorageOperations, UpdateFolderParams } from "~/folder/folder.types";
 import type { IUpdateFolder } from "./IUpdateFolder";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 
 export class UpdateFolderWithFolderLevelPermissions implements IUpdateFolder {
     private folderLevelPermissions: FolderLevelPermissions;

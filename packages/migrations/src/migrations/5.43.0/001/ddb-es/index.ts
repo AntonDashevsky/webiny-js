@@ -1,7 +1,7 @@
-import { Table } from "@webiny/db-dynamodb/toolbox";
-import { Client } from "@elastic/elasticsearch";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Client } from "@elastic/elasticsearch";
 import { inject, makeInjectable } from "@webiny/ioc";
-import { DataMigration, DataMigrationContext } from "@webiny/data-migration";
+import type { DataMigration, DataMigrationContext } from "@webiny/data-migration";
 import {
     PrimaryDynamoTableSymbol,
     ElasticsearchDynamoTableSymbol,

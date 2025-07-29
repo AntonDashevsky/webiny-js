@@ -1,4 +1,4 @@
-import { CmsGroup, CmsModel } from "~tests/types";
+import type { CmsGroup, CmsModel } from "~tests/types";
 
 export const createImageModel = (group: Pick<CmsGroup, "id" | "name">): CmsModel => {
     const model: CmsModel = {

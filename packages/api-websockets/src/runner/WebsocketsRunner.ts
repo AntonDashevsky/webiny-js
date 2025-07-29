@@ -1,25 +1,29 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     IWebsocketsEvent,
     IWebsocketsEventData,
     IWebsocketsEventRequestContext,
     IWebsocketsIncomingEvent,
-    WebsocketsEventRequestContextEventType,
     WebsocketsEventRoute
 } from "~/handler/types";
-import { Context } from "~/types";
-import { IWebsocketsEventValidator } from "~/validator";
-import { IWebsocketsRunner, IWebsocketsRunnerResponse } from "./abstractions/IWebsocketsRunner";
-import { IWebsocketsRoutePluginCallableParams, WebsocketsRoutePlugin } from "~/plugins";
+import { WebsocketsEventRequestContextEventType } from "~/handler/types";
+import type { Context } from "~/types";
+import type { IWebsocketsEventValidator } from "~/validator";
+import type {
+    IWebsocketsRunner,
+    IWebsocketsRunnerResponse
+} from "./abstractions/IWebsocketsRunner";
+import type { IWebsocketsRoutePluginCallableParams } from "~/plugins";
+import { WebsocketsRoutePlugin } from "~/plugins";
 import { middleware } from "~/utils/middleware";
-import { IWebsocketsConnectionRegistry } from "~/registry";
-import {
+import type { IWebsocketsConnectionRegistry } from "~/registry";
+import type {
     IWebsocketsResponse,
     IWebsocketsResponseErrorResult,
     IWebsocketsResponseOkResult
 } from "~/response";
-import { IWebsocketsTransportSendConnection } from "~/transport";
-import { IWebsocketsIdentity } from "~/context";
+import type { IWebsocketsTransportSendConnection } from "~/transport";
+import type { IWebsocketsIdentity } from "~/context";
 
 type MiddlewareParams<C extends Context = Context> = Pick<
     IWebsocketsRoutePluginCallableParams<C>,

@@ -1,5 +1,5 @@
-import { CmsErrorResponse, CmsModel } from "~/types";
-import { IDeleteCmsModelTask } from "~/admin/viewsGraphql";
+import type { CmsErrorResponse, CmsModel } from "~/types";
+import type { IDeleteCmsModelTask } from "~/admin/viewsGraphql";
 
 export enum FullyDeleteModelStateStatus {
     NONE = 0,

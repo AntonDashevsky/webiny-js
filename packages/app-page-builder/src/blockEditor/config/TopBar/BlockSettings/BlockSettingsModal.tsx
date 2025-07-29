@@ -9,7 +9,7 @@ import { useBlock } from "~/blockEditor/hooks/useBlock";
 import { useBlockCategories } from "~/blockEditor/hooks/useBlockCategories";
 import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
-import { BlockAtomType } from "~/blockEditor/state";
+import type { BlockAtomType } from "~/blockEditor/state";
 
 export interface BlockSettingsModalProps {
     open: boolean;

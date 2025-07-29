@@ -1,6 +1,6 @@
 import React from "react";
 import { Heading, Icon, Text } from "@webiny/admin-ui";
-import { FbBuilderFieldPlugin } from "~/types";
+import type { FbBuilderFieldPlugin } from "~/types";
 
 interface FbFormModelFieldSelectorProps {
     fieldType: FbBuilderFieldPlugin["field"];

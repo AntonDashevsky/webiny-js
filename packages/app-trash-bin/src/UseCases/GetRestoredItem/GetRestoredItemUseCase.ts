@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { ITrashBinItemsRepository } from "~/Domain";
-import { IGetRestoredItemUseCase } from "./IGetRestoredItemUseCase";
+import type { ITrashBinItemsRepository } from "~/Domain";
+import type { IGetRestoredItemUseCase } from "./IGetRestoredItemUseCase";
 
 export class GetRestoredItemUseCase implements IGetRestoredItemUseCase {
     private repository: ITrashBinItemsRepository;

@@ -1,6 +1,6 @@
 import { createElasticsearchIndexTaskPlugin } from "@webiny/api-elasticsearch-tasks";
 import { configurations } from "~/configurations";
-import { FormBuilderContext } from "~/types";
+import type { FormBuilderContext } from "~/types";
 
 export const createIndexTaskPlugin = () => {
     return createElasticsearchIndexTaskPlugin<FormBuilderContext>({

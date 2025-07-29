@@ -1,5 +1,5 @@
-import { Topic } from "@webiny/pubsub/types";
-import { ITaskRunParams } from "@webiny/tasks/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { ITaskRunParams } from "@webiny/tasks/types";
 import { type AcoContext, type Folder } from "~/types";
 import type { FolderLevelPermission, FolderPermission } from "@webiny/shared-aco/flp/flp.types";
 

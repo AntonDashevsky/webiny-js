@@ -1,6 +1,6 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import { ErrorResponse, ListResponse } from "@webiny/handler-graphql";
-import { ApwChangeRequestListParams, ApwContext } from "~/types";
+import type { ApwChangeRequestListParams, ApwContext } from "~/types";
 import resolve from "~/utils/resolve";
 import { onByFields, dateTimeFieldsSorters } from "./utils";
 

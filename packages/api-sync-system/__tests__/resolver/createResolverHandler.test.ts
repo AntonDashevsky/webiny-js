@@ -1,4 +1,4 @@
-import { SQSEvent } from "@webiny/aws-sdk/types";
+import type { SQSEvent } from "@webiny/aws-sdk/types";
 import { createResolverHandler } from "~/resolver/createResolverHandler.js";
 import { createMockSQSEventRecord } from "~tests/mocks/sqsEvent.js";
 import { createLambdaContext } from "~tests/mocks/lambdaContext.js";

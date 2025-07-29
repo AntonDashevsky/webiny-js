@@ -1,5 +1,5 @@
-import { IGetPageRepository } from "./IGetPageRepository.js";
-import { IGetPageGateway } from "./IGetPageGateway.js";
+import type { IGetPageRepository } from "./IGetPageRepository.js";
+import type { IGetPageGateway } from "./IGetPageGateway.js";
 import { type IListCache, Page } from "~/domain/Page/index.js";
 
 export class GetPageRepository implements IGetPageRepository {

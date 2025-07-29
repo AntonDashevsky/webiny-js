@@ -1,6 +1,6 @@
-import { FileItem } from "@webiny/app-admin/types";
-import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
-import { IUpdateFile } from "./EditFileUsingUrlRepository";
+import type { FileItem } from "@webiny/app-admin/types";
+import type { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
+import type { IUpdateFile } from "./EditFileUsingUrlRepository";
 
 type FileManagerApi = ReturnType<typeof useFileManagerApi>;
 

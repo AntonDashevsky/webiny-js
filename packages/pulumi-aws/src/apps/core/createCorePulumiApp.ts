@@ -1,5 +1,6 @@
 import * as aws from "@pulumi/aws";
-import { createPulumiApp, PulumiAppParam } from "@webiny/pulumi";
+import type { PulumiAppParam } from "@webiny/pulumi";
+import { createPulumiApp } from "@webiny/pulumi";
 import { CoreCognito } from "./CoreCognito";
 import { CoreDynamo } from "./CoreDynamo";
 import { ElasticSearch } from "./CoreElasticSearch";
@@ -10,7 +11,8 @@ import { CoreVpc } from "./CoreVpc";
 import { WatchCommand } from "./WatchCommand";
 import { tagResources } from "~/utils";
 import { withServiceManifest } from "~/utils/withServiceManifest";
-import { addServiceManifestTableItem, TableDefinition } from "~/utils/addServiceManifestTableItem";
+import type { TableDefinition } from "~/utils/addServiceManifestTableItem";
+import { addServiceManifestTableItem } from "~/utils/addServiceManifestTableItem";
 import { DEFAULT_PROD_ENV_NAMES } from "~/constants";
 import * as random from "@pulumi/random";
 import { featureFlags } from "@webiny/feature-flags";

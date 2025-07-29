@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSecurity } from "@webiny/app-security";
 import { useFileManagerApi } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
 import { DEFAULT_SCOPE } from "~/constants";
-import { FileTag } from "~/types";
+import type { FileTag } from "~/types";
 import { THREAT_SCAN } from "~/modules/Enterprise/constants";
 
 const sortTags = (tags: FileTag[]) => {

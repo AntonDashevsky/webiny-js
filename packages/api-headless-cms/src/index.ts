@@ -1,4 +1,5 @@
-import { createGraphQL as baseCreateGraphQL, CreateGraphQLParams } from "~/graphql";
+import type { CreateGraphQLParams } from "~/graphql";
+import { createGraphQL as baseCreateGraphQL } from "~/graphql";
 import { createDefaultModelManager } from "~/modelManager";
 import { createGraphQLFields } from "~/graphqlFields";
 import { createValidators } from "~/validators";
@@ -7,7 +8,8 @@ import {
     createHeaderParameterPlugin,
     createPathParameterPlugin
 } from "~/parameters";
-import { createContextPlugin, CrudParams } from "~/context";
+import type { CrudParams } from "~/context";
+import { createContextPlugin } from "~/context";
 import {
     entryFieldFromStorageTransform,
     entryFromStorageTransform,
@@ -18,7 +20,7 @@ import { createExportGraphQL } from "~/export";
 import { createStorageTransform } from "~/storage";
 import { createLexicalHTMLRenderer } from "./htmlRenderer/createLexicalHTMLRenderer";
 import { createRevisionIdScalarPlugin } from "~/graphql/scalars/RevisionIdScalarPlugin";
-import { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types";
 
 export * from "./utils/isHeadlessCmsReady";
 export * from "./utils/createModelField";

@@ -1,5 +1,5 @@
 import type { CmsEntryListSort, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
-import { WbRedirect } from "~/context/redirects/redirects.types";
+import type { WbRedirect } from "~/context/redirects/redirects.types";
 
 export interface ListWbRedirectsParams {
     where: CmsEntryListWhere;

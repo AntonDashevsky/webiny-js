@@ -2,7 +2,7 @@ import React from "react";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
 import { useRecords } from "@webiny/app-aco";
-import { PbPageDataItem } from "~/types";
+import type { PbPageDataItem } from "~/types";
 
 export function usePublishRevisionHandler() {
     const { showSnackbar } = useSnackbar();

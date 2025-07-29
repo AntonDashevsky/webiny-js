@@ -1,4 +1,4 @@
-import { CmsModel, CmsModelField } from "~/types";
+import type { CmsModel, CmsModelField } from "~/types";
 
 const DATA_FIELD = /* GraphQL*/ `
     {

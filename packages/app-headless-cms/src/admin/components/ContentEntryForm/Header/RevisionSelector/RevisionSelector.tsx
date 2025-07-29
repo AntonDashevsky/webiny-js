@@ -5,7 +5,7 @@ import { Button, DropdownMenu, Text } from "@webiny/admin-ui";
 import { ReactComponent as DownButton } from "@webiny/icons/keyboard_arrow_down.svg";
 import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
 import { statuses as statusLabels } from "~/admin/constants";
-import { CmsContentEntryRevision } from "~/types";
+import type { CmsContentEntryRevision } from "~/types";
 
 interface CmsEntryRevision extends Pick<CmsContentEntryRevision, "id"> {
     meta: Pick<CmsContentEntryRevision["meta"], "version" | "status">;

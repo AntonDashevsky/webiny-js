@@ -1,5 +1,5 @@
-import { EventActionHandlerMutationActionCallable } from "~/types";
-import { SidebarAtomType } from "../sidebarAtom";
+import type { EventActionHandlerMutationActionCallable } from "~/types";
+import type { SidebarAtomType } from "../sidebarAtom";
 
 export const updateSidebarActiveTabIndexMutation: EventActionHandlerMutationActionCallable<
     SidebarAtomType,

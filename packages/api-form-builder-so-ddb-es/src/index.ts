@@ -2,7 +2,8 @@ import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters";
 import formElasticsearchFields from "./operations/form/elasticsearchFields";
 import submissionElasticsearchFields from "./operations/submission/elasticsearchFields";
 import WebinyError from "@webiny/error";
-import { ENTITIES, FormBuilderStorageOperationsFactory } from "~/types";
+import type { FormBuilderStorageOperationsFactory } from "~/types";
+import { ENTITIES } from "~/types";
 import { createTable } from "~/definitions/table";
 import { createFormEntity } from "~/definitions/form";
 import { createSubmissionEntity } from "~/definitions/submission";
@@ -18,7 +19,7 @@ import { createElasticsearchEntity } from "~/definitions/elasticsearch";
 import { ElasticsearchQueryBuilderOperatorPlugin } from "@webiny/api-elasticsearch";
 import { elasticsearchIndexPlugins } from "~/elasticsearch/indices";
 import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex";
-import { FormBuilderContext } from "@webiny/api-form-builder/types";
+import type { FormBuilderContext } from "@webiny/api-form-builder/types";
 import {
     FormDynamoDbFieldPlugin,
     FormElasticsearchBodyModifierPlugin,

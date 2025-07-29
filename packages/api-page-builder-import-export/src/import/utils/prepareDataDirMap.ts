@@ -1,5 +1,5 @@
 import dotProp from "dot-prop-immutable";
-import { ImportData } from "~/types";
+import type { ImportData } from "~/types";
 import { ASSETS_DIR_NAME } from "~/import/constants";
 
 export function prepareDataDirMap({

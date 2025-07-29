@@ -2,7 +2,8 @@ import React, { useMemo } from "react";
 import { usePagesPermissions } from "~/hooks/permissions";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
 
-import { UnpublishPageMenuOption, UnpublishPageMenuOptionProps } from "./UnpublishPageMenuOption";
+import type { UnpublishPageMenuOptionProps } from "./UnpublishPageMenuOption";
+import { UnpublishPageMenuOption } from "./UnpublishPageMenuOption";
 
 export const SecureUnpublishPageMenuOption = (props: UnpublishPageMenuOptionProps) => {
     const { page } = props;

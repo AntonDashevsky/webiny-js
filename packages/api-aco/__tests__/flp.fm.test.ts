@@ -1,6 +1,6 @@
 import { useGraphQlHandler } from "./utils/useGraphQlHandler";
 import { expectNotAuthorized } from "./utils/expectNotAuthorized";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { mdbid } from "@webiny/utils";
 
 jest.setTimeout(100_000);

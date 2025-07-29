@@ -1,5 +1,5 @@
-import { IElasticsearchCatNodesResponse } from "./types";
-import { Client } from "~/client";
+import type { IElasticsearchCatNodesResponse } from "./types";
+import type { Client } from "~/client";
 import { WebinyError } from "@webiny/error";
 import { stripConnectionFromException } from "~/operations/stripConnectionFromException";
 

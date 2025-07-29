@@ -1,10 +1,6 @@
 import React, { useEffect, useMemo } from "react";
-import {
-    ElementFormatType,
-    FORMAT_ELEMENT_COMMAND,
-    INDENT_CONTENT_COMMAND,
-    OUTDENT_CONTENT_COMMAND
-} from "lexical";
+import type { ElementFormatType } from "lexical";
+import { FORMAT_ELEMENT_COMMAND, INDENT_CONTENT_COMMAND, OUTDENT_CONTENT_COMMAND } from "lexical";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
 import { TextAlignmentActionContext } from "~/context/TextAlignmentActionContextProps";
 import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection";

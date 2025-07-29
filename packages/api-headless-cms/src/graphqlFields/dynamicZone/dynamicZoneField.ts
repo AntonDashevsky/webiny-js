@@ -1,4 +1,4 @@
-import {
+import type {
     ApiEndpoint,
     CmsDynamicZoneTemplate,
     CmsFieldTypePlugins,
@@ -11,8 +11,8 @@ import {
 import { createTypeName } from "~/utils/createTypeName";
 import { createTypeFromFields } from "~/utils/createTypeFromFields";
 import { createGraphQLInputField } from "../helpers";
-import { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
-import { GenericRecord } from "@webiny/api/types";
+import type { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 const createUnionTypeName = (model: CmsModel, field: CmsModelField) => {
     return `${model.singularApiName}_${createTypeName(field.fieldId)}`;

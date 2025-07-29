@@ -4,7 +4,7 @@ import type { DocumentElementBindings, DocumentElementInputBindings } from "~/ty
 import { InheritedValueResolver } from "~/InheritedValueResolver";
 import type { InputAstNode } from "~/ComponentManifestToAstConverter";
 import { DocumentOperations, type IDocumentOperation } from "~/documentOperations";
-import { ElementFactory } from "~/ElementFactory";
+import type { ElementFactory } from "~/ElementFactory";
 import { InputsUpdater } from "~/InputsUpdater";
 import { generateElementId } from "./generateElementId";
 type DeepBindings = Record<string, any>;

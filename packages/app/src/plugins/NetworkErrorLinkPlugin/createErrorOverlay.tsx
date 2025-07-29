@@ -5,7 +5,7 @@ import React from "react";
 // eslint-disable-next-line react/no-deprecated
 import { render } from "react-dom";
 import ErrorOverlay from "./ErrorOverlay";
-import { ServerError, ServerParseError } from "apollo-link-http-common";
+import type { ServerError, ServerParseError } from "apollo-link-http-common";
 
 interface CreateErrorOverlayParams {
     query: string;

@@ -14,8 +14,8 @@ import {
     DelayedOnChange,
     useToast
 } from "@webiny/admin-ui";
-import { Resource } from "../types";
-import { CustomResourcePickerProps } from "~/ecommerce";
+import type { Resource } from "../types";
+import type { CustomResourcePickerProps } from "~/ecommerce";
 
 export interface CommerceAPIOperations {
     [resourceName: string]: {

@@ -1,5 +1,5 @@
-import { IExportPagesZipPagesTaskParams } from "~/export/pages/types";
-import { ITaskResponseResult } from "@webiny/tasks";
+import type { IExportPagesZipPagesTaskParams } from "~/export/pages/types";
+import type { ITaskResponseResult } from "@webiny/tasks";
 import { ZipPages } from "./zipPages/ZipPages";
 
 export class ExportPagesZipPages {

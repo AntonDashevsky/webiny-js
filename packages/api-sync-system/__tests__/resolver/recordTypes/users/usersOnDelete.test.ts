@@ -6,10 +6,10 @@ import {
     createCognitoIdentityProviderClient
 } from "@webiny/aws-sdk/client-cognito-identity-provider/index.js";
 import { LambdaTrigger } from "~/resolver/lambda/LambdaTrigger.js";
+import type { InvokeCommandInput } from "@webiny/aws-sdk/client-lambda/index.js";
 import {
     createLambdaClient,
     InvokeCommand,
-    InvokeCommandInput,
     LambdaClient
 } from "@webiny/aws-sdk/client-lambda/index.js";
 import { createElasticsearchMockTable, createRegularMockTable } from "~tests/mocks/table.js";

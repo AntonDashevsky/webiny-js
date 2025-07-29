@@ -1,4 +1,4 @@
-import { FbFormModelField, FbFormModel, FbFormModelFieldsLayout, FbFormStep } from "~/types";
+import type { FbFormModelField, FbFormModel, FbFormModelFieldsLayout, FbFormStep } from "~/types";
 
 interface Params {
     field: FbFormModelField;

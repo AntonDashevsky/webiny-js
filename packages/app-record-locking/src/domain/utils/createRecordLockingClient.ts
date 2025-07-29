@@ -1,4 +1,4 @@
-import { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient";
+import type { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient";
 import { RecordLockingClient } from "~/domain/RecordLockingClient";
 import { ApolloClient } from "apollo-client";
 

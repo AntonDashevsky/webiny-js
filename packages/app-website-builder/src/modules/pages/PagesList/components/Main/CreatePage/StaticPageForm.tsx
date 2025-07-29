@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Input } from "@webiny/admin-ui";
-import { FormAPI, UnsetOnUnmount, useBind, useForm } from "@webiny/form";
+import type { FormAPI } from "@webiny/form";
+import { UnsetOnUnmount, useBind, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
 import { pagePathFromTitle } from "~/shared/pagePathFromTitle";
 

@@ -1,5 +1,5 @@
 import type { VariantProps } from "~/utils";
-import { previewVariants } from "./previews/variants";
+import type { previewVariants } from "./previews/variants";
 import type { FileItemFormatted } from "../../domains";
 
 /**

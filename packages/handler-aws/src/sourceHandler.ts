@@ -1,4 +1,4 @@
-import { SourceHandler, HandlerEvent, HandlerFactoryParams } from "~/types";
+import type { SourceHandler, HandlerEvent, HandlerFactoryParams } from "~/types";
 
 export const createSourceHandler = <
     TEvent = HandlerEvent,

@@ -5,7 +5,7 @@ import { Accordion, Tooltip } from "@webiny/admin-ui";
 import { AddTemplateButton } from "./AddTemplate";
 import { TemplateIcon } from "./TemplateIcon";
 import { TemplateProvider } from "./TemplateProvider";
-import {
+import type {
     BindComponentRenderProp,
     CmsDynamicZoneTemplate,
     CmsModelFieldRendererProps,

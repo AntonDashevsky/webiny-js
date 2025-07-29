@@ -2,7 +2,7 @@
  * Since form-field-validator plugin needs access to the request context, we create a context plugin which
  * registers the actual validation plugin with access to the request context.
  */
-import { FbFormFieldPatternValidatorPlugin, FbFormFieldValidatorPlugin } from "~/types";
+import type { FbFormFieldPatternValidatorPlugin, FbFormFieldValidatorPlugin } from "~/types";
 import { ContextPlugin } from "@webiny/api";
 
 const plugin = new ContextPlugin(async context => {

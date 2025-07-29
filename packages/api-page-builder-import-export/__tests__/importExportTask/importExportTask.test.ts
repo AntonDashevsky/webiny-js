@@ -1,8 +1,9 @@
 import useHandler from "./useHandler";
-import { ImportExportTask, ImportExportTaskCrud, ImportExportTaskStatus } from "~/types";
+import type { ImportExportTask, ImportExportTaskCrud } from "~/types";
+import { ImportExportTaskStatus } from "~/types";
 import { initialStats } from "~/import/utils";
 import { defaultIdentity } from "../tenancySecurity";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 describe("Page builder import export task Test", () => {
     const { handler } = useHandler();

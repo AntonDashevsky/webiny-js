@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { DecryptedWcpProjectLicense, EncryptedWcpProjectLicense } from "./types";
+import type { DecryptedWcpProjectLicense, EncryptedWcpProjectLicense } from "./types";
 import { decrypt } from "./encryption";
 import { getWcpApiUrl } from "./urls";
 

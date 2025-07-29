@@ -1,5 +1,5 @@
 import { createGenericContext } from "@webiny/app";
-import { WebsiteBuilderTheme } from "@webiny/website-builder-sdk";
+import type { WebsiteBuilderTheme } from "@webiny/website-builder-sdk";
 
 const ThemeContext = createGenericContext<{ theme: WebsiteBuilderTheme | undefined }>(
     "WebsiteBuilderTheme"

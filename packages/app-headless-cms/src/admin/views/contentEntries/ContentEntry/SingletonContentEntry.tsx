@@ -4,7 +4,7 @@ import { Grid, OverlayLoader } from "@webiny/admin-ui";
 import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
 import { makeDecoratable } from "@webiny/app";
 import { useSingletonContentEntry } from "../hooks/useSingletonContentEntry";
-import { PartialCmsContentEntryWithId } from "~/admin/contexts/Cms";
+import type { PartialCmsContentEntryWithId } from "~/admin/contexts/Cms";
 import { SingletonHeader } from "~/admin/components/ContentEntryForm/SingletonHeader";
 
 const Container = styled.div`

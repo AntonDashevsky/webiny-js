@@ -1,7 +1,7 @@
 import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 import { people } from "./base.entries";
 import { getBaseConfiguration } from "~/indexConfiguration";
-import { ElasticsearchBoolQueryConfig } from "~/types";
+import type { ElasticsearchBoolQueryConfig } from "~/types";
 import { ElasticsearchQueryBuilderOperatorContainsPlugin } from "~/plugins/operator/contains";
 import { getElasticsearchIndexPrefix } from "~/indexPrefix";
 

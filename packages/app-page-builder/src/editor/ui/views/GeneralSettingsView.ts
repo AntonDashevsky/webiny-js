@@ -5,7 +5,7 @@ import { TextareaElement } from "@webiny/app-admin/ui/elements/form/TextareaElem
 import { PageSettingsFormView } from "~/editor/ui/views/PageSettingsView/PageSettingsFormView";
 import { SelectElement } from "@webiny/app-admin/ui/elements/form/SelectElement";
 import { plugins } from "@webiny/plugins";
-import { PbPageLayoutPlugin } from "~/types";
+import type { PbPageLayoutPlugin } from "~/types";
 import { FileManagerElement } from "@webiny/app-admin/ui/elements/form/FileManagerElement";
 import { TagsMultiAutocompleteElement } from "~/editor/ui/elements/TagsMultiAutocompleteElement";
 

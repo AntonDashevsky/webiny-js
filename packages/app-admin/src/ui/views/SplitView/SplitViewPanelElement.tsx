@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
-import { UIElement, UiElementRenderProps } from "~/ui/UIElement";
+import type { UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
 import { Cell } from "@webiny/ui/Grid";
 
 export class SplitViewPanelElement extends UIElement<any> {

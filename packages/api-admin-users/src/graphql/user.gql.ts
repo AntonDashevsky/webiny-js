@@ -6,10 +6,10 @@ import {
     NotFoundResponse,
     Response
 } from "@webiny/handler-graphql/responses";
-import { AdminUser, AdminUsersContext } from "~/types";
+import type { AdminUser, AdminUsersContext } from "~/types";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 
 export interface CreateUserGraphQlPluginsParams {
     teams?: boolean;

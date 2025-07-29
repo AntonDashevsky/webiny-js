@@ -2,7 +2,7 @@ import get from "lodash/get";
 
 import { getLexicalContentText } from "~/utils/getLexicalContentText";
 
-import { PbAcoContext } from "~/types";
+import type { PbAcoContext } from "~/types";
 
 const supportedTypes = ["paragraph", "heading", "quote", "list"];
 

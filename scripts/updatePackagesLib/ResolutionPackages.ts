@@ -1,4 +1,4 @@
-import { IPackageJson, IVersionedPackage } from "./types";
+import type { IPackageJson, IVersionedPackage } from "./types";
 import loadJsonFile from "load-json-file";
 import writeJsonFile from "write-json-file";
 import execa from "execa";

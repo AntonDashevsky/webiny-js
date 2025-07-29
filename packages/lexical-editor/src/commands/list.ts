@@ -1,4 +1,5 @@
-import { createCommand, LexicalCommand } from "lexical";
+import type { LexicalCommand } from "lexical";
+import { createCommand } from "lexical";
 
 export type ListCommandPayload = {
     themeStyleId?: string;

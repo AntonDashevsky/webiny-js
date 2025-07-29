@@ -3,7 +3,7 @@ import { Switch as SwitchPrimitives } from "radix-ui";
 import { cn, cva, makeDecoratable, type VariantProps } from "~/utils";
 import { Label } from "~/Label";
 import { useSwitch } from "./useSwitch";
-import { SwitchItemDto, SwitchItemFormatted } from "../domains";
+import type { SwitchItemDto, SwitchItemFormatted } from "../domains";
 
 /**
  * Switch Renderer

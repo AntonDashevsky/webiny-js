@@ -1,11 +1,11 @@
-import { Context, IUserCommandInput } from "~/types";
+import type { Context, IUserCommandInput } from "~/types";
 import path from "path";
 import { Worker } from "worker_threads";
 import chalk from "chalk";
 import execa from "execa";
 import { getRandomColorForString, requireConfig } from "~/utils";
 import { WebinyConfigFile } from "./WebinyConfigFile";
-import { SimpleOutput } from "./output/simpleOutput";
+import type { SimpleOutput } from "./output/simpleOutput";
 
 const parseMessage = (message: string) => {
     try {

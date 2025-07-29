@@ -1,7 +1,8 @@
 import React from "react";
 import { css } from "emotion";
-import { UIRenderer, UIRenderParams } from "@webiny/app-admin/ui/UIRenderer";
-import { PageSettingsTabsElement } from "~/editor/ui/views/PageSettingsView/PageSettingsTabsElement";
+import type { UIRenderParams } from "@webiny/app-admin/ui/UIRenderer";
+import { UIRenderer } from "@webiny/app-admin/ui/UIRenderer";
+import type { PageSettingsTabsElement } from "~/editor/ui/views/PageSettingsView/PageSettingsTabsElement";
 import { List } from "@webiny/ui/List";
 
 export const listStyle = css({

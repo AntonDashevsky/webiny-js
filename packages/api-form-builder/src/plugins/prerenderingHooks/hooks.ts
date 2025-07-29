@@ -1,6 +1,6 @@
-import { PbContext } from "@webiny/api-page-builder/types";
-import { ContextPlugin } from "@webiny/api";
-import { FormBuilderContext } from "~/types";
+import type { PbContext } from "@webiny/api-page-builder/types";
+import type { ContextPlugin } from "@webiny/api";
+import type { FormBuilderContext } from "~/types";
 
 import afterFormPublish from "./afterFormPublish";
 import afterFormDelete from "./afterFormDelete";

@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as MediaIcon } from "./round-music_video-24px.svg";
-import { PbEditorPageElementGroupPlugin } from "../../../../types";
+import type { PbEditorPageElementGroupPlugin } from "../../../../types";
 
 export default {
     name: "pb-editor-element-group-media",

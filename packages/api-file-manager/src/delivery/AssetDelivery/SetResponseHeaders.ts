@@ -1,12 +1,12 @@
-import {
+import type {
     AssetOutputStrategy,
     Asset,
     AssetReply,
     AssetRequest,
     AssetOutputStrategyDecoratorParams
 } from "~/delivery";
-import { FileManagerContext } from "~/types";
-import { ResponseHeaders } from "@webiny/handler";
+import type { FileManagerContext } from "~/types";
+import type { ResponseHeaders } from "@webiny/handler";
 
 export interface ResponseHeadersParams {
     headers: ResponseHeaders;

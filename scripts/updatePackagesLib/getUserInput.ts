@@ -1,4 +1,4 @@
-import { IPreset } from "./createPreset";
+import type { IPreset } from "./createPreset";
 import inquirer from "inquirer";
 
 export interface IGetUserInputParams {

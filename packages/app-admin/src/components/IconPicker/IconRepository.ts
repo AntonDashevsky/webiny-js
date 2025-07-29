@@ -2,8 +2,8 @@ import cloneDeep from "lodash/cloneDeep";
 import { makeAutoObservable, runInAction } from "mobx";
 
 import { Loading } from "./Loading";
-import { IconPackProviderInterface as IconPackProvider, IconType } from "./config";
-import { Icon } from "./types";
+import type { IconPackProviderInterface as IconPackProvider, IconType } from "./config";
+import type { Icon } from "./types";
 
 export class IconRepository {
     private readonly iconPackProviders: IconPackProvider[];

@@ -1,4 +1,4 @@
-import { Plugin, PluginsContainer } from "@webiny/plugins/types";
+import type { Plugin, PluginsContainer } from "@webiny/plugins/types";
 import WebinyError from "@webiny/error";
 
 interface Params {

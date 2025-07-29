@@ -1,6 +1,7 @@
-import { Constructor } from "@webiny/ioc";
-import { createDdbProjectMigration, DataMigration } from "@webiny/data-migration";
-import { getPrimaryDynamoDbTable } from "./getPrimaryDynamoDbTable";
+import type { Constructor } from "@webiny/ioc";
+import type { DataMigration } from "@webiny/data-migration";
+import { createDdbProjectMigration } from "@webiny/data-migration";
+import type { getPrimaryDynamoDbTable } from "./getPrimaryDynamoDbTable";
 import { useHandler } from "./useHandler";
 import { runResumableMigration } from "./runResumableMigration";
 

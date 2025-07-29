@@ -1,7 +1,7 @@
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
 import { normalizeValue } from "@webiny/api-elasticsearch";
-import { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
-import { PluginsContainer } from "@webiny/plugins";
+import type { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import type { PluginsContainer } from "@webiny/plugins";
 import {
     CmsEntryElasticsearchFullTextSearchPlugin,
     createCmsEntryElasticsearchFullTextSearchPlugin

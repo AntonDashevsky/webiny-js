@@ -5,7 +5,7 @@ import { ListFoldersGqlGateway } from "./ListFoldersGqlGateway";
 import { ListFolders } from "./ListFolders";
 import { FolderDtoMapper } from "./FolderDto";
 import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks";
-import { FolderItem } from "~/types";
+import type { FolderItem } from "~/types";
 
 export const useListFolders = () => {
     const client = useApolloClient();

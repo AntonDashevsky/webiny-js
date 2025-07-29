@@ -2,8 +2,9 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { ListRedirectsGqlGateway } from "~/features/redirects/loadRedirects/ListRedirectsGqlGateway.js";
 import { useGetRedirectGraphQLFields } from "~/features/redirects/index.js";
 import { SortRedirects } from "~/features/redirects/loadRedirects/SortRedirects.js";
-import { OnDataTableSortingChange } from "@webiny/admin-ui";
-import { ColumnSorting, SortingMapper } from "@webiny/app-utils";
+import type { OnDataTableSortingChange } from "@webiny/admin-ui";
+import type { ColumnSorting } from "@webiny/app-utils";
+import { SortingMapper } from "@webiny/app-utils";
 
 export const useSortRedirects = () => {
     const client = useApolloClient();

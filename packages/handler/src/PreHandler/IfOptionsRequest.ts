@@ -1,5 +1,6 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import { Action, IPreHandler } from "./IPreHandler";
+import type { IPreHandler } from "./IPreHandler";
+import { Action } from "./IPreHandler";
 import type { Context } from "~/types";
 
 export class IfOptionsRequest implements IPreHandler {

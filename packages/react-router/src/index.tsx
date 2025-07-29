@@ -1,18 +1,21 @@
-import React, { useContext } from "react";
+import type React from "react";
+import { useContext } from "react";
+import type { BrowserRouterProps } from "react-router-dom";
 import {
     BrowserRouter as RBrowserRouter,
-    BrowserRouterProps,
     UNSAFE_RouteContext as __RouterContext,
     useLocation,
     useParams,
     useSearchParams
 } from "react-router-dom";
-import { StaticRouter as RStaticRouter, StaticRouterProps } from "react-router-dom/server";
+import type { StaticRouterProps } from "react-router-dom/server";
+import { StaticRouter as RStaticRouter } from "react-router-dom/server";
 /**
  * Webiny enhancements and backwards compatibility with react-router v5.
  */
-import { useHistory, UseHistory } from "~/useHistory";
-import { RouteProps } from "./Route";
+import type { UseHistory } from "~/useHistory";
+import { useHistory } from "~/useHistory";
+import type { RouteProps } from "./Route";
 
 /**
  * Re-export types from react-router-dom.

@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { ColorState } from "react-color";
+import type { ColorState } from "react-color";
 
 interface ColorPickerPresenterParams {
     onOpenChange?: (open: boolean) => void;

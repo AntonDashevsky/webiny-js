@@ -1,11 +1,12 @@
 import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup";
 import WebinyError from "@webiny/error";
-import { queryAll, QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
 import { createTable } from "~/definitions/table";
 import { createScheduleActionsEntity } from "~/definitions/scheduleActionEntity";
-import { CreateStorageOperationsParams, PartitionKeyOptions } from "~/types";
-import {
+import type { CreateStorageOperationsParams, PartitionKeyOptions } from "~/types";
+import type {
     ApwScheduleAction,
     ApwScheduleActionStorageOperations,
     ListWhere,

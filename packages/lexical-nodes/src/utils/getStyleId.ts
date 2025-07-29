@@ -1,4 +1,4 @@
-import { ThemeStyleValue } from "~/types";
+import type { ThemeStyleValue } from "~/types";
 
 type StylesInput = {
     styleId?: string;

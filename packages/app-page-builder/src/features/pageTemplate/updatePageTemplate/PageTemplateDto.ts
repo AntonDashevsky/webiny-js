@@ -1,4 +1,4 @@
-import { PbDataBinding, PbDataSource } from "~/types";
+import type { PbDataBinding, PbDataSource } from "~/types";
 
 export interface PageTemplateDto {
     id: string;

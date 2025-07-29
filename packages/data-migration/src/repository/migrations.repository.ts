@@ -1,6 +1,6 @@
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
 import { queryAll, queryOne } from "@webiny/db-dynamodb/utils/query";
-import { MigrationItem, MigrationRepository, MigrationRun } from "~/types";
+import type { MigrationItem, MigrationRepository, MigrationRun } from "~/types";
 import { inject, makeInjectable } from "@webiny/ioc";
 import { PrimaryDynamoTableSymbol } from "~/symbols";
 import { createStandardEntity } from "./createStandardEntity";

@@ -1,5 +1,5 @@
 import useGqlHandler from "./useGqlHandler";
-import { PageSettings } from "~/types";
+import type { PageSettings } from "~/types";
 
 jest.setTimeout(100000);
 

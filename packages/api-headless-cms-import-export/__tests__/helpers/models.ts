@@ -1,9 +1,5 @@
-import {
-    CmsGroup,
-    CmsModelInput,
-    createCmsGroupPlugin,
-    createCmsModelPlugin
-} from "@webiny/api-headless-cms";
+import type { CmsGroup, CmsModelInput } from "@webiny/api-headless-cms";
+import { createCmsGroupPlugin, createCmsModelPlugin } from "@webiny/api-headless-cms";
 
 export const group: CmsGroup = {
     id: "5e7c96c46adcbe0007268295",

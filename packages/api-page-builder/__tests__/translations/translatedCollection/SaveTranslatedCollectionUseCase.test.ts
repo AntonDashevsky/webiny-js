@@ -1,11 +1,8 @@
 import { useHandler } from "~tests/translations/useHandler";
-import {
-    SaveTranslatableCollectionUseCase,
-    SaveTranslatableCollectionParams,
-    SaveTranslatedCollectionUseCase
-} from "~/translations";
-import { PbContext } from "~/graphql/types";
-import { TranslatedItem } from "~/translations/translatedCollection/domain/TranslatedItem";
+import type { SaveTranslatableCollectionParams } from "~/translations";
+import { SaveTranslatableCollectionUseCase, SaveTranslatedCollectionUseCase } from "~/translations";
+import type { PbContext } from "~/graphql/types";
+import type { TranslatedItem } from "~/translations/translatedCollection/domain/TranslatedItem";
 
 const createTranslatableCollection = async (
     context: PbContext,

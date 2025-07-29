@@ -1,6 +1,7 @@
 import React from "react";
 import { makeDecoratable } from "~/index";
-import { DropdownMenu, DropdownMenuItemProps } from "@webiny/admin-ui";
+import type { DropdownMenuItemProps } from "@webiny/admin-ui";
+import { DropdownMenu } from "@webiny/admin-ui";
 
 const SupportMenuItemBase = (props: DropdownMenuItemProps) => {
     return <DropdownMenu.Item {...props} />;

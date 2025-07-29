@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import * as GQL from "~/admin/viewsGraphql";
-import { ListCmsModelsQueryResponse, withoutBeingDeletedModels } from "~/admin/viewsGraphql";
-import {
+import type { ListCmsModelsQueryResponse } from "~/admin/viewsGraphql";
+import { withoutBeingDeletedModels } from "~/admin/viewsGraphql";
+import type {
     BindComponentRenderProp,
     CmsContentEntry,
     CmsModel,
@@ -14,7 +15,7 @@ import { Container } from "./Container";
 import { ReferencesDialog } from "./ReferencesDialog";
 import { useModelFieldGraphqlContext, useQuery } from "~/admin/hooks";
 import { useSnackbar } from "@webiny/app-admin";
-import { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
+import type { CmsReferenceValue } from "~/admin/plugins/fieldRenderers/ref/components/types";
 import { parseIdentifier } from "@webiny/utils";
 import { Entries } from "./Entries";
 import { NewReferencedEntryDialog } from "~/admin/plugins/fieldRenderers/ref/components/NewReferencedEntryDialog";

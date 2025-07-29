@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@webiny/admin-ui";
 import { flip, filter, crop, rotate } from "./toolbar";
-import { ImageEditorTool, ToolbarTool } from "./toolbar/types";
+import type { ImageEditorTool, ToolbarTool } from "./toolbar/types";
 /**
  * Package load-script does not have types.
  */

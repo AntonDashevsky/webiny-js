@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import { useRegisterLegacyPlugin } from "~/hooks/useRegisterLegacyPlugin";
 
 export interface LegacyPluginToReactComponentParams<TProps extends Record<string, any>> {

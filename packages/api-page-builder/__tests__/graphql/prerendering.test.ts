@@ -1,6 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 import { createPrerenderingHandlers, PrerenderingTracking } from "./mocks/prerendering";
-import { Menu, Page } from "~/types";
+import type { Menu, Page } from "~/types";
 
 describe("make sure that prerendering render and flush are running", () => {
     const tracking = new PrerenderingTracking();

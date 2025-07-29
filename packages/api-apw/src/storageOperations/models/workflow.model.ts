@@ -1,5 +1,5 @@
 import { createPrivateModel } from "@webiny/api-headless-cms";
-import { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
 import { createModelField } from "./utils";
 import { WorkflowScopeTypes } from "~/types";
 

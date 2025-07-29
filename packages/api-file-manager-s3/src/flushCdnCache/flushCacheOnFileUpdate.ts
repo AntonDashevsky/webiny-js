@@ -1,5 +1,8 @@
 import { ContextPlugin } from "@webiny/api";
-import { FileManagerContext, OnFileBeforeUpdateTopicParams } from "@webiny/api-file-manager/types";
+import type {
+    FileManagerContext,
+    OnFileBeforeUpdateTopicParams
+} from "@webiny/api-file-manager/types";
 import { CdnPathsGenerator } from "~/flushCdnCache/CdnPathsGenerator";
 
 class FlushCacheOnFileUpdate {

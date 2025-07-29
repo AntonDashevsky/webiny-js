@@ -1,5 +1,5 @@
 import { ContentApwSettingsPlugin } from "~/ContentApwSettingsPlugin";
-import { CmsEntry } from "@webiny/api-headless-cms/types";
+import type { CmsEntry } from "@webiny/api-headless-cms/types";
 import { ApwContentTypes } from "~/types";
 import set from "lodash/set";
 

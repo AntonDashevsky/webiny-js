@@ -1,16 +1,15 @@
 import { useMemo, useState, useEffect } from "react";
 import dotPropImmutable from "dot-prop-immutable";
 import debounce from "lodash/debounce";
-import {
-    LIST_LATEST_CMS_ENTRIES,
+import type {
     ListLatestCmsEntriesQueryResponse,
     ListLatestCmsEntriesQueryVariables,
-    SEARCH_CMS_ENTRIES,
     SearchCmsEntriesQueryResponse,
     SearchCmsEntriesQueryVariables
 } from "~/graphql/workflow.gql";
-import { BindComponentRenderProp } from "@webiny/form";
-import { CmsEntry, CmsModel } from "~/types";
+import { LIST_LATEST_CMS_ENTRIES, SEARCH_CMS_ENTRIES } from "~/graphql/workflow.gql";
+import type { BindComponentRenderProp } from "@webiny/form";
+import type { CmsEntry, CmsModel } from "~/types";
 import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
 import { useQueryLocale } from "@webiny/app-headless-cms/admin/hooks";
 

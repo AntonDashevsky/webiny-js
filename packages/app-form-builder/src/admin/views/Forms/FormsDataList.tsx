@@ -6,12 +6,11 @@ import upperFirst from "lodash/upperFirst";
 import { useRouter } from "@webiny/react-router";
 import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
 import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons";
-import {
-    CREATE_REVISION_FROM,
+import type {
     CreateRevisionFromMutationResponse,
-    CreateRevisionFromMutationVariables,
-    DELETE_FORM
+    CreateRevisionFromMutationVariables
 } from "../../graphql";
+import { CREATE_REVISION_FROM, DELETE_FORM } from "../../graphql";
 import { useApolloClient } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import {
@@ -37,7 +36,7 @@ import { ExportFormsButton } from "~/admin/plugins/formsDataList/ExportButton";
 import { OptionsMenu } from "~/admin/components/OptionsMenu";
 import { useForms } from "./useForms";
 import { deserializeSorters } from "../utils";
-import { FbFormModel, FbRevisionModel } from "~/types";
+import type { FbFormModel, FbRevisionModel } from "~/types";
 import { Button, Checkbox, Select, TimeAgo } from "@webiny/admin-ui";
 
 const t = i18n.namespace("FormsApp.FormsDataList");

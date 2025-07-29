@@ -5,7 +5,7 @@ import { useContentEntry } from "./hooks/useContentEntry";
 import { Header } from "~/admin/components/ContentEntryForm/Header";
 import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
 import { usePersistEntry } from "~/admin/hooks/usePersistEntry";
-import { FormValidation } from "@webiny/form";
+import type { FormValidation } from "@webiny/form";
 import { ValidationIndicators } from "./ValidationIndicators";
 import { OverlayLoader, Tabs } from "@webiny/admin-ui";
 

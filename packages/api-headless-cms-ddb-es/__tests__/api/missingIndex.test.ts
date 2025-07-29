@@ -1,7 +1,7 @@
 import { useHandler } from "~tests/graphql/handler";
 import { createMockPlugins } from "~tests/converters/mocks";
 import { createGlobalModifierPlugin } from "~tests/api/mocks/plugins";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import { configurations } from "~/configurations";
 
 describe("missing index", () => {

@@ -13,7 +13,7 @@ import type {
 import { TaskDataStatus, TaskLogItemType } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createService } from "~/service";
-import { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin";
+import type { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin";
 
 const MAX_DELAY_DAYS = 355;
 const MAX_DELAY_SECONDS = MAX_DELAY_DAYS * 24 * 60 * 60;

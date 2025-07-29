@@ -7,8 +7,8 @@ import { TableActions } from "~/admin/components/Table/Header/TableActions";
 import { Title } from "~/admin/components/Table/Header/Title";
 
 import { Container, Divider, WrapperActions } from "./styled";
-import { PbPageDataItem } from "~/types";
-import { SearchRecordItem } from "@webiny/app-aco/types";
+import type { PbPageDataItem } from "~/types";
+import type { SearchRecordItem } from "@webiny/app-aco/types";
 
 export interface HeaderProps {
     title?: string;

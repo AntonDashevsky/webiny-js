@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Property } from "./Properties";
+import type { Property } from "./Properties";
 import { toObject } from "./utils";
 
 declare global {

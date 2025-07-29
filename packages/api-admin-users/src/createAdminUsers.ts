@@ -1,10 +1,10 @@
 import { createTopic } from "@webiny/pubsub";
 import WebinyError from "@webiny/error";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { mdbid } from "@webiny/utils";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     AdminUser,
     AdminUsers,
     AdminUsersStorageOperations,

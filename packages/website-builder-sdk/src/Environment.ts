@@ -1,4 +1,4 @@
-import { IEnvironment } from "./types.js";
+import type { IEnvironment } from "./types.js";
 
 export class Environment implements IEnvironment {
     public isPreview(): boolean {

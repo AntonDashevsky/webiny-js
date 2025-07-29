@@ -1,5 +1,5 @@
 import { NotAuthorizedError } from "@webiny/api-security";
-import { AcoContext } from "~/types";
+import type { AcoContext } from "~/types";
 
 export const ensureAuthentication = (context: AcoContext) => {
     const identity = context.security.getIdentity();

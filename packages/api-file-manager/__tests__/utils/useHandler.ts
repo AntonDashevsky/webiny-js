@@ -1,7 +1,8 @@
 import { createRawEventHandler, createRawHandler } from "@webiny/handler-aws";
-import { LambdaContext } from "@webiny/handler-aws/types";
-import { FileManagerContext } from "~/types";
-import { handlerPlugins, HandlerParams } from "./plugins";
+import type { LambdaContext } from "@webiny/handler-aws/types";
+import type { FileManagerContext } from "~/types";
+import type { HandlerParams } from "./plugins";
+import { handlerPlugins } from "./plugins";
 
 export const useHandler = (params: HandlerParams = {}) => {
     const corePlugins = handlerPlugins(params);

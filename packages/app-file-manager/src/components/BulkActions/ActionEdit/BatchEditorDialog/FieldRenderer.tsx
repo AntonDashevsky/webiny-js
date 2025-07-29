@@ -2,7 +2,8 @@ import React from "react";
 import { FieldElement, ModelProvider } from "@webiny/app-headless-cms";
 import { Bind, BindPrefix } from "@webiny/form";
 import { Grid } from "@webiny/admin-ui";
-import { FieldDTO, OperatorType } from "~/components/BulkActions/ActionEdit/domain";
+import type { FieldDTO } from "~/components/BulkActions/ActionEdit/domain";
+import { OperatorType } from "~/components/BulkActions/ActionEdit/domain";
 import { useFileModel } from "~/hooks/useFileModel";
 import { useFileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
 

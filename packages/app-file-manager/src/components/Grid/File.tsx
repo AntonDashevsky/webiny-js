@@ -7,7 +7,7 @@ import LazyLoad from "react-lazy-load";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Text, TimeAgo, cn, CheckboxPrimitive } from "@webiny/admin-ui";
 import { useFileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
-import { FileItem } from "@webiny/app-admin/types";
+import type { FileItem } from "@webiny/app-admin/types";
 
 export interface FileProps {
     file: FileItem;

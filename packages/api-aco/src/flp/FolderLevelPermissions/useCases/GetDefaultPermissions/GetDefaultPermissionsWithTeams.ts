@@ -4,7 +4,7 @@ import type {
     IListIdentityTeamsGateway
 } from "~/flp/FolderLevelPermissions/gateways";
 import type { FolderPermission } from "~/flp/flp.types";
-import { Team } from "@webiny/api-security/types";
+import type { Team } from "@webiny/api-security/types";
 
 export class GetDefaultPermissionsWithTeams implements IGetDefaultPermissions {
     private getIdentityGateway: IGetIdentityGateway;

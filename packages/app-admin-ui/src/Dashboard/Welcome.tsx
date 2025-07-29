@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Heading } from "@webiny/admin-ui";
 import { useSecurity } from "@webiny/app-security/hooks/useSecurity";
 import { plugins } from "@webiny/plugins";
-import { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types";
+import type { AdminWelcomeScreenWidgetPlugin } from "@webiny/app-plugin-admin-welcome-screen/types";
 import {
     ApplicationWidget,
     AssistanceWidget,

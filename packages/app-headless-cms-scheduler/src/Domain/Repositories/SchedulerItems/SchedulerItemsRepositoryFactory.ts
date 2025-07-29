@@ -1,8 +1,8 @@
-import { IMetaRepository } from "@webiny/app-utils";
+import type { IMetaRepository } from "@webiny/app-utils";
+import type { ISchedulerListGateway } from "~/Gateways";
 import {
     type ISchedulerCancelGateway,
     type ISchedulerGetGateway,
-    ISchedulerListGateway,
     type ISchedulerPublishGateway,
     type ISchedulerUnpublishGateway
 } from "~/Gateways";

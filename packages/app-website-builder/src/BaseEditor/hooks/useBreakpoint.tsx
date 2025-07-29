@@ -1,7 +1,8 @@
-import React, { useCallback, useMemo } from "react";
+import type React from "react";
+import { useCallback, useMemo } from "react";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { useSelectFromEditor } from "~/BaseEditor/hooks/useSelectFromEditor";
-import { Breakpoint } from "@webiny/website-builder-sdk";
+import type { Breakpoint } from "@webiny/website-builder-sdk";
 import { BASE_BREAKPOINT } from "~/constants";
 import { useWebsiteBuilderTheme } from "~/BaseEditor/components";
 

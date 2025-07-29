@@ -1,7 +1,7 @@
 import type { Context as BaseContext } from "@webiny/api-serverless-cms";
 import type { ISaveSettingsFeature, SettingsDto } from "./abstractions/ISaveSettings.feature";
 import { Settings } from "~/domain/Settings";
-import { ISaveSettingsRepository } from "./abstractions/ISaveSettings.repository";
+import type { ISaveSettingsRepository } from "./abstractions/ISaveSettings.repository";
 import { SaveSettingsGateway } from "~/infrastructure/SaveSettings.gateway";
 import { SaveSettingsRepository } from "~/features/saveSettings/SaveSettings.repository";
 

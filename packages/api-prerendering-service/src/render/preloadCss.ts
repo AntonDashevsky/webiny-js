@@ -1,4 +1,4 @@
-import { RenderResult } from "./types";
+import type { RenderResult } from "./types";
 
 export const preloadCss = (render: RenderResult): void => {
     const regex = /<link href="\/static\/css\//gm;

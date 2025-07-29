@@ -1,5 +1,6 @@
 import React, { createContext, useMemo, useState } from "react";
-import { List as AdminList, ListItemProps as AdminListItemProps } from "@webiny/admin-ui";
+import type { ListItemProps as AdminListItemProps } from "@webiny/admin-ui";
+import { List as AdminList } from "@webiny/admin-ui";
 
 /**
  * Ripples

@@ -1,4 +1,4 @@
-import { Plugin } from "@webiny/plugins/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { createAcoPlugins } from "./createAcoPlugins";
 import { createElasticsearchDataMappingPlugin } from "./createElasticsearchDataMappingPlugin";
 import { createElasticsearchFieldPlugin } from "./createElasticsearchFieldPlugin";

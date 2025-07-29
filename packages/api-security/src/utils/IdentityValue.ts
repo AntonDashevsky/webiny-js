@@ -1,4 +1,4 @@
-import { SecurityIdentity } from "~/types";
+import type { SecurityIdentity } from "~/types";
 
 type IdentityInput = SecurityIdentity | null | undefined;
 

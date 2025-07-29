@@ -1,7 +1,7 @@
 import type { AcoFolderStorageOperations } from "~/folder/folder.types";
 import { ListFolders } from "./ListFolders";
 import { ListFoldersWithFolderLevelPermissions } from "./ListFoldersWithFolderLevelPermissions";
-import { FolderLevelPermissions } from "~/flp";
+import type { FolderLevelPermissions } from "~/flp";
 
 interface ListFoldersUseCasesParams {
     listOperation: AcoFolderStorageOperations["listFolders"];

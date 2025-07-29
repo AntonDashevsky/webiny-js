@@ -6,7 +6,7 @@ import { createTopic } from "@webiny/pubsub";
 import { createZodError, mdbid } from "@webiny/utils";
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     GetGroupParams,
     Group,
     GroupInput,

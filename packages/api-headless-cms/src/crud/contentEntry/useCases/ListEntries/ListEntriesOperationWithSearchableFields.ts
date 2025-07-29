@@ -1,5 +1,5 @@
-import { IListEntriesOperation } from "../../abstractions";
-import { CmsContext, CmsEntryStorageOperationsListParams, CmsModel } from "~/types";
+import type { IListEntriesOperation } from "../../abstractions";
+import type { CmsContext, CmsEntryStorageOperationsListParams, CmsModel } from "~/types";
 import { getSearchableFields } from "~/crud/contentEntry/searchableFields";
 
 export class ListEntriesOperationWithSearchableFields implements IListEntriesOperation {

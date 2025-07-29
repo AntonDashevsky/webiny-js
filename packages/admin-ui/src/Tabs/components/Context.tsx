@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { TabItem } from "./Tab";
+import type { TabItem } from "./Tab";
 
 interface ITabsContext {
     addTab(props: TabItem): void;

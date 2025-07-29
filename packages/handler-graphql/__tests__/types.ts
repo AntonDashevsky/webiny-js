@@ -1,4 +1,4 @@
-import { Context as BaseContext } from "@webiny/handler/types";
+import type { Context as BaseContext } from "@webiny/handler/types";
 
 export interface Book {
     name: string;

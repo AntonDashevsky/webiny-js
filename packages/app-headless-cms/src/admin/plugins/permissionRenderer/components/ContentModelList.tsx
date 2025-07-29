@@ -1,7 +1,7 @@
 import React from "react";
 import groupBy from "lodash/groupBy";
 import get from "lodash/get";
-import { PermissionSelectorCmsGroup } from "./types";
+import type { PermissionSelectorCmsGroup } from "./types";
 import { CheckboxGroup, Text } from "@webiny/admin-ui";
 
 interface GroupItem extends PermissionSelectorCmsGroup {

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { createRenderer } from "~/createRenderer";
 import { useRenderer } from "~/hooks/useRenderer";
-import { LinkComponent as LinkComponentType } from "~/types";
+import type { LinkComponent as LinkComponentType } from "~/types";
 import { DefaultLinkComponent } from "~/renderers/components";
 import { ElementInput } from "~/inputs/ElementInput";
 

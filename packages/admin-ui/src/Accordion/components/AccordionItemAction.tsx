@@ -1,6 +1,7 @@
 import * as React from "react";
 import { makeDecoratable, withStaticProps } from "~/utils";
-import { IconButton, IconButtonProps as IconButtonProps } from "~/Button";
+import type { IconButtonProps as IconButtonProps } from "~/Button";
+import { IconButton } from "~/Button";
 import { AccordionItemSeparator } from "./AccordionItemSeparator";
 
 type AccordionItemActionProps = IconButtonProps;

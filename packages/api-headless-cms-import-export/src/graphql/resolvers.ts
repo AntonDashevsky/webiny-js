@@ -3,7 +3,7 @@ import { createZodError } from "@webiny/utils";
 import { resolve, resolveList } from "@webiny/handler-graphql";
 import zod from "zod";
 import type { GenericRecord, NonEmptyArray } from "@webiny/api/types";
-import { CmsEntryListSort, CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsEntryListSort, CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
 import { checkPermissions } from "./security";
 
 const validateAbortExportContentEntries = zod.object({

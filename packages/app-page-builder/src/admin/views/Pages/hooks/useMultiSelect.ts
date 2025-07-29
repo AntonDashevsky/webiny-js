@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as History from "history";
+import type * as History from "history";
 import { useRouter } from "@webiny/react-router";
 
 export type UseMultiSelectParams = {

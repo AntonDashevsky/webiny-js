@@ -1,6 +1,6 @@
 import React from "react";
 import { validation } from "@webiny/validation";
-import { BindComponent } from "@webiny/form/types";
+import type { BindComponent } from "@webiny/form/types";
 import { UTC_TIMEZONES } from "@webiny/utils";
 import { Grid, Input, Select } from "@webiny/admin-ui";
 

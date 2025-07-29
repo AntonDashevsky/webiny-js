@@ -1,4 +1,4 @@
-import { Context, ITasksContextDefinitionObject } from "~/types";
+import type { Context, ITasksContextDefinitionObject } from "~/types";
 import { TaskDefinitionPlugin } from "~/task";
 
 const getTaskDefinitionPlugins = (context: Context) => {

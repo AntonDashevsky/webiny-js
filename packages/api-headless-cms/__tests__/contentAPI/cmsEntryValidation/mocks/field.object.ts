@@ -1,10 +1,10 @@
+import type { CreateFieldInput } from "./fields";
 import {
     createBooleanField,
     createDateField,
     createDateTimeField,
     createField,
     createFieldFieldId,
-    CreateFieldInput,
     createFileField,
     createLongTextField,
     createNumberField,

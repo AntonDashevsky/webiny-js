@@ -1,5 +1,5 @@
+import type { CmsGroup } from "@webiny/api-headless-cms";
 import {
-    CmsGroup,
     createCmsGroupPlugin,
     createCmsModelPlugin,
     createPrivateModel

@@ -2,7 +2,7 @@ import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { ContextPlugin } from "@webiny/api";
-import {
+import type {
     ExportPagesParams,
     OnPagesAfterExportTopicParams,
     OnPagesAfterImportTopicParams,
@@ -14,20 +14,20 @@ import {
     PbImportPagesTaskStats
 } from "~/types";
 import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions";
-import {
+import type {
     IExportPagesControllerInput,
     IExportPagesControllerOutput,
     IExportPagesZipPagesInput,
-    IExportPagesZipPagesOutput,
-    PageExportTask
+    IExportPagesZipPagesOutput
 } from "~/export/pages/types";
-import {
+import { PageExportTask } from "~/export/pages/types";
+import type {
     IImportPagesControllerInput,
     IImportPagesControllerOutput,
     IImportPagesProcessPagesInput,
-    IImportPagesProcessPagesOutput,
-    PageImportTask
+    IImportPagesProcessPagesOutput
 } from "~/import/pages/types";
+import { PageImportTask } from "~/import/pages/types";
 
 export default new ContextPlugin<PbImportExportContext>(context => {
     const pagesPermissions = new PagesPermissions({

@@ -1,4 +1,4 @@
-import { SwitchItemDto } from "./SwitchItemDto";
+import type { SwitchItemDto } from "./SwitchItemDto";
 import { generateId } from "~/utils";
 
 export class SwitchItem {

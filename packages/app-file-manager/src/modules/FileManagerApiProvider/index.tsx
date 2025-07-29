@@ -1,5 +1,6 @@
 import React from "react";
-import { Plugin, Decorator, GenericComponent } from "@webiny/app-admin";
+import type { Decorator, GenericComponent } from "@webiny/app-admin";
+import { Plugin } from "@webiny/app-admin";
 import { FileManagerApiProvider } from "./FileManagerApiContext";
 import { FileModelProvider } from "~/modules/FileManagerApiProvider/FileManagerApiContext/FileModelContext";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@webiny/react-router";
-import { PublishedMenuData, PublishedMenuItemData } from "@webiny/app-website";
+import type { PublishedMenuData, PublishedMenuItemData } from "@webiny/app-website";
 import styled from "@emotion/styled";
 
 export const Navigation: React.ComponentType<{ data?: PublishedMenuData }> = ({ data }) => {

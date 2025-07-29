@@ -1,5 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { type DeletePageParams, IDeletePageUseCase } from "./IDeletePageUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { IDeletePageUseCase } from "./IDeletePageUseCase.js";
+import { type DeletePageParams } from "./IDeletePageUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class DeletePageUseCaseWithLoading implements IDeletePageUseCase {

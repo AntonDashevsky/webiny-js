@@ -3,7 +3,7 @@ import Text from "../../../components/Text";
 import { createRenderer, useRenderer } from "@webiny/app-page-builder-elements";
 import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue";
 import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
-import { CoreOptions } from "medium-editor";
+import type { CoreOptions } from "medium-editor";
 
 const mediumEditorOptions: CoreOptions = {
     toolbar: {

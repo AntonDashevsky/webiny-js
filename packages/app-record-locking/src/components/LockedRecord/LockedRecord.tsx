@@ -4,7 +4,7 @@ import { Grid, Heading, Icon, Text } from "@webiny/admin-ui";
 import { useRecordLocking } from "~/hooks";
 import { useContentEntry } from "@webiny/app-headless-cms";
 import { LockedRecordForceUnlock } from "./LockedRecordForceUnlock";
-import { IRecordLockingLockRecord } from "~/types";
+import type { IRecordLockingLockRecord } from "~/types";
 
 interface IWrapperProps {
     children: React.ReactNode;

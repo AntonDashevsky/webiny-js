@@ -1,6 +1,6 @@
 import orderBy from "lodash/orderBy";
 import type { DataTableSorting } from "@webiny/admin-ui";
-import { ListSearchRecordsSort, ListSearchRecordsSortItem } from "~/types";
+import type { ListSearchRecordsSort, ListSearchRecordsSortItem } from "~/types";
 
 export const validateOrGetDefaultDbSort = (
     initial?: ListSearchRecordsSort

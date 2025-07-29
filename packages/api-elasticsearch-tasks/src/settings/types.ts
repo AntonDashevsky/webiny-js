@@ -1,4 +1,4 @@
-import { IElasticsearchIndexingTaskValuesSettings, IIndexSettingsValues } from "~/types";
+import type { IElasticsearchIndexingTaskValuesSettings, IIndexSettingsValues } from "~/types";
 
 export interface IIndexManager {
     settings: IElasticsearchIndexingTaskValuesSettings;

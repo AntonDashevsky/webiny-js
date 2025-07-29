@@ -1,16 +1,9 @@
-import { ITaskEvent } from "~/handler/types";
-import {
-    Context,
-    ITask,
-    ITaskDataInput,
-    ITaskDefinition,
-    ITaskLog,
-    TaskDataStatus,
-    TaskResponseStatus
-} from "~/types";
-import { ITaskControl, ITaskRunner } from "./abstractions";
+import type { ITaskEvent } from "~/handler/types";
+import type { Context, ITask, ITaskDataInput, ITaskDefinition, ITaskLog } from "~/types";
+import { TaskDataStatus, TaskResponseStatus } from "~/types";
+import type { ITaskControl, ITaskRunner } from "./abstractions";
 import { TaskManager } from "./TaskManager";
-import { IResponse, IResponseResult } from "~/response/abstractions";
+import type { IResponse, IResponseResult } from "~/response/abstractions";
 import { DatabaseResponse, TaskResponse } from "~/response";
 import { TaskManagerStore } from "./TaskManagerStore";
 import { NotFoundError } from "@webiny/handler-graphql";

@@ -1,7 +1,10 @@
-import { PluginCollection, PluginsContainer } from "@webiny/plugins/types";
-import fastify, { FastifyInstance, FastifyServerOptions as ServerOptions } from "fastify";
-import { middleware, MiddlewareCallable } from "@webiny/utils";
-import {
+import type { PluginCollection } from "@webiny/plugins/types";
+import { PluginsContainer } from "@webiny/plugins/types";
+import type { FastifyInstance, FastifyServerOptions as ServerOptions } from "fastify";
+import fastify from "fastify";
+import type { MiddlewareCallable } from "@webiny/utils";
+import { middleware } from "@webiny/utils";
+import type {
     ContextRoutes,
     DefinedContextRoutes,
     HTTPMethods,
@@ -21,7 +24,8 @@ import { HandlerResultPlugin } from "./plugins/HandlerResultPlugin";
 import { HandlerErrorPlugin } from "./plugins/HandlerErrorPlugin";
 import { ModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin";
 import { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin";
-import { ResponseHeaders, StandardHeaders } from "~/ResponseHeaders";
+import type { StandardHeaders } from "~/ResponseHeaders";
+import { ResponseHeaders } from "~/ResponseHeaders";
 import { ModifyResponseHeadersPlugin } from "~/plugins/ModifyResponseHeadersPlugin";
 import { SetDefaultHeaders } from "./PreHandler/SetDefaultHeaders";
 import { PreHandler } from "./PreHandler/PreHandler";

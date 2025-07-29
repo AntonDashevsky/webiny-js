@@ -16,7 +16,7 @@ import {
     SimpleFormFooter,
     SimpleFormHeader
 } from "@webiny/app-admin/components/SimpleForm";
-import { AdminInstallationPlugin } from "@webiny/app-admin/types";
+import type { AdminInstallationPlugin } from "@webiny/app-admin/types";
 
 const t = i18n.ns("api-page-builder/admin/installation");
 

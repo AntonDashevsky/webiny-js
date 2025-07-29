@@ -1,12 +1,12 @@
 import { makeAutoObservable } from "mobx";
-import {
+import type {
     DataSourceData,
     DataRequest,
     IResolveDataSourceRepository
 } from "./IResolveDataSourceRepository";
-import { IResolveDataSourceGateway } from "~/features/dataSource/loadDataSource/IResolveDataSourceGateway";
-import { DataSourceCache } from "~/features/dataSource/loadDataSource/dataSourceCache";
-import { IListCache } from "~/features/ListCache";
+import type { IResolveDataSourceGateway } from "~/features/dataSource/loadDataSource/IResolveDataSourceGateway";
+import type { DataSourceCache } from "~/features/dataSource/loadDataSource/dataSourceCache";
+import type { IListCache } from "~/features/ListCache";
 
 export class ResolveDataSourceRepository implements IResolveDataSourceRepository {
     private gateway: IResolveDataSourceGateway;

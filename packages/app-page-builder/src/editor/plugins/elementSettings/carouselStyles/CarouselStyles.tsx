@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash/get";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
 import { Checkbox } from "@webiny/ui/Checkbox";
 import styled from "@emotion/styled";
 import { useActiveElement } from "~/editor/hooks/useActiveElement";

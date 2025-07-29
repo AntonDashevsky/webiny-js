@@ -3,8 +3,8 @@ import { List } from "@webiny/ui/List";
 import { Elevation } from "@webiny/ui/Elevation";
 import { CircularProgress } from "@webiny/ui/Progress";
 import { Revision } from "./Revision";
-import { PbPageData, PbPageRevision } from "~/types";
-import { QueryResult } from "@apollo/react-common";
+import type { PbPageData, PbPageRevision } from "~/types";
+import type { QueryResult } from "@apollo/react-common";
 import styled from "@emotion/styled";
 import { createGenericContext } from "@webiny/app-admin";
 

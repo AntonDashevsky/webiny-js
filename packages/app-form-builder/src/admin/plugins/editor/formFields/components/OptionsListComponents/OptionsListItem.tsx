@@ -1,21 +1,20 @@
 import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import type { DragEndEvent, UniqueIdentifier } from "@dnd-kit/core";
 import {
     DndContext,
     useSensor,
     useSensors,
     PointerSensor,
     KeyboardSensor,
-    closestCenter,
-    DragEndEvent,
-    UniqueIdentifier
+    closestCenter
 } from "@dnd-kit/core";
 import { sortableKeyboardCoordinates, SortableContext } from "@dnd-kit/sortable";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
-import { BindComponent } from "@webiny/form/types";
-import { FieldOption } from "~/admin/plugins/editor/formFields/components/types";
+import type { BindComponent } from "@webiny/form/types";
+import type { FieldOption } from "~/admin/plugins/editor/formFields/components/types";
 import { IconButton, Switch, Text, Tooltip } from "@webiny/admin-ui";
 
 interface DefaultValueSwitchProps {

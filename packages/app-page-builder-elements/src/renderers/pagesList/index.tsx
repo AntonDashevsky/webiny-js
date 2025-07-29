@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
+import type {
     DataLoader,
     DataLoaderResult,
     PagesListComponent as RenderPagesListComponent

@@ -7,7 +7,7 @@ import { onRoleAfterCreateHook, onRoleAfterUpdateHook, onRoleAfterDeleteHook } f
 import { onTeamAfterCreateHook, onTeamAfterUpdateHook, onTeamAfterDeleteHook } from "./teams";
 import { onUserAfterCreateHook, onUserAfterUpdateHook, onUserAfterDeleteHook } from "./users";
 
-import { AuditLogsContext } from "~/types";
+import type { AuditLogsContext } from "~/types";
 
 export const createSecurityHooks = (context: AuditLogsContext) => {
     onApiKeyAfterCreateHook(context);

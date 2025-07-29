@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { cn } from "@webiny/admin-ui";
 import { useDocumentEditor } from "~/DocumentEditor";
-import { Box } from "../Box";
+import type { Box } from "../Box";
 import { $selectElement } from "~/editorSdk/utils";
 import { Draggable } from "~/BaseEditor/components/Draggable";
 import { useIsDragging } from "~/BaseEditor/defaultConfig/Content/Preview/useIsDragging";

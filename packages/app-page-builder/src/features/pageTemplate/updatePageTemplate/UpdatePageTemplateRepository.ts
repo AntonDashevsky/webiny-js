@@ -1,8 +1,8 @@
-import { IUpdatePageTemplateRepository } from "./IUpdatePageTemplateRepository";
-import { PbPageTemplateWithContent } from "~/types";
-import { ListCache } from "~/features/ListCache";
-import { IUpdatePageTemplateGateway } from "~/features/pageTemplate/updatePageTemplate/IUpdatePageTemplateGateway";
-import { UpdatePageTemplateDto } from "~/features/pageTemplate/updatePageTemplate/UpdatePageTemplateDto";
+import type { IUpdatePageTemplateRepository } from "./IUpdatePageTemplateRepository";
+import type { PbPageTemplateWithContent } from "~/types";
+import type { ListCache } from "~/features/ListCache";
+import type { IUpdatePageTemplateGateway } from "~/features/pageTemplate/updatePageTemplate/IUpdatePageTemplateGateway";
+import type { UpdatePageTemplateDto } from "~/features/pageTemplate/updatePageTemplate/UpdatePageTemplateDto";
 
 export class UpdatePageTemplateRepository implements IUpdatePageTemplateRepository {
     private cache: ListCache<PbPageTemplateWithContent>;

@@ -6,9 +6,9 @@ import {
     createMockTargetDeployment
 } from "~tests/mocks/deployments.js";
 import { createMockTableItemData } from "~tests/mocks/tableItem.js";
+import type { DeleteCommandInput } from "@webiny/aws-sdk/client-dynamodb/index.js";
 import {
     DeleteCommand,
-    DeleteCommandInput,
     DynamoDBDocument,
     ScanCommand
 } from "@webiny/aws-sdk/client-dynamodb/index.js";

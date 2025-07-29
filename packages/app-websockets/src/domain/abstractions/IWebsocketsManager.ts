@@ -1,8 +1,8 @@
-import {
+import type {
     IWebsocketsSubscription,
     IWebsocketsSubscriptionCallback
 } from "./IWebsocketsSubscriptionManager";
-import {
+import type {
     IGenericData,
     IWebsocketsManagerCloseEvent,
     IWebsocketsManagerErrorEvent,

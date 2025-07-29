@@ -1,11 +1,8 @@
-import {
-    $isElementNode,
-    $isRangeSelection,
+import type {
     DOMConversionMap,
     DOMConversionOutput,
     EditorConfig,
     EditorThemeClasses,
-    ElementNode,
     LexicalNode,
     NodeKey,
     ParagraphNode,
@@ -13,7 +10,9 @@ import {
     SerializedElementNode,
     Spread
 } from "lexical";
-import { $createListNode, $isListNode, ListNode } from "~/ListNode";
+import { $isElementNode, $isRangeSelection, ElementNode } from "lexical";
+import type { ListNode } from "~/ListNode";
+import { $createListNode, $isListNode } from "~/ListNode";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
 import {
     $handleIndent,

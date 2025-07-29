@@ -1,4 +1,5 @@
-import { createCommand, LexicalCommand, LexicalEditor, NodeKey } from "lexical";
+import type { LexicalCommand, LexicalEditor, NodeKey } from "lexical";
+import { createCommand } from "lexical";
 import type { TypographyValue } from "@webiny/lexical-theme";
 
 export const ADD_TYPOGRAPHY_COMMAND: LexicalCommand<TypographyPayload> =

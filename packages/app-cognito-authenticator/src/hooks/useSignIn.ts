@@ -1,7 +1,7 @@
 import { useCallback, useReducer } from "react";
 import { Auth } from "@aws-amplify/auth";
 import { useAuthenticator } from "./useAuthenticator";
-import { AuthData } from "~/Authenticator";
+import type { AuthData } from "~/Authenticator";
 
 export interface UseSignInCallableParams {
     username: string;

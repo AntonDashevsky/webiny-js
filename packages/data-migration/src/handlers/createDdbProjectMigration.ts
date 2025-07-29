@@ -1,7 +1,9 @@
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { createRawEventHandler } from "@webiny/handler-aws";
-import { Constructor, createContainer } from "@webiny/ioc";
-import { IsMigrationApplicable, MigrationRunner } from "~/MigrationRunner";
+import type { Constructor } from "@webiny/ioc";
+import { createContainer } from "@webiny/ioc";
+import type { IsMigrationApplicable } from "~/MigrationRunner";
+import { MigrationRunner } from "~/MigrationRunner";
 import {
     ExecutionTimeLimiterSymbol,
     MigrationRepositorySymbol,
@@ -11,7 +13,7 @@ import {
 import { MigrationRepositoryImpl } from "~/repository/migrations.repository";
 import { devVersionErrorResponse } from "./devVersionErrorResponse";
 import { createPatternMatcher } from "./createPatternMatcher";
-import {
+import type {
     DataMigration,
     ExecutionTimeLimiter,
     MigrationEventHandlerResponse,

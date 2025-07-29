@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import { useToast } from "@webiny/admin-ui";
 
-import { FieldDTOWithElement, FilterDTO, FilterRepository } from "./domain";
+import type { FieldDTOWithElement, FilterDTO, FilterRepository } from "./domain";
 
 import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter";
 

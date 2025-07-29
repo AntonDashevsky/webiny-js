@@ -1,4 +1,4 @@
-import { TranslatedItemDTO } from "~/translations/translatedCollection/repository/mappers/TranslatedItemDTO";
+import type { TranslatedItemDTO } from "~/translations/translatedCollection/repository/mappers/TranslatedItemDTO";
 import { TranslatedItem } from "~/translations/translatedCollection/domain/TranslatedItem";
 
 export class TranslatedItemMapper {

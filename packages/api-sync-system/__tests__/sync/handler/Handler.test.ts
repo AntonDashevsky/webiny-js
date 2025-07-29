@@ -9,12 +9,14 @@ import {
     UpdateCommand
 } from "@webiny/aws-sdk/client-dynamodb";
 import { createMockSyncHandler } from "~tests/mocks/syncHandler.js";
+import type {
+    PutEventsCommandInput,
+    PutEventsCommandOutput
+} from "@webiny/aws-sdk/client-eventbridge";
 import {
     createEventBridgeClient,
     EventBridgeClient,
-    PutEventsCommand,
-    PutEventsCommandInput,
-    PutEventsCommandOutput
+    PutEventsCommand
 } from "@webiny/aws-sdk/client-eventbridge";
 import { generateAlphaNumericId } from "@webiny/utils";
 import { mockClient } from "aws-sdk-client-mock";

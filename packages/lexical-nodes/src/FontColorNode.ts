@@ -1,14 +1,6 @@
-import {
-    $getSelection,
-    $isRangeSelection,
-    createCommand,
-    EditorConfig,
-    LexicalNode,
-    SerializedTextNode,
-    Spread,
-    TextNode
-} from "lexical";
-import { EditorTheme } from "@webiny/lexical-theme";
+import type { EditorConfig, LexicalNode, SerializedTextNode, Spread } from "lexical";
+import { $getSelection, $isRangeSelection, createCommand, TextNode } from "lexical";
+import type { EditorTheme } from "@webiny/lexical-theme";
 
 export class ThemeColorValue {
     // Webiny theme color variable, like color1, color2, etc.

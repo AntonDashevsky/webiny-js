@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cn, Heading, Text } from "@webiny/admin-ui";
 import { SimpleFormContent, SimpleFormHeader } from "@webiny/app-admin/components/SimpleForm";
-import { FbFormModel } from "~/types";
+import type { FbFormModel } from "~/types";
 
 interface FormSubmissionsOverviewProps {
     form: FbFormModel;

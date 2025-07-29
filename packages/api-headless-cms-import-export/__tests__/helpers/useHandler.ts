@@ -1,7 +1,7 @@
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
 import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createTenancyAndSecurity } from "./tenancySecurity";
 import { createDummyLocales, createIdentity, createPermissions } from "./helpers";
@@ -12,14 +12,14 @@ import {
     createRawEventHandler,
     createRawHandler
 } from "@webiny/handler-aws";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { createBackgroundTaskContext } from "@webiny/tasks";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { createModelPlugin } from "~tests/mocks/model";
 import { createFileManagerContext } from "@webiny/api-file-manager";
-import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
-import { InvokeParams } from "./types";
+import type { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
+import type { InvokeParams } from "./types";
 import { createHeadlessCmsImportExport } from "~/index";
 import { createGetExportContentEntries } from "./graphql/getExportContentEntries";
 import { createExportContentEntries } from "./graphql/exportContentEntries";

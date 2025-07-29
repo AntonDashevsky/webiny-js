@@ -1,11 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-    $getSelection,
-    $isRangeSelection,
-    $isNodeSelection,
-    RangeSelection,
-    NodeSelection
-} from "lexical";
+import type { RangeSelection, NodeSelection } from "lexical";
+import { $getSelection, $isRangeSelection, $isNodeSelection } from "lexical";
 import { useIsMounted } from "./useIsMounted";
 import { useRichTextEditor } from "~/hooks/useRichTextEditor";
 

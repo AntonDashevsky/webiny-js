@@ -1,6 +1,6 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
-import { I18NContext } from "~/types";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import type { I18NContext } from "~/types";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
 
 export const createInstallationGraphQL = (): GraphQLSchemaPlugin<I18NContext> => {
     return {

@@ -1,4 +1,4 @@
-import { ITaskEvent } from "~/handler/types";
+import type { ITaskEvent } from "~/handler/types";
 import { MOCK_TASK_DEFINITION_ID } from "~tests/mocks/definition";
 
 export const createMockEvent = (event?: Partial<ITaskEvent>): ITaskEvent => {

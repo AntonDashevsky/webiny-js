@@ -1,5 +1,5 @@
-import { IUnselectAllItemsUseCase } from "~/UseCases";
-import { IUnselectAllItemsController } from "./IUnselectAllItemsController";
+import type { IUnselectAllItemsUseCase } from "~/UseCases";
+import type { IUnselectAllItemsController } from "./IUnselectAllItemsController";
 
 export class UnselectAllItemsController implements IUnselectAllItemsController {
     private readonly useCaseFactory: () => IUnselectAllItemsUseCase;

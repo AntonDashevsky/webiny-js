@@ -1,9 +1,9 @@
 import { WebinyError } from "@webiny/error";
-import { PbContext } from "~/types";
+import type { PbContext } from "~/types";
 import { GetModel } from "~/translations/GetModel";
-import { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection";
+import type { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection";
 import { TranslatableCollectionMapper } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionMapper";
-import { TranslatableCollectionDTO } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionDTO";
+import type { TranslatableCollectionDTO } from "~/translations/translatableCollection/repository/mappers/TranslatableCollectionDTO";
 
 export class GetTranslatableCollectionByIdRepository {
     private readonly context: PbContext;

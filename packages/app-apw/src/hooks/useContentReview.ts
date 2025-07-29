@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/react-hooks";
 import dotPropImmutable from "dot-prop-immutable";
-import {
-    GET_CONTENT_REVIEW_QUERY,
+import type {
     GetContentReviewQueryResponse,
     GetContentReviewQueryVariables
 } from "~/graphql/contentReview.gql";
-import { ApwContentReview } from "~/types";
+import { GET_CONTENT_REVIEW_QUERY } from "~/graphql/contentReview.gql";
+import type { ApwContentReview } from "~/types";
 import { useContentReviewId } from "./useContentReviewId";
 
 interface UseContentReviewParams {

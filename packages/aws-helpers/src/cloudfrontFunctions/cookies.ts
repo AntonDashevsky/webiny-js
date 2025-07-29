@@ -1,4 +1,4 @@
-import { CloudFrontResponse } from "./types";
+import type { CloudFrontResponse } from "./types";
 
 export interface CookieParams {
     name: string;

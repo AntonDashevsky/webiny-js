@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     ErrorEvent,
     InstallEvent,
     Security,

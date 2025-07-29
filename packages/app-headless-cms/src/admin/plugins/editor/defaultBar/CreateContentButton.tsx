@@ -3,11 +3,11 @@ import get from "lodash/get";
 import { useRouter } from "@webiny/react-router";
 import { i18n } from "@webiny/app/i18n";
 import { ReactComponent as ListViewIcon } from "@webiny/icons/list.svg";
-import {
-    GET_CONTENT_MODEL,
+import type {
     GetCmsModelQueryResponse,
     GetCmsModelQueryVariables
 } from "~/admin/graphql/contentModels";
+import { GET_CONTENT_MODEL } from "~/admin/graphql/contentModels";
 import { useModelEditor } from "~/admin/hooks";
 import { IconButton, Tooltip } from "@webiny/admin-ui";
 

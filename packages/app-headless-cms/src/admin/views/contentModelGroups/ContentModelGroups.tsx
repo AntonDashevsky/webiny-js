@@ -3,7 +3,7 @@ import { useSecurity } from "@webiny/app-security";
 import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
 import ContentModelGroupsDataList from "./ContentModelGroupsDataList";
 import ContentModelGroupsForm from "./ContentModelGroupsForm";
-import { CmsSecurityPermission } from "~/types";
+import type { CmsSecurityPermission } from "~/types";
 
 const ContentModelGroups = () => {
     const { identity, getPermission } = useSecurity();

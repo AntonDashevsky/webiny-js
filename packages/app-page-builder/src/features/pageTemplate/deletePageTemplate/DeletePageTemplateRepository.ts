@@ -1,7 +1,7 @@
-import { IDeletePageTemplateRepository } from "./IDeletePageTemplateRepository";
-import { PbPageTemplate } from "~/types";
-import { ListCache } from "~/features/ListCache";
-import { IDeletePageTemplateGateway } from "~/features/pageTemplate/deletePageTemplate/IDeletePageTemplateGateway";
+import type { IDeletePageTemplateRepository } from "./IDeletePageTemplateRepository";
+import type { PbPageTemplate } from "~/types";
+import type { ListCache } from "~/features/ListCache";
+import type { IDeletePageTemplateGateway } from "~/features/pageTemplate/deletePageTemplate/IDeletePageTemplateGateway";
 
 export class DeletePageTemplateRepository implements IDeletePageTemplateRepository {
     private cache: ListCache<PbPageTemplate>;

@@ -1,7 +1,7 @@
 import invariant from "invariant";
 import { plugins } from "@webiny/plugins";
 import { getNanoid, prefixElementIdsRecursively, generateBlockVariableIds } from "~/editor/helpers";
-import {
+import type {
     PbEditorBlockPlugin,
     PbEditorElement,
     PbElement,

@@ -1,5 +1,6 @@
 import { createCacheKey } from "@webiny/utils";
-import { LambdaClient, LambdaClientConfig } from "@aws-sdk/client-lambda";
+import type { LambdaClientConfig } from "@aws-sdk/client-lambda";
+import { LambdaClient } from "@aws-sdk/client-lambda";
 
 export {
     LambdaClient,

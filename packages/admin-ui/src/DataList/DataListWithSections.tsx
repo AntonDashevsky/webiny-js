@@ -11,7 +11,7 @@ import {
     Sorters
 } from "~/DataList/components";
 import { DataListModal } from "~/DataList/DataListModal";
-import { DataListProps } from "~/DataList/types";
+import type { DataListProps } from "~/DataList/types";
 import { Heading } from "~/Heading";
 
 const dataListWithSectionsDefaultProps = {

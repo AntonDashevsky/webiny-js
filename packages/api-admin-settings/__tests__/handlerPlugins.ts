@@ -2,11 +2,12 @@ import apiKeyAuthentication from "@webiny/api-security/plugins/apiKeyAuthenticat
 import apiKeyAuthorization from "@webiny/api-security/plugins/apiKeyAuthorization";
 import { createI18NContext } from "@webiny/api-i18n";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 import { createTenancyAndSecurity } from "./context/tenancySecurity";
-import { createPermissions, PermissionsArg } from "./context/helpers";
+import type { PermissionsArg } from "./context/helpers";
+import { createPermissions } from "./context/helpers";
 import dbPlugins from "@webiny/handler-db";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";

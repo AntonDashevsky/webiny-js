@@ -2,10 +2,8 @@
  * File is @internal
  */
 import WebinyError from "@webiny/error";
-import {
-    CmsEntryFieldFilterPathPlugin,
-    CreatePathCallable
-} from "~/plugins/CmsEntryFieldFilterPathPlugin";
+import type { CreatePathCallable } from "~/plugins/CmsEntryFieldFilterPathPlugin";
+import { CmsEntryFieldFilterPathPlugin } from "~/plugins/CmsEntryFieldFilterPathPlugin";
 
 const createPath: CreatePathCallable = ({ field }) => {
     const { path } = field.settings || {};

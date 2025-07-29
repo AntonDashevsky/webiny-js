@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useQuery } from "@apollo/react-hooks";
-import {
-    GET_PAGE_EXPORT_TASK,
+import type {
     GetPageExportTaskResponse,
     GetPageExportTaskVariables
 } from "~/admin/graphql/pageImportExport.gql";
+import { GET_PAGE_EXPORT_TASK } from "~/admin/graphql/pageImportExport.gql";
 import { i18n } from "@webiny/app/i18n";
 import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as SuccessIcon } from "@webiny/icons/check_circle_outline.svg";
@@ -13,7 +13,8 @@ import { ReactComponent as ErrorIcon } from "@webiny/icons/error_outline.svg";
 import { LoadingDialog } from "../ImportButton/styledComponents";
 import ProgressBar from "../ImportButton/ProgressBar";
 import useExportPageDialog from "./useExportPageDialog";
-import { ImportExportTaskStatus, PbErrorResponse } from "~/types";
+import type { PbErrorResponse } from "~/types";
+import { ImportExportTaskStatus } from "~/types";
 import { PbTaskStatus } from "~/admin/graphql/types";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importPage");

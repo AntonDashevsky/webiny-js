@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { RichTextEditor, StaticToolbar } from "@webiny/lexical-editor";
 import type { RichTextEditorProps } from "@webiny/lexical-editor/types";
 import { FileManager } from "@webiny/app-admin";
-import { EditorTheme } from "@webiny/lexical-theme";
+import type { EditorTheme } from "@webiny/lexical-theme";
 import { useWebsiteBuilderTheme } from "~/BaseEditor/components";
 import "./wbStaticToolbar.css";
 

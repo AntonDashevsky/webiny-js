@@ -4,7 +4,7 @@ import { createGraphQLFields } from "~/graphqlFields";
 import categoryManage from "./snapshots/category.manage";
 import productManage from "./snapshots/product.manage";
 import reviewManage from "./snapshots/review.manage";
-import { CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
+import type { CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
 import { createManageSDL } from "~/graphql/schema/createManageSDL";
 import { pageModel } from "./mocks/pageWithDynamicZonesModel";
 import pageManage from "./snapshots/page.manage";

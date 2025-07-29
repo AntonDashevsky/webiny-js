@@ -1,4 +1,4 @@
-import { CmsModelField } from "@webiny/app-headless-cms-common/types";
+import type { CmsModelField } from "@webiny/app-headless-cms-common/types";
 
 const cache = new Map<CmsModelField, FieldSettings>();
 

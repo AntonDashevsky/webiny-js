@@ -1,4 +1,4 @@
-import { ElementBoxData, ElementSlotBoxData } from "~/types.js";
+import type { ElementBoxData, ElementSlotBoxData } from "~/types.js";
 import { viewportManager } from "./ViewportManager";
 
 export class PreviewViewport {

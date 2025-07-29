@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
 import { Cell } from "@webiny/ui/Grid";
 import { useConfirmationDialog } from "@webiny/app-admin";
-import {
+import type {
     BindComponentRenderProp,
     CmsModelFieldRendererProps
 } from "@webiny/app-headless-cms-common/types";

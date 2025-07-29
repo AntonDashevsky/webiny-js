@@ -1,6 +1,6 @@
 import { NotAuthorizedError } from "@webiny/api-security";
-import { SecurityIdentity } from "@webiny/api-security/types";
-import {
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type {
     CmsEntry,
     CmsEntryPermission,
     CmsGroup,

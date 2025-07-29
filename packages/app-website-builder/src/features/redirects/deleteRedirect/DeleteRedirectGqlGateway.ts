@@ -1,6 +1,6 @@
-import ApolloClient from "apollo-client";
+import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { IDeleteRedirectGateway } from "./IDeleteRedirectGateway.js";
+import type { IDeleteRedirectGateway } from "./IDeleteRedirectGateway.js";
 import type { WbError } from "~/types.js";
 
 export interface DeleteRedirectVariables {

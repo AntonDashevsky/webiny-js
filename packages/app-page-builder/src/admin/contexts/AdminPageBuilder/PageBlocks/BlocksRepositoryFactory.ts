@@ -1,4 +1,4 @@
-import { ApolloClient } from "apollo-client";
+import type { ApolloClient } from "apollo-client";
 import { BlocksRepository } from "./BlocksRepository";
 import { BlocksGateway } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlocksGateway";
 

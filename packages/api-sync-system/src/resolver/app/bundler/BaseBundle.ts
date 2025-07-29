@@ -1,8 +1,9 @@
 import type { IBundle, IBundleItem } from "~/resolver/app/bundler/types.js";
-import { IDeployment } from "~/resolver/deployment/types";
-import { ITable } from "~/sync/types";
-import { CommandType, type ExtendedCommandType } from "~/types";
-import { IIngestorResultItem } from "../ingestor/types";
+import type { IDeployment } from "~/resolver/deployment/types";
+import type { ITable } from "~/sync/types";
+import type { CommandType } from "~/types";
+import { type ExtendedCommandType } from "~/types";
+import type { IIngestorResultItem } from "../ingestor/types";
 
 export interface IBaseBundleParams {
     command: ExtendedCommandType;

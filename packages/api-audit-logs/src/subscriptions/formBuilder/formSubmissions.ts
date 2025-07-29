@@ -2,7 +2,7 @@ import WebinyError from "@webiny/error";
 
 import { AUDIT } from "~/config";
 import { getAuditConfig } from "~/utils/getAuditConfig";
-import { AuditLogsContext } from "~/types";
+import type { AuditLogsContext } from "~/types";
 
 export const onFormSubmissionsAfterExportHook = (context: AuditLogsContext) => {
     context.formBuilder.onFormSubmissionsAfterExport.subscribe(async ({ result }) => {

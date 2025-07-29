@@ -1,10 +1,7 @@
 import * as aws from "@pulumi/aws";
-import {
-    createPulumiApp,
-    type PulumiApp,
-    PulumiAppParam,
-    PulumiAppParamCallback
-} from "@webiny/pulumi";
+import type { PulumiAppParam, PulumiAppParamCallback } from "@webiny/pulumi";
+import { createPulumiApp, type PulumiApp } from "@webiny/pulumi";
+import type { CreateCorePulumiAppParams } from "~/apps";
 import {
     ApiApwScheduler,
     ApiBackgroundTask,
@@ -16,10 +13,10 @@ import {
     ApiPageBuilder,
     ApiWebsocket,
     CoreOutput,
-    CreateCorePulumiAppParams,
     VpcConfig
 } from "~/apps";
-import { applyCustomDomain, CustomDomainParams } from "../customDomain";
+import type { CustomDomainParams } from "../customDomain";
+import { applyCustomDomain } from "../customDomain";
 import {
     addDomainsUrlsOutputs,
     tagResources,

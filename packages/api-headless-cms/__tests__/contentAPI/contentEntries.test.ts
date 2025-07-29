@@ -1,5 +1,5 @@
 import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
-import { Fruit } from "./mocks/contentModels";
+import type { Fruit } from "./mocks/contentModels";
 import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 

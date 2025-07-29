@@ -1,5 +1,5 @@
 import HandlerClient from "./HandlerClient";
-import { ClientContext } from "~/types";
+import type { ClientContext } from "~/types";
 
 export * from "./HandlerClientPlugin";
 

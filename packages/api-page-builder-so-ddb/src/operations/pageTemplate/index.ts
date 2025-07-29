@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     PageTemplate,
     PageTemplateStorageOperationsCreateParams,
     PageTemplateStorageOperationsDeleteParams,
@@ -7,16 +7,17 @@ import {
     PageTemplateStorageOperationsListParams,
     PageTemplateStorageOperationsUpdateParams
 } from "@webiny/api-page-builder/types";
-import { Entity } from "@webiny/db-dynamodb/toolbox";
-import { queryAll, QueryAllParams, queryOne } from "@webiny/db-dynamodb/utils/query";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll, queryOne } from "@webiny/db-dynamodb/utils/query";
 import { sortItems } from "@webiny/db-dynamodb/utils/sort";
 import { filterItems } from "@webiny/db-dynamodb/utils/filter";
 import { PageTemplateDataLoader } from "./dataLoader";
 import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
 import { PageTemplateDynamoDbFieldPlugin } from "~/plugins/definitions/PageTemplateDynamoDbFieldPlugin";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 import { createGSI1PK, createPrimaryPK } from "./keys";
-import { DataContainer, PageTemplateStorageOperations } from "~/types";
+import type { DataContainer, PageTemplateStorageOperations } from "~/types";
 import { deleteItem, put } from "@webiny/db-dynamodb";
 
 const createType = (): string => {

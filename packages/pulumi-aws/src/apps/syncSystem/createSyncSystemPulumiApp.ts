@@ -1,5 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
-import { createPulumiApp, PulumiAppParam } from "@webiny/pulumi";
+import type { PulumiAppParam } from "@webiny/pulumi";
+import { createPulumiApp } from "@webiny/pulumi";
 import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
 import { SyncSystemSQS } from "./SyncSystemSQS.js";
 import { SyncSystemResolverLambda } from "./SyncSystemResolverLambda.js";

@@ -4,7 +4,8 @@ import kebabCase from "lodash/kebabCase";
 import Grid from "./Grid";
 import { ReactComponent as GridIcon } from "../../../assets/icons/view_quilt.svg";
 import { createElement } from "../../../helpers";
-import { PbEditorPageElementPlugin, DisplayMode, PbEditorElementPluginArgs } from "~/types";
+import type { PbEditorPageElementPlugin, PbEditorElementPluginArgs } from "~/types";
+import { DisplayMode } from "~/types";
 import { getDefaultPresetCellsTypePluginType, calculatePresetCells } from "../../gridPresets";
 import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 

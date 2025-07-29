@@ -1,6 +1,6 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { Context, IElasticsearchTaskConfig } from "~/types";
-import {
+import type { Context, IElasticsearchTaskConfig } from "~/types";
+import type {
     IDataSynchronizationInput,
     IDataSynchronizationManager,
     IDataSynchronizationOutput

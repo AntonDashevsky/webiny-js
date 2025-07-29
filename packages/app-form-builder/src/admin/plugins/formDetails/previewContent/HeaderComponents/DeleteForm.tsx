@@ -7,7 +7,7 @@ import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import * as queries from "../../../../graphql";
 import { removeFormFromListCache } from "~/admin/views/cache";
 import { usePermission } from "~/hooks/usePermission";
-import { FbRevisionModel } from "~/types";
+import type { FbRevisionModel } from "~/types";
 import { Button, Tooltip } from "@webiny/admin-ui";
 
 interface DeleteRevisionProps {

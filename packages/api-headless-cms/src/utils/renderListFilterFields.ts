@@ -1,4 +1,4 @@
-import {
+import type {
     ApiEndpoint,
     CmsFieldTypePlugins,
     CmsModel,

@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from "react";
 import type { DataTableSorting, OnDataTableSortingChange } from "@webiny/admin-ui";
 import { createFoldersData, createRecordsData, Table as AcoTable } from "@webiny/app-aco";
 import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
-import { TableItem } from "~/types";
+import type { TableItem } from "~/types";
 
 export interface TableProps {
     onSelectRow: ((rows: TableItem[] | []) => void) | undefined;

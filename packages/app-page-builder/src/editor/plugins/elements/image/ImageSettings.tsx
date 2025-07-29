@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useRecoilValue } from "recoil";
 import { css } from "emotion";
 import { activeElementAtom, elementByIdSelector } from "~/editor/recoil/modules";
-import { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
 // Components
 import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
 import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper";

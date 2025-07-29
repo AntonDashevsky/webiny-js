@@ -1,8 +1,8 @@
 import type { ITaskService, ITaskServiceCreatePluginParams, ITaskServiceTask } from "~/plugins";
 import { TaskServicePlugin } from "~/plugins";
+import type { DescribeExecutionCommandOutput } from "@webiny/aws-sdk/client-sfn";
 import {
     createStepFunctionClient,
-    DescribeExecutionCommandOutput,
     describeExecutionFactory,
     triggerStepFunctionFactory
 } from "@webiny/aws-sdk/client-sfn";

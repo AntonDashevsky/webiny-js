@@ -1,4 +1,4 @@
-import { CmsEntry, CmsModel } from "~/types";
+import type { CmsEntry, CmsModel } from "~/types";
 
 export function getEntryDescription(
     model: Pick<CmsModel, "descriptionFieldId" | "fields">,

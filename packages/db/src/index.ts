@@ -1,5 +1,5 @@
 import { DbRegistry } from "~/DbRegistry";
-import { IStore } from "~/store/types";
+import type { IStore } from "~/store/types";
 import { Store } from "~/store/Store";
 
 export * from "./types";

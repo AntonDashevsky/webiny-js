@@ -1,4 +1,4 @@
-import { GenericRecord } from "@webiny/utils";
+import type { GenericRecord } from "@webiny/utils";
 
 export class Settings<T = GenericRecord<string>> {
     private readonly name: string;

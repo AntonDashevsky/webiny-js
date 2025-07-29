@@ -1,5 +1,5 @@
-import { IGetDescendantFoldersRepository } from "./IGetDescendantFoldersRepository";
-import {
+import type { IGetDescendantFoldersRepository } from "./IGetDescendantFoldersRepository";
+import type {
     GetDescendantFoldersParams,
     IGetDescendantFoldersUseCase
 } from "./IGetDescendantFoldersUseCase";

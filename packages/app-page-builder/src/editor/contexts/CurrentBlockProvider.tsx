@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { BlockProvider } from "@webiny/app-page-builder-elements/renderers/block/BlockProvider";
-import { Element } from "@webiny/app-page-builder-elements/types";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 import { blockByElementSelector } from "~/editor/hooks/useCurrentBlockElement";
 import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
 

@@ -1,4 +1,4 @@
-import { IFactories } from "./types";
+import type { IFactories } from "./types";
 import { ElasticsearchToDynamoDbSynchronization } from "./elasticsearch/ElasticsearchToDynamoDbSynchronization";
 
 export const createFactories = (): IFactories => {

@@ -1,4 +1,4 @@
-import { Asset } from "@webiny/api-file-manager";
+import type { Asset } from "@webiny/api-file-manager";
 import * as newUtils from "./utils";
 import * as legacyUtils from "./legacyUtils";
 

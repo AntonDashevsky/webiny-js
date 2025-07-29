@@ -1,6 +1,6 @@
 import lodashGet from "lodash/get";
 import { ContextPlugin } from "@webiny/api";
-import { PbContext } from "~/graphql/types";
+import type { PbContext } from "~/graphql/types";
 
 export default () => {
     return new ContextPlugin<PbContext>(async ({ pageBuilder }) => {

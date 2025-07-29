@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
-import { UIElement, UIElementConfig, UiElementRenderProps } from "~/ui/UIElement";
+import type { UIElementConfig, UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
 import { SimpleForm } from "~/components/SimpleForm";
 
 interface FormContainerConfig extends UIElementConfig {

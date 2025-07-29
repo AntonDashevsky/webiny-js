@@ -1,8 +1,9 @@
 import * as path from "path";
 import * as fs from "fs";
 import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
-import { uploadFolderToS3, UploadFolderToS3Params } from "@webiny/pulumi-aws";
-import { CliContext } from "@webiny/cli/types";
+import type { UploadFolderToS3Params } from "@webiny/pulumi-aws";
+import { uploadFolderToS3 } from "@webiny/pulumi-aws";
+import type { CliContext } from "@webiny/cli/types";
 
 export type UploadAppToS3Config = Partial<
     Pick<

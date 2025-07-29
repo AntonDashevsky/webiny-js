@@ -8,7 +8,8 @@ import {
     DropdownMenu,
     FormComponentLabel
 } from "@webiny/admin-ui";
-import { EditorBreakpoint, useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
+import type { EditorBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
+import { useBreakpoint } from "~/BaseEditor/hooks/useBreakpoint";
 
 export interface InheritanceLabelProps {
     text: React.ReactNode;

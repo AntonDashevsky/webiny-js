@@ -2,7 +2,7 @@ import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
 import { filterSchema } from "~/filter/filter.gql";
 import { createFoldersSchema } from "~/folder/folder.gql";
 import { appGql } from "~/apps/app.gql";
-import { AcoContext } from "~/types";
+import type { AcoContext } from "~/types";
 import { ContextPlugin } from "@webiny/api";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
 import type { CmsModel } from "@webiny/api-headless-cms/types";

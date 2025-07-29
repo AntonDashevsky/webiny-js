@@ -2,7 +2,7 @@ import dotProp from "dot-prop";
 import WebinyError from "@webiny/error";
 import { parseIdentifier } from "@webiny/utils";
 import { getBaseFieldType } from "~/utils/getBaseFieldType";
-import { CmsContext, CmsDynamicZoneTemplate, CmsModel, CmsModelField } from "~/types";
+import type { CmsContext, CmsDynamicZoneTemplate, CmsModel, CmsModelField } from "~/types";
 
 interface CmsRefEntry {
     id: string;

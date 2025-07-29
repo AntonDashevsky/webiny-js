@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { Messenger } from "@webiny/website-builder-sdk";
+import type { Messenger } from "@webiny/website-builder-sdk";
 import { useDocumentEditor } from "~/DocumentEditor";
 import { AddressBar } from "./AddressBar";
 import { Iframe } from "./Iframe";

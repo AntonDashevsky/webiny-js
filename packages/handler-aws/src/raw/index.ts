@@ -5,15 +5,13 @@
  * We should try to have some kind of standardized event type implementation at some point.
  */
 import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types";
-import {
-    createHandler as createBaseHandler,
-    CreateHandlerParams as BaseCreateHandlerParams
-} from "@webiny/handler";
+import type { CreateHandlerParams as BaseCreateHandlerParams } from "@webiny/handler";
+import { createHandler as createBaseHandler } from "@webiny/handler";
 import { RawEventHandler } from "~/raw/plugins/RawEventHandler";
 import { registerDefaultPlugins } from "~/plugins";
 import { execute } from "~/execute";
 import { createComposedHandler } from "~/utils/composedHandler";
-import { Context, Request } from "@webiny/handler/types";
+import type { Context, Request } from "@webiny/handler/types";
 
 const Reply = require("fastify/lib/reply");
 

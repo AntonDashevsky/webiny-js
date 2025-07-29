@@ -1,6 +1,6 @@
 import React from "react";
 import { CodeEditor as AdminCodeEditor } from "@webiny/admin-ui";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 
 interface Props extends FormComponentProps {
     mode: string;

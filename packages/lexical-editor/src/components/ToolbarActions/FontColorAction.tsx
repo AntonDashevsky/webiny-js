@@ -1,13 +1,9 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { LexicalCommand } from "lexical";
+import type { LexicalCommand } from "lexical";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
 import { FontColorActionContext } from "~/context/FontColorActionContext";
-import {
-    $isFontColorNode,
-    ADD_FONT_COLOR_COMMAND,
-    FontColorPayload,
-    ThemeColorValue
-} from "@webiny/lexical-nodes";
+import type { FontColorPayload } from "@webiny/lexical-nodes";
+import { $isFontColorNode, ADD_FONT_COLOR_COMMAND, ThemeColorValue } from "@webiny/lexical-nodes";
 import { getSelectedNode } from "~/utils/getSelectedNode";
 import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection";
 import { useRichTextEditor } from "~/hooks";

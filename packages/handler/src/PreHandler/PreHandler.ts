@@ -1,5 +1,6 @@
-import { FastifyReply, FastifyRequest } from "fastify";
-import { Action, IPreHandler } from "~/PreHandler/IPreHandler";
+import type { FastifyReply, FastifyRequest } from "fastify";
+import type { IPreHandler } from "~/PreHandler/IPreHandler";
+import { Action } from "~/PreHandler/IPreHandler";
 import type { Context } from "~/types";
 
 export class PreHandler implements IPreHandler {

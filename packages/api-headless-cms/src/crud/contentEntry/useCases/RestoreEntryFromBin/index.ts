@@ -1,14 +1,14 @@
-import { Topic } from "@webiny/pubsub/types";
-import {
+import type { Topic } from "@webiny/pubsub/types";
+import type {
     CmsContext,
     CmsEntryStorageOperations,
     OnEntryAfterRestoreFromBinTopicParams,
     OnEntryBeforeRestoreFromBinTopicParams,
     OnEntryRestoreFromBinErrorTopicParams
 } from "~/types";
-import { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions";
-import { AccessControl } from "~/crud/AccessControl/AccessControl";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { RestoreEntryFromBinOperation } from "./RestoreEntryFromBinOperation";
 import { RestoreEntryFromBinOperationWithEvents } from "./RestoreEntryFromBinOperationWithEvents";
 import { TransformEntryRestoreFromBin } from "./TransformEntryRestoreFromBin";

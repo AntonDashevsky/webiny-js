@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { PageDto } from "~/domain/Page";
+import type { PageDto } from "~/domain/Page";
 import { usePreviewDomain } from "~/BaseEditor/defaultConfig/Content/Preview/usePreviewDomain";
 
 export const usePagePreviewLink = (pageDto: PageDto) => {

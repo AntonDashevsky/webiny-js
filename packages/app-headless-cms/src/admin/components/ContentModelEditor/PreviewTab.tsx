@@ -1,6 +1,6 @@
 import React from "react";
 import { i18n } from "@webiny/app/i18n";
-import { CmsEditorContentTab } from "~/types";
+import type { CmsEditorContentTab } from "~/types";
 import { useModelEditor } from "~/admin/hooks";
 import { ContentEntryFormPreview } from "../ContentEntryForm/ContentEntryFormPreview";
 import { Alert } from "@webiny/admin-ui";

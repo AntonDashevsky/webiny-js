@@ -1,6 +1,6 @@
 import { createTenancyContext, createTenancyGraphQL } from "@webiny/api-tenancy";
 import { createSecurityContext, createSecurityGraphQL } from "@webiny/api-security";
-import {
+import type {
     SecurityContext,
     SecurityIdentity,
     SecurityPermission,
@@ -8,7 +8,7 @@ import {
 } from "@webiny/api-security/types";
 import { ContextPlugin } from "@webiny/api";
 import { BeforeHandlerPlugin } from "@webiny/handler";
-import { TenancyContext, TenancyStorageOperations } from "@webiny/api-tenancy/types";
+import type { TenancyContext, TenancyStorageOperations } from "@webiny/api-tenancy/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 import { createTenantLinkAuthorizer } from "@webiny/api-security/plugins/tenantLinkAuthorization";
 

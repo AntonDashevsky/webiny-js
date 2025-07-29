@@ -5,13 +5,13 @@ import debounce from "lodash/debounce";
 import { useLazyQuery, useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin";
 import { sendEvent } from "@webiny/telemetry/react";
-import {
+import type {
     GetSettingsQueryResponse,
     GetSettingsResponseData,
     UpdateSettingsMutationResponse,
     UpdateSettingsMutationVariables
 } from "./graphql";
-import { PbErrorResponse } from "~/types";
+import type { PbErrorResponse } from "~/types";
 import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
 import { WebsiteSettingsConfig } from "~/modules/WebsiteSettings/config/WebsiteSettingsConfig";
 

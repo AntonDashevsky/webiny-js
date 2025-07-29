@@ -1,7 +1,7 @@
 import React from "react";
 import { i18n } from "@webiny/app/i18n";
-import { BindComponent } from "@webiny/form";
-import { PermissionSelectorCmsGroup, PermissionSelectorCmsModel } from "./types";
+import type { BindComponent } from "@webiny/form";
+import type { PermissionSelectorCmsGroup, PermissionSelectorCmsModel } from "./types";
 import { CheckboxGroup, FormComponentNote } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");

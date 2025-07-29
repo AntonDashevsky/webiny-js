@@ -1,7 +1,7 @@
-import { ListCache } from "../cache";
-import { IGetFolderLevelPermissionRepository } from "./IGetFolderLevelPermissionRepository";
-import { FolderPermissionName } from "./FolderPermissionName";
-import { Folder } from "../Folder";
+import type { ListCache } from "../cache";
+import type { IGetFolderLevelPermissionRepository } from "./IGetFolderLevelPermissionRepository";
+import type { FolderPermissionName } from "./FolderPermissionName";
+import type { Folder } from "../Folder";
 
 export class GetFolderLevelPermissionRepository implements IGetFolderLevelPermissionRepository {
     private cache: ListCache<Folder>;

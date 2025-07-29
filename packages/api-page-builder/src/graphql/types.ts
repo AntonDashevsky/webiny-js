@@ -1,12 +1,12 @@
-import { DbContext } from "@webiny/handler-db/types";
-import { SecurityContext, SecurityPermission } from "@webiny/api-security/types";
-import { TenancyContext } from "@webiny/api-tenancy/types";
-import { I18NContext } from "@webiny/api-i18n/types";
-import { Topic } from "@webiny/pubsub/types";
-import { FlushEvent, QueueAddJob, RenderEvent } from "@webiny/api-prerendering-service/types";
-import { Context as BaseContext } from "@webiny/handler/types";
+import type { DbContext } from "@webiny/handler-db/types";
+import type { SecurityContext, SecurityPermission } from "@webiny/api-security/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { I18NContext } from "@webiny/api-i18n/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { FlushEvent, QueueAddJob, RenderEvent } from "@webiny/api-prerendering-service/types";
+import type { Context as BaseContext } from "@webiny/handler/types";
 
-import {
+import type {
     BlockCategory,
     Category,
     CreatedBy,
@@ -24,9 +24,9 @@ import {
     Settings,
     System
 } from "~/types";
-import { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types";
-import { FileManagerContext } from "@webiny/api-file-manager/types";
-import { DataSourcesContext } from "~/dataSources/types";
+import type { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types";
+import type { FileManagerContext } from "@webiny/api-file-manager/types";
+import type { DataSourcesContext } from "~/dataSources/types";
 
 // CRUD types.
 export interface ListPagesParamsWhere {

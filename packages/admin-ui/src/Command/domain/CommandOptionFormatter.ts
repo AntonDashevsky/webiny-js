@@ -1,5 +1,5 @@
-import { CommandOption } from "./CommandOption";
-import { CommandOptionFormatted } from "./CommandOptionFormatted";
+import type { CommandOption } from "./CommandOption";
+import type { CommandOptionFormatted } from "./CommandOptionFormatted";
 
 export class CommandOptionFormatter {
     static format(option: CommandOption): CommandOptionFormatted {

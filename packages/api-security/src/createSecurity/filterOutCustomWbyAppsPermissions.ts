@@ -1,4 +1,4 @@
-import { SecurityPermission } from "~/types";
+import type { SecurityPermission } from "~/types";
 
 const WBY_APPS_PERMISSIONS_PREFIXES = ["pb", "fb", "fm", "cms", "security", "adminUsers", "i18n"];
 

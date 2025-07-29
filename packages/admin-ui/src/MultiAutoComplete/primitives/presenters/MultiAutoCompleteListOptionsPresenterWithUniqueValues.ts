@@ -1,5 +1,5 @@
-import { CommandOption } from "~/Command/domain/CommandOption";
-import {
+import type { CommandOption } from "~/Command/domain/CommandOption";
+import type {
     IMultiAutoCompleteListOptionsPresenter,
     IMultiAutoCompleteListOptionsPresenterParams
 } from "./MultiAutoCompleteListOptionsPresenter";

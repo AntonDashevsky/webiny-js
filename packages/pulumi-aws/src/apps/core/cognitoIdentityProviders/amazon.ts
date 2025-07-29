@@ -1,6 +1,6 @@
-import * as pulumi from "@pulumi/pulumi";
-import { IdentityProviderArgs } from "@pulumi/aws/cognito";
-import { CognitoIdentityProviderConfig } from "./configure";
+import type * as pulumi from "@pulumi/pulumi";
+import type { IdentityProviderArgs } from "@pulumi/aws/cognito";
+import type { CognitoIdentityProviderConfig } from "./configure";
 
 /**
  * Amazon doesn't provide first/last name as separate attributes. Instead, it gives you a `name`.

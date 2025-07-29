@@ -6,7 +6,7 @@ import { TrashBinListConfig } from "~/Presentation/configs";
 import { useTrashBin } from "~/Presentation/hooks";
 import { getEntriesLabel } from "../BulkActions";
 import { RestoreItemsReportMessage } from "~/Presentation/components/BulkActions/RestoreItems/RestoreItemsReportMessage";
-import { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinItemDTO } from "~/Domain";
 import { Tooltip } from "@webiny/admin-ui";
 
 export const BulkActionsRestoreItems = observer(() => {

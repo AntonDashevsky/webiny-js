@@ -1,12 +1,13 @@
 import React, { useCallback, useMemo } from "react";
 import { generateId, makeDecoratable } from "~/utils";
-import { TextareaPrimitive, TextareaPrimitiveProps } from "./TextareaPrimitive";
+import type { TextareaPrimitiveProps } from "./TextareaPrimitive";
+import { TextareaPrimitive } from "./TextareaPrimitive";
+import type { FormComponentProps } from "~/FormComponent";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
-    FormComponentNote,
-    FormComponentProps
+    FormComponentNote
 } from "~/FormComponent";
 
 type TextareaGroupProps = TextareaPrimitiveProps & FormComponentProps;

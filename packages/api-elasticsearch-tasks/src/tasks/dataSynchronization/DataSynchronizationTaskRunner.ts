@@ -1,9 +1,9 @@
-import {
+import type {
     IDataSynchronizationInput,
     IDataSynchronizationManager,
     IFactories
 } from "~/tasks/dataSynchronization/types";
-import { IIndexManager } from "~/settings/types";
+import type { IIndexManager } from "~/settings/types";
 import { ElasticsearchSynchronize } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchSynchronize";
 import { ElasticsearchFetcher } from "~/tasks/dataSynchronization/elasticsearch/ElasticsearchFetcher";
 

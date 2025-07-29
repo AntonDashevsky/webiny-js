@@ -1,8 +1,6 @@
 import * as React from "react";
-import {
-    MultiAutoComplete as UiMultiAutoComplete,
-    MultiAutoCompleteProps
-} from "@webiny/ui/AutoComplete";
+import type { MultiAutoCompleteProps } from "@webiny/ui/AutoComplete";
+import { MultiAutoComplete as UiMultiAutoComplete } from "@webiny/ui/AutoComplete";
 import { useAutocomplete } from "@webiny/app/hooks/useAutocomplete";
 import gql from "graphql-tag";
 

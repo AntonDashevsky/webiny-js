@@ -3,7 +3,7 @@ import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { Button, Icon, OverlayLoader, Tabs } from "@webiny/admin-ui";
 import { IconTypeProvider } from "~/components/IconPicker/config/IconType";
 import { IconPickerTabRenderer } from "~/components/IconPicker/IconPickerTab";
-import { IconType } from "~/components/IconPicker/config";
+import type { IconType } from "~/components/IconPicker/config";
 
 interface IconPickerContentProps {
     loading?: boolean;

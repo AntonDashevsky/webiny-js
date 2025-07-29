@@ -1,6 +1,8 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import React, { useEffect, useState } from "react";
 import { Dialog as AdminDialog, OverlayLoader } from "@webiny/admin-ui";
-import { Form, FormOnSubmit, GenericFormData } from "@webiny/form";
+import type { FormOnSubmit, GenericFormData } from "@webiny/form";
+import { Form } from "@webiny/form";
 
 export interface DialogProps {
     title: ReactNode;

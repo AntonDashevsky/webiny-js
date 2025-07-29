@@ -1,11 +1,6 @@
 import React from "react";
-import {
-    Compose,
-    createConditionalDecorator,
-    CompositionScope,
-    GenericComponent,
-    Decorator
-} from "@webiny/app-admin";
+import type { GenericComponent, Decorator } from "@webiny/app-admin";
+import { Compose, createConditionalDecorator, CompositionScope } from "@webiny/app-admin";
 import { FieldElement } from "@webiny/app-headless-cms-common";
 
 export type FieldProps = React.ComponentProps<typeof FieldElement>;

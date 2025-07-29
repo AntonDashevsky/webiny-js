@@ -4,7 +4,7 @@ import get from "lodash/get";
 import set from "lodash/set";
 import merge from "lodash/merge";
 import { Tooltip } from "@webiny/ui/Tooltip";
-import { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types";
+import type { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types";
 import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
 import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
 import { useDisplayMode } from "~/editor/hooks/useDisplayMode";

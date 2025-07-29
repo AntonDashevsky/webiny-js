@@ -1,4 +1,4 @@
-import { CmsGroup } from "~tests/types";
+import type { CmsGroup } from "~tests/types";
 
 export const createContentModelGroup = (): CmsGroup => {
     return {

@@ -4,7 +4,7 @@ import get from "lodash/get";
 import { Typography } from "@webiny/ui/Typography";
 import { Grid, Cell } from "@webiny/ui/Grid";
 import { Checkbox as CheckboxCmp } from "@webiny/ui/Checkbox";
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { useRecoilValue } from "recoil";
 
 interface CheckboxProps {

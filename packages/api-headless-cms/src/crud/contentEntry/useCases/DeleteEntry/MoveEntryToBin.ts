@@ -1,11 +1,11 @@
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     IDeleteEntry,
     IGetLatestRevisionByEntryId,
     IMoveEntryToBinOperation
 } from "~/crud/contentEntry/abstractions";
-import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin";
-import { CmsModel } from "~/types";
+import type { TransformEntryMoveToBin } from "./TransformEntryMoveToBin";
+import type { CmsModel } from "~/types";
 
 export class MoveEntryToBin implements IDeleteEntry {
     private getEntry: IGetLatestRevisionByEntryId;

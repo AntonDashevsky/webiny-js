@@ -2,7 +2,7 @@ import execa from "execa";
 import fs from "fs";
 import path from "path";
 import { requireConfig } from "~/utils";
-import { IUserCommandInput } from "~/types";
+import type { IUserCommandInput } from "~/types";
 
 export interface IListPackagesParams {
     inputs: Pick<IUserCommandInput, "package" | "depth" | "folder" | "env">;

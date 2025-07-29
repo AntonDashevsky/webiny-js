@@ -1,4 +1,4 @@
-import { ElementAttributesModifier } from "~/types";
+import type { ElementAttributesModifier } from "~/types";
 
 const className: ElementAttributesModifier = ({ element }) => {
     return {

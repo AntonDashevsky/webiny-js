@@ -9,8 +9,8 @@ import {
     RemoveFieldButton
 } from "./utils";
 import { Input } from "./Input";
-import { CmsModelField } from "~/types";
-import { BindComponentRenderProp } from "@webiny/form";
+import type { CmsModelField } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
 
 interface State {
     date: string;

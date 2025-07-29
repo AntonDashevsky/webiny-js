@@ -3,7 +3,7 @@ import { useRouter } from "@webiny/react-router";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { useRevision } from "../../formRevisions/useRevision";
 import { usePermission } from "~/hooks/usePermission";
-import { FbRevisionModel } from "~/types";
+import type { FbRevisionModel } from "~/types";
 import { Button, Tooltip } from "@webiny/admin-ui";
 
 interface EditRevisionProps {

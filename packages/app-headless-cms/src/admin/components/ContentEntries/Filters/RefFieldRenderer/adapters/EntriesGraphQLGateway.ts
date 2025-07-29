@@ -1,7 +1,7 @@
-import { ApolloClient } from "apollo-client";
-import { EntriesGatewayInterface } from "./EntriesGatewayInterface";
+import type { ApolloClient } from "apollo-client";
+import type { EntriesGatewayInterface } from "./EntriesGatewayInterface";
 import { GET_CONTENT_ENTRY, SEARCH_CONTENT_ENTRIES } from "./entries.gql";
-import {
+import type {
     GetEntryQueryVariables,
     GetEntryResponse,
     ListEntriesQueryVariables,

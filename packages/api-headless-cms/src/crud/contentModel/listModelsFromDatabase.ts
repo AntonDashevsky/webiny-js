@@ -1,10 +1,10 @@
-import { CmsModel, HeadlessCmsStorageOperations } from "~/types";
+import type { CmsModel, HeadlessCmsStorageOperations } from "~/types";
 import {
     ensurePluralApiName,
     ensureSingularApiName
 } from "~/crud/contentModel/compatibility/modelApiName";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 import { ensureTypeTag } from "./ensureTypeTag";
 
 interface Params {

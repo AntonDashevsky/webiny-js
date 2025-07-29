@@ -5,11 +5,11 @@ import type {
     FileAlias,
     FileManagerAliasesStorageOperations
 } from "@webiny/api-file-manager/types";
+import type { DbItem } from "@webiny/db-dynamodb";
 import {
     createEntityWriteBatch,
     createStandardEntity,
     createTable,
-    DbItem,
     queryAll
 } from "@webiny/db-dynamodb";
 

@@ -1,7 +1,7 @@
 import tenantLinkAuthorization from "~/plugins/tenantLinkAuthorization";
 import { createHandler } from "@webiny/handler-aws";
 import graphqlHandlerPlugins from "@webiny/handler-graphql";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { authenticateUsingHttpHeader } from "~/plugins/authenticateUsingHttpHeader";
 import { createSecurityContext, createSecurityGraphQL } from "~/index";
 
@@ -36,11 +36,11 @@ import { customGroupAuthorizer } from "./mocks/customGroupAuthorizer";
 import { customAuthenticator } from "./mocks/customAuthenticator";
 import { triggerAuthentication } from "./mocks/triggerAuthentication";
 import { createTenancyContext, createTenancyGraphQL } from "@webiny/api-tenancy";
-import { TenancyStorageOperations } from "@webiny/api-tenancy/types";
+import type { TenancyStorageOperations } from "@webiny/api-tenancy/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { SecurityStorageOperations } from "~/types";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
-import { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
+import type { SecurityStorageOperations } from "~/types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { DecryptedWcpProjectLicense } from "@webiny/wcp/types";
 import { createWcpContext } from "@webiny/api-wcp";
 
 type UseGqlHandlerParams = {

@@ -1,5 +1,5 @@
-import { PluginsContainer } from "@webiny/plugins";
-import {
+import type { PluginsContainer } from "@webiny/plugins";
+import type {
     CmsEntry,
     CmsStorageEntry,
     StorageOperationsCmsModel

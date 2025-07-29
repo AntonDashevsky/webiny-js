@@ -1,8 +1,8 @@
-import { PbContext } from "~/types";
+import type { PbContext } from "~/types";
 import { GetModel } from "~/translations/GetModel";
 import { WebinyError } from "@webiny/error";
 import { createIdentifier } from "@webiny/utils";
-import { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
+import type { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
 import { TranslatedCollectionMapper } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionMapper";
 
 export class UpdateTranslatedCollectionRepository {

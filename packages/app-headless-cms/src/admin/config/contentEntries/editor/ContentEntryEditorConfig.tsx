@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Actions, ActionsConfig } from "./Actions";
+import type { ActionsConfig } from "./Actions";
+import { Actions } from "./Actions";
 import { FieldElement } from "./FieldElement";
 import { Width } from "./Width";
 import { ValidationIndicatorsConfig } from "~/admin/config/contentEntries/editor/ValidationIndicators";

@@ -3,14 +3,14 @@ import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
 import { createWriteStream, ensureDirSync } from "fs-extra";
 import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
-import { FileInput } from "@webiny/api-file-manager/types";
-import { PageSettings } from "@webiny/api-page-builder/types";
-import { PbImportExportContext } from "~/graphql/types";
-import { FileUploadsData } from "~/types";
+import type { FileInput } from "@webiny/api-file-manager/types";
+import type { PageSettings } from "@webiny/api-page-builder/types";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { FileUploadsData } from "~/types";
 import { INSTALL_EXTRACT_DIR } from "~/import/constants";
 import { s3Stream } from "~/export/s3Stream";
 import { deleteS3Folder, updateFilesInData, uploadAssets } from "~/import/utils";
-import { ExportedPageData } from "~/export/process/exporters/PageExporter";
+import type { ExportedPageData } from "~/export/process/exporters/PageExporter";
 
 interface ImportPageParams {
     pageKey: string;

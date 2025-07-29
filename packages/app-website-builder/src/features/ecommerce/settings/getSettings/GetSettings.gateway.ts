@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import type { GenericRecord } from "@webiny/app/types";
 import { WebinyError } from "@webiny/error";
 import type { IGetSettings } from "./IGetSettings";
-import { AllEcommerceSettings } from "~/features/ecommerce/settings/types";
+import type { AllEcommerceSettings } from "~/features/ecommerce/settings/types";
 
 const QUERY = gql`
     query GetIntegrationsSettings {

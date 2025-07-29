@@ -1,7 +1,8 @@
 import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters";
 import { PluginsContainer } from "@webiny/plugins";
 
-import { ENTITIES, StorageOperationsFactory } from "~/types";
+import type { StorageOperationsFactory } from "~/types";
+import { ENTITIES } from "~/types";
 import { createTable } from "~/definitions/table";
 
 import { createCategoryEntity } from "~/definitions/categoryEntity";
@@ -37,7 +38,7 @@ import { createPageBlockStorageOperations } from "~/operations/pageBlock";
 import { createPageTemplateEntity } from "~/definitions/pageTemplateEntity";
 import { createPageTemplateDynamoDbFields } from "~/operations/pageTemplate/fields";
 import { createPageTemplateStorageOperations } from "~/operations/pageTemplate";
-import { PbContext } from "@webiny/api-page-builder/graphql/types";
+import type { PbContext } from "@webiny/api-page-builder/graphql/types";
 import {
     BlockCategoryDynamoDbFieldPlugin,
     CategoryDynamoDbFieldPlugin,

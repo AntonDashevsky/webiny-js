@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { EntryDTO, EntryReference } from "./Entry";
-import { EntriesGatewayInterface } from "../adapters";
+import type { EntryDTO, EntryReference } from "./Entry";
+import type { EntriesGatewayInterface } from "../adapters";
 import { EntryMapper } from "./EntryMapper";
 import { Loading } from "./Loading";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { PbEditorPageElementVariableRendererPlugin } from "~/types";
+import type { PbEditorPageElementVariableRendererPlugin } from "~/types";
 import IconVariableInput from "~/editor/plugins/elementSettings/variable/IconVariableInput";
 import { useElementVariables } from "~/editor/hooks/useElementVariableValue";
 

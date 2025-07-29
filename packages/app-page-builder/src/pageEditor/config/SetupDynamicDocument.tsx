@@ -2,7 +2,7 @@ import React from "react";
 import { PageEditorConfig } from "~/pageEditor";
 import { DynamicDocumentProvider } from "~/dataInjection";
 import { usePage } from "~/pageEditor";
-import { PbDataBinding, PbDataSource } from "~/types";
+import type { PbDataBinding, PbDataSource } from "~/types";
 import { useEventActionHandler } from "~/editor";
 import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
 

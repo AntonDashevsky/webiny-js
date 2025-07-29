@@ -13,7 +13,7 @@ import {
 } from "./formRevisions";
 import { onFormSubmissionsAfterExportHook } from "./formSubmissions";
 import { onSettingsAfterUpdateHook } from "./settings";
-import { AuditLogsContext } from "~/types";
+import type { AuditLogsContext } from "~/types";
 
 export const createFormBuilderHooks = (context: AuditLogsContext) => {
     onFormAfterCreateHook(context);

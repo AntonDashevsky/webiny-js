@@ -1,6 +1,7 @@
-import { Action, IPreHandler } from "~/PreHandler/IPreHandler";
+import type { IPreHandler } from "~/PreHandler/IPreHandler";
+import { Action } from "~/PreHandler/IPreHandler";
 import { stringifyError } from "~/stringifyError";
-import { ContextPlugin } from "~/Context";
+import type { ContextPlugin } from "~/Context";
 import type { Context } from "~/types";
 
 export class ProcessContextPlugins implements IPreHandler {

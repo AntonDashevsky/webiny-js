@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, ButtonProps } from "@webiny/admin-ui";
+import type { ButtonProps } from "@webiny/admin-ui";
+import { Button } from "@webiny/admin-ui";
 
 type CustomEventT<T> = CustomEvent<T> & React.SyntheticEvent<EventTarget>;
 

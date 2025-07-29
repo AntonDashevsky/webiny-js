@@ -1,4 +1,4 @@
-import { RedirectGatewayDto } from "./RedirectGatewayDto.js";
+import type { RedirectGatewayDto } from "./RedirectGatewayDto.js";
 import type { WbListMeta } from "~/types.js";
 
 export interface ListRedirectsGatewayParams {

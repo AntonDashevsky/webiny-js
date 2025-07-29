@@ -2,7 +2,7 @@ import { CommandBundle } from "~/resolver/app/bundler/CommandBundle";
 import { createMockDeployment } from "~tests/mocks/deployments.js";
 import { createRegularMockTable } from "~tests/mocks/table.js";
 import type { IBaseBundleParams } from "~/resolver/app/bundler/BaseBundle.js";
-import { IIngestorResultItem } from "~/resolver/app/ingestor/types.js";
+import type { IIngestorResultItem } from "~/resolver/app/ingestor/types.js";
 
 export interface ICreateMockBundleParams
     extends Partial<Pick<IBaseBundleParams, "source" | "table">> {

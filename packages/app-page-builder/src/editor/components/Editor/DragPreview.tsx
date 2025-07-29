@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { DragLayerMonitor, useDragLayer } from "react-dnd";
+import type { DragLayerMonitor } from "react-dnd";
+import { useDragLayer } from "react-dnd";
 
 let subscribedToOffsetChange = false;
 let dragPreviewRef: HTMLDivElement | null = null;

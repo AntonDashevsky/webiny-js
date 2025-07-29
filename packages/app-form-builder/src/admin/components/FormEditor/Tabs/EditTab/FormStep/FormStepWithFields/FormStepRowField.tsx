@@ -1,10 +1,11 @@
 import React, { useCallback, useMemo } from "react";
-import { FbFormModelField, FbFormStep } from "~/types";
-import Draggable, { BeginDragProps } from "~/admin/components/FormEditor/Draggable";
+import type { FbFormModelField, FbFormStep } from "~/types";
+import type { BeginDragProps } from "~/admin/components/FormEditor/Draggable";
+import Draggable from "~/admin/components/FormEditor/Draggable";
 import Field from "~/admin/components/FormEditor/Tabs/EditTab/Field";
 import { Vertical } from "~/admin/components/FormEditor/DropZone";
 import { useFormStep } from "~/admin/components/FormEditor/Tabs/EditTab/FormStep/useFormStep";
-import { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable";
+import type { DragObjectWithFieldInfo } from "~/admin/components/FormEditor/Droppable";
 import { useFormEditor } from "~/admin/components/FormEditor";
 import { cn } from "@webiny/admin-ui";
 

@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs-extra";
 import execa from "execa";
-import { Package } from "./types";
+import type { Package } from "./types";
 import { getBuildOutputFolder } from "./getBuildOutputFolder";
 import { CACHE_FOLDER_PATH } from "./constants";
 

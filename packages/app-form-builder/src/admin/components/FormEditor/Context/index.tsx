@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormEditorFactory } from "./useFormEditorFactory";
-import { FbFormModel } from "~/types";
-import { ApolloClient } from "apollo-client";
+import type { FbFormModel } from "~/types";
+import type { ApolloClient } from "apollo-client";
 
 export interface FormEditorProviderProps {
     id: string;

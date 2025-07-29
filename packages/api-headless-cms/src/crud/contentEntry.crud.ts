@@ -1,7 +1,7 @@
 import { parseIdentifier } from "@webiny/utils";
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     CmsContext,
     CmsEntry,
     CmsEntryContext,
@@ -52,15 +52,15 @@ import {
     OnEntryUpdateErrorTopicParams
 } from "~/types";
 import { validateModelEntryData } from "./contentEntry/entryDataValidation";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { createTopic } from "@webiny/pubsub";
 import { assignBeforeEntryCreate } from "./contentEntry/beforeCreate";
 import { assignBeforeEntryUpdate } from "./contentEntry/beforeUpdate";
 import { assignAfterEntryDelete } from "./contentEntry/afterDelete";
-import { Tenant } from "@webiny/api-tenancy/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
 import { entryFromStorageTransform, entryToStorageTransform } from "~/utils/entryStorage";
 import { getSearchableFields } from "./contentEntry/searchableFields";
-import { I18NLocale } from "@webiny/api-i18n/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 import { filterAsync } from "~/utils/filterAsync";
 import { isEntryLevelEntryMetaField, pickEntryMetaFields } from "~/constants";
 import {
@@ -72,7 +72,7 @@ import {
     createUpdateEntryData,
     mapAndCleanUpdatedInputData
 } from "./contentEntry/entryDataFactories";
-import { AccessControl } from "./AccessControl/AccessControl";
+import type { AccessControl } from "./AccessControl/AccessControl";
 import {
     deleteEntryUseCases,
     getEntriesByIdsUseCases,

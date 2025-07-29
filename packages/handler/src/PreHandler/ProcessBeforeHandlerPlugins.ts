@@ -1,7 +1,8 @@
-import { Action, IPreHandler } from "~/PreHandler/IPreHandler";
+import type { IPreHandler } from "~/PreHandler/IPreHandler";
+import { Action } from "~/PreHandler/IPreHandler";
 import { stringifyError } from "~/stringifyError";
 import type { Context } from "~/types";
-import { BeforeHandlerPlugin } from "~/plugins/BeforeHandlerPlugin";
+import type { BeforeHandlerPlugin } from "~/plugins/BeforeHandlerPlugin";
 
 export class ProcessBeforeHandlerPlugins implements IPreHandler {
     private readonly plugins: BeforeHandlerPlugin[];

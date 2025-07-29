@@ -1,9 +1,11 @@
-import React, { SyntheticEvent, useCallback, useState } from "react";
+import type { SyntheticEvent } from "react";
+import React, { useCallback, useState } from "react";
 import keycode from "keycode";
 import minimatch from "minimatch";
-import { Input, InputProps } from "~/Input";
+import type { InputProps } from "~/Input";
+import { Input } from "~/Input";
 import { Chips, Chip } from "~/Chips";
-import { FormComponentProps } from "~/types";
+import type { FormComponentProps } from "~/types";
 
 interface TagsProps extends FormComponentProps {
     /**

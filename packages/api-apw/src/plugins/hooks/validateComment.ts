@@ -1,6 +1,7 @@
 import WebinyError from "@webiny/error";
-import { LifeCycleHookCallbackParams } from "~/types";
-import { parseIdentifier, ParseIdentifierResult } from "@webiny/utils";
+import type { LifeCycleHookCallbackParams } from "~/types";
+import type { ParseIdentifierResult } from "@webiny/utils";
+import { parseIdentifier } from "@webiny/utils";
 
 export const validateComment = ({ apw }: Pick<LifeCycleHookCallbackParams, "apw">) => {
     apw.comment.onCommentBeforeCreate.subscribe(async ({ input }) => {

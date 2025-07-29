@@ -1,5 +1,5 @@
-import { CmsEntry, StorageOperationsCmsModel } from "@webiny/api-headless-cms/types";
-import { CmsEntryElasticsearchValuesModifier } from "~/plugins";
+import type { CmsEntry, StorageOperationsCmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsEntryElasticsearchValuesModifier } from "~/plugins";
 
 interface Params {
     model: StorageOperationsCmsModel;

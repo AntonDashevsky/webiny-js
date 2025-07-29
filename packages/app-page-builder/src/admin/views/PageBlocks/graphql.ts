@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-import { PbPageBlock, PbErrorResponse } from "~/types";
+import type { PbPageBlock, PbErrorResponse } from "~/types";
 
 import { PAGE_BLOCK_CATEGORY_BASE_FIELDS } from "~/admin/views/BlockCategories/graphql";
 export { LIST_BLOCK_CATEGORIES } from "~/admin/views/BlockCategories/graphql";

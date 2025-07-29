@@ -1,10 +1,10 @@
-import {
-    ApplicationGraphQL,
+import type {
     ApplicationGraphQLBody,
     ApwSettings,
     ApplicationGraphQLGetUrlParams,
     ApwScheduleActionData
 } from "./ApplicationGraphQL";
+import { ApplicationGraphQL } from "./ApplicationGraphQL";
 import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types";
 import WebinyError from "@webiny/error";
 import upperFirst from "lodash/upperFirst";

@@ -1,7 +1,7 @@
 import models from "../contentAPI/mocks/contentModels";
 import { renderSortEnum } from "~/utils/renderSortEnum";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { CmsFieldTypePlugins, CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
+import type { CmsFieldTypePlugins, CmsModel, CmsModelFieldToGraphQLPlugin } from "~/types";
 import { createCmsGraphQLSchemaSorterPlugin } from "~/plugins";
 
 const sortPlugin = createCmsGraphQLSchemaSorterPlugin(({ sorters }) => {

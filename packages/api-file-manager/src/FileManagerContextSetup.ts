@@ -1,14 +1,10 @@
-import {
-    FileManagerAliasesStorageOperations,
-    type FileManagerContext,
-    FilePermission,
-    type SettingsPermission
-} from "~/types";
+import type { FileManagerAliasesStorageOperations, FilePermission } from "~/types";
+import { type FileManagerContext, type SettingsPermission } from "~/types";
 import type { FileManagerConfig } from "~/createFileManager/types";
 import { createFileManager } from "~/createFileManager";
 import { FileStorage } from "~/storage/FileStorage";
 import WebinyError from "@webiny/error";
-import { SecurityPermission } from "@webiny/api-security/types";
+import type { SecurityPermission } from "@webiny/api-security/types";
 import { createFileModel, FILE_MODEL_ID } from "~/cmsFileStorage/file.model";
 import { CmsFilesStorage } from "~/cmsFileStorage/CmsFilesStorage";
 import { CmsModelModifierPlugin } from "~/modelModifier/CmsModelModifier";

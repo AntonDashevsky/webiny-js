@@ -1,19 +1,17 @@
-import { Client } from "~/client";
+import type { Client } from "~/client";
 import { ElasticsearchCatHealth } from "~/operations/ElasticsearchCatHealth";
 import { ElasticsearchCatNodes } from "~/operations/ElasticsearchCatNodes";
-import {
-    ElasticsearchCatClusterHealthStatus,
+import type {
     IElasticsearchCatHealthResponse,
     IElasticsearchCatNodesResponse
 } from "~/operations/types";
+import { ElasticsearchCatClusterHealthStatus } from "~/operations/types";
 import { UnhealthyClusterError } from "~/utils/waitUntilHealthy/UnhealthyClusterError";
+import type { ClusterHealthReason, MemoryReason, ProcessorReason } from "./reason";
 import {
-    ClusterHealthReason,
     createClusterHealthStatusReason,
     createMemoryReason,
-    createProcessorReason,
-    MemoryReason,
-    ProcessorReason
+    createProcessorReason
 } from "./reason";
 import { WaitingHealthyClusterAbortedError } from "./WaitingHealthyClusterAbortedError";
 

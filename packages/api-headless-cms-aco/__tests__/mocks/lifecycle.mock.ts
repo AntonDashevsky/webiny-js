@@ -1,6 +1,6 @@
 import { ContextPlugin } from "@webiny/api";
 import { LifecycleEventTracker } from "@webiny/project-utils/testing/helpers/lifecycleTracker";
-import { HcmsAcoContext } from "~/types";
+import type { HcmsAcoContext } from "~/types";
 
 export const tracker = new LifecycleEventTracker();
 

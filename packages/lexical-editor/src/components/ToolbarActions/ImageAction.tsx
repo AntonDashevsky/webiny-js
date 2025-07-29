@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { LexicalCommand } from "lexical";
+import type { LexicalCommand } from "lexical";
 import { useRichTextEditor } from "~/hooks/useRichTextEditor";
-import { FileManagerFileItem, fileToImagePayload } from "~/utils/files";
-import { ImagePayload, INSERT_IMAGE_COMMAND } from "~/commands";
-import { ToolbarActionPlugin } from "~/types";
+import type { FileManagerFileItem } from "~/utils/files";
+import { fileToImagePayload } from "~/utils/files";
+import type { ImagePayload } from "~/commands";
+import { INSERT_IMAGE_COMMAND } from "~/commands";
+import type { ToolbarActionPlugin } from "~/types";
 
 export const ImageAction = () => {
     const { editor, toolbarActionPlugins } = useRichTextEditor();

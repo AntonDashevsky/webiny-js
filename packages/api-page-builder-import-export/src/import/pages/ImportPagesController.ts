@@ -1,7 +1,7 @@
-import { ITaskResponseResult } from "@webiny/tasks";
+import type { ITaskResponseResult } from "@webiny/tasks";
 import { ImportPagesProcessPagesChecker } from "./controller/ImportPagesProcessPagesChecker";
 import { ImportPagesProcessZipFile } from "./controller/ImportPagesProcessZipFile";
-import { IImportPagesControllerTaskParams } from "./types";
+import type { IImportPagesControllerTaskParams } from "./types";
 
 export class ImportPagesController {
     public async execute(params: IImportPagesControllerTaskParams): Promise<ITaskResponseResult> {

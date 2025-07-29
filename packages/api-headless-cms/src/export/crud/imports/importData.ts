@@ -1,10 +1,10 @@
-import {
+import type {
     CmsGroupImportResult,
     CmsModelImportResult,
     ValidCmsGroupResult,
     ValidCmsModelResult
 } from "~/export/types";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 import { importGroups } from "./importGroups";
 import { importModels } from "./importModels";
 

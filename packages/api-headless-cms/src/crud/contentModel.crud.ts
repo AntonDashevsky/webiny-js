@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import {
+import type {
     CmsContext,
     CmsEntryValues,
     CmsModel,
@@ -26,9 +26,9 @@ import {
 } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { contentModelManagerFactory } from "./contentModel/contentModelManagerFactory";
-import { Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocale } from "@webiny/api-i18n/types";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { createTopic } from "@webiny/pubsub";
 import { assignModelBeforeCreate } from "./contentModel/beforeCreate";
 import { assignModelBeforeUpdate } from "./contentModel/beforeUpdate";
@@ -45,7 +45,7 @@ import { createCacheKey, createMemoryCache } from "~/utils";
 import { ensureTypeTag } from "./contentModel/ensureTypeTag";
 import { listModelsFromDatabase } from "~/crud/contentModel/listModelsFromDatabase";
 import { filterAsync } from "~/utils/filterAsync";
-import { AccessControl } from "./AccessControl/AccessControl";
+import type { AccessControl } from "./AccessControl/AccessControl";
 import {
     CmsModelFieldToAstConverterFromPlugins,
     CmsModelToAstConverter

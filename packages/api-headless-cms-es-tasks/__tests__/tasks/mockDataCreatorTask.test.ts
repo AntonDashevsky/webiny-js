@@ -1,16 +1,14 @@
 import { useHandler } from "~tests/context/useHandler";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
-import { Context } from "~/types";
-import { IMockDataCreatorInput, IMockDataCreatorOutput } from "~/tasks/MockDataCreator/types";
+import type { Context } from "~/types";
+import type { IMockDataCreatorInput, IMockDataCreatorOutput } from "~/tasks/MockDataCreator/types";
 import {
     createMockDataCreatorTask,
     MOCK_DATA_CREATOR_TASK_ID
 } from "~/tasks/createMockDataCreatorTask";
 import { TaskResponseStatus } from "@webiny/tasks";
-import {
-    createModelAndGroup,
-    ICreateModelAndGroupResultSuccess
-} from "~/tasks/MockDataManager/createModelAndGroup";
+import type { ICreateModelAndGroupResultSuccess } from "~/tasks/MockDataManager/createModelAndGroup";
+import { createModelAndGroup } from "~/tasks/MockDataManager/createModelAndGroup";
 import { CARS_MODEL_ID } from "~/tasks/MockDataManager/constants";
 import { disableIndexing, enableIndexing } from "~/utils";
 

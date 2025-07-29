@@ -1,4 +1,4 @@
-import { ILoggerLog } from "~/types";
+import type { ILoggerLog } from "~/types";
 
 export interface IDynamoDbLoggerKeysCreateResponse {
     PK: string;

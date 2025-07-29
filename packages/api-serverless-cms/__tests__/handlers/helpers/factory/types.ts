@@ -1,5 +1,5 @@
-import { GenericRecord } from "@webiny/api/types";
-import { IInvokeCb } from "~tests/handlers/types";
+import type { GenericRecord } from "@webiny/api/types";
+import type { IInvokeCb } from "~tests/handlers/types";
 
 /**
  * Query

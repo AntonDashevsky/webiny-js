@@ -1,7 +1,8 @@
 import { createDynamoDbLogger } from "~/logger";
 import { getTenant } from "~tests/mocks/getTenant";
 import { getLocale } from "~tests/mocks/getLocale";
-import { ILoggerLog, LogType } from "~/types";
+import type { ILoggerLog } from "~/types";
+import { LogType } from "~/types";
 
 jest.setTimeout(5000);
 

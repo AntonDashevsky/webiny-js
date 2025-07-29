@@ -1,12 +1,13 @@
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import { makeDecoratable } from "~/utils";
-import { AutoCompletePrimitive, AutoCompletePrimitiveProps } from "./primitives";
+import type { AutoCompletePrimitiveProps } from "./primitives";
+import { AutoCompletePrimitive } from "./primitives";
+import type { FormComponentProps } from "~/FormComponent";
 import {
     FormComponentDescription,
     FormComponentErrorMessage,
     FormComponentLabel,
-    FormComponentNote,
-    FormComponentProps
+    FormComponentNote
 } from "~/FormComponent";
 
 type AutoCompleteProps = AutoCompletePrimitiveProps & FormComponentProps;

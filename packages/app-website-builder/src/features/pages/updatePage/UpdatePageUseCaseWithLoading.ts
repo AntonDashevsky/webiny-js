@@ -1,5 +1,6 @@
-import { ILoadingRepository } from "@webiny/app-utils";
-import { IUpdatePageUseCase, type UpdatePageParams } from "./IUpdatePageUseCase.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type { IUpdatePageUseCase } from "./IUpdatePageUseCase.js";
+import { type UpdatePageParams } from "./IUpdatePageUseCase.js";
 import { loadingActions } from "~/constants.js";
 
 export class UpdatePageUseCaseWithLoading implements IUpdatePageUseCase {

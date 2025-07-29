@@ -1,6 +1,6 @@
 import dateTimeIndexing from "~/elasticsearch/indexing/dateTimeIndexing";
-import { CmsModelFieldToElasticsearchPlugin } from "~/types";
-import {
+import type { CmsModelFieldToElasticsearchPlugin } from "~/types";
+import type {
     CmsModel,
     CmsModelDateTimeField,
     CmsModelFieldToGraphQLPlugin

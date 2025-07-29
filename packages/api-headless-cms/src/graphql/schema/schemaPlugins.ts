@@ -5,11 +5,8 @@ import { createManageResolvers } from "./createManageResolvers";
 import { createReadResolvers } from "./createReadResolvers";
 import { createPreviewResolvers } from "./createPreviewResolvers";
 import { createGraphQLSchemaPluginFromFieldPlugins } from "~/utils/getSchemaFromFieldPlugins";
-import {
-    CmsGraphQLSchemaSorterPlugin,
-    createCmsGraphQLSchemaPlugin,
-    ICmsGraphQLSchemaPlugin
-} from "~/plugins";
+import type { ICmsGraphQLSchemaPlugin } from "~/plugins";
+import { CmsGraphQLSchemaSorterPlugin, createCmsGraphQLSchemaPlugin } from "~/plugins";
 import { createFieldTypePluginRecords } from "./createFieldTypePluginRecords";
 import { CMS_MODEL_SINGLETON_TAG } from "~/constants";
 import { createSingularSDL } from "./createSingularSDL";
