@@ -1,14 +1,6 @@
 import React from "react";
 import { Compose, Plugins, useWcp } from "@webiny/app-admin";
 /**
- * Plugins for "page builder"
- */
-import { ApwOnPublish } from "./plugins/pageBuilder/ApwOnPublish";
-import { ApwOnPageDelete } from "./plugins/pageBuilder/ApwOnDelete";
-import { DecoratePagePublishActions } from "./plugins/pageBuilder/DecoratePagePublishActions";
-
-import { ApwPageBuilderWorkflowScope } from "~/views/publishingWorkflows/components/pageBuilder/ApwPageBuilderWorkflowScope";
-/**
  * Plugins for "Headless CMS"
  */
 import { ApwOnEntryDelete } from "~/plugins/cms/ApwOnEntryDelete";
@@ -35,7 +27,7 @@ export const AdvancedPublishingWorkflow = () => {
     return (
         <>
             <Compose
-                with={[ApwPageBuilderWorkflowScope, ApwHeadlessCmsWorkflowScope]}
+                with={[ApwHeadlessCmsWorkflowScope]}
                 component={WorkflowScope}
             />
             <ContentEntryEditorConfig>
@@ -49,9 +41,6 @@ export const AdvancedPublishingWorkflow = () => {
 
             <Plugins>
                 <DefaultBar />
-                <DecoratePagePublishActions />
-                <ApwOnPublish />
-                <ApwOnPageDelete />
                 <ApwPermissions />
             </Plugins>
         </>
