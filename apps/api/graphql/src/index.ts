@@ -20,7 +20,8 @@ import { createHcmsTasks } from "@webiny/api-headless-cms-tasks";
 import { createStorageOperations as createHeadlessCmsStorageOperations } from "@webiny/api-headless-cms-ddb";
 import securityPlugins from "./security";
 import tenantManager from "@webiny/api-tenant-manager";
-import { createApwGraphQL } from "@webiny/api-apw";
+import { createApwContext, createApwGraphQL } from "@webiny/api-apw";
+import { createStorageOperations as createApwStorageOperations } from "@webiny/api-apw-scheduler-so-ddb";
 import { createAco } from "@webiny/api-aco";
 import { createAuditLogs } from "@webiny/api-audit-logs";
 import { createBackgroundTasks } from "@webiny/api-background-tasks-ddb";
@@ -100,6 +101,9 @@ export const handler = createHandler({
         createFileManagerGraphQL(),
         createAssetDelivery({ documentClient }),
         fileManagerS3(),
+        createApwContext({
+            storageOperations: createApwStorageOperations({ documentClient })
+        }),
         createApwGraphQL(),
         createAco({
             documentClient
