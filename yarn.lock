@@ -14992,12 +14992,9 @@ __metadata:
     "@webiny/api-admin-users": "npm:0.0.0"
     "@webiny/api-apw": "npm:0.0.0"
     "@webiny/api-file-manager": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
     "@webiny/api-headless-cms": "npm:0.0.0"
     "@webiny/api-i18n": "npm:0.0.0"
     "@webiny/api-mailer": "npm:0.0.0"
-    "@webiny/api-page-builder": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export": "npm:0.0.0"
     "@webiny/api-security": "npm:0.0.0"
     "@webiny/api-tenancy": "npm:0.0.0"
     "@webiny/api-wcp": "npm:0.0.0"
@@ -19985,122 +19982,6 @@ __metadata:
     "@webiny/data-migration": "npm:0.0.0"
     "@webiny/handler-aws": "npm:0.0.0"
     "@webiny/migrations": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-  languageName: unknown
-  linkType: soft
-
-"api-page-builder-export-combine@workspace:apps/api/pageBuilder/export/combine":
-  version: 0.0.0-use.local
-  resolution: "api-page-builder-export-combine@workspace:apps/api/pageBuilder/export/combine"
-  dependencies:
-    "@webiny/api-form-builder": "npm:0.0.0"
-    "@webiny/api-form-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-i18n": "npm:0.0.0"
-    "@webiny/api-i18n-content": "npm:0.0.0"
-    "@webiny/api-i18n-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export-so-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-security": "npm:0.0.0"
-    "@webiny/api-security-so-ddb": "npm:0.0.0"
-    "@webiny/api-tenancy": "npm:0.0.0"
-    "@webiny/api-tenancy-so-ddb": "npm:0.0.0"
-    "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
-    "@webiny/db-dynamodb": "npm:0.0.0"
-    "@webiny/handler-aws": "npm:0.0.0"
-    "@webiny/handler-db": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-  languageName: unknown
-  linkType: soft
-
-"api-page-builder-export-process@workspace:apps/api/pageBuilder/export/process":
-  version: 0.0.0-use.local
-  resolution: "api-page-builder-export-process@workspace:apps/api/pageBuilder/export/process"
-  dependencies:
-    "@webiny/api-file-manager": "npm:0.0.0"
-    "@webiny/api-file-manager-ddb": "npm:0.0.0"
-    "@webiny/api-file-manager-s3": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
-    "@webiny/api-form-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-headless-cms": "npm:0.0.0"
-    "@webiny/api-headless-cms-ddb": "npm:0.0.0"
-    "@webiny/api-i18n": "npm:0.0.0"
-    "@webiny/api-i18n-content": "npm:0.0.0"
-    "@webiny/api-i18n-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export-so-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-security": "npm:0.0.0"
-    "@webiny/api-security-so-ddb": "npm:0.0.0"
-    "@webiny/api-tenancy": "npm:0.0.0"
-    "@webiny/api-tenancy-so-ddb": "npm:0.0.0"
-    "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
-    "@webiny/db-dynamodb": "npm:0.0.0"
-    "@webiny/handler-aws": "npm:0.0.0"
-    "@webiny/handler-db": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-  languageName: unknown
-  linkType: soft
-
-"api-page-builder-import-create@workspace:apps/api/pageBuilder/import/create":
-  version: 0.0.0-use.local
-  resolution: "api-page-builder-import-create@workspace:apps/api/pageBuilder/import/create"
-  dependencies:
-    "@webiny/api-form-builder": "npm:0.0.0"
-    "@webiny/api-form-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-i18n": "npm:0.0.0"
-    "@webiny/api-i18n-content": "npm:0.0.0"
-    "@webiny/api-i18n-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export-so-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-security": "npm:0.0.0"
-    "@webiny/api-security-so-ddb": "npm:0.0.0"
-    "@webiny/api-tenancy": "npm:0.0.0"
-    "@webiny/api-tenancy-so-ddb": "npm:0.0.0"
-    "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
-    "@webiny/db-dynamodb": "npm:0.0.0"
-    "@webiny/handler-aws": "npm:0.0.0"
-    "@webiny/handler-db": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-  languageName: unknown
-  linkType: soft
-
-"api-page-builder-import-process@workspace:apps/api/pageBuilder/import/process":
-  version: 0.0.0-use.local
-  resolution: "api-page-builder-import-process@workspace:apps/api/pageBuilder/import/process"
-  dependencies:
-    "@webiny/api-aco": "npm:0.0.0"
-    "@webiny/api-file-manager": "npm:0.0.0"
-    "@webiny/api-file-manager-ddb": "npm:0.0.0"
-    "@webiny/api-file-manager-s3": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
-    "@webiny/api-form-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-headless-cms": "npm:0.0.0"
-    "@webiny/api-headless-cms-ddb": "npm:0.0.0"
-    "@webiny/api-i18n": "npm:0.0.0"
-    "@webiny/api-i18n-content": "npm:0.0.0"
-    "@webiny/api-i18n-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder": "npm:0.0.0"
-    "@webiny/api-page-builder-aco": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export-so-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-security": "npm:0.0.0"
-    "@webiny/api-security-so-ddb": "npm:0.0.0"
-    "@webiny/api-tenancy": "npm:0.0.0"
-    "@webiny/api-tenancy-so-ddb": "npm:0.0.0"
-    "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
-    "@webiny/db-dynamodb": "npm:0.0.0"
-    "@webiny/handler-aws": "npm:0.0.0"
-    "@webiny/handler-db": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
   languageName: unknown
   linkType: soft
