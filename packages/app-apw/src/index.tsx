@@ -26,10 +26,7 @@ export const AdvancedPublishingWorkflow = () => {
 
     return (
         <>
-            <Compose
-                with={[ApwHeadlessCmsWorkflowScope]}
-                component={WorkflowScope}
-            />
+            <Compose with={[ApwHeadlessCmsWorkflowScope]} component={WorkflowScope} />
             <ContentEntryEditorConfig>
                 <DecoratePublishEntryAction />
                 <Compose with={EntryRevisionListItem} component={PublishEntryRevisionListItem} />
