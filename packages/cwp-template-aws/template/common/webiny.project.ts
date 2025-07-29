@@ -30,5 +30,9 @@ export default {
         core: "apps/core",
         api: "apps/api",
         admin: "apps/admin"
+    },
+    featureFlags: {
+        newWatchCommand: true,
+        rspack: true
     }
 };
