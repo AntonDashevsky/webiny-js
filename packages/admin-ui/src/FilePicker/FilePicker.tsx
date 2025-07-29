@@ -1,17 +1,17 @@
 import React, { useCallback, useMemo } from "react";
 import { makeDecoratable, withStaticProps } from "~/utils";
-import { FilePickerPrimitive, type FilePickerPrimitiveProps } from "./primitives";
+import {
+    FilePickerDescription,
+    FilePickerLabel,
+    FilePickerPrimitive,
+    type FilePickerPrimitiveProps
+} from "./primitives";
 import {
     FormComponentErrorMessage,
     FormComponentNote,
     type FormComponentProps
 } from "~/FormComponent";
-import {
-    ImagePreview,
-    RichItemPreview,
-    TextOnlyPreview,
-    FormPickerLabel
-} from "~/FilePicker/primitives/components";
+import { ImagePreview, RichItemPreview, TextOnlyPreview } from "~/FilePicker/primitives/components";
 
 type FilePickerProps = FilePickerPrimitiveProps & FormComponentProps;
 
@@ -46,26 +46,20 @@ const BaseFilePicker = ({
     return (
         <div className={"wby-w-full"}>
             {type !== "area" && (
-                <FormPickerLabel
-                    label={label}
-                    required={required}
-                    disabled={disabled}
-                    description={description}
-                    invalid={invalid}
-                />
-            )}
-            <FilePickerPrimitive
-                {...props}
-                label={
-                    <FormPickerLabel
+                <>
+                    <FilePickerLabel
                         label={label}
                         required={required}
                         disabled={disabled}
-                        description={description}
-                        className={"wby-m-0"}
                         invalid={invalid}
                     />
-                }
+                    <FilePickerDescription description={description} disabled={disabled} />
+                </>
+            )}
+            <FilePickerPrimitive
+                {...props}
+                label={label}
+                description={description}
                 disabled={disabled}
                 invalid={invalid}
                 onBlur={onBlur}

@@ -7,7 +7,8 @@ import {
     type FormComponentProps
 } from "~/FormComponent";
 import {
-    FormPickerLabel,
+    FilePickerDescription,
+    FilePickerLabel,
     ImagePreview,
     RichItemPreview,
     TextOnlyPreview
@@ -46,26 +47,20 @@ const BaseMultiFilePicker = ({
     return (
         <div className={"wby-w-full"}>
             {type !== "area" && (
-                <FormPickerLabel
-                    label={label}
-                    required={required}
-                    disabled={disabled}
-                    description={description}
-                    invalid={invalid}
-                />
-            )}
-            <MultiFilePickerPrimitive
-                {...props}
-                label={
-                    <FormPickerLabel
+                <>
+                    <FilePickerLabel
                         label={label}
                         required={required}
                         disabled={disabled}
-                        description={description}
                         invalid={invalid}
-                        className={"wby-m-0"}
                     />
-                }
+                    <FilePickerDescription description={description} disabled={disabled} />
+                </>
+            )}
+            <MultiFilePickerPrimitive
+                {...props}
+                label={label}
+                description={description}
                 disabled={disabled}
                 invalid={invalid}
                 onBlur={onBlur}

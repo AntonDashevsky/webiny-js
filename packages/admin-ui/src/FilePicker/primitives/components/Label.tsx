@@ -1,38 +1,31 @@
 import * as React from "react";
-import {
-    FormComponentDescription,
-    FormComponentLabel,
-    type FormComponentProps
-} from "~/FormComponent";
+import { FormComponentLabel, type FormComponentProps } from "~/FormComponent";
 
-type FormPickerLabelProps = Pick<
-    FormComponentProps,
-    "label" | "description" | "disabled" | "required"
-> & {
+type FilePickerLabelProps = Pick<FormComponentProps, "label" | "disabled" | "required"> & {
     invalid?: boolean;
     className?: string;
 };
 
-const FormPickerLabel = ({
+const FilePickerLabel = ({
     label,
-    description,
     required,
     disabled,
     invalid,
     className
-}: FormPickerLabelProps) => {
+}: FilePickerLabelProps) => {
+    if (!label) {
+        return null;
+    }
+
     return (
-        <>
-            <FormComponentLabel
-                text={label}
-                required={required}
-                disabled={disabled}
-                className={className}
-                invalid={invalid}
-            />
-            <FormComponentDescription text={description} disabled={disabled} />
-        </>
+        <FormComponentLabel
+            text={label}
+            required={required}
+            disabled={disabled}
+            className={className}
+            invalid={invalid}
+        />
     );
 };
 
-export { FormPickerLabel, type FormPickerLabelProps };
+export { FilePickerLabel, type FilePickerLabelProps };
