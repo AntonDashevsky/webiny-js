@@ -18,6 +18,7 @@ import { createHcmsTasks } from "@webiny/api-headless-cms-tasks-ddb-es";
 import { createAco } from "@webiny/api-aco";
 import { createAcoHcmsContext } from "@webiny/api-headless-cms-aco";
 import securityPlugins from "./security";
+import { createWebsiteBuilder } from "@webiny/api-website-builder";
 import tenantManager from "@webiny/api-tenant-manager";
 import { createAuditLogs } from "@webiny/api-audit-logs";
 import { createBackgroundTasks } from "@webiny/api-background-tasks-es";
@@ -66,6 +67,7 @@ export const handler = createHandler({
             })
         }),
         createHeadlessCmsGraphQL(),
+        createWebsiteBuilder(),
         createRecordLocking(),
         createBackgroundTasks(),
         createFileManagerContext({
