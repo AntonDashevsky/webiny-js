@@ -68,7 +68,6 @@ export class CSSInliner {
 
                 const root = postcss.parse(result.css);
 
-                // @ts-expect-error TS complains about `atRule.parent.name`
                 if (atRule.parent?.type === "atrule" && atRule.parent.name === "media") {
                     atRule.replaceWith(root);
                 } else {
