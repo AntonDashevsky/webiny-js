@@ -26,7 +26,9 @@ const meta: Meta<typeof MultiAutoCompletePrimitive> = {
         return (
             <div className={"wby-w-full"}>
                 <MultiAutoCompletePrimitive {...args} values={values} onValuesChange={setValues} />
-                <div className={"wby-mt-4 wby-text-center"}>Current selected values: {values}</div>
+                <div className={"wby-mt-4 wby-text-center"}>
+                    Current selected values: {values?.join(",")}
+                </div>
             </div>
         );
     }
@@ -163,10 +165,70 @@ export const GhostVariantInvalid: Story = {
     }
 };
 
+export const GhostNegativeVariant: Story = {
+    args: {
+        ...Default.args,
+        variant: "ghost-negative",
+        placeholder: "Custom placeholder"
+    },
+    decorators: [
+        Story => (
+            <div className="wby-bg-neutral-dark wby-text-neutral-light wby-p-xl">
+                <Story />
+            </div>
+        )
+    ]
+};
+
+export const GhostNegativeVariantDisabled: Story = {
+    args: {
+        ...GhostNegativeVariant.args,
+        disabled: true
+    },
+    decorators: [
+        Story => (
+            <div className="wby-bg-neutral-dark wby-text-neutral-light wby-p-xl">
+                <Story />
+            </div>
+        )
+    ]
+};
+
+export const GhostNegativeVariantInvalid: Story = {
+    args: {
+        ...GhostNegativeVariant.args,
+        invalid: true
+    },
+    decorators: [
+        Story => (
+            <div className="wby-bg-neutral-dark wby-text-neutral-light wby-p-xl">
+                <Story />
+            </div>
+        )
+    ]
+};
+
 export const WithPredefinedValue: Story = {
     args: {
         ...Default.args,
-        values: ["Eastern Standard Time (EST)"]
+        options: [
+            { label: "Eastern Standard Time (EST)", value: "est" },
+            { label: "Central Standard Time (CST)", value: "cst" },
+            { label: "Pacific Standard Time (PST)", value: "pst" },
+            { label: "Greenwich Mean Time (GMT)", value: "gmt" },
+            { label: "Central European Time (CET)", value: "cet" },
+            { label: "Central Africa Time (CAT)", value: "cat" },
+            { label: "India Standard Time (IST)", value: "ist" },
+            { label: "China Standard Time (CST)", value: "cst_china" },
+            { label: "Japan Standard Time (JST)", value: "jst" },
+            { label: "Australian Western Standard Time (AWST)", value: "awst" },
+            { label: "New Zealand Standard Time (NZST)", value: "nzst" },
+            { label: "Fiji Time (FJT)", value: "fjt" },
+            { label: "Argentina Time (ART)", value: "art" },
+            { label: "Bolivia Time (BOT)", value: "bot" },
+            { label: "Brasilia Time (BRT)", value: "brt" }
+        ],
+        values: ["est", "ist", "brt"]
     }
 };
 
@@ -430,7 +492,9 @@ export const WithCustomSelectedOptionRenderer: Story = {
                     onValuesChange={setValues}
                     selectedOptionRenderer={selectedOptionRenderer}
                 />
-                <div className={"wby-mt-4 wby-text-center"}>Current selected values: {values}</div>
+                <div className={"wby-mt-4 wby-text-center"}>
+                    Current selected values: {values?.join(",")}
+                </div>
             </div>
         );
     }
@@ -510,7 +574,9 @@ export const WithExternalValueControl: Story = {
                 <div className={"wby-mt-4 wby-text-center"}>
                     <Button text={"Reset"} onClick={() => setValues(args.values)} />
                 </div>
-                <div className={"wby-mt-4 wby-text-center"}>Current selected values: {values}</div>
+                <div className={"wby-mt-4 wby-text-center"}>
+                    Current selected values: {values?.join(",")}
+                </div>
             </div>
         );
     }
