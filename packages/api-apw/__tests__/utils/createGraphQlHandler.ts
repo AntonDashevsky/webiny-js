@@ -17,17 +17,13 @@ import {
     UPDATE_WORKFLOW_MUTATION
 } from "./graphql/workflow";
 import type { Plugin, PluginCollection } from "@webiny/plugins/types";
-import { createApwGraphQL, createApwPageBuilderContext } from "~/index";
+import { createApwGraphQL, createApwContext } from "~/index";
 import {
     CmsParametersPlugin,
     createHeadlessCmsContext,
     createHeadlessCmsGraphQL
 } from "@webiny/api-headless-cms";
 import { createTenancyAndSecurity } from "./tenancySecurity";
-import {
-    createPageBuilderContext,
-    createPageBuilderGraphQL
-} from "@webiny/api-page-builder/graphql";
 import { CREATE_CATEGORY, GET_CATEGORY } from "./graphql/categories";
 import { CREATE_PAGE, DELETE_PAGE, GET_PAGE, PUBLISH_PAGE, UPDATE_PAGE } from "./graphql/pages";
 import {
@@ -111,7 +107,6 @@ export const createGraphQlHandler = (params: GQLHandlerCallableParams) => {
 
     const apwScheduleStorage = getStorageOps<ApwScheduleActionStorageOperations>("apwSchedule");
     const cmsStorage = getStorageOps<HeadlessCmsStorageOperations>("cms");
-    const pageBuilderStorage = getStorageOps<PageBuilderStorageOperations>("pageBuilder");
     const i18nStorage = getStorageOps<any[]>("i18n");
 
     const handler = createHandler({
@@ -154,15 +149,11 @@ export const createGraphQlHandler = (params: GQLHandlerCallableParams) => {
             }),
             ...i18nStorage.storageOperations,
             mockLocalesPlugins(),
-            createPageBuilderGraphQL(),
-            createPageBuilderContext({
-                storageOperations: pageBuilderStorage.storageOperations
-            }),
             createHeadlessCmsContext({
                 storageOperations: cmsStorage.storageOperations
             }),
             createHeadlessCmsGraphQL(),
-            createApwPageBuilderContext({
+            createApwContext({
                 storageOperations: apwScheduleStorage.storageOperations
             }),
             createApwGraphQL(),

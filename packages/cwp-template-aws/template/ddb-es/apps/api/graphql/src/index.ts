@@ -10,7 +10,6 @@ import dynamoDbPlugins from "@webiny/db-dynamodb/plugins";
 import elasticsearchClientContext, { createElasticsearchClient } from "@webiny/api-elasticsearch";
 import { createFileManagerContext, createFileManagerGraphQL } from "@webiny/api-file-manager";
 import { createFileManagerStorageOperations } from "@webiny/api-file-manager-ddb";
-import logsPlugins from "@webiny/handler-logs";
 import fileManagerS3, { createAssetDelivery } from "@webiny/api-file-manager-s3";
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
 import { createStorageOperations as createHeadlessCmsStorageOperations } from "@webiny/api-headless-cms-ddb-es";
@@ -22,7 +21,8 @@ import { createWebsiteBuilder } from "@webiny/api-website-builder";
 import tenantManager from "@webiny/api-tenant-manager";
 import { createAuditLogs } from "@webiny/api-audit-logs";
 import { createBackgroundTasks } from "@webiny/api-background-tasks-es";
-import { createApwGraphQL } from "@webiny/api-apw";
+import { createApwContext, createApwGraphQL } from "@webiny/api-apw";
+import { createStorageOperations as createApwStorageOperations } from "@webiny/api-apw-scheduler-so-ddb";
 import { createWebsockets } from "@webiny/api-websockets";
 import { createRecordLocking } from "@webiny/api-record-locking";
 import { createLogger } from "@webiny/api-log";
@@ -44,7 +44,6 @@ export const handler = createHandler({
         createWcpContext(),
         createWcpGraphQL(),
         dynamoDbPlugins(),
-        logsPlugins(),
         graphqlPlugins({ debug }),
         elasticsearchClientContext(elasticsearchClient),
         dbPlugins({
@@ -78,6 +77,9 @@ export const handler = createHandler({
         createFileManagerGraphQL(),
         createAssetDelivery({ documentClient }),
         fileManagerS3(),
+        createApwContext({
+            storageOperations: createApwStorageOperations({ documentClient })
+        }),
         createApwGraphQL(),
         createAco({
             documentClient
