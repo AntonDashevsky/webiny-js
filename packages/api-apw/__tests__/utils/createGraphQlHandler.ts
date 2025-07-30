@@ -66,7 +66,6 @@ import {
     contentEntryUpdateMutationFactory
 } from "~tests/utils/graphql/cms.entry";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import type { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
 import type { ApwScheduleActionStorageOperations } from "~/scheduler/types";
 import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 
