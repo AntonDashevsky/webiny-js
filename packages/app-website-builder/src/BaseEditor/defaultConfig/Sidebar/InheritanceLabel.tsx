@@ -38,7 +38,7 @@ export const InheritanceLabel = ({
     const icon = useMemo(() => {
         const bp = inheritedFrom ?? baseBreakpoint.name;
         return getBreakpointIcon(breakpoints, bp);
-    }, [inheritedFrom, breakpoint.name]);
+    }, [inheritedFrom, breakpoint.name, breakpoints.length]);
 
     if (isBaseBreakpoint) {
         return <FormComponentLabel text={text} />;
@@ -48,24 +48,13 @@ export const InheritanceLabel = ({
         <div className={"wby-flex wby-items-center"}>
             <DropdownMenu
                 trigger={
-                    isOverridden ? (
-                        <Icon
-                            icon={icon}
-                            label=""
-                            size="sm"
-                            color="neutral-strong"
-                            className={iconClassName}
-                            style={{ fill: "hsl(var(--bg-success-default))" }}
-                        />
-                    ) : (
-                        <Icon
-                            icon={icon}
-                            label=""
-                            size="sm"
-                            color="neutral-strong"
-                            className={iconClassName}
-                        />
-                    )
+                    <Icon
+                        icon={icon}
+                        label=""
+                        size="sm"
+                        color={isOverridden ? "accent" : "neutral-strong"}
+                        className={iconClassName}
+                    />
                 }
                 align="center"
                 side="bottom"
