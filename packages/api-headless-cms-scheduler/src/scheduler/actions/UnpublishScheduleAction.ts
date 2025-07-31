@@ -20,7 +20,6 @@ import type { ISchedulerService } from "~/service/types.js";
 import { dateToISOString } from "~/scheduler/dates.js";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { dateInTheFuture } from "~/utils/dateInTheFuture.js";
-import { WebinyError } from "@webiny/error";
 import { parseIdentifier } from "@webiny/utils/parseIdentifier.js";
 
 export type UnpublishScheduleActionCms = Pick<
@@ -32,7 +31,7 @@ export interface IUnpublishScheduleActionParams {
     service: ISchedulerService;
     cms: UnpublishScheduleActionCms;
     targetModel: CmsModel;
-    scheduleModel: CmsModel;
+    schedulerModel: CmsModel;
     getIdentity: () => CmsIdentity;
     fetcher: IScheduleFetcher;
 }
@@ -41,7 +40,7 @@ export class UnpublishScheduleAction implements IScheduleAction {
     private readonly service: ISchedulerService;
     private readonly cms: UnpublishScheduleActionCms;
     private readonly targetModel: CmsModel;
-    private readonly scheduleModel: CmsModel;
+    private readonly schedulerModel: CmsModel;
     private readonly getIdentity: () => CmsIdentity;
     private readonly fetcher: IScheduleFetcher;
 
@@ -49,7 +48,7 @@ export class UnpublishScheduleAction implements IScheduleAction {
         this.service = params.service;
         this.cms = params.cms;
         this.targetModel = params.targetModel;
-        this.scheduleModel = params.scheduleModel;
+        this.schedulerModel = params.schedulerModel;
         this.getIdentity = params.getIdentity;
         this.fetcher = params.fetcher;
     }
@@ -61,7 +60,7 @@ export class UnpublishScheduleAction implements IScheduleAction {
     public async schedule(params: IScheduleActionScheduleParams): Promise<IScheduleRecord> {
         const { targetId, input, scheduleRecordId } = params;
 
-        const targetEntry = await this.getUpdateableTargetEntry(targetId);
+        const targetEntry = await this.getTargetEntry(targetId);
         const title = targetEntry.values[this.targetModel.titleFieldId] || "Unknown entry title";
         const identity = this.getIdentity();
 
@@ -77,7 +76,7 @@ export class UnpublishScheduleAction implements IScheduleAction {
                 model: this.targetModel,
                 scheduledBy: unpublishedEntry.savedBy,
                 scheduledOn: currentDate,
-                dateOn: currentDate,
+                // dateOn: currentDate,
                 type: ScheduleType.unpublish,
                 title
             });
@@ -95,7 +94,7 @@ export class UnpublishScheduleAction implements IScheduleAction {
                 model: this.targetModel,
                 scheduledBy: identity,
                 scheduledOn: input.scheduleOn,
-                dateOn: input.dateOn,
+                // dateOn: input.dateOn,
                 type: ScheduleType.unpublish,
                 title
             });
@@ -105,16 +104,19 @@ export class UnpublishScheduleAction implements IScheduleAction {
          */
 
         const { id: scheduleEntryId } = parseIdentifier(scheduleRecordId);
-        const scheduleEntry = await this.cms.createEntry<IScheduleEntryValues>(this.scheduleModel, {
-            id: scheduleEntryId,
-            targetId,
-            targetModelId: this.targetModel.modelId,
-            title,
-            type: ScheduleType.unpublish,
-            dateOn: input.dateOn ? dateToISOString(input.dateOn) : undefined,
-            scheduledBy: identity,
-            scheduledOn: dateToISOString(input.scheduleOn)
-        });
+        const scheduleEntry = await this.cms.createEntry<IScheduleEntryValues>(
+            this.schedulerModel,
+            {
+                id: scheduleEntryId,
+                targetId,
+                targetModelId: this.targetModel.modelId,
+                title,
+                type: ScheduleType.unpublish,
+                // dateOn: input.dateOn ? dateToISOString(input.dateOn) : undefined,
+                scheduledBy: identity,
+                scheduledOn: dateToISOString(input.scheduleOn)
+            }
+        );
 
         try {
             await this.service.create({
@@ -127,7 +129,7 @@ export class UnpublishScheduleAction implements IScheduleAction {
             );
             console.log(convertException(ex));
             try {
-                await this.cms.deleteEntry(this.scheduleModel, scheduleRecordId);
+                await this.cms.deleteEntry(this.schedulerModel, scheduleRecordId);
             } catch (err) {
                 console.error(`Error while deleting schedule entry: ${scheduleRecordId}.`);
                 console.log(convertException(err));
@@ -146,14 +148,14 @@ export class UnpublishScheduleAction implements IScheduleAction {
         const currentDate = new Date();
         const targetId = original.targetId;
 
-        const targetEntry = await this.getUpdateableTargetEntry(targetId);
+        const targetEntry = await this.getTargetEntry(targetId);
         /**
          * There are two cases when we can immediately publish the entry:
          * 1. If the user requested it.
          * 2. If the entry is scheduled for a date in the past.
          */
         if (input.immediately || dateInTheFuture(input.scheduleOn)) {
-            const publishedEntry = await this.cms.unpublishEntry(this.targetModel, targetEntry.id);
+            await this.cms.unpublishEntry(this.targetModel, targetEntry.id);
             /**
              * We can safely cancel the original schedule entry and the event.
              *
@@ -168,19 +170,19 @@ export class UnpublishScheduleAction implements IScheduleAction {
             return {
                 ...original,
                 publishOn: undefined,
-                unpublishOn: currentDate,
-                dateOn: publishedEntry.lastPublishedOn
-                    ? new Date(publishedEntry.lastPublishedOn)
-                    : undefined
+                unpublishOn: currentDate
+                // dateOn: publishedEntry.lastPublishedOn
+                //     ? new Date(publishedEntry.lastPublishedOn)
+                //     : undefined
             };
         }
 
-        await this.cms.updateEntry<Pick<IScheduleEntryValues, "scheduledOn" | "dateOn">>(
-            this.scheduleModel,
+        await this.cms.updateEntry<Pick<IScheduleEntryValues, "scheduledOn">>(
+            this.schedulerModel,
             original.id,
             {
-                scheduledOn: dateToISOString(input.scheduleOn),
-                dateOn: input.dateOn ? dateToISOString(input.dateOn) : undefined
+                scheduledOn: dateToISOString(input.scheduleOn)
+                // dateOn: input.dateOn ? dateToISOString(input.dateOn) : undefined
             }
         );
 
@@ -198,8 +200,8 @@ export class UnpublishScheduleAction implements IScheduleAction {
         return {
             ...original,
             publishOn: undefined,
-            unpublishOn: currentDate,
-            dateOn: input.dateOn
+            unpublishOn: currentDate
+            // dateOn: input.dateOn
         };
     }
 
@@ -218,7 +220,7 @@ export class UnpublishScheduleAction implements IScheduleAction {
         }
 
         try {
-            await this.cms.deleteEntry(this.scheduleModel, scheduleRecord.id);
+            await this.cms.deleteEntry(this.schedulerModel, scheduleRecord.id);
         } catch (ex) {
             if (ex.code === "NOT_FOUND" || ex instanceof NotFoundError) {
                 return;
@@ -240,17 +242,7 @@ export class UnpublishScheduleAction implements IScheduleAction {
         }
     }
 
-    private async getUpdateableTargetEntry<T = CmsEntryValues>(id: string): Promise<CmsEntry<T>> {
-        const entry = await this.cms.getEntryById<T>(this.targetModel, id);
-        if (entry.locked) {
-            throw new WebinyError(
-                `Cannot schedule a unpublish action for entry "${entry.id}" because it is locked.`,
-                "ENTRY_LOCKED",
-                {
-                    entryId: entry.id
-                }
-            );
-        }
-        return entry;
+    private async getTargetEntry<T = CmsEntryValues>(id: string): Promise<CmsEntry<T>> {
+        return await this.cms.getEntryById<T>(this.targetModel, id);
     }
 }
