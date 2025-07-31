@@ -39,7 +39,9 @@ export class PagesContext extends BaseContext {
             return await PagesStorage.create({
                 model,
                 cms: this.context.cms,
-                plugins: this.context.plugins
+                plugins: this.context.plugins,
+                getTenantId: this.getTenantId.bind(this),
+                getLocaleCode: this.getLocaleCode.bind(this)
             });
         });
     }

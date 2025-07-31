@@ -17,27 +17,39 @@ import type {
 import { entryFromStorageTransform } from "@webiny/api-headless-cms";
 import type { PluginsContainer } from "@webiny/plugins";
 
+type PagesStorageParams = {
+    model: CmsModel;
+    cms: HeadlessCms;
+    plugins: PluginsContainer;
+    getTenantId: () => string;
+    getLocaleCode: () => string;
+};
+
 export class PagesStorage implements WbPagesStorageOperations {
     private readonly cms: HeadlessCms;
     private readonly model: CmsModel;
     private readonly plugins: PluginsContainer;
+    private getTenantId: () => string;
+    private getLocaleCode: () => string;
 
-    static async create(params: { model: CmsModel; cms: HeadlessCms; plugins: PluginsContainer }) {
-        return new PagesStorage(params.model, params.cms, params.plugins);
+    static async create(params: PagesStorageParams) {
+        return new PagesStorage(params);
     }
 
-    private constructor(model: CmsModel, cms: HeadlessCms, plugins: PluginsContainer) {
-        this.plugins = plugins;
-        this.model = model;
-        this.cms = cms;
+    private constructor(params: PagesStorageParams) {
+        this.plugins = params.plugins;
+        this.model = params.model;
+        this.cms = params.cms;
+        this.getTenantId = params.getTenantId;
+        this.getLocaleCode = params.getLocaleCode;
     }
 
     public get = async (params: WbPagesStorageOperationsGetParams): Promise<WbPage | null> => {
-        const rawEntry = await this.cms.getEntry(this.model, params);
+        const rawEntry = await this.cms.getEntry(this.getModel(), params);
 
         const entry = await entryFromStorageTransform(
             { plugins: this.plugins },
-            this.model,
+            this.getModel(),
             rawEntry
         );
 
@@ -45,11 +57,11 @@ export class PagesStorage implements WbPagesStorageOperations {
     };
 
     public getById = async (id: string): Promise<WbPage | null> => {
-        const rawEntry = await this.cms.getEntryById(this.model, id);
+        const rawEntry = await this.cms.getEntryById(this.getModel(), id);
 
         const entry = await entryFromStorageTransform(
             { plugins: this.plugins },
-            this.model,
+            this.getModel(),
             rawEntry
         );
 
@@ -57,14 +69,14 @@ export class PagesStorage implements WbPagesStorageOperations {
     };
 
     public getRevisions = async (pageId: string): Promise<WbPage[]> => {
-        const revisions = await this.cms.getEntryRevisions(this.model, pageId);
+        const revisions = await this.cms.getEntryRevisions(this.getModel(), pageId);
         return revisions.map(entry => this.getWbPageFieldValues(entry));
     };
 
     public list = async (
         params: WbPagesStorageOperationsListParams
     ): Promise<WbPagesStorageOperationsListResponse> => {
-        const [entries, meta] = await this.cms.listEntries(this.model, {
+        const [entries, meta] = await this.cms.listEntries(this.getModel(), {
             after: params.after,
             limit: params.limit,
             sort: params.sort,
@@ -76,44 +88,48 @@ export class PagesStorage implements WbPagesStorageOperations {
     };
 
     public create = async ({ data }: WbPagesStorageOperationsCreateParams): Promise<WbPage> => {
-        const entry = await this.cms.createEntry(this.model, data);
+        const entry = await this.cms.createEntry(this.getModel(), data);
         return this.getWbPageFieldValues(entry);
     };
 
     public update = async ({ id, data }: WbPagesStorageOperationsUpdateParams): Promise<WbPage> => {
-        const entry = await this.cms.getEntryById(this.model, id);
+        const entry = await this.cms.getEntryById(this.getModel(), id);
 
         const values = omit(data, ["id", "tenant", "locale", "webinyVersion"]);
 
-        const updatedEntry = await this.cms.updateEntry(this.model, entry.id, values);
+        const updatedEntry = await this.cms.updateEntry(this.getModel(), entry.id, values);
 
         return this.getWbPageFieldValues(updatedEntry);
     };
 
     public publish = async ({ id }: WbPagesStorageOperationsPublishParams): Promise<WbPage> => {
-        const entry = await this.cms.publishEntry(this.model, id);
+        const entry = await this.cms.publishEntry(this.getModel(), id);
         return this.getWbPageFieldValues(entry);
     };
 
     public unpublish = async ({ id }: WbPagesStorageOperationsUnpublishParams): Promise<WbPage> => {
-        const entry = await this.cms.unpublishEntry(this.model, id);
+        const entry = await this.cms.unpublishEntry(this.getModel(), id);
         return this.getWbPageFieldValues(entry);
     };
 
     public move = async ({ id, folderId }: WbPagesStorageOperationsMoveParams): Promise<void> => {
-        await this.cms.moveEntry(this.model, id, folderId);
+        await this.cms.moveEntry(this.getModel(), id, folderId);
     };
 
     public createRevisionFrom = async ({
         id
     }: WbPagesStorageOperationsCreateRevisionFromParams): Promise<WbPage> => {
-        const entry = await this.cms.createEntryRevisionFrom(this.model, id, {});
+        const entry = await this.cms.createEntryRevisionFrom(this.getModel(), id, {});
         return this.getWbPageFieldValues(entry);
     };
 
     public delete = async ({ id }: WbPagesStorageOperationsDeleteParams): Promise<void> => {
-        await this.cms.deleteEntry(this.model, id);
+        await this.cms.deleteEntry(this.getModel(), id);
     };
+
+    private getModel() {
+        return { ...this.model, tenant: this.getTenantId(), locale: this.getLocaleCode() };
+    }
 
     private getWbPageFieldValues(entry: CmsEntry) {
         return {
