@@ -3,6 +3,8 @@ import { createVoidComponent, makeDecoratable } from "@webiny/app";
 
 export interface LayoutProps {
     title?: string;
+    startElement?: React.ReactNode;
+    hideNavigation?: boolean;
     children: React.ReactNode;
 }
 

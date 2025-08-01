@@ -16,3 +16,4 @@ coverage/**
 packages/cli/files/**/*.json
 packages/create-webiny-project/utils/binaries/**
 .github/workflows/**/*.yml
+nextjs/

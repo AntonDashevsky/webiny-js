@@ -11,22 +11,31 @@ import {
 import { HeaderBar, cn, useSidebar } from "@webiny/admin-ui";
 
 export const Layout = LayoutRenderer.createDecorator(() => {
-    return function Layout({ title, children }: LayoutProps) {
+    return function Layout({
+        title,
+        startElement = null,
+        hideNavigation = false,
+        children
+    }: LayoutProps) {
         const { pinned } = useSidebar();
+
+        const widthClassNames = {
+            "wby-max-w-[calc(100%-theme(spacing.sidebar-expanded))] ": pinned,
+            "wby-max-w-[calc(100%-theme(spacing.sidebar-collapsed))] ": !pinned
+        };
+
         return (
             <>
                 {title ? <Helmet title={title} /> : null}
-                <Navigation />
+                {hideNavigation ? null : <Navigation />}
                 <div
                     className={cn(
                         "wby-ml-auto wby-bg-neutral-base wby-transition-[max-width,min-width] wby-ease-linear wby-w-full",
-                        {
-                            "wby-max-w-[calc(100%-theme(spacing.sidebar-expanded))] ": pinned,
-                            "wby-max-w-[calc(100%-theme(spacing.sidebar-collapsed))] ": !pinned
-                        }
+                        hideNavigation ? undefined : widthClassNames
                     )}
                 >
                     <HeaderBar
+                        start={startElement}
                         end={
                             <div className={"wby-flex"}>
                                 <LocaleSelector />
