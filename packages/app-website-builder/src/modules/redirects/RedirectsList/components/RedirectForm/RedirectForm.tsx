@@ -20,19 +20,19 @@ export const RedirectForm = () => {
                 <Bind
                     name={"redirectType"}
                     validators={[validation.create("required")]}
-                    defaultValue={"301"}
+                    defaultValue={"permanent"}
                 >
                     <Select
                         displayResetAction={false}
                         label={"Redirect Type"}
                         options={[
                             {
-                                value: "301",
-                                label: "301 Permanent Redirect"
+                                value: "permanent",
+                                label: "Permanent"
                             },
                             {
-                                value: "302",
-                                label: "302 Temporary Redirect"
+                                value: "temporary",
+                                label: "Temporary"
                             }
                         ]}
                     />
