@@ -19,7 +19,7 @@ export const Table = () => {
             onSelectRow={documents => selectPages(documents)}
             selected={vm.selected}
             nameColumnId={"name"}
-            namespace={"wb-document"}
+            namespace={"wbPage"}
         />
     );
 };

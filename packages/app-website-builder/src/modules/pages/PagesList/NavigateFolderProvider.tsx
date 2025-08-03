@@ -1,13 +1,13 @@
 import React from "react";
-import { LOCAL_STORAGE_KEY_LATEST_VISITED_FOLDER, PAGE_LIST_ROUTE } from "~/constants";
+import { WB_PAGE_LATEST_VISITED_FOLDER, WB_PAGES_LIST_ROUTE } from "~/constants";
 import { NavigateFolderWithRouterProvider } from "@webiny/app-aco/contexts/navigateFolderWithRouter.js";
 
 const createStorageKey = () => {
-    return LOCAL_STORAGE_KEY_LATEST_VISITED_FOLDER;
+    return WB_PAGE_LATEST_VISITED_FOLDER;
 };
 
 const createListLink = () => {
-    return PAGE_LIST_ROUTE;
+    return WB_PAGES_LIST_ROUTE;
 };
 
 export const NavigateFolderProvider = ({ children }: { children: React.ReactNode }) => {

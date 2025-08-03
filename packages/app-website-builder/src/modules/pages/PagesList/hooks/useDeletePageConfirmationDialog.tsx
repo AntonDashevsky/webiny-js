@@ -21,7 +21,7 @@ export const useDeletePageConfirmationDialog = ({ page }: UseDeletePageConfirmat
         )
     });
 
-    const openUnpublishPageConfirmationDialog = useCallback(
+    const openDeletePageConfirmationDialog = useCallback(
         () =>
             showConfirmation(async () => {
                 try {
@@ -34,5 +34,5 @@ export const useDeletePageConfirmationDialog = ({ page }: UseDeletePageConfirmat
         [page]
     );
 
-    return { openUnpublishPageConfirmationDialog };
+    return { openDeletePageConfirmationDialog };
 };

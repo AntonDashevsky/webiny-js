@@ -71,8 +71,7 @@ export class ListRedirectsGqlGateway implements IListRedirectsGateway {
             variables: {
                 ...params,
                 where: {
-                    ...(params.where ?? {}),
-                    latest: true
+                    ...(params.where ?? {})
                 }
             },
             fetchPolicy: "network-only"

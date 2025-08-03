@@ -28,9 +28,8 @@ interface DocumentListPresenterParams {
 class DocumentListPresenter {
     private folderId: string = ROOT_FOLDER;
     private foldersCache: IListCache<Folder>;
-    private foldersLoadingRepository: ILoadingRepository;
     private documentsCache: IListCache<Page>;
-    private documentsLoadingRepository: ILoadingRepository;
+    private loadingRepository: ILoadingRepository;
     private searchRepository: ISearchRepository;
     private metaRepository: IMetaRepository;
     private sortingRepository: ISortingRepository;
@@ -40,14 +39,13 @@ class DocumentListPresenter {
 
     constructor() {
         this.foldersCache = folderCacheFactory.getCache(WB_PAGE_APP);
-        this.foldersLoadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
         this.documentsCache = pageListCache;
-        this.documentsLoadingRepository = loadingRepositoryFactory.getRepository("WbPage");
-        this.searchRepository = searchRepositoryFactory.getRepository("WbPage");
-        this.metaRepository = metaRepositoryFactory.getRepository("WbPage");
-        this.sortingRepository = sortRepositoryFactory.getRepository("WbPage");
-        this.filterRepository = filterRepositoryFactory.getRepository("WbPage");
-        this.selectedRepository = selectedItemsRepositoryFactory.getRepository("WbPage");
+        this.loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
+        this.searchRepository = searchRepositoryFactory.getRepository(WB_PAGE_APP);
+        this.metaRepository = metaRepositoryFactory.getRepository(WB_PAGE_APP);
+        this.sortingRepository = sortRepositoryFactory.getRepository(WB_PAGE_APP);
+        this.filterRepository = filterRepositoryFactory.getRepository(WB_PAGE_APP);
+        this.selectedRepository = selectedItemsRepositoryFactory.getRepository(WB_PAGE_APP);
         makeAutoObservable(this);
     }
 
@@ -149,14 +147,14 @@ class DocumentListPresenter {
 
     private getIsLoading = () => {
         return Boolean(
-            this.documentsLoadingRepository.isLoading(loadingActions.init) ||
-                this.documentsLoadingRepository.isLoading(loadingActions.list) ||
-                this.foldersLoadingRepository.isLoading(this.folderId)
+            this.loadingRepository.isLoading(loadingActions.init) ||
+                this.loadingRepository.isLoading(loadingActions.list) ||
+                this.loadingRepository.isLoading(this.folderId)
         );
     };
 
     private getIsLoadingMore = () => {
-        return Boolean(this.documentsLoadingRepository.isLoading(loadingActions.listMore));
+        return Boolean(this.loadingRepository.isLoading(loadingActions.listMore));
     };
 
     private getIsEmpty() {

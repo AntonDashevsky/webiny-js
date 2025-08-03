@@ -1,5 +1,5 @@
 import React from "react";
-import { PageListConfig } from "~/configs";
+import { PageListConfig } from "./configs/list";
 import { DeleteFolder, EditFolder, SetFolderPermissions } from "@webiny/app-aco";
 import {
     CellActions,
@@ -26,7 +26,7 @@ import { StaticPageForm } from "~/modules/pages/PagesList/components/Main/Create
 
 const { Browser } = PageListConfig;
 
-export const PagesConfig = () => {
+export const PagesListConfig = () => {
     return (
         <>
             <PageListConfig>

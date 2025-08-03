@@ -26,6 +26,9 @@ export const loadingActions = {
 } as const;
 
 export const WB_PAGE_APP = "wb:page";
-export const LOCAL_STORAGE_KEY_LATEST_VISITED_FOLDER = "webiny_wb_page_latest_visited_folder";
-export const PAGE_LIST_ROUTE = "/website-builder/pages";
-export const PAGE_EDITOR_ROUTE = "/website-builder/pages/editor";
+export const WB_REDIRECTS_APP = "wb:redirect";
+export const WB_PAGE_LATEST_VISITED_FOLDER = "webiny_wb_page_latest_visited_folder";
+export const WB_REDIRECT_LATEST_VISITED_FOLDER = "webiny_wb_redirect_latest_visited_folder";
+export const WB_REDIRECT_LIST_ROUTE = "/website-builder/redirects";
+export const WB_PAGES_LIST_ROUTE = "/website-builder/pages";
+export const WB_PAGE_EDITOR_ROUTE = "/website-builder/pages/editor";

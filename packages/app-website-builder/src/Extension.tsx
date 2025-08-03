@@ -4,18 +4,20 @@ import { HasPermission } from "@webiny/app-security";
 import { ReactComponent as PagesIcon } from "@webiny/icons/table_chart.svg";
 import { PageEditor } from "~/modules/pages/PageEditor.js";
 import { PageList } from "~/modules/pages/PageList.js";
-import { PAGE_EDITOR_ROUTE, PAGE_LIST_ROUTE } from "~/constants.js";
+import { WB_PAGE_EDITOR_ROUTE, WB_PAGES_LIST_ROUTE, WB_REDIRECT_LIST_ROUTE } from "~/constants.js";
 import { useSettingsDialog } from "~/modules/settings/useSettingsDialog";
 import { useIntegrationsDialog } from "./modules/integrations/useIntegrationsDialog.js";
-import { PagesConfig } from "~/modules/pages/PagesConfig";
+import { PagesListConfig } from "~/modules/pages/PagesListConfig";
+import { RedirectsList } from "~/modules/redirects/RedirectsList";
+import { RedirectsListConfig } from "~/modules/redirects/RedirectsListConfig";
 
-const { Menu } = AdminConfig;
+const { Menu, Route } = AdminConfig;
 
 export const Extension = () => {
     return (
         <>
             <AdminConfig>
-                <HasPermission any={["wb.page"]}>
+                <HasPermission any={["wb.page", "wb.redirect"]}>
                     <Menu
                         name="wb"
                         element={
@@ -41,20 +43,28 @@ export const Extension = () => {
                 </HasPermission>
 
                 <HasPermission name={"wb.page"}>
-                    <AdminConfig.Route
-                        name="wb.pages.list"
-                        path={PAGE_LIST_ROUTE}
-                        element={<PageList />}
-                    />
-                    <AdminConfig.Route
+                    <Route name="wb.pages.list" path={WB_PAGES_LIST_ROUTE} element={<PageList />} />
+                    <Route
                         name="wb.pages.editor"
-                        path={`${PAGE_EDITOR_ROUTE}/:id`}
+                        path={`${WB_PAGE_EDITOR_ROUTE}/:id`}
                         element={<PageEditor />}
                     />
                     <Menu
                         name="wb.pages"
                         parent={"wb"}
-                        element={<Menu.Link text={"Pages"} to={PAGE_LIST_ROUTE} />}
+                        element={<Menu.Link text={"Pages"} to={WB_PAGES_LIST_ROUTE} />}
+                    />
+                </HasPermission>
+                <HasPermission name={"wb.redirect"}>
+                    <Route
+                        name="wb.redirect.list"
+                        path={WB_REDIRECT_LIST_ROUTE}
+                        element={<RedirectsList />}
+                    />
+                    <Menu
+                        name="wb.redirects"
+                        parent={"wb"}
+                        element={<Menu.Link text={"Redirects"} to={WB_REDIRECT_LIST_ROUTE} />}
                     />
                 </HasPermission>
                 <HasPermission name={"wb.settings"}>
@@ -62,7 +72,8 @@ export const Extension = () => {
                 </HasPermission>
                 <Menu name="wb.integrations" parent="wb" element={<IntegrationsMenuItem />} />
             </AdminConfig>
-            <PagesConfig />
+            <PagesListConfig />
+            <RedirectsListConfig />
         </>
     );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
-import { useLayoutId } from "~/modules/pages/PagesList/components/Layout/useLayoutId.js";
+import { useLayoutId } from "./useLayoutId.js";
 import { WB_PAGE_APP } from "~/constants.js";
 
 interface LayoutProps {

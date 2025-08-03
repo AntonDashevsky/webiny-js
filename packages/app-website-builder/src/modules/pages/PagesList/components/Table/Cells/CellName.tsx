@@ -1,45 +1,10 @@
 import React from "react";
-
 import { Icon, Link, Text } from "@webiny/admin-ui";
-import { ReactComponent as Folder } from "@webiny/icons/folder.svg";
-import { ReactComponent as FolderShared } from "@webiny/icons/folder_shared.svg";
 import { ReactComponent as File } from "@webiny/icons/description.svg";
-import { useNavigateFolder } from "@webiny/app-aco";
-
-import type { FolderTableItem } from "@webiny/app-aco/types";
-import { PageListConfig } from "~/configs/index.js";
+import { PageListConfig } from "~/modules/pages/configs";
 import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
 import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl.js";
-
-interface FolderCellNameProps {
-    folder: FolderTableItem;
-}
-
-export const FolderCellName = ({ folder }: FolderCellNameProps) => {
-    const { navigateToFolder } = useNavigateFolder();
-
-    let icon = <Folder />;
-    if (folder.hasNonInheritedPermissions && folder.canManagePermissions) {
-        icon = <FolderShared />;
-    }
-
-    return (
-        <div
-            className={
-                "wby-flex wby-items-center wby-gap-sm wby-truncate wby-cursor-pointer wby-font-semibold hover:wby-underline"
-            }
-            onClick={() => navigateToFolder(folder.id)}
-        >
-            <Icon
-                size={"sm"}
-                color={"neutral-strong"}
-                icon={icon}
-                label={`Folder - ${folder.title}`}
-            />
-            <Text className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>{folder.title}</Text>
-        </div>
-    );
-};
+import { FolderCellName } from "~/modules/shared/FolderCellName";
 
 interface DocumentCellRowTitleProps {
     document: DocumentDto;

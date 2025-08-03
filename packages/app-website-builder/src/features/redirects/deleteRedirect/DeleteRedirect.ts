@@ -5,11 +5,12 @@ import { DeleteRedirectRepository } from "~/features/redirects/deleteRedirect/De
 import { DeleteRedirectUseCase } from "~/features/redirects/deleteRedirect/DeleteRedirectUseCase.js";
 import { DeleteRedirectUseCaseWithLoading } from "~/features/redirects/deleteRedirect/DeleteRedirectUseCaseWithLoading.js";
 import { redirectListCache } from "~/domain/Redirect/index.js";
+import { WB_REDIRECTS_APP } from "~/constants";
 
 export class DeleteRedirect {
     public static getInstance(gateway: IDeleteRedirectGateway): IDeleteRedirectUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository("WbRedirect");
-        const metaRepository = metaRepositoryFactory.getRepository("WbRedirect");
+        const loadingRepository = loadingRepositoryFactory.getRepository(WB_REDIRECTS_APP);
+        const metaRepository = metaRepositoryFactory.getRepository(WB_REDIRECTS_APP);
         const repository = new DeleteRedirectRepository(redirectListCache, metaRepository, gateway);
         const useCase = new DeleteRedirectUseCase(repository);
         return new DeleteRedirectUseCaseWithLoading(loadingRepository, useCase);

@@ -5,10 +5,11 @@ import { MoveRedirectRepository } from "~/features/redirects/moveRedirect/MoveRe
 import { MoveRedirectUseCase } from "~/features/redirects/moveRedirect/MoveRedirectUseCase.js";
 import { MoveRedirectUseCaseWithLoading } from "~/features/redirects/moveRedirect/MoveRedirectUseCaseWithLoading.js";
 import { redirectListCache } from "~/domain/Redirect/index.js";
+import { WB_REDIRECTS_APP } from "~/constants";
 
 export class MoveRedirect {
     public static getInstance(gateway: IMoveRedirectGateway): IMoveRedirectUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository("WbRedirect");
+        const loadingRepository = loadingRepositoryFactory.getRepository(WB_REDIRECTS_APP);
         const repository = new MoveRedirectRepository(redirectListCache, gateway);
         const useCase = new MoveRedirectUseCase(repository);
         return new MoveRedirectUseCaseWithLoading(loadingRepository, useCase);

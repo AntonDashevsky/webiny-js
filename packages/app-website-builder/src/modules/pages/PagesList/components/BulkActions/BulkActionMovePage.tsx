@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 import { getPagesLabel } from "~/modules/pages/PagesList/components/BulkActions/BulkActions.js";
 import { useMovePage } from "~/features/pages/index.js";
 import { ROOT_FOLDER } from "~/constants";
-import { PageListConfig } from "~/configs/index.js";
+import { PageListConfig } from "~/modules/pages/configs";
 
 export const BulkActionMovePage = observer(() => {
     const { useWorker, useButtons, useDialog } = PageListConfig.Browser.BulkAction;

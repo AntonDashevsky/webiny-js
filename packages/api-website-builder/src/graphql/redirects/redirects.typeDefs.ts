@@ -1,3 +1,16 @@
+const getStringFilters = (name: string) => {
+    return `
+        ${name}: String
+        ${name}_not: String
+        ${name}_contains: String
+        ${name}_not_contains: String
+        ${name}_in: [String!]
+        ${name}_not_in: [String!]
+        ${name}_startsWith: String
+        ${name}_not_startsWith: String
+    `;
+};
+
 export const redirectsTypeDefs = /* GraphQL */ `
     type WbRedirect {
         id: ID!
@@ -70,6 +83,10 @@ export const redirectsTypeDefs = /* GraphQL */ `
         savedBy_not: ID
         savedBy_in: [ID!]
         savedBy_not_in: [ID!]
+        isEnabled: Boolean
+        ${getStringFilters("redirectFrom")}
+        ${getStringFilters("redirectTo")}
+        ${getStringFilters("redirectType")}
         AND: [WbRedirectsListWhereInput!]
         OR: [WbRedirectsListWhereInput!]
     }

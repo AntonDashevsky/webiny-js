@@ -1,7 +1,7 @@
 import React from "react";
 import { FolderProvider, useAcoConfig } from "@webiny/app-aco";
 import { makeDecoratable, OptionsMenu } from "@webiny/app-admin";
-import { PageListConfig } from "~/configs/index.js";
+import { PageListConfig } from "~/modules/pages/configs";
 import { DocumentProvider } from "~/modules/pages/PagesList/hooks/useDocument.js";
 import type { FolderItem } from "@webiny/app-aco/types.js";
 

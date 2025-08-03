@@ -5,10 +5,11 @@ import { MovePageRepository } from "~/features/pages/movePage/MovePageRepository
 import { MovePageUseCase } from "~/features/pages/movePage/MovePageUseCase.js";
 import { MovePageUseCaseWithLoading } from "~/features/pages/movePage/MovePageUseCaseWithLoading.js";
 import { pageListCache } from "~/domain/Page/index.js";
+import { WB_PAGE_APP } from "~/constants";
 
 export class MovePage {
     public static getInstance(gateway: IMovePageGateway): IMovePageUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository("WbPage");
+        const loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
         const repository = new MovePageRepository(pageListCache, gateway);
         const useCase = new MovePageUseCase(repository);
         return new MovePageUseCaseWithLoading(loadingRepository, useCase);

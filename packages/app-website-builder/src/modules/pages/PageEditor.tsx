@@ -7,7 +7,7 @@ import { useGetWebsiteBuilderSettings } from "~/features";
 import { DefaultPageEditorConfig } from "./PageEditor/DefaultPageEditorConfig";
 import { DefaultEditorConfig } from "~/BaseEditor";
 import { EDITOR_NAME } from "~/modules/pages/constants";
-import { PAGE_EDITOR_ROUTE, WbPageStatus } from "~/constants";
+import { WB_PAGE_EDITOR_ROUTE, WbPageStatus } from "~/constants";
 import type { EditorPage } from "@webiny/website-builder-sdk";
 import type { Page } from "~/domain/Page";
 
@@ -49,7 +49,7 @@ export const PageEditor = () => {
                     const encodedPageId = encodeURIComponent(page.id);
                     const encodedFolderId = encodeURIComponent(page.location.folderId);
                     history.push(
-                        `${PAGE_EDITOR_ROUTE}/${encodedPageId}?folderId=${encodedFolderId}`
+                        `${WB_PAGE_EDITOR_ROUTE}/${encodedPageId}?folderId=${encodedFolderId}`
                     );
                 });
             })

@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as DuplicateIcon } from "@webiny/icons/library_add.svg";
 import { useDocument } from "~/modules/pages/PagesList/hooks/useDocument.js";
 import { useDuplicatePageConfirmationDialog } from "~/modules/pages/PagesList/hooks/useDuplicatePageConfirmationDialog.js";
-import { PageListConfig } from "~/configs/index.js";
+import { PageListConfig } from "~/modules/pages/configs";
 
 export const Duplicate = () => {
     const { document } = useDocument();

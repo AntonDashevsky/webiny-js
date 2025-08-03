@@ -4,7 +4,7 @@ import { useDialogs } from "@webiny/app-admin";
 import { ReactComponent as PublishIcon } from "@webiny/icons/publish.svg";
 import { usePublishPage } from "~/features/pages";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
-import { PAGE_LIST_ROUTE } from "~/constants";
+import { WB_PAGES_LIST_ROUTE } from "~/constants";
 import { useRouter } from "@webiny/react-router";
 import type { EditorPage } from "@webiny/website-builder-sdk";
 
@@ -32,7 +32,7 @@ export const PublishButton = () => {
                     title: "Page was published successfully!"
                 });
 
-                history.push(`${PAGE_LIST_ROUTE}?folderId=${encodeURIComponent(folderId)}`);
+                history.push(`${WB_PAGES_LIST_ROUTE}?folderId=${encodeURIComponent(folderId)}`);
             }
         });
     };

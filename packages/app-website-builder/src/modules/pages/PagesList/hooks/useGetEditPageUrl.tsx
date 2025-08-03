@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigateFolder } from "@webiny/app-aco";
-import { PAGE_EDITOR_ROUTE } from "~/constants.js";
+import { WB_PAGE_EDITOR_ROUTE } from "~/constants.js";
 
 export const useGetEditPageUrl = () => {
     const { currentFolderId } = useNavigateFolder();
@@ -16,7 +16,7 @@ export const useGetEditPageUrl = () => {
 
             const idPath = encodeURIComponent(id);
 
-            return `${PAGE_EDITOR_ROUTE}/${idPath}?${queryParams.join("&")}`;
+            return `${WB_PAGE_EDITOR_ROUTE}/${idPath}?${queryParams.join("&")}`;
         },
         [currentFolderId]
     );

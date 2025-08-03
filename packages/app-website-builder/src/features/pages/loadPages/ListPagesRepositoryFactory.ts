@@ -12,10 +12,11 @@ import type { IListPagesRepository } from "~/features/pages/loadPages/IListPages
 import { QueryStringSearchStateGateway } from "~/features/pages/loadPages/QueryStringSearchStateGateway.js";
 import { SearchRepositoryWithQueryStringGateway } from "~/features/pages/loadPages/SearchRepositoryWithQueryStringGateway.js";
 import { filterRepositoryFactory } from "~/domain/Filter/index.js";
+import { WB_PAGE_APP } from "~/constants";
 
 export class ListPagesRepositoryFactory {
     getRepository(gateway: IListPagesGateway): IListPagesRepository {
-        const namespace = "WbPage";
+        const namespace = WB_PAGE_APP;
 
         const loadingRepository = loadingRepositoryFactory.getRepository(namespace);
         const metaRepository = metaRepositoryFactory.getRepository(namespace);

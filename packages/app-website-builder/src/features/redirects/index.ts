@@ -1,3 +1,4 @@
+export * from "./getRedirect/index.js";
 export * from "./loadRedirects/index.js";
 export * from "./createRedirect/index.js";
 export * from "./updateRedirect/index.js";

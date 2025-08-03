@@ -25,9 +25,11 @@ export const TableRowProvider = <T,>({ row, children }: TableRowProviderProps<T>
 
 export const createUseTableRow = <TBaseRow = Record<string, any>,>() => {
     return <TUserRow = Record<string, any>,>() => {
-        const context = useContext<TableRowContextData<TBaseRow & DataTableDefaultData & TUserRow>>(
+        const context = useContext<
+            TableRowContextData<TBaseRow & DataTableDefaultData & { data: TUserRow }>
+        >(
             TableRowContext as unknown as Context<
-                TableRowContextData<TBaseRow & DataTableDefaultData & TUserRow>
+                TableRowContextData<TBaseRow & DataTableDefaultData & { data: TUserRow }>
             >
         );
 

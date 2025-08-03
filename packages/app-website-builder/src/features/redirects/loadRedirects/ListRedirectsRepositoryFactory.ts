@@ -12,10 +12,11 @@ import type { IListRedirectsRepository } from "~/features/redirects/loadRedirect
 import { QueryStringSearchStateGateway } from "~/features/redirects/loadRedirects/QueryStringSearchStateGateway.js";
 import { SearchRepositoryWithQueryStringGateway } from "~/features/redirects/loadRedirects/SearchRepositoryWithQueryStringGateway.js";
 import { filterRepositoryFactory } from "~/domain/Filter/index.js";
+import { WB_REDIRECTS_APP } from "~/constants";
 
 export class ListRedirectsRepositoryFactory {
     getRepository(gateway: IListRedirectsGateway): IListRedirectsRepository {
-        const namespace = "WbRedirect";
+        const namespace = WB_REDIRECTS_APP;
 
         const loadingRepository = loadingRepositoryFactory.getRepository(namespace);
         const metaRepository = metaRepositoryFactory.getRepository(namespace);

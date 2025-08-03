@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl.js";
 import { useDocument } from "~/modules/pages/PagesList/hooks/useDocument.js";
-import { PageListConfig } from "~/configs/index.js";
+import { PageListConfig } from "~/modules/pages/configs";
 
 export const Edit = () => {
     const { document } = useDocument();

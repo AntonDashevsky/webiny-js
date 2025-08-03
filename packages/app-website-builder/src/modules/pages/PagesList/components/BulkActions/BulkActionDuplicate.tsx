@@ -4,7 +4,7 @@ import { ReactComponent as DuplicateIcon } from "@webiny/icons/library_add.svg";
 import { observer } from "mobx-react-lite";
 import { getPagesLabel } from "~/modules/pages/PagesList/components/BulkActions/BulkActions.js";
 import { useDuplicatePage } from "~/features/pages/index.js";
-import { PageListConfig } from "~/configs/index.js";
+import { PageListConfig } from "~/modules/pages/configs";
 
 export const BulkActionDuplicate = observer(() => {
     const { useWorker, useButtons, useDialog } = PageListConfig.Browser.BulkAction;

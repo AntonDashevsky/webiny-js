@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from "react";
 import { IconButton, Tag } from "@webiny/admin-ui";
 import { ReactComponent as NewTab } from "@webiny/icons/open_in_new.svg";
-import { PageListConfig } from "~/configs/index.js";
+import { PageListConfig } from "~/modules/pages/configs";
 import { toTitleCaseLabel } from "~/shared/toTitleCaseLabel";
 import { usePagePreviewLink } from "~/modules/pages/PagesList/hooks/usePagePreviewLink";
 import type { PageDto } from "~/domain/Page";
@@ -9,7 +9,7 @@ import type { PageDto } from "~/domain/Page";
 const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;
 
 export const CellStatus = () => {
-    const { row } = useTableRow<{ data: PageDto }>();
+    const { row } = useTableRow<PageDto>();
 
     if (isFolderRow(row)) {
         return <>{"-"}</>;

@@ -7,7 +7,7 @@ import { ReactComponent as Published } from "@webiny/icons/remove_red_eye.svg";
 import { useGetPageRevisions } from "~/features/pages";
 import { useSelectFromDocument } from "~/BaseEditor/hooks/useSelectFromDocument";
 import type { PageRevision } from "~/domain/PageRevision";
-import { PAGE_EDITOR_ROUTE } from "~/constants";
+import { WB_PAGE_EDITOR_ROUTE } from "~/constants";
 import type { EditorPage } from "@webiny/website-builder-sdk";
 
 const { Item } = DropdownMenu;
@@ -41,7 +41,7 @@ export const RevisionsMenu = () => {
 
     const goToRevision = useCallback((id: string) => {
         // TODO: make this work without a full app reload
-        window.location.pathname = `${PAGE_EDITOR_ROUTE}/${encodeURIComponent(id)}`;
+        window.location.pathname = `${WB_PAGE_EDITOR_ROUTE}/${encodeURIComponent(id)}`;
     }, []);
 
     return (

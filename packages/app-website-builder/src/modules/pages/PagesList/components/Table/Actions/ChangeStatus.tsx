@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Publish } from "@webiny/icons/visibility.svg";
 import { ReactComponent as Unpublish } from "@webiny/icons/visibility_off.svg";
-import { PageListConfig } from "~/configs/index.js";
+import { PageListConfig } from "~/modules/pages/configs";
 import { useDocument } from "~/modules/pages/PagesList/hooks/useDocument.js";
 import { usePublishPageConfirmationDialog } from "~/modules/pages/PagesList/hooks/usePublishPageConfirmationDialog.js";
 import { useUnpublishPageConfirmationDialog } from "~/modules/pages/PagesList/hooks/useUnpublishPageConfirmationDialog.js";
