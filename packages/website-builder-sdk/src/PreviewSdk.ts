@@ -1,4 +1,4 @@
-import type { IContentSdk, IDataProvider, PublicPage } from "~/types.js";
+import type { IContentSdk, IDataProvider, PublicPage, PublicRedirect } from "~/types.js";
 import { PreviewDocument } from "~/PreviewDocument";
 
 export class PreviewSdk implements IContentSdk {
@@ -20,5 +20,9 @@ export class PreviewSdk implements IContentSdk {
 
     async listPages(): Promise<PublicPage[]> {
         return this.liveSdk.listPages();
+    }
+
+    listRedirects(): Promise<PublicRedirect[]> {
+        return this.liveSdk.listRedirects();
     }
 }

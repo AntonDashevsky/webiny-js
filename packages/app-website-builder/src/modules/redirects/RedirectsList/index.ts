@@ -1,3 +1,3 @@
-export * from "./hooks/useCreateRedirectDialog";
-export * from "./hooks/useEditRedirectDialog";
-export { useDocument } from "./hooks/useDocument";
+export * from "./hooks/useCreateRedirectDialog.js";
+export * from "./hooks/useEditRedirectDialog.js";
+export { useDocument } from "./hooks/useDocument.js";

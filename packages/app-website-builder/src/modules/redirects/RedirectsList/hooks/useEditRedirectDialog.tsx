@@ -4,13 +4,13 @@ import { useGetRedirect, useUpdateRedirect } from "~/features/redirects";
 import { RedirectForm } from "../components/RedirectForm/RedirectForm";
 import { useToast } from "@webiny/admin-ui";
 
-export const useEditRedirectDialog = (redirectId: string) => {
+export const useEditRedirectDialog = () => {
     const dialog = useDialogs();
     const { showSuccessToast } = useToast();
     const { getRedirect } = useGetRedirect();
     const { updateRedirect } = useUpdateRedirect();
 
-    const showEditRedirectDialog = () => {
+    const showEditRedirectDialog = (redirectId: string) => {
         const closeDialog = dialog.showDialog({
             title: "Edit a Redirect",
             acceptLabel: "Save",

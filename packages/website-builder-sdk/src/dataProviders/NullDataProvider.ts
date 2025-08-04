@@ -1,4 +1,4 @@
-import type { IDataProvider, Page } from "~/types.js";
+import type { IDataProvider, Page, PublicRedirect } from "~/types.js";
 
 export class NullDataProvider implements IDataProvider {
     getPageById(): Promise<Page | null> {
@@ -11,5 +11,9 @@ export class NullDataProvider implements IDataProvider {
 
     public async listPages() {
         return [];
+    }
+
+    listRedirects(): Promise<PublicRedirect[]> {
+        return Promise.resolve([]);
     }
 }

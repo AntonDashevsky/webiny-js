@@ -1,9 +1,14 @@
-import type { Component, IContentSdk, PublicPage, ResolvedComponent } from "~/types";
+import type {
+    Component,
+    IContentSdk,
+    PublicPage,
+    PublicRedirect,
+    ResolvedComponent
+} from "~/types";
 import { environment } from "./Environment.js";
 import { LiveSdk } from "./LiveSdk.js";
 import { EditingSdk } from "./EditingSdk.js";
-import type { ResolveElementParams } from "~/ComponentResolver";
-import { ComponentResolver } from "~/ComponentResolver";
+import { ComponentResolver, type ResolveElementParams } from "~/ComponentResolver";
 import { PreviewSdk } from "./PreviewSdk.js";
 import { componentRegistry } from "~/ComponentRegistry";
 import { ApiClient } from "~/dataProviders/ApiClient";
@@ -42,6 +47,10 @@ class InternalContentSdk implements IContentSdk {
 
     listPages(): Promise<PublicPage[]> {
         return this.activeSdk.listPages();
+    }
+
+    listRedirects(): Promise<PublicRedirect[]> {
+        return this.activeSdk.listRedirects();
     }
 }
 
@@ -99,6 +108,11 @@ export class ContentSdk implements IContentSdk {
     public listPages() {
         this.assertInitialized();
         return this.sdk.listPages();
+    }
+
+    public listRedirects(): Promise<PublicRedirect[]> {
+        this.assertInitialized();
+        return this.sdk.listRedirects();
     }
 
     registerComponent(blueprint: Component): void {

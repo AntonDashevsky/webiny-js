@@ -1,4 +1,4 @@
-import type { IContentSdk, Page, ResolvedComponent } from "./types";
+import type { IContentSdk, Page, PublicRedirect, ResolvedComponent } from "./types";
 
 export class NullSdk implements IContentSdk {
     async getPage(): Promise<Page | null> {
@@ -6,6 +6,10 @@ export class NullSdk implements IContentSdk {
     }
 
     listPages(): Promise<Page[]> {
+        return Promise.resolve([]);
+    }
+
+    listRedirects(): Promise<PublicRedirect[]> {
         return Promise.resolve([]);
     }
 

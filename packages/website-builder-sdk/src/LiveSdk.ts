@@ -3,9 +3,11 @@ import type {
     IContentSdk,
     IDataProvider,
     ListPagesOptions,
-    PublicPage
+    PublicPage,
+    PublicRedirect
 } from "~/types.js";
 import { documentStoreManager } from "~/DocumentStoreManager";
+import * as path from "node:path";
 
 export class LiveSdk implements IContentSdk {
     private dataProvider: IDataProvider;
@@ -24,5 +26,9 @@ export class LiveSdk implements IContentSdk {
 
     listPages(options?: ListPagesOptions): Promise<PublicPage[]> {
         return this.dataProvider.listPages(options);
+    }
+
+    listRedirects(): Promise<PublicRedirect[]> {
+        return this.dataProvider.listRedirects();
     }
 }
