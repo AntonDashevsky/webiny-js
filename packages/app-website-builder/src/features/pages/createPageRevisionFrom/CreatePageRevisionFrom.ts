@@ -5,13 +5,12 @@ import { CreatePageRevisionFromRepository } from "~/features/pages/createPageRev
 import { CreatePageRevisionFromUseCase } from "~/features/pages/createPageRevisionFrom/CreatePageRevisionFromUseCase.js";
 import { CreatePageRevisionFromUseCaseWithLoading } from "~/features/pages/createPageRevisionFrom/CreatePageRevisionFromUseCaseWithLoading.js";
 import { pageListCache } from "~/domain/Page/index.js";
-import { WB_PAGE_APP } from "~/constants";
 
 export class CreatePageRevisionFrom {
     public static getInstance(
         gateway: ICreatePageRevisionFromGateway
     ): ICreatePageRevisionFromUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
+        const loadingRepository = loadingRepositoryFactory.getRepository("WbPage");
         const repository = new CreatePageRevisionFromRepository(pageListCache, gateway);
         const useCase = new CreatePageRevisionFromUseCase(repository);
         return new CreatePageRevisionFromUseCaseWithLoading(loadingRepository, useCase);

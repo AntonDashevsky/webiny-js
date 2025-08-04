@@ -5,11 +5,10 @@ import { UpdateRedirectRepository } from "~/features/redirects/updateRedirect/Up
 import { UpdateRedirectUseCase } from "~/features/redirects/updateRedirect/UpdateRedirectUseCase.js";
 import { UpdateRedirectUseCaseWithLoading } from "~/features/redirects/updateRedirect/UpdateRedirectUseCaseWithLoading.js";
 import { redirectListCache } from "~/domain/Redirect/index.js";
-import { WB_REDIRECTS_APP } from "~/constants";
 
 export class UpdateRedirect {
     public static getInstance(gateway: IUpdateRedirectGateway): IUpdateRedirectUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository(WB_REDIRECTS_APP);
+        const loadingRepository = loadingRepositoryFactory.getRepository("WbRedirect");
         const repository = new UpdateRedirectRepository(redirectListCache, gateway);
         const useCase = new UpdateRedirectUseCase(repository);
         return new UpdateRedirectUseCaseWithLoading(loadingRepository, useCase);

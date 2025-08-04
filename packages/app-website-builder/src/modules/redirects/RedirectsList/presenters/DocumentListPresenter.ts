@@ -43,12 +43,12 @@ class DocumentListPresenter {
         this.foldersCache = folderCacheFactory.getCache(WB_REDIRECTS_APP);
         this.foldersLoadingRepository = loadingRepositoryFactory.getRepository(WB_REDIRECTS_APP);
         this.documentsCache = redirectListCache;
-        this.documentsLoadingRepository = loadingRepositoryFactory.getRepository(WB_REDIRECTS_APP);
-        this.searchRepository = searchRepositoryFactory.getRepository(WB_REDIRECTS_APP);
-        this.metaRepository = metaRepositoryFactory.getRepository(WB_REDIRECTS_APP);
-        this.sortingRepository = sortRepositoryFactory.getRepository(WB_REDIRECTS_APP);
-        this.filterRepository = filterRepositoryFactory.getRepository(WB_REDIRECTS_APP);
-        this.selectedRepository = selectedItemsRepositoryFactory.getRepository(WB_REDIRECTS_APP);
+        this.documentsLoadingRepository = loadingRepositoryFactory.getRepository("WbRedirect");
+        this.searchRepository = searchRepositoryFactory.getRepository("WbRedirect");
+        this.metaRepository = metaRepositoryFactory.getRepository("WbRedirect");
+        this.sortingRepository = sortRepositoryFactory.getRepository("WbRedirect");
+        this.filterRepository = filterRepositoryFactory.getRepository("WbRedirect");
+        this.selectedRepository = selectedItemsRepositoryFactory.getRepository("WbRedirect");
         makeAutoObservable(this);
     }
 

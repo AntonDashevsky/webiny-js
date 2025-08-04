@@ -5,11 +5,10 @@ import { UnpublishPageRepository } from "~/features/pages/unpublishPage/Unpublis
 import { UnpublishPageUseCase } from "~/features/pages/unpublishPage/UnpublishPageUseCase.js";
 import { UnpublishPageUseCaseWithLoading } from "~/features/pages/unpublishPage/UnpublishPageUseCaseWithLoading.js";
 import { pageListCache, fullPageCache } from "~/domain/Page/index.js";
-import { WB_PAGE_APP } from "~/constants";
 
 export class UnpublishPage {
     public static getInstance(gateway: IUnpublishPageGateway): IUnpublishPageUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
+        const loadingRepository = loadingRepositoryFactory.getRepository("WbPage");
         const repository = new UnpublishPageRepository(pageListCache, fullPageCache, gateway);
         const useCase = new UnpublishPageUseCase(repository);
         return new UnpublishPageUseCaseWithLoading(loadingRepository, useCase);

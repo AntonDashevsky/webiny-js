@@ -5,12 +5,11 @@ import { DuplicatePageRepository } from "~/features/pages/duplicatePage/Duplicat
 import { DuplicatePageUseCase } from "~/features/pages/duplicatePage/DuplicatePageUseCase.js";
 import { DuplicatePageUseCaseWithLoading } from "~/features/pages/duplicatePage/DuplicatePageUseCaseWithLoading.js";
 import { pageListCache } from "~/domain/Page/index.js";
-import { WB_PAGE_APP } from "~/constants";
 
 export class DuplicatePage {
     public static getInstance(gateway: IDuplicatePageGateway): IDuplicatePageUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
-        const metaRepository = metaRepositoryFactory.getRepository(WB_PAGE_APP);
+        const loadingRepository = loadingRepositoryFactory.getRepository("WbPage");
+        const metaRepository = metaRepositoryFactory.getRepository("WbPage");
         const repository = new DuplicatePageRepository(pageListCache, metaRepository, gateway);
         const useCase = new DuplicatePageUseCase(repository);
         return new DuplicatePageUseCaseWithLoading(loadingRepository, useCase);

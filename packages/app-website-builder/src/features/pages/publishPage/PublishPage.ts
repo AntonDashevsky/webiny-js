@@ -5,11 +5,10 @@ import { PublishPageRepository } from "~/features/pages/publishPage/PublishPageR
 import { PublishPageUseCase } from "~/features/pages/publishPage/PublishPageUseCase.js";
 import { PublishPageUseCaseWithLoading } from "~/features/pages/publishPage/PublishPageUseCaseWithLoading.js";
 import { fullPageCache, pageListCache } from "~/domain/Page/index.js";
-import { WB_PAGE_APP } from "~/constants";
 
 export class PublishPage {
     public static getInstance(gateway: IPublishPageGateway): IPublishPageUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
+        const loadingRepository = loadingRepositoryFactory.getRepository("WbPage");
         const repository = new PublishPageRepository(pageListCache, fullPageCache, gateway);
         const useCase = new PublishPageUseCase(repository);
         return new PublishPageUseCaseWithLoading(loadingRepository, useCase);

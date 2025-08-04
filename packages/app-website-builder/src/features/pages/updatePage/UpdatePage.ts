@@ -5,11 +5,10 @@ import { UpdatePageRepository } from "~/features/pages/updatePage/UpdatePageRepo
 import { UpdatePageUseCase } from "~/features/pages/updatePage/UpdatePageUseCase.js";
 import { UpdatePageUseCaseWithLoading } from "~/features/pages/updatePage/UpdatePageUseCaseWithLoading.js";
 import { fullPageCache, pageListCache } from "~/domain/Page/index.js";
-import { WB_PAGE_APP } from "~/constants";
 
 export class UpdatePage {
     public static getInstance(gateway: IUpdatePageGateway): IUpdatePageUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
+        const loadingRepository = loadingRepositoryFactory.getRepository("WbPage");
         const repository = new UpdatePageRepository(pageListCache, fullPageCache, gateway);
         const useCase = new UpdatePageUseCase(repository);
         return new UpdatePageUseCaseWithLoading(loadingRepository, useCase);

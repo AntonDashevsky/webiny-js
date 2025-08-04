@@ -6,7 +6,6 @@ import { GetPageRepository } from "~/features/pages/getPage/GetPageRepository.js
 import { GetPageUseCase } from "~/features/pages/getPage/GetPageUseCase.js";
 import { GetPageUseCaseWithLoading } from "~/features/pages/getPage/GetPageUseCaseWithLoading.js";
 import { fullPageCache } from "~/domain/Page/index.js";
-import { WB_PAGE_APP } from "~/constants";
 
 interface IGetPageInstance {
     useCase: IGetPageUseCase;
@@ -15,7 +14,7 @@ interface IGetPageInstance {
 
 export class GetPage {
     public static getInstance(gateway: IGetPageGateway): IGetPageInstance {
-        const loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
+        const loadingRepository = loadingRepositoryFactory.getRepository("WbPage");
         const repository = new GetPageRepository(fullPageCache, gateway);
         const useCase = new GetPageUseCase(repository);
         const useCaseWithLoading = new GetPageUseCaseWithLoading(loadingRepository, useCase);

@@ -5,12 +5,11 @@ import { DeletePageRepository } from "~/features/pages/deletePage/DeletePageRepo
 import { DeletePageUseCase } from "~/features/pages/deletePage/DeletePageUseCase.js";
 import { DeletePageUseCaseWithLoading } from "~/features/pages/deletePage/DeletePageUseCaseWithLoading.js";
 import { pageListCache } from "~/domain/Page/index.js";
-import { WB_PAGE_APP } from "~/constants";
 
 export class DeletePage {
     public static getInstance(gateway: IDeletePageGateway): IDeletePageUseCase {
-        const loadingRepository = loadingRepositoryFactory.getRepository(WB_PAGE_APP);
-        const metaRepository = metaRepositoryFactory.getRepository(WB_PAGE_APP);
+        const loadingRepository = loadingRepositoryFactory.getRepository("WbPage");
+        const metaRepository = metaRepositoryFactory.getRepository("WbPage");
         const repository = new DeletePageRepository(pageListCache, metaRepository, gateway);
         const useCase = new DeletePageUseCase(repository);
         return new DeletePageUseCaseWithLoading(loadingRepository, useCase);
