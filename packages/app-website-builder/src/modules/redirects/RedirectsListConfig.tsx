@@ -41,10 +41,7 @@ export const RedirectsListConfig = () => {
                     hideable={false}
                     size={200}
                 />
-                <Browser.Table.Column
-                    name={"data.redirectType"}
-                    header={"Type"}
-                />
+                <Browser.Table.Column name={"data.redirectType"} header={"Type"} />
                 <Browser.Table.Column name={"createdBy"} header={"Author"} cell={<CellAuthor />} />
                 <Browser.Table.Column
                     name={"createdOn"}

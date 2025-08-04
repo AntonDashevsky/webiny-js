@@ -200,7 +200,7 @@ export const createPagesCrud = (
         getByPath: async path => {
             return getPageByPathUseCase.execute(path);
         },
-        getPageRevisions: async (entryId: string) => {
+        getRevisions: async (entryId: string) => {
             return getPageRevisionsUseCase.execute(entryId);
         },
         create: async data => {

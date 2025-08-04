@@ -51,9 +51,7 @@ export const createPagesSchema = () => {
                 getPageRevisions: async (_, { entryId }, context) => {
                     return resolve(async () => {
                         ensureAuthentication(context);
-                        const revisions = await context.websiteBuilder.pages.getPageRevisions(
-                            entryId
-                        );
+                        const revisions = await context.websiteBuilder.pages.getRevisions(entryId);
 
                         return revisions.map(page => {
                             return {

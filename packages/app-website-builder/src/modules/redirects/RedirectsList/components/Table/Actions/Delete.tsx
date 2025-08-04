@@ -6,7 +6,9 @@ import { RedirectListConfig } from "~/modules/redirects/configs";
 
 export const Delete = () => {
     const { document } = useDocument();
-    const { openDeleteRedirectConfirmationDialog } = useDeleteRedirectConfirmationDialog({ redirect: document });
+    const { openDeleteRedirectConfirmationDialog } = useDeleteRedirectConfirmationDialog({
+        redirect: document
+    });
     const { OptionsMenuItem } = RedirectListConfig.Browser.Record.Action;
 
     return (

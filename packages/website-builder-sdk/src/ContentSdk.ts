@@ -16,6 +16,8 @@ import { DefaultDataProvider } from "~/dataProviders/DefaultDataProvider";
 import type { WebsiteBuilderThemeInput } from "./types/WebsiteBuilderTheme.js";
 import { Theme } from "./Theme.js";
 import { viewportManager } from "./ViewportManager.js";
+import type { IRedirects } from "~/IRedirects";
+import { RedirectsProvider } from "~/dataProviders/RedirectsProvider";
 
 export type ApiConfig = {
     apiKey: string;
@@ -28,11 +30,13 @@ export type ContentSDKConfig = ApiConfig & {
     theme?: WebsiteBuilderThemeInput;
 };
 
-class InternalContentSdk implements IContentSdk {
+class InternalContentSdk implements IContentSdk, IRedirects {
     private activeSdk: IContentSdk;
     private editingSdk: EditingSdk | undefined;
+    private redirectsProvider: IRedirects;
 
-    constructor(liveSdk: LiveSdk, editingSdk?: EditingSdk) {
+    constructor(redirectsProvider: IRedirects, liveSdk: LiveSdk, editingSdk?: EditingSdk) {
+        this.redirectsProvider = redirectsProvider;
         this.activeSdk = editingSdk ?? liveSdk;
         this.editingSdk = editingSdk;
     }
@@ -49,12 +53,16 @@ class InternalContentSdk implements IContentSdk {
         return this.activeSdk.listPages();
     }
 
-    listRedirects(): Promise<PublicRedirect[]> {
-        return this.activeSdk.listRedirects();
+    getAllRedirects(): Promise<Map<string, PublicRedirect>> {
+        return this.redirectsProvider.getAllRedirects();
+    }
+
+    getRedirectByPath(path: string): Promise<PublicRedirect | undefined> {
+        return this.redirectsProvider.getRedirectByPath(path);
     }
 }
 
-export class ContentSdk implements IContentSdk {
+export class ContentSdk implements IContentSdk, IRedirects {
     protected sdk?: InternalContentSdk;
     private isPreview = false;
     private lastConfig: any;
@@ -88,7 +96,11 @@ export class ContentSdk implements IContentSdk {
             editingSdk = new EditingSdk(liveSdk, theme);
         }
 
-        this.sdk = new InternalContentSdk(liveSdk as LiveSdk, editingSdk);
+        this.sdk = new InternalContentSdk(
+            new RedirectsProvider(apiClient),
+            liveSdk as LiveSdk,
+            editingSdk
+        );
 
         if (typeof afterInit === "function") {
             afterInit();
@@ -110,9 +122,14 @@ export class ContentSdk implements IContentSdk {
         return this.sdk.listPages();
     }
 
-    public listRedirects(): Promise<PublicRedirect[]> {
+    public async getAllRedirects() {
         this.assertInitialized();
-        return this.sdk.listRedirects();
+        return this.sdk.getAllRedirects();
+    }
+
+    getRedirectByPath(path: string): Promise<PublicRedirect | undefined> {
+        this.assertInitialized();
+        return this.sdk.getRedirectByPath(path);
     }
 
     registerComponent(blueprint: Component): void {
@@ -133,7 +150,9 @@ export class ContentSdk implements IContentSdk {
         return this.isPreview;
     }
 
-    private assertInitialized(): asserts this is this & { sdk: IContentSdk } {
+    private assertInitialized(): asserts this is this & {
+        sdk: IContentSdk;
+    } {
         if (!this.sdk) {
             throw new Error(`ContentSdk has not been initialized!`);
         }

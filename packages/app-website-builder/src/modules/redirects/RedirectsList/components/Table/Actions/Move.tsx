@@ -6,10 +6,16 @@ import { RedirectListConfig } from "~/modules/redirects/configs";
 
 export const Move = () => {
     const { document } = useDocument();
-    const { openMoveRedirectToFolderDialog } = useMoveRedirectToFolderDialog({ redirect: document });
+    const { openMoveRedirectToFolderDialog } = useMoveRedirectToFolderDialog({
+        redirect: document
+    });
     const { OptionsMenuItem } = RedirectListConfig.Browser.Record.Action;
 
     return (
-        <OptionsMenuItem icon={<MoveIcon />} label={"Move"} onAction={openMoveRedirectToFolderDialog} />
+        <OptionsMenuItem
+            icon={<MoveIcon />}
+            label={"Move"}
+            onAction={openMoveRedirectToFolderDialog}
+        />
     );
 };

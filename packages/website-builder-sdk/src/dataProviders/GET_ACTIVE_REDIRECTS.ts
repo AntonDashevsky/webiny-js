@@ -1,12 +1,12 @@
-export const LIST_ACTIVE_REDIRECTS = /* GraphQL*/ `
-    query ListActiveRedirects {
+export const GET_ACTIVE_REDIRECTS = /* GraphQL*/ `
+    query GetActiveRedirects {
         websiteBuilder {
-            listActiveRedirects {
+            getActiveRedirects {
                 data {
                     id
                     from
                     to
-                    type
+                    permanent
                 }
                 error {
                     code

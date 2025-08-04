@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useDialogs } from "@webiny/app-admin";
 import { useGetRedirect, useUpdateRedirect } from "~/features/redirects";
 import { RedirectForm } from "../components/RedirectForm/RedirectForm";
@@ -10,7 +10,7 @@ export const useEditRedirectDialog = () => {
     const { getRedirect } = useGetRedirect();
     const { updateRedirect } = useUpdateRedirect();
 
-    const showEditRedirectDialog = (redirectId: string) => {
+    const showEditRedirectDialog = useCallback((redirectId: string) => {
         const closeDialog = dialog.showDialog({
             title: "Edit a Redirect",
             acceptLabel: "Save",
@@ -35,7 +35,7 @@ export const useEditRedirectDialog = () => {
                 });
             }
         });
-    };
+    }, []);
 
     return { showEditRedirectDialog };
 };

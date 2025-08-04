@@ -122,10 +122,10 @@ export const redirectsTypeDefs = /* GraphQL */ `
         id: ID!
         from: String!
         to: String!
-        type: String!
+        permanent: Boolean!
     }
         
-    type WbActiveRedirectResponse {
+    type WbActiveRedirectsResponse {
         data: [WbActiveRedirect!]
         error: WbError
     }
@@ -139,7 +139,7 @@ export const redirectsTypeDefs = /* GraphQL */ `
             sort: [WbRedirectListSorter]
             search: String
         ): WbRedirectsListResponse
-        listActiveRedirects: WbActiveRedirectResponse
+        getActiveRedirects: WbActiveRedirectsResponse
     }
 
     extend type WbMutation {

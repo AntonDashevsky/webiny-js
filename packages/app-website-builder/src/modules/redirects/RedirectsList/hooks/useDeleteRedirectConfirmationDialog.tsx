@@ -7,7 +7,9 @@ interface UseDeleteRedirectConfirmationDialogProps {
     redirect: DocumentDto;
 }
 
-export const useDeleteRedirectConfirmationDialog = ({ redirect }: UseDeleteRedirectConfirmationDialogProps) => {
+export const useDeleteRedirectConfirmationDialog = ({
+    redirect
+}: UseDeleteRedirectConfirmationDialogProps) => {
     const { deleteRedirect } = useDeleteRedirect();
     const { showSnackbar } = useSnackbar();
 
@@ -15,7 +17,8 @@ export const useDeleteRedirectConfirmationDialog = ({ redirect }: UseDeleteRedir
         title: "Delete redirect",
         message: (
             <p>
-                You are about to permanently delete redirect <strong>{redirect.title}</strong>. Are you sure you want to continue?
+                You are about to permanently delete redirect <strong>{redirect.title}</strong>. Are
+                you sure you want to continue?
             </p>
         )
     });

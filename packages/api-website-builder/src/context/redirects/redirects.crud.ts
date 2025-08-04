@@ -21,6 +21,7 @@ import type {
     WbRedirectsStorageOperations
 } from "~/context/redirects/redirects.types";
 import type { WebsiteBuilderConfig } from "~/context/types";
+import { getGetActiveRedirectsUseCase } from "~/features/redirects/GetActiveRedirects";
 
 export const createRedirectsCrud = (
     config: WebsiteBuilderConfig<WbRedirectsStorageOperations>
@@ -39,6 +40,10 @@ export const createRedirectsCrud = (
             onRedirectBeforeCreate,
             onRedirectAfterCreate
         }
+    });
+
+    const getActiveRedirectsUseCase = getGetActiveRedirectsUseCase({
+        listOperation: config.storageOperations.list
     });
 
     // update
@@ -112,6 +117,9 @@ export const createRedirectsCrud = (
 
         list: async params => {
             return listRedirectsUseCase.execute(params);
+        },
+        getActiveRedirects: async () => {
+            return getActiveRedirectsUseCase.execute();
         },
         getById: async id => {
             return getRedirectByIdUseCase.execute(id);

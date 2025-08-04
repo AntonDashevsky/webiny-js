@@ -30,21 +30,14 @@ export const createRedirectsSchema = () => {
                         return new ErrorResponse(e);
                     }
                 },
-                listActiveRedirects: async (_, __: any, context) => {
+                getActiveRedirects: async (_, __: any, context) => {
                     try {
                         ensureAuthentication(context);
-                        const [entries, meta] = await context.websiteBuilder.redirects.list({
-                            where: {
-                                isEnabled: true
-                            },
-                            limit: 0,
-                            sort: [],
-                            after: null
-                        });
+                        const redirects =
+                            await context.websiteBuilder.redirects.getActiveRedirects();
 
-                        return new ListResponse(
-                            entries.map(entry => ActiveRedirectGqlMapper.toDto(entry)),
-                            meta
+                        return new Response(
+                            redirects.map(entry => ActiveRedirectGqlMapper.toDto(entry))
                         );
                     } catch (e) {
                         return new ErrorResponse(e);

@@ -239,7 +239,7 @@ export interface WbPageCrud {
     /**
      * Get information about page revisions.
      */
-    getPageRevisions(entryId: string): Promise<WbPage[]>;
+    getRevisions(entryId: string): Promise<WbPage[]>;
     /**
      * Get a list of pages filtered by given parameters.
      */

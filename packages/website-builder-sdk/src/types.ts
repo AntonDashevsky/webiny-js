@@ -162,7 +162,7 @@ export type PublicRedirect = {
     id: string;
     from: string;
     to: string;
-    type: string;
+    permanent: boolean;
 };
 
 export type EditorPage = EditorDocument & Pick<Page, "properties" | "status" | "location">;
@@ -264,7 +264,6 @@ export interface IDataProvider {
     getPageByPath(path: string, options?: GetPageOptions): Promise<PublicPage | null>;
     getPageById(id: string, options?: GetPageOptions): Promise<PublicPage | null>;
     listPages(options?: ListPagesOptions): Promise<PublicPage[]>;
-    listRedirects(): Promise<PublicRedirect[]>;
 }
 
 export interface IEnvironment {
@@ -276,7 +275,6 @@ export interface IEnvironment {
 export interface IContentSdk {
     getPage(path: string): Promise<PublicPage | null>;
     listPages(options?: ListPagesOptions): Promise<PublicPage[]>;
-    listRedirects(): Promise<PublicRedirect[]>;
 }
 
 // Input types

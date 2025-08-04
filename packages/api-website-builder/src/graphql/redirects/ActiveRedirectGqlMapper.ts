@@ -7,7 +7,7 @@ export class ActiveRedirectGqlMapper {
             id: redirect.id,
             from: redirect.redirectFrom,
             to: redirect.redirectTo,
-            type: redirect.redirectType
+            permanent: redirect.redirectType === "permanent"
         };
     }
 }

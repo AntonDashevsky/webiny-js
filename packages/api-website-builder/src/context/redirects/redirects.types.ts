@@ -143,6 +143,10 @@ export interface WbRedirectCrud {
      */
     getById(id: string): Promise<WbRedirect | null>;
     /**
+     * Get all active redirects.
+     */
+    getActiveRedirects(): Promise<WbRedirect[]>;
+    /**
      * Get a list of redirects filtered by given parameters.
      */
     list(params: ListWbRedirectsParams): Promise<[WbRedirect[], WbListMeta]>;
