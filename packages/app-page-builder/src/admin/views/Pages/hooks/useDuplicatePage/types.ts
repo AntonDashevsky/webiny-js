@@ -1,8 +1,8 @@
-import type { PbErrorResponse, PbPageData, PbPageDataItem, PbPageTableItem } from "~/types";
+import type { PbErrorResponse, PbPageData, PbPageDataItem } from "~/types";
 import type { SearchRecordItem } from "@webiny/app-aco/table.types";
 import type { Location } from "@webiny/app-aco/types";
 
-export type PageItem = PbPageTableItem | PbPageData | SearchRecordItem<PbPageDataItem>;
+export type PageItem = PbPageData | SearchRecordItem<PbPageDataItem>;
 
 export const isPbPageData = (page: PageItem): page is PbPageData => {
     return "wbyAco_location" in page;

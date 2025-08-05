@@ -23,6 +23,4 @@ export interface WbListMeta {
     hasMoreItems: boolean;
 }
 
-export type EntryTableItem = PageDto & RecordTableItem;
-
-export type TableItem = FolderTableItem | EntryTableItem;
+export type TableItem = FolderTableItem | RecordTableItem<PageDto>;

@@ -8,7 +8,7 @@ export * from "@webiny/app-headless-cms-common/types";
 /***
  * ###### TABLE ########
  */
-export type EntryTableItem = CmsContentEntry & RecordTableItem;
+export type EntryTableItem = RecordTableItem<CmsContentEntry>;
 
 export type TableItem = FolderTableItem | EntryTableItem;
 

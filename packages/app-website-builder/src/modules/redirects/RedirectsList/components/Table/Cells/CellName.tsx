@@ -3,13 +3,13 @@ import React from "react";
 import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as File } from "@webiny/icons/description.svg";
 
-import type { DocumentDto } from "~/modules/redirects/RedirectsList/presenters/index.js";
+import type { TableRowDto } from "~/modules/redirects/RedirectsList/presenters/index.js";
 import { RedirectListConfig } from "~/modules/redirects/configs";
 import { FolderCellName } from "~/modules/shared/FolderCellName";
 import { useEditRedirectDialog } from "~/modules/redirects/RedirectsList/index.js";
 
 interface DocumentCellRowTitleProps {
-    document: DocumentDto;
+    document: TableRowDto;
 }
 
 const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
@@ -41,7 +41,7 @@ const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
 };
 
 interface EntryCellNameProps {
-    document: DocumentDto;
+    document: TableRowDto;
 }
 
 export const DocumentCellName = ({ document }: EntryCellNameProps) => {
@@ -53,7 +53,7 @@ export const CellName = () => {
     const { row } = useTableRow();
 
     if (isFolderRow(row)) {
-        return <FolderCellName folder={row} />;
+        return <FolderCellName folder={row.data} />;
     }
 
     return <DocumentCellName document={row} />;

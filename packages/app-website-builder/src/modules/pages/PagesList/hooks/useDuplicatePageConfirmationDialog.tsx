@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { useDuplicatePage } from "~/features/pages/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
+import type { PageDto } from "~/domain/Page";
 
 interface UseDuplicatePageConfirmationDialogProps {
-    page: DocumentDto;
+    page: PageDto;
 }
 
 export const useDuplicatePageConfirmationDialog = ({
@@ -17,8 +17,8 @@ export const useDuplicatePageConfirmationDialog = ({
         title: "Duplicate page",
         message: (
             <p>
-                You are about to duplicate <strong>{page.title}</strong>. Are you sure you want to
-                continue?
+                You are about to duplicate <strong>{page.properties.title}</strong>. Are you sure
+                you want to continue?
             </p>
         )
     });
@@ -28,9 +28,9 @@ export const useDuplicatePageConfirmationDialog = ({
             showConfirmation(async () => {
                 try {
                     await duplicatePage({ id: page.id });
-                    showSnackbar(`${page.title} was duplicated successfully!`);
+                    showSnackbar(`${page.properties.title} was duplicated successfully!`);
                 } catch (ex) {
-                    showSnackbar(ex.message || `Error while duplicating ${page.title}`);
+                    showSnackbar(ex.message || `Error while duplicating ${page.properties.title}`);
                 }
             }),
         [page]

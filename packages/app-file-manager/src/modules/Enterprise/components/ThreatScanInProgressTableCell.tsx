@@ -17,7 +17,7 @@ export const ThreatScanInProgressTableCell = ({ children }: ThreatScanInProgress
         return <>{children}</>;
     }
 
-    if (!row.tags.length || !row.tags.includes(THREAT_SCAN.IN_PROGRESS)) {
+    if (!row.data.tags.length || !row.data.tags.includes(THREAT_SCAN.IN_PROGRESS)) {
         return <>{children}</>;
     }
 

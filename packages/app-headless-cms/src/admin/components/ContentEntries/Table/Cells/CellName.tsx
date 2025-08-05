@@ -10,11 +10,11 @@ import { ContentEntryListConfig } from "~/admin/config/contentEntries";
 import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
 import { usePermission } from "~/admin/hooks";
 
-import type { FolderTableItem } from "@webiny/app-aco/types";
-import type { EntryTableItem } from "~/types";
+import type { FolderItem } from "@webiny/app-aco/types";
+import type { CmsContentEntry } from "~/types";
 
 interface FolderCellNameProps {
-    folder: FolderTableItem;
+    folder: FolderItem;
 }
 
 export const FolderCellName = ({ folder }: FolderCellNameProps) => {
@@ -44,7 +44,7 @@ export const FolderCellName = ({ folder }: FolderCellNameProps) => {
 };
 
 interface EntryCellRowTitleProps {
-    entry: EntryTableItem;
+    entry: CmsContentEntry;
 }
 
 const EntryCellRowTitle = ({ entry }: EntryCellRowTitleProps) => {
@@ -62,7 +62,7 @@ const EntryCellRowTitle = ({ entry }: EntryCellRowTitleProps) => {
 };
 
 interface EntryCellNameProps {
-    entry: EntryTableItem;
+    entry: CmsContentEntry;
 }
 
 export const EntryCellName = ({ entry }: EntryCellNameProps) => {
@@ -87,8 +87,8 @@ export const CellName = () => {
     const { row } = useTableRow();
 
     if (isFolderRow(row)) {
-        return <FolderCellName folder={row} />;
+        return <FolderCellName folder={row.data} />;
     }
 
-    return <EntryCellName entry={row} />;
+    return <EntryCellName entry={row.data} />;
 };

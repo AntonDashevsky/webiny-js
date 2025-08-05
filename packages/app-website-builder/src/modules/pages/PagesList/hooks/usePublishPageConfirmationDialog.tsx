@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { usePublishPage } from "~/features/pages/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
+import type { PageDto } from "~/domain/Page";
 
 interface UsePublishPageConfirmationDialogProps {
-    page: DocumentDto;
+    page: PageDto;
 }
 
 export const usePublishPageConfirmationDialog = ({
@@ -17,8 +17,8 @@ export const usePublishPageConfirmationDialog = ({
         title: "Publish page",
         message: (
             <p>
-                You are about to publish <strong>{page.title}</strong>. Are you sure you want to
-                continue?
+                You are about to publish <strong>{page.properties.title}</strong>. Are you sure you
+                want to continue?
             </p>
         )
     });
@@ -28,9 +28,9 @@ export const usePublishPageConfirmationDialog = ({
             showConfirmation(async () => {
                 try {
                     await publishPage({ id: page.id });
-                    showSnackbar(`${page.title} was published successfully!`);
+                    showSnackbar(`${page.properties.title} was published successfully!`);
                 } catch (ex) {
-                    showSnackbar(ex.message || `Error while publishing ${page.title}`);
+                    showSnackbar(ex.message || `Error while publishing ${page.properties.title}`);
                 }
             }),
         [page]

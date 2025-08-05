@@ -10,5 +10,5 @@ export const CellSize = () => {
         return <>{"-"}</>;
     }
 
-    return <>{bytes.format(row.size, { unitSeparator: " " })}</>;
+    return <>{bytes.format(row.data.size, { unitSeparator: " " })}</>;
 };

@@ -37,6 +37,6 @@ export interface FileTag {
     count: number;
 }
 
-export type FileTableItem = FileItem & RecordTableItem;
+export type FileTableItem = RecordTableItem<FileItem>;
 
 export type TableItem = FolderTableItem | FileTableItem;

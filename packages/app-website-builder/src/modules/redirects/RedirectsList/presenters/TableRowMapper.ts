@@ -1,38 +1,47 @@
-import type { Folder } from "@webiny/app-aco";
+import type { Folder, FolderDto } from "@webiny/app-aco";
 import { FolderDtoMapper } from "@webiny/app-aco";
-import type { Page } from "~/domain/Page/index.js";
-import { PageDtoMapper } from "~/domain/Page/index.js";
 import type { WbIdentity } from "~/types.js";
 import type { CmsIdentity } from "@webiny/app-headless-cms-common/types/shared.js";
+import { type Redirect, type RedirectDto, RedirectDtoMapper } from "~/domain/Redirect";
 
-export interface DocumentDto {
+export type TableRowDto = {
     id: string;
-    $type: "DOCUMENT" | "FOLDER";
     $selectable: boolean;
     title: string;
     createdBy: WbIdentity;
     savedBy: WbIdentity;
     createdOn: string;
     savedOn: string;
-    data: Record<string, any>;
-}
+} & (
+    | {
+          $type: "RECORD";
+          data: RedirectDto;
+      }
+    | {
+          $type: "FOLDER";
+          data: FolderDto;
+      }
+);
 
-export class DocumentListMapper {
-    static fromPage(page: Page): DocumentDto {
+/**
+ * This mapper converts a Redirect domain object to data format suitable for rendering with the Table component.
+ */
+export class TableRowMapper {
+    static fromRedirect(redirect: Redirect): TableRowDto {
         return {
-            id: page.id,
-            $type: "DOCUMENT",
+            id: redirect.id,
+            $type: "RECORD",
             $selectable: true,
-            title: page.properties.title ?? "",
-            createdBy: this.getIdentity(page.createdBy),
-            createdOn: page.createdOn,
-            savedBy: this.getIdentity(page.savedBy),
-            savedOn: page.savedOn,
-            data: PageDtoMapper.toDTO(page)
+            title: `${redirect.redirectFrom} -> ${redirect.redirectTo}`,
+            createdBy: this.getIdentity(redirect.createdBy),
+            createdOn: redirect.createdOn,
+            savedBy: this.getIdentity(redirect.savedBy),
+            savedOn: redirect.savedOn,
+            data: RedirectDtoMapper.toDTO(redirect)
         };
     }
 
-    static fromFolder(folder: Folder): DocumentDto {
+    static fromFolder(folder: Folder): TableRowDto {
         return {
             id: folder.id,
             $type: "FOLDER",

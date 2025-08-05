@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "@webiny/react-router";
 import debounce from "lodash/debounce";
-import omit from "lodash/omit";
 import { PAGE_BUILDER_LIST_LINK } from "~/admin/constants";
 import { createSort, useAcoList } from "@webiny/app-aco";
 import type { PbPageDataItem, TableItem } from "~/types";
@@ -108,10 +107,7 @@ export const PagesListProvider = ({ children }: PagesListProviderProps) => {
     // Handle rows selection.
     const onSelectRow: PagesListProviderContext["onSelectRow"] = rows => {
         const recordEntries = rows.filter(item => item.$type === "RECORD");
-        const pageEntries = recordEntries.map(
-            item =>
-                omit(item, ["$type", "$selectable"]) as unknown as SearchRecordItem<PbPageDataItem>
-        );
+        const pageEntries = recordEntries.map(item => item.data as SearchRecordItem<PbPageDataItem>);
         setSelected(pageEntries);
     };
 

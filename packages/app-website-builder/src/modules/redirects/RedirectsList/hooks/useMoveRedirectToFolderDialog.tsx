@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog } from "@webiny/app-aco";
-import type { DocumentDto } from "~/modules/redirects/RedirectsList/presenters/index.js";
 import { useMoveRedirect } from "~/features/redirects/index.js";
+import type { RedirectDto } from "~/domain/Redirect";
 
 interface UseMoveRedirectToFolderDialog {
-    redirect: DocumentDto;
+    redirect: RedirectDto;
 }
 
 export function useMoveRedirectToFolderDialog({ redirect }: UseMoveRedirectToFolderDialog) {
@@ -14,16 +14,12 @@ export function useMoveRedirectToFolderDialog({ redirect }: UseMoveRedirectToFol
     const { moveRedirect } = useMoveRedirect();
 
     const openMoveRedirectToFolderDialog = useCallback(() => {
-        if (redirect.$type === "FOLDER") {
-            return;
-        }
-
         showDialog({
             title: "Move redirect to a new location",
             message: "Select a new location for this redirect:",
             loadingLabel: "Moving redirect...",
             acceptLabel: "Move redirect",
-            focusedFolderId: redirect.data.location.folderId,
+            focusedFolderId: redirect.location.folderId,
             async onAccept({ folder }) {
                 await moveRedirect({
                     id: redirect.id,

@@ -16,9 +16,14 @@ const BaseColumn: React.FC<ColumnProps> = props => {
     );
 };
 
+
+const isFolderRow = (row: TableItem): row is Extract<TableItem, { $type: "FOLDER" }> => {
+    return row.$type === "FOLDER";
+};
+
 export const Column = Object.assign(BaseColumn, {
     useTableRow: Table.Column.createUseTableRow<TableItem>(),
-    isFolderRow: Table.Column.isFolderRow
+    isFolderRow
 });
 
 Column["displayName"] = "Column";

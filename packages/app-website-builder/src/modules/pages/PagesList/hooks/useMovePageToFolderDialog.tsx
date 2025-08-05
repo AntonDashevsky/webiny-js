@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog } from "@webiny/app-aco";
-import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
 import { useMovePage } from "~/features/pages/index.js";
+import type { PageDto } from "~/domain/Page";
 
 interface UseMovePageToFolderDialog {
-    page: DocumentDto;
+    page: PageDto;
 }
 
 export function useMovePageToFolderDialog({ page }: UseMovePageToFolderDialog) {
@@ -19,14 +19,14 @@ export function useMovePageToFolderDialog({ page }: UseMovePageToFolderDialog) {
             message: "Select a new location for this page:",
             loadingLabel: "Moving page...",
             acceptLabel: "Move page",
-            focusedFolderId: page.data.location.folderId,
+            focusedFolderId: page.location.folderId,
             async onAccept({ folder }) {
                 await movePage({
                     id: page.id,
                     folderId: folder.id
                 });
                 showSnackbar(
-                    `Page "${page.title}" was successfully moved to folder "${folder.label}"!`
+                    `Page "${page.properties.title}" was successfully moved to folder "${folder.label}"!`
                 );
             }
         });

@@ -12,7 +12,6 @@ export const UseContentEntriesListHookDecorator =
                 if (!value.records) {
                     return;
                 }
-
                 recordLocking.setRecords(value.folderId, value.modelId, value.records);
             }, [value.folderId, value.modelId, value.records, recordLocking]);
 

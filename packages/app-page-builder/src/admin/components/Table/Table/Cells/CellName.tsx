@@ -9,11 +9,11 @@ import { PageListConfig } from "~/admin/config/pages";
 import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList";
 import { RowIcon, RowText, RowTitle } from "./Cells.styled";
 
-import type { FolderTableItem } from "@webiny/app-aco/types";
+import type { FolderItem } from "@webiny/app-aco/types";
 import type { PbPageTableItem } from "~/types";
 
 interface FolderCellNameProps {
-    folder: FolderTableItem;
+    folder: FolderItem;
 }
 
 export const FolderCellName = ({ folder }: FolderCellNameProps) => {
@@ -54,7 +54,7 @@ export const CellName = () => {
     const { row } = useTableRow();
 
     if (isFolderRow(row)) {
-        return <FolderCellName folder={row} />;
+        return <FolderCellName folder={row.data} />;
     }
 
     return <PageCellName page={row} />;

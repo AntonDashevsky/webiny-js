@@ -9,5 +9,5 @@ export const CellType = () => {
         return <>{"-"}</>;
     }
 
-    return <>{row.type}</>;
+    return <>{row.data.type}</>;
 };

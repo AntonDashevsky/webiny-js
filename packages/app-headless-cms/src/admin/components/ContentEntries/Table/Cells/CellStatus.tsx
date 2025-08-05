@@ -11,8 +11,10 @@ export const CellStatus = () => {
         return <>{"-"}</>;
     }
 
+    const entry = row.data;
+
     const variant = useMemo(() => {
-        switch (row.meta.status) {
+        switch (entry.meta.status) {
             case "published":
                 return "success";
             case "unpublished":
@@ -20,13 +22,13 @@ export const CellStatus = () => {
             default:
                 return "neutral-light";
         }
-    }, [row.meta.status]);
+    }, [entry.meta.status]);
 
     return (
         <Tag
             variant={variant}
-            content={`${statuses[row.meta.status]}${
-                row.meta.version ? ` (v${row.meta.version})` : ""
+            content={`${statuses[entry.meta.status]}${
+                entry.meta.version ? ` (v${entry.meta.version})` : ""
             }`}
         />
     );

@@ -6,5 +6,5 @@ export const CellCreated = () => {
     const { useTableRow } = PageListConfig.Browser.Table.Column;
     const { row } = useTableRow();
 
-    return <TimeAgo datetime={row.createdOn} />;
+    return <TimeAgo datetime={row.data.createdOn} />;
 };

@@ -2,9 +2,7 @@ import React from "react";
 import { FolderProvider, useAcoConfig } from "@webiny/app-aco";
 import { makeDecoratable, OptionsMenu } from "@webiny/app-admin";
 import { PageListConfig } from "~/modules/pages/configs";
-import { DocumentProvider } from "~/modules/pages/PagesList/hooks/useDocument.js";
-import type { FolderItem } from "@webiny/app-aco/types.js";
-
+import { PageProvider } from "~/modules/pages/PagesList/hooks/usePage.js";
 const DefaultCellActions = () => {
     const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;
     const { row } = useTableRow();
@@ -17,16 +15,16 @@ const DefaultCellActions = () => {
         }
 
         return (
-            <FolderProvider folder={row.data as FolderItem}>
+            <FolderProvider folder={row.data}>
                 <OptionsMenu actions={folderConfig.actions} />
             </FolderProvider>
         );
     }
 
     return (
-        <DocumentProvider document={row}>
+        <PageProvider page={row.data}>
             <OptionsMenu actions={documentConfig.actions} />
-        </DocumentProvider>
+        </PageProvider>
     );
 };
 

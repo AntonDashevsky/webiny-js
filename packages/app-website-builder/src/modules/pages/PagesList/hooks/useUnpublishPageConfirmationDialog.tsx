@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { useUnpublishPage } from "~/features/pages/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
+import type { PageDto } from "~/domain/Page";
 
 interface UseUnpublishPageConfirmationDialogProps {
-    page: DocumentDto;
+    page: PageDto;
 }
 
 export const useUnpublishPageConfirmationDialog = ({
@@ -17,8 +17,8 @@ export const useUnpublishPageConfirmationDialog = ({
         title: "Unpublish page",
         message: (
             <p>
-                You are about to unpublish <strong>{page.title}</strong>. Are you sure you want to
-                continue?
+                You are about to unpublish <strong>{page.properties.title}</strong>. Are you sure
+                you want to continue?
             </p>
         )
     });
@@ -28,9 +28,9 @@ export const useUnpublishPageConfirmationDialog = ({
             showConfirmation(async () => {
                 try {
                     await unpublishPage({ id: page.id });
-                    showSnackbar(`${page.title} was unpublished successfully!`);
+                    showSnackbar(`${page.properties.title} was unpublished successfully!`);
                 } catch (ex) {
-                    showSnackbar(ex.message || `Error while unpublishing ${page.title}`);
+                    showSnackbar(ex.message || `Error while unpublishing ${page.properties.title}`);
                 }
             }),
         [page]

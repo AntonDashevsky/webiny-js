@@ -1,7 +1,7 @@
 import React from "react";
 import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import type { DocumentDto } from "~/modules/redirects/RedirectsList/presenters/DocumentListMapper.js";
 import { makeDecoratable } from "@webiny/react-composition";
+import type { TableRowDto } from "~/modules/redirects/RedirectsList/presenters/TableRowMapper";
 
 const { Table } = AcoConfig;
 
@@ -19,7 +19,13 @@ const BaseColumnComponent = (props: ColumnProps) => {
 
 const BaseColumn = makeDecoratable("Column", BaseColumnComponent);
 
+const isFolderRow = (row: TableRowDto): row is Extract<TableRowDto, { $type: "FOLDER" }> => {
+    return row.$type === "FOLDER";
+};
+
 export const Column = Object.assign(BaseColumn, {
-    useTableRow: Table.Column.createUseTableRow<DocumentDto>(),
-    isFolderRow: Table.Column.isFolderRow
+    useTableRow: Table.Column.createUseTableRow<TableRowDto>(),
+    useFolderRow: Table.Column.createUseTableRow<Extract<TableRowDto, { $type: "FOLDER" }>>(),
+    useRedirectRow: Table.Column.createUseTableRow<Extract<TableRowDto, { $type: "RECORD" }>>(),
+    isFolderRow
 });

@@ -11,12 +11,12 @@ const DefaultCellActions = () => {
 
     if (isFolderRow(row)) {
         // If the user cannot manage folder structure, no need to show the menu.
-        if (!row.canManageStructure) {
+        if (!row.data.canManageStructure) {
             return null;
         }
 
         return (
-            <FolderProvider folder={row}>
+            <FolderProvider folder={row.data}>
                 <OptionsMenu
                     actions={folderConfig.actions}
                     data-testid={"table.row.folder.menu-action"}
@@ -26,7 +26,7 @@ const DefaultCellActions = () => {
     }
 
     return (
-        <EntryProvider entry={row}>
+        <EntryProvider entry={row.data}>
             <OptionsMenu
                 actions={recordConfig.actions}
                 data-testid={"table.row.pb.entry.menu-action"}

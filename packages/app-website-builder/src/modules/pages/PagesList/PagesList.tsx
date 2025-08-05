@@ -4,7 +4,7 @@ import { Main } from "~/modules/pages/PagesList/components/Main/index.js";
 import { Sidebar } from "~/modules/pages/PagesList/components/Sidebar/index.js";
 import { DocumentListPresenterProvider } from "~/modules/pages/PagesList/presenters/DocumentListPresenterContext.js";
 
-export const DocumentList = () => {
+export const PagesList = () => {
     return (
         <DocumentListPresenterProvider>
             <Layout main={<Main />} sidebar={<Sidebar />} />

@@ -1,6 +1,6 @@
 import React from "react";
 import { Table as AcoTable } from "@webiny/app-aco";
-import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
+import type { TableRowDto } from "~/modules/pages/PagesList/presenters/index.js";
 import { useDocumentList } from "~/modules/pages/PagesList/useDocumentList.js";
 import { useSortPages } from "~/features/pages/index.js";
 import { useSelectPages } from "~/features/pages/selectPages/useSelectPages.js";
@@ -11,7 +11,7 @@ export const Table = () => {
     const { selectPages } = useSelectPages();
 
     return (
-        <AcoTable<DocumentDto>
+        <AcoTable<TableRowDto>
             data={vm.data}
             loading={vm.isLoading}
             sorting={vm.sorting}

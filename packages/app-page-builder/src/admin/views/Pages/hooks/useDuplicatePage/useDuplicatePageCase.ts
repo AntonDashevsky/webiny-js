@@ -1,7 +1,7 @@
 import { useApolloClient } from "@apollo/react-hooks";
 import { DUPLICATE_PAGE } from "~/admin/graphql/pages";
 import type { DuplicatePageResponse, DuplicatePageVariables, PageItem } from "./types";
-import { isPbPageData } from "./types";
+import { PbPageData } from "~/types";
 
 interface DuplicatePageMutationParams {
     page: PageItem;
@@ -11,12 +11,13 @@ export const useDuplicatePageCase = () => {
     const client = useApolloClient();
 
     const duplicatePage = async (params: DuplicatePageMutationParams) => {
-        let location;
+        const page = params.page;
+        let location: PbPageData["wbyAco_location"] = { folderId: "root" };
 
-        if (isPbPageData(params.page)) {
-            location = params.page.wbyAco_location;
-        } else {
-            location = params.page.location;
+        if ("wbyAco_location" in page) {
+            location = page.wbyAco_location;
+        } else if ("location" in page) {
+            location = page.location;
         }
 
         const { data: response } = await client.mutate<
@@ -25,7 +26,7 @@ export const useDuplicatePageCase = () => {
         >({
             mutation: DUPLICATE_PAGE,
             variables: {
-                id: params.page.id,
+                id: page.id,
                 meta: { location }
             }
         });

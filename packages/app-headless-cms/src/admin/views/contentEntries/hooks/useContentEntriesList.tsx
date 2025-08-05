@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import debounce from "lodash/debounce";
-import omit from "lodash/omit";
 import { useRouter } from "@webiny/react-router";
 import { makeDecoratable } from "@webiny/react-composition";
 import { useContentEntries } from "./useContentEntries";
@@ -29,7 +28,7 @@ export interface ContentEntriesListProviderContext {
     folderId: string;
     navigateTo: (folderId?: string) => void;
     folders: FolderTableItem[];
-    getEntryEditUrl: (item: EntryTableItem) => string;
+    getEntryEditUrl: (item: CmsContentEntry) => string;
     hideFilters: () => void;
     isListLoading: boolean;
     isListLoadingMore: boolean;
@@ -138,14 +137,13 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
         const items = rows.filter(item => item.$type === "RECORD");
 
         const cmsContentEntries = items
-            .map(item => omit(item, ["$type", "$selectable"]))
-            .map(item => item as unknown as CmsContentEntry);
+            .map(item => item.data as CmsContentEntry)
 
         setSelected(cmsContentEntries);
     };
 
     const getEntryEditUrl = useCallback(
-        (entry: EntryTableItem): string => {
+        (entry: CmsContentEntry): string => {
             const folderPath = currentFolderId
                 ? `&folderId=${encodeURIComponent(currentFolderId)}`
                 : "";

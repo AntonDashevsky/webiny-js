@@ -9,7 +9,7 @@ import type { PageDto } from "~/domain/Page";
 const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;
 
 export const CellStatus = () => {
-    const { row } = useTableRow<PageDto>();
+    const { row } = useTableRow();
 
     if (isFolderRow(row)) {
         return <>{"-"}</>;

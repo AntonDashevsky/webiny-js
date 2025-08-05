@@ -11,7 +11,7 @@ export const EditPage = makeDecoratable("EditPage", () => {
     const { OptionsMenuItem, OptionsMenuLink } = PageListConfig.Browser.PageAction;
     const { getPageEditorUrl, navigateToPageEditor } = useNavigatePage();
     const { createPageFromMutation, loading } = useCreatePageFrom({
-        page: page.data,
+        page: page,
         onSuccess: data => navigateToPageEditor(data.id)
     });
 
@@ -31,7 +31,7 @@ export const EditPage = makeDecoratable("EditPage", () => {
         <OptionsMenuLink
             icon={<Edit />}
             label={"Edit"}
-            to={getPageEditorUrl(page.data.id)}
+            to={getPageEditorUrl(page.id)}
             data-testid={"aco.actions.pb.page.edit"}
         />
     );

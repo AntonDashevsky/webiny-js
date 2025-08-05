@@ -2,15 +2,15 @@ import React from "react";
 import { Icon, Link, Text } from "@webiny/admin-ui";
 import { ReactComponent as File } from "@webiny/icons/description.svg";
 import { PageListConfig } from "~/modules/pages/configs";
-import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
 import { useGetEditPageUrl } from "~/modules/pages/PagesList/hooks/useGetEditPageUrl.js";
 import { FolderCellName } from "~/modules/shared/FolderCellName";
+import type { PageDto } from "~/domain/Page";
 
-interface DocumentCellRowTitleProps {
-    document: DocumentDto;
+interface PageCellRowTitleProps {
+    page: PageDto;
 }
 
-const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
+const PageCellRowTitle = ({ page }: PageCellRowTitleProps) => {
     return (
         <div className={"wby-flex wby-flex-col wby-gap-y-[3px]"}>
             <div className={"wby-flex wby-w-full wby-items-center"}>
@@ -19,32 +19,33 @@ const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
                     color={"neutral-strong"}
                     className={"wby-mr-xs"}
                     icon={<File />}
-                    label={`Document - ${document.title}`}
+                    label={`Page - ${page.properties.title}`}
                 />
                 <Text as={"div"} className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>
-                    {document.title}
+                    {page.properties.title}
                 </Text>
             </div>
             <Text as={"div"} size={"sm"} className={"wby-text-neutral-dimmed"}>
-                {document.data.properties.path}
+                {page.properties.path}
             </Text>
         </div>
     );
 };
 
 interface EntryCellNameProps {
-    document: DocumentDto;
+    page: PageDto;
 }
 
-export const DocumentCellName = ({ document }: EntryCellNameProps) => {
+export const PageCellName = ({ page }: EntryCellNameProps) => {
     const { getEditPageUrl } = useGetEditPageUrl();
+
     return (
         <Link
-            to={getEditPageUrl(document.id)}
+            to={getEditPageUrl(page.id)}
             variant={"secondary"}
             className={"wby-truncate !wby-no-underline"}
         >
-            <DocumentCellRowTitle document={document} />
+            <PageCellRowTitle page={page} />
         </Link>
     );
 };
@@ -54,8 +55,8 @@ export const CellName = () => {
     const { row } = useTableRow();
 
     if (isFolderRow(row)) {
-        return <FolderCellName folder={row} />;
+        return <FolderCellName folder={row.data} />;
     }
 
-    return <DocumentCellName document={row} />;
+    return <PageCellName page={row.data} />;
 };

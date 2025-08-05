@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import { useDeletePage } from "~/features/pages/index.js";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
+import type { PageDto } from "~/domain/Page";
 
 interface UseDeletePageConfirmationDialogProps {
-    page: DocumentDto;
+    page: PageDto;
 }
 
 export const useDeletePageConfirmationDialog = ({ page }: UseDeletePageConfirmationDialogProps) => {
@@ -15,8 +15,8 @@ export const useDeletePageConfirmationDialog = ({ page }: UseDeletePageConfirmat
         title: "Delete page",
         message: (
             <p>
-                You are about to permanently delete <strong>{page.title}</strong> and all of its
-                revisions. Are you sure you want to continue?
+                You are about to permanently delete <strong>{page.properties.title}</strong> and all
+                of its revisions. Are you sure you want to continue?
             </p>
         )
     });
@@ -26,9 +26,9 @@ export const useDeletePageConfirmationDialog = ({ page }: UseDeletePageConfirmat
             showConfirmation(async () => {
                 try {
                     await deletePage({ id: page.id });
-                    showSnackbar(`${page.title} was deleted successfully!`);
+                    showSnackbar(`${page.properties.title} was deleted successfully!`);
                 } catch (ex) {
-                    showSnackbar(ex.message || `Error while deleting ${page.title}`);
+                    showSnackbar(ex.message || `Error while deleting ${page.properties.title}`);
                 }
             }),
         [page]

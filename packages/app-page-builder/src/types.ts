@@ -1064,6 +1064,7 @@ declare global {
     }
 }
 
-export type PbPageTableItem = SearchRecordItem<PbPageDataItem> & RecordTableItem;
+export type PbPageSearchRecord = SearchRecordItem<PbPageDataItem>;
+export type PbPageTableItem = RecordTableItem<PbPageSearchRecord>;
 
 export type TableItem = FolderTableItem | PbPageTableItem;

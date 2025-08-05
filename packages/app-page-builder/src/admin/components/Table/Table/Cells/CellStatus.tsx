@@ -11,6 +11,8 @@ export const CellStatus = () => {
     }
 
     return (
-        <>{`${statuses[row.data.status]}${row.data.version ? ` (v${row.data.version})` : ""}`}</>
+        <>{`${statuses[row.data.data.status]}${
+            row.data.data.version ? ` (v${row.data.data.version})` : ""
+        }`}</>
     );
 };

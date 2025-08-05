@@ -24,7 +24,11 @@ const BaseColumnComponent = ({ modelIds = [], ...props }: ColumnProps) => {
 
 const BaseColumn = makeDecoratable("Column", BaseColumnComponent);
 
+const isFolderRow = (row: TableItem): row is Extract<TableItem, { $type: "FOLDER" }> => {
+    return row.$type === "FOLDER";
+};
+
 export const Column = Object.assign(BaseColumn, {
     useTableRow: Table.Column.createUseTableRow<TableItem>(),
-    isFolderRow: Table.Column.isFolderRow
+    isFolderRow
 });

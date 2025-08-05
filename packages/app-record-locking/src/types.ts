@@ -19,12 +19,10 @@ export interface IRecordLockingRecordLocked {
 
 export interface IPossiblyRecordLockingRecord extends EntryTableItem {
     $lockingType?: string;
-    entryId: string;
     $locked?: IRecordLockingRecordLocked | null;
 }
 
 export interface IRecordLockingRecord extends IPossiblyRecordLockingRecord {
-    entryId: string;
     $lockingType: string;
 }
 

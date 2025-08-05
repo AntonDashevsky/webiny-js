@@ -5,7 +5,7 @@ import { Property, useIdGenerator } from "@webiny/react-properties";
 import { useDocumentList } from "~/modules/pages/PagesList/useDocumentList.js";
 import { useSelectPages } from "~/features/pages/selectPages/useSelectPages.js";
 import { Page, type PageDto, PageDtoMapper } from "~/domain/Page/index.js";
-import type { DocumentDto } from "~/modules/pages/PagesList/presenters/index.js";
+import type { TableRowDto } from "~/modules/pages/PagesList/presenters/index.js";
 
 export interface BulkActionConfig {
     name: string;
@@ -53,7 +53,7 @@ export const BaseBulkAction = ({
 
 const useWorker = () => {
     const { vm } = useDocumentList();
-    const { selectPages } = useSelectPages<DocumentDto>();
+    const { selectPages } = useSelectPages<TableRowDto>();
     const { current: worker } = useRef(new Worker<PageDto>());
 
     const items = useMemo(() => {

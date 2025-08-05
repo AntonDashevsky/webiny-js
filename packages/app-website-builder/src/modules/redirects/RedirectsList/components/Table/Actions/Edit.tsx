@@ -2,18 +2,19 @@ import React from "react";
 import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import { RedirectListConfig } from "~/modules/redirects/configs";
 import { useEditRedirectDialog } from "~/modules/redirects/RedirectsList/hooks/useEditRedirectDialog";
-import { useDocument } from "~/modules/redirects/RedirectsList/hooks/useDocument.js";
+import { useRedirect } from "~/modules/redirects/RedirectsList/hooks/useRedirect.js";
+
+const { OptionsMenuItem } = RedirectListConfig.Browser.Record.Action;
 
 export const Edit = () => {
-    const { document } = useDocument();
+    const { redirect } = useRedirect();
     const { showEditRedirectDialog } = useEditRedirectDialog();
-    const { OptionsMenuItem } = RedirectListConfig.Browser.Record.Action;
 
     return (
         <OptionsMenuItem
             icon={<EditIcon />}
             label={"Edit"}
-            onAction={() => showEditRedirectDialog(document.id)}
+            onAction={() => showEditRedirectDialog(redirect.id)}
         />
     );
 };

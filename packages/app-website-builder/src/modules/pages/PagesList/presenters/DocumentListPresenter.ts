@@ -13,7 +13,7 @@ import {
 import { type IListCache, type Page, pageListCache } from "~/domain/Page/index.js";
 import type { Folder } from "@webiny/app-aco";
 import { folderCacheFactory } from "@webiny/app-aco";
-import { DocumentListMapper } from "~/modules/pages/PagesList/presenters/DocumentListMapper.js";
+import { TableRowMapper } from "~/modules/pages/PagesList/presenters/TableRowMapper.js";
 import { type ISearchRepository, searchRepositoryFactory } from "~/domain/Search/index.js";
 import {
     type ISelectedItemsRepository,
@@ -92,7 +92,7 @@ class DocumentListPresenter {
     };
 
     private getVmDocuments = () => {
-        return this.documentsCache.getItems().map(d => DocumentListMapper.fromPage(d));
+        return this.documentsCache.getItems().map(d => TableRowMapper.fromPage(d));
     };
 
     private getVmFolders = () => {
@@ -104,7 +104,7 @@ class DocumentListPresenter {
             }
         });
 
-        return folders.map(f => DocumentListMapper.fromFolder(f));
+        return folders.map(f => TableRowMapper.fromFolder(f));
     };
 
     private getData = () => {

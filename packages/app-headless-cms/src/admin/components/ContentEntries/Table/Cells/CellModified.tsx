@@ -6,5 +6,5 @@ export const CellModified = () => {
     const { useTableRow } = ContentEntryListConfig.Browser.Table.Column;
     const { row } = useTableRow();
 
-    return <TimeAgo datetime={row.savedOn} />;
+    return <TimeAgo datetime={row.data.savedOn} />;
 };

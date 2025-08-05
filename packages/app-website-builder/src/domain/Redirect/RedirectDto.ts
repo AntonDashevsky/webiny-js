@@ -10,6 +10,7 @@ export interface RedirectDto {
     savedOn: string;
     modifiedBy: WbIdentity;
     modifiedOn: string;
+    title: string;
     redirectFrom: string;
     redirectTo: string;
     redirectType: string;
@@ -27,6 +28,7 @@ export class RedirectDtoMapper {
             savedOn: redirect.savedOn,
             modifiedBy: redirect.modifiedBy,
             modifiedOn: redirect.modifiedOn,
+            title: `${redirect.redirectFrom} -> ${redirect.redirectTo}`,
             redirectFrom: redirect.redirectFrom,
             redirectTo: redirect.redirectTo,
             redirectType: redirect.redirectType,

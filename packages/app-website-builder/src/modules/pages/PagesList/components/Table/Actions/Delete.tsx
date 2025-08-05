@@ -1,14 +1,12 @@
 import React from "react";
 import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
-import { useDocument } from "~/modules/pages/PagesList/hooks/useDocument.js";
+import { usePage } from "~/modules/pages/PagesList/hooks/usePage.js";
 import { useDeletePageConfirmationDialog } from "~/modules/pages/PagesList/hooks/useDeletePageConfirmationDialog.js";
 import { PageListConfig } from "~/modules/pages/configs";
 
 export const Delete = () => {
-    const { document } = useDocument();
-    const { openDeletePageConfirmationDialog } = useDeletePageConfirmationDialog({
-        page: document
-    });
+    const { page } = usePage();
+    const { openDeletePageConfirmationDialog } = useDeletePageConfirmationDialog({ page });
     const { OptionsMenuItem } = PageListConfig.Browser.Page.Action;
 
     return (

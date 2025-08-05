@@ -1,2 +1,2 @@
 export * from "./DocumentListPresenter.js";
-export * from "./DocumentListMapper.js";
+export * from "./TableRowMapper.js";

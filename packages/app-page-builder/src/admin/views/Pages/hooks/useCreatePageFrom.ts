@@ -4,10 +4,10 @@ import { useSnackbar } from "@webiny/app-admin";
 import { CREATE_PAGE } from "~/admin/graphql/pages";
 import * as GQLCache from "~/admin/views/Pages/cache";
 
-import type { PbPageDataItem, PbPageRevision } from "~/types";
+import type { PbPageRevision, PbPageSearchRecord } from "~/types";
 
 interface UseEditPageParams {
-    page: PbPageDataItem;
+    page: PbPageSearchRecord;
     onSuccess?: (data: PbPageRevision) => void;
 }
 

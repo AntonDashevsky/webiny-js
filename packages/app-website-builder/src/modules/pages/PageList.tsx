@@ -1,7 +1,7 @@
 import React from "react";
 import { CompositionScope, DialogsProvider } from "@webiny/app-admin";
 import { AcoWithConfig } from "@webiny/app-aco";
-import { DocumentList } from "./PagesList/DocumentList.js";
+import { PagesList } from "./PagesList/PagesList.js";
 import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
 import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
 import { WB_PAGE_APP } from "~/constants.js";
@@ -17,7 +17,7 @@ export const PageList = () => {
                         <FoldersProvider type={WB_PAGE_APP}>
                             <NavigateFolderProvider>
                                 <DialogsProvider>
-                                    <DocumentList />
+                                    <PagesList />
                                 </DialogsProvider>
                             </NavigateFolderProvider>
                         </FoldersProvider>

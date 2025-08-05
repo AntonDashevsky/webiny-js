@@ -19,17 +19,27 @@ export interface IRecordLockingProviderProps {
 export const RecordLockingContext = React.createContext({} as unknown as IRecordLockingContext);
 
 const isSameArray = (
-    existingRecords: Pick<IPossiblyRecordLockingRecord, "id" | "savedOn">[],
-    newRecords: Pick<IPossiblyRecordLockingRecord, "id" | "savedOn">[]
+    existingRecords: Pick<IPossiblyRecordLockingRecord["data"], "id" | "savedOn">[],
+    newRecords: Pick<IPossiblyRecordLockingRecord["data"], "id" | "savedOn">[]
 ): boolean => {
     if (existingRecords.length !== newRecords.length) {
         return false;
     }
-    return existingRecords.every(record => {
-        return newRecords.some(
-            newRecord => newRecord.id === record.id && newRecord.savedOn === record.savedOn
-        );
+    return existingRecords.every((record, index) => {
+        const newRecord = newRecords[index];
+        if (!newRecord) {
+            return false;
+        }
+
+        return newRecord.id === record.id && newRecord.savedOn === record.savedOn;
     });
+};
+
+const getData = (records: IPossiblyRecordLockingRecord[]) => {
+    return records.map(record => ({
+        id: record.data.id,
+        savedOn: record.data.savedOn
+    }));
 };
 
 export const RecordLockingProvider = (props: IRecordLockingProviderProps) => {
@@ -50,7 +60,7 @@ export const RecordLockingProvider = (props: IRecordLockingProviderProps) => {
 
     const setRecordsIfNeeded = useCallback(
         (newRecords: IPossiblyRecordLockingRecord[]) => {
-            const sameArray = isSameArray(records, newRecords);
+            const sameArray = isSameArray(getData(records), getData(newRecords));
             if (sameArray) {
                 return;
             }
@@ -81,7 +91,7 @@ export const RecordLockingProvider = (props: IRecordLockingProviderProps) => {
 
             setRecords(prev => {
                 return prev.map(item => {
-                    if (item.entryId === target.id) {
+                    if (item.data.entryId === target.id) {
                         return {
                             ...item,
                             $locked: result.data

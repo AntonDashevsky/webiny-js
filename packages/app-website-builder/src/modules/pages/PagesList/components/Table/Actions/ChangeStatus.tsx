@@ -2,21 +2,17 @@ import React from "react";
 import { ReactComponent as Publish } from "@webiny/icons/visibility.svg";
 import { ReactComponent as Unpublish } from "@webiny/icons/visibility_off.svg";
 import { PageListConfig } from "~/modules/pages/configs";
-import { useDocument } from "~/modules/pages/PagesList/hooks/useDocument.js";
+import { usePage } from "~/modules/pages/PagesList/hooks/usePage.js";
 import { usePublishPageConfirmationDialog } from "~/modules/pages/PagesList/hooks/usePublishPageConfirmationDialog.js";
 import { useUnpublishPageConfirmationDialog } from "~/modules/pages/PagesList/hooks/useUnpublishPageConfirmationDialog.js";
 
 export const ChangeStatus = () => {
-    const { document } = useDocument();
-    const { openPublishPageConfirmationDialog } = usePublishPageConfirmationDialog({
-        page: document
-    });
-    const { openUnpublishPageConfirmationDialog } = useUnpublishPageConfirmationDialog({
-        page: document
-    });
+    const { page } = usePage();
+    const { openPublishPageConfirmationDialog } = usePublishPageConfirmationDialog({ page });
+    const { openUnpublishPageConfirmationDialog } = useUnpublishPageConfirmationDialog({ page });
     const { OptionsMenuItem } = PageListConfig.Browser.Page.Action;
 
-    if (document.data.status === "published") {
+    if (page.status === "published") {
         return (
             <OptionsMenuItem
                 icon={<Unpublish />}

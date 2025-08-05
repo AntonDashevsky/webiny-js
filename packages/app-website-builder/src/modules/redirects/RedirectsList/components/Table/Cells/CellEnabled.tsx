@@ -1,16 +1,16 @@
 import React from "react";
 import { Tag } from "@webiny/admin-ui";
 import { RedirectListConfig } from "~/modules/redirects/configs";
-import type { RedirectDto } from "~/domain/Redirect";
 
 const { useTableRow, isFolderRow } = RedirectListConfig.Browser.Table.Column;
 
 export const CellEnabled = () => {
-    const { row } = useTableRow<RedirectDto>();
+    const { row } = useTableRow();
 
     if (isFolderRow(row)) {
         return <>{"-"}</>;
     }
+
 
     const { isEnabled } = row.data;
 

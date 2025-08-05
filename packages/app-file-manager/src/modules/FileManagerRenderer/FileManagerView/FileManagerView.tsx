@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import type { FilesRenderChildren } from "react-butterfiles";
 import Files from "react-butterfiles";
 import debounce from "lodash/debounce";
-import omit from "lodash/omit";
 import type { positionValues } from "react-custom-scrollbars";
 // @ts-expect-error
 import { useHotkeys } from "react-hotkeyz";
@@ -184,9 +183,7 @@ const FileManagerView = () => {
 
         if (view.listTable) {
             const getSelectableRow = (rows: TableItem[]) =>
-                rows
-                    .filter(row => row.$type === "RECORD")
-                    .map(row => omit(row, ["$type", "$selectable"]) as FileItem);
+                rows.filter(row => row.$type === "RECORD").map(row => row.data as FileItem);
 
             const onSelectRow: TableProps["onSelectRow"] = view.hasOnSelectCallback
                 ? rows => {
