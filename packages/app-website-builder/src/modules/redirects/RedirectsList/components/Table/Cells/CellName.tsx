@@ -30,10 +30,10 @@ const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
                     color={"neutral-strong"}
                     className={"wby-mr-xs"}
                     icon={<File />}
-                    label={`Document - ${document.title}`}
+                    label={`Redirect - ${document.data.title}`}
                 />
                 <Text as={"div"} className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>
-                    {document.title}
+                    {document.data.title}
                 </Text>
             </div>
         </div>

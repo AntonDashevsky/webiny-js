@@ -1,11 +1,11 @@
 import type { ColumnSorting } from "@webiny/app-utils";
-import type { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinTableRow } from "~/Domain";
 import type { TrashBinMetaResponse } from "~/types";
 
 export interface TrashBinPresenterViewModel {
-    items: TrashBinItemDTO[];
-    restoredItems: TrashBinItemDTO[];
-    selectedItems: TrashBinItemDTO[];
+    items: TrashBinTableRow[];
+    restoredItems: TrashBinTableRow[];
+    selectedItems: TrashBinTableRow[];
     allowSelectAll: boolean;
     isSelectedAll: boolean;
     sorting: ColumnSorting[];

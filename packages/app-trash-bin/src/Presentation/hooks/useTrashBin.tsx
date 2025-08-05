@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, useCallback } from "react";
 import { autorun } from "mobx";
 import { createGenericContext } from "@webiny/app-admin";
 import type { ITrashBinControllers, ITrashBinPresenter } from "~/Presentation/abstractions";
-import type { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinItemDTO, TrashBinTableRow } from "~/Domain";
 import type { TrashBinBulkActionsParams } from "~/types";
 
 export interface TrashBinContext {
@@ -66,7 +66,8 @@ export const useTrashBin = () => {
     );
 
     const selectItems = useCallback(
-        (items: TrashBinItemDTO[]) => context.controllers.selectItems.execute(items),
+        (items: TrashBinTableRow[]) =>
+            context.controllers.selectItems.execute(items.map(item => item.data)),
         [context.controllers.selectItems]
     );
 

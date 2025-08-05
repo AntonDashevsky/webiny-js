@@ -39,9 +39,9 @@ export class TrashBinPresenter {
 
     get vm() {
         return {
-            items: this.mapItemsToDTOs(this.itemsRepository.getItems()),
-            restoredItems: this.mapItemsToDTOs(this.itemsRepository.getRestoredItems()),
-            selectedItems: this.mapItemsToDTOs(this.selectedRepository.getSelectedItems()),
+            items: this.mapItemsToTableRows(this.itemsRepository.getItems()),
+            restoredItems: this.mapItemsToTableRows(this.itemsRepository.getRestoredItems()),
+            selectedItems: this.mapItemsToTableRows(this.selectedRepository.getSelectedItems()),
             allowSelectAll: this.getAllowSelectAll(),
             isSelectedAll: this.selectedRepository.getSelectedAllItems(),
             meta: MetaMapper.toDto(this.itemsRepository.getMeta()),
@@ -56,8 +56,15 @@ export class TrashBinPresenter {
         };
     }
 
-    private mapItemsToDTOs(items: TrashBinItem[]) {
-        return items.map(item => this.itemMapper.toDTO(item));
+    private mapItemsToTableRows(items: TrashBinItem[]) {
+        return items.map(item => {
+            return {
+                $type: "RECORD",
+                $selectable: true,
+                id: item.id,
+                data: this.itemMapper.toDTO(item)
+            };
+        });
     }
 
     private getIsEmptyView() {

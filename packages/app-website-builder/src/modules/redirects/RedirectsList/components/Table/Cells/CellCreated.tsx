@@ -7,5 +7,5 @@ const { useTableRow } = RedirectListConfig.Browser.Table.Column;
 export const CellCreated = () => {
     const { row } = useTableRow();
 
-    return <TimeAgo datetime={row.createdOn} />;
+    return <TimeAgo datetime={row.data.createdOn} />;
 };

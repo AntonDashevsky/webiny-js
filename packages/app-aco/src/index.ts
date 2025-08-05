@@ -6,3 +6,4 @@ export * from "./hooks";
 export * from "./features";
 export * from "./dialogs";
 export * from "./sorting";
+export type { TableRow } from "./types";

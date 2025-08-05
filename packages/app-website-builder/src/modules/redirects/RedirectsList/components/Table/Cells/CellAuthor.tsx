@@ -5,5 +5,5 @@ export const CellAuthor = () => {
     const { useTableRow } = RedirectListConfig.Browser.Table.Column;
     const { row } = useTableRow();
 
-    return <>{row.createdBy.displayName}</>;
+    return <>{row.data.createdBy.displayName}</>;
 };

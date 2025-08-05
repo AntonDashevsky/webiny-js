@@ -10,7 +10,7 @@ export const CellTitle = () => {
     return (
         <div className={"wby-flex wby-items-center wby-gap-sm wby-truncate"}>
             <Icon size={"sm"} color={"neutral-strong"} icon={<File />} label={"Item"} />
-            <Text className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>{row.title}</Text>
+            <Text className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>{row.data.title}</Text>
         </div>
     );
 };

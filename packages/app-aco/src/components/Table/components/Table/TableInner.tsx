@@ -12,8 +12,9 @@ import { ColumnMapper } from "./Columns";
 import type { ColumnsVisibilityPresenter, ColumnsVisibilityUpdater } from "./ColumnVisibility";
 import type { TablePresenter } from "./TablePresenter";
 import { TableRowProvider } from "~/components";
+import type { TableRow } from "~/types";
 
-export interface TableInnerProps<T> {
+export interface TableInnerProps<T extends TableRow> {
     columnsPresenter: ColumnsPresenter;
     columnsVisibilityPresenter: ColumnsVisibilityPresenter;
     columnsVisibilityUpdater: ColumnsVisibilityUpdater;
@@ -29,7 +30,7 @@ export interface TableInnerProps<T> {
 }
 
 export const TableInner = observer(
-    <T extends Record<string, any> & DataTableDefaultData>(props: TableInnerProps<T>) => {
+    <T extends TableRow>(props: TableInnerProps<T>) => {
         const cellRenderer = useCallback(
             (row: T, cell: string | React.ReactElement): string | number | JSX.Element | null => {
                 if (typeof cell === "string") {

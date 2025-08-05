@@ -4,7 +4,6 @@ export class TrashBinItemMapper implements ITrashBinItemMapper<TrashBinItem> {
     toDTO(data: TrashBinItem) {
         return {
             id: data.id,
-            $selectable: true,
             title: data.title,
             location: data.location,
             createdBy: data.createdBy,

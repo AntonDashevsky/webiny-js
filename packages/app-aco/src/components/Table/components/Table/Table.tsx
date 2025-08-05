@@ -15,6 +15,7 @@ import { ColumnsVisibilityLocalStorageGateway } from "./gateways";
 import { TablePresenter } from "./TablePresenter";
 import { TableInner } from "./TableInner";
 import { useAcoConfig } from "~/config";
+import type { TableRow } from "~/types";
 
 export interface TableProps<T> {
     data: T[];
@@ -28,7 +29,7 @@ export interface TableProps<T> {
     sorting: DataTableSorting;
 }
 
-export const Table = <T extends Record<string, any> & DataTableDefaultData>({
+export const Table = <T extends TableRow & DataTableDefaultData>({
     namespace,
     ...props
 }: TableProps<T>) => {

@@ -1,14 +1,14 @@
 import React from "react";
 import { Table as AcoTable } from "@webiny/app-aco";
 import { useTrashBin } from "~/Presentation/hooks";
-import type { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinTableRow } from "~/Domain";
 import { LoadingActions } from "~/types";
 
 export const Table = () => {
     const { vm, selectItems, sortItems } = useTrashBin();
 
     return (
-        <AcoTable<TrashBinItemDTO>
+        <AcoTable<TrashBinTableRow>
             data={vm.items}
             loading={vm.loading[LoadingActions.list]}
             onSelectRow={entries => selectItems(entries)}
