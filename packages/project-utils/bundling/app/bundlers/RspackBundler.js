@@ -1,3 +1,4 @@
+const fs = require("fs-extra");
 const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages");
 const { BaseAppBundler } = require("./BaseAppBundler");
 const { createRspackConfig } = require("./rspack/createRspackConfig");
@@ -62,6 +63,10 @@ class RspackBundler extends BaseAppBundler {
                 }
 
                 console.log("Compiled successfully.");
+
+                // Merge with the public folder
+                copyPublicFolder(this.getPaths());
+
                 resolve();
             });
         });
@@ -111,6 +116,13 @@ class RspackBundler extends BaseAppBundler {
             env
         });
     }
+}
+
+function copyPublicFolder(paths) {
+    fs.copySync(paths.appPublic, paths.appBuild, {
+        dereference: true,
+        filter: file => file !== paths.appHtml
+    });
 }
 
 module.exports = { RspackBundler };
