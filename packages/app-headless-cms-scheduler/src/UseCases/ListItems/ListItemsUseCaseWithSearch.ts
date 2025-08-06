@@ -19,7 +19,7 @@ export class ListItemsUseCaseWithSearch implements IListItemsUseCase {
             ...params,
             where: {
                 ...params?.where,
-                title_contains: search
+                title_contains: search.length > 0 ? search : undefined
             }
         });
     }
