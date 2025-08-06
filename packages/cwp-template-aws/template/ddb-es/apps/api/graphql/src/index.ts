@@ -26,6 +26,8 @@ import { createStorageOperations as createApwStorageOperations } from "@webiny/a
 import { createWebsockets } from "@webiny/api-websockets";
 import { createRecordLocking } from "@webiny/api-record-locking";
 import { createLogger } from "@webiny/api-log";
+import { createHeadlessCmsScheduler } from "@webiny/api-headless-cms-scheduler";
+import { createSchedulerClient } from "@webiny/aws-sdk/client-scheduler";
 
 // Imports plugins created via scaffolding utilities.
 import scaffoldsPlugins from "./plugins/scaffolds";
@@ -86,6 +88,11 @@ export const handler = createHandler({
         }),
         createAcoHcmsContext(),
         createHcmsTasks(),
+        createHeadlessCmsScheduler({
+            getClient: config => {
+                return createSchedulerClient(config);
+            }
+        }),
         createAuditLogs(),
         scaffoldsPlugins(),
         extensions()

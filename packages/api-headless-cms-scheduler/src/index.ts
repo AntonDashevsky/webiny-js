@@ -14,7 +14,7 @@ export interface ICreateHeadlessCmsScheduleParams extends ICreateHeadlessCmsSche
  * * Handler plugin will handle the scheduled CMS action event - a lambda call from the EventBridge Scheduler.
  * * API plugin will provide the GraphQL API and code for managing the scheduled CMS actions.
  */
-export const createHeadlessCmsSchedule = (params: ICreateHeadlessCmsScheduleParams): Plugin[] => {
+export const createHeadlessCmsScheduler = (params: ICreateHeadlessCmsScheduleParams): Plugin[] => {
     return [
         /**
          * Handler for the Scheduled CMS Action Event.

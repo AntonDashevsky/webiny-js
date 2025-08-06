@@ -14,7 +14,7 @@ import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
 import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
-import { createHeadlessCmsSchedule } from "~/index.js";
+import { createHeadlessCmsScheduler } from "~/index.js";
 import type {
     SchedulerClient,
     SchedulerClientConfig
@@ -110,7 +110,7 @@ export const createHandlerCore = (params: CreateHandlerCoreParams) => {
             createHeadlessCmsGraphQL(),
             plugins,
             graphQLHandlerPlugins(),
-            createHeadlessCmsSchedule({
+            createHeadlessCmsScheduler({
                 getClient: config => {
                     return params.getScheduleClient(config);
                 }
