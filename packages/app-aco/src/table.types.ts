@@ -20,17 +20,17 @@ export type MovableSearchRecordItem = Pick<SearchRecordItem, "id" | "location">;
 
 export type DeletableSearchRecordItem = Pick<SearchRecordItem, "id" | "location">;
 
-export interface BaseTableItem<TData = unknown> {
+export interface TableRow<TData = unknown> {
     id: string;
     $selectable: boolean;
     $type: string;
     data: TData;
 }
 
-export interface FolderTableItem extends BaseTableItem<FolderItem> {
+export interface FolderTableRow extends TableRow<FolderItem> {
     $type: "FOLDER";
 }
 
-export interface RecordTableItem<TData> extends BaseTableItem<TData> {
+export interface RecordTableRow<TData> extends TableRow<TData> {
     $type: "RECORD";
 }

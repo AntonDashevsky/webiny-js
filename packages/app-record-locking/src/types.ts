@@ -1,4 +1,4 @@
-import type { EntryTableItem } from "@webiny/app-headless-cms/types";
+import type { CmsContentEntry } from "@webiny/app-headless-cms/types";
 import type { GenericRecord } from "@webiny/app/types";
 import type { IRecordLockingUnlockEntryResult } from "~/domain/abstractions/IRecordLockingUnlockEntry";
 import type { SecurityPermission } from "@webiny/app-security/types";
@@ -17,7 +17,7 @@ export interface IRecordLockingRecordLocked {
     actions: IRecordLockingLockRecordAction[];
 }
 
-export interface IPossiblyRecordLockingRecord extends EntryTableItem {
+export interface IPossiblyRecordLockingRecord extends CmsContentEntry {
     $lockingType?: string;
     $locked?: IRecordLockingRecordLocked | null;
 }

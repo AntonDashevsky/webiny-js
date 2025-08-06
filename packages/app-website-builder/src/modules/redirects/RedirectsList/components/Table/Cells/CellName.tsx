@@ -3,21 +3,17 @@ import React from "react";
 import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as File } from "@webiny/icons/description.svg";
 
-import type { TableRowDto } from "~/modules/redirects/RedirectsList/presenters/index.js";
+import type { RedirectTableRow } from "~/modules/redirects/RedirectsList/presenters/index.js";
 import { RedirectListConfig } from "~/modules/redirects/configs";
 import { FolderCellName } from "~/modules/shared/FolderCellName";
 import { useEditRedirectDialog } from "~/modules/redirects/RedirectsList/index.js";
 
 interface DocumentCellRowTitleProps {
-    document: TableRowDto;
+    document: RedirectTableRow["data"];
 }
 
 const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
     const { showEditRedirectDialog } = useEditRedirectDialog();
-
-    if (document.$type === "FOLDER") {
-        return null;
-    }
 
     return (
         <div className={"wby-flex wby-flex-col wby-gap-y-[3px]"}>
@@ -30,10 +26,10 @@ const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
                     color={"neutral-strong"}
                     className={"wby-mr-xs"}
                     icon={<File />}
-                    label={`Redirect - ${document.data.title}`}
+                    label={`Redirect - ${document.title}`}
                 />
                 <Text as={"div"} className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>
-                    {document.data.title}
+                    {document.title}
                 </Text>
             </div>
         </div>
@@ -41,7 +37,7 @@ const DocumentCellRowTitle = ({ document }: DocumentCellRowTitleProps) => {
 };
 
 interface EntryCellNameProps {
-    document: TableRowDto;
+    document: RedirectTableRow["data"];
 }
 
 export const DocumentCellName = ({ document }: EntryCellNameProps) => {
@@ -56,5 +52,5 @@ export const CellName = () => {
         return <FolderCellName folder={row.data} />;
     }
 
-    return <DocumentCellName document={row} />;
+    return <DocumentCellName document={row.data} />;
 };

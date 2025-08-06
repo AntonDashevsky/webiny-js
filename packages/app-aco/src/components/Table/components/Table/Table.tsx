@@ -1,9 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import type {
-    DataTableDefaultData,
-    DataTableSorting,
-    OnDataTableSortingChange
-} from "@webiny/admin-ui";
+import type { DataTableSorting, OnDataTableSortingChange } from "@webiny/admin-ui";
 import { Column, ColumnsPresenter, columnsRepositoryFactory } from "./Columns";
 import {
     ColumnsVisibilityDecorator,
@@ -25,14 +21,11 @@ export interface TableProps<T> {
     onSelectRow?: (rows: T[] | []) => void;
     onSortingChange: OnDataTableSortingChange;
     onToggleRow?: (row: T) => void;
-    selected: DataTableDefaultData[];
+    selected: TableRow[];
     sorting: DataTableSorting;
 }
 
-export const Table = <T extends TableRow & DataTableDefaultData>({
-    namespace,
-    ...props
-}: TableProps<T>) => {
+export const Table = <T extends TableRow>({ namespace, ...props }: TableProps<T>) => {
     const { table } = useAcoConfig();
 
     const columnsRepo = useMemo(() => {

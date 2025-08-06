@@ -12,7 +12,7 @@ export const CellTitle = () => {
             <RowIcon>
                 <File />
             </RowIcon>
-            <RowText use={"subtitle2"}>{row.title}</RowText>
+            <RowText use={"subtitle2"}>{row.data.title}</RowText>
         </RowTitle>
     );
 };

@@ -1,19 +1,14 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import debounce from "lodash/debounce";
 import { useRouter } from "@webiny/react-router";
 import { makeDecoratable } from "@webiny/react-composition";
 import { useContentEntries } from "./useContentEntries";
-import type { CmsContentEntry, EntryTableItem, TableItem } from "~/types";
+import type { CmsContentEntry, TableItem } from "~/types";
 import type { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
-import {
-    createFoldersData,
-    createRecordsData,
-    createSort,
-    useAcoList,
-    useNavigateFolder
-} from "@webiny/app-aco";
+import { createSort, useAcoList, useNavigateFolder } from "@webiny/app-aco";
 import { CMS_ENTRY_LIST_LINK, ROOT_FOLDER } from "~/admin/constants";
-import type { FolderTableItem, ListMeta } from "@webiny/app-aco/types";
+import type { ListMeta } from "@webiny/app-aco";
+import type { FolderItem } from "@webiny/app-aco/types";
 
 interface UpdateSearchCallableParams {
     search: string;
@@ -27,7 +22,7 @@ export interface ContentEntriesListProviderContext {
     modelId: string;
     folderId: string;
     navigateTo: (folderId?: string) => void;
-    folders: FolderTableItem[];
+    folders: FolderItem[];
     getEntryEditUrl: (item: CmsContentEntry) => string;
     hideFilters: () => void;
     isListLoading: boolean;
@@ -37,7 +32,7 @@ export interface ContentEntriesListProviderContext {
     listTitle?: string;
     meta: ListMeta;
     onSelectRow: (rows: TableItem[] | []) => void;
-    records: EntryTableItem[];
+    records: CmsContentEntry[];
     search: string;
     selected: CmsContentEntry[];
     setSearch: (value: string) => void;
@@ -136,8 +131,7 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
     const onSelectRow: ContentEntriesListProviderContext["onSelectRow"] = rows => {
         const items = rows.filter(item => item.$type === "RECORD");
 
-        const cmsContentEntries = items
-            .map(item => item.data as CmsContentEntry)
+        const cmsContentEntries = items.map(item => item.data as CmsContentEntry);
 
         setSelected(cmsContentEntries);
     };
@@ -154,14 +148,6 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
         },
         [baseUrl, currentFolderId]
     );
-
-    const records = useMemo(() => {
-        return createRecordsData(initialRecords);
-    }, [initialRecords]);
-
-    const folders = useMemo(() => {
-        return createFoldersData(initialFolders);
-    }, [initialFolders]);
 
     useEffect(() => {
         if (!sorting?.length) {
@@ -187,7 +173,7 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
         modelId: contentModel.modelId,
         folderId: currentFolderId || ROOT_FOLDER,
         navigateTo,
-        folders,
+        folders: initialFolders,
         getEntryEditUrl,
         isListLoading,
         isListLoadingMore,
@@ -196,7 +182,7 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
         listMoreRecords,
         meta,
         onSelectRow,
-        records,
+        records: initialRecords,
         search,
         selected,
         setSelected,

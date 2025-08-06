@@ -1,24 +1,14 @@
-import type { Folder, FolderDto, TableRow } from "@webiny/app-aco";
+import type { Folder, FolderTableRow, RecordTableRow } from "@webiny/app-aco";
 import { FolderDtoMapper } from "@webiny/app-aco";
 import { type Redirect, type RedirectDto, RedirectDtoMapper } from "~/domain/Redirect";
 
-export type TableRowDto = TableRow &
-    (
-        | {
-              $type: "RECORD";
-              data: RedirectDto;
-          }
-        | {
-              $type: "FOLDER";
-              data: FolderDto;
-          }
-    );
-
+export type RedirectTableRow = RecordTableRow<RedirectDto>;
+export type TableRow = FolderTableRow | RedirectTableRow;
 /**
  * This mapper converts a Redirect domain object to data format suitable for rendering with the Table component.
  */
 export class TableRowMapper {
-    static fromRedirect(redirect: Redirect): TableRowDto {
+    static fromRedirect(redirect: Redirect): TableRow {
         return {
             id: redirect.id,
             $type: "RECORD",
@@ -27,7 +17,7 @@ export class TableRowMapper {
         };
     }
 
-    static fromFolder(folder: Folder): TableRowDto {
+    static fromFolder(folder: Folder): TableRow {
         return {
             id: folder.id,
             $type: "FOLDER",

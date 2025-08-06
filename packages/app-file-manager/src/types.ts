@@ -2,7 +2,7 @@ import type * as React from "react";
 import type { Plugin } from "@webiny/plugins/types";
 import type { SecurityPermission } from "@webiny/app-security/types";
 import type { FileItem } from "@webiny/app-admin/types";
-import type { FolderTableItem, RecordTableItem } from "@webiny/app-aco/types";
+import type { FolderTableRow, RecordTableRow } from "@webiny/app-aco";
 
 export { FileInput } from "./modules/FileManagerApiProvider/graphql";
 
@@ -37,6 +37,4 @@ export interface FileTag {
     count: number;
 }
 
-export type FileTableItem = RecordTableItem<FileItem>;
-
-export type TableItem = FolderTableItem | FileTableItem;
+export type TableItem = FolderTableRow | RecordTableRow<FileItem>;

@@ -1,7 +1,11 @@
 import React from "react";
-import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import type { TableRowDto } from "~/modules/pages/PagesList/presenters/TableRowMapper.js";
+import {
+    AcoConfig,
+    type TableColumnConfig as ColumnConfig,
+    type FolderTableRow
+} from "@webiny/app-aco";
 import { makeDecoratable } from "@webiny/react-composition";
+import type { TableRow } from "~/modules/pages/types";
 
 const { Table } = AcoConfig;
 
@@ -19,11 +23,11 @@ const BaseColumnComponent = (props: ColumnProps) => {
 
 const BaseColumn = makeDecoratable("Column", BaseColumnComponent);
 
-const isFolderRow = (row: TableRowDto): row is Extract<TableRowDto, { $type: "FOLDER" }> => {
+const isFolderRow = (row: TableRow): row is FolderTableRow => {
     return row.$type === "FOLDER";
 };
 
 export const Column = Object.assign(BaseColumn, {
-    useTableRow: Table.Column.createUseTableRow<TableRowDto>(),
+    useTableRow: Table.Column.createUseTableRow<TableRow>(),
     isFolderRow
 });

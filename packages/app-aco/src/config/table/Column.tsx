@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import { createUseTableRow } from "~/components/Table/useTableRow";
-import type { FolderTableItem, BaseTableItem } from "~/types";
+import type { FolderTableRow, TableRow } from "~/table.types";
 
 export interface ColumnConfig {
     cell: string | ReactElement;
@@ -78,7 +78,7 @@ const BaseColumn: React.FC<ColumnProps> = ({
     );
 };
 
-const isFolderRow = (row: BaseTableItem): row is FolderTableItem => {
+const isFolderRow = (row: TableRow): row is FolderTableRow => {
     return row.$type === "FOLDER";
 };
 

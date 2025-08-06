@@ -6,4 +6,5 @@ export * from "./hooks";
 export * from "./features";
 export * from "./dialogs";
 export * from "./sorting";
-export type { TableRow } from "./types";
+export type { TableRow, FolderTableRow, RecordTableRow } from "./table.types";
+export type { ListMeta } from "./types";

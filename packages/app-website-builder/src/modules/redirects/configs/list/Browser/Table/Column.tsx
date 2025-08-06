@@ -1,7 +1,13 @@
 import React from "react";
-import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
+import {
+    AcoConfig,
+    type FolderTableRow,
+    type RecordTableRow,
+    type TableColumnConfig as ColumnConfig
+} from "@webiny/app-aco";
 import { makeDecoratable } from "@webiny/react-composition";
-import type { TableRowDto } from "~/modules/redirects/RedirectsList/presenters/TableRowMapper";
+import type { TableRow } from "~/modules/redirects/RedirectsList/presenters/TableRowMapper";
+import type { RedirectDto } from "~/domain/Redirect";
 
 const { Table } = AcoConfig;
 
@@ -19,13 +25,13 @@ const BaseColumnComponent = (props: ColumnProps) => {
 
 const BaseColumn = makeDecoratable("Column", BaseColumnComponent);
 
-const isFolderRow = (row: TableRowDto): row is Extract<TableRowDto, { $type: "FOLDER" }> => {
+const isFolderRow = (row: TableRow): row is FolderTableRow => {
     return row.$type === "FOLDER";
 };
 
 export const Column = Object.assign(BaseColumn, {
-    useTableRow: Table.Column.createUseTableRow<TableRowDto>(),
-    useFolderRow: Table.Column.createUseTableRow<Extract<TableRowDto, { $type: "FOLDER" }>>(),
-    useRedirectRow: Table.Column.createUseTableRow<Extract<TableRowDto, { $type: "RECORD" }>>(),
+    useTableRow: Table.Column.createUseTableRow<TableRow>(),
+    useFolderRow: Table.Column.createUseTableRow<FolderTableRow>(),
+    useRedirectRow: Table.Column.createUseTableRow<RecordTableRow<RedirectDto>>(),
     isFolderRow
 });

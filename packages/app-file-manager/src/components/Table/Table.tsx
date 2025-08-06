@@ -21,6 +21,10 @@ export const Table = forwardRef<HTMLDivElement, TableProps>((props, ref) => {
         return [...createFoldersData(view.folders), ...createRecordsData(view.files)];
     }, [view.folders, view.files, view.displaySubFolders]);
 
+    const selected = useMemo<TableItem[]>(() => {
+        return createRecordsData(view.selected);
+    }, [view.selected]);
+
     return (
         <div ref={ref}>
             <AcoTable<TableItem>
@@ -30,7 +34,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>((props, ref) => {
                 onToggleRow={props.onToggleRow}
                 sorting={props.sorting}
                 onSortingChange={props.onSortingChange}
-                selected={view.selected}
+                selected={selected}
                 namespace={"fm.file"}
             />
         </div>

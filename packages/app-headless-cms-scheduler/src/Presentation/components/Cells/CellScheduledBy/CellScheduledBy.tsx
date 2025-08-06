@@ -5,5 +5,5 @@ export const CellScheduledBy = () => {
     const { useTableRow } = SchedulerListConfig.Browser.Table.Column;
     const { row } = useTableRow();
 
-    return <>{row.scheduledBy?.displayName || "unknown"}</>;
+    return <>{row.data.scheduledBy?.displayName || "unknown"}</>;
 };

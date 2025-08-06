@@ -107,7 +107,9 @@ export const PagesListProvider = ({ children }: PagesListProviderProps) => {
     // Handle rows selection.
     const onSelectRow: PagesListProviderContext["onSelectRow"] = rows => {
         const recordEntries = rows.filter(item => item.$type === "RECORD");
-        const pageEntries = recordEntries.map(item => item.data as SearchRecordItem<PbPageDataItem>);
+        const pageEntries = recordEntries.map(
+            item => item.data as SearchRecordItem<PbPageDataItem>
+        );
         setSelected(pageEntries);
     };
 

@@ -6,7 +6,7 @@ export const CellScheduledOn = () => {
     const { useTableRow } = SchedulerListConfig.Browser.Table.Column;
     const { row } = useTableRow();
 
-    const dateTime = row.publishOn || row.unpublishOn;
+    const dateTime = row.data.publishOn || row.data.unpublishOn;
     if (!dateTime) {
         return <>Missing publish or unpublish date.</>;
     }

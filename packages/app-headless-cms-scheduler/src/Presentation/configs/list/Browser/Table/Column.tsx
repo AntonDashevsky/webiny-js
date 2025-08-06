@@ -1,6 +1,6 @@
 import React from "react";
 import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import type { SchedulerEntry } from "~/types";
+import type { SchedulerEntryTableRow } from "~/types";
 
 const { Table } = AcoConfig;
 
@@ -17,6 +17,6 @@ const BaseColumn = (props: ColumnProps) => {
 };
 
 export const Column = Object.assign(BaseColumn, {
-    useTableRow: Table.Column.createUseTableRow<SchedulerEntry>(),
+    useTableRow: Table.Column.createUseTableRow<SchedulerEntryTableRow>(),
     isFolderRow: Table.Column.isFolderRow
 });

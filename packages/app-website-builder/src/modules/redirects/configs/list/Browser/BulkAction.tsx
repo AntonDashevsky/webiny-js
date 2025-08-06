@@ -4,7 +4,7 @@ import { useButtons, useDialogWithReport, Worker } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import { useDocumentList } from "~/modules/redirects/RedirectsList/useDocumentList.js";
 import { Redirect, type RedirectDto, RedirectDtoMapper } from "~/domain/Redirect/index.js";
-import type { TableRowDto } from "~/modules/redirects/RedirectsList/presenters/index.js";
+import type { TableRow } from "~/modules/redirects/RedirectsList/presenters/index.js";
 import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects";
 
 export interface BulkActionConfig {
@@ -53,7 +53,7 @@ export const BaseBulkAction = ({
 
 const useWorker = () => {
     const { vm } = useDocumentList();
-    const { selectRedirects } = useSelectRedirects<TableRowDto>();
+    const { selectRedirects } = useSelectRedirects<TableRow>();
     const { current: worker } = useRef(new Worker<RedirectDto>());
 
     const items = useMemo(() => {

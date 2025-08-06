@@ -12,7 +12,7 @@ export const CellType = () => {
             <RowIcon>
                 <File />
             </RowIcon>
-            <RowText use={"subtitle2"}>{row.type}</RowText>
+            <RowText use={"subtitle2"}>{row.data.type}</RowText>
         </RowType>
     );
 };

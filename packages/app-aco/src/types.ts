@@ -19,13 +19,6 @@ export interface FolderLevelPermissionsTarget<TMeta = Record<string, any>> {
     meta: TMeta;
 }
 
-export type TableRow = {
-    id: string;
-    $selectable: boolean;
-    $type: string;
-    data: unknown;
-};
-
 export interface FolderItem {
     id: string;
     title: string;

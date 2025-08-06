@@ -14,6 +14,10 @@ const BaseTable: ForwardRefRenderFunction<HTMLDivElement> = (_, ref) => {
         return [...createFoldersData(list.folders), ...createRecordsData(list.records)];
     }, [list.folders, list.records]);
 
+    const selected = useMemo<TableItem[]>(() => {
+        return createRecordsData(list.selected);
+    }, [list.selected]);
+
     return (
         <TableContainer ref={ref}>
             <AcoTable<TableItem>
@@ -22,7 +26,7 @@ const BaseTable: ForwardRefRenderFunction<HTMLDivElement> = (_, ref) => {
                 onSelectRow={list.onSelectRow}
                 sorting={list.sorting}
                 onSortingChange={list.setSorting}
-                selected={list.selected}
+                selected={selected}
                 namespace={"pb.page"}
             />
         </TableContainer>

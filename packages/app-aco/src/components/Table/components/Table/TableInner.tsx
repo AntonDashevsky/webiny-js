@@ -29,54 +29,50 @@ export interface TableInnerProps<T extends TableRow> {
     tablePresenter: TablePresenter;
 }
 
-export const TableInner = observer(
-    <T extends TableRow>(props: TableInnerProps<T>) => {
-        const cellRenderer = useCallback(
-            (row: T, cell: string | React.ReactElement): string | number | JSX.Element | null => {
-                if (typeof cell === "string") {
-                    return cell;
-                }
+export const TableInner = observer(<T extends TableRow>(props: TableInnerProps<T>) => {
+    const cellRenderer = useCallback(
+        (row: T, cell: string | React.ReactElement): string | number | JSX.Element | null => {
+            if (typeof cell === "string") {
+                return cell;
+            }
 
-                return <TableRowProvider row={row}>{cell}</TableRowProvider>;
-            },
-            []
-        );
+            return <TableRowProvider row={row}>{cell}</TableRowProvider>;
+        },
+        []
+    );
 
-        const columns = useMemo(() => {
-            return props.columnsPresenter.vm.columns.reduce((result, column) => {
-                const { nameColumnId = "name" } = props;
-                const { name: defaultName } = column;
+    const columns = useMemo(() => {
+        return props.columnsPresenter.vm.columns.reduce((result, column) => {
+            const { nameColumnId = "name" } = props;
+            const { name: defaultName } = column;
 
-                // Determine the column name, using the provided `nameColumnId` if the default is 'name'
-                const name = defaultName === "name" ? nameColumnId : defaultName;
+            // Determine the column name, using the provided `nameColumnId` if the default is 'name'
+            const name = defaultName === "name" ? nameColumnId : defaultName;
 
-                result[name as keyof DataTableColumns<T>] = ColumnMapper.toDataTable(
-                    column,
-                    cellRenderer
-                );
+            result[name as keyof DataTableColumns<T>] = ColumnMapper.toDataTable(
+                column,
+                cellRenderer
+            );
 
-                return result;
-            }, {} as DataTableColumns<T>);
-        }, [props.columnsPresenter.vm.columns]);
+            return result;
+        }, {} as DataTableColumns<T>);
+    }, [props.columnsPresenter.vm.columns]);
 
-        return (
-            <DataTable
-                columns={columns}
-                columnVisibility={props.columnsVisibilityPresenter.vm.columnsVisibility}
-                onColumnVisibilityChange={props.columnsVisibilityUpdater.update}
-                data={props.data}
-                initialSorting={props.tablePresenter.vm.initialSorting}
-                isRowSelectable={row => row.original.$selectable ?? false}
-                loading={props.loading}
-                onSelectRow={props.onSelectRow}
-                onSortingChange={props.onSortingChange}
-                onToggleRow={props.onToggleRow}
-                selectedRows={props.data.filter(row =>
-                    props.selected.find(item => row.id === item.id)
-                )}
-                sorting={props.sorting}
-                stickyHeader={true}
-            />
-        );
-    }
-);
+    return (
+        <DataTable
+            columns={columns}
+            columnVisibility={props.columnsVisibilityPresenter.vm.columnsVisibility}
+            onColumnVisibilityChange={props.columnsVisibilityUpdater.update}
+            data={props.data}
+            initialSorting={props.tablePresenter.vm.initialSorting}
+            isRowSelectable={row => row.original.$selectable ?? false}
+            loading={props.loading}
+            onSelectRow={props.onSelectRow}
+            onSortingChange={props.onSortingChange}
+            onToggleRow={props.onToggleRow}
+            selectedRows={props.data.filter(row => props.selected.find(item => row.id === item.id))}
+            sorting={props.sorting}
+            stickyHeader={true}
+        />
+    );
+});

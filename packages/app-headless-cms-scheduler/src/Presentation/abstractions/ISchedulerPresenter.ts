@@ -1,9 +1,10 @@
 import type { ColumnSorting } from "@webiny/app-utils";
-import type { SchedulerEntry, SchedulerMetaResponse } from "~/types.js";
+import type { SchedulerMetaResponse } from "~/types.js";
+import type { SchedulerItem } from "~/Domain";
 
 export interface SchedulerPresenterViewModel {
-    items: SchedulerEntry[];
-    selectedItems: SchedulerEntry[];
+    items: SchedulerItem[];
+    selectedItems: SchedulerItem[];
     allowSelectAll: boolean;
     isSelectedAll: boolean;
     sorting: ColumnSorting[];

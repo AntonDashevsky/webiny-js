@@ -10,10 +10,9 @@ import {
     SortingMapper,
     sortRepositoryFactory
 } from "@webiny/app-utils";
-import { type IListCache, type Page, pageListCache } from "~/domain/Page/index.js";
-import type { Folder } from "@webiny/app-aco";
+import { type IListCache, type Page, PageDtoMapper, pageListCache } from "~/domain/Page/index.js";
+import { type Folder, FolderDtoMapper } from "@webiny/app-aco";
 import { folderCacheFactory } from "@webiny/app-aco";
-import { TableRowMapper } from "~/modules/pages/PagesList/presenters/TableRowMapper.js";
 import { type ISearchRepository, searchRepositoryFactory } from "~/domain/Search/index.js";
 import {
     type ISelectedItemsRepository,
@@ -56,10 +55,15 @@ class DocumentListPresenter {
     }
 
     public get vm() {
+        const data = this.getVmDocuments();
+        const folders = this.getVmFolders();
+        const isEmpty = !this.getIsLoading() && data.length === 0 && folders.length === 0;
+
         return {
             folderId: this.folderId,
             title: this.getVmTitle(),
-            data: this.getData(),
+            data,
+            folders,
             selected: this.getSelected(),
             meta: {
                 totalCount: this.metaRepository.get().totalCount ?? 0,
@@ -69,7 +73,7 @@ class DocumentListPresenter {
             searchQuery: this.searchRepository.get() || "",
             searchLabel: this.getSearchLabel(),
             isSearch: this.getIsSearch(),
-            isEmpty: this.getIsEmpty(),
+            isEmpty,
             isRoot: this.getIsRoot(),
             isLoading: this.getIsLoading(),
             isLoadingMore: this.getIsLoadingMore(),
@@ -92,10 +96,15 @@ class DocumentListPresenter {
     };
 
     private getVmDocuments = () => {
-        return this.documentsCache.getItems().map(d => TableRowMapper.fromPage(d));
+        const documents = this.documentsCache.getItems().map(d => PageDtoMapper.toDTO(d));
+        return this.sortItems(documents);
     };
 
     private getVmFolders = () => {
+        if (this.getIsSearch()) {
+            return [];
+        }
+
         const folders = this.foldersCache.getItems().filter(f => {
             if (this.folderId === ROOT_FOLDER) {
                 return f.parentId === null;
@@ -104,19 +113,7 @@ class DocumentListPresenter {
             }
         });
 
-        return folders.map(f => TableRowMapper.fromFolder(f));
-    };
-
-    private getData = () => {
-        if (this.getIsSearch()) {
-            // Only documents, sorted if needed
-            return this.sortItems(this.getVmDocuments());
-        }
-
-        // Not in search: folders first, then documents, both sorted if needed
-        const folders = this.sortItems(this.getVmFolders());
-        const documents = this.sortItems(this.getVmDocuments());
-        return [...folders, ...documents];
+        return this.sortItems(folders).map(folder => FolderDtoMapper.toDTO(folder));
     };
 
     private getSelected = () => {
@@ -158,10 +155,6 @@ class DocumentListPresenter {
     private getIsLoadingMore = () => {
         return Boolean(this.documentsLoadingRepository.isLoading(loadingActions.listMore));
     };
-
-    private getIsEmpty() {
-        return !this.getIsLoading() && !this.getData().length;
-    }
 
     private getSorting = () => {
         return this.sortingRepository.get().map(sort => {

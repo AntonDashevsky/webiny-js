@@ -39,9 +39,9 @@ export class TrashBinPresenter {
 
     get vm() {
         return {
-            items: this.mapItemsToTableRows(this.itemsRepository.getItems()),
-            restoredItems: this.mapItemsToTableRows(this.itemsRepository.getRestoredItems()),
-            selectedItems: this.mapItemsToTableRows(this.selectedRepository.getSelectedItems()),
+            items: this.mapItemsToDto(this.itemsRepository.getItems()),
+            restoredItems: this.mapItemsToDto(this.itemsRepository.getRestoredItems()),
+            selectedItems: this.mapItemsToDto(this.selectedRepository.getSelectedItems()),
             allowSelectAll: this.getAllowSelectAll(),
             isSelectedAll: this.selectedRepository.getSelectedAllItems(),
             meta: MetaMapper.toDto(this.itemsRepository.getMeta()),
@@ -56,14 +56,9 @@ export class TrashBinPresenter {
         };
     }
 
-    private mapItemsToTableRows(items: TrashBinItem[]) {
+    private mapItemsToDto(items: TrashBinItem[]) {
         return items.map(item => {
-            return {
-                $type: "RECORD",
-                $selectable: true,
-                id: item.id,
-                data: this.itemMapper.toDTO(item)
-            };
+            return this.itemMapper.toDTO(item);
         });
     }
 

@@ -147,7 +147,7 @@ class RecordLocking<T extends IPossiblyRecordLockingRecord = IPossiblyRecordLock
     public getLockRecordEntry(id: string): IRecordLockingRecord | undefined {
         return this.records.find(record => {
             const { id: entryId } = parseIdentifier(id);
-            return record.data.entryId === entryId;
+            return record.entryId === entryId;
         });
     }
 
@@ -155,7 +155,7 @@ class RecordLocking<T extends IPossiblyRecordLockingRecord = IPossiblyRecordLock
         const result = this.records.find(r => {
             const { id: entryId } = parseIdentifier(record.id);
 
-            return r.data.entryId === entryId && !!r.$locked && r.$lockingType === record.$lockingType;
+            return r.entryId === entryId && !!r.$locked && r.$lockingType === record.$lockingType;
         });
         if (!result?.$locked?.expiresOn) {
             return false;
@@ -183,7 +183,7 @@ class RecordLocking<T extends IPossiblyRecordLockingRecord = IPossiblyRecordLock
 
     public removeEntryLock(params: IUnlockEntryParams): void {
         const index = this.records.findIndex(record => {
-            return record.data.entryId === params.id && record.$lockingType === params.$lockingType;
+            return record.entryId === params.id && record.$lockingType === params.$lockingType;
         });
         if (index === -1) {
             return;
@@ -294,7 +294,7 @@ class RecordLocking<T extends IPossiblyRecordLockingRecord = IPossiblyRecordLock
         for (const record of result.data) {
             const index = this.records.findIndex(r => {
                 const { id: entryId } = parseIdentifier(record.id);
-                return r.data.entryId === entryId;
+                return r.entryId === entryId;
             });
             if (index < 0) {
                 console.error(`There is no record with id ${record.id} in the records array.`);
@@ -321,8 +321,8 @@ class RecordLocking<T extends IPossiblyRecordLockingRecord = IPossiblyRecordLock
          * First we check the record keys against ones in the local cache.
          */
         const keys = records.map(record => {
-            if (record.data.entryId) {
-                return record.data.entryId;
+            if (record.entryId) {
+                return record.entryId;
             }
             const { id: entryId } = parseIdentifier(record.id);
             return entryId;
@@ -344,7 +344,7 @@ class RecordLocking<T extends IPossiblyRecordLockingRecord = IPossiblyRecordLock
 
         return records.reduce<string[]>((collection, record) => {
             const { id: entryId } = parseIdentifier(record.id);
-            const index = this.records.findIndex(r => r.data.entryId === entryId);
+            const index = this.records.findIndex(r => r.entryId === entryId);
             if (index >= 0) {
                 return collection;
             }

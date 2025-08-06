@@ -16,7 +16,6 @@ const BaseColumn: React.FC<ColumnProps> = props => {
     );
 };
 
-
 const isFolderRow = (row: TableItem): row is Extract<TableItem, { $type: "FOLDER" }> => {
     return row.$type === "FOLDER";
 };

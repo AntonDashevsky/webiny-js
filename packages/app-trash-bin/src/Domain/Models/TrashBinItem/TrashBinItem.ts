@@ -11,9 +11,7 @@ export interface TrashBinItemDTO {
     [key: string]: any;
 }
 
-export type TrashBinTableRow = TableRow & {
-    data: TrashBinItemDTO;
-};
+export type TrashBinTableRow = TableRow<TrashBinItemDTO>;
 
 export class TrashBinItem {
     public id: string;

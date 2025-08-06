@@ -1,6 +1,6 @@
 import React from "react";
 import { Table as AcoTable } from "@webiny/app-aco";
-import type { TableRowDto } from "~/modules/redirects/RedirectsList/presenters/index.js";
+import type { TableRow } from "~/modules/redirects/RedirectsList/presenters/index.js";
 import { useDocumentList } from "~/modules/redirects/RedirectsList/useDocumentList.js";
 import { useSortRedirects } from "~/features/redirects/index.js";
 import { useSelectRedirects } from "~/features/redirects/selectRedirects/useSelectRedirects";
@@ -11,7 +11,7 @@ export const Table = () => {
     const { selectRedirects } = useSelectRedirects();
 
     return (
-        <AcoTable<TableRowDto>
+        <AcoTable<TableRow>
             data={vm.data}
             loading={vm.isLoading}
             sorting={vm.sorting}

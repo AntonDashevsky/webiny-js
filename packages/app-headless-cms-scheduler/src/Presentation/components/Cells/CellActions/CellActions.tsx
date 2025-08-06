@@ -10,7 +10,7 @@ export const CellActions = () => {
     const { record: recordConfig } = useAcoConfig();
 
     return (
-        <SchedulerItemProvider item={row}>
+        <SchedulerItemProvider item={row.data}>
             <OptionsMenu
                 actions={recordConfig.actions}
                 data-testid={"table.row.scheduler.entry.menu-action"}

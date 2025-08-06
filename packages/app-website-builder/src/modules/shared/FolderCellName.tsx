@@ -1,11 +1,11 @@
 import React from "react";
-import { FolderDto, useNavigateFolder } from "@webiny/app-aco";
+import { type FolderTableRow, useNavigateFolder } from "@webiny/app-aco";
 import { Icon, Text } from "@webiny/admin-ui";
 import { ReactComponent as Folder } from "@webiny/icons/folder.svg";
 import { ReactComponent as FolderShared } from "@webiny/icons/folder_shared.svg";
 
 interface FolderCellNameProps {
-    folder: FolderDto;
+    folder: FolderTableRow["data"];
 }
 
 export const FolderCellName = ({ folder }: FolderCellNameProps) => {

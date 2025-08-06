@@ -1,4 +1,5 @@
 import type { CmsIdentity, CmsModel } from "@webiny/app-headless-cms-common/types";
+import type { TableRow } from "@webiny/app-aco";
 
 export type { CmsIdentity, CmsModel };
 
@@ -38,3 +39,5 @@ export enum LoadingActions {
     delete = "DELETE",
     create = "CREATE"
 }
+
+export type SchedulerEntryTableRow = TableRow<SchedulerEntry>;

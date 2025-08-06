@@ -37,8 +37,8 @@ const isSameArray = (
 
 const getData = (records: IPossiblyRecordLockingRecord[]) => {
     return records.map(record => ({
-        id: record.data.id,
-        savedOn: record.data.savedOn
+        id: record.id,
+        savedOn: record.savedOn
     }));
 };
 
@@ -91,7 +91,7 @@ export const RecordLockingProvider = (props: IRecordLockingProviderProps) => {
 
             setRecords(prev => {
                 return prev.map(item => {
-                    if (item.data.entryId === target.id) {
+                    if (item.entryId === target.id) {
                         return {
                             ...item,
                             $locked: result.data

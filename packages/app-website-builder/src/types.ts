@@ -1,5 +1,5 @@
 import type { PageDto } from "~/domain/Page/index.js";
-import type { FolderTableItem, RecordTableItem } from "@webiny/app-aco/table.types.js";
+import type { FolderTableRow, RecordTableRow } from "@webiny/app-aco/table.types.js";
 
 export interface WbIdentity {
     id: string;
@@ -23,4 +23,4 @@ export interface WbListMeta {
     hasMoreItems: boolean;
 }
 
-export type TableItem = FolderTableItem | RecordTableItem<PageDto>;
+export type TableItem = FolderTableRow | RecordTableRow<PageDto>;

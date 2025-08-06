@@ -11,7 +11,6 @@ export const CellEnabled = () => {
         return <>{"-"}</>;
     }
 
-
     const { isEnabled } = row.data;
 
     return (

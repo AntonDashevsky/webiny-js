@@ -13,11 +13,7 @@ import type { SecurityPermission } from "@webiny/app-security/types";
 import type { PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types";
 import type { Theme } from "@webiny/app-theme/types";
 import type { Renderer } from "@webiny/app-page-builder-elements/types";
-import type {
-    FolderTableItem,
-    RecordTableItem,
-    SearchRecordItem
-} from "@webiny/app-aco/table.types";
+import type { FolderTableRow, RecordTableRow, SearchRecordItem } from "@webiny/app-aco/table.types";
 import type { SourceType } from "dnd-core";
 import type { IconPickerIconDto } from "@webiny/admin-ui";
 
@@ -1065,6 +1061,6 @@ declare global {
 }
 
 export type PbPageSearchRecord = SearchRecordItem<PbPageDataItem>;
-export type PbPageTableItem = RecordTableItem<PbPageSearchRecord>;
+export type PbPageTableItem = RecordTableRow<PbPageSearchRecord>;
 
-export type TableItem = FolderTableItem | PbPageTableItem;
+export type TableItem = FolderTableRow | PbPageTableItem;
