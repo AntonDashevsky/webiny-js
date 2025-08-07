@@ -10,7 +10,7 @@ import {
     FormComponentNote
 } from "~/FormComponent";
 
-type TextareaGroupProps = TextareaPrimitiveProps & FormComponentProps;
+type TextareaGroupProps = Omit<TextareaPrimitiveProps, "onChange"> & FormComponentProps;
 
 const DecoratableTextarea = ({
     label,

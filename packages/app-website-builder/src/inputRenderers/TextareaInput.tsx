@@ -9,19 +9,23 @@ export const TextareaInputRenderer = ({
     input,
     label
 }: ElementInputRendererProps) => {
+    const commitValue = (newValue: string) => {
+        onChange(({ value }) => {
+            value.set(newValue);
+        });
+    };
+
+    const previewValue = (newValue: string) => {
+        onPreviewChange(({ value }) => {
+            value.set(newValue);
+        });
+    };
+
     return (
         <Textarea
             value={value || ""}
-            onChange={newValue => {
-                onPreviewChange(({ value }) => {
-                    value.set(newValue);
-                });
-            }}
-            onBlur={e =>
-                onChange(({ value }) => {
-                    value.set(e.currentTarget.value);
-                })
-            }
+            onChange={previewValue}
+            onBlur={e => commitValue(e.currentTarget.value)}
             label={label}
             description={input.description}
             note={input.helperText}
