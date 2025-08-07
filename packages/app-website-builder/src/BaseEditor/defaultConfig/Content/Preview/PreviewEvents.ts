@@ -38,6 +38,7 @@ export class PreviewEvents {
         setTimeout(() => {
             this.editor.updateEditor(state => {
                 state.loadingPreview = false;
+                state.selectedElement = null;
             });
         }, 100);
     }
