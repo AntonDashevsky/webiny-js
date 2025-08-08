@@ -16,7 +16,7 @@ export const InlineSvg = ({ src, className = "" }: InlineSvgProps) => {
             if (className.length > 0) {
                 svgElement.documentElement.classList.add(...className.split(" "));
             }
-            ref.current.outerHTML = svgElement.documentElement.outerHTML;
+            ref.current.innerHTML = svgElement.documentElement.outerHTML;
         }
     }, []);
 
