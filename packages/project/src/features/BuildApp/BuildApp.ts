@@ -37,7 +37,9 @@ export class DefaultBuildApp implements BuildApp.Interface {
 
         const templateFolderPath = path.join(
             import.meta.dirname,
-            '../..',
+            "..",
+            "..",
+            "..",
             "__prototyping",
             "template",
             "ddb",
@@ -57,7 +59,42 @@ export class DefaultBuildApp implements BuildApp.Interface {
             logger: this.logger
         });
 
-        return packagesBuilder.build();
+        const buildProcesses = packagesBuilder.build();
+
+        let output;
+        if (params.output) {
+            output = params.output(buildProcesses);
+        } else {
+            this.logger.info(`No output function provided, skipping output.`);
+        }
+
+        // Promisify the build processes.
+        const buildPromises = buildProcesses.map(buildProcess => {
+            return new Promise<void>((resolve, reject) => {
+                buildProcess.process.on("exit", code => {
+                    if (code === 0) {
+                        resolve();
+                    } else {
+                        reject(
+                            new Error(
+                                `Build failed for package ${buildProcess.packageName} with exit code ${code}`
+                            )
+                        );
+                    }
+                });
+
+                buildProcess.process.on("error", error => {
+                    reject(
+                        new Error(
+                            `Build process error for package ${buildProcess.packageName}: ${error.message}`
+                        )
+                    );
+                });
+            });
+        });
+
+        await Promise.all(buildPromises);
+        await output;
     }
 }
 

@@ -1,6 +1,5 @@
 import { BaseBuildOutput } from "./BaseBuildOutput.js";
 import Listr from "listr";
-import chalk from "chalk";
 import { measureDuration } from "~/features/utils";
 
 export class MultipleBuildsOutput extends BaseBuildOutput {
@@ -12,7 +11,7 @@ export class MultipleBuildsOutput extends BaseBuildOutput {
 
         ui.info(`Building %s packages... `, buildProcesses.length);
 
-        const tasksList = this.buildProcesses.map(buildProcess => {
+        const tasksList = buildProcesses.map(buildProcess => {
             return {
                 title: buildProcess.packageName,
                 task: () =>

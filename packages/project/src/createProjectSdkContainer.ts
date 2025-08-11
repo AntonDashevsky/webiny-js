@@ -4,6 +4,18 @@ import {
     apiAfterDeploy,
     apiBeforeBuild,
     apiBeforeDeploy,
+    adminAfterBuild,
+    adminAfterDeploy,
+    adminBeforeBuild,
+    adminBeforeDeploy,
+    coreAfterBuild,
+    coreAfterDeploy,
+    coreBeforeBuild,
+    coreBeforeDeploy,
+    websiteAfterBuild,
+    websiteAfterDeploy,
+    websiteBeforeBuild,
+    websiteBeforeDeploy,
     buildApp,
     deployApp,
     destroyApp,
@@ -105,10 +117,24 @@ export const createProjectSdkContainer = async (
     container.register(runPulumiCommand).inSingletonScope();
     container.register(validateProjectConfig).inSingletonScope();
     container.register(watch).inSingletonScope();
+
+    // Hooks.
     container.registerComposite(apiBeforeBuild);
     container.registerComposite(apiBeforeDeploy);
     container.registerComposite(apiAfterBuild);
     container.registerComposite(apiAfterDeploy);
+    container.registerComposite(adminBeforeBuild);
+    container.registerComposite(adminBeforeDeploy);
+    container.registerComposite(adminAfterBuild);
+    container.registerComposite(adminAfterDeploy);
+    container.registerComposite(coreBeforeBuild);
+    container.registerComposite(coreBeforeDeploy);
+    container.registerComposite(coreAfterBuild);
+    container.registerComposite(coreAfterDeploy);
+    container.registerComposite(websiteBeforeBuild);
+    container.registerComposite(websiteBeforeDeploy);
+    container.registerComposite(websiteAfterBuild);
+    container.registerComposite(websiteAfterDeploy);
 
     // Decorators.
     container.registerDecorator(buildAppWithHooks);

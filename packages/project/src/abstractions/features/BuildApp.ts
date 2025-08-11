@@ -7,10 +7,13 @@ export interface IBuildProcess {
     process: ChildProcess;
 }
 
-export type IBuildResult = Promise<IBuildProcess[]>;
+export interface IBuildAppParams extends IBaseAppParams {
+    output?: (buildProcesses: IBuildProcess[]) => void | Promise<void>;
+}
+export type IBuildResult = Promise<void>;
 
 interface IBuildApp {
-    execute(params: IBaseAppParams): IBuildResult;
+    execute(params: IBuildAppParams): IBuildResult;
 }
 
 export const BuildApp = new Abstraction<IBuildApp>("BuildApp");
@@ -18,6 +21,6 @@ export const BuildApp = new Abstraction<IBuildApp>("BuildApp");
 export namespace BuildApp {
     export type Interface = IBuildApp;
 
-    export type Params = IBaseAppParams;
+    export type Params = IBuildAppParams;
     export type Result = IBuildResult;
 }

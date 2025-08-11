@@ -1,19 +1,34 @@
 import { createDecorator } from "@webiny/di-container";
 import { BuildApp } from "~/abstractions";
-import { ApiBeforeBuild, ApiAfterBuild } from "~/abstractions";
+import {
+    AdminBeforeBuild,
+    AdminAfterBuild,
+    ApiBeforeBuild,
+    ApiAfterBuild,
+    CoreBeforeBuild,
+    CoreAfterBuild,
+    WebsiteBeforeBuild,
+    WebsiteAfterBuild
+} from "~/abstractions";
 
 export class BuildAppWithHooks implements BuildApp.Interface {
     constructor(
+        private adminBeforeBuild: AdminBeforeBuild.Interface,
+        private adminAfterBuild: AdminAfterBuild.Interface,
         private apiBeforeBuild: ApiBeforeBuild.Interface,
         private apiAfterBuild: ApiAfterBuild.Interface,
+        private coreBeforeBuild: CoreBeforeBuild.Interface,
+        private coreAfterBuild: CoreAfterBuild.Interface,
+        private websiteBeforeBuild: WebsiteBeforeBuild.Interface,
+        private websiteAfterBuild: WebsiteAfterBuild.Interface,
         private decoratee: BuildApp.Interface
     ) {}
 
     async execute(params: BuildApp.Params) {
         if (params.app === "core") {
-            // TODO: await this.coreBeforeBuild.execute(params);
+            await this.coreBeforeBuild.execute(params);
             const result = await this.decoratee.execute(params);
-            // TODO: await this.coreAfterBuild.execute(params);
+            await this.coreAfterBuild.execute(params);
             return result;
         }
 
@@ -25,16 +40,16 @@ export class BuildAppWithHooks implements BuildApp.Interface {
         }
 
         if (params.app === "admin") {
-            // TODO: await this.adminBeforeBuild.execute(params);
+            await this.adminBeforeBuild.execute(params);
             const result = await this.decoratee.execute(params);
-            // TODO: await this.adminAfterBuild.execute(params);
+            await this.adminAfterBuild.execute(params);
             return result;
         }
 
         if (params.app === "website") {
-            // TODO: await this.websiteBeforeBuild.execute(params);
+            await this.websiteBeforeBuild.execute(params);
             const result = await this.decoratee.execute(params);
-            // TODO: await this.websiteAfterBuild.execute(params);
+            await this.websiteAfterBuild.execute(params);
             return result;
         }
 
@@ -45,5 +60,14 @@ export class BuildAppWithHooks implements BuildApp.Interface {
 export const buildAppWithHooks = createDecorator({
     abstraction: BuildApp,
     decorator: BuildAppWithHooks,
-    dependencies: [ApiBeforeBuild, ApiAfterBuild]
+    dependencies: [
+        AdminBeforeBuild,
+        AdminAfterBuild,
+        ApiBeforeBuild,
+        ApiAfterBuild,
+        CoreBeforeBuild,
+        CoreAfterBuild,
+        WebsiteBeforeBuild,
+        WebsiteAfterBuild
+    ]
 });

@@ -1,0 +1,13 @@
+import { Abstraction } from "@webiny/di-container";
+import { BuildApp } from "~/abstractions";
+
+export interface IWebsiteAfterBuild {
+    execute(params: BuildApp.Params): void | Promise<void>;
+}
+
+export const WebsiteAfterBuild = new Abstraction<IWebsiteAfterBuild>("WebsiteAfterBuild");
+
+export namespace WebsiteAfterBuild {
+    export type Interface = IWebsiteAfterBuild;
+    export type Params = BuildApp.Params;
+}

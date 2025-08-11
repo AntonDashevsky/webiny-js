@@ -3,7 +3,7 @@ import {
     DeployApp,
     GetApp,
     GetProject,
-    GetPulumiService,
+    GetPulumiService, LoggerService,
     PulumiGetSecretsProviderService,
     PulumiSelectStackService
 } from "~/abstractions/index.js";
@@ -22,7 +22,8 @@ export class DefaultDeployApp implements DeployApp.Interface {
         private getProject: GetProject.Interface,
         private pulumiSelectStackService: PulumiSelectStackService.Interface,
         private getPulumiService: GetPulumiService.Interface,
-        private pulumiGetSecretsProviderService: PulumiGetSecretsProviderService.Interface
+        private pulumiGetSecretsProviderService: PulumiGetSecretsProviderService.Interface,
+        private logger: LoggerService.Interface
     ) {}
 
     async execute(params: DeployApp.Params) {
@@ -75,6 +76,16 @@ export class DefaultDeployApp implements DeployApp.Interface {
                   execa: { env }
               });
 
+        if (params.output) {
+            await params.output(pulumiProcess);
+        } else {
+            this.logger.info(`No output function provided, skipping output.`);
+        }
+
+
+        // Promise is returned so that the caller can await it if needed.
+        await pulumiProcess;
+
         return { pulumiProcess };
     }
 }
@@ -87,6 +98,7 @@ export const deployApp = createImplementation({
         GetProject,
         PulumiSelectStackService,
         GetPulumiService,
-        PulumiGetSecretsProviderService
+        PulumiGetSecretsProviderService,
+        LoggerService
     ]
 });

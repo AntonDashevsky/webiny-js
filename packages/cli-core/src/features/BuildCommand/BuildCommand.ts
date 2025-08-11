@@ -38,7 +38,7 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                     name: "variant",
                     description: "Variant of the app to deploy",
                     type: "string",
-                    validation: (params) => {
+                    validation: params => {
                         const isValid = projectSdk.isValidVariantName(params.variant);
                         if (isValid.isErr()) {
                             throw isValid.error;
@@ -50,29 +50,32 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                     name: "region",
                     description: "Region to target",
                     type: "string",
-                    validation: (params) => {
-                        const isValid = projectSdk.isValidRegionName(params.region)
+                    validation: params => {
+                        const isValid = projectSdk.isValidRegionName(params.region);
                         if (isValid.isErr()) {
                             throw isValid.error;
                         }
                         return true;
                     }
-                },
+                }
             ],
             handler: async (params: IBuildCommandParams) => {
                 const stdio = this.stdioService;
                 const ui = this.ui;
 
                 try {
-                    const buildProcesses = await projectSdk.buildApp(params);
+                    return projectSdk.buildApp({
+                        ...params,
+                        output: buildProcesses => {
+                            const buildOutput = new BuildOutput({
+                                stdio,
+                                ui,
+                                buildProcesses
+                            });
 
-                    const buildOutput = new BuildOutput({
-                        stdio,
-                        ui,
-                        buildProcesses
+                            return buildOutput.output();
+                        }
                     });
-
-                    await buildOutput.output();
                 } catch (error) {
                     ui.error("Build failed, please check the details above.");
                     throw error;

@@ -1,6 +1,9 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
+
+// TODO: extract into a service.
 import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
+
 import { DeployOutput } from "./deployOutputs/DeployOutput.js";
 import { AppName } from "~/abstractions/features/types.js";
 
@@ -103,13 +106,14 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
             ],
             handler: async (params: IDeployCommandParams) => {
                 if ("app" in params) {
-                    return this.deployApp(params);
+                    await this.deployApp(params);
+                } else {
+                    // Deploy all apps in the project.
+                    await this.deployApp({ ...params, app: "core" });
+                    await this.deployApp({ ...params, app: "api" });
+                    await this.deployApp({ ...params, app: "admin" });
+                    await this.deployApp({ ...params, app: "website" });
                 }
-
-                // Deploy all apps in the project.
-                await this.deployApp({ ...params, app: "core" });
-                await this.deployApp({ ...params, app: "api" });
-                await this.deployApp({ ...params, app: "admin" });
             }
         };
     }
@@ -122,9 +126,19 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
 
         if (params.build !== false) {
             try {
-                const buildProcesses = await projectSdk.buildApp(params);
-                const buildOutput = new BuildOutput({ stdio, ui, buildProcesses });
-                await buildOutput.output();
+                await projectSdk.buildApp({
+                    ...params,
+                    output: buildProcesses => {
+                        const buildOutput = new BuildOutput({
+                            stdio,
+                            ui,
+                            buildProcesses
+                        });
+
+                        return buildOutput.output();
+                    }
+                });
+
                 ui.newLine();
             } catch (error) {
                 ui.error("Build failed, please check the details above.");
@@ -137,17 +151,20 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
             projectSdk.isCi() || params.preview || params.deploymentLogs
         );
 
-        const { pulumiProcess } = await projectSdk.deployApp(params);
+        return projectSdk.deployApp({
+            ...params,
+            output: pulumiProcess => {
+                const deployOutput = new DeployOutput({
+                    stdio,
+                    ui,
+                    showDeploymentLogs,
+                    deployProcess: pulumiProcess,
+                    deployParams: params
+                });
 
-        const deployOutput = new DeployOutput({
-            stdio,
-            ui,
-            showDeploymentLogs,
-            deployProcess: pulumiProcess,
-            deployParams: params
+                return deployOutput.output();
+            }
         });
-
-        await deployOutput.output();
     }
 }
 

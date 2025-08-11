@@ -17192,6 +17192,7 @@ __metadata:
   resolution: "@webiny/cli-new@workspace:packages/cli-new"
   dependencies:
     "@types/lodash": "npm:^4.17.13"
+    "@webiny/cli-core": "npm:0.0.0"
     "@webiny/di-container": "npm:0.0.0"
     "@webiny/extensions": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"

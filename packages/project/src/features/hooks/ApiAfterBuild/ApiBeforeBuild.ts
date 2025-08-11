@@ -5,8 +5,8 @@ export class CompositeApiAfterBuild implements ApiAfterBuild.Interface {
     constructor(private apiAfterBuild: ApiAfterBuild.Interface[]) {}
 
     async execute(params: ApiAfterBuild.Params) {
-        for (const beforeBuild of this.apiAfterBuild) {
-            await beforeBuild.execute(params);
+        for (const afterBuild of this.apiAfterBuild) {
+            await afterBuild.execute(params);
         }
     }
 }

@@ -1,0 +1,13 @@
+import { Abstraction } from "@webiny/di-container";
+import { DeployApp } from "~/abstractions";
+
+export interface IAdminBeforeDeploy {
+    execute(params: DeployApp.Params): void | Promise<void>;
+}
+
+export const AdminBeforeDeploy = new Abstraction<IAdminBeforeDeploy>("AdminBeforeDeploy");
+
+export namespace AdminBeforeDeploy {
+    export type Interface = IAdminBeforeDeploy;
+    export type Params = DeployApp.Params;
+}

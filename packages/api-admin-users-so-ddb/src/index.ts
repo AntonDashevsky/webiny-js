@@ -1,4 +1,8 @@
-import { type AdminUsersStorageOperations, type CreateAdminUsersStorageOperations, ENTITIES } from "~/types.js";
+import {
+    type AdminUsersStorageOperations,
+    type CreateAdminUsersStorageOperations,
+    ENTITIES
+} from "~/types.js";
 import WebinyError from "@webiny/error";
 import { createTable } from "~/definitions/table.js";
 import { createSystemEntity, createUserEntity } from "~/definitions/entities.js";
