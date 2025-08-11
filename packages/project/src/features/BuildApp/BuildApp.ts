@@ -61,13 +61,6 @@ export class DefaultBuildApp implements BuildApp.Interface {
 
         const buildProcesses = packagesBuilder.build();
 
-        let output;
-        if (params.output) {
-            output = params.output(buildProcesses);
-        } else {
-            this.logger.info(`No output function provided, skipping output.`);
-        }
-
         // Promisify the build processes.
         const buildPromises = buildProcesses.map(buildProcess => {
             return new Promise<void>((resolve, reject) => {
@@ -92,6 +85,15 @@ export class DefaultBuildApp implements BuildApp.Interface {
                 });
             });
         });
+
+        // If custom output function is provided, use it. While doing so, we must wait
+        // for it to resolve before finishing the build process.
+        let output = Promise.resolve();
+        if (params.output) {
+            output = params.output(buildProcesses);
+        } else {
+            this.logger.info(`No output function provided, skipping output.`);
+        }
 
         await Promise.all(buildPromises);
         await output;

@@ -8,7 +8,7 @@ export interface IBuildProcess {
 }
 
 export interface IBuildAppParams extends IBaseAppParams {
-    output?: (buildProcesses: IBuildProcess[]) => void | Promise<void>;
+    output?: (buildProcesses: IBuildProcess[]) => Promise<void>;
 }
 export type IBuildResult = Promise<void>;
 

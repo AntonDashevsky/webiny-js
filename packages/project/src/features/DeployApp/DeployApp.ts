@@ -76,17 +76,18 @@ export class DefaultDeployApp implements DeployApp.Interface {
                   execa: { env }
               });
 
+        // If custom output function is provided, use it. While doing so, we must wait
+        // for it to resolve before finishing the build process.
+        let output = Promise.resolve();
         if (params.output) {
-            await params.output(pulumiProcess);
+            output = params.output(pulumiProcess);
         } else {
             this.logger.info(`No output function provided, skipping output.`);
         }
 
-
         // Promise is returned so that the caller can await it if needed.
         await pulumiProcess;
-
-        return { pulumiProcess };
+        await output;
     }
 }
 
