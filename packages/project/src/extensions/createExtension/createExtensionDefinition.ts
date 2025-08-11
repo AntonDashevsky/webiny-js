@@ -4,10 +4,11 @@ import { CreateExtensionParams } from "./types";
 export function createExtensionDefinition<
     TParams extends Record<string, any> = Record<string, any>
 >(extensionParams: CreateExtensionParams<TParams>) {
-    const { type, description, array, abstraction, build, validate } = extensionParams;
+    const { type, description, array, abstraction, build, validate, scopes } = extensionParams;
 
     return new ExtensionDefinitionModel<TParams>({
         type,
+        scopes,
         description: description || "",
         array: array || false,
         abstraction,

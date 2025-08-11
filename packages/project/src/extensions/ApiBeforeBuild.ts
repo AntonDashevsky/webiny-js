@@ -8,6 +8,7 @@ export interface CliCommandParams {
 
 export const apiBeforeBuild = createExtension<CliCommandParams>({
     type: "Api/BeforeBuild",
+    scopes: ["project"],
     description: "Add custom logic to be executed before the API build process.",
     array: true,
     abstraction: ApiBeforeBuild,

@@ -8,6 +8,7 @@ export interface CliCommandDecoratorParams {
 
 export const cliCommandDecorator = createExtension<CliCommandDecoratorParams>({
     type: "cliCommandDecorator",
+    scopes: ["cli"],
     description: "Decorates an existing CLI command.",
     array: true,
     abstraction: Command,

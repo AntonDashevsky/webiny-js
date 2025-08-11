@@ -8,6 +8,7 @@ export interface CliCommandParams {
 
 export const cliCommand = createExtension<CliCommandParams>({
     type: "Cli/Command",
+    scopes: ["cli"],
     description: "An extension for defining CLI commands.",
     array: true,
     abstraction: Command,

@@ -1,7 +1,10 @@
 import { Abstraction } from "@webiny/di-container";
 
+export type ExtensionScope = "cli" | "project" | "api" | "admin";
+
 export interface CreateExtensionParams<TParams extends Record<string, any> = Record<string, any>> {
     type: string;
+    scopes: ExtensionScope[];
     description?: string;
     array?: boolean;
     abstraction?: Abstraction<any>;

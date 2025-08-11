@@ -31,7 +31,12 @@ import {
     commandsWithGracefulErrorHandling,
     deployCommandWithTelemetry
 } from "./decorators/index.js";
-import { CliParamsService, GetProjectSdkService, LoadEnvVarsService, UiService } from "~/abstractions";
+import {
+    CliParamsService,
+    GetProjectSdkService,
+    LoadEnvVarsService,
+    UiService
+} from "~/abstractions";
 import { GracefulError } from "~/utils/GracefulError";
 import chalk from "chalk";
 
@@ -76,16 +81,9 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
 
         const projectSdk = await container.resolve(GetProjectSdkService).execute();
 
+        const projectConfig = await projectSdk.getProjectConfig({ scopes: ["cli"] });
 
-        const projectConfig = await projectSdk.getProjectConfig();
-
-        try {
-            await projectSdk.validateProjectConfig(projectConfig);
-        } catch (error) {
-            ui.error("Project configuration validation failed.");
-            ui.error(error.message);
-            throw error;
-        }
+        await projectSdk.validateProjectConfig(projectConfig);
 
         const project = await projectSdk.getProject();
 
@@ -97,23 +95,25 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
         }
     } catch (error) {
         const ui = container.resolve(UiService);
-        if (error && error instanceof GracefulError) {
-            ui.newLine();
-            ui.text(bgYellow(bold("💡 How can I resolve this?")));
-            ui.text(error.message);
+
+        let realError = error;
+        if (error.cause) {
+            realError = error.cause as Error;
         }
+
+        ui.error("Am error occurred while initializing the CLI:");
+        ui.text(realError.message);
 
         // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
         const debugEnabled = process.argv.includes("--debug");
         if (debugEnabled) {
+            ui.debug(realError.stack);
+        }
+
+        if (error && error instanceof GracefulError) {
             ui.newLine();
-
-            let causeError = error;
-            if (error.cause) {
-                causeError = error.cause as Error;
-            }
-
-            ui.debug(causeError.stack);
+            ui.text(bgYellow(bold("💡 How can I resolve this?")));
+            ui.text(error.message);
         }
 
         process.exit(1);

@@ -66,7 +66,7 @@ import {
     GetProject,
     GetProjectConfig,
     ProjectSdkParamsService,
-    ValidateProjectConfig,
+    ValidateProjectConfig
 } from "~/abstractions";
 import path from "path";
 
@@ -145,7 +145,10 @@ export const createProjectSdkContainer = async (
 
     // Extensions.
     const project = await container.resolve(GetProject).execute();
-    const projectConfig = await container.resolve(GetProjectConfig).execute();
+    const projectConfig = await container
+        .resolve(GetProjectConfig)
+        .execute({ scopes: ["project"] });
+
     await container.resolve(ValidateProjectConfig).execute(projectConfig);
 
     const hooksExtensions = [

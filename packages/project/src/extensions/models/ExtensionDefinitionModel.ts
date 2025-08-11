@@ -2,6 +2,7 @@ import { Abstraction } from "@webiny/di-container";
 
 export interface ExtensionDefinitionModelParams<TParams extends Record<string, any> = Record<string, any>> {
     type: string;
+    scopes: string[];
     description: string;
     array?: boolean;
     abstraction?: Abstraction<any>;
@@ -13,6 +14,7 @@ export interface ExtensionDefinitionModelParams<TParams extends Record<string, a
 
 export class ExtensionDefinitionModel<TParams extends Record<string, any> = Record<string, any>> {
     type: string;
+    scopes: string[];
     description: string;
     array?: boolean;
     abstraction?: Abstraction<any>;
@@ -23,6 +25,7 @@ export class ExtensionDefinitionModel<TParams extends Record<string, any> = Reco
 
     constructor(params: ExtensionDefinitionModelParams) {
         this.type = params.type;
+        this.scopes = params.scopes;
         this.description = params.description;
         this.array = params.array;
         this.abstraction = params.abstraction;

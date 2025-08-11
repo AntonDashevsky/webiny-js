@@ -36,8 +36,8 @@ export class ProjectSdk {
         return this.container.resolve(GetProject).execute();
     }
 
-    getProjectConfig() {
-        return this.container.resolve(GetProjectConfig).execute();
+    getProjectConfig(params?: GetProjectConfig.Params) {
+        return this.container.resolve(GetProjectConfig).execute(params);
     }
 
     validateProjectConfig(projectConfig: ValidateProjectConfig.Params) {

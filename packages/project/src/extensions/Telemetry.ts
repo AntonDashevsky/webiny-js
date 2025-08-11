@@ -6,5 +6,6 @@ export interface ITelemetryParams {
 
 export const telemetry = createExtension<ITelemetryParams>({
     type: "Project/Telemetry",
+    scopes: ["project"],
     description: "This extension allows you to enable or disable telemetry for the project.",
 });
