@@ -1,5 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
+import { HandledError } from "~/utils/HandledError";
 
 // TODO: extract into a service.
 import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
@@ -151,20 +152,24 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
             projectSdk.isCi() || params.preview || params.deploymentLogs
         );
 
-        return projectSdk.deployApp({
-            ...params,
-            output: pulumiProcess => {
-                const deployOutput = new DeployOutput({
-                    stdio,
-                    ui,
-                    showDeploymentLogs,
-                    deployProcess: pulumiProcess,
-                    deployParams: params
-                });
+        try {
+            return await projectSdk.deployApp({
+                ...params,
+                output: pulumiProcess => {
+                    const deployOutput = new DeployOutput({
+                        stdio,
+                        ui,
+                        showDeploymentLogs,
+                        deployProcess: pulumiProcess,
+                        deployParams: params
+                    });
 
-                return deployOutput.output();
-            }
-        });
+                    return deployOutput.output();
+                }
+            });
+        } catch (error) {
+            throw HandledError.from(error);
+        }
     }
 }
 

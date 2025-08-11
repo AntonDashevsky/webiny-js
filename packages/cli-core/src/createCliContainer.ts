@@ -101,13 +101,13 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
             realError = error.cause as Error;
         }
 
-        ui.error("Am error occurred while initializing the CLI:");
+        ui.error("An error occurred while initializing the CLI:");
         ui.text(realError.message);
 
         // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
         const debugEnabled = process.argv.includes("--debug");
         if (debugEnabled) {
-            ui.debug(realError.stack);
+            realError.stack && ui.debug(realError.stack);
         }
 
         if (error && error instanceof GracefulError) {

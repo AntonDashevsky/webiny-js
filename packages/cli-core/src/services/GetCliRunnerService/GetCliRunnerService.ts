@@ -10,6 +10,7 @@ import yargs from "yargs/yargs";
 import chalk from "chalk";
 import { Argv } from "yargs";
 import { GracefulError } from "~/utils/GracefulError";
+import { HandledError } from "~/utils/HandledError";
 
 const { blue, bgYellow, bold } = chalk;
 
@@ -85,23 +86,33 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
                     process.exit(1);
                 }
 
+                let isHandledError = error && error instanceof HandledError;
+                if (!isHandledError) {
+                    if (error.cause) {
+                        isHandledError = error.cause instanceof HandledError;
+                    }
+                }
+
+                if (!isHandledError) {
+                    let realError = error;
+                    if (error.cause) {
+                        realError = error.cause as Error;
+                    }
+
+                    ui.error("An error occurred while running the CLI command:");
+                    ui.text(realError.message);
+
+                    // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
+                    const debugEnabled = process.argv.includes("--debug");
+                    if (debugEnabled) {
+                        realError.stack && ui.debug(realError.stack);
+                    }
+                }
+
                 if (error && error instanceof GracefulError) {
                     ui.newLine();
                     ui.text(bgYellow(bold("💡 How can I resolve this?")));
                     ui.text(error.message);
-                }
-
-                // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
-                const debugEnabled = process.argv.includes("--debug");
-                if (debugEnabled) {
-                    ui.newLine();
-
-                    let causeError = error;
-                    if (error.cause) {
-                        causeError = error.cause as Error;
-                    }
-
-                    ui.debug(causeError.message, causeError.stack);
                 }
 
                 process.exit(1);
@@ -110,7 +121,13 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
         const commands = this.commandsRegistryService.execute();
 
         for (const command of commands) {
-            const { name, description, params = [], options = [], handler } = await command.execute();
+            const {
+                name,
+                description,
+                params = [],
+                options = [],
+                handler
+            } = await command.execute();
 
             let yargsCommand = name;
             if (params.length > 0) {

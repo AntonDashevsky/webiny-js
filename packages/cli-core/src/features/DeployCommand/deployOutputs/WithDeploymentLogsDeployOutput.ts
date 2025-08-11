@@ -34,18 +34,15 @@ export class WithDeploymentLogsDeployOutput extends BaseDeployOutput {
         } catch (e) {
             // If Pulumi error, we don't need to show the error message, as it will be shown by Pulumi.
             if (e instanceof PulumiError) {
-                if (isPreview) {
-                    ui.error("Preview failed, please check the details above.");
-                } else {
-                    ui.error("Deployment failed, please check the details above.");
-                }
+                // Do nothing.
             } else {
                 ui.text(e.message);
-                if (isPreview) {
-                    ui.error("Preview failed, please check the details above.");
-                } else {
-                    ui.error("Deployment failed, please check the details above.");
-                }
+            }
+
+            if (isPreview) {
+                ui.error("Preview failed, please check the details above.");
+            } else {
+                ui.error("Deployment failed, please check the details above.");
             }
 
             throw e;

@@ -4,7 +4,7 @@ import { ErrorHandler } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
 import { GracefulError } from "~/utils/GracefulError.js";
 
-const MATCH_STRING = "failed to compute archive hash for";
+const MATCH_STRING = "the stack is currently locked";
 const LEARN_MORE_URL = "https://webiny.link/locked-stacks";
 
 export class PendingOperationsGracefulErrorHandler
