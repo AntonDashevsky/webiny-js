@@ -8,6 +8,8 @@ interface DefaultDataProviderConfig {
     apiClient: ApiClient;
 }
 
+const ignoreActions = [".well-known", "_next"];
+
 export class DefaultDataProvider implements IDataProvider {
     private config: DefaultDataProviderConfig;
 
@@ -58,6 +60,10 @@ export class DefaultDataProvider implements IDataProvider {
 
     private checkForErrors(action: string, data: any) {
         if (data.error) {
+            // TODO: investigate how these ignored actions make their way to the SDK.
+            if (ignoreActions.some(item => action.includes(item))) {
+                return;
+            }
             console.error(`Could not execute "${action}". Reason: ${data.error.message}`);
         }
     }

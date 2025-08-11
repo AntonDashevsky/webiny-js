@@ -1,7 +1,6 @@
 import type { ApiClient } from "./ApiClient";
 import type { IRedirects } from "~/IRedirects";
 import type { PublicRedirect } from "~/types";
-import { GET_ACTIVE_REDIRECTS } from "~/dataProviders/GET_ACTIVE_REDIRECTS";
 
 export class RedirectsProvider implements IRedirects {
     private redirectsCache: Map<string, PublicRedirect> | undefined = undefined;
@@ -27,18 +26,11 @@ export class RedirectsProvider implements IRedirects {
     }
 
     private async populateCache() {
-        console.time("Populating redirects cache from API");
-        const result = await this.apiClient.query({
-            query: GET_ACTIVE_REDIRECTS,
-            variables: {}
-        });
-
-        const redirects: PublicRedirect[] = result.websiteBuilder.getActiveRedirects.data ?? [];
+        const redirects: PublicRedirect[] = await this.apiClient.fetch({ path: "/wb/redirects" });
 
         this.redirectsCache = new Map();
         for (const redirect of redirects) {
             this.redirectsCache.set(redirect.from, redirect);
         }
-        console.timeEnd("Populating redirects cache from API");
     }
 }

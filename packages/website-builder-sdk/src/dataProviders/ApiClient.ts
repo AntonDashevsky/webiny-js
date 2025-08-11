@@ -4,15 +4,32 @@ interface QueryParams {
     preview?: boolean;
 }
 
+type WithPath<T> = T & {
+    path?: string;
+};
+
 export class ApiClient {
-    private readonly apiEndpoint: string;
+    private readonly apiHost: string;
     private readonly apiKey: string;
     private readonly apiTenant: string;
 
     constructor(apiHost: string, apiKey: string, apiTenant: string) {
         this.apiTenant = apiTenant;
-        this.apiEndpoint = apiHost + "/graphql";
+        this.apiHost = apiHost;
         this.apiKey = apiKey;
+    }
+
+    async fetch({ headers, path, ...params }: WithPath<RequestInit>): Promise<any> {
+        return fetch(`${this.apiHost}${path}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Tenant": this.apiTenant,
+                Authorization: "Bearer " + this.apiKey,
+                ...headers
+            },
+            ...params
+        }).then(res => res.json());
     }
 
     async query({ query, variables, preview }: QueryParams) {
@@ -22,22 +39,17 @@ export class ApiClient {
             }
         };
 
-        const request = {
+        const request: WithPath<RequestInit> = {
             ...fetchOptions,
+            path: "/graphql",
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-Tenant": this.apiTenant,
-                Authorization: "Bearer " + this.apiKey
-            },
             body: JSON.stringify({
                 query,
                 variables
             })
         };
 
-        const res = await fetch(this.apiEndpoint, request);
-        const json = await res.json();
+        const json = await this.fetch(request);
 
         if (json.message) {
             throw new Error(json.message);
