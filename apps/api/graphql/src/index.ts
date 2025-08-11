@@ -35,7 +35,7 @@ import { createWebsiteBuilder } from "@webiny/api-website-builder";
 
 import scaffoldsPlugins from "./plugins/scaffolds";
 import { extensions } from "./extensions";
-import { createHeadlessCmsSchedule } from "@webiny/api-headless-cms-scheduler";
+import { createHeadlessCmsScheduler } from "@webiny/api-headless-cms-scheduler";
 /**
  * #### TESTING sync system
  */
@@ -138,7 +138,7 @@ export const handler = createHandler({
         createAuditLogs(),
         createCountDynamoDbTask(),
         createContinuingTask(),
-        createHeadlessCmsSchedule({
+        createHeadlessCmsScheduler({
             getClient: config => {
                 return createSchedulerClient(config);
             }
