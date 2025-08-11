@@ -248,6 +248,16 @@ export const createApiPulumiApp = (projectAppParams: CreateApiPulumiAppParams = 
                     method: "OPTIONS",
                     function: graphql.functions.graphql.output.arn
                 },
+                "redirects-get": {
+                    path: "/wb/redirects",
+                    method: "GET",
+                    function: graphql.functions.graphql.output.arn
+                },
+                "redirects-options": {
+                    path: "/wb/redirects",
+                    method: "OPTIONS",
+                    function: graphql.functions.graphql.output.arn
+                },
                 "files-catch-all": {
                     path: "/{path+}",
                     method: "ANY",
