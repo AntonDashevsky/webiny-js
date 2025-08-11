@@ -1,8 +1,8 @@
 import type { WbRedirect } from "~/context/redirects/redirects.types";
-import type { ActiveRedirectGqlDto } from "./ActiveRedirectGqlDto";
+import type { ActiveRedirectDto } from "./ActiveRedirectDto";
 
-export class ActiveRedirectGqlMapper {
-    static toDto(redirect: WbRedirect): ActiveRedirectGqlDto {
+export class ActiveRedirectRestMapper {
+    static toDto(redirect: WbRedirect): ActiveRedirectDto {
         return {
             id: redirect.id,
             from: redirect.redirectFrom,

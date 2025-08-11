@@ -117,21 +117,8 @@ export const redirectsTypeDefs = /* GraphQL */ `
         savedOn_ASC
         savedOn_DESC
     }
-        
-    type WbActiveRedirect {
-        id: ID!
-        from: String!
-        to: String!
-        permanent: Boolean!
-    }
-        
-    type WbActiveRedirectsResponse {
-        data: [WbActiveRedirect!]
-        error: WbError
-    }
 
     extend type WbQuery {
-        getRedirectById(id: ID!): WbRedirectResponse
         listRedirects(
             where: WbRedirectsListWhereInput
             limit: Int
@@ -139,7 +126,6 @@ export const redirectsTypeDefs = /* GraphQL */ `
             sort: [WbRedirectListSorter]
             search: String
         ): WbRedirectsListResponse
-        getActiveRedirects: WbActiveRedirectsResponse
     }
 
     extend type WbMutation {

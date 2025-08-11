@@ -8,37 +8,17 @@ import { ensureAuthentication } from "~/utils/ensureAuthentication";
 import { resolve } from "~/utils/resolve";
 import type { WebsiteBuilderContext } from "~/context/types";
 import { redirectsTypeDefs } from "~/graphql/redirects/redirects.typeDefs";
-import { ActiveRedirectGqlMapper } from "./ActiveRedirectGqlMapper";
 
 export const createRedirectsSchema = () => {
     const pageGraphQL = new GraphQLSchemaPlugin<WebsiteBuilderContext>({
         typeDefs: redirectsTypeDefs,
         resolvers: {
             WbQuery: {
-                getRedirectById: async (_, { id }, context) => {
-                    return resolve(() => {
-                        ensureAuthentication(context);
-                        return context.websiteBuilder.redirects.getById(id);
-                    });
-                },
                 listRedirects: async (_, args: any, context) => {
                     try {
                         ensureAuthentication(context);
                         const [entries, meta] = await context.websiteBuilder.redirects.list(args);
                         return new ListResponse(entries, meta);
-                    } catch (e) {
-                        return new ErrorResponse(e);
-                    }
-                },
-                getActiveRedirects: async (_, __: any, context) => {
-                    try {
-                        ensureAuthentication(context);
-                        const redirects =
-                            await context.websiteBuilder.redirects.getActiveRedirects();
-
-                        return new Response(
-                            redirects.map(entry => ActiveRedirectGqlMapper.toDto(entry))
-                        );
                     } catch (e) {
                         return new ErrorResponse(e);
                     }

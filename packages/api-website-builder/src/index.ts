@@ -1,7 +1,8 @@
 import { createContextPlugin } from "@webiny/api";
 import type { WebsiteBuilderContext } from "./context/types";
 import { WebsiteBuilder } from "./context/WebsiteBuilder";
-import { createGraphQL } from "~/graphql/createGraphQL";
+import { createGraphQL } from "./graphql/createGraphQL";
+import { createRedirectsRoute } from "./rest/getRedirects";
 
 const createContext = () => {
     return createContextPlugin<WebsiteBuilderContext>(
@@ -13,7 +14,7 @@ const createContext = () => {
 };
 
 export const createWebsiteBuilder = () => {
-    return [createContext(), createGraphQL()];
+    return [createContext(), createGraphQL(), createRedirectsRoute()];
 };
 
 export type { WebsiteBuilderContext };
