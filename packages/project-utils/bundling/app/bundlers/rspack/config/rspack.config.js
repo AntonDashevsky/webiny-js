@@ -18,7 +18,6 @@ import { createSwcConfig } from "../createSwcConfig.js";
 import modulesFactory from "./modules.js";
 
 import { createRequire } from "module";
-import { ProjectSdk } from "../../../../../ProjectSdk/index.js";
 
 const require = createRequire(import.meta.url);
 
