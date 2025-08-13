@@ -1,7 +1,11 @@
 import fs from "fs";
-import webpack from "webpack";
+import type { WebpackPluginInstance } from "webpack";
 import postcss from "postcss";
 import postcssImport from "postcss-import";
+import type { NextConfig } from "next";
+
+// We're inferring the type from Next's config type.
+type WebpackConfigContext = Parameters<NonNullable<NextConfig["webpack"]>>[1];
 
 const buildThemeCss = async (entry: string) => {
     // Read CSS entry file.
@@ -11,7 +15,7 @@ const buildThemeCss = async (entry: string) => {
     const result = await postcss([postcssImport()]).process(raw, { from: entry });
 
     return result.css;
-}
+};
 
 export const injectThemeCss = async (entry: string, variableName?: string) => {
     const defineKey = variableName ?? "__THEME_CSS__";
@@ -19,17 +23,22 @@ export const injectThemeCss = async (entry: string, variableName?: string) => {
     const initialCss = await buildThemeCss(entry);
 
     // Inject as a global constant available in your app.
-    const definePlugin = new webpack.DefinePlugin({ [defineKey]: JSON.stringify(initialCss) });
+    let definePlugin: WebpackPluginInstance;
 
-    const plugins: webpack.WebpackPluginInstance[] = [definePlugin];
+    const getPlugins = (context: WebpackConfigContext) => {
+        const { dev, webpack } = context;
 
-    const getPlugins = (dev: boolean) => {
+        if (!definePlugin) {
+            definePlugin = new webpack.DefinePlugin({ [defineKey]: JSON.stringify(initialCss) });
+        }
+
+        const plugins: WebpackPluginInstance[] = [definePlugin];
 
         if (dev) {
             // Watch for changes and update plugin definitions
             plugins.push({
                 apply(compiler) {
-                    compiler.hooks.afterCompile.tapPromise("WatchThemeCss", async (compilation) => {
+                    compiler.hooks.afterCompile.tapPromise("WatchThemeCss", async compilation => {
                         compilation.fileDependencies.add(entry);
                     });
 
@@ -38,14 +47,12 @@ export const injectThemeCss = async (entry: string, variableName?: string) => {
                         // Update the definitions on our specific plugin
                         definePlugin.definitions[defineKey] = JSON.stringify(cssValue);
                     });
-                },
-            })
+                }
+            });
         }
 
         return plugins;
-    }
+    };
 
     return { getPlugins };
-
-
-}
+};

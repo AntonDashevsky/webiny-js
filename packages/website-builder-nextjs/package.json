@@ -22,14 +22,12 @@
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.1"
   },
-  "peerDependencies": {
-    "next": "^15",
-    "webpack": "^5"
-  },
   "devDependencies": {
     "@types/postcss-import": "^14.0.3",
     "@webiny/project-utils": "0.0.0",
-    "typescript": "5.3.3"
+    "next": "^15",
+    "typescript": "5.3.3",
+    "webpack": "^5"
   },
   "publishConfig": {
     "access": "public",
@@ -42,7 +40,6 @@
   "adio": {
     "ignore": {
       "dependencies": [
-        "next",
         "postcss",
         "postcss-import",
         "@webiny/website-builder-react"
