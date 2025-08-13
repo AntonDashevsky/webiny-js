@@ -6,6 +6,7 @@ interface QueryParams {
 
 type WithPath<T> = T & {
     path?: string;
+    next?: Record<string, any>;
 };
 
 export class ApiClient {

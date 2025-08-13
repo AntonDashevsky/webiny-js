@@ -26,7 +26,13 @@ export class RedirectsProvider implements IRedirects {
     }
 
     private async populateCache() {
-        const redirects: PublicRedirect[] = await this.apiClient.fetch({ path: "/wb/redirects" });
+        const redirects: PublicRedirect[] = await this.apiClient.fetch({
+            path: "/wb/redirects",
+            cache: "no-cache",
+            next: {
+                revalidate: 0
+            }
+        });
 
         this.redirectsCache = new Map();
         for (const redirect of redirects) {
