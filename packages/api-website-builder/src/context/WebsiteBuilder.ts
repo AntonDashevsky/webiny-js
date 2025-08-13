@@ -22,11 +22,9 @@ export class WebsiteBuilder {
     }
 
     private invalidateCacheOnRedirectEvents() {
-        const invalidateRedirectsCache = new InvalidateRedirectsCache(this.context.tasks);
-
         this.redirects.onRedirectAfterCreate.subscribe(async ({ redirect }) => {
             if (redirect.isEnabled) {
-                await invalidateRedirectsCache.execute();
+                await this.invalidateCache();
             }
         });
 
@@ -36,15 +34,20 @@ export class WebsiteBuilder {
                 redirect.redirectTo !== original.redirectTo ||
                 redirect.isEnabled !== original.isEnabled
             ) {
-                await invalidateRedirectsCache.execute();
+                await this.invalidateCache();
             }
         });
 
         this.redirects.onRedirectAfterDelete.subscribe(async ({ redirect }) => {
             if (redirect.isEnabled) {
-                await invalidateRedirectsCache.execute();
+                await this.invalidateCache();
             }
         });
+    }
+
+    private async invalidateCache() {
+        const invalidateRedirectsCache = new InvalidateRedirectsCache(this.context.tasks);
+        await invalidateRedirectsCache.execute();
     }
 
     get pages() {
