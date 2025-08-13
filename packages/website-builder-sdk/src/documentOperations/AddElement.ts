@@ -1,5 +1,5 @@
 import type { Document, DocumentElement } from "~/types.js";
-import type { IDocumentOperation } from "./IDocumentOperation";
+import type { IDocumentOperation } from "./IDocumentOperation.js";
 
 export class AddElement implements IDocumentOperation {
     private readonly element: DocumentElement;

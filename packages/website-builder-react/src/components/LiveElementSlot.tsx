@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { ElementRenderer } from "./ElementRenderer";
-import type { ElementSlotProps } from "./ElementSlot";
-import { ElementSlotDepthProvider, useElementSlotDepth } from "./ElementSlotDepthProvider";
-import { ElementIndexProvider } from "./ElementIndexProvider";
+import { ElementRenderer } from "./ElementRenderer.js";
+import type { ElementSlotProps } from "./ElementSlot.js";
+import { ElementSlotDepthProvider, useElementSlotDepth } from "./ElementSlotDepthProvider.js";
+import { ElementIndexProvider } from "./ElementIndexProvider.js";
 
 export const LiveElementSlot = ({ elements = [] }: Pick<ElementSlotProps, "elements">) => {
     const depth = useElementSlotDepth();

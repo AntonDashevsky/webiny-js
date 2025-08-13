@@ -1,4 +1,4 @@
-import type { InputAstNode } from "./ComponentManifestToAstConverter";
+import type { InputAstNode } from "./ComponentManifestToAstConverter.js";
 
 // Visitor signature: called for every resolved leaf
 export type InputVisitor = (node: InputAstNode, path: string, value: any) => void;

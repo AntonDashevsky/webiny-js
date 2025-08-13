@@ -1,4 +1,4 @@
-import type { DocumentElementBindings, CssProperties } from "~/types";
+import type { DocumentElementBindings, CssProperties } from "~/types.js";
 
 type RequiredBindings<T extends DocumentElementBindings> = T & {
     inputs: NonNullable<T["inputs"]>;

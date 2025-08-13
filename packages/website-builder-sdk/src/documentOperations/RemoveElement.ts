@@ -1,5 +1,5 @@
 import type { Document } from "~/types.js";
-import type { IDocumentOperation } from "./IDocumentOperation";
+import type { IDocumentOperation } from "./IDocumentOperation.js";
 
 export class RemoveElement implements IDocumentOperation {
     private readonly elementId: string;

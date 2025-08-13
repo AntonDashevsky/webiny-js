@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { contentSdk, type Component, type Document } from "@webiny/website-builder-sdk";
-import { DocumentStoreProvider } from "~/components/DocumentStoreProvider";
-import { ElementRenderer } from "~/components/ElementRenderer";
+import { DocumentStoreProvider } from "~/components/DocumentStoreProvider.js";
+import { ElementRenderer } from "~/components/ElementRenderer.js";
 
 interface ConnectToEditorProps {
     document: Document;

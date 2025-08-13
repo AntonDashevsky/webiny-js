@@ -1,5 +1,5 @@
-import type { DocumentElementBindings } from "~/types";
-import type { InputAstNode } from "~/ComponentManifestToAstConverter";
+import type { DocumentElementBindings } from "~/types.js";
+import type { InputAstNode } from "~/ComponentManifestToAstConverter.js";
 
 export type InheritanceInfo = {
     inputs: Record<

@@ -1,4 +1,4 @@
-export * from "./createTheme";
+export * from "./createTheme.js";
 export * from "./EditingSdk.js";
 export * from "./LiveSdk.js";
 export * from "./NullSdk.js";
@@ -28,4 +28,3 @@ export * from "./InputBindingsProcessor.js";
 export * from "./StylesBindingsProcessor.js";
 export * from "./ElementFactory.js";
 export { StyleSettings } from "./constants.js";
-export * from "./constants";

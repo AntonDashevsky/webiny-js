@@ -1,4 +1,4 @@
-import type { WebsiteBuilderThemeInput } from "~/types/WebsiteBuilderTheme";
+import type { WebsiteBuilderThemeInput } from "~/types/WebsiteBuilderTheme.js";
 
 export type { WebsiteBuilderThemeInput };
 

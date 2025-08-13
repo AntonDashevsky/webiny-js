@@ -1,16 +1,16 @@
 "use client";
 import type { ComponentGroup, IContentSdk, PublicPage } from "./types.js";
-import { Messenger, MessageOrigin } from "./messenger";
-import { logger } from "./Logger";
-import { PreviewViewport } from "./PreviewViewport";
-import { viewportManager } from "./ViewportManager";
-import { componentRegistry } from "./ComponentRegistry";
-import { functionConverter } from "./FunctionConverter";
-import { documentStoreManager } from "~/DocumentStoreManager";
-import type { DocumentStore } from "~/DocumentStore";
+import { Messenger, MessageOrigin } from "./messenger/index.js";
+import { logger } from "./Logger.js";
+import { PreviewViewport } from "./PreviewViewport.js";
+import { viewportManager } from "./ViewportManager.js";
+import { componentRegistry } from "./ComponentRegistry.js";
+import { functionConverter } from "./FunctionConverter.js";
+import { documentStoreManager } from "~/DocumentStoreManager.js";
+import type { DocumentStore } from "~/DocumentStore.js";
 import { PreviewDocument } from "./PreviewDocument.js";
-import { hashObject } from "~/HashObject";
-import type { WebsiteBuilderTheme } from "~/types/WebsiteBuilderTheme";
+import { hashObject } from "~/HashObject.js";
+import type { WebsiteBuilderTheme } from "~/types/WebsiteBuilderTheme.js";
 
 export class EditingSdk implements IContentSdk {
     public readonly messenger: Messenger;

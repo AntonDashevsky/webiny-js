@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { environment } from "@webiny/website-builder-sdk";
-import { LiveElementSlot } from "./LiveElementSlot";
-import { PreviewElementSlot } from "./PreviewElementSlot";
+import { LiveElementSlot } from "./LiveElementSlot.js";
+import { PreviewElementSlot } from "./PreviewElementSlot.js";
 
 export interface ElementSlotProps {
     // Element that contains this slot.

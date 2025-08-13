@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { LiveElementSlot } from "./LiveElementSlot";
-import { useElementSlotDepth } from "./ElementSlotDepthProvider";
+import { LiveElementSlot } from "./LiveElementSlot.js";
+import { useElementSlotDepth } from "./ElementSlotDepthProvider.js";
 
 interface ElementSlotProps {
     // Element that contains this slot.

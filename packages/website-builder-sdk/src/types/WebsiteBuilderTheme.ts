@@ -1,4 +1,4 @@
-import type { LexicalEditorTheme } from "./LexicalEditorTheme";
+import type { LexicalEditorTheme } from "./LexicalEditorTheme.js";
 
 export type Breakpoint = {
     name: string;

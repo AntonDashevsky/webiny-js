@@ -1,8 +1,8 @@
-import set from "lodash/set";
-import unset from "lodash/unset";
-import type { DocumentElementBindings, DocumentElementStyleBindings } from "~/types";
-import { InheritedValueResolver } from "~/InheritedValueResolver";
-import { StylesUpdater } from "./StylesUpdater";
+import set from "lodash/set.js";
+import unset from "lodash/unset.js";
+import type { DocumentElementBindings, DocumentElementStyleBindings } from "~/types.js";
+import { InheritedValueResolver } from "~/InheritedValueResolver.js";
+import { StylesUpdater } from "./StylesUpdater.js";
 
 type DeepBindings = Record<string, any>;
 

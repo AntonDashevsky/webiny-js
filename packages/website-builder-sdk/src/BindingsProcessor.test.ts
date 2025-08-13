@@ -1,5 +1,5 @@
-import { BindingsProcessor } from "./BindingsProcessor";
-import type { DocumentElementBindings } from "~/types";
+import { BindingsProcessor } from "./BindingsProcessor.js";
+import type { DocumentElementBindings } from "~/types.js";
 
 describe("BindingsProcessor", () => {
     const breakpoints = ["desktop", "tablet", "mobile"];

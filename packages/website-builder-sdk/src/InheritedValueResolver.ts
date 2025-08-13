@@ -1,4 +1,4 @@
-import type { ValueBinding } from "~/types";
+import type { ValueBinding } from "~/types.js";
 
 export interface GetBreakpointBindings {
     (breakpoint: string): Record<string, ValueBinding> | undefined;

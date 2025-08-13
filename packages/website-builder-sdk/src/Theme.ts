@@ -3,9 +3,9 @@ import type {
     Breakpoint,
     WebsiteBuilderTheme,
     WebsiteBuilderThemeInput
-} from "~/types/WebsiteBuilderTheme";
-import { defaultBreakpoints } from "~/defaultBreakpoints";
-import { createLexicalTheme } from "~/lexical/createLexicalTheme";
+} from "~/types/WebsiteBuilderTheme.js";
+import { defaultBreakpoints } from "~/defaultBreakpoints.js";
+import { createLexicalTheme } from "~/lexical/createLexicalTheme.js";
 
 export class Theme {
     static from(input: WebsiteBuilderThemeInput): WebsiteBuilderTheme {

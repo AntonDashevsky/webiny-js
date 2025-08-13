@@ -1,12 +1,12 @@
 import deepEqual from "deep-equal";
-import set from "lodash/set";
-import type { DocumentElementBindings, DocumentElementInputBindings } from "~/types";
-import { InheritedValueResolver } from "~/InheritedValueResolver";
-import type { InputAstNode } from "~/ComponentManifestToAstConverter";
-import { DocumentOperations, type IDocumentOperation } from "~/documentOperations";
-import type { ElementFactory } from "~/ElementFactory";
-import { InputsUpdater } from "~/InputsUpdater";
-import { generateElementId } from "./generateElementId";
+import set from "lodash/set.js";
+import type { DocumentElementBindings, DocumentElementInputBindings } from "~/types.js";
+import { InheritedValueResolver } from "~/InheritedValueResolver.js";
+import type { InputAstNode } from "~/ComponentManifestToAstConverter.js";
+import { DocumentOperations, type IDocumentOperation } from "~/documentOperations/index.js";
+import type { ElementFactory } from "~/ElementFactory.js";
+import { InputsUpdater } from "~/InputsUpdater.js";
+import { generateElementId } from "./generateElementId.js";
 type DeepBindings = Record<string, any>;
 
 export type ElementInputsBindings = {

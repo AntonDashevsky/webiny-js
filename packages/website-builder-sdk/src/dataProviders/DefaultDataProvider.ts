@@ -1,8 +1,8 @@
 import type { IDataProvider, PublicPage } from "~/types.js";
-import type { ApiClient } from "~/dataProviders/ApiClient";
-import { GET_PAGE_BY_PATH } from "./GET_PAGE_BY_PATH";
-import { GET_PAGE_BY_ID } from "./GET_PAGE_BY_ID";
-import { LIST_PUBLISHED_PAGES } from "./LIST_PUBLISHED_PAGES";
+import type { ApiClient } from "~/dataProviders/ApiClient.js";
+import { GET_PAGE_BY_PATH } from "./GET_PAGE_BY_PATH.js";
+import { GET_PAGE_BY_ID } from "./GET_PAGE_BY_ID.js";
+import { LIST_PUBLISHED_PAGES } from "./LIST_PUBLISHED_PAGES.js";
 
 interface DefaultDataProviderConfig {
     apiClient: ApiClient;

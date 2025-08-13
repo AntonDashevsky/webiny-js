@@ -1,4 +1,4 @@
-import type { ComponentInput } from "./types";
+import type { ComponentInput } from "./types.js";
 
 export type InputAstNode = {
     name: string;

@@ -1,8 +1,8 @@
 import { toJS } from "mobx";
 import { BindingsProcessor } from "@webiny/website-builder-sdk";
-import { useViewport } from "./useViewportInfo";
-import { useDocumentStore } from "./DocumentStoreProvider";
-import { useSelectFromState } from "./useSelectFromState";
+import { useViewport } from "./useViewportInfo.js";
+import { useDocumentStore } from "./DocumentStoreProvider.js";
+import { useSelectFromState } from "./useSelectFromState.js";
 
 export const useBindingsForElement = (elementId: string, breakpoint: string) => {
     const documentStore = useDocumentStore();

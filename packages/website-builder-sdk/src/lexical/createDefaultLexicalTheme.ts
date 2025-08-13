@@ -1,4 +1,4 @@
-import type { LexicalEditorTheme } from "~/types/LexicalEditorTheme";
+import type { LexicalEditorTheme } from "~/types/LexicalEditorTheme.js";
 
 export const createDefaultLexicalTheme = (): LexicalEditorTheme => {
     return {

@@ -8,8 +8,8 @@ import {
     createSlotInput,
     createTextInput
 } from "@webiny/website-builder-sdk";
-import { createComponent } from "~/createComponent";
-import { GridComponent } from "./Grid";
+import { createComponent } from "~/createComponent.js";
+import { GridComponent } from "./Grid.js";
 
 export interface Column {
     children: React.ReactNode;

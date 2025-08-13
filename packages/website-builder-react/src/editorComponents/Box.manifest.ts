@@ -1,6 +1,6 @@
 "use client";
-import { createComponent } from "~/createComponent";
-import { BoxComponent } from "./Box";
+import { createComponent } from "~/createComponent.js";
+import { BoxComponent } from "./Box.js";
 
 export const Box = createComponent(BoxComponent, {
     name: "Webiny/Box",

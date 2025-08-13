@@ -1,6 +1,6 @@
 "use client";
-import type { Breakpoint } from "~/types";
-import { environment } from "~/Environment";
+import type { Breakpoint } from "~/types.js";
+import { environment } from "~/Environment.js";
 
 export interface ViewportInfo {
     width: number;

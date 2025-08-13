@@ -1,5 +1,5 @@
-import { jsonPatch, type JsonPatchOperation } from "~/jsonPatch";
-import type { Document } from "~/types";
+import { jsonPatch, type JsonPatchOperation } from "~/jsonPatch.js";
+import type { Document } from "~/types.js";
 import { makeAutoObservable, runInAction, observable } from "mobx";
 
 export class DocumentStore<TDocument extends Document = Document> {

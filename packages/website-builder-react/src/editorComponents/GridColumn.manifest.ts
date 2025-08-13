@@ -1,7 +1,7 @@
 "use client";
 import { StyleSettings } from "@webiny/website-builder-sdk";
-import { createComponent } from "~/createComponent";
-import { GridColumnComponent } from "./GridColumn";
+import { createComponent } from "~/createComponent.js";
+import { GridColumnComponent } from "./GridColumn.js";
 
 export const GridColumn = createComponent(GridColumnComponent, {
     name: "Webiny/GridColumn",

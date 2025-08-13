@@ -7,10 +7,10 @@ import type {
     OnResolved
 } from "@webiny/website-builder-sdk";
 import { contentSdk } from "@webiny/website-builder-sdk";
-import { ElementSlot } from "./ElementSlot";
-import { useViewport } from "./useViewportInfo";
-import { useBindingsForElement } from "./useBindingsForElement";
-import { useDocumentState } from "./useDocumentState";
+import { ElementSlot } from "./ElementSlot.js";
+import { useViewport } from "./useViewportInfo.js";
+import { useBindingsForElement } from "./useBindingsForElement.js";
+import { useDocumentState } from "./useDocumentState.js";
 
 interface LiveElementRendererProps {
     element: DocumentElement;

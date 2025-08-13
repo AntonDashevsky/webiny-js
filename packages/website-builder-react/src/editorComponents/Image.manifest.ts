@@ -1,7 +1,7 @@
 "use client";
 import { createFileInput, createTextInput } from "@webiny/website-builder-sdk";
-import { createComponent } from "~/createComponent";
-import { ImageComponent } from "./Image";
+import { createComponent } from "~/createComponent.js";
+import { ImageComponent } from "./Image.js";
 
 export const Image = createComponent(ImageComponent, {
     name: "Webiny/Image",

@@ -4,20 +4,20 @@ import type {
     PublicPage,
     PublicRedirect,
     ResolvedComponent
-} from "~/types";
+} from "~/types.js";
 import { environment } from "./Environment.js";
 import { LiveSdk } from "./LiveSdk.js";
 import { EditingSdk } from "./EditingSdk.js";
-import { ComponentResolver, type ResolveElementParams } from "~/ComponentResolver";
+import { ComponentResolver, type ResolveElementParams } from "~/ComponentResolver.js";
 import { PreviewSdk } from "./PreviewSdk.js";
-import { componentRegistry } from "~/ComponentRegistry";
-import { ApiClient } from "~/dataProviders/ApiClient";
-import { DefaultDataProvider } from "~/dataProviders/DefaultDataProvider";
+import { componentRegistry } from "~/ComponentRegistry.js";
+import { ApiClient } from "~/dataProviders/ApiClient.js";
+import { DefaultDataProvider } from "~/dataProviders/DefaultDataProvider.js";
 import type { WebsiteBuilderThemeInput } from "./types/WebsiteBuilderTheme.js";
 import { Theme } from "./Theme.js";
 import { viewportManager } from "./ViewportManager.js";
-import type { IRedirects } from "~/IRedirects";
-import { RedirectsProvider } from "~/dataProviders/RedirectsProvider";
+import type { IRedirects } from "~/IRedirects.js";
+import { RedirectsProvider } from "~/dataProviders/RedirectsProvider.js";
 
 export type ApiConfig = {
     apiKey: string;

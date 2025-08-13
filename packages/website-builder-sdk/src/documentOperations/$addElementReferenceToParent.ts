@@ -1,5 +1,5 @@
 import type { Document } from "~/types.js";
-import type { InputValueBinding } from "~/types";
+import type { InputValueBinding } from "~/types.js";
 
 interface Params {
     elementId: string;

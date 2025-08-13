@@ -1,5 +1,5 @@
-import type { ComponentGroup } from "./types";
-import { contentSdk } from "./ContentSdk";
+import type { ComponentGroup } from "./types.js";
+import { contentSdk } from "./ContentSdk.js";
 
 export const registerComponentGroup = (group: ComponentGroup) => {
     const editingSdk = contentSdk.getEditingSdk();

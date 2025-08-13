@@ -1,5 +1,5 @@
-import { InheritanceProcessor } from "./InheritanceProcessor";
-import type { InputAstNode } from "~/ComponentManifestToAstConverter";
+import { InheritanceProcessor } from "./InheritanceProcessor.js";
+import type { InputAstNode } from "~/ComponentManifestToAstConverter.js";
 
 // Mock AST for inputs
 const inputsAst: InputAstNode[] = [

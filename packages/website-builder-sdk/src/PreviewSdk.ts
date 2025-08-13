@@ -1,5 +1,5 @@
 import type { IContentSdk, IDataProvider, PublicPage } from "~/types.js";
-import { PreviewDocument } from "~/PreviewDocument";
+import { PreviewDocument } from "~/PreviewDocument.js";
 
 export class PreviewSdk implements IContentSdk {
     private liveSdk: IContentSdk;

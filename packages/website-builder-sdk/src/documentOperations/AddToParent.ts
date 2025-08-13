@@ -1,5 +1,5 @@
 import type { Document, DocumentElement } from "~/types.js";
-import type { IDocumentOperation } from "./IDocumentOperation";
+import type { IDocumentOperation } from "./IDocumentOperation.js";
 import { $addElementReferenceToParent } from "./$addElementReferenceToParent.js";
 
 export class AddToParent implements IDocumentOperation {

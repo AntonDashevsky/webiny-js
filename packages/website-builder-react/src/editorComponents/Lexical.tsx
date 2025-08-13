@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { LexicalHtmlRenderer } from "@webiny/lexical-editor";
-import type { ComponentProps } from "~/types";
+import type { ComponentProps } from "~/types.js";
 
 export const createLexicalValue = (value: string) => {
     return {

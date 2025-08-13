@@ -1,8 +1,8 @@
-import { jsonPatch } from "~/jsonPatch";
-import set from "lodash/set";
-import type { Document, DocumentElementBindings } from "./types";
-import type { IBindingsUpdater } from "./IBindingsUpdater";
-import type { ElementStylesBindings } from "./StylesBindingsProcessor";
+import { jsonPatch } from "~/jsonPatch.js";
+import set from "lodash/set.js";
+import type { Document, DocumentElementBindings } from "./types.js";
+import type { IBindingsUpdater } from "./IBindingsUpdater.js";
+import type { ElementStylesBindings } from "./StylesBindingsProcessor.js";
 
 export class StylesUpdater implements IBindingsUpdater {
     private readonly bindings: ElementStylesBindings;

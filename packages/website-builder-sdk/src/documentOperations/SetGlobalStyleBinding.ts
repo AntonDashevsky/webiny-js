@@ -1,5 +1,5 @@
 import type { Document, StyleValueBinding } from "~/types.js";
-import type { IDocumentOperation } from "./IDocumentOperation";
+import type { IDocumentOperation } from "./IDocumentOperation.js";
 
 export class SetGlobalStyleBinding implements IDocumentOperation {
     private readonly elementId: string;

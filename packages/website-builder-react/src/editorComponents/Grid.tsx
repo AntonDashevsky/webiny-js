@@ -1,5 +1,5 @@
 import React from "react";
-import type { ComponentProps, ComponentPropsWithChildren } from "~/types";
+import type { ComponentProps, ComponentPropsWithChildren } from "~/types.js";
 
 export const GridColumnComponent = ({
     inputs

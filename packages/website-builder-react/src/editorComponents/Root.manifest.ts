@@ -1,6 +1,6 @@
 "use client";
-import { createComponent } from "~/createComponent";
-import { RootComponent } from "./Root";
+import { createComponent } from "~/createComponent.js";
+import { RootComponent } from "./Root.js";
 
 export const Root = createComponent(RootComponent, {
     name: "Webiny/Root",

@@ -2,11 +2,11 @@
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
 import { type DocumentElement } from "@webiny/website-builder-sdk";
-import { EditingElementRendererPresenter } from "./EditingElementRenderer.presenter";
-import { LiveElementRenderer } from "../LiveElementRenderer";
-import { useElementSlotDepth } from "../ElementSlotDepthProvider";
-import { useElementIndex } from "../ElementIndexProvider";
-import { useDocumentStore } from "../DocumentStoreProvider";
+import { EditingElementRendererPresenter } from "./EditingElementRenderer.presenter.js";
+import { LiveElementRenderer } from "../LiveElementRenderer.js";
+import { useElementSlotDepth } from "../ElementSlotDepthProvider.js";
+import { useElementIndex } from "../ElementIndexProvider.js";
+import { useDocumentStore } from "../DocumentStoreProvider.js";
 
 interface PreviewElementRendererProps {
     element: DocumentElement;

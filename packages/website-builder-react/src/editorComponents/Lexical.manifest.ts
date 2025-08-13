@@ -1,7 +1,7 @@
 "use client";
 import { createLexicalInput } from "@webiny/website-builder-sdk";
-import { createComponent } from "~/createComponent";
-import { LexicalComponent, createLexicalValue } from "./Lexical";
+import { createComponent } from "~/createComponent.js";
+import { LexicalComponent, createLexicalValue } from "./Lexical.js";
 
 export const Lexical = createComponent(LexicalComponent, {
     name: "Webiny/Lexical",

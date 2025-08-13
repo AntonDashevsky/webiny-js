@@ -1,5 +1,5 @@
 import type { ElementBoxData, ElementSlotBoxData } from "~/types.js";
-import { viewportManager } from "./ViewportManager";
+import { viewportManager } from "./ViewportManager.js";
 
 export class PreviewViewport {
     getBoxes() {

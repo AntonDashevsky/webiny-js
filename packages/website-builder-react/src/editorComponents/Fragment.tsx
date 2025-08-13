@@ -1,7 +1,7 @@
 import React from "react";
-import { useDocumentFragments } from "~/components/FragmentsProvider";
-import type { ComponentProps } from "~/types";
 import { contentSdk } from "@webiny/website-builder-sdk";
+import { useDocumentFragments } from "~/components/FragmentsProvider.js";
+import type { ComponentProps } from "~/types.js";
 
 type FragmentComponentProps = ComponentProps<{
     name: string;

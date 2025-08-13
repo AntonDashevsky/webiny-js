@@ -1,11 +1,11 @@
 import React from "react";
 import { type Component, contentSdk, type Document } from "@webiny/website-builder-sdk";
-import { ElementRenderer } from "./ElementRenderer";
-import { DocumentStoreProvider } from "./DocumentStoreProvider";
-import { ConnectToEditor } from "./ConnectToEditor";
-import { editorComponents } from "../editorComponents/index";
-import type { DocumentFragments } from "./FragmentsProvider";
-import { FragmentsProvider } from "./FragmentsProvider";
+import { ElementRenderer } from "./ElementRenderer.js";
+import { DocumentStoreProvider } from "./DocumentStoreProvider.js";
+import { ConnectToEditor } from "./ConnectToEditor.js";
+import { editorComponents } from "../editorComponents/index.js";
+import type { DocumentFragments } from "./FragmentsProvider.js";
+import { FragmentsProvider } from "./FragmentsProvider.js";
 
 interface DocumentRendererProps {
     document: Document | null;

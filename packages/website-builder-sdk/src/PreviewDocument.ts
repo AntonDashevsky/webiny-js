@@ -1,4 +1,4 @@
-import { getHeadersProvider } from "./headersProvider";
+import { getHeadersProvider } from "./headersProvider.js";
 
 export class PreviewDocument {
     public readonly props: Record<string, string>;

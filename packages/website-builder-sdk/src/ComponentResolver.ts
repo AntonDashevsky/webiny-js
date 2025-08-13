@@ -4,11 +4,11 @@ import type {
     DocumentElementBindings,
     DocumentState,
     ResolvedComponent
-} from "~/types";
-import { logger } from "./Logger";
-import type { OnResolved } from "./BindingsResolver";
-import { BindingsResolver } from "./BindingsResolver";
-import { ComponentManifestToAstConverter } from "~/ComponentManifestToAstConverter";
+} from "~/types.js";
+import { logger } from "./Logger.js";
+import type { OnResolved } from "./BindingsResolver.js";
+import { BindingsResolver } from "./BindingsResolver.js";
+import { ComponentManifestToAstConverter } from "~/ComponentManifestToAstConverter.js";
 
 export type ResolveElementParams = {
     element: DocumentElement;

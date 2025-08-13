@@ -1,4 +1,4 @@
-import type { InputAstNode } from "~/ComponentManifestToAstConverter";
+import type { InputAstNode } from "~/ComponentManifestToAstConverter.js";
 
 export function findMatchingAstNode(path: string, ast: InputAstNode[]): InputAstNode | undefined {
     // Remove all array indices, e.g. columns[0].children → columns.children

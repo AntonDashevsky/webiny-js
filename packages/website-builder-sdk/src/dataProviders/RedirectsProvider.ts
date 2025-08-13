@@ -1,6 +1,6 @@
-import type { ApiClient } from "./ApiClient";
-import type { IRedirects } from "~/IRedirects";
-import type { PublicRedirect } from "~/types";
+import type { ApiClient } from "./ApiClient.js";
+import type { IRedirects } from "~/IRedirects.js";
+import type { PublicRedirect } from "~/types.js";
 
 export class RedirectsProvider implements IRedirects {
     private redirectsCache: Map<string, PublicRedirect> | undefined = undefined;

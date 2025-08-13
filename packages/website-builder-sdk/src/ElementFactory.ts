@@ -1,17 +1,17 @@
-import { generateElementId } from "./generateElementId";
+import { generateElementId } from "./generateElementId.js";
 import type {
     DocumentElement,
     ComponentManifest,
     InputValueBinding,
     StyleValueBinding,
     CssProperties
-} from "~/types";
-import { type IDocumentOperation, DocumentOperations } from "./documentOperations";
+} from "~/types.js";
+import { type IDocumentOperation, DocumentOperations } from "./documentOperations/index.js";
 import {
     ComponentManifestToAstConverter,
     type InputAstNode
-} from "./ComponentManifestToAstConverter";
-import { ComponentInputTraverser } from "./ComponentInputTraverser";
+} from "./ComponentManifestToAstConverter.js";
+import { ComponentInputTraverser } from "./ComponentInputTraverser.js";
 
 const defaultStyles = {
     display: "flex",

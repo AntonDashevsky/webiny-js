@@ -1,4 +1,4 @@
-import type { ResponsiveStyles } from "~/types";
+import type { ResponsiveStyles } from "~/types.js";
 
 export interface CreateElementParams {
     component: string;

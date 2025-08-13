@@ -1,7 +1,7 @@
-import { InputsBindingsProcessor } from "./InputBindingsProcessor";
-import type { InputAstNode } from "~/ComponentManifestToAstConverter";
-import type { DocumentElementBindings } from "~/types";
-import { ElementFactory } from "~/ElementFactory";
+import { InputsBindingsProcessor } from "./InputBindingsProcessor.js";
+import type { InputAstNode } from "~/ComponentManifestToAstConverter.js";
+import type { DocumentElementBindings } from "~/types.js";
+import { ElementFactory } from "~/ElementFactory.js";
 
 describe("InputsBindingsProcessor", () => {
     // Example simple AST (you can expand as needed)

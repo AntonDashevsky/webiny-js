@@ -1,9 +1,9 @@
-import type { ElementFactory } from "~/ElementFactory";
-import type { InputAstNode } from "./ComponentManifestToAstConverter";
-import type { DocumentElementBindings, Document } from "~/types";
-import { createElement, type CreateElementParams } from "./createElement";
-import { StylesBindingsProcessor } from "~/StylesBindingsProcessor";
-import { InputsBindingsProcessor } from "~/InputBindingsProcessor";
+import type { ElementFactory } from "~/ElementFactory.js";
+import type { InputAstNode } from "./ComponentManifestToAstConverter.js";
+import type { DocumentElementBindings, Document } from "~/types.js";
+import { createElement, type CreateElementParams } from "./createElement.js";
+import { StylesBindingsProcessor } from "~/StylesBindingsProcessor.js";
+import { InputsBindingsProcessor } from "~/InputBindingsProcessor.js";
 
 export type FlatBindings = Record<string, Record<string, any>>;
 type DeepBindings = Record<string, any>;

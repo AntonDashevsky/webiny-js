@@ -1,4 +1,4 @@
-import type { PublicRedirect } from "~/types";
+import type { PublicRedirect } from "~/types.js";
 
 export interface IRedirects {
     getAllRedirects(): Promise<Map<string, PublicRedirect>>;

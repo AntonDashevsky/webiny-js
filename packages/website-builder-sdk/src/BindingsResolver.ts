@@ -8,8 +8,8 @@ import type {
     DocumentElementBindings,
     SerializableCSSStyleDeclaration,
     DocumentElementStyleBindings
-} from "~/types";
-import type { InputAstNode } from "./ComponentManifestToAstConverter";
+} from "~/types.js";
+import type { InputAstNode } from "./ComponentManifestToAstConverter.js";
 
 export interface OnResolved {
     (value: any, input: ComponentInput): any;

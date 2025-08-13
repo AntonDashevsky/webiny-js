@@ -1,12 +1,12 @@
-import { BindingsResolver } from "./BindingsResolver";
+import { BindingsResolver } from "./BindingsResolver.js";
 import type {
     DocumentElement,
     DocumentState,
     DocumentElementBindings,
     DocumentBindings
-} from "~/types";
-import { createSlotInput, createTextInput } from "~/createInput";
-import { ComponentManifestToAstConverter } from "~/ComponentManifestToAstConverter";
+} from "~/types.js";
+import { createSlotInput, createTextInput } from "~/createInput.js";
+import { ComponentManifestToAstConverter } from "~/ComponentManifestToAstConverter.js";
 
 describe("BindingsResolver", () => {
     const baseElement: DocumentElement = {

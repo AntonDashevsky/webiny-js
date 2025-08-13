@@ -5,7 +5,7 @@ import type {
     ListPagesOptions,
     PublicPage
 } from "~/types.js";
-import { documentStoreManager } from "~/DocumentStoreManager";
+import { documentStoreManager } from "~/DocumentStoreManager.js";
 
 export class LiveSdk implements IContentSdk {
     private dataProvider: IDataProvider;

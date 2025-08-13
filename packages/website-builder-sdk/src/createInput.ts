@@ -13,8 +13,8 @@ import type {
     ComponentInput,
     TagsInput,
     SlotInput
-} from "./types";
-import { functionConverter } from "~/FunctionConverter";
+} from "./types.js";
+import { functionConverter } from "~/FunctionConverter.js";
 
 type OmitType<T> = Omit<T, "type">;
 
