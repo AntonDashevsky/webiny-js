@@ -8,6 +8,7 @@ import type { CmsContext } from "@webiny/api-headless-cms/types";
 import { type CmsIdentity } from "@webiny/api-headless-cms/types";
 import type { WbPageCrud } from "~/context/pages/pages.types";
 import type { WbRedirectCrud } from "~/context/redirects/redirects.types";
+import type { Context as TasksContext } from "@webiny/tasks";
 
 export interface WbLocation {
     folderId: string;
@@ -26,7 +27,8 @@ export interface WebsiteBuilderContext
         TenancyContext,
         SecurityContext,
         AdminUsersContext,
-        CmsContext {
+        CmsContext,
+        TasksContext {
     websiteBuilder: WebsiteBuilderContextObject;
 }
 

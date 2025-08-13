@@ -45,8 +45,8 @@ export class RedirectsContext extends BaseContext {
     }
 
     static async create(context: WebsiteBuilderContext): Promise<WbRedirectCrud> {
-        const pagesContext = new RedirectsContext(context);
-        return pagesContext.init();
+        const redirectsContext = new RedirectsContext(context);
+        return redirectsContext.init();
     }
 
     private createModelDefinition() {

@@ -4,6 +4,7 @@ import type { WbPageCrud } from "./pages/pages.types";
 import type { WbRedirectCrud } from "./redirects/redirects.types";
 import { PagesContext } from "./pages/pages.context";
 import { RedirectsContext } from "~/context/redirects/redirects.context";
+import { InvalidateRedirectsCache } from "~/features/redirects";
 
 export class WebsiteBuilder {
     private readonly context: WebsiteBuilderContext;
@@ -17,6 +18,33 @@ export class WebsiteBuilder {
     private async init() {
         this.pagesContext = await PagesContext.create(this.context);
         this.redirectsContext = await RedirectsContext.create(this.context);
+        this.invalidateCacheOnRedirectEvents();
+    }
+
+    private invalidateCacheOnRedirectEvents() {
+        const invalidateRedirectsCache = new InvalidateRedirectsCache(this.context.tasks);
+
+        this.redirects.onRedirectAfterCreate.subscribe(async ({ redirect }) => {
+            if (redirect.isEnabled) {
+                await invalidateRedirectsCache.execute();
+            }
+        });
+
+        this.redirects.onRedirectAfterUpdate.subscribe(async ({ redirect, original }) => {
+            if (
+                redirect.redirectFrom !== original.redirectFrom ||
+                redirect.redirectTo !== original.redirectTo ||
+                redirect.isEnabled !== original.isEnabled
+            ) {
+                await invalidateRedirectsCache.execute();
+            }
+        });
+
+        this.redirects.onRedirectAfterDelete.subscribe(async ({ redirect }) => {
+            if (redirect.isEnabled) {
+                await invalidateRedirectsCache.execute();
+            }
+        });
     }
 
     get pages() {
