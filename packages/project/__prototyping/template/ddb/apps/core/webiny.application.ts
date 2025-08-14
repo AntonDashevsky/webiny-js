@@ -37,7 +37,7 @@ export default createCoreApp({
             tagResources(ext.params.tags);
         });
 
-        const corePulumiHandlers = sdk.getContainer().resolve(CorePulumi);
-        await corePulumiHandlers.execute(app);
+        const pulumiHandlers = sdk.getContainer().resolve(CorePulumi);
+        await pulumiHandlers.execute(app);
     }
 });
