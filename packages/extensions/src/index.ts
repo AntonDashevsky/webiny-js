@@ -1,30 +1,37 @@
 import { CliCommand } from "@webiny/cli-core/extensions/index.js";
 import {
+    Telemetry,
+
+    // Hooks.
     AdminAfterBuild,
     AdminAfterDeploy,
     AdminBeforeBuild,
     AdminBeforeDeploy,
-    
     ApiAfterBuild,
     ApiAfterDeploy,
     ApiBeforeBuild,
     ApiBeforeDeploy,
-
     CoreAfterBuild,
     CoreAfterDeploy,
     CoreBeforeBuild,
     CoreBeforeDeploy,
-
     WebsiteAfterBuild,
     WebsiteAfterDeploy,
     WebsiteBeforeBuild,
     WebsiteBeforeDeploy,
-    
-    Telemetry
+
+    // Pulumi.
+    CorePulumi,
+    AwsTags,
+    PulumiResourceNamePrefix,
+    ProductionEnvironments
 } from "@webiny/project/extensions/index.js";
 
 export const Project = {
-    Telemetry
+    Telemetry,
+    AwsTags,
+    PulumiResourceNamePrefix,
+    ProductionEnvironments
 };
 
 export const Cli = {
@@ -49,7 +56,8 @@ export const Core = {
     BeforeBuild: CoreBeforeBuild,
     BeforeDeploy: CoreBeforeDeploy,
     AfterBuild: CoreAfterBuild,
-    AfterDeploy: CoreAfterDeploy
+    AfterDeploy: CoreAfterDeploy,
+    Pulumi: CorePulumi
 };
 
 export const Website = {

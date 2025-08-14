@@ -1,4 +1,4 @@
-import { createExtension } from "@webiny/project/extensions";
+import { defineExtension } from "@webiny/project/extensions";
 import { Command } from "~/abstractions/index.js";
 
 export interface CliCommandParams {
@@ -6,10 +6,10 @@ export interface CliCommandParams {
     src: string;
 }
 
-export const cliCommand = createExtension<CliCommandParams>({
+export const cliCommand = defineExtension<CliCommandParams>({
     type: "Cli/Command",
-    scopes: ["cli"],
+    tags: { runtimeContext: "cli" },
     description: "An extension for defining CLI commands.",
-    array: true,
-    abstraction: Command,
+    multiple: true,
+    abstraction: Command
 });

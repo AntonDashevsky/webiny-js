@@ -1,4 +1,5 @@
 export * from "./hooks/index.js";
+export * from "./pulumi/index.js";
 export { BuildApp } from "./BuildApp.js";
 export { DeployApp } from "./DeployApp.js";
 export { DestroyApp } from "./DestroyApp.js";

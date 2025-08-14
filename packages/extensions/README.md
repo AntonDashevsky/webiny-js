@@ -1,4 +1,4 @@
-# `@webiny/project`
+# `@webiny/extensions`
 
 This package contains Webiny extensions.
 

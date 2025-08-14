@@ -1,5 +1,21 @@
 import { Container } from "@webiny/di-container";
 import {
+    buildApp,
+    deployApp,
+    destroyApp,
+    getApp,
+    getAppOutput,
+    getProject,
+    getProjectConfig,
+    getProjectInfo,
+    isCi,
+    isTelemetryEnabled,
+    refreshApp,
+    runPulumiCommand,
+    validateProjectConfig,
+    watch,
+
+    // Hooks.
     apiAfterBuild,
     apiAfterDeploy,
     apiBeforeBuild,
@@ -16,20 +32,9 @@ import {
     websiteAfterDeploy,
     websiteBeforeBuild,
     websiteBeforeDeploy,
-    buildApp,
-    deployApp,
-    destroyApp,
-    getApp,
-    getAppOutput,
-    getProject,
-    getProjectConfig,
-    getProjectInfo,
-    isCi,
-    isTelemetryEnabled,
-    refreshApp,
-    runPulumiCommand,
-    validateProjectConfig,
-    watch
+
+    // Pulumi.
+    corePulumi
 } from "./features/index.js";
 
 import {
@@ -145,24 +150,53 @@ export const createProjectSdkContainer = async (
 
     // Extensions.
     const project = await container.resolve(GetProject).execute();
-    const projectConfig = await container
-        .resolve(GetProjectConfig)
-        .execute({ scopes: ["project"] });
+    const projectExtensions = await container.resolve(GetProjectConfig).execute({
+        tags: { runtimeContext: "project" }
+    });
 
-    await container.resolve(ValidateProjectConfig).execute(projectConfig);
+    await container.resolve(ValidateProjectConfig).execute(projectExtensions);
 
+    // Hooks.
     const hooksExtensions = [
-        ...projectConfig.extensionsByType<{ src: string }>("Api/BeforeBuild"),
-        ...projectConfig.extensionsByType<{ src: string }>("Api/BeforeDeploy"),
-        ...projectConfig.extensionsByType<{ src: string }>("Api/AfterBuild"),
-        ...projectConfig.extensionsByType<{ src: string }>("Api/AfterDeploy")
+        ...projectExtensions.extensionsByType("Admin/BeforeBuild"),
+        ...projectExtensions.extensionsByType("Admin/BeforeDeploy"),
+        ...projectExtensions.extensionsByType("Admin/AfterBuild"),
+        ...projectExtensions.extensionsByType("Admin/AfterDeploy"),
+        ...projectExtensions.extensionsByType("Api/BeforeBuild"),
+        ...projectExtensions.extensionsByType("Api/BeforeDeploy"),
+        ...projectExtensions.extensionsByType("Api/AfterBuild"),
+        ...projectExtensions.extensionsByType("Api/AfterDeploy"),
+        ...projectExtensions.extensionsByType("Core/BeforeBuild"),
+        ...projectExtensions.extensionsByType("Core/BeforeDeploy"),
+        ...projectExtensions.extensionsByType("Core/AfterBuild"),
+        ...projectExtensions.extensionsByType("Core/AfterDeploy"),
+        ...projectExtensions.extensionsByType("Website/BeforeBuild"),
+        ...projectExtensions.extensionsByType("Website/BeforeDeploy"),
+        ...projectExtensions.extensionsByType("Website/AfterBuild"),
+        ...projectExtensions.extensionsByType("Website/AfterDeploy")
     ];
 
     for (const hookExtension of hooksExtensions) {
         const importPath = path.join(project.paths.rootFolder.absolute, hookExtension.params.src);
-        const { default: commandImplementation } = await import(importPath);
-        container.register(commandImplementation).inSingletonScope();
+        const { default: hookImplementation } = await import(importPath);
+        container.register(hookImplementation).inSingletonScope();
     }
+
+    const pulumiExtensions = [
+        ...projectExtensions.extensionsByType("Core/Pulumi"),
+        ...projectExtensions.extensionsByType("Api/Pulumi"),
+        ...projectExtensions.extensionsByType("Admin/Pulumi"),
+        ...projectExtensions.extensionsByType("Website/Pulumi")
+    ];
+
+    for (const pulumiExtension of pulumiExtensions) {
+        const importPath = path.join(project.paths.rootFolder.absolute, pulumiExtension.params.src);
+        const { default: pulumiImplementation } = await import(importPath);
+        container.register(pulumiImplementation).inSingletonScope();
+    }
+
+    // Pulumi.
+    container.registerComposite(corePulumi);
 
     return container;
 };

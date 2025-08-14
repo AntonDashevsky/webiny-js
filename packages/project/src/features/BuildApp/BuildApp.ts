@@ -4,7 +4,8 @@ import {
     GetApp,
     GetProjectConfigService,
     ListPackagesInAppWorkspaceService,
-    LoggerService
+    LoggerService,
+    ValidateProjectConfigService
 } from "~/abstractions/index.js";
 import { createAppWorkspace } from "~/utils/index.js";
 import { PackagesBuilder } from "./builders/PackagesBuilder.js";
@@ -16,7 +17,8 @@ export class DefaultBuildApp implements BuildApp.Interface {
         private getApp: GetApp.Interface,
         private logger: LoggerService.Interface,
         private listPackagesService: ListPackagesInAppWorkspaceService.Interface,
-        private getProjectConfigService: GetProjectConfigService.Interface
+        private getProjectConfigService: GetProjectConfigService.Interface,
+        private validateProjectConfigService: ValidateProjectConfigService.Interface
     ) {}
 
     async execute(params: BuildApp.Params) {
@@ -33,7 +35,22 @@ export class DefaultBuildApp implements BuildApp.Interface {
             variant: params.variant
         });
 
-        const projectConfig = await this.getProjectConfigService.execute();
+        const projectConfig = await this.getProjectConfigService.execute({
+            tags: { appName: params.app, runtimeContext: "app-build" }
+        });
+
+        await this.validateProjectConfigService.execute(projectConfig);
+
+        for (const extensionType in projectConfig.config) {
+            const oneOrMoreExtensions = projectConfig.config[extensionType];
+            const extensionsArray = Array.isArray(oneOrMoreExtensions)
+                ? [...oneOrMoreExtensions]
+                : [oneOrMoreExtensions];
+
+            for (const extensionInstance of extensionsArray) {
+                await extensionInstance.build();
+            }
+        }
 
         const templateFolderPath = path.join(
             import.meta.dirname,
@@ -107,6 +124,7 @@ export const buildApp = createImplementation({
         GetApp,
         LoggerService,
         ListPackagesInAppWorkspaceService,
-        GetProjectConfigService
+        GetProjectConfigService,
+        ValidateProjectConfigService
     ]
 });

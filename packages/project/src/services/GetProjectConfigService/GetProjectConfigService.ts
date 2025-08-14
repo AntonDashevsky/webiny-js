@@ -24,7 +24,6 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
         const project = await this.getProjectService.execute();
 
         const renderedConfig = await renderConfig(project.paths.manifestFile.absolute);
-
         const hydratedConfig = this.hydrateConfig(renderedConfig, params);
 
         this.cachedProjectConfig = ProjectConfigModel.create(hydratedConfig);
@@ -37,17 +36,14 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
     ): IHydratedProjectConfig {
         const projectSdkParams = this.projectSdkParamsService.get();
 
-        const scopesFilter = params?.scopes || [];
+        const tagsFilters = params?.tags || {};
         const extensionsTypes = Object.keys(configDto) as ExtensionType[];
 
-        this.loggerService.trace(
-            `Hydrating project config with the following parameters:`,
-            {
-                scopesFilter,
-                extensionsTypes,
-                configDto
-            }
-        );
+        this.loggerService.trace(`Hydrating project config with the following parameters:`, {
+            scopesFilter: tagsFilters,
+            extensionsTypes,
+            configDto
+        });
 
         return extensionsTypes.reduce<IHydratedProjectConfig>(
             (acc, extensionType: ExtensionType) => {
@@ -69,12 +65,16 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
                             return null;
                         }
 
-                        if (scopesFilter.length) {
-                            const extDefScopes = extDef.scopes;
+                        if (Object.keys(tagsFilters).length > 0) {
+                            const extDefTags = extDef.tags;
 
-                            const hasMatchingScope = extDefScopes.some(scope =>
-                                scopesFilter.includes(scope)
-                            );
+                            const hasMatchingScope = Object.keys(tagsFilters).every(tag => {
+                                const filterValue = tagsFilters[tag];
+                                const extDefValue = extDefTags[tag];
+
+                                // Otherwise, check for strict equality.
+                                return extDefValue === filterValue;
+                            });
 
                             if (!hasMatchingScope) {
                                 this.loggerService.debug(

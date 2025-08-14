@@ -5,7 +5,7 @@ class MyCorePulumiHandler implements CorePulumi.Interface {
     constructor(private ui: UiService.Interface) {}
 
     execute({ env }: CorePulumi.Params) {
-        this.ui.info("Executing MyCorePulumiHandler with environment:", env.name);
+        this.ui.info("Executing MyCorePulumiHandler2 with environment:", env.name);
     }
 }
 

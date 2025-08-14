@@ -26,7 +26,7 @@ export class ProjectSdk {
         this.container = container;
     }
 
-    static async init(params: Partial<ProjectSdkParamsService.Params>) {
+    static async init(params: Partial<ProjectSdkParamsService.Params> = {}) {
         const container = await createProjectSdkContainer(params);
         return new ProjectSdk(container);
     }

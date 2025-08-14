@@ -1,12 +1,16 @@
 import { Abstraction } from "@webiny/di-container";
 
-export type ExtensionScope = "cli" | "project" | "api" | "admin";
+export type ExtensionTags = {
+    [key: string]: string | undefined;
+    appName?: "core" | "api" | "admin" | "website";
+    runtimeContext?: "app-build" | "project" | "cli" | "pulumi";
+};
 
 export interface CreateExtensionParams<TParams extends Record<string, any> = Record<string, any>> {
     type: string;
-    scopes: ExtensionScope[];
+    tags: ExtensionTags;
     description?: string;
-    array?: boolean;
+    multiple?: boolean;
     abstraction?: Abstraction<any>;
     build?: (params: TParams) => Promise<void> | void;
     validate?: (params: TParams) => Promise<void> | void;

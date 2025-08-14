@@ -1,25 +1,37 @@
-export * from "./createExtension";
-export * from "./models";
+import { telemetry } from "./Telemetry";
 
 // Hooks.
-import { adminAfterBuild } from "./AdminAfterBuild.js";
-import { adminAfterDeploy } from "./AdminAfterDeploy.js";
-import { adminBeforeBuild } from "./AdminBeforeBuild.js";
-import { adminBeforeDeploy } from "./AdminBeforeDeploy.js";
-import { apiBeforeBuild } from "./ApiBeforeBuild.js";
-import { apiBeforeDeploy } from "./ApiBeforeDeploy.js";
-import { apiAfterBuild } from "./ApiAfterBuild.js";
-import { apiAfterDeploy } from "./ApiAfterDeploy.js";
-import { coreBeforeBuild } from "./CoreBeforeBuild.js";
-import { coreBeforeDeploy } from "./CoreBeforeDeploy.js";
-import { coreAfterBuild } from "./CoreAfterBuild.js";
-import { coreAfterDeploy } from "./CoreAfterDeploy.js";
-import { websiteBeforeBuild } from "./WebsiteBeforeBuild.js";
-import { websiteBeforeDeploy } from "./WebsiteBeforeDeploy.js";
-import { websiteAfterBuild } from "./WebsiteAfterBuild.js";
-import { websiteAfterDeploy } from "./WebsiteAfterDeploy.js";
+import { adminBeforeBuild } from "./hooks/index.js";
+import { adminBeforeDeploy } from "./hooks/index.js";
+import { adminAfterBuild } from "./hooks/index.js";
+import { adminAfterDeploy } from "./hooks/index.js";
+import { apiBeforeBuild } from "./hooks/index.js";
+import { apiBeforeDeploy } from "./hooks/index.js";
+import { apiAfterBuild } from "./hooks/index.js";
+import { apiAfterDeploy } from "./hooks/index.js";
+import { coreBeforeBuild } from "./hooks/index.js";
+import { coreBeforeDeploy } from "./hooks/index.js";
+import { coreAfterBuild } from "./hooks/index.js";
+import { coreAfterDeploy } from "./hooks/index.js";
+import { websiteBeforeBuild } from "./hooks/index.js";
+import { websiteBeforeDeploy } from "./hooks/index.js";
+import { websiteAfterBuild } from "./hooks/index.js";
+import { websiteAfterDeploy } from "./hooks/index.js";
 
-import { telemetry } from "./Telemetry";
+// Pulumi.
+import {
+    corePulumi,
+    awsTags,
+    pulumiResourceNamePrefix,
+    productionEnvironments
+} from "./pulumi/index.js";
+
+// Exports.
+export * from "./defineExtension";
+export * from "./models";
+
+// React components (consumed by users). 👇
+export const Telemetry = telemetry.ReactComponent;
 
 // Hooks.
 export const AdminBeforeBuild = adminBeforeBuild.ReactComponent;
@@ -39,17 +51,24 @@ export const WebsiteBeforeDeploy = websiteBeforeDeploy.ReactComponent;
 export const WebsiteAfterBuild = websiteAfterBuild.ReactComponent;
 export const WebsiteAfterDeploy = websiteAfterDeploy.ReactComponent;
 
+// Pulumi.
+export const CorePulumi = corePulumi.ReactComponent;
+export const AwsTags = awsTags.ReactComponent;
+export const PulumiResourceNamePrefix = pulumiResourceNamePrefix.ReactComponent;
+export const ProductionEnvironments = productionEnvironments.ReactComponent;
 
-export const Telemetry = telemetry.ReactComponent;
-
+// Definitions (used internally). 👇
 export const definitions = [
+    telemetry.definition,
+
+    // Hooks.
     adminAfterBuild.definition,
     adminAfterDeploy.definition,
     adminBeforeBuild.definition,
     adminBeforeDeploy.definition,
     apiAfterBuild.definition,
     apiAfterDeploy.definition,
-    apiBeforeBuild.definition, 
+    apiBeforeBuild.definition,
     apiBeforeDeploy.definition,
     coreAfterBuild.definition,
     coreAfterDeploy.definition,
@@ -59,5 +78,10 @@ export const definitions = [
     websiteAfterDeploy.definition,
     websiteBeforeBuild.definition,
     websiteBeforeDeploy.definition,
-    telemetry.definition
+
+    // Pulumi.
+    corePulumi.definition,
+    awsTags.definition,
+    pulumiResourceNamePrefix.definition,
+    productionEnvironments.definition
 ];

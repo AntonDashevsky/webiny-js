@@ -81,7 +81,9 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
 
         const projectSdk = await container.resolve(GetProjectSdkService).execute();
 
-        const projectConfig = await projectSdk.getProjectConfig({ scopes: ["cli"] });
+        const projectConfig = await projectSdk.getProjectConfig({
+            tags: { runtimeContext: "cli" }
+        });
 
         await projectSdk.validateProjectConfig(projectConfig);
 

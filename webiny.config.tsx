@@ -1,47 +1,31 @@
 import React from "react";
-import { Cli, Api, Project } from "@webiny/extensions";
+import { Cli, Core, Api, Project } from "@webiny/extensions";
 
-export default function Webiny() {
+export default () => {
     return (
         <>
             <Project.Telemetry enabled={false} />
-           {/* <Project.OpenSearch enabled={false} />
 
-            <Project.Deployments.PulumiResourceNamePrefix prefix={"wby-"} />
-            <IsEnvironment name={"prod"}>
-                <Project.Deployments.PulumiResourceNamePrefix prefix={"wby-prod-"} />
-            </IsEnvironment>
+            {/*Modifying cloud infra via Pulumi.*/}
+            <Core.Pulumi src={"./extensions/myCorePulumiHandler.ts"} />
+            <Core.Pulumi src={"./extensions/myCorePulumiHandler2.ts"} />
 
-            <Project.Deployments.ProductionEnvironments>
-                <Project.Deployments.ProductionEnvironment name={"staging"} />
-                <Project.Deployments.ProductionEnvironment name={"prod"} />
-            </Project.Deployments.ProductionEnvironments>
+            {/*Applying AWS tags to deployments.*/}
+            <Project.AwsTags tags={{ OWNER: "me", PROJECT: "my-project" }} />
+            <Project.AwsTags tags={{ OWNER2: "me2", PROJECT2: "my-project-2" }} />
 
-            <Project.Deployments.AwsTags>
-                <Project.Deployments.AwsTags.Tag
-                    name={"webiny:project"}
-                    value={"my-webiny-project"}
-                />
-                <Project.Deployments.AwsTags.Tag name={"webiny:environment"} value={"dev"} />
-                <Project.Deployments.AwsTags.Tag name={"webiny:region"} value={"us-east-1"} />
-            </Project.Deployments.AwsTags>
+            <Project.PulumiResourceNamePrefix prefix={"myproj-"} />
 
-            <Core.Pulumi src={"./extensions/myCorePulumiHandler.ts"} />*/}
+            <Project.ProductionEnvironments environments={["prod", "production", "staging"]} />
 
+            {/*Adding custom CLI commands.*/}
             <Cli.Command name={"my-custom-command"} src={"./extensions/myCustomCommand.ts"} />
-            <Api.BeforeDeploy
-                name={"my-api-before-deploy"}
-                src={"./extensions/myApiBeforeDeploy.ts"}
-            />
-            <Api.BeforeBuild
-                name={"my-api-before-build"}
-                src={"./extensions/myApiBeforeBuild.ts"}
-            />
-            <Api.AfterDeploy
-                name={"my-api-after-deploy"}
-                src={"./extensions/myApiAfterDeploy.ts"}
-            />
-            <Api.AfterBuild name={"my-api-after-build"} src={"./extensions/myApiAfterBuild.ts"} />
+
+            {/*Hooking into the API deployment and build process.*/}
+            <Api.BeforeDeploy src={"./extensions/myApiBeforeDeploy.ts"} />
+            <Api.BeforeBuild src={"./extensions/myApiBeforeBuild.ts"} />
+            <Api.AfterDeploy src={"./extensions/myApiAfterDeploy.ts"} />
+            <Api.AfterBuild src={"./extensions/myApiAfterBuild.ts"} />
         </>
     );
-}
+};

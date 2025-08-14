@@ -18,7 +18,7 @@ export function createWithValidationExtensionInstanceModel<
 
             const absoluteSrcPath = path.join(projectSdkParams.cwd, src);
             if (!fs.existsSync(absoluteSrcPath)) {
-                throw new Error(`Source file for extension "${name}" does not exist: ${src}`);
+                throw new Error(`Source file for extension "${name}" does not exist: ${absoluteSrcPath}`);
             }
 
             if (this.definition.abstraction) {
