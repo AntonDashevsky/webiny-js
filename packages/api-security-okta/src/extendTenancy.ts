@@ -1,10 +1,9 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import type { TenancyContext } from "@webiny/api-tenancy/types";
 import { ContextPlugin } from "@webiny/api";
-import type { TenantManagerContext } from "@webiny/api-tenant-manager/types";
 
 export const extendTenancy = () => {
-    return new ContextPlugin<TenantManagerContext>(ctx => {
+    return new ContextPlugin<TenancyContext>(ctx => {
         ctx.waitFor("tenantManager", () => {
             ctx.plugins.register(
                 new GraphQLSchemaPlugin<TenancyContext>({
