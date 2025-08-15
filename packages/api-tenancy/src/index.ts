@@ -1,10 +1,14 @@
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
+import { createWcpContext } from "@webiny/api-wcp";
 import type { TenancyContext, TenancyStorageOperations } from "./types";
 import { createTenancy } from "./createTenancy";
 import graphql from "./graphql/full.gql";
 import baseGraphQLTypes from "./graphql/types.gql";
-import { createWcpContext } from "@webiny/api-wcp";
+import { GetTenantById } from "~/features/GetTenantById/feature";
+import { GetRootTenant } from "~/features/GetRootTenant/feature";
+import { GetCurrentTenant } from "~/features/GetCurrentTenant/feature";
+import { UpdateTenant } from "~/features/UpdateTenant/feature";
 
 interface TenancyPluginsParams {
     storageOperations: TenancyStorageOperations;
@@ -74,7 +78,20 @@ export const createTenancyContext = ({ storageOperations }: TenancyPluginsParams
         // Add WCP telemetry identifier
         // This tenancy package is used by GraphQL, Headless CMS, and PB import/export functions
         context.plugins.register({ type: "wcp-telemetry-tracker" });
+
+        // Register features into DI container
+        GetTenantById.register(context.container, context);
+        GetRootTenant.register(context.container, context);
+        GetCurrentTenant.register(context.container, context);
+        UpdateTenant.register(context.container, context);
     });
 };
 
 export const createTenancyGraphQL = () => [graphql];
+
+export {
+    GetRootTenantUseCase,
+    GetTenantByIdUseCase,
+    GetCurrentTenantUseCase,
+    UpdateTenantUseCase
+} from "./features";
