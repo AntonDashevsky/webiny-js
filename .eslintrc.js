@@ -50,6 +50,7 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": getNoUnusedVars(),
         "@typescript-eslint/no-var-requires": 0,
         "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-namespace": 0,
         // Temporarily disable this rule
         "@typescript-eslint/no-non-null-assertion": 0,
         curly: ["error"],
