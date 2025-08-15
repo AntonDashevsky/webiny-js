@@ -69,16 +69,8 @@ export interface GetTeamWhere {
 export type AuthenticationToken = string;
 
 export interface Security<TIdentity = SecurityIdentity> extends Authentication<TIdentity> {
-    /**
-     * @deprecated
-     */
-    onBeforeInstall: Topic<InstallEvent>;
     onSystemBeforeInstall: Topic<InstallEvent>;
     onInstall: Topic<InstallEvent>;
-    /**
-     * @deprecated
-     */
-    onAfterInstall: Topic<InstallEvent>;
     onSystemAfterInstall: Topic<InstallEvent>;
     onCleanup: Topic<ErrorEvent>;
     onBeforeLogin: Topic<LoginEvent<TIdentity>>;
@@ -104,9 +96,6 @@ export interface Security<TIdentity = SecurityIdentity> extends Authentication<T
     addAuthorizer(authorizer: Authorizer): void;
 
     getAuthorizers(): Authorizer[];
-
-    // getPermission: GetPermission;
-    // getPermissions(): Promise<SecurityPermission[]>;
 
     getPermission<TPermission extends SecurityPermission = SecurityPermission>(
         permission: string

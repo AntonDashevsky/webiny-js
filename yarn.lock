@@ -16552,6 +16552,7 @@ __metadata:
     "@webiny/api": "npm:0.0.0"
     "@webiny/api-wcp": "npm:0.0.0"
     "@webiny/error": "npm:0.0.0"
+    "@webiny/feature": "npm:0.0.0"
     "@webiny/handler": "npm:0.0.0"
     "@webiny/handler-db": "npm:0.0.0"
     "@webiny/handler-graphql": "npm:0.0.0"
@@ -16606,6 +16607,7 @@ __metadata:
   dependencies:
     "@webiny/api": "npm:0.0.0"
     "@webiny/error": "npm:0.0.0"
+    "@webiny/feature": "npm:0.0.0"
     "@webiny/handler-graphql": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/wcp": "npm:0.0.0"
@@ -16682,6 +16684,7 @@ __metadata:
   resolution: "@webiny/api@workspace:packages/api"
   dependencies:
     "@webiny/aws-sdk": "npm:0.0.0"
+    "@webiny/di-container": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
@@ -18503,7 +18506,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/di-container@workspace:packages/di-container":
+"@webiny/di-container@npm:0.0.0, @webiny/di-container@workspace:packages/di-container":
   version: 0.0.0-use.local
   resolution: "@webiny/di-container@workspace:packages/di-container"
   dependencies:
@@ -18530,6 +18533,16 @@ __metadata:
     "@types/uniqid": "npm:^5.3.2"
     "@webiny/project-utils": "npm:0.0.0"
     rimraf: "npm:^6.0.1"
+    typescript: "npm:5.3.3"
+  languageName: unknown
+  linkType: soft
+
+"@webiny/feature@npm:0.0.0, @webiny/feature@workspace:packages/feature":
+  version: 0.0.0-use.local
+  resolution: "@webiny/feature@workspace:packages/feature"
+  dependencies:
+    "@webiny/di-container": "npm:0.0.0"
+    "@webiny/project-utils": "npm:0.0.0"
     typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft

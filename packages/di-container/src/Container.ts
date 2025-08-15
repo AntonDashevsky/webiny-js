@@ -14,6 +14,7 @@ export class Container {
     private registrations = new Map<symbol, Registration[]>();
     private decorators = new Map<symbol, DecoratorRegistration[]>();
     private instances = new Map<symbol, any>();
+    private factories = new Map<symbol, () => any>();
     private instanceRegistrations = new Map<symbol, InstanceRegistration[]>();
     private parent?: Container;
 
@@ -42,6 +43,10 @@ export class Container {
         const registration: InstanceRegistration<T> = { instance };
         const existing = this.instanceRegistrations.get(abstraction.token) || [];
         this.instanceRegistrations.set(abstraction.token, [...existing, registration]);
+    }
+
+    registerFactory<T>(abstraction: Abstraction<T>, factory: () => T): void {
+        this.factories.set(abstraction.token, factory);
     }
 
     registerDecorator<T>(decorator: Constructor<T>): void {
@@ -137,6 +142,12 @@ export class Container {
         if (registrations.length > 0) {
             const registration = registrations[registrations.length - 1];
             return this.resolveRegistration(abstraction, registration, resolutionStack);
+        }
+
+        const factory = this.factories.get(abstraction.token);
+        if (factory) {
+            const instance = factory();
+            return this.applyDecorators(abstraction, instance, resolutionStack);
         }
 
         return undefined;

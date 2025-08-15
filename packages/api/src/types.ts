@@ -1,3 +1,4 @@
+import type { Container } from "@webiny/di-container";
 import type { PluginsContainer } from "@webiny/plugins";
 import type { ICompressor } from "@webiny/utils/compression/Compressor";
 
@@ -56,6 +57,10 @@ export interface Benchmark {
  */
 export interface Context {
     plugins: PluginsContainer;
+    /**
+     * @internal
+     */
+    container: Container;
     readonly WEBINY_VERSION: string;
     /**
      * Not to be used outside of Webiny internal code.

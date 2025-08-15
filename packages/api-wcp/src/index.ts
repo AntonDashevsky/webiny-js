@@ -5,3 +5,4 @@
 export { createWcp } from "./createWcp";
 export * from "./context";
 export * from "./graphql";
+export { GetProjectUseCase } from "./features";
