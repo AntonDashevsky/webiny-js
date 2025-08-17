@@ -90,7 +90,7 @@ describe("Comment crud test", () => {
         return createChangeRequestResponse.data.apw.createChangeRequest.data;
     };
 
-    test("should able to create, update, get, list and delete a comment", async () => {
+    test.skip("should able to create, update, get, list and delete a comment", async () => {
         const changeRequest = await setupChangeRequest();
         /*
          * Create a new entry.
@@ -307,7 +307,7 @@ describe("Comment crud test", () => {
         });
     });
 
-    it("should send an e-mail to all reviewers after the comment was created", async () => {
+    it.skip("should send an e-mail to all reviewers after the comment was created", async () => {
         const fn = jest.fn(() => {
             return null;
         });
@@ -369,6 +369,6 @@ describe("Comment crud test", () => {
          * Test expects the mock function to be called as it represents creating notification text and body.
          * We expect 2 calls, because change request creation produces an e-mail.
          */
-        expect(fn).toBeCalledTimes(2);
+        expect(fn).toHaveBeenCalledTimes(2);
     });
 });

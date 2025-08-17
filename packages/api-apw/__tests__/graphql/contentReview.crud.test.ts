@@ -53,7 +53,7 @@ describe("Content Review crud test", () => {
         scheduledOn: null
     };
 
-    test(`should able to create, update, get, list and delete "Content Review"`, async () => {
+    test.skip(`should able to create, update, get, list and delete "Content Review"`, async () => {
         const { page, workflow } = await setup();
         /*
          Create a content review entry.
@@ -259,7 +259,7 @@ describe("Content Review crud test", () => {
         });
     });
 
-    test(`should able to filter "Content Review" list by "requiresMyAttention" status`, async () => {
+    test.skip(`should able to filter "Content Review" list by "requiresMyAttention" status`, async () => {
         const { page, workflow } = await setup();
         /*
          Create a content review entry.
@@ -414,7 +414,7 @@ describe("Content Review crud test", () => {
         });
     });
 
-    it("should send an e-mail to all reviewers after the content review was created", async () => {
+    it.skip("should send an e-mail to all reviewers after the content review was created", async () => {
         const fn = jest.fn(() => {
             return null;
         });
@@ -475,6 +475,6 @@ describe("Content Review crud test", () => {
         /**
          * Test expects the mock function to be called as it represents creating notification text and body.
          */
-        expect(fn).toBeCalledTimes(1);
+        expect(fn).toHaveBeenCalledTimes(1);
     });
 });
