@@ -8,7 +8,6 @@ import {
 import { renderConfig } from "./renderConfig";
 import { ProjectConfigModel } from "~/models/ProjectConfigModel";
 import { ExtensionType, IHydratedProjectConfig, IProjectConfigDto } from "~/abstractions/models";
-import { createWithValidationExtensionInstanceModel } from "./createWithValidationExtensionInstanceModel";
 import { ExtensionInstanceModel } from "~/extensions";
 
 export class DefaultGetProjectConfigService implements GetProjectConfigService.Interface {

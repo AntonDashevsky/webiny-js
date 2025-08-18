@@ -4,6 +4,7 @@ import { Cli, Core, Api, Project } from "./packages/extensions/src";
 export default () => {
     return (
         <>
+            <Project.Id id={"webiny/test-project"} />
             <Project.Telemetry enabled={false} />
 
             {/*Modifying cloud infra via Pulumi.*/}
@@ -15,14 +16,10 @@ export default () => {
 
             <Project.PulumiResourceNamePrefix prefix={"myproj-"} />
 
-            <Project.ProductionEnvironments environments={["prod", "production", "staging"]} />
+            <Project.ProductionEnvironments environments={["prod", "staging"]} />
 
             {/*Adding custom CLI commands.*/}
-            <Cli.Command
-                sad={123}
-                name={"my-custom-command"}
-                src={"./extensions/myCustomCommand.ts"}
-            />
+            <Cli.Command src={"./extensions/myCustomCommand.ts"} />
 
             {/*Hooking into the API deployment and build process.*/}
             <Api.BeforeDeploy src={"./extensions/myApiBeforeDeploy.ts"} />

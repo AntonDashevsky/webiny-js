@@ -24,7 +24,7 @@ export class ExtensionInstanceModel<TParamsSchema extends z.ZodTypeAny> {
             return;
         }
 
-        const validationResult = paramsSchema.safeParse(this.params);
+        const validationResult = await paramsSchema.safeParseAsync(this.params);
         if (!validationResult.success) {
             throw new Error(
                 `Validation failed for extension "${this.definition.type}": ${validationResult.error.message}`

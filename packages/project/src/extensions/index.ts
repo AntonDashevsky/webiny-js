@@ -1,4 +1,5 @@
 import { telemetry } from "./Telemetry";
+import { projectId } from "./ProjectId";
 
 // Hooks.
 import { adminBeforeBuild } from "./hooks/index.js";
@@ -33,6 +34,7 @@ export * from "./zodPathToAbstraction";
 
 // React components (consumed by users). 👇
 export const Telemetry = telemetry.ReactComponent;
+export const ProjectId = projectId.ReactComponent;
 
 // Hooks.
 export const AdminBeforeBuild = adminBeforeBuild.ReactComponent;
@@ -61,6 +63,7 @@ export const ProductionEnvironments = productionEnvironments.ReactComponent;
 // Definitions (used internally). 👇
 export const definitions = [
     telemetry.definition,
+    projectId.definition,
 
     // Hooks.
     adminAfterBuild.definition,

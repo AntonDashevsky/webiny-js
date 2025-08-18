@@ -1,6 +1,7 @@
 import { CliCommand } from "@webiny/cli-core/extensions/index.js";
 import {
     Telemetry,
+    ProjectId,
 
     // Hooks.
     AdminAfterBuild,
@@ -28,6 +29,7 @@ import {
 } from "@webiny/project/extensions/index.js";
 
 export const Project = {
+    Id: ProjectId,
     Telemetry,
     AwsTags,
     PulumiResourceNamePrefix,
