@@ -1,5 +1,6 @@
 import { IHydratedProjectConfig, IProjectConfigModel } from "~/abstractions/models/index.js";
-import { ExtensionInstanceModel } from "~/extensions/models/index.js"
+import { ExtensionInstanceModel } from "~/extensions/models/index.js";
+import { z } from "zod";
 
 export class ProjectConfigModel implements IProjectConfigModel {
     public readonly config: IHydratedProjectConfig;
@@ -12,7 +13,7 @@ export class ProjectConfigModel implements IProjectConfigModel {
         return new ProjectConfigModel(config);
     }
 
-    extensionsByType<TParams extends Record<string, any> = Record<string, any>>(type: string) {
-        return (this.config[type] || []) as unknown as Array<ExtensionInstanceModel<TParams>>;
+    extensionsByType<TParamsSchema extends z.ZodTypeAny>(type: string) {
+        return (this.config[type] || []) as unknown as Array<ExtensionInstanceModel<TParamsSchema>>;
     }
 }

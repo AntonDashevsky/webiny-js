@@ -1,14 +1,14 @@
-import { defineExtension } from "~/extensions/defineExtension/index.js";
+import { z } from "zod";
+import { defineExtension, zodPathToAbstraction } from "~/extensions";
 import { CorePulumi } from "~/abstractions/features/pulumi/index.js";
 
-export interface CorePulumiParams {
-    src: string;
-}
-
-export const corePulumi = defineExtension<CorePulumiParams>({
+export const corePulumi = defineExtension({
     type: "Core/Pulumi",
     tags: { runtimeContext: "project", application: "core" },
     description: "Modify Core app's cloud infrastructure using Pulumi.",
     multiple: true,
-    abstraction: CorePulumi
+    paramsSchema: z.object({
+        src: zodPathToAbstraction(CorePulumi)
+    })
+    // abstraction: CorePulumi
 });

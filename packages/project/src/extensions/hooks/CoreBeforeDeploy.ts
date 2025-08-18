@@ -1,14 +1,14 @@
-import { defineExtension } from "~/extensions/defineExtension/defineExtension.js";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
+import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction.js";
 import { CoreBeforeDeploy } from "~/abstractions/index.js";
+import { z } from "zod";
 
-export interface CoreBeforeDeployParams {
-    src: string;
-}
-
-export const coreBeforeDeploy = defineExtension<CoreBeforeDeployParams>({
+export const coreBeforeDeploy = defineExtension({
     type: "Core/BeforeDeploy",
     tags: { runtimeContext: "project", application: "core" },
     description: "Add custom logic to be executed before the CORE deployment process.",
     multiple: true,
-    abstraction: CoreBeforeDeploy
+    paramsSchema: z.object({
+        src: zodPathToAbstraction(CoreBeforeDeploy)
+    })
 });

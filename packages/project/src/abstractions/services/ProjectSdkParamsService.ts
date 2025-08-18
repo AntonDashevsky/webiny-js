@@ -3,7 +3,7 @@ import { ExtensionDefinitionModel } from "~/extensions/models/ExtensionDefinitio
 
 export interface IProjectSdkParams {
     cwd: string;
-    extensions: ExtensionDefinitionModel[];
+    extensions: ExtensionDefinitionModel<any>[];
 }
 
 export interface IProjectSdkParamsService {

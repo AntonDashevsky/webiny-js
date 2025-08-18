@@ -1,35 +1,36 @@
 import { Abstraction } from "@webiny/di-container";
 import { ExtensionTags } from "~/extensions/defineExtension/types";
+import { z } from "zod";
 
-export interface ExtensionDefinitionModelParams<TParams extends Record<string, any> = Record<string, any>> {
+export interface ExtensionDefinitionModelParams<TParamsSchema extends z.ZodTypeAny> {
     type: string;
     tags?: ExtensionTags;
     description: string;
     array?: boolean;
-    abstraction?: Abstraction<any>;
+    paramsSchema?: TParamsSchema;
 
-    build?(params: TParams): Promise<void> | void;
+    build?(params: TParamsSchema): Promise<void> | void;
 
-    validate?(params: TParams): Promise<void> | void;
+    validate?(params: TParamsSchema): Promise<void> | void;
 }
 
-export class ExtensionDefinitionModel<TParams extends Record<string, any> = Record<string, any>> {
+export class ExtensionDefinitionModel<TParamsSchema extends z.ZodTypeAny> {
     type: string;
     description: string;
     tags: ExtensionTags;
     multiple?: boolean;
-    abstraction?: Abstraction<any>;
+    paramsSchema?: TParamsSchema;
 
-    build?(params: TParams): Promise<void> | void;
+    build?(params: TParamsSchema): Promise<void> | void;
 
-    validate?(params: TParams): Promise<void> | void;
+    validate?(params: TParamsSchema): Promise<void> | void;
 
-    constructor(params: ExtensionDefinitionModelParams) {
+    constructor(params: ExtensionDefinitionModelParams<TParamsSchema>) {
         this.type = params.type;
         this.tags = params.tags || {};
         this.description = params.description;
         this.multiple = params.array;
-        this.abstraction = params.abstraction;
+        this.paramsSchema = params.paramsSchema;
         this.build = params.build;
         this.validate = params.validate;
     }

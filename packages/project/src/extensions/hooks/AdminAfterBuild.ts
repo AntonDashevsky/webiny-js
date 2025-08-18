@@ -1,14 +1,14 @@
-import { defineExtension } from "~/extensions/defineExtension/defineExtension.js";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
+import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction.js";
 import { AdminAfterBuild } from "~/abstractions/index.js";
+import { z } from "zod";
 
-export interface AdminAfterBuildParams {
-    src: string;
-}
-
-export const adminAfterBuild = defineExtension<AdminAfterBuildParams>({
+export const adminAfterBuild = defineExtension({
     type: "Admin/AfterBuild",
     tags: { runtimeContext: "project", application: "admin" },
     description: "Add custom logic to be executed after the ADMIN build process.",
     multiple: true,
-    abstraction: AdminAfterBuild
+    paramsSchema: z.object({
+        src: zodPathToAbstraction(AdminAfterBuild)
+    })
 });

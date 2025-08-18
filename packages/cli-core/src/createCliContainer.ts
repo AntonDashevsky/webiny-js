@@ -89,7 +89,7 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
 
         const project = await projectSdk.getProject();
 
-        const commands = projectConfig.extensionsByType<{ src: string }>("cliCommand");
+        const commands = projectConfig.extensionsByType<any>("cliCommand");
         for (const command of commands) {
             const importPath = path.join(project.paths.rootFolder.absolute, command.params.src);
             const { default: commandImplementation } = await import(importPath);

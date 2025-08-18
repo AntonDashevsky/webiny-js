@@ -1,15 +1,13 @@
-import { defineExtension } from "@webiny/project/extensions";
+import { defineExtension, zodPathToAbstraction } from "@webiny/project/extensions";
 import { Command } from "~/abstractions/index.js";
+import { z } from "zod";
 
-export interface CliCommandDecoratorParams {
-    name: string;
-    src: string;
-}
-
-export const cliCommandDecorator = defineExtension<CliCommandDecoratorParams>({
+export const cliCommandDecorator = defineExtension({
     type: "cliCommandDecorator",
     tags: { runtimeContext: "cli" },
     description: "Decorates an existing CLI command.",
     multiple: true,
-    abstraction: Command
+    paramsSchema: z.object({
+        src: zodPathToAbstraction(Command)
+    })
 });

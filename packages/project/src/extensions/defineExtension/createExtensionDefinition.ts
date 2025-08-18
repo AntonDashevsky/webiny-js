@@ -1,17 +1,18 @@
 import { ExtensionDefinitionModel } from "~/extensions/models/index.js";
-import { CreateExtensionParams } from "./types";
+import { DefineExtensionParams } from "./types";
+import { z } from "zod";
 
-export function createExtensionDefinition<
-    TParams extends Record<string, any> = Record<string, any>
->(extensionParams: CreateExtensionParams<TParams>) {
-    const { type, description, multiple, abstraction, build, validate, tags } = extensionParams;
+export function createExtensionDefinition<TParamsSchema extends z.ZodTypeAny>(
+    extensionParams: DefineExtensionParams<TParamsSchema>
+) {
+    const { type, description, multiple, build, validate, tags, paramsSchema } = extensionParams;
 
-    return new ExtensionDefinitionModel<TParams>({
+    return new ExtensionDefinitionModel<TParamsSchema>({
         type,
         tags,
         description: description || "",
         array: multiple || false,
-        abstraction,
+        paramsSchema,
         build,
         validate
     });

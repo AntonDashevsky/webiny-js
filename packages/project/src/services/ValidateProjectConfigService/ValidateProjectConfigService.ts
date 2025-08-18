@@ -7,6 +7,8 @@ export class DefaultValidateProjectConfigService implements ValidateProjectConfi
         for (const extensionType of extensionTypes) {
             const extensionsCollection = projectConfig.extensionsByType(extensionType);
             for (const extension of extensionsCollection) {
+                await extension.validateParams();
+
                 if (extension.validate) {
                     try {
                         await extension.validate();

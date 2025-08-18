@@ -1,21 +1,21 @@
 import React, { useMemo } from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { CreateExtensionParams } from "./types";
+import { DefineExtensionParams } from "./types";
 import { nanoid } from "nanoid";
+import { z } from "zod";
 
-export type ExtensionReactComponentProps<TProps extends Record<string, any> = Record<string, any>> =
-    TProps & {
-        name?: string;
+export function createExtensionReactComponent<TParamsSchema extends z.ZodTypeAny>(
+    extensionParams: DefineExtensionParams<TParamsSchema>
+) {
+    const paramsSchema = extensionParams.paramsSchema || z.object({});
+
+    type ExtensionReactComponentProps = z.infer<typeof paramsSchema> & {
         remove?: boolean;
         before?: string;
         after?: string;
     };
 
-// Roxks.
-export function createExtensionReactComponent<
-    TParams extends Record<string, any> = Record<string, any>
->(extensionParams: CreateExtensionParams<TParams>) {
-    return function ExtensionReactComponent(props: ExtensionReactComponentProps<TParams>) {
+    return function ExtensionReactComponent(props) {
         const id = useMemo(() => {
             return nanoid();
         }, []);
@@ -41,5 +41,5 @@ export function createExtensionReactComponent<
                 })}
             </Property>
         );
-    };
+    } as React.FC<ExtensionReactComponentProps>;
 }

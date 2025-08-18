@@ -1,14 +1,14 @@
-import { defineExtension } from "~/extensions/defineExtension/defineExtension.js";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
+import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction.js";
 import { ApiBeforeDeploy } from "~/abstractions/index.js";
+import { z } from "zod";
 
-export interface ApiBeforeDeployParams {
-    src: string;
-}
-
-export const apiBeforeDeploy = defineExtension<ApiBeforeDeployParams>({
+export const apiBeforeDeploy = defineExtension({
     type: "Api/BeforeDeploy",
     tags: { runtimeContext: "project", application: "api" },
     description: "Add custom logic to be executed before the API deployment process.",
     multiple: true,
-    abstraction: ApiBeforeDeploy
+    paramsSchema: z.object({
+        src: zodPathToAbstraction(ApiBeforeDeploy)
+    })
 });

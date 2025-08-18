@@ -1,5 +1,5 @@
 import React from "react";
-import { Cli, Core, Api, Project } from "@webiny/extensions";
+import { Cli, Core, Api, Project } from "./packages/extensions/src";
 
 export default () => {
     return (
@@ -7,7 +7,6 @@ export default () => {
             <Project.Telemetry enabled={false} />
 
             {/*Modifying cloud infra via Pulumi.*/}
-            <Core.Pulumi src={"./extensions/myCorePulumiHandler.ts"} />
             <Core.Pulumi src={"./extensions/myCorePulumiHandler2.ts"} />
 
             {/*Applying AWS tags to deployments.*/}
@@ -19,7 +18,11 @@ export default () => {
             <Project.ProductionEnvironments environments={["prod", "production", "staging"]} />
 
             {/*Adding custom CLI commands.*/}
-            <Cli.Command name={"my-custom-command"} src={"./extensions/myCustomCommand.ts"} />
+            <Cli.Command
+                sad={123}
+                name={"my-custom-command"}
+                src={"./extensions/myCustomCommand.ts"}
+            />
 
             {/*Hooking into the API deployment and build process.*/}
             <Api.BeforeDeploy src={"./extensions/myApiBeforeDeploy.ts"} />

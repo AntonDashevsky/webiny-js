@@ -84,12 +84,9 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
                             }
                         }
 
-                        const WithValidationExtensionInstanceModel =
-                            createWithValidationExtensionInstanceModel(projectSdkParams);
-
-                        return new WithValidationExtensionInstanceModel(extDef, extensionParams);
+                        return new ExtensionInstanceModel(extDef, extensionParams);
                     })
-                    .filter(Boolean) as ExtensionInstanceModel[];
+                    .filter(Boolean) as ExtensionInstanceModel<any>[];
 
                 if (matchedExtensions.length > 0) {
                     acc[extensionType] = matchedExtensions;

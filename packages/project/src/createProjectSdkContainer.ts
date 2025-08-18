@@ -158,22 +158,22 @@ export const createProjectSdkContainer = async (
 
     // Hooks.
     const hooksExtensions = [
-        ...projectExtensions.extensionsByType("Admin/BeforeBuild"),
-        ...projectExtensions.extensionsByType("Admin/BeforeDeploy"),
-        ...projectExtensions.extensionsByType("Admin/AfterBuild"),
-        ...projectExtensions.extensionsByType("Admin/AfterDeploy"),
-        ...projectExtensions.extensionsByType("Api/BeforeBuild"),
-        ...projectExtensions.extensionsByType("Api/BeforeDeploy"),
-        ...projectExtensions.extensionsByType("Api/AfterBuild"),
-        ...projectExtensions.extensionsByType("Api/AfterDeploy"),
-        ...projectExtensions.extensionsByType("Core/BeforeBuild"),
-        ...projectExtensions.extensionsByType("Core/BeforeDeploy"),
-        ...projectExtensions.extensionsByType("Core/AfterBuild"),
-        ...projectExtensions.extensionsByType("Core/AfterDeploy"),
-        ...projectExtensions.extensionsByType("Website/BeforeBuild"),
-        ...projectExtensions.extensionsByType("Website/BeforeDeploy"),
-        ...projectExtensions.extensionsByType("Website/AfterBuild"),
-        ...projectExtensions.extensionsByType("Website/AfterDeploy")
+        ...projectExtensions.extensionsByType<any>("Admin/BeforeBuild"),
+        ...projectExtensions.extensionsByType<any>("Admin/BeforeDeploy"),
+        ...projectExtensions.extensionsByType<any>("Admin/AfterBuild"),
+        ...projectExtensions.extensionsByType<any>("Admin/AfterDeploy"),
+        ...projectExtensions.extensionsByType<any>("Api/BeforeBuild"),
+        ...projectExtensions.extensionsByType<any>("Api/BeforeDeploy"),
+        ...projectExtensions.extensionsByType<any>("Api/AfterBuild"),
+        ...projectExtensions.extensionsByType<any>("Api/AfterDeploy"),
+        ...projectExtensions.extensionsByType<any>("Core/BeforeBuild"),
+        ...projectExtensions.extensionsByType<any>("Core/BeforeDeploy"),
+        ...projectExtensions.extensionsByType<any>("Core/AfterBuild"),
+        ...projectExtensions.extensionsByType<any>("Core/AfterDeploy"),
+        ...projectExtensions.extensionsByType<any>("Website/BeforeBuild"),
+        ...projectExtensions.extensionsByType<any>("Website/BeforeDeploy"),
+        ...projectExtensions.extensionsByType<any>("Website/AfterBuild"),
+        ...projectExtensions.extensionsByType<any>("Website/AfterDeploy")
     ];
 
     for (const hookExtension of hooksExtensions) {
@@ -183,10 +183,10 @@ export const createProjectSdkContainer = async (
     }
 
     const pulumiExtensions = [
-        ...projectExtensions.extensionsByType("Core/Pulumi"),
-        ...projectExtensions.extensionsByType("Api/Pulumi"),
-        ...projectExtensions.extensionsByType("Admin/Pulumi"),
-        ...projectExtensions.extensionsByType("Website/Pulumi")
+        ...projectExtensions.extensionsByType<any>("Core/Pulumi"),
+        ...projectExtensions.extensionsByType<any>("Api/Pulumi"),
+        ...projectExtensions.extensionsByType<any>("Admin/Pulumi"),
+        ...projectExtensions.extensionsByType<any>("Website/Pulumi")
     ];
 
     for (const pulumiExtension of pulumiExtensions) {

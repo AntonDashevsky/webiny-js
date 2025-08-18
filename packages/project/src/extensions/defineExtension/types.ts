@@ -1,4 +1,4 @@
-import { Abstraction } from "@webiny/di-container";
+import { z } from "zod";
 
 export type ExtensionTags = {
     [key: string]: string | undefined;
@@ -6,12 +6,12 @@ export type ExtensionTags = {
     runtimeContext?: "app-build" | "project" | "cli" | "pulumi";
 };
 
-export interface CreateExtensionParams<TParams extends Record<string, any> = Record<string, any>> {
+export interface DefineExtensionParams<TParamsSchema extends z.ZodTypeAny> {
     type: string;
     tags: ExtensionTags;
     description?: string;
     multiple?: boolean;
-    abstraction?: Abstraction<any>;
-    build?: (params: TParams) => Promise<void> | void;
-    validate?: (params: TParams) => Promise<void> | void;
+    paramsSchema?: TParamsSchema;
+    build?: (params: z.infer<TParamsSchema>) => Promise<void> | void;
+    validate?: (params: z.infer<TParamsSchema>) => Promise<void> | void;
 }

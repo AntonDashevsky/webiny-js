@@ -1,11 +1,11 @@
+import { z } from "zod";
 import { defineExtension } from "~/extensions/defineExtension/index.js";
 
-export interface PulumiResourceNamePrefix {
-    prefix: string;
-}
-
-export const pulumiResourceNamePrefix = defineExtension<PulumiResourceNamePrefix>({
+export const pulumiResourceNamePrefix = defineExtension({
     type: "Deployments/PulumiResourceNamePrefix",
     tags: { runtimeContext: "project" },
-    description: 'Adjust the prefix for Pulumi resource names (default: "wby-").'
+    description: 'Adjust the prefix for Pulumi resource names (default: "wby-").',
+    paramsSchema: z.object({
+        prefix: z.string()
+    })
 });

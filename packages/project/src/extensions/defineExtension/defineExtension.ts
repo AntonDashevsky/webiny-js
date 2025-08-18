@@ -1,12 +1,13 @@
-import { CreateExtensionParams } from "~/extensions/defineExtension/types";
+import { DefineExtensionParams } from "~/extensions/defineExtension/types";
 import { createExtensionDefinition } from "./createExtensionDefinition";
 import { createExtensionReactComponent } from "./createExtensionReactComponent";
+import { z } from "zod";
 
-export function defineExtension<TParams extends Record<string, any> = Record<string, any>>(
-    extensionParams: CreateExtensionParams<TParams>
+export function defineExtension<TParamsSchema extends z.ZodTypeAny>(
+    extensionParams: DefineExtensionParams<TParamsSchema>
 ) {
-    const definition = createExtensionDefinition<TParams>(extensionParams);
-    const ReactComponent = createExtensionReactComponent<TParams>(extensionParams);
+    const definition = createExtensionDefinition<TParamsSchema>(extensionParams);
+    const ReactComponent = createExtensionReactComponent<TParamsSchema>(extensionParams);
 
     return { ReactComponent, definition };
 }

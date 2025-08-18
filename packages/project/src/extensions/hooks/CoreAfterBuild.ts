@@ -1,14 +1,14 @@
-import { defineExtension } from "~/extensions/defineExtension/defineExtension.js";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
+import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction.js";
 import { CoreAfterBuild } from "~/abstractions/index.js";
+import { z } from "zod";
 
-export interface CoreAfterBuildParams {
-    src: string;
-}
-
-export const coreAfterBuild = defineExtension<CoreAfterBuildParams>({
+export const coreAfterBuild = defineExtension({
     type: "Core/AfterBuild",
     tags: { runtimeContext: "project", application: "core" },
     description: "Add custom logic to be executed after the CORE build process.",
     multiple: true,
-    abstraction: CoreAfterBuild,
+    paramsSchema: z.object({
+        src: zodPathToAbstraction(CoreAfterBuild)
+    })
 });

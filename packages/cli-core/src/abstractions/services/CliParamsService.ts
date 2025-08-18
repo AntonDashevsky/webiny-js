@@ -3,12 +3,12 @@ import { ExtensionDefinitionModel } from "@webiny/project/extensions";
 
 export interface ICliParams {
     cwd?: string;
-    extensions?: ExtensionDefinitionModel[]
+    extensions?: ExtensionDefinitionModel<any>[];
 }
 
 export interface ICliParamsService {
-    get(): ICliParams
-    set(params: ICliParams): void
+    get(): ICliParams;
+    set(params: ICliParams): void;
 }
 
 export const CliParamsService = new Abstraction<ICliParamsService>("CliParamsService");

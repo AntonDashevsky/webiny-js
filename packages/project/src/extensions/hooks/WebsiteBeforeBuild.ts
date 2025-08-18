@@ -1,14 +1,14 @@
-import { defineExtension } from "~/extensions/defineExtension/defineExtension.js";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
+import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction.js";
 import { WebsiteBeforeBuild } from "~/abstractions/index.js";
+import { z } from "zod";
 
-export interface WebsiteBeforeBuildParams {
-    src: string;
-}
-
-export const websiteBeforeBuild = defineExtension<WebsiteBeforeBuildParams>({
+export const websiteBeforeBuild = defineExtension({
     type: "Website/BeforeBuild",
     tags: { runtimeContext: "project", application: "website" },
-    description: "Add custom logic to be executed before the WEBSITE build process.",
+    description: "Add custom logic to be executed before the Website build process.",
     multiple: true,
-    abstraction: WebsiteBeforeBuild,
+    paramsSchema: z.object({
+        src: zodPathToAbstraction(WebsiteBeforeBuild)
+    })
 });
