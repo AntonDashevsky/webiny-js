@@ -1,6 +1,7 @@
 export * from "./hooks/index.js";
 export * from "./pulumi/index.js";
 export { BuildApp } from "./BuildApp.js";
+export { BuildExtension } from "./BuildExtension.js";
 export { DeployApp } from "./DeployApp.js";
 export { DestroyApp } from "./DestroyApp.js";
 export { GetApp } from "./GetApp.js";

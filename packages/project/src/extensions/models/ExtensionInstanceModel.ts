@@ -1,17 +1,21 @@
 import { ExtensionDefinitionModel } from "./ExtensionDefinitionModel";
 import { z } from "zod";
+import { ProjectModel } from "~/models";
+
+export interface ExtensionInstanceModelContext {
+    [key: string]: any;
+    project: ProjectModel;
+}
 
 export class ExtensionInstanceModel<TParamsSchema extends z.ZodTypeAny> {
-    definition: ExtensionDefinitionModel<TParamsSchema>;
-    params: TParamsSchema;
-
-    constructor(definition: ExtensionDefinitionModel<TParamsSchema>, params: TParamsSchema) {
-        this.definition = definition;
-        this.params = params;
-    }
+    constructor(
+        public definition: ExtensionDefinitionModel<TParamsSchema>,
+        public params: TParamsSchema,
+        public context: ExtensionInstanceModelContext
+    ) {}
 
     async build() {
-        return this.definition.build?.(this.params);
+        return this.definition.build?.(this.params, this.context);
     }
 
     async validate() {

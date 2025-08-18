@@ -1,6 +1,6 @@
-import { Abstraction } from "@webiny/di-container";
 import { ExtensionTags } from "~/extensions/defineExtension/types";
 import { z } from "zod";
+import { ExtensionInstanceModelContext } from "~/extensions";
 
 export interface ExtensionDefinitionModelParams<TParamsSchema extends z.ZodTypeAny> {
     type: string;
@@ -9,7 +9,7 @@ export interface ExtensionDefinitionModelParams<TParamsSchema extends z.ZodTypeA
     array?: boolean;
     paramsSchema?: TParamsSchema;
 
-    build?(params: TParamsSchema): Promise<void> | void;
+    build?(params: TParamsSchema, ctx: ExtensionInstanceModelContext): Promise<void> | void;
 
     validate?(params: TParamsSchema): Promise<void> | void;
 }
@@ -21,7 +21,7 @@ export class ExtensionDefinitionModel<TParamsSchema extends z.ZodTypeAny> {
     multiple?: boolean;
     paramsSchema?: TParamsSchema;
 
-    build?(params: TParamsSchema): Promise<void> | void;
+    build?(params: TParamsSchema, ctx: ExtensionInstanceModelContext): Promise<void> | void;
 
     validate?(params: TParamsSchema): Promise<void> | void;
 

@@ -28,6 +28,12 @@ import {
     ProductionEnvironments
 } from "@webiny/project/extensions/index.js";
 
+// Cms.
+import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
+
+// Exports.
+export { Webiny } from "./Webiny";
+
 export const Project = {
     Id: ProjectId,
     Telemetry,
@@ -51,7 +57,10 @@ export const Api = {
     BeforeBuild: ApiBeforeBuild,
     BeforeDeploy: ApiBeforeDeploy,
     AfterBuild: ApiAfterBuild,
-    AfterDeploy: ApiAfterDeploy
+    AfterDeploy: ApiAfterDeploy,
+    Cms: {
+        OnEntryBeforeCreate
+    }
 };
 
 export const Core = {

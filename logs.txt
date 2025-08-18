@@ -861,3 +861,91 @@
 {"level":30,"time":1755507493416,"pid":71272,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Successfully loaded environment variables from %."}
 {"level":30,"time":1755507663129,"pid":71443,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Successfully loaded environment variables from %."}
 {"level":30,"time":1755508035940,"pid":71685,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Successfully loaded environment variables from %."}
+{"level":30,"time":1755509167747,"pid":72932,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Successfully loaded environment variables from %."}
+{"level":30,"time":1755509601608,"pid":73362,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Successfully loaded environment variables from %."}
+{"level":40,"time":1755528050041,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528050042,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528050042,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528050042,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":30,"time":1755528050121,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Successfully loaded environment variables from %."}
+{"level":40,"time":1755528050228,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528050228,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528050228,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528050228,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528050335,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528050336,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528050336,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528050336,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528050466,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528050466,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528050466,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528050466,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528050573,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528050573,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528050573,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528050573,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528050681,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528050682,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528050682,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528050682,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528050789,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528050789,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528050789,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528050789,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528050895,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528050895,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528050895,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528050895,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528051007,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528051007,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528051007,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528051007,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528051116,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528051116,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528051116,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528051116,"pid":84552,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528940412,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528940412,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528940412,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528940412,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":30,"time":1755528940492,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Successfully loaded environment variables from %."}
+{"level":40,"time":1755528940598,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528940598,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528940598,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528940598,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528940707,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528940707,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528940707,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528940707,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528940842,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528940842,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528940842,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528940842,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528940950,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528940950,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528940950,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528940950,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528941058,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528941058,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528941058,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528941058,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528941165,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528941165,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528941165,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528941165,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528941271,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528941271,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528941271,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528941271,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528941383,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528941383,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528941383,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528941383,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528941493,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":40,"time":1755528941493,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/api. Skipping..."}
+{"level":40,"time":1755528941493,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/admin. Skipping..."}
+{"level":40,"time":1755528941493,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/website. Skipping..."}
+{"level":40,"time":1755528941609,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Could not find extension definition for type: AppTemplate/core. Skipping..."}
+{"level":50,"time":1755528941609,"pid":85137,"hostname":"Adrians-MacBook-Pro-2.local","msg":"{} "}
+{"level":30,"time":1755529441378,"pid":85593,"hostname":"Adrians-MacBook-Pro-2.local","msg":"Successfully loaded environment variables from %."}
+{"level":50,"time":1755529442508,"pid":85593,"hostname":"Adrians-MacBook-Pro-2.local","msg":"{} "}

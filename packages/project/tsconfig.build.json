@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.build.json",
   "include": ["src"],
   "references": [
-    { "path": "../di-container/tsconfig.build.json" }
+    { "path": "../di-container/tsconfig.build.json" },
+    { "path": "../feature/tsconfig.build.json" }
   ],
   "compilerOptions": {
     "rootDir": "./src",

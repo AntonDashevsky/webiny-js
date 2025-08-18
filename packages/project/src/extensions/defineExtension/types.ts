@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ExtensionInstanceModelContext } from "~/extensions";
 
 export type ExtensionTags = {
     [key: string]: string | undefined;
@@ -12,6 +13,9 @@ export interface DefineExtensionParams<TParamsSchema extends z.ZodTypeAny> {
     description?: string;
     multiple?: boolean;
     paramsSchema?: TParamsSchema;
-    build?: (params: z.infer<TParamsSchema>) => Promise<void> | void;
+    build?: (
+        params: z.infer<TParamsSchema>,
+        ctx: ExtensionInstanceModelContext
+    ) => Promise<void> | void;
     validate?: (params: z.infer<TParamsSchema>) => Promise<void> | void;
 }

@@ -19,21 +19,25 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
         private readonly loggerService: LoggerService.Interface
     ) {}
 
-    async execute(params?: GetProjectConfigService.Params): Promise<ProjectConfigModel> {
+    async execute(
+        params?: GetProjectConfigService.Params
+    ): Promise<GetProjectConfigService.Result> {
         const project = await this.getProjectService.execute();
 
         const renderedConfig = await renderConfig(project.paths.manifestFile.absolute);
-        const hydratedConfig = this.hydrateConfig(renderedConfig, params);
+        const hydratedConfig = await this.hydrateConfig(renderedConfig, params);
 
         this.cachedProjectConfig = ProjectConfigModel.create(hydratedConfig);
+
         return this.cachedProjectConfig;
     }
 
-    private hydrateConfig(
+    private async hydrateConfig(
         configDto: IProjectConfigDto,
         params?: GetProjectConfigService.Params
-    ): IHydratedProjectConfig {
+    ): Promise<IHydratedProjectConfig> {
         const projectSdkParams = this.projectSdkParamsService.get();
+        const project = await this.getProjectService.execute();
 
         const tagsFilters = params?.tags || {};
         const extensionsTypes = Object.keys(configDto) as ExtensionType[];
@@ -67,7 +71,7 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
                         if (Object.keys(tagsFilters).length > 0) {
                             const extDefTags = extDef.tags;
 
-                            const hasMatchingScope = Object.keys(tagsFilters).every(tag => {
+                            const hasMatchingTags = Object.keys(tagsFilters).every(tag => {
                                 const filterValue = tagsFilters[tag];
                                 const extDefValue = extDefTags[tag];
 
@@ -75,15 +79,12 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
                                 return extDefValue === filterValue;
                             });
 
-                            if (!hasMatchingScope) {
-                                this.loggerService.debug(
-                                    `Skipping extension of type "${extensionType}" with scope "${extensionParams.scope}" as it does not match the provided scopes filter.`
-                                );
+                            if (!hasMatchingTags) {
                                 return null;
                             }
                         }
 
-                        return new ExtensionInstanceModel(extDef, extensionParams);
+                        return new ExtensionInstanceModel(extDef, extensionParams, { project });
                     })
                     .filter(Boolean) as ExtensionInstanceModel<any>[];
 

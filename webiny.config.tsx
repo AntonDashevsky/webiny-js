@@ -1,9 +1,11 @@
 import React from "react";
-import { Cli, Core, Api, Project } from "./packages/extensions/src";
+import { Webiny, Cli, Core, Api, Project } from "./packages/extensions/src";
 
 export default () => {
     return (
         <>
+            <Webiny />
+
             <Project.Id id={"webiny/test-project"} />
             <Project.Telemetry enabled={false} />
 
@@ -26,6 +28,8 @@ export default () => {
             <Api.BeforeBuild src={"./extensions/myApiBeforeBuild.ts"} />
             <Api.AfterDeploy src={"./extensions/myApiAfterDeploy.ts"} />
             <Api.AfterBuild src={"./extensions/myApiAfterBuild.ts"} />
+
+            <Api.Cms.OnEntryBeforeCreate src={"./extensions/myOnEntryBeforeCreate.ts"} />
         </>
     );
 };

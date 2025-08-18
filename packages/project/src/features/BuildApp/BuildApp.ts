@@ -7,7 +7,6 @@ import {
     LoggerService,
     ValidateProjectConfigService
 } from "~/abstractions/index.js";
-import { createAppWorkspace } from "~/utils/index.js";
 import { PackagesBuilder } from "./builders/PackagesBuilder.js";
 import path from "path";
 import fs from "fs";
@@ -28,16 +27,20 @@ export class DefaultBuildApp implements BuildApp.Interface {
 
         const app = await this.getApp.execute(params.app);
 
-        // Copy app template. TODO: this is prototype code 💩.
-        await createAppWorkspace({
-            app,
-            env: params.env,
-            variant: params.variant
-        });
-
         const projectConfig = await this.getProjectConfigService.execute({
             tags: { appName: params.app, runtimeContext: "app-build" }
         });
+
+        // Get initial app template creation extension.
+        const [appTemplateExtension] = projectConfig.extensionsByType(`AppTemplate/${params.app}`);
+        if (!appTemplateExtension) {
+            // This should never happen, as we control the templates.
+            throw new Error(
+                `App template extension for app "${params.app}" not found in project config.`
+            );
+        }
+
+        await appTemplateExtension.build();
 
         await this.validateProjectConfigService.execute(projectConfig);
 
