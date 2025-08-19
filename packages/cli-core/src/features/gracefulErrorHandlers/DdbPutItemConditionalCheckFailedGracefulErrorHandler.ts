@@ -10,6 +10,10 @@ export class DdbPutItemConditionalCheckFailedGracefulErrorHandler
     implements ErrorHandler.Interface<IBaseAppParams>
 {
     execute({ error }: ErrorHandler.Params<IBaseAppParams>) {
+        if (!error.message) {
+            return;
+        }
+
         if (!error.message.includes(MATCH_STRING)) {
             return;
         }

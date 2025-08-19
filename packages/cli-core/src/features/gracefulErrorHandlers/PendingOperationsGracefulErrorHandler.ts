@@ -11,6 +11,10 @@ export class PendingOperationsGracefulErrorHandler
     implements ErrorHandler.Interface<IBaseAppParams>
 {
     execute({ error, params }: ErrorHandler.Params<IBaseAppParams>) {
+        if (!error.message) {
+            return;
+        }
+
         if (!error.message.includes(MATCH_STRING)) {
             return;
         }

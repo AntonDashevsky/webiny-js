@@ -10,9 +10,11 @@ export class MissingFilesInBuildGracefulErrorHandler
     implements ErrorHandler.Interface<IBaseAppParams>
 {
     execute({ error, params }: ErrorHandler.Params<IBaseAppParams>) {
-        const { message } = error;
+        if (!error.message) {
+            return;
+        }
 
-        if (!message.includes(MATCH_STRING)) {
+        if (!error.message.includes(MATCH_STRING)) {
             return;
         }
 
