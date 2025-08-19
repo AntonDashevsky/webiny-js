@@ -37,6 +37,9 @@ export class ScheduleFetcher implements IScheduleFetcher {
                 this.schedulerModel,
                 scheduleRecordId
             );
+            if (entry.values.targetModelId !== this.targetModel.modelId) {
+                return null;
+            }
             return transformScheduleEntry(this.targetModel, entry);
         } catch (ex) {
             if (ex.code === "NOT_FOUND" || ex instanceof NotFoundError) {
@@ -58,7 +61,8 @@ export class ScheduleFetcher implements IScheduleFetcher {
                  * When params
                  */
                 where: {
-                    ...params.where
+                    ...params.where,
+                    targetModelId: this.targetModel.modelId
                 },
                 after: params.after
             }
