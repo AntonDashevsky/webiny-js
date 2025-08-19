@@ -8,7 +8,7 @@ import glob from "glob";
 const { yellow } = chalk;
 const { join, basename } = path;
 
-export const PROJECT_ROOT = join(import.meta.dirname, "..", "..");
+export const PROJECT_ROOT = join(__dirname, "..", "..");
 export const rootPackageJson = readJson(join(PROJECT_ROOT, "package.json"));
 
 let packagesCache;
