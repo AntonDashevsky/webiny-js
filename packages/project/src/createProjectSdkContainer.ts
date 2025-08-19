@@ -34,7 +34,10 @@ import {
     websiteBeforeDeploy,
 
     // Pulumi.
-    corePulumi
+    corePulumi,
+    apiPulumi,
+    adminPulumi,
+    websitePulumi
 } from "./features/index.js";
 
 import {
@@ -197,6 +200,9 @@ export const createProjectSdkContainer = async (
 
     // Pulumi.
     container.registerComposite(corePulumi);
+    container.registerComposite(apiPulumi);
+    container.registerComposite(adminPulumi);
+    container.registerComposite(websitePulumi);
 
     return container;
 };
