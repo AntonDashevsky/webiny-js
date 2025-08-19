@@ -56,8 +56,8 @@ for (let i = 0; i < dependencyPackages.length; i++) {
         {
             targetPackage.tsConfigJson.compilerOptions.paths = {
                 ...(targetPackage.tsConfigJson.compilerOptions.paths || {}),
-                [`${depPackage.name}/*`]: [`../${depPackage.name}/src/*`],
-                [`${depPackage.name}`]: [`../${depPackage.name}/src`]
+                [`${depPackage.name}/*`]: [`../${depPackage.folderName}/src/*`],
+                [`${depPackage.name}`]: [`../${depPackage.folderName}/src`]
             };
         }
     }
