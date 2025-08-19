@@ -14,7 +14,12 @@ export const zodPathToAbstraction = (expectedAbstraction: Abstraction<any>) => {
             // we will initialize the SDK here, which will also initialize the project.
             const projectSdk = await ProjectSdk.init();
             const project = await projectSdk.getProject();
-            const absoluteSrcPath = path.join(project.paths.rootFolder.absolute, src);
+
+            let absoluteSrcPath = src;
+            if (!path.isAbsolute(src)) {
+                absoluteSrcPath = path.join(project.paths.rootFolder.absolute, src);
+            }
+
             if (!fs.existsSync(absoluteSrcPath)) {
                 ctx.addIssue({
                     code: z.ZodIssueCode.custom,
@@ -35,6 +40,7 @@ export const zodPathToAbstraction = (expectedAbstraction: Abstraction<any>) => {
 
             const metadata = new Metadata(exportedImplementation);
             const metadataName = metadata.getAbstraction().toString();
+
             const defName = expectedAbstraction.toString();
             const isCorrectAbstraction = metadataName === defName;
             if (!isCorrectAbstraction) {

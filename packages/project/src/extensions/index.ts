@@ -1,5 +1,6 @@
 import { telemetry } from "./Telemetry";
 import { projectId } from "./ProjectId";
+import { projectDecorator } from "./ProjectDecorator";
 
 // Hooks.
 import { adminBeforeBuild } from "./hooks/index.js";
@@ -35,6 +36,7 @@ export * from "./zodPathToAbstraction";
 // React components (consumed by users). 👇
 export const Telemetry = telemetry.ReactComponent;
 export const ProjectId = projectId.ReactComponent;
+export const ProjectDecorator = projectDecorator.ReactComponent;
 
 // Hooks.
 export const AdminBeforeBuild = adminBeforeBuild.ReactComponent;
@@ -64,6 +66,7 @@ export const ProductionEnvironments = productionEnvironments.ReactComponent;
 export const definitions = [
     telemetry.definition,
     projectId.definition,
+    projectDecorator.definition,
 
     // Hooks.
     adminAfterBuild.definition,
