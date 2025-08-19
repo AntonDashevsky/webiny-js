@@ -34,9 +34,6 @@ for (let i = 0; i < packages.length; i++) {
     }
 }
 
-console.log(targetPackage);
-console.log(dependencyPackages);
-
 for (let i = 0; i < dependencyPackages.length; i++) {
     let depPackage = dependencyPackages[i];
     const depPackageRelativePath = relative(
