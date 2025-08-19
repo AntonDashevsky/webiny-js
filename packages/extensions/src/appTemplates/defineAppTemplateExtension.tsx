@@ -44,7 +44,11 @@ export const defineAppTemplateExtension = (params: CreateAppTemplateParams) =>
                 BASE_APP_TEMPLATE_FOLDER_NAME
             );
 
-            const appTemplateFolderPath = path.join(templatesFolderPath, params.appName);
+            const appTemplateFolderPath = path.join(
+                templatesFolderPath,
+                "appTemplates",
+                params.appName
+            );
 
             const appWorkspaceFolderPath = path.join(
                 ctx.project.paths.workspacesFolder.absolute,
