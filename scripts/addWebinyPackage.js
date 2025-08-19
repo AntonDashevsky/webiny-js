@@ -43,7 +43,7 @@ for (let i = 0; i < dependencyPackages.length; i++) {
 
     targetPackage.packageJson.dependencies[
         depPackage.packageJson.name
-    ] = `^${depPackage.packageJson.version}`;
+    ] = `${depPackage.packageJson.version}`;
 
     if (targetPackage.tsConfigJson) {
         {
