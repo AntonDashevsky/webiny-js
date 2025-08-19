@@ -5,6 +5,8 @@ export * from "./DeployApp/index.js";
 export * from "./DestroyApp/index.js";
 export * from "./GetApp/index.js";
 export * from "./GetAppOutput/index.js";
+export * from "./GetAppStackExport/index.js";
+export * from "./GetAppStackOutput/index.js";
 export * from "./GetProject/index.js";
 export * from "./GetProjectConfig/index.js";
 export * from "./GetProjectInfo/index.js";

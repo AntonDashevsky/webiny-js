@@ -6,6 +6,8 @@ import {
     DestroyApp,
     GetApp,
     GetAppOutput,
+    GetAppStackExport,
+    GetAppStackOutput,
     GetProject,
     GetProjectConfig,
     GetProjectInfo,
@@ -55,6 +57,18 @@ export class ProjectSdk {
 
     async getAppOutput(params: GetAppOutput.Params) {
         return this.container.resolve(GetAppOutput).execute(params);
+    }
+
+    async getAppStackOutput<TOutput extends Record<string, any> = Record<string, string>>(
+        params: GetAppStackOutput.Params
+    ) {
+        return this.container.resolve(GetAppStackOutput).execute<TOutput>(params);
+    }
+
+    async getAppStackExport<TExport extends Record<string, any> = Record<string, string>>(
+        params: GetAppStackExport.Params
+    ) {
+        return this.container.resolve(GetAppStackExport).execute<TExport>(params);
     }
 
     buildApp(params: BuildApp.Params) {

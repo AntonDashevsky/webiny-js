@@ -2,15 +2,19 @@ import { Abstraction, Metadata } from "@webiny/di-container";
 import { z } from "zod";
 import path from "path";
 import fs from "fs";
+import { ProjectSdk } from "~/ProjectSdk.js";
 
 export const zodPathToAbstraction = (expectedAbstraction: Abstraction<any>) => {
     return z
         .string()
         .describe(`Path to a file exporting ${expectedAbstraction.token.toString()}`)
         .superRefine(async (src, ctx) => {
-            // TODO: we should probably find a better way to get the current working directory (somehow from ProjectSdk).
-            const cwd = process.cwd();
-            const absoluteSrcPath = path.join(cwd, src);
+            // This should probably be done in a better way. Would be nice to simply
+            // access the project within the already initialized SDK. For now,
+            // we will initialize the SDK here, which will also initialize the project.
+            const projectSdk = await ProjectSdk.init();
+            const project = await projectSdk.getProject();
+            const absoluteSrcPath = path.join(project.paths.rootFolder.absolute, src);
             if (!fs.existsSync(absoluteSrcPath)) {
                 ctx.addIssue({
                     code: z.ZodIssueCode.custom,

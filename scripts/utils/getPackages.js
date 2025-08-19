@@ -1,27 +1,27 @@
-const readJson = require("load-json-file");
-const getPackages = require("get-yarn-workspaces");
-const { yellow } = require("chalk");
-const fs = require("fs-extra");
-const { join, basename } = require("path");
-const glob = require("glob");
+import readJson from "read-json-sync";
+import getYarnWorkspaces from "get-yarn-workspaces";
+import chalk from "chalk";
+import fs from "fs-extra";
+import path from "path";
+import glob from "glob";
 
-const PROJECT_ROOT = join(__dirname, "..", "..");
-const rootPackageJson = readJson.sync(join(PROJECT_ROOT, "package.json"));
+const { yellow } = chalk;
+const { join, basename } = path;
 
-module.exports.PROJECT_ROOT = PROJECT_ROOT;
-module.exports.rootPackageJson = rootPackageJson;
+export const PROJECT_ROOT = join(import.meta.dirname, "..", "..");
+export const rootPackageJson = readJson(join(PROJECT_ROOT, "package.json"));
 
 let packagesCache;
 
 const isFolder = p => fs.statSync(p).isDirectory();
 const hasPackageJson = p => fs.existsSync(p + "/package.json");
 
-module.exports.getPackages = (args = {}) => {
+export const getPackages = (args = {}) => {
     if (packagesCache) {
         return packagesCache;
     }
 
-    packagesCache = getPackages()
+    packagesCache = getYarnWorkspaces()
         .filter(isFolder)
         .filter(hasPackageJson)
         .map(path => {
@@ -36,10 +36,10 @@ module.exports.getPackages = (args = {}) => {
             const tsConfigBuildJsonPath = path + "/tsconfig.build.json";
 
             let tsConfigJson, tsConfigBuildJson;
-            const packageJson = readJson.sync(packageJsonPath);
+            const packageJson = readJson(packageJsonPath);
 
             try {
-                tsConfigJson = readJson.sync(tsConfigJsonPath);
+                tsConfigJson = readJson(tsConfigJsonPath);
             } catch {
                 if (fs.existsSync(tsConfigJsonPath)) {
                     console.log(
@@ -51,7 +51,7 @@ module.exports.getPackages = (args = {}) => {
             }
 
             try {
-                tsConfigBuildJson = readJson.sync(tsConfigBuildJsonPath);
+                tsConfigBuildJson = readJson(tsConfigBuildJsonPath);
             } catch {
                 if (fs.existsSync(tsConfigBuildJsonPath)) {
                     console.log(
@@ -97,7 +97,7 @@ module.exports.getPackages = (args = {}) => {
     return packagesCache;
 };
 
-module.exports.getPackage = nameOrPackageFolder => {
+export const getPackage = nameOrPackageFolder => {
     return module.exports
         .getPackages()
         .find(

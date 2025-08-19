@@ -6,6 +6,8 @@ export { DeployApp } from "./DeployApp.js";
 export { DestroyApp } from "./DestroyApp.js";
 export { GetApp } from "./GetApp.js";
 export { GetAppOutput } from "./GetAppOutput.js";
+export { GetAppStackExport } from "./GetAppStackExport.js";
+export { GetAppStackOutput } from "./GetAppStackOutput.js";
 export { GetProject } from "./GetProject.js";
 export { GetProjectConfig } from "./GetProjectConfig.js";
 export { GetProjectInfo } from "./GetProjectInfo.js";
