@@ -31,6 +31,8 @@ export class DefaultBuildApp implements BuildApp.Interface {
             tags: { appName: params.app, runtimeContext: "app-build" }
         });
 
+        await this.validateProjectConfigService.execute(projectConfig);
+
         // Get initial app template creation extension.
         const [appTemplateExtension] = projectConfig.extensionsByType(`AppTemplate/${params.app}`);
         if (!appTemplateExtension) {
@@ -42,9 +44,12 @@ export class DefaultBuildApp implements BuildApp.Interface {
 
         await appTemplateExtension.build();
 
-        await this.validateProjectConfigService.execute(projectConfig);
-
         for (const extensionType in projectConfig.config) {
+            if (extensionType === `AppTemplate/${params.app}`) {
+                // Skip the app template extension, as we already handled it.
+                continue;
+            }
+
             const oneOrMoreExtensions = projectConfig.config[extensionType];
             const extensionsArray = Array.isArray(oneOrMoreExtensions)
                 ? [...oneOrMoreExtensions]
@@ -54,23 +59,6 @@ export class DefaultBuildApp implements BuildApp.Interface {
                 await extensionInstance.build();
             }
         }
-
-        const templateFolderPath = path.join(
-            import.meta.dirname,
-            "..",
-            "..",
-            "..",
-            "__prototyping",
-            "template",
-            "ddb",
-            "apps",
-            params.app
-        );
-
-        fs.cpSync(templateFolderPath, app.paths.workspaceFolder.absolute, {
-            recursive: true,
-            force: true
-        });
 
         const packages = await this.listPackagesService.execute(params.app);
         const packagesBuilder = new PackagesBuilder({
@@ -112,7 +100,7 @@ export class DefaultBuildApp implements BuildApp.Interface {
         if (params.output) {
             output = params.output(buildProcesses);
         } else {
-            this.logger.info(`No output function provided, skipping output.`);
+            this.logger.debug(`No output function provided, skipping output.`);
         }
 
         await Promise.all(buildPromises);
