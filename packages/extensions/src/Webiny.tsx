@@ -1,18 +1,13 @@
 import React from "react";
-import {
-    CoreAppTemplate,
-    ApiAppTemplate,
-    AdminAppTemplate,
-    WebsiteAppTemplate
-} from "./appTemplates/index.js";
+import { Core } from "~/index";
+import path from "path";
 
 export const Webiny = () => {
     return (
         <>
-            <CoreAppTemplate />
-            <ApiAppTemplate />
-            <AdminAppTemplate />
-            <WebsiteAppTemplate />
+            <Core.BeforeBuild
+                src={path.join(import.meta.dirname, "appTemplates/CoreAppTemplate.tsx")}
+            />
         </>
     );
 };

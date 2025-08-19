@@ -59,15 +59,15 @@ export class ProjectSdk {
         return this.container.resolve(GetAppOutput).execute(params);
     }
 
-    async getAppStackOutput<TOutput extends Record<string, any> = Record<string, string>>(
-        params: GetAppStackOutput.Params
-    ) {
+    async getAppStackOutput<
+        TOutput extends GetAppStackOutput.StackOutput = GetAppStackOutput.StackOutput
+    >(params: GetAppStackOutput.Params) {
         return this.container.resolve(GetAppStackOutput).execute<TOutput>(params);
     }
 
-    async getAppStackExport<TExport extends Record<string, any> = Record<string, string>>(
-        params: GetAppStackExport.Params
-    ) {
+    async getAppStackExport<
+        TExport extends GetAppStackExport.StackExport = GetAppStackExport.StackExport
+    >(params: GetAppStackExport.Params) {
         return this.container.resolve(GetAppStackExport).execute<TExport>(params);
     }
 

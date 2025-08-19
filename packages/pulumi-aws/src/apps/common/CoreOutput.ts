@@ -3,11 +3,52 @@ import { ProjectSdk } from "@webiny/project";
 
 export type CoreOutput = PulumiAppModule<typeof CoreOutput>;
 
+export interface ICoreOutput {
+    deploymentId: string;
+    region: string;
+    dynamoDbTable: string;
+    iotAuthorizerName: string;
+    apwSchedulerEventRule: string | undefined;
+    apwSchedulerEventTargetId: string | undefined;
+    apwSchedulerExecuteAction: string | undefined;
+    apwSchedulerScheduleAction: string | undefined;
+    cognitoUserPoolArn: string;
+    cognitoAppClientId: string;
+    cognitoUserPoolId: string;
+    cognitoUserPoolPasswordPolicy: string;
+    fileManagerBucketId: string;
+    fileManagerBucketArn: string;
+    primaryDynamodbTableArn: string;
+    primaryDynamodbTableName: string;
+    primaryDynamodbTableHashKey: string;
+    primaryDynamodbTableRangeKey: string;
+    logDynamodbTableArn: string;
+    logDynamodbTableName: string;
+    logDynamodbTableHashKey: string;
+    logDynamodbTableRangeKey: string;
+    eventBusName: string;
+    eventBusArn: string;
+    vpcPublicSubnetIds: string[] | undefined;
+    vpcPrivateSubnetIds: string[] | undefined;
+    vpcSecurityGroupIds: string[] | undefined;
+    elasticsearchDomainArn: string | undefined;
+    elasticsearchDomainEndpoint: string | undefined;
+    elasticsearchDynamodbTableHashKey: string;
+    elasticsearchDynamodbTableRangeKey: string;
+    elasticsearchDynamodbTableArn: string | undefined;
+    elasticsearchDynamodbTableName: string | undefined;
+}
+
 export const CoreOutput = createAppModule({
     name: "CoreOutput",
     config(app) {
         return app.addHandler(async () => {
             const projectSdk = await ProjectSdk.init();
+            console.log("pozoviii", {
+                app: "core",
+                env: app.params.run.env,
+                variant: app.params.run.variant
+            });
             const output = await projectSdk.getAppStackOutput({
                 app: "core",
                 env: app.params.run.env,
@@ -43,7 +84,7 @@ export const CoreOutput = createAppModule({
                 elasticsearchDomainEndpoint: output["elasticsearchDomainEndpoint"],
                 elasticsearchDynamodbTableArn: output["elasticsearchDynamodbTableArn"],
                 elasticsearchDynamodbTableName: output["elasticsearchDynamodbTableName"]
-            };
+            } as ICoreOutput;
         });
     }
 });

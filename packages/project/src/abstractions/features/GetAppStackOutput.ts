@@ -4,11 +4,14 @@ import { IPulumiGetStackExportServiceParams } from "~/abstractions/services/Pulu
 
 export type IGetAppStackOutputParams = IBaseAppParams;
 
-export type IGetAppStackOutputResult<TResult extends Record<string, any> = Record<string, string>> =
-    TResult | null;
+export interface IStackOutput {
+    [key: string]: any;
+}
+
+export type IGetAppStackOutputResult<TOutput extends IStackOutput = IStackOutput> = TOutput | null;
 
 export interface IGetAppStackOutput {
-    execute<TOutput extends Record<string, any> = Record<string, any>>(
+    execute<TOutput extends IStackOutput = IStackOutput>(
         params: IPulumiGetStackExportServiceParams
     ): Promise<IGetAppStackOutputResult<TOutput>>;
 }
@@ -20,4 +23,5 @@ export namespace GetAppStackOutput {
 
     export type Params = IGetAppStackOutputParams;
     export type Result = IGetAppStackOutputResult;
+    export type StackOutput = IStackOutput;
 }

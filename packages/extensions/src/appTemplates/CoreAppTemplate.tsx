@@ -1,6 +1,16 @@
-import { defineAppTemplateExtension } from "./defineAppTemplateExtension";
+import { createDecorator } from "@webiny/di-container";
+import { CoreBeforeBuild, UiService } from "@webiny/extensions/project";
 
-export const coreAppTemplate = defineAppTemplateExtension({
-    appName: "core",
-    description: "Core app template for Webiny applications."
+class MyCoreBeforeBuild implements CoreBeforeBuild.Interface {
+    constructor(private ui: UiService.Interface) {}
+
+    execute(params: CoreBeforeBuild.Params) {
+        this.ui.info("This is my custom before build CORE implementation.");
+    }
+}
+
+export default createDecorator({
+    abstraction: CoreBeforeBuild,
+    implementation: MyCoreBeforeBuild,
+    dependencies: [UiService]
 });

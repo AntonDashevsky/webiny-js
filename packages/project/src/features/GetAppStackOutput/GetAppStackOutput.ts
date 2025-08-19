@@ -7,7 +7,7 @@ export class DefaultGetAppStackOutput implements GetAppStackOutput.Interface {
         private pulumiGetStackOutputService: PulumiGetStackOutputService.Interface
     ) {}
 
-    async execute<TOutput extends Record<string, any> = Record<string, string>>(
+    async execute<TOutput extends GetAppStackOutput.StackOutput = GetAppStackOutput.StackOutput>(
         params: GetAppStackOutput.Params
     ) {
         const app = await this.getApp.execute(params.app);

@@ -17,6 +17,10 @@ export interface CreateAppTemplateParams {
     description: string;
 }
 
+class AppTemplateExtensionsBuild implements BuildExtension {
+    execute() {}
+}
+
 export const defineAppTemplateExtension = (params: CreateAppTemplateParams) =>
     defineExtension({
         type: `AppTemplate/${params.appName}`,
