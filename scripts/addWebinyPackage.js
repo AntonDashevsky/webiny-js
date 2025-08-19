@@ -55,11 +55,8 @@ for (let i = 0; i < dependencyPackages.length; i++) {
     }
 
     if (targetPackage.tsConfigBuildJson) {
-        // let exists = targetPackage.tsConfigBuildJson.exclude.includes(depPackageRelativePath);
-        // !exists && targetPackage.tsConfigBuildJson.exclude.push(depPackageRelativePath);
-
         const path = join(depPackageRelativePath, "tsconfig.build.json").replace(/\\/g, "/");
-        exists = targetPackage.tsConfigBuildJson.references.find(item => item.path === path);
+        const exists = targetPackage.tsConfigBuildJson.references.find(item => item.path === path);
         !exists && targetPackage.tsConfigBuildJson.references.push({ path });
     }
 }
