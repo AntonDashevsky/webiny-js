@@ -4,11 +4,10 @@ import { CorePulumi } from "~/abstractions/features/pulumi/index.js";
 
 export const corePulumi = defineExtension({
     type: "Core/Pulumi",
-    tags: { runtimeContext: "project", application: "core" },
+    tags: { runtimeContext: "project", appName: "core" },
     description: "Modify Core app's cloud infrastructure using Pulumi.",
     multiple: true,
     paramsSchema: z.object({
         src: zodPathToAbstraction(CorePulumi)
     })
-    // abstraction: CorePulumi
 });
