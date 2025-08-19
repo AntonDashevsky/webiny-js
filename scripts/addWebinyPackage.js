@@ -9,6 +9,7 @@ const { join, relative } = path;
 
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+
 const argv = yargs(hideBin(process.argv)).parse();
 
 /**
@@ -48,14 +49,25 @@ for (let i = 0; i < dependencyPackages.length; i++) {
     ] = `^${depPackage.packageJson.version}`;
 
     if (targetPackage.tsConfigJson) {
-        const exists = targetPackage.tsConfigJson.references.find(
-            item => item.path === depPackageRelativePath
-        );
-        !exists && targetPackage.tsConfigJson.references.push({ path: depPackageRelativePath });
+        {
+            const exists = targetPackage.tsConfigJson.references.find(
+                item => item.path === depPackageRelativePath
+            );
+            !exists && targetPackage.tsConfigJson.references.push({ path: depPackageRelativePath });
+        }
+
+        {
+            targetPackage.tsConfigJson.compilerOptions.paths = {
+                ...(targetPackage.tsConfigJson.compilerOptions.paths || {}),
+                [`${depPackage.name}/*`]: [`../${depPackage.name}/src/*`],
+                [`${depPackage.name}`]: [`../${depPackage.name}/src`]
+            };
+        }
     }
 
     if (targetPackage.tsConfigBuildJson) {
         const path = join(depPackageRelativePath, "tsconfig.build.json").replace(/\\/g, "/");
+
         const exists = targetPackage.tsConfigBuildJson.references.find(item => item.path === path);
         !exists && targetPackage.tsConfigBuildJson.references.push({ path });
     }
