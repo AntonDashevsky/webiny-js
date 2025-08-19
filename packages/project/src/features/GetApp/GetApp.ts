@@ -7,6 +7,18 @@ export class DefaultGetApp implements GetApp.Interface {
     constructor(private getProject: GetProject.Interface) {}
 
     async execute(appName: string) {
+        if (!appName) {
+            throw new Error("App name must be provided.");
+        }
+
+        // App name must be one of the following: core, api, admin, or website.
+        const validAppNames = ["core", "api", "admin", "website"];
+        if (!validAppNames.includes(appName)) {
+            throw new Error(
+                `Invalid app name "${appName}". Valid app names are: ${validAppNames.join(", ")}.`
+            );
+        }
+
         const project = await this.getProject.execute();
 
         const workspaceFolderAbsPath = path.join(

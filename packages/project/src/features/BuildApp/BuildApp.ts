@@ -8,8 +8,6 @@ import {
     ValidateProjectConfigService
 } from "~/abstractions/index.js";
 import { PackagesBuilder } from "./builders/PackagesBuilder.js";
-import path from "path";
-import fs from "fs";
 
 export class DefaultBuildApp implements BuildApp.Interface {
     constructor(
@@ -25,31 +23,13 @@ export class DefaultBuildApp implements BuildApp.Interface {
             throw new Error(`Please specify environment, for example "dev".`);
         }
 
-        const app = await this.getApp.execute(params.app);
-
         const projectConfig = await this.getProjectConfigService.execute({
             tags: { appName: params.app, runtimeContext: "app-build" }
         });
 
         await this.validateProjectConfigService.execute(projectConfig);
 
-        // Get initial app template creation extension.
-        const [appTemplateExtension] = projectConfig.extensionsByType(`AppTemplate/${params.app}`);
-        if (!appTemplateExtension) {
-            // This should never happen, as we control the templates.
-            throw new Error(
-                `App template extension for app "${params.app}" not found in project config.`
-            );
-        }
-
-        await appTemplateExtension.build();
-
         for (const extensionType in projectConfig.config) {
-            if (extensionType === `AppTemplate/${params.app}`) {
-                // Skip the app template extension, as we already handled it.
-                continue;
-            }
-
             const oneOrMoreExtensions = projectConfig.config[extensionType];
             const extensionsArray = Array.isArray(oneOrMoreExtensions)
                 ? [...oneOrMoreExtensions]
