@@ -3,7 +3,7 @@ import { BeforeDeployPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins/Bef
 
 export const ensureCoreDeployed = new BeforeDeployPlugin(({ env, variant }, ctx) => {
     const output = getStackOutput({
-        folder: "apps/core",
+        folder: "core",
         env,
         variant
     });
