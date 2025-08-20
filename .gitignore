@@ -48,6 +48,7 @@ schema.graphql
 .pnp.*
 lerna.json
 .stormTests
+logs.txt
 
 # TODO remove after moving traffic splitting config to WPC
 gateway.*.json
