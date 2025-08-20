@@ -1,4 +1,4 @@
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { getStackOutput } from "@webiny/project";
 import {
     createBeforeBuildPlugin,
     createBeforeWatchPlugin
@@ -11,14 +11,14 @@ const NO_DEPLOYMENT_CHECKS_FLAG_NAME = "--no-deployment-checks";
 type CreatePluginCallable = (command: "build" | "watch", appName: "admin" | "website") => Callable;
 
 const createPluginCallable: CreatePluginCallable = (command, appName) => {
-    return (params, ctx) => {
+    return async (params, ctx) => {
         const { env, inputs, variant } = params;
         // Just in case, we want to allow users to skip the system requirements check.
         if (inputs.deploymentChecks === false) {
             return;
         }
 
-        const output = getStackOutput({ folder: "apps/api", env, variant });
+        const output = await getStackOutput({ app: "api", env, variant });
         const apiDeployed = output && Object.keys(output).length > 0;
         if (apiDeployed) {
             return;

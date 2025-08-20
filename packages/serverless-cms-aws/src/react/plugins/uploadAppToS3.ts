@@ -1,6 +1,6 @@
 import * as path from "path";
 import * as fs from "fs";
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { getStackOutput } from "@webiny/project";
 import { uploadFolderToS3, type UploadFolderToS3Params } from "@webiny/pulumi-aws";
 import { type CliContext } from "@webiny/cli/types.js";
 
@@ -44,7 +44,7 @@ export const uploadAppToS3 = ({ folder, ...config }: UploadAppToS3Config) => ({
 
         const start = new Date().getTime();
         const appOutput = getStackOutput({
-            folder,
+            app: folder,
             env: params.env,
             variant: params.variant
         });
