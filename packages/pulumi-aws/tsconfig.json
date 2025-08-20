@@ -9,9 +9,6 @@
 			"path": "../aws-sdk"
 		},
 		{
-			"path": "../cli-plugin-deploy-pulumi"
-		},
-		{
 			"path": "../pulumi"
 		},
 		{
@@ -49,12 +46,6 @@
 			],
 			"@webiny/aws-sdk": [
 				"../aws-sdk/src"
-			],
-			"@webiny/cli-plugin-deploy-pulumi/*": [
-				"../cli-plugin-deploy-pulumi/src/*"
-			],
-			"@webiny/cli-plugin-deploy-pulumi": [
-				"../cli-plugin-deploy-pulumi/src"
 			],
 			"@webiny/pulumi/*": [
 				"../pulumi/src/*"
