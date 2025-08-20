@@ -14,7 +14,6 @@
     "@webiny/app-page-builder": "latest",
     "@webiny/app-serverless-cms": "latest",
     "@webiny/cli": "latest",
-    "@webiny/cli-plugin-deploy-pulumi": "latest",
     "@webiny/plugins": "latest",
     "@webiny/project-utils": "latest",
     "core-js": "3.39.0",
