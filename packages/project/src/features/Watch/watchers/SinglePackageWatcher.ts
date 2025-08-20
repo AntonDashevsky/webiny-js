@@ -2,10 +2,9 @@ import { BasePackagesWatcher } from "./BasePackagesWatcher.js";
 import { fork } from "child_process";
 import path from "path";
 
-const WORKER_PATH = path.resolve(import.meta.dirname, "worker.js");
-
 export class SinglePackageWatcher extends BasePackagesWatcher {
     public override watch() {
+        const workerPath = path.resolve(import.meta.dirname, "worker.js");
         const pkg = this.packages[0];
         const params = this.params;
 
@@ -14,7 +13,7 @@ export class SinglePackageWatcher extends BasePackagesWatcher {
             package: { paths: pkg.paths }
         });
 
-        const childProcess = fork(WORKER_PATH, [buildConfig], {
+        const childProcess = fork(workerPath, [buildConfig], {
             env: { ...process.env },
             stdio: ["pipe", "pipe", "pipe", "ipc"]
         });
