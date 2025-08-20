@@ -1,15 +1,6 @@
 import { createWebsitePulumiApp, type CreateWebsitePulumiAppParams } from "@webiny/pulumi-aws";
 import { type PluginCollection } from "@webiny/plugins/types.js";
-import {
-    generateCommonHandlers,
-    lambdaEdgeWarning,
-    renderWebsite,
-    telemetryNoLongerNewUser,
-    type IRenderWebsiteParams
-} from "./website/plugins/index.js";
-import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed.js";
-
-import { uploadAppToS3 } from "./react/plugins/index.js";
+import { type IRenderWebsiteParams } from "./website/plugins/index.js";
 
 export interface CreateWebsiteAppParams extends CreateWebsitePulumiAppParams {
     renderWebsiteAfterDeploy?: (params: IRenderWebsiteParams) => boolean;
@@ -17,16 +8,16 @@ export interface CreateWebsiteAppParams extends CreateWebsitePulumiAppParams {
 }
 
 export function createWebsiteApp(projectAppParams: CreateWebsiteAppParams = {}) {
-    const builtInPlugins = [
-        uploadAppToS3({ folder: "apps/website" }),
-        generateCommonHandlers,
-        lambdaEdgeWarning,
-        renderWebsite({ prerender: projectAppParams.renderWebsiteAfterDeploy ?? (() => true) }),
-        telemetryNoLongerNewUser,
-        ...createEnsureApiDeployedPlugins("website")
-    ];
+    // const builtInPlugins = [
+    //     uploadAppToS3({ folder: "apps/website" }),
+    //     generateCommonHandlers,
+    //     lambdaEdgeWarning,
+    //     renderWebsite({ prerender: projectAppParams.renderWebsiteAfterDeploy ?? (() => true) }),
+    //     telemetryNoLongerNewUser,
+    //     ...createEnsureApiDeployedPlugins("website")
+    // ];
 
-    const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
+    // const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
 
     return {
         id: "website",
@@ -44,7 +35,7 @@ export function createWebsiteApp(projectAppParams: CreateWebsiteAppParams = {}) 
                 deploy: false
             }
         },
-        pulumi: createWebsitePulumiApp(projectAppParams),
-        plugins: [builtInPlugins, customPlugins]
+        pulumi: createWebsitePulumiApp(projectAppParams)
+        // plugins: [builtInPlugins, customPlugins]
     };
 }
