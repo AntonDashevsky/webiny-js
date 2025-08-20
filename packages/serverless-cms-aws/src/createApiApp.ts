@@ -30,34 +30,34 @@ export function createApiApp(projectAppParams: CreateApiAppParams = {}) {
             const { createApiPulumiApp } = await import("@webiny/pulumi-aws");
 
             return createApiPulumiApp(projectAppParams);
-        },
-        async getPlugins() {
-            const {
-                ensureCoreDeployed,
-                executeDataMigrations,
-                generateCommonHandlers,
-                generateDdbEsHandlers,
-                generateDdbHandlers,
-                injectWcpTelemetryClientCode
-                // eslint-disable-next-line import/dynamic-import-chunkname
-            } = await import("./api/plugins/index.js");
-
-            const builtInPlugins = [
-                ensureCoreDeployed,
-                injectWcpTelemetryClientCode,
-                generateCommonHandlers,
-                executeDataMigrations
-            ];
-
-            if (projectAppParams.elasticSearch || projectAppParams.openSearch) {
-                builtInPlugins.push(generateDdbEsHandlers);
-            } else {
-                builtInPlugins.push(generateDdbHandlers);
-            }
-
-            const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
-
-            return [builtInPlugins, customPlugins];
         }
+        // async getPlugins() {
+        //     const {
+        //         ensureCoreDeployed,
+        //         executeDataMigrations,
+        //         generateCommonHandlers,
+        //         generateDdbEsHandlers,
+        //         generateDdbHandlers,
+        //         injectWcpTelemetryClientCode
+        //         // eslint-disable-next-line import/dynamic-import-chunkname
+        //     } = await import("./api/plugins/index.js");
+        //
+        //     const builtInPlugins = [
+        //         ensureCoreDeployed,
+        //         injectWcpTelemetryClientCode,
+        //         generateCommonHandlers,
+        //         executeDataMigrations
+        //     ];
+        //
+        //     if (projectAppParams.elasticSearch || projectAppParams.openSearch) {
+        //         builtInPlugins.push(generateDdbEsHandlers);
+        //     } else {
+        //         builtInPlugins.push(generateDdbHandlers);
+        //     }
+        //
+        //     const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
+        //
+        //     return [builtInPlugins, customPlugins];
+        // }
     };
 }
