@@ -148,10 +148,6 @@ export const createProjectSdkContainer = async (
     container.registerComposite(websiteAfterBuild);
     container.registerComposite(websiteAfterDeploy);
 
-    // Decorators.
-    container.registerDecorator(buildAppWithHooks);
-    container.registerDecorator(deployAppWithHooks);
-
     // Immediately set CLI instance params via the `CliParamsService`.
     container.resolve(ProjectSdkParamsService).set(params);
 
@@ -162,6 +158,16 @@ export const createProjectSdkContainer = async (
     });
 
     await container.resolve(ValidateProjectConfig).execute(projectExtensions);
+
+    const importFromPath = (filePath: string) => {
+        let importPath = filePath;
+        if (!path.isAbsolute(filePath)) {
+            // If the path is not absolute, we assume it's relative to the current working directory.
+            importPath = path.join(project.paths.rootFolder.absolute, filePath);
+        }
+
+        return import(importPath);
+    };
 
     // Hooks.
     const hooksExtensions = [
@@ -184,9 +190,8 @@ export const createProjectSdkContainer = async (
     ];
 
     for (const hookExtension of hooksExtensions) {
-        const importPath = path.join(project.paths.rootFolder.absolute, hookExtension.params.src);
-        const { default: hookImplementation } = await import(importPath);
-        container.register(hookImplementation).inSingletonScope();
+        const { default: hookImpl } = await importFromPath(hookExtension.params.src);
+        container.register(hookImpl).inSingletonScope();
     }
 
     const pulumiExtensions = [
@@ -197,9 +202,15 @@ export const createProjectSdkContainer = async (
     ];
 
     for (const pulumiExtension of pulumiExtensions) {
-        const importPath = path.join(project.paths.rootFolder.absolute, pulumiExtension.params.src);
-        const { default: pulumiImplementation } = await import(importPath);
-        container.register(pulumiImplementation).inSingletonScope();
+        const { default: pulumiImpl } = await importFromPath(pulumiExtension.params.src);
+        container.register(pulumiImpl).inSingletonScope();
+    }
+
+    const projectDecorators = [...projectExtensions.extensionsByType<any>("Project/Decorator")];
+
+    for (const projectDecorator of projectDecorators) {
+        const { default: projectDecoratorImpl } = await importFromPath(projectDecorator.params.src);
+        container.registerDecorator(projectDecoratorImpl);
     }
 
     // Pulumi.
@@ -207,6 +218,10 @@ export const createProjectSdkContainer = async (
     container.registerComposite(apiPulumi);
     container.registerComposite(adminPulumi);
     container.registerComposite(websitePulumi);
+
+    // Decorators that must be applied last on top of potentially custom ones.
+    container.registerDecorator(buildAppWithHooks);
+    container.registerDecorator(deployAppWithHooks);
 
     return container;
 };

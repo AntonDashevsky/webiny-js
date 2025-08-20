@@ -3,7 +3,6 @@ import {
     GetPulumiService,
     PulumiSelectStackService,
     PulumiLoginService,
-    PulumiGetStackOutputService,
     PulumiGetSecretsProviderService,
     PulumiGetConfigPassphraseService
 } from "~/abstractions/index.js";
@@ -15,7 +14,6 @@ export class DefaultPulumiSelectStackService implements PulumiSelectStackService
     constructor(
         private getPulumiService: GetPulumiService.Interface,
         private pulumiLoginService: PulumiLoginService.Interface,
-        private pulumiGetStackOutputService: PulumiGetStackOutputService.Interface,
         private pulumiGetSecretsProviderService: PulumiGetSecretsProviderService.Interface,
         private pulumiGetConfigPassphraseService: PulumiGetConfigPassphraseService.Interface
     ) {}
@@ -43,41 +41,42 @@ export class DefaultPulumiSelectStackService implements PulumiSelectStackService
             }
         });
 
-
-        /**
-         * A region from the input or process CANNOT be different to the region from the stack.
-         * Also, if there is no stack, everything is ok.
-         */
-        const region = params.region || process.env.AWS_REGION;
-
-        const skip = ["core", "blueGreen"].includes(app.name);
-
-        if (!skip) {
-            const coreStack = await this.pulumiGetStackOutputService.execute(app, params);
-            if (coreStack && coreStack.region && coreStack.region !== region) {
-                throw new Error(
-                    `Core App Region mismatch. Input: "${params.region || "none"}", process: "${
-                        process.env.AWS_REGION || "none"
-                    }". In Core stack: "${
-                        coreStack.region
-                    }". This can happen if you try to deploy a stack to a region different to the Core application region.`
-                );
-            }
-        }
-
-        const targetStack = await this.pulumiGetStackOutputService.execute(app, params);
-
-        if (!targetStack?.region || targetStack.region === region) {
-            return;
-        }
-
-        throw new Error(
-            `Region mismatch. Input: "${params.region || "none"}", process: "${
-                process.env.AWS_REGION || "none"
-            }". In stack: "${
-                targetStack.region
-            }". This can happen if you try to deploy a stack to a region other than it was initially deployed.`
-        );
+        // TODO: revisit this - we cannot import `pulumiGetStackOutputService` because it
+        // TODO: also relies on `pulumiSelectStackService`, which creates a circular dependency.
+        // /**
+        //  * A region from the input or process CANNOT be different to the region from the stack.
+        //  * Also, if there is no stack, everything is ok.
+        //  */
+        // const region = params.region || process.env.AWS_REGION;
+        //
+        // const skip = ["core", "blueGreen"].includes(app.name);
+        //
+        // if (!skip) {
+        //     const coreStack = await this.pulumiGetStackOutputService.execute(app, params);
+        //     if (coreStack && coreStack.region && coreStack.region !== region) {
+        //         throw new Error(
+        //             `Core App Region mismatch. Input: "${params.region || "none"}", process: "${
+        //                 process.env.AWS_REGION || "none"
+        //             }". In Core stack: "${
+        //                 coreStack.region
+        //             }". This can happen if you try to deploy a stack to a region different to the Core application region.`
+        //         );
+        //     }
+        // }
+        //
+        // const targetStack = await this.pulumiGetStackOutputService.execute(app, params);
+        //
+        // if (!targetStack?.region || targetStack.region === region) {
+        //     return;
+        // }
+        //
+        // throw new Error(
+        //     `Region mismatch. Input: "${params.region || "none"}", process: "${
+        //         process.env.AWS_REGION || "none"
+        //     }". In stack: "${
+        //         targetStack.region
+        //     }". This can happen if you try to deploy a stack to a region other than it was initially deployed.`
+        // );
     }
 }
 
@@ -87,7 +86,6 @@ export const pulumiSelectStackService = createImplementation({
     dependencies: [
         GetPulumiService,
         PulumiLoginService,
-        PulumiGetStackOutputService,
         PulumiGetSecretsProviderService,
         PulumiGetConfigPassphraseService
     ]

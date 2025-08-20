@@ -2,8 +2,8 @@ import { createImplementation } from "@webiny/di-container";
 import {
     GetPulumiService,
     LoggerService,
-    PulumiGetSecretsProviderService,
-    PulumiGetStackOutputService, PulumiSelectStackService
+    PulumiGetStackOutputService,
+    PulumiSelectStackService
 } from "~/abstractions/index.js";
 import { AppModel } from "~/models/index.js";
 import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
@@ -61,5 +61,5 @@ export class DefaultPulumiGetStackOutputService implements PulumiGetStackOutputS
 export const pulumiGetStackOutputService = createImplementation({
     abstraction: PulumiGetStackOutputService,
     implementation: DefaultPulumiGetStackOutputService,
-    dependencies: [GetPulumiService, PulumiGetSecretsProviderService, LoggerService]
+    dependencies: [GetPulumiService, PulumiSelectStackService, LoggerService]
 });
