@@ -2,13 +2,9 @@ import open from "open";
 import ora from "ora";
 import { isCI } from "ci-info";
 import chalk from "chalk";
-import {
-    getStackOutput,
-    getPulumi,
-    GracefulPulumiError
-} from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { getStackOutput, getPulumi, GracefulPulumiError } from "@webiny/project/utils/index.js";
 import { sendEvent } from "@webiny/cli/utils/index.js";
-import { deployCommand } from "@webiny/cli-plugin-deploy-pulumi/commands/deploy.js";
+import { deployCommand } from "@webiny/project/commands/deploy.js";
 import { getInfo } from "../info/index.js";
 import sleep from "../utils/sleep.js";
 

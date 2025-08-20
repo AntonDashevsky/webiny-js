@@ -14,7 +14,7 @@
   "dependencies": {
     "@webiny/aws-sdk": "0.0.0",
     "@webiny/cli": "0.0.0",
-    "@webiny/cli-plugin-deploy-pulumi": "0.0.0",
+    "@webiny/project": "0.0.0",
     "chalk": "^4.1.2",
     "ci-info": "^4.1.0",
     "execa": "^5.1.1",

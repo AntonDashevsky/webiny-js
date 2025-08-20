@@ -1,4 +1,4 @@
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/getStackOutput.js";
+import { getStackOutput } from "@webiny/project/utils/getStackOutput.js";
 import open from "open";
 
 export default {

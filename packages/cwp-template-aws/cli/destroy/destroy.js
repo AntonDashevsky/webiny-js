@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import execa from "execa";
 import chalk from "chalk";
-import { getPulumi } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { getPulumi } from "@webiny/project/utils/index.js";
 
 const { green } = chalk;
 

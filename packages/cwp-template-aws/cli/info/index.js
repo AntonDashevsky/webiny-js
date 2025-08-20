@@ -1,8 +1,4 @@
-import {
-    getStackOutput,
-    splitStackName,
-    getPulumi
-} from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { getStackOutput, splitStackName, getPulumi } from "@webiny/project/utils/index.js";
 import path from "path";
 import chalk from "chalk";
 
