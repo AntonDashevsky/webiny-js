@@ -1,4 +1,4 @@
-import type { IStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import type { GetAppStackOutput } from "@webiny/project/abstractions";
 
 export type GenericRecord<K extends PropertyKey = PropertyKey, V = any> = Record<K, V>;
 
@@ -79,13 +79,9 @@ export interface IResolvedDomain {
 
 export type IResolvedDomains = IResolvedDomain[];
 
-export interface IBlueGreenStackOutput extends IStackOutput {
+export interface IBlueGreenStackOutput extends GetAppStackOutput.StackOutput {
     distributionDomain: string;
     distributionUrl: string;
-    /**
-     * TODO fix later
-     */
-    // @ts-expect-error
     environments?: IResolvedDomains;
     domains?: string[];
 }

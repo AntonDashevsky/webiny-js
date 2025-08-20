@@ -1,7 +1,6 @@
-import {
-    getStackOutput,
-    type IDefaultStackOutput
-} from "@webiny/cli-plugin-deploy-pulumi/utils/getStackOutput.js";
+import { getStackOutput } from "@webiny/project";
+import type { GetAppStackOutput } from "@webiny/project/abstractions";
+import { AppName } from "@webiny/project/abstractions/types";
 
 export interface IGetStacksStack {
     name: string;
@@ -13,14 +12,14 @@ export interface IGetApplicationStacks {
     stacks: IGetStacksStack[];
 }
 
-const apps = ["api", "admin", "website"];
+const apps = ["api", "admin", "website"] as AppName[];
 
 interface IPromiseResult {
     app: string;
     env: string;
     variant: string | undefined;
     name: string;
-    stack: IDefaultStackOutput;
+    stack: GetAppStackOutput.StackOutput;
 }
 
 export interface IGetApplicationStacksResultStack {
@@ -96,12 +95,20 @@ export const getApplicationDomains = async (
     for (const stack of params.stacks) {
         for (const app of apps) {
             promises.push(
-                new Promise<IPromiseResult>(resolve => {
-                    const result = getStackOutput({
-                        folder: `apps/${app}`,
+                new Promise<IPromiseResult>(async (resolve, reject) => {
+                    const result = await getStackOutput({
+                        app,
                         env: stack.env,
                         variant: stack.variant
                     });
+
+                    if (!result) {
+                        reject(
+                            `Stack output for "${app}" app in "${stack.env}" environment and "${stack.variant}" variant is not available.`
+                        );
+                        return;
+                    }
+
                     resolve({
                         env: stack.env,
                         variant: stack.variant,
