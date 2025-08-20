@@ -13,7 +13,8 @@ export const applyDefaults = () => {
     //     telemetry = isEnabled();
     // }
 
-    const wcpProjectId = config.id || process.env.WCP_PROJECT_ID;
+    // TODO
+    const wcpProjectId = /*config.id ||*/ process.env.WCP_PROJECT_ID;
     if (wcpProjectId) {
         process.env.REACT_APP_WCP_PROJECT_ID = wcpProjectId;
     }
