@@ -1,5 +1,5 @@
 import { createAppModule, type PulumiAppModule } from "@webiny/pulumi";
-import { ProjectSdk } from "@webiny/project";
+import { getStackOutput } from "@webiny/project";
 
 export type CoreOutput = PulumiAppModule<typeof CoreOutput>;
 
@@ -43,13 +43,7 @@ export const CoreOutput = createAppModule({
     name: "CoreOutput",
     config(app) {
         return app.addHandler(async () => {
-            const projectSdk = await ProjectSdk.init();
-            console.log("pozoviii", {
-                app: "core",
-                env: app.params.run.env,
-                variant: app.params.run.variant
-            });
-            const output = await projectSdk.getAppStackOutput({
+            const output = await getStackOutput({
                 app: "core",
                 env: app.params.run.env,
                 variant: app.params.run.variant
