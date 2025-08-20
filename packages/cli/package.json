@@ -58,7 +58,6 @@
       "src": [
         "@webiny/project-utils",
         "@webiny/api-file-manager",
-        "@webiny/cli-plugin-deploy-pulumi",
         "@webiny/api",
         "@webiny/handler-client",
         "@webiny/api-elasticsearch",
