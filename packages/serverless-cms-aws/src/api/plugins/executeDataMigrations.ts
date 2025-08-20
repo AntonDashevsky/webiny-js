@@ -1,6 +1,6 @@
 import { LambdaClient } from "@webiny/aws-sdk/client-lambda";
 import { type CliContext } from "@webiny/cli/types.js";
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { getStackOutput } from "@webiny/project";
 import {
     CliMigrationRunReporter,
     InteractiveCliStatusReporter,
@@ -53,12 +53,19 @@ export const executeDataMigrations = {
             return;
         }
 
-        const apiOutput = getStackOutput({
-            folder: "apps/api",
+        const apiOutput = await getStackOutput({
+            app: "api",
             env,
-            variant: inputs.variant || "",
-            skipCache: true
+            variant: inputs.variant || ""
+            // skipCache: true
         });
+
+        if (!apiOutput) {
+            context.error(
+                `Could not find the "api" application stack output. Make sure that the "api" application is deployed.`
+            );
+            return;
+        }
 
         context.info("Executing data migrations AWS Lambda function...");
 
