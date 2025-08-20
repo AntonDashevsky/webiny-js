@@ -5,4 +5,4 @@ export interface IBaseAppParams {
     region?: string;
 }
 
-export type AppName = "core" | "api" | "admin" | "website";
+export type AppName = "core" | "api" | "admin" | "website" | "blueGreen";

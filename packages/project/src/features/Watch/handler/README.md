@@ -8,6 +8,9 @@ Learn more: https://webiny.link/local-aws-lambda-development.
 
 ## Development
 
+> [!WARNING]
+> TODO: update this (with v6, some of these may have changed). 
+
 In this folder, you can find the `handler.zip` file, which is what the `webiny watch` command uploads to AWS Lambda.
 
 In the archive, you will find the following files:
@@ -16,14 +19,14 @@ In the archive, you will find the following files:
 
 In case you need to update the handler code, you must manually unzip the file, make the changes, and then zip it again.
 
-To test the changes, build the `@webiny/cli-plugin-deploy-pulumi` package and run the `webiny watch` command. The command will automatically upload the new `handler.zip` file to AWS Lambda.
+To test the changes, build the `@webiny/project` package and run the `webiny watch` command. The command will automatically upload the new `handler.zip` file to AWS Lambda.
 
 Repeat the process until you are satisfied with the results.
 
-Note that, to build the `@webiny/cli-plugin-deploy-pulumi` package, run the following command from the root of the Webiny project:
+Note that, to build the `@webiny/project` package, run the following command from the root of the Webiny project:
 
 ```bash
-yarn build -p @webiny/cli-plugin-deploy-pulumi
+yarn build -p @webiny/project
 ```
 ### Development via AWS Lambda Console
 
