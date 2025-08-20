@@ -1,12 +1,12 @@
 import { serializeError } from "serialize-error";
-import { requireConfigWithExecute } from "./utils/requireConfig.js"
+import { requireConfigWithExecute } from "./utils/requireConfig.js";
 
 const worker = async () => {
     // Since this is executed in a separate process, we need to initialize the project.
     const workerData = JSON.parse(process.argv[2]);
     const { package: pkg, env, variant, region, debug } = workerData;
     const options = {
-        cwd: pkg.paths.root,
+        cwd: pkg.paths.packageFolder,
         env,
         variant,
         region,
