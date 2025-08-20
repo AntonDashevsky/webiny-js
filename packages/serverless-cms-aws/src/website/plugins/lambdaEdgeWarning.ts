@@ -1,5 +1,5 @@
 import { type CliContext } from "@webiny/cli/types.js";
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { getStackOutput } from "@webiny/project";
 
 /**
  * This hook is used to display a warning message to the user, that notifies
@@ -21,9 +21,9 @@ export const lambdaEdgeWarning = [
     {
         type: "hook-before-destroy",
         name: "hook-before-destroy-lambda-edge-warning",
-        hook(params: LambdaEdgeWarningParams) {
-            const websiteOutput = getStackOutput({
-                folder: "apps/website",
+        async hook(params: LambdaEdgeWarningParams) {
+            const websiteOutput = await getStackOutput({
+                app: "website",
                 env: params.env,
                 variant: params.variant
             });

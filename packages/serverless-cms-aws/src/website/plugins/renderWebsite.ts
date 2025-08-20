@@ -1,6 +1,6 @@
 import { EventBridgeClient, PutEventsCommand } from "@webiny/aws-sdk/client-eventbridge";
 import { type CliContext } from "@webiny/cli/types.js";
-import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
+import { getStackOutput } from "@webiny/project";
 
 export interface IRenderWebsiteParams {
     env: string;
@@ -41,11 +41,15 @@ export const renderWebsite = (renderWebsiteParams: RenderWebsiteParams) => {
                 return;
             }
 
-            const coreOutput = getStackOutput({
-                folder: "apps/core",
+            const coreOutput = await getStackOutput({
+                app: "core",
                 env: params.env,
                 variant: params.variant
             });
+
+            if (!coreOutput) {
+                return;
+            }
 
             context.info("Issuing a complete website rendering job...");
 
