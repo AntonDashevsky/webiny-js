@@ -26,7 +26,6 @@ export async function renderConfig(manifestPath: string) {
 
         // The only message we expect to receive is the parsed project config.
         childProcess.on("message", (data: IProjectConfigDto) => {
-            console.log("dejtaaaa", data);
             resolve(data);
         });
 
