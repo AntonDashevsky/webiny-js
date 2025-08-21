@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getStackOutput } from "@webiny/project";
 import {
     createBeforeBuildPlugin,

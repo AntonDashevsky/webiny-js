@@ -1,9 +1,7 @@
 import { createWebsitePulumiApp, type CreateWebsitePulumiAppParams } from "@webiny/pulumi-aws";
 import { type PluginCollection } from "@webiny/plugins/types.js";
-import { type IRenderWebsiteParams } from "./website/plugins/index.js";
 
 export interface CreateWebsiteAppParams extends CreateWebsitePulumiAppParams {
-    renderWebsiteAfterDeploy?: (params: IRenderWebsiteParams) => boolean;
     plugins?: PluginCollection;
 }
 

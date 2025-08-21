@@ -17,25 +17,25 @@ export function createCoreApp(projectAppParams: CreateCoreAppParams = {}) {
             const { createCorePulumiApp } = await import("@webiny/pulumi-aws/enterprise/index");
 
             return createCorePulumiApp(projectAppParams);
-        },
-        async getPlugins() {
-            const { generateDdbToEsHandler, checkEsServiceRole, checkOsServiceRole } = await import(
-                "../core/plugins/index.js"
-            );
-
-            const builtInPlugins = [];
-            if (projectAppParams.elasticSearch || projectAppParams.openSearch) {
-                builtInPlugins.push(generateDdbToEsHandler);
-                if (projectAppParams.elasticSearch) {
-                    builtInPlugins.push(checkEsServiceRole);
-                } else {
-                    builtInPlugins.push(checkOsServiceRole);
-                }
-            }
-
-            const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
-
-            return [builtInPlugins, customPlugins];
         }
+        // async getPlugins() {
+        //     const { generateDdbToEsHandler, checkEsServiceRole, checkOsServiceRole } = await import(
+        //         "../core/plugins/index.js"
+        //     );
+        //
+        //     const builtInPlugins = [];
+        //     if (projectAppParams.elasticSearch || projectAppParams.openSearch) {
+        //         builtInPlugins.push(generateDdbToEsHandler);
+        //         if (projectAppParams.elasticSearch) {
+        //             builtInPlugins.push(checkEsServiceRole);
+        //         } else {
+        //             builtInPlugins.push(checkOsServiceRole);
+        //         }
+        //     }
+        //
+        //     const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
+        //
+        //     return [builtInPlugins, customPlugins];
+        // }
     };
 }

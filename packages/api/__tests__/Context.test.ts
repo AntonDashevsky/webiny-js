@@ -8,7 +8,6 @@ import { PluginsContainer } from "@webiny/plugins";
 interface DummyContextInterface extends ContextInterface {
     cms: any;
     pageBuilder: any;
-    formBuilder: any;
 }
 
 describe("Context", () => {
@@ -55,7 +54,6 @@ describe("Context", () => {
 
         const tester = {
             cms: 0,
-            formBuilder: 0,
             pageBuilder: 0
         };
 
@@ -70,17 +68,15 @@ describe("Context", () => {
 
         expect(tester).toEqual({
             cms: 1,
-            pageBuilder: 0,
-            formBuilder: 0
+            pageBuilder: 0
         });
 
         expect(context.cms).toEqual({
             loaded: 1
         });
 
-        context.waitFor(["pageBuilder", "formBuilder"], () => {
+        context.waitFor(["pageBuilder"], () => {
             tester.pageBuilder++;
-            tester.formBuilder++;
         });
 
         context.pageBuilder = {
@@ -89,28 +85,15 @@ describe("Context", () => {
 
         expect(tester).toEqual({
             cms: 1,
-            pageBuilder: 0,
-            formBuilder: 0
+            pageBuilder: 0
         });
-
-        context.formBuilder = {
-            loaded: true
-        };
-
-        context.formBuilder = {
-            loaded: true
-        };
 
         expect(tester).toEqual({
             cms: 1,
-            pageBuilder: 1,
-            formBuilder: 1
+            pageBuilder: 1
         });
 
         expect(context.pageBuilder).toEqual({
-            loaded: true
-        });
-        expect(context.formBuilder).toEqual({
             loaded: true
         });
     });

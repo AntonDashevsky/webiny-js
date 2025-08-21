@@ -1,5 +1,4 @@
 import { type PbContext } from "@webiny/api-page-builder/graphql/types.js";
-import { type FormBuilderContext } from "@webiny/api-form-builder/types.js";
 import { type AcoContext } from "@webiny/api-aco/types.js";
 import { type MailerContext } from "@webiny/api-mailer/types.js";
 import { type SecurityContext } from "@webiny/api-security/types.js";
@@ -47,13 +46,11 @@ export interface AuditLog {
 export interface AuditLogsContext
     extends BaseContext,
         PbContext,
-        FormBuilderContext,
         AcoContext,
         MailerContext,
         SecurityContext,
         ApwContext {
     pageBuilder: PbImportExportContext["pageBuilder"];
-    formBuilder: PbImportExportContext["formBuilder"];
 }
 
 export interface AuditObject {

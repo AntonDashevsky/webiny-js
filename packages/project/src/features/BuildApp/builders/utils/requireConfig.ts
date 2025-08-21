@@ -31,11 +31,13 @@ export const requireConfigWithExecute = async <
     configPath: string,
     params: IRequireConfigParams
 ): Promise<T> => {
-    const required = await import(configPath).then(m => m.default ?? m);
+    const module = await import(configPath);
 
-    if (typeof required === "function") {
-        return required(params);
+    const config = module.default ?? module;
+
+    if (typeof config === "function") {
+        return config(params);
     }
 
-    return required;
+    return config;
 };

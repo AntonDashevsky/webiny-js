@@ -39,18 +39,7 @@ const plugin: GraphQLSchemaPlugin<PbImportExportContext> = {
                 # Import forms
                 importForms(zipFileUrl: String, meta: JSON): FbImportFormResponse
             }
-        `,
-        resolvers: {
-            FbMutation: {
-                exportForms: async (_, args: any, context) => {
-                    return resolve(() => context.formBuilder.forms.exportForms(args));
-                },
-
-                importForms: async (_, args: any, context) => {
-                    return resolve(() => context.formBuilder.forms.importForms(args));
-                }
-            }
-        }
+        `
     }
 };
 

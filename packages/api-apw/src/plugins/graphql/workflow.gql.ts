@@ -64,7 +64,6 @@ const workflowSchema = new GraphQLSchemaPlugin<ApwContext>({
         enum ApwWorkflowApplication {
             pageBuilder
             cms
-            formBuilder
         }
 
         enum ApwWorkflowStepTypes {

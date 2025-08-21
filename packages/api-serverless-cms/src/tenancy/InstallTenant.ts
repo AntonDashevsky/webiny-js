@@ -127,15 +127,6 @@ export class InstallTenant {
                     insertDemoData: config.pageBuilder?.insertDemoData ?? false
                 });
             }, "PAGE_BUILDER_INSTALL");
-
-            // FORM BUILDER
-            await this.runOrThrow(async () => {
-                const isInstalled = await this.context.formBuilder.getSystemVersion();
-                if (isInstalled) {
-                    return;
-                }
-                await this.context.formBuilder.installSystem({});
-            }, "FORM_BUILDER_INSTALL");
         } finally {
             this.context.tenancy.setCurrentTenant(currentTenant);
         }

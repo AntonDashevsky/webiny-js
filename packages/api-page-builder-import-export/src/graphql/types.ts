@@ -1,6 +1,10 @@
 import { type Topic } from "@webiny/pubsub/types.js";
-import { type CreatedBy, type ListPagesParams, type Page, type PbContext } from "@webiny/api-page-builder/types.js";
-import { type FormBuilderContext } from "@webiny/api-form-builder/types.js";
+import {
+    type CreatedBy,
+    type ListPagesParams,
+    type Page,
+    type PbContext
+} from "@webiny/api-page-builder/types.js";
 import {
     type ExportRevisionType,
     type ImportExportTask,
@@ -301,9 +305,6 @@ export interface PbImportExportContext extends TasksContext, PbContext {
         blocks: BlocksImportExportCrud;
         templates: TemplatesImportExportCrud;
         importExportTask: ImportExportTaskCrud;
-    };
-    formBuilder: FormBuilderContext["formBuilder"] & {
-        forms: FormsImportExportCrud;
     };
 }
 

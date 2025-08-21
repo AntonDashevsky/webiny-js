@@ -15,7 +15,7 @@ export function createExtensionReactComponent<TParamsSchema extends z.ZodTypeAny
         after?: string;
     };
 
-    return function ExtensionReactComponent(props) {
+    const ExtensionReactComponent: React.FC<ExtensionReactComponentProps> = props => {
         const id = useMemo(() => {
             return nanoid();
         }, []);
@@ -41,5 +41,8 @@ export function createExtensionReactComponent<TParamsSchema extends z.ZodTypeAny
                 })}
             </Property>
         );
-    } as React.FC<ExtensionReactComponentProps>;
+    };
+
+    ExtensionReactComponent.displayName = `ExtensionReactComponent(${extensionParams.type})`;
+    return ExtensionReactComponent;
 }

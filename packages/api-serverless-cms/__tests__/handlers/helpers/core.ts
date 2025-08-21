@@ -27,8 +27,6 @@ import {
 import { createWebsockets } from "@webiny/api-websockets";
 import { createRecordLocking } from "@webiny/api-record-locking";
 
-import { createFormBuilder } from "@webiny/api-form-builder";
-import { FormBuilderStorageOperations } from "@webiny/api-form-builder/types";
 import { createFileManagerContext, createFileManagerGraphQL } from "@webiny/api-file-manager";
 import { createAco } from "@webiny/api-aco";
 import { createAcoPageBuilderContext } from "@webiny/api-page-builder-aco";
@@ -58,7 +56,6 @@ export interface ICreateCoreResult {
     cmsStorage: HeadlessCmsStorageOperations;
     i18nStorage: I18NLocalesStorageOperations;
     pageBuilderStorage: PageBuilderStorageOperations;
-    formBuilderStorage: FormBuilderStorageOperations;
     fileManagerStorage: FileManagerStorageOperations;
     securityStorage: SecurityStorageOperations;
     tenancyStorage: TenancyStorageOperations;
@@ -76,7 +73,6 @@ export const createCore = (params: ICreateCoreParams): ICreateCoreResult => {
     const cmsStorage = getStorageOps<HeadlessCmsStorageOperations>("cms");
     const i18nStorage = getStorageOps<I18NLocalesStorageOperations>("i18n");
     const pageBuilderStorage = getStorageOps<PageBuilderStorageOperations>("pageBuilder");
-    const formBuilderStorage = getStorageOps<FormBuilderStorageOperations>("formBuilder");
     const fileManagerStorage = getStorageOps<FileManagerStorageOperations>("fileManager");
     const securityStorage = getStorageOps<SecurityStorageOperations>("security");
     const tenancyStorage = getStorageOps<TenancyStorageOperations>("tenancy");
@@ -92,7 +88,6 @@ export const createCore = (params: ICreateCoreParams): ICreateCoreResult => {
         cmsStorage: cmsStorage.storageOperations,
         i18nStorage: i18nStorage.storageOperations,
         pageBuilderStorage: pageBuilderStorage.storageOperations,
-        formBuilderStorage: formBuilderStorage.storageOperations,
         fileManagerStorage: fileManagerStorage.storageOperations,
         securityStorage: securityStorage.storageOperations,
         tenancyStorage: tenancyStorage.storageOperations,
@@ -144,9 +139,6 @@ export const createCore = (params: ICreateCoreParams): ICreateCoreResult => {
                 storageOperations: fileManagerStorage.storageOperations
             }),
             createFileManagerGraphQL(),
-            createFormBuilder({
-                storageOperations: formBuilderStorage.storageOperations
-            }),
             pageBuilderImportExportPlugins({
                 storageOperations: createPageBuilderImportExportStorageOperations({
                     documentClient

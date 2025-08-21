@@ -1,9 +1,10 @@
 import { z } from "zod";
 import { ExtensionInstanceModelContext } from "~/extensions";
+import { AppName } from "~/abstractions/types";
 
 export type ExtensionTags = {
     [key: string]: string | undefined;
-    appName?: "core" | "api" | "admin" | "website";
+    appName?: AppName;
     runtimeContext?: "app-build" | "project" | "cli" | "pulumi";
 };
 

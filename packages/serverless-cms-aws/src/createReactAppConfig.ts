@@ -158,6 +158,7 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
                 });
 
                 if (output) {
+                    // @ts-ignore
                     outputCache.set(app, output);
                 }
             }
@@ -185,17 +186,17 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
     };
 
     const commands: ReactAppCommands = {
-        build() {
+        async build() {
             invariant(options.env, NO_ENV_MESSAGE);
 
-            loadEnvVars();
+            await loadEnvVars();
 
             return createBuildApp({ cwd: process.cwd(), overrides: createOverrides() })(options);
         },
-        watch() {
+        async watch() {
             invariant(options.env, NO_ENV_MESSAGE);
 
-            loadEnvVars();
+            await loadEnvVars();
 
             return createWatchApp({ cwd: process.cwd(), overrides: createOverrides() })(options);
         }

@@ -1,4 +1,3 @@
-import { createFormBuilderHooks } from "./formBuilder/index.js";
 import { createPageBuilderHooks } from "./pageBuilder/index.js";
 import { createFileManagerHooks } from "./fileManager/index.js";
 import { createHeadlessCmsHooks } from "./headlessCms/index.js";
@@ -10,7 +9,6 @@ import { createApwHooks } from "./apw/index.js";
 import { type AuditLogsContext } from "~/types.js";
 
 export const createSubscriptionHooks = (context: AuditLogsContext) => {
-    createFormBuilderHooks(context);
     createPageBuilderHooks(context);
     createFileManagerHooks(context);
     createHeadlessCmsHooks(context);

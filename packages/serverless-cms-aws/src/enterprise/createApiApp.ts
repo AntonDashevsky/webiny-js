@@ -1,13 +1,16 @@
-import { createApiPulumiApp, type CreateApiPulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
-import { type PluginCollection } from "@webiny/plugins/types.js";
 import {
-    ensureCoreDeployed,
-    executeDataMigrations,
-    generateCommonHandlers,
-    generateDdbEsHandlers,
-    generateDdbHandlers,
-    injectWcpTelemetryClientCode
-} from "~/api/plugins/index.js";
+    createApiPulumiApp,
+    type CreateApiPulumiAppParams
+} from "@webiny/pulumi-aws/enterprise/index.js";
+import { type PluginCollection } from "@webiny/plugins/types.js";
+// import {
+//     ensureCoreDeployed,
+//     executeDataMigrations,
+//     generateCommonHandlers,
+//     generateDdbEsHandlers,
+//     generateDdbHandlers,
+//     injectWcpTelemetryClientCode
+// } from "~/api/plugins/index.js";
 
 export { ApiOutput } from "@webiny/pulumi-aws";
 
@@ -16,18 +19,18 @@ export interface CreateApiAppParams extends CreateApiPulumiAppParams {
 }
 
 export function createApiApp(projectAppParams: CreateApiAppParams = {}) {
-    const builtInPlugins = [
-        ensureCoreDeployed,
-        injectWcpTelemetryClientCode,
-        generateCommonHandlers,
-        executeDataMigrations
-    ];
-
-    if (projectAppParams.elasticSearch || projectAppParams.openSearch) {
-        builtInPlugins.push(generateDdbEsHandlers);
-    } else {
-        builtInPlugins.push(generateDdbHandlers);
-    }
+    // const builtInPlugins = [
+    //     ensureCoreDeployed,
+    //     injectWcpTelemetryClientCode,
+    //     generateCommonHandlers,
+    //     executeDataMigrations
+    // ];
+    //
+    // if (projectAppParams.elasticSearch || projectAppParams.openSearch) {
+    //     builtInPlugins.push(generateDdbEsHandlers);
+    // } else {
+    //     builtInPlugins.push(generateDdbHandlers);
+    // }
 
     const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
 
@@ -48,7 +51,7 @@ export function createApiApp(projectAppParams: CreateApiAppParams = {}) {
                 function: "graphql"
             }
         },
-        pulumi: createApiPulumiApp(projectAppParams),
-        plugins: [builtInPlugins, customPlugins]
+        pulumi: createApiPulumiApp(projectAppParams)
+        // plugins: [builtInPlugins, customPlugins]
     };
 }

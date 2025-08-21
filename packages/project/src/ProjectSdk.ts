@@ -21,6 +21,8 @@ import {
 } from "~/abstractions/index.js";
 import { isValidRegionName, isValidVariantName } from "./utils/index.js";
 
+let cachedProjectSdk: ProjectSdk | null = null;
+
 export class ProjectSdk {
     container: Container;
 
@@ -29,8 +31,14 @@ export class ProjectSdk {
     }
 
     static async init(params: Partial<ProjectSdkParamsService.Params> = {}) {
+        if (cachedProjectSdk) {
+            return cachedProjectSdk;
+        }
+
         const container = await createProjectSdkContainer(params);
-        return new ProjectSdk(container);
+        cachedProjectSdk = new ProjectSdk(container);
+
+        return cachedProjectSdk;
     }
 
     // Project-related methods.

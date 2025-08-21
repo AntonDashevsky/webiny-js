@@ -62,16 +62,6 @@ const createIsPageBuilderInstalled = () => {
     `;
 };
 
-const createIsFormBuilderInstalled = () => {
-    return `
-        query IsFormBuilderInstalled {
-            formBuilder {
-                version
-            }
-        }
-    `;
-};
-
 /**
  * Mutations
  */
@@ -192,23 +182,6 @@ const createInstallPageBuilderMutation = (): MutationBody => {
     `;
 };
 
-const createInstallFormBuilderMutation = (): MutationBody => {
-    return `mutation InstallFormBuilder {
-            formBuilder {
-                install {
-                    data
-                    error {
-                        message
-                        code
-                        data
-                        stack
-                    }
-                }
-            }
-        }
-    `;
-};
-
 export interface ICreateInstallGraphQlParams {
     createQuery: ICreateQueryCb;
     createMutation: ICreateMutationCb;
@@ -239,9 +212,6 @@ export const createInstallGraphQL = (params: ICreateInstallGraphQlParams) => {
         isPageBuilderInstalled: createQuery({
             query: createIsPageBuilderInstalled()
         }),
-        isFormBuilderInstalled: createQuery({
-            query: createIsFormBuilderInstalled()
-        }),
         /**
          * Install Mutations
          */
@@ -262,9 +232,6 @@ export const createInstallGraphQL = (params: ICreateInstallGraphQlParams) => {
         }),
         installPageBuilder: createMutation<IInstallPageBuilderVariables>({
             mutation: createInstallPageBuilderMutation()
-        }),
-        installFormBuilder: createMutation({
-            mutation: createInstallFormBuilderMutation()
         })
     };
 };

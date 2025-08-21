@@ -17,7 +17,6 @@ describe("install", () => {
             isSecurityInstalled,
             isHeadlessCmsInstalled,
             isPageBuilderInstalled,
-            isFormBuilderInstalled,
             isLocaleInstalled
         } = useGraphQlHandler({
             path: "/graphql",
@@ -79,15 +78,6 @@ describe("install", () => {
                 }
             }
         });
-
-        const [isFormBuilderInstalledResult] = await isFormBuilderInstalled();
-        expect(isFormBuilderInstalledResult).toEqual({
-            data: {
-                formBuilder: {
-                    version: null
-                }
-            }
-        });
     });
 
     it.each(wcpOptions)("should install system - wcp %s", async wcp => {
@@ -95,7 +85,6 @@ describe("install", () => {
             installSecurity,
             installTenancy,
             installAdminUsers,
-            installFormBuilder,
             installPageBuilder,
             installHeadlessCms,
             installI18N,
@@ -105,7 +94,6 @@ describe("install", () => {
             isSecurityInstalled,
             isHeadlessCmsInstalled,
             isPageBuilderInstalled,
-            isFormBuilderInstalled,
             isLocaleInstalled
         } = useGraphQlHandler({
             path: "/graphql",
@@ -199,18 +187,6 @@ describe("install", () => {
             }
         });
 
-        const [installFormBuilderResult] = await installFormBuilder();
-        expect(installFormBuilderResult).toEqual({
-            data: {
-                formBuilder: {
-                    install: {
-                        data: true,
-                        error: null
-                    }
-                }
-            }
-        });
-
         const [isAdminUsersInstalledResult] = await isAdminUsersInstalled();
 
         expect(isAdminUsersInstalledResult).toEqual({
@@ -262,15 +238,6 @@ describe("install", () => {
         expect(isPageBuilderInstalledResult).toEqual({
             data: {
                 pageBuilder: {
-                    version: "true"
-                }
-            }
-        });
-
-        const [isFormBuilderInstalledResult] = await isFormBuilderInstalled();
-        expect(isFormBuilderInstalledResult).toEqual({
-            data: {
-                formBuilder: {
                     version: "true"
                 }
             }

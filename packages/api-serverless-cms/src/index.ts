@@ -6,11 +6,13 @@ import { type I18NContentContext } from "@webiny/api-i18n-content/types.js";
 import { type PbContext } from "@webiny/api-page-builder/graphql/types.js";
 import { type PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types.js";
 import { type FileManagerContext } from "@webiny/api-file-manager/types.js";
-import { type FormBuilderContext } from "@webiny/api-form-builder/types.js";
 import { type CmsContext } from "@webiny/api-headless-cms/types/index.js";
 import { type AcoContext } from "@webiny/api-aco/types.js";
 import { type PbAcoContext } from "@webiny/api-page-builder-aco/types.js";
-import { type ContextPluginCallable, createContextPlugin as baseCreateContextPlugin } from "@webiny/api";
+import {
+    type ContextPluginCallable,
+    createContextPlugin as baseCreateContextPlugin
+} from "@webiny/api";
 import {
     createGraphQLSchemaPlugin as baseCreateGraphQLSchemaPlugin,
     type GraphQLSchemaPluginConfig
@@ -29,7 +31,6 @@ export interface Context
         PbContext,
         PrerenderingServiceClientContext,
         FileManagerContext,
-        FormBuilderContext,
         AcoContext,
         PbAcoContext,
         LoggerContext,

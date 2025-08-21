@@ -95,49 +95,6 @@ export const auditLogsApps: App[] = [
         ]
     },
     {
-        app: "FORM_BUILDER",
-        displayName: "Form Builder",
-        entities: [
-            {
-                type: "FORM",
-                displayName: "Form",
-                linkToEntity(id) {
-                    return `/form-builder/forms?id=${id}`;
-                },
-                actions: [
-                    commonActions.CREATE,
-                    commonActions.DELETE,
-                    importExportActions.EXPORT,
-                    importExportActions.IMPORT
-                ]
-            },
-            {
-                type: "FORM_REVISION",
-                displayName: "Form revision",
-                linkToEntity(id) {
-                    return `/form-builder/forms?id=${id}`;
-                },
-                actions: [
-                    commonActions.CREATE,
-                    commonActions.UPDATE,
-                    commonActions.DELETE,
-                    publishActions.PUBLISH,
-                    publishActions.UNPUBLISH
-                ]
-            },
-            {
-                type: "FORM_SUBMISSION",
-                displayName: "Form submission",
-                actions: [importExportActions.EXPORT]
-            },
-            {
-                type: "SETTINGS",
-                displayName: "Settings",
-                actions: [commonActions.UPDATE]
-            }
-        ]
-    },
-    {
         app: "HEADLESS_CMS",
         displayName: "Headless CMS",
         entities: [

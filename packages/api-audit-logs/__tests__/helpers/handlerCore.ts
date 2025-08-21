@@ -16,8 +16,6 @@ import { AuditLogsContext } from "~/types";
 import { createAco } from "@webiny/api-aco";
 import { createAuditLogs } from "~/index";
 import { createContextPlugin } from "@webiny/handler";
-import { createFormBuilder } from "@webiny/api-form-builder";
-import { FormBuilderStorageOperations } from "@webiny/api-form-builder/types";
 import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
 import { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
 import { createPageBuilderContext } from "@webiny/api-page-builder";
@@ -60,7 +58,6 @@ export const createHandlerCore = (params?: CreateHandlerCoreParams) => {
     const i18nStorage = getStorageOps("i18n");
     const fileManagerStorage = getStorageOps<FileManagerStorageOperations>("fileManager");
     const pageBuilderStorage = getStorageOps<PageBuilderStorageOperations>("pageBuilder");
-    const formBuilderStorage = getStorageOps<FormBuilderStorageOperations>("formBuilder");
     const cmsStorage = getStorageOps<HeadlessCmsStorageOperations>("cms");
     const pageBuilderImportExport =
         getStorageOps<ImportExportTaskStorageOperations>("pageBuilderImportExport");
@@ -149,9 +146,6 @@ export const createHandlerCore = (params?: CreateHandlerCoreParams) => {
             }),
             createFileManagerContext({
                 storageOperations: fileManagerStorage.storageOperations
-            }),
-            createFormBuilder({
-                storageOperations: formBuilderStorage.storageOperations
             }),
             createHeadlessCmsGraphQL(),
             createAco({ documentClient }),

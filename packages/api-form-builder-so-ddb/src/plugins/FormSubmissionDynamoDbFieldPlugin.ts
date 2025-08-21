@@ -1,5 +1,0 @@
-import { FieldPlugin } from "@webiny/db-dynamodb/plugins/definitions/FieldPlugin.js";
-
-export class FormSubmissionDynamoDbFieldPlugin extends FieldPlugin {
-    public static override readonly type: string = "formBuilder.dynamodb.field.formSubmission";
-}

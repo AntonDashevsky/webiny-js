@@ -2,8 +2,27 @@ import { serializeError } from "serialize-error";
 import { requireConfigWithExecute } from "./utils/requireConfig.js";
 
 const worker = async () => {
-    // Since this is executed in a separate process, we need to initialize the project.
-    const workerData = JSON.parse(process.argv[2]);
+    const workerData = {
+        _: ["deploy"],
+        env: "dev",
+        "deployment-logs": true,
+        deploymentLogs: true,
+        debug: true,
+        build: true,
+        preview: false,
+        $0: "webiny",
+        app: "admin",
+        variant: undefined,
+        region: undefined,
+        package: {
+            paths: {
+                packageFolder: "/Users/adrian/dev/wby-v6/.webiny/workspaces/apps/admin",
+                webinyConfigFile:
+                    "/Users/adrian/dev/wby-v6/.webiny/workspaces/apps/admin/webiny.config.ts"
+            }
+        }
+    };
+
     const { package: pkg, env, variant, region, debug } = workerData;
     const options = {
         cwd: pkg.paths.packageFolder,

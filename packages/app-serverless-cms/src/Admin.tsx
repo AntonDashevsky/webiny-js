@@ -11,7 +11,6 @@ import { Security } from "@webiny/app-security";
 import { I18N } from "@webiny/app-i18n";
 import { I18NContent } from "@webiny/app-i18n-content";
 import { PageBuilder } from "@webiny/app-page-builder";
-import { FormBuilder } from "@webiny/app-form-builder";
 import { HeadlessCMS } from "@webiny/app-headless-cms";
 import { RMWC } from "@webiny/app-admin-rmwc";
 import { FileManager } from "@webiny/app-file-manager/app.js";
@@ -62,7 +61,6 @@ const App = (props: AdminProps) => {
             <PageBuilder />
             <LexicalEditorPlugin />
             <LexicalEditorActions />
-            <FormBuilder />
             <HeadlessCMS createApolloClient={createApolloClient} />
             <AdvancedPublishingWorkflow />
             <TenantManager />
