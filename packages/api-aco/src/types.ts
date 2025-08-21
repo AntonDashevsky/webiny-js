@@ -64,7 +64,7 @@ export interface AdvancedContentOrganisation {
     folderLevelPermissions: FolderLevelPermissions;
     apps: IAcoApps;
     registerApp: (params: IAcoAppRegisterParams) => Promise<IAcoApp>;
-    getApp: (name: string) => IAcoApp;
+    getApp: <C extends AcoContext = AcoContext>(name: string) => IAcoApp<C>;
     listApps: () => IAcoApp[];
 }
 
@@ -118,8 +118,8 @@ export interface IAcoAppModifyFieldCallable {
     (id: string, cb: IAcoAppModifyFieldCallableCallback): void;
 }
 
-export interface IAcoApp {
-    context: AcoContext;
+export interface IAcoApp<C extends AcoContext = AcoContext> {
+    context: C;
     search: AcoSearchRecordCrudBase;
     folder: AcoFolderCrud;
     name: string;

@@ -462,6 +462,9 @@ export interface CmsEntryValues {
     [key: string]: any;
 }
 
+export interface ICmsEntryLocation {
+    folderId?: string | null;
+}
 /**
  * A content entry definition for and from the database.
  *
@@ -653,9 +656,7 @@ export interface CmsEntry<T = CmsEntryValues> {
     /**
      * Advanced Content Organization
      */
-    location?: {
-        folderId?: string | null;
-    };
+    location?: ICmsEntryLocation;
     /**
      * Settings for the given entry.
      *
@@ -676,6 +677,10 @@ export interface CmsEntry<T = CmsEntryValues> {
      * The value is utilized when restoring the entry from the trash bin.
      */
     binOriginalFolderId?: string | null;
+    /**
+     * Expiration unix timestamp for the entry.
+     */
+    expiresAt?: number;
 }
 
 export interface CmsStorageEntry extends CmsEntry {

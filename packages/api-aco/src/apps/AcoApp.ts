@@ -35,11 +35,21 @@ export class AcoApp implements IAcoApp {
     private readonly onAnyRequest?: IAcoAppOnAnyRequest;
 
     public get search(): AcoSearchRecordCrudBase {
+        const getOne = async <TData extends GenericSearchData = GenericSearchData>(id: string) => {
+            await this.execOnAnyRequest("fetch");
+            const result = await this.context.aco.search.get<TData>(this.getModel(), id);
+            if (!result || !this.onEntry) {
+                return result;
+            }
+            return (await this.onEntry(result, this.context)) as SearchRecord<TData>;
+        };
+
         return {
             create: async <TData extends GenericSearchData = GenericSearchData>(
                 data: CreateSearchRecordParams<TData>
             ) => {
                 await this.execOnAnyRequest("create");
+
                 const result = await this.context.aco.search.create<TData>(this.getModel(), data);
                 if (!this.onEntry) {
                     return result;
@@ -51,6 +61,7 @@ export class AcoApp implements IAcoApp {
                 data: UpdateSearchRecordParams<TData>
             ) => {
                 await this.execOnAnyRequest("update");
+
                 const result = await this.context.aco.search.update<TData>(
                     this.getModel(),
                     id,
@@ -65,14 +76,7 @@ export class AcoApp implements IAcoApp {
                 await this.execOnAnyRequest("move");
                 return this.context.aco.search.move(this.getModel(), id, folderId);
             },
-            get: async <TData extends GenericSearchData = GenericSearchData>(id: string) => {
-                await this.execOnAnyRequest("fetch");
-                const result = await this.context.aco.search.get<TData>(this.getModel(), id);
-                if (!result || !this.onEntry) {
-                    return result;
-                }
-                return (await this.onEntry(result, this.context)) as SearchRecord<TData>;
-            },
+            get: getOne,
             list: async <TData extends GenericSearchData = GenericSearchData>(
                 params: ListSearchRecordsParams
             ) => {
@@ -88,6 +92,7 @@ export class AcoApp implements IAcoApp {
             },
             delete: async (id: string): Promise<boolean> => {
                 await this.execOnAnyRequest("delete");
+
                 return this.context.aco.search.delete(this.getModel(), id);
             },
             listTags: async (params: ListSearchRecordTagsParams) => {

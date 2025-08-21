@@ -94,6 +94,7 @@ module.exports = function ({ path }, presets = []) {
 process.env.DB_TABLE = "DynamoDB";
 process.env.DB_TABLE_ELASTICSEARCH = "ElasticsearchStream";
 process.env.DB_TABLE_LOG = "DynamoDBLog";
+process.env.DB_TABLE_AUDIT_LOGS = "DynamoDBAuditLogs";
 process.env.WEBINY_VERSION = version;
 process.env.WEBINY_ELASTICSEARCH_INDEX_LOCALE = "true";
 
@@ -180,6 +181,27 @@ const createDynaliteTables = (options = {}) => {
                     amount: 5
                 }),
                 data: options.data || []
+            },
+            {
+                TableName: process.env.DB_TABLE_AUDIT_LOGS,
+                KeySchema: [
+                    { AttributeName: "PK", KeyType: "HASH" },
+                    { AttributeName: "SK", KeyType: "RANGE" }
+                ],
+                AttributeDefinitions: [
+                    { AttributeName: "PK", AttributeType: "S" },
+                    { AttributeName: "SK", AttributeType: "S" },
+                    ...createGlobalSecondaryIndexesAttributeDefinitions(2)
+                ],
+                ProvisionedThroughput: { ReadCapacityUnits: 1, WriteCapacityUnits: 1 },
+                GlobalSecondaryIndexes: createGlobalSecondaryIndexes({
+                    amount: 2
+                }),
+                data: options.data || [],
+                ttl: {
+                    attributeName: "expiresAt",
+                    enabled: true
+                }
             }
         ],
         basePort: 8000

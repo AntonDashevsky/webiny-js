@@ -5,6 +5,16 @@ import { ActionType } from "~/config";
 import { AUDIT_LOGS_TYPE } from "~/app/contants";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index";
 import { parseIdentifier } from "@webiny/utils/parseIdentifier";
+import { attachAuditLogOnCreateEvent } from "~/app/lifecycle.js";
+
+interface ITestPayloadData {
+    auditLogData: {
+        someData: boolean;
+    };
+    moreNumberData: number;
+    evenMoreStringData: string;
+    additionalData?: string;
+}
 
 describe("create audit log", () => {
     const client = getDocumentClient();
@@ -49,7 +59,7 @@ describe("create audit log", () => {
 
         const message = "Some Meaningful Message.";
         const entityId = "abcdefgh0001";
-        const data = {
+        const data: ITestPayloadData = {
             auditLogData: {
                 someData: true
             },
@@ -59,7 +69,7 @@ describe("create audit log", () => {
 
         const result = await createAuditLog(message, data, entityId, context);
 
-        expect(result).toEqual({
+        expect(result).toMatchObject({
             id: expect.any(String),
             title: message,
             content: message,
@@ -68,7 +78,7 @@ describe("create audit log", () => {
                 app: "cms",
                 entity: "user",
                 initiator: "id-12345678",
-                timestamp: expect.any(Date),
+                timestamp: expect.toBeDateString(),
                 entityId,
                 message,
                 data: JSON.stringify(data)
@@ -165,5 +175,77 @@ describe("create audit log", () => {
                 }
             });
         }
+    });
+
+    it("should trigger onBeforeCreate", async () => {
+        const createAuditLog = getAuditConfig(audit);
+
+        const { handler } = useHandler({
+            plugins: [
+                attachAuditLogOnCreateEvent<ITestPayloadData>(async ({ payload, setPayload }) => {
+                    setPayload({
+                        data: {
+                            ...payload.data,
+                            moreNumberData: 2,
+                            additionalData: "something else"
+                        }
+                    });
+                })
+            ]
+        });
+        const context = await handler();
+
+        const message = "Some Meaningful Message.";
+        const entityId = "abcdefgh0001";
+        const data: ITestPayloadData = {
+            auditLogData: {
+                someData: true
+            },
+            moreNumberData: 1,
+            evenMoreStringData: "abcdef"
+        };
+
+        const result = await createAuditLog(message, data, entityId, context);
+
+        expect(result).toMatchObject({
+            id: expect.any(String),
+            title: message,
+            content: message,
+            data: {
+                action: ActionType.CREATE,
+                app: "cms",
+                entity: "user",
+                initiator: "id-12345678",
+                timestamp: expect.toBeDateString(),
+                entityId,
+                message,
+                data: JSON.stringify({
+                    auditLogData: {
+                        someData: true
+                    },
+                    moreNumberData: 2,
+                    evenMoreStringData: "abcdef",
+                    additionalData: "something else"
+                })
+            },
+            location: {
+                folderId: "root"
+            },
+            tags: [],
+            type: "AuditLogs"
+        });
+
+        const decompressedData =
+            // @ts-expect-error
+            JSON.parse(result.data.data);
+
+        expect(decompressedData).toEqual({
+            auditLogData: {
+                someData: true
+            },
+            moreNumberData: 2,
+            evenMoreStringData: "abcdef",
+            additionalData: "something else"
+        });
     });
 });

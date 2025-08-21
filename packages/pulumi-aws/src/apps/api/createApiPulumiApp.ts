@@ -48,6 +48,12 @@ export interface ApiOpenSearchConfig {
 
 export interface CreateApiPulumiAppParams {
     /**
+     * Secures against deleting database by accident.
+     * By default enabled in production environments.
+     */
+    protect?: PulumiAppParam<boolean>;
+
+    /**
      * Enables ElasticSearch infrastructure.
      * Note that it requires also changes in application code.
      */
