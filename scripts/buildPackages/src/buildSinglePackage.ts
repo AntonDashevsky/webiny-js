@@ -1,33 +1,25 @@
-import path from "path";
 import fs from "fs-extra";
-import execa from "execa";
 import { Package } from "./types";
 import { getBuildOutputFolder } from "./getBuildOutputFolder";
 import { CACHE_FOLDER_PATH } from "./constants";
+import { fork } from "child_process";
+import path from "path";
 
-export const buildPackageInNewProcess = async (pkg: Package, buildOverrides = "{}") => {
-    // Run build script using execa
-    await execa("yarn", ["build", "--overrides", buildOverrides], {
+export const buildPackage = async (pkg: Package, buildOverrides = "{}") => {
+    const workerPath = path.join(__dirname, "buildPackageWorkerEntry.js");
+    const childProcess = fork(workerPath, [buildOverrides], {
+        env: process.env,
         cwd: pkg.packageFolder
     });
 
-    const cacheFolderPath = path.join(CACHE_FOLDER_PATH, pkg.packageJson.name);
-
-    const buildFolder = getBuildOutputFolder(pkg);
-    // Delete previous cache!
-    await fs.emptyDir(cacheFolderPath);
-    await fs.copy(buildFolder, cacheFolderPath);
-};
-
-export const buildPackageInSameProcess = async (pkg: Package, buildOverrides = "{}") => {
-    const configPath = path.join(pkg.packageFolder, "webiny.config").replace(/\\/g, "/");
-
-    const config = require(configPath);
-    await config.commands.build({
-        // We don't want debug nor regular logs logged within the build command.
-        logs: false,
-        debug: false,
-        overrides: buildOverrides
+    await new Promise<void>((resolve, reject) => {
+        childProcess.on("exit", code => {
+            if (code !== 0) {
+                reject(new Error(`Build process exited with code ${code}`));
+            }
+            // If the process exits successfully, we resolve the promise.
+            resolve();
+        });
     });
 
     // Copy and paste built code into the cache folder.

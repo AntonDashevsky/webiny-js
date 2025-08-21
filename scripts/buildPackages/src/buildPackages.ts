@@ -6,7 +6,7 @@ import { getBatches } from "./getBatches";
 import { META_FILE_PATH } from "./constants";
 import { getPackageSourceHash } from "./getPackageSourceHash";
 import { getBuildMeta } from "./getBuildMeta";
-import { buildPackageInNewProcess, buildPackageInSameProcess } from "./buildSinglePackage";
+import { buildPackage } from "./buildSinglePackage";
 import { MetaJSON, Package } from "./types";
 import { getHardwareInfo } from "./getHardwareInfo";
 import execa from "execa";
@@ -126,11 +126,7 @@ const createPackageTask = (pkg: Package, options: BuildOptions, metaJson: MetaJS
         title: `${pkg.name}`,
         task: async () => {
             try {
-                if (!buildInParallel) {
-                    await buildPackageInSameProcess(pkg, options.buildOverrides);
-                } else {
-                    await buildPackageInNewProcess(pkg, options.buildOverrides);
-                }
+                await buildPackage(pkg, options.buildOverrides);
 
                 // Store package hash
                 const sourceHash = await getPackageSourceHash(pkg);

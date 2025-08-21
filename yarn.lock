@@ -13153,6 +13153,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/read-json-sync@npm:^2.0.0":
+  version: 2.0.3
+  resolution: "@types/read-json-sync@npm:2.0.3"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10/63e62a8109ecedffbb2239f09e63cce97ed4eda339e3204157bde397a1f3f9c521051fa80ab56b9dbcb9d7021e89bd5d5a0e316018da1c1d75080f8d7325251d
+  languageName: node
+  linkType: hard
+
 "@types/resize-observer-browser@npm:^0.1.4":
   version: 0.1.7
   resolution: "@types/resize-observer-browser@npm:0.1.7"
@@ -17084,6 +17093,8 @@ __metadata:
     typescript: "npm:5.3.3"
     yargs: "npm:^17.7.2"
     yargs-parser: "npm:^21.1.1"
+  bin:
+    webiny: ./bin.js
   languageName: unknown
   linkType: soft
 
@@ -17671,6 +17682,7 @@ __metadata:
     "@types/humanize-duration": "npm:^3.27.0"
     "@types/jsdom": "npm:^21.1.6"
     "@types/lodash": "npm:^4.17.13"
+    "@types/read-json-sync": "npm:^2.0.0"
     "@webiny/di-container": "npm:0.0.0"
     "@webiny/feature": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"

@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/webiny/webiny-js.git"
   },
+  "bin": {
+    "webiny": "./bin.js"
+  },
   "description": "A command line interface (CLI) for managing Webiny projects.",
   "license": "MIT",
   "dependencies": {
@@ -31,11 +34,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "directory": "dist"
-  },
-  "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
+    "directory": "."
   },
   "gitHead": "8476da73b653c89cc1474d968baf55c1b0ae0e5f"
 }

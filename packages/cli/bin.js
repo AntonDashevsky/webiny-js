@@ -13,7 +13,7 @@ ensureSystemRequirements();
 
 const cli = await Cli.init({
     cwd: process.cwd(),
-    extensions: extensionDefinitions,
+    extensions: extensionDefinitions
 });
 
 await cli.run(process.argv);
