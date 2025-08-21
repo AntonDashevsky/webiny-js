@@ -12848,6 +12848,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/listr@npm:^0.14.9":
+  version: 0.14.9
+  resolution: "@types/listr@npm:0.14.9"
+  dependencies:
+    "@types/node": "npm:*"
+    rxjs: "npm:^6.5.1"
+  checksum: 10/96f2b7611d798724fc02183167b1f8979fab48d7abe8a9bb300c066643ce9490080e786d8d9440e28abd92790f04b116ece1d1236094b177b67907057410820c
+  languageName: node
+  linkType: hard
+
 "@types/lodash@npm:^4.17.13":
   version: 4.17.13
   resolution: "@types/lodash@npm:4.17.13"
@@ -16901,6 +16911,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/cli-core@workspace:packages/cli-core"
   dependencies:
+    "@types/listr": "npm:^0.14.9"
     "@types/lodash": "npm:^4.17.13"
     "@webiny/di-container": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"
@@ -37948,7 +37959,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.3.3, rxjs@npm:^6.6.2, rxjs@npm:^6.6.7":
+"rxjs@npm:^6.3.3, rxjs@npm:^6.5.1, rxjs@npm:^6.6.2, rxjs@npm:^6.6.7":
   version: 6.6.7
   resolution: "rxjs@npm:6.6.7"
   dependencies:
