@@ -27,10 +27,6 @@ context("Login Page", () => {
         cy.findByText(/sign in/i).should("exist");
         cy.findByText(/forgot password?/i).should("exist");
 
-        cy.visit("/form-builder/forms");
-        cy.findByText(/sign in/i).should("exist");
-        cy.findByText(/forgot password?/i).should("exist");
-
         cy.visit("/cms/content-models");
         cy.findByText(/sign in/i).should("exist");
         cy.findByText(/forgot password?/i).should("exist");

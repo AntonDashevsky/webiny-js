@@ -67,7 +67,6 @@
         "@webiny/api-i18n-content",
         "@webiny/api-page-builder",
         "@webiny/api-prerendering-service",
-        "@webiny/api-form-builder",
         "@webiny/api-headless-cms"
       ]
     }

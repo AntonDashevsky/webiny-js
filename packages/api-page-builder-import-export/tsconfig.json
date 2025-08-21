@@ -4,7 +4,6 @@
   "references": [
     { "path": "../api" },
     { "path": "../api-file-manager" },
-    { "path": "../api-form-builder" },
     { "path": "../api-page-builder" },
     { "path": "../api-security" },
     { "path": "../aws-sdk" },
@@ -32,8 +31,6 @@
       "@webiny/api": ["../api/src"],
       "@webiny/api-file-manager/*": ["../api-file-manager/src/*"],
       "@webiny/api-file-manager": ["../api-file-manager/src"],
-      "@webiny/api-form-builder/*": ["../api-form-builder/src/*"],
-      "@webiny/api-form-builder": ["../api-form-builder/src"],
       "@webiny/api-page-builder/*": ["../api-page-builder/src/*"],
       "@webiny/api-page-builder": ["../api-page-builder/src"],
       "@webiny/api-security/*": ["../api-security/src/*"],

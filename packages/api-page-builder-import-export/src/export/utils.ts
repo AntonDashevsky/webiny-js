@@ -13,7 +13,6 @@ import Zipper from "./zipper.js";
 export const EXPORT_PAGES_FOLDER_KEY = "WEBINY_PB_EXPORT_PAGES";
 export const EXPORT_BLOCKS_FOLDER_KEY = "WEBINY_PB_EXPORT_BLOCK";
 export const EXPORT_TEMPLATES_FOLDER_KEY = "WEBINY_PB_EXPORT_TEMPLATE";
-export const EXPORT_FORMS_FOLDER_KEY = "WEBINY_FB_EXPORT_FORM";
 
 export interface ExportedPageData {
     page: Pick<Page, "content" | "title" | "version" | "status" | "settings" | "path">;

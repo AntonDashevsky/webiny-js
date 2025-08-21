@@ -35,12 +35,6 @@ context("Security Users", () => {
                         cy.findByText(/Build a new Page/i).should("be.visible");
                     });
 
-                    // Should have Form Builder card
-                    cy.findByTestId("admin-welcome-screen-widget-form-builder").within(() => {
-                        cy.findByText("Form Builder").should("be.visible");
-                        cy.findByText(/Create a new Form/i).should("be.visible");
-                    });
-
                     // Should have Headless CMS card
                     cy.findByTestId("admin-welcome-screen-widget-headless-cms").within(() => {
                         cy.findByText("Headless CMS").should("be.visible");
@@ -84,9 +78,6 @@ context("Security Users", () => {
 
                     // Should not have Page Builder card
                     cy.findByTestId("admin-welcome-screen-widget-page-builder").should("not.exist");
-
-                    // Should not have Form Builder card
-                    cy.findByTestId("admin-welcome-screen-widget-form-builder").should("not.exist");
 
                     // Should not have Headless CMS card
                     cy.findByTestId("admin-welcome-screen-widget-headless-cms").should("not.exist");

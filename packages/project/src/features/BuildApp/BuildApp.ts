@@ -73,7 +73,7 @@ export class DefaultBuildApp implements BuildApp.Interface {
                 });
                 // TODO: finish handling here.
                 buildProcess.process.on("message", message => {
-                    console.log("message", message.message);
+                    console.log("message", message.toString());
                 });
 
                 buildProcess.process.on("data", data => {

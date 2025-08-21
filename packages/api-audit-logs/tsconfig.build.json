@@ -5,7 +5,6 @@
     { "path": "../api/tsconfig.build.json" },
     { "path": "../api-aco/tsconfig.build.json" },
     { "path": "../api-apw/tsconfig.build.json" },
-    { "path": "../api-form-builder/tsconfig.build.json" },
     { "path": "../api-mailer/tsconfig.build.json" },
     { "path": "../api-page-builder/tsconfig.build.json" },
     { "path": "../api-page-builder-import-export/tsconfig.build.json" },

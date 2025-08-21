@@ -111,7 +111,7 @@ Learn more about the `watch` command here: https://www.webiny.com/docs/how-to-gu
 
 You can find examples of tests in some of the utility packages (`validation`, `i18n`, `plugins`).
 
-`api-file-manager`, `api-i18n`, `api-page-builder`, `api-form-builder`, `api-security-tenancy` and `api-headless-cms` contain examples of testing your GraphQL API.
+`api-file-manager`, `api-i18n`, `api-page-builder`, `api-security-tenancy` and `api-headless-cms` contain examples of testing your GraphQL API.
 
 We strongly recommend developing using the TDD approach, as it will allow you to use a proper debugger and avoid deploying your code to the cloud all the time. PR's without tests will not be accepted.
 

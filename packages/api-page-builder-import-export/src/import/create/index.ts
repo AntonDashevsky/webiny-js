@@ -2,7 +2,6 @@ import { type ImportExportTask, type PbImportExportContext } from "~/types.js";
 import { type SecurityIdentity } from "@webiny/api-security/types.js";
 import { createRawEventHandler } from "@webiny/handler-aws";
 import { blocksHandler } from "~/import/create/blocksHandler.js";
-import { formsHandler } from "~/import/create/formsHandler.js";
 import { templatesHandler } from "~/import/create/templatesHandler.js";
 
 export interface Configuration {
@@ -34,9 +33,6 @@ export default (configuration: Configuration) => {
                 switch (payload.type) {
                     case "block": {
                         return blocksHandler(configuration, payload, context);
-                    }
-                    case "form": {
-                        return formsHandler(configuration, payload, context);
                     }
                     case "template": {
                         return templatesHandler(configuration, payload, context);

@@ -211,55 +211,6 @@ export type TemplatesImportExportCrud = {
     onTemplatesAfterImport: Topic<OnTemplatesAfterImportTopicParams>;
 };
 
-export interface ExportFormsParams {
-    ids?: string[];
-    revisionType: ExportRevisionType;
-    search?: { query?: string };
-    sort?: string[];
-}
-
-export interface ImportFormsParams {
-    zipFileUrl: string;
-}
-
-/**
- * @category Lifecycle events
- */
-export interface OnFormsBeforeExportTopicParams {
-    params: ExportFormsParams;
-}
-
-/**
- * @category Lifecycle events
- */
-export interface OnFormsAfterExportTopicParams {
-    params: ExportFormsParams;
-}
-
-/**
- * @category Lifecycle events
- */
-export interface OnFormsBeforeImportTopicParams {
-    params: ImportFormsParams;
-}
-
-/**
- * @category Lifecycle events
- */
-export interface OnFormsAfterImportTopicParams {
-    params: ImportFormsParams;
-}
-
-export type FormsImportExportCrud = {
-    exportForms(params: ExportFormsParams): Promise<{ task: ImportExportTask }>;
-    importForms(params: ImportFormsParams): Promise<{ task: ImportExportTask }>;
-
-    onFormsBeforeExport: Topic<OnFormsBeforeExportTopicParams>;
-    onFormsAfterExport: Topic<OnFormsAfterExportTopicParams>;
-    onFormsBeforeImport: Topic<OnFormsBeforeImportTopicParams>;
-    onFormsAfterImport: Topic<OnFormsAfterImportTopicParams>;
-};
-
 type ImportExportTaskCreateData = Omit<ImportExportTask, "id" | "createdOn" | "createdBy">;
 
 export type ImportExportTaskCrud = {
