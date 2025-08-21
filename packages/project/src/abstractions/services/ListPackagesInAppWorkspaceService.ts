@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { AppName } from "~/abstractions/types";
+import { AppName } from "~/abstractions/types.js";
 
 export interface IListPackagesInAppWorkspacePackage {
     name: string;

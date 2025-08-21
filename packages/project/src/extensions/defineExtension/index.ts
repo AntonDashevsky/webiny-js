@@ -1,1 +1,1 @@
-export * from "./defineExtension";
+export * from "./defineExtension.js";

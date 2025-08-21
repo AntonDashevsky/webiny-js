@@ -1,4 +1,4 @@
-import { LoggerService, BuildApp } from "~/abstractions";
+import { LoggerService, BuildApp } from "~/abstractions/index.js";
 import { ChildProcess } from "child_process";
 
 export interface IBuildProcess {

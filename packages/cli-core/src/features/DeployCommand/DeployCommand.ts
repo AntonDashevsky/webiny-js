@@ -1,9 +1,9 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
-import { HandledError } from "~/utils/HandledError";
+import { HandledError } from "~/utils/HandledError.js";
 
 // TODO: extract into a service.
-import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
+import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput.js";
 
 import { DeployOutput } from "./deployOutputs/DeployOutput.js";
 import { AppName } from "~/abstractions/features/types.js";

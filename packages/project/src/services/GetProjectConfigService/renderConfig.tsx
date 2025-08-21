@@ -1,11 +1,11 @@
 import { fork } from "child_process";
 import path from "path";
-import { IProjectConfigDto } from "~/abstractions/models";
+import { IProjectConfigDto } from "~/abstractions/models/index.js";
 
 const getWorkerPath = () => {
     // TODO: I have no idea why import.meta.dirname is sometimes undefined.
     // TODO: Would be nice to further investigate this.
-    return path.join(import.meta.dirname || __dirname, "renderConfigWorker.js");
+    return path.join(import.meta.dirname || __dirname, "renderConfigWorkerEntry.js");
 };
 
 export async function renderConfig(manifestPath: string) {
@@ -19,11 +19,14 @@ export async function renderConfig(manifestPath: string) {
     // Decided to move on, as this works and I don't have time to investigate this further.
     return new Promise<IProjectConfigDto>((resolve, reject) => {
         const workerPath = getWorkerPath();
+
         const childProcess = fork(workerPath, [manifestPath], {
             env: process.env
         });
 
+        // The only message we expect to receive is the parsed project config.
         childProcess.on("message", (data: IProjectConfigDto) => {
+            console.log("dejtaaaa", data);
             resolve(data);
         });
 

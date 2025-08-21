@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { ExtensionDefinitionModel } from "~/extensions/models/ExtensionDefinitionModel";
+import { ExtensionDefinitionModel } from "~/extensions/models/ExtensionDefinitionModel.js";
 
 export interface IProjectSdkParams {
     cwd: string;

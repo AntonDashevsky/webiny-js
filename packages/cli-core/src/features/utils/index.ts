@@ -1,1 +1,1 @@
-export * from "./measureDuration";
+export * from "./measureDuration.js";

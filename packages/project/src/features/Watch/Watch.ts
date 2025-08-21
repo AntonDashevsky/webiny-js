@@ -12,7 +12,7 @@ import chalk from "chalk";
 // import type inspectorType from "inspector";
 // import { getDeploymentId, loadEnvVariables, runHook, setMustRefreshBeforeDeploy } from "~/utils/index.js";
 // import { getIotEndpoint } from "./getIotEndpoint.js";
-import { AppModel } from "~/models";
+import { AppModel } from "~/models/index.js";
 import { PackagesWatcher } from "./watchers/PackagesWatcher.js";
 // import { initInvocationForwarding } from "./initInvocationForwarding.js";
 // import { replaceLambdaFunctions } from "./replaceLambdaFunctions.js";

@@ -1,6 +1,6 @@
-import { ExtensionDefinitionModel } from "./ExtensionDefinitionModel";
+import { ExtensionDefinitionModel } from "./ExtensionDefinitionModel.js";
 import { z } from "zod";
-import { ProjectModel } from "~/models";
+import { ProjectModel } from "~/models/index.js";
 
 export interface ExtensionInstanceModelContext {
     [key: string]: any;

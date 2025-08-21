@@ -1,4 +1,4 @@
-import { UiService, StdioService } from "~/abstractions";
+import { UiService, StdioService } from "~/abstractions/index.js";
 import { ChildProcess } from "child_process";
 
 export interface IBuildProcess {

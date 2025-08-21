@@ -1,5 +1,5 @@
 import { ok, err, Result } from "neverthrow";
-import { regions } from "./regions";
+import { regions } from "./regions.js";
 
 export const isValidRegionName = (name?: string): Result<string, string> => {
     const region = (name || "").trim();

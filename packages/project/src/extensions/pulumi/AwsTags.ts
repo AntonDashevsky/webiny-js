@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { defineExtension } from "~/extensions/defineExtension";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
 
 export const awsTags = defineExtension({
     type: "Deployments/AwsTags",

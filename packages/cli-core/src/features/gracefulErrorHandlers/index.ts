@@ -1,3 +1,3 @@
-export * from "./DdbPutItemConditionalCheckFailedGracefulErrorHandler";
-export * from "./MissingFilesInBuildGracefulErrorHandler";
-export * from "./PendingOperationsGracefulErrorHandler";
+export * from "./DdbPutItemConditionalCheckFailedGracefulErrorHandler.js";
+export * from "./MissingFilesInBuildGracefulErrorHandler.js";
+export * from "./PendingOperationsGracefulErrorHandler.js";

@@ -1,1 +1,1 @@
-export * from "./ValidateProjectConfigService";
+export * from "./ValidateProjectConfigService.js";

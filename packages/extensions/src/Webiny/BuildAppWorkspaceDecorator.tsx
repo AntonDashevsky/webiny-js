@@ -5,7 +5,7 @@ import util from "util";
 import ncpBase from "ncp";
 import findUp from "find-up";
 import { replaceInPath } from "replace-in-path";
-import { BuildApp, GetApp } from "@webiny/project/abstractions";
+import { BuildApp, GetApp } from "@webiny/project/abstractions/index.js";
 
 const ncp = util.promisify(ncpBase.ncp);
 

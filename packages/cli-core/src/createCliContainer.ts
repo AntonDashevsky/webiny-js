@@ -36,8 +36,8 @@ import {
     GetProjectSdkService,
     LoadEnvVarsService,
     UiService
-} from "~/abstractions";
-import { GracefulError } from "~/utils/GracefulError";
+} from "~/abstractions/index.js";
+import { GracefulError } from "~/utils/GracefulError.js";
 import chalk from "chalk";
 
 const { bgYellow, bold } = chalk;

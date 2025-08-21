@@ -1,4 +1,4 @@
-import { defineExtension } from "~/extensions/defineExtension";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
 import { z } from "zod";
 
 export const projectId = defineExtension({

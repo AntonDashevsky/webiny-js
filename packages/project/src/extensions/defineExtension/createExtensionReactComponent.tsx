@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { DefineExtensionParams } from "./types";
+import { DefineExtensionParams } from "./types.js";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 

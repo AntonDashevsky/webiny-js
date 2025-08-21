@@ -5,7 +5,7 @@ import {
     GetPulumiService,
     PulumiSelectStackService
 } from "~/abstractions/index.js";
-import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env";
+import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
 
 export class DefaultGetAppOutput implements GetAppOutput.Interface {
     constructor(

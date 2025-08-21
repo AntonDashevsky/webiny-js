@@ -6,7 +6,6 @@ import merge from "lodash/merge.js";
 import kebabCase from "lodash/kebabCase.js";
 import set from "lodash/set.js";
 import downloadBinaries from "./downloadBinaries.js";
-import { PackageJson } from "@webiny/cli";
 
 type Command = string | string[];
 
@@ -178,14 +177,32 @@ export class Pulumi {
     }
 
     private async ensureAwsPluginIsInstalled() {
-        const pulumiAwsPackageJson = await PackageJson.fromPackage("@pulumi/aws");
-        const packageJson = pulumiAwsPackageJson.getJson();
+        let pulumiAwsVersion = "";
+        const { stdout } = execa.sync("yarn", [
+            "info",
+            "@pulumi/aws",
+            "-A",
+            "-R",
+            "--name-only",
+            "--json"
+        ]);
+
+        const match = stdout.match(/npm:(.*?)"/);
+        if (match) {
+            pulumiAwsVersion = match[1];
+        }
+
+        if (!pulumiAwsVersion) {
+            throw new PulumiError(
+                "Could not determine the version of @pulumi/aws package. Please ensure it is installed."
+            );
+        }
 
         const pluginExists = fs.pathExistsSync(
             path.join(
                 this.pulumiFolder,
                 "plugins",
-                `resource-aws-${packageJson.version}`,
+                `resource-aws-${pulumiAwsVersion}`,
                 "pulumi-resource-aws"
             )
         );
@@ -196,7 +213,7 @@ export class Pulumi {
 
         return execa.sync(
             this.pulumiBinaryPath,
-            ["plugin", "install", "resource", "aws", packageJson.version],
+            ["plugin", "install", "resource", "aws", pulumiAwsVersion],
             {
                 stdio: "inherit",
                 env: {

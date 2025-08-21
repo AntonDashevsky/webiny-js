@@ -1,4 +1,4 @@
-import { defineExtension, zodPathToAbstraction } from "@webiny/project/extensions";
+import { defineExtension, zodPathToAbstraction } from "@webiny/project/extensions/index.js";
 import { Command } from "~/abstractions/index.js";
 import { z } from "zod";
 

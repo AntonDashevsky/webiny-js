@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { Command } from "~/abstractions";
+import { Command } from "~/abstractions/index.js";
 
 export type IError = Error;
 

@@ -77,7 +77,7 @@ import {
     GetProjectConfig,
     ProjectSdkParamsService,
     ValidateProjectConfig
-} from "~/abstractions";
+} from "~/abstractions/index.js";
 import path from "path";
 
 export const createProjectSdkContainer = async (

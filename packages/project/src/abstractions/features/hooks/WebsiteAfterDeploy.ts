@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { DeployApp } from "~/abstractions";
+import { DeployApp } from "~/abstractions/index.js";
 
 export interface IWebsiteAfterDeploy {
     execute(params: DeployApp.Params): void | Promise<void>;

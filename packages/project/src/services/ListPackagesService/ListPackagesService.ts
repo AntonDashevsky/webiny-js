@@ -3,7 +3,7 @@ import { GetApp, GetProjectService, ListPackagesService } from "~/abstractions/i
 import execa from "execa";
 import fs from "fs";
 import path from "path";
-import { requireConfig } from "~/utils";
+import { requireConfig } from "~/utils/index.js";
 
 export type IYarnWorkspacesResult = {
     name: string;

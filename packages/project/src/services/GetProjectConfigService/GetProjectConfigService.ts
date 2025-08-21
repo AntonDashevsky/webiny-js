@@ -5,10 +5,10 @@ import {
     LoggerService,
     ProjectSdkParamsService
 } from "~/abstractions/index.js";
-import { renderConfig } from "./renderConfig";
-import { ProjectConfigModel } from "~/models/ProjectConfigModel";
-import { ExtensionType, IHydratedProjectConfig, IProjectConfigDto } from "~/abstractions/models";
-import { ExtensionInstanceModel } from "~/extensions";
+import { renderConfig } from "./renderConfig.js";
+import { ProjectConfigModel } from "~/models/ProjectConfigModel.js";
+import { ExtensionType, IHydratedProjectConfig, IProjectConfigDto } from "~/abstractions/models/index.js";
+import { ExtensionInstanceModel } from "~/extensions/index.js";
 
 export class DefaultGetProjectConfigService implements GetProjectConfigService.Interface {
     cachedProjectConfig: ProjectConfigModel | null = null;

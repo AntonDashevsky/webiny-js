@@ -1,5 +1,5 @@
 import { createDecorator } from "@webiny/di-container";
-import { BuildApp } from "~/abstractions";
+import { BuildApp } from "~/abstractions/index.js";
 import {
     AdminBeforeBuild,
     AdminAfterBuild,
@@ -9,7 +9,7 @@ import {
     CoreAfterBuild,
     WebsiteBeforeBuild,
     WebsiteAfterBuild
-} from "~/abstractions";
+} from "~/abstractions/index.js";
 
 export class BuildAppWithHooks implements BuildApp.Interface {
     constructor(

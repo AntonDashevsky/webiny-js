@@ -1,6 +1,6 @@
 import { BaseBuildOutput } from "./BaseBuildOutput.js";
 import Listr from "listr";
-import { measureDuration } from "~/features/utils";
+import { measureDuration } from "~/features/utils/index.js";
 
 export class MultipleBuildsOutput extends BaseBuildOutput {
     public override output() {

@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { GetApp, ListPackagesInAppWorkspaceService } from "~/abstractions/index.js";
 import glob from "fast-glob";
-import { AppName } from "~/abstractions/types";
+import { AppName } from "~/abstractions/types.js";
 import path from "path";
 
 export class DefaultListPackagesInAppWorkspaceService

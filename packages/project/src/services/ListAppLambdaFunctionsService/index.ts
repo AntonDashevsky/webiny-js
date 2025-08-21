@@ -1,2 +1,2 @@
-export * from "./ListAppLambdaFunctionsService";
+export * from "./ListAppLambdaFunctionsService.js";
 

@@ -2,8 +2,8 @@ import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
 import chalk from "chalk";
-import { getRandomColorForString } from "./getRandomColorForString";
-import { createPrefixer } from "./createPrefixer";
+import { getRandomColorForString } from "./getRandomColorForString.js";
+import { createPrefixer } from "./createPrefixer.js";
 
 export interface IWatchCommandParams extends IBaseAppParams {}
 

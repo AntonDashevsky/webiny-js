@@ -1,6 +1,6 @@
-import { DefineExtensionParams } from "~/extensions/defineExtension/types";
-import { createExtensionDefinition } from "./createExtensionDefinition";
-import { createExtensionReactComponent } from "./createExtensionReactComponent";
+import { DefineExtensionParams } from "~/extensions/defineExtension/types.js";
+import { createExtensionDefinition } from "./createExtensionDefinition.js";
+import { createExtensionReactComponent } from "./createExtensionReactComponent.js";
 import { z } from "zod";
 
 export function defineExtension<TParamsSchema extends z.ZodTypeAny>(

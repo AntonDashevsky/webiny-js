@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
-import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput";
+import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput.js";
 
 export interface IBuildCommandParams extends IBaseAppParams {}
 

@@ -1,4 +1,4 @@
-import { UiService, StdioService } from "~/abstractions";
+import { UiService, StdioService } from "~/abstractions/index.js";
 import { IDeployWithAppParams } from "../DeployCommand.js";
 import { ExecaChildProcess } from "execa";
 

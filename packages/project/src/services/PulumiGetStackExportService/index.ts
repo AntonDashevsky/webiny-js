@@ -1,2 +1,2 @@
-export * from "./PulumiGetStackExportService";
+export * from "./PulumiGetStackExportService.js";
 

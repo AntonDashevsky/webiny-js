@@ -1,6 +1,6 @@
-import { telemetry } from "./Telemetry";
-import { projectId } from "./ProjectId";
-import { projectDecorator } from "./ProjectDecorator";
+import { telemetry } from "./Telemetry.js";
+import { projectId } from "./ProjectId.js";
+import { projectDecorator } from "./ProjectDecorator.js";
 
 // Hooks.
 import { adminBeforeBuild } from "./hooks/index.js";
@@ -29,9 +29,9 @@ import {
 } from "./pulumi/index.js";
 
 // Exports.
-export * from "./defineExtension";
-export * from "./models";
-export * from "./zodPathToAbstraction";
+export * from "./defineExtension/index.js";
+export * from "./models/index.js";
+export * from "./zodPathToAbstraction.js";
 
 // React components (consumed by users). 👇
 export const Telemetry = telemetry.ReactComponent;

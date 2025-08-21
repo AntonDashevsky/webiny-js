@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { ExtensionInstanceModelContext } from "~/extensions";
-import { AppName } from "~/abstractions/types";
+import { ExtensionInstanceModelContext } from "~/extensions/index.js";
+import { AppName } from "~/abstractions/types.js";
 
 export type ExtensionTags = {
     [key: string]: string | undefined;

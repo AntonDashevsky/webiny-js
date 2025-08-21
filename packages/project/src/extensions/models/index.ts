@@ -1,2 +1,2 @@
-export * from "./ExtensionDefinitionModel";
-export * from "./ExtensionInstanceModel";
+export * from "./ExtensionDefinitionModel.js";
+export * from "./ExtensionInstanceModel.js";

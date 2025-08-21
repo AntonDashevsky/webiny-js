@@ -1,7 +1,7 @@
-import { defineExtension } from "~/extensions/defineExtension";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
 import { z } from "zod";
-import { zodPathToFile } from "~/extensions/zodPathToFile";
-import { CorePulumi } from "~/abstractions";
+import { zodPathToFile } from "~/extensions/zodPathToFile.js";
+import { CorePulumi } from "~/abstractions/index.js";
 
 export const projectDecorator = defineExtension({
     type: "Project/Decorator",

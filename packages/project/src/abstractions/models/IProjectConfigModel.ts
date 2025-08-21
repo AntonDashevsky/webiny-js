@@ -1,4 +1,4 @@
-import { IHydratedProjectConfig } from "~/abstractions/models/IProjectConfigDto";
+import { IHydratedProjectConfig } from "~/abstractions/models/IProjectConfigDto.js";
 import { ExtensionInstanceModel } from "~/extensions/models/index.js";
 import { z } from "zod";
 

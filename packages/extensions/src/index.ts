@@ -33,7 +33,7 @@ import {
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
 
 // Exports.
-export { Webiny } from "./Webiny";
+export { Webiny } from "./Webiny.js";
 
 export const Project = {
     Id: ProjectId,

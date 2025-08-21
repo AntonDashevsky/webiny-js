@@ -9,8 +9,8 @@ import {
 import yargs from "yargs/yargs";
 import chalk from "chalk";
 import { Argv } from "yargs";
-import { GracefulError } from "~/utils/GracefulError";
-import { HandledError } from "~/utils/HandledError";
+import { GracefulError } from "~/utils/GracefulError.js";
+import { HandledError } from "~/utils/HandledError.js";
 
 const { blue, bgYellow, bold } = chalk;
 

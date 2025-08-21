@@ -4,8 +4,8 @@ import {
     sendEvent as telemetrySendEvent
 } from "@webiny/telemetry/cli.js";
 import { Command, GetProjectSdkService } from "~/abstractions/index.js";
-import { IDeployCommandParams } from "~/features";
-import { GracefulError } from "~/utils/GracefulError";
+import { IDeployCommandParams } from "~/features/index.js";
+import { GracefulError } from "~/utils/GracefulError.js";
 
 const isDeployCommand = (
     command: Command.CommandDefinition<any>

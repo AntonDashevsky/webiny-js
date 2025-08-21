@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { defineExtension } from "~/extensions/defineExtension";
-import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction";
+import { defineExtension } from "~/extensions/defineExtension/index.js";
+import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction.js";
 import { CorePulumi } from "~/abstractions/features/pulumi/index.js";
 
 export const corePulumi = defineExtension({

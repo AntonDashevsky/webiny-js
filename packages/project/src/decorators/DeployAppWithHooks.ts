@@ -1,5 +1,5 @@
 import { createDecorator } from "@webiny/di-container";
-import { DeployApp } from "~/abstractions";
+import { DeployApp } from "~/abstractions/index.js";
 import {
     AdminBeforeDeploy,
     AdminAfterDeploy,
@@ -9,7 +9,7 @@ import {
     CoreAfterDeploy,
     WebsiteBeforeDeploy,
     WebsiteAfterDeploy
-} from "~/abstractions";
+} from "~/abstractions/index.js";
 
 export class DeployAppWithHooks implements DeployApp.Interface {
     constructor(
