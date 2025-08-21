@@ -3,73 +3,39 @@
   "version": "0.0.0",
   "main": "index.js",
   "type": "module",
-  "bin": {
-    "webiny": "./bin.js"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/webiny/webiny-js.git",
-    "directory": "packages/cli"
+    "url": "https://github.com/webiny/webiny-js.git"
   },
-  "author": "Pavel Denisjuk <pavel@webiny.com>",
-  "description": "A tool to bootstrap a Webiny project.",
+  "description": "A command line interface (CLI) for managing Webiny projects.",
+  "license": "MIT",
   "dependencies": {
+    "@webiny/cli-core": "0.0.0",
+    "@webiny/di-container": "0.0.0",
+    "@webiny/extensions": "0.0.0",
+    "@webiny/project": "0.0.0",
     "@webiny/system-requirements": "0.0.0",
     "@webiny/telemetry": "0.0.0",
-    "@webiny/wcp": "0.0.0",
-    "boolean": "^3.2.0",
-    "camelcase": "^6.3.0",
-    "chalk": "^4.1.2",
-    "ci-info": "^4.1.0",
-    "dotenv": "^8.2.0",
-    "execa": "^5.1.1",
-    "fast-glob": "^3.2.7",
-    "find-up": "5.0.0",
-    "fs-extra": "^11.2.0",
-    "graphql-request": "^3.7.0",
-    "inquirer": "8.2.6",
-    "ncp": "2.0.0",
-    "open": "^8.4.2",
-    "pirates": "^4.0.6",
-    "read-json-sync": "2.0.1",
-    "semver": "^7.6.3",
-    "ts-morph": "^11.0.0",
-    "tsx": "^4.16.2",
-    "typescript": "5.3.3",
-    "uniqid": "^5.4.0",
+    "ora": "4.1.1",
+    "pino": "^8.21.0",
+    "pino-pretty": "^9.4.0",
     "yargs": "^17.7.2",
     "yargs-parser": "^21.1.1"
   },
   "devDependencies": {
-    "@types/read-json-sync": "^2.0.3"
+    "@types/lodash": "^4.17.13",
+    "@webiny/project-utils": "0.0.0",
+    "jest": "^29.7.0",
+    "rimraf": "^6.0.1",
+    "typescript": "5.3.3"
   },
-  "license": "MIT",
   "publishConfig": {
     "access": "public",
-    "directory": "."
+    "directory": "dist"
   },
-  "adio": {
-    "ignoreDirs": [
-      "/create/template/",
-      "/node_modules/",
-      "/dist/"
-    ],
-    "ignore": {
-      "src": [
-        "@webiny/project-utils",
-        "@webiny/api-file-manager",
-        "@webiny/api",
-        "@webiny/handler-client",
-        "@webiny/api-elasticsearch",
-        "@webiny/api-tenancy",
-        "@webiny/api-security",
-        "@webiny/api-i18n",
-        "@webiny/api-i18n-content",
-        "@webiny/api-page-builder",
-        "@webiny/api-prerendering-service",
-        "@webiny/api-headless-cms"
-      ]
-    }
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   },
-  "gitHead": "b8aec8a1be3f25c3b428b357fe1e352c7cbff9ae"
+  "gitHead": "8476da73b653c89cc1474d968baf55c1b0ae0e5f"
 }

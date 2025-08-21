@@ -30,7 +30,6 @@ import basicGroup from "@webiny/app-page-builder/editor/plugins/elementGroups/ba
 import layoutGroup from "@webiny/app-page-builder/editor/plugins/elementGroups/layout";
 import mediaGroup from "@webiny/app-page-builder/editor/plugins/elementGroups/media";
 import embedsGroup from "@webiny/app-page-builder/editor/plugins/elementGroups/embeds";
-import formGroup from "@webiny/app-page-builder/editor/plugins/elementGroups/form";
 import socialGroup from "@webiny/app-page-builder/editor/plugins/elementGroups/social";
 import codeGroup from "@webiny/app-page-builder/editor/plugins/elementGroups/code";
 import savedGroup from "@webiny/app-page-builder/editor/plugins/elementGroups/saved";
@@ -104,7 +103,6 @@ export default [
     // Element groups
     basicGroup,
     layoutGroup,
-    formGroup,
     mediaGroup,
     embedsGroup,
     socialGroup,

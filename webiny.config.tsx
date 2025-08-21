@@ -4,9 +4,9 @@ import { Webiny, Cli, Core, Api, Project } from "./packages/extensions/src";
 export default function Webiny() {
     return (
         <>
-            {/*<Webiny />*/}
+            <Webiny />
 
-            <Project.Id id={"webiny/test-project"} />
+            {/*<Project.Id id={"webiny/test-project"} />*/}
             {/*<Project.Telemetry enabled={false} />*/}
 
             {/*/!*Modifying cloud infra via Pulumi.*!/*/}

@@ -5074,6 +5074,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@codexteam/icons@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "@codexteam/icons@npm:0.0.4"
+  checksum: 10/877eeb3e62ddb907120234a93bde35902b493c49cf8795b4504db0467474f9de024ef1050ed10ac1bcfef6a5d95cf1e5a47668160729b79cba45aa088eeff0e6
+  languageName: node
+  linkType: hard
+
+"@codexteam/icons@npm:^0.3.2":
+  version: 0.3.3
+  resolution: "@codexteam/icons@npm:0.3.3"
+  checksum: 10/aed3a41811f4f043cf8a71b9eb35b17b0bacf0f8073b2bc3abd52b85388fb099163257be9d5519ea13f945b40a21ece825b772f875b1cbaafd4ef7058361b9a2
+  languageName: node
+  linkType: hard
+
 "@colors/colors@npm:1.5.0":
   version: 1.5.0
   resolution: "@colors/colors@npm:1.5.0"
@@ -5825,52 +5839,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dnd-kit/accessibility@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@dnd-kit/accessibility@npm:3.1.0"
+"@editorjs/delimiter@npm:^1.4.2":
+  version: 1.4.2
+  resolution: "@editorjs/delimiter@npm:1.4.2"
   dependencies:
-    tslib: "npm:^2.0.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10/750a0537877d5dde3753e9ef59d19628b553567e90fc3e3b14a79bded08f47f4a7161bc0d003d7cd6b3bd9e10aa233628dca07d2aa5a2120cac84555ba1653d8
+    "@codexteam/icons": "npm:^0.3.2"
+  checksum: 10/d62f22f98c65abc814d31e1f184a3a920534a959dc98c6a4634198b69fc07010a13ba240fb6730f26c2c391bc826f8c446b13ffed2a31691d6757eca080e1619
   languageName: node
   linkType: hard
 
-"@dnd-kit/core@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@dnd-kit/core@npm:6.1.0"
+"@editorjs/dom@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "@editorjs/dom@npm:0.0.5"
   dependencies:
-    "@dnd-kit/accessibility": "npm:^3.1.0"
-    "@dnd-kit/utilities": "npm:^3.2.2"
-    tslib: "npm:^2.0.0"
-  peerDependencies:
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: 10/cf9e99763fbd9220cb6fdde2950c19fdf6248391234f5ee835601814124445fd8a6e4b3f5bc35543c802d359db8cc47f07d87046577adc41952ae981a03fbda0
-  languageName: node
-  linkType: hard
-
-"@dnd-kit/sortable@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@dnd-kit/sortable@npm:8.0.0"
-  dependencies:
-    "@dnd-kit/utilities": "npm:^3.2.2"
-    tslib: "npm:^2.0.0"
-  peerDependencies:
-    "@dnd-kit/core": ^6.1.0
-    react: ">=16.8.0"
-  checksum: 10/e2e0d37ace13db2e6aceb65a803195ef29e1a33a37e7722a988d7a9c1aacce77472a93b2adcd8e6780ac98b3d5640c5481892f530177c2eb966df235726942ad
-  languageName: node
-  linkType: hard
-
-"@dnd-kit/utilities@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "@dnd-kit/utilities@npm:3.2.2"
-  dependencies:
-    tslib: "npm:^2.0.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10/6cfe46a5fcdaced943982e7ae66b08b89235493e106eb5bc833737c25905e13375c6ecc3aa0c357d136cb21dae3966213dba063f19b7a60b1235a29a7b05ff84
+    "@editorjs/helpers": "npm:^0.0.4"
+  checksum: 10/ed7e4169218adf51b2886e2cbd8d261274415e338ba91282266d74d989c32dfa9adc7f65105b461599f5b1bc5e0c608933c4d77216a7d2360fe16334717a38cb
   languageName: node
   linkType: hard
 
@@ -5884,6 +5867,41 @@ __metadata:
     html-janitor: "npm:^2.0.4"
     nanoid: "npm:^3.1.22"
   checksum: 10/7b3af3f00e85a071f13f68483a3c240d05a5fb610aa9fdc9735aa6d6d7d8bda89aa15ce69c1c5dc13f6ce6bf32bc1a0b8ebd0984b4061b3c3609fa1dcd0abdbe
+  languageName: node
+  linkType: hard
+
+"@editorjs/helpers@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "@editorjs/helpers@npm:0.0.4"
+  checksum: 10/889258a414e051c7fb50ba18ab68345da6897e13118453082b620f4b8e4ea3ec650b531a94a6954d16c30c02ed41c2060afe07d33122eb469e8edb4738fb0a64
+  languageName: node
+  linkType: hard
+
+"@editorjs/list@npm:^1.10.0":
+  version: 1.10.0
+  resolution: "@editorjs/list@npm:1.10.0"
+  dependencies:
+    "@codexteam/icons": "npm:^0.0.4"
+  checksum: 10/e04efb0cba65da910724be561bb282341f405ae015da4867be2c371541ea8a37c7fa8ba835dd258c2535a4e5e46de041e087095fa822e2b1b02636ae809f78bd
+  languageName: node
+  linkType: hard
+
+"@editorjs/quote@npm:^2.7.2":
+  version: 2.7.6
+  resolution: "@editorjs/quote@npm:2.7.6"
+  dependencies:
+    "@codexteam/icons": "npm:^0.3.2"
+    "@editorjs/dom": "npm:^0.0.5"
+  checksum: 10/09aa49478259cd73070a4d80b57946e50a9c0fae11cf0cacac261eb3be87de0ef70562d04f865e72e2040da6e4138dadc67a87225c967995d7015105220c65bb
+  languageName: node
+  linkType: hard
+
+"@editorjs/underline@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@editorjs/underline@npm:1.2.1"
+  dependencies:
+    "@codexteam/icons": "npm:^0.3.2"
+  checksum: 10/66a8d78eb8c8486b99d90d9ce58c94443f2438e9cf7858dd67a0c29191e6fac7600681b7f7cffd893972cc1d3190c01c8adb179ac9da90f7112472b656eac8ad
   languageName: node
   linkType: hard
 
@@ -12624,13 +12642,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gtag.js@npm:^0.0.20":
-  version: 0.0.20
-  resolution: "@types/gtag.js@npm:0.0.20"
-  checksum: 10/5582c540adaec49e0fdf308e0d9921397257c34371b2d0d5acb00e3775aa1aa44e2b19b2ede4cd8ca1eba1df2e3f54aee56eb82ab147846036d6460e4993c8db
-  languageName: node
-  linkType: hard
-
 "@types/hoist-non-react-statics@npm:^3.3.5":
   version: 3.3.5
   resolution: "@types/hoist-non-react-statics@npm:3.3.5"
@@ -12777,15 +12788,6 @@ __metadata:
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
   checksum: 10/1a3c3e06236e4c4aab89499c428d585527ce50c24fe8259e8b3926d3df4cfbbbcf306cfc73ddfb66cbafc973116efd15967020b0f738f63e09e64c7d260519e7
-  languageName: node
-  linkType: hard
-
-"@types/json2csv@npm:^4.5.1":
-  version: 4.5.1
-  resolution: "@types/json2csv@npm:4.5.1"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 10/0276c0ac00358c076862a5138592e98c64b41264316a0c2c0209157ff15ca1d7b8ff3fe0286fa25834d6686c293415ea0ec431ba1b5b77e892193bfe75e25bca
   languageName: node
   linkType: hard
 
@@ -13086,24 +13088,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-google-recaptcha@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "@types/react-google-recaptcha@npm:1.1.2"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 10/2a4a0697a19e18a90c5b45d946f1b7bcfccc8e96f5f33dcf64e3605a94940e731d480a01c53ceb18503fa950ddaa55d6b8bff5c38528765f20bbcb3a9bf1544e
-  languageName: node
-  linkType: hard
-
-"@types/react-hamburger-menu@npm:^0.0.4":
-  version: 0.0.4
-  resolution: "@types/react-hamburger-menu@npm:0.0.4"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 10/fb1d07dde747d82f7e57a73221a2a88f46082d28ef6e4bec8e9ffe5b3491b1d3d6d2a10153a1116c056748858aeebe9fc680180c1a7efc5c143d4f3e3b30a06d
-  languageName: node
-  linkType: hard
-
 "@types/react-helmet@npm:^6.1.11":
   version: 6.1.11
   resolution: "@types/react-helmet@npm:6.1.11"
@@ -13166,15 +13150,6 @@ __metadata:
   dependencies:
     "@types/react": "npm:*"
   checksum: 10/f4711d707a1af653178c8941080e989a945feb0c529d848fed36687ee5e8a462cda183383caadf8848497b5c03bec16e6cdf22fc70462913d8d706cabb597130
-  languageName: node
-  linkType: hard
-
-"@types/read-json-sync@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "@types/read-json-sync@npm:2.0.3"
-  dependencies:
-    "@types/node": "npm:*"
-  checksum: 10/63e62a8109ecedffbb2239f09e63cce97ed4eda339e3204157bde397a1f3f9c521051fa80ab56b9dbcb9d7021e89bd5d5a0e316018da1c1d75080f8d7325251d
   languageName: node
   linkType: hard
 
@@ -14407,7 +14382,6 @@ __metadata:
     "@webiny/api-admin-users": "npm:0.0.0"
     "@webiny/api-apw": "npm:0.0.0"
     "@webiny/api-file-manager": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
     "@webiny/api-headless-cms": "npm:0.0.0"
     "@webiny/api-i18n": "npm:0.0.0"
     "@webiny/api-mailer": "npm:0.0.0"
@@ -14676,93 +14650,6 @@ __metadata:
     lodash: "npm:^4.17.21"
     object-hash: "npm:^3.0.0"
     rimraf: "npm:^6.0.1"
-    typescript: "npm:5.3.3"
-    zod: "npm:^3.23.8"
-  languageName: unknown
-  linkType: soft
-
-"@webiny/api-form-builder-so-ddb-es@npm:0.0.0, @webiny/api-form-builder-so-ddb-es@workspace:packages/api-form-builder-so-ddb-es":
-  version: 0.0.0-use.local
-  resolution: "@webiny/api-form-builder-so-ddb-es@workspace:packages/api-form-builder-so-ddb-es"
-  dependencies:
-    "@elastic/elasticsearch": "npm:7.12.0"
-    "@webiny/api": "npm:0.0.0"
-    "@webiny/api-dynamodb-to-elasticsearch": "npm:0.0.0"
-    "@webiny/api-elasticsearch": "npm:0.0.0"
-    "@webiny/api-elasticsearch-tasks": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
-    "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/db-dynamodb": "npm:0.0.0"
-    "@webiny/error": "npm:0.0.0"
-    "@webiny/handler-aws": "npm:0.0.0"
-    "@webiny/handler-db": "npm:0.0.0"
-    "@webiny/plugins": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-    "@webiny/utils": "npm:0.0.0"
-    csvtojson: "npm:^2.0.10"
-    elastic-ts: "npm:^0.12.0"
-    jest: "npm:^29.7.0"
-    jest-dynalite: "npm:^3.6.1"
-    rimraf: "npm:^6.0.1"
-    typescript: "npm:5.3.3"
-  languageName: unknown
-  linkType: soft
-
-"@webiny/api-form-builder-so-ddb@npm:0.0.0, @webiny/api-form-builder-so-ddb@workspace:packages/api-form-builder-so-ddb":
-  version: 0.0.0-use.local
-  resolution: "@webiny/api-form-builder-so-ddb@workspace:packages/api-form-builder-so-ddb"
-  dependencies:
-    "@webiny/api": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
-    "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/db-dynamodb": "npm:0.0.0"
-    "@webiny/error": "npm:0.0.0"
-    "@webiny/handler-db": "npm:0.0.0"
-    "@webiny/plugins": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-    "@webiny/utils": "npm:0.0.0"
-    csvtojson: "npm:^2.0.10"
-    jest: "npm:^29.7.0"
-    jest-dynalite: "npm:^3.6.1"
-    rimraf: "npm:^6.0.1"
-    typescript: "npm:5.3.3"
-  languageName: unknown
-  linkType: soft
-
-"@webiny/api-form-builder@npm:0.0.0, @webiny/api-form-builder@workspace:packages/api-form-builder":
-  version: 0.0.0-use.local
-  resolution: "@webiny/api-form-builder@workspace:packages/api-form-builder"
-  dependencies:
-    "@types/json2csv": "npm:^4.5.1"
-    "@types/node-fetch": "npm:^2.6.1"
-    "@webiny/api": "npm:0.0.0"
-    "@webiny/api-file-manager": "npm:0.0.0"
-    "@webiny/api-headless-cms": "npm:0.0.0"
-    "@webiny/api-i18n": "npm:0.0.0"
-    "@webiny/api-mailer": "npm:0.0.0"
-    "@webiny/api-page-builder": "npm:0.0.0"
-    "@webiny/api-security": "npm:0.0.0"
-    "@webiny/api-tenancy": "npm:0.0.0"
-    "@webiny/api-wcp": "npm:0.0.0"
-    "@webiny/error": "npm:0.0.0"
-    "@webiny/handler": "npm:0.0.0"
-    "@webiny/handler-aws": "npm:0.0.0"
-    "@webiny/handler-graphql": "npm:0.0.0"
-    "@webiny/plugins": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-    "@webiny/pubsub": "npm:0.0.0"
-    "@webiny/utils": "npm:0.0.0"
-    "@webiny/validation": "npm:0.0.0"
-    csvtojson: "npm:^2.0.10"
-    date-fns: "npm:^2.22.1"
-    fs-extra: "npm:^11.2.0"
-    jest: "npm:^29.7.0"
-    jest-dynalite: "npm:^3.6.1"
-    json2csv: "npm:^4.5.4"
-    lodash: "npm:^4.17.21"
-    node-fetch: "npm:2.6.7"
-    rimraf: "npm:^6.0.1"
-    slugify: "npm:^1.6.6"
     typescript: "npm:5.3.3"
     zod: "npm:^3.23.8"
   languageName: unknown
@@ -15202,7 +15089,6 @@ __metadata:
     "@webiny/api-authentication": "npm:0.0.0"
     "@webiny/api-dynamodb-to-elasticsearch": "npm:0.0.0"
     "@webiny/api-file-manager": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
     "@webiny/api-page-builder": "npm:0.0.0"
     "@webiny/api-security": "npm:0.0.0"
     "@webiny/api-tenancy": "npm:0.0.0"
@@ -15569,7 +15455,6 @@ __metadata:
     "@webiny/api-apw": "npm:0.0.0"
     "@webiny/api-audit-logs": "npm:0.0.0"
     "@webiny/api-file-manager": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
     "@webiny/api-headless-cms": "npm:0.0.0"
     "@webiny/api-headless-cms-aco": "npm:0.0.0"
     "@webiny/api-headless-cms-tasks": "npm:0.0.0"
@@ -16205,63 +16090,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/app-form-builder@npm:0.0.0, @webiny/app-form-builder@workspace:packages/app-form-builder":
-  version: 0.0.0-use.local
-  resolution: "@webiny/app-form-builder@workspace:packages/app-form-builder"
-  dependencies:
-    "@apollo/react-common": "npm:^3.1.4"
-    "@apollo/react-hooks": "npm:^3.1.5"
-    "@dnd-kit/core": "npm:^6.1.0"
-    "@dnd-kit/sortable": "npm:^8.0.0"
-    "@dnd-kit/utilities": "npm:^3.2.2"
-    "@editorjs/editorjs": "npm:2.26.5"
-    "@emotion/babel-plugin": "npm:^11.11.0"
-    "@emotion/react": "npm:11.10.8"
-    "@emotion/styled": "npm:11.10.6"
-    "@material-design-icons/svg": "npm:^0.14.13"
-    "@material-symbols/svg-400": "npm:^0.4.1"
-    "@svgr/webpack": "npm:^6.1.1"
-    "@types/gtag.js": "npm:^0.0.20"
-    "@types/json2csv": "npm:^4.5.1"
-    "@types/react": "npm:18.2.79"
-    "@types/react-google-recaptcha": "npm:^1.1.2"
-    "@webiny/app": "npm:0.0.0"
-    "@webiny/app-admin": "npm:0.0.0"
-    "@webiny/app-page-builder": "npm:0.0.0"
-    "@webiny/app-page-builder-elements": "npm:0.0.0"
-    "@webiny/app-plugin-admin-welcome-screen": "npm:0.0.0"
-    "@webiny/app-security": "npm:0.0.0"
-    "@webiny/app-tenancy": "npm:0.0.0"
-    "@webiny/form": "npm:0.0.0"
-    "@webiny/plugins": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
-    "@webiny/ui": "npm:0.0.0"
-    "@webiny/utils": "npm:0.0.0"
-    "@webiny/validation": "npm:0.0.0"
-    apollo-cache: "npm:^1.3.5"
-    apollo-client: "npm:^2.6.10"
-    apollo-utilities: "npm:^1.3.4"
-    dnd-core: "npm:^16.0.1"
-    dot-prop-immutable: "npm:^2.1.1"
-    emotion: "npm:10.0.27"
-    graphql: "npm:^15.9.0"
-    graphql-tag: "npm:^2.12.6"
-    history: "npm:^5.3.0"
-    json2csv: "npm:^4.5.4"
-    lodash: "npm:^4.17.21"
-    prop-types: "npm:^15.8.1"
-    react: "npm:18.2.0"
-    react-dnd: "npm:^16.0.1"
-    react-dnd-html5-backend: "npm:^16.0.1"
-    react-dom: "npm:18.2.0"
-    react-google-recaptcha: "npm:^1.1.0"
-    react-hotkeyz: "npm:^1.0.4"
-    rimraf: "npm:^6.0.1"
-    typescript: "npm:5.3.3"
-  languageName: unknown
-  linkType: soft
-
 "@webiny/app-graphql-playground@npm:0.0.0, @webiny/app-graphql-playground@workspace:packages/app-graphql-playground":
   version: 0.0.0-use.local
   resolution: "@webiny/app-graphql-playground@workspace:packages/app-graphql-playground"
@@ -16723,7 +16551,6 @@ __metadata:
     "@webiny/app-dynamic-pages": "npm:0.0.0"
     "@webiny/app-file-manager": "npm:0.0.0"
     "@webiny/app-file-manager-s3": "npm:0.0.0"
-    "@webiny/app-form-builder": "npm:0.0.0"
     "@webiny/app-graphql-playground": "npm:0.0.0"
     "@webiny/app-headless-cms": "npm:0.0.0"
     "@webiny/app-i18n": "npm:0.0.0"
@@ -16922,7 +16749,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/app-website@npm:0.0.0, @webiny/app-website@workspace:packages/app-website":
+"@webiny/app-website@workspace:packages/app-website":
   version: 0.0.0-use.local
   resolution: "@webiny/app-website@workspace:packages/app-website"
   dependencies:
@@ -17067,29 +16894,6 @@ __metadata:
   dependencies:
     "@types/lodash": "npm:^4.17.13"
     "@webiny/di-container": "npm:0.0.0"
-    "@webiny/project": "npm:0.0.0"
-    "@webiny/project-utils": "npm:0.0.0"
-    "@webiny/system-requirements": "npm:0.0.0"
-    "@webiny/telemetry": "npm:0.0.0"
-    jest: "npm:^29.7.0"
-    ora: "npm:4.1.1"
-    pino: "npm:^8.21.0"
-    pino-pretty: "npm:^9.4.0"
-    rimraf: "npm:^6.0.1"
-    typescript: "npm:5.3.3"
-    yargs: "npm:^17.7.2"
-    yargs-parser: "npm:^21.1.1"
-  languageName: unknown
-  linkType: soft
-
-"@webiny/cli-new@workspace:packages/cli-new":
-  version: 0.0.0-use.local
-  resolution: "@webiny/cli-new@workspace:packages/cli-new"
-  dependencies:
-    "@types/lodash": "npm:^4.17.13"
-    "@webiny/cli-core": "npm:0.0.0"
-    "@webiny/di-container": "npm:0.0.0"
-    "@webiny/extensions": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/system-requirements": "npm:0.0.0"
@@ -17264,34 +17068,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/cli@workspace:packages/cli"
   dependencies:
-    "@types/read-json-sync": "npm:^2.0.3"
+    "@types/lodash": "npm:^4.17.13"
+    "@webiny/cli-core": "npm:0.0.0"
+    "@webiny/di-container": "npm:0.0.0"
+    "@webiny/extensions": "npm:0.0.0"
+    "@webiny/project": "npm:0.0.0"
+    "@webiny/project-utils": "npm:0.0.0"
     "@webiny/system-requirements": "npm:0.0.0"
     "@webiny/telemetry": "npm:0.0.0"
-    "@webiny/wcp": "npm:0.0.0"
-    boolean: "npm:^3.2.0"
-    camelcase: "npm:^6.3.0"
-    chalk: "npm:^4.1.2"
-    ci-info: "npm:^4.1.0"
-    dotenv: "npm:^8.2.0"
-    execa: "npm:^5.1.1"
-    fast-glob: "npm:^3.2.7"
-    find-up: "npm:5.0.0"
-    fs-extra: "npm:^11.2.0"
-    graphql-request: "npm:^3.7.0"
-    inquirer: "npm:8.2.6"
-    ncp: "npm:2.0.0"
-    open: "npm:^8.4.2"
-    pirates: "npm:^4.0.6"
-    read-json-sync: "npm:2.0.1"
-    semver: "npm:^7.6.3"
-    ts-morph: "npm:^11.0.0"
-    tsx: "npm:^4.16.2"
+    jest: "npm:^29.7.0"
+    ora: "npm:4.1.1"
+    pino: "npm:^8.21.0"
+    pino-pretty: "npm:^9.4.0"
+    rimraf: "npm:^6.0.1"
     typescript: "npm:5.3.3"
-    uniqid: "npm:^5.4.0"
     yargs: "npm:^17.7.2"
     yargs-parser: "npm:^21.1.1"
-  bin:
-    webiny: ./bin.js
   languageName: unknown
   linkType: soft
 
@@ -17406,6 +17198,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/extensions@workspace:packages/extensions"
   dependencies:
+    "@editorjs/delimiter": "npm:^1.4.2"
+    "@editorjs/list": "npm:^1.10.0"
+    "@editorjs/quote": "npm:^2.7.2"
+    "@editorjs/underline": "npm:^1.2.1"
     "@webiny/api-headless-cms": "npm:0.0.0"
     "@webiny/cli-core": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"
@@ -18009,7 +17805,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/react-rich-text-renderer@npm:0.0.0, @webiny/react-rich-text-renderer@workspace:packages/react-rich-text-renderer":
+"@webiny/react-rich-text-renderer@workspace:packages/react-rich-text-renderer":
   version: 0.0.0-use.local
   resolution: "@webiny/react-rich-text-renderer@workspace:packages/react-rich-text-renderer"
   dependencies:
@@ -18059,9 +17855,6 @@ __metadata:
     "@webiny/api-file-manager": "npm:0.0.0"
     "@webiny/api-file-manager-ddb": "npm:0.0.0"
     "@webiny/api-file-manager-s3": "npm:0.0.0"
-    "@webiny/api-form-builder": "npm:0.0.0"
-    "@webiny/api-form-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-form-builder-so-ddb-es": "npm:0.0.0"
     "@webiny/api-headless-cms": "npm:0.0.0"
     "@webiny/api-headless-cms-ddb": "npm:0.0.0"
     "@webiny/api-headless-cms-ddb-es": "npm:0.0.0"
@@ -20163,7 +19956,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bluebird@npm:^3.5.1, bluebird@npm:^3.7.2, bluebird@npm:~3.7.2":
+"bluebird@npm:^3.7.2, bluebird@npm:~3.7.2":
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
   checksum: 10/007c7bad22c5d799c8dd49c85b47d012a1fe3045be57447721e6afbd1d5be43237af1db62e26cb9b0d9ba812d2e4ca3bac82f6d7e016b6b88de06ee25ceb96e7
@@ -21593,7 +21386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.15.1, commander@npm:^2.20.0, commander@npm:^2.8.1":
+"commander@npm:^2.20.0, commander@npm:^2.8.1":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: 10/90c5b6898610cd075984c58c4f88418a4fb44af08c1b1415e9854c03171bec31b336b7f3e4cefe33de994b3f12b03c5e2d638da4316df83593b9e82554e7e95b
@@ -22650,19 +22443,6 @@ __metadata:
   version: 3.1.1
   resolution: "csstype@npm:3.1.1"
   checksum: 10/a945162578fe5a90d40950646ab289cec8966dfacc7e5220be832d87773684c969d91920e0d5f9a0c4503aca1f9fa91134a822ebc9c2f9e01e3836ebc6369b25
-  languageName: node
-  linkType: hard
-
-"csvtojson@npm:^2.0.10":
-  version: 2.0.10
-  resolution: "csvtojson@npm:2.0.10"
-  dependencies:
-    bluebird: "npm:^3.5.1"
-    lodash: "npm:^4.17.3"
-    strip-bom: "npm:^2.0.0"
-  bin:
-    csvtojson: ./bin/csvtojson
-  checksum: 10/253ba22c85b8aeb844896468be702949f515b7c5f76aa675a3a8b5eff965445c9c567951f2e6813e7cc173db71ce25e070523a4fc05e36c428d6cb7f3dc34e04
   languageName: node
   linkType: hard
 
@@ -28981,13 +28761,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-utf8@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "is-utf8@npm:0.2.1"
-  checksum: 10/167ccd2be869fc228cc62c1a28df4b78c6b5485d15a29027d3b5dceb09b383e86a3522008b56dcac14b592b22f0a224388718c2505027a994fd8471465de54b3
-  languageName: node
-  linkType: hard
-
 "is-weakmap@npm:^2.0.1":
   version: 2.0.1
   resolution: "is-weakmap@npm:2.0.1"
@@ -30537,19 +30310,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json2csv@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "json2csv@npm:4.5.4"
-  dependencies:
-    commander: "npm:^2.15.1"
-    jsonparse: "npm:^1.3.1"
-    lodash.get: "npm:^4.4.2"
-  bin:
-    json2csv: ./bin/json2csv.js
-  checksum: 10/2ec8bfba6ad5b28cacd0b53a9ed683d74535b6622dc9e8c23738d5f2563f243eb975082351761c14fbdf02eedd1ebc42ec553b2e4ee4f1fdc1e7efc74fe77f70
-  languageName: node
-  linkType: hard
-
 "json5@npm:^1.0.2":
   version: 1.0.2
   resolution: "json5@npm:1.0.2"
@@ -31560,7 +31320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4, lodash@npm:4.17.21, lodash@npm:^4.0.1, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.3, lodash@npm:^4.17.4, lodash@npm:^4.17.5, lodash@npm:^4.3.0, lodash@npm:~4.17.21":
+"lodash@npm:4, lodash@npm:4.17.21, lodash@npm:^4.0.1, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4, lodash@npm:^4.17.5, lodash@npm:^4.3.0, lodash@npm:~4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10/c08619c038846ea6ac754abd6dd29d2568aa705feb69339e836dfa8d8b09abbb2f859371e86863eda41848221f9af43714491467b5b0299122431e202bb0c532
@@ -32735,7 +32495,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ncp@npm:2.0.0, ncp@npm:^2.0.0":
+"ncp@npm:^2.0.0":
   version: 2.0.0
   resolution: "ncp@npm:2.0.0"
   bin:
@@ -36117,7 +35877,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.x, prop-types@npm:^15.5.0, prop-types@npm:^15.5.10, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:15.x, prop-types@npm:^15.5.10, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -36599,18 +36359,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-async-script@npm:^1.0.0":
-  version: 1.2.0
-  resolution: "react-async-script@npm:1.2.0"
-  dependencies:
-    hoist-non-react-statics: "npm:^3.3.0"
-    prop-types: "npm:^15.5.0"
-  peerDependencies:
-    react: ">=16.4.1"
-  checksum: 10/40d46772aa2a6291ca3736379122434442a1d65f6529776ec58a9343a5fd42b7867c55adc99503b804d4eb83a34a7f9443e3d77f56612fd978ba4e2dd2647c55
-  languageName: node
-  linkType: hard
-
 "react-butterfiles@npm:^1.3.3":
   version: 1.3.3
   resolution: "react-butterfiles@npm:1.3.3"
@@ -36789,28 +36537,6 @@ __metadata:
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 10/26ed35d425f197f04c85d572eac943d901a2713335b79483d4f3f94ee5caf97f20678f89bedd385ace9b1637890c88fc5442d732bad0871135643d9703312cd7
-  languageName: node
-  linkType: hard
-
-"react-google-recaptcha@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "react-google-recaptcha@npm:1.1.0"
-  dependencies:
-    prop-types: "npm:^15.5.0"
-    react-async-script: "npm:^1.0.0"
-  peerDependencies:
-    react: ">=16.4.1"
-  checksum: 10/6c68950b72c216af74a55a02aaf71d7f7a0ee58bd23b256f09a76e0477c26393a9427aacb752348d0c106aded6e58735e9f146cc72890287133e0716c83e3cf2
-  languageName: node
-  linkType: hard
-
-"react-hamburger-menu@npm:1.2.1":
-  version: 1.2.1
-  resolution: "react-hamburger-menu@npm:1.2.1"
-  peerDependencies:
-    prop-types: ">=15.5.7"
-    react: ">=15.3.0"
-  checksum: 10/1a59bd1ffec215b525d61cfba4016c9a9e1e242068fd1c5f93976c5c7a76a9e96aa09e853ce00ad8c3f95e596419e2edf97ea5f2f2161e0bd4a0a9fdeff9540a
   languageName: node
   linkType: hard
 
@@ -39729,15 +39455,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-bom@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "strip-bom@npm:2.0.0"
-  dependencies:
-    is-utf8: "npm:^0.2.0"
-  checksum: 10/08efb746bc67b10814cd03d79eb31bac633393a782e3f35efbc1b61b5165d3806d03332a97f362822cf0d4dd14ba2e12707fcff44fe1c870c48a063a0c9e4944
-  languageName: node
-  linkType: hard
-
 "strip-bom@npm:^3.0.0":
   version: 3.0.0
   resolution: "strip-bom@npm:3.0.0"
@@ -40254,30 +39971,6 @@ __metadata:
   checksum: 10/4383b5baaeffa9bb4cda2ac33a4aa2e6d1f8aaf811848bf73513a9b88fd76372dc461f6fd6d2e9cb5100f48b473be32c6f95bd983509b7d92bb4d92c10747452
   languageName: node
   linkType: hard
-
-"theme@workspace:extensions/theme":
-  version: 0.0.0-use.local
-  resolution: "theme@workspace:extensions/theme"
-  dependencies:
-    "@apollo/react-hooks": "npm:^3.1.5"
-    "@emotion/react": "npm:11.10.8"
-    "@emotion/styled": "npm:11.10.6"
-    "@types/react-hamburger-menu": "npm:^0.0.4"
-    "@webiny/app-form-builder": "npm:0.0.0"
-    "@webiny/app-page-builder": "npm:0.0.0"
-    "@webiny/app-page-builder-elements": "npm:0.0.0"
-    "@webiny/app-theme": "npm:0.0.0"
-    "@webiny/app-website": "npm:0.0.0"
-    "@webiny/form": "npm:0.0.0"
-    "@webiny/react-rich-text-renderer": "npm:0.0.0"
-    "@webiny/react-router": "npm:0.0.0"
-    "@webiny/utils": "npm:0.0.0"
-    "@webiny/validation": "npm:0.0.0"
-    graphql: "npm:^15.9.0"
-    react: "npm:18.2.0"
-    react-hamburger-menu: "npm:1.2.1"
-  languageName: unknown
-  linkType: soft
 
 "thingies@npm:^1.20.0":
   version: 1.21.0
