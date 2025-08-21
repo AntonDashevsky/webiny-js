@@ -1,5 +1,6 @@
 import { z } from "zod";
-import { defineExtension, zodPathToAbstraction } from "~/extensions";
+import { defineExtension } from "~/extensions/defineExtension";
+import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction";
 import { ApiPulumi } from "~/abstractions/features/pulumi/index.js";
 
 export const apiPulumi = defineExtension({
