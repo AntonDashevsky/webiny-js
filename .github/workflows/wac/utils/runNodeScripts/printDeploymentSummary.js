@@ -1,16 +1,16 @@
 // This script can only be run if we previously checked out the project and installed all dependencies.
-const { getStackOutput } = require("@webiny/cli-plugin-deploy-pulumi/utils");
+const { getStackOutput } = require("@webiny/project");
 
 const args = process.argv.slice(2); // Removes the first two elements
 const [cwd] = args;
 
-const adminStackOutput = getStackOutput({
+const adminStackOutput = await getStackOutput({
     folder: "apps/admin",
     env: "dev",
     cwd
 });
 
-const websiteStackOutput = getStackOutput({
+const websiteStackOutput = await getStackOutput({
     folder: "apps/website",
     env: "dev",
     cwd
