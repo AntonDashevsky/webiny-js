@@ -11,9 +11,6 @@ import { definitions as extensionDefinitions } from "@webiny/extensions/definiti
 // Ensure system requirements are met.
 ensureSystemRequirements();
 
-const cli = await Cli.init({
-    cwd: process.cwd(),
-    extensions: extensionDefinitions
-});
+const cli = await Cli.init({ extensions: extensionDefinitions });
 
 await cli.run(process.argv);
