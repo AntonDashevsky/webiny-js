@@ -5074,20 +5074,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codexteam/icons@npm:^0.0.4":
-  version: 0.0.4
-  resolution: "@codexteam/icons@npm:0.0.4"
-  checksum: 10/877eeb3e62ddb907120234a93bde35902b493c49cf8795b4504db0467474f9de024ef1050ed10ac1bcfef6a5d95cf1e5a47668160729b79cba45aa088eeff0e6
-  languageName: node
-  linkType: hard
-
-"@codexteam/icons@npm:^0.3.2":
-  version: 0.3.3
-  resolution: "@codexteam/icons@npm:0.3.3"
-  checksum: 10/aed3a41811f4f043cf8a71b9eb35b17b0bacf0f8073b2bc3abd52b85388fb099163257be9d5519ea13f945b40a21ece825b772f875b1cbaafd4ef7058361b9a2
-  languageName: node
-  linkType: hard
-
 "@colors/colors@npm:1.5.0":
   version: 1.5.0
   resolution: "@colors/colors@npm:1.5.0"
@@ -5839,24 +5825,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@editorjs/delimiter@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "@editorjs/delimiter@npm:1.4.2"
-  dependencies:
-    "@codexteam/icons": "npm:^0.3.2"
-  checksum: 10/d62f22f98c65abc814d31e1f184a3a920534a959dc98c6a4634198b69fc07010a13ba240fb6730f26c2c391bc826f8c446b13ffed2a31691d6757eca080e1619
-  languageName: node
-  linkType: hard
-
-"@editorjs/dom@npm:^0.0.5":
-  version: 0.0.5
-  resolution: "@editorjs/dom@npm:0.0.5"
-  dependencies:
-    "@editorjs/helpers": "npm:^0.0.4"
-  checksum: 10/ed7e4169218adf51b2886e2cbd8d261274415e338ba91282266d74d989c32dfa9adc7f65105b461599f5b1bc5e0c608933c4d77216a7d2360fe16334717a38cb
-  languageName: node
-  linkType: hard
-
 "@editorjs/editorjs@npm:2.26.5":
   version: 2.26.5
   resolution: "@editorjs/editorjs@npm:2.26.5"
@@ -5867,41 +5835,6 @@ __metadata:
     html-janitor: "npm:^2.0.4"
     nanoid: "npm:^3.1.22"
   checksum: 10/7b3af3f00e85a071f13f68483a3c240d05a5fb610aa9fdc9735aa6d6d7d8bda89aa15ce69c1c5dc13f6ce6bf32bc1a0b8ebd0984b4061b3c3609fa1dcd0abdbe
-  languageName: node
-  linkType: hard
-
-"@editorjs/helpers@npm:^0.0.4":
-  version: 0.0.4
-  resolution: "@editorjs/helpers@npm:0.0.4"
-  checksum: 10/889258a414e051c7fb50ba18ab68345da6897e13118453082b620f4b8e4ea3ec650b531a94a6954d16c30c02ed41c2060afe07d33122eb469e8edb4738fb0a64
-  languageName: node
-  linkType: hard
-
-"@editorjs/list@npm:^1.10.0":
-  version: 1.10.0
-  resolution: "@editorjs/list@npm:1.10.0"
-  dependencies:
-    "@codexteam/icons": "npm:^0.0.4"
-  checksum: 10/e04efb0cba65da910724be561bb282341f405ae015da4867be2c371541ea8a37c7fa8ba835dd258c2535a4e5e46de041e087095fa822e2b1b02636ae809f78bd
-  languageName: node
-  linkType: hard
-
-"@editorjs/quote@npm:^2.7.2":
-  version: 2.7.6
-  resolution: "@editorjs/quote@npm:2.7.6"
-  dependencies:
-    "@codexteam/icons": "npm:^0.3.2"
-    "@editorjs/dom": "npm:^0.0.5"
-  checksum: 10/09aa49478259cd73070a4d80b57946e50a9c0fae11cf0cacac261eb3be87de0ef70562d04f865e72e2040da6e4138dadc67a87225c967995d7015105220c65bb
-  languageName: node
-  linkType: hard
-
-"@editorjs/underline@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@editorjs/underline@npm:1.2.1"
-  dependencies:
-    "@codexteam/icons": "npm:^0.3.2"
-  checksum: 10/66a8d78eb8c8486b99d90d9ce58c94443f2438e9cf7858dd67a0c29191e6fac7600681b7f7cffd893972cc1d3190c01c8adb179ac9da90f7112472b656eac8ad
   languageName: node
   linkType: hard
 
@@ -17220,10 +17153,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/extensions@workspace:packages/extensions"
   dependencies:
-    "@editorjs/delimiter": "npm:^1.4.2"
-    "@editorjs/list": "npm:^1.10.0"
-    "@editorjs/quote": "npm:^2.7.2"
-    "@editorjs/underline": "npm:^1.2.1"
     "@webiny/api-headless-cms": "npm:0.0.0"
     "@webiny/cli-core": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"

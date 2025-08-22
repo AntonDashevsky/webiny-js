@@ -33,7 +33,8 @@ export const requireConfigWithExecute = async <
 ): Promise<T> => {
     const module = await import(configPath);
 
-    const config = module.default ?? module;
+    // TODO: https://github.com/orgs/webiny/projects/32/views/2?pane=issue&itemId=125453089
+    const config = module.default.default ?? module.default ?? module;
 
     if (typeof config === "function") {
         return config(params);
