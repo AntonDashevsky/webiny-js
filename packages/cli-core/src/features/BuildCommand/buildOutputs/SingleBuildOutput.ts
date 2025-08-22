@@ -13,32 +13,18 @@ export class SingleBuildOutput extends BaseBuildOutput {
         const getBuildDuration = measureDuration();
 
         return new Promise<void>((resolve, reject) => {
-            buildProcess.process.on("error", error => {
-                reject(
-                    new Error("Build failed.", {
-                        cause: { pkg: buildProcess, error }
-                    })
-                );
-            });
-
-            // Handle child process exit and check for errors
             buildProcess.process.on("exit", code => {
                 if (code !== 0) {
-                    const error = new Error(`Build process exited with code ${code}.`);
-                    reject(
-                        new Error("Build failed.", {
-                            cause: { pkg: buildProcess, error }
-                        })
+                    ui.error("Build failed, please check the details above.");
+                    resolve();
+                } else {
+                    ui.success(
+                        `Built %s package in %s.`,
+                        buildProcess.packageName,
+                        getBuildDuration()
                     );
-                    return;
+                    resolve();
                 }
-
-                ui.success(
-                    `Built %s package in %s.`,
-                    buildProcess.packageName,
-                    getBuildDuration()
-                );
-                resolve();
             });
         });
     }
