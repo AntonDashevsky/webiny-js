@@ -3,7 +3,8 @@ import {
     DeployApp,
     GetApp,
     GetProject,
-    GetPulumiService, LoggerService,
+    GetPulumiService,
+    LoggerService,
     PulumiGetSecretsProviderService,
     PulumiSelectStackService
 } from "~/abstractions/index.js";
