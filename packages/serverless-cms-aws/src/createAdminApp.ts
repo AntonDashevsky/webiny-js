@@ -25,7 +25,12 @@ export function createAdminApp(projectAppParams: CreateAdminAppParams = {}) {
                 deploy: false
             }
         },
-        pulumi: createAdminPulumiApp(projectAppParams)
+        async getPulumi() {
+            // eslint-disable-next-line import/dynamic-import-chunkname
+            const { createAdminPulumiApp } = await import("@webiny/pulumi-aws");
+
+            return createAdminPulumiApp(projectAppParams);
+        }
         // plugins: [builtInPlugins, customPlugins]
     };
 }
