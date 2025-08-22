@@ -35,6 +35,7 @@
     { "path": "../handler-aws/tsconfig.build.json" },
     { "path": "../handler-db/tsconfig.build.json" },
     { "path": "../plugins/tsconfig.build.json" },
+    { "path": "../project/tsconfig.build.json" },
     { "path": "../pulumi/tsconfig.build.json" },
     { "path": "../pulumi-aws/tsconfig.build.json" },
     { "path": "../wcp/tsconfig.build.json" },
