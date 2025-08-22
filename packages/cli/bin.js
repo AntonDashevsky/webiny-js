@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import "tsx";
+import "tsx/esm";
 
 // Suppress punycode warnings. This is a known issue we can't fix.
 import "./utils/suppressPunycodeWarnings.js";

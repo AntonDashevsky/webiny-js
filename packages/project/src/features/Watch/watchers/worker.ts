@@ -1,3 +1,4 @@
+import "tsx/esm";
 import { serializeError } from "serialize-error";
 import { requireConfigWithExecute } from "~/utils/index.js";
 import chalk from "chalk";

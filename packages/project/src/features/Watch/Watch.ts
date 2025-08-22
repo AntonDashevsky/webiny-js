@@ -40,7 +40,7 @@ export class DefaultWatch implements Watch.Interface {
         // If we're not watching a specific app, we can only watch packages.
         if (!("app" in params)) {
             const packages = await this.listPackagesService.execute({
-                whitelist: params.package,
+                whitelist: params.package
             });
             const packagesWatcher = new PackagesWatcher({ packages, params, logger: this.logger });
 
@@ -111,7 +111,7 @@ export class DefaultWatch implements Watch.Interface {
             return packagesWatcher.watch();
         }
 
-        return []
+        return [];
         //
         // context.info(`Local AWS Lambda development session started.`);
         // context.warning(
@@ -203,10 +203,5 @@ export class DefaultWatch implements Watch.Interface {
 export const watch = createImplementation({
     abstraction: Watch,
     implementation: DefaultWatch,
-    dependencies: [
-        GetApp,
-        LoggerService,
-        ListAppLambdaFunctionsService,
-        ListPackagesService
-    ]
+    dependencies: [GetApp, LoggerService, ListAppLambdaFunctionsService, ListPackagesService]
 });
