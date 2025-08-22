@@ -16,7 +16,7 @@ export class MultipleBuildsOutput extends BaseBuildOutput {
                 title: buildProcess.packageName,
                 task: () =>
                     new Promise<void>((resolve, reject) => {
-                        buildProcess.process.on("error", error => {
+                        buildProcess.process.on("message", error => {
                             reject(
                                 new Error("Build failed.", {
                                     cause: { pkg: buildProcess, error }
