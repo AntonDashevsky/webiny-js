@@ -10,10 +10,6 @@
   "description": "This package contains Webiny extensions.",
   "license": "MIT",
   "dependencies": {
-    "@editorjs/delimiter": "^1.4.2",
-    "@editorjs/list": "^1.10.0",
-    "@editorjs/quote": "^2.7.2",
-    "@editorjs/underline": "^1.2.1",
     "@webiny/api-headless-cms": "0.0.0",
     "@webiny/cli-core": "0.0.0",
     "@webiny/project": "0.0.0",
