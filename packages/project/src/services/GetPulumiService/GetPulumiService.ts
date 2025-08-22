@@ -10,7 +10,6 @@ export class DefaultGetPulumiService implements GetPulumiService.Interface {
         const project = await this.getProjectService.execute();
         const { app, pulumiOptions = {} } = params;
 
-
         let cwd;
         if (app) {
             cwd = app.paths.workspaceFolder.absolute;
@@ -19,7 +18,7 @@ export class DefaultGetPulumiService implements GetPulumiService.Interface {
         return Pulumi.create({
             ...pulumiOptions,
             execa: { ...pulumiOptions.execa, cwd },
-            pulumiFolder: path.join(project.paths.rootFolder.absolute, ".webiny"),
+            pulumiFolder: path.join(project.paths.rootFolder.absolute, ".webiny")
         });
     }
 }
