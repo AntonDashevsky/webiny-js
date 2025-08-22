@@ -23,8 +23,6 @@
     "access": "public",
     "directory": "dist"
   },
-  "scripts": {
-  },
   "adio": {
     "ignoreDirs": [
       "__tests__"

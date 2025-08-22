@@ -22,8 +22,6 @@
     "@webiny/project-utils": "0.0.0",
     "typescript": "5.3.3"
   },
-  "scripts": {
-  },
   "publishConfig": {
     "access": "public",
     "directory": "dist"

@@ -31,8 +31,6 @@
     "access": "public",
     "directory": "dist"
   },
-  "scripts": {
-  },
   "adio": {
     "ignore": {
       "peerDependencies": [

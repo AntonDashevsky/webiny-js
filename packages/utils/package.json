@@ -32,8 +32,6 @@
   "peerDependencies": {
     "zod": "^3.23.8"
   },
-  "scripts": {
-  },
   "adio": {
     "ignore": {
       "src": [

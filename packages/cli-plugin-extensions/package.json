@@ -16,7 +16,6 @@
   "dependencies": {
     "@babel/runtime": "7.27.4",
     "@webiny/aws-sdk": "0.0.0",
-    "@webiny/cli": "0.0.0",
     "@webiny/cli-plugin-scaffold": "0.0.0",
     "@webiny/error": "0.0.0",
     "case": "^1.6.3",
@@ -48,8 +47,6 @@
   "publishConfig": {
     "access": "public",
     "directory": "dist"
-  },
-  "scripts": {
   },
   "adio": {
     "ignoreDirs": [

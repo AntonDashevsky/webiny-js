@@ -14,8 +14,6 @@
   "description": "A set of backend aco-related features.",
   "author": "Webiny Ltd.",
   "license": "MIT",
-  "scripts": {
-  },
   "publishConfig": {
     "access": "public",
     "directory": "dist"

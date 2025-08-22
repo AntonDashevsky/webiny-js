@@ -43,8 +43,6 @@
     "access": "public",
     "directory": "dist"
   },
-  "scripts": {
-  },
   "svgo": {
     "plugins": {
       "removeViewBox": false

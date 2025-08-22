@@ -13,8 +13,6 @@
   "description": "Connect File Manager to ACO",
   "author": "Webiny Ltd.",
   "license": "MIT",
-  "scripts": {
-  },
   "publishConfig": {
     "access": "public",
     "directory": "dist"

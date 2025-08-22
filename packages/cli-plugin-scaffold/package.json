@@ -14,7 +14,6 @@
   ],
   "description": "A tool to bootstrap a Webiny project.",
   "dependencies": {
-    "@webiny/cli": "0.0.0",
     "inquirer": "8.2.6",
     "load-json-file": "^6.2.0",
     "ora": "4.1.1",
@@ -37,8 +36,6 @@
   "publishConfig": {
     "access": "public",
     "directory": "dist"
-  },
-  "scripts": {
   },
   "adio": {},
   "gitHead": "2cd812f1b150c10df088a5b2f75a62c9e376c1a4",

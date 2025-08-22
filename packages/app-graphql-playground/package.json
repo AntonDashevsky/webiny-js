@@ -39,8 +39,6 @@
     "access": "public",
     "directory": "dist"
   },
-  "scripts": {
-  },
   "adio": {
     "ignore": {
       "src": [

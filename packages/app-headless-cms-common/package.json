@@ -36,7 +36,6 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
     "@types/react": "18.2.79",
-    "@webiny/cli": "0.0.0",
     "@webiny/project-utils": "0.0.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "rimraf": "^6.0.1",
@@ -45,8 +44,6 @@
   "publishConfig": {
     "access": "public",
     "directory": "dist"
-  },
-  "scripts": {
   },
   "gitHead": "8476da73b653c89cc1474d968baf55c1b0ae0e5f"
 }

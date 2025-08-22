@@ -40,8 +40,6 @@
     "access": "public",
     "directory": "dist"
   },
-  "scripts": {
-  },
   "adio": {
     "ignoreDirs": [
       "src/install"

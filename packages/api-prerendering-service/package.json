@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@types/object-hash": "^2.2.1",
-    "@webiny/cli": "0.0.0",
     "@webiny/handler-aws": "0.0.0",
     "@webiny/project-utils": "0.0.0",
     "prettier": "^2.8.8",
@@ -46,8 +45,6 @@
   "publishConfig": {
     "access": "public",
     "directory": "dist"
-  },
-  "scripts": {
   },
   "gitHead": "b8aec8a1be3f25c3b428b357fe1e352c7cbff9ae"
 }

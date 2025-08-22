@@ -15279,7 +15279,6 @@ __metadata:
     "@webiny/api": "npm:0.0.0"
     "@webiny/api-log": "npm:0.0.0"
     "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/error": "npm:0.0.0"
     "@webiny/handler": "npm:0.0.0"
     "@webiny/handler-aws": "npm:0.0.0"
@@ -15847,7 +15846,6 @@ __metadata:
     "@webiny/app-security": "npm:0.0.0"
     "@webiny/app-theme": "npm:0.0.0"
     "@webiny/app-wcp": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/form": "npm:0.0.0"
     "@webiny/lexical-editor": "npm:0.0.0"
     "@webiny/lexical-theme": "npm:0.0.0"
@@ -16131,7 +16129,6 @@ __metadata:
     "@webiny/app": "npm:0.0.0"
     "@webiny/app-admin": "npm:0.0.0"
     "@webiny/app-security": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/form": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
@@ -16918,7 +16915,6 @@ __metadata:
   resolution: "@webiny/cli-plugin-dependencies@workspace:packages/cli-plugin-dependencies"
   dependencies:
     "@babel/runtime": "npm:7.27.4"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     chalk: "npm:^4.1.2"
     execa: "npm:^5.1.1"
@@ -16941,7 +16937,6 @@ __metadata:
     "@babel/runtime": "npm:7.27.4"
     "@types/inquirer": "npm:8.2.10"
     "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/cli-plugin-scaffold": "npm:0.0.0"
     "@webiny/error": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
@@ -16973,7 +16968,6 @@ __metadata:
     "@types/ncp": "npm:^2.0.4"
     "@types/pluralize": "npm:^0.0.29"
     "@types/validate-npm-package-name": "npm:^3.0.3"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/cli-plugin-scaffold": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
@@ -17014,7 +17008,6 @@ __metadata:
     "@types/ncp": "npm:^2.0.4"
     "@types/pluralize": "npm:^0.0.29"
     "@types/validate-npm-package-name": "npm:^3.0.3"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/cli-plugin-scaffold": "npm:0.0.0"
     "@webiny/error": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
@@ -17035,7 +17028,6 @@ __metadata:
   resolution: "@webiny/cli-plugin-scaffold@workspace:packages/cli-plugin-scaffold"
   dependencies:
     "@types/inquirer": "npm:8.2.10"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/plugins": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     chalk: "npm:^4.1.2"
@@ -17068,7 +17060,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/cli@npm:0.0.0, @webiny/cli@workspace:packages/cli":
+"@webiny/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@webiny/cli@workspace:packages/cli"
   dependencies:
@@ -17098,7 +17090,6 @@ __metadata:
   resolution: "@webiny/cwp-template-aws@workspace:packages/cwp-template-aws"
   dependencies:
     "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"
     chalk: "npm:^4.1.2"
     ci-info: "npm:^4.1.0"
@@ -17124,7 +17115,6 @@ __metadata:
     "@types/center-align": "npm:^1.0.0"
     "@types/semver": "npm:^7.3.4"
     "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/db-dynamodb": "npm:0.0.0"
     "@webiny/handler-aws": "npm:0.0.0"
     "@webiny/ioc": "npm:0.0.0"
@@ -17712,7 +17702,6 @@ __metadata:
     "@webiny/api-page-builder": "npm:0.0.0"
     "@webiny/aws-layers": "npm:0.0.0"
     "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/feature-flags": "npm:0.0.0"
     "@webiny/project": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
@@ -17879,7 +17868,6 @@ __metadata:
     "@webiny/api-tenancy": "npm:0.0.0"
     "@webiny/api-tenancy-so-ddb": "npm:0.0.0"
     "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/data-migration": "npm:0.0.0"
     "@webiny/db-dynamodb": "npm:0.0.0"
     "@webiny/global-config": "npm:0.0.0"
@@ -18036,7 +18024,6 @@ __metadata:
     "@types/react-color": "npm:^2.17.11"
     "@types/react-custom-scrollbars": "npm:^4.0.10"
     "@types/react-transition-group": "npm:^4.4.4"
-    "@webiny/cli": "npm:0.0.0"
     "@webiny/form": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"

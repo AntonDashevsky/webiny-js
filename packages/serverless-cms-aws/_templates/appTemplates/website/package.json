@@ -8,7 +8,6 @@
     "@webiny/app": "latest",
     "@webiny/app-page-builder": "latest",
     "@webiny/app-website": "latest",
-    "@webiny/cli": "latest",
     "@webiny/plugins": "latest",
     "@webiny/project-utils": "latest",
     "@webiny/serverless-cms-aws": "latest",

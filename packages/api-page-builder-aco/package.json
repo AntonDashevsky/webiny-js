@@ -14,8 +14,6 @@
   "description": "Connect Page Builder to ACO",
   "author": "Webiny Ltd.",
   "license": "MIT",
-  "scripts": {
-  },
   "publishConfig": {
     "access": "public",
     "directory": "dist"

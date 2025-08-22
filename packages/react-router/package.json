@@ -36,8 +36,6 @@
     "access": "public",
     "directory": "dist"
   },
-  "scripts": {
-  },
   "adio": {
     "ignore": {
       "dependencies": [

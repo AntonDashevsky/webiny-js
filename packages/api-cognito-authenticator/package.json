@@ -28,7 +28,5 @@
   "publishConfig": {
     "access": "public",
     "directory": "dist"
-  },
-  "scripts": {
   }
 }
