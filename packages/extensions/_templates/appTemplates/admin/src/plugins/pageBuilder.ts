@@ -12,30 +12,31 @@ export default [
         maxEventActionsNesting: 10
     }),
     pageBuilderPlugins(),
-    welcomeScreenWidget,
+    welcomeScreenWidget
     /**
      * This plugin is responsible for lazy-loading plugin presets for page builder editor and list views.
      * Since Editor is quite heavy, we don't want to include it in the main app bundle.
      * The tricky part here is that we want developers to be able to customize which plugins are being loaded, so
      * we need this plugin to allow plugin customization while still using code splitting.
      */
-    {
-        type: "pb-plugins-loader",
-        async loadEditorPlugins() {
-            return (
-                await import(
-                    /* webpackChunkName: "editorPlugins" */
-                    "./pageBuilder/editorPlugins.js"
-                )
-            ).default;
-        },
-        async loadRenderPlugins() {
-            return (
-                await import(
-                    /* webpackChunkName: "renderPlugins" */
-                    "./pageBuilder/renderPlugins.js"
-                )
-            ).default;
-        }
-    }
+    // TODO: https://github.com/orgs/webiny/projects/32/views/2?pane=issue&itemId=125461478
+    // {
+    //     type: "pb-plugins-loader",
+    //     async loadEditorPlugins() {
+    //         return (
+    //             await import(
+    //                 /* webpackChunkName: "editorPlugins" */
+    //                 "./pageBuilder/editorPlugins.js"
+    //             )
+    //         ).default;
+    //     },
+    //     async loadRenderPlugins() {
+    //         return (
+    //             await import(
+    //                 /* webpackChunkName: "renderPlugins" */
+    //                 "./pageBuilder/renderPlugins.js"
+    //             )
+    //         ).default;
+    //     }
+    // }
 ];
