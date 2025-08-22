@@ -33,8 +33,6 @@
     "zod": "^3.23.8"
   },
   "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
   },
   "adio": {
     "ignore": {

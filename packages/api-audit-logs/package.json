@@ -12,8 +12,6 @@
   "author": "Webiny Ltd.",
   "license": "MIT",
   "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
   },
   "publishConfig": {
     "access": "public",

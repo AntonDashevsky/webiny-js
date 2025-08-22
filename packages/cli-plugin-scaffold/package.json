@@ -39,8 +39,6 @@
     "directory": "dist"
   },
   "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
   },
   "adio": {},
   "gitHead": "2cd812f1b150c10df088a5b2f75a62c9e376c1a4",

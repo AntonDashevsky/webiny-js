@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "build": "yarn webiny run build",
-    "watch": "yarn webiny run watch"
   },
   "dependencies": {
     "@webiny/api-aco": "latest",

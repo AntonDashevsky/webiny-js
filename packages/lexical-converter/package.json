@@ -18,8 +18,6 @@
     "directory": "dist"
   },
   "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
   },
   "test": "jest --verbose --runInBand --detectOpenHandles --forceExit"
 }
