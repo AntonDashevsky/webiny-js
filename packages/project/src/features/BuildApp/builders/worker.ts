@@ -1,27 +1,9 @@
+import "tsx";
 import { serializeError } from "serialize-error";
 import { requireConfigWithExecute } from "./utils/requireConfig.js";
 
-const worker = async () => {
-    const workerData = {
-        _: ["deploy"],
-        env: "dev",
-        "deployment-logs": true,
-        deploymentLogs: true,
-        debug: true,
-        build: true,
-        preview: false,
-        $0: "webiny",
-        app: "admin",
-        variant: undefined,
-        region: undefined,
-        package: {
-            paths: {
-                packageFolder: "/Users/adrian/dev/wby-v6/.webiny/workspaces/apps/admin",
-                webinyConfigFile:
-                    "/Users/adrian/dev/wby-v6/.webiny/workspaces/apps/admin/webiny.config.ts"
-            }
-        }
-    };
+try {
+    const workerData = JSON.parse(process.argv[2]);
 
     const { package: pkg, env, variant, region, debug } = workerData;
     const options = {
@@ -40,15 +22,11 @@ const worker = async () => {
     if (!hasBuild) {
         throw new Error("Build command not found.");
     }
-    await config.commands.build(options).catch(error => {
-        // Send error message to the parent process
-        if (process.send) {
-            process.send(serializeError(error));
-        }
-        process.exit(1); // Ensure the worker process exits with an error code
-    });
-};
 
-(async () => {
-    await worker();
-})();
+    await config.commands.build(options);
+} catch (error) {
+    if (process.send) {
+        process.send({ type: "error", error: serializeError(error) });
+    }
+    process.exit(1); // Ensure the worker process exits with an error code
+}

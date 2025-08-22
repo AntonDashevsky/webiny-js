@@ -1,5 +1,5 @@
-import watchPackage from "./watchPackage";
-import { prepareOptions } from "../utils";
+import watchPackage from "./watchPackage.js";
+import { prepareOptions } from "../utils.js";
 
 export default config => async options => {
     const preparedOptions = prepareOptions({ config, options });

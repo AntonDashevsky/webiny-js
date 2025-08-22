@@ -29,7 +29,7 @@ export default () => {
             <Api.AfterDeploy src={"./extensions/myApiAfterDeploy.ts"} />
             <Api.AfterBuild src={"./extensions/myApiAfterBuild.ts"} />
 
-            <Api.Cms.OnEntryBeforeCreate src={"./extensions/myOnEntryBeforeCreate.ts"} />
+            {/*<Api.Cms.OnEntryBeforeCreate src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
         </>
     );
 };

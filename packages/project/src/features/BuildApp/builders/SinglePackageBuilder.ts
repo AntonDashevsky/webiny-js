@@ -4,7 +4,7 @@ import path from "path";
 
 export class SinglePackageBuilder extends BasePackagesBuilder {
     public override build() {
-        const workerPath = path.resolve(import.meta.dirname, "workerEntry.js");
+        const workerPath = path.resolve(import.meta.dirname, "worker.js");
         const pkg = this.packages[0];
         const params = this.params;
 

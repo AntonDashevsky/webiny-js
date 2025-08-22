@@ -28,7 +28,7 @@ import { DEFAULT_PROD_ENV_NAMES } from "./constants.js";
 export function createPulumiApp<TResources extends Record<string, unknown>>(
     params: CreatePulumiAppParams<TResources>
 ): PulumiApp<TResources> {
-    let projectRootPath = findUp.sync("webiny.project.ts");
+    let projectRootPath = findUp.sync("webiny.config.tsx");
     if (projectRootPath) {
         projectRootPath = path.dirname(projectRootPath).replace(/\\/g, "/");
     } else {
