@@ -63,25 +63,6 @@ export class DefaultBuildApp implements BuildApp.Interface {
                         );
                     }
                 });
-
-                buildProcess.process.on("error", error => {
-                    reject(
-                        new Error(
-                            `Build process error for package ${buildProcess.packageName}: ${error.message}`
-                        )
-                    );
-                });
-                // TODO: finish handling here.
-                buildProcess.process.on("message", message => {
-                    console.log("message", message.toString());
-                });
-
-                buildProcess.process.on("data", data => {
-                    console.log(
-                        `Build process data for package ${buildProcess.packageName}:`,
-                        data.toString()
-                    );
-                });
             });
         });
 
