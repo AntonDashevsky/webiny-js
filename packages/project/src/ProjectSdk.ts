@@ -80,8 +80,8 @@ export class ProjectSdk {
         return this.container.resolve(GetAppStackExport).execute<TExport>(params);
     }
 
-    buildApp(params: BuildApp.Params) {
-        return this.container.resolve(BuildApp).execute(params);
+    buildApp(params: BuildApp.Params, options: BuildApp.Options = {}) {
+        return this.container.resolve(BuildApp).execute(params, options);
     }
 
     deployApp(params: DeployApp.Params) {
