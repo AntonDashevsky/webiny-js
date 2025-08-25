@@ -8,6 +8,7 @@ export { GetApp } from "./GetApp.js";
 export { GetAppOutput } from "./GetAppOutput.js";
 export { GetAppStackExport } from "./GetAppStackExport.js";
 export { GetAppStackOutput } from "./GetAppStackOutput.js";
+export { GetLogger } from "./GetLogger.js";
 export { GetProject } from "./GetProject.js";
 export { GetProjectConfig } from "./GetProjectConfig.js";
 export { GetProjectInfo } from "./GetProjectInfo.js";

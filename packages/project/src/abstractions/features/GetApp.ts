@@ -1,13 +1,17 @@
 import { Abstraction } from "@webiny/di-container";
 import { IAppModel } from "~/abstractions/models/index.js";
+import { type AppName } from "~/abstractions/types.js";
+
+type IGetAppParams = AppName;
 
 type IGetApp = {
-    execute(appName: string): Promise<IAppModel>;
+    execute(appName: IGetAppParams): IAppModel;
 };
 
 export const GetApp = new Abstraction<IGetApp>("GetApp");
 
 export namespace GetApp {
     export type Interface = IGetApp;
-    export type Params = string;
+    export type Params = AppName;
+    export type AppName = IGetAppParams;
 }

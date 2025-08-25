@@ -1,5 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
 import { ChildProcess } from "child_process";
+import { GetApp } from "~/abstractions/index.js";
 
 export interface IWatchProcess {
     packageName: string;
@@ -11,7 +12,7 @@ export interface IWatchNoAppParams {
 }
 
 export interface IWatchWithAppParams extends IWatchNoAppParams {
-    app: string;
+    app: GetApp.AppName;
     env: string;
     variant?: string;
     region?: string;
