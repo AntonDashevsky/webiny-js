@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const { green, red } = require("chalk");
 const { argv } = require("yargs");
-const { getStackOutput } = require("@webiny/cli-plugin-deploy-pulumi/utils");
+const { getStackOutput } = require("@webiny/project");
 
 const args = {
     env: argv.env || "dev",
