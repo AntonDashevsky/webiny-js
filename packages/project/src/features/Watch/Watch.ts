@@ -48,7 +48,7 @@ export class DefaultWatch implements Watch.Interface {
         }
 
         // Get project application metadata. Will throw an error if an invalid folder is specified.
-        const app = await this.getApp.execute(params.app);
+        const app = this.getApp.execute(params.app);
 
         // If exists - read default params from "webiny.application.ts" file.
         // params = merge({}, get(app, "config.cli.watch"), params);

@@ -10,7 +10,7 @@ export class DefaultGetAppStackExport implements GetAppStackExport.Interface {
     async execute<TExport extends Record<string, any> = Record<string, string>>(
         params: GetAppStackExport.Params
     ) {
-        const app = await this.getApp.execute(params.app);
+        const app = this.getApp.execute(params.app);
         return this.pulumiGetStackExportService.execute<TExport>(app, params);
     }
 }

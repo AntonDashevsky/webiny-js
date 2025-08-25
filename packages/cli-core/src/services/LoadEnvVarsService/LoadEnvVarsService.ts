@@ -1,17 +1,14 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetProjectSdkService, LoadEnvVarsService, LoggerService } from "~/abstractions/index.js";
+import { GetProjectSdkService, LoadEnvVarsService } from "~/abstractions/index.js";
 import path from "path";
 import dotenv from "dotenv";
 
 export class DefaultLoadEnvVarsService implements LoadEnvVarsService.Interface {
-    constructor(
-        private getProjectSdk: GetProjectSdkService.Interface,
-        private loggerService: LoggerService.Interface
-    ) {}
+    constructor(private getProjectSdk: GetProjectSdkService.Interface) {}
 
     async execute() {
         const projectSdk = await this.getProjectSdk.execute();
-        const logger = this.loggerService;
+        const logger = projectSdk.getLogger();
 
         const project = await projectSdk.getProject();
         const paths = [path.join(project.paths.rootFolder.absolute, ".env")];
@@ -21,9 +18,9 @@ export class DefaultLoadEnvVarsService implements LoadEnvVarsService.Interface {
             const path = paths[i];
             const { error } = dotenv.config({ path });
             if (error) {
-                logger.error(`No environment file found on %.`, path);
+                logger.warn(`No environment file found on %.`, path);
             } else {
-                logger.info(`Successfully loaded environment variables from %.`, path);
+                logger.trace(`Successfully loaded environment variables from %.`, path);
             }
         }
 
@@ -41,5 +38,5 @@ export class DefaultLoadEnvVarsService implements LoadEnvVarsService.Interface {
 export const loadEnvVarsService = createImplementation({
     abstraction: LoadEnvVarsService,
     implementation: DefaultLoadEnvVarsService,
-    dependencies: [GetProjectSdkService, LoggerService]
+    dependencies: [GetProjectSdkService]
 });

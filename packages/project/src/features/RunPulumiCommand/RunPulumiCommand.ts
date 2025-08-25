@@ -24,7 +24,7 @@ export class DefaultRunPulumiCommand implements RunPulumiCommand.Interface {
     ) {}
 
     async execute(params: RunPulumiCommand.Params) {
-        const app = await this.getApp.execute(params.app);
+        const app = this.getApp.execute(params.app);
 
         if (!params.env) {
             throw new Error(`Please specify environment, for example "dev".`);

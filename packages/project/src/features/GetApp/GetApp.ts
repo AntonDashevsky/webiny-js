@@ -6,7 +6,7 @@ import { AppModel } from "~/models/index.js";
 export class DefaultGetApp implements GetApp.Interface {
     constructor(private getProject: GetProject.Interface) {}
 
-    async execute(appName: string) {
+    execute(appName: string) {
         if (!appName) {
             throw new Error("App name must be provided.");
         }
@@ -19,7 +19,7 @@ export class DefaultGetApp implements GetApp.Interface {
             );
         }
 
-        const project = await this.getProject.execute();
+        const project = this.getProject.execute();
 
         const workspaceFolderAbsPath = path.join(
             project.paths.workspacesFolder.absolute,
@@ -31,16 +31,10 @@ export class DefaultGetApp implements GetApp.Interface {
             workspaceFolderAbsPath
         );
 
-        const appsFolderAbsPath = path.join(project.paths.appsFolder.absolute, appName);
-
-        const appsFolderRelPath = path.relative(
-            project.paths.rootFolder.absolute,
-            appsFolderAbsPath
-        );
-
         const localPulumiStateFilesFolderAbsPath = path.join(
             project.paths.localPulumiStateFilesFolder.absolute,
-            appsFolderRelPath
+            "apps",
+            appName
         );
 
         const localPulumiStateFilesFolderRelPath = path.relative(
@@ -51,10 +45,6 @@ export class DefaultGetApp implements GetApp.Interface {
         return AppModel.fromDto({
             name: appName,
             paths: {
-                appsFolder: {
-                    absolute: appsFolderAbsPath,
-                    relative: appsFolderRelPath
-                },
                 workspaceFolder: {
                     absolute: workspaceFolderAbsPath,
                     relative: workspaceFolderRelPath

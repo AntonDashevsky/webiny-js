@@ -10,7 +10,7 @@ export class DefaultGetAppStackOutput implements GetAppStackOutput.Interface {
     async execute<TOutput extends GetAppStackOutput.StackOutput = GetAppStackOutput.StackOutput>(
         params: GetAppStackOutput.Params
     ) {
-        const app = await this.getApp.execute(params.app);
+        const app = this.getApp.execute(params.app);
         return this.pulumiGetStackOutputService.execute<TOutput>(app, params);
     }
 }

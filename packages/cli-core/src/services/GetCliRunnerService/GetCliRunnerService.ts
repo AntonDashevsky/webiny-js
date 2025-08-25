@@ -3,7 +3,7 @@ import {
     Command,
     CommandsRegistryService,
     GetCliRunnerService,
-    LoggerService,
+    GetProjectSdkService,
     UiService
 } from "~/abstractions/index.js";
 import yargs from "yargs/yargs";
@@ -18,7 +18,7 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
     constructor(
         private readonly commandsRegistryService: CommandsRegistryService.Interface,
         private readonly uiService: UiService.Interface,
-        private readonly loggerService: LoggerService.Interface
+        private readonly getProjectSdkService: GetProjectSdkService.Interface
     ) {}
 
     private yargsRunner: Argv | null = null;
@@ -29,6 +29,7 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
         }
 
         const ui = this.uiService;
+        const projectSdk = await this.getProjectSdkService.execute();
 
         const yargsRunner = yargs()
             .usage("Usage: $0 <command> [options]")
@@ -43,12 +44,6 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
             )
             .epilogue(`Want to contribute? ${blue("https://github.com/webiny/webiny-js")}.`)
             .fail((invalidParamsMessage, error) => {
-                this.loggerService.error(
-                    invalidParamsMessage,
-                    error,
-                    "CLI command execution failed."
-                );
-
                 if (invalidParamsMessage) {
                     if (invalidParamsMessage.includes("Not enough non-option arguments")) {
                         ui.newLine();
@@ -85,6 +80,9 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
 
                     process.exit(1);
                 }
+
+                const logger = projectSdk.getLogger();
+                logger.error({ err: error, invalidParamsMessage }, "CLI command execution failed.");
 
                 let isHandledError = error && error instanceof HandledError;
                 if (!isHandledError) {
@@ -184,5 +182,5 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
 export const getCliRunnerService = createImplementation({
     abstraction: GetCliRunnerService,
     implementation: DefaultGetCliRunnerService,
-    dependencies: [CommandsRegistryService, UiService, LoggerService]
+    dependencies: [CommandsRegistryService, UiService, GetProjectSdkService]
 });
