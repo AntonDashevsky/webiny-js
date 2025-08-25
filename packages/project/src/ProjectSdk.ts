@@ -8,6 +8,7 @@ import {
     GetAppOutput,
     GetAppStackExport,
     GetAppStackOutput,
+    LoggerService,
     GetProject,
     GetProjectConfig,
     GetProjectInfo,
@@ -59,7 +60,7 @@ export class ProjectSdk {
     }
 
     // App-related methods.
-    async getApp(appName: string) {
+    async getApp(appName: GetApp.Params) {
         return this.container.resolve(GetApp).execute(appName);
     }
 
@@ -118,6 +119,10 @@ export class ProjectSdk {
 
     isCi() {
         return this.container.resolve(IsCi).execute();
+    }
+
+    getLogger() {
+        return this.container.resolve(LoggerService);
     }
 
     getContainer() {
