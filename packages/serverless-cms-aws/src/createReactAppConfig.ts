@@ -16,6 +16,7 @@ export interface RunCommandOptions {
     command: string;
     env: string;
     variant: string;
+
     [key: string]: any;
 }
 
@@ -80,7 +81,7 @@ export interface PulumiOutputToEnvModifierParams<T extends PulumiOutput> {
 }
 
 export interface PulumiOutputToEnvModifier<T extends PulumiOutput = PulumiOutput> {
-    (params: PulumiOutputToEnvModifierParams<T>): Promise<ReactAppEnv>;
+    (params: PulumiOutputToEnvModifierParams<T>): ReactAppEnv;
 }
 
 export interface ReactAppConfig {
@@ -120,8 +121,8 @@ function createEnvModifierFromMap(
     map: ReactAppEnvMap,
     options: RunCommandOptions
 ): PulumiOutputToEnvModifier {
-    return async ({ env }) => {
-        const output = await getStackOutput({
+    return ({ env }) => {
+        const output = getStackOutput({
             // @ts-ignore
             app,
             env: options.env,
@@ -152,7 +153,7 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
             const [app, modifier] = i;
             if (!outputCache.has(app)) {
                 const output = await getStackOutput({
-                    app: app,
+                    app,
                     env: options.env,
                     variant: options.variant
                 });

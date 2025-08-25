@@ -30,7 +30,7 @@ class BuildAppWorkspaceDecorator implements BuildApp.Interface {
             );
         }
 
-        const app = await this.getApp.execute(params.app);
+        const app = this.getApp.execute(params.app);
 
         const appWorkspaceFolderPath = app.paths.workspaceFolder.absolute;
         const baseTemplateFolderPath = path.join(templatesFolderPath, "appTemplates", "base");
