@@ -1,11 +1,5 @@
 // @ts-nocheck
 import { getStackOutput } from "@webiny/project";
-import {
-    createBeforeBuildPlugin,
-    createBeforeWatchPlugin
-} from "@webiny/cli-plugin-deploy-pulumi/plugins/index.js";
-import { GracefulError } from "@webiny/cli-plugin-deploy-pulumi/utils/index.js";
-import type { Callable } from "@webiny/cli-plugin-deploy-pulumi/plugins/PulumiCommandLifecycleEventHookPlugin.js";
 
 const NO_DEPLOYMENT_CHECKS_FLAG_NAME = "--no-deployment-checks";
 

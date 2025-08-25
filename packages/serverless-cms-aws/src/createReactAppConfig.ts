@@ -1,6 +1,7 @@
 import path from "path";
 import invariant from "invariant";
 import { getStackOutput } from "@webiny/project";
+import { type GetApp } from "@webiny/project/abstractions";
 import {
     type BuildAppConfigOverrides,
     createBuildApp,
@@ -9,7 +10,6 @@ import {
 import { type Configuration as WebpackConfig } from "webpack";
 import { type PulumiAppModule } from "@webiny/pulumi";
 import { type Unwrap } from "@pulumi/pulumi";
-import { type AppName } from "@webiny/project/abstractions/types";
 
 export interface RunCommandOptions {
     cwd: string;
@@ -65,10 +65,6 @@ export interface ReactAppEnv {
     [key: string]: string | number | boolean | undefined | string[] | number[];
 }
 
-export interface ReactAppEnvMap {
-    [key: string]: string;
-}
-
 export interface CustomEnvModifier {
     (env: ReactAppEnv): ReactAppEnv;
 }
@@ -98,50 +94,23 @@ export interface ReactAppConfig {
     commands(commands: ReactAppCommandsModifier): void;
 
     pulumiOutputToEnv<T extends PulumiOutput>(
-        app: AppName,
-        modifier: ReactAppEnvMap | PulumiOutputToEnvModifier<T>
+        app: GetApp.AppName,
+        modifier: PulumiOutputToEnvModifier<T>
     ): void;
-}
-
-export interface Overrides {
-    entry: string;
-    openBrowser?: boolean;
-    webpack: (config: WebpackConfig) => WebpackConfig;
-    babel: (config: BabelConfig) => BabelConfig;
 }
 
 const NO_ENV_MESSAGE = `Please specify the environment via the "--env" argument, for example: "--env dev".`;
 
-const NO_API_MESSAGE = (env: string) => {
-    return `It seems that the API project application isn't deployed!\nBefore continuing, please deploy it by running the following command: yarn webiny deploy api --env=${env}`;
+const appNotDeployedMessage = (appName: string, env: string) => {
+    return `It seems that the ${appName} project application isn't deployed!\nBefore continuing, please deploy it by running the following command: yarn webiny deploy api --env=${env}`;
 };
-
-function createEnvModifierFromMap(
-    app: string,
-    map: ReactAppEnvMap,
-    options: RunCommandOptions
-): PulumiOutputToEnvModifier {
-    return ({ env }) => {
-        const output = getStackOutput({
-            // @ts-ignore
-            app,
-            env: options.env,
-            variant: options.variant,
-            map
-        });
-
-        invariant(output, NO_API_MESSAGE(options.env));
-
-        return { ...env, ...output };
-    };
-}
 
 function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
     const webpackModifiers: WebpackConfigModifier[] = [];
     const babelModifiers: BabelConfigModifier[] = [];
     const commandsModifiers: ReactAppCommandsModifier[] = [];
     const customEnvModifiers: CustomEnvModifier[] = [];
-    const pulumiOutputToEnvModifiers: Array<[AppName, PulumiOutputToEnvModifier]> = [];
+    const pulumiOutputToEnvModifiers: Array<[GetApp.AppName, PulumiOutputToEnvModifier]> = [];
     const entryModifiers: EntryModifier[] = [];
 
     const loadEnvVars = async () => {
@@ -149,6 +118,7 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
 
         let envVars: ReactAppEnv = {};
 
+        // First, we load all Pulumi outputs that need to be mapped to env vars.
         for (const i of pulumiOutputToEnvModifiers) {
             const [app, modifier] = i;
             if (!outputCache.has(app)) {
@@ -158,15 +128,17 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
                     variant: options.variant
                 });
 
-                if (output) {
-                    // @ts-ignore
-                    outputCache.set(app, output);
-                }
+                invariant(output, appNotDeployedMessage(app, options.env));
+
+                // @ts-ignore
+                outputCache.set(app, output);
             }
 
+            // Now we can safely run the modifier, with the output ready to be used.
             Object.assign(envVars, modifier({ output: outputCache.get(app)!, env: envVars }));
         }
 
+        // Next, we run all custom env var modifiers.
         envVars = customEnvModifiers.reduce<ReactAppEnv>((env, modifier) => modifier(env), envVars);
 
         Object.assign(process.env, envVars);
@@ -217,15 +189,7 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
             customEnvModifiers.push(modifier);
         },
         pulumiOutputToEnv(app, modifier) {
-            if (typeof modifier === "function") {
-                pulumiOutputToEnvModifiers.push([app, modifier as PulumiOutputToEnvModifier]);
-                return;
-            }
-
-            pulumiOutputToEnvModifiers.push([
-                app,
-                createEnvModifierFromMap(app, modifier, options)
-            ]);
+            pulumiOutputToEnvModifiers.push([app, modifier as PulumiOutputToEnvModifier]);
         },
         entry(modifier) {
             entryModifiers.push(modifier);

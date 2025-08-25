@@ -25,7 +25,7 @@ class UploadWebsiteAppToS3 implements WebsiteAfterDeploy.Interface {
         const ui = this.ui;
         ui.info("Uploading React application...");
 
-        const app = await this.getApp.execute(params.app);
+        const app = this.getApp.execute(params.app);
 
         const buildFolderPath = path.join(app.paths.workspaceFolder.absolute, "build");
         if (!fs.existsSync(buildFolderPath)) {

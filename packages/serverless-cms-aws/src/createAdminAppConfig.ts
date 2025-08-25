@@ -13,7 +13,7 @@ export const createAdminAppConfig = (modifier?: ReactAppConfigModifier) => {
                 .WEBINY_TRASH_BIN_RETENTION_PERIOD_DAYS as string
         }));
 
-        config.pulumiOutputToEnv<ApiOutput>("api", async ({ output, env }) => {
+        config.pulumiOutputToEnv<ApiOutput>("api", ({ output, env }) => {
             if (!output) {
                 return env;
             }
@@ -43,7 +43,7 @@ export const createAdminAppConfig = (modifier?: ReactAppConfigModifier) => {
  * The Cognito user pool domain is taken from the `cognitoUserPoolDomain` Pulumi app output.
  */
 export const configureAdminCognitoUserPoolDomain: ReactAppConfigModifier = modifier => {
-    modifier.config.pulumiOutputToEnv("core", async ({ env, output }) => {
+    modifier.config.pulumiOutputToEnv("core", ({ output, env }) => {
         return {
             ...env,
             REACT_APP_USER_POOL_DOMAIN: output["cognitoUserPoolDomain"]

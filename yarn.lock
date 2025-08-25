@@ -17352,7 +17352,6 @@ __metadata:
     "@webiny/project-utils": "npm:0.0.0"
     decompress: "npm:^4.2.1"
     execa: "npm:^5.1.1"
-    fflate: "npm:^0.8.2"
     fs-extra: "npm:^11.2.0"
     lodash: "npm:^4.17.21"
     node-fetch: "npm:^2.6.7"
@@ -25121,13 +25120,6 @@ __metadata:
   version: 2.3.3
   resolution: "fecha@npm:2.3.3"
   checksum: 10/2566ed8f6372d486767092cea8b615d12fb277e4ddf9c415da249aa9e74ca8bbe5ffdf07ebfaaa39ed313abfac7958949007d0f8430017d171a384e27a1b09fa
-  languageName: node
-  linkType: hard
-
-"fflate@npm:^0.8.2":
-  version: 0.8.2
-  resolution: "fflate@npm:0.8.2"
-  checksum: 10/2bd26ba6d235d428de793c6a0cd1aaa96a06269ebd4e21b46c8fd1bd136abc631acf27e188d47c3936db090bf3e1ede11d15ce9eae9bffdc4bfe1b9dc66ca9cb
   languageName: node
   linkType: hard
 

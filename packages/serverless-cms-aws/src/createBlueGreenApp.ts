@@ -1,16 +1,6 @@
 import type { CreateBlueGreenPulumiAppParams } from "@webiny/pulumi-aws/apps/blueGreen/createBlueGreenPulumiApp.js";
 import { createBlueGreenPulumiApp } from "@webiny/pulumi-aws/apps/blueGreen/createBlueGreenPulumiApp.js";
 import type { PluginCollection } from "@webiny/plugins/types.js";
-// import {
-//     createAfterDeployPlugin,
-//     createBeforeDeployPlugin
-// } from "@webiny/cli-plugin-deploy-pulumi/plugins/index.js";
-import { getStackOutput } from "@webiny/project";
-import chalk from "chalk";
-// import type { IBlueGreenStackOutput } from "@webiny/pulumi-aws/apps/blueGreen/types.js";
-
-// const { blue, green } = chalk;
-
 export interface CreateBlueGreenAppParams extends CreateBlueGreenPulumiAppParams {
     plugins?: PluginCollection;
 }

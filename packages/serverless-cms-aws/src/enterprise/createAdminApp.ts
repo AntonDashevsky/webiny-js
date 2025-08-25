@@ -1,4 +1,8 @@
-import { createAdminPulumiApp, type CreateAdminPulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
+// @ts-nocheck
+import {
+    createAdminPulumiApp,
+    type CreateAdminPulumiAppParams
+} from "@webiny/pulumi-aws/enterprise/index.js";
 import { uploadAppToS3 } from "~/react/plugins/index.js";
 import { type PluginCollection } from "@webiny/plugins/types.js";
 import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed.js";

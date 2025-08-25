@@ -11,7 +11,7 @@ export const createWebsiteAppConfig = (modifier?: ReactAppConfigModifier) => {
             WEBINY_WEBSITE_ENV: options.env
         }));
 
-        config.pulumiOutputToEnv<ApiOutput>("api", async ({ output, env }) => {
+        config.pulumiOutputToEnv<ApiOutput>("api", ({ output, env }) => {
             if (!output) {
                 return env;
             }

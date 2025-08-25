@@ -59,11 +59,15 @@
     "fast-glob": "^3.2.7",
     "find-up": "^5.0.0",
     "invariant": "^2.2.4",
+    "ncp": "^2.0.0",
     "node-fetch": "2.6.7",
     "ora": "^4.1.1",
+    "react": "18.2.0",
+    "replace-in-path": "^1.1.0",
     "webpack": "^5.97.0"
   },
   "devDependencies": {
+    "@types/ncp": "^2.0.8",
     "@webiny/migrations": "0.0.0",
     "@webiny/project-utils": "0.0.0",
     "typescript": "5.3.3"

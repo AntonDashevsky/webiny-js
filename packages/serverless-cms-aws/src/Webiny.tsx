@@ -7,8 +7,8 @@ const src = (src: string) => path.join(import.meta.dirname, "Webiny", src);
 export const Webiny = () => {
     return (
         <>
-            <ProjectDecorator src={src("BuildAppWorkspaceDecorator.tsx")} />
-            <AdminAfterDeploy src={src("UploadAdminAppToS3.ts")} />
+            <ProjectDecorator src={src("BuildAppWorkspaceDecorator.js")} />
+            <AdminAfterDeploy src={src("UploadAdminAppToS3.js")} />
         </>
     );
 };
