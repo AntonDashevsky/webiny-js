@@ -6,7 +6,7 @@ import { GetProjectService, GetPulumiService } from "~/abstractions/index.js";
 export class DefaultGetPulumiService implements GetPulumiService.Interface {
     constructor(private readonly getProjectService: GetProjectService.Interface) {}
 
-    execute(params: GetPulumiService.Params = {}) {
+    async execute(params: GetPulumiService.Params = {}) {
         const project = this.getProjectService.execute();
         const { app, pulumiOptions = {} } = params;
 

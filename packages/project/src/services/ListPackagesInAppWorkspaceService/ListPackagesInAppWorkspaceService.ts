@@ -10,24 +10,23 @@ export class DefaultListPackagesInAppWorkspaceService
     constructor(private getApp: GetApp.Interface) {}
 
     async execute(appName: AppName) {
-        const app = await this.getApp.execute(appName);
+        const app = this.getApp.execute(appName);
 
         const globPattern1 = app.paths.workspaceFolder.absolute + "/webiny.config.ts";
         const globPattern2 = app.paths.workspaceFolder.absolute + "/**/webiny.config.ts";
         const globResults = glob.sync([globPattern1, globPattern2], {});
 
-        return globResults
-            .map(webinyConfigFilePath => {
-                const packageFolderPath = path.dirname(webinyConfigFilePath);
-                return {
-                    name: path.basename(packageFolderPath),
-                    webinyConfig: {},
-                    paths: {
-                        packageFolder: packageFolderPath,
-                        webinyConfigFile: webinyConfigFilePath
-                    }
-                };
-            });
+        return globResults.map(webinyConfigFilePath => {
+            const packageFolderPath = path.dirname(webinyConfigFilePath);
+            return {
+                name: path.basename(packageFolderPath),
+                webinyConfig: {},
+                paths: {
+                    packageFolder: packageFolderPath,
+                    webinyConfigFile: webinyConfigFilePath
+                }
+            };
+        });
     }
 }
 

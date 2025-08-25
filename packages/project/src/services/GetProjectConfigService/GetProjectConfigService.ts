@@ -7,7 +7,11 @@ import {
 } from "~/abstractions/index.js";
 import { renderConfig } from "./renderConfig.js";
 import { ProjectConfigModel } from "~/models/ProjectConfigModel.js";
-import { ExtensionType, IHydratedProjectConfig, IProjectConfigDto } from "~/abstractions/models/index.js";
+import {
+    ExtensionType,
+    IHydratedProjectConfig,
+    IProjectConfigDto
+} from "~/abstractions/models/index.js";
 import { ExtensionInstanceModel } from "~/extensions/index.js";
 
 export class DefaultGetProjectConfigService implements GetProjectConfigService.Interface {
@@ -22,7 +26,7 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
     async execute(
         params?: GetProjectConfigService.Params
     ): Promise<GetProjectConfigService.Result> {
-        const project = await this.getProjectService.execute();
+        const project = this.getProjectService.execute();
 
         const renderedConfig = await renderConfig(project.paths.manifestFile.absolute);
         const hydratedConfig = await this.hydrateConfig(renderedConfig, params);
@@ -37,7 +41,7 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
         params?: GetProjectConfigService.Params
     ): Promise<IHydratedProjectConfig> {
         const projectSdkParams = this.projectSdkParamsService.get();
-        const project = await this.getProjectService.execute();
+        const project = this.getProjectService.execute();
 
         const tagsFilters = params?.tags || {};
         const extensionsTypes = Object.keys(configDto) as ExtensionType[];
@@ -62,7 +66,7 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
                         });
 
                         if (!extDef) {
-                            this.loggerService.warn(
+                            this.loggerService.debug(
                                 `Could not find extension definition for type: ${extensionType}. Skipping...`
                             );
                             return null;

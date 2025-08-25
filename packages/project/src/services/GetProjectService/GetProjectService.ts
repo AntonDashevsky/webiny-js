@@ -7,7 +7,7 @@ import { dirname, join, relative } from "path";
 export class DefaultGetProjectService implements GetProjectService.Interface {
     cachedProject: ProjectModel | null = null;
 
-    async execute(cwd = process.cwd()) {
+    execute(cwd = process.cwd()) {
         if (this.cachedProject) {
             return this.cachedProject;
         }
@@ -22,8 +22,8 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
 
         const manifestFileRelPath = "./webiny.config.tsx";
 
-        const appsFolderAbsPath = join(projectRootFolderAbsPath, "apps");
-        const appsFolderRelPath = relative(projectRootFolderAbsPath, appsFolderAbsPath);
+        const dotWebinyAbsPath = join(projectRootFolderAbsPath, ".webiny");
+        const dotWebinyFolderRelPath = relative(projectRootFolderAbsPath, dotWebinyAbsPath);
 
         const workspacesFolderAbsPath = join(projectRootFolderAbsPath, ".webiny", "workspaces");
         const workspacesFolderRelPath = relative(projectRootFolderAbsPath, workspacesFolderAbsPath);
@@ -38,9 +38,9 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
         this.cachedProject = ProjectModel.fromDto({
             name: "webiny-project",
             paths: {
-                appsFolder: {
-                    absolute: appsFolderAbsPath,
-                    relative: appsFolderRelPath
+                dotWebinyFolder: {
+                    absolute: dotWebinyAbsPath,
+                    relative: dotWebinyFolderRelPath
                 },
                 rootFolder: {
                     absolute: projectRootFolderAbsPath,
