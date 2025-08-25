@@ -1,7 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import {
     BuildApp,
-    GetApp,
     GetProjectConfigService,
     ListPackagesInAppWorkspaceService,
     LoggerService,
@@ -11,14 +10,13 @@ import { PackagesBuilder } from "./builders/PackagesBuilder.js";
 
 export class DefaultBuildApp implements BuildApp.Interface {
     constructor(
-        private getApp: GetApp.Interface,
         private logger: LoggerService.Interface,
         private listPackagesService: ListPackagesInAppWorkspaceService.Interface,
         private getProjectConfigService: GetProjectConfigService.Interface,
         private validateProjectConfigService: ValidateProjectConfigService.Interface
     ) {}
 
-    async execute(params: BuildApp.Params) {
+    async execute(params: BuildApp.Params, options: BuildApp.Options = {}): BuildApp.Result {
         if (!params.env) {
             throw new Error(`Please specify environment, for example "dev".`);
         }
@@ -69,8 +67,8 @@ export class DefaultBuildApp implements BuildApp.Interface {
         // If custom output function is provided, use it. While doing so, we must wait
         // for it to resolve before finishing the build process.
         let output = Promise.resolve();
-        if (params.output) {
-            output = params.output(buildProcesses);
+        if (options.output) {
+            output = options.output(buildProcesses);
         } else {
             this.logger.debug(`No output function provided, skipping output.`);
         }
@@ -84,7 +82,6 @@ export const buildApp = createImplementation({
     abstraction: BuildApp,
     implementation: DefaultBuildApp,
     dependencies: [
-        GetApp,
         LoggerService,
         ListPackagesInAppWorkspaceService,
         GetProjectConfigService,
