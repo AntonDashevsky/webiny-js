@@ -8,7 +8,7 @@ export interface IProjectModel {
     paths: {
         manifestFile: AbsRelPaths;
         rootFolder: AbsRelPaths;
-        appsFolder: AbsRelPaths;
+        dotWebinyFolder: AbsRelPaths;
         workspacesFolder: AbsRelPaths;
         localPulumiStateFilesFolder: AbsRelPaths;
     };

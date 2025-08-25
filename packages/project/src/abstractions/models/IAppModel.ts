@@ -6,7 +6,6 @@ interface AbsRelPaths {
 export interface IAppModel {
     name: string;
     paths: {
-        appsFolder: AbsRelPaths;
         workspaceFolder: AbsRelPaths;
         localPulumiStateFilesFolder: AbsRelPaths;
     };

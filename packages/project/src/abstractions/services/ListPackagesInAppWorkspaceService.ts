@@ -10,14 +10,18 @@ export interface IListPackagesInAppWorkspacePackage {
     };
 }
 
-export type IListPackagesInAppWorkspaceServiceResult = Promise<IListPackagesInAppWorkspacePackage[]>;
+export type IListPackagesInAppWorkspaceServiceResult = Promise<
+    IListPackagesInAppWorkspacePackage[]
+>;
 
 export interface IListPackagesInAppWorkspaceService {
     execute(app: AppName): IListPackagesInAppWorkspaceServiceResult;
 }
 
-export const ListPackagesInAppWorkspaceService = new Abstraction<IListPackagesInAppWorkspaceService>("ListPackagesInAppWorkspaceService");
+export const ListPackagesInAppWorkspaceService =
+    new Abstraction<IListPackagesInAppWorkspaceService>("ListPackagesInAppWorkspaceService");
 
 export namespace ListPackagesInAppWorkspaceService {
     export type Interface = IListPackagesInAppWorkspaceService;
+    export type Result = IListPackagesInAppWorkspacePackage[];
 }

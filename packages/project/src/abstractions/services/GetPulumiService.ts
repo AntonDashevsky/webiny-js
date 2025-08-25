@@ -4,8 +4,8 @@ import { IAppModel } from "~/abstractions/models/index.js";
 
 export type IGetPulumiServiceParams = Partial<{
     app?: IAppModel;
-    pulumiOptions: PulumiOptions
-}>
+    pulumiOptions: PulumiOptions;
+}>;
 
 export interface IGetPulumiService {
     execute(params?: IGetPulumiServiceParams): Promise<Pulumi>;

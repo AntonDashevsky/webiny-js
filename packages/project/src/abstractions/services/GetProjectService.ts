@@ -4,7 +4,7 @@ import { IProjectModel } from "~/abstractions/models/index.js";
 type IGetProjectServiceResult = IProjectModel;
 
 interface IGetProjectService {
-    execute(cwd?: string): Promise<IGetProjectServiceResult>;
+    execute(cwd?: string): IGetProjectServiceResult;
 }
 
 export const GetProjectService = new Abstraction<IGetProjectService>("GetProjectService");
