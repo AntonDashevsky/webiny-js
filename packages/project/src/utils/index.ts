@@ -1,5 +1,4 @@
 export * from "./constants.js";
-export * from "./createProjectApplicationWorkspace.js";
 export * from "./getStackName.js";
 export * from "./getRandomColorForString.js";
 export * from "./measureDuration.js";

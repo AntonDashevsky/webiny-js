@@ -3,6 +3,7 @@ import { GetPulumiService, PulumiLoginService } from "~/abstractions/index.js";
 import { AppModel } from "~/models/index.js";
 import trimEnd from "lodash/trimEnd.js";
 import fs from "fs";
+import path from "path";
 
 const SELF_MANAGED_BACKEND = ["s3://", "azblob://", "gs://"];
 
@@ -12,7 +13,7 @@ export class DefaultPulumiLoginService implements PulumiLoginService.Interface {
     async execute(app: AppModel) {
         const pulumi = await this.getPulumiService.execute({ app });
 
-        const projectAppRelativePath = app.paths.appsFolder.absolute;
+        const projectAppRelativePath = path.join("apps", app.name);
 
         // A couple of variations here, just to preserve backwards compatibility.
         let loginUrl =
