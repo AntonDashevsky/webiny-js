@@ -1,4 +1,4 @@
-import { LoggerService, Watch } from "~/abstractions/index.js";
+import { ListPackagesService, LoggerService, Watch } from "~/abstractions/index.js";
 import { ChildProcess } from "child_process";
 
 export interface IWatchProcess {
@@ -6,18 +6,11 @@ export interface IWatchProcess {
     process: ChildProcess;
 }
 
-export interface IBasePackagesWatcherPackage {
-    name: string;
-    webinyConfig: Record<string, any>;
-    paths: {
-        packageFolder: string;
-        webinyConfigFile: string;
-    };
-}
+export type IBasePackagesWatcherPackage = ListPackagesService.Package;
 
 export interface IBasePackagesWatcherParams {
     packages: IBasePackagesWatcherPackage[];
-    logger: LoggerService.Interface
+    logger: LoggerService.Interface;
     params: Watch.Params;
 }
 

@@ -7,6 +7,7 @@ import {
     getAppOutput,
     getAppStackExport,
     getAppStackOutput,
+    getLogger,
     getProject,
     getProjectConfig,
     getProjectInfo,
@@ -120,6 +121,7 @@ export const createProjectSdkContainer = async (
     container.register(getAppOutput).inSingletonScope();
     container.register(getAppStackExport).inSingletonScope();
     container.register(getAppStackOutput).inSingletonScope();
+    container.register(getLogger).inSingletonScope();
     container.register(getProject).inSingletonScope();
     container.register(getProjectConfig).inSingletonScope();
     container.register(getProjectInfo).inSingletonScope();

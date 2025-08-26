@@ -39,8 +39,12 @@ export class DefaultWatch implements Watch.Interface {
 
         // If we're not watching a specific app, we can only watch packages.
         if (!("app" in params)) {
+            const whitelistArray = Array.isArray(params.package)
+                ? params.package
+                : ([params.package].filter(Boolean) as string[]);
+
             const packages = await this.listPackagesService.execute({
-                whitelist: params.package
+                whitelist: whitelistArray
             });
             const packagesWatcher = new PackagesWatcher({ packages, params, logger: this.logger });
 

@@ -1,25 +1,25 @@
 import { Abstraction } from "@webiny/di-container";
 import { IBaseAppParams } from "~/abstractions/types.js";
+import { GetApp } from "~/abstractions/index.js";
 
 export interface IListPackagesServiceParams extends Omit<IBaseAppParams, "app" | "env"> {
-    app?: string;
+    app?: GetApp.AppName;
     env?: string;
-    whitelist?: string | string[];
+    whitelist?: string[];
 }
 
 export interface IListPackagesPackage {
     name: string;
-    webinyConfig: Record<string, any>;
     paths: {
         packageFolder: string;
         webinyConfigFile: string;
     };
 }
 
-export type IListPackagesServiceResult = Promise<IListPackagesPackage[]>;
+export type IListPackagesServiceResult = IListPackagesPackage[];
 
 export interface IListPackagesService {
-    execute(params: IListPackagesServiceParams): IListPackagesServiceResult;
+    execute(params: IListPackagesServiceParams): Promise<IListPackagesServiceResult>;
 }
 
 export const ListPackagesService = new Abstraction<IListPackagesService>("ListPackagesService");

@@ -7,7 +7,8 @@ const projectSdk = await ProjectSdk.init({
 });
 
 process.env.AWS_REGION = "eu-central-1";
-const rez = await projectSdk.buildApp({
+
+const rez = await projectSdk.watch({
     app: "admin",
     env: "dev"
 });
