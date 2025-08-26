@@ -22,9 +22,7 @@ export class DefaultPulumiGetStackExportService implements PulumiGetStackExportS
 
         const stackOutputString = await pulumi.run({
             command: ["stack", "export"],
-            args: {
-                json: true
-            },
+            args: {},
             execa: {
                 env: createEnvConfiguration({
                     configurations: [withPulumiConfigPassphrase()]

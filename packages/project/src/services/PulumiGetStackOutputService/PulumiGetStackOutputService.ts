@@ -19,7 +19,7 @@ export class DefaultPulumiGetStackOutputService implements PulumiGetStackOutputS
     async execute(app: AppModel, params: PulumiGetStackOutputService.Params) {
         const pulumi = await this.getPulumiService.execute({ app });
 
-        this.pulumiSelectStackService.execute(app, params);
+        await this.pulumiSelectStackService.execute(app, params);
 
         const stackOutputString = await pulumi.run({
             command: ["stack", "output"],
