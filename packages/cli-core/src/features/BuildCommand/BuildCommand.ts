@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { IBaseAppParams } from "~/abstractions/features/types.js";
-import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput.js";
+import { BuildRunner } from "~/features/BuildCommand/buildRunners/BuildRunner.js";
 import { HandledError } from "~/utils/HandledError.js";
 
 export interface IBuildCommandParams extends IBaseAppParams {}
@@ -65,17 +65,15 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                 const ui = this.ui;
 
                 try {
-                    return await projectSdk.buildApp(params, {
-                        output: buildProcesses => {
-                            const buildOutput = new BuildOutput({
-                                stdio,
-                                ui,
-                                buildProcesses
-                            });
+                    const buildProcesses = await projectSdk.buildApp(params);
 
-                            return buildOutput.output();
-                        }
+                    const buildRunner = new BuildRunner({
+                        stdio,
+                        ui,
+                        buildProcesses
                     });
+
+                    return buildRunner.run();
                 } catch (error) {
                     throw HandledError.from(error);
                 }

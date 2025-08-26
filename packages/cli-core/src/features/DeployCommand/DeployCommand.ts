@@ -1,12 +1,9 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { HandledError } from "~/utils/HandledError.js";
-
-// TODO: extract into a service.
-import { BuildOutput } from "~/features/BuildCommand/buildOutputs/BuildOutput.js";
-
 import { DeployOutput } from "./deployOutputs/DeployOutput.js";
 import { AppName } from "~/abstractions/features/types.js";
+import { BuildRunner } from "~/features/BuildCommand/buildRunners/BuildRunner.js";
 
 export interface IDeployNoAppParams {
     variant?: string;
@@ -127,23 +124,18 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
 
         if (params.build !== false) {
             try {
-                await projectSdk.buildApp({
-                    ...params,
-                    output: buildProcesses => {
-                        const buildOutput = new BuildOutput({
-                            stdio,
-                            ui,
-                            buildProcesses
-                        });
+                const buildProcesses = await projectSdk.buildApp(params);
 
-                        return buildOutput.output();
-                    }
+                const buildRunner = new BuildRunner({
+                    stdio,
+                    ui,
+                    buildProcesses
                 });
 
+                await buildRunner.run();
                 ui.newLine();
             } catch (error) {
-                ui.error("Build failed, please check the details above.");
-                throw error;
+                throw HandledError.from(error);
             }
         }
 

@@ -1,10 +1,5 @@
-import { LoggerService, BuildApp } from "~/abstractions/index.js";
-import { ChildProcess } from "child_process";
-
-export interface IBuildProcess {
-    packageName: string;
-    process: ChildProcess;
-}
+import { BuildApp, LoggerService } from "~/abstractions/index.js";
+import { RunnableBuildProcessCollection } from "~/features/BuildApp/builders/RunnableBuildProcessCollection.js";
 
 export interface IBasePackagesBuilderPackage {
     name: string;
@@ -17,7 +12,7 @@ export interface IBasePackagesBuilderPackage {
 
 export interface IBasePackagesBuilderParams {
     packages: IBasePackagesBuilderPackage[];
-    logger: LoggerService.Interface
+    logger: LoggerService.Interface;
     params: BuildApp.Params;
 }
 
@@ -32,7 +27,7 @@ export class BasePackagesBuilder {
         this.logger = logger;
     }
 
-    public build(): IBuildProcess[] {
+    public build(): RunnableBuildProcessCollection {
         throw new Error("Not implemented.");
     }
 }

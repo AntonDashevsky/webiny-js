@@ -16,7 +16,7 @@ export class DefaultBuildApp implements BuildApp.Interface {
         private validateProjectConfigService: ValidateProjectConfigService.Interface
     ) {}
 
-    async execute(params: BuildApp.Params, options: BuildApp.Options = {}): BuildApp.Result {
+    async execute(params: BuildApp.Params) {
         if (!params.env) {
             throw new Error(`Please specify environment, for example "dev".`);
         }
@@ -45,36 +45,7 @@ export class DefaultBuildApp implements BuildApp.Interface {
             logger: this.logger
         });
 
-        const buildProcesses = packagesBuilder.build();
-
-        // Promisify the build processes.
-        const buildPromises = buildProcesses.map(buildProcess => {
-            return new Promise<void>((resolve, reject) => {
-                buildProcess.process.on("exit", code => {
-                    if (code === 0) {
-                        resolve();
-                    } else {
-                        reject(
-                            new Error(
-                                `Build failed for package ${buildProcess.packageName} with exit code ${code}`
-                            )
-                        );
-                    }
-                });
-            });
-        });
-
-        // If custom output function is provided, use it. While doing so, we must wait
-        // for it to resolve before finishing the build process.
-        let output = Promise.resolve();
-        if (options.output) {
-            output = options.output(buildProcesses);
-        } else {
-            this.logger.debug(`No output function provided, skipping output.`);
-        }
-
-        await Promise.all(buildPromises);
-        await output;
+        return packagesBuilder.build();
     }
 }
 
