@@ -13,6 +13,7 @@
     "fs-extra": "^11.2.0",
     "listr2": "^5.0.8",
     "load-json-file": "^6.2.0",
+    "serialize-error": "^12.0.0",
     "write-json-file": "^4.3.0",
     "yargs": "^17.7.2"
   },

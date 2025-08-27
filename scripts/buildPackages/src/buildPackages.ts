@@ -17,8 +17,11 @@ const argv = yargs(hideBin(process.argv)).parse();
 const { green, red } = chalk;
 
 class BuildError extends Error {
-    constructor(workspace: string, message: string) {
+    private packageName: string;
+
+    constructor(packageName: string, message: string) {
         super("BuildError");
+        this.packageName = packageName;
         this.message = message;
     }
 }
@@ -90,7 +93,7 @@ export const buildPackages = async () => {
 
             return {
                 title,
-                task: (ctx, task): Listr => {
+                task: (_, task): Listr => {
                     const packages = allPackages.filter(pkg => packageNames.includes(pkg.name));
 
                     const batchTasks = task.newListr([], {
@@ -114,7 +117,7 @@ export const buildPackages = async () => {
     try {
         await tasks.run(ctx);
     } catch (err) {
-        console.log(`\nError building ${red(err.workspace)}:\n`);
+        console.log(`\nError building ${red(err.packageName)}:\n`);
         console.log(red(err.message));
         process.exit(1);
     }
@@ -136,7 +139,7 @@ const createPackageTask = (pkg: Package, options: BuildOptions, metaJson: MetaJS
 
                 await writeJson(META_FILE_PATH, metaJson);
             } catch (err) {
-                throw new BuildError(pkg.packageJson.name, getCleanError(err.message));
+                throw new BuildError(pkg.name, getCleanError(err.message));
             }
         }
     };

@@ -9,10 +9,19 @@ export const buildPackage = async (pkg: Package, buildOverrides = "{}") => {
     const workerPath = path.join(import.meta.dirname, "buildPackageWorker.js");
     const childProcess = fork(workerPath, [buildOverrides], {
         env: process.env,
-        cwd: pkg.packageFolder
+        cwd: pkg.packageFolder,
+        stdio: ["pipe", "pipe", "pipe", "ipc"]
     });
 
     await new Promise<void>((resolve, reject) => {
+        childProcess.on("message", (message: Record<string, any>) => {
+            if (message.error) {
+                reject(
+                    new Error(message.error.message || "Unknown error occurred in build process")
+                );
+            }
+        });
+
         childProcess.on("exit", code => {
             if (code !== 0) {
                 reject(new Error(`Build process exited with code ${code}`));
