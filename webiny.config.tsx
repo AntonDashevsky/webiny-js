@@ -29,6 +29,7 @@ export default () => {
 
             <Admin.Extension src={"./extensions/myAdminExtension.tsx"} />
 
+            <Api.Legacy.ContextPlugin src={"./extensions/myLegacyContextPlugin.ts"} />
             {/*<Api.Cms.OnEntryBeforeCreate src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
         </>
     );
