@@ -32,6 +32,7 @@ import {
 export * from "./defineExtension/index.js";
 export * from "./models/index.js";
 export * from "./zodPathToAbstraction.js";
+export * from "./zodPathToFile.js";
 
 // React components (consumed by users). 👇
 export const Telemetry = telemetry.ReactComponent;
