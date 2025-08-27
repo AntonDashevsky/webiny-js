@@ -1,11 +1,7 @@
 import { Abstraction } from "@webiny/di-container";
-import { ChildProcess } from "child_process";
 import { GetApp } from "~/abstractions/index.js";
-
-export interface IWatchProcess {
-    packageName: string;
-    process: ChildProcess;
-}
+import { WebinyConfigWatcher } from "~/features/Watch/watchers/WebinyConfigWatcher.js";
+import { PackagesWatcher } from "~/features/Watch/watchers/PackagesWatcher.js";
 
 export interface IWatchNoAppParams {
     package?: string | string[];
@@ -24,10 +20,13 @@ export interface IWatchWithAppParams extends IWatchNoAppParams {
 }
 
 export type IWatchParams = IWatchNoAppParams | IWatchWithAppParams;
-export type IWatchResult = Promise<IWatchProcess[]>;
+export type IWatchResult = {
+    packagesWatcher: PackagesWatcher;
+    webinyConfigWatcher?: WebinyConfigWatcher;
+};
 
 export interface IWatch {
-    execute(params: IWatchParams): IWatchResult;
+    execute(params: IWatchParams): Promise<IWatchResult>;
 }
 
 export const Watch = new Abstraction<IWatch>("Watch");
