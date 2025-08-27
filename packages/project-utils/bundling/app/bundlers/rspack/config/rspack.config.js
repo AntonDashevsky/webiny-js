@@ -16,8 +16,8 @@ import { TsCheckerRspackPlugin } from "ts-checker-rspack-plugin";
 import getClientEnvironment from "./env.js";
 import { createSwcConfig } from "../createSwcConfig.js";
 import modulesFactory from "./modules.js";
-
 import { createRequire } from "module";
+import { getAppName } from "./getAppName.js";
 
 const require = createRequire(import.meta.url);
 
@@ -213,7 +213,7 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
                 formatter: "react-dev-utils/eslintFormatter"
             }),
             new CaseSensitivePathsPlugin(),
-            new ProgressPlugin(),
+            new ProgressPlugin({ prefix: getAppName(paths.appPath) }),
             isEnvDevelopment && new ReactRefreshPlugin(),
             isEnvDevelopment && new HotModuleReplacementPlugin()
         ].filter(Boolean),
