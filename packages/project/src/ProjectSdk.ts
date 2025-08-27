@@ -8,10 +8,13 @@ import {
     GetAppOutput,
     GetAppStackExport,
     GetAppStackOutput,
+    GetAwsTags,
     LoggerService,
+    GetProductionEnvironments,
     GetProject,
     GetProjectConfig,
     GetProjectInfo,
+    GetPulumiResourceNamePrefix,
     IsCi,
     IsTelemetryEnabled,
     ProjectSdkParamsService,
@@ -111,6 +114,18 @@ export class ProjectSdk {
 
     isValidVariantName(name?: string) {
         return isValidVariantName(name);
+    }
+
+    getAwsTags() {
+        return this.container.resolve(GetAwsTags).execute();
+    }
+
+    getPulumiResourceNamePrefix() {
+        return this.container.resolve(GetPulumiResourceNamePrefix).execute();
+    }
+
+    getProductionEnvironments() {
+        return this.container.resolve(GetProductionEnvironments).execute();
     }
 
     isTelemetryEnabled() {

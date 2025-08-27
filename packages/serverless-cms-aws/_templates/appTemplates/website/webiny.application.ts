@@ -1,41 +1,23 @@
 import { createWebsiteApp } from "@webiny/serverless-cms-aws";
-import { ProjectSdk } from "@webiny/project";
+import { getProjectSdk } from "@webiny/project";
 import { WebsitePulumi } from "@webiny/project/abstractions";
 import { definitions as extensionDefinitions } from "@webiny/extensions/definitions.js";
 import { tagResources } from "@webiny/pulumi-aws";
 
-const sdk = await ProjectSdk.init({
+const sdk = await getProjectSdk({
     extensions: extensionDefinitions,
     cwd: import.meta.dirname + "/../../../.."
 });
 
-const projectConfig = await sdk.getProjectConfig();
-
-let pulumiResourceNamePrefix = "wby-";
-const [pulumiResourceNamePrefixExt] = projectConfig.extensionsByType(
-    "Deployments/PulumiResourceNamePrefix"
-);
-
-if (pulumiResourceNamePrefixExt) {
-    pulumiResourceNamePrefix = pulumiResourceNamePrefixExt.params.prefix;
-}
-
-let productionEnvironments = ["prod", "production"];
-const [productionEnvironmentsExt] = projectConfig.extensionsByType(
-    "Deployments/ProductionEnvironments"
-);
-
-if (productionEnvironmentsExt) {
-    productionEnvironments = productionEnvironmentsExt.params.environments;
-}
+const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+const productionEnvironments = await sdk.getProductionEnvironments();
 
 export default createWebsiteApp({
     pulumiResourceNamePrefix,
     productionEnvironments,
     pulumi: async app => {
-        projectConfig.extensionsByType("Deployments/AwsTags").forEach(ext => {
-            tagResources(ext.params.tags);
-        });
+        const awsTags = await sdk.getAwsTags();
+        tagResources(awsTags);
 
         const pulumiHandlers = sdk.getContainer().resolve(WebsitePulumi);
         await pulumiHandlers.execute(app);

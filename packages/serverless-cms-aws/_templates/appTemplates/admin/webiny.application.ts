@@ -9,33 +9,15 @@ const sdk = await ProjectSdk.init({
     cwd: import.meta.dirname + "/../../../.."
 });
 
-const projectConfig = await sdk.getProjectConfig();
-
-let pulumiResourceNamePrefix = "wby-";
-const [pulumiResourceNamePrefixExt] = projectConfig.extensionsByType(
-    "Deployments/PulumiResourceNamePrefix"
-);
-
-if (pulumiResourceNamePrefixExt) {
-    pulumiResourceNamePrefix = pulumiResourceNamePrefixExt.params.prefix;
-}
-
-let productionEnvironments = ["prod", "production"];
-const [productionEnvironmentsExt] = projectConfig.extensionsByType(
-    "Deployments/ProductionEnvironments"
-);
-
-if (productionEnvironmentsExt) {
-    productionEnvironments = productionEnvironmentsExt.params.environments;
-}
+const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+const productionEnvironments = await sdk.getProductionEnvironments();
 
 export default createAdminApp({
     pulumiResourceNamePrefix,
     productionEnvironments,
     pulumi: async app => {
-        projectConfig.extensionsByType("Deployments/AwsTags").forEach(ext => {
-            tagResources(ext.params.tags);
-        });
+        const awsTags = await sdk.getAwsTags();
+        tagResources(awsTags);
 
         const pulumiHandlers = sdk.getContainer().resolve(AdminPulumi);
         await pulumiHandlers.execute(app);

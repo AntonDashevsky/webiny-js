@@ -10,7 +10,7 @@ export interface ExtensionInstanceModelContext {
 export class ExtensionInstanceModel<TParamsSchema extends z.ZodTypeAny> {
     constructor(
         public definition: ExtensionDefinitionModel<TParamsSchema>,
-        public params: TParamsSchema,
+        public params: z.infer<TParamsSchema>,
         public context: ExtensionInstanceModelContext
     ) {}
 

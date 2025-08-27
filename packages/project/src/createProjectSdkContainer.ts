@@ -7,10 +7,13 @@ import {
     getAppOutput,
     getAppStackExport,
     getAppStackOutput,
+    getAwsTags,
     getLogger,
+    getProductionEnvironments,
     getProject,
     getProjectConfig,
     getProjectInfo,
+    getPulumiResourceNamePrefix,
     isCi,
     isTelemetryEnabled,
     refreshApp,
@@ -121,10 +124,13 @@ export const createProjectSdkContainer = async (
     container.register(getAppOutput).inSingletonScope();
     container.register(getAppStackExport).inSingletonScope();
     container.register(getAppStackOutput).inSingletonScope();
+    container.register(getAwsTags).inSingletonScope();
     container.register(getLogger).inSingletonScope();
+    container.register(getProductionEnvironments).inSingletonScope();
     container.register(getProject).inSingletonScope();
     container.register(getProjectConfig).inSingletonScope();
     container.register(getProjectInfo).inSingletonScope();
+    container.register(getPulumiResourceNamePrefix).inSingletonScope();
     container.register(isCi).inSingletonScope();
     container.register(isTelemetryEnabled).inSingletonScope();
     container.register(refreshApp).inSingletonScope();
