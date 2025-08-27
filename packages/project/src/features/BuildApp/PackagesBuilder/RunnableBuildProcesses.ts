@@ -1,8 +1,9 @@
 import { RunnableBuildProcess } from "./RunnableBuildProcess.js";
 import { ForkOptions } from "child_process";
 import { PackagesBuilder } from "./PackagesBuilder.js";
+import { IRunnableBuildProcesses } from "~/abstractions/models";
 
-export class RunnableBuildProcesses {
+export class RunnableBuildProcesses implements IRunnableBuildProcesses {
     builder: PackagesBuilder;
     runnableBuildProcesses: RunnableBuildProcess[];
 
@@ -38,6 +39,7 @@ export class RunnableBuildProcesses {
     }
 
     getBuilder() {
+        console.log("GETTER");
         return this.builder;
     }
 

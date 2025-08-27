@@ -1,15 +1,19 @@
 import { fork, type ForkOptions } from "child_process";
 import path from "path";
-import { PackagesBuilder, IBasePackagesBuilderPackage } from "./PackagesBuilder.js";
+import {
+    IPackagesBuilder,
+    IRunnableBuildProcess,
+    IBasePackagesBuilderPackage
+} from "~/abstractions/models";
 
 export interface RunnableProcessParams {
-    builder: PackagesBuilder;
+    builder: IPackagesBuilder;
     pkg: IBasePackagesBuilderPackage;
     forkOptions?: ForkOptions;
 }
 
-export class RunnableBuildProcess {
-    builder: PackagesBuilder;
+export class RunnableBuildProcess implements IRunnableBuildProcess {
+    builder: IPackagesBuilder;
     pkg: IBasePackagesBuilderPackage;
     forkOptions: ForkOptions | undefined;
 
@@ -49,5 +53,9 @@ export class RunnableBuildProcess {
 
     setForkOptions(options: ForkOptions) {
         this.forkOptions = options;
+    }
+
+    getPackage() {
+        return this.pkg;
     }
 }

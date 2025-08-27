@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 import execa from "execa";
 import path from "path";
-import { green } from "chalk";
+import chalk from "chalk";
 import { getPackages } from "../../utils/getPackages";
 import { Package } from "./types";
 import { CACHE_FOLDER_PATH } from "./constants";
@@ -9,6 +9,8 @@ import { getBuildOutputFolder } from "./getBuildOutputFolder";
 import { getPackageSourceHash } from "./getPackageSourceHash";
 import { getBuildMeta } from "./getBuildMeta";
 import { getPackageCacheFolderPath } from "./getPackageCacheFolderPath";
+
+const { green } = chalk;
 
 interface GetBatchesOptions {
     cache?: boolean;

@@ -6,7 +6,7 @@ import { AppModel } from "~/models/index.js";
 export class DefaultGetApp implements GetApp.Interface {
     constructor(private getProject: GetProject.Interface) {}
 
-    execute(appName: string) {
+    execute(appName: GetApp.AppName) {
         if (!appName) {
             throw new Error("App name must be provided.");
         }

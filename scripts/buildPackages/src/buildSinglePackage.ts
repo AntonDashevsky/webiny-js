@@ -6,7 +6,7 @@ import { fork } from "child_process";
 import path from "path";
 
 export const buildPackage = async (pkg: Package, buildOverrides = "{}") => {
-    const workerPath = path.join(__dirname, "buildPackageWorkerEntry.js");
+    const workerPath = path.join(import.meta.dirname, "buildPackageWorker.js");
     const childProcess = fork(workerPath, [buildOverrides], {
         env: process.env,
         cwd: pkg.packageFolder

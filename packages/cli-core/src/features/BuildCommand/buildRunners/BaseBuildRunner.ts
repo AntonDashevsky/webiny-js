@@ -1,14 +1,14 @@
 import { StdioService, UiService } from "~/abstractions/index.js";
-import { PackagesBuilder } from "@webiny/project/features/BuildApp/PackagesBuilder/PackagesBuilder";
+import { IPackagesBuilder } from "@webiny/project/abstractions/models";
 
 export interface IBaseBuildRunnerParams {
-    packagesBuilder: PackagesBuilder;
+    packagesBuilder: IPackagesBuilder;
     stdio: StdioService.Interface;
     ui: UiService.Interface;
 }
 
 export class BaseBuildRunner {
-    public readonly packagesBuilder: PackagesBuilder;
+    public readonly packagesBuilder: IPackagesBuilder;
     public readonly stdio: StdioService.Interface;
     public readonly ui: UiService.Interface;
 

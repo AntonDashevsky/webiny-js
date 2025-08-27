@@ -1,6 +1,7 @@
 import { BuildApp, LoggerService } from "~/abstractions/index.js";
 import { RunnableBuildProcesses } from "./RunnableBuildProcesses.js";
 import { RunnableBuildProcess } from "./RunnableBuildProcess.js";
+import { IPackagesBuilder } from "~/abstractions/models";
 
 export interface IBasePackagesBuilderPackage {
     name: string;
@@ -19,7 +20,7 @@ export interface IBasePackagesBuilderParams {
     params: BuildApp.Params;
 }
 
-export class PackagesBuilder {
+export class PackagesBuilder implements IPackagesBuilder {
     public readonly packages: IBasePackagesBuilderPackage[];
     public readonly params: BuildApp.Params;
     public readonly logger: LoggerService.Interface;

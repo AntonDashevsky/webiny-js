@@ -3,3 +3,4 @@ export * from "./IAppPackageModel.js";
 export * from "./IProjectModel.js";
 export * from "./IProjectConfigModel.js";
 export * from "./IProjectConfigDto.js";
+export * from "./PackagesBuilder/index.js";

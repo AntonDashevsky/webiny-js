@@ -1,4 +1,4 @@
-import { green, red } from "chalk";
+import chalk from "chalk";
 import yargs from "yargs";
 import writeJson from "write-json-file";
 import { Listr, ListrTask } from "listr2";
@@ -11,12 +11,14 @@ import { MetaJSON, Package } from "./types";
 import { getHardwareInfo } from "./getHardwareInfo";
 import execa from "execa";
 
-class BuildError extends Error {
-    private workspace: string;
+import { hideBin } from "yargs/helpers";
+const argv = yargs(hideBin(process.argv)).parse();
 
+const { green, red } = chalk;
+
+class BuildError extends Error {
     constructor(workspace: string, message: string) {
         super("BuildError");
-        this.workspace = workspace;
         this.message = message;
     }
 }
@@ -36,7 +38,7 @@ const buildInParallel =
     !process.env.CI || process.env.RUNNER_NAME?.startsWith("webiny-build-packages");
 
 export const buildPackages = async () => {
-    const options = yargs.argv as BuildOptions;
+    const options = argv as BuildOptions;
 
     printHardwareReport();
 
