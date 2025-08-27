@@ -2,9 +2,7 @@ import path from "path";
 import fs from "fs";
 import url from "url";
 import { allWorkspaces } from "../../../../../workspaces/index.js";
-import { createRequire } from "module";
 
-const require = createRequire(import.meta.url);
 const envPublicUrl = process.env.PUBLIC_URL;
 
 function ensureSlash(inputPath, needsSlash) {
@@ -18,10 +16,8 @@ function ensureSlash(inputPath, needsSlash) {
     }
 }
 
-const getPublicUrl = appPackageJson => envPublicUrl || require(appPackageJson).homepage;
-
-function getServedPath(appPackageJson) {
-    const publicUrl = getPublicUrl(appPackageJson);
+function getServedPath() {
+    const publicUrl = envPublicUrl;
     const servedUrl = envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : "/");
     return ensureSlash(servedUrl, true);
 }
@@ -63,7 +59,6 @@ const createPaths = ({ appIndexJs, cwd }) => {
         appPublic: resolveApp("public"),
         appHtml: resolveApp("public/index.html"),
         appIndexJs: appIndexJs,
-        appPackageJson: resolveApp("package.json"),
         appSrc: resolveApp("src"),
         appTsConfig: resolveApp("tsconfig.json"),
         appJsConfig: resolveApp("jsconfig.json"),
@@ -71,7 +66,7 @@ const createPaths = ({ appIndexJs, cwd }) => {
         testsSetup: resolveModule(resolveApp, "src/setupTests"),
         proxySetup: resolveApp("src/setupProxy.js"),
         appNodeModules: resolveApp("node_modules"),
-        publicUrl: getPublicUrl(resolveApp("package.json")),
+        publicUrl: envPublicUrl,
         servedPath: getServedPath(resolveApp("package.json")),
         allWorkspaces: allWorkspaces(),
         moduleFileExtensions
