@@ -33,6 +33,8 @@ import {
 import { AdminExtension } from "@webiny/app-admin/extensions/index.js";
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
 
+import { LegacyContextPlugin } from "@webiny/api/extensions/index.js";
+
 // Exports.
 export { Webiny } from "@webiny/serverless-cms-aws/Webiny.js";
 
@@ -64,6 +66,9 @@ export const Api = {
     AfterDeploy: ApiAfterDeploy,
     Cms: {
         OnEntryBeforeCreate
+    },
+    Legacy: {
+        ContextPlugin: LegacyContextPlugin
     }
 };
 
