@@ -64,13 +64,13 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                 const stdio = this.stdioService;
                 const ui = this.ui;
 
-                const buildProcesses = await projectSdk.buildApp(params);
+                const packagesBuilder = await projectSdk.buildApp(params);
 
                 try {
                     const buildRunner = new BuildRunner({
                         stdio,
                         ui,
-                        buildProcesses
+                        packagesBuilder
                     });
 
                     return buildRunner.run();

@@ -25,35 +25,24 @@ export class BuildAppWithHooks implements BuildApp.Interface {
     ) {}
 
     async execute(params: BuildApp.Params) {
+        const packagesBuilder = await this.decoratee.execute(params);
+
         if (params.app === "core") {
-            await this.coreBeforeBuild.execute(params);
-            const result = await this.decoratee.execute(params);
-            await this.coreAfterBuild.execute(params);
-            return result;
+            packagesBuilder.onBeforeBuild(() => this.coreBeforeBuild.execute(params));
+            packagesBuilder.onAfterBuild(() => this.coreAfterBuild.execute(params));
+            return packagesBuilder;
+        } else if (params.app === "api") {
+            packagesBuilder.onBeforeBuild(() => this.apiBeforeBuild.execute(params));
+            packagesBuilder.onAfterBuild(() => this.apiAfterBuild.execute(params));
+        } else if (params.app === "admin") {
+            packagesBuilder.onBeforeBuild(() => this.adminBeforeBuild.execute(params));
+            packagesBuilder.onAfterBuild(() => this.adminAfterBuild.execute(params));
+        } else if (params.app === "website") {
+            packagesBuilder.onBeforeBuild(() => this.websiteBeforeBuild.execute(params));
+            packagesBuilder.onAfterBuild(() => this.websiteAfterBuild.execute(params));
         }
 
-        if (params.app === "api") {
-            await this.apiBeforeBuild.execute(params);
-            const result = await this.decoratee.execute(params);
-            await this.apiAfterBuild.execute(params);
-            return result;
-        }
-
-        if (params.app === "admin") {
-            await this.adminBeforeBuild.execute(params);
-            const result = await this.decoratee.execute(params);
-            await this.adminAfterBuild.execute(params);
-            return result;
-        }
-
-        if (params.app === "website") {
-            await this.websiteBeforeBuild.execute(params);
-            const result = await this.decoratee.execute(params);
-            await this.websiteAfterBuild.execute(params);
-            return result;
-        }
-
-        return this.decoratee.execute(params);
+        return packagesBuilder;
     }
 }
 

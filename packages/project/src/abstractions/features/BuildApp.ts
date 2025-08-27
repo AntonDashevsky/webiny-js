@@ -1,10 +1,10 @@
 import { Abstraction } from "@webiny/di-container";
 import { IBaseAppParams } from "~/abstractions/types.js";
-import { RunnableBuildProcessCollection } from "~/features/BuildApp/builders/RunnableBuildProcessCollection.js";
+import { PackagesBuilder } from "~/features/BuildApp/PackagesBuilder/PackagesBuilder.js";
 
 export type IBuildAppParams = IBaseAppParams;
 
-export type IBuildResult = RunnableBuildProcessCollection;
+export type IBuildResult = PackagesBuilder;
 
 interface IBuildApp {
     execute(params: IBuildAppParams): Promise<IBuildResult>;

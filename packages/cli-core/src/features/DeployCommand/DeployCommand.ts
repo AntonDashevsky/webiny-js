@@ -124,12 +124,12 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
 
         if (params.build !== false) {
             try {
-                const buildProcesses = await projectSdk.buildApp(params);
+                const packagesBuilder = await projectSdk.buildApp(params);
 
                 const buildRunner = new BuildRunner({
                     stdio,
                     ui,
-                    buildProcesses
+                    packagesBuilder
                 });
 
                 await buildRunner.run();

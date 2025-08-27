@@ -1,19 +1,19 @@
 import { StdioService, UiService } from "~/abstractions/index.js";
-import { RunnableBuildProcessCollection } from "@webiny/project/features/BuildApp/builders/RunnableBuildProcessCollection";
+import { PackagesBuilder } from "@webiny/project/features/BuildApp/PackagesBuilder/PackagesBuilder";
 
 export interface IBaseBuildRunnerParams {
-    buildProcesses: RunnableBuildProcessCollection;
+    packagesBuilder: PackagesBuilder;
     stdio: StdioService.Interface;
     ui: UiService.Interface;
 }
 
 export class BaseBuildRunner {
-    public readonly runnableBuildProcessCollection: RunnableBuildProcessCollection;
+    public readonly packagesBuilder: PackagesBuilder;
     public readonly stdio: StdioService.Interface;
     public readonly ui: UiService.Interface;
 
-    public constructor({ buildProcesses, stdio, ui }: IBaseBuildRunnerParams) {
-        this.runnableBuildProcessCollection = buildProcesses;
+    public constructor({ packagesBuilder, stdio, ui }: IBaseBuildRunnerParams) {
+        this.packagesBuilder = packagesBuilder;
         this.stdio = stdio;
         this.ui = ui;
     }

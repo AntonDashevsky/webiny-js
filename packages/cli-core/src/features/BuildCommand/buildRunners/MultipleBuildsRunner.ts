@@ -4,14 +4,20 @@ import { measureDuration } from "~/features/utils/index.js";
 
 export class MultipleBuildsRunner extends BaseBuildRunner {
     public override async run() {
-        const runnableBuildProcessCollection = this.runnableBuildProcessCollection;
+        const getBuildDuration = measureDuration();
         const ui = this.ui;
 
-        const getBuildDuration = measureDuration();
+        const builder = this.packagesBuilder;
+        const buildProcesses = builder.prepare();
 
-        ui.info(`Building %s packages... `, runnableBuildProcessCollection.getLength());
+        ui.info(`Building %s packages... `, buildProcesses.length);
 
-        const tasksList = runnableBuildProcessCollection.getProcesses().map(buildProcess => {
+        const onBeforeBuildCallbacks = builder.getOnBeforeBuildCallbacks();
+        for (const onBeforeBuildCallback of onBeforeBuildCallbacks) {
+            await onBeforeBuildCallback(builder.getBuildParams());
+        }
+
+        const tasksList = buildProcesses.map(buildProcess => {
             return {
                 title: buildProcess.pkg.name,
                 task: () => {
@@ -54,10 +60,13 @@ export class MultipleBuildsRunner extends BaseBuildRunner {
 
                 throw new Error(`Failed to build all packages.`);
             })
-            .then(() => {
-                ui.success(
-                    `Built ${runnableBuildProcessCollection.getLength()} packages in ${getBuildDuration()}.`
-                );
+            .then(async () => {
+                const onAfterBuildCallbacks = builder.getOnAfterBuildCallbacks();
+                for (const onAfterBuildCallback of onAfterBuildCallbacks) {
+                    await onAfterBuildCallback(builder.getBuildParams());
+                }
+
+                ui.success(`Built ${buildProcesses.length} packages in ${getBuildDuration()}.`);
             });
     }
 }

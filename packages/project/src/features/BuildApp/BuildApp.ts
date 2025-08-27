@@ -6,7 +6,7 @@ import {
     LoggerService,
     ValidateProjectConfigService
 } from "~/abstractions/index.js";
-import { PackagesBuilder } from "./builders/PackagesBuilder.js";
+import { PackagesBuilder } from "./PackagesBuilder/PackagesBuilder.js";
 
 export class DefaultBuildApp implements BuildApp.Interface {
     constructor(
@@ -39,13 +39,12 @@ export class DefaultBuildApp implements BuildApp.Interface {
         }
 
         const packages = await this.listPackagesService.execute(params.app);
-        const packagesBuilder = new PackagesBuilder({
+
+        return new PackagesBuilder({
             packages,
             params,
             logger: this.logger
         });
-
-        return packagesBuilder.build();
     }
 }
 

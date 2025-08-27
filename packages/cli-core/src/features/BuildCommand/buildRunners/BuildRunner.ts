@@ -8,7 +8,7 @@ export class BuildRunner extends BaseBuildRunner {
         const RunnerClass = this.getRunnerClass();
 
         const runner = new RunnerClass({
-            buildProcesses: this.runnableBuildProcessCollection,
+            packagesBuilder: this.packagesBuilder,
             stdio: this.stdio,
             ui: this.ui
         });
@@ -17,12 +17,12 @@ export class BuildRunner extends BaseBuildRunner {
     }
 
     private getRunnerClass() {
-        const buildsCount = this.runnableBuildProcessCollection.getLength();
-        if (buildsCount === 0) {
+        const packagesCount = this.packagesBuilder.getPackages().length;
+        if (packagesCount === 0) {
             return ZeroBuildsRunner;
         }
 
-        if (buildsCount === 1) {
+        if (packagesCount === 1) {
             return SingleBuildRunner;
         }
 

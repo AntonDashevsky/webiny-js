@@ -5,22 +5,23 @@ export class SingleBuildRunner extends BaseBuildRunner {
     public override async run() {
         const ui = this.ui;
 
-        const [buildProcess] = this.runnableBuildProcessCollection.getProcesses();
+        const buildProcesses = this.packagesBuilder.prepare();
+        const [buildProcess] = buildProcesses.getProcesses();
+
         ui.info(`Building %s package... `, buildProcess.pkg.name);
 
-        this.runnableBuildProcessCollection.setForkOptions({
+        buildProcess.setForkOptions({
             stdio: "inherit",
             env: process.env
         });
 
         const getBuildDuration = measureDuration();
 
-        return Promise.all(this.runnableBuildProcessCollection.run())
-            .then(() => {
-                ui.success(`Built %s package in %s.`, buildProcess.pkg.name, getBuildDuration());
-            })
-            .catch(() => {
-                ui.error("Build failed, please check the details above.");
-            });
+        try {
+            await buildProcesses.run();
+            ui.success(`Built %s package in %s.`, buildProcess.pkg.name, getBuildDuration());
+        } catch {
+            ui.error("Build failed, please check the details above.");
+        }
     }
 }

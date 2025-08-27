@@ -1,21 +1,20 @@
-import { IBasePackagesBuilderPackage } from "./BasePackagesBuilder.js";
 import { fork, type ForkOptions } from "child_process";
 import path from "path";
-import { BuildApp } from "~/abstractions/index.js";
+import { PackagesBuilder, IBasePackagesBuilderPackage } from "./PackagesBuilder.js";
 
 export interface RunnableProcessParams {
-    buildParams: BuildApp.Params;
+    builder: PackagesBuilder;
     pkg: IBasePackagesBuilderPackage;
     forkOptions?: ForkOptions;
 }
 
 export class RunnableBuildProcess {
-    buildParams: BuildApp.Params;
+    builder: PackagesBuilder;
     pkg: IBasePackagesBuilderPackage;
     forkOptions: ForkOptions | undefined;
 
     constructor(params: RunnableProcessParams) {
-        this.buildParams = params.buildParams;
+        this.builder = params.builder;
         this.pkg = params.pkg;
         this.forkOptions = params.forkOptions || {
             env: { ...process.env },
@@ -26,9 +25,10 @@ export class RunnableBuildProcess {
     run() {
         const workerPath = path.resolve(import.meta.dirname, "worker.js");
 
+        const buildParams = this.builder.getBuildParams();
         const buildProcess = fork(
             workerPath,
-            [JSON.stringify({ ...this.buildParams, package: this.pkg })],
+            [JSON.stringify({ ...buildParams, package: this.pkg })],
             this.forkOptions
         );
 
