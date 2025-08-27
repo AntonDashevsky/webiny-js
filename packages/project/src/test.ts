@@ -8,9 +8,6 @@ const projectSdk = await ProjectSdk.init({
 
 process.env.AWS_REGION = "eu-central-1";
 
-const rez = await projectSdk.watch({
-    app: "admin",
-    env: "dev"
-});
+const rez = await projectSdk.getPulumiResourceNamePrefix();
 
 console.log("rez", rez);

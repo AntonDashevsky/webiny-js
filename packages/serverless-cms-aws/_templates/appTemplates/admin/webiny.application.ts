@@ -10,6 +10,7 @@ const sdk = await ProjectSdk.init({
 });
 
 const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+
 const productionEnvironments = await sdk.getProductionEnvironments();
 
 export default createAdminApp({
