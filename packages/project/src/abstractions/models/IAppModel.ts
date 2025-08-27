@@ -1,10 +1,12 @@
+import { GetApp } from "~/abstractions/index.js";
+
 interface AbsRelPaths {
     relative: string;
     absolute: string;
 }
 
 export interface IAppModel {
-    name: string;
+    name: GetApp.AppName;
     paths: {
         workspaceFolder: AbsRelPaths;
         localPulumiStateFilesFolder: AbsRelPaths;
