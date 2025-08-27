@@ -15,6 +15,6 @@ try {
 } catch (e) {
     if (process.send) {
         process.send({ error: serializeError(e) });
-        process.exit(1);
     }
+    process.exit(1);
 }
