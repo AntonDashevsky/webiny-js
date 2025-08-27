@@ -96,8 +96,6 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
             container.register(commandImplementation).inSingletonScope();
         }
     } catch (error) {
-        const ui = container.resolve(UiService);
-
         let realError = error;
         if (error.cause) {
             realError = error.cause as Error;
