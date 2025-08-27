@@ -6,11 +6,10 @@ import "./utils/suppressPunycodeWarnings.js";
 
 import { Cli } from "@webiny/cli-core";
 import { ensureSystemRequirements } from "@webiny/system-requirements";
-import { definitions as extensionDefinitions } from "@webiny/extensions/definitions.js";
 
 // Ensure system requirements are met.
 ensureSystemRequirements();
 
-const cli = await Cli.init({ extensions: extensionDefinitions });
+const cli = await Cli.init();
 
 await cli.run(process.argv);

@@ -1,4 +1,4 @@
-import { createBlueGreenApp } from "@webiny/serverless-cms-aws";
+import { createBlueGreenApp } from "@webiny/project-aws";
 
 const cert = process.env.WEBINY_BG_CERT_ARN as string;
 

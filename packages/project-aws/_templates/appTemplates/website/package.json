@@ -10,7 +10,7 @@
     "@webiny/app-website": "latest",
     "@webiny/plugins": "latest",
     "@webiny/project-utils": "latest",
-    "@webiny/serverless-cms-aws": "latest",
+    "@webiny/project-aws": "latest",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
     "core-js": "3.39.0",

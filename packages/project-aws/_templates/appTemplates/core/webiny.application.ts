@@ -1,4 +1,4 @@
-import { createCoreApp } from "@webiny/serverless-cms-aws";
+import { createCoreApp } from "@webiny/project-aws";
 import { ProjectSdk } from "@webiny/project";
 import { CorePulumi } from "@webiny/project/abstractions";
 import { definitions as extensionDefinitions } from "@webiny/extensions/definitions.js";

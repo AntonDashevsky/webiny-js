@@ -9,6 +9,7 @@ export const Webiny = () => {
         <>
             <ProjectDecorator src={src("BuildAppWorkspaceDecorator.js")} />
             <AdminAfterDeploy src={src("UploadAdminAppToS3.js")} />
+            {/*<ExtensionDefinitions src={''}/>*/}
         </>
     );
 };

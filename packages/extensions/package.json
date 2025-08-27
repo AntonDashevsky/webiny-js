@@ -10,10 +10,9 @@
   "description": "This package contains Webiny extensions.",
   "license": "MIT",
   "dependencies": {
-    "@webiny/api-headless-cms": "0.0.0",
     "@webiny/cli-core": "0.0.0",
     "@webiny/project": "0.0.0",
-    "@webiny/serverless-cms-aws": "0.0.0",
+    "@webiny/project-aws": "0.0.0",
     "react": "18.2.0"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 {
-  "name": "@webiny/serverless-cms-aws",
+  "name": "@webiny/project-aws",
   "version": "0.0.0",
   "main": "./index.js",
   "type": "module",

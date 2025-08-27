@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { ProjectSdk } from "@webiny/project";
+import { getProjectSdk } from "@webiny/project";
 import { CliParamsService, GetProjectSdkService } from "~/abstractions/index.js";
 
 export class DefaultGetProjectSdkService implements GetProjectSdkService.Interface {
@@ -7,11 +7,7 @@ export class DefaultGetProjectSdkService implements GetProjectSdkService.Interfa
 
     async execute() {
         const cliParams = this.cliParamsService.get();
-        const sdk = await ProjectSdk.init(cliParams);
-        if (!sdk) {
-            throw new Error("Project SDK is not initialized.");
-        }
-        return sdk;
+        return getProjectSdk(cliParams);
     }
 }
 
