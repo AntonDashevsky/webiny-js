@@ -41,7 +41,7 @@ const Label = styled("div")({
     marginTop: 15
 });
 
-const CircularProgress = (props: CircularProgressProps) => {
+export const CircularProgress = (props: CircularProgressProps) => {
     const {
         label,
         size = 45,
@@ -72,5 +72,3 @@ const CircularProgress = (props: CircularProgressProps) => {
         </SpinnerWrapper>
     );
 };
-
-export default CircularProgress;
