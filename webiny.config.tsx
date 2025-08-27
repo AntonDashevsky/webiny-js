@@ -1,5 +1,5 @@
 import React from "react";
-import { Webiny, Cli, Core, Api, Project } from "./packages/extensions/src";
+import { Webiny, Cli, Core, Api, Admin, Project } from "./packages/extensions/src";
 
 export default () => {
     return (
@@ -17,17 +17,17 @@ export default () => {
             <Project.AwsTags tags={{ OWNER2: "me2", PROJECT2: "my-project-2" }} />
 
             <Project.PulumiResourceNamePrefix prefix={"myproj-"} />
-
             <Project.ProductionEnvironments environments={["prod", "staging"]} />
 
             {/*Adding custom CLI commands.*/}
             <Cli.Command src={"./extensions/myCustomCommand.ts"} />
-
             {/*Hooking into the API deployment and build process.*/}
             <Api.BeforeDeploy src={"./extensions/myApiBeforeDeploy.ts"} />
             <Api.BeforeBuild src={"./extensions/myApiBeforeBuild.ts"} />
             <Api.AfterDeploy src={"./extensions/myApiAfterDeploy.ts"} />
             <Api.AfterBuild src={"./extensions/myApiAfterBuild.ts"} />
+
+            <Admin.Extension src={"./extensions/myAdminExtension.tsx"} />
 
             {/*<Api.Cms.OnEntryBeforeCreate src={"./extensions/myOnEntryBeforeCreate.ts"} />*/}
         </>
