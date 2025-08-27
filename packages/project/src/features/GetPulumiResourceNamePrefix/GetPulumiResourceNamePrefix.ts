@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetProjectConfigService, GetPulumiResourceNamePrefix } from "~/abstractions";
-import { pulumiResourceNamePrefix as pulumiResourceNamePrefixExtension } from "~/extensions/pulumi";
+import { GetProjectConfigService, GetPulumiResourceNamePrefix } from "~/abstractions/index.js";
+import { pulumiResourceNamePrefix as pulumiResourceNamePrefixExtension } from "~/extensions/pulumi/index.js";
 
 export class DefaultGetPulumiResourceNamePrefix implements GetPulumiResourceNamePrefix.Interface {
     constructor(private getProjectConfigService: GetProjectConfigService.Interface) {}

@@ -1,6 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
 import { IBaseAppParams } from "~/abstractions/types.js";
-import { IPackagesBuilder } from "~/abstractions/models";
+import { IPackagesBuilder } from "~/abstractions/models/index.js";
 
 export type IBuildAppParams = IBaseAppParams;
 

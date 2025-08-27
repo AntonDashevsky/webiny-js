@@ -1,7 +1,7 @@
 import { BuildApp, LoggerService } from "~/abstractions/index.js";
 import { RunnableBuildProcesses } from "./RunnableBuildProcesses.js";
 import { RunnableBuildProcess } from "./RunnableBuildProcess.js";
-import { IPackagesBuilder } from "~/abstractions/models";
+import { IPackagesBuilder } from "~/abstractions/models/index.js";
 
 export interface IBasePackagesBuilderPackage {
     name: string;

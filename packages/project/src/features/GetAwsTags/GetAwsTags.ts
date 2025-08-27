@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetAwsTags, GetProjectConfigService } from "~/abstractions";
-import { awsTags } from "~/extensions/pulumi/AwsTags";
+import { GetAwsTags, GetProjectConfigService } from "~/abstractions/index.js";
+import { awsTags } from "~/extensions/pulumi/AwsTags.js";
 
 export class DefaultGetAwsTags implements GetAwsTags.Interface {
     constructor(private getProjectConfigService: GetProjectConfigService.Interface) {}

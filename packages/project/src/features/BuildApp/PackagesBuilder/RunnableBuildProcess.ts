@@ -4,7 +4,7 @@ import {
     IPackagesBuilder,
     IRunnableBuildProcess,
     IBasePackagesBuilderPackage
-} from "~/abstractions/models";
+} from "~/abstractions/models/index.js";
 
 export interface RunnableProcessParams {
     builder: IPackagesBuilder;

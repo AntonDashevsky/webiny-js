@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetProductionEnvironments, GetProjectConfigService } from "~/abstractions";
+import { GetProductionEnvironments, GetProjectConfigService } from "~/abstractions/index.js";
 
 export class DefaultGetProductionEnvironments implements GetProductionEnvironments.Interface {
     constructor(private getProjectConfigService: GetProjectConfigService.Interface) {}
