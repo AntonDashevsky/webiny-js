@@ -13,7 +13,7 @@ export class AppBundler extends BaseAppBundler {
     }
 
     async watch() {
-        const Bundler = this.getBundlerClass();
+        const Bundler = await this.getBundlerClass();
         return new Bundler(this.params).watch();
     }
 

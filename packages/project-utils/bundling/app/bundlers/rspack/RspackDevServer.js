@@ -1,8 +1,8 @@
-import { PackageJson } from "../../../../utils/PackageJson.js";
 import chalk from "react-dev-utils/chalk.js";
 import { choosePort, prepareUrls } from "react-dev-utils/WebpackDevServerUtils.js";
 import clearConsole from "react-dev-utils/clearConsole.js";
 import formatWebpackMessages from "react-dev-utils/formatWebpackMessages.js";
+import { getAppName } from "./config/getAppName.js";
 
 export class RspackDevServer {
     constructor(compiler, options = {}) {
@@ -12,7 +12,7 @@ export class RspackDevServer {
     }
 
     async start() {
-        const createDevServerConfig = await import("./config/devServer.config.js");
+        const { default: createDevServerConfig } = await import("./config/devServer.config.js");
 
         const host = this.getHost();
         const port = await this.getPort(host);
@@ -32,7 +32,7 @@ export class RspackDevServer {
 
         const { RspackDevServer } = await import("@rspack/dev-server");
 
-        console.log(chalk.cyan("Starting the development server...\n"));
+        console.log(chalk.cyan("Starting the development server..."));
 
         const server = new RspackDevServer(devServerConfig, this.compiler);
 
@@ -141,8 +141,7 @@ export class RspackDevServer {
     }
 
     getAppName() {
-        const pkgJson = PackageJson.fromFile(this.options.paths.appPackageJson);
-        return pkgJson.getJson().name;
+        return getAppName(this.options.paths.appPath);
     }
 
     printInstructions(appName, urls) {
@@ -155,4 +154,4 @@ export class RspackDevServer {
 
         console.log();
     }
-};
+}
