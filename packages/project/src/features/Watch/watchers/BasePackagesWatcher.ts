@@ -1,18 +1,14 @@
 import { ListPackagesService, LoggerService, Watch } from "~/abstractions/index.js";
-import { ChildProcess } from "child_process";
 
-export interface IWatchProcess {
-    packageName: string;
-    process: ChildProcess;
-}
-
-export type IBasePackagesWatcherPackage = ListPackagesService.Package;
+import { RunnableWatchProcesses } from "./RunnableWatchProcesses.js";
 
 export interface IBasePackagesWatcherParams {
     packages: IBasePackagesWatcherPackage[];
     logger: LoggerService.Interface;
     params: Watch.Params;
 }
+
+export type IBasePackagesWatcherPackage = ListPackagesService.Package;
 
 export class BasePackagesWatcher {
     public readonly packages: IBasePackagesWatcherPackage[];
@@ -25,7 +21,7 @@ export class BasePackagesWatcher {
         this.logger = logger;
     }
 
-    public watch(): IWatchProcess[] {
+    public prepare(): RunnableWatchProcesses {
         throw new Error("Not implemented.");
     }
 }

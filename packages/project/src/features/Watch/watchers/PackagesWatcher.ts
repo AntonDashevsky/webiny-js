@@ -1,10 +1,10 @@
+import { BasePackagesWatcher } from "./BasePackagesWatcher.js";
 import { ZeroPackagesWatcher } from "./ZeroPackagesWatcher.js";
 import { SinglePackageWatcher } from "./SinglePackageWatcher.js";
 import { MultiplePackagesWatcher } from "./MultiplePackagesWatcher.js";
-import { BasePackagesWatcher } from "./BasePackagesWatcher.js";
 
 export class PackagesWatcher extends BasePackagesWatcher {
-    public override watch() {
+    public override prepare() {
         const WatcherClass = this.getWatcherClass();
 
         const watcher = new WatcherClass({
@@ -13,7 +13,7 @@ export class PackagesWatcher extends BasePackagesWatcher {
             logger: this.logger
         });
 
-        return watcher.watch();
+        return watcher.prepare();
     }
 
     private getWatcherClass() {
@@ -25,7 +25,6 @@ export class PackagesWatcher extends BasePackagesWatcher {
         if (packagesCount === 1) {
             return SinglePackageWatcher;
         }
-
         return MultiplePackagesWatcher;
     }
 }

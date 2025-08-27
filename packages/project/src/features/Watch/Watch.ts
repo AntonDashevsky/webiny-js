@@ -1,19 +1,23 @@
 import { createImplementation } from "@webiny/di-container";
 import {
     GetApp,
+    GetProject,
+    GetProjectConfigService,
     ListAppLambdaFunctionsService,
     ListPackagesService,
     LoggerService,
+    ValidateProjectConfigService,
     Watch
 } from "~/abstractions/index.js";
 import chalk from "chalk";
+
 // import get from "lodash/get.js";
 // import merge from "lodash/merge.js";
 // import type inspectorType from "inspector";
 // import { getDeploymentId, loadEnvVariables, runHook, setMustRefreshBeforeDeploy } from "~/utils/index.js";
 // import { getIotEndpoint } from "./getIotEndpoint.js";
-import { AppModel } from "~/models/index.js";
 import { PackagesWatcher } from "./watchers/PackagesWatcher.js";
+import { WebinyConfigWatcher } from "~/features/Watch/watchers/WebinyConfigWatcher.js";
 // import { initInvocationForwarding } from "./initInvocationForwarding.js";
 // import { replaceLambdaFunctions } from "./replaceLambdaFunctions.js";
 
@@ -26,7 +30,10 @@ export class DefaultWatch implements Watch.Interface {
         private getApp: GetApp.Interface,
         private logger: LoggerService.Interface,
         private listAppLambdaFunctionsService: ListAppLambdaFunctionsService.Interface,
-        private listPackagesService: ListPackagesService.Interface
+        private listPackagesService: ListPackagesService.Interface,
+        private getProject: GetProject.Interface,
+        private getProjectConfigService: GetProjectConfigService.Interface,
+        private validateProjectConfigService: ValidateProjectConfigService.Interface
     ) {}
 
     async execute(params: Watch.Params) {
@@ -46,9 +53,10 @@ export class DefaultWatch implements Watch.Interface {
             const packages = await this.listPackagesService.execute({
                 whitelist: whitelistArray
             });
+
             const packagesWatcher = new PackagesWatcher({ packages, params, logger: this.logger });
 
-            return packagesWatcher.watch();
+            return { packagesWatcher };
         }
 
         // Get project application metadata. Will throw an error if an invalid folder is specified.
@@ -83,6 +91,17 @@ export class DefaultWatch implements Watch.Interface {
             );
         }
 
+        const project = this.getProject.execute();
+        const getProjectConfigService = this.getProjectConfigService;
+        const validateProjectConfigService = this.validateProjectConfigService;
+
+        const webinyConfigWatcher = new WebinyConfigWatcher({
+            webinyConfigPath: project.paths.manifestFile.absolute,
+            appName: params.app,
+            getProjectConfigService,
+            validateProjectConfigService
+        });
+
         const packages = await this.listPackagesService.execute(params);
         const packagesWatcher = new PackagesWatcher({ packages, params, logger: this.logger });
 
@@ -92,7 +111,7 @@ export class DefaultWatch implements Watch.Interface {
         const learnMoreLink = "https://webiny.link/local-aws-lambda-development";
         const troubleshootingLink = learnMoreLink + "#troubleshooting";
 
-        if (functionsList.meta.count === 0) {
+        if (functionsList.meta.count !== 0) {
             // If functions exist, but none are selected for watching, show a warning.
             if (functionsList.meta.totalCount > 0) {
                 this.logger.info(
@@ -112,10 +131,13 @@ export class DefaultWatch implements Watch.Interface {
                 );
             }
 
-            return packagesWatcher.watch();
+            return { packagesWatcher, webinyConfigWatcher };
         }
 
-        return [];
+        return { packagesWatcher, webinyConfigWatcher };
+        // throw new Error("Not implemented.");
+        // return [];
+
         //
         // context.info(`Local AWS Lambda development session started.`);
         // context.warning(
@@ -207,5 +229,13 @@ export class DefaultWatch implements Watch.Interface {
 export const watch = createImplementation({
     abstraction: Watch,
     implementation: DefaultWatch,
-    dependencies: [GetApp, LoggerService, ListAppLambdaFunctionsService, ListPackagesService]
+    dependencies: [
+        GetApp,
+        LoggerService,
+        ListAppLambdaFunctionsService,
+        ListPackagesService,
+        GetProject,
+        GetProjectConfigService,
+        ValidateProjectConfigService
+    ]
 });

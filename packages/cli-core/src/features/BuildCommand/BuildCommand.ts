@@ -64,9 +64,9 @@ export class BuildCommand implements Command.Interface<IBuildCommandParams> {
                 const stdio = this.stdioService;
                 const ui = this.ui;
 
-                try {
-                    const buildProcesses = await projectSdk.buildApp(params);
+                const buildProcesses = await projectSdk.buildApp(params);
 
+                try {
                     const buildRunner = new BuildRunner({
                         stdio,
                         ui,

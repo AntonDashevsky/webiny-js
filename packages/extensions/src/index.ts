@@ -30,6 +30,7 @@ import {
 } from "@webiny/project/extensions/index.js";
 
 // Cms.
+import { AdminExtension } from "@webiny/app-admin/extensions/index.js";
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
 
 // Exports.
@@ -52,7 +53,8 @@ export const Admin = {
     BeforeBuild: AdminBeforeBuild,
     BeforeDeploy: AdminBeforeDeploy,
     AfterBuild: AdminAfterBuild,
-    AfterDeploy: AdminAfterDeploy
+    AfterDeploy: AdminAfterDeploy,
+    Extension: AdminExtension
 };
 
 export const Api = {

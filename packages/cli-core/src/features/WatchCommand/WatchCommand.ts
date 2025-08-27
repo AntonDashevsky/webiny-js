@@ -73,34 +73,59 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                 }
             ],
             handler: async (params: IWatchCommandParams) => {
-                const watchProcesses = await projectSdk.watch(params);
-                if (watchProcesses.length === 1) {
-                    const [watchProcess] = watchProcesses;
-                    watchProcess.process.stdout!.pipe(stdio.getStdout());
-                    watchProcess.process.stderr!.pipe(stdio.getStderr());
-                } else {
-                    if (watchProcesses.length > 1) {
-                        ui.info(
-                            `Watching ${watchProcesses.length} packages. Output will be displayed below:\n`
-                        );
+                const { packagesWatcher, webinyConfigWatcher } = await projectSdk.watch(params);
 
-                        watchProcesses.forEach(watchProcess => {
-                            const { packageName, process: childProcess } = watchProcess;
-                            const pkgPrefix = chalk.hex(getRandomColorForString(packageName))(
-                                packageName
+                if (webinyConfigWatcher) {
+                    webinyConfigWatcher
+                        .onError(err => {
+                            ui.error(
+                                `There is an error in your %s file: ${err.message}`,
+                                "webiny.config.tsx"
                             );
+                        })
+                        .onSuccess(() => {
+                            ui.success(`%s compiled successfully!`, "webiny.config.tsx");
+                        })
+                        .run();
+                }
 
-                            if (childProcess.stdout) {
-                                const prefixedStdout = createPrefixer(pkgPrefix);
-                                childProcess.stdout.pipe(prefixedStdout).pipe(stdio.getStdout());
-                            }
+                // TODO: Extract this logic into WatchRunners, same thing we have with BuildRunners.
+                const watchProcesses = packagesWatcher.prepare();
+                if (watchProcesses.length === 1) {
+                    watchProcesses.setForkOptions({
+                        stdio: "inherit",
+                        env: process.env
+                    });
 
-                            if (childProcess.stderr) {
-                                const prefixedStderr = createPrefixer(pkgPrefix);
-                                childProcess.stderr.pipe(prefixedStderr).pipe(stdio.getStderr());
-                            }
+                    const [firstProcess] = watchProcesses.getProcesses();
+                    ui.info(`Watching %s package...`, firstProcess.pkg.name);
+
+                    await firstProcess.run();
+                } else if (watchProcesses.length > 1) {
+                    ui.info(
+                        `Watching ${watchProcesses.length} packages. Output will be displayed below:\n`
+                    );
+
+                    watchProcesses.forEach(watchProcess => {
+                        const { pkg } = watchProcess;
+                        const pkgPrefix = chalk.hex(getRandomColorForString(pkg.name))(pkg.name);
+
+                        watchProcess.pipeStdout(stdout => {
+                            const prefixedStdout = createPrefixer(pkgPrefix);
+                            stdout.pipe(prefixedStdout).pipe(stdio.getStdout());
                         });
-                    }
+
+                        watchProcess.pipeStderr(stderr => {
+                            const prefixedStderr = createPrefixer(pkgPrefix);
+                            stderr.pipe(prefixedStderr).pipe(stdio.getStderr());
+                        });
+                    });
+
+                    await Promise.all(watchProcesses.run());
+                } else {
+                    ui.warning(
+                        `No watch processes were started. Please ensure that you have specified valid "app" or "package" parameters.`
+                    );
                 }
             }
         };
