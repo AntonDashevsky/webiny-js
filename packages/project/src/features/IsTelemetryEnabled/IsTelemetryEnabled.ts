@@ -1,6 +1,6 @@
 import { createImplementation } from "@webiny/di-container";
 import { GetProjectConfigService, IsTelemetryEnabled } from "~/abstractions/index.js";
-import { telemetry as telemetryExtension } from "~/extensions/Telemetry.js";
+import { telemetry as telemetryExtension } from "~/extensions/telemetry.js";
 
 export class DefaultIsTelemetryEnabled implements IsTelemetryEnabled.Interface {
     constructor(private getProjectConfigService: GetProjectConfigService.Interface) {}

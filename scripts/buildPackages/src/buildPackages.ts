@@ -12,6 +12,7 @@ import { getHardwareInfo } from "./getHardwareInfo";
 import execa from "execa";
 
 import { hideBin } from "yargs/helpers";
+
 const argv = yargs(hideBin(process.argv)).parse();
 
 const { green, red } = chalk;
@@ -117,8 +118,7 @@ export const buildPackages = async () => {
     try {
         await tasks.run(ctx);
     } catch (err) {
-        console.log(`\nError building ${red(err.packageName)}:\n`);
-        console.log(red(err.message));
+        console.log(`\nError building ${red(err.packageName)}. Check the logs above.`);
         process.exit(1);
     }
     const duration = (Date.now() - start) / 1000;
