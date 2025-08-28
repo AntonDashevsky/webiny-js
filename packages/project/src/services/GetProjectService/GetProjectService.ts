@@ -1,8 +1,8 @@
 import { createImplementation } from "@webiny/di-container";
-import { GetProjectService } from "~/abstractions/index.js";
-import { ProjectModel } from "~/models/ProjectModel.js";
 import findUp from "find-up";
 import { dirname, join, relative } from "path";
+import { GetProjectService } from "~/abstractions/index.js";
+import { ProjectModel } from "~/models/ProjectModel.js";
 
 export class DefaultGetProjectService implements GetProjectService.Interface {
     cachedProject: ProjectModel | null = null;
@@ -46,7 +46,7 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
                     absolute: projectRootFolderAbsPath,
                     relative: projectRootFolderRelPath
                 },
-                manifestFile: {
+                webinyConfigFile: {
                     absolute: manifestFileAbsPath,
                     relative: manifestFileRelPath
                 },

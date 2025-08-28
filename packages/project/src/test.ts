@@ -8,5 +8,3 @@ const rez = await projectSdk.buildApp({
     app: "api",
     env: "prod"
 });
-
-console.log("rez", rez);

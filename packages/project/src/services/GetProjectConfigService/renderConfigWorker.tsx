@@ -5,13 +5,11 @@ import { createRoot } from "react-dom/client";
 
 // @ts-expect-error jsdom types are messing up with the repo, so they're disabled in the root package.json.
 import { JSDOM } from "jsdom";
-import { ArgsProvider } from "~/extensions/components/index.js";
 import { RenderConfigParams } from "./renderConfig.js";
 
 const { project, args } = JSON.parse(process.argv[2]) as RenderConfigParams;
 
-
-const { default: ManifestComponent } = await import(project.paths.manifestFile.absolute);
+const { default: WebinyConfig } = await import(project.paths.webinyConfigFile.absolute);
 
 const onChange = debounce((value: any) => {
     if (process.send) {
@@ -31,9 +29,7 @@ const root = window.document.getElementById("root");
 const reactRoot = createRoot(root);
 
 reactRoot.render(
-  <ArgsProvider args={args}>
-        <Properties onChange={onChange}>
-            <ManifestComponent />
-        </Properties>
-    </ArgsProvider>
+    <Properties onChange={onChange}>
+        <WebinyConfig />
+    </Properties>
 );
