@@ -9,9 +9,11 @@ export const legacyContextPlugin = defineExtension({
     tags: { runtimeContext: "app-build", appName: "api" },
     description: "Legacy context plugin, used with Webiny v5. Exists for backward compatibility.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToFile()
-    }),
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToFile(project)
+        });
+    },
     async build(params, ctx) {
         const extensionsFilePath = path.join(
             ctx.project.paths.workspacesFolder.absolute,

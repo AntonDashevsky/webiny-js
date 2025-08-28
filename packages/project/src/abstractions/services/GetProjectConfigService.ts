@@ -4,6 +4,7 @@ import { ExtensionTags } from "~/extensions/defineExtension/types.js";
 
 interface IGetProjectConfigServiceParams {
     tags?: ExtensionTags;
+    renderArgs?: Record<string, any>;
 }
 
 type IGetProjectConfigServiceResult = IProjectConfigModel;

@@ -1,7 +1,7 @@
 import { z } from "zod";
 import path from "path";
 import fs from "fs";
-import { IProjectModel } from "~/abstractions/models";
+import { IProjectModel } from "~/abstractions/models/index.js";
 
 export const zodPathToFile = (project: IProjectModel) => {
     return z

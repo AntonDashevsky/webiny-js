@@ -1,13 +1,9 @@
-import { createWebsiteApp } from "@webiny/project-aws";
+import { createWebsiteApp } from "@webiny/project-aws/apps";
 import { getProjectSdk } from "@webiny/project";
 import { WebsitePulumi } from "@webiny/project/abstractions";
-import { definitions as extensionDefinitions } from "@webiny/extensions/definitions.js";
 import { tagResources } from "@webiny/pulumi-aws";
 
-const sdk = await getProjectSdk({
-    extensions: extensionDefinitions,
-    cwd: import.meta.dirname + "/../../../.."
-});
+const sdk = await getProjectSdk();
 
 const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
 const productionEnvironments = await sdk.getProductionEnvironments();

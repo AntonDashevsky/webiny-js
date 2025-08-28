@@ -1,37 +1,38 @@
 import { CliCommand } from "@webiny/cli-core/extensions/index.js";
 import {
-    Telemetry,
-    ProjectId,
-    ProjectDecorator,
-
-    // Hooks.
-    AdminAfterBuild,
-    AdminAfterDeploy,
-    AdminBeforeBuild,
-    AdminBeforeDeploy,
-    ApiAfterBuild,
-    ApiAfterDeploy,
-    ApiBeforeBuild,
-    ApiBeforeDeploy,
-    CoreAfterBuild,
-    CoreAfterDeploy,
-    CoreBeforeBuild,
-    CoreBeforeDeploy,
-    WebsiteAfterBuild,
-    WebsiteAfterDeploy,
-    WebsiteBeforeBuild,
-    WebsiteBeforeDeploy,
-
-    // Pulumi.
-    CorePulumi,
-    AwsTags,
-    PulumiResourceNamePrefix,
-    ProductionEnvironments
+  // Hooks.
+  AdminAfterBuild,
+  AdminAfterDeploy,
+  AdminBeforeBuild,
+  AdminBeforeDeploy,
+  ApiAfterBuild,
+  ApiAfterDeploy,
+  ApiBeforeBuild,
+  ApiBeforeDeploy,
+  AwsTags,
+  CoreAfterBuild,
+  CoreAfterDeploy,
+  CoreBeforeBuild,
+  CoreBeforeDeploy,
+  // Pulumi.
+  CorePulumi,
+  ProductionEnvironments,
+  ProjectDecorator,
+  ProjectId,
+  PulumiResourceNamePrefix,
+  Telemetry,
+  WebsiteAfterBuild,
+  WebsiteAfterDeploy,
+  WebsiteBeforeBuild,
+  WebsiteBeforeDeploy
 } from "@webiny/project/extensions/index.js";
 
+// Components.
+export { IsEnv } from "@webiny/project/extensions/components/index.js";
+
 // Cms.
-import { AdminExtension } from "@webiny/app-admin/extensions/index.js";
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
+import { AdminExtension } from "@webiny/app-admin/extensions/index.js";
 
 import { LegacyContextPlugin } from "@webiny/api/extensions/index.js";
 

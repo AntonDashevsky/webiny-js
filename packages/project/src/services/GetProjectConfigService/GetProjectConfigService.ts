@@ -1,24 +1,24 @@
 import { createImplementation } from "@webiny/di-container";
+import path from "path";
 import {
-    GetProjectConfigService,
-    GetProjectService,
-    LoggerService,
-    ProjectSdkParamsService
+  GetProjectConfigService,
+  GetProjectService,
+  LoggerService,
+  ProjectSdkParamsService
 } from "~/abstractions/index.js";
-import { renderConfig } from "./renderConfig.js";
-import { ProjectConfigModel } from "~/models/ProjectConfigModel.js";
 import {
-    ExtensionDto,
-    ExtensionType,
-    IHydratedProjectConfig,
-    IProjectConfigDto
+  ExtensionDto,
+  ExtensionType,
+  IHydratedProjectConfig,
+  IProjectConfigDto
 } from "~/abstractions/models/index.js";
 import { extensionDefinitions as extensionDefinitionsExtension } from "~/extensions/extensionDefinitions.js";
 import { ExtensionInstanceModel } from "~/extensions/index.js";
-import path from "path";
+import { ProjectConfigModel } from "~/models/ProjectConfigModel.js";
+import { renderConfig } from "./renderConfig.js";
 
 export class DefaultGetProjectConfigService implements GetProjectConfigService.Interface {
-    cachedRenderedConfig: IProjectConfigDto | null = null;
+  cachedRenderedConfigs: Record<string, IProjectConfigDto> = {};
 
     constructor(
         private readonly getProjectService: GetProjectService.Interface,
@@ -27,15 +27,16 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
     ) {}
 
     async execute(
-        params?: GetProjectConfigService.Params
+        params: GetProjectConfigService.Params = {}
     ): Promise<GetProjectConfigService.Result> {
         const project = this.getProjectService.execute();
 
-        if (!this.cachedRenderedConfig) {
-            this.cachedRenderedConfig = await renderConfig(project.paths.manifestFile.absolute);
+        const cacheKey = JSON.stringify(params.renderArgs);
+        if (!this.cachedRenderedConfigs[cacheKey]) {
+            this.cachedRenderedConfigs[cacheKey] = await renderConfig({ project, args: params.renderArgs });
         }
 
-        const hydratedConfig = await this.hydrateConfig(this.cachedRenderedConfig, params);
+        const hydratedConfig = await this.hydrateConfig(this.cachedRenderedConfigs, params);
 
         return ProjectConfigModel.create(hydratedConfig);
     }

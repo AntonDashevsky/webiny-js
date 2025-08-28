@@ -23,6 +23,7 @@ export default () => {
 
             {/*Adding custom CLI commands.*/}
             <Cli.Command src={"./extensions/myCustomCommand.ts"} />
+
             {/*Hooking into the API deployment and build process.*/}
             <Api.BeforeDeploy src={"./extensions/myApiBeforeDeploy.ts"} />
             <Api.BeforeBuild src={"./extensions/myApiBeforeBuild.ts"} />

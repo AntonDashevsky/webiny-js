@@ -1,14 +1,19 @@
 import { fork } from "child_process";
 import path from "path";
-import { IProjectConfigDto } from "~/abstractions/models/index.js";
+import { IProjectConfigDto, IProjectModel } from "~/abstractions/models/index.js";
+
+export interface RenderConfigParams {
+    project: IProjectModel;
+    args?: Record<string, any>;
+}
 
 const getWorkerPath = () => {
     // TODO: I have no idea why import.meta.dirname is sometimes undefined.
-    // TODO: Would be nice to further investigate this.
+    // TODO: Would be nice to further investigate this, but don't have time right now.
     return path.join(import.meta.dirname || __dirname, "renderConfigWorkerEntry.js");
 };
 
-export async function renderConfig(manifestPath: string) {
+export async function renderConfig(params: RenderConfigParams) {
     // Initially, I did the reading of config in this file directly. But then I started
     // bumping into an issue, where for some reason, the `Properties` context would not work.
     // Basically, `useProperties` would throw an error message, saying that the `Properties`
@@ -20,7 +25,7 @@ export async function renderConfig(manifestPath: string) {
     return new Promise<IProjectConfigDto>((resolve, reject) => {
         const workerPath = getWorkerPath();
 
-        const childProcess = fork(workerPath, [manifestPath], {
+        const childProcess = fork(workerPath, [JSON.stringify(params)], {
             env: process.env
         });
 

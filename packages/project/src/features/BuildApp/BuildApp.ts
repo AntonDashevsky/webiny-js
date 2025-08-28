@@ -22,7 +22,8 @@ export class DefaultBuildApp implements BuildApp.Interface {
         }
 
         const projectConfig = await this.getProjectConfigService.execute({
-            tags: { appName: params.app, runtimeContext: "app-build" }
+            tags: { appName: params.app, runtimeContext: "app-build" },
+            renderArgs: params
         });
 
         await this.validateProjectConfigService.execute(projectConfig);

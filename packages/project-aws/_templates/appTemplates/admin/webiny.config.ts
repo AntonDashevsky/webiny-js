@@ -1,3 +1,3 @@
-import { createAdminAppConfig } from "@webiny/project-aws";
+import { createAdminAppConfig } from "@webiny/project-aws/apps/index.js";
 
 export default createAdminAppConfig();

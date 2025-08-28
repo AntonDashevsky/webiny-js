@@ -3,7 +3,7 @@ import { z } from "zod";
 import path from "path";
 import fs from "fs";
 import { ProjectSdk } from "~/ProjectSdk.js";
-import { IProjectModel } from "~/abstractions/models";
+import { IProjectModel } from "~/abstractions/models/index.js";
 
 export const zodPathToAbstraction = (
     expectedAbstraction: Abstraction<any>,

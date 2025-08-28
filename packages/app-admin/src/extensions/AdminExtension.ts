@@ -9,9 +9,11 @@ export const adminExtension = defineExtension({
     tags: { runtimeContext: "app-build", appName: "admin" },
     description: "Extend the Admin application with custom functionality.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToFile()
-    }),
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToFile(project)
+        });
+    },
     async build(params, ctx) {
         const extensionsTsxFilePath = path.join(
             ctx.project.paths.workspacesFolder.absolute,
