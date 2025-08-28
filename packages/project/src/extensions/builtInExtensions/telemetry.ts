@@ -1,5 +1,5 @@
-import { defineExtension } from "./defineExtension/defineExtension.js";
 import { z } from "zod";
+import { defineExtension } from "../defineExtension/defineExtension.js";
 
 export const telemetry = defineExtension({
     type: "Project/Telemetry",

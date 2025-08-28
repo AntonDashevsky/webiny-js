@@ -1,6 +1,6 @@
-import { defineExtension } from "~/extensions/defineExtension/index.js";
 import { z } from "zod";
-import { zodPathToFile } from "~/extensions/zodTypes/zodPathToFile.js";
+import { defineExtension } from "../defineExtension/index.js";
+import { zodPathToFile } from "../zodTypes/zodPathToFile.js";
 
 export const projectDecorator = defineExtension({
     type: "Project/Decorator",

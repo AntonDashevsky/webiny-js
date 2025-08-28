@@ -1,7 +1,7 @@
-import { telemetry } from "./telemetry.js";
-import { projectId } from "./projectId.js";
-import { projectDecorator } from "./projectDecorator.js";
-import { extensionDefinitions } from "./extensionDefinitions.js";
+import { extensionDefinitions } from "./builtInExtensions/extensionDefinitions.js";
+import { projectDecorator } from "./builtInExtensions/projectDecorator.js";
+import { projectId } from "./builtInExtensions/projectId.js";
+import { telemetry } from "./builtInExtensions/telemetry.js";
 
 // Hooks.
 import {
@@ -21,7 +21,7 @@ import {
     websiteAfterDeploy,
     websiteBeforeBuild,
     websiteBeforeDeploy
-} from "./hooks/index.js";
+} from "./builtInExtensions/hooks/index.js";
 
 // Pulumi.
 import {
@@ -29,7 +29,7 @@ import {
     corePulumi,
     productionEnvironments,
     pulumiResourceNamePrefix
-} from "./pulumi/index.js";
+} from "./builtInExtensions/pulumi/index.js";
 
 // Exports.
 export * from "./defineExtension/index.js";

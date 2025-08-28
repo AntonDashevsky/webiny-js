@@ -1,5 +1,5 @@
-import { defineExtension } from "~/extensions/defineExtension/index.js";
 import { z } from "zod";
+import { defineExtension } from "../defineExtension/index.js";
 
 export const projectId = defineExtension({
     type: "Project/ProjectId",
