@@ -8,14 +8,17 @@ import {
 import { renderConfig } from "./renderConfig.js";
 import { ProjectConfigModel } from "~/models/ProjectConfigModel.js";
 import {
+    ExtensionDto,
     ExtensionType,
     IHydratedProjectConfig,
     IProjectConfigDto
 } from "~/abstractions/models/index.js";
+import { extensionDefinitions as extensionDefinitionsExtension } from "~/extensions/extensionDefinitions.js";
 import { ExtensionInstanceModel } from "~/extensions/index.js";
+import path from "path";
 
 export class DefaultGetProjectConfigService implements GetProjectConfigService.Interface {
-    cachedProjectConfig: ProjectConfigModel | null = null;
+    cachedRenderedConfig: IProjectConfigDto | null = null;
 
     constructor(
         private readonly getProjectService: GetProjectService.Interface,
@@ -28,12 +31,13 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
     ): Promise<GetProjectConfigService.Result> {
         const project = this.getProjectService.execute();
 
-        const renderedConfig = await renderConfig(project.paths.manifestFile.absolute);
-        const hydratedConfig = await this.hydrateConfig(renderedConfig, params);
+        if (!this.cachedRenderedConfig) {
+            this.cachedRenderedConfig = await renderConfig(project.paths.manifestFile.absolute);
+        }
 
-        this.cachedProjectConfig = ProjectConfigModel.create(hydratedConfig);
+        const hydratedConfig = await this.hydrateConfig(this.cachedRenderedConfig, params);
 
-        return this.cachedProjectConfig;
+        return ProjectConfigModel.create(hydratedConfig);
     }
 
     private async hydrateConfig(
@@ -43,12 +47,41 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
         const projectSdkParams = this.projectSdkParamsService.get();
         const project = this.getProjectService.execute();
 
-        const tagsFilters = params?.tags || {};
-        const extensionsTypes = Object.keys(configDto) as ExtensionType[];
+        const importFromPath = (filePath: string) => {
+            let importPath = filePath;
+            if (!path.isAbsolute(filePath)) {
+                // If the path is not absolute, we assume it's relative to the current working directory.
+                importPath = path.join(project.paths.rootFolder.absolute, filePath);
+            }
 
-        this.loggerService.trace(`Hydrating project config with the following parameters:`, {
+            return import(importPath);
+        };
+
+        const tagsFilters = params?.tags || {};
+
+        // Exclude extra extension definitions because we are handling these separately.
+        const extensionDefinitionsType = extensionDefinitionsExtension.definition.type;
+
+        const extensionsTypes = Object.keys(configDto).filter(
+            key => key !== extensionDefinitionsType
+        ) as ExtensionType[];
+
+        const allExtensionDefinitions = projectSdkParams.extensions;
+
+        // Extra definitions registered via config (e.g. `packages/project-aws/src/Webiny.tsx`).
+        const extensionDefinitionsExtensions = (configDto[extensionDefinitionsType] ||
+            []) as ExtensionDto[];
+
+        for (const ext of extensionDefinitionsExtensions) {
+            // Load the extension from give `src`.
+            const { default: exportedExtensionDefinitions } = await importFromPath(ext.src);
+            allExtensionDefinitions?.push(...exportedExtensionDefinitions);
+        }
+
+        this.loggerService.debug(`Hydrating project config with the following parameters:`, {
             scopesFilter: tagsFilters,
             extensionsTypes,
+            allExtensionDefinitions,
             configDto
         });
 

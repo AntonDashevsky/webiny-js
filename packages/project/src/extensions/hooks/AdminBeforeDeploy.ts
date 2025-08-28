@@ -1,5 +1,5 @@
 import { defineExtension } from "~/extensions/defineExtension/index.js";
-import { zodPathToAbstraction } from "~/extensions/zodPathToAbstraction.js";
+import { zodPathToAbstraction } from "~/extensions/zodTypes/zodPathToAbstraction.js";
 import { AdminBeforeDeploy } from "~/abstractions/index.js";
 import { z } from "zod";
 

@@ -3,18 +3,16 @@ import { z } from "zod";
 import path from "path";
 import fs from "fs";
 import { ProjectSdk } from "~/ProjectSdk.js";
+import { IProjectModel } from "~/abstractions/models";
 
-export const zodPathToAbstraction = (expectedAbstraction: Abstraction<any>) => {
+export const zodPathToAbstraction = (
+    expectedAbstraction: Abstraction<any>,
+    project: IProjectModel
+) => {
     return z
         .string()
         .describe(`Path to a file exporting ${expectedAbstraction.token.toString()}`)
         .superRefine(async (src, ctx) => {
-            // This should probably be done in a better way. Would be nice to simply
-            // access the project within the already initialized SDK. For now,
-            // we will initialize the SDK here, which will also initialize the project.
-            const projectSdk = await ProjectSdk.init();
-            const project = await projectSdk.getProject();
-
             let absoluteSrcPath = src;
             if (!path.isAbsolute(src)) {
                 absoluteSrcPath = path.join(project.paths.rootFolder.absolute, src);

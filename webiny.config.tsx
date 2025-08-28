@@ -1,5 +1,7 @@
 import React from "react";
-import { Webiny, Cli, Core, Api, Admin, Project } from "./packages/extensions/src";
+
+// Note: in a real project, these would be imported from `@webiny/extensions`
+import { Admin, Api, Cli, Core, Project, Webiny } from "./packages/project-aws/src/index.js";
 
 export default () => {
     return (

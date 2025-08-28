@@ -1,43 +1,47 @@
-import { telemetry } from "./Telemetry.js";
-import { projectId } from "./ProjectId.js";
-import { projectDecorator } from "./ProjectDecorator.js";
+import { telemetry } from "./telemetry.js";
+import { projectId } from "./projectId.js";
+import { projectDecorator } from "./projectDecorator.js";
+import { extensionDefinitions } from "./extensionDefinitions.js";
 
 // Hooks.
-import { adminBeforeBuild } from "./hooks/index.js";
-import { adminBeforeDeploy } from "./hooks/index.js";
-import { adminAfterBuild } from "./hooks/index.js";
-import { adminAfterDeploy } from "./hooks/index.js";
-import { apiBeforeBuild } from "./hooks/index.js";
-import { apiBeforeDeploy } from "./hooks/index.js";
-import { apiAfterBuild } from "./hooks/index.js";
-import { apiAfterDeploy } from "./hooks/index.js";
-import { coreBeforeBuild } from "./hooks/index.js";
-import { coreBeforeDeploy } from "./hooks/index.js";
-import { coreAfterBuild } from "./hooks/index.js";
-import { coreAfterDeploy } from "./hooks/index.js";
-import { websiteBeforeBuild } from "./hooks/index.js";
-import { websiteBeforeDeploy } from "./hooks/index.js";
-import { websiteAfterBuild } from "./hooks/index.js";
-import { websiteAfterDeploy } from "./hooks/index.js";
+import {
+    adminAfterBuild,
+    adminAfterDeploy,
+    adminBeforeBuild,
+    adminBeforeDeploy,
+    apiAfterBuild,
+    apiAfterDeploy,
+    apiBeforeBuild,
+    apiBeforeDeploy,
+    coreAfterBuild,
+    coreAfterDeploy,
+    coreBeforeBuild,
+    coreBeforeDeploy,
+    websiteAfterBuild,
+    websiteAfterDeploy,
+    websiteBeforeBuild,
+    websiteBeforeDeploy
+} from "./hooks/index.js";
 
 // Pulumi.
 import {
-    corePulumi,
     awsTags,
-    pulumiResourceNamePrefix,
-    productionEnvironments
+    corePulumi,
+    productionEnvironments,
+    pulumiResourceNamePrefix
 } from "./pulumi/index.js";
 
 // Exports.
 export * from "./defineExtension/index.js";
 export * from "./models/index.js";
-export * from "./zodPathToAbstraction.js";
-export * from "./zodPathToFile.js";
+export * from "./zodTypes/zodPathToAbstraction.js";
+export * from "./zodTypes/zodPathToFile.js";
 
 // React components (consumed by users). 👇
 export const Telemetry = telemetry.ReactComponent;
 export const ProjectId = projectId.ReactComponent;
 export const ProjectDecorator = projectDecorator.ReactComponent;
+export const ExtensionDefinitions = extensionDefinitions.ReactComponent;
 
 // Hooks.
 export const AdminBeforeBuild = adminBeforeBuild.ReactComponent;
@@ -68,6 +72,7 @@ export const definitions = [
     telemetry.definition,
     projectId.definition,
     projectDecorator.definition,
+    extensionDefinitions.definition,
 
     // Hooks.
     adminAfterBuild.definition,

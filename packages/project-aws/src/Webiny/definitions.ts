@@ -5,10 +5,12 @@ import { definitions as cmsDefinitions } from "@webiny/api-headless-cms/extensio
 import { definitions as adminDefinitions } from "@webiny/app-admin/extensions/index.js";
 import { definitions as apiDefinitions } from "@webiny/api/extensions/index.js";
 
-export const definitions = [
+const definitions = [
     ...cliDefinitions,
     ...projectDefinitions,
     ...cmsDefinitions,
     ...adminDefinitions,
     ...apiDefinitions
 ] as unknown as ExtensionDefinitionModel<any>[];
+
+export default definitions;
