@@ -1,7 +1,7 @@
 import React from "react";
 
 // Note: in a real project, these would be imported from `@webiny/extensions`
-import { Admin, Api, Cli, Core, IsEnv, Project, Webiny } from "./packages/project-aws/src/index.js";
+import { Admin, Api, Cli, Core, Project, Webiny } from "./packages/project-aws/src/index.js";
 
 export default () => {
     return (
@@ -24,13 +24,10 @@ export default () => {
             {/*Adding custom CLI commands.*/}
             <Cli.Command src={"./extensions/myCustomCommand.ts"} />
 
-            <IsEnv env={"prod"}>
-                {/*Hooking into the API deployment and build process.*/}
-                <Api.BeforeDeploy src={"./extensions/myApiBeforeDeploy.ts"} />
-                <Api.BeforeBuild src={"./extensions/myApiBeforeBuild.ts"} />
-                <Api.AfterDeploy src={"./extensions/myApiAfterDeploy.ts"} />
-                <Api.AfterBuild src={"./extensions/myApiAfterBuild.ts"} />
-            </IsEnv>
+            <Api.BeforeDeploy src={"./extensions/myApiBeforeDeploy.ts"} />
+            <Api.BeforeBuild src={"./extensions/myApiBeforeBuild.ts"} />
+            <Api.AfterDeploy src={"./extensions/myApiAfterDeploy.ts"} />
+            <Api.AfterBuild src={"./extensions/myApiAfterBuild.ts"} />
 
             <Admin.Extension src={"./extensions/myAdminExtension.tsx"} />
 
