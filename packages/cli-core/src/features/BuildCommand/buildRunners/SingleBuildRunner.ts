@@ -8,7 +8,9 @@ export class SingleBuildRunner extends BaseBuildRunner {
         const buildProcesses = this.packagesBuilder.prepare();
         const [buildProcess] = buildProcesses.getProcesses();
 
-        ui.info(`Building %s package... `, buildProcess.pkg.name);
+        const pkg = buildProcess.getPackage();
+
+        ui.info(`Building %s package... `, pkg.name);
 
         buildProcess.setForkOptions({
             stdio: "inherit",
@@ -19,7 +21,7 @@ export class SingleBuildRunner extends BaseBuildRunner {
 
         try {
             await buildProcesses.run();
-            ui.success(`Built %s package in %s.`, buildProcess.pkg.name, getBuildDuration());
+            ui.success(`Built %s package in %s.`, pkg.name, getBuildDuration());
         } catch {
             ui.error("Build failed, please check the details above.");
         }

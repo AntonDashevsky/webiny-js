@@ -7,7 +7,9 @@ export const cliCommandDecorator = defineExtension({
     tags: { runtimeContext: "cli" },
     description: "Decorates an existing CLI command.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(Command)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(Command, project)
+        });
+    }
 });

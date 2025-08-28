@@ -18,12 +18,13 @@ export class MultipleBuildsRunner extends BaseBuildRunner {
         }
 
         const tasksList = buildProcesses.map(buildProcess => {
+            const pkg = buildProcess.getPackage();
             return {
-                title: buildProcess.pkg.name,
+                title: pkg.name,
                 task: () => {
                     return buildProcess.run().catch(error => {
                         new Error("Build failed.", {
-                            cause: { pkg: buildProcess, error }
+                            cause: { pkg, error }
                         });
                     });
                 }

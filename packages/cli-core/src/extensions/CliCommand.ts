@@ -7,7 +7,9 @@ export const cliCommand = defineExtension({
     tags: { runtimeContext: "cli" },
     description: "An extension for defining CLI commands.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(Command)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(Command, project)
+        });
+    }
 });
