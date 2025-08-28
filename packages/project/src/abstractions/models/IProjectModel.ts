@@ -6,7 +6,7 @@ interface AbsRelPaths {
 export interface IProjectModel {
     name: string;
     paths: {
-        manifestFile: AbsRelPaths;
+        webinyConfigFile: AbsRelPaths;
         rootFolder: AbsRelPaths;
         dotWebinyFolder: AbsRelPaths;
         workspacesFolder: AbsRelPaths;

@@ -15,22 +15,17 @@ import {
 import {
     aboutCommand,
     buildCommand,
+    ddbPutItemConditionalCheckFailedGracefulErrorHandler,
     deployCommand,
     destroyCommand,
     infoCommand,
-    outputCommand,
-    watchCommand,
-
-    // Graceful error handlers.
-    ddbPutItemConditionalCheckFailedGracefulErrorHandler,
     missingFilesInBuildGracefulErrorHandler,
-    pendingOperationsGracefulErrorHandler
+    outputCommand,
+    pendingOperationsGracefulErrorHandler,
+    watchCommand
 } from "./features/index.js";
 
-import {
-    commandsWithGracefulErrorHandling,
-    deployCommandWithTelemetry
-} from "./decorators/index.js";
+import chalk from "chalk";
 import {
     CliParamsService,
     GetProjectSdkService,
@@ -38,7 +33,10 @@ import {
     UiService
 } from "~/abstractions/index.js";
 import { GracefulError } from "~/utils/GracefulError.js";
-import chalk from "chalk";
+import {
+    commandsWithGracefulErrorHandling,
+    deployCommandWithTelemetry
+} from "./decorators/index.js";
 
 const { bgYellow, bold } = chalk;
 
@@ -87,7 +85,7 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
 
         await projectSdk.validateProjectConfig(projectConfig);
 
-        const project = await projectSdk.getProject();
+        const project = projectSdk.getProject();
 
         const commands = projectConfig.extensionsByType<any>("Cli/Command");
         for (const command of commands) {
