@@ -8,7 +8,6 @@ export { GetApp } from "./GetApp.js";
 export { GetAppOutput } from "./GetAppOutput.js";
 export { GetAppStackExport } from "./GetAppStackExport.js";
 export { GetAppStackOutput } from "./GetAppStackOutput.js";
-export { GetAwsTags } from "./GetAwsTags.js";
 export { GetLogger } from "./GetLogger.js";
 export { GetProductionEnvironments } from "./GetProductionEnvironments.js";
 export { GetProject } from "./GetProject.js";

@@ -1,13 +1,27 @@
 import { Container } from "@webiny/di-container";
 import {
+    adminAfterBuild,
+    adminAfterDeploy,
+    adminBeforeBuild,
+    adminBeforeDeploy,
+    adminPulumi,
+    apiAfterBuild,
+    apiAfterDeploy,
+    apiBeforeBuild,
+    apiBeforeDeploy,
+    apiPulumi,
     buildApp,
+    coreAfterBuild,
+    coreAfterDeploy,
+    coreBeforeBuild,
+    coreBeforeDeploy,
+    corePulumi,
     deployApp,
     destroyApp,
     getApp,
     getAppOutput,
     getAppStackExport,
     getAppStackOutput,
-    getAwsTags,
     getLogger,
     getProductionEnvironments,
     getProject,
@@ -20,29 +34,10 @@ import {
     runPulumiCommand,
     validateProjectConfig,
     watch,
-
-    // Hooks.
-    apiAfterBuild,
-    apiAfterDeploy,
-    apiBeforeBuild,
-    apiBeforeDeploy,
-    adminAfterBuild,
-    adminAfterDeploy,
-    adminBeforeBuild,
-    adminBeforeDeploy,
-    coreAfterBuild,
-    coreAfterDeploy,
-    coreBeforeBuild,
-    coreBeforeDeploy,
     websiteAfterBuild,
     websiteAfterDeploy,
     websiteBeforeBuild,
     websiteBeforeDeploy,
-
-    // Pulumi.
-    corePulumi,
-    apiPulumi,
-    adminPulumi,
     websitePulumi
 } from "./features/index.js";
 
@@ -58,8 +53,8 @@ import {
     getPulumiVersionService,
     getYarnVersionService,
     listAppLambdaFunctionsService,
-    listPackagesService,
     listPackagesInAppWorkspaceService,
+    listPackagesService,
     loggerService,
     projectInfoService,
     projectSdkParamsService,
@@ -124,7 +119,6 @@ export const createProjectSdkContainer = async (
     container.register(getAppOutput).inSingletonScope();
     container.register(getAppStackExport).inSingletonScope();
     container.register(getAppStackOutput).inSingletonScope();
-    container.register(getAwsTags).inSingletonScope();
     container.register(getLogger).inSingletonScope();
     container.register(getProductionEnvironments).inSingletonScope();
     container.register(getProject).inSingletonScope();

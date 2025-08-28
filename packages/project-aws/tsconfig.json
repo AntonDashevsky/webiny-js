@@ -124,6 +124,9 @@
 		},
 		{
 			"path": "../app-admin"
+		},
+		{
+			"path": "../api"
 		}
 	],
 	"compilerOptions": {
@@ -379,6 +382,12 @@
 			],
 			"@webiny/app-admin": [
 				"../app-admin/src"
+			],
+			"@webiny/api/*": [
+				"../api/src/*"
+			],
+			"@webiny/api": [
+				"../api/src"
 			]
 		},
 		"baseUrl": "."

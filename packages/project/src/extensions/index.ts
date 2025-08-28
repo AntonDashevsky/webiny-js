@@ -25,10 +25,12 @@ import {
 
 // Pulumi.
 import {
-    awsTags,
+    adminPulumi,
+    apiPulumi,
     corePulumi,
     productionEnvironments,
-    pulumiResourceNamePrefix
+    pulumiResourceNamePrefix,
+    websitePulumi
 } from "./builtInExtensions/pulumi/index.js";
 
 // Exports.
@@ -63,7 +65,9 @@ export const WebsiteAfterDeploy = websiteAfterDeploy.ReactComponent;
 
 // Pulumi.
 export const CorePulumi = corePulumi.ReactComponent;
-export const AwsTags = awsTags.ReactComponent;
+export const AdminPulumi = adminPulumi.ReactComponent;
+export const WebsitePulumi = websitePulumi.ReactComponent;
+export const ApiPulumi = apiPulumi.ReactComponent;
 export const PulumiResourceNamePrefix = pulumiResourceNamePrefix.ReactComponent;
 export const ProductionEnvironments = productionEnvironments.ReactComponent;
 
@@ -94,7 +98,6 @@ export const definitions = [
 
     // Pulumi.
     corePulumi.definition,
-    awsTags.definition,
     pulumiResourceNamePrefix.definition,
     productionEnvironments.definition
 ];

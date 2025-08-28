@@ -12,8 +12,10 @@ export default createCoreApp({
     pulumiResourceNamePrefix,
     productionEnvironments,
     pulumi: async app => {
-        const awsTags = await sdk.getAwsTags();
-        tagResources(awsTags);
+        const projectConfig = await sdk.getProjectConfig();
+        projectConfig.extensionsByType(awsTagsExtension).forEach(ext => {
+            tagResources(ext.params.tags);
+        });
 
         const pulumiHandlers = sdk.getContainer().resolve(CorePulumi);
         await pulumiHandlers.execute(app);

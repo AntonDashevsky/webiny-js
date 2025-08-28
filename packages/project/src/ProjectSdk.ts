@@ -8,8 +8,6 @@ import {
     GetAppOutput,
     GetAppStackExport,
     GetAppStackOutput,
-    GetAwsTags,
-    LoggerService,
     GetProductionEnvironments,
     GetProject,
     GetProjectConfig,
@@ -17,6 +15,7 @@ import {
     GetPulumiResourceNamePrefix,
     IsCi,
     IsTelemetryEnabled,
+    LoggerService,
     ProjectSdkParamsService,
     RefreshApp,
     RunPulumiCommand,
@@ -114,10 +113,6 @@ export class ProjectSdk {
 
     isValidVariantName(name?: string) {
         return isValidVariantName(name);
-    }
-
-    getAwsTags() {
-        return this.container.resolve(GetAwsTags).execute();
     }
 
     getPulumiResourceNamePrefix() {

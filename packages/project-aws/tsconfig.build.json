@@ -123,6 +123,9 @@
 		},
 		{
 			"path": "../app-admin/tsconfig.build.json"
+		},
+		{
+			"path": "../api/tsconfig.build.json"
 		}
 	],
 	"compilerOptions": {

@@ -1,40 +1,42 @@
 import { CliCommand } from "@webiny/cli-core/extensions/index.js";
 import {
-  // Hooks.
-  AdminAfterBuild,
-  AdminAfterDeploy,
-  AdminBeforeBuild,
-  AdminBeforeDeploy,
-  ApiAfterBuild,
-  ApiAfterDeploy,
-  ApiBeforeBuild,
-  ApiBeforeDeploy,
-  AwsTags,
-  CoreAfterBuild,
-  CoreAfterDeploy,
-  CoreBeforeBuild,
-  CoreBeforeDeploy,
-  // Pulumi.
-  CorePulumi,
-  ProductionEnvironments,
-  ProjectDecorator,
-  ProjectId,
-  PulumiResourceNamePrefix,
-  Telemetry,
-  WebsiteAfterBuild,
-  WebsiteAfterDeploy,
-  WebsiteBeforeBuild,
-  WebsiteBeforeDeploy
+    AdminAfterBuild,
+    AdminAfterDeploy,
+    AdminBeforeBuild,
+    AdminBeforeDeploy,
+    AdminPulumi,
+    ApiAfterBuild,
+    ApiAfterDeploy,
+    ApiBeforeBuild,
+    ApiBeforeDeploy,
+    ApiPulumi,
+    CoreAfterBuild,
+    CoreAfterDeploy,
+    CoreBeforeBuild,
+    CoreBeforeDeploy,
+    CorePulumi,
+    ProductionEnvironments,
+    ProjectDecorator,
+    ProjectId,
+    PulumiResourceNamePrefix,
+    Telemetry,
+    WebsiteAfterBuild,
+    WebsiteAfterDeploy,
+    WebsiteBeforeBuild,
+    WebsiteBeforeDeploy,
+    WebsitePulumi
 } from "@webiny/project/extensions/index.js";
 
-// Components.
-export { IsEnv } from "@webiny/project/extensions/components/index.js";
+import { AwsTags, VpcSettings } from "./extensions/index.js";
 
 // Cms.
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
 import { AdminExtension } from "@webiny/app-admin/extensions/index.js";
 
 import { LegacyContextPlugin } from "@webiny/api/extensions/index.js";
+
+// Components.
+export { IsEnv } from "@webiny/project/extensions/components/index.js";
 
 // Exports.
 export { Webiny } from "./Webiny.js";
@@ -43,6 +45,7 @@ export const Project = {
     Id: ProjectId,
     Telemetry,
     AwsTags,
+    VpcSettings,
     PulumiResourceNamePrefix,
     ProductionEnvironments,
     Decorator: ProjectDecorator
@@ -57,7 +60,8 @@ export const Admin = {
     BeforeDeploy: AdminBeforeDeploy,
     AfterBuild: AdminAfterBuild,
     AfterDeploy: AdminAfterDeploy,
-    Extension: AdminExtension
+    Extension: AdminExtension,
+    Pulumi: AdminPulumi
 };
 
 export const Api = {
@@ -70,7 +74,8 @@ export const Api = {
     },
     Legacy: {
         ContextPlugin: LegacyContextPlugin
-    }
+    },
+    Pulumi: ApiPulumi
 };
 
 export const Core = {
@@ -85,5 +90,6 @@ export const Website = {
     BeforeBuild: WebsiteBeforeBuild,
     BeforeDeploy: WebsiteBeforeDeploy,
     AfterBuild: WebsiteAfterBuild,
-    AfterDeploy: WebsiteAfterDeploy
+    AfterDeploy: WebsiteAfterDeploy,
+    Pulumi: WebsitePulumi
 };

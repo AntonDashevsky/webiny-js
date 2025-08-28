@@ -7,7 +7,6 @@ export * from "./GetApp/index.js";
 export * from "./GetAppOutput/index.js";
 export * from "./GetAppStackExport/index.js";
 export * from "./GetAppStackOutput/index.js";
-export * from "./GetAwsTags/index.js";
 export * from "./GetLogger/index.js";
 export * from "./GetProductionEnvironments/index.js";
 export * from "./GetProject/index.js";
