@@ -1,24 +1,24 @@
 import { createImplementation } from "@webiny/di-container";
 import path from "path";
 import {
-  GetProjectConfigService,
-  GetProjectService,
-  LoggerService,
-  ProjectSdkParamsService
+    GetProjectConfigService,
+    GetProjectService,
+    LoggerService,
+    ProjectSdkParamsService
 } from "~/abstractions/index.js";
 import {
-  ExtensionDto,
-  ExtensionType,
-  IHydratedProjectConfig,
-  IProjectConfigDto
+    ExtensionDto,
+    ExtensionType,
+    IHydratedProjectConfig,
+    IProjectConfigDto
 } from "~/abstractions/models/index.js";
-import { extensionDefinitions as extensionDefinitionsExtension } from "~/extensions/extensionDefinitions.js";
+import { extensionDefinitions as extensionDefinitionsExtension } from "~/extensions/builtInExtensions/extensionDefinitions.js";
 import { ExtensionInstanceModel } from "~/extensions/index.js";
 import { ProjectConfigModel } from "~/models/ProjectConfigModel.js";
 import { renderConfig } from "./renderConfig.js";
 
 export class DefaultGetProjectConfigService implements GetProjectConfigService.Interface {
-  cachedRenderedConfigs: Record<string, IProjectConfigDto> = {};
+    cachedRenderedConfigs: Record<string, IProjectConfigDto> = {};
 
     constructor(
         private readonly getProjectService: GetProjectService.Interface,
@@ -33,17 +33,21 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
 
         const cacheKey = JSON.stringify(params.renderArgs);
         if (!this.cachedRenderedConfigs[cacheKey]) {
-            this.cachedRenderedConfigs[cacheKey] = await renderConfig({ project, args: params.renderArgs });
+            this.cachedRenderedConfigs[cacheKey] = await renderConfig({
+                project,
+                args: params.renderArgs
+            });
         }
 
-        const hydratedConfig = await this.hydrateConfig(this.cachedRenderedConfigs, params);
+        const renderedConfig = this.cachedRenderedConfigs[cacheKey];
+        const hydratedConfig = await this.hydrateConfig(renderedConfig, params);
 
         return ProjectConfigModel.create(hydratedConfig);
     }
 
     private async hydrateConfig(
         configDto: IProjectConfigDto,
-        params?: GetProjectConfigService.Params
+        params: GetProjectConfigService.Params
     ): Promise<IHydratedProjectConfig> {
         const projectSdkParams = this.projectSdkParamsService.get();
         const project = this.getProjectService.execute();
@@ -75,8 +79,9 @@ export class DefaultGetProjectConfigService implements GetProjectConfigService.I
 
         for (const ext of extensionDefinitionsExtensions) {
             // Load the extension from give `src`.
-            const { default: exportedExtensionDefinitions } = await importFromPath(ext.src);
-            allExtensionDefinitions?.push(...exportedExtensionDefinitions);
+            const { default: importedExtensionDefinitions } = await importFromPath(ext.src);
+
+            allExtensionDefinitions?.push(...importedExtensionDefinitions);
         }
 
         this.loggerService.debug(`Hydrating project config with the following parameters:`, {
