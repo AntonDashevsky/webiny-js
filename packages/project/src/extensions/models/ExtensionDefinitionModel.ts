@@ -7,7 +7,7 @@ export interface ExtensionDefinitionModelParams<TParamsSchema extends z.ZodTypeA
     tags?: ExtensionTags;
     description: string;
     array?: boolean;
-    paramsSchema?: TParamsSchema;
+    paramsSchema?: TParamsSchema | ((ctx: ExtensionInstanceModelContext) => TParamsSchema);
 
     build?(params: TParamsSchema, ctx: ExtensionInstanceModelContext): Promise<void> | void;
 
@@ -19,7 +19,7 @@ export class ExtensionDefinitionModel<TParamsSchema extends z.ZodTypeAny> {
     description: string;
     tags: ExtensionTags;
     multiple?: boolean;
-    paramsSchema?: TParamsSchema;
+    paramsSchema?: TParamsSchema | ((ctx: ExtensionInstanceModelContext) => TParamsSchema);
 
     build?(params: TParamsSchema, ctx: ExtensionInstanceModelContext): Promise<void> | void;
 

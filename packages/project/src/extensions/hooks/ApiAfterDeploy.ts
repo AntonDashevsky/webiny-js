@@ -8,7 +8,9 @@ export const apiAfterDeploy = defineExtension({
     tags: { runtimeContext: "project", application: "api" },
     description: "Add custom logic to be executed after the API deployment process.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(ApiAfterDeploy)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(ApiAfterDeploy, project)
+        });
+    }
 });

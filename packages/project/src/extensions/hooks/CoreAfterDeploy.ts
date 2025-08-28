@@ -8,7 +8,9 @@ export const coreAfterDeploy = defineExtension({
     tags: { runtimeContext: "project", application: "core" },
     description: "Add custom logic to be executed after the CORE deployment process.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(CoreAfterDeploy)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(CoreAfterDeploy, project)
+        });
+    }
 });

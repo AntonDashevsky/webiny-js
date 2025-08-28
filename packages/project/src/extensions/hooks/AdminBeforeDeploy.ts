@@ -8,7 +8,9 @@ export const adminBeforeDeploy = defineExtension({
     tags: { runtimeContext: "project", application: "admin" },
     description: "Add custom logic to be executed before the ADMIN deployment process.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(AdminBeforeDeploy)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(AdminBeforeDeploy, project)
+        });
+    }
 });

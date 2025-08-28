@@ -8,7 +8,9 @@ export const websiteAfterBuild = defineExtension({
     tags: { runtimeContext: "project", application: "website" },
     description: "Add custom logic to be executed after the Website build process.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(WebsiteAfterBuild)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(WebsiteAfterBuild, project)
+        });
+    }
 });

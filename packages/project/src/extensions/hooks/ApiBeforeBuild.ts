@@ -8,7 +8,9 @@ export const apiBeforeBuild = defineExtension({
     tags: { runtimeContext: "project", application: "api" },
     description: "Add custom logic to be executed before the API build process.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(ApiBeforeBuild)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(ApiBeforeBuild, project)
+        });
+    }
 });

@@ -8,7 +8,9 @@ export const websiteBeforeDeploy = defineExtension({
     tags: { runtimeContext: "project", application: "website" },
     description: "Add custom logic to be executed before the Website deployment process.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(WebsiteBeforeDeploy)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(WebsiteBeforeDeploy, project)
+        });
+    }
 });

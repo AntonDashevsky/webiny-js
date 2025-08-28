@@ -7,9 +7,7 @@ import { z } from "zod";
 export function createExtensionReactComponent<TParamsSchema extends z.ZodTypeAny>(
     extensionParams: DefineExtensionParams<TParamsSchema>
 ) {
-    const paramsSchema = extensionParams.paramsSchema || z.object({});
-
-    type ExtensionReactComponentProps = z.infer<typeof paramsSchema> & {
+    type ExtensionReactComponentProps = z.infer<TParamsSchema> & {
         remove?: boolean;
         before?: string;
         after?: string;

@@ -13,7 +13,7 @@ export interface DefineExtensionParams<TParamsSchema extends z.ZodTypeAny> {
     tags: ExtensionTags;
     description?: string;
     multiple?: boolean;
-    paramsSchema?: TParamsSchema;
+    paramsSchema?: TParamsSchema | ((ctx: ExtensionInstanceModelContext) => TParamsSchema);
     build?: (
         params: z.infer<TParamsSchema>,
         ctx: ExtensionInstanceModelContext

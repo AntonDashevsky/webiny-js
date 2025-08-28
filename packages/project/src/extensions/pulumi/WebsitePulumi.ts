@@ -8,7 +8,9 @@ export const websitePulumi = defineExtension({
     tags: { runtimeContext: "project", appName: "website" },
     description: "Modify Website app's cloud infrastructure using Pulumi.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(WebsitePulumi)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(WebsitePulumi, project)
+        });
+    }
 });

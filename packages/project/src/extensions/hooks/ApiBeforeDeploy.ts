@@ -8,7 +8,9 @@ export const apiBeforeDeploy = defineExtension({
     tags: { runtimeContext: "project", application: "api" },
     description: "Add custom logic to be executed before the API deployment process.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(ApiBeforeDeploy)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(ApiBeforeDeploy, project)
+        });
+    }
 });

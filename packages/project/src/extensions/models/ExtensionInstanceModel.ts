@@ -4,6 +4,7 @@ import { ProjectModel } from "~/models/index.js";
 
 export interface ExtensionInstanceModelContext {
     [key: string]: any;
+
     project: ProjectModel;
 }
 
@@ -23,10 +24,14 @@ export class ExtensionInstanceModel<TParamsSchema extends z.ZodTypeAny> {
     }
 
     async validateParams() {
-        const paramsSchema = this.definition.paramsSchema;
-        if (!paramsSchema) {
+        if (!this.definition.paramsSchema) {
             return;
         }
+
+        let paramsSchema =
+            typeof this.definition.paramsSchema === "function"
+                ? this.definition.paramsSchema(this.context)
+                : this.definition.paramsSchema;
 
         const validationResult = await paramsSchema.safeParseAsync(this.params);
         if (!validationResult.success) {
