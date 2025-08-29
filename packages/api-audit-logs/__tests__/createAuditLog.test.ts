@@ -1,11 +1,17 @@
 import { getAuditConfig } from "~/utils/getAuditConfig";
-import type { AuditAction } from "~/types";
 import { useHandler } from "./helpers/useHandler";
-import { ActionType } from "~/config";
-import { AUDIT_LOGS_TYPE } from "~/app/contants";
+import { ActionType } from "@webiny/common-audit-logs/index.js";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index";
-import { parseIdentifier } from "@webiny/utils/parseIdentifier";
-import { attachAuditLogOnCreateEvent } from "~/app/lifecycle.js";
+import { attachAuditLogOnCreateEvent } from "~/context/lifecycle.js";
+import { auditAction } from "~tests/mocks/auditAction.js";
+import type { IAuditLog } from "~/storage/types.js";
+
+const convertCreatedOn = (item: IAuditLog | null) => {
+    return {
+        ...item,
+        createdOn: new Date(item!.createdOn.getTime())
+    } as IAuditLog;
+};
 
 interface ITestPayloadData {
     auditLogData: {
@@ -19,40 +25,8 @@ interface ITestPayloadData {
 describe("create audit log", () => {
     const client = getDocumentClient();
 
-    const audit: AuditAction = {
-        app: {
-            app: "cms",
-            displayName: "CMS",
-            entities: []
-        },
-        action: {
-            type: "CREATE",
-            displayName: "Create"
-        },
-        entity: {
-            type: "user",
-            displayName: "Users",
-            actions: [
-                {
-                    type: "CREATE",
-                    displayName: "Create"
-                },
-                {
-                    type: "UPDATE",
-                    displayName: "Update"
-                },
-                {
-                    type: "DELETE",
-                    displayName: "Delete"
-                }
-            ]
-        }
-    };
-
     it("should create a new audit log", async () => {
-        expect.assertions(3);
-
-        const createAuditLog = getAuditConfig(audit);
+        const createAuditLog = getAuditConfig(auditAction);
 
         const { handler } = useHandler();
         const context = await handler();
@@ -69,53 +43,43 @@ describe("create audit log", () => {
 
         const result = await createAuditLog(message, data, entityId, context);
 
-        expect(result).toMatchObject({
+        expect(convertCreatedOn(result)).toMatchObject({
             id: expect.any(String),
-            title: message,
-            content: message,
-            data: {
-                action: ActionType.CREATE,
-                app: "cms",
-                entity: "user",
-                initiator: "id-12345678",
-                timestamp: expect.toBeDateString(),
-                entityId,
-                message,
-                data: JSON.stringify(data)
-            },
-            location: {
-                folderId: "root"
-            },
-            tags: [],
-            type: "AuditLogs"
+            message,
+            tenant: "root",
+            expiresAt: undefined,
+            entityId,
+            action: ActionType.CREATE,
+            app: "cms",
+            entity: "user",
+            createdBy: context.security.getIdentity(),
+            createdOn: expect.any(Date),
+            content: JSON.stringify(data),
+            tags: []
         });
 
-        // @ts-expect-error
-        const partitionKey = `#CME#wby-aco-${result!.id}`;
+        const partitionKey = `T#root#AUDIT_LOG`;
+        const sortKey = `${result!.id}`;
 
         const scanned = await client.scan({
-            TableName: process.env.DB_TABLE
+            TableName: process.env.DB_TABLE_AUDIT_LOGS
         });
 
+        expect(scanned.Count).toBe(1);
+
         for (const item of scanned.Items || []) {
-            if (item.PK.includes(partitionKey) === false) {
-                continue;
-            }
             expect(item).toMatchObject({
-                PK: expect.stringContaining(partitionKey),
-                values: {
-                    "object@data": {
-                        "text@data": expect.stringMatching(`{"compression":"gzip","value":`)
-                    }
+                PK: partitionKey,
+                SK: sortKey,
+                data: {
+                    content: expect.stringMatching(`{"compression":"gzip","value":`)
                 }
             });
         }
     });
 
     it("should list created logs", async () => {
-        expect.assertions(3);
-
-        const createAuditLog = getAuditConfig(audit);
+        const createAuditLog = getAuditConfig(auditAction);
 
         const { handler } = useHandler();
         const context = await handler();
@@ -132,63 +96,58 @@ describe("create audit log", () => {
 
         await createAuditLog(message, data, entityId, context);
 
-        const [results] = await context.aco.getApp(AUDIT_LOGS_TYPE).search.list({});
+        const { items } = await context.auditLogs.listAuditLogs({});
+        expect(items).toHaveLength(1);
 
-        const [result] = results;
-        expect(result).toMatchObject({
+        const result = items![0];
+        expect(convertCreatedOn(result)).toMatchObject({
             id: expect.any(String),
-            title: message,
-            content: message,
-            data: {
-                action: ActionType.CREATE,
-                app: "cms",
-                entity: "user",
-                initiator: "id-12345678",
-                timestamp: expect.any(Date),
-                entityId,
-                message,
-                data: JSON.stringify(data)
-            },
-            location: {
-                folderId: "root"
-            },
-            tags: [],
-            type: "AuditLogs"
+            message,
+            tenant: "root",
+            expiresAt: undefined,
+            entityId,
+            action: ActionType.CREATE,
+            app: "cms",
+            entity: "user",
+            createdBy: context.security.getIdentity(),
+            createdOn: expect.any(Date),
+            content: JSON.stringify(data),
+            tags: []
         });
 
-        const { id: partitionKey } = parseIdentifier(`${result!.id}`);
+        const partitionKey = `T#root#AUDIT_LOG`;
+        const sortKey = `${result!.id}`;
 
         const scanned = await client.scan({
-            TableName: process.env.DB_TABLE
+            TableName: process.env.DB_TABLE_AUDIT_LOGS
         });
 
+        expect(scanned.Count).toBe(1);
+
         for (const item of scanned.Items || []) {
-            if (item.PK.includes(partitionKey) === false) {
-                continue;
-            }
             expect(item).toMatchObject({
-                PK: expect.stringContaining(partitionKey),
-                values: {
-                    "object@data": {
-                        "text@data": expect.stringMatching(`{"compression":"gzip","value":`)
-                    }
+                PK: partitionKey,
+                SK: sortKey,
+                data: {
+                    content: expect.stringMatching(`{"compression":"gzip","value":`)
                 }
             });
         }
     });
 
     it("should trigger onBeforeCreate", async () => {
-        const createAuditLog = getAuditConfig(audit);
+        const createAuditLog = getAuditConfig(auditAction);
 
         const { handler } = useHandler({
             plugins: [
-                attachAuditLogOnCreateEvent<ITestPayloadData>(async ({ payload, setPayload }) => {
-                    setPayload({
-                        data: {
-                            ...payload.data,
+                attachAuditLogOnCreateEvent(async ({ auditLog, setAuditLog }) => {
+                    const content = JSON.parse(auditLog.content);
+                    setAuditLog({
+                        content: JSON.stringify({
+                            ...content,
                             moreNumberData: 2,
                             additionalData: "something else"
-                        }
+                        })
                     });
                 })
             ]
@@ -207,39 +166,32 @@ describe("create audit log", () => {
 
         const result = await createAuditLog(message, data, entityId, context);
 
-        expect(result).toMatchObject({
+        expect(convertCreatedOn(result)).toMatchObject({
             id: expect.any(String),
-            title: message,
-            content: message,
-            data: {
-                action: ActionType.CREATE,
-                app: "cms",
-                entity: "user",
-                initiator: "id-12345678",
-                timestamp: expect.toBeDateString(),
-                entityId,
-                message,
-                data: JSON.stringify({
-                    auditLogData: {
-                        someData: true
-                    },
-                    moreNumberData: 2,
-                    evenMoreStringData: "abcdef",
-                    additionalData: "something else"
-                })
-            },
-            location: {
-                folderId: "root"
-            },
-            tags: [],
-            type: "AuditLogs"
+            message,
+            tenant: "root",
+            expiresAt: undefined,
+            entityId,
+            action: ActionType.CREATE,
+            app: "cms",
+            entity: "user",
+            createdBy: context.security.getIdentity(),
+            createdOn: expect.any(Date),
+            content: JSON.stringify({
+                ...data,
+                moreNumberData: 2,
+                additionalData: "something else"
+            }),
+            tags: []
         });
 
-        const decompressedData =
-            // @ts-expect-error
-            JSON.parse(result.data.data);
+        const item = await context.auditLogs.getAuditLog(result!.id);
 
-        expect(decompressedData).toEqual({
+        const content =
+            // @ts-expect-error
+            JSON.parse(item?.content);
+
+        expect(content).toEqual({
             auditLogData: {
                 someData: true
             },

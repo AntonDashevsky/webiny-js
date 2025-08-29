@@ -6,7 +6,13 @@ const requestBodySchema = zod
     .object({
         query: zod.string(),
         variables: zod.record(zod.any()).nullish().optional(),
-        operationName: zod.string().optional()
+        operationName: zod
+            .string()
+            .nullish()
+            .optional()
+            .transform(value => {
+                return value || undefined;
+            })
     })
     .passthrough();
 
