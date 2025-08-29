@@ -11,8 +11,5 @@ export interface DefinitionAndComponentPair<TParamsSchema extends z.ZodTypeAny> 
 export function defineExtension<TParamsSchema extends z.ZodTypeAny>(
     extensionParams: DefineExtensionParams<TParamsSchema>
 ) {
-    const definition = createExtensionDefinition<TParamsSchema>(extensionParams);
-    const ReactComponent = createExtensionReactComponent<TParamsSchema>(extensionParams);
-
-    return { ReactComponent, definition } as DefinitionAndComponentPair<TParamsSchema>;
+    return createExtensionReactComponent<TParamsSchema>(extensionParams);
 }
