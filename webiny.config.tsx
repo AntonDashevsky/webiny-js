@@ -1,7 +1,7 @@
 import React from "react";
 
 // Note: in a real project, these would be imported from `@webiny/extensions`
-import { Admin, Api, Cli, Core, Project, Webiny } from "./packages/project-aws/src/index.js";
+import { Admin, Api, Cli, Core, Project, Webiny } from "./packages/project-aws/dist/index.js";
 
 export default () => {
     return (
@@ -17,6 +17,21 @@ export default () => {
             {/*Applying AWS tags to deployments.*/}
             <Project.AwsTags tags={{ OWNER: "me", PROJECT: "my-project" }} />
             <Project.AwsTags tags={{ OWNER2: "me2", PROJECT2: "my-project-2" }} />
+
+            <Project.Vpc
+                enabled={true}
+                useExistingVpc={{
+                    lambdaFunctionsVpcConfig: {
+                        subnetIds: ["subnet-0123456789abcdef0", "subnet-0123456789abcdef1"],
+                        securityGroupIds: ["sg-0123456789abcdef0"]
+                    },
+                    openSearchDomainVpcConfig: {
+                        subnetIds: ["subnet-0123456789abcdef0"],
+                        securityGroupIds: ["sg-0123456789abcdef0"]
+                    }
+                }}
+                useVpcEndpoints={true}
+            />
 
             <Project.PulumiResourceNamePrefix prefix={"myproj-"} />
             <Project.ProductionEnvironments environments={["prod", "staging"]} />

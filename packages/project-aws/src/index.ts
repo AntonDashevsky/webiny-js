@@ -27,7 +27,7 @@ import {
     WebsitePulumi
 } from "@webiny/project/extensions/index.js";
 
-import { AwsTags, VpcSettings } from "./extensions/index.js";
+import { AwsTags, Vpc } from "./extensions/index.js";
 
 // Cms.
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
@@ -45,7 +45,7 @@ export const Project = {
     Id: ProjectId,
     Telemetry,
     AwsTags,
-    VpcSettings,
+    Vpc,
     PulumiResourceNamePrefix,
     ProductionEnvironments,
     Decorator: ProjectDecorator

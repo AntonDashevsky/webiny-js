@@ -1,15 +1,15 @@
-import { z } from "zod";
 import { defineExtension } from "@webiny/project/extensions/defineExtension/index.js";
+import { z } from "zod";
 
-export const vpcSettings = defineExtension({
-    type: "Deployments/VpcSettings",
+export const vpc = defineExtension({
+    type: "Deployments/Vpc",
     tags: { runtimeContext: "project" },
     description: "Apply VPC settings to AWS resources during deployment.",
-    multiple: true,
     paramsSchema: z.object({
+        enabled: z.boolean().describe("Whether to enable VPC.").default(false).optional(),
         useVpcEndpoints: z
             .boolean()
-            .default(false)
+            .optional()
             .describe("Whether to use VPC endpoints for AWS services."),
         useExistingVpc: z
             .object({
@@ -46,6 +46,7 @@ export const vpcSettings = defineExtension({
                     })
                     .describe("VPC configuration for Lambda functions.")
             })
+            .optional()
             .describe("Configuration for using an existing VPC.")
     })
 });
