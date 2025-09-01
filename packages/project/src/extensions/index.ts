@@ -9,10 +9,12 @@ import {
     adminAfterDeploy,
     adminBeforeBuild,
     adminBeforeDeploy,
+    afterBuild,
     apiAfterBuild,
     apiAfterDeploy,
     apiBeforeBuild,
     apiBeforeDeploy,
+    beforeBuild,
     coreAfterBuild,
     coreAfterDeploy,
     coreBeforeBuild,
@@ -46,6 +48,8 @@ export const ProjectDecorator = projectDecorator.ReactComponent;
 export const ExtensionDefinitions = extensionDefinitions.ReactComponent;
 
 // Hooks.
+export const BeforeBuild = beforeBuild.ReactComponent;
+export const AfterBuild = afterBuild.ReactComponent;
 export const AdminBeforeBuild = adminBeforeBuild.ReactComponent;
 export const AdminBeforeDeploy = adminBeforeDeploy.ReactComponent;
 export const AdminAfterBuild = adminAfterBuild.ReactComponent;
@@ -81,6 +85,8 @@ export const definitions = [
     // Hooks.
     adminAfterBuild.definition,
     adminAfterDeploy.definition,
+    beforeBuild.definition,
+    afterBuild.definition,
     adminBeforeBuild.definition,
     adminBeforeDeploy.definition,
     apiAfterBuild.definition,

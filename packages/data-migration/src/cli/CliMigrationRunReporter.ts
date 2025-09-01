@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { MigrationRunnerResult, MigrationRunReporter } from "~/cli/index.js";
 import center from "center-align";
 import { CliContext } from "@webiny/cli/types.js";

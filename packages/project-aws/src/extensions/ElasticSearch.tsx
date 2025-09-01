@@ -1,6 +1,6 @@
 import React from "react";
 import { ElasticSearch as BaseElasticSearch } from "@webiny/pulumi-aws/extensions/index.js";
-import { Core } from "~/index.js";
+import { Core, Api } from "~/index.js";
 import path from "path";
 
 export const ElasticSearch = (props: React.ComponentProps<typeof BaseElasticSearch>) => {
@@ -8,9 +8,22 @@ export const ElasticSearch = (props: React.ComponentProps<typeof BaseElasticSear
         <>
             <BaseElasticSearch {...props} />
             {props.enabled && (
-                <Core.BeforeBuild
-                    src={path.join(import.meta.dirname, "ElasticSearch", "createDdbEsHandler.js")}
-                />
+                <>
+                    <Core.BeforeBuild
+                        src={path.join(
+                            import.meta.dirname,
+                            "ElasticSearch",
+                            "injectDdbEsLambdaFnHandler.js"
+                        )}
+                    />
+                    <Api.BeforeBuild
+                        src={path.join(
+                            import.meta.dirname,
+                            "ElasticSearch",
+                            "replaceApiLambdaFnHandlers.js"
+                        )}
+                    />
+                </>
             )}
         </>
     );

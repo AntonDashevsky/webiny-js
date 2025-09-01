@@ -16,7 +16,6 @@ export class RunnableBuildProcesses implements IRunnableBuildProcesses {
         const buildParams = this.builder.getBuildParams();
 
         const onBeforeBuildCallbacks = this.builder.getOnBeforeBuildCallbacks();
-        console.log("callbacks", onBeforeBuildCallbacks);
         for (const onBeforeBuildCallback of onBeforeBuildCallbacks) {
             await onBeforeBuildCallback(buildParams);
         }
@@ -40,7 +39,6 @@ export class RunnableBuildProcesses implements IRunnableBuildProcesses {
     }
 
     getBuilder() {
-        console.log("GETTER");
         return this.builder;
     }
 

@@ -1,18 +1,22 @@
 import { createDecorator } from "@webiny/di-container";
 import { BuildApp } from "~/abstractions/index.js";
 import {
-    AdminBeforeBuild,
     AdminAfterBuild,
-    ApiBeforeBuild,
+    AdminBeforeBuild,
+    AfterBuild,
     ApiAfterBuild,
-    CoreBeforeBuild,
+    ApiBeforeBuild,
+    BeforeBuild,
     CoreAfterBuild,
-    WebsiteBeforeBuild,
-    WebsiteAfterBuild
+    CoreBeforeBuild,
+    WebsiteAfterBuild,
+    WebsiteBeforeBuild
 } from "~/abstractions/index.js";
 
 export class BuildAppWithHooks implements BuildApp.Interface {
     constructor(
+        private beforeBuild: BeforeBuild.Interface,
+        private afterBuild: AfterBuild.Interface,
         private adminBeforeBuild: AdminBeforeBuild.Interface,
         private adminAfterBuild: AdminAfterBuild.Interface,
         private apiBeforeBuild: ApiBeforeBuild.Interface,
@@ -26,30 +30,53 @@ export class BuildAppWithHooks implements BuildApp.Interface {
 
     async execute(params: BuildApp.Params) {
         if (params.app === "core") {
+            await this.beforeBuild.execute(params);
             await this.coreBeforeBuild.execute(params);
             const packagesBuilder = await this.decoratee.execute(params);
-            packagesBuilder.onAfterBuild(() => this.coreAfterBuild.execute(params));
+            packagesBuilder.onAfterBuild(async () => {
+                await this.coreAfterBuild.execute(params);
+                await this.afterBuild.execute(params);
+            });
+
             return packagesBuilder;
         }
+
         if (params.app === "api") {
+            await this.beforeBuild.execute(params);
             await this.apiBeforeBuild.execute(params);
             const packagesBuilder = await this.decoratee.execute(params);
-            packagesBuilder.onAfterBuild(() => this.apiAfterBuild.execute(params));
+            packagesBuilder.onAfterBuild(async () => {
+                await this.apiAfterBuild.execute(params);
+                await this.afterBuild.execute(params);
+            });
+
             return packagesBuilder;
         }
+
         if (params.app === "admin") {
+            await this.beforeBuild.execute(params);
             await this.adminBeforeBuild.execute(params);
             const packagesBuilder = await this.decoratee.execute(params);
+            packagesBuilder.onAfterBuild(async () => {
+                await this.adminAfterBuild.execute(params);
+                await this.afterBuild.execute(params);
+            });
 
-            packagesBuilder.onAfterBuild(() => this.adminAfterBuild.execute(params));
             return packagesBuilder;
         }
 
-        await this.websiteBeforeBuild.execute(params);
-        const packagesBuilder = await this.decoratee.execute(params);
+        if (params.app === "website") {
+            await this.beforeBuild.execute(params);
+            await this.websiteBeforeBuild.execute(params);
+            const packagesBuilder = await this.decoratee.execute(params);
+            packagesBuilder.onAfterBuild(async () => {
+                await this.websiteAfterBuild.execute(params);
+                await this.afterBuild.execute(params);
+            });
+            return packagesBuilder;
+        }
 
-        packagesBuilder.onAfterBuild(() => this.websiteAfterBuild.execute(params));
-        return packagesBuilder;
+        return this.decoratee.execute(params);
     }
 }
 
@@ -57,6 +84,8 @@ export const buildAppWithHooks = createDecorator({
     abstraction: BuildApp,
     decorator: BuildAppWithHooks,
     dependencies: [
+        BeforeBuild,
+        AfterBuild,
         AdminBeforeBuild,
         AdminAfterBuild,
         ApiBeforeBuild,

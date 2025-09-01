@@ -15,14 +15,9 @@ export const legacyContextPlugin = defineExtension({
         });
     },
     async build(params, ctx) {
-        const extensionsFilePath = path.join(
-            ctx.project.paths.workspacesFolder.absolute,
-            "apps",
-            "api",
-            "graphql",
-            "src",
-            "extensions.ts"
-        );
+        const extensionsFilePath = ctx.project.paths.workspacesFolder
+            .join("apps", "api", "graphql", "src", "extensions.ts")
+            .toString();
 
         const extensionFactory = Case.pascal("Something" + Date.now()) + "ExtensionFactory";
         const importName = "{ createExtension as " + extensionFactory + " }";
@@ -36,7 +31,10 @@ export const legacyContextPlugin = defineExtension({
         const source = project.getSourceFileOrThrow(extensionsFilePath);
 
         const importPath = path.join(
-            path.relative(path.dirname(extensionsFilePath), ctx.project.paths.rootFolder.absolute),
+            path.relative(
+                path.dirname(extensionsFilePath),
+                ctx.project.paths.rootFolder.toString()
+            ),
             srcWithoutExt
         );
 

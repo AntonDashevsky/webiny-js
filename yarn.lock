@@ -12786,6 +12786,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/pluralize@npm:^0.0.33":
+  version: 0.0.33
+  resolution: "@types/pluralize@npm:0.0.33"
+  checksum: 10/282d42dc0187e5e0912f9f36ee0f5615bfd273a08d40afe5bf5881cb28daf1977abe10564543032aa0f42352ebba739ff3d86bf5562ac4691c6d1761fcc7cf39
+  languageName: node
+  linkType: hard
+
 "@types/prettier@npm:^2.7.3":
   version: 2.7.3
   resolution: "@types/prettier@npm:2.7.3"
@@ -14626,6 +14633,7 @@ __metadata:
     "@graphql-tools/merge": "npm:9.0.24"
     "@graphql-tools/schema": "npm:10.0.23"
     "@types/babel__code-frame": "npm:^7.0.6"
+    "@types/pluralize": "npm:^0.0.33"
     "@webiny/api": "npm:0.0.0"
     "@webiny/api-i18n": "npm:0.0.0"
     "@webiny/api-security": "npm:0.0.0"
@@ -16663,26 +16671,6 @@ __metadata:
     typescript: "npm:5.3.3"
     yargs: "npm:^17.7.2"
     yargs-parser: "npm:^21.1.1"
-  languageName: unknown
-  linkType: soft
-
-"@webiny/cli-plugin-dependencies@workspace:packages/cli-plugin-dependencies":
-  version: 0.0.0-use.local
-  resolution: "@webiny/cli-plugin-dependencies@workspace:packages/cli-plugin-dependencies"
-  dependencies:
-    "@babel/runtime": "npm:7.27.4"
-    "@webiny/project-utils": "npm:0.0.0"
-    chalk: "npm:^4.1.2"
-    execa: "npm:^5.1.1"
-    get-yarn-workspaces: "npm:^1.0.2"
-    glob: "npm:^7.2.3"
-    load-json-file: "npm:^6.2.0"
-    prettier: "npm:^2.8.8"
-    rimraf: "npm:^6.0.1"
-    semver: "npm:^7.6.3"
-    type-fest: "npm:4.14.0"
-    typescript: "npm:5.3.3"
-    write-json-file: "npm:^4.3.0"
   languageName: unknown
   linkType: soft
 

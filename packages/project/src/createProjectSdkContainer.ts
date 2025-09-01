@@ -1,5 +1,7 @@
 import { Container } from "@webiny/di-container";
 import {
+    beforeBuild,
+    afterBuild,
     adminAfterBuild,
     adminAfterDeploy,
     adminBeforeBuild,
@@ -133,6 +135,8 @@ export const createProjectSdkContainer = async (
     container.register(watch).inSingletonScope();
 
     // Hooks.
+    container.registerComposite(beforeBuild);
+    container.registerComposite(afterBuild);
     container.registerComposite(apiBeforeBuild);
     container.registerComposite(apiBeforeDeploy);
     container.registerComposite(apiAfterBuild);
@@ -173,6 +177,8 @@ export const createProjectSdkContainer = async (
 
     // Hooks.
     const hooksExtensions = [
+        ...projectExtensions.extensionsByType<any>("Project/BeforeBuild"),
+        ...projectExtensions.extensionsByType<any>("Project/AfterBuild"),
         ...projectExtensions.extensionsByType<any>("Admin/BeforeBuild"),
         ...projectExtensions.extensionsByType<any>("Admin/BeforeDeploy"),
         ...projectExtensions.extensionsByType<any>("Admin/AfterBuild"),

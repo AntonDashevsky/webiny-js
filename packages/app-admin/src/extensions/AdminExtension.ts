@@ -15,13 +15,9 @@ export const adminExtension = defineExtension({
         });
     },
     async build(params, ctx) {
-        const extensionsTsxFilePath = path.join(
-            ctx.project.paths.workspacesFolder.absolute,
-            "apps",
-            "admin",
-            "src",
-            "Extensions.tsx"
-        );
+        const extensionsTsxFilePath = ctx.project.paths.workspacesFolder
+            .join("apps", "admin", "src", "Extensions.tsx")
+            .toString();
 
         const componentName = Case.pascal("Something" + Date.now()) + "Extension";
 
@@ -33,7 +29,7 @@ export const adminExtension = defineExtension({
         const importPath = path.join(
             path.relative(
                 path.dirname(extensionsTsxFilePath),
-                ctx.project.paths.rootFolder.absolute
+                ctx.project.paths.rootFolder.toString()
             ),
             srcWithoutExt
         );

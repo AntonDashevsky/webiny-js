@@ -7,7 +7,9 @@ export const onEntryBeforeCreate = defineExtension({
     tags: { runtimeContext: "app-build", appName: "api" },
     description: "Add custom logic to be executed before the CMS entry is created.",
     multiple: true,
-    paramsSchema: z.object({
-        src: zodPathToAbstraction(OnEntryBeforeCreate)
-    })
+    paramsSchema: ({ project }) => {
+        return z.object({
+            src: zodPathToAbstraction(OnEntryBeforeCreate, project)
+        });
+    }
 });
