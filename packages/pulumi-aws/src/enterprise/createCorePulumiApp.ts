@@ -8,9 +8,9 @@ import { isResourceOfType, type PulumiAppParam } from "@webiny/pulumi";
 import { getAwsRegion } from "~/apps/awsUtils.js";
 import { configureS3BucketMalwareProtection } from "~/enterprise/core/configureS3BucketMalwareProtection.js";
 import { License } from "@webiny/wcp";
-import { getVpcConfigFromExtension } from "./getVpcConfigFromExtension";
-import { getEsConfigFromExtension } from "./getEsConfigFromExtension";
-import { getOsConfigFromExtension } from "./getOsConfigFromExtension";
+import { getVpcConfigFromExtension } from "./extensions/getVpcConfigFromExtension";
+import { getEsConfigFromExtension } from "./extensions/getEsConfigFromExtension";
+import { getOsConfigFromExtension } from "./extensions/getOsConfigFromExtension";
 import { getProjectSdk } from "@webiny/project";
 import { awsTags as awsTagsExt } from "~/extensions/awsTags";
 import { tagResources } from "~/utils";
@@ -26,10 +26,6 @@ export type CorePulumiAppAdvancedVpcParams = Partial<{
         lambdaFunctionsVpcConfig: aws.types.input.lambda.FunctionVpcConfig;
     };
 }>;
-
-export interface CreateCorePulumiAppParams extends Omit<BaseCreateCorePulumiAppParams, "vpc"> {
-    vpc?: PulumiAppParam<boolean | CorePulumiAppAdvancedVpcParams>;
-}
 
 const sdk = await getProjectSdk();
 const projectConfig = await sdk.getProjectConfig();

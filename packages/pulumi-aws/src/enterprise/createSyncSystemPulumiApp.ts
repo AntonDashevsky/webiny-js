@@ -3,6 +3,10 @@ import type { CreateSyncSystemPulumiAppParams as BaseCreateSyncSystemPulumiAppPa
 import { createSyncSystemPulumiApp as baseCreateSyncSystemPulumiApp } from "~/apps/syncSystem/createSyncSystemPulumiApp.js";
 import type { PulumiAppParam } from "@webiny/pulumi";
 import { isResourceOfType } from "@webiny/pulumi";
+import { getVpcConfigFromExtension } from "~/enterprise/extensions/getVpcConfigFromExtension";
+import { awsTags as awsTagsExt } from "~/extensions/awsTags";
+import { tagResources } from "~/utils";
+import { WebsitePulumi } from "@webiny/project/abstractions";
 
 export type SyncSystemPulumiApp = ReturnType<typeof createSyncSystemPulumiApp>;
 
@@ -21,25 +25,34 @@ export interface CreateSyncSystemPulumiAppParams
 }
 
 export function createSyncSystemPulumiApp(projectAppParams: CreateSyncSystemPulumiAppParams = {}) {
+    const vpc = getVpcConfigFromExtension(projectConfig);
+
     return baseCreateSyncSystemPulumiApp({
         ...projectAppParams,
         // If using existing VPC, we ensure `vpc` param is set to `false`.
         vpc: ({ getParam }) => {
-            const vpc = getParam(projectAppParams.vpc);
             const usingAdvancedVpcParams = vpc && typeof vpc !== "boolean";
             return usingAdvancedVpcParams && vpc.useExistingVpc ? false : Boolean(vpc);
         },
-        pulumi(...args) {
-            const [{ getParam }] = args;
-            const vpc = getParam(projectAppParams.vpc);
+        pulumi(app) {
+            const defaultPulumi = () => {
+                projectConfig.extensionsByType(awsTagsExt).forEach(ext => {
+                    tagResources(ext.params.tags);
+                });
+
+                const pulumiHandlers = sdk.getContainer().resolve(WebsitePulumi);
+                pulumiHandlers.execute(app);
+            };
+
+            const { getParam } = app;
             const usingAdvancedVpcParams = vpc && typeof vpc !== "boolean";
 
             // Not using advanced VPC params? Then immediately exit.
             if (!usingAdvancedVpcParams) {
-                return projectAppParams.pulumi?.(...args);
+                return defaultPulumi();
             }
 
-            const [{ onResource, addResource }] = args;
+            const { onResource, addResource } = app;
             const { useExistingVpc } = vpc;
 
             // 1. We first deal with "existing VPC" setup.
@@ -72,7 +85,7 @@ export function createSyncSystemPulumiApp(projectAppParams: CreateSyncSystemPulu
                 });
             }
 
-            return projectAppParams.pulumi?.(...args);
+            return defaultPulumi();
         }
     });
 }

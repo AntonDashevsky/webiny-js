@@ -4,6 +4,11 @@ import {
     type CreateWebsitePulumiAppParams as BaseCreateWebsitePulumiAppParams
 } from "~/apps/website/createWebsitePulumiApp.js";
 import { isResourceOfType, type PulumiAppParam } from "@webiny/pulumi";
+import { getVpcConfigFromExtension } from "./extensions/getVpcConfigFromExtension";
+import { getProjectSdk } from "@webiny/project";
+import { awsTags as awsTagsExt } from "~/extensions/awsTags";
+import { tagResources } from "~/utils";
+import { WebsitePulumi } from "@webiny/project/abstractions";
 
 export type WebsitePulumiApp = ReturnType<typeof createWebsitePulumiApp>;
 
@@ -18,12 +23,16 @@ export interface CreateWebsitePulumiAppParams
     vpc?: PulumiAppParam<boolean | WebsitePulumiAppAdvancedVpcParams>;
 }
 
+const sdk = await getProjectSdk();
+const projectConfig = await sdk.getProjectConfig();
+
 export function createWebsitePulumiApp(projectAppParams: CreateWebsitePulumiAppParams = {}) {
+    const vpc = getVpcConfigFromExtension(projectConfig);
+
     return baseCreateWebsitePulumiApp({
         ...projectAppParams,
         // If using existing VPC, we ensure `vpc` param is set to `false`.
         vpc: ({ getParam }) => {
-            const vpc = getParam(projectAppParams.vpc);
             if (!vpc) {
                 // This could be `false` or `undefined`. If `undefined`, down the line,
                 // this means "deploy into VPC if dealing with a production environment".
@@ -38,17 +47,25 @@ export function createWebsitePulumiApp(projectAppParams: CreateWebsitePulumiAppP
 
             return true;
         },
-        pulumi(...args) {
-            const [{ getParam }] = args;
-            const vpc = getParam(projectAppParams.vpc);
+        pulumi(app) {
+            const defaultPulumi = () => {
+                projectConfig.extensionsByType(awsTagsExt).forEach(ext => {
+                    tagResources(ext.params.tags);
+                });
+
+                const pulumiHandlers = sdk.getContainer().resolve(WebsitePulumi);
+                pulumiHandlers.execute(app);
+            };
+
+            const { getParam } = app;
             const usingAdvancedVpcParams = vpc && typeof vpc !== "boolean";
 
             // Not using advanced VPC params? Then immediately exit.
             if (!usingAdvancedVpcParams) {
-                return projectAppParams.pulumi?.(...args);
+                return defaultPulumi();
             }
 
-            const [{ onResource, addResource }] = args;
+            const { onResource, addResource } = app;
             const { useExistingVpc } = vpc;
 
             if (useExistingVpc) {
@@ -80,7 +97,7 @@ export function createWebsitePulumiApp(projectAppParams: CreateWebsitePulumiAppP
                 });
             }
 
-            return projectAppParams.pulumi?.(...args);
+            return defaultPulumi();
         }
     });
 }

@@ -6,8 +6,13 @@ import {
     type CreateApiPulumiAppParams as BaseCreateApiPulumiAppParams
 } from "~/apps/api/createApiPulumiApp.js";
 import { handleGuardDutyEvents } from "~/enterprise/api/handleGuardDutyEvents.js";
-
-export type ApiPulumiApp = ReturnType<typeof createApiPulumiApp>;
+import { getVpcConfigFromExtension } from "./extensions/getVpcConfigFromExtension";
+import { getEsConfigFromExtension } from "./extensions/getEsConfigFromExtension";
+import { getOsConfigFromExtension } from "./extensions/getOsConfigFromExtension";
+import { getProjectSdk } from "@webiny/project";
+import { awsTags as awsTagsExt } from "~/extensions/awsTags";
+import { tagResources } from "~/utils";
+import { ApiPulumi } from "@webiny/project/abstractions";
 
 export type ApiPulumiAppAdvancedVpcParams = Partial<{
     useExistingVpc: {
@@ -15,16 +20,19 @@ export type ApiPulumiAppAdvancedVpcParams = Partial<{
     };
 }>;
 
-export interface CreateApiPulumiAppParams extends Omit<BaseCreateApiPulumiAppParams, "vpc"> {
-    vpc?: PulumiAppParam<boolean | ApiPulumiAppAdvancedVpcParams>;
-}
+const sdk = await getProjectSdk();
+const projectConfig = await sdk.getProjectConfig();
 
-export function createApiPulumiApp(projectAppParams: CreateApiPulumiAppParams = {}) {
+export function createApiPulumiApp() {
+    const vpc = getVpcConfigFromExtension(projectConfig);
+    const elasticSearch = getEsConfigFromExtension(projectConfig);
+    const openSearch = getOsConfigFromExtension(projectConfig);
+
     return baseCreateApiPulumiApp({
-        ...projectAppParams,
+        elasticSearch,
+        openSearch,
         // If using existing VPC, we ensure `vpc` param is set to `false`.
-        vpc: ({ getParam }) => {
-            const vpc = getParam(projectAppParams.vpc);
+        vpc: () => {
             if (!vpc) {
                 // This could be `false` or `undefined`. If `undefined`, down the line,
                 // this means "deploy into VPC if dealing with a production environment".
@@ -40,10 +48,18 @@ export function createApiPulumiApp(projectAppParams: CreateApiPulumiAppParams = 
             return true;
         },
         async pulumi(app) {
+            const defaultPulumi = () => {
+                projectConfig.extensionsByType(awsTagsExt).forEach(ext => {
+                    tagResources(ext.params.tags);
+                });
+
+                const pulumiHandlers = sdk.getContainer().resolve(ApiPulumi);
+                pulumiHandlers.execute(app);
+            };
+
             const license = await License.fromEnvironment();
 
             const { getParam } = app;
-            const vpc = getParam(projectAppParams.vpc);
             const usingAdvancedVpcParams = vpc && typeof vpc !== "boolean";
 
             if (license.canUseFileManagerThreatDetection()) {
@@ -52,7 +68,7 @@ export function createApiPulumiApp(projectAppParams: CreateApiPulumiAppParams = 
 
             // Not using advanced VPC params? Then immediately exit.
             if (!usingAdvancedVpcParams) {
-                return projectAppParams.pulumi?.(app);
+                return defaultPulumi();
             }
 
             const { onResource, addResource } = app;
@@ -88,7 +104,7 @@ export function createApiPulumiApp(projectAppParams: CreateApiPulumiAppParams = 
                 });
             }
 
-            return projectAppParams.pulumi?.(app);
+            return defaultPulumi();
         }
     });
 }
