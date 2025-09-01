@@ -17,6 +17,7 @@
 	"dependencies": {
 		"@pulumi/aws": "6.67.0",
 		"@pulumi/pulumi": "3.147.0",
+		"@webiny/api": "0.0.0",
 		"@webiny/api-aco": "0.0.0",
 		"@webiny/api-apw": "0.0.0",
 		"@webiny/api-apw-scheduler-so-ddb": "0.0.0",
@@ -66,8 +67,7 @@
 		"ora": "^4.1.1",
 		"react": "18.2.0",
 		"replace-in-path": "^1.1.0",
-		"webpack": "^5.97.0",
-		"@webiny/api": "0.0.0"
+		"webpack": "^5.97.0"
 	},
 	"devDependencies": {
 		"@types/ncp": "^2.0.8",

@@ -17,13 +17,9 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
 
         // List all packages in `packages` folder.
         const packagesFullList: ListPackagesService.Result = fs
-            .readdirSync(path.join(project.paths.rootFolder.absolute, "packages"))
+            .readdirSync(project.paths.rootFolder.join("packages").toString())
             .map(name => {
-                const pkgFolderPath = path.join(
-                    project.paths.rootFolder.absolute,
-                    "/packages/",
-                    name
-                );
+                const pkgFolderPath = project.paths.rootFolder.join("/packages/", name).toString();
 
                 let webinyConfigPath = path.join(pkgFolderPath, "webiny.config.ts");
                 if (!fs.existsSync(webinyConfigPath)) {
@@ -42,7 +38,7 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
 
         if (app) {
             const webinyConfigPaths = glob.sync("**/webiny.config.@(ts|js)", {
-                cwd: app.paths.workspaceFolder.absolute,
+                cwd: app.paths.workspaceFolder.toString(),
                 absolute: true,
                 ignore: ["**/node_modules/**", "**/dist/**"]
             });

@@ -33,7 +33,7 @@ export class DefaultPulumiLoginService implements PulumiLoginService.Interface {
         } else {
             // By default, we use local file system as backend. All files are stored in project root's
             // `.pulumi` folder, e.g. `.pulumi/apps/admin`.
-            const stateFilesFolder = app.paths.localPulumiStateFilesFolder.absolute;
+            const stateFilesFolder = app.paths.localPulumiStateFilesFolder.toString();
 
             if (!fs.existsSync(stateFilesFolder)) {
                 fs.mkdirSync(stateFilesFolder, { recursive: true });

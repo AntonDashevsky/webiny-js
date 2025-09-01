@@ -7,9 +7,9 @@ import { createRoot } from "react-dom/client";
 import { JSDOM } from "jsdom";
 import { RenderConfigParams } from "./renderConfig.js";
 
-const { project, args } = JSON.parse(process.argv[2]) as RenderConfigParams;
+const { project } = JSON.parse(process.argv[2]) as RenderConfigParams;
 
-const { default: WebinyConfig } = await import(project.paths.webinyConfigFile.absolute);
+const { default: WebinyConfig } = await import(project.paths.webinyConfigFile.toString());
 
 const onChange = debounce((value: any) => {
     if (process.send) {

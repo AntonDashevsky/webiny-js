@@ -1,15 +1,9 @@
 import { createDecorator } from "@webiny/di-container";
 import path from "path";
 import fs from "fs";
-import util from "util";
-import ncpBase from "ncp";
-import findUp from "find-up";
 import { replaceInPath } from "replace-in-path";
 import { BuildApp, GetApp } from "@webiny/project/abstractions/index.js";
-
-const ncp = util.promisify(ncpBase.ncp);
-
-const TEMPLATES_FOLDER_NAME = "_templates";
+import { getTemplatesFolderPath } from "~/utils";
 
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
@@ -18,21 +12,11 @@ class BuildAppWorkspaceDecorator implements BuildApp.Interface {
 
     async execute(params: BuildApp.Params) {
         // 1. Construct required paths.
-        const templatesFolderPath = await findUp(TEMPLATES_FOLDER_NAME, {
-            type: "directory",
-            cwd: path.join(import.meta.dirname)
-        });
-
-        if (!templatesFolderPath) {
-            // This should never happen because we're controlling the templates.
-            throw new Error(
-                "Could not find the `appTemplates` folder. Something went terribly wrong."
-            );
-        }
+        const templatesFolderPath = getTemplatesFolderPath();
 
         const app = this.getApp.execute(params.app);
 
-        const appWorkspaceFolderPath = app.paths.workspaceFolder.absolute;
+        const appWorkspaceFolderPath = app.paths.workspaceFolder.get();
         const baseTemplateFolderPath = path.join(templatesFolderPath, "appTemplates", "base");
         const appTemplateFolderPath = path.join(templatesFolderPath, "appTemplates", app.name);
 
@@ -47,7 +31,7 @@ class BuildAppWorkspaceDecorator implements BuildApp.Interface {
         await wait();
 
         // 3. Create base.
-        await ncp(baseTemplateFolderPath, appWorkspaceFolderPath);
+        fs.cpSync(baseTemplateFolderPath, appWorkspaceFolderPath, { recursive: true });
 
         // Wait a bit and make sure the files are ready to have their content replaced.
         await wait();
@@ -65,7 +49,7 @@ class BuildAppWorkspaceDecorator implements BuildApp.Interface {
         ]);
 
         // 4. Create app.
-        await ncp(appTemplateFolderPath, appWorkspaceFolderPath);
+        fs.cpSync(appTemplateFolderPath, appWorkspaceFolderPath, { recursive: true });
 
         return this.decoratee.execute(params);
     }

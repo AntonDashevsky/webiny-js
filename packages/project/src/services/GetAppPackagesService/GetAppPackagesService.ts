@@ -50,10 +50,10 @@ export class PackageJson {
 
 export class DefaultGetAppPackagesService implements GetAppPackagesService.Interface {
     async execute(app: AppModel) {
-        const globPattern = join(app.paths.workspaceFolder.absolute, "**/webiny.config.ts").replace(
-            /\\/g,
-            "/"
-        );
+        const globPattern = app.paths.workspaceFolder
+            .join("**/webiny.config.ts")
+            .toString()
+            .replace(/\\/g, "/");
 
         const webinyConfigsPaths = await glob(globPattern);
 

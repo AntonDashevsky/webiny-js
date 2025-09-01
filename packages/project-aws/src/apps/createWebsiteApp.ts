@@ -1,22 +1,6 @@
-import { createWebsitePulumiApp, type CreateWebsitePulumiAppParams } from "@webiny/pulumi-aws";
-import { type PluginCollection } from "@webiny/plugins/types.js";
+import { type CreateWebsitePulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
 
-export interface CreateWebsiteAppParams extends CreateWebsitePulumiAppParams {
-    plugins?: PluginCollection;
-}
-
-export function createWebsiteApp(projectAppParams: CreateWebsiteAppParams = {}) {
-    // const builtInPlugins = [
-    //     uploadAppToS3({ folder: "apps/website" }),
-    //     generateCommonHandlers,
-    //     lambdaEdgeWarning,
-    //     renderWebsite({ prerender: projectAppParams.renderWebsiteAfterDeploy ?? (() => true) }),
-    //     telemetryNoLongerNewUser,
-    //     ...createEnsureApiDeployedPlugins("website")
-    // ];
-
-    // const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
-
+export function createWebsiteApp(projectAppParams: CreateWebsitePulumiAppParams = {}) {
     return {
         id: "website",
         name: "Website",
@@ -27,13 +11,15 @@ export function createWebsiteApp(projectAppParams: CreateWebsiteAppParams = {}) 
                 // We disable local development for all AWS Lambda functions.
                 // This can be changed down the line by passing another set of values
                 // to the "watch" command (for example `-f ps-render-subscriber`).
-                function: "none",
-
-                // We can remove this once the new watch command is released.
-                deploy: false
+                function: "none"
             }
         },
-        pulumi: createWebsitePulumiApp(projectAppParams)
+        async getPulumi() {
+            // eslint-disable-next-line import/dynamic-import-chunkname
+            const { createWebsitePulumiApp } = await import("@webiny/pulumi-aws/enterprise/index");
+
+            return createWebsitePulumiApp(projectAppParams);
+        }
         // plugins: [builtInPlugins, customPlugins]
     };
 }

@@ -1,14 +1,17 @@
-import { IAppModel } from "~/abstractions/models/index.js";
-
-type AppModelDto = Pick<IAppModel, "name" | "paths">;
+import { IAppModel, IAppModelDto } from "~/abstractions/models/index.js";
+import { GetApp } from "~/abstractions";
+import { PathModel } from "./PathModel";
 
 export class AppModel implements IAppModel {
-    public readonly name: IAppModel["name"];
+    public readonly name: GetApp.AppName;
     public readonly paths: IAppModel["paths"];
 
-    private constructor(dto: AppModelDto) {
+    private constructor(dto: IAppModelDto) {
         this.name = dto.name;
-        this.paths = dto.paths;
+        this.paths = {
+            workspaceFolder: PathModel.fromString(dto.paths.workspaceFolder),
+            localPulumiStateFilesFolder: PathModel.fromString(dto.paths.localPulumiStateFilesFolder)
+        };
     }
 
     public async getConfig(): Promise<Record<string, any>> {
@@ -21,7 +24,7 @@ export class AppModel implements IAppModel {
         return {};
     }
 
-    static fromDto(dto: AppModelDto): IAppModel {
+    static fromDto(dto: IAppModelDto): IAppModel {
         return new AppModel(dto);
     }
 }

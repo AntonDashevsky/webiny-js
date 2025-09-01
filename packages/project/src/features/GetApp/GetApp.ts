@@ -1,6 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
 import { GetApp, GetProject } from "~/abstractions/index.js";
-import path from "path";
 import { AppModel } from "~/models/index.js";
 
 export class DefaultGetApp implements GetApp.Interface {
@@ -21,38 +20,17 @@ export class DefaultGetApp implements GetApp.Interface {
 
         const project = this.getProject.execute();
 
-        const workspaceFolderAbsPath = path.join(
-            project.paths.workspacesFolder.absolute,
-            "apps",
-            appName
-        );
-        const workspaceFolderRelPath = path.relative(
-            project.paths.rootFolder.absolute,
-            workspaceFolderAbsPath
-        );
+        const workspaceFolderPath = project.paths.workspacesFolder.join("apps", appName).toString();
 
-        const localPulumiStateFilesFolderAbsPath = path.join(
-            project.paths.localPulumiStateFilesFolder.absolute,
-            "apps",
-            appName
-        );
-
-        const localPulumiStateFilesFolderRelPath = path.relative(
-            project.paths.rootFolder.absolute,
-            localPulumiStateFilesFolderAbsPath
-        );
+        const localPulumiStateFilesFolderPath = project.paths.localPulumiStateFilesFolder
+            .join("apps", appName)
+            .toString();
 
         return AppModel.fromDto({
             name: appName,
             paths: {
-                workspaceFolder: {
-                    absolute: workspaceFolderAbsPath,
-                    relative: workspaceFolderRelPath
-                },
-                localPulumiStateFilesFolder: {
-                    absolute: localPulumiStateFilesFolderAbsPath,
-                    relative: localPulumiStateFilesFolderRelPath
-                }
+                workspaceFolder: workspaceFolderPath,
+                localPulumiStateFilesFolder: localPulumiStateFilesFolderPath
             }
         });
     }

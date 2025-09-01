@@ -29,7 +29,14 @@ vpcBlock: {
 
     vpc = true;
     if (useVpcEndpoints || useExistingVpc) {
-        vpc = { useVpcEndpoints, useExistingVpc };
+        vpc = {};
+        if (useVpcEndpoints) {
+            vpc.useVpcEndpoints = useVpcEndpoints;
+        }
+
+        if (useExistingVpc) {
+            vpc.useExistingVpc = useExistingVpc;
+        }
     }
 }
 

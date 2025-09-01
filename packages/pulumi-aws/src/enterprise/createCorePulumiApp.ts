@@ -8,6 +8,13 @@ import { isResourceOfType, type PulumiAppParam } from "@webiny/pulumi";
 import { getAwsRegion } from "~/apps/awsUtils.js";
 import { configureS3BucketMalwareProtection } from "~/enterprise/core/configureS3BucketMalwareProtection.js";
 import { License } from "@webiny/wcp";
+import { getVpcConfigFromExtension } from "./getVpcConfigFromExtension";
+import { getEsConfigFromExtension } from "./getEsConfigFromExtension";
+import { getOsConfigFromExtension } from "./getOsConfigFromExtension";
+import { getProjectSdk } from "@webiny/project";
+import { awsTags as awsTagsExt } from "~/extensions/awsTags";
+import { tagResources } from "~/utils";
+import { CorePulumi } from "@webiny/project/abstractions";
 
 export type CorePulumiApp = ReturnType<typeof createCorePulumiApp>;
 
@@ -24,12 +31,19 @@ export interface CreateCorePulumiAppParams extends Omit<BaseCreateCorePulumiAppP
     vpc?: PulumiAppParam<boolean | CorePulumiAppAdvancedVpcParams>;
 }
 
-export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams = {}) {
+const sdk = await getProjectSdk();
+const projectConfig = await sdk.getProjectConfig();
+
+export function createCorePulumiApp() {
+    const vpc = getVpcConfigFromExtension(projectConfig);
+    const elasticSearch = getEsConfigFromExtension(projectConfig);
+    const openSearch = getOsConfigFromExtension(projectConfig);
+
     return baseCreateCorePulumiApp({
-        ...projectAppParams,
+        elasticSearch,
+        openSearch,
         // If using existing VPC, we ensure `vpc` param is set to `false`.
-        vpc: ({ getParam }) => {
-            const vpc = getParam(projectAppParams.vpc);
+        vpc: () => {
             if (!vpc) {
                 // This could be `false` or `undefined`. If `undefined`, down the line,
                 // this means "deploy into VPC if dealing with a production environment".
@@ -44,24 +58,29 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
 
             return true;
         },
-        async pulumi(...args) {
-            const [app] = args;
-            const { getParam } = app;
-            const vpc = getParam(projectAppParams.vpc);
+        async pulumi(app) {
+            const defaultPulumi = () => {
+                projectConfig.extensionsByType(awsTagsExt).forEach(ext => {
+                    tagResources(ext.params.tags);
+                });
+
+                const pulumiHandlers = sdk.getContainer().resolve(CorePulumi);
+                pulumiHandlers.execute(app);
+            };
+
             const usingAdvancedVpcParams = vpc && typeof vpc !== "boolean";
 
             const license = await License.fromEnvironment();
-
             if (license.canUseFileManagerThreatDetection()) {
                 configureS3BucketMalwareProtection(app);
             }
 
             // Not using advanced VPC params? Then immediately exit.
             if (!usingAdvancedVpcParams) {
-                return projectAppParams.pulumi?.(...args);
+                return defaultPulumi();
             }
 
-            const [{ resources, addResource, onResource }] = args;
+            const { resources, addResource, onResource } = app;
             const { useExistingVpc, useVpcEndpoints } = vpc;
 
             // 1. We first deal with "existing VPC" setup.
@@ -72,7 +91,7 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
                     );
                 }
 
-                if (projectAppParams.elasticSearch) {
+                if (elasticSearch) {
                     if (!useExistingVpc.elasticSearchDomainVpcConfig) {
                         throw new Error(
                             "Cannot specify `useExistingVpc` parameter because the `elasticSearchDomainVpcConfig` parameter wasn't provided."
@@ -88,7 +107,7 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
                     });
                 }
 
-                if (projectAppParams.openSearch) {
+                if (openSearch) {
                     if (!useExistingVpc.openSearchDomainVpcConfig) {
                         throw new Error(
                             "Cannot specify `useExistingVpc` parameter because the `openSearchDomainVpcConfig` parameter wasn't provided."
@@ -129,7 +148,7 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
                     }
                 });
 
-                return projectAppParams.pulumi?.(...args);
+                return defaultPulumi();
             }
 
             // 2. Now we deal with "non-existing VPC" setup.
@@ -187,7 +206,7 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
                 });
             }
 
-            return projectAppParams.pulumi?.(...args);
+            return defaultPulumi();
         }
     });
 }

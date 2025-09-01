@@ -10,7 +10,7 @@ export const zodPathToFile = (project: IProjectModel) => {
         .superRefine(async (src, ctx) => {
             let absoluteSrcPath = src;
             if (!path.isAbsolute(src)) {
-                absoluteSrcPath = path.join(project.paths.rootFolder.absolute, src);
+                absoluteSrcPath = project.paths.rootFolder.join(src).toString();
             }
 
             if (!fs.existsSync(absoluteSrcPath)) {

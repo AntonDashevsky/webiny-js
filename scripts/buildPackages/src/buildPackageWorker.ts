@@ -9,12 +9,10 @@ try {
     const { default: webinyConfigTs } = await import(webinyConfigPath);
 
     await webinyConfigTs.commands.build({
-        // We don't want debug nor regular logs logged within the build command.
         overrides: buildOverrides
     });
 } catch (e) {
     if (process.send) {
         process.send({ error: serializeError(e) });
     }
-    process.exit(1);
 }

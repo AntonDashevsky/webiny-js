@@ -96,7 +96,7 @@ export class DefaultWatch implements Watch.Interface {
         const validateProjectConfigService = this.validateProjectConfigService;
 
         const webinyConfigWatcher = new WebinyConfigWatcher({
-            webinyConfigPath: project.paths.webinyConfigFile.absolute,
+            webinyConfigPath: project.paths.webinyConfigFile.toString(),
             appName: params.app,
             getProjectConfigService,
             validateProjectConfigService

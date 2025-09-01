@@ -1,4 +1,4 @@
-import { createWebsiteApp } from "@webiny/project-aws/apps/enterprise";
+import { createWebsiteApp } from "@webiny/project-aws/apps";
 import { getProjectSdk } from "@webiny/project";
 import { WebsitePulumi } from "@webiny/project/abstractions";
 import { tagResources } from "@webiny/pulumi-aws";
@@ -28,7 +28,14 @@ vpcBlock: {
 
     vpc = true;
     if (useVpcEndpoints || useExistingVpc) {
-        vpc = { useVpcEndpoints, useExistingVpc };
+        vpc = {};
+        if (useVpcEndpoints) {
+            vpc.useVpcEndpoints = useVpcEndpoints;
+        }
+
+        if (useExistingVpc) {
+            vpc.useExistingVpc = useExistingVpc;
+        }
     }
 }
 

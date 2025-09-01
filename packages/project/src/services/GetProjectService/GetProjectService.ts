@@ -1,8 +1,9 @@
 import { createImplementation } from "@webiny/di-container";
 import findUp from "find-up";
-import { dirname, join, relative } from "path";
+import { dirname } from "path";
 import { GetProjectService } from "~/abstractions/index.js";
 import { ProjectModel } from "~/models/ProjectModel.js";
+import { PathModel } from "~/models/PathModel";
 
 export class DefaultGetProjectService implements GetProjectService.Interface {
     cachedProject: ProjectModel | null = null;
@@ -12,52 +13,27 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
             return this.cachedProject;
         }
 
-        const manifestFileAbsPath = findUp.sync("webiny.config.tsx", { cwd });
-        if (!manifestFileAbsPath) {
+        const webinyConfigFilePathString = findUp.sync("webiny.config.tsx", { cwd });
+        if (!webinyConfigFilePathString) {
             throw new Error(`Could not detect project in given directory (${cwd}).`);
         }
 
-        const projectRootFolderAbsPath = dirname(manifestFileAbsPath);
-        const projectRootFolderRelPath = "";
-
-        const manifestFileRelPath = "./webiny.config.tsx";
-
-        const dotWebinyAbsPath = join(projectRootFolderAbsPath, ".webiny");
-        const dotWebinyFolderRelPath = relative(projectRootFolderAbsPath, dotWebinyAbsPath);
-
-        const workspacesFolderAbsPath = join(projectRootFolderAbsPath, ".webiny", "workspaces");
-        const workspacesFolderRelPath = relative(projectRootFolderAbsPath, workspacesFolderAbsPath);
-
-        const localPulumiStateFilesFolderAbsPath = join(projectRootFolderAbsPath, ".pulumi");
-
-        const localPulumiStateFilesFolderRelPath = relative(
-            projectRootFolderAbsPath,
-            localPulumiStateFilesFolderAbsPath
+        const webinyConfigFilePath = PathModel.fromString(webinyConfigFilePathString);
+        const projectRootFolderPath = PathModel.fromString(
+            dirname(webinyConfigFilePathString.toString())
         );
+        const dotWebinyFolderPath = projectRootFolderPath.join(".webiny");
+        const workspacesFolderPath = projectRootFolderPath.join(".webiny", "workspaces");
+        const localPulumiStateFilesFolderPath = projectRootFolderPath.join(".pulumi");
 
         this.cachedProject = ProjectModel.fromDto({
             name: "webiny-project",
             paths: {
-                dotWebinyFolder: {
-                    absolute: dotWebinyAbsPath,
-                    relative: dotWebinyFolderRelPath
-                },
-                rootFolder: {
-                    absolute: projectRootFolderAbsPath,
-                    relative: projectRootFolderRelPath
-                },
-                webinyConfigFile: {
-                    absolute: manifestFileAbsPath,
-                    relative: manifestFileRelPath
-                },
-                workspacesFolder: {
-                    absolute: workspacesFolderAbsPath,
-                    relative: workspacesFolderRelPath
-                },
-                localPulumiStateFilesFolder: {
-                    absolute: localPulumiStateFilesFolderAbsPath,
-                    relative: localPulumiStateFilesFolderRelPath
-                }
+                dotWebinyFolder: dotWebinyFolderPath,
+                rootFolder: projectRootFolderPath,
+                webinyConfigFile: webinyConfigFilePath,
+                workspacesFolder: workspacesFolderPath,
+                localPulumiStateFilesFolder: localPulumiStateFilesFolderPath
             }
         });
 

@@ -165,7 +165,7 @@ export const createProjectSdkContainer = async (
         let importPath = filePath;
         if (!path.isAbsolute(filePath)) {
             // If the path is not absolute, we assume it's relative to the current working directory.
-            importPath = path.join(project.paths.rootFolder.absolute, filePath);
+            importPath = project.paths.rootFolder.join(filePath).toString();
         }
 
         return import(importPath);

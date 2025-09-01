@@ -27,7 +27,9 @@ import {
     WebsitePulumi
 } from "@webiny/project/extensions/index.js";
 
-import { AwsTags, Vpc } from "./extensions/index.js";
+import { AwsTags, Vpc } from "@webiny/pulumi-aws/extensions/index.js";
+import { ElasticSearch } from "./extensions/ElasticSearch.js";
+// import { OpenSearch } from "./Webiny/OpenSearch.js";
 
 // Cms.
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
@@ -46,6 +48,8 @@ export const Project = {
     Telemetry,
     AwsTags,
     Vpc,
+    ElasticSearch,
+    // OpenSearch,
     PulumiResourceNamePrefix,
     ProductionEnvironments,
     Decorator: ProjectDecorator

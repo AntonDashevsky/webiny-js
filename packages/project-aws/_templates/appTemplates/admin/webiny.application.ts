@@ -1,5 +1,5 @@
 import { getProjectSdk } from "@webiny/project";
-import { createAdminApp } from "@webiny/project-aws/apps/enterprise";
+import { createAdminApp } from "@webiny/project-aws/apps";
 import { AdminPulumi } from "@webiny/project/abstractions";
 import { tagResources } from "@webiny/pulumi-aws";
 import { awsTags as awsTagsExt } from "@webiny/project-aws/extensions/awsTags";

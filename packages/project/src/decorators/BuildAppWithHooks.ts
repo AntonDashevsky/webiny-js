@@ -28,17 +28,17 @@ export class BuildAppWithHooks implements BuildApp.Interface {
         const packagesBuilder = await this.decoratee.execute(params);
 
         if (params.app === "core") {
-            packagesBuilder.onBeforeBuild(() => this.coreBeforeBuild.execute(params));
+            await this.coreBeforeBuild.execute(params);
             packagesBuilder.onAfterBuild(() => this.coreAfterBuild.execute(params));
             return packagesBuilder;
         } else if (params.app === "api") {
-            packagesBuilder.onBeforeBuild(() => this.apiBeforeBuild.execute(params));
+            await this.apiBeforeBuild.execute(params);
             packagesBuilder.onAfterBuild(() => this.apiAfterBuild.execute(params));
         } else if (params.app === "admin") {
-            packagesBuilder.onBeforeBuild(() => this.adminBeforeBuild.execute(params));
+            await this.adminBeforeBuild.execute(params);
             packagesBuilder.onAfterBuild(() => this.adminAfterBuild.execute(params));
         } else if (params.app === "website") {
-            packagesBuilder.onBeforeBuild(() => this.websiteBeforeBuild.execute(params));
+            await this.websiteBeforeBuild.execute(params);
             packagesBuilder.onAfterBuild(() => this.websiteAfterBuild.execute(params));
         }
 

@@ -6,7 +6,7 @@ export const vpc = defineExtension({
     tags: { runtimeContext: "project" },
     description: "Apply VPC settings to AWS resources during deployment.",
     paramsSchema: z.object({
-        enabled: z.boolean().describe("Whether to enable VPC.").default(false).optional(),
+        enabled: z.boolean().describe("Whether to enable VPC.").default(false),
         useVpcEndpoints: z
             .boolean()
             .optional()

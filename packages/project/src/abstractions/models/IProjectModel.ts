@@ -1,15 +1,12 @@
-interface AbsRelPaths {
-    relative: string;
-    absolute: string;
-}
+import { IPathModel } from "./IPathModel";
 
 export interface IProjectModel {
     name: string;
     paths: {
-        webinyConfigFile: AbsRelPaths;
-        rootFolder: AbsRelPaths;
-        dotWebinyFolder: AbsRelPaths;
-        workspacesFolder: AbsRelPaths;
-        localPulumiStateFilesFolder: AbsRelPaths;
+        webinyConfigFile: IPathModel;
+        rootFolder: IPathModel;
+        dotWebinyFolder: IPathModel;
+        workspacesFolder: IPathModel;
+        localPulumiStateFilesFolder: IPathModel;
     };
 }

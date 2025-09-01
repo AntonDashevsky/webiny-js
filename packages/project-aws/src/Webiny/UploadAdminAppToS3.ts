@@ -5,7 +5,6 @@ import {
     GetAppStackOutput,
     UiService
 } from "@webiny/project/abstractions";
-import path from "path";
 import fs from "fs";
 import { uploadFolderToS3 } from "@webiny/pulumi-aws";
 
@@ -27,7 +26,7 @@ class UploadAdminAppToS3 implements AdminAfterDeploy.Interface {
 
         const app = this.getApp.execute(params.app);
 
-        const buildFolderPath = path.join(app.paths.workspaceFolder.absolute, "build");
+        const buildFolderPath = app.paths.workspaceFolder.join("build");
         if (!fs.existsSync(buildFolderPath)) {
             throw new Error("Cannot continue, build folder not found.");
         }

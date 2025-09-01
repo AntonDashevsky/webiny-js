@@ -1,36 +1,15 @@
-import { createAdminPulumiApp, type CreateAdminPulumiAppParams } from "@webiny/pulumi-aws";
-import { type PluginCollection } from "@webiny/plugins/types.js";
-// import { uploadAppToS3 } from "./react/plugins/index.js";
-// import { createEnsureApiDeployedPlugins } from "~/utils/ensureApiDeployed.js";
+import { type CreateAdminPulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
 
-export interface CreateAdminAppParams extends CreateAdminPulumiAppParams {
-    plugins?: PluginCollection;
-}
-
-export function createAdminApp(projectAppParams: CreateAdminAppParams = {}) {
-    // const builtInPlugins = [
-    //     uploadAppToS3({ folder: "apps/admin" }),
-    //     ...createEnsureApiDeployedPlugins("admin")
-    // ];
-    //
-    // const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];
-
+export function createAdminApp(projectAppParams: CreateAdminPulumiAppParams = {}) {
     return {
         id: "admin",
         name: "Admin",
         description: "Your project's admin area.",
-        cli: {
-            // Default args for the "yarn webiny watch ..." command (we don't need deploy option while developing).
-            watch: {
-                deploy: false
-            }
-        },
         async getPulumi() {
             // eslint-disable-next-line import/dynamic-import-chunkname
-            const { createAdminPulumiApp } = await import("@webiny/pulumi-aws");
+            const { createAdminPulumiApp } = await import("@webiny/pulumi-aws/enterprise/index");
 
             return createAdminPulumiApp(projectAppParams);
         }
-        // plugins: [builtInPlugins, customPlugins]
     };
 }

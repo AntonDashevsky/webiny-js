@@ -2,7 +2,6 @@ import { Abstraction, Metadata } from "@webiny/di-container";
 import { z } from "zod";
 import path from "path";
 import fs from "fs";
-import { ProjectSdk } from "~/ProjectSdk.js";
 import { IProjectModel } from "~/abstractions/models/index.js";
 
 export const zodPathToAbstraction = (
@@ -15,7 +14,7 @@ export const zodPathToAbstraction = (
         .superRefine(async (src, ctx) => {
             let absoluteSrcPath = src;
             if (!path.isAbsolute(src)) {
-                absoluteSrcPath = path.join(project.paths.rootFolder.absolute, src);
+                absoluteSrcPath = project.paths.rootFolder.join(src).toString();
             }
 
             if (!fs.existsSync(absoluteSrcPath)) {

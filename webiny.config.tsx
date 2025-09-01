@@ -18,20 +18,8 @@ export default () => {
             <Project.AwsTags tags={{ OWNER: "me", PROJECT: "my-project" }} />
             <Project.AwsTags tags={{ OWNER2: "me2", PROJECT2: "my-project-2" }} />
 
-            <Project.Vpc
-                enabled={true}
-                useExistingVpc={{
-                    lambdaFunctionsVpcConfig: {
-                        subnetIds: ["subnet-0123456789abcdef0", "subnet-0123456789abcdef1"],
-                        securityGroupIds: ["sg-0123456789abcdef0"]
-                    },
-                    openSearchDomainVpcConfig: {
-                        subnetIds: ["subnet-0123456789abcdef0"],
-                        securityGroupIds: ["sg-0123456789abcdef0"]
-                    }
-                }}
-                useVpcEndpoints={true}
-            />
+            <Project.ElasticSearch enabled={true} />
+            <Project.Vpc enabled={true} />
 
             <Project.PulumiResourceNamePrefix prefix={"myproj-"} />
             <Project.ProductionEnvironments environments={["prod", "staging"]} />

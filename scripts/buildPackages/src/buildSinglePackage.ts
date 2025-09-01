@@ -15,6 +15,7 @@ export const buildPackage = async (pkg: Package, buildOverrides = "{}") => {
 
     await new Promise<void>((resolve, reject) => {
         childProcess.on("message", (message: Record<string, any>) => {
+            console.log("WWAAAAA");
             if (message.error) {
                 reject(
                     new Error(message.error.message || "Unknown error occurred in build process")

@@ -47,7 +47,7 @@ export class DefaultLoggerService implements LoggerService.Interface {
     private getLogStream() {
         const project = this.getProjectService.execute();
 
-        const logsFolderPath = path.join(project.paths.dotWebinyFolder.absolute, "logs");
+        const logsFolderPath = project.paths.dotWebinyFolder.join("logs").toString();
         const logsFileName = this.getLogFileName();
 
         if (!fs.existsSync(logsFolderPath)) {

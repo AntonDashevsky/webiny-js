@@ -1,5 +1,4 @@
 import { Pulumi } from "@webiny/pulumi-sdk";
-import path from "path";
 import { createImplementation } from "@webiny/di-container";
 import { GetProjectService, GetPulumiService } from "~/abstractions/index.js";
 
@@ -12,13 +11,13 @@ export class DefaultGetPulumiService implements GetPulumiService.Interface {
 
         let cwd;
         if (app) {
-            cwd = app.paths.workspaceFolder.absolute;
+            cwd = app.paths.workspaceFolder.toString();
         }
 
         return Pulumi.create({
             ...pulumiOptions,
             execa: { ...pulumiOptions.execa, cwd },
-            pulumiFolder: path.join(project.paths.rootFolder.absolute, ".webiny")
+            pulumiFolder: project.paths.dotWebinyFolder.toString()
         });
     }
 }

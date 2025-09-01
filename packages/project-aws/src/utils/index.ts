@@ -1,0 +1,1 @@
+export { getTemplatesFolderPath } from "./getTemplatesFolderPath";
