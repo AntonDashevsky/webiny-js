@@ -1,9 +1,14 @@
 import { fork } from "child_process";
 import path from "path";
-import { IProjectConfigDto, IProjectModel } from "~/abstractions/models/index.js";
+import { IProjectConfigDto, IProjectModel, IProjectModelDto } from "~/abstractions/models/index.js";
 
 export interface RenderConfigParams {
     project: IProjectModel;
+    args?: Record<string, any>;
+}
+
+export interface RenderConfigParamsDto {
+    project: IProjectModelDto;
     args?: Record<string, any>;
 }
 
@@ -25,9 +30,18 @@ export async function renderConfig(params: RenderConfigParams) {
     return new Promise<IProjectConfigDto>((resolve, reject) => {
         const workerPath = getWorkerPath();
 
-        const childProcess = fork(workerPath, [JSON.stringify(params)], {
-            env: process.env
-        });
+        const childProcess = fork(
+            workerPath,
+            [
+                JSON.stringify({
+                    project: params.project.toDto(),
+                    args: params.args || {}
+                })
+            ],
+            {
+                env: process.env
+            }
+        );
 
         // The only message we expect to receive is the parsed project config.
         childProcess.on("message", (data: IProjectConfigDto) => {

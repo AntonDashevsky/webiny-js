@@ -3,7 +3,8 @@ import findUp from "find-up";
 import { dirname } from "path";
 import { GetProjectService } from "~/abstractions/index.js";
 import { ProjectModel } from "~/models/ProjectModel.js";
-import { PathModel } from "~/models/PathModel";
+import { PathModel } from "~/models/PathModel.js";
+import path from "path";
 
 export class DefaultGetProjectService implements GetProjectService.Interface {
     cachedProject: ProjectModel | null = null;
@@ -18,16 +19,17 @@ export class DefaultGetProjectService implements GetProjectService.Interface {
             throw new Error(`Could not detect project in given directory (${cwd}).`);
         }
 
-        const webinyConfigFilePath = PathModel.fromString(webinyConfigFilePathString);
-        const projectRootFolderPath = PathModel.fromString(
+        const webinyConfigFilePath = PathModel.from(webinyConfigFilePathString);
+        const projectRootFolderPath = PathModel.from(
             dirname(webinyConfigFilePathString.toString())
         );
         const dotWebinyFolderPath = projectRootFolderPath.join(".webiny");
         const workspacesFolderPath = projectRootFolderPath.join(".webiny", "workspaces");
         const localPulumiStateFilesFolderPath = projectRootFolderPath.join(".pulumi");
 
-        this.cachedProject = ProjectModel.fromDto({
-            name: "webiny-project",
+        this.cachedProject = new ProjectModel({
+            // TODO: read project name from config file.
+            name: path.basename(projectRootFolderPath.toString()),
             paths: {
                 dotWebinyFolder: dotWebinyFolderPath,
                 rootFolder: projectRootFolderPath,

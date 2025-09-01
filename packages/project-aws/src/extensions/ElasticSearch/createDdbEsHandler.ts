@@ -15,25 +15,19 @@ class MyCoreBeforeBuild implements CoreBeforeBuild.Interface {
 
         const app = this.getApp.execute("core");
 
-        const appWorkspaceFolderPath = app.paths.workspaceFolder.get();
+        const appWorkspaceFolderPath = app.paths.workspaceFolder.toString();
         const ddbToEsHandlerTemplateFolderPath = path.join(
             templatesFolderPath,
             "extensions",
             "coreDdbToEsHandler"
         );
 
-        if (fs.existsSync(appWorkspaceFolderPath)) {
-            fs.rmSync(appWorkspaceFolderPath, { recursive: true, force: true });
-        }
-
-        fs.mkdirSync(appWorkspaceFolderPath, { recursive: true });
-
-        // Wait a bit and make sure the files are ready to have their content replaced.
-        await wait();
-
         fs.cpSync(ddbToEsHandlerTemplateFolderPath, appWorkspaceFolderPath, {
             recursive: true
         });
+
+        // Wait a bit and make sure the files are ready to have their content replaced.
+        await wait();
     }
 }
 

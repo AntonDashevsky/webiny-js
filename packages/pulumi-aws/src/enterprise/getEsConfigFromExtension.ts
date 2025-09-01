@@ -5,8 +5,7 @@ import { IProjectConfigModel } from "@webiny/project/abstractions/models";
 export const getEsConfigFromExtension = (projectConfig: IProjectConfigModel) => {
     const [elasticSearchExtension] = projectConfig.extensionsByType(elasticSearchExt);
     if (!elasticSearchExtension) {
-        // ElasticSearch not used.
-        return undefined;
+        return false;
     }
 
     const { enabled, domainName, indexPrefix, sharedIndexes } = elasticSearchExtension.params;

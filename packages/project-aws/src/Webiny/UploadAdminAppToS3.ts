@@ -26,7 +26,7 @@ class UploadAdminAppToS3 implements AdminAfterDeploy.Interface {
 
         const app = this.getApp.execute(params.app);
 
-        const buildFolderPath = app.paths.workspaceFolder.join("build");
+        const buildFolderPath = app.paths.workspaceFolder.join("build").toString();
         if (!fs.existsSync(buildFolderPath)) {
             throw new Error("Cannot continue, build folder not found.");
         }

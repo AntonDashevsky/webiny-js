@@ -25,23 +25,30 @@ export class BuildAppWithHooks implements BuildApp.Interface {
     ) {}
 
     async execute(params: BuildApp.Params) {
-        const packagesBuilder = await this.decoratee.execute(params);
-
         if (params.app === "core") {
             await this.coreBeforeBuild.execute(params);
+            const packagesBuilder = await this.decoratee.execute(params);
             packagesBuilder.onAfterBuild(() => this.coreAfterBuild.execute(params));
             return packagesBuilder;
-        } else if (params.app === "api") {
+        }
+        if (params.app === "api") {
             await this.apiBeforeBuild.execute(params);
+            const packagesBuilder = await this.decoratee.execute(params);
             packagesBuilder.onAfterBuild(() => this.apiAfterBuild.execute(params));
-        } else if (params.app === "admin") {
+            return packagesBuilder;
+        }
+        if (params.app === "admin") {
             await this.adminBeforeBuild.execute(params);
+            const packagesBuilder = await this.decoratee.execute(params);
+
             packagesBuilder.onAfterBuild(() => this.adminAfterBuild.execute(params));
-        } else if (params.app === "website") {
-            await this.websiteBeforeBuild.execute(params);
-            packagesBuilder.onAfterBuild(() => this.websiteAfterBuild.execute(params));
+            return packagesBuilder;
         }
 
+        await this.websiteBeforeBuild.execute(params);
+        const packagesBuilder = await this.decoratee.execute(params);
+
+        packagesBuilder.onAfterBuild(() => this.websiteAfterBuild.execute(params));
         return packagesBuilder;
     }
 }

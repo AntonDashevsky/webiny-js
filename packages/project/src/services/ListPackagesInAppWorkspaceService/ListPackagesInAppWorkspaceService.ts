@@ -12,9 +12,11 @@ export class DefaultListPackagesInAppWorkspaceService
     async execute(appName: AppName) {
         const app = this.getApp.execute(appName);
 
-        const globPattern1 = app.paths.workspaceFolder.join("/webiny.config.ts").toString();
-        const globPattern2 = app.paths.workspaceFolder.join("/**/webiny.config.ts").toString();
-        const globResults = glob.sync([globPattern1, globPattern2], {});
+        const globResults = glob.sync("**/webiny.config.ts", {
+            cwd: app.paths.workspaceFolder.toString(),
+            absolute: true,
+            ignore: ["**/node_modules/**", "**/dist/**"]
+        });
 
         return globResults.map(webinyConfigFilePath => {
             const packageFolderPath = path.dirname(webinyConfigFilePath);

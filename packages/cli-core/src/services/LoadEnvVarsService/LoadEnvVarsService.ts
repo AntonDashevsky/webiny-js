@@ -1,6 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
 import { GetProjectSdkService, LoadEnvVarsService } from "~/abstractions/index.js";
-import path from "path";
 import dotenv from "dotenv";
 
 export class DefaultLoadEnvVarsService implements LoadEnvVarsService.Interface {
@@ -11,7 +10,7 @@ export class DefaultLoadEnvVarsService implements LoadEnvVarsService.Interface {
         const logger = projectSdk.getLogger();
 
         const project = await projectSdk.getProject();
-        const paths = [path.join(project.paths.rootFolder.absolute, ".env")];
+        const paths = [project.paths.rootFolder.join(".env").toString()];
 
         // Let's load environment variables
         for (let i = 0; i < paths.length; i++) {

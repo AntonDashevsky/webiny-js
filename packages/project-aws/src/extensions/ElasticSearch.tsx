@@ -6,7 +6,7 @@ import path from "path";
 export const ElasticSearch = (props: React.ComponentProps<typeof BaseElasticSearch>) => {
     return (
         <>
-            <BaseElasticSearch />
+            <BaseElasticSearch {...props} />
             {props.enabled && (
                 <Core.BeforeBuild
                     src={path.join(import.meta.dirname, "ElasticSearch", "createDdbEsHandler.js")}

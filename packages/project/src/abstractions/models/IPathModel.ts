@@ -1,7 +1,9 @@
+export interface IPathModelDto {
+    value: string;
+}
+
 export interface IPathModel {
-    get(): string;
-    set(path: string): void;
     toString(): string;
-    fromDto(dto: string): IPathModel;
+    toDto(): IPathModelDto;
     join: (...paths: string[]) => IPathModel;
 }

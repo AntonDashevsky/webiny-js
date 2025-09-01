@@ -1,17 +1,43 @@
-import { IProjectModel } from "~/abstractions/models/index.js";
+import { IProjectModel, IProjectModelDto } from "~/abstractions/models/index.js";
+import { PathModel } from "./PathModel.js";
 
-type ProjectModelDto = IProjectModel;
+export interface ProjectModelConstructorParams {
+    name: IProjectModel["name"];
+    paths: IProjectModel["paths"];
+}
 
 export class ProjectModel implements IProjectModel {
-    public readonly name: string;
+    public readonly name: IProjectModel["name"];
     public readonly paths: IProjectModel["paths"];
 
-    private constructor(params: ProjectModelDto) {
+    constructor(params: ProjectModelConstructorParams) {
         this.name = params.name;
         this.paths = params.paths;
     }
 
-    static fromDto(dto: ProjectModelDto): IProjectModel {
-        return new ProjectModel(dto);
+    toDto(): IProjectModelDto {
+        return {
+            name: this.name,
+            paths: {
+                webinyConfigFile: this.paths.webinyConfigFile.toDto(),
+                rootFolder: this.paths.rootFolder.toDto(),
+                dotWebinyFolder: this.paths.dotWebinyFolder.toDto(),
+                workspacesFolder: this.paths.workspacesFolder.toDto(),
+                localPulumiStateFilesFolder: this.paths.localPulumiStateFilesFolder.toDto()
+            }
+        };
+    }
+
+    static fromDto(dto: IProjectModelDto): IProjectModel {
+        return new ProjectModel({
+            name: dto.name,
+            paths: {
+                webinyConfigFile: PathModel.from(dto.paths.webinyConfigFile),
+                rootFolder: PathModel.from(dto.paths.rootFolder),
+                dotWebinyFolder: PathModel.from(dto.paths.dotWebinyFolder),
+                workspacesFolder: PathModel.from(dto.paths.workspacesFolder),
+                localPulumiStateFilesFolder: PathModel.from(dto.paths.localPulumiStateFilesFolder)
+            }
+        });
     }
 }

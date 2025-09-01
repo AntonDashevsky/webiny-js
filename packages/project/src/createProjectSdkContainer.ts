@@ -208,13 +208,6 @@ export const createProjectSdkContainer = async (
         container.register(pulumiImpl).inSingletonScope();
     }
 
-    const projectDecorators = [...projectExtensions.extensionsByType<any>("Project/Decorator")];
-
-    for (const projectDecorator of projectDecorators) {
-        const { default: projectDecoratorImpl } = await importFromPath(projectDecorator.params.src);
-        container.registerDecorator(projectDecoratorImpl);
-    }
-
     // Pulumi.
     container.registerComposite(corePulumi);
     container.registerComposite(apiPulumi);
@@ -224,6 +217,13 @@ export const createProjectSdkContainer = async (
     // Decorators that must be applied last on top of potentially custom ones.
     container.registerDecorator(buildAppWithHooks);
     container.registerDecorator(deployAppWithHooks);
+
+    const projectDecorators = [...projectExtensions.extensionsByType<any>("Project/Decorator")];
+
+    for (const projectDecorator of projectDecorators) {
+        const { default: projectDecoratorImpl } = await importFromPath(projectDecorator.params.src);
+        container.registerDecorator(projectDecoratorImpl);
+    }
 
     return container;
 };

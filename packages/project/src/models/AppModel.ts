@@ -1,6 +1,6 @@
 import { IAppModel, IAppModelDto } from "~/abstractions/models/index.js";
-import { GetApp } from "~/abstractions";
-import { PathModel } from "./PathModel";
+import { GetApp } from "~/abstractions/index.js";
+import { PathModel } from "./PathModel.js";
 
 export class AppModel implements IAppModel {
     public readonly name: GetApp.AppName;
@@ -9,8 +9,8 @@ export class AppModel implements IAppModel {
     private constructor(dto: IAppModelDto) {
         this.name = dto.name;
         this.paths = {
-            workspaceFolder: PathModel.fromString(dto.paths.workspaceFolder),
-            localPulumiStateFilesFolder: PathModel.fromString(dto.paths.localPulumiStateFilesFolder)
+            workspaceFolder: PathModel.from(dto.paths.workspaceFolder),
+            localPulumiStateFilesFolder: PathModel.from(dto.paths.localPulumiStateFilesFolder)
         };
     }
 

@@ -1,4 +1,15 @@
-import { IPathModel } from "./IPathModel";
+import { IPathModel, IPathModelDto } from "./IPathModel.js";
+
+export interface IProjectModelDto {
+    name: string;
+    paths: {
+        webinyConfigFile: IPathModelDto;
+        rootFolder: IPathModelDto;
+        dotWebinyFolder: IPathModelDto;
+        workspacesFolder: IPathModelDto;
+        localPulumiStateFilesFolder: IPathModelDto;
+    };
+}
 
 export interface IProjectModel {
     name: string;
@@ -9,4 +20,6 @@ export interface IProjectModel {
         workspacesFolder: IPathModel;
         localPulumiStateFilesFolder: IPathModel;
     };
+
+    toDto(): IProjectModelDto;
 }

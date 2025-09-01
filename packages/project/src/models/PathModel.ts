@@ -1,31 +1,31 @@
 import path from "path";
-import { IPathModel } from "~/abstractions/models/index.js";
+import { IPathModel, IPathModelDto } from "~/abstractions/models/index.js";
 
 export class PathModel implements IPathModel {
     constructor(private value: string) {}
 
-    get() {
-        return this.value;
-    }
-
-    set(path: string) {
-        this.value = path;
-    }
-
     join(...paths: string[]) {
         const joinedPath = path.join(this.value, ...paths);
-        return PathModel.fromString(joinedPath);
-    }
-
-    fromDto(dto: string): IPathModel {
-        return new PathModel(dto);
+        return PathModel.from(joinedPath);
     }
 
     toString(): string {
         return this.value;
     }
 
-    static fromString(dto: string): IPathModel {
-        return new PathModel(dto);
+    toDto(): IPathModelDto {
+        return { value: this.value };
+    }
+
+    static from(value: string | IPathModelDto | PathModel): PathModel {
+        if (value instanceof PathModel) {
+            return value;
+        }
+
+        if (typeof value === "string") {
+            return new PathModel(value);
+        }
+
+        return new PathModel(value.value);
     }
 }
