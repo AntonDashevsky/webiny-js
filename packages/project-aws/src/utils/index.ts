@@ -1,1 +1,1 @@
-export { getTemplatesFolderPath } from "./getTemplatesFolderPath";
+export { getTemplatesFolderPath } from "./getTemplatesFolderPath.js";

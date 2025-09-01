@@ -1,9 +1,9 @@
 import { createImplementation } from "@webiny/di-container";
-import { CoreBeforeBuild } from "@webiny/project/abstractions";
+import { CoreBeforeBuild } from "@webiny/project/abstractions/index.js";
 import path from "path";
 import fs from "fs";
 import { GetApp } from "@webiny/project/abstractions/index.js";
-import { getTemplatesFolderPath } from "~/utils";
+import { getTemplatesFolderPath } from "~/utils/index.js";
 
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 

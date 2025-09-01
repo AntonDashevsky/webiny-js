@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { ApiBeforeBuild } from "@webiny/project/abstractions/index.js";
+import { CoreBeforeBuild } from "@webiny/project/abstractions/index.js";
 import path from "path";
 import fs from "fs";
 import { GetApp } from "@webiny/project/abstractions/index.js";
@@ -7,25 +7,24 @@ import { getTemplatesFolderPath } from "~/utils/index.js";
 
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
-class ReplaceApiLambdaFnHandlers implements ApiBeforeBuild.Interface {
+class InjectDdbEsLambdaFnHandler implements CoreBeforeBuild.Interface {
     constructor(private getApp: GetApp.Interface) {}
 
     async execute() {
         const templatesFolderPath = getTemplatesFolderPath();
 
-        const app = this.getApp.execute("api");
+        const app = this.getApp.execute("core");
 
         const appWorkspaceFolderPath = app.paths.workspaceFolder.toString();
-        const apiLambdaFnHandlersFolderPath = path.join(
+        const ddbToEsHandlerTemplateFolderPath = path.join(
             templatesFolderPath,
             "extensions",
-            "ElasticSearch",
-            "api"
+            "OpenSearch",
+            "coreDdbToEsHandler"
         );
 
-        fs.cpSync(apiLambdaFnHandlersFolderPath, appWorkspaceFolderPath, {
-            recursive: true,
-            force: true
+        fs.cpSync(ddbToEsHandlerTemplateFolderPath, appWorkspaceFolderPath, {
+            recursive: true
         });
 
         // Wait a bit and make sure the files are ready to have their content replaced.
@@ -34,7 +33,7 @@ class ReplaceApiLambdaFnHandlers implements ApiBeforeBuild.Interface {
 }
 
 export default createImplementation({
-    abstraction: ApiBeforeBuild,
-    implementation: ReplaceApiLambdaFnHandlers,
+    abstraction: CoreBeforeBuild,
+    implementation: InjectDdbEsLambdaFnHandler,
     dependencies: [GetApp]
 });

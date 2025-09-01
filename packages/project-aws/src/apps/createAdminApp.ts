@@ -7,7 +7,7 @@ export function createAdminApp(projectAppParams: CreateAdminPulumiAppParams = {}
         description: "Your project's admin area.",
         async getPulumi() {
             // eslint-disable-next-line import/dynamic-import-chunkname
-            const { createAdminPulumiApp } = await import("@webiny/pulumi-aws/enterprise/index");
+            const { createAdminPulumiApp } = await import("@webiny/pulumi-aws/enterprise/index.js");
 
             return createAdminPulumiApp(projectAppParams);
         }

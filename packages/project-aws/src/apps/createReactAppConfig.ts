@@ -1,7 +1,7 @@
 import path from "path";
 import invariant from "invariant";
 import { getStackOutput } from "@webiny/project";
-import { type GetApp } from "@webiny/project/abstractions";
+import { type GetApp } from "@webiny/project/abstractions/index.js";
 import {
     type BuildAppConfigOverrides,
     createBuildApp,

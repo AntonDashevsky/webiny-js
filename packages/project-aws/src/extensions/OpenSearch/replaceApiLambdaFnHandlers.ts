@@ -19,7 +19,7 @@ class ReplaceApiLambdaFnHandlers implements ApiBeforeBuild.Interface {
         const apiLambdaFnHandlersFolderPath = path.join(
             templatesFolderPath,
             "extensions",
-            "ElasticSearch",
+            "OpenSearch",
             "api"
         );
 

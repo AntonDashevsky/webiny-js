@@ -29,7 +29,7 @@ import {
 
 import { AwsTags, Vpc } from "@webiny/pulumi-aws/extensions/index.js";
 import { ElasticSearch } from "./extensions/ElasticSearch.js";
-// import { OpenSearch } from "./Webiny/OpenSearch.js";
+import { OpenSearch } from "./extensions/OpenSearch.js";
 
 // Cms.
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
@@ -49,6 +49,7 @@ export const Project = {
     AwsTags,
     Vpc,
     ElasticSearch,
+    OpenSearch,
     // OpenSearch,
     PulumiResourceNamePrefix,
     ProductionEnvironments,

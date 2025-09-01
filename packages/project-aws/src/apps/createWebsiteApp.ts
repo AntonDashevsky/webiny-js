@@ -16,7 +16,7 @@ export function createWebsiteApp(projectAppParams: CreateWebsitePulumiAppParams 
         },
         async getPulumi() {
             // eslint-disable-next-line import/dynamic-import-chunkname
-            const { createWebsitePulumiApp } = await import("@webiny/pulumi-aws/enterprise/index");
+            const { createWebsitePulumiApp } = await import("@webiny/pulumi-aws/enterprise/index.js");
 
             return createWebsitePulumiApp(projectAppParams);
         }

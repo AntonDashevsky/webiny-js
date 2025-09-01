@@ -19,7 +19,7 @@ export function createApiApp(projectAppParams: CreateApiPulumiAppParams = {}) {
         },
         async getPulumi() {
             // eslint-disable-next-line import/dynamic-import-chunkname
-            const { createApiPulumiApp } = await import("@webiny/pulumi-aws/enterprise/index");
+            const { createApiPulumiApp } = await import("@webiny/pulumi-aws/enterprise/index.js");
 
             return createApiPulumiApp(projectAppParams);
         }

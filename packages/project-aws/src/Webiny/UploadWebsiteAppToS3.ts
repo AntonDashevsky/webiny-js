@@ -4,7 +4,7 @@ import {
     GetApp,
     GetAppStackOutput,
     UiService
-} from "@webiny/project/abstractions";
+} from "@webiny/project/abstractions/index.js";
 import fs from "fs";
 import { uploadFolderToS3 } from "@webiny/pulumi-aws";
 

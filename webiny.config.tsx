@@ -18,7 +18,7 @@ export default () => {
             <Project.AwsTags tags={{ OWNER: "me", PROJECT: "my-project" }} />
             <Project.AwsTags tags={{ OWNER2: "me2", PROJECT2: "my-project-2" }} />
 
-            <Project.ElasticSearch enabled={true} />
+            <Project.OpenSearch enabled={true} />
             <Project.Vpc enabled={false} />
 
             <Project.PulumiResourceNamePrefix prefix={"myproj-"} />
