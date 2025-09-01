@@ -18,7 +18,6 @@ import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import dynamoDbPlugins from "@webiny/db-dynamodb/plugins";
 import { createFileManagerContext, createFileManagerGraphQL } from "@webiny/api-file-manager";
 import { createFileManagerStorageOperations } from "@webiny/api-file-manager-ddb";
-import logsPlugins from "@webiny/handler-logs";
 import fileManagerS3, { createAssetDelivery } from "@webiny/api-file-manager-s3";
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
 import { createStorageOperations as createHeadlessCmsStorageOperations } from "@webiny/api-headless-cms-ddb";

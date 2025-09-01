@@ -1,5 +1,5 @@
 import { createImplementation } from "@webiny/di-container";
-import { CoreBeforeBuild } from "@webiny/project/abstractions";
+import { ApiBeforeBuild } from "@webiny/project/abstractions";
 import path from "path";
 import fs from "fs";
 import { GetApp } from "@webiny/project/abstractions/index.js";
@@ -7,7 +7,7 @@ import { getTemplatesFolderPath } from "~/utils";
 
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
-class MyCoreBeforeBuild implements CoreBeforeBuild.Interface {
+class ReplaceApiLambdaFnHandlers implements ApiBeforeBuild.Interface {
     constructor(private getApp: GetApp.Interface) {}
 
     async execute() {
@@ -23,8 +23,10 @@ class MyCoreBeforeBuild implements CoreBeforeBuild.Interface {
             "api"
         );
 
+        console.log("rezi bratko!");
         fs.cpSync(ddbToEsHandlerTemplateFolderPath, appWorkspaceFolderPath, {
-            recursive: true
+            recursive: true,
+            force: true
         });
 
         // Wait a bit and make sure the files are ready to have their content replaced.
@@ -33,7 +35,7 @@ class MyCoreBeforeBuild implements CoreBeforeBuild.Interface {
 }
 
 export default createImplementation({
-    abstraction: CoreBeforeBuild,
-    implementation: MyCoreBeforeBuild,
+    abstraction: ApiBeforeBuild,
+    implementation: ReplaceApiLambdaFnHandlers,
     dependencies: [GetApp]
 });

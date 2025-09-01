@@ -2,8 +2,7 @@
   "name": "api-graphql",
   "version": "0.1.0",
   "type": "module",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
     "@webiny/api-aco": "latest",
     "@webiny/api-apw": "latest",
@@ -42,7 +41,6 @@
     "@webiny/handler-client": "latest",
     "@webiny/handler-db": "latest",
     "@webiny/handler-graphql": "latest",
-    "@webiny/handler-logs": "latest",
     "@webiny/project-utils": "latest"
   }
 }

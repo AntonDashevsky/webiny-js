@@ -7,7 +7,7 @@ import { getTemplatesFolderPath } from "~/utils";
 
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
-class MyCoreBeforeBuild implements CoreBeforeBuild.Interface {
+class InjectDdbEsLambdaFnHandler implements CoreBeforeBuild.Interface {
     constructor(private getApp: GetApp.Interface) {}
 
     async execute() {
@@ -34,6 +34,6 @@ class MyCoreBeforeBuild implements CoreBeforeBuild.Interface {
 
 export default createImplementation({
     abstraction: CoreBeforeBuild,
-    implementation: MyCoreBeforeBuild,
+    implementation: InjectDdbEsLambdaFnHandler,
     dependencies: [GetApp]
 });
