@@ -5,7 +5,7 @@ export function createAdminApp() {
         description: "Your project's admin area.",
         async getPulumi() {
             // eslint-disable-next-line import/dynamic-import-chunkname
-            const { createAdminPulumiApp } = await import("@webiny/pulumi-aws/index.js");
+            const { createAdminPulumiApp } = await import("~/pulumi/index.js");
 
             return createAdminPulumiApp();
         }

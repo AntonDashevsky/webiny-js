@@ -27,7 +27,7 @@ import {
     WebsitePulumi
 } from "@webiny/project/extensions/index.js";
 
-import { AwsTags, Vpc } from "@webiny/pulumi-aws/extensions/index.js";
+import { AwsTags, Vpc } from "~/pulumi/extensions/index.js";
 import { ElasticSearch } from "./extensions/ElasticSearch.js";
 import { OpenSearch } from "./extensions/OpenSearch.js";
 

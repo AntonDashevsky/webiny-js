@@ -1,4 +1,4 @@
-export { ApiOutput } from "@webiny/pulumi-aws";
+export { ApiOutput } from "~/pulumi";
 
 export function createApiApp() {
     return {
@@ -17,7 +17,7 @@ export function createApiApp() {
         },
         async getPulumi() {
             // eslint-disable-next-line import/dynamic-import-chunkname
-            const { createApiPulumiApp } = await import("@webiny/pulumi-aws/index.js");
+            const { createApiPulumiApp } = await import("~/pulumi/index.js");
 
             return createApiPulumiApp();
         }

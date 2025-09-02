@@ -1,5 +1,5 @@
 import React from "react";
-import { OpenSearch as BaseOpenSearch } from "@webiny/pulumi-aws/extensions/index.js";
+import { OpenSearch as BaseOpenSearch } from "~/pulumi/extensions/index.js";
 import { Core, Api } from "~/index.js";
 import path from "path";
 

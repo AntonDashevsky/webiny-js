@@ -1,5 +1,5 @@
 import React from "react";
-import { ElasticSearch as BaseElasticSearch } from "@webiny/pulumi-aws/extensions/index.js";
+import { ElasticSearch as BaseElasticSearch } from "~/pulumi/extensions/index.js";
 import { Core, Api } from "~/index.js";
 import path from "path";
 

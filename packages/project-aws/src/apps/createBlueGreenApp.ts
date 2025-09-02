@@ -1,5 +1,5 @@
-import type { CreateBlueGreenPulumiAppParams } from "@webiny/pulumi-aws/apps/blueGreen/createBlueGreenPulumiApp.js";
-import { createBlueGreenPulumiApp } from "@webiny/pulumi-aws/apps/blueGreen/createBlueGreenPulumiApp.js";
+import type { CreateBlueGreenPulumiAppParams } from "~/pulumi/apps/blueGreen/createBlueGreenPulumiApp.js";
+import { createBlueGreenPulumiApp } from "~/pulumi/apps/blueGreen/createBlueGreenPulumiApp.js";
 import type { PluginCollection } from "@webiny/plugins/types.js";
 export interface CreateBlueGreenAppParams extends CreateBlueGreenPulumiAppParams {
     plugins?: PluginCollection;
