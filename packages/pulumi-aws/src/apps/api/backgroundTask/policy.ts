@@ -1,4 +1,4 @@
-import { type PulumiApp } from "@webiny/pulumi";
+import type { PulumiApp } from "@webiny/pulumi";
 import * as aws from "@pulumi/aws";
 import type * as pulumi from "@pulumi/pulumi";
 

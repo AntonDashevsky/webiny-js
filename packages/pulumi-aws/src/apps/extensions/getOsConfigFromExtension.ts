@@ -1,5 +1,4 @@
-import { openSearch as openSearchExt } from "../extensions/openSearch";
-import { CreateCorePulumiAppParams } from "./index.js";
+import { openSearch as openSearchExt } from "~/extensions/openSearch";
 import { IProjectConfigModel } from "@webiny/project/abstractions/models";
 
 export const getOsConfigFromExtension = (projectConfig: IProjectConfigModel) => {
@@ -15,7 +14,7 @@ export const getOsConfigFromExtension = (projectConfig: IProjectConfigModel) => 
     }
 
     if (domainName || indexPrefix || sharedIndexes) {
-        let openSearch: CreateCorePulumiAppParams["openSearch"] = {};
+        let openSearch: Omit<typeof openSearchExtension.params, "enabled"> = {};
         if (domainName) {
             openSearch.domainName = domainName;
         }

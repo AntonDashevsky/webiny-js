@@ -1,70 +1,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import fs from "fs";
-import { createPulumiApp, type PulumiAppParam, type PulumiAppParamCallback } from "@webiny/pulumi";
+import { createPulumiApp, isResourceOfType } from "@webiny/pulumi";
 import { createPrivateAppBucket } from "../createAppBucket.js";
-import { applyCustomDomain, type CustomDomainParams } from "../customDomain.js";
 import { createPrerenderingService } from "./WebsitePrerendering.js";
 import { ApiOutput, CoreOutput, VpcConfig } from "~/apps/index.js";
-import {
-    addDomainsUrlsOutputs,
-    tagResources,
-    withCommonLambdaEnvVariables
-} from "~/utils/index.js";
+import { addDomainsUrlsOutputs, withCommonLambdaEnvVariables } from "~/utils/index.js";
 import { applyTenantRouter } from "~/apps/tenantRouter.js";
 import { withServiceManifest } from "~/utils/withServiceManifest.js";
-import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
-import { getEnvVariableWebinyVariant } from "~/env/variant.js";
-import { getEnvVariableWebinyEnv } from "~/env/env.js";
-import { getEnvVariableWebinyProjectName } from "~/env/projectName.js";
+import { getProjectSdk } from "@webiny/project";
+import { getVpcConfigFromExtension } from "~/apps/extensions/getVpcConfigFromExtension";
+import { WebsitePulumi } from "@webiny/project/abstractions";
+import { applyAwsResourceTags } from "~/apps/awsUtils";
 
 export type WebsitePulumiApp = ReturnType<typeof createWebsitePulumiApp>;
 
-export interface CreateWebsitePulumiAppParams {
-    /**
-     * Custom domain(s) configuration.
-     */
-    domains?: PulumiAppParamCallback<CustomDomainParams>;
-
-    /**
-     * Custom preview domain(s) configuration.
-     */
-    previewDomains?: PulumiAppParamCallback<CustomDomainParams>;
-
-    /**
-     * Enables or disables VPC for the API.
-     * For VPC to work you also have to enable it in the `core` application.
-     */
-    vpc?: PulumiAppParam<boolean | undefined>;
-
-    /**
-     * Provides a way to adjust existing Pulumi code (cloud infrastructure resources)
-     * or add additional ones into the mix.
-     */
-    pulumi?: (app: WebsitePulumiApp) => void | Promise<void>;
-
-    /**
-     * Prefixes names of all Pulumi cloud infrastructure resource with given prefix.
-     */
-    pulumiResourceNamePrefix?: PulumiAppParam<string>;
-
-    /**
-     * Treats provided environments as production environments, which
-     * are deployed in production deployment mode.
-     * https://www.webiny.com/docs/architecture/deployment-modes/production
-     */
-    productionEnvironments?: PulumiAppParam<string[]>;
-}
-
-export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppParams = {}) => {
+export const createWebsitePulumiApp = () => {
     const baseApp = createPulumiApp({
         name: "website",
         path: "apps/website",
-        config: projectAppParams,
         program: async app => {
-            const pulumiResourceNamePrefix = app.getParam(
-                projectAppParams.pulumiResourceNamePrefix
-            );
+            const sdk = await getProjectSdk();
+            const projectConfig = await sdk.getProjectConfig();
+
+            const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+            const vpcExtensionsConfig = getVpcConfigFromExtension(projectConfig);
+
             if (pulumiResourceNamePrefix) {
                 app.onResource(resource => {
                     if (!resource.name.startsWith(pulumiResourceNamePrefix)) {
@@ -73,24 +34,67 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                 });
             }
 
+            // <-------------------- Enterprise start -------------------->
+            app.addHandler(async () => {
+                const usingAdvancedVpcParams =
+                    vpcExtensionsConfig && typeof vpcExtensionsConfig !== "boolean";
+
+                // Not using advanced VPC params? Then immediately exit.
+                if (!usingAdvancedVpcParams) {
+                    return;
+                }
+
+                const { onResource, addResource } = app;
+                const { useExistingVpc } = vpcExtensionsConfig;
+
+                if (useExistingVpc) {
+                    if (!useExistingVpc.lambdaFunctionsVpcConfig) {
+                        throw new Error(
+                            "Cannot specify `useExistingVpc` parameter because the `lambdaFunctionsVpcConfig` parameter wasn't provided."
+                        );
+                    }
+
+                    onResource(resource => {
+                        if (isResourceOfType(resource, aws.lambda.Function)) {
+                            const canUseVpc = resource.meta.canUseVpc !== false;
+                            if (canUseVpc) {
+                                resource.config.vpcConfig(useExistingVpc!.lambdaFunctionsVpcConfig);
+                            }
+                        }
+
+                        if (isResourceOfType(resource, aws.iam.Role)) {
+                            if (resource.meta.isLambdaFunctionRole) {
+                                addResource(aws.iam.RolePolicyAttachment, {
+                                    name: `${resource.name}-vpc-access-execution-role`,
+                                    config: {
+                                        role: resource.output.name,
+                                        policyArn:
+                                            aws.iam.ManagedPolicy.AWSLambdaVPCAccessExecutionRole
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+            // <-------------------- Enterprise end -------------------->
+
             // Overrides must be applied via a handler, registered at the very start of the program.
             // By doing this, we're ensuring user's adjustments are not applied to late.
-            if (projectAppParams.pulumi) {
-                app.addHandler(() => {
-                    return projectAppParams.pulumi!(app as WebsitePulumiApp);
-                });
-            }
+            const pulumiHandlers = sdk.getContainer().resolve(WebsitePulumi);
 
-            const productionEnvironments =
-                app.params.create.productionEnvironments || DEFAULT_PROD_ENV_NAMES;
-            const isProduction = productionEnvironments.includes(app.params.run.env);
+            app.addHandler(() => {
+                return pulumiHandlers.execute(app as unknown as WebsitePulumiApp);
+            });
+
+            const isProduction = app.env.isProduction;
 
             // Register core and api output as a module, to be available to all other modules.
             const core = app.addModule(CoreOutput);
             app.addModule(ApiOutput);
 
             // Register VPC config module to be available to other modules.
-            const vpcEnabled = app.getParam(projectAppParams?.vpc) ?? isProduction;
+            const vpcEnabled = !!vpcExtensionsConfig ?? isProduction;
             app.addModule(VpcConfig, { enabled: vpcEnabled });
 
             const appBucket = createPrivateAppBucket(app, "app");
@@ -261,20 +265,17 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                 cloudfrontId: deliveryCloudfront.output.id
             });
 
-            const domains = app.getParam(projectAppParams.domains);
-            if (domains) {
-                applyCustomDomain(deliveryCloudfront, domains);
-            }
+            // const domains = app.getParam(projectAppParams.domains);
+            // if (domains) {
+            //     applyCustomDomain(deliveryCloudfront, domains);
+            // }
+            //
+            // const previewDomains = app.getParam(projectAppParams.previewDomains);
+            // if (previewDomains) {
+            //     applyCustomDomain(appCloudfront, previewDomains);
+            // }
 
-            const previewDomains = app.getParam(projectAppParams.previewDomains);
-            if (previewDomains) {
-                applyCustomDomain(appCloudfront, previewDomains);
-            }
-
-            if (
-                process.env.WCP_PROJECT_ENVIRONMENT ||
-                process.env.WEBINY_MULTI_TENANCY === "true"
-            ) {
+            if (process.env.WCP_PROJECT_ENVIRONMENT) {
                 const { originLambda } = applyTenantRouter(app, deliveryCloudfront);
 
                 app.addHandler(() => {
@@ -322,11 +323,8 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                 });
             });
 
-            tagResources({
-                WbyProjectName: getEnvVariableWebinyProjectName(),
-                WbyEnvironment: getEnvVariableWebinyEnv(),
-                WbyEnvironmentVariant: getEnvVariableWebinyVariant()
-            });
+            // Applies internal and user-defined AWS tags.
+            await applyAwsResourceTags("website");
 
             return {
                 prerendering,

@@ -6,6 +6,7 @@ import type {
     PulumiAppResourceConstructor
 } from "./PulumiAppResource.js";
 import type { PulumiAppRemoteResource } from "~/PulumiAppRemoteResource.js";
+import { AppName } from "@webiny/project";
 
 export interface ResourceHandler {
     (resource: PulumiAppResource<PulumiAppResourceConstructor>): void;
@@ -31,7 +32,7 @@ export type RunConfig = {
 };
 
 export interface CreatePulumiAppParams<TResources extends Record<string, unknown>> {
-    name: string;
+    name: AppName;
     path: string;
     config?: CreateConfig;
 

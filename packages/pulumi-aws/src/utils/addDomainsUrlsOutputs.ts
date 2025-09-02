@@ -1,6 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import type * as aws from "@pulumi/aws";
-import { type PulumiApp, type PulumiAppResource } from "@webiny/pulumi";
+import type { PulumiApp, PulumiAppResource } from "@webiny/pulumi";
 
 interface AddDomainsUrlsOutputsParams {
     cloudfrontDistribution: PulumiAppResource<typeof aws.cloudfront.Distribution>;

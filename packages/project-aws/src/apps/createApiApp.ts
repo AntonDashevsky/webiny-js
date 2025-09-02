@@ -1,8 +1,6 @@
-import { type CreateApiPulumiAppParams } from "@webiny/pulumi-aws/enterprise/index.js";
-
 export { ApiOutput } from "@webiny/pulumi-aws";
 
-export function createApiApp(projectAppParams: CreateApiPulumiAppParams = {}) {
+export function createApiApp() {
     return {
         id: "api",
         name: "API",
@@ -19,9 +17,9 @@ export function createApiApp(projectAppParams: CreateApiPulumiAppParams = {}) {
         },
         async getPulumi() {
             // eslint-disable-next-line import/dynamic-import-chunkname
-            const { createApiPulumiApp } = await import("@webiny/pulumi-aws/enterprise/index.js");
+            const { createApiPulumiApp } = await import("@webiny/pulumi-aws/index.js");
 
-            return createApiPulumiApp(projectAppParams);
+            return createApiPulumiApp();
         }
     };
 }

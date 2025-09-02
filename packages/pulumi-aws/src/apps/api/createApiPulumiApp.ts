@@ -1,5 +1,5 @@
 import * as aws from "@pulumi/aws";
-import { createPulumiApp, isResourceOfType } from "@webiny/pulumi";
+import { createPulumiApp, isResourceOfType, type PulumiApp } from "@webiny/pulumi";
 import {
     ApiApwScheduler,
     ApiBackgroundTask,
@@ -8,26 +8,24 @@ import {
     ApiGateway,
     ApiGraphql,
     ApiMigration,
-    ApiPageBuilder,
     ApiWebsocket,
     CoreOutput,
-    CorePulumiApp,
     VpcConfig
-} from "~/apps/index.js";
-import {
-    addDomainsUrlsOutputs,
-    withCommonLambdaEnvVariables,
-    withServiceManifest
-} from "~/utils/index.js";
-import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
+} from "~/apps";
+import { addDomainsUrlsOutputs, withCommonLambdaEnvVariables, withServiceManifest } from "~/utils";
+import { getEnvVariableAwsRegion } from "~/env/awsRegion";
+import { attachSyncSystem } from "../syncSystem/api/index.js";
+import { applyAwsResourceTags, getAwsAccountId } from "~/apps/awsUtils";
+import type { WithServiceManifest } from "~/utils/withServiceManifest.js";
+import { ApiScheduler } from "~/apps/api/ApiScheduler.js";
+import { AuditLogsDynamo } from "~/apps/api/AuditLogsDynamo.js";
 import { getProjectSdk } from "@webiny/project";
 import { getVpcConfigFromExtension } from "~/apps/extensions/getVpcConfigFromExtension";
+import { getEsConfigFromExtension } from "../extensions/getEsConfigFromExtension";
 import { getOsConfigFromExtension } from "~/apps/extensions/getOsConfigFromExtension";
-import { getEsConfigFromExtension } from "~/apps/extensions/getEsConfigFromExtension";
-import { ApiPulumi } from "@webiny/project/abstractions";
-import { applyAwsResourceTags } from "~/apps/awsUtils";
 import { License } from "@webiny/wcp";
 import { handleGuardDutyEvents } from "./handleGuardDutyEvents";
+import { ApiPulumi } from "@webiny/project/abstractions";
 
 export type ApiPulumiApp = ReturnType<typeof createApiPulumiApp>;
 
@@ -35,7 +33,7 @@ export const createApiPulumiApp = () => {
     const baseApp = createPulumiApp({
         name: "api",
         path: "apps/api",
-        program: async app => {
+        program: async (app: PulumiApp & WithServiceManifest) => {
             const sdk = await getProjectSdk();
             const projectConfig = await sdk.getProjectConfig();
 
@@ -138,7 +136,7 @@ export const createApiPulumiApp = () => {
             const pulumiHandlers = sdk.getContainer().resolve(ApiPulumi);
 
             app.addHandler(() => {
-                return pulumiHandlers.execute(app as unknown as CorePulumiApp);
+                return pulumiHandlers.execute(app as unknown as ApiPulumiApp);
             });
 
             const isProduction = app.env.isProduction;
@@ -146,28 +144,33 @@ export const createApiPulumiApp = () => {
             // Register core output as a module available to all the other modules
             const core = app.addModule(CoreOutput);
 
+            const protect = isProduction;
+            const auditLogsDynamoDb = app.addModule(AuditLogsDynamo, {
+                protect
+            });
+
             // Register VPC config module to be available to other modules.
             const vpcEnabled = !!vpcExtensionsConfig ?? isProduction;
 
             app.addModule(VpcConfig, { enabled: vpcEnabled });
 
-            const pageBuilder = app.addModule(ApiPageBuilder, {
-                env: {
-                    COGNITO_REGION: getEnvVariableAwsRegion(),
-                    COGNITO_USER_POOL_ID: core.cognitoUserPoolId,
-                    DB_TABLE: core.primaryDynamodbTableName,
-                    DB_TABLE_LOG: core.logDynamodbTableName,
-                    DB_TABLE_ELASTICSEARCH: core.elasticsearchDynamodbTableName,
-                    ELASTIC_SEARCH_ENDPOINT: core.elasticsearchDomainEndpoint,
-
-                    // Not required. Useful for testing purposes / ephemeral environments.
-                    // https://www.webiny.com/docs/key-topics/ci-cd/testing/slow-ephemeral-environments
-                    ELASTIC_SEARCH_INDEX_PREFIX: process.env.ELASTIC_SEARCH_INDEX_PREFIX,
-                    ELASTICSEARCH_SHARED_INDEXES: process.env.ELASTICSEARCH_SHARED_INDEXES,
-
-                    S3_BUCKET: core.fileManagerBucketId
-                }
-            });
+            // const pageBuilder = app.addModule(ApiPageBuilder, {
+            //     env: {
+            //         COGNITO_REGION: getEnvVariableAwsRegion(),
+            //         COGNITO_USER_POOL_ID: core.cognitoUserPoolId,
+            //         DB_TABLE: core.primaryDynamodbTableName,
+            //         DB_TABLE_LOG: core.logDynamodbTableName,
+            //         DB_TABLE_ELASTICSEARCH: core.elasticsearchDynamodbTableName,
+            //         ELASTIC_SEARCH_ENDPOINT: core.elasticsearchDomainEndpoint,
+            //
+            //         // Not required. Useful for testing purposes / ephemeral environments.
+            //         // https://www.webiny.com/docs/key-topics/ci-cd/testing/slow-ephemeral-environments
+            //         ELASTIC_SEARCH_INDEX_PREFIX: process.env.ELASTIC_SEARCH_INDEX_PREFIX,
+            //         ELASTICSEARCH_SHARED_INDEXES: process.env.ELASTICSEARCH_SHARED_INDEXES,
+            //
+            //         S3_BUCKET: core.fileManagerBucketId
+            //     }
+            // });
 
             const apwScheduler = app.addModule(ApiApwScheduler, {
                 primaryDynamodbTableArn: core.primaryDynamodbTableArn,
@@ -177,6 +180,7 @@ export const createApiPulumiApp = () => {
                     COGNITO_USER_POOL_ID: core.cognitoUserPoolId,
                     DB_TABLE: core.primaryDynamodbTableName,
                     DB_TABLE_LOG: core.logDynamodbTableName,
+                    DB_TABLE_AUDIT_LOGS: auditLogsDynamoDb.output.name,
                     S3_BUCKET: core.fileManagerBucketId
                 }
             });
@@ -187,6 +191,7 @@ export const createApiPulumiApp = () => {
                     COGNITO_USER_POOL_ID: core.cognitoUserPoolId,
                     DB_TABLE: core.primaryDynamodbTableName,
                     DB_TABLE_LOG: core.logDynamodbTableName,
+                    DB_TABLE_AUDIT_LOGS: auditLogsDynamoDb.output.name,
                     DB_TABLE_ELASTICSEARCH: core.elasticsearchDynamodbTableName,
                     ELASTIC_SEARCH_ENDPOINT: core.elasticsearchDomainEndpoint,
 
@@ -197,8 +202,8 @@ export const createApiPulumiApp = () => {
 
                     S3_BUCKET: core.fileManagerBucketId,
                     EVENT_BUS: core.eventBusArn,
-                    IMPORT_CREATE_HANDLER: pageBuilder.import.functions.create.output.arn,
-                    EXPORT_PROCESS_HANDLER: pageBuilder.export.functions.process.output.arn,
+                    // IMPORT_CREATE_HANDLER: pageBuilder.import.functions.create.output.arn,
+                    // EXPORT_PROCESS_HANDLER: pageBuilder.export.functions.process.output.arn,
                     // TODO: move to okta plugin
                     OKTA_ISSUER: process.env["OKTA_ISSUER"],
                     APW_SCHEDULER_SCHEDULE_ACTION_HANDLER:
@@ -213,7 +218,8 @@ export const createApiPulumiApp = () => {
             const fileManager = app.addModule(ApiFileManager, {
                 env: {
                     DB_TABLE: core.primaryDynamodbTableName,
-                    DB_TABLE_LOG: core.logDynamodbTableName
+                    DB_TABLE_LOG: core.logDynamodbTableName,
+                    DB_TABLE_AUDIT_LOGS: auditLogsDynamoDb.output.name
                 }
             });
 
@@ -248,6 +254,16 @@ export const createApiPulumiApp = () => {
                     method: "OPTIONS",
                     function: graphql.functions.graphql.output.arn
                 },
+                "redirects-get": {
+                    path: "/wb/redirects",
+                    method: "GET",
+                    function: graphql.functions.graphql.output.arn
+                },
+                "redirects-options": {
+                    path: "/wb/redirects",
+                    method: "OPTIONS",
+                    function: graphql.functions.graphql.output.arn
+                },
                 "files-catch-all": {
                     path: "/{path+}",
                     method: "ANY",
@@ -258,6 +274,7 @@ export const createApiPulumiApp = () => {
             const cloudfront = app.addModule(ApiCloudfront);
             const backgroundTask = app.addModule(ApiBackgroundTask);
             const migration = app.addModule(ApiMigration);
+            const scheduler = app.addModule(ApiScheduler);
 
             // const domains = app.getParam(projectAppParams.domains);
             // if (domains) {
@@ -265,6 +282,7 @@ export const createApiPulumiApp = () => {
             // }
 
             app.addOutputs({
+                awsAccountId: getAwsAccountId(app),
                 region: aws.config.region,
                 cognitoUserPoolId: core.cognitoUserPoolId,
                 cognitoAppClientId: core.cognitoAppClientId,
@@ -274,13 +292,20 @@ export const createApiPulumiApp = () => {
                 apwSchedulerEventRule: apwScheduler.eventRule.output.name,
                 apwSchedulerEventTargetId: apwScheduler.eventTarget.output.targetId,
                 dynamoDbTable: core.primaryDynamodbTableName,
+                auditLogsDynamoDbTable: auditLogsDynamoDb.output.name,
                 migrationLambdaArn: migration.function.output.arn,
                 graphqlLambdaName: graphql.functions.graphql.output.name,
                 graphqlLambdaRole: graphql.role.output.arn,
+                graphqlLambdaRoleName: graphql.role.output.name,
                 backgroundTaskLambdaArn: backgroundTask.backgroundTask.output.arn,
                 backgroundTaskStepFunctionArn: backgroundTask.stepFunction.output.arn,
+                fileManagerManageLambdaArn: fileManager.functions.manage.output.arn,
+                fileManagerManageLambdaRole: fileManager.roles.manage.output.arn,
+                fileManagerManageLambdaRoleName: fileManager.roles.manage.output.name,
+                fileManagerDownloadLambdaArn: fileManager.functions.download.output.arn,
                 websocketApiId: websocket.websocketApi.output.id,
-                websocketApiUrl: websocket.websocketApiUrl
+                websocketApiUrl: websocket.websocketApiUrl,
+                schedulerLambdaInvokeRole: scheduler.invokeRole.output.arn
             });
 
             // Only add `dynamoDbElasticsearchTable` output if using search engine (ES/OS).
@@ -302,6 +327,14 @@ export const createApiPulumiApp = () => {
                     }
                 });
             });
+            /**
+             * We need to attach the Sync System if it exists.
+             */
+            attachSyncSystem({
+                app,
+                core,
+                env: app.params.run.env
+            });
 
             // Applies internal and user-defined AWS tags.
             await applyAwsResourceTags("api");
@@ -314,7 +347,8 @@ export const createApiPulumiApp = () => {
                 cloudfront,
                 apwScheduler,
                 migration,
-                backgroundTask
+                backgroundTask,
+                scheduler
             };
         }
     });
@@ -329,6 +363,14 @@ export const createApiPulumiApp = () => {
                 cloudfront: {
                     distributionId: baseApp.resources.cloudfront.output.id
                 }
+            }
+        });
+
+        app.addServiceManifest({
+            name: "scheduler",
+            manifest: {
+                lambdaArn: baseApp.resources.graphql.functions.graphql.output.arn,
+                roleArn: baseApp.resources.scheduler.invokeRole.output.arn
             }
         });
     });

@@ -1,6 +1,5 @@
-import { getStackOutput } from "@webiny/project";
-import type { GetAppStackOutput } from "@webiny/project/abstractions";
-import { AppName } from "@webiny/project/abstractions/types";
+import { type AppName, getStackOutput } from "@webiny/project";
+import { IDefaultStackOutput } from "~/types";
 
 export interface IGetStacksStack {
     name: string;
@@ -12,14 +11,14 @@ export interface IGetApplicationStacks {
     stacks: IGetStacksStack[];
 }
 
-const apps = ["api", "admin", "website"] as AppName[];
+const apps: AppName[] = ["api", "admin", "website"];
 
 interface IPromiseResult {
     app: string;
     env: string;
     variant: string | undefined;
     name: string;
-    stack: GetAppStackOutput.StackOutput;
+    stack: IDefaultStackOutput;
 }
 
 export interface IGetApplicationStacksResultStack {
@@ -95,26 +94,19 @@ export const getApplicationDomains = async (
     for (const stack of params.stacks) {
         for (const app of apps) {
             promises.push(
-                new Promise<IPromiseResult>(async (resolve, reject) => {
-                    const result = await getStackOutput({
+                new Promise<IPromiseResult>(async resolve => {
+                    const result = await getStackOutput<IDefaultStackOutput>({
                         app,
                         env: stack.env,
                         variant: stack.variant
                     });
-
-                    if (!result) {
-                        reject(
-                            `Stack output for "${app}" app in "${stack.env}" environment and "${stack.variant}" variant is not available.`
-                        );
-                        return;
-                    }
 
                     resolve({
                         env: stack.env,
                         variant: stack.variant,
                         name: stack.name,
                         app,
-                        stack: result
+                        stack: result!
                     });
                 })
             );

@@ -7,6 +7,7 @@ import {
 } from "@webiny/project/abstractions/index.js";
 import fs from "fs";
 import { uploadFolderToS3 } from "@webiny/pulumi-aws";
+import { IDefaultStackOutput } from "@webiny/pulumi-aws/types";
 
 class UploadWebsiteAppToS3 implements WebsiteAfterDeploy.Interface {
     constructor(
@@ -32,7 +33,7 @@ class UploadWebsiteAppToS3 implements WebsiteAfterDeploy.Interface {
         }
 
         const start = new Date().getTime();
-        const appOutput = await this.getAppStackOutput.execute(params);
+        const appOutput = await this.getAppStackOutput.execute<IDefaultStackOutput>(params);
         if (!appOutput) {
             throw new Error("Missing app stack output.");
         }

@@ -1,35 +1,23 @@
-import { type PulumiAppParam, type PulumiAppParamCallback } from "@webiny/pulumi";
-import { createReactPulumiApp, type CustomDomainParams } from "~/apps/index.js";
+import { CorePulumiApp, createReactPulumiApp } from "~/apps/index.js";
+import { getProjectSdk } from "@webiny/project";
+import { AdminPulumi } from "@webiny/project/abstractions";
 
 export type AdminPulumiApp = ReturnType<typeof createReactPulumiApp>;
 
-export interface CreateAdminPulumiAppParams {
-    /** Custom domain configuration */
-    domains?: PulumiAppParamCallback<CustomDomainParams>;
-
-    /**
-     * Provides a way to adjust existing Pulumi code (cloud infrastructure resources)
-     * or add additional ones into the mix.
-     */
-    pulumi?: (app: AdminPulumiApp) => void | Promise<void>;
-
-    /**
-     * Prefixes names of all Pulumi cloud infrastructure resource with given prefix.
-     */
-    pulumiResourceNamePrefix?: PulumiAppParam<string>;
-
-    /**
-     * Treats provided environments as production environments, which
-     * are deployed in production deployment mode.
-     * https://www.webiny.com/docs/architecture/deployment-modes/production
-     */
-    productionEnvironments?: PulumiAppParam<string[]>;
-}
-
-export const createAdminPulumiApp = (projectAppParams: CreateAdminPulumiAppParams) => {
+export const createAdminPulumiApp = async () => {
+    const sdk = await getProjectSdk();
     return createReactPulumiApp({
         name: "admin",
         folder: "apps/admin",
-        ...projectAppParams
+        domains: undefined,
+        pulumi: async app => {
+            // Overrides must be applied via a handler, registered at the very start of the program.
+            // By doing this, we're ensuring user's adjustments are not applied to late.
+            const pulumiHandlers = sdk.getContainer().resolve(AdminPulumi);
+
+            app.addHandler(() => {
+                return pulumiHandlers.execute(app as unknown as CorePulumiApp);
+            });
+        }
     });
 };

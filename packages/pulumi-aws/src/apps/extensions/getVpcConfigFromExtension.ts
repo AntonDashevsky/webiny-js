@@ -1,5 +1,4 @@
-import { vpc as vpcExt } from "../extensions/vpc.js";
-import { CreateCorePulumiAppParams } from "./index.js";
+import { vpc as vpcExt } from "~/extensions/vpc.js";
 import { IProjectConfigModel } from "@webiny/project/abstractions/models";
 
 export const getVpcConfigFromExtension = (projectConfig: IProjectConfigModel) => {
@@ -15,7 +14,8 @@ export const getVpcConfigFromExtension = (projectConfig: IProjectConfigModel) =>
     }
 
     if (useVpcEndpoints || useExistingVpc) {
-        let vpc: CreateCorePulumiAppParams["vpc"] = {};
+        let vpc: Omit<typeof vpcExtension.params, "enabled"> = {};
+
         if (useVpcEndpoints) {
             vpc.useVpcEndpoints = useVpcEndpoints;
         }

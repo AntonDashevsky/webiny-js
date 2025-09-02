@@ -1,12 +1,13 @@
 import * as path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { createInstallationZip } from "@webiny/api-page-builder/installation/index.js";
-import { createAppModule, type PulumiApp, type PulumiAppModule } from "@webiny/pulumi";
-import { CoreOutput } from "~/apps/index.js";
-import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
-import { getAwsAccountId, getAwsRegion } from "../awsUtils.js";
-import { LAMBDA_RUNTIME } from "~/constants.js";
+import { createInstallationZip } from "@webiny/api-page-builder/installation";
+import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule } from "@webiny/pulumi";
+import { CoreOutput } from "../common";
+import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils";
+import { getAwsAccountId, getAwsRegion } from "../awsUtils";
+import { LAMBDA_RUNTIME } from "~/constants";
 
 interface PageBuilderParams {
     env: Record<string, any>;

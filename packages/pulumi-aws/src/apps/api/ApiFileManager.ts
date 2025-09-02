@@ -2,12 +2,13 @@ import path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { getLayerArn } from "@webiny/aws-layers";
-import { createAppModule, type PulumiApp, type PulumiAppModule } from "@webiny/pulumi";
+import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule } from "@webiny/pulumi";
 
-import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
-import { ApiGraphql, CoreOutput, VpcConfig } from "~/apps/index.js";
-import { getAwsAccountId } from "~/apps/awsUtils.js";
-import { LAMBDA_RUNTIME } from "~/constants.js";
+import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils";
+import { ApiGraphql, CoreOutput, VpcConfig } from "~/apps";
+import { getAwsAccountId } from "~/apps/awsUtils";
+import { LAMBDA_RUNTIME } from "~/constants";
 
 export type ApiFileManager = PulumiAppModule<typeof ApiFileManager>;
 
@@ -109,6 +110,12 @@ export const ApiFileManager = createAppModule({
         };
 
         return {
+            roles: {
+                manage: role
+            },
+            policies: {
+                manage: policy
+            },
             functions,
             bucketNotification
         };

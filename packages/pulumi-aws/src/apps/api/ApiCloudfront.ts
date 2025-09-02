@@ -1,7 +1,8 @@
 import * as aws from "@pulumi/aws";
-import { createAppModule, type PulumiApp, type PulumiAppModule } from "@webiny/pulumi";
+import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule } from "@webiny/pulumi";
 
-import { ApiGateway } from "./ApiGateway.js";
+import { ApiGateway } from "./ApiGateway";
 
 export type ApiCloudfront = PulumiAppModule<typeof ApiCloudfront>;
 
@@ -15,7 +16,14 @@ export const ApiCloudfront = createAppModule({
             whitelistedNames: ["wby-id-token"]
         };
 
-        const forwardHeaders = ["Origin", "Accept", "Accept-Language"];
+        const forwardHeaders = [
+            "Origin",
+            "Authorization",
+            "Accept",
+            "Accept-Language",
+            "X-Tenant",
+            "X-I18n-Locale"
+        ];
 
         return app.addResource(aws.cloudfront.Distribution, {
             name: "api-cloudfront",
@@ -56,10 +64,33 @@ export const ApiCloudfront = createAppModule({
                             cookies: {
                                 forward: "none"
                             },
-                            headers: ["Accept", "Accept-Language"],
+                            headers: forwardHeaders,
                             queryString: true
                         },
                         pathPattern: "/cms*",
+                        viewerProtocolPolicy: "allow-all",
+                        targetOriginId: gateway.api.output.name
+                    },
+                    {
+                        compress: true,
+                        allowedMethods: [
+                            "GET",
+                            "HEAD",
+                            "OPTIONS",
+                            "PUT",
+                            "POST",
+                            "PATCH",
+                            "DELETE"
+                        ],
+                        cachedMethods: ["GET", "HEAD", "OPTIONS"],
+                        forwardedValues: {
+                            cookies: {
+                                forward: "none"
+                            },
+                            headers: forwardHeaders,
+                            queryString: true
+                        },
+                        pathPattern: "/wb/*",
                         viewerProtocolPolicy: "allow-all",
                         targetOriginId: gateway.api.output.name
                     },

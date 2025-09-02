@@ -5,7 +5,10 @@ import { IPulumiGetStackOutputServiceParams } from "~/abstractions/services/Pulu
 export type IGetAppStackOutputParams = IBaseAppParams;
 
 export interface IStackOutput {
-    [key: string]: any;
+    /**
+     * There is a possibility for a user to add stuff to the stack output.
+     */
+    [key: string]: string | string[] | undefined | number | number[] | boolean;
 }
 
 export type IGetAppStackOutputResult<TOutput extends IStackOutput = IStackOutput> = TOutput | null;

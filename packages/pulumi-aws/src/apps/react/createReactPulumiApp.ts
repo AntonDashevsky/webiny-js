@@ -1,14 +1,14 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
-import { createPulumiApp, type PulumiAppParam, type PulumiAppParamCallback } from "@webiny/pulumi";
-import { addDomainsUrlsOutputs, tagResources } from "~/utils/index.js";
+import { createPulumiApp, type PulumiAppParamCallback } from "@webiny/pulumi";
+import { addDomainsUrlsOutputs } from "~/utils/index.js";
 import { createPrivateAppBucket } from "../createAppBucket.js";
 import { applyCustomDomain, type CustomDomainParams } from "../customDomain.js";
 import { withServiceManifest } from "~/utils/withServiceManifest.js";
 import { ApiOutput, CoreOutput } from "~/apps/index.js";
-import { getEnvVariableWebinyVariant } from "~/env/variant.js";
-import { getEnvVariableWebinyEnv } from "~/env/env.js";
-import { getEnvVariableWebinyProjectName } from "~/env/projectName.js";
+import { AppName, getProjectSdk } from "@webiny/project";
+import { getAwsTagsFromExtension } from "~/apps/extensions/getAwsTagsFromExtension";
+import { applyAwsResourceTags } from "~/apps/awsUtils";
 
 export type ReactPulumiApp = ReturnType<typeof createReactPulumiApp>;
 
@@ -16,7 +16,7 @@ export interface CreateReactPulumiAppParams {
     /**
      * A name of the app, e.g., "user-area"
      */
-    name: string;
+    name: AppName;
 
     /**
      * A folder where the app is located, e.g., "apps/user-area"
@@ -31,18 +31,6 @@ export interface CreateReactPulumiAppParams {
      * or add additional ones into the mix.
      */
     pulumi?: (app: ReactPulumiApp) => void | Promise<void>;
-
-    /**
-     * Prefixes names of all Pulumi cloud infrastructure resource with given prefix.
-     */
-    pulumiResourceNamePrefix?: PulumiAppParam<string>;
-
-    /**
-     * Treats provided environments as production environments, which
-     * are deployed in production deployment mode.
-     * https://www.webiny.com/docs/architecture/deployment-modes/production
-     */
-    productionEnvironments?: PulumiAppParam<string[]>;
 }
 
 export const createReactPulumiApp = (projectAppParams: CreateReactPulumiAppParams) => {
@@ -51,9 +39,12 @@ export const createReactPulumiApp = (projectAppParams: CreateReactPulumiAppParam
         path: projectAppParams.folder,
         config: projectAppParams,
         program: async app => {
-            const pulumiResourceNamePrefix = app.getParam(
-                projectAppParams.pulumiResourceNamePrefix
-            );
+            const sdk = await getProjectSdk();
+            const projectConfig = await sdk.getProjectConfig();
+
+            const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+            const awsTagsFromExtensions = getAwsTagsFromExtension(projectConfig);
+
             if (pulumiResourceNamePrefix) {
                 app.onResource(resource => {
                     if (!resource.name.startsWith(pulumiResourceNamePrefix)) {
@@ -150,12 +141,8 @@ export const createReactPulumiApp = (projectAppParams: CreateReactPulumiAppParam
                 });
             });
 
-            tagResources({
-                WbyAppName: name,
-                WbyProjectName: getEnvVariableWebinyProjectName(),
-                WbyEnvironment: getEnvVariableWebinyEnv(),
-                WbyEnvironmentVariant: getEnvVariableWebinyVariant()
-            });
+            // Applies internal and user-defined AWS tags.
+            await applyAwsResourceTags(name);
 
             /**
              * We need to store the appUrl to the admin settings item in the dynamodb

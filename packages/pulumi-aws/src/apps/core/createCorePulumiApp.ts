@@ -1,6 +1,5 @@
 import * as aws from "@pulumi/aws";
-import type { PulumiAppParam } from "@webiny/pulumi";
-import { createPulumiApp } from "@webiny/pulumi";
+import { createPulumiApp, isResourceOfType } from "@webiny/pulumi";
 import { CoreCognito } from "./CoreCognito.js";
 import { CoreDynamo } from "./CoreDynamo.js";
 import { ElasticSearch } from "./CoreElasticSearch.js";
@@ -9,111 +8,56 @@ import { CoreEventBus } from "./CoreEventBus.js";
 import { CoreFileManger } from "./CoreFileManager.js";
 import { CoreVpc } from "./CoreVpc.js";
 import { WatchCommand } from "./WatchCommand.js";
-import { tagResources } from "~/utils/index.js";
 import { withServiceManifest } from "~/utils/withServiceManifest.js";
 import {
     addServiceManifestTableItem,
     type TableDefinition
 } from "~/utils/addServiceManifestTableItem.js";
-import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
 import * as random from "@pulumi/random";
 import { LogDynamo } from "./LogDynamo.js";
-import { getEnvVariableWebinyVariant } from "~/env/variant.js";
-import { getEnvVariableWebinyEnv } from "~/env/env.js";
-import { getEnvVariableWebinyProjectName } from "~/env/projectName.js";
+import { getProjectSdk } from "@webiny/project";
+import { CorePulumi } from "@webiny/project/abstractions";
+import { getEsConfigFromExtension } from "~/apps/extensions/getEsConfigFromExtension";
+import { getOsConfigFromExtension } from "~/apps/extensions/getOsConfigFromExtension";
+import { getVpcConfigFromExtension } from "~/apps/extensions/getVpcConfigFromExtension";
+import { applyAwsResourceTags, getAwsRegion } from "~/apps/awsUtils";
+import { License } from "@webiny/wcp";
+import { configureS3BucketMalwareProtection } from "./configureS3BucketMalwareProtection.js";
+import * as pulumi from "@pulumi/pulumi";
 
 export type CorePulumiApp = ReturnType<typeof createCorePulumiApp>;
 
-export interface ElasticsearchConfig {
-    domainName: string;
-    indexPrefix: string;
-    sharedIndexes: boolean;
-}
-
-export interface OpenSearchConfig {
-    domainName: string;
-    indexPrefix: string;
-    sharedIndexes: boolean;
-}
-
-export interface CreateCorePulumiAppParams {
-    /**
-     * Secures against deleting database by accident.
-     * By default enabled in production environments.
-     */
-    protect?: PulumiAppParam<boolean>;
-
-    /**
-     * Enables ElasticSearch infrastructure.
-     * Note that it requires also changes in application code.
-     */
-    elasticSearch?: PulumiAppParam<boolean | Partial<ElasticsearchConfig>>;
-
-    /**
-     * Enables OpenSearch infrastructure.
-     * Note that it requires also changes in application code.
-     */
-    openSearch?: PulumiAppParam<boolean | Partial<OpenSearchConfig>>;
-
-    /**
-     * Enables VPC for the application.
-     * By default enabled in production environments.
-     */
-    vpc?: PulumiAppParam<boolean>;
-
-    /**
-     * Additional settings for backwards compatibility.
-     */
-    legacy?: PulumiAppParam<CoreAppLegacyConfig>;
-
-    /**
-     * Provides a way to adjust existing Pulumi code (cloud infrastructure resources)
-     * or add additional ones into the mix.
-     */
-    pulumi?: (app: CorePulumiApp) => void | Promise<void>;
-
-    /**
-     * Prefixes names of all Pulumi cloud infrastructure resource with given prefix.
-     */
-    pulumiResourceNamePrefix?: PulumiAppParam<string>;
-
-    /**
-     * Treats provided environments as production environments, which
-     * are deployed in production deployment mode.
-     * https://www.webiny.com/docs/architecture/deployment-modes/production
-     */
-    productionEnvironments?: PulumiAppParam<string[]>;
-}
-
-export interface CoreAppLegacyConfig {
-    useEmailAsUsername?: boolean;
-}
-
-export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams = {}) {
+export function createCorePulumiApp() {
     const baseApp = createPulumiApp({
         name: "core",
         path: "apps/core",
-        config: projectAppParams,
         program: async app => {
-            const { featureFlags } = await import("@webiny/feature-flags");
+            const sdk = await getProjectSdk();
+            const projectConfig = await sdk.getProjectConfig();
+
+            const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+            const vpcExtensionsConfig = getVpcConfigFromExtension(projectConfig);
+            const openSearchExtensionConfig = getOsConfigFromExtension(projectConfig);
+            const elasticSearchExtensionConfig = getEsConfigFromExtension(projectConfig);
+
             const deploymentId = new random.RandomId("deploymentId", { byteLength: 8 });
 
             let searchEngineType: "openSearch" | "elasticSearch" | null = null;
             let searchEngineParams:
-                | CreateCorePulumiAppParams["openSearch"]
-                | CreateCorePulumiAppParams["elasticSearch"]
+                | typeof openSearchExtensionConfig
+                | typeof elasticSearchExtensionConfig
                 | null = null;
 
-            if (projectAppParams.openSearch) {
-                searchEngineParams = app.getParam(projectAppParams.openSearch);
+            if (openSearchExtensionConfig) {
+                searchEngineParams = openSearchExtensionConfig;
                 searchEngineType = "openSearch";
-            } else if (projectAppParams.elasticSearch) {
-                searchEngineParams = app.getParam(projectAppParams.elasticSearch);
+            } else if (elasticSearchExtensionConfig) {
+                searchEngineParams = elasticSearchExtensionConfig;
                 searchEngineType = "elasticSearch";
             }
 
             if (searchEngineParams) {
-                const params = app.getParam(searchEngineParams);
+                const params = searchEngineParams;
                 if (typeof params === "object") {
                     if (params.domainName) {
                         process.env.AWS_ELASTIC_SEARCH_DOMAIN_NAME = params.domainName;
@@ -129,10 +73,6 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
                 }
             }
 
-            const pulumiResourceNamePrefix = app.getParam(
-                projectAppParams.pulumiResourceNamePrefix
-            );
-
             if (pulumiResourceNamePrefix) {
                 app.onResource(resource => {
                     if (!resource.name.startsWith(pulumiResourceNamePrefix)) {
@@ -141,33 +81,175 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
                 });
             }
 
+            // <-------------------- Enterprise start -------------------->
+            app.addHandler(async () => {
+                const usingAdvancedVpcParams =
+                    vpcExtensionsConfig && typeof vpcExtensionsConfig !== "boolean";
+
+                const license = await License.fromEnvironment();
+                if (license.canUseFileManagerThreatDetection()) {
+                    configureS3BucketMalwareProtection(app as CorePulumiApp);
+                }
+
+                // Not using advanced VPC params? Then immediately exit.
+                if (!usingAdvancedVpcParams) {
+                    return;
+                }
+
+                const { resources, addResource, onResource } = app as CorePulumiApp;
+                const { useExistingVpc, useVpcEndpoints } = vpcExtensionsConfig;
+
+                // 1. We first deal with "existing VPC" setup.
+                if (useExistingVpc) {
+                    if ("useVpcEndpoints" in vpcExtensionsConfig) {
+                        throw new Error(
+                            "Cannot specify `useVpcEndpoints` parameter when using an existing VPC. The VPC endpoints configurations should be already defined within the existing VPC."
+                        );
+                    }
+
+                    if (elasticSearchExtensionConfig) {
+                        if (!useExistingVpc.elasticSearchDomainVpcConfig) {
+                            throw new Error(
+                                "Cannot specify `useExistingVpc` parameter because the `elasticSearchDomainVpcConfig` parameter wasn't provided."
+                            );
+                        }
+
+                        onResource(resource => {
+                            if (isResourceOfType(resource, aws.elasticsearch.Domain)) {
+                                resource.config.vpcOptions(
+                                    useExistingVpc!.elasticSearchDomainVpcConfig
+                                );
+                            }
+                        });
+                    }
+
+                    if (openSearchExtensionConfig) {
+                        if (!useExistingVpc.openSearchDomainVpcConfig) {
+                            throw new Error(
+                                "Cannot specify `useExistingVpc` parameter because the `openSearchDomainVpcConfig` parameter wasn't provided."
+                            );
+                        }
+
+                        onResource(resource => {
+                            if (isResourceOfType(resource, aws.opensearch.Domain)) {
+                                resource.config.vpcOptions(
+                                    useExistingVpc!.openSearchDomainVpcConfig
+                                );
+                            }
+                        });
+                    }
+
+                    if (!useExistingVpc.lambdaFunctionsVpcConfig) {
+                        throw new Error(
+                            "Cannot specify `useExistingVpc` parameter because the `lambdaFunctionsVpcConfig` parameter wasn't provided."
+                        );
+                    }
+
+                    onResource(resource => {
+                        if (isResourceOfType(resource, aws.lambda.Function)) {
+                            const canUseVpc = resource.meta.canUseVpc !== false;
+                            if (canUseVpc) {
+                                resource.config.vpcConfig(useExistingVpc!.lambdaFunctionsVpcConfig);
+                            }
+                        }
+
+                        if (isResourceOfType(resource, aws.iam.Role)) {
+                            if (resource.meta.isLambdaFunctionRole) {
+                                addResource(aws.iam.RolePolicyAttachment, {
+                                    name: `${resource.name}-vpc-access-execution-role`,
+                                    config: {
+                                        role: resource.output.name,
+                                        policyArn:
+                                            aws.iam.ManagedPolicy.AWSLambdaVPCAccessExecutionRole
+                                    }
+                                });
+                            }
+                        }
+                    });
+
+                    return;
+                }
+
+                // 2. Now we deal with "non-existing VPC" setup.
+                if (useVpcEndpoints) {
+                    const region = getAwsRegion(app);
+
+                    onResource(resource => {
+                        if (isResourceOfType(resource, aws.ec2.Vpc)) {
+                            resource.config.enableDnsSupport(true);
+                            resource.config.enableDnsHostnames(true);
+                        }
+                    });
+
+                    const { vpc, subnets, routeTables } = resources.vpc!;
+                    addResource(aws.ec2.VpcEndpoint, {
+                        name: "vpc-s3-vpc-endpoint",
+                        config: {
+                            vpcId: vpc.output.id,
+                            serviceName: pulumi.interpolate`com.amazonaws.${region}.s3`,
+                            routeTableIds: [routeTables.privateSubnets.output.id]
+                        }
+                    });
+
+                    addResource(aws.ec2.VpcEndpoint, {
+                        name: "vpc-dynamodb-vpc-endpoint",
+                        config: {
+                            vpcId: vpc.output.id,
+                            serviceName: pulumi.interpolate`com.amazonaws.${region}.dynamodb`,
+                            routeTableIds: [routeTables.privateSubnets.output.id]
+                        }
+                    });
+
+                    addResource(aws.ec2.VpcEndpoint, {
+                        name: "vpc-sqs-vpc-endpoint",
+                        config: {
+                            vpcId: vpc.output.id,
+                            serviceName: pulumi.interpolate`com.amazonaws.${region}.sqs`,
+                            vpcEndpointType: "Interface",
+                            privateDnsEnabled: true,
+                            securityGroupIds: [vpc.output.defaultSecurityGroupId],
+                            subnetIds: subnets.private.map(subNet => subNet.output.id)
+                        }
+                    });
+
+                    addResource(aws.ec2.VpcEndpoint, {
+                        name: "vpc-events-vpc-endpoint",
+                        config: {
+                            vpcId: vpc.output.id,
+                            serviceName: pulumi.interpolate`com.amazonaws.${region}.events`,
+                            vpcEndpointType: "Interface",
+                            privateDnsEnabled: true,
+                            securityGroupIds: [vpc.output.defaultSecurityGroupId],
+                            subnetIds: subnets.private.map(subNet => subNet.output.id)
+                        }
+                    });
+                }
+            });
+            // <-------------------- Enterprise end -------------------->
+
             // Overrides must be applied via a handler, registered at the very start of the program.
             // By doing this, we're ensuring user's adjustments are not applied to late.
-            if (projectAppParams.pulumi) {
-                app.addHandler(() => {
-                    return projectAppParams.pulumi!(app as unknown as CorePulumiApp);
-                });
-            }
+            const pulumiHandlers = sdk.getContainer().resolve(CorePulumi);
 
-            const productionEnvironments =
-                app.params.create.productionEnvironments || DEFAULT_PROD_ENV_NAMES;
-            const isProduction = productionEnvironments.includes(app.params.run.env);
+            app.addHandler(() => {
+                return pulumiHandlers.execute(app as unknown as CorePulumiApp);
+            });
 
-            const protect = app.getParam(projectAppParams.protect) ?? isProduction;
-            const legacyConfig = app.getParam(projectAppParams.legacy) || {};
+            const isProduction = app.env.isProduction;
+            const protect = isProduction;
 
             // Setup DynamoDB table
             const dynamoDbTable = app.addModule(CoreDynamo, { protect });
             const logDynamoDbTable = app.addModule(LogDynamo, { protect });
 
             // Setup VPC
-            const vpcEnabled = app.getParam(projectAppParams?.vpc) ?? isProduction;
+            const vpcEnabled = !!vpcExtensionsConfig ?? isProduction;
             const vpc = vpcEnabled ? app.addModule(CoreVpc) : null;
 
             // Setup Cognito
             const cognito = app.addModule(CoreCognito, {
                 protect,
-                useEmailAsUsername: legacyConfig.useEmailAsUsername ?? false
+                useEmailAsUsername: false
             });
 
             // Setup event bus
@@ -183,11 +265,7 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
                 elasticSearch = app.addModule(ElasticSearch, { protect });
             }
 
-            if (featureFlags.newWatchCommand) {
-                app.addModule(WatchCommand, {
-                    deploymentId: deploymentId.hex
-                });
-            }
+            app.addModule(WatchCommand, { deploymentId: deploymentId.hex });
 
             app.addOutputs({
                 deploymentId: deploymentId.hex,
@@ -209,11 +287,8 @@ export function createCorePulumiApp(projectAppParams: CreateCorePulumiAppParams 
                 eventBusArn: eventBus.output.arn
             });
 
-            tagResources({
-                WbyProjectName: getEnvVariableWebinyProjectName(),
-                WbyEnvironment: getEnvVariableWebinyEnv(),
-                WbyEnvironmentVariant: getEnvVariableWebinyVariant()
-            });
+            // Applies internal and user-defined AWS tags.
+            await applyAwsResourceTags("core");
 
             return {
                 dynamoDbTable,

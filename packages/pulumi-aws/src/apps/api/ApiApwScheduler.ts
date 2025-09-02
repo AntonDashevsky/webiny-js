@@ -1,10 +1,11 @@
 import path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { createAppModule, type PulumiApp, type PulumiAppModule } from "@webiny/pulumi";
-import { LAMBDA_RUNTIME } from "~/constants.js";
-import { CoreOutput } from "~/apps/index.js";
-import { getCommonLambdaEnvVariables } from "~/utils/index.js";
+import { LAMBDA_RUNTIME } from "~/constants";
+import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
+import { createAppModule } from "@webiny/pulumi";
+import { CoreOutput } from "../common";
+import { getCommonLambdaEnvVariables } from "../lambdaUtils";
 
 interface ScheduleActionParams {
     env: Record<string, any>;

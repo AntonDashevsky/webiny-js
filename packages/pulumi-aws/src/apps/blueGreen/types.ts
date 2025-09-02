@@ -1,4 +1,4 @@
-import type { GetAppStackOutput } from "@webiny/project/abstractions";
+import type { IStackOutput } from "@webiny/project";
 
 export type GenericRecord<K extends PropertyKey = PropertyKey, V = any> = Record<K, V>;
 
@@ -47,8 +47,12 @@ export interface IAttachedDomains {
     domains?: IAttachedDomainsTypes;
 }
 
+export interface IAttachDomainsCallableParams {
+    env: string;
+}
+
 export interface IAttachDomainsCallable {
-    (): IAttachedDomains;
+    (params: IAttachDomainsCallableParams): IAttachedDomains;
 }
 
 export type IAttachedDomainKey = keyof IAttachedDomainsTypes;
@@ -79,9 +83,13 @@ export interface IResolvedDomain {
 
 export type IResolvedDomains = IResolvedDomain[];
 
-export interface IBlueGreenStackOutput extends GetAppStackOutput.StackOutput {
+export interface IBlueGreenStackOutput extends IStackOutput {
     distributionDomain: string;
     distributionUrl: string;
+    /**
+     * TODO fix later
+     */
+    // @ts-expect-error
     environments?: IResolvedDomains;
     domains?: string[];
 }

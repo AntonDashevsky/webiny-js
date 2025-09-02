@@ -1,5 +1,4 @@
 import { elasticSearch as elasticSearchExt } from "~/extensions/elasticSearch";
-import { CreateCorePulumiAppParams } from "./index.js";
 import { IProjectConfigModel } from "@webiny/project/abstractions/models";
 
 export const getEsConfigFromExtension = (projectConfig: IProjectConfigModel) => {
@@ -14,7 +13,7 @@ export const getEsConfigFromExtension = (projectConfig: IProjectConfigModel) => 
     }
 
     if (domainName || indexPrefix || sharedIndexes) {
-        let elasticSearch: CreateCorePulumiAppParams["elasticSearch"] = {};
+        let elasticSearch: Omit<typeof elasticSearchExtension.params, "enabled"> = {};
         if (domainName) {
             elasticSearch.domainName = domainName;
         }

@@ -1,5 +1,5 @@
-export * from "./tagResources.js";
-export * from "./addDomainsUrlsOutputs.js";
-export * from "./uploadFolderToS3.js";
-export { withCommonLambdaEnvVariables, getCommonLambdaEnvVariables } from "./lambdaEnvVariables.js";
-export { withServiceManifest } from "./withServiceManifest.js";
+export * from "./tagResources";
+export * from "./addDomainsUrlsOutputs";
+export * from "./uploadFolderToS3";
+export { withCommonLambdaEnvVariables, getCommonLambdaEnvVariables } from "./lambdaEnvVariables";
+export { withServiceManifest } from "./withServiceManifest";
