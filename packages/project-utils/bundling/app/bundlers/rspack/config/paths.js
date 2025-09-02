@@ -1,26 +1,8 @@
 import path from "path";
 import fs from "fs";
-import url from "url";
 import { allWorkspaces } from "../../../../../workspaces/index.js";
 
 const envPublicUrl = process.env.PUBLIC_URL;
-
-function ensureSlash(inputPath, needsSlash) {
-    const hasSlash = inputPath.endsWith("/");
-    if (hasSlash && !needsSlash) {
-        return inputPath.slice(0, -1);
-    } else if (!hasSlash && needsSlash) {
-        return `${inputPath}/`;
-    } else {
-        return inputPath;
-    }
-}
-
-function getServedPath() {
-    const publicUrl = envPublicUrl;
-    const servedUrl = envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : "/");
-    return ensureSlash(servedUrl, true);
-}
 
 const moduleFileExtensions = [
     "web.mjs",
@@ -67,7 +49,6 @@ const createPaths = ({ appIndexJs, cwd }) => {
         proxySetup: resolveApp("src/setupProxy.js"),
         appNodeModules: resolveApp("node_modules"),
         publicUrl: envPublicUrl,
-        servedPath: getServedPath(resolveApp("package.json")),
         allWorkspaces: allWorkspaces(),
         moduleFileExtensions
     };

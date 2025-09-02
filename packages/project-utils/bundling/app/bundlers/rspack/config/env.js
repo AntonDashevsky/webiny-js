@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { getAppEnvVarPrefix } from "./getAppEnvVarPrefix.js";
 
 // We support resolving modules according to `NODE_PATH`.
 // This lets you use absolute paths in imports inside large monorepos:
@@ -21,12 +22,14 @@ process.env.NODE_PATH = (process.env.NODE_PATH || "")
 // injected into the application via DefinePlugin in Webpack configuration.
 const REACT_APP = /^REACT_APP_/i;
 
-function getClientEnvironment({ publicUrl }) {
+function getClientEnvironment({ publicUrl, appPath }) {
     const NODE_ENV = process.env.NODE_ENV;
 
     if (!NODE_ENV) {
         throw new Error("The NODE_ENV environment variable is required but was not specified.");
     }
+
+    const appPrefix = getAppEnvVarPrefix(appPath);
 
     const raw = Object.keys(process.env)
         .filter(key => {
@@ -34,12 +37,7 @@ function getClientEnvironment({ publicUrl }) {
                 return true;
             }
 
-            // TODO: bring this functionality back.
-            // if (projectApplication) {
-            //     return new RegExp(`^WEBINY_${projectApplication.id.toUpperCase()}_`).test(key);
-            // }
-
-            return false;
+            return appPrefix && new RegExp(`^${appPrefix}`).test(key);
         })
         .reduce(
             (env, key) => {
@@ -61,7 +59,7 @@ function getClientEnvironment({ publicUrl }) {
     // Stringify all values so we can feed into Webpack DefinePlugin.
     // Provide values one by one, not as a single process.env object,
     // because otherwise plugin will put a big JSON object every time process.env is used in code.
-    // This way minifier also removes reduntant code on prod (like if(process.env.NODE_ENV === 'development')).
+    // This way minifier also removes redundant code on prod (like if(process.env.NODE_ENV === 'development')).
     const stringified = {};
     for (const key of Object.keys(raw)) {
         stringified[`process.env.${key}`] = JSON.stringify(raw[key]);

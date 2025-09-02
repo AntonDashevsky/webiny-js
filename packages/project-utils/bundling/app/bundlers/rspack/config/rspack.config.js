@@ -38,10 +38,9 @@ export async function createRspackConfig(webpackEnv, { paths, options }) {
     const swcConfig = createSwcConfig(options.cwd);
     const useTypeScript = fs.existsSync(paths.appTsConfig);
 
-    const publicPath = isEnvProduction ? paths.servedPath : isEnvDevelopment && "/";
+    const publicPath = "/";
     const shouldUseSourceMap = isEnvDevelopment || process.env.GENERATE_SOURCEMAP === "true";
-    const publicUrl = isEnvProduction ? publicPath.slice(0, -1) : isEnvDevelopment && "";
-    const env = getClientEnvironment({ publicUrl });
+    const env = getClientEnvironment(paths);
 
     const htmlTemplate = fs.readFileSync(paths.appHtml, "utf8");
 

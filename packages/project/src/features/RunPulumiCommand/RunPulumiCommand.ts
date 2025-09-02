@@ -33,7 +33,7 @@ export class DefaultRunPulumiCommand implements RunPulumiCommand.Interface {
         await this.pulumiSelectStackService.execute(app, params);
 
         const pulumi = await this.getPulumiService.execute({ app });
-        const project = await this.getProject.execute();
+        const project = this.getProject.execute();
 
         const env = createEnvConfiguration({
             configurations: [

@@ -97,8 +97,7 @@ export class DefaultGetCliRunnerService implements GetCliRunnerService.Interface
                         realError = error.cause as Error;
                     }
 
-                    ui.error("An error occurred while running the CLI command:");
-                    ui.text(realError.message);
+                    ui.error(realError.message);
 
                     // Unfortunately, yargs doesn't provide passed args here, so we had to do it via process.argv.
                     const debugEnabled = process.argv.includes("--debug");

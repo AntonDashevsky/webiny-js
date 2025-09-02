@@ -1,5 +1,4 @@
 import { Container } from "@webiny/di-container";
-import path from "path";
 import {
     cliParamsService,
     commandsRegistryService,
@@ -22,6 +21,8 @@ import {
     missingFilesInBuildGracefulErrorHandler,
     outputCommand,
     pendingOperationsGracefulErrorHandler,
+    pulumiCommand,
+    refreshCommand,
     watchCommand
 } from "./features/index.js";
 
@@ -47,6 +48,8 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
     container.register(aboutCommand).inSingletonScope();
     container.register(buildCommand).inSingletonScope();
     container.register(deployCommand).inSingletonScope();
+    container.register(pulumiCommand).inSingletonScope();
+    container.register(refreshCommand).inSingletonScope();
     container.register(destroyCommand).inSingletonScope();
     container.register(infoCommand).inSingletonScope();
     container.register(outputCommand).inSingletonScope();

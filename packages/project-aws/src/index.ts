@@ -30,6 +30,7 @@ import {
 import { AwsTags, Vpc } from "~/pulumi/extensions/index.js";
 import { ElasticSearch } from "./extensions/ElasticSearch.js";
 import { OpenSearch } from "./extensions/OpenSearch.js";
+export { Webiny } from "./extensions/Webiny.js";
 
 // Cms.
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
@@ -41,7 +42,6 @@ import { LegacyContextPlugin } from "@webiny/api/extensions/index.js";
 export { IsEnv } from "@webiny/project/extensions/components/index.js";
 
 // Exports.
-export { Webiny } from "./Webiny.js";
 
 export const Project = {
     Id: ProjectId,
