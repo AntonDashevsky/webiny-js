@@ -1,5 +1,5 @@
 import * as aws from "@pulumi/aws";
-import { createPulumiApp, type PulumiAppParam, type PulumiAppParamCallback } from "@webiny/pulumi";
+import { createPulumiApp, isResourceOfType } from "@webiny/pulumi";
 import {
     ApiApwScheduler,
     ApiBackgroundTask,
@@ -11,96 +11,52 @@ import {
     ApiPageBuilder,
     ApiWebsocket,
     CoreOutput,
-    type CreateCorePulumiAppParams,
+    CorePulumiApp,
     VpcConfig
 } from "~/apps/index.js";
-import { applyCustomDomain, type CustomDomainParams } from "../customDomain.js";
 import {
     addDomainsUrlsOutputs,
-    tagResources,
     withCommonLambdaEnvVariables,
     withServiceManifest
 } from "~/utils/index.js";
-import { DEFAULT_PROD_ENV_NAMES } from "~/constants.js";
-import { getEnvVariableWebinyVariant } from "~/env/variant.js";
-import { getEnvVariableWebinyEnv } from "~/env/env.js";
-import { getEnvVariableWebinyProjectName } from "~/env/projectName.js";
 import { getEnvVariableAwsRegion } from "~/env/awsRegion.js";
+import { getProjectSdk } from "@webiny/project";
+import { getVpcConfigFromExtension } from "~/apps/extensions/getVpcConfigFromExtension";
+import { getOsConfigFromExtension } from "~/apps/extensions/getOsConfigFromExtension";
+import { getEsConfigFromExtension } from "~/apps/extensions/getEsConfigFromExtension";
+import { ApiPulumi } from "@webiny/project/abstractions";
+import { applyAwsResourceTags } from "~/apps/awsUtils";
+import { License } from "@webiny/wcp";
+import { handleGuardDutyEvents } from "./handleGuardDutyEvents";
 
 export type ApiPulumiApp = ReturnType<typeof createApiPulumiApp>;
 
-export interface ApiElasticsearchConfig {
-    domainName: string;
-    indexPrefix: string;
-    sharedIndexes: boolean;
-}
-
-export interface ApiOpenSearchConfig {
-    domainName: string;
-    indexPrefix: string;
-    sharedIndexes: boolean;
-}
-
-export interface CreateApiPulumiAppParams {
-    /**
-     * Enables ElasticSearch infrastructure.
-     * Note that it requires also changes in application code.
-     */
-    elasticSearch?: PulumiAppParam<boolean | Partial<ApiElasticsearchConfig>>;
-
-    /**
-     * Enables OpenSearch infrastructure.
-     * Note that it requires also changes in application code.
-     */
-    openSearch?: PulumiAppParam<boolean | Partial<ApiOpenSearchConfig>>;
-
-    /**
-     * Enables or disables VPC for the API.
-     * For VPC to work you also have to enable it in the Core application.
-     */
-    vpc?: PulumiAppParam<boolean>;
-
-    /** Custom domain configuration */
-    domains?: PulumiAppParamCallback<CustomDomainParams>;
-
-    /**
-     * Provides a way to adjust existing Pulumi code (cloud infrastructure resources)
-     * or add additional ones into the mix.
-     */
-    pulumi?: (app: ApiPulumiApp) => void | Promise<void>;
-
-    /**
-     * Prefixes names of all Pulumi cloud infrastructure resource with given prefix.
-     */
-    pulumiResourceNamePrefix?: PulumiAppParam<string>;
-
-    /**
-     * Treats provided environments as production environments, which
-     * are deployed in production deployment mode.
-     * https://www.webiny.com/docs/architecture/deployment-modes/production
-     */
-    productionEnvironments?: PulumiAppParam<string[]>;
-}
-
-export const createApiPulumiApp = (projectAppParams: CreateApiPulumiAppParams = {}) => {
+export const createApiPulumiApp = () => {
     const baseApp = createPulumiApp({
         name: "api",
         path: "apps/api",
-        config: projectAppParams,
         program: async app => {
+            const sdk = await getProjectSdk();
+            const projectConfig = await sdk.getProjectConfig();
+
+            const pulumiResourceNamePrefix = await sdk.getPulumiResourceNamePrefix();
+            const vpcExtensionsConfig = getVpcConfigFromExtension(projectConfig);
+            const openSearchExtensionConfig = getOsConfigFromExtension(projectConfig);
+            const elasticSearchExtensionConfig = getEsConfigFromExtension(projectConfig);
+
             let searchEngineParams:
-                | CreateCorePulumiAppParams["openSearch"]
-                | CreateCorePulumiAppParams["elasticSearch"]
+                | typeof openSearchExtensionConfig
+                | typeof elasticSearchExtensionConfig
                 | null = null;
 
-            if (projectAppParams.openSearch) {
-                searchEngineParams = app.getParam(projectAppParams.openSearch);
-            } else if (projectAppParams.elasticSearch) {
-                searchEngineParams = app.getParam(projectAppParams.elasticSearch);
+            if (openSearchExtensionConfig) {
+                searchEngineParams = openSearchExtensionConfig;
+            } else if (elasticSearchExtensionConfig) {
+                searchEngineParams = elasticSearchExtensionConfig;
             }
 
             if (searchEngineParams) {
-                const params = app.getParam(searchEngineParams);
+                const params = searchEngineParams;
                 if (typeof params === "object") {
                     if (params.domainName) {
                         process.env.AWS_ELASTIC_SEARCH_DOMAIN_NAME = params.domainName;
@@ -116,9 +72,6 @@ export const createApiPulumiApp = (projectAppParams: CreateApiPulumiAppParams = 
                 }
             }
 
-            const pulumiResourceNamePrefix = app.getParam(
-                projectAppParams.pulumiResourceNamePrefix
-            );
             if (pulumiResourceNamePrefix) {
                 app.onResource(resource => {
                     if (!resource.name.startsWith(pulumiResourceNamePrefix)) {
@@ -127,23 +80,75 @@ export const createApiPulumiApp = (projectAppParams: CreateApiPulumiAppParams = 
                 });
             }
 
-            // Overrides must be applied via a handler, registered at the very start of the program.
-            // By doing this, we're ensuring user's adjustments are not applied too late.
-            if (projectAppParams.pulumi) {
-                app.addHandler(() => {
-                    return projectAppParams.pulumi!(app as ApiPulumiApp);
-                });
-            }
+            // <-------------------- Enterprise start -------------------->
+            app.addHandler(async () => {
+                const license = await License.fromEnvironment();
 
-            const productionEnvironments =
-                app.params.create.productionEnvironments || DEFAULT_PROD_ENV_NAMES;
-            const isProduction = productionEnvironments.includes(app.params.run.env);
+                const usingAdvancedVpcParams =
+                    vpcExtensionsConfig && typeof vpcExtensionsConfig !== "boolean";
+
+                if (license.canUseFileManagerThreatDetection()) {
+                    handleGuardDutyEvents(app as ApiPulumiApp);
+                }
+
+                // Not using advanced VPC params? Then immediately exit.
+                if (usingAdvancedVpcParams) {
+                    const { onResource, addResource } = app;
+                    const { useExistingVpc } = vpcExtensionsConfig;
+
+                    // 1. We first deal with "existing VPC" setup.
+                    if (useExistingVpc) {
+                        if (!useExistingVpc.lambdaFunctionsVpcConfig) {
+                            throw new Error(
+                                "Cannot specify `useExistingVpc` parameter because the `lambdaFunctionsVpcConfig` parameter wasn't provided."
+                            );
+                        }
+
+                        onResource(resource => {
+                            if (isResourceOfType(resource, aws.lambda.Function)) {
+                                const canUseVpc = resource.meta.canUseVpc !== false;
+                                if (canUseVpc) {
+                                    resource.config.vpcConfig(
+                                        useExistingVpc!.lambdaFunctionsVpcConfig
+                                    );
+                                }
+                            }
+
+                            if (isResourceOfType(resource, aws.iam.Role)) {
+                                if (resource.meta.isLambdaFunctionRole) {
+                                    addResource(aws.iam.RolePolicyAttachment, {
+                                        name: `${resource.name}-vpc-access-execution-role`,
+                                        config: {
+                                            role: resource.output.name,
+                                            policyArn:
+                                                aws.iam.ManagedPolicy
+                                                    .AWSLambdaVPCAccessExecutionRole
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+            // <-------------------- Enterprise end -------------------->
+
+            // Overrides must be applied via a handler, registered at the very start of the program.
+            // By doing this, we're ensuring user's adjustments are not applied to late.
+            const pulumiHandlers = sdk.getContainer().resolve(ApiPulumi);
+
+            app.addHandler(() => {
+                return pulumiHandlers.execute(app as unknown as CorePulumiApp);
+            });
+
+            const isProduction = app.env.isProduction;
 
             // Register core output as a module available to all the other modules
             const core = app.addModule(CoreOutput);
 
             // Register VPC config module to be available to other modules.
-            const vpcEnabled = app.getParam(projectAppParams?.vpc) ?? isProduction;
+            const vpcEnabled = !!vpcExtensionsConfig ?? isProduction;
+
             app.addModule(VpcConfig, { enabled: vpcEnabled });
 
             const pageBuilder = app.addModule(ApiPageBuilder, {
@@ -254,10 +259,10 @@ export const createApiPulumiApp = (projectAppParams: CreateApiPulumiAppParams = 
             const backgroundTask = app.addModule(ApiBackgroundTask);
             const migration = app.addModule(ApiMigration);
 
-            const domains = app.getParam(projectAppParams.domains);
-            if (domains) {
-                applyCustomDomain(cloudfront, domains);
-            }
+            // const domains = app.getParam(projectAppParams.domains);
+            // if (domains) {
+            //     applyCustomDomain(cloudfront, domains);
+            // }
 
             app.addOutputs({
                 region: aws.config.region,
@@ -298,11 +303,8 @@ export const createApiPulumiApp = (projectAppParams: CreateApiPulumiAppParams = 
                 });
             });
 
-            tagResources({
-                WbyProjectName: getEnvVariableWebinyProjectName(),
-                WbyEnvironment: getEnvVariableWebinyEnv(),
-                WbyEnvironmentVariant: getEnvVariableWebinyVariant()
-            });
+            // Applies internal and user-defined AWS tags.
+            await applyAwsResourceTags("api");
 
             return {
                 fileManager,
