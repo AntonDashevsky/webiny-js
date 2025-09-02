@@ -15,7 +15,6 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
         const project = this.getProjectService.execute();
         const app = restParams.app ? this.getApp.execute(restParams.app) : null;
 
-        console.log("woootwoootwoootwooot");
         // List all packages in `packages` folder.
         const packagesFullList: ListPackagesService.Result = fs
             .readdirSync(project.paths.rootFolder.join("packages").toString())

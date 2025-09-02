@@ -1,6 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { GetApp, GetProject } from "~/abstractions/index.js";
 import { AppModel } from "~/models/index.js";
+import { APP_NAME } from "~/utils/index.js";
 
 export class DefaultGetApp implements GetApp.Interface {
     constructor(private getProject: GetProject.Interface) {}
@@ -11,7 +12,7 @@ export class DefaultGetApp implements GetApp.Interface {
         }
 
         // App name must be one of the following: core, api, admin, or website.
-        const validAppNames = ["core", "api", "admin", "website"];
+        const validAppNames = Object.values(APP_NAME);
         if (!validAppNames.includes(appName)) {
             throw new Error(
                 `Invalid app name "${appName}". Valid app names are: ${validAppNames.join(", ")}.`

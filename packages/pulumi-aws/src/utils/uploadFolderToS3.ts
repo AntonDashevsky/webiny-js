@@ -9,9 +9,9 @@ import { relative } from "path";
 import { crawlDirectory } from "./crawlDirectory";
 import { getPresignedPost } from "./getPresignedPost";
 import { getEnvVariableAwsRegion } from "~/env/awsRegion";
+import crypto from "crypto";
 
 function getFileChecksum(file: string): Promise<string> {
-    const crypto = require("crypto");
     const hash = crypto.createHash("md5");
 
     return new Promise(resolve => {

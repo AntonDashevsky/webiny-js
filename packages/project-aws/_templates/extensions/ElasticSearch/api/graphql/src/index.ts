@@ -19,7 +19,6 @@ import dynamoDbPlugins from "@webiny/db-dynamodb/plugins";
 import elasticsearchClientContext, { createElasticsearchClient } from "@webiny/api-elasticsearch";
 import { createFileManagerContext, createFileManagerGraphQL } from "@webiny/api-file-manager";
 import { createFileManagerStorageOperations } from "@webiny/api-file-manager-ddb";
-import logsPlugins from "@webiny/handler-logs";
 import fileManagerS3, { createAssetDelivery } from "@webiny/api-file-manager-s3";
 import { createFormBuilder } from "@webiny/api-form-builder";
 import { createFormBuilderStorageOperations } from "@webiny/api-form-builder-so-ddb-es";
@@ -39,8 +38,6 @@ import { createWebsockets } from "@webiny/api-websockets";
 import { createRecordLocking } from "@webiny/api-record-locking";
 import { createLogger } from "@webiny/api-log";
 
-// Imports plugins created via scaffolding utilities.
-import scaffoldsPlugins from "./plugins/scaffolds";
 import { extensions } from "./extensions";
 
 const debug = process.env.DEBUG === "true";
@@ -56,7 +53,6 @@ export const handler = createHandler({
         createWcpContext(),
         createWcpGraphQL(),
         dynamoDbPlugins(),
-        logsPlugins(),
         graphqlPlugins({ debug }),
         elasticsearchClientContext(elasticsearchClient),
         dbPlugins({
@@ -121,7 +117,6 @@ export const handler = createHandler({
         createAcoHcmsContext(),
         createHcmsTasks(),
         createAuditLogs(),
-        scaffoldsPlugins(),
         extensions()
     ],
     debug

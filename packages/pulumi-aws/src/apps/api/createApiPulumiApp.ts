@@ -327,14 +327,14 @@ export const createApiPulumiApp = () => {
                     }
                 });
             });
-            /**
-             * We need to attach the Sync System if it exists.
-             */
-            attachSyncSystem({
-                app,
-                core,
-                env: app.params.run.env
-            });
+            // /**
+            //  * We need to attach the Sync System if it exists.
+            //  */
+            // await attachSyncSystem({
+            //     app,
+            //     core,
+            //     env: app.params.run.env
+            // });
 
             // Applies internal and user-defined AWS tags.
             await applyAwsResourceTags("api");

@@ -1,4 +1,4 @@
-// This file is automatically updated via scaffolding utilities.
+// This file is automatically updated by Webiny.
 // Learn more about extensions: https://webiny.link/extensions
 import React from "react";
 
