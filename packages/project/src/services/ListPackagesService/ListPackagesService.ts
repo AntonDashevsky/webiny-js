@@ -43,7 +43,6 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
                 ignore: ["**/node_modules/**", "**/dist/**"]
             });
 
-            console.log("webinyConfigPaths", webinyConfigPaths);
             const appPackages = webinyConfigPaths.map(webinyConfigPath => {
                 const packageFolderPath = path.dirname(webinyConfigPath);
                 const packageName = path.basename(packageFolderPath);

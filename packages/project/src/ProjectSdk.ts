@@ -66,6 +66,11 @@ export class ProjectSdk {
         return this.container.resolve(GetApp).execute(appName);
     }
 
+    // Here we have two stack output methods. Both do the same thing, but one is returning
+    // raw Pulumi output, while the other is returning a JSON, which is far more suitable
+    // in multiple places throughout the codebase (like Pulumi code, deploy hooks, ...).
+    // TODO: we could probably merge these two methods into one, and have an option to return
+    // TODO: raw or JSON output. For now, just writing it here.
     async getAppOutput(params: GetAppOutput.Params) {
         return this.container.resolve(GetAppOutput).execute(params);
     }

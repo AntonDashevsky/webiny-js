@@ -7,7 +7,7 @@ export const Extension = () => {
     return (
         <>
             devr
-            {/*<AddLogo logo={<img src={logoPng} height={40} width={40} />} />*/}
+            <AddLogo logo={<img src={logoPng} height={40} width={40} />} />
         </>
     );
 };
