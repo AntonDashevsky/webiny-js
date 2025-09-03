@@ -22,7 +22,9 @@ interface ExpectedStackExport {
     };
 }
 
-export class DefaultListAppLambdaFunctionsService implements ListAppLambdaFunctionsService.Interface {
+export class DefaultListAppLambdaFunctionsService
+    implements ListAppLambdaFunctionsService.Interface
+{
     constructor(
         private pulumiGetStackExportService: PulumiGetStackExportService.Interface,
         private loggerService: LoggerService.Interface
@@ -56,10 +58,11 @@ export class DefaultListAppLambdaFunctionsService implements ListAppLambdaFuncti
                 return !isAuthorizerFunction;
             });
 
-        let functionsList = allFunctionsList
-            // This filter ensures that Lambda@Edge functions are excluded. It also ensures a
-            // functions is filtered out if a `pulumi refresh` was called, because, when called,
-            // the paths in Pulumi state file disappear, and we can't determine the path to the handler.
+        let filteredFunctionsList = allFunctionsList
+            // First, this filter ensures that Lambda@Edge functions are excluded. Second,
+            // it also ensures a function is filtered out if a `pulumi refresh` was called.
+            // This is because, when called, the paths in Pulumi state file disappear, and
+            // we can't determine the path to the handler. Probably needs revisiting. 🤦‍♂️
             .filter(resource => {
                 return "." in resource.inputs.code.assets;
             })
@@ -73,13 +76,13 @@ export class DefaultListAppLambdaFunctionsService implements ListAppLambdaFuncti
                 };
             });
 
-        if (params.whitelist) {
+        if (params.whitelist?.length) {
             const functionNamesToMatch = Array.isArray(params.whitelist)
                 ? params.whitelist
                 : [params.whitelist];
 
             // `functionNamesToWatch` is an array of glob patterns, which denote which functions to watch.
-            functionsList = functionsList.filter(fn => {
+            filteredFunctionsList = filteredFunctionsList.filter(fn => {
                 return functionNamesToMatch.some(pattern => {
                     if (pattern.includes("*")) {
                         return minimatch(fn.name, pattern);
@@ -88,11 +91,19 @@ export class DefaultListAppLambdaFunctionsService implements ListAppLambdaFuncti
                     return fn.name.includes(pattern);
                 });
             });
+        } else {
+            // We've hardcoded this filtering here just because of lack of time.
+            // With v5, these "presets" were located within `webiny.application.ts` files.
+            if (app.name === "api") {
+                filteredFunctionsList = filteredFunctionsList.filter(fn => {
+                    return fn.name.includes("graphql");
+                });
+            }
         }
 
         return {
-            list: functionsList,
-            meta: { count: functionsList.length, totalCount: allFunctionsList.length }
+            list: filteredFunctionsList,
+            meta: { count: filteredFunctionsList.length, totalCount: allFunctionsList.length }
         };
     }
 }

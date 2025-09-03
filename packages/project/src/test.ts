@@ -4,7 +4,8 @@ const projectSdk = await ProjectSdk.init();
 
 process.env.AWS_REGION = "eu-central-1";
 
-const rez = await projectSdk.buildApp({
-    app: "core",
-    env: "prod"
+const rez = await projectSdk.watch({
+    app: "api",
+    env: "dev",
+    package: ["graphql"]
 });

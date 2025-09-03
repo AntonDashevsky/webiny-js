@@ -5,6 +5,7 @@ import { PackagesWatcher } from "~/features/Watch/watchers/PackagesWatcher.js";
 
 export interface IWatchNoAppParams {
     package?: string | string[];
+    function?: string | string[];
 }
 
 export interface IWatchWithAppParams extends IWatchNoAppParams {

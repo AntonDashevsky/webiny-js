@@ -3,6 +3,7 @@ import { GetApp, GetProjectService, ListPackagesService } from "~/abstractions/i
 import fs from "fs";
 import path from "path";
 import glob from "fast-glob";
+import minimatch from "minimatch";
 
 export class DefaultListPackagesService implements ListPackagesService.Interface {
     constructor(
@@ -67,12 +68,27 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
                 .flat()
                 .map(whitelistedPkgName => whitelistedPkgName.trim())
                 .map(whitelistedPkgName => {
-                    return packagesFullList.find(pkg => pkg.name === whitelistedPkgName);
+                    return packagesFullList.filter(pkg => {
+                        if (whitelistedPkgName.includes("*")) {
+                            return minimatch(pkg.name, whitelistedPkgName);
+                        }
+
+                        return pkg.name.includes(whitelistedPkgName);
+                    });
                 })
+                .flat()
                 .filter(Boolean) as ListPackagesService.Result;
         }
 
         if (app) {
+            // We've hardcoded this filtering here just because of lack of time.
+            // With v5, these "presets" were located within `webiny.application.ts` files.
+            if (app.name === "api") {
+                return packagesFullList.filter(pkg => {
+                    return pkg.name === "@api/graphql";
+                });
+            }
+
             return packagesFullList.filter(pkg => {
                 return pkg.name.startsWith(`@${app.name}`);
             });

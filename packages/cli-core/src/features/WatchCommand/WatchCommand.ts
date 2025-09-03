@@ -70,6 +70,41 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                     alias: "p",
                     description: `One or more packages that will be watched for code changes`,
                     type: "string"
+                },
+                {
+                    name: "function",
+                    alias: "f",
+                    description:
+                        "One or more functions that will invoked locally (used with local AWS Lambda development)",
+                    type: "string"
+                },
+                {
+                    name: "inspect",
+                    alias: "i",
+                    description:
+                        "[EXPERIMENTAL] Enable Node debugger (used with local AWS Lambda development)",
+                    type: "string"
+                },
+                {
+                    name: "increase-timeout",
+                    default: 120,
+                    description:
+                        "Increase AWS Lambda function timeout (passed as number of seconds, used with local AWS Lambda development)",
+                    type: "number"
+                },
+                {
+                    name: "increase-handshake-timeout",
+                    default: 5,
+                    description:
+                        "Increase timeout for the initial handshake between a single AWS Lambda invocation and local code execution (passed as number of seconds, used with local AWS Lambda development)",
+                    type: "number"
+                },
+                {
+                    name: "allow-production",
+                    default: false,
+                    description:
+                        "Enables running the watch command against environments marked as production environments (not recommended).",
+                    type: "number"
                 }
             ],
             handler: async (params: IWatchCommandParams) => {
@@ -101,7 +136,10 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                     ui.info(`Watching %s package...`, firstProcess.pkg.name);
 
                     await firstProcess.run();
-                } else if (watchProcesses.length > 1) {
+                    return;
+                }
+
+                if (watchProcesses.length > 1) {
                     ui.info(
                         `Watching ${watchProcesses.length} packages. Output will be displayed below:\n`
                     );
@@ -122,11 +160,12 @@ export class WatchCommand implements Command.Interface<IWatchCommandParams> {
                     });
 
                     await Promise.all(watchProcesses.run());
-                } else {
-                    ui.warning(
-                        `No watch processes were started. Please ensure that you have specified valid "app" or "package" parameters.`
-                    );
+                    return;
                 }
+
+                ui.warning(
+                    `No watch processes were started. Please ensure that you have specified valid "app" or "package" parameters.`
+                );
             }
         };
     }

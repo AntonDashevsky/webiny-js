@@ -23,6 +23,7 @@ import { WebinyConfigWatcher } from "~/features/Watch/watchers/WebinyConfigWatch
 
 // Do not allow watching "prod" and "production" environments. On the Pulumi CLI side, the command
 // is still in preview mode, so it's definitely not wise to use it on production environments.
+// TODO: modernize this.
 const WATCH_DISABLED_ENVIRONMENTS = ["prod", "production"];
 
 export class DefaultWatch implements Watch.Interface {
@@ -102,11 +103,31 @@ export class DefaultWatch implements Watch.Interface {
             validateProjectConfigService
         });
 
-        const packages = await this.listPackagesService.execute(params);
-        const packagesWatcher = new PackagesWatcher({ packages, params, logger: this.logger });
+        const packagesWhitelist = Array.isArray(params.package)
+            ? params.package
+            : ([params.package].filter(Boolean) as string[]);
 
-        const functionsList = await this.listAppLambdaFunctionsService.execute(app, params);
+        const functionsWhitelist = Array.isArray(params.function)
+            ? params.function
+            : ([params.function].filter(Boolean) as string[]);
 
+        const packagesList = await this.listPackagesService.execute({
+            ...params,
+            whitelist: packagesWhitelist
+        });
+        const packagesWatcher = new PackagesWatcher({
+            packages: packagesList,
+            params,
+            logger: this.logger
+        });
+
+        const functionsList = await this.listAppLambdaFunctionsService.execute(app, {
+            ...params,
+            whitelist: functionsWhitelist
+        });
+
+        console.log("packagesList", packagesList);
+        console.log("functionsList", functionsList);
         const deployCommand = `yarn webiny deploy ${app.name} --env ${params.env}`;
         const learnMoreLink = "https://webiny.link/local-aws-lambda-development";
         const troubleshootingLink = learnMoreLink + "#troubleshooting";

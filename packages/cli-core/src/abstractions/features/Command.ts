@@ -25,7 +25,7 @@ export interface ICommandDefinition<TCommandParams> {
     params?: ICommandParamDefinition<TCommandParams>[];
     options?: ICommandOptionDefinition<TCommandParams>[];
     examples?: string[];
-    handler: (params: TCommandParams) => Promise<void>;
+    handler: (params: TCommandParams) => void | Promise<void>;
 }
 
 export interface ICommand<TCommandParams> {
