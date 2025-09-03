@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { GraphQLInputMapper } from "./GraphQLInputMapper.js";
 import { Operation, type FilterDTO } from "./domain/index.js";
 

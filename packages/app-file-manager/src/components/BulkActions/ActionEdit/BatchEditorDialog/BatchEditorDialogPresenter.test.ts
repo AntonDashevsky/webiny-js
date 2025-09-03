@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter.js";
 import {
     type BatchDTO,
@@ -89,7 +89,7 @@ describe("BatchEditorDialogPresenter", () => {
     let presenter: BatchEditorDialogPresenter;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         presenter = new BatchEditorDialogPresenter();
     });
 
@@ -351,8 +351,8 @@ describe("BatchEditorDialogPresenter", () => {
     it("should perform validation and call provided callbacks `onApply`", () => {
         presenter.load(batch, fields);
 
-        const onSuccess = jest.fn();
-        const onError = jest.fn();
+        const onSuccess = vi.fn();
+        const onError = vi.fn();
 
         presenter.setBatch({
             operations: [

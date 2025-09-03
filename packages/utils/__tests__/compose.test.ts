@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { AsyncProcessor, composeAsync, SyncProcessor, composeSync } from "~/compose";
 
 interface ValueFnParams {

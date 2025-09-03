@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { TaskEventValidation } from "~/runner/TaskEventValidation";
 import { ITaskEvent } from "~/handler/types";
 import WebinyError from "@webiny/error";

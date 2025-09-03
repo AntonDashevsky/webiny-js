@@ -1,5 +1,5 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { GetFolderModel } from "./GetFolderModel.js";
-import { jest } from "@jest/globals";
 import type { IGetFolderModelGateway } from "~/features/folders/getFolderModel/IGetFolderModelGateway";
 import type { FolderModelDto } from "~/features";
 
@@ -42,17 +42,19 @@ describe("GetFolderModel", () => {
     const gateway = new GetFolderModelMockGateway();
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should be able to get the folders model", async () => {
+        const spy = vi.spyOn(gateway, "execute");
+
         const { useCase, repository } = GetFolderModel.getInstance(gateway);
 
         expect(repository.getModel()).toBeUndefined();
 
         await useCase.execute();
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(repository.getModel()).toEqual(mockFolderModel);
     });
 
@@ -65,13 +67,15 @@ describe("GetFolderModel", () => {
 
         const errorGateway = new GetFolderModelErrorMockGateway();
 
+        const spy = vi.spyOn(errorGateway, "execute");
+
         const { useCase, repository } = GetFolderModel.getInstance(errorGateway);
 
         expect(repository.getModel()).toBeUndefined();
 
         await expect(useCase.execute()).rejects.toThrow("Gateway error");
 
-        expect(errorGateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(repository.getModel()).toBeUndefined();
     });
 

@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, test, expect } from "vitest";
 import { LexicalNode } from "lexical";
 import {
     $isHeadingNode,
@@ -14,7 +12,6 @@ import {
 } from "@webiny/lexical-nodes";
 import { stateMock } from "./mocks/stateMocks";
 import { createLexicalStateTransformer } from "~/createLexicalStateTransformer";
-import { jest } from "@jest/globals";
 
 describe("Lexical State Transformer", () => {
     it("should flatten lexical editor state to an array of objects with HTML", () => {

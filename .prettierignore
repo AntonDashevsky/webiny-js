@@ -3,7 +3,6 @@
 .verdaccio/
 **/build/
 **/dist/
-**/*.d.ts
 **/.out/
 **/.pulumi/
 .webiny/**

@@ -1,5 +1,5 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { CallbackParams, Worker } from "~/components/BulkActions/Worker";
-import { jest } from "@jest/globals";
 
 interface Item {
     id: number;
@@ -28,7 +28,7 @@ describe("Worker", () => {
 
     it("should process items using the provided callback", () => {
         const items = createMockItems();
-        const mockCallback = jest.fn();
+        const mockCallback = vi.fn();
         worker.items = items;
 
         worker.process(mockCallback);
@@ -42,7 +42,7 @@ describe("Worker", () => {
         const chunkSize = 5;
         worker.items = items;
 
-        const callbackFn = jest.fn();
+        const callbackFn = vi.fn();
 
         const mockCallback = async ({
             item,

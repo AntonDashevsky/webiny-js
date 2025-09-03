@@ -1,4 +1,5 @@
-import { mediaToContainer } from "../mediaToContainer.js";
+import { describe, it, expect } from "vitest";
+import { mediaToContainer } from "./mediaToContainer.js";
 
 describe("mediaToContainer function should correctly transform @media into @container queries", () => {
     it("should correctly transform max-width", async () => {

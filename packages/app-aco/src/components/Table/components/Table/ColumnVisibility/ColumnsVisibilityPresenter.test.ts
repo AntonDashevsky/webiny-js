@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { ColumnsVisibilityPresenter } from "./ColumnsVisibilityPresenter.js";
 import { type IColumnsVisibilityGateway } from "../gateways/index.js";
 import { type ColumnConfig } from "~/config/table/Column.js";
@@ -5,11 +6,10 @@ import { Column, ColumnsPresenter, ColumnsRepository } from "../Columns/index.js
 import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository.js";
 import { ColumnsVisibilityDecorator } from "./ColumnsVisibilityDecorator.js";
 import { ColumnsVisibilityUpdater } from "~/components/Table/components/Table/ColumnVisibility/ColumnsVisibilityUpdater.js";
-import { jest } from "@jest/globals";
 
 const defaultGateway: IColumnsVisibilityGateway = {
-    get: jest.fn<IColumnsVisibilityGateway["get"]>(),
-    set: jest.fn<IColumnsVisibilityGateway["set"]>()
+    get: vi.fn<IColumnsVisibilityGateway["get"]>(),
+    set: vi.fn<IColumnsVisibilityGateway["set"]>()
 };
 
 const createMockGateway = ({
@@ -59,7 +59,7 @@ describe("ColumnsVisibilityPresenter", () => {
     ];
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should return the columns visibility from the column config", async () => {
@@ -90,7 +90,7 @@ describe("ColumnsVisibilityPresenter", () => {
     it("should return the columns visibility from both the column configs and the gateway", async () => {
         // Let's create a mocked gateway
         const gateway = createMockGateway({
-            get: jest
+            get: vi
                 .fn<IColumnsVisibilityGateway["get"]>()
                 .mockImplementation(async () => ({ title: false }))
         });
@@ -145,7 +145,7 @@ describe("ColumnsVisibilityPresenter", () => {
         });
 
         // Let's update the visibility
-        const updater = jest
+        const updater = vi
             .fn<any>()
             .mockImplementation((current: any) => ({ ...current, title: false }));
 

@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { TrashBinPresenter } from "./TrashBinPresenter.js";
 import {
     LoadingRepository,
@@ -29,7 +30,6 @@ import {
     TrashBinItemsRepository,
     TrashBinItemsRepositoryWithLoading
 } from "~/Domain/Repositories/TrashBinItems/index.js";
-import { jest } from "@jest/globals";
 
 interface Item {
     id: string;
@@ -142,7 +142,7 @@ describe("TrashBin", () => {
     };
 
     const listGateway = createBinListGateway({
-        execute: jest
+        execute: vi
             .fn<(params: TrashBinListQueryVariables) => Promise<[Item[], TrashBinMetaResponse]>>()
             .mockImplementation(() => {
                 return Promise.resolve([
@@ -153,19 +153,19 @@ describe("TrashBin", () => {
     });
 
     const deleteItemGateway = createBinDeleteItemGateway({
-        execute: jest.fn<(id: string) => Promise<boolean>>().mockImplementation(() => {
+        execute: vi.fn<(id: string) => Promise<boolean>>().mockImplementation(() => {
             return Promise.resolve(true);
         })
     });
 
     const restoreItemGateway = createBinRestoreItemGateway({
-        execute: jest.fn<(id: string) => Promise<Item>>().mockImplementation(() => {
+        execute: vi.fn<(id: string) => Promise<Item>>().mockImplementation(() => {
             return Promise.resolve(item1);
         })
     });
 
     const bulkActionGateway = createBinBulkActionsGateway({
-        execute: jest
+        execute: vi
             .fn<
                 (params: TrashBinBulkActionsGatewayParams) => Promise<TrashBinBulkActionsResponse>
             >()
@@ -222,7 +222,7 @@ describe("TrashBin", () => {
     };
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should create a presenter and list trash bin entries from the gateway", async () => {
@@ -280,7 +280,7 @@ describe("TrashBin", () => {
 
     it("should list more items from the gateway", async () => {
         const listGateway = createBinListGateway({
-            execute: jest
+            execute: vi
                 .fn<
                     (params: TrashBinListQueryVariables) => Promise<[Item[], TrashBinMetaResponse]>
                 >()
@@ -365,7 +365,7 @@ describe("TrashBin", () => {
 
     it("should be able to sort items", async () => {
         const sortListGateway = createBinListGateway({
-            execute: jest
+            execute: vi
                 .fn<
                     (params: TrashBinListQueryVariables) => Promise<[Item[], TrashBinMetaResponse]>
                 >()
@@ -439,7 +439,7 @@ describe("TrashBin", () => {
 
     it("should be able to search items", async () => {
         const searchItemsGateway = createBinListGateway({
-            execute: jest
+            execute: vi
                 .fn<
                     (params: TrashBinListQueryVariables) => Promise<[Item[], TrashBinMetaResponse]>
                 >()
@@ -900,7 +900,7 @@ describe("TrashBin", () => {
         {
             // let's test the functionality by listing items that span multiple pages.
             const listGateway = createBinListGateway({
-                execute: jest
+                execute: vi
                     .fn<
                         (
                             params: TrashBinListQueryVariables
@@ -962,7 +962,7 @@ describe("TrashBin", () => {
         {
             // let's test the functionality by listing items that span only one page.
             const listGateway = createBinListGateway({
-                execute: jest
+                execute: vi
                     .fn<
                         (
                             params: TrashBinListQueryVariables

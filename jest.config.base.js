@@ -1,3 +1,4 @@
+// TO BE DELETED!
 import { basename, join, dirname } from "path";
 import fs from "fs";
 import merge from "deepmerge";
@@ -7,7 +8,7 @@ import { createJsWithTsEsmPreset } from "ts-jest";
 export default async ({ path }, presets = []) => {
     const name = basename(path);
 
-    const { PackageJson } = await import("@webiny/project/PackageJson.js");
+    const { PackageJson } = await import("@webiny/project-utils/utils/PackageJson.js");
     const cliPackage = await PackageJson.fromPackage("@webiny/cli");
     const version = cliPackage.getJson().version;
 

@@ -1,7 +1,7 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { GetFolderHierarchy } from "./GetFolderHierarchy.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory.js";
-import { jest } from "@jest/globals";
 import {
     GetFolderHierarchyGatewayResponse,
     IGetFolderHierarchyGateway
@@ -16,7 +16,7 @@ describe("GetFolderHierarchy", () => {
     beforeEach(() => {
         foldersCache.clear();
         loadedFoldersCache.clear();
-        jest.resetAllMocks();
+        vi.resetAllMocks();
     });
 
     class GetFolderHierarchyMockGateway implements IGetFolderHierarchyGateway {
@@ -75,14 +75,16 @@ describe("GetFolderHierarchy", () => {
             ]
         });
 
+        const spy = vi.spyOn(gateway, "execute");
+
         const getFolderHierarchy = GetFolderHierarchy.getInstance(type, gateway);
 
         expect(foldersCache.hasItems()).toBeFalse();
         expect(loadedFoldersCache.hasItems()).toBeFalse();
         await getFolderHierarchy.useCase.execute({ id: "folder-0" });
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
-        expect(gateway.execute).toHaveBeenCalledWith({ type, id: "folder-0" });
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledWith({ type, id: "folder-0" });
 
         expect(foldersCache.hasItems()).toBeTrue();
         expect(foldersCache.count()).toEqual(5);
@@ -117,14 +119,16 @@ describe("GetFolderHierarchy", () => {
             ]
         });
 
+        const spy = vi.spyOn(gateway, "execute");
+
         const getFolderHierarchy = GetFolderHierarchy.getInstance(type, gateway);
 
         expect(foldersCache.hasItems()).toBeFalse();
         expect(loadedFoldersCache.hasItems()).toBeFalse();
         await getFolderHierarchy.useCase.execute({ id: "folder-0" });
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
-        expect(gateway.execute).toHaveBeenCalledWith({ type, id: "folder-0" });
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledWith({ type, id: "folder-0" });
 
         expect(foldersCache.hasItems()).toBeTrue();
         expect(foldersCache.count()).toEqual(2);
@@ -133,19 +137,16 @@ describe("GetFolderHierarchy", () => {
     });
 
     it("should handle gateway errors gracefully", async () => {
-        // const errorGateway = {
-        //     execute: jest.fn().mockRejectedValue(new Error("Gateway error"))
-        // };
-
         class GetFolderHierarchyErrorMockGateway implements IGetFolderHierarchyGateway {
             async execute(): Promise<GetFolderHierarchyGatewayResponse> {
                 throw new Error("Gateway error");
             }
         }
 
-        const errorGateway = new GetFolderHierarchyErrorMockGateway();
+        const gateway = new GetFolderHierarchyErrorMockGateway();
+        const spy = vi.spyOn(gateway, "execute");
 
-        const getFolderHierarchy = GetFolderHierarchy.getInstance(type, errorGateway);
+        const getFolderHierarchy = GetFolderHierarchy.getInstance(type, gateway);
 
         expect(foldersCache.hasItems()).toBeFalse();
 
@@ -153,7 +154,7 @@ describe("GetFolderHierarchy", () => {
             "Gateway error"
         );
 
-        expect(errorGateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeFalse();
     });
 
@@ -229,13 +230,16 @@ describe("GetFolderHierarchy", () => {
             ]
         });
 
+        const spyAbc = vi.spyOn(gatewayAbc, "execute");
+        const spyXzy = vi.spyOn(gatewayXyz, "execute");
+
         const getFolderHierarchyAbc = GetFolderHierarchy.getInstance(type, gatewayAbc);
 
         expect(foldersCache.hasItems()).toBeFalse();
 
         await getFolderHierarchyAbc.useCase.execute({ id: "folder-0" });
 
-        expect(gatewayAbc.execute).toHaveBeenCalledTimes(1);
+        expect(spyAbc).toHaveBeenCalledTimes(1);
         expect(foldersCache.count()).toEqual(5);
         expect(loadedFoldersCache.count()).toEqual(3);
 
@@ -248,7 +252,7 @@ describe("GetFolderHierarchy", () => {
 
         await getFolderHierarchyXyz.useCase.execute({ id: "folder-0" });
 
-        expect(gatewayXyz.execute).toHaveBeenCalledTimes(1);
+        expect(spyXzy).toHaveBeenCalledTimes(1);
         expect(foldersCacheXyz.count()).toEqual(3);
         expect(loadedFoldersCacheXyz.count()).toEqual(2);
     });

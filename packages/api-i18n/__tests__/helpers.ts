@@ -8,27 +8,29 @@ import {
 } from "./graphql/locales";
 import { GET_VERSION, INSTALL } from "./graphql/system";
 
-export const apiCallsFactory = invoke => {
+type Variables = Record<string, any>;
+
+export const apiCallsFactory = (invoke: Function) => {
     return {
-        async createI18NLocale(variables, fields: string[] = []) {
+        async createI18NLocale(variables: Variables, fields: string[] = []) {
             return invoke({ body: { query: CREATE_LOCALE(fields), variables } });
         },
-        async updateI18NLocale(variables, fields: string[] = []) {
+        async updateI18NLocale(variables: Variables, fields: string[] = []) {
             return invoke({ body: { query: UPDATE_LOCALE(fields), variables } });
         },
-        async deleteI18NLocale(variables) {
+        async deleteI18NLocale(variables: Variables) {
             return invoke({ body: { query: DELETE_LOCALE, variables } });
         },
-        async listI18NLocales(variables = {}) {
+        async listI18NLocales(variables: Variables = {}) {
             return invoke({ body: { query: LIST_LOCALES, variables } });
         },
-        async getI18NLocale(variables) {
+        async getI18NLocale(variables: Variables) {
             return invoke({ body: { query: GET_LOCALE, variables } });
         },
-        async getI18NInformation(variables = {}, rest = {}) {
+        async getI18NInformation(variables: Variables = {}, rest = {}) {
             return invoke({ body: { query: GET_I18N_INFORMATION, variables }, ...rest });
         },
-        async install(variables) {
+        async install(variables: Variables) {
             return invoke({ body: { query: INSTALL, variables } });
         },
         async getVersion() {

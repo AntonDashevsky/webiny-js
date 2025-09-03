@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { PathsParser } from "./PathsParser.js";
 
 describe("PathsParser", () => {

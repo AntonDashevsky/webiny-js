@@ -1,12 +1,9 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, expect } from "vitest";
 import { LexicalNode } from "lexical";
 import { $isHeadingNode } from "@webiny/lexical-nodes";
 import { createMocks } from "./mocks/htmlMocks";
 import { createHtmlToLexicalParser } from "~/index";
 import { toBrowserDom, toJsDom } from "./utils/toDom";
-import { jest } from "@jest/globals";
 
 const defaultParser = createHtmlToLexicalParser();
 

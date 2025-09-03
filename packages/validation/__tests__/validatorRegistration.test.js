@@ -1,3 +1,4 @@
+import { describe, test, expect } from "vitest";
 import { validation, ValidationError } from "../src";
 
 validation.setValidator("gender", value => {

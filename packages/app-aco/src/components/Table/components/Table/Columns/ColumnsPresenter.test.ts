@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { ColumnsPresenter } from "./ColumnsPresenter.js";
 import { Column } from "./Column.js";
 import { type ColumnConfig } from "~/config/table/Column.js";
@@ -33,7 +34,7 @@ describe("ColumnsPresenter", () => {
     let presenter: ColumnsPresenter;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         const repository = new ColumnsRepository(
             columnConfigs.map(config => Column.createFromConfig(config))
         );

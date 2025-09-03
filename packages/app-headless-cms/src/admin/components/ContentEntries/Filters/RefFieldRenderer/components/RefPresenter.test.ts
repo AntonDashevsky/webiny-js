@@ -1,11 +1,11 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { RefPresenter } from "./RefPresenter.js";
 import { type EntriesGatewayInterface } from "../adapters/index.js";
 import { type EntryReference, EntryRepository } from "../domain/index.js";
 
 const mockGateway: EntriesGatewayInterface = {
-    list: jest.fn() as EntriesGatewayInterface["list"],
-    get: jest.fn() as EntriesGatewayInterface["get"]
+    list: vi.fn() as EntriesGatewayInterface["list"],
+    get: vi.fn() as EntriesGatewayInterface["get"]
 };
 
 const createMockGateway = ({
@@ -48,10 +48,10 @@ describe("RefPresenter", () => {
     };
 
     const gateway = createMockGateway({
-        list: jest.fn().mockImplementation(() => {
+        list: vi.fn().mockImplementation(() => {
             return Promise.resolve([entry1, entry2, entry3]);
         }) as EntriesGatewayInterface["list"],
-        get: jest.fn().mockImplementation(() => {
+        get: vi.fn().mockImplementation(() => {
             return Promise.resolve(entry1);
         }) as EntriesGatewayInterface["get"]
     });
@@ -59,7 +59,7 @@ describe("RefPresenter", () => {
     let presenter: RefPresenter;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         const repository = new EntryRepository(gateway, [modelId]);
         presenter = new RefPresenter(repository);
     });

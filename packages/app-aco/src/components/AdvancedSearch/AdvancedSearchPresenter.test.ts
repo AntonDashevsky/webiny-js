@@ -1,3 +1,4 @@
+import { describe, it, vi, expect, beforeEach } from "vitest";
 import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter.js";
 import {
     type FilterDTO,
@@ -7,14 +8,13 @@ import {
     Operation
 } from "./domain/index.js";
 import { type FiltersGatewayInterface } from "./gateways/index.js";
-import { jest } from "@jest/globals";
 
 const mockGateway: FiltersGatewayInterface = {
-    list: jest.fn<FiltersGatewayInterface["list"]>(),
-    get: jest.fn<FiltersGatewayInterface["get"]>(),
-    create: jest.fn<FiltersGatewayInterface["create"]>(),
-    update: jest.fn<FiltersGatewayInterface["update"]>(),
-    delete: jest.fn<FiltersGatewayInterface["delete"]>()
+    list: vi.fn<FiltersGatewayInterface["list"]>(),
+    get: vi.fn<FiltersGatewayInterface["get"]>(),
+    create: vi.fn<FiltersGatewayInterface["create"]>(),
+    update: vi.fn<FiltersGatewayInterface["update"]>(),
+    delete: vi.fn<FiltersGatewayInterface["delete"]>()
 };
 
 const createMockGateway = ({
@@ -64,19 +64,19 @@ describe("AdvancedSearchPresenter", () => {
     };
 
     const gateway = createMockGateway({
-        list: jest.fn<FiltersGatewayInterface["list"]>().mockImplementation(() => {
+        list: vi.fn<FiltersGatewayInterface["list"]>().mockImplementation(() => {
             return Promise.resolve([filter1, filter2]);
         }),
-        get: jest.fn<FiltersGatewayInterface["get"]>().mockImplementation(() => {
+        get: vi.fn<FiltersGatewayInterface["get"]>().mockImplementation(() => {
             return Promise.resolve(filter1);
         }),
-        create: jest.fn<FiltersGatewayInterface["create"]>().mockImplementation(() => {
+        create: vi.fn<FiltersGatewayInterface["create"]>().mockImplementation(() => {
             return Promise.resolve(filter1);
         }),
-        update: jest.fn<FiltersGatewayInterface["update"]>().mockImplementation(() => {
+        update: vi.fn<FiltersGatewayInterface["update"]>().mockImplementation(() => {
             return Promise.resolve({ ...filter1, name: "Filter 1 - Edit" });
         }),
-        delete: jest.fn<FiltersGatewayInterface["delete"]>().mockImplementation(() => {
+        delete: vi.fn<FiltersGatewayInterface["delete"]>().mockImplementation(() => {
             return Promise.resolve(true);
         })
     });
@@ -84,7 +84,7 @@ describe("AdvancedSearchPresenter", () => {
     let presenter: AdvancedSearchPresenter;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
 
         const repository = new FilterRepository(gateway, namespace);
         presenter = new AdvancedSearchPresenter(repository);
@@ -668,7 +668,7 @@ describe("AdvancedSearchPresenter", () => {
     it("should be able to handle an empty list - error from the gateway", async () => {
         const message = "Gateway error while listing filters";
         const gateway = createMockGateway({
-            list: jest.fn<FiltersGatewayInterface["list"]>().mockRejectedValue(new Error(message))
+            list: vi.fn<FiltersGatewayInterface["list"]>().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(gateway, namespace);
@@ -695,9 +695,7 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while creating filter";
         const createGateway = createMockGateway({
             ...gateway,
-            create: jest
-                .fn<FiltersGatewayInterface["create"]>()
-                .mockRejectedValue(new Error(message))
+            create: vi.fn<FiltersGatewayInterface["create"]>().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(createGateway, namespace);
@@ -740,9 +738,7 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while updating filter";
         const updateGateway = createMockGateway({
             ...gateway,
-            update: jest
-                .fn<FiltersGatewayInterface["update"]>()
-                .mockRejectedValue(new Error(message))
+            update: vi.fn<FiltersGatewayInterface["update"]>().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(updateGateway, namespace);
@@ -771,9 +767,7 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while deleting filter";
         const updateGateway = createMockGateway({
             ...gateway,
-            delete: jest
-                .fn<FiltersGatewayInterface["delete"]>()
-                .mockRejectedValue(new Error(message))
+            delete: vi.fn<FiltersGatewayInterface["delete"]>().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(updateGateway, namespace);

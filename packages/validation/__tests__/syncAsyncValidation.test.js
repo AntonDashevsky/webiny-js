@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { validation, ValidationError } from "../src";
 
 describe("async/sync validation test", () => {

@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { TaskRunner } from "~/runner";
 import { createLiveContextFactory } from "~tests/live";
 import { taskDefinition } from "~tests/runner/taskDefinition";

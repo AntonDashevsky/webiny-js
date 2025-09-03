@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { IconPickerPresenter } from "./IconPickerPresenter.js";
 import { IconRepository } from "./IconRepository.js";
 import { type Icon } from "./types.js";

@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { CreateFolder } from "./CreateFolder.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import type { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto";
@@ -25,6 +26,7 @@ describe("CreateFolder", () => {
     });
 
     it("should be able to create a new folder", async () => {
+        const spy = vi.spyOn(gateway, "execute");
         const createFolder = CreateFolder.getInstance(type, gateway);
 
         expect(foldersCache.hasItems()).toBeFalse();
@@ -37,7 +39,7 @@ describe("CreateFolder", () => {
             type
         });
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         expect(foldersCache.hasItems()).toBeTrue();
 
         const item = foldersCache.getItem(folder => folder.slug === "new-folder");

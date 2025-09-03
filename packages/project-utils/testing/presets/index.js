@@ -5,7 +5,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { PackageJson } from "../../utils/PackageJson.js";
 
-const getAllPackages = targetKeywords => {
+const getAllPackages = (targetKeywords) => {
     const { storage = "ddb" } = yargs(hideBin(process.argv));
 
     if (!storage) {

@@ -1,3 +1,4 @@
+import { describe, test, it, expect } from "vitest";
 import { getWebinyVersionHeaders } from "~/index";
 import { WEBINY_VERSION_HEADER } from "~/headers";
 

@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import prettier from "prettier";
 import { PathsParser } from "./PathsParser.js";
 import { SelectionFormatter } from "./SelectionFormatter.js";

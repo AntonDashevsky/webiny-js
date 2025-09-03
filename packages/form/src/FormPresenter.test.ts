@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, vi } from "vitest";
 import { validation } from "@webiny/validation";
 import { FormPresenter } from "~/FormPresenter.js";
 import { FormField } from "~/FormField.js";
@@ -26,8 +26,8 @@ describe("FormPresenter", () => {
 
     it("should register a field", async () => {
         const presenter = new FormPresenter();
-        const beforeChangeSpy = jest.fn();
-        const afterChangeSpy = jest.fn();
+        const beforeChangeSpy = vi.fn();
+        const afterChangeSpy = vi.fn();
 
         presenter.init({
             data: {}
@@ -202,7 +202,7 @@ describe("FormPresenter", () => {
     });
 
     it("should run form onChange callback", async () => {
-        const onChangeSpy = jest.fn();
+        const onChangeSpy = vi.fn();
         const presenter = new FormPresenter();
 
         presenter.init({
@@ -226,7 +226,7 @@ describe("FormPresenter", () => {
     });
 
     it("should run form onInvalid callback", async () => {
-        const onInvalidSpy = jest.fn();
+        const onInvalidSpy = vi.fn();
         const presenter = new FormPresenter();
 
         presenter.init({

@@ -1,9 +1,9 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { UpdateFolder } from "./UpdateFolder.js";
 import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
 import { Folder } from "../Folder.js";
 import { type FolderPermission } from "@webiny/shared-aco/flp/flp.types.js";
 import { ROOT_FOLDER } from "~/constants.js";
-import { jest } from "@jest/globals";
 import type { IUpdateFolderGateway } from "~/features/folders/updateFolder/IUpdateFolderGateway";
 import type { FolderGqlDto } from "~/features/folders/updateFolder/FolderGqlDto";
 
@@ -26,7 +26,7 @@ describe("UpdateFolder", () => {
     const foldersCache = folderCacheFactory.getCache(type);
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         foldersCache.clear();
         foldersCache.addItems([
             Folder.create({
@@ -50,6 +50,8 @@ describe("UpdateFolder", () => {
             type
         });
 
+        const spy = vi.spyOn(gateway, "execute");
+
         const updateFolder = UpdateFolder.getInstance(type, gateway);
 
         expect(foldersCache.hasItems()).toBeTrue();
@@ -66,7 +68,7 @@ describe("UpdateFolder", () => {
             type
         });
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         const updatedItem = foldersCache.getItem(folder => folder.id === "any-folder-id");
 
         expect(updatedItem).toBeDefined();
@@ -79,6 +81,7 @@ describe("UpdateFolder", () => {
 
     it("should not update a folder if id is missing", async () => {
         const gateway = new UpdateFolderMockGateway(null);
+        const spy = vi.spyOn(gateway, "execute");
 
         const updateFolder = UpdateFolder.getInstance(type, gateway);
 
@@ -91,7 +94,7 @@ describe("UpdateFolder", () => {
             type
         });
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
         const updatedItem = foldersCache.getItem(folder => folder.id === "any-folder-id");
 
         expect(updatedItem).toBeDefined();
@@ -423,6 +426,7 @@ describe("UpdateFolder", () => {
         }
 
         const gateway = new UpdateFolderErrorMockGateway();
+        const spy = vi.spyOn(gateway, "execute");
 
         const updateFolder = UpdateFolder.getInstance(type, gateway);
 
@@ -437,6 +441,6 @@ describe("UpdateFolder", () => {
             })
         ).rejects.toThrow("Gateway error");
 
-        expect(gateway.execute).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledTimes(1);
     });
 });

@@ -1,3 +1,4 @@
+import { describe, test, expect } from "vitest";
 import useGqlHandler from "./useGqlHandler";
 
 describe("getI18NInformation Test", () => {
@@ -47,7 +48,7 @@ describe("getI18NInformation Test", () => {
             }
         });
 
-        [response] = await getI18NInformation(null, {
+        [response] = await getI18NInformation({}, {
             headers: {
                 "accept-language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6"
             }
@@ -73,7 +74,7 @@ describe("getI18NInformation Test", () => {
         });
 
         // We are also testing "not-all-lower-case" scenario.
-        [response] = await getI18NInformation(null, {
+        [response] = await getI18NInformation({}, {
             headers: {
                 "Accept-Language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6",
                 "X-I18N-LOCALE": "default:en-US;content:en-GB"
@@ -99,7 +100,7 @@ describe("getI18NInformation Test", () => {
             }
         });
 
-        [response] = await getI18NInformation(null, {
+        [response] = await getI18NInformation({}, {
             headers: {
                 "accept-language": "en-GB,en;q=0.9,hr-HR;q=0.8,hr;q=0.7,en-US;q=0.6",
                 "x-i18n-locale": "default:it-IT;content:ru"
