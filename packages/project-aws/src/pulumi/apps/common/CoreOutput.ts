@@ -8,10 +8,6 @@ export interface ICoreOutput {
     region: string;
     dynamoDbTable: string;
     iotAuthorizerName: string;
-    apwSchedulerEventRule: string | undefined;
-    apwSchedulerEventTargetId: string | undefined;
-    apwSchedulerExecuteAction: string | undefined;
-    apwSchedulerScheduleAction: string | undefined;
     cognitoUserPoolArn: string;
     cognitoAppClientId: string;
     cognitoUserPoolId: string;

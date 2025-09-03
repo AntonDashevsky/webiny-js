@@ -1,7 +1,6 @@
 import * as aws from "@pulumi/aws";
 import { createPulumiApp, isResourceOfType, type PulumiApp } from "@webiny/pulumi";
 import {
-    ApiApwScheduler,
     ApiBackgroundTask,
     ApiCloudfront,
     ApiFileManager,
@@ -158,19 +157,6 @@ export const createApiPulumiApp = () => {
 
             app.addModule(VpcConfig, { enabled: vpcEnabled });
 
-            const apwScheduler = app.addModule(ApiApwScheduler, {
-                primaryDynamodbTableArn: core.primaryDynamodbTableArn,
-
-                env: {
-                    COGNITO_REGION: getEnvVariableAwsRegion(),
-                    COGNITO_USER_POOL_ID: core.cognitoUserPoolId,
-                    DB_TABLE: core.primaryDynamodbTableName,
-                    DB_TABLE_LOG: core.logDynamodbTableName,
-                    DB_TABLE_AUDIT_LOGS: auditLogsDynamoDb.output.name,
-                    S3_BUCKET: core.fileManagerBucketId
-                }
-            });
-
             const graphql = app.addModule(ApiGraphql, {
                 env: {
                     COGNITO_REGION: getEnvVariableAwsRegion(),
@@ -189,12 +175,8 @@ export const createApiPulumiApp = () => {
                     S3_BUCKET: core.fileManagerBucketId,
                     EVENT_BUS: core.eventBusArn,
                     // TODO: move to okta plugin
-                    OKTA_ISSUER: process.env["OKTA_ISSUER"],
-                    APW_SCHEDULER_SCHEDULE_ACTION_HANDLER:
-                        apwScheduler.scheduleAction.lambda.output.arn
-                },
-                apwSchedulerEventRule: apwScheduler.eventRule.output,
-                apwSchedulerEventTarget: apwScheduler.eventTarget.output
+                    OKTA_ISSUER: process.env["OKTA_ISSUER"]
+                }
             });
 
             const websocket = app.addModule(ApiWebsocket);
@@ -271,10 +253,6 @@ export const createApiPulumiApp = () => {
                 cognitoUserPoolId: core.cognitoUserPoolId,
                 cognitoAppClientId: core.cognitoAppClientId,
                 cognitoUserPoolPasswordPolicy: core.cognitoUserPoolPasswordPolicy,
-                apwSchedulerScheduleAction: apwScheduler.scheduleAction.lambda.output.arn,
-                apwSchedulerExecuteAction: apwScheduler.executeAction.lambda.output.arn,
-                apwSchedulerEventRule: apwScheduler.eventRule.output.name,
-                apwSchedulerEventTargetId: apwScheduler.eventTarget.output.targetId,
                 dynamoDbTable: core.primaryDynamodbTableName,
                 auditLogsDynamoDbTable: auditLogsDynamoDb.output.name,
                 migrationLambdaArn: migration.function.output.arn,
@@ -329,7 +307,6 @@ export const createApiPulumiApp = () => {
                 apiGateway,
                 websocket,
                 cloudfront,
-                apwScheduler,
                 migration,
                 backgroundTask,
                 scheduler

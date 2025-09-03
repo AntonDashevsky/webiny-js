@@ -14,10 +14,6 @@ export interface IDefaultStackOutput extends IStackOutput {
     fileManagerManageLambdaArn: string;
     fileManagerManageLambdaRole: string;
     fileManagerManageLambdaRoleName: string;
-    apwSchedulerEventRule: string | undefined;
-    apwSchedulerEventTargetId: string | undefined;
-    apwSchedulerExecuteAction: string | undefined;
-    apwSchedulerScheduleAction: string | undefined;
     cognitoUserPoolArn: string;
     cognitoAppClientId: string;
     cognitoUserPoolId: string;

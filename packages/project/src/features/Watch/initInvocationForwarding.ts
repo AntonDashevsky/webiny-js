@@ -1,9 +1,8 @@
-// @ts-nocheck
 import path from "path";
 import { Worker } from "worker_threads";
 import { compress, decompress } from "@webiny/utils/compression/gzip.js";
 import mqtt from "mqtt";
-import type { listLambdaFunctions } from "~/commands/newWatch/listLambdaFunctions.js";
+import { ListAppLambdaFunctionsService } from "~/abstractions";
 
 const WEBINY_WATCH_FN_INVOCATION_EVENT = "webiny.watch.functionInvocation";
 const WEBINY_WATCH_FN_INVOCATION_RESULT_EVENT = "webiny.watch.functionInvocationResult";
@@ -27,16 +26,11 @@ const decompressAndJsonParse = async (input: string) => {
     return JSON.parse(value);
 };
 
-export interface IInitInvocationForwardingParamsLambdaFunction {
-    name: string;
-    path: string;
-}
-
 export interface IInitInvocationForwardingParams {
     iotEndpoint: string;
     iotEndpointTopic: string;
     sessionId: number;
-    functionsList: ReturnType<typeof listLambdaFunctions>;
+    functionsList: ListAppLambdaFunctionsService.Result;
 }
 
 export const initInvocationForwarding = async ({
