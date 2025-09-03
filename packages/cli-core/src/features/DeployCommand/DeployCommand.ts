@@ -110,7 +110,6 @@ export class DeployCommand implements Command.Interface<IDeployCommandParams> {
                     await this.deployApp({ ...params, app: "core" });
                     await this.deployApp({ ...params, app: "api" });
                     await this.deployApp({ ...params, app: "admin" });
-                    await this.deployApp({ ...params, app: "website" });
                 }
             }
         };

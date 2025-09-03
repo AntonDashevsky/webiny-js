@@ -2,11 +2,6 @@ import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
 import { createHandler } from "@webiny/handler-aws/raw";
 import i18nPlugins from "@webiny/api-i18n/graphql";
 import i18nDynamoDbStorageOperations from "@webiny/api-i18n-ddb";
-import { createPageBuilderContext } from "@webiny/api-page-builder/graphql";
-import { createStorageOperations as createPageBuilderStorageOperations } from "@webiny/api-page-builder-so-ddb-es";
-import pageBuilderImportExportPlugins from "@webiny/api-page-builder-import-export/graphql";
-import { createStorageOperations as createPageBuilderImportExportStorageOperations } from "@webiny/api-page-builder-import-export-so-ddb";
-import exportProcessPlugins from "@webiny/api-page-builder-import-export/export/process";
 import dbPlugins from "@webiny/handler-db";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import dynamoDbPlugins from "@webiny/db-dynamodb/plugins";
@@ -55,22 +50,7 @@ export const handler = createHandler({
                 documentClient
             })
         }),
-        fileManagerS3(),
-        createPageBuilderContext({
-            storageOperations: createPageBuilderStorageOperations({
-                documentClient,
-                elasticsearch: elasticsearchClient
-            })
-        }),
-        pageBuilderImportExportPlugins({
-            storageOperations: createPageBuilderImportExportStorageOperations({ documentClient })
-        }),
-        exportProcessPlugins({
-            handlers: {
-                process: process.env.AWS_LAMBDA_FUNCTION_NAME,
-                combine: process.env.EXPORT_COMBINE_HANDLER
-            }
-        })
+        fileManagerS3()
     ],
     debug
 });

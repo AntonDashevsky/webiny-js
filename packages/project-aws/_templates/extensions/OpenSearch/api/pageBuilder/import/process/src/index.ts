@@ -2,11 +2,6 @@ import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
 import { createHandler } from "@webiny/handler-aws/raw";
 import i18nPlugins from "@webiny/api-i18n/graphql";
 import i18nDynamoDbStorageOperations from "@webiny/api-i18n-ddb";
-import { createPageBuilderContext } from "@webiny/api-page-builder/graphql";
-import { createStorageOperations as createPageBuilderStorageOperations } from "@webiny/api-page-builder-so-ddb-es";
-import pageBuilderImportExportPlugins from "@webiny/api-page-builder-import-export/graphql";
-import { createStorageOperations as createPageBuilderImportExportStorageOperations } from "@webiny/api-page-builder-import-export-so-ddb";
-import importProcessPlugins from "@webiny/api-page-builder-import-export/import/process";
 import dbPlugins from "@webiny/handler-db";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import dynamoDbPlugins from "@webiny/db-dynamodb/plugins";
@@ -16,7 +11,6 @@ import { createFileManagerStorageOperations } from "@webiny/api-file-manager-ddb
 import fileManagerS3 from "@webiny/api-file-manager-s3";
 import securityPlugins from "./security";
 import { createAco } from "@webiny/api-aco";
-import { createAcoPageBuilderImportExportContext } from "@webiny/api-page-builder-aco";
 import { CmsParametersPlugin, createHeadlessCmsContext } from "@webiny/api-headless-cms";
 import { createStorageOperations as createHeadlessCmsStorageOperations } from "@webiny/api-headless-cms-ddb-es";
 
@@ -60,20 +54,7 @@ export const handler = createHandler({
             })
         }),
         fileManagerS3(),
-        createPageBuilderContext({
-            storageOperations: createPageBuilderStorageOperations({
-                documentClient,
-                elasticsearch: elasticsearchClient
-            })
-        }),
-        pageBuilderImportExportPlugins({
-            storageOperations: createPageBuilderImportExportStorageOperations({ documentClient })
-        }),
-        importProcessPlugins({
-            handlers: { process: process.env.AWS_LAMBDA_FUNCTION_NAME }
-        }),
-        createAco({ documentClient, useFolderLevelPermissions: false }),
-        createAcoPageBuilderImportExportContext()
+        createAco({ documentClient, useFolderLevelPermissions: false })
     ],
     debug
 });

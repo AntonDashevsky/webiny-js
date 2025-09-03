@@ -14882,7 +14882,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/api-page-builder-so-ddb-es@npm:0.0.0, @webiny/api-page-builder-so-ddb-es@workspace:packages/api-page-builder-so-ddb-es":
+"@webiny/api-page-builder-so-ddb-es@workspace:packages/api-page-builder-so-ddb-es":
   version: 0.0.0-use.local
   resolution: "@webiny/api-page-builder-so-ddb-es@workspace:packages/api-page-builder-so-ddb-es"
   dependencies:
@@ -14925,7 +14925,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/api-page-builder-so-ddb@npm:0.0.0, @webiny/api-page-builder-so-ddb@workspace:packages/api-page-builder-so-ddb":
+"@webiny/api-page-builder-so-ddb@workspace:packages/api-page-builder-so-ddb":
   version: 0.0.0-use.local
   resolution: "@webiny/api-page-builder-so-ddb@workspace:packages/api-page-builder-so-ddb"
   dependencies:
@@ -14995,7 +14995,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/api-prerendering-service-aws@npm:0.0.0, @webiny/api-prerendering-service-aws@workspace:packages/api-prerendering-service-aws":
+"@webiny/api-prerendering-service-aws@workspace:packages/api-prerendering-service-aws":
   version: 0.0.0-use.local
   resolution: "@webiny/api-prerendering-service-aws@workspace:packages/api-prerendering-service-aws"
   dependencies:
@@ -15014,7 +15014,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@webiny/api-prerendering-service-so-ddb@npm:0.0.0, @webiny/api-prerendering-service-so-ddb@workspace:packages/api-prerendering-service-so-ddb":
+"@webiny/api-prerendering-service-so-ddb@workspace:packages/api-prerendering-service-so-ddb":
   version: 0.0.0-use.local
   resolution: "@webiny/api-prerendering-service-so-ddb@workspace:packages/api-prerendering-service-so-ddb"
   dependencies:
@@ -17188,14 +17188,6 @@ __metadata:
     "@webiny/api-i18n-content": "npm:0.0.0"
     "@webiny/api-i18n-ddb": "npm:0.0.0"
     "@webiny/api-log": "npm:0.0.0"
-    "@webiny/api-page-builder": "npm:0.0.0"
-    "@webiny/api-page-builder-aco": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export": "npm:0.0.0"
-    "@webiny/api-page-builder-import-export-so-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder-so-ddb": "npm:0.0.0"
-    "@webiny/api-page-builder-so-ddb-es": "npm:0.0.0"
-    "@webiny/api-prerendering-service-aws": "npm:0.0.0"
-    "@webiny/api-prerendering-service-so-ddb": "npm:0.0.0"
     "@webiny/api-security": "npm:0.0.0"
     "@webiny/api-security-so-ddb": "npm:0.0.0"
     "@webiny/api-tenancy": "npm:0.0.0"

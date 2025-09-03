@@ -19,12 +19,7 @@ import {
     ProjectDecorator,
     ProjectId,
     PulumiResourceNamePrefix,
-    Telemetry,
-    WebsiteAfterBuild,
-    WebsiteAfterDeploy,
-    WebsiteBeforeBuild,
-    WebsiteBeforeDeploy,
-    WebsitePulumi
+    Telemetry
 } from "@webiny/project/extensions/index.js";
 
 import { AwsTags, Vpc } from "~/pulumi/extensions/index.js";
@@ -89,12 +84,4 @@ export const Core = {
     AfterBuild: CoreAfterBuild,
     AfterDeploy: CoreAfterDeploy,
     Pulumi: CorePulumi
-};
-
-export const Website = {
-    BeforeBuild: WebsiteBeforeBuild,
-    BeforeDeploy: WebsiteBeforeDeploy,
-    AfterBuild: WebsiteAfterBuild,
-    AfterDeploy: WebsiteAfterDeploy,
-    Pulumi: WebsitePulumi
 };

@@ -1,5 +1,6 @@
 import { IStackOutput } from "@webiny/project";
 
+// TODO: split into this per-app stack outputs.
 export interface IDefaultStackOutput extends IStackOutput {
     deploymentId: string;
     region: string;
@@ -44,7 +45,6 @@ export interface IDefaultStackOutput extends IStackOutput {
     elasticsearchDynamodbTableArn: string | undefined;
     elasticsearchDynamodbTableName: string | undefined;
     appStorage: string;
-    websiteRouterOriginRequestFunction?: string;
     appDomain?: string;
     deliveryDomain?: string;
 }

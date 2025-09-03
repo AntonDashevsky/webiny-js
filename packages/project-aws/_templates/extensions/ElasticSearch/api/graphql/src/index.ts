@@ -4,15 +4,6 @@ import graphqlPlugins from "@webiny/handler-graphql";
 import { createWcpContext, createWcpGraphQL } from "@webiny/api-wcp";
 import i18nPlugins from "@webiny/api-i18n/graphql";
 import i18nDynamoDbStorageOperations from "@webiny/api-i18n-ddb";
-import {
-    createPageBuilderContext,
-    createPageBuilderGraphQL
-} from "@webiny/api-page-builder/graphql";
-import { createStorageOperations as createPageBuilderStorageOperations } from "@webiny/api-page-builder-so-ddb-es";
-import pageBuilderPrerenderingPlugins from "@webiny/api-page-builder/prerendering";
-import pageBuilderImportExportPlugins from "@webiny/api-page-builder-import-export/graphql";
-import { createStorageOperations as createPageBuilderImportExportStorageOperations } from "@webiny/api-page-builder-import-export-so-ddb";
-import prerenderingServicePlugins from "@webiny/api-prerendering-service-aws/client";
 import dbPlugins from "@webiny/handler-db";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import dynamoDbPlugins from "@webiny/db-dynamodb/plugins";
@@ -24,14 +15,11 @@ import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-
 import { createStorageOperations as createHeadlessCmsStorageOperations } from "@webiny/api-headless-cms-ddb-es";
 import { createHcmsTasks } from "@webiny/api-headless-cms-tasks-ddb-es";
 import { createAco } from "@webiny/api-aco";
-import { createAcoPageBuilderContext } from "@webiny/api-page-builder-aco";
 import { createAcoHcmsContext } from "@webiny/api-headless-cms-aco";
 import securityPlugins from "./security";
 import tenantManager from "@webiny/api-tenant-manager";
 import { createAuditLogs } from "@webiny/api-audit-logs";
 import { createBackgroundTasks } from "@webiny/api-background-tasks-es";
-import { createApwGraphQL, createApwPageBuilderContext } from "@webiny/api-apw";
-import { createStorageOperations as createApwSaStorageOperations } from "@webiny/api-apw-scheduler-so-ddb";
 import { createWebsockets } from "@webiny/api-websockets";
 import { createRecordLocking } from "@webiny/api-record-locking";
 import { createLogger } from "@webiny/api-log";
@@ -83,29 +71,9 @@ export const handler = createHandler({
         createFileManagerGraphQL(),
         createAssetDelivery({ documentClient }),
         fileManagerS3(),
-        prerenderingServicePlugins({
-            eventBus: String(process.env.EVENT_BUS)
-        }),
-        createPageBuilderContext({
-            storageOperations: createPageBuilderStorageOperations({
-                documentClient,
-                elasticsearch: elasticsearchClient,
-                plugins: []
-            })
-        }),
-        createPageBuilderGraphQL(),
-        pageBuilderPrerenderingPlugins(),
-        pageBuilderImportExportPlugins({
-            storageOperations: createPageBuilderImportExportStorageOperations({ documentClient })
-        }),
-        createApwGraphQL(),
-        createApwPageBuilderContext({
-            storageOperations: createApwSaStorageOperations({ documentClient })
-        }),
         createAco({
             documentClient
         }),
-        createAcoPageBuilderContext(),
         createAcoHcmsContext(),
         createHcmsTasks(),
         createAuditLogs(),

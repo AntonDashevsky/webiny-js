@@ -6,7 +6,7 @@ export interface ICreateOriginIdParams {
      */
     name: string;
     /**
-     * Type of the deployment (eg. api, admin, website, preview, etc.).
+     * Type of the deployment (eg. api, admin, preview, etc.).
      */
     type: string;
 }
