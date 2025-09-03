@@ -1,13 +1,7 @@
-// @ts-nocheck
 import { DescribeEndpointCommand, IoTClient } from "@webiny/aws-sdk/client-iot";
-import { getStackOutput } from "~/utils/index.js";
+import { ICoreStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
 
-export interface IGetIotEndpointParams {
-    env: string;
-    variant: string | undefined;
-}
-
-export const getIotEndpoint = (params: IGetIotEndpointParams): Promise<string> => {
+export const getIotEndpoint = (coreStackOutput: ICoreStackOutput): Promise<string> => {
     const iotClient = new IoTClient();
 
     return iotClient
@@ -17,12 +11,6 @@ export const getIotEndpoint = (params: IGetIotEndpointParams): Promise<string> =
             })
         )
         .then(({ endpointAddress }) => {
-            const coreStackOutput = getStackOutput({
-                folder: "core",
-                env: params.env,
-                variant: params.variant
-            });
-
             const watchTopic = `webiny-watch-${coreStackOutput.deploymentId}`;
             const iotAuthorizerName = coreStackOutput.iotAuthorizerName;
 

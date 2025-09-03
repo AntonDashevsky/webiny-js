@@ -18,6 +18,7 @@ export interface IWatchWithAppParams extends IWatchNoAppParams {
     // Local AWS Lambda development (https://webiny.link/local-aws-lambda-development)
     inspect?: boolean;
     increaseTimeout?: number;
+    increaseHandshakeTimeout?: number;
 }
 
 export type IWatchParams = IWatchNoAppParams | IWatchWithAppParams;

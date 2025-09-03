@@ -2,7 +2,7 @@ import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { measureDuration } from "~/features/utils/index.js";
 import { PulumiError } from "@webiny/pulumi-sdk";
-import { AppName } from "~/abstractions/features/types.js";
+import { AppName } from "@webiny/project";
 
 export interface IDestroyNoAppParams {
     variant?: string;

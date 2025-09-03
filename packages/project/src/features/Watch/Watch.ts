@@ -1,30 +1,26 @@
 import { createImplementation } from "@webiny/di-container";
 import {
     GetApp,
+    GetProductionEnvironments,
     GetProject,
     GetProjectConfigService,
     ListAppLambdaFunctionsService,
     ListPackagesService,
     LoggerService,
+    PulumiGetStackExportService,
+    PulumiGetStackOutputService,
+    UiService,
     ValidateProjectConfigService,
     Watch
 } from "~/abstractions/index.js";
 import chalk from "chalk";
-
-// import get from "lodash/get.js";
-// import merge from "lodash/merge.js";
-// import type inspectorType from "inspector";
-// import { getDeploymentId, loadEnvVariables, runHook, setMustRefreshBeforeDeploy } from "~/utils/index.js";
-// import { getIotEndpoint } from "./getIotEndpoint.js";
+import type inspectorType from "inspector";
 import { PackagesWatcher } from "./watchers/PackagesWatcher.js";
 import { WebinyConfigWatcher } from "~/features/Watch/watchers/WebinyConfigWatcher.js";
-// import { initInvocationForwarding } from "./initInvocationForwarding.js";
-// import { replaceLambdaFunctions } from "./replaceLambdaFunctions.js";
-
-// Do not allow watching "prod" and "production" environments. On the Pulumi CLI side, the command
-// is still in preview mode, so it's definitely not wise to use it on production environments.
-// TODO: modernize this.
-const WATCH_DISABLED_ENVIRONMENTS = ["prod", "production"];
+import { ICoreStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
+import { getIotEndpoint } from "./getIotEndpoint.js";
+import { replaceLambdaFunctions } from "~/features/Watch/replaceLambdaFunctions.js";
+import { initInvocationForwarding } from "./initInvocationForwarding.js";
 
 export class DefaultWatch implements Watch.Interface {
     constructor(
@@ -34,7 +30,11 @@ export class DefaultWatch implements Watch.Interface {
         private listPackagesService: ListPackagesService.Interface,
         private getProject: GetProject.Interface,
         private getProjectConfigService: GetProjectConfigService.Interface,
-        private validateProjectConfigService: ValidateProjectConfigService.Interface
+        private validateProjectConfigService: ValidateProjectConfigService.Interface,
+        private getProductionEnvironments: GetProductionEnvironments.Interface,
+        private ui: UiService.Interface,
+        private pulumiGetStackOutputService: PulumiGetStackOutputService.Interface,
+        private pulumiGetStackExportService: PulumiGetStackOutputService.Interface
     ) {}
 
     async execute(params: Watch.Params) {
@@ -75,7 +75,9 @@ export class DefaultWatch implements Watch.Interface {
             throw new Error(`Please specify environment, for example "dev".`);
         }
 
-        if (WATCH_DISABLED_ENVIRONMENTS.includes(params.env)) {
+        const productionEnvironments = await this.getProductionEnvironments.execute();
+
+        if (productionEnvironments.includes(params.env)) {
             if (!params.allowProduction) {
                 throw new Error(
                     `${chalk.red(
@@ -92,6 +94,7 @@ export class DefaultWatch implements Watch.Interface {
             );
         }
 
+        const ui = this.ui;
         const project = this.getProject.execute();
         const getProjectConfigService = this.getProjectConfigService;
         const validateProjectConfigService = this.validateProjectConfigService;
@@ -126,8 +129,6 @@ export class DefaultWatch implements Watch.Interface {
             whitelist: functionsWhitelist
         });
 
-        console.log("packagesList", packagesList);
-        console.log("functionsList", functionsList);
         const deployCommand = `yarn webiny deploy ${app.name} --env ${params.env}`;
         const learnMoreLink = "https://webiny.link/local-aws-lambda-development";
         const troubleshootingLink = learnMoreLink + "#troubleshooting";
@@ -155,95 +156,102 @@ export class DefaultWatch implements Watch.Interface {
             return { packagesWatcher, webinyConfigWatcher };
         }
 
-        return { packagesWatcher, webinyConfigWatcher };
-        // throw new Error("Not implemented.");
-        // return [];
+        ui.info(`Local AWS Lambda development session started.`);
+        ui.warning(
+            `Note that once the session is terminated, the %s application will no longer work. To fix this, you %s redeploy it via the %s command. Learn more: %s.`,
+            app.name,
+            "MUST",
+            deployCommand,
+            learnMoreLink
+        );
 
-        //
-        // context.info(`Local AWS Lambda development session started.`);
-        // context.warning(
-        //     `Note that once the session is terminated, the %s application will no longer work. To fix this, you %s redeploy it via the %s command. Learn more: %s.`,
-        //     app.name,
-        //     "MUST",
-        //     deployCommand,
-        //     learnMoreLink
-        // );
-        //
-        // context.debug(
-        //     "The events for following AWS Lambda functions will be forwarded locally: ",
-        //     functionsList.list.map(fn => fn.name)
-        // );
-        //
-        // // console.log();
-        // // const { default: exitHook } = await import(/!* webpackChunkName: "exit-hook" *!/
-        // // "exit-hook";)
-        // // ;
-        //
-        // exitHook(() => {
-        //     console.log();
-        //     console.log();
-        //
-        //     context.info(`Terminating local AWS Lambda development session.`);
-        //     context.warning(
-        //         `Note that once the session is terminated, the %s application will no longer work. To fix this, you %s redeploy it via the %s command. Learn more: %s.`,
-        //         app?.name,
-        //         "MUST",
-        //         deployCommand,
-        //         learnMoreLink
-        //     );
-        // });
-        //
-        // const deploymentId = getDeploymentId({
-        //     env: params.env,
-        //     variant: params.variant
-        // });
-        // const iotEndpointTopic = `webiny-watch-${deploymentId}`;
-        // const iotEndpoint = await getIotEndpoint({
-        //     env: params.env,
-        //     variant: params.variant
-        // });
-        // const sessionId = new Date().getTime();
-        // const increaseTimeout = params.increaseTimeout;
-        // const localExecutionHandshakeTimeout = params.increaseHandshakeTimeout || 5; // Default to 5 seconds.
-        //
-        // // We want to ensure a Pulumi refresh is made before the next deploy.
+        ui.debug(
+            "The events for following AWS Lambda functions will be forwarded locally: ",
+            functionsList.list.map(fn => fn.name)
+        );
+
+        ui.newLine();
+        const { default: exitHook } = await import(/* webpackChunkName: "exit-hook" */ "exit-hook");
+
+        exitHook(() => {
+            console.log();
+            console.log();
+
+            ui.info(`Terminating local AWS Lambda development session.`);
+            ui.warning(
+                `Note that once the session is terminated, the %s application will no longer work. To fix this, you %s redeploy it via the %s command. Learn more: %s.`,
+                app?.name,
+                "MUST",
+                deployCommand,
+                learnMoreLink
+            );
+        });
+
+        const coreApp = this.getApp.execute("core");
+        const coreStackOutput = await this.pulumiGetStackOutputService.execute<ICoreStackOutput>(
+            coreApp,
+            params
+        );
+
+        if (!coreStackOutput) {
+            throw new Error(
+                `You must deploy the ${chalk.bold(
+                    "core"
+                )} app before you can start a watch session. To do that, run: ${chalk.bold(
+                    `yarn webiny deploy core --env ${params.env}`
+                )}`
+            );
+        }
+
+        const deploymentId = coreStackOutput?.deploymentId;
+
+        const iotEndpointTopic = `webiny-watch-${deploymentId}`;
+        const iotEndpoint = await getIotEndpoint(coreStackOutput);
+
+        const sessionId = new Date().getTime();
+        const increaseTimeout = params.increaseTimeout;
+        const localExecutionHandshakeTimeout = params.increaseHandshakeTimeout || 5; // Default to 5 seconds.
+
+        // TODO: we need a better solution for this.
+        // We want to ensure a Pulumi refresh is made before the next deploy.
         // setMustRefreshBeforeDeploy(context);
-        //
-        // // Ignore promise, we don't need to wait for this to finish.
-        // replaceLambdaFunctions({
-        //     context,
-        //     env: params.env,
-        //     folder: params.folder,
-        //     variant: params.variant,
-        //
-        //     iotEndpoint,
-        //     iotEndpointTopic,
-        //     sessionId,
-        //     functionsList,
-        //     increaseTimeout,
-        //     localExecutionHandshakeTimeout
-        // });
-        //
-        // let inspector: typeof inspectorType | undefined = undefined;
-        // if (params.inspect) {
-        //     inspector = require("inspector");
-        //     inspector!.open(9229, "127.0.0.1");
-        //     console.log();
-        //
-        //     exitHook(() => {
-        //         inspector!.close();
-        //     });
-        // }
-        //
-        // // Ignore promise, we don't need to wait for this to finish.
-        // initInvocationForwarding({
-        //     iotEndpoint,
-        //     iotEndpointTopic,
-        //     functionsList,
-        //     sessionId
-        // });
-        //
-        // await packagesWatcher.watch();
+
+        // Ignore promise, we don't need to wait for this to finish.
+        replaceLambdaFunctions({
+            app,
+            dependencies: {
+                uiService: this.ui,
+                pulumiGetStackExportService: this.pulumiGetStackExportService
+            },
+            watchParams: params,
+            iotEndpoint,
+            iotEndpointTopic,
+            sessionId,
+            functionsList,
+            increaseTimeout,
+            localExecutionHandshakeTimeout
+        });
+
+        let inspector: typeof inspectorType | undefined = undefined;
+        if (params.inspect) {
+            inspector = require("inspector");
+            inspector!.open(9229, "127.0.0.1");
+            console.log();
+
+            exitHook(() => {
+                inspector!.close();
+            });
+        }
+
+        // Ignore promise, we don't need to wait for this to finish.
+        initInvocationForwarding({
+            iotEndpoint,
+            iotEndpointTopic,
+            functionsList,
+            sessionId
+        });
+
+        return { packagesWatcher };
     }
 }
 
@@ -257,6 +265,10 @@ export const watch = createImplementation({
         ListPackagesService,
         GetProject,
         GetProjectConfigService,
-        ValidateProjectConfigService
+        ValidateProjectConfigService,
+        GetProductionEnvironments,
+        UiService,
+        PulumiGetStackOutputService,
+        PulumiGetStackExportService
     ]
 });
