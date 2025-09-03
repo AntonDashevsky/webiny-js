@@ -1,7 +1,7 @@
 import { createImplementation } from "@webiny/di-container";
 import { Command, GetProjectSdkService, StdioService, UiService } from "~/abstractions/index.js";
 import { HandledError } from "~/utils/HandledError.js";
-import { IBaseAppParams } from "~/abstractions/features/types";
+import { IBaseAppParams } from "~/abstractions/features/types.js";
 
 export interface IPulumiCommandParams extends IBaseAppParams {
     command: string[];

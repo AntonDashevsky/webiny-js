@@ -73,7 +73,11 @@ export class DefaultListPackagesService implements ListPackagesService.Interface
                             return minimatch(pkg.name, whitelistedPkgName);
                         }
 
-                        return pkg.name.includes(whitelistedPkgName);
+                        // We consider both `name` and `@webiny/name` as valid package names.
+                        // The @webiny/ prefix is optional (makes it easier to type for us).
+                        return (
+                            pkg.name === whitelistedPkgName || pkg.name === `@webiny/${pkg.name};`
+                        );
                     });
                 })
                 .flat()

@@ -63,8 +63,6 @@ export class DefaultWatch implements Watch.Interface {
         // Get project application metadata. Will throw an error if an invalid folder is specified.
         const app = this.getApp.execute(params.app);
 
-        // If exists - read default params from "webiny.application.ts" file.
-        // params = merge({}, get(app, "config.cli.watch"), params);
         if (!app) {
             throw new Error(
                 `Invalid app name "${params.app}". Please specify a valid app name (core, api, or admin).`
@@ -95,6 +93,7 @@ export class DefaultWatch implements Watch.Interface {
         }
 
         const ui = this.ui;
+        const logger = this.logger;
         const project = this.getProject.execute();
         const getProjectConfigService = this.getProjectConfigService;
         const validateProjectConfigService = this.validateProjectConfigService;
@@ -121,7 +120,7 @@ export class DefaultWatch implements Watch.Interface {
         const packagesWatcher = new PackagesWatcher({
             packages: packagesList,
             params,
-            logger: this.logger
+            logger
         });
 
         const functionsList = await this.listAppLambdaFunctionsService.execute(app, {
@@ -133,10 +132,10 @@ export class DefaultWatch implements Watch.Interface {
         const learnMoreLink = "https://webiny.link/local-aws-lambda-development";
         const troubleshootingLink = learnMoreLink + "#troubleshooting";
 
-        if (functionsList.meta.count !== 0) {
+        if (functionsList.meta.count === 0) {
             // If functions exist, but none are selected for watching, show a warning.
             if (functionsList.meta.totalCount > 0) {
-                this.logger.info(
+                ui.info(
                     [
                         "No AWS Lambda functions will be invoked locally. If this is unexpected, you can try the following:",
                         " ‣ stop the current development session",
@@ -165,7 +164,7 @@ export class DefaultWatch implements Watch.Interface {
             learnMoreLink
         );
 
-        ui.debug(
+        logger.debug(
             "The events for following AWS Lambda functions will be forwarded locally: ",
             functionsList.list.map(fn => fn.name)
         );
@@ -220,7 +219,8 @@ export class DefaultWatch implements Watch.Interface {
         replaceLambdaFunctions({
             app,
             dependencies: {
-                uiService: this.ui,
+                uiService: ui,
+                loggerService: logger,
                 pulumiGetStackExportService: this.pulumiGetStackExportService
             },
             watchParams: params,
@@ -234,9 +234,9 @@ export class DefaultWatch implements Watch.Interface {
 
         let inspector: typeof inspectorType | undefined = undefined;
         if (params.inspect) {
-            inspector = require("inspector");
+            inspector = await import("inspector");
             inspector!.open(9229, "127.0.0.1");
-            console.log();
+            ui.newLine();
 
             exitHook(() => {
                 inspector!.close();

@@ -8,6 +8,7 @@ import {
 } from "@webiny/aws-sdk/client-lambda";
 import {
     ListAppLambdaFunctionsService,
+    LoggerService,
     PulumiGetStackExportService,
     UiService
 } from "~/abstractions/index.js";
@@ -28,6 +29,7 @@ export interface IReplaceLambdaFunctionsParams {
     localExecutionHandshakeTimeout?: number;
     dependencies: {
         uiService: UiService.Interface;
+        loggerService: LoggerService.Interface;
         pulumiGetStackExportService: PulumiGetStackExportService.Interface;
     };
 }
@@ -43,16 +45,17 @@ export const replaceLambdaFunctions = async ({
     localExecutionHandshakeTimeout,
     dependencies
 }: IReplaceLambdaFunctionsParams) => {
-    const { uiService: ui, pulumiGetStackExportService: getAppStackExport } = dependencies;
+    const { loggerService: logger, pulumiGetStackExportService: getAppStackExport } = dependencies;
+
     const stackExport = await getAppStackExport.execute(app, watchParams);
     if (!stackExport) {
         // If no stack export is found, return an empty array. This is a valid scenario.
         // For example, watching the Admin app locally, but not deploying it.
-        ui.debug("No AWS Lambda functions to replace.");
+        logger.info("No AWS Lambda functions to replace.");
         return [];
     }
 
-    ui.debug("replacing %s AWS Lambda function(s).", functionsList.meta.count);
+    logger.info("replacing %s AWS Lambda function(s).", functionsList.meta.count);
     const lambdaClient = new LambdaClient();
 
     const replacementsPromises = functionsList.list.map(async fn => {
@@ -98,7 +101,7 @@ export const replaceLambdaFunctions = async ({
     });
 
     return Promise.all(replacementsPromises).then(res => {
-        ui.debug("%s AWS Lambda function(s) replaced.", functionsList.meta.count);
+        logger.info("%s AWS Lambda function(s) replaced.", functionsList.meta.count);
         return res;
     });
 };

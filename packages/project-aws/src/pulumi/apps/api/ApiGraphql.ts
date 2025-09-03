@@ -33,8 +33,6 @@ export type ApiGraphql = PulumiAppModule<typeof ApiGraphql>;
 export const ApiGraphql = createAppModule({
     name: "ApiGraphql",
     config(app: PulumiApp, params: GraphqlParams) {
-        const core = app.getModule(CoreOutput);
-
         const policy = createGraphqlLambdaPolicy(app);
         const role = createLambdaRole(app, {
             name: "api-lambda-role",

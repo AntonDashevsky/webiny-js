@@ -32,10 +32,12 @@ export const createRspackConfig = async params => {
         ].filter(Boolean),
         target: "node",
         output: {
-            libraryTarget: "commonjs",
+            library: {
+                type: "commonjs2", // ✅ emit CommonJS
+            },
             path: output.path,
             filename: output.filename,
-            chunkFilename: `[name].[contenthash:8].chunk.js`
+            chunkFilename: `[name].[contenthash:8].chunk.cjs`
         },
         devtool: sourceMaps ? "source-map" : false,
         externals: [/^@aws-sdk/, /^sharp$/],

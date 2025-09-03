@@ -5,7 +5,7 @@ const getDefaults = ({ cwd }) => {
 
     return {
         outputPath,
-        outputFilename: "handler.js"
+        outputFilename: "handler.cjs"
     };
 };
 
