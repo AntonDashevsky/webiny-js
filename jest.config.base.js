@@ -7,7 +7,7 @@ import { createJsWithTsEsmPreset } from "ts-jest";
 export default async ({ path }, presets = []) => {
     const name = basename(path);
 
-    const { PackageJson } = await import("@webiny/cli/utils/PackageJson.js");
+    const { PackageJson } = await import("@webiny/project/PackageJson.js");
     const cliPackage = await PackageJson.fromPackage("@webiny/cli");
     const version = cliPackage.getJson().version;
 

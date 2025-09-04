@@ -5,7 +5,8 @@ export const getProjectSdk = (...params: Parameters<(typeof ProjectSdk)["init"]>
     return ProjectSdk.init(...params);
 };
 
-// A temporary convenience function to get the stack output for a specific app. We should probably revisit this in the future and think of a better way to do this.
+// A temporary convenience function to get the stack output for a specific app. We might revisit this in the
+// future and double check if there's a better way to expose this functionality.
 const getStackOutput = async <
     TOutput extends GetAppStackOutput.StackOutput = GetAppStackOutput.StackOutput
 >(
@@ -19,3 +20,5 @@ export { ProjectSdk, getStackOutput };
 
 export type { AppName } from "./abstractions/types.js";
 export type { IStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
+
+export { PackageJson } from "./utils/PackageJson.js";
