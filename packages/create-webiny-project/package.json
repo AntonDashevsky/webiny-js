@@ -1,11 +1,9 @@
 {
   "name": "create-webiny-project",
+  "type": "module",
   "version": "0.0.0",
   "description": "Webiny project bootstrap tool.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "bin": "./bin.js",
   "keywords": [
     "Webiny"

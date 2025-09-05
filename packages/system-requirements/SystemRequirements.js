@@ -46,6 +46,10 @@ class SystemRequirements {
         return process.versions.node;
     }
 
+    static getOsVersion() {
+        return process.platform;
+    }
+
     static getNpmVersion() {
         const { stdout } = execa.sync("npm", ["--version"]);
         return stdout;
