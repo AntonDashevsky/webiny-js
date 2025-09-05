@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { mdbid } from "@webiny/utils";
 import { DynamoDbLoggerKeys } from "~/logger";
 import { LogType } from "~/types";

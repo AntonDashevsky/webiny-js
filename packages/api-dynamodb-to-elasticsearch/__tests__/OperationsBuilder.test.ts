@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { OperationsBuilder } from "~/OperationsBuilder";
 import { createDefaultCompressor } from "@webiny/utils/compression";
 import { DynamoDBRecord } from "@webiny/handler-aws/types";

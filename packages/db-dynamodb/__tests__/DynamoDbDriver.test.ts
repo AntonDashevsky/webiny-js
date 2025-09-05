@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import DynamoDbDriver from "~/DynamoDbDriver";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 

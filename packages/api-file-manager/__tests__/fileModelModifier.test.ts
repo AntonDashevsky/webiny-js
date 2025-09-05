@@ -1,3 +1,4 @@
+import { describe, test, expect } from "vitest";
 import { useHandler } from "./utils/useHandler";
 import { createFileModelModifier } from "~/index";
 import { fileAData, fileBData } from "./mocks/files";
@@ -45,7 +46,7 @@ describe("File Model Modifier test", () => {
         });
 
         expect(file.name).toEqual("filenameB.png");
-        expect(file.extensions.year).toEqual(2020);
+        expect(file.extensions?.year).toEqual(2020);
         expect(meta.totalCount).toEqual(1);
     });
 });

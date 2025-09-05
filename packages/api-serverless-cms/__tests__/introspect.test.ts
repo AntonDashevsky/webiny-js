@@ -1,12 +1,10 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach } from "vitest";
 import { useGraphQlHandler } from "./handlers/graphQlHandler";
 import { PathType } from "~tests/handlers/types";
 
-jest.setTimeout(90000);
-
 type Option = ["on" | "off", PathType];
 
-describe("introspect", () => {
+describe("introspect", { timeout: 90_000 }, () => {
     const options: Option[] = [
         ["on", "/graphql"],
         ["on", "/cms/manage/en-US"],
@@ -27,7 +25,7 @@ describe("introspect", () => {
         async (wcp, path) => {
             const { introspect, login } = useGraphQlHandler({
                 path,
-                features: wcp === "on" ? true : false
+                features: wcp === "on"
             });
 
             login();

@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { assignFields } from "~/plugins/definitions/assignFields";
 
 describe("assign fields", () => {

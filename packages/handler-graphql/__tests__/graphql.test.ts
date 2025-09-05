@@ -1,3 +1,4 @@
+import { describe, test, expect } from "vitest";
 import useGqlHandler from "./useGqlHandler";
 import { booksSchema, booksCrudPlugin } from "~tests/mocks/booksSchema";
 import { createGraphQLSchemaPlugin } from "~/plugins";

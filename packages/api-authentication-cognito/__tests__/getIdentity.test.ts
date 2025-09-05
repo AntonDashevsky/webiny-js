@@ -1,3 +1,4 @@
+import { describe, test, expect } from "vitest";
 import { getIdentity } from "~/index";
 
 describe("getIdentity Test", () => {

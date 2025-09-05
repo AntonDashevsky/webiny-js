@@ -1,3 +1,5 @@
+import { expect } from "vitest";
+
 export const expectNotAuthorized = async (
     promise: Promise<any>,
     data: Record<string, any> | null = null

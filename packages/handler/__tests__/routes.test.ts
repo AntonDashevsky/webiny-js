@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { createHandler, RoutePlugin } from "~/index";
 import { DefinedContextRoutes } from "~/types";
 

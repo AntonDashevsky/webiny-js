@@ -40,9 +40,6 @@ const decoratePageBuilderCrud = async (context: PbAcoContext): Promise<void> => 
 export const createAcoPageBuilderContext = () => {
     const plugin = new ContextPlugin<PbAcoContext>(async context => {
         if (!context.aco) {
-            console.log(
-                `There is no ACO initialized so we will not initialize the Page Builder ACO.`
-            );
             return;
         }
         await setupContext(context);
@@ -60,9 +57,6 @@ export const createAcoPageBuilderContext = () => {
 export const createAcoPageBuilderImportExportContext = () => {
     const plugin = new ContextPlugin<PbAcoContext>(async context => {
         if (!context.aco) {
-            console.log(
-                `There is no ACO initialized so we will not initialize the Page Builder ACO.`
-            );
             return;
         }
         await setupContext(context);

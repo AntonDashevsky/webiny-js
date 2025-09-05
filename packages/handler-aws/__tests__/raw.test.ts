@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { createHandler } from "~/raw";
 import { EventPlugin } from "@webiny/handler";
 import { LambdaContext } from "./types";

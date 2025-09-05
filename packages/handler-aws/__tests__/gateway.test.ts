@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { createHandler, RoutePlugin } from "~/index";
 import { createLambdaContext } from "./mocks/lambdaContext";
 import { createLambdaEvent } from "./mocks/lambdaEvent";

@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { WebsocketsContext } from "~/context/WebsocketsContext";
 import { WebsocketsConnectionRegistry } from "~/registry";
@@ -82,9 +83,7 @@ describe("websockets context", () => {
 
         await context.send<IMockData>(
             {
-                id: "id-1",
-                displayName: "John Doe",
-                type: "admin"
+                id: "id-1"
             },
             {
                 data: {

@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, vi } from "vitest";
 import { createHandler } from "~/handler/handler";
 import { WebsocketsEventRoute } from "~/handler/types";
 import { createMockLambdaContext } from "~tests/mocks/lambdaContext";
@@ -6,7 +6,7 @@ import { createPlugins } from "~tests/helpers/plugins";
 import { createMockEvent } from "~tests/mocks/event";
 import { useHandler } from "~tests/helpers/useHandler";
 
-jest.mock("@webiny/aws-sdk/client-apigatewaymanagementapi", () => {
+vi.mock("@webiny/aws-sdk/client-apigatewaymanagementapi", () => {
     return {
         ApiGatewayManagementApiClient: class ApiGatewayManagementApiClient {
             async send(cmd: any) {

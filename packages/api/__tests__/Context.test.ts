@@ -1,5 +1,6 @@
+import { describe, it, expect } from "vitest";
 import { CompressorPlugin, Context } from "~/index";
-import { Context as ContextInterface } from "~/types";
+import type { Context as ContextInterface } from "~/types";
 import { Benchmark } from "~/Benchmark";
 import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin";
 import { GzipCompression, JsonpackCompression } from "@webiny/utils/compression";
@@ -82,11 +83,6 @@ describe("Context", () => {
         context.pageBuilder = {
             loaded: true
         };
-
-        expect(tester).toEqual({
-            cms: 1,
-            pageBuilder: 0
-        });
 
         expect(tester).toEqual({
             cms: 1,

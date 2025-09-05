@@ -1,8 +1,8 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { Context } from "~/Context";
 import { BenchmarkMeasurement } from "~/types";
 import { BenchmarkPlugin } from "~/plugins/BenchmarkPlugin";
 import { ContextPlugin } from "~/plugins/ContextPlugin";
-import { jest } from "@jest/globals";
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -265,7 +265,7 @@ describe("benchmark", () => {
         expect(context.benchmark.measurements).toHaveLength(5);
 
         const log: any[] = [];
-        jest.spyOn(console, "log").mockImplementation((...args) => {
+        vi.spyOn(console, "log").mockImplementation((...args) => {
             log.push(...args);
         });
 
@@ -307,7 +307,7 @@ describe("benchmark", () => {
         const outsideSystemLog: any[] = [];
 
         const log: any[] = [];
-        jest.spyOn(console, "log").mockImplementation((...args) => {
+        vi.spyOn(console, "log").mockImplementation((...args) => {
             log.push(...args);
         });
 
@@ -372,7 +372,7 @@ describe("benchmark", () => {
         const outsideSystemLog: any[] = [];
 
         const log: any[] = [];
-        jest.spyOn(console, "log").mockImplementation((...args) => {
+        vi.spyOn(console, "log").mockImplementation((...args) => {
             log.push(...args);
         });
 
@@ -422,7 +422,7 @@ describe("benchmark", () => {
         expect(result).toEqual("level 3");
         expect(context.benchmark.measurements).toHaveLength(3);
         const logs: any[] = [];
-        jest.spyOn(console, "log").mockImplementation((...args) => {
+        vi.spyOn(console, "log").mockImplementation((...args) => {
             logs.push(...args);
         });
 

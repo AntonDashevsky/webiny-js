@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { createHandler } from "~/fastify";
 import { DummyCache } from "./caching/DummyCache";
 import { createCachingPlugin } from "./caching/cachePlugin";

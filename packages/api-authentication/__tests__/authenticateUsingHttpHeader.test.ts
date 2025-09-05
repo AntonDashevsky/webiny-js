@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { AuthenticationContext, Authenticator, Identity } from "~/types";
 import { createAuthentication } from "~/createAuthentication";
 import { authenticateUsingHttpHeader } from "~/authenticateUsingHttpHeader";

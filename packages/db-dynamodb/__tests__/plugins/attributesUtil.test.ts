@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { Context } from "@webiny/api";
 import { getExtraAttributes } from "~/utils/attributes";
 import { AttributePlugin, AttributePluginParams } from "~/plugins/definitions/AttributePlugin";

@@ -1,10 +1,11 @@
+import { describe, it, expect } from "vitest";
 import { WebinyError } from "@webiny/error";
 import { validateSameIdentity } from "~/utils/validateSameIdentity";
 import { createIdentity } from "~tests/helpers/identity";
 
 describe("validate same identity", () => {
     it("should throw an error on not matching identity", async () => {
-        expect.assertions(1);
+        expect.assertions(2);
 
         try {
             validateSameIdentity({
@@ -18,12 +19,10 @@ describe("validate same identity", () => {
                 }
             });
         } catch (ex) {
-            expect(ex).toEqual(
-                new WebinyError({
-                    message: "Cannot update lock record. Record is locked by another user.",
-                    code: "LOCK_UPDATE_ERROR"
-                })
+            expect(ex.message).toEqual(
+                "Cannot update lock record. Record is locked by another user."
             );
+            expect(ex.code).toEqual("LOCK_UPDATE_ERROR");
         }
     });
 

@@ -1,11 +1,11 @@
-import { jest } from "@jest/globals";
+import { describe, test, expect, vi } from "vitest";
 import { customPermissions } from "./mocks/customPermissions";
 import { mockCreateGetWcpProjectEnvironment } from "./mocks/mockCreateGetWcpProjectEnvironment";
 import { mockCreateGetWcpProjectLicense } from "./mocks/mockCreateGetWcpProjectLicense";
 
-jest.mock("@webiny/wcp", () => {
+vi.mock("@webiny/wcp", async () => {
     // The mock returned only mocks the generateServerSeed method.
-    const actual = jest.requireActual("@webiny/wcp");
+    const actual = await vi.importActual("@webiny/wcp");
 
     return {
         ...actual,

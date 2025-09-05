@@ -1,3 +1,4 @@
+import { describe, test, expect } from "vitest";
 import { NumberScalar } from "~/builtInTypes";
 
 describe("NumberScalar", () => {

@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import type { GenericRecord } from "@webiny/utils";
 import { createEventBridgeEventHandler, createHandler } from "~/index";
 import { LambdaContext } from "~/types";

@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { useGraphQlHandler } from "~tests/handlers/graphQlHandler";
 
 describe("logger graphql", () => {

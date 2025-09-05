@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { WebsocketsEventValidator } from "~/validator/WebsocketsEventValidator";
 import { WebsocketsEventRequestContextEventType } from "~/handler/types";
 

@@ -1,8 +1,8 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { createContextHandler } from "./contextHandler";
 import { TransportSendData } from "~/types";
 
-jest.mock("nodemailer", () => {
+vi.mock("nodemailer", () => {
     return {
         createTransport: () => {
             return {

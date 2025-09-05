@@ -15,9 +15,6 @@ const setupContext = async (context: AuditLogsAcoContext): Promise<void> => {
 export const createAcoAuditLogsContext = () => {
     const plugin = new ContextPlugin<AuditLogsAcoContext>(async context => {
         if (!context.aco) {
-            console.log(
-                `There is no ACO initialized so we will not initialize the Audit Logs ACO.`
-            );
             return;
         }
         await setupContext(context);

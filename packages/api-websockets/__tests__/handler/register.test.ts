@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { registry } from "@webiny/handler-aws/registry";
 import { createMockEvent } from "~tests/mocks/event";
 import { createMockLambdaContext } from "~tests/mocks/lambdaContext";

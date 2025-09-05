@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import prettier from "prettier";
 import { createDefaultAppsSchemaSnapshot } from "./snapshots/defaultAppsSchema";
 import { createCustomAppsSchemaSnapshot } from "./snapshots/customAppsSchema";

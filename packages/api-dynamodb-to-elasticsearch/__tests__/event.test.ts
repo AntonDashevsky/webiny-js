@@ -1,8 +1,8 @@
+import { describe, it, expect, vi } from "vitest";
 import { createEventHandler } from "~/index";
 import { PluginsContainer } from "@webiny/plugins";
 import { marshall as baseMarshall } from "@webiny/aws-sdk/client-dynamodb";
 import { DynamoDBRecord } from "@webiny/handler-aws/types";
-import { jest } from "@jest/globals";
 
 interface Event {
     Records: DynamoDBRecord[];
@@ -75,7 +75,7 @@ describe("event", () => {
             lambdaContext,
             request,
             reply,
-            next: jest.fn()
+            next: vi.fn()
         });
 
         expect(result).toEqual(null);
@@ -89,7 +89,7 @@ describe("event", () => {
             lambdaContext,
             request,
             reply,
-            next: jest.fn()
+            next: vi.fn()
         });
 
         expect(result).toEqual(null);
@@ -107,7 +107,7 @@ describe("event", () => {
             lambdaContext,
             request,
             reply,
-            next: jest.fn()
+            next: vi.fn()
         });
 
         expect(result).toEqual(null);

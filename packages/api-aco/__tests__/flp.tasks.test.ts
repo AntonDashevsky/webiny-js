@@ -1,14 +1,14 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { CreateFlp, DeleteFlp } from "~/flp/useCases";
 import { useHandler } from "~tests/utils/useHandler";
 import type { Folder } from "~/folder/folder.types";
 import { ROOT_FOLDER } from "~/constants";
-import { jest } from "@jest/globals";
 
 describe("Folder Level Permissions -  CREATE FLP", () => {
     const { handler } = useHandler();
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should create an FLP record without a parent folder", async () => {
@@ -119,7 +119,7 @@ describe("Folder Level Permissions -  DELETE FLP", () => {
     const { handler } = useHandler();
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should throw an error if the folder is not provided", async () => {
@@ -165,7 +165,7 @@ describe("Folder Level Permissions -  UPDATE FLP - Simple", () => {
     const type = "type";
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should update a root folder's permissions", async () => {
@@ -423,7 +423,7 @@ describe("Folder Level Permissions -  UPDATE FLP - Complex", () => {
     const type = "type";
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should handle multi-branch updates with different permissions", async () => {

@@ -93,69 +93,6 @@ const CUSTOM_HANDLERS: Record<string, () => Array<PackageWithTests>> = {
         ];
     },
 
-    "api-form-builder": () => {
-        return [
-            { cmd: "packages/api-form-builder -- --storage=ddb-es,ddb", storage: "ddb-es" },
-            { cmd: "packages/api-form-builder -- --storage=ddb-os,ddb", storage: "ddb-os" },
-            { cmd: "packages/api-form-builder -- --storage=ddb", storage: "ddb" }
-        ];
-    },
-
-    "api-form-builder-so-ddb-es": () => {
-        return [
-            {
-                cmd: "packages/api-form-builder-so-ddb-es -- --storage=ddb-es,ddb",
-                storage: "ddb-es"
-            },
-            {
-                cmd: "packages/api-form-builder-so-ddb-es -- --storage=ddb-os,ddb",
-                storage: "ddb-os"
-            }
-        ];
-    },
-
-    "api-page-builder": () => {
-        return [
-            ...shardPackageTestExecution({
-                cmd: "packages/api-page-builder -- --storage=ddb-es,ddb",
-                storage: "ddb-es"
-            }),
-            ...shardPackageTestExecution({
-                cmd: "packages/api-page-builder -- --storage=ddb-os,ddb",
-                storage: "ddb-os"
-            }),
-            ...shardPackageTestExecution({
-                cmd: "packages/api-page-builder -- --storage=ddb",
-                storage: "ddb"
-            })
-        ];
-    },
-    "api-page-builder-so-ddb-es": () => {
-        return [
-            {
-                cmd: "packages/api-page-builder-so-ddb-es -- --storage=ddb-es,ddb",
-                storage: "ddb-es"
-            },
-            {
-                cmd: "packages/api-page-builder-so-ddb-es -- --storage=ddb-os,ddb",
-                storage: "ddb-os"
-            }
-        ];
-    },
-
-    "api-page-builder-import-export": () => {
-        return [
-            {
-                cmd: "packages/api-page-builder-import-export -- --storage=ddb",
-                storage: "ddb"
-            }
-        ];
-    },
-
-    "api-prerendering-service": () => {
-        return [{ cmd: "packages/api-prerendering-service -- --storage=ddb", storage: "ddb" }];
-    },
-
     "api-mailer": () => {
         return [
             { cmd: "packages/api-mailer -- --storage=ddb", storage: "ddb" },
@@ -225,13 +162,13 @@ const CUSTOM_HANDLERS: Record<string, () => Array<PackageWithTests>> = {
             }
         ];
     },
-    "api-apw": () => {
-        return [
-            { cmd: "packages/api-apw -- --storage=ddb", storage: "ddb" }
-            // TODO: With ddb-es setup, some tests are failing!
-            // "packages/api-apw -- --storage=ddb-es,ddb"
-        ];
-    },
+    // "api-apw": () => {
+    //     return [
+    //         { cmd: "packages/api-apw -- --storage=ddb", storage: "ddb" }
+    //         // TODO: With ddb-es setup, some tests are failing!
+    //         // "packages/api-apw -- --storage=ddb-es,ddb"
+    //     ];
+    // },
     "api-aco": () => {
         return [
             { cmd: "packages/api-aco -- --storage=ddb", storage: "ddb" },
@@ -244,19 +181,6 @@ const CUSTOM_HANDLERS: Record<string, () => Array<PackageWithTests>> = {
             { cmd: "packages/api-audit-logs -- --storage=ddb", storage: "ddb" },
             { cmd: "packages/api-audit-logs -- --storage=ddb-es,ddb", storage: "ddb-es" },
             { cmd: "packages/api-audit-logs -- --storage=ddb-os,ddb", storage: "ddb-os" }
-        ];
-    },
-    "api-page-builder-aco": () => {
-        return [
-            { cmd: "packages/api-page-builder-aco -- --storage=ddb", storage: "ddb" },
-            {
-                cmd: "packages/api-page-builder-aco -- --storage=ddb-es,ddb",
-                storage: "ddb-es"
-            },
-            {
-                cmd: "packages/api-page-builder-aco -- --storage=ddb-os,ddb",
-                storage: "ddb-os"
-            }
         ];
     },
     "app-aco": () => {

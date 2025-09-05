@@ -1,3 +1,4 @@
+import { describe, it, test, expect } from "vitest";
 import { useGraphQlHandler } from "./utils/useGraphQlHandler";
 import { SecurityIdentity } from "@webiny/api-security/types";
 import { expectNotAuthorized } from "./utils/expectNotAuthorized";

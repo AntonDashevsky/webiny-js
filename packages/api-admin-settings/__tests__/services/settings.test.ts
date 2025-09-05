@@ -1,6 +1,7 @@
+import { describe, it, expect } from "vitest";
+import { put } from "@webiny/db-dynamodb";
 import { createMockContextHandler } from "../context";
 import { AdminSettingsVariant } from "~/types";
-import { put } from "@webiny/db-dynamodb";
 
 const createData = (variant: AdminSettingsVariant) => {
     return {

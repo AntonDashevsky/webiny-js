@@ -1,8 +1,8 @@
-const { createWatchPackage, createBuildPackage } = require("@webiny/build-tools");
+import { createWatchPackage, createBuildPackage } from "@webiny/project-utils";
 
-module.exports = {
+export default {
     commands: {
-        build: createBuildPackage({ cwd: __dirname }),
-        watch: createWatchPackage({ cwd: __dirname })
+        build: createBuildPackage({ cwd: import.meta.dirname }),
+        watch: createWatchPackage({ cwd: import.meta.dirname })
     }
 };

@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { getTenant } from "~tests/mocks/getTenant";
 import { getLocale } from "~tests/mocks/getLocale";
@@ -20,6 +21,7 @@ describe("crud", () => {
     };
 
     const createCrud = () => {
+        // @ts-expect-error Types changed
         return baseCreateCrud({
             storageOperations,
             checkPermission

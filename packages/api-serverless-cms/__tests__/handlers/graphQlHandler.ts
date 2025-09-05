@@ -12,13 +12,11 @@ import { createMutationFactory } from "~tests/handlers/helpers/factory/mutation"
 export interface IGraphQlHandlerParams {
     path: PathType;
     plugins?: Plugin[];
-    features?: boolean | string[];
+    features?: boolean;
 }
 
 export const useGraphQlHandler = (params: IGraphQlHandlerParams) => {
-    const core = createCore({
-        ...params
-    });
+    const core = createCore(params);
 
     const handler = createHandler({
         plugins: core.plugins,

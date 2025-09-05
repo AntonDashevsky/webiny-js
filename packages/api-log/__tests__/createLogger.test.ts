@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { Context } from "~/types";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { getTenant } from "~tests/mocks/getTenant";

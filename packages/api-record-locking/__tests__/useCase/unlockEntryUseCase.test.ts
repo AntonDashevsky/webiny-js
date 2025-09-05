@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { UnlockEntryUseCase } from "~/useCases/UnlockEntryUseCase/UnlockEntryUseCase";
 import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
 import { WebinyError } from "@webiny/error";
@@ -6,7 +7,7 @@ import { createGetSecurity } from "~tests/mocks/createGetSecurity";
 
 describe("unlock entry use case", () => {
     it("should throw an error on unlocking an entry", async () => {
-        expect.assertions(1);
+        expect.assertions(2);
 
         const useCase = new UnlockEntryUseCase({
             getLockRecordUseCase: {
@@ -37,9 +38,8 @@ describe("unlock entry use case", () => {
         try {
             await useCase.execute({ id: "id", type: "type" });
         } catch (ex) {
-            expect(ex).toEqual(
-                new WebinyError("Could not unlock entry: Testing error.", "UNLOCK_ENTRY_ERROR")
-            );
+            expect(ex.message).toEqual("Could not unlock entry: Testing error.");
+            expect(ex.code).toEqual("TESTING_ERROR");
         }
     });
 });

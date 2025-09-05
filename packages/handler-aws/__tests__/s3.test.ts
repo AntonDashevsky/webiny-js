@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { createHandler, S3EventHandler } from "~/index";
 import { createLambdaContext } from "./mocks/lambdaContext";
 import { createS3Event } from "./mocks/s3Event";

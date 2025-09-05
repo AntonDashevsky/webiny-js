@@ -1,3 +1,4 @@
+import { describe, test, expect, beforeEach } from "vitest";
 import useGqlHandler from "./useGqlHandler";
 import { PARALLEL_QUERY, withoutAuthorizationPlugin } from "./graphql/parallelQueries";
 

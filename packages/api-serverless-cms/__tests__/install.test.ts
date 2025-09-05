@@ -1,9 +1,7 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, beforeEach } from "vitest";
 import { useGraphQlHandler } from "./handlers/graphQlHandler";
 
-jest.setTimeout(90000);
-
-describe("install", () => {
+describe("install", { timeout: 90000 }, () => {
     beforeEach(async () => {
         process.env.S3_BUCKET = "a-mock-s3-bucket-which-does-not-exist";
     });
@@ -16,11 +14,10 @@ describe("install", () => {
             isTenancyInstalled,
             isSecurityInstalled,
             isHeadlessCmsInstalled,
-            isPageBuilderInstalled,
             isLocaleInstalled
         } = useGraphQlHandler({
             path: "/graphql",
-            features: wcp === "on" ? true : false
+            features: wcp === "on"
         });
 
         const [isAdminUsersInstalledResult] = await isAdminUsersInstalled();
@@ -69,15 +66,6 @@ describe("install", () => {
                 }
             }
         });
-
-        const [isPageBuilderInstalledResult] = await isPageBuilderInstalled();
-        expect(isPageBuilderInstalledResult).toEqual({
-            data: {
-                pageBuilder: {
-                    version: null
-                }
-            }
-        });
     });
 
     it.each(wcpOptions)("should install system - wcp %s", async wcp => {
@@ -97,7 +85,7 @@ describe("install", () => {
             isLocaleInstalled
         } = useGraphQlHandler({
             path: "/graphql",
-            features: wcp === "on" ? true : false
+            features: wcp === "on"
         });
         const [installTenancyResult] = await installTenancy();
         expect(installTenancyResult).toEqual({
@@ -167,26 +155,6 @@ describe("install", () => {
             }
         });
 
-        const [installPageBuilderResult] = await installPageBuilder({
-            variables: {
-                data: {
-                    insertDemoData: false,
-                    name: "My Website",
-                    websiteUrl: "https://www.webiny.com"
-                }
-            }
-        });
-        expect(installPageBuilderResult).toEqual({
-            data: {
-                pageBuilder: {
-                    install: {
-                        data: true,
-                        error: null
-                    }
-                }
-            }
-        });
-
         const [isAdminUsersInstalledResult] = await isAdminUsersInstalled();
 
         expect(isAdminUsersInstalledResult).toEqual({
@@ -229,15 +197,6 @@ describe("install", () => {
         expect(isHeadlessCmsInstalledResult).toEqual({
             data: {
                 cms: {
-                    version: "true"
-                }
-            }
-        });
-
-        const [isPageBuilderInstalledResult] = await isPageBuilderInstalled();
-        expect(isPageBuilderInstalledResult).toEqual({
-            data: {
-                pageBuilder: {
                     version: "true"
                 }
             }
