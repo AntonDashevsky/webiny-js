@@ -17,6 +17,7 @@ import { createIdentifier, parseIdentifier } from "@webiny/utils";
 import WebinyError from "@webiny/error";
 import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses";
 import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import { createState } from "~/crud/contentEntry/entryDataFactories/state.js";
 
 type CreateEntryRevisionFromDataParams = {
     sourceId: string;
@@ -174,6 +175,7 @@ export const createEntryRevisionFromData = async ({
 
         locked,
         status,
+        state: createState(undefined),
         values
     };
 

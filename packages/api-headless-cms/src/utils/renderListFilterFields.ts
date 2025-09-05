@@ -66,7 +66,8 @@ export const renderListFilterFields: RenderListFilterFields = (params): string =
             "status: String",
             "status_not: String",
             "status_in: [String!]",
-            "status_not_in: [String!]"
+            "status_not_in: [String!]",
+            "state: CmsEntryStateWhereInput"
         );
     }
 

@@ -32,6 +32,10 @@ const categoryFields = `
         version
         locked
         status
+        state {
+            name
+            comment
+        }
        
         revisions {
             id

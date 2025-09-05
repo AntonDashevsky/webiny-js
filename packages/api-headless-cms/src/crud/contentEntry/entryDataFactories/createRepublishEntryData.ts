@@ -4,6 +4,7 @@ import { STATUS_PUBLISHED } from "./statuses";
 import type { SecurityIdentity } from "@webiny/api-security/types";
 import { getIdentity } from "~/utils/identity";
 import { getDate } from "~/utils/date";
+import { createState } from "~/crud/contentEntry/entryDataFactories/state.js";
 
 type CreateRepublishEntryDataParams = {
     model: CmsModel;
@@ -33,6 +34,7 @@ export const createRepublishEntryData = async ({
     const entry: CmsEntry = {
         ...originalEntry,
         status: STATUS_PUBLISHED,
+        state: createState(undefined),
 
         /**
          * Entry-level meta fields. 👇
