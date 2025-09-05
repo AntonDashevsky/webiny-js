@@ -17576,6 +17576,7 @@ __metadata:
     "@types/jsdom": "npm:^21.1.6"
     "@types/lodash": "npm:^4.17.13"
     "@types/read-json-sync": "npm:^2.0.0"
+    "@webiny/aws-sdk": "npm:0.0.0"
     "@webiny/di-container": "npm:0.0.0"
     "@webiny/feature": "npm:0.0.0"
     "@webiny/project-utils": "npm:0.0.0"
