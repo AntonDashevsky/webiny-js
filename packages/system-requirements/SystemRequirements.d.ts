@@ -1,4 +1,6 @@
 export interface SystemRequirements {
+    getNodeVersion(): string;
+    getOsVersion(): string;
     getNpxVersion(): string;
     getYarnVersion(): string;
     getNpmVersion(): string;

@@ -3,7 +3,7 @@ import { GetAppPackagesService } from "~/abstractions/index.js";
 import { AppModel, AppPackageModel } from "~/models/index.js";
 import glob from "fast-glob";
 import { dirname } from "path";
-import { PackageJson } from "~/utils/PackageJson";
+import { PackageJson } from "~/utils/PackageJson.js";
 
 export class DefaultGetAppPackagesService implements GetAppPackagesService.Interface {
     async execute(app: AppModel) {

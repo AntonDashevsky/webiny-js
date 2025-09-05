@@ -1,5 +1,5 @@
 import { StdioService, UiService } from "~/abstractions/index.js";
-import { IPackagesBuilder } from "@webiny/project/abstractions/models";
+import { IPackagesBuilder } from "@webiny/project/abstractions/models/index.js";
 
 export interface IBaseBuildRunnerParams {
     packagesBuilder: IPackagesBuilder;
