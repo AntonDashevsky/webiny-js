@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import { Collapsable, Section, Page, Separator, NavGroup } from "./components";
 

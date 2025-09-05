@@ -45,6 +45,7 @@ export const createTestConfig = async ({
         include: [`${path}/**/*${type}.test.[jt]s?(x)`],
         dir: path,
         ...vitestConfig,
+        css: false,
         alias: [
             {
                 find: /^~tests(.*)/,
@@ -53,9 +54,6 @@ export const createTestConfig = async ({
             { find: /^~(.*)/, replacement: `${path}/src$1` },
             ...((vitestConfig.alias ?? []) as Alias)
         ]
-        // globals: { TODO: add this via a setupFile
-        //     WEBINY_VERSION: version
-        // },
     };
 
     const setupAfterEnv = join(path, "__tests__", "setup", "setupAfterEnv.js");

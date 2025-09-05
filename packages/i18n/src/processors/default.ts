@@ -13,8 +13,9 @@ const processTextPart = (
     const parts = lodashTrim(part, "{}").split("|");
 
     const [variable, modifier] = parts;
+    const keys = Object.keys(values);
 
-    if (!values[variable]) {
+    if (!keys.includes(variable)) {
         return `{${variable}}`;
     }
 

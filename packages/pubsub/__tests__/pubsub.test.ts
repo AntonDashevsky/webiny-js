@@ -1,3 +1,5 @@
+import { describe, test, expect } from "vitest";
+
 import { createTopic } from "../src";
 import { Event } from "~/types";
 

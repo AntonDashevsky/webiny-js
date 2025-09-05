@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render } from "@testing-library/react";
 import React from "react";
 import {
@@ -15,14 +13,19 @@ import { emptyEditorContent, LexicalCmsInputRender } from "./lexical-render";
 import theme from "./theme";
 import { RichTextLexicalRenderer } from "~/index";
 
-// Need to use fake timers because of internal use of `queueMicroTask`
-jest.useFakeTimers();
-
 describe("Test Rich Lexical Renderer", () => {
+    beforeEach(() => {
+        vi.useFakeTimers();
+    });
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
     it("Paragraph string value type is rendered", async () => {
         // ARRANGE
         const { container } = render(<RichTextLexicalRenderer value={defaultParagraphValue} />);
-        jest.runAllTimers();
+
+        await vi.runAllTimersAsync();
 
         // ASSERT
         expect(container.innerHTML).toContain(expectedParagraphRenderedValue);
@@ -31,7 +34,7 @@ describe("Test Rich Lexical Renderer", () => {
     it("Header object value type is rendered", async () => {
         // ARRANGE
         const { container } = render(<RichTextLexicalRenderer value={defaultHeadingValue} />);
-        jest.runAllTimers();
+        await vi.runAllTimersAsync();
         // ASSERT
         expect(container.innerHTML).toContain(expectedHeadingRenderedValue);
     });
@@ -39,7 +42,7 @@ describe("Test Rich Lexical Renderer", () => {
     it("Handle null as value", async () => {
         // ARRANGE
         const { container } = render(<RichTextLexicalRenderer value={null} />);
-        jest.runAllTimers();
+        await vi.runAllTimersAsync();
         // ASSERT
         expect(container.innerHTML).toEqual(emptyEditorContent);
     });
@@ -47,7 +50,7 @@ describe("Test Rich Lexical Renderer", () => {
     it("Handle undefined as value", async () => {
         // ARRANGE
         const { container } = render(<RichTextLexicalRenderer value={undefined} />);
-        jest.runAllTimers();
+        await vi.runAllTimersAsync();
         // ASSERT
         expect(container.innerHTML).toEqual(emptyEditorContent);
     });
@@ -55,7 +58,7 @@ describe("Test Rich Lexical Renderer", () => {
     it("Handle wrong lexical value", async () => {
         // ARRANGE
         const { container } = render(<RichTextLexicalRenderer value={notCorrectValue} />);
-        jest.runAllTimers();
+        await vi.runAllTimersAsync();
         // ASSERT
         expect(container.innerHTML).toEqual(emptyEditorContent);
     });
@@ -63,7 +66,7 @@ describe("Test Rich Lexical Renderer", () => {
     it("Lexical CMS input includes title, paragraph, list and quote", async () => {
         // ARRANGE
         const { container } = render(<RichTextLexicalRenderer value={LexicalJsonCmsDataInput} />);
-        jest.runAllTimers();
+        await vi.runAllTimersAsync();
         // ASSERT
         expect(container.innerHTML).toEqual(LexicalCmsInputRender);
     });
@@ -73,7 +76,7 @@ describe("Test Rich Lexical Renderer", () => {
         const { container } = render(
             <RichTextLexicalRenderer value={LexicalJsonCmsDataInput} theme={theme} />
         );
-        jest.runAllTimers();
+        await vi.runAllTimersAsync();
         // ASSERT
         // editor is here
         expect(container.innerHTML.includes("editor")).toBeTruthy();

@@ -1,3 +1,5 @@
+import { describe, it, vi, expect } from "vitest";
+
 import {
     assertNotError,
     createDdbMigrationHandler,
@@ -11,10 +13,9 @@ import { insertTestFolders } from "../insertTestFolders";
 import { createLocalesData, createTenantsData } from "../common";
 
 import { StepFunctionService } from "@webiny/tasks/service/StepFunctionServicePlugin";
-import { jest } from "@jest/globals";
 
-jest.mock("@webiny/tasks/service/StepFunctionServicePlugin", () => {
-    const sendMock = jest.fn().mockResolvedValue({
+vi.mock("@webiny/tasks/service/StepFunctionServicePlugin", () => {
+    const sendMock = vi.fn().mockResolvedValue({
         tenant: "mockTenant",
         locale: "mockLocale",
         id: "mockId",
@@ -23,7 +24,7 @@ jest.mock("@webiny/tasks/service/StepFunctionServicePlugin", () => {
         input: { type: "*" }
     });
 
-    const StepFunctionService = jest.fn().mockImplementation(() => ({
+    const StepFunctionService = vi.fn().mockImplementation(() => ({
         send: sendMock
     }));
 
@@ -37,10 +38,7 @@ jest.mock("@webiny/tasks/service/StepFunctionServicePlugin", () => {
     };
 });
 
-jest.retryTimes(0);
-jest.setTimeout(900000);
-
-describe("5.43.0-001 - DDB", () => {
+describe("5.43.0-001 - DDB", { timeout: 900_000 }, () => {
     const table = getPrimaryDynamoDbTable();
 
     logTestNameBeforeEachTest();

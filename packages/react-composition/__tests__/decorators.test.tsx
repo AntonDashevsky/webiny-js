@@ -1,7 +1,5 @@
-/**
- * @jest-environment jsdom
- */
-/* eslint-disable */
+// @ts-nocheck
+import { describe, it } from "vitest";
 import React from "react";
 import { makeDecoratable, withDecoratorFactory } from "~/index";
 

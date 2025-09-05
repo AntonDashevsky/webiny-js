@@ -1,4 +1,5 @@
-import { jest } from "@jest/globals";
+import { describe, test, expect, beforeEach, afterEach, vi } from "vitest";
+
 import { PluginsContainer } from "~/index";
 
 const mockPlugins = [
@@ -43,7 +44,7 @@ describe("plugins", () => {
         plugins = new PluginsContainer();
     });
     afterEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     test("plugins.register, plugins.unregister, plugins.byName, plugins.byType", async () => {
@@ -142,8 +143,8 @@ describe("plugins", () => {
     const findByTypeMethodName = "findByType" as keyof typeof plugins;
 
     test("load a type only once internally", async () => {
-        const byTypeSpy = jest.spyOn(plugins, "byType");
-        const findByTypeSpy = jest.spyOn(plugins, findByTypeMethodName);
+        const byTypeSpy = vi.spyOn(plugins, "byType");
+        const findByTypeSpy = vi.spyOn(plugins, findByTypeMethodName);
 
         plugins.register(mockPlugins);
 
@@ -155,12 +156,12 @@ describe("plugins", () => {
         expect(findByTypeSpy).toBeCalledTimes(1);
         expect(byTypeSpy).toBeCalledTimes(50);
 
-        jest.restoreAllMocks();
+        vi.restoreAllMocks();
     });
 
     test("it should clear internal cache when registering a new plugin", async () => {
-        const byTypeSpy = jest.spyOn(plugins, "byType");
-        const findByTypeSpy = jest.spyOn(plugins, findByTypeMethodName);
+        const byTypeSpy = vi.spyOn(plugins, "byType");
+        const findByTypeSpy = vi.spyOn(plugins, findByTypeMethodName);
 
         plugins.register(mockPlugins);
 
@@ -191,12 +192,12 @@ describe("plugins", () => {
         expect(findByTypeSpy).toBeCalledTimes(register.length + 1);
         expect(byTypeSpy).toBeCalledTimes(51);
 
-        jest.restoreAllMocks();
+        vi.restoreAllMocks();
     });
 
     test("it should clear internal cache when unregistering a plugin", async () => {
-        const byTypeSpy = jest.spyOn(plugins, "byType");
-        const findByTypeSpy = jest.spyOn(plugins, findByTypeMethodName);
+        const byTypeSpy = vi.spyOn(plugins, "byType");
+        const findByTypeSpy = vi.spyOn(plugins, findByTypeMethodName);
 
         plugins.register(mockPlugins);
 
@@ -235,7 +236,7 @@ describe("plugins", () => {
         expect(findByTypeSpy).toBeCalledTimes(unregister.length + 2);
         expect(byTypeSpy).toBeCalledTimes(endId + 1);
 
-        jest.restoreAllMocks();
+        vi.restoreAllMocks();
     });
 
     test("plugins should remain same after shift and pop", () => {

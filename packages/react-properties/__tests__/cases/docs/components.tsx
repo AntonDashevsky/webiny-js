@@ -1,7 +1,8 @@
+// @ts-nocheck
 import React from "react";
 import { Property, useParentProperty } from "~/index";
 
-export const Draft = ({ children }) => {
+export const Draft = ({ children }: { children: React.ReactNode }) => {
     if (process.env.VERCEL_ENV === "production") {
         return null;
     }

@@ -1,4 +1,6 @@
-import extract from "@webiny/i18n/extractor/extract";
+import { describe, test, expect } from "vitest";
+
+import extract from "~/extractor/extract";
 
 import example1 from "./extract/example1";
 import example2 from "./extract/example2";

@@ -1,4 +1,5 @@
-import i18n from "@webiny/i18n";
+import { describe, test, expect } from "vitest";
+import i18n from "~/index";
 
 describe("price test", () => {
     test("should output price with no formatting set", () => {

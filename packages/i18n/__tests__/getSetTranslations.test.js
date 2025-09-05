@@ -1,4 +1,6 @@
-import i18n from "@webiny/i18n";
+import { describe, test, expect, beforeEach } from "vitest";
+
+import i18n from "~/index";
 
 describe("all set/get translations related methods test", () => {
     beforeEach(() => i18n.clearTranslations());

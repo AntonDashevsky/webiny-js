@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, expect, vi } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import { CompositionProvider } from "@webiny/react-composition";
@@ -26,7 +24,7 @@ const BaseConfig = () => {
 
 describe("PB Editor", () => {
     it("should contain 1 settings groups with 3 fields", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>
@@ -69,7 +67,7 @@ describe("PB Editor", () => {
     });
 
     it("should contain a new settings group with 1 field", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>
@@ -129,7 +127,7 @@ describe("PB Editor", () => {
     });
 
     it("should allow group customization", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>
@@ -175,7 +173,7 @@ describe("PB Editor", () => {
     });
 
     it("should allow group removal", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>
@@ -196,7 +194,7 @@ describe("PB Editor", () => {
     });
 
     it("should allow field customization", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>
@@ -251,7 +249,7 @@ describe("PB Editor", () => {
     });
 
     it("should allow adding fields after a specific field", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>
@@ -309,7 +307,7 @@ describe("PB Editor", () => {
     });
 
     it("should allow adding fields before a specific field", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>
@@ -367,7 +365,7 @@ describe("PB Editor", () => {
     });
 
     it("should allow field removal", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>
@@ -410,7 +408,7 @@ describe("PB Editor", () => {
     });
 
     it("should allow field replacement", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <CompositionProvider>

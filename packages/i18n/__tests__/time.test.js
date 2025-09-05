@@ -1,4 +1,5 @@
-import i18n from "@webiny/i18n";
+import { describe, test, expect } from "vitest";
+import i18n from "~/index";
 
 describe("time test", () => {
     // With below given format (no timezone), Date assumes passed value is in current timezone.

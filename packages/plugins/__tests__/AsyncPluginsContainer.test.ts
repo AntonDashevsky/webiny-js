@@ -1,3 +1,5 @@
+import { describe, it, expect } from "vitest";
+
 import { AsyncPluginsContainer } from "~/AsyncPluginsContainer";
 import { PluginCollection } from "~/types";
 

@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, expect, vi } from "vitest";
 import React from "react";
 import prettier from "prettier";
 import { render } from "@testing-library/react";
@@ -60,7 +58,7 @@ const ModifyListPagesQuery = () => {
 };
 
 const renderElement = (element: JSX.Element): { operations: Operation[] } => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     const view = <Properties onChange={onChange}>{element}</Properties>;
 

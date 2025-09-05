@@ -8,7 +8,7 @@ interface SettingsGroupProps {
     icon?: string;
     remove?: boolean;
     replace?: string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 type DynamicProps<T> = T & {
@@ -37,6 +37,7 @@ const SettingsGroup = ({ children, replace, remove = false, ...rest }: SettingsG
 
 interface FormFieldProps extends Record<string, unknown> {
     name: string;
+    children?: React.ReactNode;
     component?: string;
     after?: string;
     remove?: boolean;
@@ -59,7 +60,7 @@ const FormField = ({
     const { id } = parent;
 
     const getId = useCallback(
-        (suffix = undefined) => [id, "field", props.name, suffix].filter(Boolean).join(":"),
+        (suffix: string | undefined = undefined) => [id, "field", props.name, suffix].filter(Boolean).join(":"),
         []
     );
 

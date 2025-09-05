@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import { describe, it, expect, vi } from "vitest";
 import React, { useCallback } from "react";
 import { render } from "@testing-library/react";
 import { Properties, Property, useParentProperty, toObject } from "~/index";
@@ -40,7 +38,7 @@ const Field = ({ name, label, replace, after, before, remove = false }: FieldPro
     const placeBefore = before !== undefined ? `${id}:field:${before}` : undefined;
 
     const getId = useCallback(
-        (suffix = undefined) => [id, "field", name, suffix].filter(Boolean).join(":"),
+        (suffix: string | undefined = undefined) => [id, "field", name, suffix].filter(Boolean).join(":"),
         []
     );
     const toReplace = replace !== undefined ? `${id}:field:${replace}` : undefined;
@@ -63,7 +61,7 @@ const Field = ({ name, label, replace, after, before, remove = false }: FieldPro
 
 describe("Test Properties", () => {
     it("should create 2 properties", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const view = (
             <Properties onChange={onChange}>
                 <Property id={"label"} name={"label"} value={"Label"} />
@@ -80,7 +78,7 @@ describe("Test Properties", () => {
     });
 
     it("should create nested properties", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const view = (
             <Properties onChange={onChange}>
                 <Property id="1" name={"group"}>
@@ -111,7 +109,7 @@ describe("Test Properties", () => {
     });
 
     it("should convert to a single object", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const view = (
             <Properties onChange={onChange}>
                 <Property name={"group"}>
@@ -140,7 +138,7 @@ describe("Test Properties", () => {
     });
 
     it("should treat a single object as an array (array prop)", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const view = (
             <Properties onChange={onChange}>
                 <Property name={"group"} array>
@@ -171,7 +169,7 @@ describe("Test Properties", () => {
     });
 
     it("should convert to an array of objects", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const view = (
             <Properties onChange={onChange}>
                 <Property name={"group"}>
@@ -244,7 +242,7 @@ describe("Test Properties", () => {
             );
         };
 
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <Properties onChange={onChange}>
@@ -282,7 +280,7 @@ describe("Test Properties", () => {
     });
 
     it("should merge properties for matching 'name' prop", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <Properties onChange={onChange}>
@@ -335,7 +333,7 @@ describe("Test Properties", () => {
     });
 
     it("should allow addition of custom properties to predefined components", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         interface TutorialProps {
             label: string;
@@ -383,7 +381,7 @@ describe("Test Properties", () => {
     });
 
     it("should remove existing property by 'name' and add a new one", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <Properties onChange={onChange}>
@@ -417,7 +415,7 @@ describe("Test Properties", () => {
     });
 
     it("should replace existing property with a new one", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <Properties onChange={onChange}>
@@ -453,7 +451,7 @@ describe("Test Properties", () => {
     });
 
     it("should add property after an existing one", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <Properties onChange={onChange}>
@@ -489,7 +487,7 @@ describe("Test Properties", () => {
     });
 
     it("should add property before an existing one", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <Properties onChange={onChange}>
@@ -527,7 +525,7 @@ describe("Test Properties", () => {
     });
 
     it("should change the position of the existing property", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <Properties onChange={onChange}>
@@ -564,7 +562,7 @@ describe("Test Properties", () => {
 
 describe("Custom Properties", () => {
     it("should change the position of the existing property", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         const view = (
             <Properties onChange={onChange}>
