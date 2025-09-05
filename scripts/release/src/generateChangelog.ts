@@ -1,7 +1,7 @@
 /**
  * This script is used to generate a changelog from the given tags.
  */
-const { Changelog } = require("./Changelog");
+import { Changelog } from "./Changelog";
 
 const fromTag = "v5.39.0";
 const toTag = "v5.39.1";

@@ -1,12 +1,33 @@
-const yargs = require("yargs");
-const { ConsoleLogger } = require("../ConsoleLogger");
-const { getReleaseType } = require("./releaseTypes");
+#!/usr/bin/env node
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+import { ConsoleLogger } from "./ConsoleLogger";
+import { getReleaseType } from "./releaseTypes";
+
+// create the CLI parser
+const cli = yargs(hideBin(process.argv));
 
 // Disable default handling of `--version` parameter.
-yargs.version(false);
+cli.version(false);
+
+interface ReleaseArgs {
+    type?: string;
+    tag?: string;
+    gitReset?: boolean;
+    version?: string;
+    createGithubRelease?: boolean | string;
+    printVersion?: boolean;
+}
 
 async function runRelease() {
-    const { type, tag, gitReset = true, version, createGithubRelease, printVersion } = yargs.argv;
+    const {
+        type,
+        tag,
+        gitReset = true,
+        version,
+        createGithubRelease,
+        printVersion
+    } = cli.argv as ReleaseArgs;
 
     console.log({ type, tag, gitReset, version });
     if (!type) {

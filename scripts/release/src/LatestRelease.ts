@@ -1,10 +1,10 @@
-const { Release } = require("./Release");
-const semver = require("semver");
+import { Release } from "./Release";
+import semver from "semver";
 
-class LatestRelease extends Release {
+export class LatestRelease extends Release {
     defaultTag = "latest";
 
-    constructor(logger) {
+    constructor(logger: any) {
         super(logger);
         this.setTag(this.defaultTag);
 
@@ -17,8 +17,8 @@ class LatestRelease extends Release {
 
             // If most recent version is a prerelease version, coerce it to a non-prerelease version.
             const currentVersion = semver.parse(mostRecentVersion);
-            if (currentVersion.prerelease.length > 0) {
-                return semver.coerce(mostRecentVersion);
+            if (currentVersion && currentVersion.prerelease.length > 0) {
+                return semver.coerce(mostRecentVersion)?.version!;
             }
 
             // Determine version using conventional commits specs.
@@ -28,7 +28,7 @@ class LatestRelease extends Release {
         this.setCreateGithubRelease("latest");
     }
 
-    setTag(tag) {
+    override setTag(tag: string) {
         if (tag !== this.defaultTag) {
             this.logger.warning(
                 "Latest release can only be published using the %s tag; the requested %s tag will be ignored.",
@@ -42,5 +42,3 @@ class LatestRelease extends Release {
         super.setTag(tag);
     }
 }
-
-module.exports = { LatestRelease };

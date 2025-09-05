@@ -1,21 +1,24 @@
-const fetch = require("node-fetch");
-const pRetry = require("p-retry");
-const semver = require("semver");
-const execa = require("execa");
-const loadJSON = require("load-json-file");
-const writeJSON = require("write-json-file");
-const { Octokit } = require("@octokit/rest");
-const { Changelog } = require("./Changelog");
+import fetch from "node-fetch";
+import pRetry from "p-retry";
+import semver, { SemVer } from "semver";
+import execa from "execa";
+import loadJSON from "load-json-file";
+import writeJSON from "write-json-file";
+import { Octokit } from "@octokit/rest";
+import { Changelog } from "./Changelog";
 
-class Release {
-    tag = undefined;
-    version = undefined;
+export type MostRecentVersionFunction = (mostRecentVersion: string) => string | string[];
+
+export class Release {
+    tag: string | undefined = undefined;
+    version: string | string[] | MostRecentVersionFunction | null | undefined = undefined;
     resetAllChanges = true;
-    mostRecentVersion = undefined;
-    createGithubRelease = false;
-    npmTags = [];
+    mostRecentVersion: undefined | string = undefined;
+    createGithubRelease: string | boolean = false;
+    npmTags: Record<string, any> = [];
+    logger: any;
 
-    constructor(logger) {
+    constructor(logger: any) {
         if (!logger) {
             throw Error(`Missing required constructor argument "logger"!`);
         }
@@ -27,7 +30,7 @@ class Release {
      * NPM dist-tag to publish.
      * @param tag
      */
-    setTag(tag) {
+    setTag(tag: string) {
         this.tag = tag;
     }
 
@@ -39,18 +42,18 @@ class Release {
      * Unstable: 0.0.0-unstable.b7124ae31d
      * @param version String | String[] | Function
      */
-    setVersion(version) {
+    setVersion(version: string | string[] | MostRecentVersionFunction) {
         this.version = version;
     }
 
     /**
      * @param {boolean|string} flag Boolean or "latest" to mark release as "latest" on Github
      */
-    setCreateGithubRelease(flag) {
+    setCreateGithubRelease(flag: boolean | string) {
         this.createGithubRelease = flag;
     }
 
-    setResetAllChanges(reset) {
+    setResetAllChanges(reset: boolean) {
         this.resetAllChanges = reset;
     }
 
@@ -66,21 +69,32 @@ class Release {
             this.mostRecentVersion = this.__getMostRecentVersion(
                 [
                     this.npmTags["latest"],
-                    this.npmTags[this.tag === "latest" ? "beta" : this.tag]
+                    this.npmTags[this.tag === "latest" ? "beta" : this.tag!]
                 ].filter(Boolean)
             );
 
             this.logger.info("Most recent version is %s", this.mostRecentVersion);
-            const lernaJSON = await loadJSON("example.lerna.json");
-            lernaJSON.version = this.mostRecentVersion;
+            const lernaJSON = this.__loadLernaJson("example.lerna.json");
+
             await writeJSON("lerna.json", lernaJSON);
             this.logger.info("Lerna config was written to %s", "lerna.json");
         }
 
         // Run `lerna` to version packages
-        let version = this.version;
+        let version: string[] = [];
         if (typeof this.version === "function") {
-            version = await this.version(this.mostRecentVersion);
+            const calculatedVersion = this.version(this.mostRecentVersion!);
+            if (Array.isArray(calculatedVersion)) {
+                version = calculatedVersion;
+            } else {
+                version = [calculatedVersion];
+            }
+        } else {
+            if (Array.isArray(this.version)) {
+                version = this.version;
+            } else {
+                version = [this.version!];
+            }
         }
 
         if (!Array.isArray(version)) {
@@ -91,7 +105,7 @@ class Release {
             "lerna",
             "version",
             ...version,
-            "--force-publish",
+            "--force-publish=*",
             "--no-changelog",
             "--no-git-tag-version",
             "--no-push",
@@ -103,7 +117,7 @@ class Release {
         this.logger.info("Packages versioning completed");
 
         // Read the new version
-        const lernaJSON = await loadJSON("lerna.json");
+        const lernaJSON = this.__loadLernaJson("lerna.json");
         return { version: lernaJSON.version, tag: this.tag };
     }
 
@@ -116,7 +130,7 @@ class Release {
             "publish",
             "from-package",
             "--dist-tag",
-            this.tag,
+            this.tag!,
             "--yes"
         ];
 
@@ -134,7 +148,7 @@ class Release {
 
         if (this.createGithubRelease !== false) {
             // Generate changelog, tag commit, and create Github release.
-            const lernaJSON = await loadJSON("lerna.json");
+            const lernaJSON = this.__loadLernaJson("lerna.json");
             const versionTag = `v${lernaJSON.version}`;
 
             // Create the tag
@@ -188,11 +202,11 @@ class Release {
         return pRetry(getVersion, { retries: 5 });
     }
 
-    __getMostRecentVersion(versions) {
-        return semver.sort(versions).pop().toString();
+    __getMostRecentVersion(versions: string[]) {
+        return semver.sort(versions).pop()?.toString();
     }
 
-    async __getChangelog(currentlyPublishedVersion) {
+    async __getChangelog(currentlyPublishedVersion: string) {
         const from = `v${this.npmTags["latest"]}`;
         const to = `v${currentlyPublishedVersion}`;
 
@@ -200,7 +214,7 @@ class Release {
         return new Changelog(process.cwd()).generate(from, to);
     }
 
-    async __createGithubRelease(tag, changelog) {
+    async __createGithubRelease(tag: string, changelog: string) {
         const client = new Octokit({
             auth: `token ${process.env.GH_TOKEN}`
         });
@@ -216,6 +230,8 @@ class Release {
             make_latest: this.createGithubRelease === "latest" ? "true" : "false"
         });
     }
-}
 
-module.exports = { Release };
+    __loadLernaJson(filename: string) {
+        return loadJSON.sync<Record<string, any>>(filename);
+    }
+}

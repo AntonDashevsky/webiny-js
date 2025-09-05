@@ -1,17 +1,27 @@
 #!/usr/bin/env node
-const yargs = require("yargs");
-const { Octokit } = require("@octokit/rest");
-const { ConsoleLogger } = require("../ConsoleLogger");
-const { checkReleaseType } = require("./releaseTypes");
+import yargs from "yargs";
+import { Octokit } from "@octokit/rest";
+import { ConsoleLogger } from "../../ConsoleLogger";
+import { checkReleaseType } from "./releaseTypes";
 
 yargs.version(false);
+
+interface ReleaseArgs {
+    branch?: string;
+    type?: string;
+    token?: string;
+    tag?: string;
+    version?: string;
+    createGithubRelease?: boolean | string;
+}
 
 /**
  * A simple script that will trigger the "release" GitHub workflow.
  */
 
 (async () => {
-    const { branch, type, token, tag, version, createGithubRelease } = yargs.argv;
+    const { branch, type, token, tag, version, createGithubRelease } = yargs.argv as ReleaseArgs;
+    const logger = new ConsoleLogger();
 
     try {
         if (!branch) {
@@ -29,8 +39,6 @@ yargs.version(false);
                 `"--token" argument missing. Make sure it contains a valid GitHub access token.`
             );
         }
-
-        const logger = new ConsoleLogger();
 
         logger.info("Branch: %s", branch);
         logger.info("Type: %s", type);

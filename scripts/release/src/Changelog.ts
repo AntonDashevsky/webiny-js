@@ -1,13 +1,17 @@
-const conventionalChangelogCore = require("conventional-changelog-core");
-const angularPreset = require("conventional-changelog-angular");
+import conventionalChangelogCore from "conventional-changelog-core";
+// @ts-expect-error No types available.
+import angularPreset from "conventional-changelog-angular";
 
-class Changelog {
-    constructor(cwd, preset = angularPreset) {
+export class Changelog {
+    cwd: string;
+    preset: any;
+
+    constructor(cwd: string, preset: any = angularPreset) {
         this.cwd = cwd;
         this.preset = preset;
     }
 
-    async generate(fromRef, toRef) {
+    async generate(fromRef: string, toRef: string) {
         let changelog = "";
 
         for await (let chunk of conventionalChangelogCore(
@@ -31,5 +35,3 @@ class Changelog {
         return changelog;
     }
 }
-
-module.exports.Changelog = Changelog;
