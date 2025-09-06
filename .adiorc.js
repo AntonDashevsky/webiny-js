@@ -67,7 +67,7 @@ export default {
         peerDependencies: true
     },
     ignoreDirs: ["node_modules/", "dist/", "build/"],
-    packages: getWorkspaces().map(pkg =>
-        pkg.replace(/\//g, path.sep).replace(process.cwd() + path.sep, "")
-    )
+    packages: getWorkspaces()
+        .filter(pkg => !pkg.includes("system-requirements"))
+        .map(pkg => pkg.replace(/\//g, path.sep).replace(process.cwd() + path.sep, ""))
 };
