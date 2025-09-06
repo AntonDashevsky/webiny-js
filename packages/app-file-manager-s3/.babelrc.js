@@ -1,3 +1,3 @@
-module.exports = require("@webiny/project-utils").createBabelConfigForReact({
+module.exports = require("@webiny/build-tools").createBabelConfigForReact({
     path: __dirname
 });

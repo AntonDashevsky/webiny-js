@@ -24,10 +24,10 @@
     "@webiny/api-security": "0.0.0",
     "@webiny/api-tenancy": "0.0.0",
     "@webiny/api-wcp": "0.0.0",
+    "@webiny/build-tools": "0.0.0",
     "@webiny/handler-aws": "0.0.0",
     "@webiny/handler-graphql": "0.0.0",
     "@webiny/plugins": "0.0.0",
-    "@webiny/project-utils": "0.0.0",
     "@webiny/wcp": "0.0.0",
     "graphql": "^15.9.0",
     "typescript": "5.3.3"

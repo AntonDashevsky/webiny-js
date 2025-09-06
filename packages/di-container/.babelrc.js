@@ -1,3 +1,3 @@
-module.exports = require("@webiny/project-utils").createBabelConfigForNode({
+module.exports = require("@webiny/build-tools").createBabelConfigForNode({
     path: __dirname
 });

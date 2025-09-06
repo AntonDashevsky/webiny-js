@@ -63,8 +63,8 @@
   },
   "devDependencies": {
     "@types/ncp": "^2.0.8",
+    "@webiny/build-tools": "0.0.0",
     "@webiny/migrations": "0.0.0",
-    "@webiny/project-utils": "0.0.0",
     "typescript": "5.3.3"
   },
   "adio": {

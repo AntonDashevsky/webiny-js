@@ -76,7 +76,7 @@
     "@types/react-color": "^2.17.11",
     "@types/react-custom-scrollbars": "^4.0.10",
     "@types/react-transition-group": "^4.4.4",
-    "@webiny/project-utils": "0.0.0",
+    "@webiny/build-tools": "0.0.0",
     "@webiny/validation": "0.0.0",
     "babel-loader": "^9.2.1",
     "execa": "^5.1.1",

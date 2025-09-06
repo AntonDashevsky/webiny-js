@@ -39,8 +39,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@webiny/build-tools": "0.0.0",
     "@webiny/handler-aws": "0.0.0",
-    "@webiny/project-utils": "0.0.0",
     "@webiny/wcp": "0.0.0",
     "graphql": "^15.9.0",
     "jest": "^29.7.0",

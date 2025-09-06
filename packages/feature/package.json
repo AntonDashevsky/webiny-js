@@ -13,7 +13,7 @@
     "@webiny/di-container": "0.0.0"
   },
   "devDependencies": {
-    "@webiny/project-utils": "0.0.0",
+    "@webiny/build-tools": "0.0.0",
     "typescript": "5.9.2"
   },
   "publishConfig": {

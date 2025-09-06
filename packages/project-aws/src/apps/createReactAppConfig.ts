@@ -2,11 +2,7 @@ import path from "path";
 import invariant from "invariant";
 import { getStackOutput } from "@webiny/project";
 import { type GetApp } from "@webiny/project/abstractions/index.js";
-import {
-    type BuildAppConfigOverrides,
-    createBuildApp,
-    createWatchApp
-} from "@webiny/project-utils";
+import { type BuildAppConfigOverrides, createBuildApp, createWatchApp } from "@webiny/build-tools";
 import { type Configuration as WebpackConfig } from "webpack";
 import { type PulumiAppModule } from "@webiny/pulumi";
 import { type Unwrap } from "@pulumi/pulumi";

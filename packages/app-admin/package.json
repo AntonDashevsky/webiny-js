@@ -74,7 +74,7 @@
     "@types/is-hotkey": "^0.1.10",
     "@types/react-resizable": "^3.0.8",
     "@types/store": "^2.0.2",
-    "@webiny/project-utils": "0.0.0",
+    "@webiny/build-tools": "0.0.0",
     "monaco-editor": "^0.52.2",
     "rimraf": "^6.0.1",
     "typescript": "5.3.3"

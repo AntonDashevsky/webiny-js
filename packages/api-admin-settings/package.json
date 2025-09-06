@@ -26,9 +26,9 @@
     "@webiny/handler": "0.0.0"
   },
   "devDependencies": {
+    "@webiny/build-tools": "0.0.0",
     "@webiny/handler-aws": "0.0.0",
     "@webiny/handler-db": "0.0.0",
-    "@webiny/project-utils": "0.0.0",
     "apollo-graphql": "^0.9.5",
     "jest": "^29.7.0",
     "jest-dynalite": "^3.6.1",
