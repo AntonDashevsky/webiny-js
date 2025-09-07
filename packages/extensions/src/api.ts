@@ -1,4 +1,4 @@
 export {
     // Hooks.
     OnEntryBeforeCreate
-} from "@webiny/api-headless-cms/abstractions/index.js";
+} from "@webiny/project-aws/api.js";

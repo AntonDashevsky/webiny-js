@@ -16,10 +16,15 @@
     "@webiny/aws-sdk": "0.0.0",
     "@webiny/plugins": "0.0.0",
     "@webiny/project": "0.0.0",
-    "@webiny/utils": "0.0.0"
+    "@webiny/utils": "0.0.0",
+    "case": "^1.6.3",
+    "ts-morph": "^24.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@webiny/build-tools": "0.0.0",
+    "@webiny/project-utils": "0.0.0",
     "rimraf": "^6.0.1",
     "typescript": "5.3.3"
   },

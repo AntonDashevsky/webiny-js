@@ -15,11 +15,7 @@ export {
     CoreAfterDeploy,
     CoreBeforeBuild,
     CoreBeforeDeploy,
-    WebsiteAfterBuild,
-    WebsiteAfterDeploy,
-    WebsiteBeforeBuild,
-    WebsiteBeforeDeploy,
 
     // Pulumi.
     CorePulumi
-} from "@webiny/project/abstractions/index.js";
+} from "@webiny/project-aws/project.js";

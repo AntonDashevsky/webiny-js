@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/uniqid": "^5.3.2",
     "@webiny/build-tools": "0.0.0",
+    "@jest/globals": "^29.7.0",
     "rimraf": "^6.0.1",
     "typescript": "5.3.3"
   },

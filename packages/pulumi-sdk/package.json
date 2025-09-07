@@ -23,7 +23,9 @@
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.7",
     "semver": "^7.6.3",
-    "tar": "^6.2.1"
+    "tar": "^6.2.1",
+    "find-up": "5.0.0",
+    "read-json-sync": "2.0.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.13",

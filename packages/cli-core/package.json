@@ -12,13 +12,9 @@
   "dependencies": {
     "@webiny/di-container": "0.0.0",
     "@webiny/project": "0.0.0",
-    "@webiny/system-requirements": "0.0.0",
     "@webiny/telemetry": "0.0.0",
     "ora": "4.1.1",
-    "pino": "^8.21.0",
-    "pino-pretty": "^9.4.0",
-    "yargs": "^17.7.2",
-    "yargs-parser": "^21.1.1"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@types/listr": "^0.14.9",

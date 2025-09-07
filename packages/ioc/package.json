@@ -17,7 +17,8 @@
   "devDependencies": {
     "@webiny/build-tools": "0.0.0",
     "typescript": "5.3.3",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "@jest/globals": "^29.7.0"
   },
   "publishConfig": {
     "access": "public",

@@ -32,6 +32,7 @@
     "@webiny/build-tools": "0.0.0",
     "@webiny/handler-graphql": "0.0.0",
     "@webiny/plugins": "0.0.0",
+    "@webiny/project-utils": "0.0.0",
     "typescript": "5.3.3"
   },
   "publishConfig": {
