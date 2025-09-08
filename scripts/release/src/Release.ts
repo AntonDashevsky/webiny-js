@@ -75,6 +75,7 @@ export class Release {
 
             this.logger.info("Most recent version is %s", this.mostRecentVersion);
             const lernaJSON = this.__loadLernaJson("example.lerna.json");
+            lernaJSON.version = this.mostRecentVersion;
 
             await writeJSON("lerna.json", lernaJSON);
             this.logger.info("Lerna config was written to %s", "lerna.json");
