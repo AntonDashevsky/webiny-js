@@ -3,7 +3,6 @@ import invariant from "invariant";
 import { getStackOutput } from "@webiny/project";
 import { type GetApp } from "@webiny/project/abstractions/index.js";
 import { type BuildAppConfigOverrides, createBuildApp, createWatchApp } from "@webiny/build-tools";
-import { type Configuration as WebpackConfig } from "webpack";
 import { type PulumiAppModule } from "@webiny/pulumi";
 import { type Unwrap } from "@pulumi/pulumi";
 
@@ -49,10 +48,6 @@ export interface BabelConfigModifier {
     (config: BabelConfig): BabelConfig;
 }
 
-export interface WebpackConfigModifier {
-    (config: WebpackConfig): WebpackConfig;
-}
-
 export interface EntryModifier {
     (entry: string): string;
 }
@@ -79,8 +74,6 @@ export interface PulumiOutputToEnvModifier<T extends PulumiOutput = PulumiOutput
 export interface ReactAppConfig {
     seal(): { commands: ReactAppCommands };
 
-    webpack(modifier: WebpackConfigModifier): void;
-
     babel(modifier: BabelConfigModifier): void;
 
     entry(modifier: EntryModifier): void;
@@ -102,7 +95,6 @@ const appNotDeployedMessage = (appName: string, env: string) => {
 };
 
 function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
-    const webpackModifiers: WebpackConfigModifier[] = [];
     const babelModifiers: BabelConfigModifier[] = [];
     const commandsModifiers: ReactAppCommandsModifier[] = [];
     const customEnvModifiers: CustomEnvModifier[] = [];
@@ -145,9 +137,6 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
 
         return {
             entry: entryModifiers.reduce((entry, modifier) => modifier(entry), defaultEntry),
-            webpack(config) {
-                return webpackModifiers.reduce((config, modifier) => modifier(config), config);
-            },
             babel(config) {
                 return babelModifiers.reduce((config, modifier) => modifier(config), config);
             }
@@ -177,9 +166,6 @@ function createEmptyReactConfig(options: RunCommandOptions): ReactAppConfig {
         },
         babel(modifier) {
             babelModifiers.push(modifier);
-        },
-        webpack(modifier) {
-            webpackModifiers.push(modifier);
         },
         customEnv(modifier: CustomEnvModifier) {
             customEnvModifiers.push(modifier);
