@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@pulumi/aws": "^6.83.0",
-    "@pulumi/pulumi": "^3.192.0",
+    "@pulumi/pulumi": "^3.193.0",
     "@pulumi/random": "^4.18.3",
     "@webiny/aws-sdk": "0.0.0",
     "@webiny/cli-plugin-deploy-pulumi": "0.0.0",
@@ -24,7 +24,7 @@
     "form-data": "^4.0.0",
     "lodash": "^4.17.21",
     "node-fetch": "2.6.7",
-    "zod": "^3.23.8"
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@webiny/api-page-builder": "0.0.0",
