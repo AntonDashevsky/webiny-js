@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { SecurityIdentity } from "@webiny/api-security/types";
 import { pickEntryMetaFields } from "~/constants";
@@ -17,7 +18,7 @@ describe("Content Entries - Publishing-related Entry Meta Fields", () => {
         await manageApiIdentityA.setup();
     });
 
-    test("revision and entry-level fields should be populated correctly on publish", async () => {
+    it("revision and entry-level fields should be populated correctly on publish", async () => {
         let { data: rev } = await manageApiIdentityA.createTestEntry();
 
         const publish = await manageApiIdentityA.publishTestEntry({ revision: rev.id });
@@ -49,7 +50,7 @@ describe("Content Entries - Publishing-related Entry Meta Fields", () => {
         expect(entriesList[0].revisionLastPublishedBy).toEqual(rev.revisionLastPublishedBy);
     });
 
-    test("publishing a second revision should not affect the entry meta fields of the first revision", async () => {
+    it("publishing a second revision should not affect the entry meta fields of the first revision", async () => {
         let { data: rev1 } = await manageApiIdentityA.createTestEntry();
 
         let { data: rev2 } = await manageApiIdentityA.createTestEntryFrom({
@@ -98,7 +99,7 @@ describe("Content Entries - Publishing-related Entry Meta Fields", () => {
         expect(entriesList[0].revisionFirstPublishedBy).toEqual(rev2.revisionLastPublishedBy);
     });
 
-    test("when publishing a non-latest revision, the latest revision's entry meta fields should be updated", async () => {
+    it("when publishing a non-latest revision, the latest revision's entry meta fields should be updated", async () => {
         const { data: rev1 } = await manageApiIdentityA.createTestEntry();
 
         const { data: rev2 } = await manageApiIdentityA.createTestEntryFrom({
@@ -316,7 +317,7 @@ describe("Content Entries - Publishing-related Entry Meta Fields", () => {
         });
     });
 
-    test("unpublishing and publishing a latest revision should update lastPublished meta fields", async () => {
+    it("unpublishing and publishing a latest revision should update lastPublished meta fields", async () => {
         const { data: rev } = await manageApiIdentityA.createTestEntry();
 
         const publish1 = await manageApiIdentityA.publishTestEntry({ revision: rev.id });
@@ -358,7 +359,7 @@ describe("Content Entries - Publishing-related Entry Meta Fields", () => {
         expect(entriesListAfterPublish2[0]).toMatchObject(matchObject);
     });
 
-    test("unpublishing and publishing a non-latest revision should update lastPublished meta fields on the actual revision and on the latest one", async () => {
+    it("unpublishing and publishing a non-latest revision should update lastPublished meta fields on the actual revision and on the latest one", async () => {
         const { data: rev1 } = await manageApiIdentityA.createTestEntry();
 
         const { data: rev2 } = await manageApiIdentityA.createTestEntryFrom({
@@ -423,7 +424,7 @@ describe("Content Entries - Publishing-related Entry Meta Fields", () => {
         expect(entriesListAfterPublish2[0]).toMatchObject(matchObject);
     });
 
-    test("republishing a latest revision should only change lastPublished meta fields", async () => {
+    it("republishing a latest revision should only change lastPublished meta fields", async () => {
         const { data: rev } = await manageApiIdentityA.createTestEntry();
 
         const publish1 = await manageApiIdentityA.publishTestEntry({ revision: rev.id });

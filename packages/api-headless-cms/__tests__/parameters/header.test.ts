@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { createHeaderParameterPlugin } from "~/parameters";
 import { ApiEndpoint, CmsContext } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";

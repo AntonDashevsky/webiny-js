@@ -1,9 +1,12 @@
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { createPersonEntries, createPersonModel, deletePersonModel } from "./helpers";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { createStorageOperationsContext } from "~tests/storageOperations/context";
-import { jest } from "@jest/globals";
 
-jest.setTimeout(90000);
+
+vi.setConfig({
+    testTimeout: 100_000
+});
 
 describe("Entries storage operations", () => {
     const { storageOperations, plugins } = useGraphQLHandler({

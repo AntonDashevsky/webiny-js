@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useHandler } from "~tests/testHelpers/useHandler";
 import { CmsModelPlugin } from "~/plugins";
 import { pageModel } from "./mocks/page.model";

@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { CmsGroup, CmsModel } from "~/types";
 import models from "./mocks/contentModels";
@@ -81,7 +82,7 @@ describe("fieldValidations", () => {
     /**
      * testing required, minLength and maxLength of the string
      */
-    test(`should return error when validating "name" field`, async () => {
+    it(`should return error when validating "name" field`, async () => {
         const group = await setupContentModelGroup();
         await setupContentModels(group);
 
@@ -149,7 +150,7 @@ describe("fieldValidations", () => {
      * testing minLength and maxLength of the array
      * testing required, gte and lte for each value in the array
      */
-    test(`should return error when validating "numbers" field`, async () => {
+    it(`should return error when validating "numbers" field`, async () => {
         const group = await setupContentModelGroup();
         await setupContentModels(group);
 
@@ -286,7 +287,7 @@ describe("fieldValidations", () => {
     /**
      * testing email pattern
      */
-    test.each(emailPatternTestValues)(
+    it.each(emailPatternTestValues)(
         `should return error when validating "email" field with a pattern - %s`,
         async email => {
             const group = await setupContentModelGroup();
@@ -342,7 +343,7 @@ describe("fieldValidations", () => {
     /**
      * testing url pattern
      */
-    test.each(urlPatternTestValues)(
+    it.each(urlPatternTestValues)(
         `should return error when validating "url" field with a pattern - %s`,
         async url => {
             const group = await setupContentModelGroup();
@@ -392,7 +393,7 @@ describe("fieldValidations", () => {
     /**
      * testing lowercase
      */
-    test.each(lowerCaseTestValues)(
+    it.each(lowerCaseTestValues)(
         `should return error when validating "lowerCase" field - %s`,
         async lowerCase => {
             const group = await setupContentModelGroup();
@@ -441,7 +442,7 @@ describe("fieldValidations", () => {
     /**
      * testing uppercase
      */
-    test.each(upperCaseTestValues)(
+    it.each(upperCaseTestValues)(
         `should return error when validating "upperCase" field - %s`,
         async upperCase => {
             const group = await setupContentModelGroup();
@@ -486,7 +487,7 @@ describe("fieldValidations", () => {
         ["2021-01-01", "Date must be lesser or equal than 2020-12-31"]
     ];
 
-    test.each(dateErrorValidations)(
+    it.each(dateErrorValidations)(
         `should return error when validating "date" field - %s`,
         async (date, message) => {
             const group = await setupContentModelGroup();
@@ -531,7 +532,7 @@ describe("fieldValidations", () => {
         ["2021-01-01 14:30:00", "Date must be lesser or equal than 2020-12-31 13:30:00"]
     ];
 
-    test.each(dateTimeErrorValidations)(
+    it.each(dateTimeErrorValidations)(
         `should return error when validating "dateTime" field - %s`,
         async (dateTime, message) => {
             const group = await setupContentModelGroup();
@@ -579,7 +580,7 @@ describe("fieldValidations", () => {
         ["2021-01-01T14:30:00+01:00", "Date must be lesser or equal than 2020-12-31T13:30:00+0100"]
     ];
 
-    test.each(dateTimeZErrorValidations)(
+    it.each(dateTimeZErrorValidations)(
         `should return error when validating "dateTimeZ" field - %s`,
         async (dateTimeZ, message) => {
             const group = await setupContentModelGroup();
@@ -624,7 +625,7 @@ describe("fieldValidations", () => {
         ["14:30:00", "Time must be lesser or equal than 13:30:00"]
     ];
 
-    test.each(timeErrorValidations)(
+    it.each(timeErrorValidations)(
         `should return error when validating "time" field - %s`,
         async (time, message) => {
             const group = await setupContentModelGroup();
@@ -664,7 +665,7 @@ describe("fieldValidations", () => {
         }
     );
 
-    test("should return error when slug already exists", async () => {
+    it("should return error when slug already exists", async () => {
         const group = await setupContentModelGroup();
         await setupContentModels(group);
 
@@ -716,7 +717,7 @@ describe("fieldValidations", () => {
         });
     });
 
-    test("should create a fruit without validation errors", async () => {
+    it("should create a fruit without validation errors", async () => {
         const group = await setupContentModelGroup();
         await setupContentModels(group);
 

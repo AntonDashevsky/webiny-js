@@ -1,12 +1,14 @@
-import { setupContentModelGroup, setupContentModels } from "~tests/testHelpers/setup";
+
+import { describe, it, expect, beforeEach, vi } from "vitest";import { setupContentModelGroup, setupContentModels } from "~tests/testHelpers/setup";
 import { useCategoryManageHandler } from "~tests/testHelpers/useCategoryManageHandler";
 import { useCategoryReadHandler } from "~tests/testHelpers/useCategoryReadHandler";
 import { CmsEntry } from "~/types";
 import { toSlug } from "~/utils/toSlug";
 import { ROOT_FOLDER } from "~/constants";
-import { jest } from "@jest/globals";
 
-jest.setTimeout(100000);
+vi.setConfig({
+    testTimeout: 100_000,
+})
 
 interface CreateCategoryParams {
     title: string;

@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { SecurityIdentity } from "@webiny/api-security/types";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 
@@ -16,7 +17,7 @@ describe("Content entries - Entry Meta Fields", () => {
         await manageApiIdentityA.setup();
     });
 
-    test("created entries should have xOn/xBy meta fields populated correctly", async () => {
+    it("created entries should have xOn/xBy meta fields populated correctly", async () => {
         // 1. Initially, all meta fields should be populated, except the "modified" ones.
         //    We must see the same change when listing entries.
         let { data: revision1 } = await manageApiIdentityA.createTestEntry();
@@ -129,7 +130,7 @@ describe("Content entries - Entry Meta Fields", () => {
         expect(entriesList[0].modifiedOn > revision1.modifiedOn).toBe(true);
     });
 
-    test("updating a previous revision should update entry-level meta fields", async () => {
+    it("updating a previous revision should update entry-level meta fields", async () => {
         let { data: revision1 } = await manageApiIdentityA.createTestEntry();
 
         let { data: revision2 } = await manageApiIdentityA.createTestEntryFrom({
@@ -181,7 +182,7 @@ describe("Content entries - Entry Meta Fields", () => {
         expect(revision2.savedBy).not.toEqual(revision3.savedBy);
     });
 
-    test("deleting latest revision should cause the entry-level meta field values to be propagated to the new latest revision", async () => {
+    it("deleting latest revision should cause the entry-level meta field values to be propagated to the new latest revision", async () => {
         let { data: revision1 } = await manageApiIdentityA.createTestEntry();
 
         const { title, slug } = revision1;

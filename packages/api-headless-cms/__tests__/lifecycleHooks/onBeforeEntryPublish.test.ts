@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { ContextPlugin } from "@webiny/handler";
 import { useHandler } from "~tests/testHelpers/useHandler";
 import { articleModel } from "./mocks/article.model";

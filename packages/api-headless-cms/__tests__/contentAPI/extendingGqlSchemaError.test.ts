@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { createCmsGraphQLSchemaPlugin } from "~/plugins";
 
@@ -10,7 +11,7 @@ const graphqlSchemaPlugin = createCmsGraphQLSchemaPlugin({
 });
 
 describe("invalid schema error formatting", () => {
-    test("print invalid part of the schema", async () => {
+    it("print invalid part of the schema", async () => {
         const { invoke } = useGraphQLHandler({
             path: "manage/en-US",
             plugins: [graphqlSchemaPlugin]

@@ -1,10 +1,10 @@
+import { describe, expect, it, vi } from "vitest";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
 import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
 import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler";
 import { Fruit } from "./mocks/contentModels";
 import { createCmsGraphQLSchemaSorterPlugin } from "~/plugins";
-import { jest } from "@jest/globals";
 
 const appleData: Fruit = {
     name: "A’p ` pl ' e",
@@ -70,7 +70,9 @@ const grahamData: Fruit = {
     description: ""
 };
 
-jest.setTimeout(100000);
+vi.setConfig({
+    testTimeout: 100_000
+});
 
 describe("sorting + cursor", () => {
     const manageOpts = { path: "manage/en-US" };
@@ -124,7 +126,7 @@ describe("sorting + cursor", () => {
         return createFruits();
     };
 
-    test("should load items with after cursor with special characters", async () => {
+    it("should load items with after cursor with special characters", async () => {
         const { apple, graham, banana, strawberry } = await setupFruits();
 
         const handler = useFruitReadHandler({
@@ -228,7 +230,7 @@ describe("sorting + cursor", () => {
         });
     });
 
-    test("should sort via custom sort", async () => {
+    it("should sort via custom sort", async () => {
         const { apple, graham, banana, strawberry } = await setupFruits();
 
         const handler = useFruitReadHandler({

@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { CmsEntry, CmsGroup } from "~/types";
 import models from "./mocks/contentModels";
@@ -116,7 +117,7 @@ describe("richTextField", () => {
         return category;
     };
 
-    test("should create a product with richText field populated", async () => {
+    it("should create a product with richText field populated", async () => {
         const contentModelGroup = await setupContentModelGroup();
         await setupContentModels(contentModelGroup);
 
@@ -240,7 +241,7 @@ describe("richTextField", () => {
         });
     });
 
-    test("should create a product with empty rich-text field and then update it with some value", async () => {
+    it("should create a product with empty rich-text field and then update it with some value", async () => {
         const contentModelGroup = await setupContentModelGroup();
         await setupContentModels(contentModelGroup);
 

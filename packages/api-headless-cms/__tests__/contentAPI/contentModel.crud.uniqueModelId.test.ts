@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from "vitest";
 import { CmsGroup } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 
@@ -20,7 +21,7 @@ describe("content model test", () => {
         contentModelGroup = createCMG.data.createContentModelGroup.data;
     });
 
-    test("should not allow creation of a model with an existing modelId", async () => {
+    it("should not allow creation of a model with an existing modelId", async () => {
         const { createContentModelMutation } = useGraphQLHandler(manageHandlerOpts);
 
         const eventData = {
@@ -78,7 +79,7 @@ describe("content model test", () => {
         });
     });
 
-    test("should not allow creation of a model with an existing singularApiName", async () => {
+    it("should not allow creation of a model with an existing singularApiName", async () => {
         const { createContentModelMutation } = useGraphQLHandler(manageHandlerOpts);
 
         const eventData = {

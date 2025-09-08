@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { SecurityIdentity } from "@webiny/api-security/types";
 
@@ -30,7 +31,7 @@ describe("Content entries - Entry Meta Fields Queries", () => {
         }
     });
 
-    test("should be able to sort by revision-level meta fields", async () => {
+    it("should be able to sort by revision-level meta fields", async () => {
         const [testEntry1, testEntry2, testEntry3, testEntry4] = testEntries;
 
         // Sorting by `revisionCreatedOn` should return entries sorted by the `revisionCreatedOn` field.
@@ -80,7 +81,7 @@ describe("Content entries - Entry Meta Fields Queries", () => {
         expect(entriesListByCreatedOnAscReadApi).toMatchObject(matchObject2);
     });
 
-    test("should be able to filter by revision-level meta fields", async () => {
+    it("should be able to filter by revision-level meta fields", async () => {
         const [testEntry1, testEntry2, testEntry3, testEntry4] = testEntries;
 
         // Filter entries created by identity A.

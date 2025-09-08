@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from "vitest";
 import { CmsGroup } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { pubSubTracker } from "./mocks/lifecycleHooks";
@@ -24,7 +25,7 @@ describe("content model test reserved model ids", () => {
         pubSubTracker.reset();
     });
 
-    test(`should not allow creation of a model the modelId set to blacklisted value`, async () => {
+    it(`should not allow creation of a model the modelId set to blacklisted value`, async () => {
         const [response1] = await createContentModelMutation({
             data: {
                 name: "Content Model",

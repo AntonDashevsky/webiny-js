@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { CmsGroup, CmsModel } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
@@ -86,7 +87,7 @@ describe("Endpoint access", () => {
         }
     };
 
-    test(`user has access to manage endpoint`, async () => {
+    it(`user has access to manage endpoint`, async () => {
         await setupContentModel();
         const { listCategories } = useCategoryManageHandler({
             ...manageOpts,
@@ -115,7 +116,7 @@ describe("Endpoint access", () => {
         });
     });
 
-    test(`user does not have access to manage endpoint`, async () => {
+    it(`user does not have access to manage endpoint`, async () => {
         await setupContentModel();
         const { listCategories } = useCategoryManageHandler({
             ...manageOpts,
@@ -144,7 +145,7 @@ describe("Endpoint access", () => {
         });
     });
 
-    test(`user has access to read endpoint`, async () => {
+    it(`user has access to read endpoint`, async () => {
         await setupContentModel();
         const { listCategories } = useCategoryReadHandler({
             ...readOpts,
@@ -173,7 +174,7 @@ describe("Endpoint access", () => {
         });
     });
 
-    test(`user does not have access to read endpoint`, async () => {
+    it(`user does not have access to read endpoint`, async () => {
         await setupContentModel();
         const { listCategories } = useCategoryReadHandler({
             ...readOpts,
@@ -203,7 +204,7 @@ describe("Endpoint access", () => {
         });
     });
 
-    test(`user has access to preview endpoint`, async () => {
+    it(`user has access to preview endpoint`, async () => {
         await setupContentModel();
         const { listCategories } = useCategoryReadHandler({
             ...previewOpts,
@@ -232,7 +233,7 @@ describe("Endpoint access", () => {
         });
     });
 
-    test(`user does not have access to preview endpoint`, async () => {
+    it(`user does not have access to preview endpoint`, async () => {
         await setupContentModel();
         const { listCategories } = useCategoryReadHandler({
             ...previewOpts,

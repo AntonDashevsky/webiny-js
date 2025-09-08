@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
 
@@ -335,7 +336,7 @@ describe("content model plugins - nested `ref` field union types", () => {
         path: "read/en-US"
     });
 
-    test("must generate valid schema for nested `ref` field union", async () => {
+    it("must generate valid schema for nested `ref` field union", async () => {
         const [, response] = await introspect();
         expect(response.statusCode).toBe(200);
     });

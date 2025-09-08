@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from "vitest";
 import { CmsGroup } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import models from "./mocks/contentModels";
@@ -92,7 +93,7 @@ describe("READ - resolvers - api key", () => {
         }
     });
 
-    test("get entry", async () => {
+    it("get entry", async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -145,7 +146,7 @@ describe("READ - resolvers - api key", () => {
         });
     });
 
-    test("get entries", async () => {
+    it("get entries", async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -204,7 +205,7 @@ describe("READ - resolvers - api key", () => {
         });
     });
 
-    test("cant get entry - missing whole permission", async () => {
+    it("cant get entry - missing whole permission", async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -249,7 +250,7 @@ describe("READ - resolvers - api key", () => {
         });
     });
 
-    test("cant list entries - missing whole permission", async () => {
+    it("cant list entries - missing whole permission", async () => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -297,7 +298,7 @@ describe("READ - resolvers - api key", () => {
 
     const notAllowedRwd = [["w"], ["d"], ["wd"]];
 
-    test.each(notAllowedRwd)(`cant get entry - missing "r" permission - having "%s"`, async rwd => {
+    it.each(notAllowedRwd)(`cant get entry - missing "r" permission - having "%s"`, async rwd => {
         // Use "manage" API to create and publish entries
         const { createCategory, publishCategory } = useCategoryManageHandler(manageOpts);
 
@@ -347,7 +348,7 @@ describe("READ - resolvers - api key", () => {
         });
     });
 
-    test.each(notAllowedRwd)(
+    it.each(notAllowedRwd)(
         `cant list entries - missing "r" permission - having "%s"`,
         async rwd => {
             // Use "manage" API to create and publish entries

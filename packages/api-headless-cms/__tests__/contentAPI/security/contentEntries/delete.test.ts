@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { SecurityIdentity } from "@webiny/api-security/types";
 import { CmsTestPermissions, expectNotAuthorized } from "../utils";
@@ -7,7 +8,7 @@ const identityB: SecurityIdentity = { id: "b", type: "admin", displayName: "B" }
 const identityC: SecurityIdentity = { id: "c", type: "admin", displayName: "C" };
 
 describe("Delete Permissions Checks", () => {
-    test("should allow deletion of entries only with sufficient permission", async () => {
+    it("should allow deletion of entries only with sufficient permission", async () => {
         const { manage: manageApiA } = useTestModelHandler({
             identity: identityA
         });

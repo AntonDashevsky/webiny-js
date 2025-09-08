@@ -1,3 +1,4 @@
+import { expect } from "vitest";
 import { CmsDynamicZoneTemplate, CmsModelFieldInput } from "~/types";
 
 const nestedErrorRegex = /^(nested|dz)([A-Za-z]+)$/;

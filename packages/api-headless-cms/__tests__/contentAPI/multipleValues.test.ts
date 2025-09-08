@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { CmsGroup, CmsModelField } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import models from "./mocks/contentModels";
@@ -25,7 +26,7 @@ describe("multiple values in field", () => {
         return createCMG.data.createContentModelGroup.data;
     };
 
-    test("multiple value field is correctly created", async () => {
+    it("multiple value field is correctly created", async () => {
         const contentModelGroup = await setupContentModelGroup();
 
         const model = models.find(m => m.modelId === "product");
@@ -107,7 +108,7 @@ describe("multiple values in field", () => {
         ]);
     });
 
-    test("should not allow multipleValue field to be set as title", async () => {
+    it("should not allow multipleValue field to be set as title", async () => {
         const contentModelGroup = await setupContentModelGroup();
 
         const model = models.find(m => m.modelId === "product");

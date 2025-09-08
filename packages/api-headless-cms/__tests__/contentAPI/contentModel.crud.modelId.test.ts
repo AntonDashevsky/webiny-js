@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from "vitest";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { CmsGroup } from "~/types";
 import camelCase from "lodash/camelCase";
@@ -37,7 +38,7 @@ describe("ContentModel modelId variations", () => {
         ["Tab sorter", undefined]
     ];
 
-    test.each(disallowedModelIdEndings)(
+    it.each(disallowedModelIdEndings)(
         "should not allow to create model with modelId that clashes with GraphQL (%s, %s) - singularApiName",
         async (name, modelId) => {
             const singularApiName = upperFirst(camelCase(modelId || name));
@@ -79,7 +80,7 @@ describe("ContentModel modelId variations", () => {
         }
     );
 
-    test.each(disallowedModelIdEndings)(
+    it.each(disallowedModelIdEndings)(
         "should not allow to create model with modelId that clashes with GraphQL (%s, %s) - pluralApiName",
         async (name, modelId) => {
             const singularApiName = `${upperFirst(camelCase(modelId || name))}OkEnding`;

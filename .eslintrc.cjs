@@ -9,7 +9,7 @@ function getNoUnusedVars() {
 module.exports = {
   extends: [
     "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended",
+    "plugin:@vitest/legacy-recommended",
     "plugin:react/recommended"
   ],
   parser: "@typescript-eslint/parser",
@@ -18,9 +18,8 @@ module.exports = {
     tsconfigRootDir: __dirname,
     sourceType: "module"
   },
-  plugins: ["@typescript-eslint", "jest", "import", "react", "lodash"],
+  plugins: ["@typescript-eslint", "@vitest", "import", "react", "lodash"],
   env: {
-    jest: true,
     commonjs: true,
     node: true,
     es6: true
@@ -59,12 +58,12 @@ module.exports = {
     // Temporarily disable this rule
     "@typescript-eslint/no-non-null-assertion": 0,
     curly: ["error"],
-    "jest/expect-expect": 0,
+    "@vitest/expect-expect": 0,
     // Sometimes we have to use expect() inside try/catch clause (for async calls).
     // This rule raises an error when you do that, so we disabled it.
-    "jest/no-conditional-expect": 0,
-    "jest/no-commented-out-tests": 0,
-    "jest/no-disabled-tests": 0,
+    "@vitest/no-conditional-expect": 0,
+    "@vitest/no-commented-out-tests": 0,
+    "@vitest/no-disabled-tests": 0,
     "lodash/import-scope": [2, "method"],
     "no-restricted-imports": [
       "error",

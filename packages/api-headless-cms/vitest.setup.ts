@@ -1,4 +1,4 @@
-import base from "../../jest.config.base.js";
+import { createTestConfig } from "../../testing";
 
 export default async () => {
     const { getPresets } = await import("@webiny/project-utils/testing/presets/index.js");
@@ -9,5 +9,5 @@ export default async () => {
         ["@webiny/api-tenancy", "storage-operations"]
     );
 
-    return base({ path: import.meta.dirname }, presets);
+    return createTestConfig({ path: import.meta.dirname, presets });
 };

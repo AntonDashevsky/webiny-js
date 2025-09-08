@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeEach } from "vitest";
 import { useTestModelHandler } from "~tests/testHelpers/useTestModelHandler";
 import { identityA, identityB, identityC, identityD } from "./security/utils";
 
@@ -10,7 +11,7 @@ describe("Content entries - Entry Meta Fields Overrides", () => {
         await manageIdentityA.setup();
     });
 
-    test("users should be able to create and immediately publish an entry with custom publishing-related values", async () => {
+    it("users should be able to create and immediately publish an entry with custom publishing-related values", async () => {
         // 1. Initially, all meta fields should be populated, except the "modified" ones.
         const testDate = new Date("2020-01-01T00:00:00.000Z").toISOString();
 
@@ -44,7 +45,7 @@ describe("Content entries - Entry Meta Fields Overrides", () => {
         });
     });
 
-    test("users should be able to create a new revision from an existing revision and immediately publish it with custom publishing-related values", async () => {
+    it("users should be able to create a new revision from an existing revision and immediately publish it with custom publishing-related values", async () => {
         // 1. Initially, all meta fields should be populated, except the "modified" ones.
         const testDate1 = new Date("2020-01-01T00:00:00.000Z").toISOString();
         const testDate2 = new Date("2021-01-01T00:00:00.000Z").toISOString();
