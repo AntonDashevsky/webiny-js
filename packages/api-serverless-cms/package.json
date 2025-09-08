@@ -28,6 +28,7 @@
     "@webiny/handler-graphql": "0.0.0"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@webiny/api-admin-users": "0.0.0",
     "@webiny/api-apw": "0.0.0",
     "@webiny/api-audit-logs": "0.0.0",
@@ -42,6 +43,7 @@
     "@webiny/handler": "0.0.0",
     "@webiny/handler-aws": "0.0.0",
     "@webiny/plugins": "0.0.0",
+    "@webiny/project-utils": "0.0.0",
     "@webiny/tasks": "0.0.0",
     "@webiny/wcp": "0.0.0",
     "graphql": "^15.9.0",

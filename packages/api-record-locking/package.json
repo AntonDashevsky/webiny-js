@@ -25,11 +25,13 @@
     "@webiny/utils": "0.0.0"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@webiny/api-i18n": "0.0.0",
     "@webiny/api-security": "0.0.0",
     "@webiny/api-tenancy": "0.0.0",
     "@webiny/api-wcp": "0.0.0",
     "@webiny/build-tools": "0.0.0",
+    "@webiny/project-utils": "0.0.0",
     "graphql": "^15.9.0",
     "rimraf": "^6.0.1",
     "type-fest": "4.14.0",

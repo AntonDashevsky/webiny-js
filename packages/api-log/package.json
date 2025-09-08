@@ -15,6 +15,7 @@
   "description": "API to store logs.",
   "license": "MIT",
   "dependencies": {
+    "@jest/globals": "^29.7.0",
     "@webiny/api": "0.0.0",
     "@webiny/api-i18n": "0.0.0",
     "@webiny/api-security": "0.0.0",
@@ -26,6 +27,7 @@
     "@webiny/handler": "0.0.0",
     "@webiny/handler-graphql": "0.0.0",
     "@webiny/plugins": "0.0.0",
+    "@webiny/project-utils": "0.0.0",
     "@webiny/tasks": "0.0.0",
     "@webiny/utils": "0.0.0",
     "zod": "^3.23.8"

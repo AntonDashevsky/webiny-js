@@ -71,6 +71,7 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
+    "@jest/globals": "^29.7.0",
     "@testing-library/react": "^15.0.7",
     "@types/nprogress": "^0.2.0",
     "@types/react-color": "^2.17.11",
@@ -79,7 +80,6 @@
     "@webiny/build-tools": "0.0.0",
     "@webiny/validation": "0.0.0",
     "babel-loader": "^9.2.1",
-    "@jest/globals": "^29.7.0",
     "execa": "^5.1.1",
     "ncp": "^2.0.0",
     "raw-loader": "^4.0.2",

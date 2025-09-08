@@ -1,7 +1,5 @@
-import { Configuration as WebpackConfig } from "webpack";
 import { Configuration as RspackConfig } from "@rspack/core";
 
-export { WebpackConfig };
 export { RspackConfig };
 
 // Build commands.
@@ -22,7 +20,6 @@ export interface DefinePluginOptions {
 export interface BuildAppConfigOverrides {
     entry?: string;
     openBrowser?: boolean;
-    webpack?: (config: WebpackConfig) => WebpackConfig;
     babel?: (config: BabelConfig) => BabelConfig;
 }
 // Build commands - apps.
@@ -53,7 +50,6 @@ interface BuildFunctionConfig {
             filename?: string;
         };
         define?: DefinePluginOptions;
-        webpack?: (config: WebpackConfig) => WebpackConfig;
         rspack?: (config: RspackConfig) => RspackConfig;
         babel?: (config: BabelConfig) => BabelConfig;
         swc?: (config: SwcConfig) => SwcConfig;

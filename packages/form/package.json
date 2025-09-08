@@ -15,9 +15,9 @@
   "description": "A simple React library for working with forms.",
   "license": "MIT",
   "dependencies": {
+    "@jest/globals": "^29.7.0",
     "@webiny/react-composition": "0.0.0",
     "@webiny/validation": "0.0.0",
-    "@jest/globals": "^29.7.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

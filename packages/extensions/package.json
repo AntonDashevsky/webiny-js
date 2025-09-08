@@ -10,8 +10,6 @@
   "description": "This package contains Webiny extensions.",
   "license": "MIT",
   "dependencies": {
-    "@webiny/cli-core": "0.0.0",
-    "@webiny/project": "0.0.0",
     "@webiny/project-aws": "0.0.0"
   },
   "devDependencies": {

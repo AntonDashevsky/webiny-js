@@ -26,10 +26,10 @@ export const createRspackConfig = async params => {
     /** @type {import('@rspack/core').Configuration} */
     let rspackConfig = {
         watch,
-        entry: [
-            sourceMaps && import.meta.resolve("source-map-support/register"),
-            path.resolve(entry)
-        ].filter(Boolean),
+        // entry: [
+        //     sourceMaps && import.meta.resolve("source-map-support/register"),
+        //     path.resolve(entry)
+        // ].filter(Boolean),
         target: "node",
         output: {
             library: {

@@ -48,6 +48,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@types/react": "18.2.79",
     "@webiny/build-tools": "0.0.0",
     "apollo-client": "^2.6.10",
