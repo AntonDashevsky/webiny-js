@@ -127,17 +127,7 @@ class PackageLoader {
     }
 }
 
-const extraFiles: string[] = [
-    "packages/cwp-template-aws/template/ddb/dependencies.json",
-    "packages/cwp-template-aws/template/ddb-es/dependencies.json",
-    "packages/cwp-template-aws/template/ddb-os/dependencies.json",
-    "packages/cwp-template-aws/template/ddb/apps/api/graphql/package.json",
-    "packages/cwp-template-aws/template/ddb-es/apps/api/graphql/package.json",
-    "packages/cwp-template-aws/template/ddb-os/apps/api/graphql/package.json",
-    "packages/cwp-template-aws/template/common/apps/admin/package.json",
-    "packages/cwp-template-aws/template/common/extensions/theme/package.json",
-    "packages/cwp-template-aws/template/common/apps/website/package.json"
-];
+const extraFiles: string[] = [];
 
 export const prepublishOnly = async () => {
     const packageLoader = new PackageLoader();
