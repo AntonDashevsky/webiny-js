@@ -14,12 +14,6 @@
     "Adrian Smijulj <adrian@webiny.com>"
   ],
   "dependencies": {
-    "@webiny/api": "0.0.0",
-    "@webiny/api-dynamodb-to-elasticsearch": "0.0.0",
-    "@webiny/api-elasticsearch": "0.0.0",
-    "@webiny/aws-sdk": "0.0.0",
-    "@webiny/handler-aws": "0.0.0",
-    "@webiny/tasks": "0.0.0",
     "get-yarn-workspaces": "1.0.2",
     "lodash": "^4.17.21"
   },
@@ -34,9 +28,12 @@
     "yargs": "^17.7.2"
   },
   "peerDependencies": {
+    "@webiny/api": "*",
+    "@webiny/api-dynamodb-to-elasticsearch": "*",
+    "@webiny/api-elasticsearch": "*",
     "@webiny/aws-sdk": "*",
-    "@webiny/global-config": "*",
-    "@webiny/telemetry": "*"
+    "@webiny/handler-aws": "*",
+    "@webiny/tasks": "*"
   },
   "license": "MIT",
   "adio": {
