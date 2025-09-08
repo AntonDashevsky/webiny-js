@@ -5,8 +5,6 @@
  * - workspace root directory
  */
 (async () => {
-    const { linkWorkspaces } = await import(
-        "../packages/project-utils/workspaces/linkWorkspaces.js"
-    );
+    const { linkWorkspaces } = await import("../packages/build-tools/workspaces/linkWorkspaces.js");
     await linkWorkspaces();
 })();
