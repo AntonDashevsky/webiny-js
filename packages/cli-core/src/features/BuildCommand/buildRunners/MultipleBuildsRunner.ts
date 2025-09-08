@@ -23,7 +23,7 @@ export class MultipleBuildsRunner extends BaseBuildRunner {
                 title: pkg.name,
                 task: () => {
                     return buildProcess.run().catch(error => {
-                        new Error("Build failed.", {
+                        throw new Error("Build failed.", {
                             cause: { pkg, error }
                         });
                     });

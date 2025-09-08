@@ -62,7 +62,7 @@ export class RspackBundler extends BaseFunctionBundler {
     }
 
     watch() {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (_, reject) => {
             const rspackConfig = await createRspackConfig({
                 ...this.params,
                 production: false
