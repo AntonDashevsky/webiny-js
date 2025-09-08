@@ -2,13 +2,14 @@ import path from "path";
 import fs from "fs/promises";
 import { transformFileAsync } from "@babel/core";
 import chokidar from "chokidar";
+import glob from "fast-glob";
 
 const compileFile = async (cwd, inputPath, outputPath) => {
     const inputPathRelative = path.relative(cwd, inputPath);
-    
+
     const result = await transformFileAsync(inputPath, {
         configFile: path.join(cwd, ".babelrc.js"),
-        sourceMaps: true,
+        sourceMaps: true
     });
 
     if (!result || !result.code) {
@@ -27,28 +28,35 @@ const compileFile = async (cwd, inputPath, outputPath) => {
     console.log(`Successfully compiled ${inputPathRelative}.`);
 };
 
-export default async (options) => {
+const srcToDist = filePath =>
+    path.join(
+        filePath
+            .replace(`${path.sep}src${path.sep}`, `${path.sep}dist${path.sep}`)
+            .replace(/\.(ts|tsx)$/, ".js")
+    );
+
+export default async options => {
     const srcDir = path.join(options.cwd, "src");
-    const outDir = path.join(options.cwd, "dist");
 
-    const watcher = chokidar.watch("**/*.{ts,tsx}", { cwd: srcDir });
+    const filePaths = glob.sync("**/*.{ts,tsx}", { cwd: srcDir }).map(f => path.join(srcDir, f));
 
-    watcher.on("add", async (relativePath) => {
-        const inputPath = path.join(srcDir, relativePath);
-        const outputPath = path.join(outDir, relativePath.replace(/\.(ts|tsx)$/, ".js"));
+    const watcher = chokidar.watch(filePaths);
+
+    watcher.on("add", async srcPath => {
+        const distPath = srcToDist(srcPath);
+
         try {
-            await compileFile(options.cwd, inputPath, outputPath);
+            await compileFile(options.cwd, srcPath, distPath);
         } catch (err) {
             console.error("Error compiling:", err);
         }
     });
 
-    watcher.on("change", async (relativePath) => {
-        const inputPath = path.join(srcDir, relativePath);
-        const outputPath = path.join(outDir, relativePath.replace(/\.(ts|tsx)$/, ".js"));
+    watcher.on("change", async srcPath => {
+        const distPath = srcToDist(srcPath);
 
         try {
-            await compileFile(options.cwd, inputPath, outputPath);
+            await compileFile(options.cwd, srcPath, distPath);
         } catch (err) {
             console.error("Error compiling:", err);
         }
