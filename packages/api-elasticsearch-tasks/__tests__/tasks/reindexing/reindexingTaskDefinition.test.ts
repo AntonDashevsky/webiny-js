@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { createElasticsearchReindexingTask } from "~/tasks";
 
 describe("reindexing task definition", () => {

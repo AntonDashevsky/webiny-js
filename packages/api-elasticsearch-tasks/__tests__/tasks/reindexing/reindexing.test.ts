@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 /**
  * Tests in this file will use real data and Elasticsearch instance.
  */
