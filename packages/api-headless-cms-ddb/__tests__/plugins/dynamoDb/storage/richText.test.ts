@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from "vitest";
 import { createRichTextStorageTransformPlugin } from "~/dynamoDb/storage/richText";
 import { FromStorageParams, ToStorageParams } from "@webiny/api-headless-cms";
 import { Context } from "@webiny/api/types";
@@ -54,7 +55,7 @@ describe("richTextStoragePlugin", () => {
         context = getContextWithCompressor();
     });
 
-    test("toStorage should transform value for storage", async () => {
+    it("toStorage should transform value for storage", async () => {
         const plugin = createRichTextStorageTransformPlugin();
 
         const result = await plugin.toStorage({
@@ -69,7 +70,7 @@ describe("richTextStoragePlugin", () => {
         });
     });
 
-    test("fromStorage should transform value for output", async () => {
+    it("fromStorage should transform value for output", async () => {
         const value = {
             compression: "gzip",
             value: expectedCompressedValue

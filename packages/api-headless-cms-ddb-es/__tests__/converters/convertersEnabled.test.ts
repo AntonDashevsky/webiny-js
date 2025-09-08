@@ -1,3 +1,4 @@
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { SearchBody } from "@webiny/api-elasticsearch/types";
 import { useHandler } from "~tests/graphql/handler";
 import { createMockPlugins } from "./mocks";
@@ -7,9 +8,6 @@ import { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
 import { get } from "@webiny/db-dynamodb";
 import { createPartitionKey } from "~/operations/entry/keys";
 import lodashMerge from "lodash/merge";
-import { jest } from "@jest/globals";
-
-jest.retryTimes(0);
 
 describe("storage field path converters enabled", () => {
     const { elasticsearch, entryEntity } = useHandler();

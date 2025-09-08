@@ -1,3 +1,4 @@
+import { expect } from "vitest";
 import path from "path";
 import { ContextPlugin } from "@webiny/api";
 import elasticsearchClientContextPlugin, {

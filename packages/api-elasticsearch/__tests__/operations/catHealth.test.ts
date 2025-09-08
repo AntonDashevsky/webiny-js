@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { ElasticsearchCatHealth } from "~/operations/ElasticsearchCatHealth";
 import { createElasticsearchClient } from "../helpers";
 import { IElasticsearchCatHealthResponse } from "~/operations/types";

@@ -1,3 +1,4 @@
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 import { people } from "./base.entries";
 import { getBaseConfiguration } from "~/indexConfiguration";

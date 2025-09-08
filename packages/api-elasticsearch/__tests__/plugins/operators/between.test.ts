@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { ElasticsearchQueryBuilderOperatorBetweenPlugin } from "~/plugins/operator";
 import { createBlankQuery } from "../../helpers";
 import { ElasticsearchBoolQueryConfig } from "~/types";

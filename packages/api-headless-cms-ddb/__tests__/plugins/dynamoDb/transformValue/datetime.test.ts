@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { createDatetimeTransformValuePlugin } from "~/dynamoDb/transformValue/datetime";
 import { CmsModelField } from "@webiny/api-headless-cms/types";
 
@@ -22,7 +23,7 @@ describe("dynamodb transform datetime", () => {
         ["13:57.481", "time", 50220481],
         ["13:57:22.581", "time", 50242581]
     ];
-    test.each(correctValues)(
+    it.each(correctValues)(
         "should transform date or time into the milliseconds - %s",
         (value: Date | string, fieldType: string, expected: number) => {
             const plugin = createDatetimeTransformValuePlugin();
@@ -48,7 +49,7 @@ describe("dynamodb transform datetime", () => {
         [true]
     ];
 
-    test.each(incorrectTimeValues)(
+    it.each(incorrectTimeValues)(
         "should throw an error when trying to transform time field but value is not a string or a number",
         value => {
             expect.assertions(1);

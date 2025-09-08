@@ -3,7 +3,7 @@ import { createRawEventHandler, createRawHandler } from "@webiny/handler-aws";
 import { CmsContext } from "~/types";
 import { defaultIdentity } from "./tenancySecurity";
 import { LambdaContext } from "@webiny/handler-aws/types";
-import { getElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch";
+import { getElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/index.js";
 
 interface CmsHandlerEvent {
     path: string;

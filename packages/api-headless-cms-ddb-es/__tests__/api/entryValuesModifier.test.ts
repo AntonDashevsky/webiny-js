@@ -4,7 +4,7 @@
  *
  * For example, if you want to send just a title of an article into an Elasticsearch index, you can use this plugin to do so.
  */
-
+import { describe, expect, it } from "vitest";
 import { useHandler } from "~tests/graphql/handler";
 import { createMockPlugins } from "~tests/converters/mocks";
 import { createEntryRawData } from "~tests/converters/mocks/data";

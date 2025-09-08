@@ -5,7 +5,7 @@
 
 const specialCharactersToRemove = [`\\?`];
 
-const specialCharacterToSpace = ["-"];
+const specialCharacterToSpace = ["-", "\\\\"];
 
 const specialCharacters = [
     "\\\\",

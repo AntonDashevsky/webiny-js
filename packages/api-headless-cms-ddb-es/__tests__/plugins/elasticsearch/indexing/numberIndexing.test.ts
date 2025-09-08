@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import numberIndexing from "~/elasticsearch/indexing/numberIndexing";
 import {
     CmsModelFieldToElasticsearchFromParams,
@@ -24,7 +25,7 @@ describe("numberIndexing", () => {
             ["15.4300023", "15.4300021"]
         ]
     ];
-    test.each(numbers)("toIndex should transform %j to %j", (num: any, expected: any) => {
+    it.each(numbers)("toIndex should transform %j to %j", (num: any, expected: any) => {
         const field: any = {
             storageId: "number"
         };
@@ -52,7 +53,7 @@ describe("numberIndexing", () => {
             [15.4300023, 15.4300021]
         ]
     ];
-    test.each(strings)("fromIndex should transform %j back to %j", (str: any, expected: any) => {
+    it.each(strings)("fromIndex should transform %j back to %j", (str: any, expected: any) => {
         const field: any = {
             storageId: "number"
         };

@@ -1,9 +1,9 @@
+import { describe, expect, it, vi } from "vitest";
 import { createWaitUntilHealthy } from "~/utils/waitUntilHealthy";
 import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 import { ElasticsearchCatClusterHealthStatus } from "~/operations/types";
 import { UnhealthyClusterError } from "~/utils/waitUntilHealthy/UnhealthyClusterError";
 import { WaitingHealthyClusterAbortedError } from "~/utils/waitUntilHealthy/WaitingHealthyClusterAbortedError";
-import { jest } from "@jest/globals";
 
 describe("wait until healthy", () => {
     const client = createElasticsearchClient();
@@ -84,7 +84,7 @@ describe("wait until healthy", () => {
             waitingTimeStep: 3
         });
 
-        const onUnhealthy = jest.fn();
+        const onUnhealthy = vi.fn();
 
         try {
             const { runs } = await waitUntilHealthy.wait({
@@ -110,7 +110,7 @@ describe("wait until healthy", () => {
             waitingTimeStep: 1
         });
 
-        const onUnhealthy = jest.fn();
+        const onUnhealthy = vi.fn();
 
         try {
             const { runs } = await waitUntilHealthy.wait({
@@ -136,8 +136,8 @@ describe("wait until healthy", () => {
             waitingTimeStep: 1
         });
 
-        const onUnhealthy = jest.fn();
-        const onTimeout = jest.fn();
+        const onUnhealthy = vi.fn();
+        const onTimeout = vi.fn();
 
         try {
             const { runs } = await waitUntilHealthy.wait({
@@ -169,8 +169,8 @@ describe("wait until healthy", () => {
 
         waitUntilHealthy.abort();
 
-        const onUnhealthy = jest.fn();
-        const onTimeout = jest.fn();
+        const onUnhealthy = vi.fn();
+        const onTimeout = vi.fn();
 
         try {
             const { runs } = await waitUntilHealthy.wait({
@@ -201,7 +201,7 @@ describe("wait until healthy", () => {
             waitingTimeStep: 3
         });
 
-        const onUnhealthy = jest.fn();
+        const onUnhealthy = vi.fn();
 
         try {
             const { runs } = await waitUntilHealthy.wait({

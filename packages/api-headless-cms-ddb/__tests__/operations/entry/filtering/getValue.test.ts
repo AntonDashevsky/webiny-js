@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { getValue } from "~/operations/entry/filtering/getValue";
 import { createEntry } from "./mocks/entry.noModel";
 

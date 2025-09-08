@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { parseWhereKey, ParseWhereKeyResult } from "~/where";
 
 describe("where", () => {
@@ -46,18 +47,15 @@ describe("where", () => {
         ]
     ];
 
-    test.each(whereKeys)(
-        "parse should result in field and operator values - %s",
-        (key, expected) => {
-            const result = parseWhereKey(key as unknown as string);
+    it.each(whereKeys)("parse should result in field and operator values - %s", (key, expected) => {
+        const result = parseWhereKey(key as unknown as string);
 
-            expect(result).toEqual(expected);
-        }
-    );
+        expect(result).toEqual(expected);
+    });
 
     const malformedWhereKeys: string[][] = [["_a"], ["_"], ["__"], ["a_"]];
 
-    test.each(malformedWhereKeys)(
+    it.each(malformedWhereKeys)(
         `should throw error when malformed key is passed "%s"`,
         (key: string) => {
             expect(() => {

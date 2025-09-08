@@ -1,3 +1,4 @@
+import { describe, expect, it, beforeEach, afterEach } from "vitest";
 import { getJapaneseConfiguration } from "~/indexConfiguration";
 import { createElasticsearchClient } from "../helpers";
 import { getElasticsearchIndexPrefix } from "~/indexPrefix";

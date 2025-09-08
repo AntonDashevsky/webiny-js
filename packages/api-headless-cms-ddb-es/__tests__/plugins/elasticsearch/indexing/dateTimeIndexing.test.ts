@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import dateTimeIndexing from "~/elasticsearch/indexing/dateTimeIndexing";
 import { CmsModelFieldToElasticsearchPlugin } from "~/types";
 import {

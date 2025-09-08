@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { createGraphQLFields } from "@webiny/api-headless-cms";
 import defaultIndexingPlugin from "~/elasticsearch/indexing/defaultFieldIndexing";
 import objectIndexing from "~/elasticsearch/indexing/objectIndexing";
@@ -171,7 +172,7 @@ const expectedRawValue = {
 };
 
 describe("objectIndexing", () => {
-    test("toIndex should recursively transform an object", () => {
+    it("toIndex should recursively transform an object", () => {
         const plugin = objectIndexing() as Required<CmsModelFieldToElasticsearchPlugin>;
         const result = plugin.toIndex({
             value: input,
@@ -187,7 +188,7 @@ describe("objectIndexing", () => {
         expect(result.rawValue).toEqual(expectedRawValue);
     });
 
-    test("fromIndex should recursively transform an object", () => {
+    it("fromIndex should recursively transform an object", () => {
         const plugin = objectIndexing() as Required<CmsModelFieldToElasticsearchPlugin>;
         const result = plugin.fromIndex({
             value: expectedValue,
