@@ -17902,13 +17902,7 @@ __metadata:
   resolution: "@webiny/project-utils@workspace:packages/project-utils"
   dependencies:
     "@elastic/elasticsearch": "npm:7.12.0"
-    "@webiny/api": "npm:0.0.0"
-    "@webiny/api-dynamodb-to-elasticsearch": "npm:0.0.0"
-    "@webiny/api-elasticsearch": "npm:0.0.0"
     "@webiny/api-log": "npm:0.0.0"
-    "@webiny/aws-sdk": "npm:0.0.0"
-    "@webiny/handler-aws": "npm:0.0.0"
-    "@webiny/tasks": "npm:0.0.0"
     get-yarn-workspaces: "npm:1.0.2"
     jest-dynalite: "npm:^3.6.1"
     listr2: "npm:^5.0.8"
@@ -17918,9 +17912,12 @@ __metadata:
     pino-pretty: "npm:^9.4.0"
     yargs: "npm:^17.7.2"
   peerDependencies:
+    "@webiny/api": "*"
+    "@webiny/api-dynamodb-to-elasticsearch": "*"
+    "@webiny/api-elasticsearch": "*"
     "@webiny/aws-sdk": "*"
-    "@webiny/global-config": "*"
-    "@webiny/telemetry": "*"
+    "@webiny/handler-aws": "*"
+    "@webiny/tasks": "*"
   languageName: unknown
   linkType: soft
 
