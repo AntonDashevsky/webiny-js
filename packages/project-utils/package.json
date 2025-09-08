@@ -27,10 +27,10 @@
     "yargs": "^17.7.2"
   },
   "peerDependencies": {
-    "@webiny/api-log": "*",
     "@webiny/api": "*",
     "@webiny/api-dynamodb-to-elasticsearch": "*",
     "@webiny/api-elasticsearch": "*",
+    "@webiny/api-log": "*",
     "@webiny/aws-sdk": "*",
     "@webiny/handler-aws": "*",
     "@webiny/tasks": "*"
