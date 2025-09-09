@@ -61,6 +61,7 @@
     "@webiny/handler-aws": "0.0.0",
     "@webiny/handler-db": "0.0.0",
     "@webiny/handler-graphql": "0.0.0",
+    "@webiny/migrations": "0.0.0",
     "@webiny/plugins": "0.0.0",
     "@webiny/project": "0.0.0",
     "@webiny/pulumi": "0.0.0",
@@ -83,7 +84,6 @@
     "@types/lodash": "^4.17.13",
     "@types/ncp": "^2.0.8",
     "@webiny/build-tools": "0.0.0",
-    "@webiny/migrations": "0.0.0",
     "typescript": "5.3.3"
   },
   "adio": {
