@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from "vitest";
 import { useHandler } from "~tests/helpers/useHandler";
 import { AUTHOR_MODEL_ID } from "~tests/mocks/model";
 

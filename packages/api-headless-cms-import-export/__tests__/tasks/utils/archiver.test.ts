@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 // @ts-expect-error
 import BaseArchiver from "archiver/lib/core";
 import { createArchiver } from "~/tasks/utils/archiver";

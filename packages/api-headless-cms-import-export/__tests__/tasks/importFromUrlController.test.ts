@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { createImportFromUrlControllerTask } from "~/tasks";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
 import { CmsImportExportFileType, Context, ICmsImportExportValidatedFile } from "~/types";
@@ -12,7 +12,9 @@ import {
 import { categoryModel } from "~tests/helpers/models";
 import { NonEmptyArray } from "@webiny/api/types";
 
-jest.setTimeout(60000);
+vi.setConfig({
+    testTimeout: 60_000
+});
 
 describe("import from url controller", () => {
     let context: Context;
@@ -191,7 +193,7 @@ describe("import from url controller", () => {
             name: "Import from URL Controller"
         });
 
-        console.warn = jest.fn();
+        console.warn = vi.fn();
 
         const runner = createRunner({
             context,

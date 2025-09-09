@@ -1,3 +1,4 @@
+import { describe, expect, it, beforeEach } from "vitest";
 import { UrlSigner } from "~/tasks/utils/urlSigner";
 import {
     GetObjectCommand,
@@ -30,9 +31,9 @@ describe("url signer", () => {
         });
         expect(result).toEqual({
             bucket: getBucket(),
-            expiresOn: expect.toBeDateString(),
+            expiresOn: expect.toBeDate(),
             key: "a-key.zip",
-            url: expect.toBeString()
+            url: expect.any(String)
         });
     });
 
@@ -52,9 +53,9 @@ describe("url signer", () => {
         });
         expect(result).toEqual({
             bucket: getBucket(),
-            expiresOn: expect.toBeDateString(),
+            expiresOn: expect.toBeDate(),
             key: "a-key.zip",
-            url: expect.toBeString()
+            url: expect.any(String)
         });
 
         expect(result.url).toContain("x-id=GetObject");

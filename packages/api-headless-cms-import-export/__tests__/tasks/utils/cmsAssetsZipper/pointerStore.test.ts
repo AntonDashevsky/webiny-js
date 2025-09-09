@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { PointerStore } from "~/tasks/utils/cmsAssetsZipper/PointerStore";
 
 describe("pointer store", () => {

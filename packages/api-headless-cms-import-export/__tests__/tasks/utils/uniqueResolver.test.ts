@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from "vitest";
 import { UniqueResolver } from "~/tasks/utils/uniqueResolver/UniqueResolver";
 import { assets, IMockAsset } from "~tests/mocks/assets";
 
