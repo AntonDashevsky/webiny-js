@@ -1,6 +1,6 @@
 import React from "react";
 import { ElasticSearch as BaseElasticSearch } from "~/pulumi/extensions/index.js";
-import { Core, Api } from "~/index.js";
+import { Infra } from "~/index.js";
 import path from "path";
 
 export const ElasticSearch = (props: React.ComponentProps<typeof BaseElasticSearch>) => {
@@ -9,14 +9,14 @@ export const ElasticSearch = (props: React.ComponentProps<typeof BaseElasticSear
             <BaseElasticSearch {...props} />
             {props.enabled && (
                 <>
-                    <Core.BeforeBuild
+                    <Infra.Core.BeforeBuild
                         src={path.join(
                             import.meta.dirname,
                             "ElasticSearch",
                             "injectDdbEsLambdaFnHandler.js"
                         )}
                     />
-                    <Api.BeforeBuild
+                    <Infra.Api.BeforeBuild
                         src={path.join(
                             import.meta.dirname,
                             "ElasticSearch",

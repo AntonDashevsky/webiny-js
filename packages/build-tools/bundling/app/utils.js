@@ -1,13 +1,16 @@
 import { isEnabled } from "@webiny/telemetry/cli";
 import { globalConfig } from "@webiny/global-config";
 import { isCI } from "ci-info";
+import packageJson from "../../package.json" with { type: "json" };
+
 
 export const applyDefaults = () => {
+    const version = packageJson.version;
     const telemetry = isEnabled();
     // TODO
     // const config = getProject().config;
     // if (config.cli && "telemetry" in config.cli) {
-    //     telemetry = config.cli.telemetry;
+    //     telemetry = config.cli.telemetry;2
     // } else {
     //     telemetry = isEnabled();
     // }

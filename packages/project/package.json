@@ -22,6 +22,7 @@
     "ci-info": "^4.1.0",
     "debounce": "^1.2.0",
     "execa": "^5.1.1",
+    "exit-hook": "^4.0.0",
     "fast-glob": "^3.2.7",
     "find-up": "5.0.0",
     "humanize-duration": "^3.27.0",

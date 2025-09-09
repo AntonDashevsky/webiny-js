@@ -1,6 +1,7 @@
 import { BaseBuildRunner } from "./BaseBuildRunner.js";
 import Listr from "listr";
 import { measureDuration } from "~/features/utils/index.js";
+import chalk from "chalk";
 
 export class MultipleBuildsRunner extends BaseBuildRunner {
     public override async run() {
@@ -42,21 +43,14 @@ export class MultipleBuildsRunner extends BaseBuildRunner {
 
                 err.errors.forEach((err: Error, i: number) => {
                     const { pkg, error } = err.cause as Record<string, any>;
-                    // console.log('pkg', pkg)
-                    // const number = `${i + 1}.`;
-                    // const name = chalk.red(pkg.name);
-                    // const relativePath = chalk.gray(`(${pkg.paths.relative})`);
-                    // const title = [number, name, relativePath].join(" ");
+                    const number = `${i + 1}.`;
+                    const name = chalk.red(pkg.name);
+                    const relativePath = chalk.gray(`(${pkg.paths.packageFolder})`);
+                    const title = [number, name, relativePath].join(" ");
 
-                    // ui.text(title);
-                    ui.newLine();
+                    ui.text(title);
                     ui.text(error.message);
                     ui.newLine();
-
-                    // TODO: check this
-                    // if (buildParams.debug) {
-                    //     console.log(error.stack);
-                    // }
                 });
 
                 throw new Error(`Failed to build all packages.`);

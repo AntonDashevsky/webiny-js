@@ -16,7 +16,6 @@ import {
     CoreBeforeDeploy,
     CorePulumi,
     ProductionEnvironments,
-    ProjectDecorator,
     ProjectId,
     PulumiResourceNamePrefix,
     Telemetry
@@ -25,6 +24,7 @@ import {
 import { AwsTags, Vpc } from "~/pulumi/extensions/index.js";
 import { ElasticSearch } from "./extensions/ElasticSearch.js";
 import { OpenSearch } from "./extensions/OpenSearch.js";
+
 export { Webiny } from "./extensions/Webiny.js";
 
 // Cms.
@@ -37,51 +37,52 @@ import { LegacyContextPlugin } from "@webiny/api/extensions/index.js";
 export { IsEnv } from "@webiny/project/extensions/components/index.js";
 
 // Exports.
-
 export const Project = {
     Id: ProjectId,
-    Telemetry,
-    AwsTags,
-    Vpc,
-    ElasticSearch,
-    OpenSearch,
-    // OpenSearch,
-    PulumiResourceNamePrefix,
-    ProductionEnvironments,
-    Decorator: ProjectDecorator
+    Telemetry
 };
 
 export const Cli = {
     Command: CliCommand
 };
 
-export const Admin = {
-    BeforeBuild: AdminBeforeBuild,
-    BeforeDeploy: AdminBeforeDeploy,
-    AfterBuild: AdminAfterBuild,
-    AfterDeploy: AdminAfterDeploy,
-    Extension: AdminExtension,
-    Pulumi: AdminPulumi
+export const Admin = { Extension: AdminExtension };
+
+export const Infra = {
+    Vpc,
+    ElasticSearch,
+    OpenSearch,
+    PulumiResourceNamePrefix,
+    ProductionEnvironments,
+    AwsTags,
+    Admin: {
+        BeforeBuild: AdminBeforeBuild,
+        BeforeDeploy: AdminBeforeDeploy,
+        AfterBuild: AdminAfterBuild,
+        AfterDeploy: AdminAfterDeploy,
+        Pulumi: AdminPulumi
+    },
+    Api: {
+        BeforeBuild: ApiBeforeBuild,
+        BeforeDeploy: ApiBeforeDeploy,
+        AfterBuild: ApiAfterBuild,
+        AfterDeploy: ApiAfterDeploy,
+        Pulumi: ApiPulumi
+    },
+    Core: {
+        BeforeBuild: CoreBeforeBuild,
+        BeforeDeploy: CoreBeforeDeploy,
+        AfterBuild: CoreAfterBuild,
+        AfterDeploy: CoreAfterDeploy,
+        Pulumi: CorePulumi
+    }
 };
 
-export const Api = {
-    BeforeBuild: ApiBeforeBuild,
-    BeforeDeploy: ApiBeforeDeploy,
-    AfterBuild: ApiAfterBuild,
-    AfterDeploy: ApiAfterDeploy,
+export const Backend = {
     Cms: {
         OnEntryBeforeCreate
     },
     Legacy: {
         ContextPlugin: LegacyContextPlugin
-    },
-    Pulumi: ApiPulumi
-};
-
-export const Core = {
-    BeforeBuild: CoreBeforeBuild,
-    BeforeDeploy: CoreBeforeDeploy,
-    AfterBuild: CoreAfterBuild,
-    AfterDeploy: CoreAfterDeploy,
-    Pulumi: CorePulumi
+    }
 };

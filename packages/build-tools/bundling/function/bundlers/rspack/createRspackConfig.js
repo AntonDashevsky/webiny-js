@@ -23,17 +23,14 @@ export const createRspackConfig = async params => {
     const definitions = overrides.define ? JSON.parse(overrides.define) : {};
     const tsChecksEnabled = process.env.WEBINY_ENABLE_TS_CHECKS === "true";
 
-    /** @type {import('@rspack/core').Configuration} */
+    /** @type {import("@rspack/core").Configuration} */
     let rspackConfig = {
         watch,
-        // entry: [
-        //     sourceMaps && import.meta.resolve("source-map-support/register"),
-        //     path.resolve(entry)
-        // ].filter(Boolean),
+        entry: path.resolve(entry),
         target: "node",
         output: {
             library: {
-                type: "commonjs2", // ✅ emit CommonJS
+                type: "commonjs2" // ✅ emit CommonJS
             },
             path: output.path,
             filename: output.filename,
