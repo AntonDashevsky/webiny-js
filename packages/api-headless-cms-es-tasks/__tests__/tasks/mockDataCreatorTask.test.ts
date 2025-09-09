@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from "vitest";
 import { useHandler } from "~tests/context/useHandler";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
 import { Context } from "~/types";
@@ -13,9 +14,10 @@ import {
 } from "~/tasks/MockDataManager/createModelAndGroup";
 import { CARS_MODEL_ID } from "~/tasks/MockDataManager/constants";
 import { disableIndexing, enableIndexing } from "~/utils";
-import { jest } from "@jest/globals";
 
-jest.setTimeout(120000);
+vi.setConfig({
+    testTimeout: 120_000,
+})
 
 describe("mock data creator task", () => {
     it("should create a mock data creator task", async () => {

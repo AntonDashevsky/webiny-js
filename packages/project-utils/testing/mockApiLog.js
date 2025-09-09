@@ -1,4 +1,4 @@
-const { ContextPlugin } = require("@webiny/api");
+import { ContextPlugin } from "@webiny/api";
 
 export const createMockApiLog = () => {
     const logging = {

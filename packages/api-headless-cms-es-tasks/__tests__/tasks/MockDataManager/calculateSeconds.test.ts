@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { calculateSeconds } from "~/tasks/MockDataManager/calculateSeconds";
 
 describe("calculate seconds to wait for task based on amount of records", () => {
