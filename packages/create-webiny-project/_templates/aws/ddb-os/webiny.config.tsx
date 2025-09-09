@@ -5,7 +5,7 @@ export default () => {
     return (
         <>
             <Webiny />
-            <Project.OpenSearch enabled={true} />
+            <Infra.OpenSearch enabled={true} />
         </>
     );
 };
