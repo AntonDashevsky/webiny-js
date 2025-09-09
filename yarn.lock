@@ -17301,12 +17301,14 @@ __metadata:
     os-browserify: "npm:^0.3.0"
     path-browserify: "npm:^1.0.1"
     postcss-flexbugs-fixes: "npm:5.0.2"
+    postcss-loader: "npm:6.2.1"
     postcss-normalize: "npm:10.0.1"
     postcss-preset-env: "npm:9.4.0"
     process: "npm:^0.11.10"
     react: "npm:18.2.0"
     react-dev-utils: "npm:^12.0.1"
     react-dom: "npm:18.2.0"
+    react-refresh: "npm:^0.11.0"
     read-json-sync: "npm:2.0.1"
     rimraf: "npm:^6.0.1"
     sass: "npm:1.44.0"
@@ -17943,6 +17945,7 @@ __metadata:
     ci-info: "npm:^4.1.0"
     debounce: "npm:^1.2.0"
     execa: "npm:^5.1.1"
+    exit-hook: "npm:^4.0.0"
     fast-glob: "npm:^3.2.7"
     find-up: "npm:5.0.0"
     humanize-duration: "npm:^3.27.0"
@@ -25113,6 +25116,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"exit-hook@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "exit-hook@npm:4.0.0"
+  checksum: 10/5aa8b4e45fa943e7e174c25329750a0ffefb593ccc2eafd5d67e1d734b114c93cb36b5714548fb1c2a1dd90f3e9cdc606b5e788f428f780708774da444021fdc
+  languageName: node
+  linkType: hard
+
 "exit-x@npm:^0.2.2":
   version: 0.2.2
   resolution: "exit-x@npm:0.2.2"
@@ -30529,7 +30539,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"klona@npm:^2.0.4":
+"klona@npm:^2.0.4, klona@npm:^2.0.5":
   version: 2.0.6
   resolution: "klona@npm:2.0.6"
   checksum: 10/ed7e2c9af58cb646e758e60b75dec24bf72466066290f78c515a2bae23a06fa280f11ff3210c43b94a18744954aa5358f9d46583d5e4c36da073ecc3606355c4
@@ -34903,6 +34913,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-loader@npm:6.2.1":
+  version: 6.2.1
+  resolution: "postcss-loader@npm:6.2.1"
+  dependencies:
+    cosmiconfig: "npm:^7.0.0"
+    klona: "npm:^2.0.5"
+    semver: "npm:^7.3.5"
+  peerDependencies:
+    postcss: ^7.0.0 || ^8.0.1
+    webpack: ^5.0.0
+  checksum: 10/ab4e4ffa1903611a6ee63bd77ac0fd02b17cf472037a3d6050b383ab3b3def5e4c3a49de5bb552e020e70d2ebde95400f49e4c423ad2a1c76675afda8d627911
+  languageName: node
+  linkType: hard
+
 "postcss-logical@npm:^7.0.1":
   version: 7.0.1
   resolution: "postcss-logical@npm:7.0.1"
@@ -36278,6 +36302,13 @@ __metadata:
     react: ^16.3.0
     react-dom: ^16.3.0
   checksum: 10/29407c7200a17de58e34d8498f1b0588d38234ae910bf5dc0838450ffa908890c67fc0d884ec6e2fd8b9b686a2319a5a0ffd58cf8618acff51e50b14f9f6dd21
+  languageName: node
+  linkType: hard
+
+"react-refresh@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "react-refresh@npm:0.11.0"
+  checksum: 10/1275699e2edc39dbced9bdb00e2e167e3a2868e0c8ae117ba9551556368cfe70453068e5209240d827122aad5504a64c59a24b9b9a2a0ab932472c8750203ea3
   languageName: node
   linkType: hard
 
