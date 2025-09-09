@@ -6,7 +6,10 @@ import { hideBin } from "yargs/helpers";
 import { PackageJson } from "../../utils/PackageJson.js";
 
 const getAllPackages = (targetKeywords) => {
-    const { storage = "ddb" } = yargs(hideBin(process.argv));
+    
+    const envVarStorage = process.env.WEBINY_STORAGE || "ddb";
+    const { storage = envVarStorage} = yargs(hideBin(process.argv));
+    
 
     if (!storage) {
         throw Error(`Missing required --storage parameter!`);
