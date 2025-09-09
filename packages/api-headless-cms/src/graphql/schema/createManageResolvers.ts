@@ -1,4 +1,4 @@
-import type { CmsContext, CmsEntry, CmsFieldTypePlugins, CmsModel } from "~/types";
+import type { CmsContext, CmsEntry, CmsFieldTypePlugins, CmsModel, ICmsEntryState } from "~/types";
 import { resolveGet } from "./resolvers/manage/resolveGet";
 import { resolveList } from "./resolvers/manage/resolveList";
 import { resolveListDeleted } from "./resolvers/manage/resolveListDeleted";
@@ -91,10 +91,10 @@ export const createManageResolvers: CreateManageResolvers = ({
         },
         ...fieldResolvers,
         [`${model.singularApiName}Meta`]: {
-            title(entry: CmsEntry) {
+            title(entry: Pick<CmsEntry, "id" | "values">) {
                 return getEntryTitle(model, entry);
             },
-            description: (entry: CmsEntry, _: any, context: CmsContext) => {
+            description: (entry: Pick<CmsEntry, "values">, _: any, context: CmsContext) => {
                 if (!model.descriptionFieldId) {
                     return "";
                 }
@@ -110,16 +110,23 @@ export const createManageResolvers: CreateManageResolvers = ({
                     value: entry.values[field.fieldId]
                 });
             },
-            image: (entry: CmsEntry) => {
+            image: (entry: Pick<CmsEntry, "values">) => {
                 return getEntryImage(model, entry);
             },
-            status(entry: CmsEntry) {
+            status(entry: Pick<CmsEntry, "status">) {
                 return entry.status;
             },
-            data: (entry: CmsEntry) => {
+            state(entry: Pick<CmsEntry, "state">): ICmsEntryState {
+                return {
+                    comment: null,
+                    name: null,
+                    ...entry.state
+                };
+            },
+            data: (entry: Pick<CmsEntry, "meta">) => {
                 return entry.meta || {};
             },
-            async revisions(entry: CmsEntry, _: any, context: CmsContext) {
+            async revisions(entry: Pick<CmsEntry, "entryId">, _: any, context: CmsContext) {
                 const revisions = await context.cms.getEntryRevisions(model, entry.entryId);
                 return revisions.sort((a, b) => b.version - a.version);
             }

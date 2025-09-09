@@ -57,6 +57,7 @@ export default /* GraphQL */ `
         locked: Boolean
 
         status: String
+        state: CmsEntryState!
         """
         CAUTION: this field is resolved by making an extra query to DB.
         RECOMMENDATION: Use it only with "get" queries (avoid in "list")
@@ -76,6 +77,7 @@ export default /* GraphQL */ `
 
         # Set status of the entry.
         status: String
+        state: CmsEntryStateInput
 
         createdOn: DateTime
         modifiedOn: DateTime
@@ -289,6 +291,7 @@ export default /* GraphQL */ `
         status_not: String
         status_in: [String!]
         status_not_in: [String!]
+        state: CmsEntryStateWhereInput
 
         text: String
         text_not: String

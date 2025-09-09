@@ -10,6 +10,16 @@ export interface ISetupContextOptions {
     documentClient: DynamoDBDocument | undefined;
 }
 
+const getDeleteLogsAfterDays = (days?: number): number => {
+    if (days && days > 0) {
+        return days;
+    }
+    /**
+     * Default days to delete logs after.
+     */
+    return 60;
+};
+
 export const createAcoAuditLogsContext = (params?: ISetupContextOptions) => {
     const plugin = new ContextPlugin<AuditLogsContext>(async context => {
         const storage = createStorage({
@@ -22,7 +32,7 @@ export const createAcoAuditLogsContext = (params?: ISetupContextOptions) => {
             getContext: () => {
                 return context;
             },
-            deleteLogsAfterDays: params?.deleteLogsAfterDays,
+            deleteLogsAfterDays: getDeleteLogsAfterDays(params?.deleteLogsAfterDays),
             storage
         });
     });
