@@ -58,7 +58,7 @@ const useToast = () => {
                 variant,
                 dismissible,
                 duration = 6000,
-                position = "top-right"
+                position = "bottom-left"
             } = params;
 
             const id = generateId();

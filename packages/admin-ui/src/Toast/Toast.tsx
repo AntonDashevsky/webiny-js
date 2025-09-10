@@ -60,7 +60,7 @@ const Toast = withStaticProps(makeDecoratable("Toast", DecoratableToast), {
     Actions: ToastActions,
     Provider: (props: ToasterProps) => (
         <Portal>
-            <Toaster expand={true} duration={6000} position={"top-right"} {...props} />
+            <Toaster expand={true} duration={6000} position={"bottom-left"} {...props} />
         </Portal>
     )
 });
