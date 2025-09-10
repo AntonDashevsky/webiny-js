@@ -1,5 +1,6 @@
 export interface Package {
     isTs: boolean;
+    mustBuild: boolean;
     hasTests: boolean;
     name: string;
     folderName: string;
