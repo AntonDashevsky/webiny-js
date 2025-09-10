@@ -23,8 +23,6 @@ export const createWbyCfgRspackConfig = params => {
     const watch = true;
     const entry = process.cwd() + "/webiny.config.tsx";
 
-    console.log("entryyyy", entry);
-
     /** @type {import("@rspack/core").Configuration} */
     return {
         watch,
