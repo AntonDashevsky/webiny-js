@@ -1,6 +1,5 @@
 import path from "path";
 import fs from "fs";
-import { allWorkspaces } from "../../../../../workspaces/index.js";
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
@@ -49,7 +48,6 @@ const createPaths = ({ appIndexJs, cwd }) => {
         proxySetup: resolveApp("src/setupProxy.js"),
         appNodeModules: resolveApp("node_modules"),
         publicUrl: envPublicUrl,
-        allWorkspaces: allWorkspaces(),
         moduleFileExtensions
     };
 };
