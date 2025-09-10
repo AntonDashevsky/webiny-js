@@ -23,6 +23,8 @@ import {
     pendingOperationsGracefulErrorHandler,
     pulumiCommand,
     refreshCommand,
+    syncDepsCommand,
+    verifyDepsCommand,
     watchCommand
 } from "./features/index.js";
 
@@ -50,6 +52,8 @@ export const createCliContainer = async (params: CliParamsService.Params) => {
     container.register(deployCommand).inSingletonScope();
     container.register(pulumiCommand).inSingletonScope();
     container.register(refreshCommand).inSingletonScope();
+    container.register(syncDepsCommand).inSingletonScope();
+    container.register(verifyDepsCommand).inSingletonScope();
     container.register(destroyCommand).inSingletonScope();
     container.register(infoCommand).inSingletonScope();
     container.register(outputCommand).inSingletonScope();

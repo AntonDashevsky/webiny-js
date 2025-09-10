@@ -19,6 +19,8 @@ const getStackOutput = async <
 export { ProjectSdk, getStackOutput };
 
 export type { AppName } from "./abstractions/types.js";
+export * from "./abstractions/models/index.js";
+
 export type { IStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
 
 export { PackageJson } from "./utils/PackageJson.js";

@@ -9,4 +9,5 @@ export const GetProject = new Abstraction<IGetProject>("GetProject");
 
 export namespace GetProject {
     export type Interface = IGetProject;
+    export type Project = IProjectModel;
 }
