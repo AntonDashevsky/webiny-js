@@ -27,11 +27,7 @@ export async function getBatches(options: GetBatchesOptions = {}) {
         getPackages({
             includes: ["/packages/"]
         }) as Package[]
-    ).filter(pkg => pkg.isTs);
-    // .filter(pkg => {
-    //     // Check if packages has a build script
-    //     return pkg.packageJson.scripts && "build" in pkg.packageJson.scripts;
-    // });
+    ).filter(pkg => pkg.mustBuild);
 
     const packagesWhitelist = options.packagesWhitelist;
     if (Array.isArray(packagesWhitelist) && packagesWhitelist.length) {

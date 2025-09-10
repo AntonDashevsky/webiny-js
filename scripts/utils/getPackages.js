@@ -75,6 +75,7 @@ export const getPackages = (args = {}) => {
             try {
                 return {
                     isTs: Boolean(tsConfigJson || tsConfigBuildJson || hasTypescriptInDeps),
+                    mustBuild: Boolean(tsConfigBuildJson),
                     hasTests,
                     name: packageJson.name,
                     folderName: basename(path),
