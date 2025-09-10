@@ -1,5 +1,5 @@
 import * as path from "path";
-import { allWorkspaces } from "../../packages/project-utils/workspaces";
+import { allWorkspaces } from "../../packages/build-tools/workspaces";
 import { BasicPackages } from "./BasicPackages";
 import { LatestVersionPackages } from "./LatestVersionPackages";
 import { ResolutionPackages } from "./ResolutionPackages";
