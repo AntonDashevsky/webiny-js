@@ -97,7 +97,7 @@
     "glob": "^7.2.3",
     "graphql": "^15.9.0",
     "husky": "^4.2.5",
-    "inquirer": "8.2.6",
+    "inquirer": "^12.9.4",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "inquirer-checkbox-plus-prompt": "^1.0.1",
     "inquirer-maxlength-input-prompt": "^1.0.0",
