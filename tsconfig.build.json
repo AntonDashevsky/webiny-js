@@ -36,6 +36,7 @@
     "strictPropertyInitialization": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
+    "skipLibCheck": true,
     "noImplicitOverride": true,
     "strict": true,
     "noPropertyAccessFromIndexSignature": false,

@@ -143,7 +143,7 @@
     "eslint": "eslint \"**/*.{js,jsx,ts,tsx}\" --max-warnings=0",
     "eslint:fix": "yarn eslint --fix",
     "build": "tsx scripts/buildPackages",
-    "build:quick": "yarn build --build-overrides='{\"tsConfig\":{\"compilerOptions\":{\"skipLibCheck\":true}}}'",
+    "build:full": "yarn build --build-overrides='{\"tsConfig\":{\"compilerOptions\":{\"skipLibCheck\":false}}}'",
     "build:apps": "yarn webiny ws run build --scope='@webiny/app*'",
     "build:api": "yarn webiny ws run build --scope='@webiny/api*' --scope='@webiny/handler*'",
     "watch": "yarn webiny watch",
