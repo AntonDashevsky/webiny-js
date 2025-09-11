@@ -1,8 +1,8 @@
 import { CheckboxPresenter } from "./CheckboxPresenter.js";
-import { jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
 
 describe("CheckboxPresenter", () => {
-    const onCheckedChange = jest.fn();
+    const onCheckedChange = vi.fn();
 
     it("should return the compatible `vm` based on props", () => {
         const presenter = new CheckboxPresenter();

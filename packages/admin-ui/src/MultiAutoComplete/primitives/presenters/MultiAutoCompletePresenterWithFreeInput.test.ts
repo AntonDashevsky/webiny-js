@@ -5,11 +5,11 @@ import { MultiAutoCompleteSelectedOptionPresenter } from "./MultiAutoCompleteSel
 import { MultiAutoCompleteListOptionsPresenter } from "./MultiAutoCompleteListOptionsPresenter.js";
 import { MultiAutoCompleteTemporaryOptionPresenter } from "~/MultiAutoComplete/primitives/presenters/MultiAutoCompleteTemporaryOptionPresenter.js";
 import { MultiAutoCompletePresenterWithFreeInput } from "~/MultiAutoComplete/primitives/presenters/MultiAutoCompletePresenterWithFreeInput.js";
-import { jest } from "@jest/globals";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 describe("MultiAutoCompletePresenterWithFreeInput", () => {
     let presenter: IMultiAutoCompletePresenter;
-    const onValuesChange = jest.fn();
+    const onValuesChange = vi.fn();
 
     beforeEach(() => {
         const inputPresenter = new MultiAutoCompleteInputPresenter();

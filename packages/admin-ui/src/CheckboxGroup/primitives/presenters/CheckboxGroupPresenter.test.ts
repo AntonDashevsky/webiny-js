@@ -1,10 +1,10 @@
 import { CheckboxGroupPresenter } from "./CheckboxGroupPresenter.js";
 import type { CheckboxItemDto } from "~/Checkbox/domains/CheckboxItemDto.js";
-import { jest } from "@jest/globals";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 describe("CheckboxGroupPresenter", () => {
     let presenter: CheckboxGroupPresenter;
-    const onCheckedChange = jest.fn();
+    const onCheckedChange = vi.fn();
 
     beforeEach(() => {
         presenter = new CheckboxGroupPresenter();

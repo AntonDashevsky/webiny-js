@@ -1,8 +1,8 @@
 import { SliderPresenter } from "./SliderPresenter.js";
-import { jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
 
 describe("SliderPresenter", () => {
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
     const presenter = new SliderPresenter();
 
     it("should return the compatible `vm` based on params", () => {
@@ -51,7 +51,7 @@ describe("SliderPresenter", () => {
     });
 
     it("should call `onValueCommit` callback when `commitValue` is called", () => {
-        const onValueCommit = jest.fn();
+        const onValueCommit = vi.fn();
         const presenter = new SliderPresenter();
         presenter.init({ onValueChange, value: 20, onValueCommit });
         presenter.commitValue([40]);

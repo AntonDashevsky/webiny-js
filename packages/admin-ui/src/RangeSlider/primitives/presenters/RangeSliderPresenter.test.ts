@@ -1,8 +1,8 @@
+import { describe, expect, it, vi } from "vitest";
 import { RangeSliderPresenter } from "./RangeSliderPresenter.js";
-import { jest } from "@jest/globals";
 
 describe("RangeSliderPresenter", () => {
-    const onValuesChange = jest.fn();
+    const onValuesChange = vi.fn();
     const presenter = new RangeSliderPresenter();
 
     it("should return the compatible `vm` based on params", () => {

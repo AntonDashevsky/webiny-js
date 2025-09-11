@@ -1,11 +1,11 @@
+import { it, describe, expect, vi } from "vitest";
 import { SelectPresenter } from "./SelectPresenter.js";
-import { jest } from "@jest/globals";
 
 describe("SelectPresenter", () => {
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
 
     it("should return the compatible `vm.selectRoot` based on props", () => {
-        const onValueChange = jest.fn();
+        const onValueChange = vi.fn();
 
         // `value`
         {
@@ -23,7 +23,7 @@ describe("SelectPresenter", () => {
     });
 
     it("should return the compatible `vm.selectTrigger` based on props", () => {
-        const onValueChange = jest.fn();
+        const onValueChange = vi.fn();
 
         // `placeholder`
         {
@@ -161,7 +161,7 @@ describe("SelectPresenter", () => {
     });
 
     it("should call `onValueChange` and `onValueReset` callbacks when `resetValue` is called", () => {
-        const onValueReset = jest.fn();
+        const onValueReset = vi.fn();
         const presenter = new SelectPresenter();
         presenter.init({ onValueChange, onValueReset, value: "value" });
         presenter.resetValue();

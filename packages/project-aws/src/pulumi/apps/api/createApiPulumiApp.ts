@@ -17,7 +17,7 @@ import {
     withServiceManifest
 } from "~/pulumi/utils";
 import { getEnvVariableAwsRegion } from "~/pulumi/env/awsRegion";
-import { attachSyncSystem } from "../syncSystem/api/index.js";
+// import { attachSyncSystem } from "../syncSystem/api/index.js";
 import { applyAwsResourceTags, getAwsAccountId } from "~/pulumi/apps/awsUtils";
 import type { WithServiceManifest } from "~/pulumi/utils/withServiceManifest.js";
 import { ApiScheduler } from "~/pulumi/apps/api/ApiScheduler.js";
@@ -153,7 +153,10 @@ export const createApiPulumiApp = () => {
             });
 
             // Register VPC config module to be available to other modules.
-            const vpcEnabled = !!vpcExtensionsConfig ?? isProduction;
+            const vpcEnabled =
+                vpcExtensionsConfig === true ||
+                typeof vpcExtensionsConfig === "object" ||
+                isProduction;
 
             app.addModule(VpcConfig, { enabled: vpcEnabled });
 

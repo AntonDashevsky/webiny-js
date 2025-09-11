@@ -1,4 +1,5 @@
 import { MultiFilePickerPresenter } from "./MultiFilePickerPresenter.js";
+import { describe, expect, it } from "vitest";
 
 describe("MultiFilePickerPresenter", () => {
     const presenter = new MultiFilePickerPresenter();

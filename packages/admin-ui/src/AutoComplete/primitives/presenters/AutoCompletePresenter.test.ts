@@ -1,13 +1,13 @@
 import { AutoCompletePresenter } from "./AutoCompletePresenter.js";
 import { AutoCompleteInputPresenter } from "./AutoCompleteInputPresenter.js";
 import { AutoCompleteListOptionsPresenter } from "./AutoCompleteListOptionsPresenter.js";
-import { jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
 
 describe("AutoCompletePresenter", () => {
     const inputPresenter = new AutoCompleteInputPresenter();
     const optionsListPresenter = new AutoCompleteListOptionsPresenter();
     const presenter = new AutoCompletePresenter(inputPresenter, optionsListPresenter);
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
 
     it("should return the compatible `vm.inputVm` based on params", () => {
         // `placeholder`
@@ -278,7 +278,7 @@ describe("AutoCompletePresenter", () => {
     });
 
     it("should reset the internal `options` state call `onValueChange` and `onValueReset` callbacks when `resetValue` is called", () => {
-        const onValueReset = jest.fn();
+        const onValueReset = vi.fn();
         presenter.init({
             onValueChange,
             onValueReset,
@@ -360,7 +360,7 @@ describe("AutoCompletePresenter", () => {
     });
 
     it("should change `optionsListVm` and call `onOpenChange` when `setListOpenState` is called", () => {
-        const onOpenChange = jest.fn();
+        const onOpenChange = vi.fn();
 
         // let's open it
         presenter.init({ onValueChange, onOpenChange });

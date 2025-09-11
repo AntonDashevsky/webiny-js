@@ -1,8 +1,8 @@
 import { RadioGroupPresenter } from "./RadioGroupPresenter.js";
-import { jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
 
 describe("RadioGroupPresenter", () => {
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
 
     it("should return the compatible `vm` based on props", () => {
         // `items`

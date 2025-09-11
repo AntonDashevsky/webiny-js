@@ -3,13 +3,13 @@ import { MultiAutoCompletePresenter } from "./MultiAutoCompletePresenter.js";
 import { MultiAutoCompleteInputPresenter } from "./MultiAutoCompleteInputPresenter.js";
 import { MultiAutoCompleteSelectedOptionPresenter } from "./MultiAutoCompleteSelectedOptionsPresenter.js";
 import { MultiAutoCompleteListOptionsPresenter } from "./MultiAutoCompleteListOptionsPresenter.js";
-import { jest } from "@jest/globals";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 describe("MultiAutoCompletePresenter", () => {
     let presenter: IMultiAutoCompletePresenter;
-    const onValuesChange = jest.fn();
-    const onOpenChange = jest.fn();
-    const onValuesReset = jest.fn();
+    const onValuesChange = vi.fn();
+    const onOpenChange = vi.fn();
+    const onValuesReset = vi.fn();
 
     beforeEach(() => {
         const inputPresenter = new MultiAutoCompleteInputPresenter();

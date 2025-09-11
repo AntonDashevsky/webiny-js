@@ -1,7 +1,7 @@
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import { type ITagsPresenter, TagsPresenter } from "./TagsPresenter.js";
 import { TagsValuesPresenter } from "./TagsValuesPresenter.js";
 import { TagsInputPresenter } from "./TagsInputPresenter.js";
-import { jest } from "@jest/globals";
 
 const createPresenter = (): ITagsPresenter => {
     const tagsInputPresenter = new TagsInputPresenter();
@@ -10,17 +10,17 @@ const createPresenter = (): ITagsPresenter => {
 };
 
 describe("TagsPresenter", () => {
-    const onValueChange = jest.fn();
-    const onValueInput = jest.fn();
-    const onValueAdd = jest.fn();
-    const onValueRemove = jest.fn();
+    const onValueChange = vi.fn();
+    const onValueInput = vi.fn();
+    const onValueAdd = vi.fn();
+    const onValueRemove = vi.fn();
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     afterEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should return the compatible `vm.inputVm` based on", () => {

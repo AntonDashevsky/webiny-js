@@ -1,8 +1,8 @@
 import { SwitchPresenter } from "./SwitchPresenter.js";
-import { jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
 
 describe("SwitchPresenter", () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
 
     it("should return the compatible `switchVm` based on props", () => {
         const presenter = new SwitchPresenter();

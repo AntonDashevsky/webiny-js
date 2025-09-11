@@ -1,10 +1,10 @@
 import type { ColorState } from "react-color";
 import { ColorPickerPresenter } from "./ColorPickerPresenter.js";
-import { jest } from "@jest/globals";
+import { describe, expect, it, vi } from "vitest";
 
 describe("ColorPickerPresenter", () => {
     const presenter = new ColorPickerPresenter();
-    const onValueChange = jest.fn();
+    const onValueChange = vi.fn();
 
     it("should return the compatible `vm` based on params", () => {
         // `value`
@@ -29,7 +29,7 @@ describe("ColorPickerPresenter", () => {
     });
 
     it("should commit the color", () => {
-        const onValueCommit = jest.fn();
+        const onValueCommit = vi.fn();
         presenter.init({ onValueChange, onValueCommit });
         presenter.commitColor({ hex: "#00ff00" } as ColorState);
         expect(presenter.vm.value).toBe("#00ff00");
@@ -37,7 +37,7 @@ describe("ColorPickerPresenter", () => {
     });
 
     it("should set the open state", () => {
-        const onOpenChange = jest.fn();
+        const onOpenChange = vi.fn();
         presenter.init({ onValueChange, onOpenChange });
         presenter.setOpen(true);
         expect(presenter.vm.open).toBe(true);

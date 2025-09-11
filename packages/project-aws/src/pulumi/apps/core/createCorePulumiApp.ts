@@ -243,7 +243,11 @@ export function createCorePulumiApp() {
             const logDynamoDbTable = app.addModule(LogDynamo, { protect });
 
             // Setup VPC
-            const vpcEnabled = !!vpcExtensionsConfig ?? isProduction;
+            const vpcEnabled =
+                vpcExtensionsConfig === true ||
+                typeof vpcExtensionsConfig === "object" ||
+                isProduction;
+
             const vpc = vpcEnabled ? app.addModule(CoreVpc) : null;
 
             // Setup Cognito

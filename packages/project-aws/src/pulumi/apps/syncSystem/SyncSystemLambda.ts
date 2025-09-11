@@ -3,11 +3,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import type { PulumiApp, PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
-import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils.js";
-import { VpcConfig } from "~/pulumi/apps/index.js";
-import { getAwsAccountId, getAwsRegion } from "../awsUtils.js";
-import { LAMBDA_RUNTIME } from "~/pulumi/constants.js";
-import { SyncSystemDynamo } from "./SyncSystemDynamo.js";
+import { createLambdaRole, getCommonLambdaEnvVariables } from "../lambdaUtils";
+import { VpcConfig } from "~/pulumi/apps";
+import { getAwsAccountId, getAwsRegion } from "../awsUtils";
+import { LAMBDA_RUNTIME } from "~/pulumi/constants";
+import { SyncSystemDynamo } from "./SyncSystemDynamo";
 
 export interface SyncSystemLambdaParams {
     protect: boolean;
