@@ -1,18 +1,18 @@
-const ensureSystemRequirements = () => {
+import { SystemRequirements } from "./SystemRequirements.js";
+import chalk from "chalk";
+import Table from "cli-table3";
+
+export const ensureSystemRequirements = () => {
     // Just in case, we want to allow users to skip the system requirements check.
     const skipSystemRequirementsCheck = process.argv.includes("--no-system-requirements-check");
     if (skipSystemRequirementsCheck) {
         return;
     }
 
-    const { SystemRequirements } = require("./SystemRequirements");
-
     const systemRequirements = SystemRequirements.validate();
     if (systemRequirements.valid) {
         return;
     }
-
-    const chalk = require("chalk");
 
     console.log(
         [
@@ -20,8 +20,6 @@ const ensureSystemRequirements = () => {
             "Please make sure to install the required versions of the following tools:"
         ].join("\n\n")
     );
-
-    const Table = require("cli-table3");
 
     // Create a table instance
     const table = new Table({
@@ -89,5 +87,3 @@ const ensureSystemRequirements = () => {
     console.log("For more information, please visit https://webiny.link/prerequisites.");
     process.exit();
 };
-
-module.exports = { ensureSystemRequirements };

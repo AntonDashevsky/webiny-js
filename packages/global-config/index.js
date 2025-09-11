@@ -1,12 +1,12 @@
-const os = require("os");
-const path = require("path");
-const { v4: uuidv4 } = require("uuid");
-const readJson = require("load-json-file");
-const writeJson = require("write-json-file");
+import os from "os";
+import path from "path";
+import { v4 as uuidv4 } from "uuid";
+import readJson from "load-json-file";
+import writeJson from "write-json-file";
 
 const GLOBAL_CONFIG_PATH = path.join(os.homedir(), ".webiny", "config");
 
-module.exports.globalConfig = {
+export const globalConfig = {
     __globalConfig: null,
     get(key) {
         try {

@@ -1,8 +1,8 @@
-const semver = require("semver");
-const execa = require("execa");
-const constraints = require("./constraints.json");
+import semver from "semver";
+import execa from "execa";
+import { constraints } from "./constraints.js";
 
-class SystemRequirements {
+export class SystemRequirements {
     static validate() {
         const nodeVersion = SystemRequirements.getNodeVersion();
         const yarnVersion = SystemRequirements.getYarnVersion();
@@ -65,5 +65,3 @@ class SystemRequirements {
         return stdout;
     }
 }
-
-module.exports = { SystemRequirements };

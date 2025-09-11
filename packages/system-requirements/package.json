@@ -2,6 +2,7 @@
   "name": "@webiny/system-requirements",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/webiny/webiny-js.git",

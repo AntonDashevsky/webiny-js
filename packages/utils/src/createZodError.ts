@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import type { ZodError } from "zod/lib/ZodError.js";
+import type { ZodError } from "zod";
 import { generateAlphaNumericId } from "~/generateId.js";
 
 interface OutputError {

@@ -22,7 +22,7 @@
     "listr": "^0.14.3",
     "ora": "4.1.1",
     "yargs": "^17.7.2",
-    "zod": "^3.23.8"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/listr": "^0.14.9",

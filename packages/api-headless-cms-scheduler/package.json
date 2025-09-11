@@ -2,6 +2,7 @@
   "name": "@webiny/api-headless-cms-scheduler",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "description": "Schedule for Webiny Headless CMS",
   "keywords": [
     "api-headless-cms-scheduler:base"
@@ -19,7 +20,7 @@
     "@webiny/error": "0.0.0",
     "@webiny/handler-graphql": "0.0.0",
     "@webiny/utils": "0.0.0",
-    "zod": "3.23.8"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@webiny/api-i18n": "0.0.0",

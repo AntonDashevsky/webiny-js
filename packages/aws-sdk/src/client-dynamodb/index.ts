@@ -1,5 +1,8 @@
-export { QueryCommand, ScanInput, ScanOutput, WriteRequest } from "@aws-sdk/client-dynamodb";
+export { QueryCommand } from "@aws-sdk/client-dynamodb";
 export type {
+    ScanInput,
+    ScanOutput,
+    WriteRequest,
     DynamoDBClient,
     DynamoDBClientConfig,
     AttributeValue

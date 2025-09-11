@@ -2,6 +2,7 @@
   "name": "@webiny/api-sync-system",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/webiny/webiny-js.git"
@@ -20,7 +21,7 @@
     "bytes": "^3.1.2",
     "lodash": "^4.17.21",
     "semver": "^7.7.2",
-    "zod": "3.23.8"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.3.0",

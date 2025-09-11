@@ -2,6 +2,7 @@
   "name": "@webiny/api-log",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/webiny/webiny-js.git",
@@ -27,7 +28,7 @@
     "@webiny/plugins": "0.0.0",
     "@webiny/tasks": "0.0.0",
     "@webiny/utils": "0.0.0",
-    "zod": "3.23.8"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@webiny/project-utils": "0.0.0",

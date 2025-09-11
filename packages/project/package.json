@@ -38,7 +38,7 @@
     "read-json-sync": "2.0.1",
     "serialize-error": "^12.0.0",
     "tsx": "^4.16.2",
-    "zod": "^3.23.8"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/debounce": "^1.2.0",

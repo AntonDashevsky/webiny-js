@@ -1,6 +1,6 @@
-import type { IBlueGreenDeployment } from "../types.js";
 import zod from "zod";
 import { createZodError } from "@webiny/utils/createZodError.js";
+import type { IBlueGreenDeployment } from "../types.js";
 
 const schema = zod
     .array(
