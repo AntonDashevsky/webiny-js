@@ -23,8 +23,7 @@
     { "path": "../ui" },
     { "path": "../utils" },
     { "path": "../validation" },
-    { "path": "../website-builder-sdk" },
-    { "path": "../cli" }
+    { "path": "../website-builder-sdk" }
   ],
   "compilerOptions": {
     "rootDirs": ["./src", "./__tests__"],
@@ -76,9 +75,7 @@
       "@webiny/validation/*": ["../validation/src/*"],
       "@webiny/validation": ["../validation/src"],
       "@webiny/website-builder-sdk/*": ["../website-builder-sdk/src/*"],
-      "@webiny/website-builder-sdk": ["../website-builder-sdk/src"],
-      "@webiny/cli/*": ["../cli/src/*"],
-      "@webiny/cli": ["../cli/src"]
+      "@webiny/website-builder-sdk": ["../website-builder-sdk/src"]
     },
     "baseUrl": "."
   }

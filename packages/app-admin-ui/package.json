@@ -34,10 +34,6 @@
     "access": "public",
     "directory": "dist"
   },
-  "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
-  },
   "svgo": {
     "plugins": {
       "removeViewBox": false

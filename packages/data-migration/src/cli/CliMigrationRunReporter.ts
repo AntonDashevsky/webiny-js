@@ -1,3 +1,4 @@
+// @ts-nocheck TODO v6 @adrian
 import type { MigrationRunnerResult, MigrationRunReporter } from "~/cli/index.js";
 import center from "center-align";
 import type { CliContext } from "@webiny/cli/types.js";

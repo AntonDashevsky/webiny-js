@@ -16,8 +16,7 @@
     { "path": "../ui" },
     { "path": "../ui-composer" },
     { "path": "../utils" },
-    { "path": "../validation" },
-    { "path": "../cli" }
+    { "path": "../validation" }
   ],
   "compilerOptions": {
     "rootDirs": ["./src", "./__tests__"],
@@ -55,9 +54,7 @@
       "@webiny/utils/*": ["../utils/src/*"],
       "@webiny/utils": ["../utils/src"],
       "@webiny/validation/*": ["../validation/src/*"],
-      "@webiny/validation": ["../validation/src"],
-      "@webiny/cli/*": ["../cli/src/*"],
-      "@webiny/cli": ["../cli/src"]
+      "@webiny/validation": ["../validation/src"]
     },
     "baseUrl": "."
   }

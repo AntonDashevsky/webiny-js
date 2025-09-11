@@ -32,10 +32,6 @@
     "cheerio": "^1.1.2",
     "srcset": "^4.0.0"
   },
-  "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
-  },
   "devDependencies": {
     "@webiny/build-tools": "0.0.0"
   },

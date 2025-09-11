@@ -13,10 +13,6 @@
   "description": "Shared utilities for the ACO api and admin packages.",
   "author": "Webiny Ltd.",
   "license": "MIT",
-  "scripts": {
-    "build": "node ../cli/bin.js run build",
-    "watch": "node ../cli/bin.js run watch"
-  },
   "publishConfig": {
     "access": "public",
     "directory": "dist"

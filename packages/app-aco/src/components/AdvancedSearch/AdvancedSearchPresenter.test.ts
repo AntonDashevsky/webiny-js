@@ -1,3 +1,4 @@
+// @ts-nocheck TODO: v6 @pavel
 import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter.js";
 import type { FilterDTO, FilterGroupDTO, FilterGroupFilterDTO } from "./domain/index.js";
 import { FilterRepository, Operation } from "./domain/index.js";

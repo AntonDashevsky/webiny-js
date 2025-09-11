@@ -1,3 +1,4 @@
+// @ts-nocheck TODO: v6 @pavel
 import { ColumnsVisibilityPresenter } from "./ColumnsVisibilityPresenter.js";
 import type { IColumnsVisibilityGateway } from "../gateways/index.js";
 import type { ColumnConfig } from "~/config/table/Column.js";
