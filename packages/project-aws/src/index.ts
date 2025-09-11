@@ -31,8 +31,6 @@ export { Webiny } from "./extensions/Webiny.js";
 import { OnEntryBeforeCreate } from "@webiny/api-headless-cms/extensions/index.js";
 import { AdminExtension } from "@webiny/app-admin/extensions/index.js";
 
-import { LegacyContextPlugin } from "@webiny/api/extensions/index.js";
-
 // Components.
 export { IsEnv } from "@webiny/project/extensions/components/index.js";
 
@@ -81,8 +79,5 @@ export const Infra = {
 export const Backend = {
     Cms: {
         OnEntryBeforeCreate
-    },
-    Legacy: {
-        ContextPlugin: LegacyContextPlugin
     }
 };

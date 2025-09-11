@@ -14,8 +14,6 @@ export interface SyncSystemLambdaParams {
     config: Record<string, string>;
 }
 
-export type SyncSystemLambda = PulumiAppModule<typeof SyncSystemLambda>;
-
 export const SyncSystemLambda = createAppModule({
     name: "SyncSystemLambda",
     // eslint-disable-next-line

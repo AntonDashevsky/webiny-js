@@ -1,6 +1,6 @@
 import type { PulumiAppModule } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
-import { getSyncSystemOutput } from "~/apps/syncSystem/getSyncSystemOutput.js";
+import { getSyncSystemOutput } from "~/pulumi/apps/syncSystem/getSyncSystemOutput.js";
 
 export type SyncSystemOutput = PulumiAppModule<typeof SyncSystemOutput>;
 
@@ -8,7 +8,7 @@ export const SyncSystemOutput = createAppModule({
     name: "SyncSystemOutput",
     config(app) {
         return app.addHandler(async () => {
-            const output = getSyncSystemOutput({
+            const output = await getSyncSystemOutput({
                 env: app.params.run.env
             });
 

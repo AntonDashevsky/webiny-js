@@ -4,7 +4,7 @@ import type { PulumiApp } from "@webiny/pulumi";
 import { createAppModule } from "@webiny/pulumi";
 import { createSyncResourceName } from "./createSyncResourceName.js";
 import type { EventBusArgs } from "@pulumi/aws/cloudwatch/eventBus.js";
-import { SyncSystemSQS } from "~/apps/syncSystem/SyncSystemSQS.js";
+import { SyncSystemSQS } from "~/pulumi/apps/syncSystem/SyncSystemSQS.js";
 import type { EventRuleArgs } from "@pulumi/aws/cloudwatch/eventRule.js";
 import type { EventTargetArgs } from "@pulumi/aws/cloudwatch/eventTarget.js";
 

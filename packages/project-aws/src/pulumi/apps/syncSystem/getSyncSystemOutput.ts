@@ -19,9 +19,6 @@ export const getSyncSystemOutput = (params: IGetSyncSystemOutputParams) => {
 export const asyncGetSyncSystemOutput = async (
     params: IGetSyncSystemOutputParams
 ): Promise<IGetSyncSystemOutputResult> => {
-    return new Promise(resolve => {
-        const value = getSyncSystemOutput(params);
-
-        return resolve(value);
-    });
+    const value = await getSyncSystemOutput(params);
+    return value!;
 };

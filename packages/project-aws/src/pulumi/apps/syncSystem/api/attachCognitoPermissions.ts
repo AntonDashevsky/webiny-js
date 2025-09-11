@@ -1,9 +1,9 @@
 import * as aws from "@pulumi/aws";
 import type { PulumiApp } from "@webiny/pulumi";
 import type { WithServiceManifest } from "~/pulumi/utils/withServiceManifest.js";
-import type { IGetSyncSystemOutputResult } from "~/pulumi/apps/pulumi/syncSystem/types.js";
-import type { CoreOutput } from "~/pulumi/apps/pulumi/index.js";
-import { createSyncResourceName } from "~/pulumi/apps/pulumi/syncSystem/createSyncResourceName.js";
+import type { IGetSyncSystemOutputResult } from "~/pulumi/apps/syncSystem/types.js";
+import type { CoreOutput } from "~/apps/index.js";
+import { createSyncResourceName } from "~/pulumi/apps/syncSystem/createSyncResourceName.js";
 
 export interface IAttachCognitoPermissionsParams {
     app: PulumiApp & WithServiceManifest;
