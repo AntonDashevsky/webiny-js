@@ -4,7 +4,7 @@ import {
     PulumiGetStackExportService,
     LoggerService
 } from "~/abstractions/index.js";
-import { AppModel } from "~/models/index.js";
+import { type AppModel } from "~/models/index.js";
 import path from "path";
 import minimatch from "minimatch";
 

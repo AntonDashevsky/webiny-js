@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { LoggerService } from "~/abstractions/index.js";
+import { type LoggerService } from "~/abstractions/index.js";
 
 type IGetLoggerResult = LoggerService.Interface;
 

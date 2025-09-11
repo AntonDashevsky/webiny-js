@@ -4,4 +4,4 @@ export * from "./withEnv.js";
 export * from "./withEnvVariant.js";
 export * from "./withProjectName.js";
 export * from "./withPulumiConfigPassphrase.js";
-export * from "./types.js";
+export type * from "./types.js";

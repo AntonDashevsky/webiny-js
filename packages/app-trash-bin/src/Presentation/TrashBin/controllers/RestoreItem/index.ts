@@ -1,2 +1,2 @@
-export * from "./IRestoreItemController.js";
+export type * from "./IRestoreItemController.js";
 export * from "./RestoreItemController.js";

@@ -1,6 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
-import { IAppModel } from "~/abstractions/models/IAppModel.js";
-import { IBaseAppParams } from "~/abstractions/types.js";
+import { type IAppModel } from "~/abstractions/models/IAppModel.js";
+import { type IBaseAppParams } from "~/abstractions/types.js";
 
 export interface IListAppLambdaFunctionsServiceParams extends Omit<IBaseAppParams, "app"> {
     whitelist?: string | string[];

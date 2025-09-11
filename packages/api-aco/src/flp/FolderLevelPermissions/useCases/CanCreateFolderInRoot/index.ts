@@ -1,2 +1,2 @@
 export * from "./CanCreateFolderInRoot";
-export * from "./ICanCreateFolderInRoot";
+export type * from "./ICanCreateFolderInRoot";

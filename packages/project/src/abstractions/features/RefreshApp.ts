@@ -1,6 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
-import { IBaseAppParams } from "~/abstractions/types.js";
-import { ExecaChildProcess } from "execa";
+import { type IBaseAppParams } from "~/abstractions/types.js";
+import { type ExecaChildProcess } from "execa";
 
 type IPulumiProcess = ExecaChildProcess<string>;
 

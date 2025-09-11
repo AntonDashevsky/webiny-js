@@ -1,6 +1,6 @@
-import { ExtensionDefinitionModel } from "./ExtensionDefinitionModel.js";
-import { z } from "zod";
-import { ProjectModel } from "~/models/index.js";
+import { type ExtensionDefinitionModel } from "./ExtensionDefinitionModel.js";
+import { type z } from "zod";
+import { type ProjectModel } from "~/models/index.js";
 
 export interface ExtensionInstanceModelContext {
     [key: string]: any;
@@ -28,7 +28,7 @@ export class ExtensionInstanceModel<TParamsSchema extends z.ZodTypeAny> {
             return;
         }
 
-        let paramsSchema =
+        const paramsSchema =
             typeof this.definition.paramsSchema === "function"
                 ? this.definition.paramsSchema(this.context)
                 : this.definition.paramsSchema;

@@ -1,2 +1,2 @@
-export * from "./ICheckNotInheritedPermissions";
+export type * from "./ICheckNotInheritedPermissions";
 export * from "./CheckNotInheritedPermissions";

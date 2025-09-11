@@ -1,2 +1,2 @@
-export * from "./abstractions/IWebsocketsConnectionRegistry.js";
+export type * from "./abstractions/IWebsocketsConnectionRegistry.js";
 export * from "./WebsocketsConnectionRegistry.js";

@@ -1,8 +1,8 @@
-import { Abstraction, Metadata } from "@webiny/di-container";
+import { type Abstraction, Metadata } from "@webiny/di-container";
 import { z } from "zod";
 import path from "path";
 import fs from "fs";
-import { IProjectModel } from "~/abstractions/models/index.js";
+import { type IProjectModel } from "~/abstractions/models/index.js";
 
 export const zodPathToAbstraction = (
     expectedAbstraction: Abstraction<any>,

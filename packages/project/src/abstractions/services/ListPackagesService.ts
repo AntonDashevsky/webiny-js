@@ -1,6 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
-import { IBaseAppParams } from "~/abstractions/types.js";
-import { GetApp } from "~/abstractions/index.js";
+import { type IBaseAppParams } from "~/abstractions/types.js";
+import { type GetApp } from "~/abstractions/index.js";
 
 export interface IListPackagesServiceParams extends Omit<IBaseAppParams, "app" | "env"> {
     app?: GetApp.AppName;

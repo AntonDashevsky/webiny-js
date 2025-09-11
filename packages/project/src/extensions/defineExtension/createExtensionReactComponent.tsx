@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { DefineExtensionParams } from "./types.js";
+import { type DefineExtensionParams } from "./types.js";
 import { nanoid } from "nanoid";
-import { z } from "zod";
+import { type z } from "zod";
 
 export function createExtensionReactComponent<TParamsSchema extends z.ZodTypeAny>(
     extensionParams: DefineExtensionParams<TParamsSchema>

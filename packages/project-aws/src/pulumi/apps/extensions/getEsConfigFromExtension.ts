@@ -1,5 +1,5 @@
 import { elasticSearch as elasticSearchExt } from "~/pulumi/extensions/elasticSearch";
-import { IProjectConfigModel } from "@webiny/project/abstractions/models";
+import { type IProjectConfigModel } from "@webiny/project/abstractions/models";
 
 export const getEsConfigFromExtension = (projectConfig: IProjectConfigModel) => {
     const [elasticSearchExtension] = projectConfig.extensionsByType(elasticSearchExt);
@@ -13,7 +13,7 @@ export const getEsConfigFromExtension = (projectConfig: IProjectConfigModel) => 
     }
 
     if (domainName || indexPrefix || sharedIndexes) {
-        let elasticSearch: Omit<typeof elasticSearchExtension.params, "enabled"> = {};
+        const elasticSearch: Omit<typeof elasticSearchExtension.params, "enabled"> = {};
         if (domainName) {
             elasticSearch.domainName = domainName;
         }

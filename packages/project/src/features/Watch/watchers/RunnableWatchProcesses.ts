@@ -1,5 +1,5 @@
-import { RunnableWatchProcess } from "./RunnableWatchProcess.js";
-import { ForkOptions } from "child_process";
+import { type RunnableWatchProcess } from "./RunnableWatchProcess.js";
+import { type ForkOptions } from "child_process";
 
 export class RunnableWatchProcesses {
     runnableBuildProcesses: RunnableWatchProcess[];

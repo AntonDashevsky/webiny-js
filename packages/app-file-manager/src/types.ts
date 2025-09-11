@@ -4,7 +4,7 @@ import type { SecurityPermission } from "@webiny/app-security/types";
 import type { FileItem } from "@webiny/app-admin/types";
 import type { FolderTableRow, RecordTableRow } from "@webiny/app-aco";
 
-export { FileInput } from "./modules/FileManagerApiProvider/graphql";
+export type { FileInput } from "./modules/FileManagerApiProvider/graphql";
 
 export type PermissionRendererPluginRenderFunctionType = (props: {
     value: SecurityPermission;

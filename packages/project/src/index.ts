@@ -1,5 +1,5 @@
 import { ProjectSdk } from "./ProjectSdk.js";
-import { GetAppStackOutput } from "~/abstractions/index.js";
+import { type GetAppStackOutput } from "~/abstractions/index.js";
 
 export const getProjectSdk = (...params: Parameters<(typeof ProjectSdk)["init"]>) => {
     return ProjectSdk.init(...params);
@@ -19,7 +19,7 @@ const getStackOutput = async <
 export { ProjectSdk, getStackOutput };
 
 export type { AppName } from "./abstractions/types.js";
-export * from "./abstractions/models/index.js";
+export type * from "./abstractions/models/index.js";
 
 export type { IStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
 

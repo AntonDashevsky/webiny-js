@@ -13,7 +13,8 @@ import { execute } from "~/execute";
 import { createComposedHandler } from "~/utils/composedHandler";
 import type { Context, Request } from "@webiny/handler/types";
 
-const Reply = require("fastify/lib/reply");
+// @ts-expect-error
+import Reply from "fastify/lib/reply";
 
 const url = "/webiny-raw-event";
 

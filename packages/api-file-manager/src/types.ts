@@ -9,9 +9,9 @@ import type { Topic } from "@webiny/pubsub/types";
 import type { CmsContext, CmsEntryListSort } from "@webiny/api-headless-cms/types";
 import type { Context as TasksContext } from "@webiny/tasks/types";
 
-export * from "./types/file.lifecycle";
-export * from "./types/file";
-export * from "./types/file";
+export type * from "./types/file.lifecycle";
+export type * from "./types/file";
+export type * from "./types/file";
 
 export interface FileManagerContextObject extends FilesCRUD, SettingsCRUD, SystemCRUD {
     storage: FileStorage;

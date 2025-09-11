@@ -1,2 +1,2 @@
-export * from "./abstractions/IWebsocketsRunner.js";
+export type * from "./abstractions/IWebsocketsRunner.js";
 export * from "./WebsocketsRunner.js";

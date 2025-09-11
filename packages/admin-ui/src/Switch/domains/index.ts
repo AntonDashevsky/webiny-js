@@ -1,4 +1,4 @@
 export * from "./SwitchItem";
-export * from "./SwitchItemDto";
-export * from "./SwitchItemFormatted";
+export type * from "./SwitchItemDto";
+export type * from "./SwitchItemFormatted";
 export * from "./SwitchItemMapper";

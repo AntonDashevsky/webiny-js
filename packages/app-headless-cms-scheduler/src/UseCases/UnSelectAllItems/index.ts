@@ -1,2 +1,2 @@
-export * from "./IUnselectAllItemsUseCase";
+export type * from "./IUnselectAllItemsUseCase";
 export * from "./UnselectAllItemsUseCase";

@@ -1,2 +1,2 @@
 export * from "./FiltersGraphQLGateway.js";
-export * from "./FiltersGatewayInterface.js";
+export type * from "./FiltersGatewayInterface.js";

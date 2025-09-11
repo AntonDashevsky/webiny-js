@@ -1,4 +1,4 @@
-import { IProjectConfigModel } from "@webiny/project/abstractions/models";
+import { type IProjectConfigModel } from "@webiny/project/abstractions/models";
 import { awsTags as awsTagsExt } from "~/pulumi/extensions/awsTags";
 
 export const getAwsTagsFromExtension = (projectConfig: IProjectConfigModel) => {

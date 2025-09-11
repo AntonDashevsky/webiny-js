@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { IAppModel } from "~/abstractions/models/index.js";
+import { type IAppModel } from "~/abstractions/models/index.js";
 import { type AppName } from "~/abstractions/types.js";
 
 type IGetAppParams = AppName;

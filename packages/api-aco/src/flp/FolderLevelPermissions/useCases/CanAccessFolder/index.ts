@@ -1,2 +1,2 @@
 export * from "./CanAccessFolder";
-export * from "./ICanAccessFolder";
+export type * from "./ICanAccessFolder";

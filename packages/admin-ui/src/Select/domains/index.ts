@@ -1,4 +1,4 @@
 export * from "./SelectOption";
-export * from "./SelectOptionDto";
-export * from "./SelectOptionFormatted";
+export type * from "./SelectOptionDto";
+export type * from "./SelectOptionFormatted";
 export * from "./SelectOptionMapper";

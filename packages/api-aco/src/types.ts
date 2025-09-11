@@ -22,9 +22,9 @@ import type {
 import type { FolderLevelPermissions } from "~/flp";
 
 export * from "./filter/filter.types";
-export * from "./folder/folder.types";
-export * from "./record/record.types";
-export * from "./flp/flp.types";
+export type * from "./folder/folder.types";
+export type * from "./record/record.types";
+export type * from "./flp/flp.types";
 
 export interface User {
     id: string;

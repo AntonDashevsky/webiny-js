@@ -1,7 +1,7 @@
-export * from "./IAppModel.js";
-export * from "./IAppPackageModel.js";
-export * from "./IPathModel.js";
-export * from "./IProjectConfigDto.js";
-export * from "./IProjectConfigModel.js";
-export * from "./IProjectModel.js";
-export * from "./PackagesBuilder/index.js";
+export type * from "./IAppModel.js";
+export type * from "./IAppPackageModel.js";
+export type * from "./IPathModel.js";
+export type * from "./IProjectConfigDto.js";
+export type * from "./IProjectConfigModel.js";
+export type * from "./IProjectModel.js";
+export type * from "./PackagesBuilder/index.js";

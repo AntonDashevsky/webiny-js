@@ -1,7 +1,7 @@
-import { IBasePackagesWatcherPackage } from "./BasePackagesWatcher.js";
+import { type IBasePackagesWatcherPackage } from "./BasePackagesWatcher.js";
 import { fork, type ForkOptions } from "child_process";
 import path from "path";
-import { Watch } from "~/abstractions/index.js";
+import { type Watch } from "~/abstractions/index.js";
 
 export interface RunnableProcessParams {
     buildParams: Watch.Params;

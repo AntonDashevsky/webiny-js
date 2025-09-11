@@ -7,13 +7,13 @@ import {
     UpdateFunctionConfigurationCommand
 } from "@webiny/aws-sdk/client-lambda";
 import {
-    ListAppLambdaFunctionsService,
-    LoggerService,
-    PulumiGetStackExportService,
-    UiService
+    type ListAppLambdaFunctionsService,
+    type LoggerService,
+    type PulumiGetStackExportService,
+    type UiService
 } from "~/abstractions/index.js";
-import { IWatchWithAppParams } from "~/abstractions/features/Watch.js";
-import { AppModel } from "~/models/index.js";
+import { type IWatchWithAppParams } from "~/abstractions/features/Watch.js";
+import { type AppModel } from "~/models/index.js";
 
 const WATCH_MODE_NOTE_IN_DESCRIPTION = " (💡 local development mode, redeploy to remove)";
 const DEFAULT_INCREASE_TIMEOUT = 120;

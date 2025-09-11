@@ -23,9 +23,9 @@ export type DragObjectWithType = {
     type: SourceType;
 };
 
-export * from "./validation";
-export * from "./model";
-export * from "./shared";
+export type * from "./validation";
+export type * from "./model";
+export type * from "./shared";
 
 interface QueryFieldParams {
     model: CmsModel;

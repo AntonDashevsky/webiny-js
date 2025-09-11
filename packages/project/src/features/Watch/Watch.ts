@@ -17,7 +17,7 @@ import chalk from "chalk";
 import type inspectorType from "inspector";
 import { PackagesWatcher } from "./watchers/PackagesWatcher.js";
 import { WebinyConfigWatcher } from "~/features/Watch/watchers/WebinyConfigWatcher.js";
-import { ICoreStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
+import { type ICoreStackOutput } from "~/abstractions/features/GetAppStackOutput.js";
 import { getIotEndpoint } from "./getIotEndpoint.js";
 import { replaceLambdaFunctions } from "~/features/Watch/replaceLambdaFunctions.js";
 import { initInvocationForwarding } from "./initInvocationForwarding.js";

@@ -1,4 +1,4 @@
 export * from "./CommandOption";
-export * from "./CommandOptionDto";
-export * from "./CommandOptionFormatted";
+export type * from "./CommandOptionDto";
+export type * from "./CommandOptionFormatted";
 export * from "./CommandOptionFormatter";

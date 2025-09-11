@@ -1,4 +1,4 @@
 export * from "./RadioItem";
-export * from "./RadioItemFormatted";
+export type * from "./RadioItemFormatted";
 export * from "./RadioItemFormatter";
-export * from "./RadioItemParams";
+export type * from "./RadioItemParams";

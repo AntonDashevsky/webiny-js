@@ -1,2 +1,2 @@
 export * from "./GetScheduledItemUseCase.js";
-export * from "./IGetScheduledItemUseCase.js";
+export type * from "./IGetScheduledItemUseCase.js";

@@ -1,4 +1,4 @@
-import { Container } from "@webiny/di-container";
+import { type Container } from "@webiny/di-container";
 import { createProjectSdkContainer } from "./createProjectSdkContainer.js";
 import {
     BuildApp,
@@ -16,7 +16,7 @@ import {
     IsCi,
     IsTelemetryEnabled,
     LoggerService,
-    ProjectSdkParamsService,
+    type ProjectSdkParamsService,
     RefreshApp,
     RunPulumiCommand,
     ValidateProjectConfig,

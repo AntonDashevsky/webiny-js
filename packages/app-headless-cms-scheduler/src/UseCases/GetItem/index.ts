@@ -1,2 +1,2 @@
-export * from "./IGetItemUseCase";
+export type * from "./IGetItemUseCase";
 export * from "./GetItemUseCase";

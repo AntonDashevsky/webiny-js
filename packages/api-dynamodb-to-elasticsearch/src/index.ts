@@ -6,4 +6,4 @@ export * from "./NotEnoughRemainingTimeError";
 export * from "./Operations";
 export * from "./OperationsBuilder";
 export * from "./SynchronizationBuilder";
-export * from "./types";
+export type * from "./types";

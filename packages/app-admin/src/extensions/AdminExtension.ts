@@ -2,7 +2,7 @@ import { defineExtension, zodPathToFile } from "@webiny/project/extensions/index
 import { z } from "zod";
 import path from "path";
 import Case from "case";
-import { JsxFragment, Node, Project } from "ts-morph";
+import { type JsxFragment, Node, Project } from "ts-morph";
 
 export const adminExtension = defineExtension({
     type: "Admin/Extension",

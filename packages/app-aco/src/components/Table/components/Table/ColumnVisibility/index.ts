@@ -1,5 +1,5 @@
-export * from "./IColumnsVisibilityRepository.js";
-export * from "./IColumnsVisibilityUpdater.js";
+export type * from "./IColumnsVisibilityRepository.js";
+export type * from "./IColumnsVisibilityUpdater.js";
 export * from "./ColumnsVisibilityDecorator.js";
 export * from "./ColumnsVisibilityPresenter.js";
 export * from "./ColumnsVisibilityRepository.js";

@@ -6,12 +6,6 @@
       "path": "../api-aco"
     },
     {
-      "path": "../api-apw"
-    },
-    {
-      "path": "../api-apw-scheduler-so-ddb"
-    },
-    {
       "path": "../api-dynamodb-to-elasticsearch"
     },
     {

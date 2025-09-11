@@ -1,4 +1,4 @@
 export * from "./CheckboxItem";
-export * from "./CheckboxItemDto";
-export * from "./CheckboxItemFormatted";
+export type * from "./CheckboxItemDto";
+export type * from "./CheckboxItemFormatted";
 export * from "./CheckboxItemMapper";

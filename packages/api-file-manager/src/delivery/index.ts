@@ -1,12 +1,12 @@
 export * from "./AssetDelivery/AssetDeliveryConfig.js";
 export * from "./AssetDelivery/Asset.js";
 export * from "./AssetDelivery/AssetRequest.js";
-export * from "./AssetDelivery/abstractions/AssetRequestResolver.js";
-export * from "./AssetDelivery/abstractions/AssetResolver.js";
-export * from "./AssetDelivery/abstractions/AssetProcessor.js";
-export * from "./AssetDelivery/abstractions/AssetContentsReader.js";
-export * from "./AssetDelivery/abstractions/AssetOutputStrategy.js";
-export * from "./AssetDelivery/abstractions/AssetTransformationStrategy.js";
+export type * from "./AssetDelivery/abstractions/AssetRequestResolver.js";
+export type * from "./AssetDelivery/abstractions/AssetResolver.js";
+export type * from "./AssetDelivery/abstractions/AssetProcessor.js";
+export type * from "./AssetDelivery/abstractions/AssetContentsReader.js";
+export type * from "./AssetDelivery/abstractions/AssetOutputStrategy.js";
+export type * from "./AssetDelivery/abstractions/AssetTransformationStrategy.js";
 export * from "./AssetDelivery/abstractions/AssetReply.js";
 export * from "./AssetDelivery/createAssetDeliveryPluginLoader.js";
 export * from "./AssetDelivery/FilesAssetRequestResolver.js";

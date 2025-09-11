@@ -1,2 +1,2 @@
-export * from "./abstractions/IWebsocketsEventValidator.js";
+export type * from "./abstractions/IWebsocketsEventValidator.js";
 export * from "./WebsocketsEventValidator.js";

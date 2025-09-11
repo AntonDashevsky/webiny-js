@@ -4,7 +4,7 @@ import type { Plugin } from "@webiny/plugins/types";
 import type { ApolloClient } from "apollo-client";
 import type { SecurityPermission } from "@webiny/app-security/types";
 
-export { Icon } from "~/components/IconPicker/types";
+export type { Icon } from "~/components/IconPicker/types";
 
 export interface AdminFileManagerFileTypePluginRenderParams {
     file: FileItem;

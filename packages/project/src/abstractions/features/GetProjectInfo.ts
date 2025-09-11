@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { ProjectInfoService } from "~/abstractions/services/ProjectInfoService/index.js";
+import { type ProjectInfoService } from "~/abstractions/services/ProjectInfoService/index.js";
 
 type GetProjectInfoParams = void;
 type GetProjectInfoResult = ProjectInfoService.Result;

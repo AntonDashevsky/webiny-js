@@ -5,7 +5,7 @@ import type {
     HTTPMethods as BaseHttpMethods,
     RouteHandlerMethod
 } from "fastify";
-export { FastifyInstance } from "fastify";
+export type { FastifyInstance } from "fastify";
 import type { ClientContext } from "@webiny/handler-client/types";
 
 export interface RouteMethodOptions {

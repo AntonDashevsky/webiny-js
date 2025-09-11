@@ -1,4 +1,4 @@
 export * from "./Node";
-export * from "./NodeDto";
-export * from "./NodeFormatted";
+export type * from "./NodeDto";
+export type * from "./NodeFormatted";
 export * from "./NodeFormatter";

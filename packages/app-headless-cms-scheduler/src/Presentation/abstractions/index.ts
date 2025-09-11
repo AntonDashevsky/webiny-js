@@ -1,2 +1,2 @@
-export * from "./ISchedulerControllers";
-export * from "./ISchedulerPresenter";
+export type * from "./ISchedulerControllers";
+export type * from "./ISchedulerPresenter";

@@ -1,6 +1,6 @@
 import { fork } from "child_process";
 import path from "path";
-import { IProjectConfigDto, IProjectModel, IProjectModelDto } from "~/abstractions/models/index.js";
+import { type IProjectConfigDto, type IProjectModel, type IProjectModelDto } from "~/abstractions/models/index.js";
 
 export interface RenderConfigParams {
     project: IProjectModel;

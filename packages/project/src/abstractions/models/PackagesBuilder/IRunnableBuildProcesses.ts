@@ -1,6 +1,6 @@
-import { ForkOptions } from "child_process";
-import { IRunnableBuildProcess } from "./IRunnableBuildProcess.js";
-import { IPackagesBuilder } from "./IPackagesBuilder.js";
+import { type ForkOptions } from "child_process";
+import { type IRunnableBuildProcess } from "./IRunnableBuildProcess.js";
+import { type IPackagesBuilder } from "./IPackagesBuilder.js";
 
 export interface IRunnableBuildProcesses {
     run(): Promise<void>;

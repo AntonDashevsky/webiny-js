@@ -1,6 +1,6 @@
-import { ExtensionTags } from "~/extensions/defineExtension/types.js";
-import { z } from "zod";
-import { ExtensionInstanceModelContext } from "~/extensions/index.js";
+import { type ExtensionTags } from "~/extensions/defineExtension/types.js";
+import { type z } from "zod";
+import { type ExtensionInstanceModelContext } from "~/extensions/index.js";
 
 export interface ExtensionDefinitionModelParams<TParamsSchema extends z.ZodTypeAny> {
     type: string;

@@ -7,10 +7,10 @@ import {
     ProjectSdkParamsService
 } from "~/abstractions/index.js";
 import {
-    ExtensionDto,
-    ExtensionType,
-    IHydratedProjectConfig,
-    IProjectConfigDto
+    type ExtensionDto,
+    type ExtensionType,
+    type IHydratedProjectConfig,
+    type IProjectConfigDto
 } from "~/abstractions/models/index.js";
 import { extensionDefinitions as extensionDefinitionsExtension } from "~/extensions/builtInExtensions/extensionDefinitions.js";
 import { ExtensionInstanceModel } from "~/extensions/index.js";

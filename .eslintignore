@@ -4,6 +4,11 @@
 **/build/
 **/.out/
 **/*.d.ts
+.nx/**
+.pulumi/**
+.yarn/**
+cypress-tests/**
+.idea/**
 idea.js
 scripts/**/*.js
 jest.config.*

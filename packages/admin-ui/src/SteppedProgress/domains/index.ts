@@ -1,5 +1,5 @@
 export * from "./ProgressItem";
-export * from "./ProgressItemDto";
+export type * from "./ProgressItemDto";
 export * from "./ProgressItemState";
-export * from "./ProgressItemFormatted";
+export type * from "./ProgressItemFormatted";
 export * from "./ProgressItemFormatter";

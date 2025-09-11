@@ -1,1 +1,1 @@
-export * from "./ITrashBinDeleteItemGateway.js";
+export type * from "./ITrashBinDeleteItemGateway.js";

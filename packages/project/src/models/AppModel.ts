@@ -1,5 +1,5 @@
-import { IAppModel, IAppModelDto } from "~/abstractions/models/index.js";
-import { GetApp } from "~/abstractions/index.js";
+import { type IAppModel, type IAppModelDto } from "~/abstractions/models/index.js";
+import { type GetApp } from "~/abstractions/index.js";
 import { PathModel } from "./PathModel.js";
 
 export class AppModel implements IAppModel {

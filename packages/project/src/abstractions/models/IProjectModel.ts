@@ -1,4 +1,4 @@
-import { IPathModel, IPathModelDto } from "./IPathModel.js";
+import { type IPathModel, type IPathModelDto } from "./IPathModel.js";
 
 export interface IProjectModelDto {
     name: string;

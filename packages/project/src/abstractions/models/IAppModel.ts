@@ -1,5 +1,5 @@
-import { GetApp } from "~/abstractions/index.js";
-import { IPathModel } from "./IPathModel.js";
+import { type GetApp } from "~/abstractions/index.js";
+import { type IPathModel } from "./IPathModel.js";
 
 export interface IAppModelDto {
     name: GetApp.AppName;

@@ -1,3 +1,3 @@
-export * from "./AutoCompleteOption";
-export * from "./AutoCompleteOptionDto";
+export type * from "./AutoCompleteOption";
+export type * from "./AutoCompleteOptionDto";
 export * from "./ListCache";

@@ -1,4 +1,4 @@
-export * from "./IColumnsRepository.js";
+export type * from "./IColumnsRepository.js";
 export * from "./Column.js";
 export * from "./ColumnMapper.js";
 export * from "./ColumnsPresenter.js";

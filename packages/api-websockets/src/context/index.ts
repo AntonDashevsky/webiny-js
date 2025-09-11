@@ -5,7 +5,7 @@ import { WebsocketsConnectionRegistry } from "~/registry";
 import { WebsocketsTransport } from "~/transport";
 
 export * from "./WebsocketsContext";
-export * from "./abstractions/IWebsocketsContext";
+export type * from "./abstractions/IWebsocketsContext";
 
 export const createWebsocketsContext = () => {
     const plugin = new ContextPlugin<Context>(async context => {

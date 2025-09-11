@@ -1,6 +1,6 @@
-import { ListPackagesService, LoggerService, Watch } from "~/abstractions/index.js";
+import { type ListPackagesService, type LoggerService, type Watch } from "~/abstractions/index.js";
 
-import { RunnableWatchProcesses } from "./RunnableWatchProcesses.js";
+import { type RunnableWatchProcesses } from "./RunnableWatchProcesses.js";
 
 export interface IBasePackagesWatcherParams {
     packages: IBasePackagesWatcherPackage[];

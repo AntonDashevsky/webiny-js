@@ -7,7 +7,7 @@ import {
     PulumiLoginService,
     PulumiSelectStackService
 } from "~/abstractions/index.js";
-import { AppModel } from "~/models/index.js";
+import { type AppModel } from "~/models/index.js";
 import { createEnvConfiguration, withPulumiConfigPassphrase } from "~/utils/env/index.js";
 import { getStackName } from "~/utils/index.js";
 

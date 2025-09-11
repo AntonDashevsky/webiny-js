@@ -1,2 +1,2 @@
 export * from "./CanUseFolderLevelPermissions";
-export * from "./ICanUseFolderPermissions";
+export type * from "./ICanUseFolderPermissions";

@@ -1,2 +1,2 @@
-export * from "./ICancelItemUseCase.js";
+export type * from "./ICancelItemUseCase.js";
 export * from "./CancelItemUseCase.js";

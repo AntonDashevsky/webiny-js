@@ -1,4 +1,4 @@
-import { CorePulumiApp, createReactPulumiApp } from "~/pulumi/apps/index.js";
+import { type CorePulumiApp, createReactPulumiApp } from "~/pulumi/apps/index.js";
 import { getProjectSdk } from "@webiny/project";
 import { AdminPulumi } from "@webiny/project/abstractions";
 

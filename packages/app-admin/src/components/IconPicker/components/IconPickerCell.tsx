@@ -33,4 +33,4 @@ const IconPickerCell = ({ isActive, icon, onIconClick }: IconPickerCellProps) =>
     );
 };
 
-export { IconPickerCell, IconPickerCellProps };
+export { IconPickerCell, type IconPickerCellProps };

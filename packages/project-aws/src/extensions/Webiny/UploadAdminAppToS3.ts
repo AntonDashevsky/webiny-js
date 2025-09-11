@@ -7,7 +7,7 @@ import {
 } from "@webiny/project/abstractions/index.js";
 import fs from "fs";
 import { uploadFolderToS3 } from "~/pulumi";
-import { IDefaultStackOutput } from "~/pulumi/types.js";
+import { type IDefaultStackOutput } from "~/pulumi/types.js";
 
 class UploadAdminAppToS3 implements AdminAfterDeploy.Interface {
     constructor(

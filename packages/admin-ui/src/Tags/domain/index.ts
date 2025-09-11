@@ -1,4 +1,4 @@
 export * from "./TagItem";
-export * from "./TagItemDto";
-export * from "./TagItemFormatted";
+export type * from "./TagItemDto";
+export type * from "./TagItemFormatted";
 export * from "./TagItemMapper";

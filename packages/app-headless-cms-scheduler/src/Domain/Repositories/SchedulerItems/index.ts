@@ -1,4 +1,4 @@
-export * from "./ISchedulerItemsRepository";
+export type * from "./ISchedulerItemsRepository";
 export * from "./SchedulerItemsRepository";
 export * from "./SchedulerItemsRepositoryFactory";
 export * from "./SchedulerItemsRepositoryWithLoading";

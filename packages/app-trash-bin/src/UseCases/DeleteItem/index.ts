@@ -1,2 +1,2 @@
-export * from "./IDeleteItemUseCase.js";
+export type * from "./IDeleteItemUseCase.js";
 export * from "./DeleteItemUseCase.js";

@@ -1,2 +1,2 @@
-export * from "./IColumnsVisibilityGateway.js";
+export type * from "./IColumnsVisibilityGateway.js";
 export * from "./ColumnsVisibilityLocalStorageGateway.js";

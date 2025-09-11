@@ -1,2 +1,2 @@
-export * from "./IBulkActionsController.js";
+export type * from "./IBulkActionsController.js";
 export * from "./BulkActionsController.js";

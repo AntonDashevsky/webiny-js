@@ -1,2 +1,2 @@
-export * from "./IUnselectAllItemsController.js";
+export type * from "./IUnselectAllItemsController.js";
 export * from "./UnselectAllItemsController.js";

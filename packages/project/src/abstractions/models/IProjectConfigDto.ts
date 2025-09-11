@@ -1,4 +1,4 @@
-import { ExtensionInstanceModel } from "~/extensions/models/index.js";
+import { type ExtensionInstanceModel } from "~/extensions/models/index.js";
 
 export type ExtensionType = string;
 

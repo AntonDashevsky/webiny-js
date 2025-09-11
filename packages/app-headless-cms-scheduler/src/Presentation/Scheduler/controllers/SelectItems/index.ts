@@ -1,2 +1,2 @@
-export * from "./ISelectItemsController";
+export type * from "./ISelectItemsController";
 export * from "./SelectItemsController";

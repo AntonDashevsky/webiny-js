@@ -79,4 +79,4 @@ const DropdownMenu = withStaticProps(DecoratableDropdownMenu, {
     CheckboxItem: DropdownMenuCheckboxItem
 });
 
-export { DropdownMenu, DropdownMenuItemProps, DropdownMenuLinkProps };
+export { DropdownMenu, type DropdownMenuItemProps, type DropdownMenuLinkProps };

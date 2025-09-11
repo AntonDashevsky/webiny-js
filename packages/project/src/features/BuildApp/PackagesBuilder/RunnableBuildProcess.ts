@@ -1,9 +1,9 @@
 import { fork, type ForkOptions } from "child_process";
 import path from "path";
 import {
-    IPackagesBuilder,
-    IRunnableBuildProcess,
-    IBasePackagesBuilderPackage
+    type IPackagesBuilder,
+    type IRunnableBuildProcess,
+    type IBasePackagesBuilderPackage
 } from "~/abstractions/models/index.js";
 
 export interface RunnableProcessParams {

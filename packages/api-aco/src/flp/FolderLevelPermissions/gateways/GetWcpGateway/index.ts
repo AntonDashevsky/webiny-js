@@ -1,2 +1,2 @@
-export * from "./IGetWcpGateway";
+export type * from "./IGetWcpGateway";
 export * from "./GetWcpGatewayFromContext";

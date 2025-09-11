@@ -1,4 +1,4 @@
-import { ok, err, Result } from "neverthrow";
+import { ok, err, type Result } from "neverthrow";
 import { regions } from "./regions.js";
 
 export const isValidRegionName = (name?: string): Result<string, string> => {

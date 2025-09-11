@@ -1,5 +1,5 @@
 import { openSearch as openSearchExt } from "~/pulumi/extensions/openSearch";
-import { IProjectConfigModel } from "@webiny/project/abstractions/models";
+import { type IProjectConfigModel } from "@webiny/project/abstractions/models";
 
 export const getOsConfigFromExtension = (projectConfig: IProjectConfigModel) => {
     const [openSearchExtension] = projectConfig.extensionsByType(openSearchExt);
@@ -14,7 +14,7 @@ export const getOsConfigFromExtension = (projectConfig: IProjectConfigModel) => 
     }
 
     if (domainName || indexPrefix || sharedIndexes) {
-        let openSearch: Omit<typeof openSearchExtension.params, "enabled"> = {};
+        const openSearch: Omit<typeof openSearchExtension.params, "enabled"> = {};
         if (domainName) {
             openSearch.domainName = domainName;
         }

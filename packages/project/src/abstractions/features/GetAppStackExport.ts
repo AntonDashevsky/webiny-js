@@ -1,6 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
-import { IBaseAppParams } from "~/abstractions/types.js";
-import { IPulumiGetStackExportServiceParams } from "~/abstractions/services/PulumiGetStackExportService.js";
+import { type IBaseAppParams } from "~/abstractions/types.js";
+import { type IPulumiGetStackExportServiceParams } from "~/abstractions/services/PulumiGetStackExportService.js";
 
 export type IGetAppStackExportParams = IBaseAppParams;
 

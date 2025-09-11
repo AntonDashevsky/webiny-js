@@ -1,2 +1,2 @@
-export * from "./abstractions/AbortImportFromUrlUseCase.js";
+export type * from "./abstractions/AbortImportFromUrlUseCase.js";
 export * from "./AbortImportFromUrlUseCase.js";

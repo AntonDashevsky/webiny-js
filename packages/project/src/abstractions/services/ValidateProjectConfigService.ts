@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { IProjectConfigModel } from "~/abstractions/models/index.js";
+import { type IProjectConfigModel } from "~/abstractions/models/index.js";
 
 interface IValidateProjectConfigService {
     execute(projectConfig: IProjectConfigModel): Promise<void>;

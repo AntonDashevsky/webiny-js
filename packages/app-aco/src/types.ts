@@ -7,9 +7,9 @@ import type {
 import type { FolderPermission } from "@webiny/shared-aco/types";
 
 export type { CmsIdentity } from "@webiny/app-headless-cms-common/types";
-export * from "@webiny/shared-aco/flp/flp.types";
-export * from "~/graphql/records/types";
-export * from "~/table.types";
+export type * from "@webiny/shared-aco/flp/flp.types";
+export type * from "~/graphql/records/types";
+export type * from "~/table.types";
 
 export interface FolderLevelPermissionsTarget<TMeta = Record<string, any>> {
     id: string;

@@ -1,7 +1,7 @@
 import { Abstraction } from "@webiny/di-container";
-import { GetApp } from "~/abstractions/index.js";
-import { WebinyConfigWatcher } from "~/features/Watch/watchers/WebinyConfigWatcher.js";
-import { PackagesWatcher } from "~/features/Watch/watchers/PackagesWatcher.js";
+import { type GetApp } from "~/abstractions/index.js";
+import { type WebinyConfigWatcher } from "~/features/Watch/watchers/WebinyConfigWatcher.js";
+import { type PackagesWatcher } from "~/features/Watch/watchers/PackagesWatcher.js";
 
 export interface IWatchNoAppParams {
     package?: string | string[];

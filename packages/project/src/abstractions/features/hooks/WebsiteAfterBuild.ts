@@ -1,5 +1,5 @@
 import { Abstraction } from "@webiny/di-container";
-import { BuildApp } from "~/abstractions/index.js";
+import { type BuildApp } from "~/abstractions/index.js";
 
 export interface IWebsiteAfterBuild {
     execute(params: BuildApp.Params): void | Promise<void>;

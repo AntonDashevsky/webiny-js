@@ -1,6 +1,6 @@
 import { Abstraction } from "@webiny/di-container";
-import { IProjectConfigModel } from "~/abstractions/models/index.js";
-import { ExtensionTags } from "~/extensions/defineExtension/types.js";
+import { type IProjectConfigModel } from "~/abstractions/models/index.js";
+import { type ExtensionTags } from "~/extensions/defineExtension/types.js";
 
 interface IGetProjectConfigServiceParams {
     tags?: ExtensionTags;

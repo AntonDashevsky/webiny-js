@@ -1,4 +1,4 @@
-import { IProjectModel, IProjectModelDto } from "~/abstractions/models/index.js";
+import { type IProjectModel, type IProjectModelDto } from "~/abstractions/models/index.js";
 import { PathModel } from "./PathModel.js";
 
 export interface ProjectModelConstructorParams {

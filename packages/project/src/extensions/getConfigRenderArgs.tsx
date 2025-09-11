@@ -1,4 +1,4 @@
-import { IProjectModel } from "~/abstractions/models/index.js";
+import { type IProjectModel } from "~/abstractions/models/index.js";
 
 export interface ConfigRenderArgs {
     project: IProjectModel;

@@ -1,2 +1,2 @@
-export * from "./IListMoreItemsController";
+export type * from "./IListMoreItemsController";
 export * from "./ListMoreItemsController";

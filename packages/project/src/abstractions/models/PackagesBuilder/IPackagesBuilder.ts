@@ -1,5 +1,5 @@
-import { BuildApp } from "~/abstractions/index.js";
-import { IRunnableBuildProcesses } from "./IRunnableBuildProcesses.js";
+import { type BuildApp } from "~/abstractions/index.js";
+import { type IRunnableBuildProcesses } from "./IRunnableBuildProcesses.js";
 
 export interface IBasePackagesBuilderPackage {
     name: string;

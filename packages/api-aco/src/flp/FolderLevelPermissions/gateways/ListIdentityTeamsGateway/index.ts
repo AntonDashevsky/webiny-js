@@ -1,2 +1,2 @@
-export * from "./IListIdentityTeamsGateway";
+export type * from "./IListIdentityTeamsGateway";
 export * from "./ListIdentityTeamsGatewayFromContext";

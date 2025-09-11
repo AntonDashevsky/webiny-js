@@ -1,7 +1,7 @@
-import { DefineExtensionParams } from "~/extensions/defineExtension/types.js";
+import { type DefineExtensionParams } from "~/extensions/defineExtension/types.js";
 import { createExtensionDefinition } from "./createExtensionDefinition.js";
 import { createExtensionReactComponent } from "./createExtensionReactComponent.js";
-import { z } from "zod";
+import { type z } from "zod";
 
 export interface DefinitionAndComponentPair<TParamsSchema extends z.ZodTypeAny> {
     definition: ReturnType<typeof createExtensionDefinition<TParamsSchema>>;

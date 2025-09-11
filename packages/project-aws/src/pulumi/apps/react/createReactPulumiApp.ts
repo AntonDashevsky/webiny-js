@@ -6,7 +6,7 @@ import { createPrivateAppBucket } from "../createAppBucket.js";
 import { applyCustomDomain, type CustomDomainParams } from "../customDomain.js";
 import { withServiceManifest } from "~/pulumi/utils/withServiceManifest.js";
 import { ApiOutput, CoreOutput } from "~/pulumi/apps/index.js";
-import { AppName, getProjectSdk } from "@webiny/project";
+import { type AppName, getProjectSdk } from "@webiny/project";
 import { getAwsTagsFromExtension } from "~/pulumi/apps/extensions/getAwsTagsFromExtension";
 import { applyAwsResourceTags } from "~/pulumi/apps/awsUtils";
 

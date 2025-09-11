@@ -1,5 +1,5 @@
 import path from "path";
-import { IPathModel, IPathModelDto } from "~/abstractions/models/index.js";
+import { type IPathModel, type IPathModelDto } from "~/abstractions/models/index.js";
 
 export class PathModel implements IPathModel {
     constructor(private value: string) {}

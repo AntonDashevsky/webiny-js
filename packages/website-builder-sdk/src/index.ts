@@ -12,7 +12,7 @@ export * from "./MouseTracker.js";
 export * from "./ViewportManager.js";
 export * from "./messenger/Messenger.js";
 export * from "./messenger/MessageOrigin.js";
-export * from "./types.js";
+export type * from "./types.js";
 export * from "./DocumentStoreManager.js";
 export * from "./BindingsProcessor.js";
 export * from "./ResizeObserver.js";

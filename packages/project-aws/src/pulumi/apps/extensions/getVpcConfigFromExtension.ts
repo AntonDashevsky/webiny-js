@@ -1,5 +1,5 @@
 import { vpc as vpcExt } from "~/pulumi/extensions/vpc.js";
-import { IProjectConfigModel } from "@webiny/project/abstractions/models";
+import { type IProjectConfigModel } from "@webiny/project/abstractions/models";
 
 export const getVpcConfigFromExtension = (projectConfig: IProjectConfigModel) => {
     const [vpcExtension] = projectConfig.extensionsByType(vpcExt);
@@ -14,7 +14,7 @@ export const getVpcConfigFromExtension = (projectConfig: IProjectConfigModel) =>
     }
 
     if (useVpcEndpoints || useExistingVpc) {
-        let vpc: Omit<typeof vpcExtension.params, "enabled"> = {};
+        const vpc: Omit<typeof vpcExtension.params, "enabled"> = {};
 
         if (useVpcEndpoints) {
             vpc.useVpcEndpoints = useVpcEndpoints;

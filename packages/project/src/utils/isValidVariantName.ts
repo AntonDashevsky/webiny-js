@@ -1,4 +1,4 @@
-import { ok, err, Result } from "neverthrow";
+import { ok, err, type Result } from "neverthrow";
 
 const disallowedVariants = ["none", "empty", "blank"];
 

@@ -1,2 +1,2 @@
-export * from "./IPublishItemUseCase.js";
+export type * from "./IPublishItemUseCase.js";
 export * from "./PublishItemUseCase.js";

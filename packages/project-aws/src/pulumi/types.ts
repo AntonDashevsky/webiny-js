@@ -1,4 +1,4 @@
-import { IStackOutput } from "@webiny/project";
+import { type IStackOutput } from "@webiny/project";
 
 // TODO: split into this per-app stack outputs.
 export interface IDefaultStackOutput extends IStackOutput {

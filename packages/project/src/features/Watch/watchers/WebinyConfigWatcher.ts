@@ -1,8 +1,8 @@
 import chokidar from "chokidar";
 import {
-    GetApp,
-    GetProjectConfigService,
-    ValidateProjectConfigService
+    type GetApp,
+    type GetProjectConfigService,
+    type ValidateProjectConfigService
 } from "~/abstractions/index.js";
 
 export interface IWebinyConfigWatcherParams {

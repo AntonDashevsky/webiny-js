@@ -1,8 +1,8 @@
-export * from "./abstractions/CmsAssetsZipper.js";
-export * from "./abstractions/CmsAssetsZipperExecuteDoneResult.js";
-export * from "./abstractions/CmsAssetsZipperExecuteDoneWithoutResult.js";
-export * from "./abstractions/CmsAssetsZipperExecuteContinueResult.js";
-export * from "./abstractions/CmsAssetsZipperExecuteContinueWithoutResult.js";
+export type * from "./abstractions/CmsAssetsZipper.js";
+export type * from "./abstractions/CmsAssetsZipperExecuteDoneResult.js";
+export type * from "./abstractions/CmsAssetsZipperExecuteDoneWithoutResult.js";
+export type * from "./abstractions/CmsAssetsZipperExecuteContinueResult.js";
+export type * from "./abstractions/CmsAssetsZipperExecuteContinueWithoutResult.js";
 export * from "./CmsAssetsZipper.js";
 export * from "./CmsAssetsZipperExecuteDoneResult.js";
 export * from "./CmsAssetsZipperExecuteDoneWithoutResult.js";

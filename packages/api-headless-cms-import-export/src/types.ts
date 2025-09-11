@@ -8,7 +8,7 @@ import type {
     CmsEntryMeta
 } from "@webiny/api-headless-cms/types/index.js";
 
-export * from "./domain/abstractions/CmsImportExportRecord.js";
+export type * from "./domain/abstractions/CmsImportExportRecord.js";
 
 export enum CmsImportExportFileType {
     ENTRIES = "entries",

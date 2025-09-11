@@ -1,2 +1,2 @@
 export * from "./GetRestoredItemByIdController.js";
-export * from "./IGetRestoredItemByIdController.js";
+export type * from "./IGetRestoredItemByIdController.js";

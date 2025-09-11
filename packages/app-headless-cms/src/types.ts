@@ -3,7 +3,7 @@ import type { FolderTableRow, RecordTableRow } from "@webiny/app-aco";
 import type { DragSourceMonitor, XYCoord } from "react-dnd";
 import type { DragDropManager, Identifier, Listener, Unsubscribe } from "dnd-core";
 
-export * from "@webiny/app-headless-cms-common/types";
+export type * from "@webiny/app-headless-cms-common/types";
 
 /***
  * ###### TABLE ########

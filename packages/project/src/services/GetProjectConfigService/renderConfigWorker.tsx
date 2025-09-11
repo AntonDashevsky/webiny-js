@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 
 // @ts-expect-error jsdom types are messing up with the repo, so they're disabled in the root package.json.
 import { JSDOM } from "jsdom";
-import { RenderConfigParamsDto } from "./renderConfig.js";
+import { type RenderConfigParamsDto } from "./renderConfig.js";
 import { ProjectModel } from "~/models/ProjectModel.js";
 
 const { project: projectModelDto } = JSON.parse(process.argv[2]) as RenderConfigParamsDto;

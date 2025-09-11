@@ -1,7 +1,7 @@
-import { IHydratedProjectConfig } from "~/abstractions/models/IProjectConfigDto.js";
-import { ExtensionInstanceModel } from "~/extensions/models/index.js";
-import { z } from "zod";
-import { DefinitionAndComponentPair } from "~/extensions/index.js";
+import { type IHydratedProjectConfig } from "~/abstractions/models/IProjectConfigDto.js";
+import { type ExtensionInstanceModel } from "~/extensions/models/index.js";
+import { type z } from "zod";
+import { type DefinitionAndComponentPair } from "~/extensions/index.js";
 
 export interface IProjectConfigModel {
     config: IHydratedProjectConfig;

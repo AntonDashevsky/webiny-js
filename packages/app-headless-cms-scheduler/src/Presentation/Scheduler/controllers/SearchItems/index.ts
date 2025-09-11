@@ -1,2 +1,2 @@
-export * from "./ISearchItemsController";
+export type * from "./ISearchItemsController";
 export * from "./SearchItemsController";

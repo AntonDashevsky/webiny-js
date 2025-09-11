@@ -1,3 +1,3 @@
-export * from "./ISelectedItemsRepository";
+export type * from "./ISelectedItemsRepository";
 export * from "./SelectedItemsRepository";
 export * from "./SelectedItemsRepositoryFactory";

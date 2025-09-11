@@ -1,2 +1,2 @@
-export * from "./IUnpublishItemUseCase.js";
+export type * from "./IUnpublishItemUseCase.js";
 export * from "./UnpublishItemUseCase.js";

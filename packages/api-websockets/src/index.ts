@@ -14,4 +14,4 @@ export * from "./registry";
 export * from "./context";
 
 export * from "./plugins";
-export * from "./types";
+export type * from "./types";

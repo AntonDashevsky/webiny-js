@@ -1,4 +1,4 @@
 export * from "./FileItem";
-export * from "./FileItemDto";
-export * from "./FileItemFormatted";
+export type * from "./FileItemDto";
+export type * from "./FileItemFormatted";
 export * from "./FileItemFormatter";

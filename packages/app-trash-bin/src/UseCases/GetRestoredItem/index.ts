@@ -1,2 +1,2 @@
 export * from "./GetRestoredItemUseCase.js";
-export * from "./IGetRestoredItemUseCase.js";
+export type * from "./IGetRestoredItemUseCase.js";

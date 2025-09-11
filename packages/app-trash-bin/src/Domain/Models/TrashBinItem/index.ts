@@ -1,2 +1,2 @@
-export * from "./ITrashBinItemMapper.js";
+export type * from "./ITrashBinItemMapper.js";
 export * from "./TrashBinItem.js";

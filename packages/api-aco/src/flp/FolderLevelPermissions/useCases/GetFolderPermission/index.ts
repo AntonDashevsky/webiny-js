@@ -1,2 +1,2 @@
 export * from "./GetFolderPermission";
-export * from "./IGetFolderPermission";
+export type * from "./IGetFolderPermission";

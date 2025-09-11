@@ -4,7 +4,7 @@ import { tagResources } from "~/pulumi/utils";
 import { getEnvVariableWebinyProjectName } from "~/pulumi/env/projectName";
 import { getEnvVariableWebinyEnv } from "~/pulumi/env/env";
 import { getEnvVariableWebinyVariant } from "~/pulumi/env/variant";
-import { AppName, getProjectSdk } from "@webiny/project";
+import { type AppName, getProjectSdk } from "@webiny/project";
 import { awsTags as awsTagsExt } from "~/pulumi/extensions/awsTags";
 
 export function getAwsAccountId(app: PulumiApp) {
