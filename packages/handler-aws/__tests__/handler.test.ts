@@ -1,4 +1,4 @@
-import {
+import type {
     DynamoDBStreamEvent,
     EventBridgeEvent,
     S3Event,

@@ -1,4 +1,4 @@
-import { type TrashBinBulkActionsGatewayParams, type TrashBinBulkActionsResponse } from "~/types.js";
+import type { TrashBinBulkActionsGatewayParams, TrashBinBulkActionsResponse } from "~/types";
 
 export interface ITrashBinBulkActionsGateway {
     execute: (params: TrashBinBulkActionsGatewayParams) => Promise<TrashBinBulkActionsResponse>;

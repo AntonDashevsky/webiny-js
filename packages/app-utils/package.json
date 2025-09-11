@@ -1,7 +1,6 @@
 {
   "name": "@webiny/app-utils",
   "version": "0.0.0",
-  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -15,11 +14,15 @@
     "mobx": "^6.9.0"
   },
   "devDependencies": {
-    "@webiny/build-tools": "0.0.0",
-    "typescript": "5.3.3"
+    "@webiny/project-utils": "0.0.0",
+    "typescript": "5.9.2"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   }
 }

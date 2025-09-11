@@ -1,5 +1,5 @@
 import { createModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin";
-import { DummyCache } from "./DummyCache";
+import type { DummyCache } from "./DummyCache";
 import { hash } from "./hash";
 
 export const createCachingPlugin = (cache: DummyCache) => {

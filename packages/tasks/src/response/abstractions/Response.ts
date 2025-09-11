@@ -1,9 +1,9 @@
-import { ITaskEvent } from "~/handler/types.js";
-import { IResponseContinueParams, IResponseContinueResult } from "./ResponseContinueResult.js";
-import { IResponseDoneParams, IResponseDoneResult } from "./ResponseDoneResult.js";
-import { IResponseErrorParams, IResponseErrorResult } from "./ResponseErrorResult.js";
-import { IResponseAbortedResult } from "./ResponseAbortedResult.js";
-import { ITaskResponseDoneResultOutput } from "~/response/abstractions/TaskResponse.js";
+import type { ITaskEvent } from "~/handler/types";
+import type { IResponseContinueParams, IResponseContinueResult } from "./ResponseContinueResult";
+import type { IResponseDoneParams, IResponseDoneResult } from "./ResponseDoneResult";
+import type { IResponseErrorParams, IResponseErrorResult } from "./ResponseErrorResult";
+import type { IResponseAbortedResult } from "./ResponseAbortedResult";
+import type { ITaskResponseDoneResultOutput } from "~/response/abstractions/TaskResponse";
 
 export type IResponseFromParams =
     | IResponseDoneResult

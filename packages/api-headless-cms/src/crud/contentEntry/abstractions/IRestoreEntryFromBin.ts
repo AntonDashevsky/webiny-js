@@ -1,4 +1,4 @@
-import { type CmsEntry, type CmsModel } from "~/types/index.js";
+import type { CmsEntry, CmsModel } from "~/types";
 
 export interface IRestoreEntryFromBin {
     execute: (model: CmsModel, id: string) => Promise<CmsEntry>;

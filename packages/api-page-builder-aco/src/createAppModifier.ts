@@ -1,10 +1,8 @@
-import {
-    createAcoAppModifier as baseCreateAppModifier,
-    type CreateAcoAppModifierCallable
-} from "@webiny/api-aco";
-import { PB_PAGE_TYPE } from "~/contants.js";
-import { type PbAcoContext } from "~/types.js";
-import { type Context } from "@webiny/handler/types.js";
+import type { CreateAcoAppModifierCallable } from "@webiny/api-aco";
+import { createAcoAppModifier as baseCreateAppModifier } from "@webiny/api-aco";
+import { PB_PAGE_TYPE } from "~/contants";
+import type { PbAcoContext } from "~/types";
+import type { Context } from "@webiny/handler/types";
 
 export const createAppModifier = <T extends Context = PbAcoContext>(
     cb: CreateAcoAppModifierCallable<T>

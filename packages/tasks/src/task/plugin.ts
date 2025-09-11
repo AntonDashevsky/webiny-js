@@ -1,7 +1,7 @@
 import camelCase from "lodash/camelCase.js";
 import WebinyError from "@webiny/error";
 import { Plugin } from "@webiny/plugins";
-import {
+import type {
     Context,
     ITaskBeforeTriggerParams,
     ITaskDefinition,

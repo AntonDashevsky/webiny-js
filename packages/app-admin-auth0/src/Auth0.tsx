@@ -1,12 +1,13 @@
 import React, { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
-import get from "lodash/get.js";
+import get from "lodash/get";
 import { LoginScreenRenderer, useTenancy, useTags } from "@webiny/app-serverless-cms";
-import { createAuthentication, type CreateAuthenticationConfig } from "./createAuthentication.js";
-import { UserMenuModule } from "~/modules/userMenu/index.js";
-import { AppClientModule } from "~/modules/appClient/index.js";
-import { NotAuthorizedError } from "./components/index.js";
+import type { CreateAuthenticationConfig } from "./createAuthentication";
+import { createAuthentication } from "./createAuthentication";
+import { UserMenuModule } from "~/modules/userMenu";
+import { AppClientModule } from "~/modules/appClient";
+import { NotAuthorizedError } from "./components";
 
 interface AppClientIdLoaderProps extends Auth0Props {
     children: React.ReactNode;

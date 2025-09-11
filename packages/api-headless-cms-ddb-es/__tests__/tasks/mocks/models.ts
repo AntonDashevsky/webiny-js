@@ -1,9 +1,5 @@
-import {
-    CmsGroup,
-    createCmsGroup,
-    createCmsModel,
-    createPrivateModel
-} from "@webiny/api-headless-cms";
+import type { CmsGroup } from "@webiny/api-headless-cms";
+import { createCmsGroup, createCmsModel, createPrivateModel } from "@webiny/api-headless-cms";
 
 export const createMockModels = () => {
     const group: CmsGroup = {

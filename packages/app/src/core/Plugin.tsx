@@ -1,7 +1,7 @@
 import React from "react";
-import { Provider } from "./Provider.js";
-import { Plugins } from "./Plugins.js";
-import { type GenericComponent, type Decorator } from "@webiny/react-composition";
+import { Provider } from "./Provider";
+import { Plugins } from "./Plugins";
+import type { GenericComponent, Decorator } from "@webiny/react-composition";
 
 interface PluginProps {
     providers?: Decorator<GenericComponent>[];

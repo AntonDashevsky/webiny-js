@@ -1,4 +1,4 @@
-import { ListCache } from "../ListCache.js";
-import { type PbPageTemplateWithContent } from "~/types.js";
+import { ListCache } from "../ListCache";
+import type { PbPageTemplateWithContent } from "~/types";
 
 export const pageTemplateCache = new ListCache<PbPageTemplateWithContent>();

@@ -1,9 +1,10 @@
-import cloneDeep from "lodash/cloneDeep.js";
+import cloneDeep from "lodash/cloneDeep";
 import { makeAutoObservable, runInAction } from "mobx";
 import { mdbid } from "@webiny/utils";
 
-import { type FilterDTO, FilterMapper, Loading, Sorter } from "../domain/index.js";
-import { type FiltersGatewayInterface } from "../gateways/index.js";
+import type { FilterDTO } from "../domain";
+import { FilterMapper, Loading, Sorter } from "../domain";
+import type { FiltersGatewayInterface } from "../gateways";
 
 export class FilterRepository {
     private gateway: FiltersGatewayInterface;

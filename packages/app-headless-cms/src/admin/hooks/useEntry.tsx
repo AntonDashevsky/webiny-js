@@ -1,14 +1,14 @@
 import React, { createContext } from "react";
-import { type EntryTableItem } from "~/types.js";
+import type { CmsContentEntry } from "~/types";
 
 export interface EntryContext {
-    entry: EntryTableItem;
+    entry: CmsContentEntry;
 }
 
 export const EntryContext = createContext<EntryContext | undefined>(undefined);
 
 interface EntryProviderProps {
-    entry: EntryTableItem;
+    entry: CmsContentEntry;
     children: React.ReactNode;
 }
 

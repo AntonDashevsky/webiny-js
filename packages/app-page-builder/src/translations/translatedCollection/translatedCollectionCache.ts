@@ -1,4 +1,4 @@
-import { ListCache } from "../ListCache.js";
-import { type TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection.js";
+import { ListCache } from "../ListCache";
+import type { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
 
 export const translatedCollectionCache = new ListCache<TranslatedCollection>();

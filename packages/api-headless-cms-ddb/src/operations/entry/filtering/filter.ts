@@ -1,12 +1,13 @@
-import { type CmsEntry, type CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
-import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin.js";
+import type { CmsEntry, CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
 import WebinyError from "@webiny/error";
-import { type PluginsContainer } from "@webiny/plugins";
-import { type Field } from "./types.js";
-import { createFullTextSearch } from "./fullTextSearch.js";
-import { createExpressions, type Expression, type ExpressionCondition, type Filter } from "./createExpressions.js";
-import { transformValue } from "./transform.js";
-import { getValue } from "~/operations/entry/filtering/getValue.js";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { Field } from "./types";
+import { createFullTextSearch } from "./fullTextSearch";
+import type { Expression, ExpressionCondition, Filter } from "./createExpressions";
+import { createExpressions } from "./createExpressions";
+import { transformValue } from "./transform";
+import { getValue } from "~/operations/entry/filtering/getValue";
 
 interface ExecuteFilterParams {
     value: any;

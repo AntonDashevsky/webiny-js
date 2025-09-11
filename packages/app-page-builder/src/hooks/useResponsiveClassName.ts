@@ -1,8 +1,8 @@
 import React from "react";
 import { plugins } from "@webiny/plugins";
-import kebabCase from "lodash/kebabCase.js";
-import { type DisplayMode, type PbRenderResponsiveModePlugin } from "~/types.js";
-import { usePageBuilder } from "~/hooks/usePageBuilder.js";
+import kebabCase from "lodash/kebabCase";
+import type { DisplayMode, PbRenderResponsiveModePlugin } from "~/types";
+import { usePageBuilder } from "~/hooks/usePageBuilder";
 
 interface UseResponsiveClassName {
     pageElementRef: (node: HTMLElement | null) => void;

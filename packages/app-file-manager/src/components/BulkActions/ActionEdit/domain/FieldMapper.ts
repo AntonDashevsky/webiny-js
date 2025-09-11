@@ -1,4 +1,4 @@
-import { type Field, type FieldDTO, type Operator, type OperatorDTO } from "./Field.js";
+import type { Field, FieldDTO, Operator, OperatorDTO } from "./Field";
 
 export class FieldMapper {
     static toDTO(configuration: Field[]): FieldDTO[] {

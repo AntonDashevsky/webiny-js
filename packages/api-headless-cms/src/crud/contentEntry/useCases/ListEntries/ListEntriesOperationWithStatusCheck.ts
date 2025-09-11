@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { type IListEntriesOperation } from "../../abstractions/index.js";
-import { type CmsEntryStorageOperationsListParams, type CmsModel } from "~/types/index.js";
+import type { IListEntriesOperation } from "../../abstractions";
+import type { CmsEntryStorageOperationsListParams, CmsModel } from "~/types";
 
 export class ListEntriesOperationWithStatusCheck implements IListEntriesOperation {
     private listEntries: IListEntriesOperation;

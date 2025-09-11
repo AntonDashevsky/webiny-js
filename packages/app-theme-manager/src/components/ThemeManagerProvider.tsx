@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useMemo, useState } from "react";
-import { type HigherOrderComponent } from "@webiny/app-admin";
-import { type ThemeSource } from "~/types.js";
+import type { HigherOrderComponent } from "@webiny/app-admin";
+import type { ThemeSource } from "~/types";
 
 export interface ThemeManagerContext {
     themes: ThemeSource[];

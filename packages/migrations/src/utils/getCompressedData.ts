@@ -1,4 +1,4 @@
-import { compress as gzip } from "@webiny/utils/compression/gzip.js";
+import { compress as gzip } from "@webiny/utils/compression/gzip";
 
 const GZIP = "gzip";
 const TO_STORAGE_ENCODING = "base64";

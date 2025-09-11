@@ -6,7 +6,8 @@ import prettier from "prettier";
 import { render } from "@testing-library/react";
 import { Properties, toObject } from "~/index";
 import { getLastCall } from "~tests/utils";
-import { Query, Field, Variable, InlineFragment, Operation } from "./components";
+import type { Operation } from "./components";
+import { Query, Field, Variable, InlineFragment } from "./components";
 import { generateQuery } from "./generateQuery";
 
 const prettyGql = (query: string) => prettier.format(query.trim(), { parser: "graphql" });

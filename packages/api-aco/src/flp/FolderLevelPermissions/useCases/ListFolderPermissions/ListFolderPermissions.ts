@@ -1,5 +1,5 @@
-import type { IListFolderPermissions } from "./IListFolderPermissions.js";
-import type { AcoFolderLevelPermissionsCrud, ListFlpsParams } from "~/flp/flp.types.js";
+import type { IListFolderPermissions } from "./IListFolderPermissions";
+import type { AcoFolderLevelPermissionsCrud, ListFlpsParams } from "~/flp/flp.types";
 
 export class ListFolderPermissions implements IListFolderPermissions {
     private readonly crud: AcoFolderLevelPermissionsCrud["list"];

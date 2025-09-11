@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import { type ITrashBinItemsRepository } from "~/Domain/Repositories/index.js";
-import { type IRestoreItemUseCase } from "./IRestoreItemUseCase.js";
+import type { ITrashBinItemsRepository } from "~/Domain/Repositories";
+import type { IRestoreItemUseCase } from "./IRestoreItemUseCase";
 
 export class RestoreItemUseCase implements IRestoreItemUseCase {
     private repository: ITrashBinItemsRepository;

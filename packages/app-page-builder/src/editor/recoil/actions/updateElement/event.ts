@@ -1,5 +1,5 @@
-import { type UpdateElementActionArgsType } from "./types.js";
-import { BaseEventAction } from "../../eventActions/index.js";
+import type { UpdateElementActionArgsType } from "./types";
+import { BaseEventAction } from "../../eventActions";
 
 export class UpdateElementActionEvent extends BaseEventAction<UpdateElementActionArgsType> {
     public getName(): string {

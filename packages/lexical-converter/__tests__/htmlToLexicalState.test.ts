@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { LexicalNode } from "lexical";
+import type { LexicalNode } from "lexical";
 import { $isHeadingNode } from "@webiny/lexical-nodes";
 import { createMocks } from "./mocks/htmlMocks";
 import { createHtmlToLexicalParser } from "~/index";
@@ -18,7 +18,8 @@ describe("HTML to Lexical State Parser", () => {
     [jsDomMocks, domParserMocks].forEach(mocks => {
         describe(`Test parsing with "${mocks.domParser}"`, () => {
             it("should parse html to paragraph node", async () => {
-                expect(defaultParser(mocks.paragraphHtmlTag)).toMatchObject({
+                const state = defaultParser(mocks.paragraphHtmlTag);
+                expect(state).toMatchObject({
                     root: {
                         children: [
                             {
@@ -36,8 +37,7 @@ describe("HTML to Lexical State Parser", () => {
                                 direction: null,
                                 format: "",
                                 indent: 0,
-                                styles: [],
-                                type: "paragraph-element",
+                                type: "wby-paragraph",
                                 version: 1
                             }
                         ],
@@ -73,8 +73,7 @@ describe("HTML to Lexical State Parser", () => {
                                 direction: null,
                                 format: "",
                                 indent: 0,
-                                styles: [],
-                                type: "paragraph-element",
+                                type: "wby-paragraph",
                                 version: 1
                             }
                         ],
@@ -106,9 +105,8 @@ describe("HTML to Lexical State Parser", () => {
                                 direction: null,
                                 format: "",
                                 indent: 0,
-                                type: "paragraph-element",
-                                version: 1,
-                                styles: []
+                                type: "wby-paragraph",
+                                version: 1
                             }
                         ],
                         direction: null,
@@ -143,9 +141,8 @@ describe("HTML to Lexical State Parser", () => {
                                 format: "",
                                 indent: 0,
                                 tag: "h1",
-                                type: "heading-element",
-                                version: 1,
-                                styles: []
+                                type: "wby-heading",
+                                version: 1
                             }
                         ],
                         direction: null,
@@ -178,9 +175,8 @@ describe("HTML to Lexical State Parser", () => {
                                 format: "",
                                 indent: 0,
                                 tag: "h4",
-                                type: "heading-element",
-                                version: 1,
-                                styles: []
+                                type: "wby-heading",
+                                version: 1
                             }
                         ],
                         direction: null,
@@ -214,7 +210,7 @@ describe("HTML to Lexical State Parser", () => {
                                         direction: null,
                                         format: "",
                                         indent: 0,
-                                        type: "webiny-listitem",
+                                        type: "wby-list-item",
                                         version: 1,
                                         value: 1
                                     },
@@ -234,7 +230,7 @@ describe("HTML to Lexical State Parser", () => {
                                         direction: null,
                                         format: "",
                                         indent: 0,
-                                        type: "webiny-listitem",
+                                        type: "wby-list-item",
                                         version: 1,
                                         value: 1
                                     }
@@ -242,12 +238,11 @@ describe("HTML to Lexical State Parser", () => {
                                 direction: null,
                                 format: "",
                                 indent: 0,
-                                type: "webiny-list",
+                                type: "wby-list",
                                 version: 1,
                                 listType: "bullet",
                                 start: 1,
-                                tag: "ul",
-                                themeStyleId: ""
+                                tag: "ul"
                             }
                         ],
                         direction: null,
@@ -281,7 +276,7 @@ describe("HTML to Lexical State Parser", () => {
                                         direction: null,
                                         format: "",
                                         indent: 0,
-                                        type: "webiny-listitem",
+                                        type: "wby-list-item",
                                         version: 1,
                                         value: 1
                                     },
@@ -301,7 +296,7 @@ describe("HTML to Lexical State Parser", () => {
                                         direction: null,
                                         format: "",
                                         indent: 0,
-                                        type: "webiny-listitem",
+                                        type: "wby-list-item",
                                         version: 1,
                                         value: 1
                                     }
@@ -309,12 +304,11 @@ describe("HTML to Lexical State Parser", () => {
                                 direction: null,
                                 format: "",
                                 indent: 0,
-                                type: "webiny-list",
+                                type: "wby-list",
                                 version: 1,
                                 listType: "number",
                                 start: 1,
-                                tag: "ol",
-                                themeStyleId: ""
+                                tag: "ol"
                             }
                         ],
                         direction: null,
@@ -347,7 +341,7 @@ describe("HTML to Lexical State Parser", () => {
                                         direction: null,
                                         format: "",
                                         indent: 0,
-                                        type: "link",
+                                        type: "wby-link",
                                         version: 1,
                                         rel: "noopener noreferrer",
                                         target: "_blank",
@@ -358,9 +352,8 @@ describe("HTML to Lexical State Parser", () => {
                                 direction: null,
                                 format: "",
                                 indent: 0,
-                                type: "paragraph-element",
-                                version: 1,
-                                styles: []
+                                type: "wby-paragraph",
+                                version: 1
                             }
                         ],
                         direction: null,
@@ -404,9 +397,8 @@ describe("HTML to Lexical State Parser", () => {
                                 direction: null,
                                 format: "",
                                 indent: 0,
-                                type: "webiny-quote",
+                                type: "wby-quote",
                                 version: 1,
-                                styles: [],
                                 styleId: undefined
                             }
                         ],
@@ -438,9 +430,8 @@ describe("HTML to Lexical State Parser", () => {
                                 direction: null,
                                 format: "",
                                 indent: 0,
-                                type: "paragraph-element",
-                                version: 1,
-                                styles: []
+                                type: "wby-paragraph",
+                                version: 1
                             }
                         ],
                         direction: null,
@@ -455,9 +446,8 @@ describe("HTML to Lexical State Parser", () => {
             it("should be able to add custom node mapper", async () => {
                 const addCustomThemeStyleToHeadings = (node: LexicalNode): LexicalNode => {
                     if ($isHeadingNode(node)) {
-                        return node.setThemeStyles([
-                            { styleId: "my-default-id", type: "typography" }
-                        ]);
+                        node.setStyleId("my-default-id");
+                        return node;
                     }
                     return node;
                 };
@@ -484,10 +474,10 @@ describe("HTML to Lexical State Parser", () => {
                                 format: "",
                                 indent: 0,
                                 tag: "h1",
-                                type: "heading-element",
+                                type: "wby-heading",
                                 version: 1,
                                 // modified by node mapper
-                                styles: [{ styleId: "my-default-id", type: "typography" }]
+                                styleId: "my-default-id"
                             }
                         ],
                         direction: null,

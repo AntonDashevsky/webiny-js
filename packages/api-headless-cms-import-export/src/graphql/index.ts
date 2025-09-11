@@ -1,10 +1,10 @@
-import type { Context } from "~/types.js";
+import type { Context } from "~/types";
 import { CmsGraphQLSchemaPlugin } from "@webiny/api-headless-cms";
-import { createTypeDefs } from "./typeDefs.js";
-import { createResolvers } from "./resolvers.js";
-import { listModels } from "~/graphql/models.js";
-import type { NonEmptyArray } from "@webiny/api/types.js";
-import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import { createTypeDefs } from "./typeDefs";
+import { createResolvers } from "./resolvers";
+import { listModels } from "~/graphql/models";
+import type { NonEmptyArray } from "@webiny/api/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 export const attachHeadlessCmsImportExportGraphQL = async (context: Context): Promise<void> => {
     const tenant = context.tenancy.getCurrentTenant();

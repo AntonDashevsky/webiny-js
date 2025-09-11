@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { plugins } from "@webiny/plugins";
 import { makeDecoratable } from "@webiny/react-composition";
-import { ModelFieldContext, useParentValueIndex } from "./ModelFieldContext.js";
-import type { CmsModelField, CmsModelFieldTypePlugin } from "~/types/index.js";
+import { ModelFieldContext, useParentValueIndex } from "./ModelFieldContext";
+import type { CmsModelField, CmsModelFieldTypePlugin } from "~/types";
 
 interface GetFieldPlugin {
     (type: string): CmsModelFieldTypePlugin;

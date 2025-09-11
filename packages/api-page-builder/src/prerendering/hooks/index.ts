@@ -1,11 +1,11 @@
-import afterMenuUpdate from "./afterMenuUpdate.js";
-import afterPageBlockUpdate from "./afterPageBlockUpdate.js";
-import afterPageDelete from "./afterPageDelete.js";
-import afterPagePublish from "./afterPagePublish.js";
-import afterPageUnpublish from "./afterPageUnpublish.js";
-import afterSettingsUpdate from "./afterSettingsUpdate.js";
-import { type PbContext } from "~/graphql/types.js";
-import { type ContextPlugin } from "@webiny/api";
+import afterMenuUpdate from "./afterMenuUpdate";
+import afterPageBlockUpdate from "./afterPageBlockUpdate";
+import afterPageDelete from "./afterPageDelete";
+import afterPagePublish from "./afterPagePublish";
+import afterPageUnpublish from "./afterPageUnpublish";
+import afterSettingsUpdate from "./afterSettingsUpdate";
+import type { PbContext } from "~/graphql/types";
+import type { ContextPlugin } from "@webiny/api";
 
 export default (): ContextPlugin<PbContext>[] => {
     return [

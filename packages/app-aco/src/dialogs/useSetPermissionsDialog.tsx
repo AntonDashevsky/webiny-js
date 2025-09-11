@@ -1,16 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin";
-import { type GenericFormData, useBind } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-
-import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete.js";
-import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection.js";
-import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql.js";
-
-import { useDialogs } from "@webiny/app-admin";
-import { useUpdateFolder } from "~/features/index.js";
-import { type FolderItem, type FolderLevelPermissionsTarget, type FolderPermission } from "~/types.js";
+import { Grid } from "@webiny/admin-ui";
+import { useDialogs, useSnackbar } from "@webiny/app-admin";
+import type { GenericFormData } from "@webiny/form";
+import { useBind } from "@webiny/form";
+import { UsersTeamsMultiAutocomplete } from "./DialogSetPermissions/UsersTeamsMultiAutocomplete";
+import { UsersTeamsSelection } from "./DialogSetPermissions/UsersTeamsSelection";
+import { LIST_FOLDER_LEVEL_PERMISSIONS_TARGETS } from "./DialogSetPermissions/graphql";
+import { useUpdateFolder } from "~/features";
+import type { FolderItem, FolderLevelPermissionsTarget, FolderPermission } from "~/types";
 
 interface ShowDialogParams {
     folder: FolderItem;
@@ -55,10 +53,10 @@ const FormComponent = ({ folder }: FormComponentProps) => {
     }, [permissions]);
 
     const addPermission = useCallback(
-        (value: FolderPermission[]) => {
+        (value: FolderPermission["target"][]) => {
             const selectedUserOrTeam = value[value.length - 1];
             const newPermission: FolderPermission = {
-                target: selectedUserOrTeam.target,
+                target: selectedUserOrTeam,
                 level: "viewer"
             };
 
@@ -94,21 +92,21 @@ const FormComponent = ({ folder }: FormComponentProps) => {
 
     return (
         <Grid>
-            <Cell span={12}>
+            <Grid.Column span={12}>
                 <UsersTeamsMultiAutocomplete
                     options={targetsList}
-                    value={permissions}
+                    value={permissions.map(permission => permission.target)}
                     onChange={addPermission}
                 />
-            </Cell>
-            <Cell span={12}>
+            </Grid.Column>
+            <Grid.Column span={12}>
                 <UsersTeamsSelection
                     permissions={permissions}
                     targetsList={targetsList}
                     onRemoveAccess={removeUserTeam}
                     onUpdatePermission={updatePermission}
                 />
-            </Cell>
+            </Grid.Column>
         </Grid>
     );
 };

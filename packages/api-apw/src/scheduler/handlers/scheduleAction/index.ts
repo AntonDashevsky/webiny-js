@@ -1,19 +1,19 @@
 /**
  * This logic/file should be moved somewhere else as it is relying on AWS specific stuff.
  */
-import { type ApwScheduleActionStorageOperations } from "~/scheduler/types.js";
+import type { ApwScheduleActionStorageOperations } from "~/scheduler/types";
 import {
     isDateTimeInNextCentury,
     moveDateTimeToNextCentury,
     shouldRestoreDatetime,
     basePlugins
-} from "~/scheduler/handlers/utils.js";
+} from "~/scheduler/handlers/utils";
 import {
     executeTask,
     shouldScheduleTask,
     restoreDateTime,
     scheduleLambdaExecution
-} from "./scheduleAction.utils.js";
+} from "./scheduleAction.utils";
 import { createRawEventHandler } from "@webiny/handler-aws";
 
 export enum InvocationTypes {

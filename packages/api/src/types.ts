@@ -1,9 +1,14 @@
-import { type PluginsContainer } from "@webiny/plugins";
-import { type ICompressor } from "@webiny/utils/compression/Compressor.js";
+import type { Container } from "@webiny/di-container";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { ICompressor } from "@webiny/utils/compression/Compressor";
 
 export type GenericRecord<K extends PropertyKey = PropertyKey, V = any> = Record<K, V>;
 
 export type NonEmptyArray<T> = [T, ...T[]];
+
+export type PossiblyUndefinedProperties<T> = {
+    [K in keyof T]: T[K] extends undefined ? T[K] : T[K] | undefined;
+};
 
 export type BenchmarkRuns = GenericRecord<string, number>;
 
@@ -52,6 +57,10 @@ export interface Benchmark {
  */
 export interface Context {
     plugins: PluginsContainer;
+    /**
+     * @internal
+     */
+    container: Container;
     readonly WEBINY_VERSION: string;
     /**
      * Not to be used outside of Webiny internal code.

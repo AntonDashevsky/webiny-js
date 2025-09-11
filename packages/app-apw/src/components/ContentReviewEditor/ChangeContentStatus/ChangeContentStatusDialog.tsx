@@ -1,16 +1,17 @@
 import React from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import * as UiDialog from "@webiny/ui/Dialog/index.js";
-import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { Box, Columns, Stack } from "~/components/Layout.js";
-import { useContentReviewId } from "~/hooks/useContentReviewId.js";
-import { usePublishContent } from "~/hooks/usePublishContent.js";
+import * as UiDialog from "@webiny/ui/Dialog";
+import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { Typography } from "@webiny/ui/Typography";
+import { i18n } from "@webiny/app/i18n";
+import { Box, Columns, Stack } from "~/components/Layout";
+import { useContentReviewId } from "~/hooks/useContentReviewId";
+import { usePublishContent } from "~/hooks/usePublishContent";
 import { ReactComponent as ScheduleIcon } from "~/assets/icons/schedule_24dp.svg";
-import { type ScheduleActionType, useScheduleActionDialog } from "./useScheduleActionDialog.js";
+import type { ScheduleActionType } from "./useScheduleActionDialog";
+import { useScheduleActionDialog } from "./useScheduleActionDialog";
 
 const t = i18n.ns("app-apw/content-review/editor/change-request");
 

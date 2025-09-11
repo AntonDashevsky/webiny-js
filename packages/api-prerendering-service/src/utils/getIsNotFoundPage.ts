@@ -1,4 +1,4 @@
-import { type RenderEvent } from "~/types.js";
+import type { RenderEvent } from "~/types";
 
 export const getIsNotFoundPage = (args: RenderEvent): boolean => {
     if (!Array.isArray(args.tags)) {

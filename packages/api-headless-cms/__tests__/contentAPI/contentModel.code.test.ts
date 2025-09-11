@@ -54,7 +54,7 @@ describe("content model via code", () => {
             description: "Test model"
         });
 
-        expect(buildFields).toBeCalledTimes(2);
+        expect(buildFields).toHaveBeenCalledTimes(2);
 
         expect(model.contentModel).toMatchObject({
             modelId: "test"
@@ -110,7 +110,7 @@ describe("content model via code", () => {
             description: "Test model"
         });
 
-        expect(buildFields).toBeCalledTimes(0);
+        expect(buildFields).toHaveBeenCalledTimes(0);
 
         expect(model.contentModel).toMatchObject({
             modelId: "test"

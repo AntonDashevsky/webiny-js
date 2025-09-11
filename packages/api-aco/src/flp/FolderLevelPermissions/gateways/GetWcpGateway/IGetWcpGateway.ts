@@ -1,4 +1,4 @@
-import type { WcpContextObject } from "@webiny/api-wcp/types.js";
+import type { WcpContextObject } from "@webiny/api-wcp/types";
 
 export interface IGetWcpGateway {
     execute: () => WcpContextObject;

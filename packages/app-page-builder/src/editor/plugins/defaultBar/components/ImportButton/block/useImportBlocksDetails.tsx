@@ -1,11 +1,10 @@
 import React from "react";
-import get from "lodash/get.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
-import { ShowDetails } from "../styledComponents.js";
-import { type ListBlockImportExportSubTasksResponse } from "~/admin/graphql/blockImportExport.gql.js";
-import { type PageBuilderImportExportSubTask } from "~/types.js";
+import get from "lodash/get";
+import { Text, Scrollbar } from "@webiny/admin-ui";
+import { i18n } from "@webiny/app/i18n";
+import { ShowDetails } from "../styledComponents";
+import type { ListBlockImportExportSubTasksResponse } from "~/admin/graphql/blockImportExport.gql";
+import type { PageBuilderImportExportSubTask } from "~/types";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/importBlock");
 
@@ -16,7 +15,7 @@ interface ImportBlocksDetailsProps {
 
 const ImportBlocksDetails = ({ loading, result }: ImportBlocksDetailsProps) => {
     if (loading || !result) {
-        return <Typography use={"caption"}> {t`Loading details...`} </Typography>;
+        return <Text size={"sm"}>{t`Loading details...`}</Text>;
     }
     const subtasks: PageBuilderImportExportSubTask[] = get(
         result,
@@ -31,13 +30,13 @@ const ImportBlocksDetails = ({ loading, result }: ImportBlocksDetailsProps) => {
                         height: 160
                     }}
                 >
-                    <ShowDetails.Label use={"body2"}>{t`Blocks imported:`}</ShowDetails.Label>
+                    <ShowDetails.Label size={"sm"}>{t`Blocks imported:`}</ShowDetails.Label>
                     <ShowDetails.List data-testid={"import-blocks-dialog.show-detail-list"}>
                         {subtasks.map(subtask => {
                             const { block } = subtask.data;
                             return (
                                 <ShowDetails.ListItem key={block.id}>
-                                    <Typography use={"body2"}>{block.name}</Typography>
+                                    <Text size={"sm"}>{block.name}</Text>
                                 </ShowDetails.ListItem>
                             );
                         })}

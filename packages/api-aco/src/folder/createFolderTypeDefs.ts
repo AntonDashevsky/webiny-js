@@ -1,10 +1,6 @@
-import {
-    type CmsFieldTypePlugins,
-    type CmsModel,
-    type CmsModelField
-} from "@webiny/api-headless-cms/types/index.js";
-import { renderFields } from "@webiny/api-headless-cms/utils/renderFields.js";
-import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields.js";
+import type { CmsFieldTypePlugins, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import { renderFields } from "@webiny/api-headless-cms/utils/renderFields";
+import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields";
 
 export interface CreateFolderTypeDefsParams {
     model: CmsModel;
@@ -102,6 +98,14 @@ export const createFolderTypeDefs = (params: CreateFolderTypeDefsParams): string
             type: String!
             parentId: ID
             parentId_in: [ID]
+            slug: String
+            slug_not: String
+            slug_contains: String
+            slug_not_contains: String
+            slug_in: [String]
+            slug_not_in: [String]
+            slug_startsWith: String
+            slug_not_startsWith: String
             path: String
             path_not: String
             path_contains: String

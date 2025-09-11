@@ -1,4 +1,4 @@
-import { ElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
+import type { ElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 
 interface Params {
     client: ElasticsearchClient;

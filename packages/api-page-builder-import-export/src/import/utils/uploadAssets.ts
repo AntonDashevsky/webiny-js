@@ -1,8 +1,9 @@
 import { mdbid } from "@webiny/utils";
-import { type PbImportExportContext } from "~/graphql/types.js";
-import { type File, type FileInput } from "@webiny/api-file-manager/types.js";
-import { type UploadFileMap, uploadFilesFromS3 } from "~/import/utils/uploadFilesFromS3.js";
-import { type FileUploadsData } from "~/types.js";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { File, FileInput } from "@webiny/api-file-manager/types";
+import type { UploadFileMap } from "~/import/utils/uploadFilesFromS3";
+import { uploadFilesFromS3 } from "~/import/utils/uploadFilesFromS3";
+import type { FileUploadsData } from "~/types";
 
 interface UploadAssetsParams {
     context: PbImportExportContext;

@@ -1,4 +1,4 @@
-import { TaskResponseStatus } from "~/types.js";
+import type { TaskResponseStatus } from "~/types";
 
 export interface IResponseBaseResult {
     status: TaskResponseStatus;

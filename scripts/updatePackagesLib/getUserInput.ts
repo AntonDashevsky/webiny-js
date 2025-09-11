@@ -1,4 +1,4 @@
-import { IPreset } from "./createPreset";
+import type { IPreset, IPresetExclude } from "./createPreset";
 import inquirer from "inquirer";
 
 export interface IGetUserInputParams {
@@ -10,6 +10,7 @@ export interface IUserInputResponse {
     skipResolutions: boolean;
     matching: RegExp;
     useCaret: boolean;
+    exclude: IPresetExclude | undefined;
 }
 
 export const getUserInput = async ({
@@ -51,7 +52,8 @@ export const getUserInput = async ({
         return {
             ...matching,
             useCaret: matching.caret || true,
-            shouldUpdate
+            shouldUpdate,
+            exclude: matching.exclude
         };
     }
 
@@ -66,7 +68,8 @@ export const getUserInput = async ({
                 }
                 new RegExp(input);
                 return true;
-            } catch (e) {
+            } catch (ex) {
+                console.error(ex);
                 return `Invalid regex: ${input}`;
             }
         }
@@ -98,6 +101,7 @@ export const getUserInput = async ({
         useCaret,
         matching,
         shouldUpdate,
-        skipResolutions
+        skipResolutions,
+        exclude: undefined
     };
 };

@@ -1,17 +1,17 @@
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
-import {
-    type ILoggerCrudDeleteLogParams,
-    type ILoggerCrudDeleteLogsParams,
-    type ILoggerCrudGetLogsParams,
-    type ILoggerCrudListLogsParams,
-    type ILoggerCrudListLogsResponse,
-    type ILoggerCrudListSort,
-    type ILoggerLog,
-    type ILoggerStorageOperations,
-    type ILoggerStorageOperationsInsertParams,
-    type LogType
-} from "~/types.js";
-import { type DynamoDbLoggerKeys } from "./DynamoDbLoggerKeys.js";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type {
+    ILoggerCrudDeleteLogParams,
+    ILoggerCrudDeleteLogsParams,
+    ILoggerCrudGetLogsParams,
+    ILoggerCrudListLogsParams,
+    ILoggerCrudListLogsResponse,
+    ILoggerCrudListSort,
+    ILoggerLog,
+    ILoggerStorageOperations,
+    ILoggerStorageOperationsInsertParams,
+    LogType
+} from "~/types";
+import type { DynamoDbLoggerKeys } from "./DynamoDbLoggerKeys";
 import {
     batchReadAll,
     batchWriteAll,
@@ -19,9 +19,9 @@ import {
     getClean,
     queryPerPageClean
 } from "@webiny/db-dynamodb";
-import { type GenericRecord } from "@webiny/api/types.js";
-import { compress, decompress } from "@webiny/utils/compression/gzip.js";
-import { convertAfterToStartKey, convertLastEvaluatedKeyToAfterKey } from "./convertKeys.js";
+import type { GenericRecord } from "@webiny/api/types";
+import { compress, decompress } from "@webiny/utils/compression/gzip";
+import { convertAfterToStartKey, convertLastEvaluatedKeyToAfterKey } from "./convertKeys";
 
 const TO_STORAGE_ENCODING = "base64";
 const FROM_STORAGE_ENCODING = "utf8";

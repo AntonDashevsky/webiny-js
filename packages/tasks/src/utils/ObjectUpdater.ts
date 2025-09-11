@@ -2,7 +2,8 @@
  * We need to use the object-merge-advanced library to merge array items properly.
  * With plain assign or lodash merge, we will lose array items from the source object.
  */
-import { defaults, mergeAdvanced } from "object-merge-advanced";
+import type { defaults } from "object-merge-advanced";
+import { mergeAdvanced } from "object-merge-advanced";
 
 const mergeOptions: Partial<typeof defaults> = {
     hardArrayConcat: true

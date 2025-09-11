@@ -1,6 +1,6 @@
-import { useDataList } from "../useDataList/index.js";
-import debounce from "lodash/debounce.js";
-import { type DocumentNode } from "graphql";
+import { useDataList } from "../useDataList";
+import debounce from "lodash/debounce";
+import type { DocumentNode } from "graphql";
 
 interface UseAutocompleteHook {
     options: any[];

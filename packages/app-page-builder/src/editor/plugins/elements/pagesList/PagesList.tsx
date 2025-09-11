@@ -1,8 +1,8 @@
 import React from "react";
-import { type PbEditorElement } from "~/types.js";
-import { PePagesList } from "./PePagesList.js";
+import type { PbEditorElement } from "~/types";
+import { PePagesList } from "./PePagesList";
 
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 
 interface PagesListProps {
     element: PbEditorElement;

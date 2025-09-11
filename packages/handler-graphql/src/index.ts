@@ -1,14 +1,14 @@
-import { type Plugin } from "@webiny/plugins/types.js";
-import { type HandlerGraphQLOptions } from "./types.js";
-import createGraphQLHandler from "./createGraphQLHandler.js";
+import type { Plugin } from "@webiny/plugins/types";
+import type { HandlerGraphQLOptions } from "./types";
+import createGraphQLHandler from "./createGraphQLHandler";
 
-export * from "./errors.js";
-export * from "./responses.js";
-export * from "./utils/index.js";
-export * from "./plugins/index.js";
-export * from "./processRequestBody.js";
-export * from "./createResolverDecorator.js";
-export * from "./ResolverDecoration.js";
+export * from "./errors";
+export * from "./responses";
+export * from "./utils";
+export * from "./plugins";
+export * from "./processRequestBody";
+export * from "./createResolverDecorator";
+export * from "./ResolverDecoration";
 
 export default (options: HandlerGraphQLOptions = {}): Plugin[] => {
     return createGraphQLHandler(options);

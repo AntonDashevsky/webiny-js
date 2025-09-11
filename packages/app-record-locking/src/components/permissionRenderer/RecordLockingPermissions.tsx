@@ -1,10 +1,9 @@
-import React, { Fragment, useCallback, useMemo } from "react";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { gridNoPaddingClass, PermissionInfo } from "@webiny/app-admin/components/Permissions/index.js";
+import React, { useCallback, useMemo } from "react";
+import { i18n } from "@webiny/app/i18n";
+import { gridWithPaddingClass, PermissionInfo } from "@webiny/app-admin/components/Permissions";
 import { Form } from "@webiny/form";
-import { type RecordLockingSecurityPermission } from "~/types.js";
+import type { RecordLockingSecurityPermission } from "~/types";
+import { Grid, Select } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-record-locking/components/permissionRenderer");
 
@@ -66,21 +65,23 @@ export const RecordLockingPermissions = ({ value, onChange }: RecordLockingPermi
         <Form<RecordLockingSecurityPermission> data={formData} onChange={onFormChange}>
             {({ Bind }) => {
                 return (
-                    <Fragment>
-                        <Grid className={gridNoPaddingClass}>
-                            <Cell span={6}>
+                    <>
+                        <Grid className={gridWithPaddingClass}>
+                            <Grid.Column span={6}>
                                 <PermissionInfo title={t`Advanced Record Locking`} />
-                            </Cell>
-                            <Cell span={6}>
+                            </Grid.Column>
+                            <Grid.Column span={6}>
                                 <Bind name={"canForceUnlock"}>
-                                    <Select label={t`Advanced Record Locking`}>
-                                        <option value={""}>{t`No Access`}</option>
-                                        <option value={"yes"}>{t`Full Access`}</option>
-                                    </Select>
+                                    <Select
+                                        options={[
+                                            { label: t`No Access`, value: "no" },
+                                            { label: t`Full Access`, value: "yes" }
+                                        ]}
+                                    ></Select>
                                 </Bind>
-                            </Cell>
+                            </Grid.Column>
                         </Grid>
-                    </Fragment>
+                    </>
                 );
             }}
         </Form>

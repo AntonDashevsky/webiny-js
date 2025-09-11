@@ -1,10 +1,10 @@
-import { createEmailPatternValidator } from "./email.js";
-import { createUrlPatternValidator } from "./url.js";
-import { createLowerCasePatternValidator } from "./lowerCase.js";
-import { createUpperCasePatternValidator } from "./upperCase.js";
-import { createLowerCaseSpacePatternValidator } from "./lowerCaseSpace.js";
-import { createUpperCaseSpacePatternValidator } from "./upperCaseSpace.js";
-import { type CmsModelFieldPatternValidatorPlugin } from "~/types/index.js";
+import { createEmailPatternValidator } from "./email";
+import { createUrlPatternValidator } from "./url";
+import { createLowerCasePatternValidator } from "./lowerCase";
+import { createUpperCasePatternValidator } from "./upperCase";
+import { createLowerCaseSpacePatternValidator } from "./lowerCaseSpace";
+import { createUpperCaseSpacePatternValidator } from "./upperCaseSpace";
+import type { CmsModelFieldPatternValidatorPlugin } from "~/types";
 
 export const createPatternValidatorPlugins = (): CmsModelFieldPatternValidatorPlugin[] => {
     return [

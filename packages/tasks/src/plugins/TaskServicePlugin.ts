@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import type { ITask } from "~/types.js";
+import type { ITask } from "~/types";
 
 export interface ITaskServiceCreatePluginParams {
     getTenant(): string;

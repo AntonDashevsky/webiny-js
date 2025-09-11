@@ -1,33 +1,33 @@
 import React, { useCallback, useMemo } from "react";
-import { PageElementsProvider as PbPageElementsProvider } from "@webiny/app-page-builder-elements/contexts/PageElements.js";
+import { PageElementsProvider as PbPageElementsProvider } from "@webiny/app-page-builder-elements/contexts/PageElements";
 
 // Attributes modifiers.
-import { createId } from "@webiny/app-page-builder-elements/modifiers/attributes/id.js";
-import { createClassName } from "@webiny/app-page-builder-elements/modifiers/attributes/className.js";
-import { createAnimation } from "@webiny/app-page-builder-elements/modifiers/attributes/animation/index.js";
-import { initializeAos } from "@webiny/app-page-builder-elements/modifiers/attributes/animation/initializeAos.js";
+import { createId } from "@webiny/app-page-builder-elements/modifiers/attributes/id";
+import { createClassName } from "@webiny/app-page-builder-elements/modifiers/attributes/className";
+import { createAnimation } from "@webiny/app-page-builder-elements/modifiers/attributes/animation";
+import { initializeAos } from "@webiny/app-page-builder-elements/modifiers/attributes/animation/initializeAos";
 
 // Styles modifiers.
-import { createBackground } from "@webiny/app-page-builder-elements/modifiers/styles/background.js";
-import { createBorder } from "@webiny/app-page-builder-elements/modifiers/styles/border.js";
-import { createGrid } from "@webiny/app-page-builder-elements/modifiers/styles/grid.js";
-import { createHeight } from "@webiny/app-page-builder-elements/modifiers/styles/height.js";
-import { createHorizontalAlign } from "@webiny/app-page-builder-elements/modifiers/styles/horizontalAlign.js";
-import { createMargin } from "@webiny/app-page-builder-elements/modifiers/styles/margin.js";
-import { createPadding } from "@webiny/app-page-builder-elements/modifiers/styles/padding.js";
-import { createShadow } from "@webiny/app-page-builder-elements/modifiers/styles/shadow.js";
-import { createText } from "@webiny/app-page-builder-elements/modifiers/styles/text.js";
-import { createTextAlign } from "@webiny/app-page-builder-elements/modifiers/styles/textAlign.js";
-import { createVerticalAlign } from "@webiny/app-page-builder-elements/modifiers/styles/verticalAlign.js";
-import { createVisibility } from "@webiny/app-page-builder-elements/modifiers/styles/visibility.js";
-import { createWidth } from "@webiny/app-page-builder-elements/modifiers/styles/width.js";
+import { createBackground } from "@webiny/app-page-builder-elements/modifiers/styles/background";
+import { createBorder } from "@webiny/app-page-builder-elements/modifiers/styles/border";
+import { createGrid } from "@webiny/app-page-builder-elements/modifiers/styles/grid";
+import { createHeight } from "@webiny/app-page-builder-elements/modifiers/styles/height";
+import { createHorizontalAlign } from "@webiny/app-page-builder-elements/modifiers/styles/horizontalAlign";
+import { createMargin } from "@webiny/app-page-builder-elements/modifiers/styles/margin";
+import { createPadding } from "@webiny/app-page-builder-elements/modifiers/styles/padding";
+import { createShadow } from "@webiny/app-page-builder-elements/modifiers/styles/shadow";
+import { createText } from "@webiny/app-page-builder-elements/modifiers/styles/text";
+import { createTextAlign } from "@webiny/app-page-builder-elements/modifiers/styles/textAlign";
+import { createVerticalAlign } from "@webiny/app-page-builder-elements/modifiers/styles/verticalAlign";
+import { createVisibility } from "@webiny/app-page-builder-elements/modifiers/styles/visibility";
+import { createWidth } from "@webiny/app-page-builder-elements/modifiers/styles/width";
 
-import { usePageBuilder } from "~/hooks/usePageBuilder.js";
-import { type Theme } from "@webiny/app-theme/types.js";
+import { usePageBuilder } from "~/hooks/usePageBuilder";
+import type { Theme } from "@webiny/app-theme/types";
 
 import { plugins } from "@webiny/plugins";
-import { type PbRenderElementPlugin } from "~/types.js";
-import { type ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache.js";
+import type { PbRenderElementPlugin } from "~/types";
+import type { ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache";
 
 interface PageElementsProviderProps {
     theme?: Theme;

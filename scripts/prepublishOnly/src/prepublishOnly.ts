@@ -6,7 +6,7 @@ import get from "lodash/get";
 import path from "path";
 import loadJson from "load-json-file";
 import writeJson from "write-json-file";
-import { PackageJson } from "type-fest";
+import type { PackageJson } from "type-fest";
 import { resolvePackageVersion } from "./resolvePackageVersion";
 
 class FileLocker {

@@ -1,20 +1,13 @@
-import { ITaskManager, ITaskManagerStorePrivate, ITaskRunner } from "./abstractions/index.js";
-import {
-    Context,
-    ITask,
-    ITaskDataInput,
-    ITaskDefinition,
-    ITaskTriggerParams,
-    TaskDataStatus,
-    TaskResponseStatus
-} from "~/types.js";
-import {
+import type { ITaskManager, ITaskManagerStorePrivate, ITaskRunner } from "./abstractions";
+import type { Context, ITask, ITaskDataInput, ITaskDefinition, ITaskTriggerParams } from "~/types";
+import { TaskDataStatus, TaskResponseStatus } from "~/types";
+import type {
     IResponse,
     IResponseResult,
     ITaskResponse,
     ITaskResponseResult
-} from "~/response/abstractions/index.js";
-import { getErrorProperties } from "~/utils/getErrorProperties.js";
+} from "~/response/abstractions";
+import { getErrorProperties } from "~/utils/getErrorProperties";
 
 type ITaskManagerRunner = Pick<ITaskRunner, "isCloseToTimeout" | "timer">;
 

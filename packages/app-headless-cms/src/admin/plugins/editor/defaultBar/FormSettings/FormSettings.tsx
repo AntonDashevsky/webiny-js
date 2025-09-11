@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import { plugins } from "@webiny/plugins";
-import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout/index.js";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
 import { Form } from "@webiny/form";
-import { Icon } from "@webiny/ui/Icon/index.js";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { List, ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import * as SF from "@webiny/app-admin/components/SimpleForm/index.js";
-import { type CmsEditorFormSettingsPlugin } from "~/types.js";
-import { listItem, ListItemTitle, listStyle, Title, TitleContent } from "./FormSettingsStyled.js";
-import { useModelEditor } from "~/admin/hooks/index.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { i18n } from "@webiny/app/i18n";
+import * as SF from "@webiny/app-admin/components/SimpleForm";
+import type { CmsEditorFormSettingsPlugin } from "~/types";
+import { useModelEditor } from "~/admin/hooks";
+import { Button, Heading, Icon, List } from "@webiny/admin-ui";
 
 const t = i18n.namespace("FormsApp.Editor.FormSettings");
+
+const Title = () => {
+    return (
+        <Heading
+            level={5}
+            className={"wby-text-neutral-strong"}
+        >{t`Content model settings`}</Heading>
+    );
+};
 
 interface FormSettingsProps {
     onExited: () => void;
@@ -30,24 +35,18 @@ const FormSettings = ({ onExited }: FormSettingsProps) => {
     const [activePlugin, setActivePlugin] = useState(cmsEditorFormSettingsPlugins[0]);
 
     return (
-        <OverlayLayout barMiddle={Title} onExited={onExited}>
+        <OverlayLayout barMiddle={<Title />} onExited={onExited}>
             <SplitView>
                 <LeftPanel span={5}>
-                    <List twoLine className={listStyle}>
+                    <List>
                         {cmsEditorFormSettingsPlugins.map(pl => (
-                            <ListItem
+                            <List.Item
                                 key={pl.name}
-                                className={listItem}
                                 onClick={() => setActivePlugin(pl)}
-                            >
-                                <ListItemGraphic>
-                                    <Icon icon={pl.icon} />
-                                </ListItemGraphic>
-                                <TitleContent>
-                                    <ListItemTitle>{pl.title}</ListItemTitle>
-                                    <Typography use={"body2"}>{pl.description}</Typography>
-                                </TitleContent>
-                            </ListItem>
+                                icon={<Icon label={pl.title} icon={pl.icon} />}
+                                title={pl.title}
+                                description={pl.description}
+                            />
                         ))}
                     </List>
                 </LeftPanel>
@@ -61,14 +60,16 @@ const FormSettings = ({ onExited }: FormSettingsProps) => {
                         }}
                     >
                         {({ Bind, submit, form, data: formData }) => (
-                            <SF.SimpleForm>
+                            <SF.SimpleForm size={"lg"}>
                                 <SF.SimpleFormHeader title={activePlugin.title}>
-                                    {typeof activePlugin.renderHeaderActions === "function" &&
-                                        activePlugin.renderHeaderActions({
-                                            Bind,
-                                            form,
-                                            formData
-                                        })}
+                                    <div className={"wby-flex wby-justify-end wby-items-center"}>
+                                        {typeof activePlugin.renderHeaderActions === "function" &&
+                                            activePlugin.renderHeaderActions({
+                                                Bind,
+                                                form,
+                                                formData
+                                            })}
+                                    </div>
                                 </SF.SimpleFormHeader>
                                 <SF.SimpleFormContent>
                                     {activePlugin
@@ -80,11 +81,12 @@ const FormSettings = ({ onExited }: FormSettingsProps) => {
                                         : null}
                                 </SF.SimpleFormContent>
                                 <SF.SimpleFormFooter>
-                                    <ButtonPrimary
+                                    <Button
+                                        text={t`Save`}
                                         onClick={ev => {
                                             submit(ev);
                                         }}
-                                    >{t`Save settings`}</ButtonPrimary>
+                                    />
                                 </SF.SimpleFormFooter>
                             </SF.SimpleForm>
                         )}

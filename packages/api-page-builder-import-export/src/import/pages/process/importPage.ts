@@ -1,16 +1,16 @@
 import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
-import fs from "fs-extra";
-import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles.js";
-import { type FileInput } from "@webiny/api-file-manager/types.js";
-import { type PageSettings } from "@webiny/api-page-builder/types.js";
-import { type PbImportExportContext } from "~/graphql/types.js";
-import { type FileUploadsData } from "~/types.js";
-import { INSTALL_EXTRACT_DIR } from "~/import/constants.js";
-import { s3Stream } from "~/export/s3Stream.js";
-import { deleteS3Folder, updateFilesInData, uploadAssets } from "~/import/utils/index.js";
-import { type ExportedPageData } from "~/export/process/exporters/PageExporter.js";
+import { createWriteStream, ensureDirSync } from "fs-extra";
+import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
+import type { FileInput } from "@webiny/api-file-manager/types";
+import type { PageSettings } from "@webiny/api-page-builder/types";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { FileUploadsData } from "~/types";
+import { INSTALL_EXTRACT_DIR } from "~/import/constants";
+import { s3Stream } from "~/export/s3Stream";
+import { deleteS3Folder, updateFilesInData, uploadAssets } from "~/import/utils";
+import type { ExportedPageData } from "~/export/process/exporters/PageExporter";
 
 interface ImportPageParams {
     pageKey: string;
@@ -27,7 +27,7 @@ export async function importPage({
 
     // Making Directory for page in which we're going to extract the page data file.
     const PAGE_EXTRACT_DIR = path.join(INSTALL_EXTRACT_DIR, pageKey);
-    fs.ensureDirSync(PAGE_EXTRACT_DIR);
+    ensureDirSync(PAGE_EXTRACT_DIR);
 
     const pageDataFileKey = dotProp.get(fileUploadsData, `data`);
     const PAGE_DATA_FILE_PATH = path.join(PAGE_EXTRACT_DIR, path.basename(pageDataFileKey));
@@ -35,9 +35,9 @@ export async function importPage({
     log(`Downloading Page data file: ${pageDataFileKey} at "${PAGE_DATA_FILE_PATH}"`);
     // Download and save page data file in disk.
     const readStream = await s3Stream.readStream(pageDataFileKey);
-    const writeStream = fs.createWriteStream(PAGE_DATA_FILE_PATH);
+    const writeStream = createWriteStream(PAGE_DATA_FILE_PATH);
 
-    await new Promise((resolve, reject) => {
+    await new Promise<void>((resolve, reject) => {
         readStream.on("error", reject).pipe(writeStream).on("finish", resolve).on("error", reject);
     });
 

@@ -1,4 +1,4 @@
-import { type ITaskResponseDoneResultOutput } from "@webiny/tasks";
+import type { ITaskResponseDoneResultOutput } from "@webiny/tasks";
 
 export interface IMockDataCreatorInput {
     totalAmount: number;

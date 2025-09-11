@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as DeleteIcon } from "../../../assets/icons/delete.svg";
-import DeleteAction from "./DeleteAction.js";
-import Action from "../components/Action.js";
-import { type PbEditorPageElementSettingsPlugin } from "~/types.js";
+import DeleteAction from "./DeleteAction";
+import Action from "../components/Action";
+import type { PbEditorPageElementSettingsPlugin } from "~/types";
 
 export default {
     name: "pb-editor-page-element-settings-delete",

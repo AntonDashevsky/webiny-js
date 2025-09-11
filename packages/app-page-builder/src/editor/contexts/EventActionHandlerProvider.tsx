@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef } from "react";
+import type { Snapshot } from "recoil";
 import {
-    type Snapshot,
     useGotoRecoilSnapshot,
     useRecoilCallback,
     useRecoilSnapshot,
@@ -8,10 +8,11 @@ import {
     useRecoilValue,
     useSetRecoilState
 } from "recoil";
-import merge from "lodash/merge.js";
+import merge from "lodash/merge";
 import { useApolloClient } from "@apollo/react-hooks";
 import { makeDecoratable } from "@webiny/app-admin";
 import { plugins } from "@webiny/plugins";
+import type { SidebarAtomType, RootElementAtom, UiAtomType } from "../recoil/modules";
 import {
     rootElementAtom,
     elementsAtom,
@@ -19,30 +20,28 @@ import {
     uiAtom,
     elementByIdSelector,
     activeElementAtom,
-    highlightElementAtom,
-    type SidebarAtomType,
-    type RootElementAtom,
-    type UiAtomType
-} from "../recoil/modules/index.js";
+    highlightElementAtom
+} from "../recoil/modules";
 
-import { type PbState } from "../recoil/modules/types.js";
-import { type EventAction } from "~/editor/recoil/eventActions/index.js";
-import {
-    type EventActionHandlerCallableArgs,
-    type EventActionCallable,
-    type EventActionHandlerActionCallableResponse,
-    type EventActionHandlerConfig,
-    type PbConfigPluginType,
-    type PbConfigType,
-    type PbEditorElement,
-    type EventActionHandler,
-    type EventActionHandlerTarget,
-    type EventActionHandlerCallableState,
-    type GetElementTreeProps,
-    type PbEditorElementTree
-} from "~/types.js";
-import { composeAsync, composeSync, type AsyncProcessor, type SyncProcessor } from "@webiny/utils/compose.js";
-import { UpdateElementTreeActionEvent, UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
+import type { PbState } from "../recoil/modules/types";
+import type { EventAction } from "~/editor/recoil/eventActions";
+import type {
+    EventActionHandlerCallableArgs,
+    EventActionCallable,
+    EventActionHandlerActionCallableResponse,
+    EventActionHandlerConfig,
+    PbConfigPluginType,
+    PbConfigType,
+    PbEditorElement,
+    EventActionHandler,
+    EventActionHandlerTarget,
+    EventActionHandlerCallableState,
+    GetElementTreeProps,
+    PbEditorElementTree
+} from "~/types";
+import type { AsyncProcessor, SyncProcessor } from "@webiny/utils/compose";
+import { composeAsync, composeSync } from "@webiny/utils/compose";
+import { UpdateElementTreeActionEvent, UpdateDocumentActionEvent } from "~/editor/recoil/actions";
 
 type ListType = Map<symbol, EventActionCallable>;
 type RegistryType = Map<string, ListType>;

@@ -1,2 +1,2 @@
-export * from "./GetFolderPermission.js";
-export * from "./IGetFolderPermission.js";
+export * from "./GetFolderPermission";
+export * from "./IGetFolderPermission";

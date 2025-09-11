@@ -1,5 +1,5 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
-import { CmsGroup } from "~/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { CmsGroup } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import models from "./mocks/contentModels";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";

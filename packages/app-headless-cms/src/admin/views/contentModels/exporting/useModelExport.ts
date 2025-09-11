@@ -1,9 +1,9 @@
 import { useCallback } from "react";
-import { type CmsModel } from "~/types.js";
-import { useApolloClient } from "~/admin/hooks/index.js";
-import { runExport } from "./runExport.js";
+import type { CmsModel } from "~/types";
+import { useApolloClient } from "~/admin/hooks";
+import { runExport } from "./runExport";
 import { useSnackbar } from "@webiny/app-admin";
-import { download } from "./download.js";
+import { download } from "./download";
 
 export const useModelExport = () => {
     const client = useApolloClient();

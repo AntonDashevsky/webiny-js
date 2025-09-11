@@ -1,12 +1,12 @@
 import React from "react";
-import {
-    type CanReturnNullOrElement,
-    type Decoratable,
-    type DecoratableComponent,
-    type DecoratableHook,
-    type Decorator
-} from "~/types.js";
-import { Compose } from "~/Compose.js";
+import type {
+    CanReturnNullOrElement,
+    Decoratable,
+    DecoratableComponent,
+    DecoratableHook,
+    Decorator
+} from "~/types";
+import { Compose } from "~/Compose";
 
 type GetBaseFunction<T> = T extends DecoratableComponent<infer F> ? F : never;
 

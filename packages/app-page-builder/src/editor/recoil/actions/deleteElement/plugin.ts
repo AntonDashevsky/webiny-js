@@ -1,6 +1,6 @@
-import { DeleteElementActionEvent } from "./event.js";
-import { deleteElementAction } from "./action.js";
-import { type PbEditorEventActionPlugin } from "~/types.js";
+import { DeleteElementActionEvent } from "./event";
+import { deleteElementAction } from "./action";
+import type { PbEditorEventActionPlugin } from "~/types";
 
 export default (): PbEditorEventActionPlugin => ({
     type: "pb-editor-event-action-plugin",

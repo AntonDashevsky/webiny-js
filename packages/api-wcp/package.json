@@ -14,6 +14,7 @@
   "dependencies": {
     "@webiny/api": "0.0.0",
     "@webiny/error": "0.0.0",
+    "@webiny/feature": "0.0.0",
     "@webiny/handler-graphql": "0.0.0",
     "@webiny/wcp": "0.0.0",
     "node-fetch": "2.6.7"
@@ -22,7 +23,7 @@
     "@webiny/build-tools": "0.0.0",
     "jest-dynalite": "^3.6.1",
     "rimraf": "^6.0.1",
-    "typescript": "5.3.3"
+    "typescript": "5.9.2"
   },
   "publishConfig": {
     "access": "public",

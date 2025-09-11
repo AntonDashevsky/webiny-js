@@ -1,5 +1,5 @@
-import { Plugin } from "@webiny/plugins/Plugin.js";
-import { type LocaleKeys } from "~/types.js";
+import { Plugin } from "@webiny/plugins/Plugin";
+import type { LocaleKeys } from "~/types";
 
 export interface I18NLocaleContextPluginParams {
     context: {

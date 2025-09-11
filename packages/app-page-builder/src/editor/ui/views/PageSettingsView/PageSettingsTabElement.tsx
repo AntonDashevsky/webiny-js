@@ -1,7 +1,8 @@
 import type React from "react";
-import { UIElement, type UIElementConfig } from "@webiny/app-admin/ui/UIElement.js";
-import { type UIView } from "@webiny/app-admin/ui/UIView.js";
-import { PageSettingsTabElementRenderer } from "~/editor/ui/views/PageSettingsView/PageSettingsTabElementRenderer.js";
+import type { UIElementConfig } from "@webiny/app-admin/ui/UIElement";
+import { UIElement } from "@webiny/app-admin/ui/UIElement";
+import type { UIView } from "@webiny/app-admin/ui/UIView";
+import { PageSettingsTabElementRenderer } from "~/editor/ui/views/PageSettingsView/PageSettingsTabElementRenderer";
 
 export interface PageSettingsTabElementConfig extends UIElementConfig {
     id: string;

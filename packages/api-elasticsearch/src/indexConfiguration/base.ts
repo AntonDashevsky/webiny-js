@@ -1,5 +1,5 @@
-import { type ElasticsearchIndexRequestBody } from "~/types.js";
-import { getCommonMappings } from "./common.js";
+import type { ElasticsearchIndexRequestBody } from "~/types";
+import { getCommonMappings } from "./common";
 
 const config: ElasticsearchIndexRequestBody = {
     mappings: {

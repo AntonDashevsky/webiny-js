@@ -1,9 +1,7 @@
-import archiver from "archiver";
-import {
-    type CompleteMultipartUploadOutput,
-    createS3,
-    GetObjectCommand
-} from "@webiny/aws-sdk/client-s3";
+import type { ArchiverError } from "archiver";
+import { create as createArchiver } from "archiver";
+import type { CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
+import { createS3, GetObjectCommand } from "@webiny/aws-sdk/client-s3";
 import path from "path";
 import { type Readable, Stream } from "stream";
 import { Upload } from "@webiny/aws-sdk/lib-storage";
@@ -69,9 +67,9 @@ export class ZipFiles {
             leavePartsOnError: false
         });
 
-        const archive = archiver.create("zip", {});
+        const archive = createArchiver("zip", {});
 
-        archive.on("error", (error: archiver.ArchiverError) => {
+        archive.on("error", (error: ArchiverError) => {
             console.error(error);
             throw new Error(
                 `${error.name} ${error.code} ${error.message} ${error.path} ${error.stack}`

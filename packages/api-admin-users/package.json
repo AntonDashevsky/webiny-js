@@ -20,19 +20,18 @@
     "@webiny/handler-graphql": "0.0.0",
     "@webiny/pubsub": "0.0.0",
     "@webiny/utils": "0.0.0",
-    "dataloader": "^2.2.2",
+    "dataloader": "^2.2.3",
     "lodash": "^4.17.21",
     "md5": "^2.3.0",
-    "zod": "^3.23.8"
+    "zod": "3.23.8"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "^9.0.2",
-    "@types/md5": "^2.3.2",
+    "@types/md5": "^2.3.5",
     "@webiny/api-i18n": "0.0.0",
     "@webiny/api-wcp": "0.0.0",
     "@webiny/build-tools": "0.0.0",
     "rimraf": "^6.0.1",
-    "typescript": "5.3.3"
+    "typescript": "5.9.2"
   },
   "publishConfig": {
     "access": "public",

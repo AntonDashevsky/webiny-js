@@ -1,3 +1,3 @@
-import { type FileItem } from "@webiny/app-admin/types.js";
+import type { FileItem } from "@webiny/app-admin/types";
 
 export type ActionFormData = Partial<Omit<FileItem, "id">>;

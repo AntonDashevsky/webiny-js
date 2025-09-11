@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { type ApwReviewer } from "~/types.js";
+import type { ApwReviewer } from "~/types";
 
 const ERROR_FIELDS = `{
     message

@@ -1,10 +1,10 @@
 import React from "react";
-import { Select } from "@webiny/ui/Select/index.js";
-import {
-    FormFieldElement,
-    type FormFieldElementConfig,
-    type FormFieldElementRenderProps
-} from "~/ui/elements/form/FormFieldElement.js";
+import { Select } from "@webiny/ui/Select";
+import type {
+    FormFieldElementConfig,
+    FormFieldElementRenderProps
+} from "~/ui/elements/form/FormFieldElement";
+import { FormFieldElement } from "~/ui/elements/form/FormFieldElement";
 
 export interface SelectElementOption {
     value: string;

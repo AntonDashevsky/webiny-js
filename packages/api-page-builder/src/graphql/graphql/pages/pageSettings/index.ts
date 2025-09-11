@@ -1,7 +1,7 @@
-import { createPageSettingsGeneralGraphQL } from "./general.js";
-import { createPageSettingsSeoGraphQL } from "./seo.js";
-import { createPageSettingsSocialGraphQL } from "./social.js";
-import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
+import { createPageSettingsGeneralGraphQL } from "./general";
+import { createPageSettingsSeoGraphQL } from "./seo";
+import { createPageSettingsSocialGraphQL } from "./social";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
 
 export const createPageSettingsGraphQL = (): GraphQLSchemaPlugin[] => {
     return [

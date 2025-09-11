@@ -1,4 +1,4 @@
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 import { ContextPlugin } from "@webiny/api";
 
 class PubSubTracker {

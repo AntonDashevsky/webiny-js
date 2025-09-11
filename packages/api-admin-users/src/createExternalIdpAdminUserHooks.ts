@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { type AdminUsersContext } from "~/types.js";
+import type { AdminUsersContext } from "~/types";
 
 export const createExternalIdpAdminUserHooks = (context: AdminUsersContext) => {
     const { security, adminUsers } = context;

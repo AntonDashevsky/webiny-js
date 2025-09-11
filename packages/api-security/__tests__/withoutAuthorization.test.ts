@@ -1,5 +1,5 @@
 import { createSecurity } from "~/createSecurity";
-import { Security, SecurityConfig, SecurityStorageOperations } from "~/types";
+import type { Security, SecurityConfig, SecurityStorageOperations } from "~/types";
 
 const fullPermissions = {
     name: "*"

@@ -1,17 +1,9 @@
-export { Admin } from "./Admin.js";
-export type { AdminProps } from "./Admin.js";
+export { Admin } from "./Admin";
+export type { AdminProps } from "./Admin";
 export {
     useApp,
     useWcp,
-    useUserMenuItem,
-    useUserMenu,
-    useMenuItem,
-    useNavigation,
     useTags,
-    AddLogo,
-    AddMenu,
-    AddRoute,
-    AddUserMenuItem,
     Dashboard,
     DashboardRenderer,
     Layout,
@@ -27,22 +19,19 @@ export {
     CompositionScope,
     Plugins,
     Plugin,
+    AdminConfig,
     makeComposable,
     makeDecoratable,
     createComponentPlugin,
     createProviderPlugin,
     createDecorator,
     createProvider,
-    MenuItem,
-    MenuItemRenderer,
-    MenuItems,
     Navigation,
     NavigationRenderer,
     Tags,
     UserMenu,
     UserMenuHandle,
     UserMenuHandleRenderer,
-    UserMenuItems,
     UserMenuItem,
     UserMenuItemRenderer,
     AddGraphQLQuerySelection
@@ -53,14 +42,7 @@ export type {
     Decorator,
     ProviderProps,
     LayoutProps,
-    LoginScreenProps,
-    MenuContext,
-    MenuData,
-    MenuItemsProps,
-    MenuProps,
-    UserMenuItemsProps,
-    UserMenuItemProps,
-    UserMenuItemData
+    LoginScreenProps
 } from "@webiny/app-admin";
 
 export { HasPermission, useSecurity, usePermission } from "@webiny/app-security";
@@ -68,4 +50,11 @@ export { HasPermission, useSecurity, usePermission } from "@webiny/app-security"
 export { useTenancy } from "@webiny/app-tenancy";
 export type { Tenant } from "@webiny/app-tenancy";
 
-export * from "./apolloClientFactory.js";
+export {
+    IsTenant,
+    IsRootTenant,
+    IsNotRootTenant,
+    useCurrentTenant
+} from "@webiny/app-tenant-manager";
+
+export * from "./apolloClientFactory";

@@ -1,17 +1,17 @@
 import React from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import { type PbEditorElement, type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { ContentWrapper } from "../components/StyledComponents.js";
-import Accordion from "../components/Accordion.js";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { IconButton } from "@webiny/ui/Button";
+import { ContentWrapper } from "../components/StyledComponents";
+import Accordion from "../components/Accordion";
 import { ReactComponent as AlignTextLeftIcon } from "./icons/format_align_left.svg";
 import { ReactComponent as AlignTextCenterIcon } from "./icons/format_align_center.svg";
 import { ReactComponent as AlignTextRightIcon } from "./icons/format_align_right.svg";
 import { ReactComponent as AlignTextJustifyIcon } from "./icons/format_align_justify.svg";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
 
 const classes = {
     activeIcon: css({

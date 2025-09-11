@@ -1,4 +1,4 @@
-import { IVersionedPackage } from "./types";
+import type { IVersionedPackage } from "./types";
 import execa from "execa";
 
 export interface IUpPackagesParamsOptions {

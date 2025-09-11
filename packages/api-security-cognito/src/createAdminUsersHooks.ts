@@ -1,11 +1,10 @@
 import { ContextPlugin } from "@webiny/api";
-import { type AdminUsersContext } from "@webiny/api-admin-users/types.js";
-import { type PermissionsTenantLink, type PermissionsTenantLinkTeam } from "@webiny/api-security/types.js";
+import type { AdminUsersContext } from "@webiny/api-admin-users/types";
+import type { PermissionsTenantLink, PermissionsTenantLinkTeam } from "@webiny/api-security/types";
 
 /**
  * Package deep-equal does not have types.
  */
-// @ts-expect-error
 import deepEqual from "deep-equal";
 
 export const createAdminUsersHooks = () => {

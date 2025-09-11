@@ -1,18 +1,30 @@
-import { type IGetEntriesByIds } from "../../abstractions/index.js";
-import {
-    type CmsEntryStorageOperations,
-    type CmsEntryStorageOperationsGetByIdsParams,
-    type CmsModel
-} from "~/types/index.js";
+import type { IGetEntriesByIds } from "../../abstractions";
+import type {
+    CmsEntryStorageOperations,
+    CmsEntryStorageOperationsGetByIdsParams,
+    CmsModel
+} from "~/types";
+import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 export class GetEntriesByIds implements IGetEntriesByIds {
-    private operation: CmsEntryStorageOperations["getByIds"];
+    private readonly operation: CmsEntryStorageOperations["getByIds"];
+    private readonly transform: ITransformEntryCallable;
 
-    constructor(operation: CmsEntryStorageOperations["getByIds"]) {
+    public constructor(
+        operation: CmsEntryStorageOperations["getByIds"],
+        transform: ITransformEntryCallable
+    ) {
         this.operation = operation;
+        this.transform = transform;
     }
 
-    async execute(model: CmsModel, params: CmsEntryStorageOperationsGetByIdsParams) {
-        return await this.operation(model, params);
+    public async execute(model: CmsModel, params: CmsEntryStorageOperationsGetByIdsParams) {
+        const result = await this.operation(model, params);
+
+        return await Promise.all(
+            result.map(entry => {
+                return this.transform(model, entry);
+            })
+        );
     }
 }

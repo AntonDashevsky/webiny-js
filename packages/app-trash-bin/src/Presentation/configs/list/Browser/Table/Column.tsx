@@ -1,6 +1,6 @@
 import React from "react";
 import { AcoConfig, type TableColumnConfig as ColumnConfig } from "@webiny/app-aco";
-import { type TrashBinItemDTO } from "~/Domain/index.js";
+import type { TrashBinTableRow } from "~/Domain";
 
 const { Table } = AcoConfig;
 
@@ -17,6 +17,6 @@ const BaseColumn = (props: ColumnProps) => {
 };
 
 export const Column = Object.assign(BaseColumn, {
-    useTableRow: Table.Column.createUseTableRow<TrashBinItemDTO>(),
+    useTableRow: Table.Column.createUseTableRow<TrashBinTableRow>(),
     isFolderRow: Table.Column.isFolderRow
 });

@@ -1,13 +1,14 @@
 import { makeAutoObservable } from "mobx";
-import { type ITrashBinItemMapper, type TrashBinItem } from "~/Domain/index.js";
-import { type ISortingRepository, MetaMapper, SortingMapper } from "@webiny/app-utils";
-import {
-    TrashBinItemMapper,
-    type ITrashBinItemsRepository,
-    type ISelectedItemsRepository,
-    type ISearchRepository
-} from "~/Domain/Repositories/index.js";
-import { LoadingActions } from "~/types.js";
+import type { ITrashBinItemMapper, TrashBinItem } from "~/Domain";
+import type { ISortingRepository } from "@webiny/app-utils";
+import { MetaMapper, SortingMapper } from "@webiny/app-utils";
+import type {
+    ITrashBinItemsRepository,
+    ISelectedItemsRepository,
+    ISearchRepository
+} from "~/Domain/Repositories";
+import { TrashBinItemMapper } from "~/Domain/Repositories";
+import { LoadingActions } from "~/types";
 
 export class TrashBinPresenter {
     private itemsRepository: ITrashBinItemsRepository;
@@ -38,9 +39,9 @@ export class TrashBinPresenter {
 
     get vm() {
         return {
-            items: this.mapItemsToDTOs(this.itemsRepository.getItems()),
-            restoredItems: this.mapItemsToDTOs(this.itemsRepository.getRestoredItems()),
-            selectedItems: this.mapItemsToDTOs(this.selectedRepository.getSelectedItems()),
+            items: this.mapItemsToDto(this.itemsRepository.getItems()),
+            restoredItems: this.mapItemsToDto(this.itemsRepository.getRestoredItems()),
+            selectedItems: this.mapItemsToDto(this.selectedRepository.getSelectedItems()),
             allowSelectAll: this.getAllowSelectAll(),
             isSelectedAll: this.selectedRepository.getSelectedAllItems(),
             meta: MetaMapper.toDto(this.itemsRepository.getMeta()),
@@ -55,8 +56,10 @@ export class TrashBinPresenter {
         };
     }
 
-    private mapItemsToDTOs(items: TrashBinItem[]) {
-        return items.map(item => this.itemMapper.toDTO(item));
+    private mapItemsToDto(items: TrashBinItem[]) {
+        return items.map(item => {
+            return this.itemMapper.toDTO(item);
+        });
     }
 
     private getIsEmptyView() {

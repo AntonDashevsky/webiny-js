@@ -1,8 +1,8 @@
-import { createGraphQLSchema } from "~/graphql/schema.js";
+import { createGraphQLSchema } from "~/graphql/schema";
 import { ContextPlugin } from "@webiny/api";
-import { type Context } from "~/types.js";
-import { createRecordLockingCrud } from "~/crud/crud.js";
-import { createLockingModel } from "~/crud/model.js";
+import type { Context } from "~/types";
+import { createRecordLockingCrud } from "~/crud/crud";
+import { createLockingModel } from "~/crud/model";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
 
 export interface ICreateContextPluginParams {

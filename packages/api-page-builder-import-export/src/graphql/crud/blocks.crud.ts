@@ -1,21 +1,21 @@
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import { ContextPlugin } from "@webiny/api";
-import {
-    ImportExportTaskStatus,
-    type BlocksImportExportCrud,
-    type PbImportExportContext,
-    type OnBlocksBeforeExportTopicParams,
-    type OnBlocksAfterExportTopicParams,
-    type OnBlocksBeforeImportTopicParams,
-    type OnBlocksAfterImportTopicParams
-} from "~/types.js";
-import { invokeHandlerClient } from "~/client.js";
-import { type Payload as CreateHandlerPayload } from "~/import/create/index.js";
-import { initialStats } from "~/import/utils/index.js";
-import { type Payload as ExportBlocksProcessHandlerPayload } from "~/export/process/index.js";
+import type {
+    BlocksImportExportCrud,
+    PbImportExportContext,
+    OnBlocksBeforeExportTopicParams,
+    OnBlocksAfterExportTopicParams,
+    OnBlocksBeforeImportTopicParams,
+    OnBlocksAfterImportTopicParams
+} from "~/types";
+import { ImportExportTaskStatus } from "~/types";
+import { invokeHandlerClient } from "~/client";
+import type { Payload as CreateHandlerPayload } from "~/import/create";
+import { initialStats } from "~/import/utils";
+import type { Payload as ExportBlocksProcessHandlerPayload } from "~/export/process";
 import { zeroPad } from "@webiny/utils";
-import { PageBlocksPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PageBlocksPermissions.js";
+import { PageBlocksPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PageBlocksPermissions";
 
 const EXPORT_BLOCKS_FOLDER_KEY = "WEBINY_PB_EXPORT_BLOCK";
 const EXPORT_BLOCKS_PROCESS_HANDLER = process.env.EXPORT_PROCESS_HANDLER as string;

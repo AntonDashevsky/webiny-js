@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
-import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { usePagesPermissions } from "~/hooks/permissions";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
 
-import { NewRevisionFromCurrent, type NewRevisionFromCurrentProps } from "./NewRevisionFromCurrent.js";
+import type { NewRevisionFromCurrentProps } from "./NewRevisionFromCurrent";
+import { NewRevisionFromCurrent } from "./NewRevisionFromCurrent";
 
 export const SecureNewRevisionFromCurrent = (props: NewRevisionFromCurrentProps) => {
     const { page } = props;

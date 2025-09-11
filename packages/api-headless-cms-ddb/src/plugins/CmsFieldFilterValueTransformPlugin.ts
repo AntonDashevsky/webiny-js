@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type CmsFieldFilterValueTransformPlugin as CmsFieldFilterValueTransformPluginInterface } from "~/types.js";
+import type { CmsFieldFilterValueTransformPlugin as CmsFieldFilterValueTransformPluginInterface } from "~/types";
 
 type CmsFieldFilterValueTransformPluginParams = Omit<
     CmsFieldFilterValueTransformPluginInterface,

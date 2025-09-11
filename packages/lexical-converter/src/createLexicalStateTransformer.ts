@@ -1,15 +1,9 @@
-import {
-    type CreateEditorArgs,
-    type LexicalEditor,
-    type SerializedEditorState,
-    $getRoot,
-    $createNodeSelection,
-    $isElementNode,
-    type LexicalNode
-} from "lexical";
+import type { CreateEditorArgs, LexicalEditor, SerializedEditorState, LexicalNode } from "lexical";
+import { $getRoot, $createNodeSelection, $isElementNode } from "lexical";
 import { $generateHtmlFromNodes } from "@lexical/html";
 import { createHeadlessEditor } from "@lexical/headless";
-import { allNodes } from "@webiny/lexical-nodes";
+import { allNodes, prepareLexicalState } from "@webiny/lexical-nodes";
+import { postProcessHtml } from "./postProcessHtml";
 
 interface LexicalStateTransformerConfig {
     editorConfig?: Pick<CreateEditorArgs, "nodes" | "theme">;
@@ -28,7 +22,7 @@ class LexicalStateTransformer {
     }
 
     public flatten(state: string | SerializedEditorState) {
-        const editorState = this.editor.parseEditorState(state);
+        const editorState = this.editor.parseEditorState(prepareLexicalState(state));
         this.editor.setEditorState(editorState);
 
         let flattenedNodes: FlatStateWithHTML = [];
@@ -48,7 +42,7 @@ class LexicalStateTransformer {
 
                 return {
                     node: childNode,
-                    html
+                    html: postProcessHtml(html)
                 };
             });
         });
@@ -57,7 +51,8 @@ class LexicalStateTransformer {
     }
 
     public toHtml(state: string | SerializedEditorState) {
-        const editorState = this.editor.parseEditorState(state);
+        const preparedState = prepareLexicalState(state);
+        const editorState = this.editor.parseEditorState(preparedState);
         this.editor.setEditorState(editorState);
 
         let html = "";
@@ -66,7 +61,7 @@ class LexicalStateTransformer {
             html = $generateHtmlFromNodes(this.editor);
         });
 
-        return html;
+        return postProcessHtml(html);
     }
 
     private getNodeDescendants(node: LexicalNode): LexicalNode[] {

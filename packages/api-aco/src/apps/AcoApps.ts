@@ -1,9 +1,9 @@
 import WebinyError from "@webiny/error";
-import { AcoApp } from "./AcoApp.js";
-import { AcoAppModifierPlugin } from "~/plugins/index.js";
-import { AcoContext, IAcoApp, IAcoAppParams, IAcoApps, IAcoAppsOptions } from "~/types.js";
+import { AcoApp } from "./AcoApp";
+import { AcoAppModifierPlugin } from "~/plugins";
+import type { AcoContext, IAcoApp, IAcoAppParams, IAcoApps, IAcoAppsOptions } from "~/types";
 import { CmsModelPlugin } from "@webiny/api-headless-cms";
-import { createSchema } from "~/record/record.gql.js";
+import { createSchema } from "~/record/record.gql";
 
 export class AcoApps implements IAcoApps {
     private readonly apps: Map<string, IAcoApp> = new Map();
@@ -15,10 +15,10 @@ export class AcoApps implements IAcoApps {
         this.options = options;
     }
 
-    public get(name: string): IAcoApp {
+    public get<C extends AcoContext = AcoContext>(name: string): IAcoApp<C> {
         const app = this.apps.get(name);
         if (app) {
-            return app;
+            return app as IAcoApp<C>;
         }
         throw new WebinyError(`App "${name}" is not registered.`, "APP_NOT_REGISTERED", {
             name,

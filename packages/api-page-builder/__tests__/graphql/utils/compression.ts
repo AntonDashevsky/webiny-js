@@ -1,5 +1,5 @@
 import { compress as gzip, decompress as ungzip } from "@webiny/utils/compression/gzip";
-import { PageBlock } from "~/types";
+import type { PageBlock } from "~/types";
 
 const GZIP = "gzip";
 const TO_STORAGE_ENCODING = "base64";
@@ -29,7 +29,7 @@ export const decompress = async (pageBlock: PageBlock) => {
             ...pageBlock,
             content: JSON.parse(value)
         };
-    } catch (ex) {
+    } catch {
         return { ...pageBlock, content: null };
     }
 };

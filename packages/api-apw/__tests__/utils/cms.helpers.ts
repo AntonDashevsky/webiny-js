@@ -1,7 +1,7 @@
 import { setupDefaultWorkflow } from "./helpers";
 import { ApwWorkflowApplications } from "~/types";
-import { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types";
-import { useGraphQlHandler } from "~tests/utils/useGraphQlHandler";
+import type { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types";
+import type { useGraphQlHandler } from "~tests/utils/useGraphQlHandler";
 
 const createGroupData = () => {
     return {

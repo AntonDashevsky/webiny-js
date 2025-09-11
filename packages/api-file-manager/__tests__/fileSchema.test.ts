@@ -1,7 +1,7 @@
 import prettier from "prettier";
 import { useHandler } from "./utils/useHandler";
 import { createFilesTypeDefs } from "~/graphql/createFilesTypeDefs";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import { createFieldTypePluginRecords } from "@webiny/api-headless-cms/graphql/schema/createFieldTypePluginRecords";
 import fileSdlSnapshot from "./mocks/file.sdl";
 import { createFileModelModifier } from "~/modelModifier/CmsModelModifier";

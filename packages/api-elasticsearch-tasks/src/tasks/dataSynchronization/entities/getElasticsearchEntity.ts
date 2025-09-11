@@ -1,8 +1,8 @@
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { type NonEmptyArray } from "@webiny/api/types.js";
-import { type IRegistryItem } from "@webiny/db";
-import { EntityType } from "./getElasticsearchEntityType.js";
-import { type Context } from "~/types.js";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { NonEmptyArray } from "@webiny/api/types";
+import type { IRegistryItem } from "@webiny/db";
+import { EntityType } from "./getElasticsearchEntityType";
+import type { Context } from "~/types";
 
 export interface IGetElasticsearchEntityParams {
     type: EntityType | unknown;
@@ -28,8 +28,12 @@ export const getElasticsearchEntity = (params: IGetElasticsearchEntityParams) =>
                 return getByPredicate(createPredicate("cms", ["es"]));
             case EntityType.PAGE_BUILDER:
                 return getByPredicate(createPredicate("pb", ["es"]));
+            case EntityType.FORM_BUILDER:
+                return getByPredicate(createPredicate("fb", ["es"]));
+            case EntityType.FORM_BUILDER_SUBMISSION:
+                return getByPredicate(createPredicate("fb", ["es", "form-submission"]));
         }
-    } catch (ex) {}
+    } catch {}
     throw new Error(`Unknown entity type "${type}".`);
 };
 

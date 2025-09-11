@@ -1,4 +1,5 @@
-import { middleware, MiddlewareCallable as BaseMiddlewareCallable } from "~/utils/middleware";
+import type { MiddlewareCallable as BaseMiddlewareCallable } from "~/utils/middleware";
+import { middleware } from "~/utils/middleware";
 
 interface MiddlewareCallable extends BaseMiddlewareCallable {
     calls: number;

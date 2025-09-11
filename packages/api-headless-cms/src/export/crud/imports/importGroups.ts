@@ -1,5 +1,6 @@
-import { type CmsContext } from "~/types/index.js";
-import { type CmsGroupImportResult, CmsImportAction, type ValidCmsGroupResult } from "~/export/types.js";
+import type { CmsContext } from "~/types";
+import type { CmsGroupImportResult, ValidCmsGroupResult } from "~/export/types";
+import { CmsImportAction } from "~/export/types";
 
 interface Params {
     context: CmsContext;

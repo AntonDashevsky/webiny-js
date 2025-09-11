@@ -1,40 +1,11 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { CloneContentModelDialog } from "./CloneContentModelDialog.js";
-import NewContentModelDialog from "./NewContentModelDialog.js";
-import ContentModelsDataList from "./ContentModelsDataList.js";
-import { css } from "emotion";
+import { CloneContentModelDialog } from "./CloneContentModelDialog";
+import NewContentModelDialog from "./NewContentModelDialog";
+import ContentModelsDataList from "./ContentModelsDataList";
 import { useSecurity } from "@webiny/app-security";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { type CmsModel, type CmsSecurityPermission } from "~/types.js";
-import { ImportContentModelsDialog } from "./importing/ImportContentModelsDialog.js";
-
-const grid = css({
-    "&.mdc-layout-grid": {
-        padding: 0,
-        backgroundColor: "var(--mdc-theme-background)",
-        ">.mdc-layout-grid__inner": {
-            gridGap: 0
-        }
-    }
-});
-
-const centeredContent = css({
-    backgroundColor: "var(--mdc-theme-surface)",
-    ">.webiny-data-list": {
-        display: "flex",
-        flexDirection: "column",
-        height: "calc(100vh - 70px)",
-        ".mdc-deprecated-list": {
-            overflow: "auto"
-        }
-    },
-    ">.mdc-deprecated-list": {
-        display: "flex",
-        flexDirection: "column",
-        maxHeight: "calc(100vh - 70px)",
-        overflow: "auto"
-    }
-});
+import type { CmsModel, CmsSecurityPermission } from "~/types";
+import { ImportContentModelsDialog } from "./importing/ImportContentModelsDialog";
+import { Grid } from "@webiny/admin-ui";
 
 const ContentModels = () => {
     const [newContentModelDialogOpened, openNewContentModelDialog] = React.useState(false);
@@ -77,7 +48,19 @@ const ContentModels = () => {
     }, []);
 
     return (
-        <>
+        <div className={"wby-container wby-h-main-content"}>
+            <Grid className="wby-h-full wby-pt-lg">
+                <Grid.Column span={10} offset={1}>
+                    <div className="wby-h-full wby-border-sm wby-border-b-none wby-border-neutral-dimmed-darker wby-rounded-t-3xl">
+                        <ContentModelsDataList
+                            showImportModelModal={showImportModelModal}
+                            canCreate={canCreate}
+                            onCreate={onCreate}
+                            onClone={onClone}
+                        />
+                    </div>
+                </Grid.Column>
+            </Grid>
             <NewContentModelDialog open={newContentModelDialogOpened} onClose={onClose} />
             {cloneContentModel && (
                 <CloneContentModelDialog
@@ -87,19 +70,7 @@ const ContentModels = () => {
                 />
             )}
             {importModels && <ImportContentModelsDialog onClose={closeImportModelModal} />}
-            <Grid className={grid}>
-                <Cell span={3} />
-                <Cell span={6} className={centeredContent}>
-                    <ContentModelsDataList
-                        showImportModelModal={showImportModelModal}
-                        canCreate={canCreate}
-                        onCreate={onCreate}
-                        onClone={onClone}
-                    />
-                </Cell>
-                <Cell span={3} />
-            </Grid>
-        </>
+        </div>
     );
 };
 

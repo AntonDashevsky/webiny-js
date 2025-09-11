@@ -1,11 +1,15 @@
-import { type ApolloClient } from "apollo-client";
-import { type ITrashBinListGateway } from "@webiny/app-trash-bin";
-import {
-    type CmsEntriesListQueryResponse,
-    type CmsEntriesListQueryVariables,
-    createListQuery
+import type { ApolloClient } from "apollo-client";
+import type { ITrashBinListGateway } from "@webiny/app-trash-bin";
+import type {
+    CmsEntriesListQueryResponse,
+    CmsEntriesListQueryVariables
 } from "@webiny/app-headless-cms-common";
-import { type CmsContentEntry, type CmsMetaResponse, type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import { createListQuery } from "@webiny/app-headless-cms-common";
+import type {
+    CmsContentEntry,
+    CmsMetaResponse,
+    CmsModel
+} from "@webiny/app-headless-cms-common/types";
 
 export class TrashBinListGraphQLGateway implements ITrashBinListGateway<CmsContentEntry> {
     private client: ApolloClient<any>;

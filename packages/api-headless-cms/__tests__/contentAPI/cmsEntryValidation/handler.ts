@@ -1,5 +1,6 @@
-import { GraphQLHandlerParams, useGraphQLHandler } from "~tests/testHelpers/useGraphQLHandler";
-import { CmsApiModel } from "~/plugins";
+import type { GraphQLHandlerParams } from "~tests/testHelpers/useGraphQLHandler";
+import { useGraphQLHandler } from "~tests/testHelpers/useGraphQLHandler";
+import type { CmsApiModel } from "~/plugins";
 import {
     validateMutation,
     createMutation,

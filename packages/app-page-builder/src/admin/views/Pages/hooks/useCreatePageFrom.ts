@@ -1,13 +1,13 @@
 import { useCallback, useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "@webiny/app-admin";
-import { CREATE_PAGE } from "~/admin/graphql/pages.js";
-import * as GQLCache from "~/admin/views/Pages/cache.js";
+import { CREATE_PAGE } from "~/admin/graphql/pages";
+import * as GQLCache from "~/admin/views/Pages/cache";
 
-import { type PbPageDataItem, type PbPageRevision } from "~/types.js";
+import type { PbPageRevision, PbPageSearchRecord } from "~/types";
 
 interface UseEditPageParams {
-    page: PbPageDataItem;
+    page: PbPageSearchRecord;
     onSuccess?: (data: PbPageRevision) => void;
 }
 

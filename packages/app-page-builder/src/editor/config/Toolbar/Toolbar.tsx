@@ -1,16 +1,15 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Element as BaseElement, type ElementProps as BaseElementProps } from "../Element.js";
-import { Layout } from "./Layout.js";
-import {
-    Elements as BaseElements,
-    type ElementsProps as BaseElementsProps
-} from "~/editor/config/Elements.js";
-import { DrawersProvider } from "./Drawers/DrawersProvider.js";
-import { DrawerTrigger } from "./Drawers/DrawerTrigger.js";
-import { Drawer } from "./Drawers/Drawer.js";
-import { IconButton } from "./Drawers/IconButton.js";
-import { createGetId } from "~/editor/config/createGetId.js";
+import type { ElementProps as BaseElementProps } from "../Element";
+import { Element as BaseElement } from "../Element";
+import { Layout } from "./Layout";
+import type { ElementsProps as BaseElementsProps } from "~/editor/config/Elements";
+import { Elements as BaseElements } from "~/editor/config/Elements";
+import { DrawersProvider } from "./Drawers/DrawersProvider";
+import { DrawerTrigger } from "./Drawers/DrawerTrigger";
+import { Drawer } from "./Drawers/Drawer";
+import { IconButton } from "./Drawers/IconButton";
+import { createGetId } from "~/editor/config/createGetId";
 
 const SCOPE = "toolbar";
 

@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { List } from "@webiny/ui/List/index.js";
-import {
-    type ApwContentReviewStatus,
-    type ApwContentReviewStep,
-    ApwContentReviewStepStatus,
-    ApwWorkflowStepTypes,
-    type CreatedBy
-} from "~/types.js";
-import { formatDate } from "~/utils.js";
-import { PanelBox } from "./Styled.js";
-import { ContentReviewStep } from "./ContentReviewStep/index.js";
-import { ChangeContentStatus } from "./ChangeContentStatus/index.js";
+import { List } from "@webiny/ui/List";
+import type { ApwContentReviewStatus, ApwContentReviewStep, CreatedBy } from "~/types";
+import { ApwContentReviewStepStatus, ApwWorkflowStepTypes } from "~/types";
+import { formatDate } from "~/utils";
+import { PanelBox } from "./Styled";
+import { ContentReviewStep } from "./ContentReviewStep";
+import { ChangeContentStatus } from "./ChangeContentStatus";
 
 const ReviewRequestedStepData = {
     id: "123",

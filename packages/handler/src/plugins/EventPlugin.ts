@@ -6,8 +6,8 @@
  * Note that only one EventPlugin can be defined per fastify initialisation.
  * If more is needed, check ~/fastify.ts and implement that possibility.
  */
-import { Plugin } from "@webiny/plugins/Plugin.js";
-import { type Request, type Context as BaseContext, type Reply } from "~/types.js";
+import { Plugin } from "@webiny/plugins/Plugin";
+import type { Request, Context as BaseContext, Reply } from "~/types";
 
 export interface EventPluginCallableParams<Payload, Context extends BaseContext> {
     context: Context;

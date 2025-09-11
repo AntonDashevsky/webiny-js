@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type SecurityTeam } from "~/types.js";
+import type { SecurityTeam } from "~/types";
 
 export interface SecurityTeamPluginParams {
     id: string;

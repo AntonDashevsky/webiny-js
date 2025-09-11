@@ -1,15 +1,15 @@
-import {
-    type CmsIdentity,
-    type CmsModel,
-    type CmsModelField,
-    type CmsModelFieldSettings
-} from "@webiny/app-headless-cms-common/types/index.js";
-import type { FolderPermission } from "@webiny/shared-aco/types.js";
+import type {
+    CmsIdentity,
+    CmsModel,
+    CmsModelField,
+    CmsModelFieldSettings
+} from "@webiny/app-headless-cms-common/types";
+import type { FolderPermission } from "@webiny/shared-aco/types";
 
-export type { CmsIdentity } from "@webiny/app-headless-cms-common/types/index.js";
-export * from "@webiny/shared-aco/flp/flp.types.js";
-export * from "~/graphql/records/types.js";
-export * from "~/table.types.js";
+export type { CmsIdentity } from "@webiny/app-headless-cms-common/types";
+export * from "@webiny/shared-aco/flp/flp.types";
+export * from "~/graphql/records/types";
+export * from "~/table.types";
 
 export interface FolderLevelPermissionsTarget<TMeta = Record<string, any>> {
     id: string;

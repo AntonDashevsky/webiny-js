@@ -1,18 +1,19 @@
 import WebinyError from "@webiny/error";
-import {
-    type CmsModel,
-    type CmsModelStorageOperations,
-    type CmsModelStorageOperationsCreateParams,
-    type CmsModelStorageOperationsDeleteParams,
-    type CmsModelStorageOperationsGetParams,
-    type CmsModelStorageOperationsListParams,
-    type CmsModelStorageOperationsUpdateParams
-} from "@webiny/api-headless-cms/types/index.js";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { configurations } from "~/configurations.js";
-import { type Client } from "@elastic/elasticsearch";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
-import { queryAllClean, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
+import type {
+    CmsModel,
+    CmsModelStorageOperations,
+    CmsModelStorageOperationsCreateParams,
+    CmsModelStorageOperationsDeleteParams,
+    CmsModelStorageOperationsGetParams,
+    CmsModelStorageOperationsListParams,
+    CmsModelStorageOperationsUpdateParams
+} from "@webiny/api-headless-cms/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import { configurations } from "~/configurations";
+import type { Client } from "@elastic/elasticsearch";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAllClean } from "@webiny/db-dynamodb/utils/query";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeysParams {

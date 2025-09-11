@@ -1,3 +1,3 @@
-import { type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types";
 
 export type FolderModelDto = CmsModel;

@@ -1,4 +1,5 @@
-import { type TrashBinIdentity, type TrashBinLocation } from "~/types.js";
+import type { TrashBinIdentity, TrashBinLocation } from "~/types";
+import type { TableRow } from "@webiny/app-aco";
 
 export interface TrashBinItemDTO {
     id: string;
@@ -9,6 +10,8 @@ export interface TrashBinItemDTO {
     location: TrashBinLocation;
     [key: string]: any;
 }
+
+export type TrashBinTableRow = TableRow<TrashBinItemDTO>;
 
 export class TrashBinItem {
     public id: string;

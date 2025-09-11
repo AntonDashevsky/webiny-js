@@ -1,11 +1,11 @@
-import { type Validator } from "@webiny/validation/types.js";
-import { type CmsModelFieldValidator } from "~/types/validation.js";
-import {
-    type CmsDynamicZoneTemplate,
-    type CmsEditorFieldPredefinedValues,
-    type CmsModelFieldRendererPlugin
-} from "~/types/index.js";
-import { type CmsIdentity } from "~/types/shared.js";
+import type { Validator } from "@webiny/validation/types";
+import type { CmsModelFieldValidator } from "~/types/validation";
+import type {
+    CmsDynamicZoneTemplate,
+    CmsEditorFieldPredefinedValues,
+    CmsModelFieldRendererPlugin
+} from "~/types/index";
+import type { CmsIdentity } from "~/types/shared";
 
 /**
  * @deprecated Use `CmsModelField` instead.

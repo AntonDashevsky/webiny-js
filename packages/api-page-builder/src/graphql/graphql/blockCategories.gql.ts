@@ -1,6 +1,6 @@
-import { Response, ErrorResponse } from "@webiny/handler-graphql/responses.js";
-import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
-import { type PbContext } from "../../types.js";
+import { Response, ErrorResponse } from "@webiny/handler-graphql/responses";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import type { PbContext } from "../../types";
 
 const resolve = async (fn: () => Promise<any>): Promise<any> => {
     try {

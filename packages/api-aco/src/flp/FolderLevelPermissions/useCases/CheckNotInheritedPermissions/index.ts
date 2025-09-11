@@ -1,2 +1,2 @@
-export * from "./ICheckNotInheritedPermissions.js";
-export * from "./CheckNotInheritedPermissions.js";
+export * from "./ICheckNotInheritedPermissions";
+export * from "./CheckNotInheritedPermissions";

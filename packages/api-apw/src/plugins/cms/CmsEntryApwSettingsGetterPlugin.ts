@@ -1,7 +1,7 @@
-import { ContentApwSettingsPlugin } from "~/ContentApwSettingsPlugin.js";
-import { type CmsEntry } from "@webiny/api-headless-cms/types/index.js";
-import { ApwContentTypes } from "~/types.js";
-import set from "lodash/set.js";
+import { ContentApwSettingsPlugin } from "~/ContentApwSettingsPlugin";
+import type { CmsEntry } from "@webiny/api-headless-cms/types";
+import { ApwContentTypes } from "~/types";
+import set from "lodash/set";
 
 export class CmsEntryApwSettingsGetterPlugin extends ContentApwSettingsPlugin {
     public override canUse(type: ApwContentTypes): boolean {

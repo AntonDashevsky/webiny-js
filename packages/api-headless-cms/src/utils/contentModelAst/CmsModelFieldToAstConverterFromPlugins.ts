@@ -1,5 +1,5 @@
-import { type CmsModelField, type CmsModelFieldToGraphQLPlugin, type ICmsModelFieldToAst } from "~/types/index.js";
-import { CmsModelFieldToAstFromPlugin } from "./CmsModelFieldToAstFromPlugin.js";
+import type { CmsModelField, CmsModelFieldToGraphQLPlugin, ICmsModelFieldToAst } from "~/types";
+import { CmsModelFieldToAstFromPlugin } from "./CmsModelFieldToAstFromPlugin";
 
 type FieldToAstConverters = Record<string, ICmsModelFieldToAst>;
 

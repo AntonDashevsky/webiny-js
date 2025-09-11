@@ -1,6 +1,6 @@
-import { i18n } from "@webiny/app/i18n/index.js";
-import { type PbPageDataStatus } from "~/types.js";
-export { ROOT_FOLDER } from "@webiny/app-aco/constants.js";
+import { i18n } from "@webiny/app/i18n";
+import type { PbPageDataStatus } from "~/types";
+export { ROOT_FOLDER } from "@webiny/app-aco/constants";
 
 const t = i18n.ns("app-page-builder/admin/pages/statuses");
 

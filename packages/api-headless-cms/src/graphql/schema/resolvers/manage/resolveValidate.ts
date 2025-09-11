@@ -1,5 +1,5 @@
-import { Response, ErrorResponse } from "@webiny/handler-graphql/responses.js";
-import { type CmsEntryResolverFactory as ResolverFactory, type UpdateCmsEntryInput } from "~/types/index.js";
+import { Response, ErrorResponse } from "@webiny/handler-graphql/responses";
+import type { CmsEntryResolverFactory as ResolverFactory, UpdateCmsEntryInput } from "~/types";
 
 interface ResolveUpdateArgs {
     revision?: string;

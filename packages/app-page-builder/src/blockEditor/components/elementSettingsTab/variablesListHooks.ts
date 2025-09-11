@@ -1,6 +1,6 @@
-import { type PbEditorElement } from "~/types.js";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
-import { moveInPlace } from "~/hooks/useSortableList.js";
+import type { PbEditorElement } from "~/types";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+import { moveInPlace } from "~/hooks/useSortableList";
 
 interface UseMoveVariable {
     move: (current: number, next: number) => void;

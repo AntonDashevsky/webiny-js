@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useRef } from "react";
-import { type CallbackParams, useButtons, useDialogWithReport, Worker } from "@webiny/app-admin";
+import type { CallbackParams } from "@webiny/app-admin";
+import { useButtons, useDialogWithReport, Worker } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { useTrashBin } from "~/Presentation/hooks/index.js";
-import { type TrashBinItemDTO } from "~/Domain/index.js";
-import { type TrashBinBulkActionsParams } from "~/types.js";
+import { useTrashBin } from "~/Presentation/hooks";
+import type { TrashBinItemDTO } from "~/Domain";
+import type { TrashBinBulkActionsParams } from "~/types";
 
 export interface BulkActionConfig {
     name: string;
@@ -54,7 +55,7 @@ const useWorker = () => {
     const { current: worker } = useRef(new Worker<TrashBinItemDTO>());
 
     useEffect(() => {
-        worker.items = vm.selectedItems;
+        worker.items = vm.selectedItems.map(item => item.data);
     }, [vm.selectedItems.length]);
 
     // Reset selected items in both repository and Worker

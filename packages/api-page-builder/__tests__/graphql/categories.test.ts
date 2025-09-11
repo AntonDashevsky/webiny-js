@@ -1,7 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 import { defaultIdentity } from "../tenancySecurity";
-import { ErrorOptions } from "@webiny/error";
-import { jest } from "@jest/globals";
+import type { ErrorOptions } from "@webiny/error";
 
 jest.setTimeout(100000);
 

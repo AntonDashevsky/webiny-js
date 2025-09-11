@@ -48,5 +48,8 @@ schema.graphql
 .pnp.*
 lerna.json
 .stormTests
-logs.txt
 packages/tasks/tpl/*
+*storybook.log
+.normalizedFigmaExport.json
+.normalizedPrimitivesFigmaExport.json
+nextjs

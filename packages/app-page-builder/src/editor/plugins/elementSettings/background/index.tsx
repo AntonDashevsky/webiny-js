@@ -1,6 +1,6 @@
 import React from "react";
-import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
-import BackgroundSettings from "./BackgroundSettings.js";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import BackgroundSettings from "./BackgroundSettings";
 
 export default {
     name: "pb-editor-page-element-style-settings-background",

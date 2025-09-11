@@ -1,24 +1,24 @@
 import React from "react";
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
-import { AddTemplateButton } from "./AddTemplate.js";
-import { TemplateIcon } from "./TemplateIcon.js";
-import { TemplateProvider } from "./TemplateProvider.js";
-import {
-    type BindComponentRenderProp,
-    type CmsDynamicZoneTemplate,
-    type CmsModelFieldRendererProps,
-    type CmsModel,
-    type CmsModelField,
-    type CmsDynamicZoneTemplateWithTypename
-} from "~/types.js";
-import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
-import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue.js";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
+import { makeDecoratable, useConfirmationDialog } from "@webiny/app-admin";
+import { Accordion, Tooltip } from "@webiny/admin-ui";
+import { AddTemplateButton } from "./AddTemplate";
+import { TemplateIcon } from "./TemplateIcon";
+import { TemplateProvider } from "./TemplateProvider";
+import type {
+    BindComponentRenderProp,
+    CmsDynamicZoneTemplate,
+    CmsModelFieldRendererProps,
+    CmsModel,
+    CmsModelField,
+    CmsDynamicZoneTemplateWithTypename
+} from "~/types";
+import { Fields } from "~/admin/components/ContentEntryForm/Fields";
+import { ParentFieldProvider } from "~/admin/components/ContentEntryForm/ParentValue";
 import {
     ParentValueIndexProvider,
     ModelFieldProvider
-} from "~/admin/components/ModelFieldProvider/index.js";
-import { makeDecoratable, useConfirmationDialog } from "@webiny/app-admin";
+} from "~/admin/components/ModelFieldProvider";
 
 type GetBind = CmsModelFieldRendererProps["getBind"];
 
@@ -51,25 +51,24 @@ export const SingleValueItemContainer = makeDecoratable(
     (props: SingleValueItemContainerProps) => {
         const { template, actions, children } = props;
         return (
-            <AccordionItem
+            <Accordion.Item
                 title={template.name}
                 description={template.description}
                 icon={<TemplateIcon icon={template.icon} />}
                 open={true}
                 interactive={false}
                 actions={
-                    <AccordionItem.Actions>
+                    <>
                         {actions ?? null}
-                        <AccordionItem.Action
-                            icon={<DeleteIcon />}
+                        <Accordion.Item.Action
+                            icon={<Tooltip trigger={<DeleteIcon />} content={"Delete"} />}
                             onClick={props.onDelete}
-                            tooltip={"Delete"}
                         />
-                    </AccordionItem.Actions>
+                    </>
                 }
             >
                 {children}
-            </AccordionItem>
+            </Accordion.Item>
         );
     }
 );

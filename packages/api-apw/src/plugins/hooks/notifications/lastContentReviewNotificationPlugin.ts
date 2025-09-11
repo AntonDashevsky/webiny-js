@@ -1,5 +1,5 @@
-import { type ApwContentTypes, type ApwContext } from "~/types.js";
-import { ApwContentReviewNotification } from "~/ApwContentReviewNotification.js";
+import type { ApwContentTypes, ApwContext } from "~/types";
+import { ApwContentReviewNotification } from "~/ApwContentReviewNotification";
 
 interface GetLastContentReviewNotificationPluginParams {
     context: ApwContext;

@@ -1,11 +1,11 @@
-import { type CmsFieldTypePlugins, type CmsModel } from "~/types/index.js";
-import { renderListFilterFields } from "~/utils/renderListFilterFields.js";
-import { renderSortEnum } from "~/utils/renderSortEnum.js";
-import { renderGetFilterFields } from "~/utils/renderGetFilterFields.js";
-import { renderInputFields } from "~/utils/renderInputFields.js";
-import { renderFields } from "~/utils/renderFields.js";
-import { type CmsGraphQLSchemaSorterPlugin } from "~/plugins/index.js";
-import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";
+import type { CmsFieldTypePlugins, CmsModel } from "~/types";
+import { renderListFilterFields } from "~/utils/renderListFilterFields";
+import { renderSortEnum } from "~/utils/renderSortEnum";
+import { renderGetFilterFields } from "~/utils/renderGetFilterFields";
+import { renderInputFields } from "~/utils/renderInputFields";
+import { renderFields } from "~/utils/renderFields";
+import type { CmsGraphQLSchemaSorterPlugin } from "~/plugins";
+import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
 
 interface CreateManageSDLParams {
     models: CmsModel[];
@@ -97,6 +97,7 @@ export const createManageSDL: CreateManageSDL = ({
             locked: Boolean
             
             status: String
+            state: CmsEntryState!
             """
             CAUTION: this field is resolved by making an extra query to DB.
             RECOMMENDATION: Use it only with "get" queries (avoid in "list")
@@ -120,6 +121,7 @@ export const createManageSDL: CreateManageSDL = ({
             
             # Set status of the entry.
             status: String
+            state: CmsEntryStateInput
             
             ${onByMetaInputGqlFields}
             

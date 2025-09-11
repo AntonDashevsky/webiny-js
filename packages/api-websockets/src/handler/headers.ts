@@ -1,4 +1,4 @@
-import { type IWebsocketsEventData, type IWebsocketsIncomingEvent } from "~/handler/types.js";
+import type { IWebsocketsEventData, IWebsocketsIncomingEvent } from "~/handler/types";
 
 const getEventBody = (event: IWebsocketsIncomingEvent): IWebsocketsEventData => {
     if (!event.body) {

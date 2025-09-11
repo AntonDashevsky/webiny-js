@@ -9,10 +9,10 @@ import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-
 import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { createRawEventHandler } from "@webiny/handler-aws";
 import { PluginsContainer } from "@webiny/plugins";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
-import { SecurityPermission } from "@webiny/api-security/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { SecurityPermission } from "@webiny/api-security/types";
 
 export interface Params {
     plugins?: PluginCollection | PluginsContainer;

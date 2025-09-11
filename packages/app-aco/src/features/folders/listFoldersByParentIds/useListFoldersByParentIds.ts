@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { autorun } from "mobx";
 import { useApolloClient } from "@apollo/react-hooks";
-import { ListFoldersByParentIdsGqlGateway } from "./ListFoldersByParentIdsGqlGateway.js";
-import { ListFoldersByParentIds } from "./ListFoldersByParentIds.js";
-import { FolderDtoMapper } from "./FolderDto.js";
-import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks/index.js";
-import { type FolderItem } from "~/types.js";
-import { ROOT_FOLDER } from "~/constants.js";
+import { ListFoldersByParentIdsGqlGateway } from "./ListFoldersByParentIdsGqlGateway";
+import { ListFoldersByParentIds } from "./ListFoldersByParentIds";
+import { FolderDtoMapper } from "./FolderDto";
+import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks";
+import type { FolderItem } from "~/types";
+import { ROOT_FOLDER } from "~/constants";
 
 export const useListFoldersByParentIds = () => {
     const client = useApolloClient();
@@ -16,8 +16,10 @@ export const useListFoldersByParentIds = () => {
 
     const [vm, setVm] = useState<{
         folders: FolderItem[];
+        loading: string[];
     }>({
-        folders: []
+        folders: [],
+        loading: []
     });
 
     const {
@@ -56,6 +58,17 @@ export const useListFoldersByParentIds = () => {
             }));
         });
     }, [foldersCache]);
+
+    useEffect(() => {
+        return autorun(() => {
+            const loading = loadingState.getActiveLoadings();
+
+            setVm(vm => ({
+                ...vm,
+                loading
+            }));
+        });
+    }, [loadingState]);
 
     return {
         ...vm,

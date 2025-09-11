@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { UpdateFolderGqlGateway } from "./UpdateFolderGqlGateway.js";
-import { UpdateFolder } from "./UpdateFolder.js";
-import { type UpdateFolderParams } from "./IUpdateFolderUseCase.js";
-import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks/index.js";
+import { UpdateFolderGqlGateway } from "./UpdateFolderGqlGateway";
+import { UpdateFolder } from "./UpdateFolder";
+import type { UpdateFolderParams } from "./IUpdateFolderUseCase";
+import { useFoldersType, useGetFolderGraphQLSelection } from "~/hooks";
 
 export const useUpdateFolder = () => {
     const client = useApolloClient();

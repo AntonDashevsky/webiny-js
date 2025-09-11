@@ -1,4 +1,5 @@
-import { Column, type ColumnConfig } from "./Column.js";
+import type { ColumnConfig } from "./Column";
+import { Column } from "./Column";
 
 export interface TableConfig {
     columns: ColumnConfig[];

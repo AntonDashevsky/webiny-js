@@ -1,4 +1,4 @@
-import { CmsGroup } from "~/types";
+import type { CmsGroup } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 
 describe("content model test", () => {

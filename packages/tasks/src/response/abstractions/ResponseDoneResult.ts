@@ -1,5 +1,5 @@
-import { ITaskResponseDoneResultOutput, TaskResponseStatus } from "~/types.js";
-import { IResponseBaseResult } from "./ResponseBaseResult.js";
+import type { ITaskResponseDoneResultOutput, TaskResponseStatus } from "~/types";
+import type { IResponseBaseResult } from "./ResponseBaseResult";
 
 export interface IResponseDoneParams<
     O extends ITaskResponseDoneResultOutput = ITaskResponseDoneResultOutput

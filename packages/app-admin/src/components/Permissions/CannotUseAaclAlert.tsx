@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert } from "@webiny/ui/Alert/index.js";
+import { Alert } from "@webiny/admin-ui";
 
 export const CannotUseAaclAlert = () => {
     return (

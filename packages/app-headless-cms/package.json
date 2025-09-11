@@ -16,6 +16,7 @@
   "dependencies": {
     "@apollo/react-common": "^3.1.4",
     "@apollo/react-hooks": "^3.1.5",
+    "@emotion/css": "11.10.6",
     "@emotion/react": "11.10.8",
     "@emotion/styled": "11.10.6",
     "@fortawesome/fontawesome-common-types": "^0.3.0",
@@ -25,14 +26,15 @@
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
     "@fortawesome/react-fontawesome": "^0.1.17",
     "@lexical/utils": "0.23.1",
-    "@material-design-icons/svg": "^0.14.13",
     "@svgr/webpack": "^6.1.1",
     "@types/react": "18.2.79",
+    "@webiny/admin-ui": "0.0.0",
     "@webiny/app": "0.0.0",
     "@webiny/app-aco": "0.0.0",
     "@webiny/app-admin": "0.0.0",
     "@webiny/app-graphql-playground": "0.0.0",
     "@webiny/app-headless-cms-common": "0.0.0",
+    "@webiny/app-headless-cms-scheduler": "0.0.0",
     "@webiny/app-i18n": "0.0.0",
     "@webiny/app-plugin-admin-welcome-screen": "0.0.0",
     "@webiny/app-security": "0.0.0",
@@ -41,6 +43,7 @@
     "@webiny/error": "0.0.0",
     "@webiny/feature-flags": "0.0.0",
     "@webiny/form": "0.0.0",
+    "@webiny/icons": "0.0.0",
     "@webiny/lexical-editor": "0.0.0",
     "@webiny/lexical-nodes": "0.0.0",
     "@webiny/lexical-theme": "0.0.0",
@@ -59,8 +62,7 @@
     "classnames": "^2.5.1",
     "dnd-core": "^16.0.1",
     "dot-prop-immutable": "^2.1.1",
-    "emotion": "10.0.27",
-    "graphql": "^15.9.0",
+    "graphql": "^16.11.0",
     "graphql-tag": "^2.12.6",
     "lodash": "^4.17.21",
     "mobx": "^6.9.0",
@@ -75,8 +77,8 @@
     "react-dom": "18.2.0",
     "react-helmet": "^6.1.0",
     "react-hotkeyz": "^1.0.4",
-    "react-virtualized": "^9.22.5",
-    "use-deep-compare-effect": "^1.8.1"
+    "use-deep-compare-effect": "^1.8.1",
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
@@ -84,7 +86,7 @@
     "@webiny/build-tools": "0.0.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "rimraf": "^6.0.1",
-    "typescript": "5.3.3"
+    "typescript": "5.9.2"
   },
   "publishConfig": {
     "access": "public",

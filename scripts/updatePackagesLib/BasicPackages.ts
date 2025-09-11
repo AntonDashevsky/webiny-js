@@ -1,5 +1,5 @@
 import loadJsonFile from "load-json-file";
-import { IBasicPackage, IPackageJson } from "./types";
+import type { IBasicPackage, IPackageJson } from "./types";
 import path from "path";
 import fs from "fs";
 import semver from "semver";

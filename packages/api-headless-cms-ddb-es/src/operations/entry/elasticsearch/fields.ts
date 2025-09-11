@@ -1,18 +1,18 @@
 import WebinyError from "@webiny/error";
-import { type PluginsContainer } from "@webiny/plugins";
-import {
-    type CmsModel,
-    type CmsModelField,
-    type CmsModelFieldToGraphQLPlugin
-} from "@webiny/api-headless-cms/types/index.js";
-import { type CmsModelFieldToElasticsearchPlugin } from "~/types.js";
-import { type ModelFieldParent, type ModelFields } from "./types.js";
-import { CmsElasticsearchModelFieldPlugin } from "~/plugins/index.js";
+import type { PluginsContainer } from "@webiny/plugins";
+import type {
+    CmsModel,
+    CmsModelField,
+    CmsModelFieldToGraphQLPlugin
+} from "@webiny/api-headless-cms/types";
+import type { CmsModelFieldToElasticsearchPlugin } from "~/types";
+import type { ModelFieldParent, ModelFields } from "./types";
+import { CmsElasticsearchModelFieldPlugin } from "~/plugins";
 import {
     ENTRY_META_FIELDS,
     isDateTimeEntryMetaField,
     isIdentityEntryMetaField
-} from "@webiny/api-headless-cms/constants.js";
+} from "@webiny/api-headless-cms/constants";
 
 type PartialCmsModelField = Partial<CmsModelField> &
     Pick<CmsModelField, "storageId" | "fieldId" | "type">;
@@ -173,6 +173,60 @@ const createSystemFields = (): ModelFields => {
                 type: "string"
             }),
             parents: []
+        },
+        state: {
+            type: "object",
+            unmappedType: undefined,
+            keyword: false,
+            systemField: true,
+            searchable: false,
+            sortable: false,
+            field: createSystemField({
+                storageId: "state",
+                fieldId: "state",
+                type: "object"
+            }),
+            parents: []
+        },
+        ["state.name"]: {
+            type: "text",
+            unmappedType: undefined,
+            keyword: true,
+            systemField: true,
+            searchable: true,
+            sortable: false,
+            field: createSystemField({
+                storageId: "name",
+                fieldId: "name",
+                type: "text"
+            }),
+            parents: [
+                {
+                    fieldId: "state",
+                    storageId: "state",
+                    type: "object"
+                }
+            ]
+        },
+        ["state.comment"]: {
+            type: "text",
+            unmappedType: undefined,
+            keyword: true,
+            systemField: true,
+            searchable: true,
+            sortable: false,
+            field: createSystemField({
+                storageId: "comment",
+                fieldId: "comment",
+                type: "text"
+            }),
+            parents: [
+                {
+                    fieldId: "state",
+                    storageId: "state",
+                    type: "object"
+                }
+            ]
         },
         wbyDeleted: {
             type: "boolean",

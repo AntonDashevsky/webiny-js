@@ -1,5 +1,6 @@
-import { Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
-import { type Attributes } from "~/types.js";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
+import { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { Attributes } from "~/types";
 
 interface CreateTagUrlLinkEntityParams {
     table: Table<string, string, string>;

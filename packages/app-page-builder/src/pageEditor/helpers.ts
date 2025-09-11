@@ -1,14 +1,14 @@
 import invariant from "invariant";
 import { plugins } from "@webiny/plugins";
-import { getNanoid, prefixElementIdsRecursively, generateBlockVariableIds } from "~/editor/helpers.js";
-import {
-    type PbEditorBlockPlugin,
-    type PbEditorElement,
-    type PbElement,
-    type PbBlockVariable,
-    type PbEditorPageElementVariableRendererPlugin
-} from "~/types.js";
-import omit from "lodash/omit.js";
+import { getNanoid, prefixElementIdsRecursively, generateBlockVariableIds } from "~/editor/helpers";
+import type {
+    PbEditorBlockPlugin,
+    PbEditorElement,
+    PbElement,
+    PbBlockVariable,
+    PbEditorPageElementVariableRendererPlugin
+} from "~/types";
+import omit from "lodash/omit";
 
 export const createBlockReference = (name?: string): PbEditorElement => {
     const plugin = plugins.byName<PbEditorBlockPlugin>(name);

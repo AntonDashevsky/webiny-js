@@ -1,10 +1,11 @@
 import * as React from "react";
-import { DisplayMode, type PbTheme } from "~/types.js";
+import type { PbTheme } from "~/types";
+import { DisplayMode } from "~/types";
 
-import { type Theme } from "@webiny/app-theme/types.js";
+import type { Theme } from "@webiny/app-theme/types";
 import { useTheme } from "@webiny/app-theme";
-import { PageElementsProvider } from "./PageElementsProvider.js";
-import { type ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache.js";
+import { PageElementsProvider } from "./PageElementsProvider";
+import type { ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache";
 
 export interface ResponsiveDisplayMode {
     displayMode: DisplayMode;

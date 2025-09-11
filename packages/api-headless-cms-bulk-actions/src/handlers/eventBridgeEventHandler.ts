@@ -1,5 +1,5 @@
 import { createEventBridgeEventHandler } from "@webiny/handler-aws";
-import { type HcmsBulkActionsContext } from "~/types.js";
+import type { HcmsBulkActionsContext } from "~/types";
 
 const DETAIL_TYPE = "WebinyEmptyTrashBin";
 

@@ -1,5 +1,5 @@
-import type { ICreateFolder } from "./ICreateFolder.js";
-import type { AcoFolderStorageOperations, CreateFolderParams } from "~/folder/folder.types.js";
+import type { ICreateFolder } from "./ICreateFolder";
+import type { AcoFolderStorageOperations, CreateFolderParams } from "~/folder/folder.types";
 
 export class CreateFolder implements ICreateFolder {
     private readonly createOperation: AcoFolderStorageOperations["createFolder"];

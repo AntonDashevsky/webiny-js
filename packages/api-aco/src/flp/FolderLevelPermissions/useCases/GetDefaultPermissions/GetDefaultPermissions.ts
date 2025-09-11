@@ -1,7 +1,7 @@
-import type { IGetDefaultPermissions } from "./IGetDefaultPermissions.js";
-import type { IGetIdentityGateway, IListPermissionsGateway } from "../../gateways/index.js";
-import type { FolderPermission } from "~/flp/flp.types.js";
-import { DefaultPermissionsMerger } from "./DefaultPermissionsMerger.js";
+import type { IGetDefaultPermissions } from "./IGetDefaultPermissions";
+import type { IGetIdentityGateway, IListPermissionsGateway } from "../../gateways";
+import type { FolderPermission } from "~/flp/flp.types";
+import { DefaultPermissionsMerger } from "./DefaultPermissionsMerger";
 
 export class GetDefaultPermissions implements IGetDefaultPermissions {
     private getIdentityGateway: IGetIdentityGateway;

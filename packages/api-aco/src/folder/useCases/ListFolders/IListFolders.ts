@@ -1,5 +1,5 @@
-import type { Folder, ListFoldersParams } from "~/folder/folder.types.js";
-import { type ListMeta } from "~/types.js";
+import type { Folder, ListFoldersParams } from "~/folder/folder.types";
+import type { ListMeta } from "~/types";
 
 export interface IListFolders {
     execute: (params: ListFoldersParams) => Promise<[Folder[], ListMeta]>;

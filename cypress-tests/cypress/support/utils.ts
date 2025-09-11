@@ -1,6 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import { customAlphabet } from "nanoid";
-import { getSuperAdminUser, User } from "./login";
+import type { User } from "./login";
+import { getSuperAdminUser } from "./login";
 
 const DEFAULT_TENANT_ID = "root";
 

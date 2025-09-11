@@ -15,7 +15,8 @@ import type {
     LexicalCommand,
     LexicalNode,
     NodeKey,
-    SerializedElementNode
+    SerializedElementNode,
+    Spread
 } from "lexical";
 
 import { addClassNamesToElement, isHTMLAnchorElement } from "@lexical/utils";
@@ -24,8 +25,7 @@ import {
     $isElementNode,
     $isRangeSelection,
     createCommand,
-    ElementNode,
-    type Spread
+    ElementNode
 } from "lexical";
 
 export type LinkAttributes = {
@@ -64,7 +64,7 @@ export class LinkNode extends ElementNode {
     __alt: null | string;
 
     static override getType(): string {
-        return "link";
+        return "wby-link";
     }
 
     static override clone(node: LinkNode): LinkNode {
@@ -194,9 +194,8 @@ export class LinkNode extends ElementNode {
             target: this.getTarget(),
             title: this.getTitle(),
             alt: this.getAlt(),
-            type: "link",
-            url: this.getURL(),
-            version: 1
+            type: "wby-link",
+            url: this.getURL()
         };
     }
 
@@ -367,8 +366,7 @@ export class AutoLinkNode extends LinkNode {
     override exportJSON(): SerializedAutoLinkNode {
         return {
             ...super.exportJSON(),
-            type: "autolink",
-            version: 1
+            type: "autolink"
         };
     }
 

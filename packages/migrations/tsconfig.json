@@ -37,6 +37,8 @@
       "@webiny/ioc": ["../ioc/src"],
       "@webiny/logger/*": ["../logger/src/*"],
       "@webiny/logger": ["../logger/src"],
+      "@webiny/tasks/*": ["../tasks/src/*"],
+      "@webiny/tasks": ["../tasks/src"],
       "@webiny/utils/*": ["../utils/src/*"],
       "@webiny/utils": ["../utils/src"],
       "@webiny/tasks/*": ["../tasks/src/*"],

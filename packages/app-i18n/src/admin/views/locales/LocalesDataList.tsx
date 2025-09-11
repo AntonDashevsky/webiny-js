@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { Button, Select } from "@webiny/admin-ui";
+import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { i18n } from "@webiny/app/i18n";
 import {
     DataList,
     ScrollList,
@@ -8,19 +10,14 @@ import {
     ListItemMeta,
     ListActions,
     ListItemTextSecondary,
-    DataListModalOverlay,
-    DataListModalOverlayAction
-} from "@webiny/ui/List/index.js";
+    DataListModalOverlayAction,
+    ListItemTextPrimary
+} from "@webiny/ui/List";
 
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
-import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { useLocalesList } from "./hooks/useLocalesList.js";
-import { type I18NLocaleItem } from "~/types.js";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
+import SearchUI from "@webiny/app-admin/components/SearchUI";
+import { useLocalesList } from "./hooks/useLocalesList";
+import type { I18NLocaleItem } from "~/types";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 
@@ -51,21 +48,15 @@ const LocalesDataList = () => {
 
     const localesDataListModalOverlay = useMemo(
         () => (
-            <DataListModalOverlay>
-                <Grid>
-                    <Cell span={12}>
-                        <Select value={sort || ""} onChange={setSort} label={t`Sort by`}>
-                            {SORTERS.map(({ label, sorter }) => {
-                                return (
-                                    <option key={label} value={sorter}>
-                                        {label}
-                                    </option>
-                                );
-                            })}
-                        </Select>
-                    </Cell>
-                </Grid>
-            </DataListModalOverlay>
+            <Select
+                value={sort || ""}
+                onChange={setSort}
+                label={t`Sort by`}
+                options={SORTERS.map(({ label, sorter: value }) => ({
+                    label,
+                    value
+                }))}
+            />
         ),
         [sort]
     );
@@ -74,9 +65,14 @@ const LocalesDataList = () => {
         <DataList
             loading={loading}
             actions={
-                <ButtonSecondary data-testid="new-record-button" onClick={createLocale}>
-                    <ButtonIcon icon={<AddIcon />} /> {t`New Locale`}
-                </ButtonSecondary>
+                <Button
+                    text={t`New`}
+                    icon={<AddIcon />}
+                    size={"sm"}
+                    className={"wby-ml-xs"}
+                    data-testid="new-record-button"
+                    onClick={createLocale}
+                />
             }
             data={locales}
             title={t`Locales`}
@@ -84,18 +80,18 @@ const LocalesDataList = () => {
                 <SearchUI
                     value={filter}
                     onChange={setFilter}
-                    inputPlaceholder={t`Search locales`}
+                    inputPlaceholder={t`Search locales...`}
                 />
             }
             modalOverlay={localesDataListModalOverlay}
-            modalOverlayAction={<DataListModalOverlayAction icon={<FilterIcon />} />}
+            modalOverlayAction={<DataListModalOverlayAction />}
         >
             {({ data }: { data: I18NLocaleItem[] }) => (
                 <ScrollList data-testid="default-data-list">
                     {data.map(item => (
                         <ListItem key={item.code} selected={item.code === currentLocaleCode}>
                             <ListItemText onClick={() => editLocale(item)}>
-                                {item.code}
+                                <ListItemTextPrimary>{item.code}</ListItemTextPrimary>
                                 <ListItemTextSecondary>
                                     {item.default && t`Default locale`}
                                 </ListItemTextSecondary>

@@ -1,7 +1,8 @@
 import * as React from "react";
-import { ReactComponent as PageListIcon } from "./round-format_list_bulleted-24px.svg";
-import PageListForm from "./PageListForm.js";
-import { type PbMenuItemPlugin } from "../../../../types.js";
+import { ReactComponent as PageListIcon } from "@webiny/icons/format_list_bulleted.svg";
+
+import PageListForm from "./PageListForm";
+import type { PbMenuItemPlugin } from "../../../../types";
 
 const plugin: PbMenuItemPlugin = {
     name: "pb-menu-item-page-list",

@@ -1,11 +1,13 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Element as BaseElement, type ElementProps as BaseElementProps } from "../Element.js";
-import { Elements as BaseElements, type ElementsProps as BaseElementsProps } from "../Elements.js";
-import { Divider } from "./Divider.js";
-import { Layout } from "./Layout.js";
-import { createGetId } from "~/editor/config/createGetId.js";
-import { MenuItem } from "./MenuItem.js";
+import type { ElementProps as BaseElementProps } from "../Element";
+import { Element as BaseElement } from "../Element";
+import type { ElementsProps as BaseElementsProps } from "../Elements";
+import { Elements as BaseElements } from "../Elements";
+import { Divider } from "./Divider";
+import { Layout } from "./Layout";
+import { createGetId } from "~/editor/config/createGetId";
+import { MenuItem } from "./MenuItem";
 
 const SCOPE = "topBar";
 

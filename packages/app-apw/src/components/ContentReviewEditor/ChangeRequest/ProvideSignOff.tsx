@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { ButtonIcon, ButtonPrimary, ButtonDefault } from "@webiny/ui/Button/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { ButtonIcon, ButtonPrimary, ButtonDefault } from "@webiny/ui/Button";
+import { CircularProgress } from "@webiny/ui/Progress";
 import { ReactComponent as CheckIcon } from "~/assets/icons/check_24dp.svg";
 import { ReactComponent as NotInterestedIcon } from "~/assets/icons/not_interested_24dp.svg";
-import { Box } from "~/components/Layout.js";
-import { useStepSignOff } from "~/hooks/useStepSignoff.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { type ApwContentReviewStep } from "~/types.js";
+import { Box } from "~/components/Layout";
+import { useStepSignOff } from "~/hooks/useStepSignoff";
+import { i18n } from "@webiny/app/i18n";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import type { ApwContentReviewStep } from "~/types";
 
 const t = i18n.ns("app-apw/content-reviews/editor/steps/changeRequest");
 

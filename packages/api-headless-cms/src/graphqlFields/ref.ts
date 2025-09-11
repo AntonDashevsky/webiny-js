@@ -1,14 +1,14 @@
 import WebinyError from "@webiny/error";
-import {
-    type CmsContext,
-    type CmsEntry,
-    type CmsModel,
-    type CmsModelField,
-    type CmsModelFieldToGraphQLPlugin
-} from "~/types/index.js";
-import { createTypeName } from "~/utils/createTypeName.js";
+import type {
+    CmsContext,
+    CmsEntry,
+    CmsModel,
+    CmsModelField,
+    CmsModelFieldToGraphQLPlugin
+} from "~/types";
+import { createTypeName } from "~/utils/createTypeName";
 import { parseIdentifier } from "@webiny/utils";
-import { createGraphQLInputField } from "./helpers.js";
+import { createGraphQLInputField } from "./helpers";
 
 interface RefFieldValue {
     /**

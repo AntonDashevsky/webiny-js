@@ -1,3 +1,4 @@
+"use client";
 /**
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
@@ -7,6 +8,7 @@
  */
 import { useEffect } from "react";
 import { mergeRegister } from "@lexical/utils";
+import type { LexicalEditor } from "lexical";
 import {
     $createRangeSelection,
     $getSelection,
@@ -17,14 +19,14 @@ import {
     COMMAND_PRIORITY_LOW,
     DRAGOVER_COMMAND,
     DRAGSTART_COMMAND,
-    DROP_COMMAND,
-    type LexicalEditor
+    DROP_COMMAND
 } from "lexical";
 import { $isImageNode, ImageNode } from "@webiny/lexical-nodes";
-import { type ImagePayload, INSERT_IMAGE_COMMAND } from "~/commands/index.js";
-import { CAN_USE_DOM } from "~/utils/canUseDOM.js";
-import { insertImage } from "~/utils/insertImage.js";
-import { useRichTextEditor } from "~/hooks/index.js";
+import type { ImagePayload } from "~/commands";
+import { INSERT_IMAGE_COMMAND } from "~/commands";
+import { CAN_USE_DOM } from "~/utils/canUseDOM";
+import { insertImage } from "~/utils/insertImage";
+import { useRichTextEditor } from "~/hooks";
 
 export type InsertImagePayload = Readonly<ImagePayload>;
 
@@ -76,10 +78,17 @@ export function ImagesPlugin({
     return null;
 }
 
-const TRANSPARENT_IMAGE =
-    "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-const img = document.createElement("img");
-img.src = TRANSPARENT_IMAGE;
+function getDragImage() {
+    if (!document) {
+        return undefined;
+    }
+
+    const TRANSPARENT_IMAGE =
+        "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    const img = document.createElement("img");
+    img.src = TRANSPARENT_IMAGE;
+    return img;
+}
 
 function onDragStart(event: DragEvent): boolean {
     const node = getImageNodeInSelection();
@@ -87,11 +96,12 @@ function onDragStart(event: DragEvent): boolean {
         return false;
     }
     const dataTransfer = event.dataTransfer;
-    if (!dataTransfer) {
+    const dragImage = getDragImage();
+    if (!dataTransfer || !dragImage) {
         return false;
     }
     dataTransfer.setData("text/plain", "_");
-    dataTransfer.setDragImage(img, 0, 0);
+    dataTransfer.setDragImage(dragImage, 0, 0);
     dataTransfer.setData(
         "application/x-lexical-drag",
         JSON.stringify({

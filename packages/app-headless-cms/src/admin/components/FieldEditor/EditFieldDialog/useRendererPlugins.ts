@@ -1,7 +1,7 @@
 import { plugins } from "@webiny/plugins";
-import { type CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types/index.js";
-import { useModel } from "~/admin/components/ModelProvider/index.js";
-import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
+import type { CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types";
+import { useModel } from "~/admin/components/ModelProvider";
+import { useModelField } from "~/admin/components/ModelFieldProvider";
 
 /**
  * We want the "hidden" renderer to always be the last one in the list.

@@ -1,7 +1,8 @@
 import { createLongTextStorageTransformPlugin } from "~/dynamoDb/storage/longText";
-import { FromStorageParams, StorageTransformPlugin } from "@webiny/api-headless-cms";
+import type { FromStorageParams } from "@webiny/api-headless-cms";
+import { StorageTransformPlugin } from "@webiny/api-headless-cms";
 import { createStoragePluginsContainer } from "./plugins";
-import { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
 
 const container = createStoragePluginsContainer();
 

@@ -1,4 +1,4 @@
-import { Context, ITaskDataInput, ITaskDefinition } from "~/types";
+import type { Context, ITaskDataInput, ITaskDefinition } from "~/types";
 import { createTaskDefinition } from "~/task";
 
 export const MOCK_TASK_DEFINITION_ID = "myCustomTaskDefinition";

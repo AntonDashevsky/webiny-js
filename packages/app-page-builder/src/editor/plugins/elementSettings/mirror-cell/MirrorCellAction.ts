@@ -1,10 +1,10 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { plugins } from "@webiny/plugins";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { activeElementAtom, elementByIdSelector } from "~/editor/recoil/modules/index.js";
-import { MirrorCellActionEvent } from "~/editor/recoil/actions/mirrorCell/index.js";
-import { type PbEditorPageElementPlugin } from "~/types.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { activeElementAtom, elementByIdSelector } from "~/editor/recoil/modules";
+import { MirrorCellActionEvent } from "~/editor/recoil/actions/mirrorCell";
+import type { PbEditorPageElementPlugin } from "~/types";
 
 interface MirrorCellActionPropsType {
     children: React.ReactElement;

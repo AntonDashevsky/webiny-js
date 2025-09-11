@@ -1,7 +1,9 @@
-import React, { useState, useContext, useEffect, type ReactElement } from "react";
+import type { ReactElement } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import classNames from "classnames";
-import { EmptyBlock, Collapsable, ArrowRight, type HighlightItem } from "./StyledComponents.js";
-import { NavigatorContext } from "./NavigatorDrawer.js";
+import type { HighlightItem } from "./StyledComponents";
+import { EmptyBlock, Collapsable, ArrowRight } from "./StyledComponents";
+import { NavigatorContext } from "./NavigatorDrawer";
 
 interface CollapsableListProps {
     children: ReactElement | ReactElement[];

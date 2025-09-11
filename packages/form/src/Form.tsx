@@ -1,12 +1,12 @@
 import React, { useEffect, useImperativeHandle, useMemo, useRef } from "react";
 import { observer } from "mobx-react-lite";
-import lodashNoop from "lodash/noop.js";
-import isEqual from "lodash/isEqual.js";
-import { Bind } from "./Bind.js";
-import { FormProps, GenericFormData } from "~/types.js";
-import { FormContext } from "./FormContext.js";
-import { FormPresenter } from "./FormPresenter.js";
-import { FormAPI } from "./FormApi.js";
+import lodashNoop from "lodash/noop";
+import isEqual from "lodash/isEqual";
+import { Bind } from "./Bind";
+import type { FormProps, GenericFormData } from "~/types";
+import { FormContext } from "./FormContext";
+import { FormPresenter } from "./FormPresenter";
+import { FormAPI } from "./FormApi";
 
 type Callbacks<T extends GenericFormData = GenericFormData> = Pick<
     FormProps<T>,

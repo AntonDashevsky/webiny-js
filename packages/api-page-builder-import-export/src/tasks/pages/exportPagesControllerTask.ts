@@ -1,11 +1,11 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { type PbImportExportContext } from "~/graphql/types.js";
-import {
-    type IExportPagesControllerInput,
-    type IExportPagesControllerOutput,
-    PageExportTask
-} from "~/export/pages/types.js";
-import { ChildTasksCleanup } from "../common/ChildTasksCleanup.js";
+import type { PbImportExportContext } from "~/graphql/types";
+import type {
+    IExportPagesControllerInput,
+    IExportPagesControllerOutput
+} from "~/export/pages/types";
+import { PageExportTask } from "~/export/pages/types";
+import { ChildTasksCleanup } from "../common/ChildTasksCleanup";
 
 export const createExportPagesControllerTask = () => {
     // TODO make the task private with createPrivateTaskDefinition
@@ -32,7 +32,7 @@ export const createExportPagesControllerTask = () => {
             }
 
             const { ExportPagesController } = await import(
-                /* webpackChunkName: "ExportPagesController" */ "~/export/pages/ExportPagesController.js"
+                /* webpackChunkName: "ExportPagesController" */ "~/export/pages/ExportPagesController"
             );
 
             const exportPagesController = new ExportPagesController();

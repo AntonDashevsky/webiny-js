@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { Box, Columns, Stack } from "~/components/Layout.js";
+import { Typography } from "@webiny/ui/Typography";
+import { i18n } from "@webiny/app/i18n";
+import { IconButton } from "@webiny/ui/Button";
+import { Box, Columns, Stack } from "~/components/Layout";
 import { ReactComponent as LaunchIcon } from "~/assets/icons/launch_24dp.svg";
-import { useCurrentContentReview } from "~/hooks/useContentReview.js";
-import { type ApwContentReviewContent, ApwContentTypes } from "~/types.js";
+import { useCurrentContentReview } from "~/hooks/useContentReview";
+import type { ApwContentReviewContent } from "~/types";
+import { ApwContentTypes } from "~/types";
 
 const t = i18n.ns("app-apw/admin/content-reviews/editor");
 

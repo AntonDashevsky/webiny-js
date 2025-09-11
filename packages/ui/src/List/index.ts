@@ -1,4 +1,4 @@
-export * from "./List.js";
+export * from "./List";
 
 export {
     DataList,
@@ -7,5 +7,6 @@ export {
     DataListModalOverlayAction,
     DataListWithSections,
     ScrollListWithSections
-} from "./DataList/index.js";
-export { CollapsibleList } from "./CollapsibleList/index.js";
+} from "./DataList";
+export * from "./DataList/icons";
+export { CollapsibleList } from "./CollapsibleList";

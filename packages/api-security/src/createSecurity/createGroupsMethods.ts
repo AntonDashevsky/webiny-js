@@ -1,30 +1,29 @@
 /**
  * Package deep-equal does not have types.
  */
-// @ts-expect-error
 import deepEqual from "deep-equal";
 import { createTopic } from "@webiny/pubsub";
 import { createZodError, mdbid } from "@webiny/utils";
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
-    type GetGroupParams,
-    type Group,
-    type GroupInput,
-    type ListGroupsParams,
-    type PermissionsTenantLink,
-    type Security,
-    type SecurityConfig
-} from "~/types.js";
-import NotAuthorizedError from "../NotAuthorizedError.js";
+import type {
+    GetGroupParams,
+    Group,
+    GroupInput,
+    ListGroupsParams,
+    PermissionsTenantLink,
+    Security,
+    SecurityConfig
+} from "~/types";
+import NotAuthorizedError from "../NotAuthorizedError";
 import {
     type ListGroupsFromPluginsParams,
     listGroupsFromProvider as baseListGroupsFromPlugins
-} from "./groupsTeamsPlugins/listGroupsFromProvider.js";
+} from "./groupsTeamsPlugins/listGroupsFromProvider";
 import {
     type GetGroupFromPluginsParams,
     getGroupFromProvider as baseGetGroupFromPlugins
-} from "./groupsTeamsPlugins/getGroupFromProvider.js";
+} from "./groupsTeamsPlugins/getGroupFromProvider";
 import zod from "zod";
 
 const createGroupValidation = zod.object({

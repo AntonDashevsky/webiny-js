@@ -1,6 +1,6 @@
+import type { interfaces } from "inversify";
 import {
     Container as BaseContainer,
-    interfaces,
     decorate,
     injectable,
     inject as baseInject,

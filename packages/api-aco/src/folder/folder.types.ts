@@ -1,5 +1,6 @@
-import { type FolderPermission, type ListMeta, type ListSort, type User } from "~/types.js";
-import { type Topic } from "@webiny/pubsub/types.js";
+import type { ListMeta, ListSort, User } from "~/types";
+import { type FolderPermission } from "~/types";
+import type { Topic } from "@webiny/pubsub/types";
 
 export interface Folder {
     id: string;
@@ -24,6 +25,14 @@ export interface ListFoldersWhere {
     id_not_in?: string[];
     parentId?: string | null;
     parentId_in?: string[];
+    slug?: string;
+    slug_not?: string;
+    slug_contains?: string;
+    slug_not_contains?: string;
+    slug_in?: string[];
+    slug_not_in?: string[];
+    slug_startsWith?: string;
+    slug_not_startsWith?: string;
     path?: string;
     path_not?: string;
     path_contains?: string;

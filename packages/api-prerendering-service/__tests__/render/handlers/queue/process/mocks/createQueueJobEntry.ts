@@ -1,5 +1,5 @@
 import { mdbid } from "@webiny/utils";
-import { QueueJob, RenderJob } from "~/types";
+import type { QueueJob, RenderJob } from "~/types";
 
 interface Args {
     render?: RenderJob;

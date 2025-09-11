@@ -1,17 +1,18 @@
 import React from "react";
-import { FontAwesomeIcon, type FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import { AccordionItem } from "@webiny/ui/Accordion/index.js";
+import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AccordionItem } from "@webiny/ui/Accordion";
 import { Bind } from "@webiny/form";
-import {
-    type CmsDynamicZoneTemplate,
-    type CmsModelFieldValidatorConfig,
-    type CmsModelFieldValidatorPlugin
-} from "~/types.js";
-import { ValidatorsList } from "~/admin/components/FieldEditor/EditFieldDialog/ValidatorsList.js";
-import { createValidators } from "~/utils/createValidators.js";
-import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter.js";
-import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
-import { commonValidators } from "~/admin/plugins/fields/dynamicZone/commonValidators.js";
+import type {
+    CmsDynamicZoneTemplate,
+    CmsModelFieldValidatorConfig,
+    CmsModelFieldValidatorPlugin
+} from "~/types";
+import { ValidatorsList } from "~/admin/components/FieldEditor/EditFieldDialog/ValidationTab/ValidatorsList";
+import { createValidators } from "~/utils/createValidators";
+import { CmsModelFieldValidatorConfigAdapter } from "~/utils/CmsModelFieldValidatorConfigAdapter";
+import { useModelField } from "~/admin/components/ModelFieldProvider";
+import { commonValidators } from "~/admin/plugins/fields/dynamicZone/commonValidators";
 
 function TemplateValidationSettings() {
     const { field } = useModelField();

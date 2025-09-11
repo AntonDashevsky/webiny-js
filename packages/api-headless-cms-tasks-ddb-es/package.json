@@ -1,7 +1,6 @@
 {
   "name": "@webiny/api-headless-cms-tasks-ddb-es",
   "version": "0.0.0",
-  "type": "module",
   "main": "index.js",
   "description": "Background tasks for Webiny Headless CMS - DDB+ES",
   "keywords": [
@@ -19,8 +18,12 @@
     "@webiny/api-headless-cms-tasks": "0.0.0"
   },
   "devDependencies": {
-    "@webiny/build-tools": "0.0.0",
-    "typescript": "5.3.3"
+    "@webiny/project-utils": "0.0.0",
+    "typescript": "5.9.2"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   },
   "publishConfig": {
     "access": "public",

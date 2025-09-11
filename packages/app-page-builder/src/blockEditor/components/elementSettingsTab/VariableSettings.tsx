@@ -1,14 +1,14 @@
 import React, { useCallback, useMemo } from "react";
 import styled from "@emotion/styled";
-import capitalize from "lodash/capitalize.js";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import capitalize from "lodash/capitalize";
+import { ButtonPrimary } from "@webiny/ui/Button";
 import { ReactComponent as InfoIcon } from "@webiny/app-admin/assets/icons/info.svg";
-import { type PbEditorElement, type PbBlockVariable } from "~/types.js";
-import TextInput from "./TextInput.js";
-import { useCurrentBlockElement } from "~/editor/hooks/useCurrentBlockElement.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
-import { ElementLinkStatusWrapper } from "./ElementNotLinked.js";
+import type { PbEditorElement, PbBlockVariable } from "~/types";
+import TextInput from "./TextInput";
+import { useCurrentBlockElement } from "~/editor/hooks/useCurrentBlockElement";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+import { ElementLinkStatusWrapper } from "./ElementNotLinked";
 
 const FormWrapper = styled("div")({
     padding: "16px",

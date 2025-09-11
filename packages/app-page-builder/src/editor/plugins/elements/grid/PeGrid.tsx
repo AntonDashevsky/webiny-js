@@ -1,8 +1,8 @@
 import React from "react";
 import { createRenderer, useRenderer, Elements } from "@webiny/app-page-builder-elements";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 import { useRecoilValue } from "recoil";
-import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
+import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
 
 export const PeGrid = createRenderer(
     () => {

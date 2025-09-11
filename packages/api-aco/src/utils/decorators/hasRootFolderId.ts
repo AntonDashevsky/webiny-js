@@ -1,7 +1,7 @@
-import isPlainObject from "lodash/isPlainObject.js";
-import { isPageModel } from "~/utils/decorators/isPageModel.js";
-import { type CmsEntryListWhere, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import { ROOT_FOLDER } from "~/constants.js";
+import isPlainObject from "lodash/isPlainObject";
+import { isPageModel } from "~/utils/decorators/isPageModel";
+import type { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
+import { ROOT_FOLDER } from "~/constants";
 
 interface Params {
     model: CmsModel;

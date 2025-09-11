@@ -7,10 +7,11 @@ import { logger } from "../logger";
 import { createHandler } from "@webiny/handler-aws";
 import { createEventHandler as createDynamoDBToElasticsearchEventHandler } from "@webiny/api-dynamodb-to-elasticsearch";
 import { elasticIndexManager } from "../helpers/elasticIndexManager";
-import { createElasticsearchClient, ElasticsearchClient } from "./createClient";
+import type { ElasticsearchClient } from "./createClient";
+import { createElasticsearchClient } from "./createClient";
 import { getDocumentClient, simulateStream } from "../dynamodb";
-import { PluginCollection } from "../environment";
-import { ElasticsearchContext } from "../../../api-elasticsearch/src/types";
+import type { PluginCollection } from "../environment";
+import type { ElasticsearchContext } from "../../../api-elasticsearch/src/types";
 import { getElasticsearchIndexPrefix } from "../../../api-elasticsearch/src/indexPrefix";
 import { createMockApiLogContextPlugin } from "../mockApiLog";
 

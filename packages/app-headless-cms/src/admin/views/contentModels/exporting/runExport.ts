@@ -1,6 +1,6 @@
 import type ApolloClient from "apollo-client";
-import { type CmsGroup, type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
-import { CMS_EXPORT_STRUCTURE_QUERY } from "./graphql.js";
+import type { CmsGroup, CmsModel } from "@webiny/app-headless-cms-common/types";
+import { CMS_EXPORT_STRUCTURE_QUERY } from "./graphql";
 
 interface Params {
     client: ApolloClient<any>;

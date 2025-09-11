@@ -1,6 +1,6 @@
-import { type EventActionCallable, type EventActionHandlerCallableArgs } from "~/types.js";
-import { type PageAtomType } from "~/pageEditor/state/index.js";
-import { type TemplateModeAtomType } from "~/pageEditor/hooks/useTemplateMode.js";
+import type { EventActionCallable, EventActionHandlerCallableArgs } from "~/types";
+import type { PageAtomType } from "~/pageEditor/state";
+import type { TemplateModeAtomType } from "~/pageEditor/hooks/useTemplateMode";
 
 export interface PageEditorEventActionCallableState {
     page: PageAtomType;

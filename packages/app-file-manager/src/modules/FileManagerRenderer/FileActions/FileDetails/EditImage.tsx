@@ -3,15 +3,15 @@ import React from "react";
 import { Hotkeys } from "react-hotkeyz";
 // @ts-expect-error
 import dataURLtoBlob from "dataurl-to-blob";
-import { ImageEditorDialog } from "@webiny/ui/ImageUpload/index.js";
-import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";
+import { ImageEditorDialog } from "~/components/ImageEditor/ImageEditorDialog";
+import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import {
     FileManagerViewConfig,
     useFile,
     useFileDetails,
     useFileManagerApi,
     useFileManagerView
-} from "~/index.js";
+} from "~/index";
 import { useSnackbar } from "@webiny/app-admin";
 
 function toDataUrl(url: string): Promise<string> {
@@ -83,16 +83,17 @@ export const EditImage = () => {
 
     return (
         <>
-            <FileDetails.Action.IconButton
+            <FileDetails.Action.Button
+                className={"wby-order-last wby-ml-auto"}
                 label={"Edit image"}
                 data-testid={"fm-edit-image-button"}
-                icon={<EditIcon style={{ margin: "0 8px 0 0" }} />}
+                icon={<EditIcon />}
                 onAction={async () => {
                     const dataUrl = await toDataUrl(file.src);
                     dispatch({ type: "setDataUrl", dataUrl });
                 }}
             />
-            <Hotkeys zIndex={60} disabled={!state.dataUrl}>
+            <Hotkeys zIndex={100} disabled={!state.dataUrl}>
                 <ImageEditorDialog
                     data-testid={"fm-image-editor-dialog"}
                     dialogZIndex={100}

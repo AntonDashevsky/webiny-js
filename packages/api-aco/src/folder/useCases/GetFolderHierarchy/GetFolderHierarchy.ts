@@ -1,10 +1,10 @@
-import type { IGetFolderHierarchy } from "./IGetFolderHierarchy.js";
-import { ROOT_FOLDER } from "~/constants.js";
+import type { IGetFolderHierarchy } from "./IGetFolderHierarchy";
+import { ROOT_FOLDER } from "~/constants";
 import type {
     AcoFolderStorageOperations,
     Folder,
     GetFolderHierarchyParams
-} from "~/folder/folder.types.js";
+} from "~/folder/folder.types";
 
 const FIXED_FOLDER_LISTING_LIMIT = 10_000;
 

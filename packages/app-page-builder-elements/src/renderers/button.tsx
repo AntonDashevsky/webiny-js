@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
-import styled, { type CSSObject } from "@emotion/styled";
+import type { CSSObject } from "@emotion/styled";
+import styled from "@emotion/styled";
 import { ClassNames } from "@emotion/react";
-import isEqual from "lodash/isEqual.js";
-import { type LinkComponent } from "~/types.js";
-import { DefaultLinkComponent } from "~/renderers/components/index.js";
-import { createRenderer } from "~/createRenderer.js";
-import { useRenderer } from "~/hooks/useRenderer.js";
-import { ElementInput } from "~/inputs/ElementInput.js";
+import isEqual from "lodash/isEqual";
+import type { LinkComponent } from "~/types";
+import { DefaultLinkComponent } from "~/renderers/components";
+import { createRenderer } from "~/createRenderer";
+import { useRenderer } from "~/hooks/useRenderer";
+import { ElementInput } from "~/inputs/ElementInput";
 
 const ICON_POSITION_FLEX_DIRECTION: Record<string, CSSObject> = {
     right: { flexDirection: "row-reverse" },

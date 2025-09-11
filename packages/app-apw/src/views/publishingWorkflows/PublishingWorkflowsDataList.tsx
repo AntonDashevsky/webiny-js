@@ -1,25 +1,27 @@
 import React, { useMemo } from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { i18n } from "@webiny/app/i18n";
 import {
     DataListWithSections,
-    ScrollListWithSections,
     ListItem,
     ListItemText,
     ListItemMeta,
     ListActions,
-    ListItemTextSecondary
-} from "@webiny/ui/List/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
+    ListItemTextSecondary,
+    ListItemTextPrimary,
+    List
+} from "@webiny/ui/List";
+import { Typography } from "@webiny/ui/Typography";
+import { DeleteIcon, EditIcon } from "@webiny/ui/List/DataList/icons";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
 
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
 
-import { usePublishingWorkflowsList } from "~/hooks/usePublishingWorkflowsList.js";
-import { type ApwWorkflow, ApwWorkflowApplications } from "~/types.js";
-import { Box, Columns } from "~/components/Layout.js";
+import { usePublishingWorkflowsList } from "~/hooks/usePublishingWorkflowsList";
+import type { ApwWorkflow } from "~/types";
+import { ApwWorkflowApplications } from "~/types";
+import { Box, Columns } from "~/components/Layout";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/data-list");
 
@@ -76,7 +78,7 @@ const listStyles = css`
 `;
 
 const scopes: Record<ApwWorkflowApplications, string> = {
-    [ApwWorkflowApplications.PB]: "Page Builder",
+    // [ApwWorkflowApplications.PB]: "Page Builder",
     [ApwWorkflowApplications.CMS]: "Headless CMS"
 };
 
@@ -94,7 +96,7 @@ const PublishingWorkflowsDataList = () => {
 
     const scopedWorkflows = useMemo(() => {
         const initialScopes: ApwWorkflowScoped = {
-            [ApwWorkflowApplications.PB]: [],
+            // [ApwWorkflowApplications.PB]: [],
             [ApwWorkflowApplications.CMS]: []
         };
         return workflows.reduce<ApwWorkflowScoped>((collection, workflow) => {
@@ -130,10 +132,7 @@ const PublishingWorkflowsDataList = () => {
                                 onClick={createPublishingWorkflow}
                                 app={app}
                             />
-                            <ScrollListWithSections
-                                data-testid={`default-data-list-${app}`}
-                                className={listStyles}
-                            >
+                            <List data-testid={`default-data-list-${app}`} className={listStyles}>
                                 {items.map(item => (
                                     <ListItem
                                         key={item.id}
@@ -142,7 +141,7 @@ const PublishingWorkflowsDataList = () => {
                                         <ListItemText
                                             onClick={() => editPublishingWorkflow(item.id)}
                                         >
-                                            {item.title}
+                                            <ListItemTextPrimary>{item.title}</ListItemTextPrimary>
                                             <ListItemTextSecondary>
                                                 {t`Scope: `}
                                                 {item.scope && item.scope.type}
@@ -168,7 +167,7 @@ const PublishingWorkflowsDataList = () => {
                                         </ListItemMeta>
                                     </ListItem>
                                 ))}
-                            </ScrollListWithSections>
+                            </List>
                         </div>
                     );
                 });

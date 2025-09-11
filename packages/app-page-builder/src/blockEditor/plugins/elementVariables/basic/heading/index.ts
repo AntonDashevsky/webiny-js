@@ -1,4 +1,4 @@
-import { type PbBlockEditorCreateVariablePlugin } from "~/types.js";
+import type { PbBlockEditorCreateVariablePlugin } from "~/types";
 
 export default {
     name: "pb-block-editor-create-variable-heading",

@@ -1,17 +1,17 @@
 import DataLoader from "dataloader";
-import {
-    type CreateTenantInput,
-    type Tenant,
-    type TenancyStorageOperations,
-    type TenantBeforeCreateEvent,
-    type TenantAfterCreateEvent,
-    type TenantBeforeUpdateEvent,
-    type TenantAfterUpdateEvent,
-    type TenantBeforeDeleteEvent,
-    type TenantAfterDeleteEvent,
-    type Tenancy,
-    type ListTenantsParams
-} from "~/types.js";
+import type {
+    CreateTenantInput,
+    Tenant,
+    TenancyStorageOperations,
+    TenantBeforeCreateEvent,
+    TenantAfterCreateEvent,
+    TenantBeforeUpdateEvent,
+    TenantAfterUpdateEvent,
+    TenantBeforeDeleteEvent,
+    TenantAfterDeleteEvent,
+    Tenancy,
+    ListTenantsParams
+} from "~/types";
 import { createTopic } from "@webiny/pubsub";
 import { mdbid } from "@webiny/utils";
 

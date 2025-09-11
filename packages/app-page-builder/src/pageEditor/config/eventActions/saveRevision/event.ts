@@ -1,5 +1,5 @@
-import { BaseEventAction } from "~/editor/recoil/eventActions/index.js";
-import { type SaveRevisionActionArgsType, type ToggleSaveRevisionStateActionArgsType } from "./types.js";
+import { BaseEventAction } from "~/editor/recoil/eventActions";
+import type { SaveRevisionActionArgsType, ToggleSaveRevisionStateActionArgsType } from "./types";
 
 export class SaveRevisionActionEvent extends BaseEventAction<SaveRevisionActionArgsType> {
     public getName(): string {

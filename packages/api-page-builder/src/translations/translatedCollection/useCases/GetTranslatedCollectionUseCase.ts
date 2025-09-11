@@ -1,6 +1,6 @@
-import { type PbContext } from "~/types.js";
-import { GetTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/GetTranslatedCollectionRepository.js";
-import type { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection.js";
+import type { PbContext } from "~/types";
+import { GetTranslatedCollectionRepository } from "~/translations/translatedCollection/repository/GetTranslatedCollectionRepository";
+import type { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
 
 interface GetTranslatedCollectionParams {
     collectionId: string;

@@ -1,4 +1,4 @@
-import type { DeleteFolderParams } from "~/folder/folder.types.js";
+import type { DeleteFolderParams } from "~/folder/folder.types";
 
 export interface IDeleteFolder {
     execute: (params: DeleteFolderParams) => Promise<boolean>;

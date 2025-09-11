@@ -1,11 +1,12 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Layout } from "./Layout.js";
-import { Elements as BaseElements } from "~/editor/config/Elements.js";
-import { Element as BaseElement, type ElementProps as BaseElementProps } from "~/editor/config/Element.js";
-import { createGetId } from "~/editor/config/createGetId.js";
-import { useDebugUtilities } from "~/editor/useDebugUtilities.js";
-import { ElementControls } from "~/editor/contexts/EditorPageElementsProvider/ElementControls.js";
+import { Layout } from "./Layout";
+import { Elements as BaseElements } from "~/editor/config/Elements";
+import type { ElementProps as BaseElementProps } from "~/editor/config/Element";
+import { Element as BaseElement } from "~/editor/config/Element";
+import { createGetId } from "~/editor/config/createGetId";
+import { useDebugUtilities } from "~/editor/useDebugUtilities";
+import { ElementControls } from "~/editor/contexts/EditorPageElementsProvider/ElementControls";
 
 const SCOPE = "content";
 

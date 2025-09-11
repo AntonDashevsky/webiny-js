@@ -1,31 +1,32 @@
 import React from "react";
 import { css } from "emotion";
 import { useRecoilValue } from "recoil";
-import merge from "lodash/merge.js";
-import set from "lodash/set.js";
-import get from "lodash/get.js";
+import merge from "lodash/merge";
+import set from "lodash/set";
+import get from "lodash/get";
 import { plugins } from "@webiny/plugins";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { Form, type FormOnSubmit } from "@webiny/form";
-import {
-    type PbEditorPageElementSettingsRenderComponentProps,
-    type PbEditorElement,
-    type PbEditorResponsiveModePlugin
-} from "~/types.js";
-import { useEventActionHandler } from "../../../hooks/useEventActionHandler.js";
-import { UpdateElementActionEvent } from "../../../recoil/actions/index.js";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
+import type {
+    PbEditorPageElementSettingsRenderComponentProps,
+    PbEditorElement,
+    PbEditorResponsiveModePlugin
+} from "~/types";
+import { useEventActionHandler } from "../../../hooks/useEventActionHandler";
+import { UpdateElementActionEvent } from "../../../recoil/actions";
 import {
     uiAtom,
     activeElementAtom,
     elementWithChildrenByIdSelector
-} from "../../../recoil/modules/index.js";
-import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
+} from "../../../recoil/modules";
+import { applyFallbackDisplayMode } from "../elementSettingsUtils";
 // Components
-import { classes } from "../components/StyledComponents.js";
-import Accordion from "../components/Accordion.js";
-import Wrapper from "../components/Wrapper.js";
-import SpacingPicker from "../components/SpacingPicker.js";
-import { type Validator } from "@webiny/validation/types.js";
+import { classes } from "../components/StyledComponents";
+import Accordion from "../components/Accordion";
+import Wrapper from "../components/Wrapper";
+import SpacingPicker from "../components/SpacingPicker";
+import type { Validator } from "@webiny/validation/types";
 
 const rightCellStyle = css({
     justifySelf: "end"

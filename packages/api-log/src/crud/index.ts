@@ -1,23 +1,23 @@
-import {
-    type Context,
-    type ILoggerCrud,
-    type ILoggerCrudDeleteLogParams,
-    type ILoggerCrudDeleteLogResponse,
-    type ILoggerCrudDeleteLogsParams,
-    type ILoggerCrudGetLogResponse,
-    type ILoggerCrudGetLogsParams,
-    type ILoggerCrudListLogsParams,
-    type ILoggerCrudListLogsResponse,
-    type ILoggerLog,
-    type ILoggerPruneLogsResponse,
-    type ILoggerStorageOperations,
-    type ILoggerWithSource,
-    type IPruneLogsStoredValue
-} from "~/types.js";
+import type {
+    Context,
+    ILoggerCrud,
+    ILoggerCrudDeleteLogParams,
+    ILoggerCrudDeleteLogResponse,
+    ILoggerCrudDeleteLogsParams,
+    ILoggerCrudGetLogResponse,
+    ILoggerCrudGetLogsParams,
+    ILoggerCrudListLogsParams,
+    ILoggerCrudListLogsResponse,
+    ILoggerLog,
+    ILoggerPruneLogsResponse,
+    ILoggerStorageOperations,
+    ILoggerWithSource,
+    IPruneLogsStoredValue
+} from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { WebinyError } from "@webiny/error";
-import { PRUNE_LOGS_TASK } from "~/tasks/constants.js";
-import { createStoreKey } from "~/utils/storeKey.js";
+import { PRUNE_LOGS_TASK } from "~/tasks/constants";
+import { createStoreKey } from "~/utils/storeKey";
 
 export interface ICreateCrudParams {
     getContext: () => Pick<Context, "tasks" | "db" | "security">;

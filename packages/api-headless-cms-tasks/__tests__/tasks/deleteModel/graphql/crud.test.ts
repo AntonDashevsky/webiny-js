@@ -1,6 +1,6 @@
 import { useHandler } from "~tests/context/useHandler";
 import { createStoreKey } from "~/tasks/deleteModel/helpers/store";
-import { IStoreValue } from "~/tasks/deleteModel/types";
+import type { IStoreValue } from "~/tasks/deleteModel/types";
 
 describe("crud", () => {
     it("should list models being deleted", async () => {

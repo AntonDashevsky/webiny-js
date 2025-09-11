@@ -1,12 +1,12 @@
 import { codeFrameColumns } from "@babel/code-frame";
 import WebinyError from "@webiny/error";
-import { generateSchema } from "./generateSchema.js";
-import { type ApiEndpoint, type CmsContext } from "~/types/index.js";
-import { type Tenant } from "@webiny/api-tenancy/types.js";
-import { type I18NLocale } from "@webiny/api-i18n/types.js";
-import { type GraphQLSchema } from "graphql";
-import { generateCacheId } from "./getSchema/generateCacheId.js";
-import { generateCacheKey } from "./getSchema/generateCacheKey.js";
+import { generateSchema } from "./generateSchema";
+import type { ApiEndpoint, CmsContext } from "~/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { GraphQLSchema } from "graphql";
+import { generateCacheId } from "./getSchema/generateCacheId";
+import { generateCacheKey } from "./getSchema/generateCacheKey";
 
 interface SchemaCache {
     key: string;

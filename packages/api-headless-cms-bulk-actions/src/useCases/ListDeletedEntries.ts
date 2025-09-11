@@ -1,6 +1,6 @@
-import { type CmsEntryListParams } from "@webiny/api-headless-cms/types/index.js";
-import { type IListEntries } from "~/abstractions/index.js";
-import { type HcmsBulkActionsContext } from "~/types.js";
+import type { CmsEntryListParams } from "@webiny/api-headless-cms/types";
+import type { IListEntries } from "~/abstractions";
+import type { HcmsBulkActionsContext } from "~/types";
 
 class ListDeletedEntries implements IListEntries {
     private readonly context: HcmsBulkActionsContext;

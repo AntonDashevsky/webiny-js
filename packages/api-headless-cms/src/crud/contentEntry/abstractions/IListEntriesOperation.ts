@@ -1,8 +1,8 @@
-import {
-    type CmsEntryStorageOperationsListParams,
-    type CmsEntryStorageOperationsListResponse,
-    type CmsModel
-} from "~/types/index.js";
+import type {
+    CmsEntryStorageOperationsListParams,
+    CmsEntryStorageOperationsListResponse,
+    CmsModel
+} from "~/types";
 
 export interface IListEntriesOperation {
     execute: (

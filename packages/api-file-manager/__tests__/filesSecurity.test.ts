@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
 import { mdbid } from "@webiny/utils";
-import { SecurityPermission, SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityPermission, SecurityIdentity } from "@webiny/api-security/types";
 import useGqlHandler from "~tests/utils/useGqlHandler";
 
 jest.setTimeout(10000);

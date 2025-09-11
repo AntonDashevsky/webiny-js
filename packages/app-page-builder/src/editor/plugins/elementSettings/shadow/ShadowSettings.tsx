@@ -1,15 +1,15 @@
 import React from "react";
-import get from "lodash/get.js";
+import get from "lodash/get";
 import { useRecoilValue } from "recoil";
-import { activeElementAtom, elementWithChildrenByIdSelector } from "../../../recoil/modules/index.js";
-import useUpdateHandlers from "../useUpdateHandlers.js";
+import { activeElementAtom, elementWithChildrenByIdSelector } from "../../../recoil/modules";
+import useUpdateHandlers from "../useUpdateHandlers";
 // Components
-import InputField from "../components/InputField.js";
-import Wrapper from "../components/Wrapper.js";
-import { BaseColorPickerComponent } from "../components/ColorPicker.js";
-import { ContentWrapper, classes } from "../components/StyledComponents.js";
-import Accordion from "../components/Accordion.js";
-import { type PbEditorElement } from "~/types.js";
+import InputField from "../components/InputField";
+import Wrapper from "../components/Wrapper";
+import { BaseColorPickerComponent } from "../components/ColorPicker";
+import { ContentWrapper, classes } from "../components/StyledComponents";
+import Accordion from "../components/Accordion";
+import type { PbEditorElement } from "~/types";
 
 const DATA_NAMESPACE = "data.settings.shadow";
 

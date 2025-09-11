@@ -1,5 +1,5 @@
-import type { IGetWcpGateway } from "./IGetWcpGateway.js";
-import type { AcoContext } from "~/types.js";
+import type { IGetWcpGateway } from "./IGetWcpGateway";
+import type { AcoContext } from "~/types";
 
 export class GetWcpGatewayFromContext implements IGetWcpGateway {
     private context: AcoContext;

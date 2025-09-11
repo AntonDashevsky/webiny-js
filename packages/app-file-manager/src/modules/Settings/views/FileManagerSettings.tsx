@@ -1,13 +1,11 @@
 import * as React from "react";
+import { Button, Grid, Input, OverlayLoader } from "@webiny/admin-ui";
 import { Form } from "@webiny/form";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
 import { Mutation, Query } from "@apollo/react-components";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import graphql, { type GetSettingsResponse } from "../graphql.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import get from "lodash/get.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import type { GetSettingsResponse } from "../graphql";
+import graphql from "../graphql";
+import get from "lodash/get";
 import { validation } from "@webiny/validation";
 
 import {
@@ -15,10 +13,10 @@ import {
     SimpleFormContent,
     SimpleFormFooter,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+} from "@webiny/app-admin/components/SimpleForm";
 import { CenteredView } from "@webiny/app-admin";
-import { type QueryGetSettingsResult, type Settings } from "~/types.js";
-import { type MutationFunction, type MutationResult } from "@apollo/react-common";
+import type { QueryGetSettingsResult, Settings } from "~/types";
+import type { MutationFunction, MutationResult } from "@apollo/react-common";
 
 function prefixValidator(value: string) {
     if (!value.endsWith("/files/")) {
@@ -84,65 +82,52 @@ export const FileManagerSettings = () => {
                                     {({ Bind, form }) => (
                                         <SimpleForm>
                                             {(queryInProgress || mutationInProgress) && (
-                                                <CircularProgress />
+                                                <OverlayLoader />
                                             )}
                                             <SimpleFormHeader title="General Settings" />
                                             <SimpleFormContent>
                                                 <Grid>
-                                                    <Cell span={12}>
-                                                        <Grid>
-                                                            <Cell span={12}>
-                                                                <Bind name={"uploadMinFileSize"}>
-                                                                    <Input
-                                                                        type="number"
-                                                                        label="Minimum file upload size"
-                                                                        description="The smallest file size in bytes."
-                                                                    />
-                                                                </Bind>
-                                                            </Cell>
-                                                        </Grid>
-                                                    </Cell>
-                                                    <Cell span={12}>
-                                                        <Grid>
-                                                            <Cell span={12}>
-                                                                <Bind name={"uploadMaxFileSize"}>
-                                                                    <Input
-                                                                        type="number"
-                                                                        label="Maximum file upload size"
-                                                                        description="The largest file size in bytes."
-                                                                    />
-                                                                </Bind>
-                                                            </Cell>
-                                                        </Grid>
-                                                    </Cell>
-                                                    <Cell span={12}>
-                                                        <Grid>
-                                                            <Cell span={12}>
-                                                                <Bind
-                                                                    name={"srcPrefix"}
-                                                                    validators={[
-                                                                        validation.create("url"),
-                                                                        prefixValidator
-                                                                    ]}
-                                                                >
-                                                                    <Input
-                                                                        label="File URL prefix"
-                                                                        description="This prefix will be prepended to the file key to form the full file URL."
-                                                                    />
-                                                                </Bind>
-                                                            </Cell>
-                                                        </Grid>
-                                                    </Cell>
+                                                    <Grid.Column span={12}>
+                                                        <Bind name={"uploadMinFileSize"}>
+                                                            <Input
+                                                                type="number"
+                                                                label="Minimum file upload size"
+                                                                description="The smallest file size in bytes."
+                                                            />
+                                                        </Bind>
+                                                    </Grid.Column>
+                                                    <Grid.Column span={12}>
+                                                        <Bind name={"uploadMaxFileSize"}>
+                                                            <Input
+                                                                type="number"
+                                                                label="Maximum file upload size"
+                                                                description="The largest file size in bytes."
+                                                            />
+                                                        </Bind>
+                                                    </Grid.Column>
+                                                    <Grid.Column span={12}>
+                                                        <Bind
+                                                            name={"srcPrefix"}
+                                                            validators={[
+                                                                validation.create("url"),
+                                                                prefixValidator
+                                                            ]}
+                                                        >
+                                                            <Input
+                                                                label="File URL prefix"
+                                                                description="This prefix will be prepended to the file key to form the full file URL."
+                                                            />
+                                                        </Bind>
+                                                    </Grid.Column>
                                                 </Grid>
                                             </SimpleFormContent>
                                             <SimpleFormFooter>
-                                                <ButtonPrimary
+                                                <Button
+                                                    text={"Save settings"}
                                                     onClick={ev => {
                                                         form.submit(ev);
                                                     }}
-                                                >
-                                                    Save Settings
-                                                </ButtonPrimary>
+                                                />
                                             </SimpleFormFooter>
                                         </SimpleForm>
                                     )}

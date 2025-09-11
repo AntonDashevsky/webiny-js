@@ -1,6 +1,6 @@
 import { OperationsBuilder } from "~/OperationsBuilder";
 import { createDefaultCompressor } from "@webiny/utils/compression";
-import { DynamoDBRecord } from "@webiny/handler-aws/types";
+import type { DynamoDBRecord } from "@webiny/handler-aws/types";
 import { marshall } from "~/marshall";
 import { OperationType } from "~/Operations";
 import { PluginsContainer } from "@webiny/plugins";

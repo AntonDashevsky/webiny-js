@@ -1,5 +1,4 @@
-import { jest } from "@jest/globals";
-import { IntrospectionField, IntrospectionInterfaceType } from "graphql";
+import type { IntrospectionField, IntrospectionInterfaceType } from "graphql";
 import { useGraphQlHandler } from "~tests/context/useGraphQLHandler";
 import { createBulkAction } from "~/plugins";
 import { createMockModels, createPrivateMockModels } from "~tests/mocks";

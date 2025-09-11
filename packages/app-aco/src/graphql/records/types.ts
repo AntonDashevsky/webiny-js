@@ -1,4 +1,4 @@
-import { type AcoError, type ListMeta, type ListSearchRecordsSort, type SearchRecordItem, type TagItem } from "~/types.js";
+import type { AcoError, ListMeta, ListSearchRecordsSort, SearchRecordItem, TagItem } from "~/types";
 
 export interface UpdateSearchRecordResponse {
     search: {

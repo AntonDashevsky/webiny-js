@@ -1,4 +1,4 @@
-import { LoadedCache } from "~/features/folders/cache/LoadedCache.js";
+import { LoadedCache } from "~/features/folders/cache/LoadedCache";
 
 export class LoadedFoldersCacheFactory {
     private cache: Map<string, LoadedCache> = new Map();

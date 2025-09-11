@@ -1,13 +1,13 @@
-import {
-    type ApwWorkflowCrud,
-    type CreateApwParams,
-    type OnWorkflowAfterCreateTopicParams,
-    type OnWorkflowAfterDeleteTopicParams,
-    type OnWorkflowAfterUpdateTopicParams,
-    type OnWorkflowBeforeCreateTopicParams,
-    type OnWorkflowBeforeDeleteTopicParams,
-    type OnWorkflowBeforeUpdateTopicParams
-} from "~/types.js";
+import type {
+    ApwWorkflowCrud,
+    CreateApwParams,
+    OnWorkflowAfterCreateTopicParams,
+    OnWorkflowAfterDeleteTopicParams,
+    OnWorkflowAfterUpdateTopicParams,
+    OnWorkflowBeforeCreateTopicParams,
+    OnWorkflowBeforeDeleteTopicParams,
+    OnWorkflowBeforeUpdateTopicParams
+} from "~/types";
 import { createTopic } from "@webiny/pubsub";
 import { NotAuthorizedError } from "@webiny/api-security";
 

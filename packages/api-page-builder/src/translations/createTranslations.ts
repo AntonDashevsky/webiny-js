@@ -1,13 +1,13 @@
-import lodashMerge from "lodash/merge.js";
+import lodashMerge from "lodash/merge";
 import { createGraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { type PbContext } from "~/graphql/types.js";
-import { translatableCollectionResolvers } from "~/translations/translatableCollection/graphql/resolvers.js";
-import { translatableCollectionSchema } from "~/translations/translatableCollection/graphql/schema.js";
-import { translatedCollectionSchema } from "~/translations/translatedCollection/graphql/schema.js";
-import { translatedCollectionResolvers } from "~/translations/translatedCollection/graphql/resolvers.js";
+import type { PbContext } from "~/graphql/types";
+import { translatableCollectionResolvers } from "~/translations/translatableCollection/graphql/resolvers";
+import { translatableCollectionSchema } from "~/translations/translatableCollection/graphql/schema";
+import { translatedCollectionSchema } from "~/translations/translatedCollection/graphql/schema";
+import { translatedCollectionResolvers } from "~/translations/translatedCollection/graphql/resolvers";
 import { createCmsModelPlugin } from "@webiny/api-headless-cms";
-import { translatableCollectionModel } from "~/translations/translatableCollection/repository/translatableCollection.model.js";
-import { translatedCollectionModel } from "~/translations/translatedCollection/repository/translatedCollection.model.js";
+import { translatableCollectionModel } from "~/translations/translatableCollection/repository/translatableCollection.model";
+import { translatedCollectionModel } from "~/translations/translatedCollection/repository/translatedCollection.model";
 
 const baseSchema = /* GraphQL */ `
     type TranslationsQuery {

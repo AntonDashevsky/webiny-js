@@ -1,23 +1,23 @@
 import React from "react";
 import { Route } from "@webiny/react-router";
 import Helmet from "react-helmet";
-import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
-import { SecureRoute } from "@webiny/app-security/components/index.js";
-import { type RoutePlugin } from "@webiny/app/types.js";
+import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
+import { SecureRoute } from "@webiny/app-security/components";
+import type { RoutePlugin } from "@webiny/app/types";
 import { CompositionScope } from "@webiny/react-composition";
 
-import Categories from "../views/Categories/Categories.js";
-import Menus from "../views/Menus/Menus.js";
-import Pages from "~/admin/views/Pages/Table/index.js";
-import BlockCategories from "../views/BlockCategories/BlockCategories.js";
-import PageBlocks from "../views/PageBlocks/PageBlocks.js";
-import PageTemplates from "~/admin/views/PageTemplates/PageTemplates.js";
+import Categories from "../views/Categories/Categories";
+import Menus from "../views/Menus/Menus";
+import Pages from "~/admin/views/Pages/Table";
+import BlockCategories from "../views/BlockCategories/BlockCategories";
+import PageBlocks from "../views/PageBlocks/PageBlocks";
+import PageTemplates from "~/admin/views/PageTemplates/PageTemplates";
 
-import { PageEditor } from "~/pageEditor/Editor.js";
-import { BlockEditor } from "~/blockEditor/Editor.js";
-import { TemplateEditor } from "~/templateEditor/Editor.js";
-import { RenderPluginsLoader } from "~/admin/components/PluginLoaders/RenderPluginsLoader.js";
-import { EditorPluginsLoader } from "~/admin/components/PluginLoaders/EditorPluginsLoader.js";
+import { PageEditor } from "~/pageEditor/Editor";
+import { BlockEditor } from "~/blockEditor/Editor";
+import { TemplateEditor } from "~/templateEditor/Editor";
+import { RenderPluginsLoader } from "~/admin/components/PluginLoaders/RenderPluginsLoader";
+import { EditorPluginsLoader } from "~/admin/components/PluginLoaders/EditorPluginsLoader";
 
 const ROLE_PB_CATEGORY = "pb.category";
 const ROLE_PB_MENUS = "pb.menu";

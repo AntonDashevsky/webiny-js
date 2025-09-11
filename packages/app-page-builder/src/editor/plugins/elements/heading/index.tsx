@@ -1,17 +1,17 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase.js";
-import {
-    DisplayMode,
-    type PbEditorElement,
-    type PbEditorPageElementPlugin,
-    type PbEditorTextElementPluginsArgs,
-    type PbElement
-} from "~/types.js";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
-import { createInitialTextValue } from "../utils/textUtils.js";
-import { Heading } from "./Heading.js";
-import { defaultText, displayText } from "./elementText.js";
-export * from "./ActiveHeadingRenderer.js";
+import kebabCase from "lodash/kebabCase";
+import type {
+    PbEditorElement,
+    PbEditorPageElementPlugin,
+    PbEditorTextElementPluginsArgs,
+    PbElement
+} from "~/types";
+import { DisplayMode } from "~/types";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
+import { createInitialTextValue } from "../utils/textUtils";
+import { Heading } from "./Heading";
+import { defaultText, displayText } from "./elementText";
+export * from "./ActiveHeadingRenderer";
 
 export default (args: PbEditorTextElementPluginsArgs = {}): PbEditorPageElementPlugin => {
     const defaultSettings = [

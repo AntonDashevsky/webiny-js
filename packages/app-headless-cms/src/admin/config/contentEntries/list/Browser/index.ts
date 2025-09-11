@@ -1,12 +1,19 @@
 import { createFolderFieldDecoratorFactory } from "@webiny/app-aco";
-import { AdvancedSearch, type AdvancedSearchConfig } from "./AdvancedSearch/index.js";
-import { BulkAction, type BulkActionConfig } from "./BulkAction.js";
-import { EntryAction, type EntryActionConfig } from "./EntryAction.js";
-import { Filter, type FilterConfig } from "./Filter.js";
-import { FiltersToWhere, type FiltersToWhereConverter } from "./FiltersToWhere.js";
-import { FolderAction, type FolderActionConfig } from "./FolderAction.js";
-import { Table, type TableConfig } from "./Table/index.js";
-import { shouldDecorateFolderField } from "./FolderFieldDecorator.js";
+import type { AdvancedSearchConfig } from "./AdvancedSearch";
+import { AdvancedSearch } from "./AdvancedSearch";
+import type { BulkActionConfig } from "./BulkAction";
+import { BulkAction } from "./BulkAction";
+import type { EntryActionConfig } from "./EntryAction";
+import { EntryAction } from "./EntryAction";
+import type { FilterConfig } from "./Filter";
+import { Filter } from "./Filter";
+import type { FiltersToWhereConverter } from "./FiltersToWhere";
+import { FiltersToWhere } from "./FiltersToWhere";
+import type { FolderActionConfig } from "./FolderAction";
+import { FolderAction } from "./FolderAction";
+import type { TableConfig } from "./Table";
+import { Table } from "./Table";
+import { shouldDecorateFolderField } from "./FolderFieldDecorator";
 
 export interface BrowserConfig {
     advancedSearch: AdvancedSearchConfig;

@@ -1,54 +1,45 @@
-import React, { Fragment, useMemo } from "react";
-import styled from "@emotion/styled";
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
-import { DynamicFieldset } from "@webiny/ui/DynamicFieldset/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { ButtonDefault, IconButton } from "@webiny/ui/Button/index.js";
+import React, { useMemo } from "react";
+import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { validation } from "@webiny/validation";
 import { Bind, useBind } from "@webiny/form";
-
-const Fieldset = styled("div")({
-    position: "relative",
-    width: "100%",
-    marginBottom: 15,
-    ".webiny-ui-button": {
-        position: "absolute",
-        display: "block",
-        right: 10,
-        top: 13
-    }
-});
-
-const Header = styled("div")({
-    display: "flex",
-    justifyContent: "space-between"
-});
-
-const DeleteAliasButton = styled(IconButton)`
-    position: absolute;
-    top: 5px;
-    right: 5px;
-`;
-
-const FileAliasMessage = styled("span")`
-    color: var(--mdc-theme-text-secondary-on-background);
-    font-size: 12px;
-`;
+import { Button, DynamicFieldset, Heading, IconButton, Input, Text } from "@webiny/admin-ui";
 
 const PATHNAME_REGEX = /^\/[/.a-zA-Z0-9-_]+$/;
 
+const Header = () => {
+    return (
+        <>
+            <Heading level={6} className={"wby-text-neutral-primary"}>
+                {"File Aliases"}
+            </Heading>
+            <Text size={"sm"} as={"div"} className={"wby-mt-xs"}>
+                To make your file accessible via custom paths, add one or more aliases.
+            </Text>
+        </>
+    );
+};
+
+interface FooterProps {
+    addAlias: () => void;
+}
+
+const Footer = ({ addAlias }: FooterProps) => {
+    return (
+        <div className={"wby-mt-md"}>
+            <Button
+                onClick={addAlias}
+                text="Add Alias"
+                variant={"secondary"}
+                size={"sm"}
+                icon={<AddIcon />}
+            />
+        </div>
+    );
+};
+
 export const Aliases = () => {
     const { value, onChange } = useBind({ name: "aliases" });
-
-    const addAlias = () => {
-        const newValue = Array.isArray(value) ? [...value] : [];
-        newValue.push("");
-        if (!onChange) {
-            return;
-        }
-        onChange(newValue);
-    };
 
     const aliasValidator = useMemo(() => {
         return [
@@ -62,47 +53,43 @@ export const Aliases = () => {
     }, []);
 
     return (
-        <DynamicFieldset value={value || [""]} onChange={onChange}>
-            {({ actions, header, row, empty }) => (
-                <>
-                    {row(({ index }) => (
-                        <Fieldset>
-                            <Bind validators={aliasValidator} name={`aliases.${index}`}>
-                                <Input
-                                    placeholder={"Alias"}
-                                    description={
-                                        "Enter a file path, e.g., /my/custom/file/path.png"
-                                    }
-                                />
-                            </Bind>
-                            <DeleteAliasButton
-                                icon={<DeleteIcon />}
-                                onClick={actions.remove(index)}
-                            />
-                        </Fieldset>
-                    ))}
-                    {empty(() => (
-                        <Fragment>
-                            <Header>
-                                <Typography use={"overline"}>File Aliases</Typography>
-                                <ButtonDefault onClick={addAlias}>+ Add Alias</ButtonDefault>
-                            </Header>
-                            <Typography use={"caption"}>
-                                <FileAliasMessage>
-                                    To make your file accessible via custom paths, add one or more
-                                    aliases.
-                                </FileAliasMessage>
-                            </Typography>
-                        </Fragment>
-                    ))}
-                    {header(() => (
-                        <Header>
-                            <Typography use={"overline"}>File Aliases</Typography>
-                            <ButtonDefault onClick={addAlias}>+ Add Alias</ButtonDefault>
-                        </Header>
-                    ))}
-                </>
-            )}
-        </DynamicFieldset>
+        <div className={"wby-my-lg"}>
+            <DynamicFieldset value={value || [""]} onChange={onChange} onAdd={() => ""}>
+                {({ actions, header, footer, row, empty }) => (
+                    <>
+                        {row(({ index }) => (
+                            <div className={"wby-mt-md"}>
+                                <Text size={"sm"} as={"div"} className={"wby-mb-sm"}>
+                                    {"Enter a file path, e.g., /my/custom/file/path.png"}
+                                </Text>
+                                <div className={"wby-flex wby-items-start wby-gap-sm"}>
+                                    <Bind validators={aliasValidator} name={`aliases.${index}`}>
+                                        <Input placeholder={"Alias"} size={"lg"} />
+                                    </Bind>
+                                    <IconButton
+                                        variant={"ghost"}
+                                        size={"lg"}
+                                        icon={<DeleteIcon />}
+                                        onClick={actions.remove(index)}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                        {footer(() => (
+                            <Footer addAlias={actions.add()} />
+                        ))}
+                        {header(() => (
+                            <Header />
+                        ))}
+                        {empty(() => (
+                            <>
+                                <Header />
+                                <Footer addAlias={actions.add()} />
+                            </>
+                        ))}
+                    </>
+                )}
+            </DynamicFieldset>
+        </div>
     );
 };

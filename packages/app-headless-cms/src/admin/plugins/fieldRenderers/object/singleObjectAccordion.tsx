@@ -1,15 +1,15 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
-import { type CmsModelFieldRendererPlugin } from "~/types.js";
-import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
-import { FieldSettings } from "./FieldSettings.js";
-import { ParentFieldProvider } from "~/admin/hooks/index.js";
-import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider/index.js";
+import { i18n } from "@webiny/app/i18n";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
+import type { CmsModelFieldRendererPlugin } from "~/types";
+import { Fields } from "~/admin/components/ContentEntryForm/Fields";
+import { FieldSettings } from "./FieldSettings";
+import { ParentFieldProvider } from "~/admin/hooks";
+import { ParentValueIndexProvider } from "~/admin/components/ModelFieldProvider";
 import {
     AccordionRenderSettings,
     getAccordionRenderSettings
-} from "~/admin/plugins/fieldRenderers/AccordionRenderSettings.js";
+} from "~/admin/plugins/fieldRenderers/AccordionRenderSettings";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { type Element as ElementType, type RendererMeta } from "~/types.js";
-import { usePageElements } from "~/hooks/usePageElements.js";
-import ErrorBoundary from "./ErrorBoundary.js";
+import type { Element as ElementType, RendererMeta } from "~/types";
+import { usePageElements } from "~/hooks/usePageElements";
+import ErrorBoundary from "./ErrorBoundary";
 import { makeDecoratable } from "@webiny/react-composition";
 
 export interface ElementProps {

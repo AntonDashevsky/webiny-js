@@ -1,13 +1,13 @@
-import {
-    type IGenericData,
-    type IWebsocketsConnection,
-    type IWebsocketsConnectionFactory,
-    type IWebsocketsConnectProtocol,
-    type IWebsocketsManagerMessageEvent,
-    type IWebsocketsSubscriptionManager,
-    type WebsocketsCloseCode,
-    WebsocketsReadyState
-} from "./types.js";
+import type {
+    IGenericData,
+    IWebsocketsConnection,
+    IWebsocketsConnectionFactory,
+    IWebsocketsConnectProtocol,
+    IWebsocketsManagerMessageEvent,
+    IWebsocketsSubscriptionManager,
+    WebsocketsCloseCode
+} from "./types";
+import { WebsocketsReadyState } from "./types";
 
 interface ICreateUrlResult {
     token: string;

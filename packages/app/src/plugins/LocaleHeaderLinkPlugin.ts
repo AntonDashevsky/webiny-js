@@ -1,7 +1,7 @@
 import { setContext } from "apollo-link-context";
-import { ApolloLinkPlugin } from "./ApolloLinkPlugin.js";
-import { type ApolloLink } from "apollo-link";
-import { getLocaleCode } from "~/utils/index.js";
+import { ApolloLinkPlugin } from "./ApolloLinkPlugin";
+import type { ApolloLink } from "apollo-link";
+import { getLocaleCode } from "~/utils";
 
 /**
  * Append `x-i18n-locale` header from URL query (necessary for prerendering service).

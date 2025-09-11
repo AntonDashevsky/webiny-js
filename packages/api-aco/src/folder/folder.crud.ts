@@ -1,14 +1,14 @@
 import { createTopic } from "@webiny/pubsub";
-import {
-    type AcoFolderCrud,
-    type ListFoldersParams,
-    type OnFolderAfterCreateTopicParams,
-    type OnFolderAfterDeleteTopicParams,
-    type OnFolderAfterUpdateTopicParams,
-    type OnFolderBeforeCreateTopicParams,
-    type OnFolderBeforeDeleteTopicParams,
-    type OnFolderBeforeUpdateTopicParams
-} from "./folder.types.js";
+import type {
+    AcoFolderCrud,
+    OnFolderAfterCreateTopicParams,
+    OnFolderAfterDeleteTopicParams,
+    OnFolderAfterUpdateTopicParams,
+    OnFolderBeforeCreateTopicParams,
+    OnFolderBeforeDeleteTopicParams,
+    OnFolderBeforeUpdateTopicParams
+} from "./folder.types";
+import { type ListFoldersParams } from "./folder.types";
 import {
     getCreateFolderUseCases,
     getDeleteFolderUseCases,
@@ -18,8 +18,9 @@ import {
     getListFoldersUseCases,
     getUpdateFolderUseCase,
     getGetFolderHierarchyUseCases
-} from "~/folder/useCases/index.js";
-import { type AcoContext, type CreateAcoParams, type Folder } from "~/types.js";
+} from "~/folder/useCases";
+import type { CreateAcoParams, Folder } from "~/types";
+import { type AcoContext } from "~/types";
 
 const FIXED_FOLDER_LISTING_LIMIT = 10_000;
 

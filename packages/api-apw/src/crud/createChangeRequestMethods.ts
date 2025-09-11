@@ -1,14 +1,14 @@
 import { createTopic } from "@webiny/pubsub";
-import {
-    type ApwChangeRequestCrud,
-    type CreateApwParams,
-    type OnChangeRequestAfterCreateTopicParams,
-    type OnChangeRequestAfterDeleteTopicParams,
-    type OnChangeRequestAfterUpdateTopicParams,
-    type OnChangeRequestBeforeCreateTopicParams,
-    type OnChangeRequestBeforeDeleteTopicParams,
-    type OnChangeRequestBeforeUpdateTopicParams
-} from "~/types.js";
+import type {
+    ApwChangeRequestCrud,
+    CreateApwParams,
+    OnChangeRequestAfterCreateTopicParams,
+    OnChangeRequestAfterDeleteTopicParams,
+    OnChangeRequestAfterUpdateTopicParams,
+    OnChangeRequestBeforeCreateTopicParams,
+    OnChangeRequestBeforeDeleteTopicParams,
+    OnChangeRequestBeforeUpdateTopicParams
+} from "~/types";
 
 export function createChangeRequestMethods({
     storageOperations

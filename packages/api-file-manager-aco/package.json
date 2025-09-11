@@ -13,6 +13,10 @@
   "description": "Connect File Manager to ACO",
   "author": "Webiny Ltd.",
   "license": "MIT",
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
+  },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
@@ -28,15 +32,14 @@
     "@webiny/api-security": "0.0.0",
     "@webiny/api-tenancy": "0.0.0",
     "@webiny/api-wcp": "0.0.0",
-    "@webiny/build-tools": "0.0.0",
     "@webiny/handler": "0.0.0",
     "@webiny/handler-aws": "0.0.0",
     "@webiny/handler-graphql": "0.0.0",
     "@webiny/plugins": "0.0.0",
     "@webiny/project-utils": "0.0.0",
     "@webiny/wcp": "0.0.0",
-    "graphql": "^15.9.0",
+    "graphql": "^16.11.0",
     "ttypescript": "^1.5.15",
-    "typescript": "5.3.3"
+    "typescript": "5.9.2"
   }
 }

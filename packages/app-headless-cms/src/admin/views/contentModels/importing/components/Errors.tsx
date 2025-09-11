@@ -1,4 +1,4 @@
-import { type FileError } from "react-butterfiles";
+import type { FileError } from "react-butterfiles";
 import styled from "@emotion/styled";
 import React from "react";
 

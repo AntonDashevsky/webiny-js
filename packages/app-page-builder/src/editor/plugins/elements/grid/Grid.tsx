@@ -1,8 +1,8 @@
 import React from "react";
-import { type PbEditorElement } from "~/types.js";
+import type { PbEditorElement } from "~/types";
 
-import { PeGrid } from "./PeGrid.js";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import { PeGrid } from "./PeGrid";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 
 interface GridProps {
     element: PbEditorElement;

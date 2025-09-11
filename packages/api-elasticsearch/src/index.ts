@@ -2,27 +2,28 @@
  * TODO File should contain only exports from other files.
  */
 import WebinyError from "@webiny/error";
-import { type ElasticsearchContext } from "~/types.js";
+import type { ElasticsearchContext } from "~/types";
 import { ContextPlugin } from "@webiny/api";
-import { createElasticsearchClient, type ElasticsearchClientOptions } from "~/client.js";
-import { getElasticsearchOperators } from "~/operators.js";
+import type { ElasticsearchClientOptions } from "~/client";
+import { createElasticsearchClient } from "~/client";
+import { getElasticsearchOperators } from "~/operators";
 import { Client } from "@elastic/elasticsearch";
 
-export * from "./indexConfiguration/index.js";
-export * from "./plugins/index.js";
-export * from "./sort.js";
-export * from "./indices.js";
-export * from "./where.js";
-export * from "./limit.js";
-export * from "./normalize.js";
-export * from "./compression.js";
-export * from "./operators.js";
-export * from "./cursors.js";
-export * from "./client.js";
-export * from "./utils/index.js";
-export * from "./operations/index.js";
-export * from "./sharedIndex.js";
-export * from "./indexPrefix.js";
+export * from "./indexConfiguration";
+export * from "./plugins";
+export * from "./sort";
+export * from "./indices";
+export * from "./where";
+export * from "./limit";
+export * from "./normalize";
+export * from "./compression";
+export * from "./operators";
+export * from "./cursors";
+export * from "./client";
+export * from "./utils";
+export * from "./operations";
+export * from "./sharedIndex";
+export * from "./indexPrefix";
 
 /**
  * We must accept either Elasticsearch client or options that create the client.

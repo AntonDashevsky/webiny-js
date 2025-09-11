@@ -1,9 +1,9 @@
-import { type CmsFieldTypePlugins, type CmsModel, type CmsModelField } from "@webiny/api-headless-cms/types/index.js";
-import { renderFields } from "@webiny/api-headless-cms/utils/renderFields.js";
-import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields.js";
-import { type IAcoApp } from "~/types.js";
-import { renderListFilterFields } from "@webiny/api-headless-cms/utils/renderListFilterFields.js";
-import { renderSortEnum } from "@webiny/api-headless-cms/utils/renderSortEnum.js";
+import type { CmsFieldTypePlugins, CmsModel, CmsModelField } from "@webiny/api-headless-cms/types";
+import { renderFields } from "@webiny/api-headless-cms/utils/renderFields";
+import { renderInputFields } from "@webiny/api-headless-cms/utils/renderInputFields";
+import type { IAcoApp } from "~/types";
+import { renderListFilterFields } from "@webiny/api-headless-cms/utils/renderListFilterFields";
+import { renderSortEnum } from "@webiny/api-headless-cms/utils/renderSortEnum";
 
 interface Params {
     app: IAcoApp;
@@ -80,9 +80,9 @@ export const createAppSchema = (params: Params): string => {
             createdOn: DateTime!
             modifiedOn: DateTime
             savedOn: DateTime!
-            createdBy: AcoUser!
+            createdBy: AcoUser
             modifiedBy: AcoUser
-            savedBy: AcoUser!
+            savedBy: AcoUser
             ${fieldTypes.map(f => f.fields).join("\n")}
         }
 

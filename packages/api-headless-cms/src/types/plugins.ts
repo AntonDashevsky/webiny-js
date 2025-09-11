@@ -1,17 +1,17 @@
-import { type Plugin } from "@webiny/plugins/types.js";
-import { type GraphQLSchemaDefinition } from "@webiny/handler-graphql/types.js";
-import {
-    type CmsContext,
-    type CmsFieldTypePlugins,
-    type CmsModelFieldDefinition,
-    type CmsModelFieldToGraphQLCreateResolver,
-    type CmsModelFieldToGraphQLNormalizeInputParams,
-    type CmsModelFieldToGraphQLPluginValidateChildFields,
-    type CmsModelFieldValidatorValidateParams
-} from "./types.js";
-import { type GetCmsModelFieldAst } from "./modelAst.js";
-import { type CmsModelField, type CmsModelFieldType, type LockedField } from "./modelField.js";
-import { type CmsModel } from "./model.js";
+import type { Plugin } from "@webiny/plugins/types";
+import type { GraphQLSchemaDefinition } from "@webiny/handler-graphql/types";
+import type {
+    CmsContext,
+    CmsFieldTypePlugins,
+    CmsModelFieldDefinition,
+    CmsModelFieldToGraphQLCreateResolver,
+    CmsModelFieldToGraphQLNormalizeInputParams,
+    CmsModelFieldToGraphQLPluginValidateChildFields,
+    CmsModelFieldValidatorValidateParams
+} from "./types";
+import type { GetCmsModelFieldAst } from "./modelAst";
+import type { CmsModelField, CmsModelFieldType, LockedField } from "./modelField";
+import type { CmsModel } from "./model";
 
 /**
  * @category Plugin

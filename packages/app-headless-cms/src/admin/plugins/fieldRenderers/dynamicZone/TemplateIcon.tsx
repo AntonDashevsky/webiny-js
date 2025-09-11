@@ -1,5 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon, type FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import type { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface TemplateIconProps {
     icon: string;
@@ -8,5 +9,5 @@ interface TemplateIconProps {
 export const TemplateIcon = ({ icon }: TemplateIconProps) => {
     const faIcon = icon ? (icon.split("/") as FontAwesomeIconProps["icon"]) : undefined;
 
-    return faIcon ? <FontAwesomeIcon icon={faIcon} /> : null;
+    return faIcon ? <FontAwesomeIcon className={"wby-text-neutral-strong"} icon={faIcon} /> : null;
 };

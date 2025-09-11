@@ -1,7 +1,8 @@
 import * as React from "react";
-import { ReactComponent as LinkIcon } from "./round-folder-24px.svg";
-import FolderForm from "./FolderForm.js";
-import { type PbMenuItemPlugin } from "../../../../types.js";
+import { ReactComponent as FolderIcon } from "@webiny/icons/folder.svg";
+
+import FolderForm from "./FolderForm";
+import type { PbMenuItemPlugin } from "../../../../types";
 
 const plugin: PbMenuItemPlugin = {
     name: "pb-menu-item-folder",
@@ -9,7 +10,7 @@ const plugin: PbMenuItemPlugin = {
     menuItem: {
         type: "folder",
         title: "Folder",
-        icon: <LinkIcon />,
+        icon: <FolderIcon />,
         canHaveChildren: true,
         renderForm(props) {
             return <FolderForm {...props} />;

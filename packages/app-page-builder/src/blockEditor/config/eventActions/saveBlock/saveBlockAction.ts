@@ -1,9 +1,9 @@
-import lodashDebounce from "lodash/debounce.js";
+import lodashDebounce from "lodash/debounce";
 import { plugins } from "@webiny/plugins";
-import { type SaveBlockActionArgsType } from "./types.js";
-import { type BlockEventActionCallable } from "~/blockEditor/types.js";
-import { type PbElement, type PbBlockVariable, type PbBlockEditorCreateVariablePlugin } from "~/types.js";
-import { type UpdatePageBlockInput } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlockGatewayInterface.js";
+import type { SaveBlockActionArgsType } from "./types";
+import type { BlockEventActionCallable } from "~/blockEditor/types";
+import type { PbElement, PbBlockVariable, PbBlockEditorCreateVariablePlugin } from "~/types";
+import type { UpdatePageBlockInput } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlockGatewayInterface";
 
 export const findElementByVariableId = (elements: PbElement[], variableId: string): any => {
     for (const element of elements) {

@@ -1,4 +1,4 @@
-import { type FlushHookPlugin } from "@webiny/api-prerendering-service/flush/types.js";
+import type { FlushHookPlugin } from "@webiny/api-prerendering-service/flush/types";
 import { CloudFront } from "@webiny/aws-sdk/client-cloudfront";
 
 // This plugin will issue a cache invalidation request to CloudFront, every time a page has been deleted. This is

@@ -1,7 +1,7 @@
 import useHandler from "./useHandler";
 import mocks from "./mocks/renderAllPages";
 import { mdbid } from "@webiny/utils";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 describe("Render All Pages Test", () => {
     const plugin = {

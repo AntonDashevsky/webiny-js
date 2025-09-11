@@ -1,14 +1,14 @@
 import WebinyError from "@webiny/error";
-import {
-    type IWebsocketsConnectionRegistry,
-    type IWebsocketsConnectionRegistryData,
-    type IWebsocketsConnectionRegistryRegisterParams,
-    type IWebsocketsConnectionRegistryUnregisterParams
-} from "./abstractions/IWebsocketsConnectionRegistry.js";
-import { createEntity } from "~/registry/entity.js";
+import type {
+    IWebsocketsConnectionRegistry,
+    IWebsocketsConnectionRegistryData,
+    IWebsocketsConnectionRegistryRegisterParams,
+    IWebsocketsConnectionRegistryUnregisterParams
+} from "./abstractions/IWebsocketsConnectionRegistry";
+import { createEntity } from "~/registry/entity";
 import { batchReadAll, deleteItem, get, put, queryAll } from "@webiny/db-dynamodb";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { type EntityQueryOptions } from "@webiny/db-dynamodb/toolbox.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { EntityQueryOptions } from "@webiny/db-dynamodb/toolbox";
 
 const PK = `WS#CONNECTIONS`;
 const GSI1_PK = "WS#CONNECTIONS#IDENTITY";

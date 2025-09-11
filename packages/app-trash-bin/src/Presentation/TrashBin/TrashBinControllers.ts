@@ -1,5 +1,9 @@
-import { type ISortingRepository } from "@webiny/app-utils";
-import { type ISearchRepository, type ISelectedItemsRepository, type ITrashBinItemsRepository } from "~/Domain/index.js";
+import type { ISortingRepository } from "@webiny/app-utils";
+import type {
+    ISearchRepository,
+    ISelectedItemsRepository,
+    ITrashBinItemsRepository
+} from "~/Domain";
 import {
     BulkActionsController,
     DeleteItemController,
@@ -12,7 +16,7 @@ import {
     SelectItemsController,
     SortItemsController,
     UnselectAllItemsController
-} from "~/Presentation/TrashBin/controllers/index.js";
+} from "~/Presentation/TrashBin/controllers";
 import {
     BulkActionUseCase,
     DeleteItemUseCase,
@@ -27,7 +31,7 @@ import {
     SelectItemsUseCase,
     SortItemsUseCase,
     UnselectAllItemsUseCase
-} from "~/UseCases/index.js";
+} from "~/UseCases";
 
 export class TrashBinControllers {
     private readonly itemsRepository: ITrashBinItemsRepository;

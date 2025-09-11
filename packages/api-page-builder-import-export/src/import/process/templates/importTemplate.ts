@@ -1,16 +1,16 @@
 import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
-import fs from "fs-extra";
-import { type PbImportExportContext } from "~/graphql/types.js";
-import { type FileUploadsData } from "~/types.js";
-import { INSTALL_EXTRACT_DIR } from "~/import/constants.js";
-import { s3Stream } from "~/export/s3Stream.js";
-import { uploadAssets } from "~/import/utils/uploadAssets.js";
-import { updateFilesInData } from "~/import/utils/updateFilesInData.js";
-import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles.js";
-import { deleteS3Folder } from "~/import/utils/deleteS3Folder.js";
-import { type ExportedTemplateData } from "~/export/process/exporters/PageTemplateExporter.js";
+import { createWriteStream, ensureDirSync } from "fs-extra";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { FileUploadsData } from "~/types";
+import { INSTALL_EXTRACT_DIR } from "~/import/constants";
+import { s3Stream } from "~/export/s3Stream";
+import { uploadAssets } from "~/import/utils/uploadAssets";
+import { updateFilesInData } from "~/import/utils/updateFilesInData";
+import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
+import { deleteS3Folder } from "~/import/utils/deleteS3Folder";
+import type { ExportedTemplateData } from "~/export/process/exporters/PageTemplateExporter";
 
 interface ImportTemplateParams {
     key: string;
@@ -28,7 +28,7 @@ export async function importTemplate({
 
     // Making Directory for template in which we're going to extract the template data file.
     const TEMPLATE_EXTRACT_DIR = path.join(INSTALL_EXTRACT_DIR, templateKey);
-    fs.ensureDirSync(TEMPLATE_EXTRACT_DIR);
+    ensureDirSync(TEMPLATE_EXTRACT_DIR);
 
     const templateDataFileKey = dotProp.get(fileUploadsData, `data`);
     const TEMPLATE_DATA_FILE_PATH = path.join(
@@ -39,9 +39,9 @@ export async function importTemplate({
     log(`Downloading Template data file: ${templateDataFileKey} at "${TEMPLATE_DATA_FILE_PATH}"`);
     // Download and save template data file in disk.
     const readStream = await s3Stream.readStream(templateDataFileKey);
-    const writeStream = fs.createWriteStream(TEMPLATE_DATA_FILE_PATH);
+    const writeStream = createWriteStream(TEMPLATE_DATA_FILE_PATH);
 
-    await new Promise((resolve, reject) => {
+    await new Promise<void>((resolve, reject) => {
         readStream.on("error", reject).pipe(writeStream).on("finish", resolve).on("error", reject);
     });
 

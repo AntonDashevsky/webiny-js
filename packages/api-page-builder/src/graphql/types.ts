@@ -1,32 +1,32 @@
-import { type DbContext } from "@webiny/handler-db/types.js";
-import { type SecurityContext, type SecurityPermission } from "@webiny/api-security/types.js";
-import { type TenancyContext } from "@webiny/api-tenancy/types.js";
-import { type I18NContext } from "@webiny/api-i18n/types.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import { type FlushEvent, type QueueAddJob, type RenderEvent } from "@webiny/api-prerendering-service/types.js";
-import { type Context as BaseContext } from "@webiny/handler/types.js";
+import type { DbContext } from "@webiny/handler-db/types";
+import type { SecurityContext, SecurityPermission } from "@webiny/api-security/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { I18NContext } from "@webiny/api-i18n/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { FlushEvent, QueueAddJob, RenderEvent } from "@webiny/api-prerendering-service/types";
+import type { Context as BaseContext } from "@webiny/handler/types";
 
-import {
-    type BlockCategory,
-    type Category,
-    type CreatedBy,
-    type DefaultSettings,
-    type DynamicDocument,
-    type Menu,
-    type Page,
-    type PageBlock,
-    type PageElement,
-    type PageSettings,
-    type PageSpecialType,
-    type PageStatus,
-    type PageTemplate,
-    type PageTemplateInput,
-    type Settings,
-    type System
-} from "~/types.js";
-import { type PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types.js";
-import { type FileManagerContext } from "@webiny/api-file-manager/types.js";
-import { type DataSourcesContext } from "~/dataSources/types.js";
+import type {
+    BlockCategory,
+    Category,
+    CreatedBy,
+    DefaultSettings,
+    DynamicDocument,
+    Menu,
+    Page,
+    PageBlock,
+    PageElement,
+    PageSettings,
+    PageSpecialType,
+    PageStatus,
+    PageTemplate,
+    PageTemplateInput,
+    Settings,
+    System
+} from "~/types";
+import type { PrerenderingServiceClientContext } from "@webiny/api-prerendering-service/client/types";
+import type { FileManagerContext } from "@webiny/api-file-manager/types";
+import type { DataSourcesContext } from "~/dataSources/types";
 
 // CRUD types.
 export interface ListPagesParamsWhere {

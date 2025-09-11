@@ -1,128 +1,103 @@
-import {
-    type DOMConversion,
-    type DOMConversionMap,
-    type EditorConfig,
-    type LexicalNode,
-    type NodeKey,
-    type Spread
+import type {
+    DOMConversion,
+    DOMConversionMap,
+    DOMExportOutput,
+    EditorConfig,
+    LexicalEditor,
+    LexicalNode,
+    NodeKey,
+    Spread
 } from "lexical";
-import { type EditorTheme, type ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import { $applyNodeReplacement } from "lexical";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
 import { addClassNamesToElement } from "@lexical/utils";
-import {
-    QuoteNode as BaseQuoteNode,
-    type SerializedQuoteNode as BaseSerializedQuoteNode
-} from "@lexical/rich-text";
-import { type TextNodeThemeStyles, type ThemeStyleValue, type TypographyStylesNode } from "~/types.js";
+import type { SerializedQuoteNode as BaseSerializedQuoteNode } from "@lexical/rich-text";
+import { QuoteNode as BaseQuoteNode } from "@lexical/rich-text";
+import type { ThemeStyleValue, TypographyStylesNode } from "~/types";
+import { getStyleId } from "~/utils/getStyleId";
 
 export type SerializedQuoteNode = Spread<
     {
         styleId?: string;
-        styles: ThemeStyleValue[];
-        type: "webiny-quote";
+        styles?: ThemeStyleValue[];
+        className?: string;
+        type: "wby-quote";
     },
     BaseSerializedQuoteNode
 >;
 
-export class QuoteNode extends BaseQuoteNode implements TextNodeThemeStyles, TypographyStylesNode {
-    private __themeStyleId: string;
-    private __styles: ThemeStyleValue[] = [];
+interface QuoteNodeOptions {
+    className?: string;
+    styleId?: string;
+    key?: NodeKey;
+}
 
-    constructor(themeStyleId?: string, key?: NodeKey) {
-        super(key);
-        this.__themeStyleId = themeStyleId || "";
+export class QuoteNode extends BaseQuoteNode implements TypographyStylesNode {
+    private __styleId: string | undefined;
+    private __className: string | undefined;
 
-        if (themeStyleId) {
-            this.__styles.push({ styleId: themeStyleId, type: "typography" });
-        }
+    constructor(options: QuoteNodeOptions = {}) {
+        super(options.key);
+        this.__styleId = options?.styleId;
+        this.__className = options?.className;
     }
 
-    getStyleId(): string {
-        return this.__themeStyleId;
+    getStyleId(): string | undefined {
+        return this.__styleId;
     }
 
-    /*
-     * Find the first occurrence of the quoteblock in the theme styles and set as default.
-     */
-    protected setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
-        const typographyStyle = findTypographyStyleByHtmlTag("quoteblock", themeEmotionMap);
+    setStyleId(styleId: string | undefined) {
+        this.__styleId = styleId;
+    }
+
+    setClassName(className: string | undefined) {
+        this.__className = className;
+    }
+
+    getClassName(): string | undefined {
+        return this.__className;
+    }
+
+    private setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
+        // For some time in v5 we had `quoteblock` as tag name :facepalm: We must not break it.
+        const typographyStyle = findTypographyStyleByHtmlTag(
+            ["blockquote", "quoteblock"],
+            themeEmotionMap
+        );
+
         if (typographyStyle) {
-            this.__styles.push({ styleId: typographyStyle.id, type: "typography" });
+            this.__styleId = typographyStyle.id;
+            this.__className = typographyStyle.className;
         }
-    }
-
-    protected typographyStyleExist(themeEmotionMap: ThemeEmotionMap): boolean {
-        const styleId = this.getTypographyStyleId();
-        if (!styleId) {
-            return false;
-        }
-        const style = themeEmotionMap[styleId];
-        return !!style;
-    }
-
-    getTypographyStyleId(): string | undefined {
-        const style = this.__styles.find(x => x.type === "typography");
-        return style?.styleId || undefined;
-    }
-
-    private hasTypographyStyle(): boolean {
-        return !!this.getTypographyStyleId();
-    }
-
-    getThemeStyles(): ThemeStyleValue[] {
-        const self = super.getLatest();
-        return self.__styles;
-    }
-
-    setThemeStyles(styles: ThemeStyleValue[]) {
-        const self = super.getWritable();
-        self.__styles = [...styles];
-        return self;
     }
 
     static override getType(): string {
-        return "webiny-quote";
+        return "wby-quote";
     }
 
     static override clone(node: QuoteNode): QuoteNode {
-        return new QuoteNode(node.getTypographyStyleId(), node.__key);
-    }
-
-    addThemeStylesToHTMLElement(element: HTMLElement, theme: EditorTheme): HTMLElement {
-        const themeEmotionMap = theme?.emotionMap;
-
-        if (!themeEmotionMap) {
-            return element;
-        }
-
-        // style exist and is in active use
-        if (this.hasTypographyStyle() && this.typographyStyleExist(themeEmotionMap)) {
-            const styleId = this.getTypographyStyleId();
-            if (styleId) {
-                const typographyValue = themeEmotionMap[styleId];
-                addClassNamesToElement(element, typographyValue?.className);
-                return element;
-            }
-        }
-
-        return element;
+        return new QuoteNode({
+            styleId: node.getStyleId(),
+            className: node.getClassName(),
+            key: node.getKey()
+        });
     }
 
     override createDOM(config: EditorConfig): HTMLElement {
         const element = super.createDOM(config);
-        const wTheme = config.theme as EditorTheme;
-        const emotionThemeMap = wTheme?.emotionMap;
+        return this.updateElementWithThemeClasses(element, config.theme as EditorTheme);
+    }
 
-        if (!emotionThemeMap) {
-            return element;
+    override exportDOM(editor: LexicalEditor): DOMExportOutput {
+        const base = super.exportDOM(editor);
+
+        const element = base.element as HTMLElement;
+        if (element && this.__className) {
+            element.classList.add(this.__className);
         }
 
-        // if styleId is not set or user removed the style from theme, set default style
-        if (!this.hasTypographyStyle() || !this.typographyStyleExist(emotionThemeMap)) {
-            this.setDefaultTypography(emotionThemeMap);
-        }
-
-        this.addThemeStylesToHTMLElement(element, config.theme as EditorTheme);
-        return element;
+        return { ...base, element };
     }
 
     static importDomConversionMap(): DOMConversion<HTMLElement> | null {
@@ -145,27 +120,41 @@ export class QuoteNode extends BaseQuoteNode implements TextNodeThemeStyles, Typ
         node.setFormat(serializedNode.format);
         node.setIndent(serializedNode.indent);
         node.setDirection(serializedNode.direction);
-        if (!!serializedNode?.styles?.length) {
-            node.setThemeStyles(serializedNode.styles);
-            return node;
-        }
-        // for old nodes data migrate the style id into the list
-        if (!!serializedNode?.styleId) {
-            const styles = [
-                { styleId: serializedNode.styleId, type: "typography" }
-            ] as ThemeStyleValue[];
-            node.setThemeStyles(styles);
-        }
+
+        const styleId = getStyleId({
+            styleId: serializedNode.styleId,
+            styles: serializedNode.styles
+        });
+
+        node.setStyleId(styleId);
+        node.setClassName(serializedNode.className);
+
         return node;
     }
 
     override exportJSON(): SerializedQuoteNode {
         return {
             ...super.exportJSON(),
-            type: "webiny-quote",
-            styles: this.__styles,
-            styleId: this.getTypographyStyleId()
+            type: "wby-quote",
+            className: this.__className,
+            styleId: this.__styleId
         };
+    }
+
+    protected updateElementWithThemeClasses(element: HTMLElement, theme: EditorTheme): HTMLElement {
+        if (!theme?.emotionMap) {
+            return element;
+        }
+
+        if (!this.__styleId || !this.__className) {
+            this.setDefaultTypography(theme.emotionMap);
+        }
+
+        if (this.__className) {
+            addClassNamesToElement(element, this.__className);
+        }
+
+        return element;
     }
 }
 
@@ -176,8 +165,8 @@ function convertBlockquoteElement() {
     };
 }
 
-export function $createQuoteNode(themeStyleId?: string, key?: NodeKey): QuoteNode {
-    return new QuoteNode(themeStyleId, key);
+export function $createQuoteNode(styleId?: string, key?: NodeKey): QuoteNode {
+    return $applyNodeReplacement(new QuoteNode({ styleId, key }));
 }
 
 export function $isQuoteNode(node: LexicalNode | null | undefined): node is QuoteNode {

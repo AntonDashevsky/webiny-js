@@ -1,9 +1,9 @@
-import { type ILoadingRepository } from "@webiny/app-utils";
-import {
-    type GetFolderHierarchyUseCaseParams,
-    type IGetFolderHierarchyUseCase
-} from "./IGetFolderHierarchyUseCase.js";
-import { LoadingActionsEnum } from "~/types.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type {
+    GetFolderHierarchyUseCaseParams,
+    IGetFolderHierarchyUseCase
+} from "./IGetFolderHierarchyUseCase";
+import { LoadingActionsEnum } from "~/types";
 
 export class GetFolderHierarchyUseCaseWithLoading implements IGetFolderHierarchyUseCase {
     private loadingRepository: ILoadingRepository;

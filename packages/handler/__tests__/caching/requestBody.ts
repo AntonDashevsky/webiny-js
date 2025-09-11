@@ -1,4 +1,4 @@
-import { InjectOptions } from "fastify";
+import type { InjectOptions } from "fastify";
 
 export const createRequestBodyValue = () => {
     return {

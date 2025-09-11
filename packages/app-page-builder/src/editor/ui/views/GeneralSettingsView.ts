@@ -1,13 +1,13 @@
 import slugify from "slugify";
-import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement.js";
+import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement";
 import { validation } from "@webiny/validation";
-import { TextareaElement } from "@webiny/app-admin/ui/elements/form/TextareaElement.js";
-import { PageSettingsFormView } from "~/editor/ui/views/PageSettingsView/PageSettingsFormView.js";
-import { SelectElement } from "@webiny/app-admin/ui/elements/form/SelectElement.js";
+import { TextareaElement } from "@webiny/app-admin/ui/elements/form/TextareaElement";
+import { PageSettingsFormView } from "~/editor/ui/views/PageSettingsView/PageSettingsFormView";
+import { SelectElement } from "@webiny/app-admin/ui/elements/form/SelectElement";
 import { plugins } from "@webiny/plugins";
-import { type PbPageLayoutPlugin } from "~/types.js";
-import { FileManagerElement } from "@webiny/app-admin/ui/elements/form/FileManagerElement.js";
-import { TagsMultiAutocompleteElement } from "~/editor/ui/elements/TagsMultiAutocompleteElement.js";
+import type { PbPageLayoutPlugin } from "~/types";
+import { FileManagerElement } from "@webiny/app-admin/ui/elements/form/FileManagerElement";
+import { TagsMultiAutocompleteElement } from "~/editor/ui/elements/TagsMultiAutocompleteElement";
 
 const toSlug = (value: string, cb: (value: string) => void): void => {
     cb(

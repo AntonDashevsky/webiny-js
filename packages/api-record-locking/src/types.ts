@@ -1,21 +1,20 @@
 import type {
     CmsContext,
-    CmsEntry,
     CmsEntryListParams,
     CmsEntryMeta,
-    CmsError,
     CmsIdentity,
     CmsModel,
     CmsModelManager
-} from "@webiny/api-headless-cms/types/index.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import {
-    type Context as IWebsocketsContext,
-    type IWebsocketsContextObject
-} from "@webiny/api-websockets/types.js";
-import { type SecurityPermission } from "@webiny/api-security/types.js";
+} from "@webiny/api-headless-cms/types";
+import { CmsEntry, CmsError } from "@webiny/api-headless-cms/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type {
+    Context as IWebsocketsContext,
+    IWebsocketsContextObject
+} from "@webiny/api-websockets/types";
+import type { SecurityPermission } from "@webiny/api-security/types";
 
-export type { CmsError, CmsEntry };
+export { CmsError, CmsEntry };
 
 export type IRecordLockingIdentity = CmsIdentity;
 

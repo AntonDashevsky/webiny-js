@@ -1,4 +1,4 @@
-import { CmsModelFieldValidation } from "~/types";
+import type { CmsModelFieldValidation } from "~/types";
 
 export const createRequiredValidation = (): CmsModelFieldValidation => {
     return {

@@ -1,5 +1,5 @@
-import { TaskResponseStatus } from "~/types.js";
-import { IResponseAbortedResult } from "./abstractions/index.js";
+import { TaskResponseStatus } from "~/types";
+import type { IResponseAbortedResult } from "./abstractions";
 
 export class ResponseAbortedResult implements IResponseAbortedResult {
     public readonly webinyTaskId: string;

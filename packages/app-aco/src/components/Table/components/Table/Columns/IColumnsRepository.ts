@@ -1,4 +1,4 @@
-import { type ColumnDTO } from "./Column.js";
+import type { ColumnDTO } from "./Column";
 
 export interface IColumnsRepository {
     init(): Promise<void>;

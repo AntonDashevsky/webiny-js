@@ -1,106 +1,48 @@
 {
   "name": "@webiny/aws-sdk",
   "version": "0.0.0",
-  "type": "module",
   "description": "Wrapper for AWS SDK",
   "main": "index.js",
   "license": "MIT",
   "author": "Webiny Ltd.",
-  "exports": {
-    "./client-apigatewaymanagementapi": {
-      "default": "./client-apigatewaymanagementapi/index.js",
-      "types": "./client-apigatewaymanagementapi/index.d.ts"
-    },
-    "./client-cloudfront": {
-      "default": "./client-cloudfront/index.js",
-      "types": "./client-cloudfront/index.d.ts"
-    },
-    "./client-cloudwatch": {
-      "default": "./client-cloudwatch/index.js",
-      "types": "./client-cloudwatch/index.d.ts"
-    },
-    "./client-cognito-identity-provider": {
-      "default": "./client-cognito-identity-provider/index.js",
-      "types": "./client-cognito-identity-provider/index.d.ts"
-    },
-    "./client-dynamodb": {
-      "default": "./client-dynamodb/index.js",
-      "types": "./client-dynamodb/index.d.ts"
-    },
-    "./client-eventbridge": {
-      "default": "./client-eventbridge/index.js",
-      "types": "./client-eventbridge/index.d.ts"
-    },
-    "./client-iam": {
-      "default": "./client-iam/index.js",
-      "types": "./client-iam/index.d.ts"
-    },
-    "./client-iot": {
-      "default": "./client-iot/index.js",
-      "types": "./client-iot/index.d.ts"
-    },
-    "./client-lambda": {
-      "default": "./client-lambda/index.js",
-      "types": "./client-lambda/index.d.ts"
-    },
-    "./client-s3": {
-      "default": "./client-s3/index.js",
-      "types": "./client-s3/index.d.ts"
-    },
-    "./client-sfn": {
-      "default": "./client-sfn/index.js",
-      "types": "./client-sfn/index.d.ts"
-    },
-    "./client-sqs": {
-      "default": "./client-sqs/index.js",
-      "types": "./client-sqs/index.d.ts"
-    },
-    "./client-sts": {
-      "default": "./client-sts/index.js",
-      "types": "./client-sts/index.d.ts"
-    },
-    "./credential-providers": {
-      "default": "./credential-providers/index.js",
-      "types": "./credential-providers/index.d.ts"
-    },
-    "./lib-storage": {
-      "default": "./lib-storage/index.js",
-      "types": "./lib-storage/index.d.ts"
-    }
-  },
   "dependencies": {
-    "@aws-sdk/client-apigatewaymanagementapi": "3.821.0",
-    "@aws-sdk/client-cloudfront": "3.821.0",
-    "@aws-sdk/client-cloudwatch-events": "3.821.0",
-    "@aws-sdk/client-cloudwatch-logs": "3.821.0",
-    "@aws-sdk/client-cognito-identity-provider": "3.821.0",
-    "@aws-sdk/client-dynamodb": "3.821.0",
-    "@aws-sdk/client-dynamodb-streams": "3.821.0",
-    "@aws-sdk/client-eventbridge": "3.821.0",
-    "@aws-sdk/client-iam": "3.821.0",
-    "@aws-sdk/client-iot": "3.821.0",
-    "@aws-sdk/client-lambda": "3.821.0",
-    "@aws-sdk/client-s3": "3.821.0",
-    "@aws-sdk/client-sfn": "3.821.0",
-    "@aws-sdk/client-sqs": "3.821.0",
-    "@aws-sdk/client-sts": "3.821.0",
-    "@aws-sdk/credential-providers": "3.821.0",
-    "@aws-sdk/lib-dynamodb": "3.821.0",
-    "@aws-sdk/lib-storage": "3.821.0",
-    "@aws-sdk/s3-presigned-post": "3.821.0",
-    "@aws-sdk/s3-request-presigner": "3.821.0",
-    "@aws-sdk/util-dynamodb": "3.821.0",
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.882.0",
+    "@aws-sdk/client-cloudfront": "^3.882.0",
+    "@aws-sdk/client-cloudwatch-events": "^3.882.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.882.0",
+    "@aws-sdk/client-cognito-identity-provider": "^3.882.0",
+    "@aws-sdk/client-dynamodb": "^3.882.0",
+    "@aws-sdk/client-dynamodb-streams": "^3.882.0",
+    "@aws-sdk/client-eventbridge": "^3.882.0",
+    "@aws-sdk/client-iam": "^3.882.0",
+    "@aws-sdk/client-iot": "^3.882.0",
+    "@aws-sdk/client-lambda": "^3.882.0",
+    "@aws-sdk/client-s3": "^3.882.0",
+    "@aws-sdk/client-scheduler": "^3.882.0",
+    "@aws-sdk/client-sfn": "^3.882.0",
+    "@aws-sdk/client-sqs": "^3.882.0",
+    "@aws-sdk/client-sts": "^3.882.0",
+    "@aws-sdk/credential-providers": "^3.882.0",
+    "@aws-sdk/lib-dynamodb": "^3.882.0",
+    "@aws-sdk/lib-storage": "^3.882.0",
+    "@aws-sdk/s3-presigned-post": "^3.882.0",
+    "@aws-sdk/s3-request-presigner": "^3.882.0",
+    "@aws-sdk/util-dynamodb": "^3.882.0",
     "@types/aws-lambda": "8.10.145",
     "@webiny/utils": "0.0.0"
   },
   "devDependencies": {
-    "@webiny/build-tools": "0.0.0",
+    "@webiny/project-utils": "0.0.0",
     "rimraf": "^6.0.1",
-    "typescript": "5.3.3"
+    "typescript": "5.9.2"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   },
   "adio": {
     "ignore": {

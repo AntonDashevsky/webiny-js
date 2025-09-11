@@ -1,9 +1,5 @@
-import {
-    ApwReviewer,
-    ApwWorkflowApplications,
-    ApwWorkflowStepTypes,
-    WorkflowScopeTypes
-} from "~/types";
+import type { ApwReviewer, ApwWorkflowApplications } from "~/types";
+import { ApwWorkflowStepTypes, WorkflowScopeTypes } from "~/types";
 
 import { generateAlphaNumericId } from "@webiny/utils";
 

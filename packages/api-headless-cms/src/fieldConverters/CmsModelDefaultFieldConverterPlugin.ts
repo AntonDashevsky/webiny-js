@@ -1,8 +1,6 @@
-import {
-    CmsModelFieldConverterPlugin,
-    type ConvertParams
-} from "~/plugins/CmsModelFieldConverterPlugin.js";
-import { type GenericRecord } from "@webiny/api/types.js";
+import type { ConvertParams } from "~/plugins/CmsModelFieldConverterPlugin";
+import { CmsModelFieldConverterPlugin } from "~/plugins/CmsModelFieldConverterPlugin";
+import type { GenericRecord } from "@webiny/api/types";
 
 export class CmsModelDefaultFieldConverterPlugin extends CmsModelFieldConverterPlugin {
     public override name = "cms.field.converter.default";

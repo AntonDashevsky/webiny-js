@@ -1,4 +1,4 @@
-import { type SelectionPath } from "./types.js";
+import type { SelectionPath } from "./types";
 
 export class ParsedPath {
     public readonly key: string;

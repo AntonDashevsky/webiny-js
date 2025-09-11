@@ -1,6 +1,6 @@
 import { createTopic } from "@webiny/pubsub";
-import type { FileManagerSettings, SettingsCRUD } from "~/types.js";
-import type { FileManagerConfig } from "./types.js";
+import type { FileManagerSettings, SettingsCRUD } from "~/types";
+import type { FileManagerConfig } from "./types";
 import zod from "zod";
 import { createZodError } from "@webiny/utils";
 

@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { Input, type TrailingIcon } from "./Input.js";
-import { type CmsModelField } from "~/types.js";
+import type { TrailingIcon } from "./Input";
+import { Input } from "./Input";
+import type { CmsModelField } from "~/types";
 import {
     getCurrentDate,
     getDefaultFieldValue
-} from "~/admin/plugins/fieldRenderers/dateTime/utils.js";
-import { type BindComponentRenderProp } from "@webiny/form";
+} from "~/admin/plugins/fieldRenderers/dateTime/utils";
+import type { BindComponentRenderProp } from "@webiny/form";
 
 export interface DateOnlyProps {
     field: CmsModelField;

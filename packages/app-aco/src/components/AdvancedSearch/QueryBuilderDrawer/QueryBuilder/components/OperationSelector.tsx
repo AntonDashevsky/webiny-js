@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Bind } from "@webiny/form";
-import { Switch } from "@webiny/ui/Switch/index.js";
-import { Operation } from "~/components/AdvancedSearch/domain/index.js";
+import { Switch } from "@webiny/admin-ui";
+import { Operation } from "~/components/AdvancedSearch/domain";
 
 interface OperationSelectorProps {
     label: string;
@@ -27,7 +27,7 @@ export const OperationSelector = ({ label, name }: OperationSelectorProps) => {
             {({ value, onChange }) => (
                 <Switch
                     label={label}
-                    value={getValue(value)}
+                    checked={getValue(value)}
                     onChange={value => onChange(setValue(value))}
                 />
             )}

@@ -1,8 +1,8 @@
-import {
-    type CmsEntryStorageOperationsGetPublishedRevisionParams,
-    type CmsModel,
-    type CmsStorageEntry
-} from "~/types/index.js";
+import type {
+    CmsEntryStorageOperationsGetPublishedRevisionParams,
+    CmsModel,
+    CmsStorageEntry
+} from "~/types";
 
 export interface IGetPublishedRevisionByEntryId {
     execute: (

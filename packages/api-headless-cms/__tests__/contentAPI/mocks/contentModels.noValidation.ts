@@ -1,5 +1,5 @@
 import { createContentModelGroup } from "./contentModelGroup";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
 
 const ids = {

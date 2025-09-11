@@ -1,7 +1,6 @@
 {
   "name": "@webiny/lexical-editor",
   "version": "0.0.0",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/webiny/webiny-js.git"
@@ -22,14 +21,19 @@
     "@webiny/react-properties": "0.0.0",
     "emotion": "10.0.27",
     "lexical": "0.23.1",
+    "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@webiny/build-tools": "0.0.0"
+    "@webiny/project-utils": "0.0.0"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   }
 }

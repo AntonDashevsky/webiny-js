@@ -1,5 +1,5 @@
 import bytes from "bytes";
-import { type FileError } from "react-butterfiles";
+import type { FileError } from "react-butterfiles";
 
 export const outputFileSelectionError = (errors: FileError[]): string | null => {
     if (errors.length > 1) {

@@ -1,82 +1,17 @@
 import React, { useCallback } from "react";
-import styled from "@emotion/styled";
-import {
-    type CmsReferenceContentEntry,
-    type CmsReferenceValue
-} from "~/admin/plugins/fieldRenderers/ref/components/types.js";
-import { Image } from "./entry/Image.js";
-import { ModelName } from "./entry/ModelName.js";
-import { Title } from "./entry/Title.js";
-import { Description } from "./entry/Description.js";
-import { Status } from "./entry/Status.js";
-import { CreatedBy } from "./entry/CreatedBy.js";
-import { ModifiedBy } from "./entry/ModifiedBy.js";
-import { View } from "./entry/View.js";
-import { Select } from "./entry/Select.js";
-import { Remove } from "./entry/Remove.js";
-import { MoveUp } from "./entry/MoveUp.js";
-import { MoveDown } from "./entry/MoveDown.js";
-import { type CmsModel } from "~/types.js";
-
-const Container = styled("div")({
-    width: "100%",
-    display: "flex",
-    backgroundColor: "#FFF",
-    flexDirection: "column",
-    boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
-    marginBottom: "10px",
-    boxSizing: "border-box"
-});
-
-const ContentContainer = styled("div")({
-    width: "100%",
-    display: "grid",
-    gridTemplateColumns: "166px auto",
-    borderBottom: "1px solid var(--mdc-theme-background)"
-});
-
-const Content = styled("div")({
-    paddingLeft: "16px",
-    paddingTop: "18px",
-    paddingBottom: "10px"
-});
-
-const FooterContainer = styled("div")({
-    display: "flex",
-    flexDirection: "row",
-    padding: "10px",
-    flexWrap: "wrap-reverse",
-    justifyContent: "center",
-    marginBottom: "-10px"
-});
-
-const LeftContainer = styled("div")({
-    display: "flex",
-    flexWrap: "nowrap",
-    flexBasis: "50%",
-    alignItems: "center",
-    flexShrink: 1,
-    flexGrow: 1,
-    justifyContent: "space-around",
-    borderBottom: "1px solid var(--mdc-theme-on-background)",
-    paddingBottom: 10,
-    marginTop: -10,
-    paddingTop: 15
-});
-
-const RightContainer = styled("div")({
-    display: "flex",
-    flexWrap: "nowrap",
-    flexBasis: "50%",
-    flexShrink: 1,
-    flexGrow: 1,
-    justifyContent: "space-around",
-    borderBottom: "1px solid var(--mdc-theme-on-background)",
-    paddingBottom: 10,
-    ">div": {
-        minWidth: "100px"
-    }
-});
+import type {
+    CmsReferenceContentEntry,
+    CmsReferenceValue
+} from "~/admin/plugins/fieldRenderers/ref/components/types";
+import { Image } from "./entry/Image";
+import { Title } from "./entry/Title";
+import { View } from "./entry/View";
+import { Select } from "./entry/Select";
+import { Remove } from "./entry/Remove";
+import { MoveUp } from "./entry/MoveUp";
+import { MoveDown } from "./entry/MoveDown";
+import { Excerpt } from "./entry/Excerpt";
+import type { CmsModel } from "~/types";
 
 interface EntryProps {
     model: CmsModel;
@@ -135,22 +70,23 @@ export const Entry = ({
     const icon = model.icon;
 
     return (
-        <Container>
-            <ContentContainer>
+        <div className={"wby-w-full wby-rounded-md wby-bg-neutral-dimmed"}>
+            <div className="wby-flex wby-items-center wby-justify-between wby-gap-sm-extra wby-min-w-0">
                 <Image title={entry.title} src={entry.image} icon={icon} />
-                <Content>
-                    <ModelName name={entry.model.name} />
+                <div
+                    className={
+                        "wby-flex wby-flex-col wby-gap-xxs wby-overflow-hidden wby-flex-1 wby-min-w-0"
+                    }
+                >
                     <Title title={entry.title} />
-                    <Description description={entry.description} />
-                </Content>
-            </ContentContainer>
-            <FooterContainer>
-                <LeftContainer>
-                    <Status status={entry.status} />
-                    <CreatedBy createdBy={entry.createdBy} createdOn={entry.createdOn} />
-                    <ModifiedBy modifiedBy={entry.modifiedBy} savedOn={entry.savedOn} />
-                </LeftContainer>
-                <RightContainer>
+                    <Excerpt
+                        modelName={entry.model.name}
+                        createdBy={entry.createdBy}
+                        createdOn={entry.createdOn}
+                        status={entry.status}
+                    />
+                </div>
+                <div className={"wby-flex wby-items-center wby-gap-sm wby-pr-sm-extra wby-h-lg"}>
                     {placement == "multiRef" && (
                         <>
                             <MoveUp
@@ -166,8 +102,8 @@ export const Entry = ({
                     <View entry={entry} />
                     {onChange && <Select entry={entry} onChange={onChange} selected={selected} />}
                     {onRemove && <Remove entry={entry} onRemove={onRemove} />}
-                </RightContainer>
-            </FooterContainer>
-        </Container>
+                </div>
+            </div>
+        </div>
     );
 };

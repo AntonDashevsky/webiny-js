@@ -1,9 +1,9 @@
-import { type Topic } from "@webiny/pubsub/types.js";
-import { type ITaskRunParams } from "@webiny/tasks/types.js";
-import { type AcoContext, type Folder } from "~/types.js";
-import type { FolderLevelPermission, FolderPermission } from "@webiny/shared-aco/flp/flp.types.js";
+import type { Topic } from "@webiny/pubsub/types";
+import type { ITaskRunParams } from "@webiny/tasks/types";
+import { type AcoContext, type Folder } from "~/types";
+import type { FolderLevelPermission, FolderPermission } from "@webiny/shared-aco/flp/flp.types";
 
-export * from "@webiny/shared-aco/flp/flp.types.js";
+export * from "@webiny/shared-aco/flp/flp.types";
 
 /********
  * CRUD operations

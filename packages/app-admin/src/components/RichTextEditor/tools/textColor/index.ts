@@ -1,4 +1,4 @@
-import { type API } from "@editorjs/editorjs";
+import type { API } from "@editorjs/editorjs";
 
 const COLOR_TOOL_CLASS = "cdx-text-color";
 

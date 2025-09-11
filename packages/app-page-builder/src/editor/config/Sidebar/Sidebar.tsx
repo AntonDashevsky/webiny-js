@@ -1,16 +1,15 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Element as CoreElement, type ElementProps as CoreElementProps } from "../Element.js";
-import { Layout } from "./Layout.js";
-import {
-    Elements as BaseElements,
-    type ElementsProps as BaseElementsProps
-} from "~/editor/config/Elements.js";
-import { Tab } from "./Tab.js";
-import { useActiveGroup } from "~/editor/config/Sidebar/useActiveGroup.js";
-import { createGetId } from "~/editor/config/createGetId.js";
-import { CurrentBlockProvider } from "~/editor/contexts/CurrentBlockProvider.js";
-import { ScrollableContainer } from "~/editor/config/Sidebar/ScrollableContainer.js";
+import type { ElementProps as CoreElementProps } from "../Element";
+import { Element as CoreElement } from "../Element";
+import { Layout } from "./Layout";
+import type { ElementsProps as BaseElementsProps } from "~/editor/config/Elements";
+import { Elements as BaseElements } from "~/editor/config/Elements";
+import { Tab } from "./Tab";
+import { useActiveGroup } from "~/editor/config/Sidebar/useActiveGroup";
+import { createGetId } from "~/editor/config/createGetId";
+import { CurrentBlockProvider } from "~/editor/contexts/CurrentBlockProvider";
+import { ScrollableContainer } from "~/editor/config/Sidebar/ScrollableContainer";
 
 const SCOPE = "sidebar";
 

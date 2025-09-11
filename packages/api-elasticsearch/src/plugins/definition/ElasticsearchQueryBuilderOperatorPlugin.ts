@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type ElasticsearchBoolQueryConfig, type ElasticsearchQueryBuilderArgsPlugin } from "~/types.js";
+import type { ElasticsearchBoolQueryConfig, ElasticsearchQueryBuilderArgsPlugin } from "~/types";
 
 /**
  * Built-in operators name ends with .default because user can override the operator, just write a name without the .default keyword.

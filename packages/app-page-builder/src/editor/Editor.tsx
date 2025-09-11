@@ -1,14 +1,15 @@
 import React, { useCallback } from "react";
-import { RecoilRoot, type MutableSnapshot } from "recoil";
-import { Editor as EditorComponent } from "./components/Editor/index.js";
-import { EditorConfigApply } from "./components/Editor/EditorConfig.js";
-import { EditorProvider } from "./contexts/EditorProvider.js";
+import type { MutableSnapshot } from "recoil";
+import { RecoilRoot } from "recoil";
+import { Editor as EditorComponent } from "./components/Editor";
+import { EditorConfigApply } from "./components/Editor/EditorConfig";
+import { EditorProvider } from "./contexts/EditorProvider";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
-import { elementsAtom, rootElementAtom } from "~/editor/recoil/modules/index.js";
-import { flattenElements } from "~/editor/helpers.js";
-import { EditorWithConfig } from "~/editor/config/index.js";
-import { type PbEditorElementTree } from "~/types.js";
+import { elementsAtom, rootElementAtom } from "~/editor/recoil/modules";
+import { flattenElements } from "~/editor/helpers";
+import { EditorWithConfig } from "~/editor/config";
+import type { PbEditorElementTree } from "~/types";
 
 export interface EditorStateInitializerFactory {
     (): EditorStateInitializer;

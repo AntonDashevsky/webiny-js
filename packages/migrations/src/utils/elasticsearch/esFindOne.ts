@@ -1,5 +1,5 @@
-import { Client } from "@elastic/elasticsearch";
-import { SearchBody, ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types.js";
+import type { Client } from "@elastic/elasticsearch";
+import type { SearchBody, ElasticsearchSearchResponse } from "@webiny/api-elasticsearch/types";
 
 export interface EsFindOneParams {
     elasticsearchClient: Client;

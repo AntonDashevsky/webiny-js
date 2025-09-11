@@ -29,8 +29,12 @@
   "gitHead": "b8aec8a1be3f25c3b428b357fe1e352c7cbff9ae",
   "dependencies": {
     "@types/aws-lambda": "8.10.145",
-    "cheerio": "^1.0.0-rc.10",
+    "cheerio": "^1.1.2",
     "srcset": "^4.0.0"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   },
   "devDependencies": {
     "@webiny/build-tools": "0.0.0"

@@ -1,5 +1,5 @@
-import { IResponseError } from "~/response/abstractions/index.js";
-import { getObjectProperties } from "~/utils/getObjectProperties.js";
+import type { IResponseError } from "~/response/abstractions";
+import { getObjectProperties } from "~/utils/getObjectProperties";
 
 export const getErrorProperties = (error: Error | IResponseError): IResponseError => {
     const value = getObjectProperties<IResponseError>(error);

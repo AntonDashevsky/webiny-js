@@ -1,9 +1,9 @@
 import { ValidateImportFromUrlUseCase } from "~/crud/useCases/validateImportFromUrl";
 import { categoryModel } from "~tests/helpers/models";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { useHandler } from "~tests/helpers/useHandler";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 describe("validateImportFromUrl", () => {
     const { createContext } = useHandler();

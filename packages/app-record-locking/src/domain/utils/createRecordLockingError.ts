@@ -1,4 +1,4 @@
-import { type IRecordLockingError } from "~/types.js";
+import type { IRecordLockingError } from "~/types";
 
 export interface IError extends Error {
     code?: string;

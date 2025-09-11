@@ -1,4 +1,4 @@
-import { type ApwChangeRequest, type LifeCycleHookCallbackParams, type ListMeta } from "~/types.js";
+import type { ApwChangeRequest, LifeCycleHookCallbackParams, ListMeta } from "~/types";
 
 export const deleteChangeRequestsWithContentReview = ({
     apw

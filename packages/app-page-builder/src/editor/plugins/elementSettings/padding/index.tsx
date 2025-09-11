@@ -1,7 +1,7 @@
 import React from "react";
-import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
 // Components
-import MarginPaddingSettings from "../components/MarginPaddingSettings.js";
+import MarginPaddingSettings from "../components/MarginPaddingSettings";
 
 export default {
     name: "pb-editor-page-element-style-settings-padding",

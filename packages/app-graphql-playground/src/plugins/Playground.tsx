@@ -8,16 +8,16 @@ import { setContext } from "apollo-link-context";
 import loadScript from "load-script";
 import { Global } from "@emotion/react";
 import { plugins } from "@webiny/plugins";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
 import { useSecurity } from "@webiny/app-security";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { playgroundDialog, PlaygroundContainer } from "./Playground.styles.js";
-import { settings } from "./settings.js";
-import { config as appConfig } from "@webiny/app/config.js";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { playgroundDialog, PlaygroundContainer } from "./Playground.styles";
+import { settings } from "./settings";
+import { config as appConfig } from "@webiny/app/config";
 import type ApolloClient from "apollo-client";
-import { type GraphQLPlaygroundTabPlugin } from "~/types.js";
-import { type SecurityIdentity } from "@webiny/app-security/types.js";
-import { ORIGINAL_GQL_PLAYGROUND_URL, PATCHED_GQL_PLAYGROUND_URL } from "./constants.js";
+import type { GraphQLPlaygroundTabPlugin } from "~/types";
+import type { SecurityIdentity } from "@webiny/app-security/types";
+import { ORIGINAL_GQL_PLAYGROUND_URL, PATCHED_GQL_PLAYGROUND_URL } from "./constants";
 
 const withHeaders = (link: ApolloLink, headers: Record<string, string>): ApolloLink => {
     return ApolloLink.from([

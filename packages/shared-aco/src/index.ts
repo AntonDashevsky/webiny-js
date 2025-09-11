@@ -1,2 +1,2 @@
-export * from "./flp/index.js";
-export * from "./constants.js";
+export * from "./flp";
+export * from "./constants";

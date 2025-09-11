@@ -1,56 +1,88 @@
-import { type PbContext } from "@webiny/api-page-builder/graphql/types.js";
-import { type AcoContext } from "@webiny/api-aco/types.js";
-import { type MailerContext } from "@webiny/api-mailer/types.js";
-import { type SecurityContext } from "@webiny/api-security/types.js";
-import { type PbImportExportContext } from "@webiny/api-page-builder-import-export/graphql/types.js";
-import { type ApwContext } from "@webiny/api-apw/types.js";
-import { type Context as BaseContext } from "@webiny/handler/types.js";
+import type { SecurityContext } from "@webiny/api-security/types.js";
+import type { Context as BaseContext } from "@webiny/handler/types.js";
+import type { GenericRecord } from "@webiny/api/types.js";
+import type { Topic } from "@webiny/pubsub/types.js";
+import type { MailerContext } from "@webiny/api-mailer/types.js";
+import type { TenancyContext } from "@webiny/api-tenancy/types.js";
+import type { ApwContext } from "@webiny/api-apw/types.js";
+import type { IAuditLog } from "~/storage/types.js";
+import type { FileManagerContext } from "@webiny/api-file-manager/types.js";
+import type { AcoContext } from "@webiny/api-aco/types.js";
+import type { IStorageListParams } from "~/storage/abstractions/Storage.js";
+import type { App, Entity, Action } from "@webiny/common-audit-logs/types.js";
+import type { DbContext } from "@webiny/handler-db/types.js";
+import type { AdminUsersContext } from "@webiny/api-admin-users/types.js";
+import type { I18NContext } from "@webiny/api-i18n/types.js";
+import type { CmsContext } from "@webiny/api-headless-cms/types/index.js";
+import type { WcpContext } from "@webiny/api-wcp/types.js";
+import type { WebsiteBuilderContext } from "@webiny/api-website-builder/index.js";
 
-export * from "~/app/types.js";
-
-export interface Action {
-    type: string;
-    displayName: string;
-    /**
-     * Delay in seconds before a new audit log can be created.
-     * During this delay actions will update existing audit log instead of creating new ones.
-     */
-    newEntryDelay?: number;
+export interface AuditLogPayload
+    extends Omit<IAuditLog, "id" | "tenant" | "createdOn" | "createdBy" | "expiresAt" | "content"> {
+    content: GenericRecord;
 }
 
-export interface Entity {
-    type: string;
-    displayName: string;
-    linkToEntity?: (id: string) => string;
-    actions: Action[];
+export interface OnAuditLogBeforeCreateTopicParams {
+    auditLog: IAuditLog;
+    context: AuditLogsContext;
+    setAuditLog(auditLog: Partial<IAuditLog>): void;
+}
+export interface OnAuditLogBeforeUpdateTopicParams {
+    auditLog: IAuditLog;
+    original: IAuditLog;
+    context: AuditLogsContext;
+    setAuditLog(auditLog: Partial<IAuditLog>): void;
 }
 
-export interface App {
-    app: string;
-    displayName: string;
-    entities: Entity[];
+export interface IListAuditLogsParams extends Omit<IStorageListParams, "tenant" | "limit"> {
+    limit?: number;
 }
 
-export interface AuditLog {
-    id: string;
-    message: string;
-    app: string;
-    entity: string;
-    entityId: string;
-    action: string;
-    data: JSON;
-    timestamp: Date;
-    initiator: string;
+export interface IListAuditLogsResultMeta {
+    cursor: string | null;
+    hasMoreItems: boolean;
+}
+
+export interface IListAuditLogsSuccessResult {
+    items: IAuditLog[];
+    meta: IListAuditLogsResultMeta;
+    error?: never;
+}
+
+export interface IListAuditLogsErrorResult {
+    items?: never;
+    meta?: never;
+    error: Error;
+}
+
+export type IListAuditLogsResult = IListAuditLogsSuccessResult | IListAuditLogsErrorResult;
+
+export interface AuditLogsContextValue {
+    deleteLogsAfterDays: number | undefined;
+    onBeforeCreate: Topic<OnAuditLogBeforeCreateTopicParams>;
+    onBeforeUpdate: Topic<OnAuditLogBeforeUpdateTopicParams>;
+
+    createAuditLog(payload: AuditLogPayload): Promise<IAuditLog>;
+    updateAuditLog(original: IAuditLog, payload: Partial<AuditLogPayload>): Promise<IAuditLog>;
+    getAuditLog(id: string): Promise<IAuditLog | null>;
+    listAuditLogs(params: IListAuditLogsParams): Promise<IListAuditLogsResult>;
 }
 
 export interface AuditLogsContext
     extends BaseContext,
-        PbContext,
-        AcoContext,
-        MailerContext,
-        SecurityContext,
-        ApwContext {
-    pageBuilder: PbImportExportContext["pageBuilder"];
+        Pick<CmsContext, "cms">,
+        Pick<WcpContext, "wcp">,
+        Pick<AdminUsersContext, "adminUsers">,
+        Pick<I18NContext, "i18n">,
+        Pick<DbContext, "db">,
+        Pick<AcoContext, "aco">,
+        Pick<MailerContext, "mailer">,
+        Pick<FileManagerContext, "fileManager">,
+        Pick<SecurityContext, "security">,
+        Pick<TenancyContext, "tenancy">,
+        Pick<ApwContext, "apw">,
+        Pick<WebsiteBuilderContext, "websiteBuilder"> {
+    auditLogs: AuditLogsContextValue;
 }
 
 export interface AuditObject {
@@ -70,3 +102,21 @@ export interface AuditAction {
     entity: Entity;
     action: Action;
 }
+
+// export type AuditLogType = "AuditLogs";
+
+// export interface AuditLogValuesData extends GenericRecord {
+//     data: string;
+// }
+
+// export interface AuditLogValues {
+//     id: string;
+//     title: string;
+//     content: string;
+//     tags: string[];
+//     type: AuditLogType;
+//     location: {
+//         folderId: string;
+//     };
+//     data: AuditLogValuesData;
+// }

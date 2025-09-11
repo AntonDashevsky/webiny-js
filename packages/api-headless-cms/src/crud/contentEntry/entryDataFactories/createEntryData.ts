@@ -1,23 +1,24 @@
-import {
-    type CmsContext,
-    type CmsEntry,
-    type CmsModel,
-    type CmsModelField,
-    type CreateCmsEntryInput,
-    type CreateCmsEntryOptionsInput
-} from "~/types/index.js";
-import { getDate } from "~/utils/date.js";
-import { ROOT_FOLDER } from "~/constants.js";
+import type {
+    CmsContext,
+    CmsEntry,
+    CmsModel,
+    CmsModelField,
+    CreateCmsEntryInput,
+    CreateCmsEntryOptionsInput
+} from "~/types";
+import { getDate } from "~/utils/date";
+import { ROOT_FOLDER } from "~/constants";
 import WebinyError from "@webiny/error";
-import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation.js";
-import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping.js";
+import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation";
+import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping";
 import { createIdentifier, mdbid } from "@webiny/utils";
-import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses.js";
-import { type I18NLocale } from "@webiny/api-i18n/types.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
-import { type Tenant } from "@webiny/api-tenancy/types.js";
-import { getIdentity } from "~/utils/identity.js";
-import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import { getIdentity } from "~/utils/identity";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import { createState } from "~/crud/contentEntry/entryDataFactories/state.js";
 
 type DefaultValue = boolean | number | string | null;
 
@@ -86,6 +87,7 @@ export const createEntryData = async ({
             await accessControl.ensureCanAccessEntry({ model, pw: "u" });
         }
     }
+    const state = createState(rawInput.state);
 
     const locked = status !== STATUS_DRAFT;
 
@@ -171,6 +173,7 @@ export const createEntryData = async ({
 
         version,
         status,
+        state,
         locked,
         values: input,
         location: {

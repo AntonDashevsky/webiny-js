@@ -1,17 +1,17 @@
 import React, { useCallback, useState } from "react";
 import { set } from "dot-prop-immutable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { type IconProp } from "@fortawesome/fontawesome-svg-core";
-import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import { ReactComponent as ArrowUpIcon } from "@material-design-icons/svg/round/expand_less.svg";
-import { ReactComponent as ArrowDownIcon } from "@material-design-icons/svg/round/expand_more.svg";
-import { AccordionItem } from "@webiny/ui/Accordion/index.js";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
+import { ReactComponent as ArrowUpIcon } from "@webiny/icons/expand_less.svg";
+import { ReactComponent as ArrowDownIcon } from "@webiny/icons/expand_more.svg";
+import { AccordionItem } from "@webiny/ui/Accordion";
 import { useConfirmationDialog } from "@webiny/app-admin";
-import { pullValueAtIndex, pushValueAtIndex, removeValueAtIndex } from "~/admin/plugins/arrayUtils.js";
-import { type CmsDynamicZoneTemplate, type CmsEditorFieldsLayout, type CmsModelField } from "~/types.js";
-import { TemplateDialog } from "./TemplateDialog.js";
-import { FieldEditor } from "~/admin/components/FieldEditor/index.js";
+import { pullValueAtIndex, pushValueAtIndex, removeValueAtIndex } from "~/admin/plugins/arrayUtils";
+import type { CmsDynamicZoneTemplate, CmsEditorFieldsLayout, CmsModelField } from "~/types";
+import { TemplateDialog } from "./TemplateDialog";
+import { FieldEditor } from "~/admin/components/FieldEditor";
 
 interface DynamicZoneTemplateProps {
     index: number;

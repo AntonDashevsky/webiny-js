@@ -1,18 +1,19 @@
-import { type CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
-import {
-    type BlockCategory,
-    type Page,
-    type PageBlock,
-    type PageTemplate,
-    type PageTemplateInput
-} from "@webiny/api-page-builder/types.js";
-import { type FileManagerContext, type File } from "@webiny/api-file-manager/types.js";
-import get from "lodash/get.js";
-import Zipper from "./zipper.js";
+import type { CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
+import type {
+    BlockCategory,
+    Page,
+    PageBlock,
+    PageTemplate,
+    PageTemplateInput
+} from "@webiny/api-page-builder/types";
+import type { FileManagerContext, File } from "@webiny/api-file-manager/types";
+import get from "lodash/get";
+import Zipper from "./zipper";
 
 export const EXPORT_PAGES_FOLDER_KEY = "WEBINY_PB_EXPORT_PAGES";
 export const EXPORT_BLOCKS_FOLDER_KEY = "WEBINY_PB_EXPORT_BLOCK";
 export const EXPORT_TEMPLATES_FOLDER_KEY = "WEBINY_PB_EXPORT_TEMPLATE";
+export const EXPORT_FORMS_FOLDER_KEY = "WEBINY_FB_EXPORT_FORM";
 
 export interface ExportedPageData {
     page: Pick<Page, "content" | "title" | "version" | "status" | "settings" | "path">;

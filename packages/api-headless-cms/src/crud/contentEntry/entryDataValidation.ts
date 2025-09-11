@@ -1,15 +1,15 @@
-import {
-    type CmsContext,
-    type CmsDynamicZoneTemplate,
-    type CmsEntry,
-    type CmsModel,
-    type CmsModelField,
-    type CmsModelFieldValidation,
-    type CmsModelFieldValidatorPlugin,
-    type CmsModelFieldValidatorValidateParams
-} from "~/types/index.js";
+import type {
+    CmsContext,
+    CmsDynamicZoneTemplate,
+    CmsEntry,
+    CmsModel,
+    CmsModelField,
+    CmsModelFieldValidation,
+    CmsModelFieldValidatorPlugin,
+    CmsModelFieldValidatorValidateParams
+} from "~/types";
 import WebinyError from "@webiny/error";
-import camelCase from "lodash/camelCase.js";
+import camelCase from "lodash/camelCase";
 
 type PluginValidationCallable = (params: CmsModelFieldValidatorValidateParams) => Promise<boolean>;
 type PluginValidationList = Record<string, PluginValidationCallable[]>;

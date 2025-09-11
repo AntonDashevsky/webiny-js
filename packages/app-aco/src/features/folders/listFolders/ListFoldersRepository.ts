@@ -1,7 +1,7 @@
-import { type ListCache } from "../cache/index.js";
-import { Folder } from "../Folder.js";
-import { type IListFoldersGateway } from "./IListFoldersGateway.js";
-import { type IListFoldersRepository } from "./IListFoldersRepository.js";
+import type { ListCache } from "../cache";
+import { Folder } from "../Folder";
+import type { IListFoldersGateway } from "./IListFoldersGateway";
+import type { IListFoldersRepository } from "./IListFoldersRepository";
 
 export class ListFoldersRepository implements IListFoldersRepository {
     private cache: ListCache<Folder>;

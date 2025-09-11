@@ -1,4 +1,4 @@
-import { Entity } from "~/toolbox.js";
+import type { Entity } from "~/toolbox";
 
 interface Params {
     entity: Entity;

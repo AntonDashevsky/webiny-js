@@ -1,5 +1,5 @@
-import { type GraphQLFieldResolver } from "@webiny/handler-graphql/types.js";
-import { type I18NContext } from "~/types.js";
+import type { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
+import type { I18NContext } from "~/types";
 
 const resolver: GraphQLFieldResolver<any, any, I18NContext> = (_, __, context) => {
     const { i18n } = context;

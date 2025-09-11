@@ -1,4 +1,4 @@
-import { type Batch, type BatchDTO } from "./Batch.js";
+import type { Batch, BatchDTO } from "./Batch";
 
 export class BatchMapper {
     static toDTO(input: Batch): BatchDTO {

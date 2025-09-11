@@ -1,5 +1,5 @@
 import React from "react";
-import { type PbEditorElement } from "~/types.js";
+import type { PbEditorElement } from "~/types";
 
 export interface ElementContext {
     element: PbEditorElement;

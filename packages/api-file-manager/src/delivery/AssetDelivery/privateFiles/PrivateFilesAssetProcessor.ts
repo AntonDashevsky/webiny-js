@@ -1,11 +1,11 @@
-import { type File, type FileManagerContext } from "~/types.js";
-import { type Asset, type AssetProcessor, type AssetRequest } from "~/delivery/index.js";
-import { type AssetAuthorizer } from "./AssetAuthorizer.js";
-import { NotAuthorizedOutputStrategy } from "./NotAuthorizedOutputStrategy.js";
-import { RedirectToPublicUrlOutputStrategy } from "./RedirectToPublicUrlOutputStrategy.js";
-import { RedirectToPrivateUrlOutputStrategy } from "./RedirectToPrivateUrlOutputStrategy.js";
-import { PrivateCache } from "./PrivateCache.js";
-import { PublicCache } from "./PublicCache.js";
+import type { File, FileManagerContext } from "~/types";
+import type { Asset, AssetProcessor, AssetRequest } from "~/delivery";
+import type { AssetAuthorizer } from "./AssetAuthorizer";
+import { NotAuthorizedOutputStrategy } from "./NotAuthorizedOutputStrategy";
+import { RedirectToPublicUrlOutputStrategy } from "./RedirectToPublicUrlOutputStrategy";
+import { RedirectToPrivateUrlOutputStrategy } from "./RedirectToPrivateUrlOutputStrategy";
+import { PrivateCache } from "./PrivateCache";
+import { PublicCache } from "./PublicCache";
 
 interface MaybePrivate {
     private?: boolean;
@@ -47,7 +47,7 @@ export class PrivateFilesAssetProcessor implements AssetProcessor {
 
         try {
             await this.assetAuthorizer.authorize(file);
-        } catch (error) {
+        } catch {
             asset.setOutputStrategy(new NotAuthorizedOutputStrategy());
 
             return asset;

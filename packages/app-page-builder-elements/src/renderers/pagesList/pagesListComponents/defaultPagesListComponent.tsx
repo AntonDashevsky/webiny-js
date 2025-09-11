@@ -1,10 +1,10 @@
 import * as React from "react";
-import { type PagesListComponent, type PagesListPage } from "./../types.js";
-import { type LinkComponent } from "~/types.js";
-import { DefaultLinkComponent } from "~/renderers/components/index.js";
+import type { PagesListComponent, PagesListPage } from "./../types";
+import type { LinkComponent } from "~/types";
+import { DefaultLinkComponent } from "~/renderers/components";
 import styled from "@emotion/styled";
-import { type CSSObject } from "@emotion/react";
-import { usePageElements } from "~/hooks/usePageElements.js";
+import type { CSSObject } from "@emotion/react";
+import { usePageElements } from "~/hooks/usePageElements";
 
 declare global {
     // eslint-disable-next-line

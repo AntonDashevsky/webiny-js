@@ -1,9 +1,8 @@
-import {
+import type {
     IListTaskParamsWhere,
     ITask,
     ITaskDataInput,
     ITaskLog,
-    TaskLogItemType,
     ITaskManagerStoreInfoLog,
     ITaskManagerStorePrivate,
     ITaskManagerStoreSetOutputOptions,
@@ -12,21 +11,21 @@ import {
     ITaskResponseDoneResultOutput,
     ITasksContextObject,
     TaskDataStatus
-} from "~/types.js";
-import {
+} from "~/types";
+import { TaskLogItemType } from "~/types";
+import type {
     ITaskManagerStoreAddLogOptions,
     ITaskManagerStoreErrorLog,
     ITaskManagerStoreUpdateTaskInputParam,
     ITaskManagerStoreUpdateTaskParams
-} from "./abstractions/index.js";
+} from "./abstractions";
 /**
  * Package deep-equal does not have types.
  */
-// @ts-expect-error
 import deepEqual from "deep-equal";
-import { getObjectProperties } from "~/utils/getObjectProperties.js";
-import { ObjectUpdater } from "~/utils/ObjectUpdater.js";
-import { GenericRecord } from "@webiny/api/types.js";
+import { getObjectProperties } from "~/utils/getObjectProperties";
+import { ObjectUpdater } from "~/utils/ObjectUpdater";
+import type { GenericRecord } from "@webiny/api/types";
 
 const getInput = <T extends ITaskDataInput = ITaskDataInput>(
     originalInput: T,

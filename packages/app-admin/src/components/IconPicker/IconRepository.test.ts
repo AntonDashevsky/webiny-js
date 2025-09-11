@@ -1,5 +1,5 @@
-import { IconRepository } from "./IconRepository.js";
-import { type Icon } from "./types.js";
+import { IconRepository } from "./IconRepository";
+import type { Icon } from "./types";
 
 const mockIconTypes = [{ name: "icon" }, { name: "emoji" }, { name: "custom" }];
 

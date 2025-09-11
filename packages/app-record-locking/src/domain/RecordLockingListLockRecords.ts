@@ -1,17 +1,17 @@
 import { WebinyError } from "@webiny/error";
-import { type ApolloClient } from "apollo-client";
-import {
-    type IRecordLockingListLockRecords,
-    type IRecordLockingListLockRecordsParams,
-    type IRecordLockingListLockRecordsResult
-} from "./abstractions/IRecordLockingListLockRecords.js";
-import { type IRecordLockingClient } from "./abstractions/IRecordLockingClient.js";
-import { createRecordLockingClient } from "./utils/createRecordLockingClient.js";
-import {
-    type IRecordLockingListLockedRecordsResponse,
-    type IRecordLockingListLockedRecordsVariables,
-    LIST_LOCK_RECORDS
-} from "~/domain/graphql/listLockRecords.js";
+import type { ApolloClient } from "apollo-client";
+import type {
+    IRecordLockingListLockRecords,
+    IRecordLockingListLockRecordsParams,
+    IRecordLockingListLockRecordsResult
+} from "./abstractions/IRecordLockingListLockRecords";
+import type { IRecordLockingClient } from "./abstractions/IRecordLockingClient";
+import { createRecordLockingClient } from "./utils/createRecordLockingClient";
+import type {
+    IRecordLockingListLockedRecordsResponse,
+    IRecordLockingListLockedRecordsVariables
+} from "~/domain/graphql/listLockRecords";
+import { LIST_LOCK_RECORDS } from "~/domain/graphql/listLockRecords";
 
 interface Params {
     client: IRecordLockingClient | ApolloClient<any>;

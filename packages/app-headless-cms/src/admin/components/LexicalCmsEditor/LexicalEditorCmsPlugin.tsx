@@ -1,4 +1,5 @@
-import React, { type FC } from "react";
+import type { FC } from "react";
+import React from "react";
 import {
     TypographyAction,
     LexicalEditorConfig,
@@ -24,7 +25,7 @@ import {
     FontColorPlugin,
     TextAlignmentAction
 } from "@webiny/lexical-editor";
-import { TypographyDropDown } from "~/admin/components/LexicalCmsEditor/TypographyDropDown.js";
+import { TypographyDropDown } from "~/admin/components/LexicalCmsEditor/TypographyDropDown";
 import { CompositionScope } from "@webiny/react-composition";
 
 const { ToolbarElement, Plugin } = LexicalEditorConfig;
@@ -57,7 +58,7 @@ export const LexicalEditorCmsPlugin: FC = () => {
                 <Plugin name={"link"} element={<LinkPlugin />} />
                 <Plugin
                     name={"floatingLinkEditor"}
-                    element={<FloatingLinkEditorPlugin anchorElem={document.body} />}
+                    element={<FloatingLinkEditorPlugin anchorElem={() => document.body} />}
                 />
                 <Plugin name={"images"} element={<ImagesPlugin />} />
                 <Plugin name={"quote"} element={<QuotePlugin />} />

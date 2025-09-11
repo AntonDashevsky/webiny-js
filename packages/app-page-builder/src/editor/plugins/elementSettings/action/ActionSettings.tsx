@@ -1,18 +1,19 @@
 import React, { useMemo } from "react";
 import { css } from "emotion";
 import { merge } from "dot-prop-immutable";
-import { Form, type FormOnSubmit } from "@webiny/form";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
-import { withActiveElement } from "../../../components/index.js";
-import {
-    type PbEditorElement,
-    type PbEditorPageElementSettingsRenderComponentProps,
-    type PbPageElementActionTypePlugin
-} from "~/types.js";
-import Accordion from "../components/Accordion.js";
-import Wrapper from "../components/Wrapper.js";
-import SelectField from "../components/SelectField.js";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
+import { withActiveElement } from "../../../components";
+import type {
+    PbEditorElement,
+    PbEditorPageElementSettingsRenderComponentProps,
+    PbPageElementActionTypePlugin
+} from "~/types";
+import Accordion from "../components/Accordion";
+import Wrapper from "../components/Wrapper";
+import SelectField from "../components/SelectField";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
 
 const classes = {
     gridClass: css({

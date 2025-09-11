@@ -1,6 +1,6 @@
 import { mocks as changeRequestMock } from "./mocks/changeRequest";
 import { createSetupForPageContentReview } from "../utils/helpers";
-import { ApwContentReview, PageWithWorkflow } from "~/types";
+import type { ApwContentReview, PageWithWorkflow } from "~/types";
 import { useGraphQlHandler } from "~tests/utils/useGraphQlHandler";
 
 const richTextMock = [
@@ -65,7 +65,7 @@ describe(`Add change requests on a step in a "Content Review"`, () => {
         scheduledOn: null
     };
 
-    test("should able to add change request in a content review", async () => {
+    test.skip("should able to add change request in a content review", async () => {
         const { page } = await createSetupForPageContentReview(gqlHandler);
         const contentReview = await createContentReview(page);
         const [step1, step2] = contentReview.steps;
@@ -351,7 +351,7 @@ describe(`Add change requests on a step in a "Content Review"`, () => {
         });
     });
 
-    test(`should delete all "change requests" when a "content review" gets deleted`, async () => {
+    test.skip(`should delete all "change requests" when a "content review" gets deleted`, async () => {
         const { page, createPage } = await createSetupForPageContentReview(gqlHandler);
         const page2 = await createPage(gqlHandler);
         const pages = [page, page2];

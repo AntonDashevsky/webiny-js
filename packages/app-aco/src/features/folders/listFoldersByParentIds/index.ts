@@ -1,1 +1,1 @@
-export * from "./useListFoldersByParentIds.js";
+export * from "./useListFoldersByParentIds";

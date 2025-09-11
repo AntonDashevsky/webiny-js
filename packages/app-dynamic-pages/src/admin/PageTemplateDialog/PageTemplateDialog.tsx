@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useRouter } from "@webiny/react-router";
-import { type CmsModel } from "@webiny/app-headless-cms/types.js";
-import { CreatePageTemplateDialog } from "@webiny/app-page-builder/admin/views/PageTemplates/CreatePageTemplateDialog.js";
-import { CreateTemplateDialog } from "~/admin/PageTemplateDialog/CreateTemplateDialog.js";
-import { useCreateDynamicPageTemplate } from "~/features/pageTemplate/createDynamicTemplate/useCreateDynamicTemplate.js";
+import type { CmsModel } from "@webiny/app-headless-cms/types";
+import { CreatePageTemplateDialog } from "@webiny/app-page-builder/admin/views/PageTemplates/CreatePageTemplateDialog";
+import { CreateTemplateDialog } from "~/admin/PageTemplateDialog/CreateTemplateDialog";
+import { useCreateDynamicPageTemplate } from "~/features/pageTemplate/createDynamicTemplate/useCreateDynamicTemplate";
 
 export const PageTemplateDialog = CreatePageTemplateDialog.createDecorator(Original => {
     return function CreatePageTemplateDialog(props) {

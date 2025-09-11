@@ -1,15 +1,21 @@
-import { S3, S3Client, S3ClientConfig as BaseS3ClientConfig } from "@aws-sdk/client-s3";
+import type { S3ClientConfig as BaseS3ClientConfig } from "@aws-sdk/client-s3";
+import { S3, S3Client } from "@aws-sdk/client-s3";
 import { createCacheKey } from "@webiny/utils";
 
 export {
+    CopyObjectCommand,
     GetObjectCommand,
     HeadObjectCommand,
     ListObjectsCommand,
+    UploadPartCopyCommand,
     ListObjectsV2Command,
     ListPartsCommand,
     ObjectCannedACL,
+    Part,
     DeleteObjectCommand,
     PutObjectCommand,
+    PutObjectCommandInput,
+    PutObjectRequest,
     UploadPartCommand,
     AbortMultipartUploadCommand,
     CompleteMultipartUploadCommand,
@@ -19,16 +25,24 @@ export {
 } from "@aws-sdk/client-s3";
 
 export type {
-    Part,
-    PutObjectCommandInput,
-    PutObjectRequest,
+    CopyObjectCommandInput,
+    CopyObjectCommandOutput,
+    DeleteObjectCommandInput,
+    DeleteObjectsCommandInput,
+    DeleteObjectsCommandOutput,
+    AbortMultipartUploadCommandInput,
+    CompleteMultipartUploadCommandInput,
+    UploadPartCopyCommandInput,
+    CreateMultipartUploadCommandInput,
     CompleteMultipartUploadCommandOutput,
     AbortMultipartUploadCommandOutput,
     CompleteMultipartUploadOutput,
     DeleteObjectOutput,
     GetObjectOutput,
+    CompletedPart,
     GetObjectCommandOutput,
     HeadObjectOutput,
+    HeadObjectCommandInput,
     HeadObjectCommandOutput,
     DeleteObjectCommandOutput,
     ListObjectsOutput,
@@ -39,7 +53,7 @@ export type {
 } from "@aws-sdk/client-s3";
 
 export { createPresignedPost } from "@aws-sdk/s3-presigned-post";
-export type { PresignedPost, PresignedPostOptions } from "@aws-sdk/s3-presigned-post";
+export { PresignedPost, PresignedPostOptions } from "@aws-sdk/s3-presigned-post";
 
 export { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 

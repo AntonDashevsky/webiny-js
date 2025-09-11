@@ -1,21 +1,27 @@
-import React, { type ReactNode, useState } from "react";
-import { type GenericFormData } from "@webiny/form";
-import { useSnackbar } from "~/hooks/index.js";
-import { Dialog } from "./Dialog.js";
-import { CustomDialog } from "./CustomDialog.js";
+import type { ReactNode } from "react";
+import React, { useState } from "react";
+import type { GenericFormData } from "@webiny/form";
+import { useSnackbar } from "~/hooks";
+import { Dialog, type DialogProps } from "./Dialog";
+import { CustomDialog } from "./CustomDialog";
 import { createProvider } from "@webiny/app";
 import { generateId } from "@webiny/utils";
 
 interface ShowDialogParams {
     title: ReactNode;
+    description?: ReactNode;
+    dismissible?: boolean;
     content: ReactNode;
     actions?: JSX.Element;
+    icon?: JSX.Element;
     acceptLabel?: ReactNode;
     cancelLabel?: ReactNode;
     loadingLabel?: ReactNode;
+    dataLoadingLabel?: ReactNode;
     onAccept?: (data: GenericFormData) => void;
     onClose?: () => void;
-    formData?: GenericFormData;
+    formData?: DialogProps["formData"];
+    size?: "sm" | "md" | "lg" | "xl" | "full";
 }
 
 interface ShowCustomDialogParams {
@@ -24,8 +30,9 @@ interface ShowCustomDialogParams {
 }
 
 export interface DialogsContext {
-    showDialog: (params: ShowDialogParams) => void;
-    showCustomDialog: (params: ShowCustomDialogParams) => void;
+    showDialog: (params: ShowDialogParams) => () => void;
+    showCustomDialog: (params: ShowCustomDialogParams) => () => void;
+    closeAllDialogs: () => void;
 }
 
 interface DialogsProviderProps {
@@ -42,16 +49,21 @@ interface DialogState extends ShowDialogParams {
 export const initializeState = (params: Partial<DialogState> = {}): DialogState => ({
     id: `dialog-${generateId()}`,
     title: params.title ?? `Confirmation`,
+    description: params.description,
+    dismissible: params.dismissible,
+    icon: params.icon,
     content: params.content,
-    acceptLabel: params.acceptLabel ?? `Confirm`,
-    cancelLabel: params.cancelLabel ?? `Cancel`,
-    loadingLabel: params.loadingLabel ?? `Loading`,
+    acceptLabel: params.acceptLabel === null ? null : params.acceptLabel ?? `Confirm`,
+    cancelLabel: params.cancelLabel === null ? null : params.cancelLabel ?? `Cancel`,
+    loadingLabel: params.loadingLabel ?? `Loading...`,
+    dataLoadingLabel: params.dataLoadingLabel ?? `Loading...`,
     onAccept: params.onAccept,
     onClose: params.onClose,
     open: params.open ?? false,
     loading: params.loading ?? false,
     element: params.element,
-    formData: params.formData ?? {}
+    formData: params.formData ?? {},
+    size: params.size ?? "md"
 });
 
 export const DialogsContext = React.createContext<DialogsContext | undefined>(undefined);
@@ -63,6 +75,7 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
     const showDialog = (params: ShowDialogParams) => {
         const newDialog = initializeState({ ...params, open: true });
         setDialogs(dialogs => new Map(dialogs).set(newDialog.id, newDialog));
+        return () => closeDialog(newDialog.id);
     };
 
     const showCustomDialog = ({ onSubmit, element }: ShowCustomDialogParams) => {
@@ -72,6 +85,7 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
             open: true
         });
         setDialogs(dialogs => new Map(dialogs).set(newDialog.id, newDialog));
+        return () => closeDialog(newDialog.id);
     };
 
     const closeDialog = (id: string) => {
@@ -80,6 +94,10 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
             newDialogs.delete(id);
             return newDialogs;
         });
+    };
+
+    const closeAllDialogs = () => {
+        setDialogs(new Map());
     };
 
     const onSubmit = async (id: string, data: GenericFormData) => {
@@ -113,7 +131,8 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
     const context = {
         showDialog,
         showCustomDialog,
-        closeDialog
+        closeDialog,
+        closeAllDialogs
     };
 
     return (
@@ -133,16 +152,24 @@ export const DialogsProvider = ({ children }: DialogsProviderProps) => {
                 ) : (
                     <Dialog
                         key={dialog.id}
+                        description={dialog.description}
+                        dismissible={dialog.dismissible ?? true}
+                        icon={dialog.icon ?? <></>}
                         title={dialog.title}
                         content={dialog.content}
                         open={dialog.open}
                         acceptLabel={dialog.acceptLabel}
                         cancelLabel={dialog.cancelLabel}
                         loadingLabel={dialog.loadingLabel}
+                        dataLoadingLabel={dialog.dataLoadingLabel}
                         loading={dialog.loading}
-                        closeDialog={() => closeDialog(dialog.id)}
+                        closeDialog={() => {
+                            closeDialog(dialog.id);
+                            dialog.onClose && dialog.onClose();
+                        }}
                         onSubmit={data => onSubmit(dialog.id, data)}
                         formData={dialog.formData}
+                        size={dialog.size}
                     />
                 )
             )}

@@ -1,15 +1,14 @@
-import { ColumnsVisibilityPresenter } from "./ColumnsVisibilityPresenter.js";
-import { type IColumnsVisibilityGateway } from "../gateways/index.js";
-import { type ColumnConfig } from "~/config/table/Column.js";
-import { Column, ColumnsPresenter, ColumnsRepository } from "../Columns/index.js";
-import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository.js";
-import { ColumnsVisibilityDecorator } from "./ColumnsVisibilityDecorator.js";
-import { ColumnsVisibilityUpdater } from "~/components/Table/components/Table/ColumnVisibility/ColumnsVisibilityUpdater.js";
-import { jest } from "@jest/globals";
+import { ColumnsVisibilityPresenter } from "./ColumnsVisibilityPresenter";
+import type { IColumnsVisibilityGateway } from "../gateways";
+import type { ColumnConfig } from "~/config/table/Column";
+import { Column, ColumnsPresenter, ColumnsRepository } from "../Columns";
+import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository";
+import { ColumnsVisibilityDecorator } from "./ColumnsVisibilityDecorator";
+import { ColumnsVisibilityUpdater } from "~/components/Table/components/Table/ColumnVisibility/ColumnsVisibilityUpdater";
 
 const defaultGateway: IColumnsVisibilityGateway = {
-    get: jest.fn<IColumnsVisibilityGateway["get"]>(),
-    set: jest.fn<IColumnsVisibilityGateway["set"]>()
+    get: jest.fn(),
+    set: jest.fn()
 };
 
 const createMockGateway = ({
@@ -76,7 +75,7 @@ describe("ColumnsVisibilityPresenter", () => {
         // Let's init the ColumnsPresenter
         await columnsPresenter.init();
 
-        expect(defaultGateway.get).toBeCalledTimes(1);
+        expect(defaultGateway.get).toHaveBeenCalledTimes(1);
 
         expect(columnsVisibilityPresenter.vm).toEqual({
             columnsVisibility: {
@@ -90,9 +89,7 @@ describe("ColumnsVisibilityPresenter", () => {
     it("should return the columns visibility from both the column configs and the gateway", async () => {
         // Let's create a mocked gateway
         const gateway = createMockGateway({
-            get: jest
-                .fn<IColumnsVisibilityGateway["get"]>()
-                .mockImplementation(async () => ({ title: false }))
+            get: jest.fn().mockImplementation(() => ({ title: false }))
         });
 
         // Let's create repositories and presenters
@@ -108,7 +105,7 @@ describe("ColumnsVisibilityPresenter", () => {
         // Let's init the ColumnsPresenter
         await columnsPresenter.init();
 
-        expect(gateway.get).toBeCalledTimes(1);
+        expect(gateway.get).toHaveBeenCalledTimes(1);
 
         expect(columnsVisibilityPresenter.vm).toEqual({
             columnsVisibility: {
@@ -145,10 +142,7 @@ describe("ColumnsVisibilityPresenter", () => {
         });
 
         // Let's update the visibility
-        const updater = jest
-            .fn<any>()
-            .mockImplementation((current: any) => ({ ...current, title: false }));
-
+        const updater = jest.fn().mockImplementation(current => ({ ...current, title: false }));
         await columnsVisibilityUpdater.update(updater);
 
         expect(columnsVisibilityPresenter.vm).toEqual({

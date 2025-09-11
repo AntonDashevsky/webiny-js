@@ -1,6 +1,6 @@
-import { type PbImportExportContext } from "~/graphql/types.js";
-import { type ITaskManagerStore } from "@webiny/tasks";
-import { type IExportPagesZipPagesInput } from "~/export/pages/types.js";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { ITaskManagerStore } from "@webiny/tasks";
+import type { IExportPagesZipPagesInput } from "~/export/pages/types";
 
 export const getPageFactory = (
     context: PbImportExportContext,
@@ -13,7 +13,7 @@ export const getPageFactory = (
                 return await context.pageBuilder.getPublishedPageById({
                     id: pageId
                 });
-            } catch (ex) {
+            } catch {
                 /**
                  * We do not need to do anything on exception because we will fetch the latest version.
                  */

@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type Benchmark } from "~/types.js";
+import type { Benchmark } from "~/types";
 
 /**
  * This plugin should be initialized only once per context, hence the name of the plugin.

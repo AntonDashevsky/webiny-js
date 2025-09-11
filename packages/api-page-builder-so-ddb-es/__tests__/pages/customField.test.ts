@@ -1,4 +1,4 @@
-import { Category } from "@webiny/api-page-builder/types";
+import type { Category } from "@webiny/api-page-builder/types";
 import { useHandler } from "~tests/useHandler";
 import { createCustomFieldPlugins } from "~tests/pages/customField/plugins";
 import { jest } from "@jest/globals";

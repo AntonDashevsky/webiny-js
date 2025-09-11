@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { type CmsErrorResponse, type CmsModel } from "~/types.js";
+import type { CmsErrorResponse, CmsModel } from "~/types";
 
 const ERROR_FIELDS = `
     message
@@ -53,6 +53,10 @@ export const MODEL_FIELDS = `
     singularApiName
     pluralApiName
     savedOn
+    createdBy {
+        id
+        displayName
+    }
     titleFieldId
     descriptionFieldId
     imageFieldId

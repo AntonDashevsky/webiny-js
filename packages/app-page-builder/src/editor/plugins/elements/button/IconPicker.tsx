@@ -1,7 +1,8 @@
 import React from "react";
-import { IconPicker as IconPickerComponent, type Icon } from "@webiny/app-admin/components/IconPicker/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { Cell } from "@webiny/ui/Grid/index.js";
+import type { Icon } from "@webiny/app-admin/components/IconPicker";
+import { IconPicker as IconPickerComponent } from "@webiny/app-admin/components/IconPicker";
+import { Typography } from "@webiny/ui/Typography";
+import { Cell } from "@webiny/ui/Grid";
 
 interface IconPickerProps {
     label: string;

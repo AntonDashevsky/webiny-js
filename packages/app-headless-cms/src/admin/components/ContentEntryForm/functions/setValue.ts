@@ -1,5 +1,5 @@
-import { type CmsModelField } from "~/types.js";
-import { type BindComponentRenderProp } from "@webiny/form";
+import type { CmsModelField } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
 
 interface setValueParams {
     value: string[];

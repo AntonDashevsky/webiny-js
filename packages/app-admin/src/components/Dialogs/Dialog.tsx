@@ -1,23 +1,25 @@
-import React, { type ReactNode } from "react";
+import type { ReactNode } from "react";
+import React, { useEffect, useState } from "react";
+import { Dialog as AdminDialog, OverlayLoader } from "@webiny/admin-ui";
+import type { FormOnSubmit, GenericFormData } from "@webiny/form";
+import { Form } from "@webiny/form";
 
-import { Form, type FormOnSubmit, type GenericFormData } from "@webiny/form";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-
-import { DialogContainer } from "./styled.js";
-
-interface DialogProps {
+export interface DialogProps {
     title: ReactNode;
+    description: ReactNode;
+    dismissible: boolean;
     content: ReactNode;
+    icon: ReactNode;
     acceptLabel?: ReactNode;
     cancelLabel?: ReactNode;
     loadingLabel?: ReactNode;
+    dataLoadingLabel?: ReactNode;
     onSubmit: (data: GenericFormData) => void;
     closeDialog: () => void;
     loading: boolean;
     open: boolean;
-    formData?: GenericFormData;
+    formData?: GenericFormData | (() => Promise<GenericFormData>);
+    size?: "sm" | "md" | "lg" | "xl" | "full";
 }
 
 export const Dialog = ({
@@ -28,37 +30,66 @@ export const Dialog = ({
     acceptLabel,
     cancelLabel,
     loadingLabel = "Loading...",
+    dataLoadingLabel = "Loading...",
     closeDialog,
     onSubmit,
-    formData
+    size,
+    ...props
 }: DialogProps) => {
     const handleSubmit: FormOnSubmit = data => {
-        onSubmit(data);
+        return onSubmit(data);
     };
 
+    const [dataIsLoading, setDataIsLoading] = useState(false);
+
+    const [formData, setFormData] = useState<GenericFormData | undefined>(
+        typeof props.formData === "function" ? undefined : props.formData
+    );
+
+    useEffect(() => {
+        if (typeof props.formData === "function") {
+            setDataIsLoading(true);
+            props.formData().then((data: GenericFormData) => {
+                setFormData(data);
+                setDataIsLoading(false);
+            });
+        }
+    }, [props.formData]);
+
     return (
-        <DialogContainer open={open} onClose={closeDialog}>
-            {open ? (
-                <Form onSubmit={handleSubmit} data={formData}>
-                    {({ submit }) => (
+        <Form onSubmit={handleSubmit} data={formData}>
+            {({ submit }) => (
+                <AdminDialog
+                    open={open}
+                    onClose={closeDialog}
+                    size={size}
+                    title={title}
+                    description={props.description}
+                    icon={<AdminDialog.Icon icon={props.icon} label={""} />}
+                    dismissible={props.dismissible}
+                    actions={
                         <>
-                            {loading && <CircularProgress label={loadingLabel} />}
-                            <DialogTitle>{title}</DialogTitle>
-                            <DialogContent>{content}</DialogContent>
-                            <DialogActions>
-                                {cancelLabel ? (
-                                    <ButtonDefault onClick={closeDialog}>
-                                        {cancelLabel}
-                                    </ButtonDefault>
-                                ) : null}
-                                {acceptLabel ? (
-                                    <ButtonPrimary onClick={submit}>{acceptLabel}</ButtonPrimary>
-                                ) : null}
-                            </DialogActions>
+                            {cancelLabel ? (
+                                <AdminDialog.CancelButton
+                                    onClick={closeDialog}
+                                    text={cancelLabel}
+                                />
+                            ) : null}
+                            {acceptLabel ? (
+                                <AdminDialog.ConfirmButton onClick={submit} text={acceptLabel} />
+                            ) : null}
                         </>
-                    )}
-                </Form>
-            ) : null}
-        </DialogContainer>
+                    }
+                >
+                    {open ? (
+                        <>
+                            {loading && <OverlayLoader text={loadingLabel} />}
+                            {dataIsLoading && <OverlayLoader text={dataLoadingLabel} />}
+                            {content}
+                        </>
+                    ) : null}
+                </AdminDialog>
+            )}
+        </Form>
     );
 };

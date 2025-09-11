@@ -1,8 +1,8 @@
 import { ContextPlugin } from "@webiny/api";
-import { type HcmsBulkActionsContext } from "~/types.js";
+import type { HcmsBulkActionsContext } from "~/types";
 import { CmsGraphQLSchemaPlugin, isHeadlessCmsReady } from "@webiny/api-headless-cms";
 import { Response } from "@webiny/handler-graphql";
-import { CMS_MODEL_SINGLETON_TAG } from "@webiny/api-headless-cms/constants.js";
+import { CMS_MODEL_SINGLETON_TAG } from "@webiny/api-headless-cms/constants";
 
 export interface CreateBulkActionGraphQL {
     name: string;

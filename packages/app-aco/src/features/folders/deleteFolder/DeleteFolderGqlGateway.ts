@@ -1,7 +1,7 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { type IDeleteFolderGateway } from "./IDeleteFolderGateway.js";
-import { type AcoError } from "~/types.js";
+import type { IDeleteFolderGateway } from "./IDeleteFolderGateway";
+import type { AcoError } from "~/types";
 
 export interface DeleteFolderVariables {
     id: string;

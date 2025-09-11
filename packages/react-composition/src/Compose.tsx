@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { type DecoratableTypes, useComposition } from "./Context.js";
-import { useCompositionScope } from "~/CompositionScope.js";
-import { type ComposeWith, type Decoratable, type Enumerable } from "./types.js";
+import type { DecoratableTypes } from "./Context";
+import { useComposition } from "./Context";
+import { useCompositionScope } from "~/CompositionScope";
+import type { ComposeWith, Decoratable, Enumerable } from "./types";
 
 export interface ComposeProps {
     function?: DecoratableTypes;
@@ -11,11 +12,14 @@ export interface ComposeProps {
 
 export const Compose = (props: ComposeProps) => {
     const { composeComponent } = useComposition();
-    const scope = useCompositionScope();
+    const { scope, inherit } = useCompositionScope();
 
     const targetFn = (props.function ?? props.component) as Decoratable;
 
     useEffect(() => {
+        if (!targetFn) {
+            console.warn("You must provide a function or a component to compose with!", props);
+        }
         if (typeof targetFn.original === "undefined") {
             console.warn(
                 `You must make your function "${
@@ -30,7 +34,8 @@ export const Compose = (props: ComposeProps) => {
         return composeComponent(
             targetFn.original,
             decorators as Enumerable<ComposeWith>,
-            scope[scope.length - 1]
+            scope[scope.length - 1],
+            inherit
         );
     }, [props.with]);
 

@@ -1,17 +1,9 @@
 import React, { useEffect, useMemo } from "react";
-
+import { Dialog, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 import { Form } from "@webiny/form";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { DialogActions, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-
-import { type QuerySaverDialogFormData, QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
-
-import { type FilterDTO } from "../domain/index.js";
-
-import { DialogContainer } from "./QuerySaverDialog.styled.js";
+import type { QuerySaverDialogFormData } from "./QuerySaverDialogPresenter";
+import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter";
+import type { FilterDTO } from "../domain";
 
 interface QuerySaverDialogProps {
     onClose: () => void;
@@ -44,44 +36,50 @@ export const QuerySaverDialog = ({ filter, ...props }: QuerySaverDialogProps) =>
     };
 
     return (
-        <DialogContainer open={props.vm.isOpen} onClose={props.onClose}>
-            {props.vm.isOpen ? (
-                <Form
-                    data={presenter.vm.data}
-                    onChange={onChange}
-                    onSubmit={onSubmit}
-                    invalidFields={presenter.vm.invalidFields}
-                >
-                    {({ Bind, form }) => (
-                        <>
-                            <DialogTitle>{"Save search filter"}</DialogTitle>
-                            {props.vm.isLoading && (
-                                <CircularProgress label={props.vm.loadingLabel} />
-                            )}
-                            <DialogContent>
+        <Form
+            data={presenter.vm.data}
+            onChange={onChange}
+            onSubmit={onSubmit}
+            invalidFields={presenter.vm.invalidFields}
+        >
+            {({ Bind, form }) => {
+                return (
+                    <Dialog
+                        open={props.vm.isOpen}
+                        onClose={props.onClose}
+                        title={"Save search filter"}
+                        actions={
+                            <>
+                                <Dialog.CancelButton onClick={props.onClose} text={"Cancel"} />
+                                <Dialog.ConfirmButton
+                                    onClick={form.submit}
+                                    text={"Save and apply"}
+                                />
+                            </>
+                        }
+                    >
+                        {props.vm.isOpen ? (
+                            <>
+                                {props.vm.isLoading && (
+                                    <OverlayLoader text={props.vm.loadingLabel} />
+                                )}
                                 <Grid>
-                                    <Cell span={12} align={"middle"}>
+                                    <Grid.Column span={12}>
                                         <Bind name={"name"}>
-                                            <Input type={"text"} label={"Name"} />
+                                            <Input type={"text"} label={"Name"} size={"lg"} />
                                         </Bind>
-                                    </Cell>
-                                    <Cell span={12} align={"middle"}>
+                                    </Grid.Column>
+                                    <Grid.Column span={12}>
                                         <Bind name={"description"}>
-                                            <Input type={"text"} label={"Description"} rows={6} />
+                                            <Textarea label={"Description"} rows={6} size={"lg"} />
                                         </Bind>
-                                    </Cell>
+                                    </Grid.Column>
                                 </Grid>
-                            </DialogContent>
-                            <DialogActions>
-                                <ButtonDefault onClick={props.onClose}>{"Cancel"}</ButtonDefault>
-                                <ButtonPrimary onClick={form.submit}>
-                                    {"Save and apply"}
-                                </ButtonPrimary>
-                            </DialogActions>
-                        </>
-                    )}
-                </Form>
-            ) : null}
-        </DialogContainer>
+                            </>
+                        ) : null}
+                    </Dialog>
+                );
+            }}
+        </Form>
     );
 };

@@ -2,11 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import type ApolloClient from "apollo-client";
 import { autorun, toJS } from "mobx";
 import { useApolloClient } from "@apollo/react-hooks";
-import { type PbPageTemplateWithContent } from "~/types.js";
-import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache.js";
-import { ListPageTemplatesGqlGateway } from "~/features/pageTemplate/listPageTemplates/ListPageTemplatesGqlGateway.js";
-import { ListPageTemplatesRepository } from "~/features/pageTemplate/listPageTemplates/ListPageTemplatesRepository.js";
-import { type IListPageTemplatesRepository } from "~/features/pageTemplate/listPageTemplates/IListPageTemplatesRepository.js";
+import type { PbPageTemplateWithContent } from "~/types";
+import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache";
+import { ListPageTemplatesGqlGateway } from "~/features/pageTemplate/listPageTemplates/ListPageTemplatesGqlGateway";
+import { ListPageTemplatesRepository } from "~/features/pageTemplate/listPageTemplates/ListPageTemplatesRepository";
+import type { IListPageTemplatesRepository } from "~/features/pageTemplate/listPageTemplates/IListPageTemplatesRepository";
 
 class RepositoryFactory {
     private cache: Map<ApolloClient<any>, IListPageTemplatesRepository> = new Map();

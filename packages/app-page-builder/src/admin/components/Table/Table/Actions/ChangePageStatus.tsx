@@ -1,9 +1,9 @@
 import React from "react";
-import { ReactComponent as Publish } from "@material-design-icons/svg/outlined/publish.svg";
-import { ReactComponent as Unpublish } from "@material-design-icons/svg/outlined/settings_backup_restore.svg";
-import { PageListConfig } from "~/admin/config/pages/index.js";
-import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
-import { useChangePageStatus } from "~/admin/views/Pages/hooks/useChangePageStatus.js";
+import { ReactComponent as Publish } from "@webiny/icons/publish.svg";
+import { ReactComponent as Unpublish } from "@webiny/icons/settings_backup_restore.svg";
+import { PageListConfig } from "~/admin/config/pages";
+import { usePage } from "~/admin/views/Pages/hooks/usePage";
+import { useChangePageStatus } from "~/admin/views/Pages/hooks/useChangePageStatus";
 import { makeDecoratable } from "@webiny/react-composition";
 
 export const ChangePageStatus = makeDecoratable("ChangePageStatus", () => {

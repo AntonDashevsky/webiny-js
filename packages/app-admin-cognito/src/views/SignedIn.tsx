@@ -1,5 +1,5 @@
 import type React from "react";
-import { useSignedIn } from "@webiny/app-cognito-authenticator/hooks/useSignedIn.js";
+import { useSignedIn } from "@webiny/app-cognito-authenticator/hooks/useSignedIn";
 
 interface SignedInProps {
     children: React.ReactNode;

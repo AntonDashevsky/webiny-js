@@ -1,6 +1,7 @@
-import { interfaces } from "inversify";
+import type { interfaces } from "inversify";
 import { z } from "zod";
-import { Container, createContainer } from "~/index";
+import type { Container } from "~/index";
+import { createContainer } from "~/index";
 type Constructor<T> = new (...args: never[]) => T;
 
 abstract class DataModel {

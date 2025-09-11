@@ -1,10 +1,11 @@
-import React, { type ForwardRefRenderFunction, useMemo } from "react";
+import type { ForwardRefRenderFunction } from "react";
+import React, { useMemo } from "react";
 
 import { createFoldersData, createRecordsData, Table as AcoTable } from "@webiny/app-aco";
-import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList.js";
+import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList";
 
-import { TableContainer } from "./styled.js";
-import { type TableItem } from "~/types.js";
+import { TableContainer } from "./styled";
+import type { TableItem } from "~/types";
 
 const BaseTable: ForwardRefRenderFunction<HTMLDivElement> = (_, ref) => {
     const list = usePagesList();
@@ -12,6 +13,10 @@ const BaseTable: ForwardRefRenderFunction<HTMLDivElement> = (_, ref) => {
     const data = useMemo<TableItem[]>(() => {
         return [...createFoldersData(list.folders), ...createRecordsData(list.records)];
     }, [list.folders, list.records]);
+
+    const selected = useMemo<TableItem[]>(() => {
+        return createRecordsData(list.selected);
+    }, [list.selected]);
 
     return (
         <TableContainer ref={ref}>
@@ -21,7 +26,7 @@ const BaseTable: ForwardRefRenderFunction<HTMLDivElement> = (_, ref) => {
                 onSelectRow={list.onSelectRow}
                 sorting={list.sorting}
                 onSortingChange={list.setSorting}
-                selected={list.selected}
+                selected={selected}
                 namespace={"pb.page"}
             />
         </TableContainer>

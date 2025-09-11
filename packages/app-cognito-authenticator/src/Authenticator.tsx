@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useReducer } from "react";
 import { Auth } from "@aws-amplify/auth";
-import { type AuthOptions } from "@aws-amplify/auth/lib-esm/types/index.js";
-import { type CognitoIdToken } from "./types.js";
+import type { AuthOptions } from "@aws-amplify/auth/lib-esm/types";
+import type { CognitoIdToken } from "./types";
 
 export type AuthState =
     | "signIn"
@@ -109,7 +109,7 @@ export const Authenticator = ({ onToken, children }: AuthenticatorProps) => {
                 await onChangeState("signedIn");
                 setState({ checkingUser: false });
             }
-        } catch (e) {
+        } catch {
             setState({ checkingUser: false });
         }
     };

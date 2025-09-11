@@ -1,11 +1,13 @@
-import { type LoadingRepository, loadingRepositoryFactory } from "@webiny/app-utils";
-import { type IGetFolderHierarchyUseCase } from "./IGetFolderHierarchyUseCase.js";
-import { type IGetFolderHierarchyGateway } from "./IGetFolderHierarchyGateway.js";
-import { GetFolderHierarchyUseCaseWithLoading } from "./GetFolderHierarchyUseCaseWithLoading.js";
-import { GetFolderHierarchyRepository } from "./GetFolderHierarchyRepository.js";
-import { GetFolderHierarchyUseCase } from "./GetFolderHierarchyUseCase.js";
-import { folderCacheFactory, type ListCache, loadedFolderCacheFactory } from "../cache/index.js";
-import { type Folder } from "../Folder.js";
+import type { LoadingRepository } from "@webiny/app-utils";
+import { loadingRepositoryFactory } from "@webiny/app-utils";
+import type { IGetFolderHierarchyUseCase } from "./IGetFolderHierarchyUseCase";
+import type { IGetFolderHierarchyGateway } from "./IGetFolderHierarchyGateway";
+import { GetFolderHierarchyUseCaseWithLoading } from "./GetFolderHierarchyUseCaseWithLoading";
+import { GetFolderHierarchyRepository } from "./GetFolderHierarchyRepository";
+import { GetFolderHierarchyUseCase } from "./GetFolderHierarchyUseCase";
+import type { ListCache } from "../cache";
+import { folderCacheFactory, loadedFolderCacheFactory } from "../cache";
+import type { Folder } from "../Folder";
 
 interface IGetFolderHierarchyInstance {
     useCase: IGetFolderHierarchyUseCase;

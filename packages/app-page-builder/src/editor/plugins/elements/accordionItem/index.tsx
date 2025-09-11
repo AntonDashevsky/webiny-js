@@ -1,9 +1,10 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase.js";
-import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
-import AccordionItem from "./AccordionItem.js";
-import { createElement } from "~/editor/helpers.js";
-import { type PbEditorPageElementPlugin, type PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
+import kebabCase from "lodash/kebabCase";
+import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
+import AccordionItem from "./AccordionItem";
+import { createElement } from "~/editor/helpers";
+import type { PbEditorPageElementPlugin, PbEditorElementPluginArgs } from "~/types";
+import { DisplayMode } from "~/types";
 
 export default (args: PbEditorElementPluginArgs = {}): PbEditorPageElementPlugin => {
     const defaultSettings = [

@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type ApiEndpoint, type CmsContext } from "~/types/index.js";
+import type { ApiEndpoint, CmsContext } from "~/types";
 
 /**
  * Type can be null because it might be that Headless CMS context is loaded on a different Lambda where there is no GraphQL Schema generated.

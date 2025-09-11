@@ -1,6 +1,6 @@
 import findUp from "find-up";
 import { sync } from "load-json-file";
-import { PackageJson } from "type-fest";
+import type { PackageJson } from "type-fest";
 import path from "path";
 
 interface Options {

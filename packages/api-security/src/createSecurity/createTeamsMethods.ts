@@ -3,29 +3,28 @@ import { createZodError, mdbid } from "@webiny/utils";
 /**
  * Package deep-equal does not have types.
  */
-// @ts-expect-error
 import deepEqual from "deep-equal";
 import { createTopic } from "@webiny/pubsub";
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
-    type GetTeamParams,
-    type ListTeamsParams,
-    type PermissionsTenantLink,
-    type Security,
-    type SecurityConfig,
-    type Team,
-    type TeamInput
-} from "~/types.js";
-import NotAuthorizedError from "../NotAuthorizedError.js";
+import type {
+    GetTeamParams,
+    ListTeamsParams,
+    PermissionsTenantLink,
+    Security,
+    SecurityConfig,
+    Team,
+    TeamInput
+} from "~/types";
+import NotAuthorizedError from "../NotAuthorizedError";
 import {
     type ListTeamsFromPluginsParams,
     listTeamsFromProvider as baseListTeamsFromPlugins
-} from "./groupsTeamsPlugins/listTeamsFromProvider.js";
+} from "./groupsTeamsPlugins/listTeamsFromProvider";
 import {
     type GetTeamFromPluginsParams,
     getTeamFromProvider as baseGetTeamFromPlugins
-} from "./groupsTeamsPlugins/getTeamFromProvider.js";
+} from "./groupsTeamsPlugins/getTeamFromProvider";
 import zod from "zod";
 
 const createDataModelValidation = zod.object({

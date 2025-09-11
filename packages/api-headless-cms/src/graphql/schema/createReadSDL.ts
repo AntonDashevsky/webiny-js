@@ -1,10 +1,10 @@
-import { type CmsModel, type CmsFieldTypePlugins, type ApiEndpoint } from "~/types/index.js";
-import { renderListFilterFields } from "~/utils/renderListFilterFields.js";
-import { renderSortEnum } from "~/utils/renderSortEnum.js";
-import { renderFields } from "~/utils/renderFields.js";
-import { renderGetFilterFields } from "~/utils/renderGetFilterFields.js";
-import { type CmsGraphQLSchemaSorterPlugin } from "~/plugins/index.js";
-import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";
+import type { CmsModel, CmsFieldTypePlugins, ApiEndpoint } from "~/types";
+import { renderListFilterFields } from "~/utils/renderListFilterFields";
+import { renderSortEnum } from "~/utils/renderSortEnum";
+import { renderFields } from "~/utils/renderFields";
+import { renderGetFilterFields } from "~/utils/renderGetFilterFields";
+import type { CmsGraphQLSchemaSorterPlugin } from "~/plugins";
+import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
 
 interface CreateReadSDLParams {
     models: CmsModel[];

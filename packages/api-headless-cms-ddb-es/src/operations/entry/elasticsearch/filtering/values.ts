@@ -1,4 +1,4 @@
-import { type CmsEntryListWhere } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
 import WebinyError from "@webiny/error";
 
 export const getWhereValues = (value: unknown, condition: "AND" | "OR") => {

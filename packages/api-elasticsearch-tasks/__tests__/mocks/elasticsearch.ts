@@ -1,5 +1,5 @@
-import { Client } from "@webiny/api-elasticsearch";
-import { IElasticsearchIndexingTaskValuesSettings } from "~/types";
+import type { Client } from "@webiny/api-elasticsearch";
+import type { IElasticsearchIndexingTaskValuesSettings } from "~/types";
 
 interface GetIndexSettingsParams {
     index: string;

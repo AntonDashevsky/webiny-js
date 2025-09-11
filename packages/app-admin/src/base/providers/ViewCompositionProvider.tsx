@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
-import { type ComponentWithChildren } from "~/types.js";
+import type { ComponentWithChildren } from "~/types";
 
 export interface ViewElement {
     name: string;

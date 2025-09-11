@@ -1,7 +1,7 @@
 import React from "react";
-import { type PbBlockVariable, type PbEditorPageElementVariableRendererPlugin } from "~/types.js";
-import TextVariableInput from "~/editor/plugins/elementSettings/variable/TextVariableInput.js";
-import { useElementVariables } from "~/editor/hooks/useElementVariableValue.js";
+import type { PbBlockVariable, PbEditorPageElementVariableRendererPlugin } from "~/types";
+import TextVariableInput from "~/editor/plugins/elementSettings/variable/TextVariableInput";
+import { useElementVariables } from "~/editor/hooks/useElementVariableValue";
 
 export default {
     name: "pb-editor-page-element-variable-renderer-button",

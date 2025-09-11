@@ -1,20 +1,28 @@
-import React from "react";
-import { Table as AcoTable } from "@webiny/app-aco";
-import { useTrashBin } from "~/Presentation/hooks/index.js";
-import { type TrashBinItemDTO } from "~/Domain/index.js";
-import { LoadingActions } from "~/types.js";
+import React, { useMemo } from "react";
+import { createRecordsData, Table as AcoTable } from "@webiny/app-aco";
+import { useTrashBin } from "~/Presentation/hooks";
+import type { TrashBinTableRow } from "~/Domain";
+import { LoadingActions } from "~/types";
 
 export const Table = () => {
     const { vm, selectItems, sortItems } = useTrashBin();
 
+    const data = useMemo<TrashBinTableRow[]>(() => {
+        return createRecordsData(vm.items);
+    }, [vm.items]);
+
+    const selected = useMemo<TrashBinTableRow[]>(() => {
+        return createRecordsData(vm.selectedItems);
+    }, [vm.selectedItems]);
+
     return (
-        <AcoTable<TrashBinItemDTO>
-            data={vm.items}
+        <AcoTable<TrashBinTableRow>
+            data={data}
             loading={vm.loading[LoadingActions.list]}
             onSelectRow={entries => selectItems(entries)}
             sorting={vm.sorting}
             onSortingChange={sort => sortItems(sort)}
-            selected={vm.selectedItems}
+            selected={selected}
             nameColumnId={vm.nameColumnId}
             namespace={"trash-bin"}
         />

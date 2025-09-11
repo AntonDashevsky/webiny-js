@@ -1,13 +1,12 @@
 import dotProp from "dot-prop-immutable";
-import { type DataProxy } from "apollo-cache";
+import type { DataProxy } from "apollo-cache";
 import type ApolloClient from "apollo-client";
-import {
-    LIST_CONTENT_MODELS,
-    LIST_MENU_CONTENT_GROUPS_MODELS,
-    type ListCmsModelsQueryResponse,
-    type ListMenuCmsGroupsQueryResponse
-} from "../../viewsGraphql.js";
-import { type CmsEditorContentModel, type CmsModel } from "~/types.js";
+import type {
+    ListCmsModelsQueryResponse,
+    ListMenuCmsGroupsQueryResponse
+} from "../../viewsGraphql";
+import { LIST_CONTENT_MODELS, LIST_MENU_CONTENT_GROUPS_MODELS } from "../../viewsGraphql";
+import type { CmsEditorContentModel, CmsModel } from "~/types";
 
 export const addModelToListCache = (cache: DataProxy, model: CmsEditorContentModel): void => {
     const response = cache.readQuery<ListCmsModelsQueryResponse>({

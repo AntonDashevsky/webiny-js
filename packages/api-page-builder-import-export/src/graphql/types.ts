@@ -1,18 +1,14 @@
-import { type Topic } from "@webiny/pubsub/types.js";
-import {
-    type CreatedBy,
-    type ListPagesParams,
-    type Page,
-    type PbContext
-} from "@webiny/api-page-builder/types.js";
-import {
-    type ExportRevisionType,
-    type ImportExportTask,
-    type ImportExportTaskStatus,
-    type ImportExportTaskStorageOperations,
-    type ImportExportTaskStorageOperationsListParams
-} from "~/types.js";
-import { type Context as TasksContext, type IResponseError } from "@webiny/tasks/types.js";
+import type { Topic } from "@webiny/pubsub/types";
+import type { CreatedBy, ListPagesParams, Page, PbContext } from "@webiny/api-page-builder/types";
+import type { FormBuilderContext } from "@webiny/api-form-builder/types";
+import type {
+    ExportRevisionType,
+    ImportExportTask,
+    ImportExportTaskStatus,
+    ImportExportTaskStorageOperations,
+    ImportExportTaskStorageOperationsListParams
+} from "~/types";
+import type { Context as TasksContext, IResponseError } from "@webiny/tasks/types";
 
 export interface ExportPagesParams extends Pick<ListPagesParams, "where" | "sort" | "search"> {
     limit?: number;
@@ -211,6 +207,55 @@ export type TemplatesImportExportCrud = {
     onTemplatesAfterImport: Topic<OnTemplatesAfterImportTopicParams>;
 };
 
+export interface ExportFormsParams {
+    ids?: string[];
+    revisionType: ExportRevisionType;
+    search?: { query?: string };
+    sort?: string[];
+}
+
+export interface ImportFormsParams {
+    zipFileUrl: string;
+}
+
+/**
+ * @category Lifecycle events
+ */
+export interface OnFormsBeforeExportTopicParams {
+    params: ExportFormsParams;
+}
+
+/**
+ * @category Lifecycle events
+ */
+export interface OnFormsAfterExportTopicParams {
+    params: ExportFormsParams;
+}
+
+/**
+ * @category Lifecycle events
+ */
+export interface OnFormsBeforeImportTopicParams {
+    params: ImportFormsParams;
+}
+
+/**
+ * @category Lifecycle events
+ */
+export interface OnFormsAfterImportTopicParams {
+    params: ImportFormsParams;
+}
+
+export type FormsImportExportCrud = {
+    exportForms(params: ExportFormsParams): Promise<{ task: ImportExportTask }>;
+    importForms(params: ImportFormsParams): Promise<{ task: ImportExportTask }>;
+
+    onFormsBeforeExport: Topic<OnFormsBeforeExportTopicParams>;
+    onFormsAfterExport: Topic<OnFormsAfterExportTopicParams>;
+    onFormsBeforeImport: Topic<OnFormsBeforeImportTopicParams>;
+    onFormsAfterImport: Topic<OnFormsAfterImportTopicParams>;
+};
+
 type ImportExportTaskCreateData = Omit<ImportExportTask, "id" | "createdOn" | "createdBy">;
 
 export type ImportExportTaskCrud = {
@@ -256,6 +301,9 @@ export interface PbImportExportContext extends TasksContext, PbContext {
         blocks: BlocksImportExportCrud;
         templates: TemplatesImportExportCrud;
         importExportTask: ImportExportTaskCrud;
+    };
+    formBuilder: FormBuilderContext["formBuilder"] & {
+        forms: FormsImportExportCrud;
     };
 }
 

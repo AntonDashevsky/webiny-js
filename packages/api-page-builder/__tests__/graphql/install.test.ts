@@ -1,6 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 import { defaultIdentity } from "../tenancySecurity";
-import { Page } from "~/types";
+import type { Page } from "~/types";
 
 describe("Install Test", () => {
     const handler = useGqlHandler();

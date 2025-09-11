@@ -1,7 +1,8 @@
 import React from "react";
-import upperCase from "lodash/upperCase.js";
-import { type ApwContentReviewContent, ApwContentReviewStatus } from "~/types.js";
-import { Box, Columns, Stack } from "~/components/Layout.js";
+import upperCase from "lodash/upperCase";
+import type { ApwContentReviewContent } from "~/types";
+import { ApwContentReviewStatus } from "~/types";
+import { Box, Columns, Stack } from "~/components/Layout";
 import {
     Circle,
     CommentCountBox,
@@ -9,7 +10,7 @@ import {
     OverlappingAvatar,
     statusBoxStyle,
     StatusText
-} from "./Styled.js";
+} from "./Styled";
 
 export const statusToLevel = {
     [ApwContentReviewStatus.UNDER_REVIEW]: 0,

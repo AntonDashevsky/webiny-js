@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase.js";
-import { ReactComponent as AccordionIcon } from "@material-design-icons/svg/filled/view_day.svg";
-import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
-import { createElement } from "~/editor/helpers.js";
-import Accordion from "./Accordion.js";
-import { type PbEditorPageElementPlugin, type PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
+import kebabCase from "lodash/kebabCase";
+import { ReactComponent as AccordionIcon } from "@webiny/icons/view_day.svg";
+import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
+import { createElement } from "~/editor/helpers";
+import Accordion from "./Accordion";
+import type { PbEditorPageElementPlugin, PbEditorElementPluginArgs } from "~/types";
+import { DisplayMode } from "~/types";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

@@ -1,5 +1,5 @@
 import { createContextPlugin } from "@webiny/handler";
-import { Book, Context } from "~tests/types";
+import type { Book, Context } from "~tests/types";
 import { createGraphQLSchemaPlugin } from "~/plugins";
 
 export const books: Book[] = [

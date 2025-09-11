@@ -1,7 +1,7 @@
-import lodashGet from "lodash/get.js";
-import { IndexPageDataPlugin } from "~/plugins/definitions/IndexPageDataPlugin.js";
-import { type Page } from "@webiny/api-page-builder/types.js";
-import { type PluginsContainer } from "@webiny/plugins";
+import lodashGet from "lodash/get";
+import { IndexPageDataPlugin } from "~/plugins/definitions/IndexPageDataPlugin";
+import type { Page } from "@webiny/api-page-builder/types";
+import type { PluginsContainer } from "@webiny/plugins";
 
 /**
  * Map our system fields to the Elasticsearch data.

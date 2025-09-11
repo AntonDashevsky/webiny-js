@@ -1,4 +1,4 @@
-import {
+import type {
     IResponseError,
     ITask,
     ITaskDataInput,
@@ -6,8 +6,8 @@ import {
     ITaskResponseDoneResultOutput,
     ITaskUpdateData,
     TaskDataStatus
-} from "~/types.js";
-import { GenericRecord } from "@webiny/api/types.js";
+} from "~/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 export type ITaskManagerStoreUpdateTaskValues<T = ITaskDataInput> = T;
 

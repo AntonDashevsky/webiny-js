@@ -1,5 +1,5 @@
 import type { SerializedEditorState } from "lexical";
-import { type LexicalValue } from "~/types.js";
+import type { LexicalValue } from "~/types";
 
 export const parseLexicalState = (
     editorStateValue: LexicalValue | null
@@ -15,7 +15,9 @@ export const parseLexicalState = (
     }
 };
 
-export const isValidLexicalData = (editorStateValue: LexicalValue | null): boolean => {
+export const isValidLexicalData = (
+    editorStateValue: LexicalValue | null
+): editorStateValue is LexicalValue => {
     if (!editorStateValue) {
         return false;
     }

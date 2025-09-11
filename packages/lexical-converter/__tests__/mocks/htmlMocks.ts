@@ -1,4 +1,4 @@
-import { DomFactory } from "../utils/toDom";
+import type { DomFactory } from "../utils/toDom";
 
 export const paragraphHtmlTag = `<p>Testing paragraph element</p>`;
 export const invalidMarkup = /* HTML */ `<div class="_1z604">

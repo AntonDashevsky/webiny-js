@@ -1,7 +1,7 @@
 import WebinyError from "@webiny/error";
-import { type FlushEvent, type RenderEvent, type QueueAddJob } from "@webiny/api-prerendering-service/types.js";
+import type { FlushEvent, RenderEvent, QueueAddJob } from "@webiny/api-prerendering-service/types";
 import { ContextPlugin } from "@webiny/api";
-import { type PbContext } from "~/graphql/types.js";
+import type { PbContext } from "~/graphql/types";
 
 export const prerenderingHandlers = new ContextPlugin<PbContext>(context => {
     context.pageBuilder.setPrerenderingHandlers({

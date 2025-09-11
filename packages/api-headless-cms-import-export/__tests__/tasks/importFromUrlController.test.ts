@@ -1,7 +1,8 @@
 import { jest } from "@jest/globals";
 import { createImportFromUrlControllerTask } from "~/tasks";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
-import { CmsImportExportFileType, Context, ICmsImportExportValidatedFile } from "~/types";
+import type { Context, ICmsImportExportValidatedFile } from "~/types";
+import { CmsImportExportFileType } from "~/types";
 import { useHandler } from "~tests/helpers/useHandler";
 import {
     ResponseDoneResult,
@@ -10,7 +11,7 @@ import {
     TaskResponseStatus
 } from "@webiny/tasks";
 import { categoryModel } from "~tests/helpers/models";
-import { NonEmptyArray } from "@webiny/api/types";
+import type { NonEmptyArray } from "@webiny/api/types";
 
 jest.setTimeout(60000);
 

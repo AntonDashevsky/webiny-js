@@ -1,5 +1,5 @@
-import { type PbRenderElementPlugin } from "~/types.js";
-import { createCarouselElement } from "@webiny/app-page-builder-elements/renderers/carouselElement.js";
+import type { PbRenderElementPlugin } from "~/types";
+import { createCarouselElement } from "@webiny/app-page-builder-elements/renderers/carouselElement";
 
 export default (): PbRenderElementPlugin => {
     return {

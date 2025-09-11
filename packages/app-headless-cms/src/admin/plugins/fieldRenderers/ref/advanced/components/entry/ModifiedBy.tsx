@@ -1,7 +1,7 @@
 import React from "react";
-import { type CmsIdentity } from "~/types.js";
-import { Box } from "./Box.js";
-import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
+import type { CmsIdentity } from "~/types";
+import { Box } from "./Box";
+import { TimeAgo } from "@webiny/ui/TimeAgo";
 
 interface ModifiedByProps {
     modifiedBy?: CmsIdentity | null;
@@ -19,8 +19,7 @@ export const ModifiedBy = ({ modifiedBy, savedOn }: ModifiedByProps) => {
         <Box icon={null} name={"Modified By"}>
             {showInformation && (
                 <>
-                    {modifiedBy?.displayName} <br />
-                    <TimeAgo datetime={savedOn} />
+                    {modifiedBy?.displayName} <TimeAgo datetime={savedOn} />
                 </>
             )}
         </Box>

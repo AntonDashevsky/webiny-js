@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type CmsEntry, type CmsEntryValues, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsEntry, CmsEntryValues, CmsModel } from "@webiny/api-headless-cms/types";
 
 interface CmsEntryElasticsearchValuesModifierCbParamsSetValuesCb<T = CmsEntryValues> {
     (prev: Partial<T>): Partial<T>;

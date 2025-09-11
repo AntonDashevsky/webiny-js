@@ -1,31 +1,28 @@
 import React from "react";
-import { format, addMinutes } from "date-fns";
+import { addMinutes, format } from "date-fns";
+import { Cell, Grid } from "@webiny/ui/Grid";
+import { Dialog, DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog";
+import { CodeEditor } from "@webiny/ui/CodeEditor";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { Action } from "~/views/Logs/Table";
+import { Text } from "~/components/Text";
+import { PayloadWrapper, previewDialog } from "./styled";
+import type { IAuditLog } from "~/types.js";
 
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Dialog, DialogContent, DialogTitle, DialogCancel, DialogActions } from "@webiny/ui/Dialog/index.js";
-import { CodeEditor } from "@webiny/ui/CodeEditor/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-
-import { Action } from "~/views/Logs/Table/index.js";
-import { Text } from "~/components/Text.js";
-import { type Entry } from "~/utils/transformCmsContentEntriesToRecordEntries.js";
-import { PayloadWrapper, previewDialog } from "./styled.js";
-
-type HeaderProps = {
-    auditLog: Entry | null;
+interface HeaderProps {
+    auditLog: IAuditLog | null;
     onClose: () => void;
     hasAccessToUsers: boolean;
-};
+}
 
 export const Preview = ({ auditLog, onClose, hasAccessToUsers }: HeaderProps) => {
     if (!auditLog) {
         return null;
     }
-
-    const date = new Date(auditLog.savedOn);
+    const date = new Date(auditLog.createdOn);
 
     return (
-        <Dialog open={!!auditLog} onClose={onClose} className={previewDialog}>
+        <Dialog open={!!auditLog} onClose={onClose} className={previewDialog} size={"xl"}>
             <DialogTitle>
                 {auditLog.message}
                 <div className="title-actions" tabIndex={0}></div>
@@ -76,10 +73,10 @@ export const Preview = ({ auditLog, onClose, hasAccessToUsers }: HeaderProps) =>
                         <Cell span={6}>
                             <Text use="overline">Initiator</Text>
                             <br />
-                            <a href={`/admin-users?id=${auditLog.initiator.id}`} target={"blank"}>
-                                <Text use={"subtitle2"}>{auditLog.initiator.name}</Text>
+                            <a href={`/admin-users?id=${auditLog.createdBy.id}`} target={"blank"}>
+                                <Text use={"subtitle2"}>{auditLog.createdBy.displayName}</Text>
                             </a>
-                            <Text use={"body2"}>{` (${auditLog.initiator.role})`}</Text>
+                            <Text use={"body2"}>{` (${auditLog.createdBy.role})`}</Text>
                         </Cell>
                     )}
                     <Cell span={12}>
@@ -88,7 +85,7 @@ export const Preview = ({ auditLog, onClose, hasAccessToUsers }: HeaderProps) =>
                             <CodeEditor
                                 mode="json"
                                 theme="chrome"
-                                value={JSON.stringify(JSON.parse(auditLog.data), null, 2)}
+                                value={JSON.stringify(JSON.parse(auditLog.content), null, 2)}
                                 readOnly
                             />
                         </PayloadWrapper>

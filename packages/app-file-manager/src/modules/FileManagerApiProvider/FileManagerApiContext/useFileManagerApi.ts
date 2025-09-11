@@ -1,6 +1,7 @@
-import { type FileItem } from "@webiny/app-admin/types.js";
+import type { FileItem } from "@webiny/app-admin/types";
 import React from "react";
-import { FileManagerApiContext, type FileManagerApiContextData } from "./FileManagerApiContext.js";
+import type { FileManagerApiContextData } from "./FileManagerApiContext";
+import { FileManagerApiContext } from "./FileManagerApiContext";
 
 export function useFileManagerApi<TFileItem extends FileItem = FileItem>() {
     const context = React.useContext<FileManagerApiContextData<TFileItem>>(

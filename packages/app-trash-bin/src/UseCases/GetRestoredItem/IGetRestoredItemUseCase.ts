@@ -1,4 +1,4 @@
-import { type TrashBinItem } from "~/Domain/index.js";
+import type { TrashBinItem } from "~/Domain";
 
 export interface IGetRestoredItemUseCase {
     execute: (id: string) => Promise<TrashBinItem | undefined>;

@@ -5,14 +5,8 @@ import React from "react";
 import { jest } from "@jest/globals";
 import { render, screen, waitFor, fireEvent, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import {
-    Form,
-    useBind,
-    FormProps as BaseFormProps,
-    BindComponentProps,
-    FormAPI,
-    Bind
-} from "~/index";
+import type { FormProps as BaseFormProps, BindComponentProps, FormAPI } from "~/index";
+import { Form, useBind, Bind } from "~/index";
 import { validation } from "@webiny/validation";
 
 type FormProps = Omit<BaseFormProps, "children" | "onSubmit"> & {

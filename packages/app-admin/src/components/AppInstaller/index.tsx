@@ -1,7 +1,7 @@
-import { Provider } from "~/index.js";
+import { Provider } from "~/index";
 import React from "react";
-import { AppInstaller as Installer } from "./AppInstaller.js";
-import { type ComponentWithChildren } from "~/types.js";
+import { AppInstaller as Installer } from "./AppInstaller";
+import type { ComponentWithChildren } from "~/types";
 
 interface AppInstallerProviderProps {
     children: React.ReactNode;

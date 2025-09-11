@@ -1,21 +1,18 @@
 import { plugins } from "@webiny/plugins";
-import { SplitView } from "@webiny/app-admin/ui/views/SplitView.js";
-import { ViewElement } from "@webiny/app-admin/ui/elements/ViewElement.js";
-import { OverlayView } from "@webiny/app-admin/ui/views/OverlayView.js";
-import { type UsePageSettings, usePageSettings } from "~/pageEditor/hooks/usePageSettings.js";
-import {
-    PageSettingsTabElement,
-    type PageSettingsTabElementConfig
-} from "~/editor/ui/views/PageSettingsView/PageSettingsTabElement.js";
-import { PageSettingsTabsElement } from "~/editor/ui/views/PageSettingsView/PageSettingsTabsElement.js";
-import { PbEditorPageSettingsPlugin } from "~/plugins/PbEditorPageSettingsPlugin.js";
-import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement.js";
-import {
-    FormElement,
-    type FormElementRenderProps
-} from "@webiny/app-admin/ui/elements/form/FormElement.js";
-import { FormView } from "@webiny/app-admin/ui/views/FormView.js";
-import { type SplitViewPanelElement } from "@webiny/app-admin/ui/views/SplitView/SplitViewPanelElement.js";
+import { SplitView } from "@webiny/app-admin/ui/views/SplitView";
+import { ViewElement } from "@webiny/app-admin/ui/elements/ViewElement";
+import { OverlayView } from "@webiny/app-admin/ui/views/OverlayView";
+import type { UsePageSettings } from "~/pageEditor/hooks/usePageSettings";
+import { usePageSettings } from "~/pageEditor/hooks/usePageSettings";
+import type { PageSettingsTabElementConfig } from "~/editor/ui/views/PageSettingsView/PageSettingsTabElement";
+import { PageSettingsTabElement } from "~/editor/ui/views/PageSettingsView/PageSettingsTabElement";
+import { PageSettingsTabsElement } from "~/editor/ui/views/PageSettingsView/PageSettingsTabsElement";
+import { PbEditorPageSettingsPlugin } from "~/plugins/PbEditorPageSettingsPlugin";
+import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement";
+import type { FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement";
+import { FormElement } from "@webiny/app-admin/ui/elements/form/FormElement";
+import { FormView } from "@webiny/app-admin/ui/views/FormView";
+import type { SplitViewPanelElement } from "@webiny/app-admin/ui/views/SplitView/SplitViewPanelElement";
 
 export class PageSettingsView extends OverlayView {
     private _splitView?: SplitView;
@@ -84,7 +81,7 @@ export class PageSettingsView extends OverlayView {
     public getActiveSection(): PageSettingsTabElementConfig | null {
         const { activeSection } = this.getPageSettingsHook();
         if (!activeSection) {
-            return this._sections.values().next().value;
+            return this._sections.values().next().value || null;
         }
         return this._sections.get(activeSection) || null;
     }

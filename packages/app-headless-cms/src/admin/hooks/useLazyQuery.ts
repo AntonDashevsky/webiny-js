@@ -1,8 +1,8 @@
 import { useLazyQuery as apolloUseLazyQuery } from "@apollo/react-hooks";
-import useCms from "./useCms.js";
-import { type DocumentNode } from "graphql";
-import { type OperationVariables } from "@apollo/react-common";
-import { type LazyQueryHookOptions, type QueryTuple } from "@apollo/react-hooks/lib/types.js";
+import useCms from "./useCms";
+import type { DocumentNode } from "graphql";
+import type { OperationVariables } from "@apollo/react-common";
+import type { LazyQueryHookOptions, QueryTuple } from "@apollo/react-hooks/lib/types";
 
 const useLazyQuery = function <TData = any, TVariables = OperationVariables>(
     query: DocumentNode,

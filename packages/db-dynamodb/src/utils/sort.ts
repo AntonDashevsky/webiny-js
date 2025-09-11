@@ -1,6 +1,6 @@
-import lodashOrderBy from "lodash/orderBy.js";
+import lodashOrderBy from "lodash/orderBy";
 import WebinyError from "@webiny/error";
-import { FieldPlugin } from "~/plugins/definitions/FieldPlugin.js";
+import type { FieldPlugin } from "~/plugins/definitions/FieldPlugin";
 
 interface Info {
     sorters: string[];

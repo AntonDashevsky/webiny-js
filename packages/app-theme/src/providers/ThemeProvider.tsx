@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useCallback, useState } from "react";
 import { plugins } from "@webiny/plugins";
-import { ThemePlugin } from "~/index.js";
-import { type Theme } from "~/types.js";
+import { ThemePlugin } from "~/index";
+import type { Theme } from "~/types";
 export interface ThemeContext {
     theme: Theme | undefined;
     loadThemeFromPlugins(): void;

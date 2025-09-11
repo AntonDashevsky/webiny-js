@@ -1,14 +1,15 @@
-import { Client as ElasticsearchClient } from "@elastic/elasticsearch";
-import { Table } from "@webiny/db-dynamodb/toolbox.js";
+import type { Client as ElasticsearchClient } from "@elastic/elasticsearch";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { createRawEventHandler } from "@webiny/handler-aws";
-import { Constructor, createContainer } from "@webiny/ioc";
-import {
+import type { Constructor } from "@webiny/ioc";
+import { createContainer } from "@webiny/ioc";
+import type {
     DataMigration,
     ExecutionTimeLimiter,
     MigrationEventHandlerResponse,
     MigrationEventPayload,
     MigrationRepository
-} from "~/types.js";
+} from "~/types";
 import {
     ElasticsearchClientSymbol,
     ElasticsearchDynamoTableSymbol,
@@ -16,11 +17,12 @@ import {
     MigrationRepositorySymbol,
     MigrationSymbol,
     PrimaryDynamoTableSymbol
-} from "~/symbols.js";
-import { IsMigrationApplicable, MigrationRunner } from "~/MigrationRunner.js";
-import { MigrationRepositoryImpl } from "~/repository/migrations.repository.js";
-import { devVersionErrorResponse } from "~/handlers/devVersionErrorResponse.js";
-import { createPatternMatcher } from "~/handlers/createPatternMatcher.js";
+} from "~/symbols";
+import type { IsMigrationApplicable } from "~/MigrationRunner";
+import { MigrationRunner } from "~/MigrationRunner";
+import { MigrationRepositoryImpl } from "~/repository/migrations.repository";
+import { devVersionErrorResponse } from "~/handlers/devVersionErrorResponse";
+import { createPatternMatcher } from "~/handlers/createPatternMatcher";
 import { coerce as semverCoerce } from "semver";
 
 interface CreateDdbEsDataMigrationConfig {

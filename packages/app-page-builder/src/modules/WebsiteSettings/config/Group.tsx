@@ -1,9 +1,9 @@
 import React from "react";
-import { type DocumentNode } from "graphql";
+import type { DocumentNode } from "graphql";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Property, useIdGenerator } from "@webiny/react-properties";
 import { generateAlphaNumericId } from "@webiny/utils";
-import { type ElementConfig } from "./Element.js";
+import type { ElementConfig } from "./Element";
 
 declare module "graphql" {
     interface DocumentNode {

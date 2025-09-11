@@ -1,15 +1,16 @@
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Element, type ElementConfig } from "./Element.js";
-import { TopBar } from "./TopBar/TopBar.js";
-import { Layout } from "./Layout.js";
-import { Content } from "./Content/Content.js";
-import { Toolbar } from "./Toolbar/Toolbar.js";
-import { Sidebar } from "./Sidebar/Sidebar.js";
-import { Elements } from "~/editor/config/Elements.js";
-import { OnActiveElement } from "./OnActiveElement.js";
-import { NoActiveElement } from "./NoActiveElement.js";
-import { ElementProperties, ElementProperty } from "./ElementProperty.js";
-import { ElementAction, ElementActions } from "./ElementAction.js";
+import type { ElementConfig } from "./Element";
+import { Element } from "./Element";
+import { TopBar } from "./TopBar/TopBar";
+import { Layout } from "./Layout";
+import { Content } from "./Content/Content";
+import { Toolbar } from "./Toolbar/Toolbar";
+import { Sidebar } from "./Sidebar/Sidebar";
+import { Elements } from "~/editor/config/Elements";
+import { OnActiveElement } from "./OnActiveElement";
+import { NoActiveElement } from "./NoActiveElement";
+import { ElementProperties, ElementProperty } from "./ElementProperty";
+import { ElementAction, ElementActions } from "./ElementAction";
 
 const base = createConfigurableComponent<ContentEntryEditorConfig>("PageBuilderEditorConfig");
 

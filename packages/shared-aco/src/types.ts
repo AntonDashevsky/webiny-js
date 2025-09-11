@@ -1,1 +1,1 @@
-export * from "./flp/flp.types.js";
+export * from "./flp/flp.types";

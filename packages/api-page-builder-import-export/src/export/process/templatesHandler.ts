@@ -1,12 +1,13 @@
-import { ImportExportTaskStatus, type PbImportExportContext } from "~/types.js";
-import { invokeHandlerClient } from "~/client.js";
+import type { PbImportExportContext } from "~/types";
+import { ImportExportTaskStatus } from "~/types";
+import { invokeHandlerClient } from "~/client";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { type Payload as ExtractPayload } from "../combine/index.js";
-import { mockSecurity } from "~/mockSecurity.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import type { Payload as ExtractPayload } from "../combine";
+import { mockSecurity } from "~/mockSecurity";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { zeroPad } from "@webiny/utils";
-import { type Configuration, type Payload, type Response } from "~/export/process/index.js";
-import { PageTemplateExporter } from "~/export/process/exporters/PageTemplateExporter.js";
+import type { Configuration, Payload, Response } from "~/export/process";
+import { PageTemplateExporter } from "~/export/process/exporters/PageTemplateExporter";
 
 /**
  * Handles the export templates process workflow.

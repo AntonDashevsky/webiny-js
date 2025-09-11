@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-    type DataLoader,
-    type DataLoaderResult,
-    type PagesListComponent as RenderPagesListComponent
-} from "~/renderers/pagesList/types.js";
-import { createRenderer } from "~/createRenderer.js";
-import { useRenderer } from "~/hooks/useRenderer.js";
-import { useOptionalPage } from "~/hooks/usePage.js";
+import type {
+    DataLoader,
+    DataLoaderResult,
+    PagesListComponent as RenderPagesListComponent
+} from "~/renderers/pagesList/types";
+import { createRenderer } from "~/createRenderer";
+import { useRenderer } from "~/hooks/useRenderer";
+import { useOptionalPage } from "~/hooks/usePage";
 
 export interface PagesListComponent {
     id: string;

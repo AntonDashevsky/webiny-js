@@ -1,5 +1,5 @@
 import path from "path";
-import { PackageJSON } from "./types";
+import type { PackageJSON } from "./types";
 
 export function getBuildOutputFolder({
     packageJson,

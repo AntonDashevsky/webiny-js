@@ -1,5 +1,10 @@
-import { entryFromStorageTransform } from "~/utils/entryStorage.js";
-import { type CmsContext, type CmsEntry, type CmsEntryStorageOperationsDeleteParams, type CmsModel } from "~/types/index.js";
+import { entryFromStorageTransform } from "~/utils/entryStorage";
+import type {
+    CmsContext,
+    CmsEntry,
+    CmsEntryStorageOperationsDeleteParams,
+    CmsModel
+} from "~/types";
 
 export class TransformEntryDelete {
     private context: CmsContext;

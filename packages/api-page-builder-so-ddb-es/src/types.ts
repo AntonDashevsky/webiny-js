@@ -1,16 +1,21 @@
-import {
-    type BlockCategoryStorageOperations as BaseBlockCategoryStorageOperations,
-    type CategoryStorageOperations as BaseCategoryStorageOperations,
-    type PageBlockStorageOperations as BasePageBlockStorageOperations,
-    type PageBuilderContextObject,
-    type PageBuilderStorageOperations as BasePageBuilderStorageOperations,
-    type PageTemplateStorageOperations as BasePageTemplateStorageOperations,
-    type PbContext as BasePbContext
-} from "@webiny/api-page-builder/types.js";
-import { type AttributeDefinition, type Entity, type Table, type TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { type Client } from "@elastic/elasticsearch";
-import { type PluginCollection } from "@webiny/plugins/types.js";
+import type {
+    BlockCategoryStorageOperations as BaseBlockCategoryStorageOperations,
+    CategoryStorageOperations as BaseCategoryStorageOperations,
+    PageBlockStorageOperations as BasePageBlockStorageOperations,
+    PageBuilderContextObject,
+    PageBuilderStorageOperations as BasePageBuilderStorageOperations,
+    PageTemplateStorageOperations as BasePageTemplateStorageOperations,
+    PbContext as BasePbContext
+} from "@webiny/api-page-builder/types";
+import type {
+    AttributeDefinition,
+    Entity,
+    Table,
+    TableConstructor
+} from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { Client } from "@elastic/elasticsearch";
+import type { PluginCollection } from "@webiny/plugins/types";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

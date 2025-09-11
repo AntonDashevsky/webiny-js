@@ -9,11 +9,11 @@ import type {
     ITaskResponseDoneResultOutput,
     ITasksContextServiceObject,
     ITaskTriggerParams
-} from "~/types.js";
-import { TaskDataStatus, TaskLogItemType } from "~/types.js";
+} from "~/types";
+import { TaskDataStatus, TaskLogItemType } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
-import { createService } from "~/service/index.js";
-import { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin.js";
+import { createService } from "~/service";
+import type { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin";
 
 const MAX_DELAY_DAYS = 355;
 const MAX_DELAY_SECONDS = MAX_DELAY_DAYS * 24 * 60 * 60;
@@ -165,7 +165,7 @@ export const createServiceCrud = (context: Context): ITasksContextServiceObject 
             let taskLog: ITaskLog | null = null;
             try {
                 taskLog = await context.tasks.getLatestLog(task.id);
-            } catch (ex) {}
+            } catch {}
             if (!taskLog) {
                 taskLog = await context.tasks.createLog(task, {
                     iteration: 1,

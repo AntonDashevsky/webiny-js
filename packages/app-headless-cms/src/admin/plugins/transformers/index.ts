@@ -1,8 +1,8 @@
-import { createDateTransformer } from "./dateTransformer.js";
-import { createNumberTransformer } from "./numberTransformer.js";
-import { createDynamicZoneTransformer } from "./dynamicZoneTransformer.js";
-import { createObjectTransformer } from "./objectTransformer.js";
-import { type CmsFieldValueTransformer } from "~/types.js";
+import { createDateTransformer } from "./dateTransformer";
+import { createNumberTransformer } from "./numberTransformer";
+import { createDynamicZoneTransformer } from "./dynamicZoneTransformer";
+import { createObjectTransformer } from "./objectTransformer";
+import type { CmsFieldValueTransformer } from "~/types";
 
 export default (): CmsFieldValueTransformer[] => [
     createDateTransformer(),

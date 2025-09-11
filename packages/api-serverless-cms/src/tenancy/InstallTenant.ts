@@ -1,6 +1,6 @@
-import { type Tenant } from "@webiny/api-tenancy/types.js";
+import type { Tenant } from "@webiny/api-tenancy/types";
 import Error from "@webiny/error";
-import { type Context } from "~/index.js";
+import type { Context } from "~/index";
 
 export interface AdminUserInput {
     firstName: string;
@@ -26,16 +26,10 @@ export interface FileManagerInstallationConfig {
     assetDeliveryDomain: string;
 }
 
-export interface PageBuilderInstallationConfig {
-    websiteName: string;
-    insertDemoData: boolean;
-}
-
 export interface TenantConfig {
     i18n: I18nInstallationConfig;
     adminUsers?: AdminUsersInstallationConfig;
     fileManager?: FileManagerInstallationConfig;
-    pageBuilder?: PageBuilderInstallationConfig;
 }
 
 export class InstallTenant {
@@ -115,18 +109,6 @@ export class InstallTenant {
 
                 await this.context.fileManager.install({ srcPrefix: srcPrefix || "" });
             }, "FILE_MANAGER_INSTALL");
-
-            // PAGE BUILDER: Create Page Builder settings.
-            await this.runOrThrow(async () => {
-                const isInstalled = await this.context.pageBuilder.getSystemVersion();
-                if (isInstalled) {
-                    return;
-                }
-                await this.context.pageBuilder.installSystem({
-                    name: config.pageBuilder?.websiteName ?? tenant.name,
-                    insertDemoData: config.pageBuilder?.insertDemoData ?? false
-                });
-            }, "PAGE_BUILDER_INSTALL");
         } finally {
             this.context.tenancy.setCurrentTenant(currentTenant);
         }

@@ -1,20 +1,21 @@
 import React, { useCallback } from "react";
-import noop from "lodash/noop.js";
+import noop from "lodash/noop";
 import { css } from "emotion";
-import { Tab, Tabs } from "@webiny/ui/Tabs/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
-import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
-import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
-import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { type BindComponent } from "@webiny/form";
-import { Box, Stack } from "~/components/Layout.js";
-import { ListItemWithCheckbox } from "../ListItemWithCheckbox.js";
+import { Tab, Tabs } from "@webiny/ui/Tabs";
+import { Typography } from "@webiny/ui/Typography";
+import { CheckboxGroup } from "@webiny/ui/Checkbox";
+import { Scrollbar } from "@webiny/ui/Scrollbar";
+import { MultiAutoComplete } from "@webiny/ui/AutoComplete";
+import { Elevation } from "@webiny/ui/Elevation";
+import type { BindComponent } from "@webiny/form";
+import { Box, Stack } from "~/components/Layout";
+import { ListItemWithCheckbox } from "../ListItemWithCheckbox";
 import { validation } from "@webiny/validation";
-import { type BindComponentRenderProp } from "@webiny/form";
-import { useCmsModels } from "~/hooks/useCmsModels.js";
-import { type CmsEntryOption, useCmsEntries } from "~/hooks/useCmsEntries.js";
-import { type CmsModel } from "~/types.js";
+import type { BindComponentRenderProp } from "@webiny/form";
+import { useCmsModels } from "~/hooks/useCmsModels";
+import type { CmsEntryOption } from "~/hooks/useCmsEntries";
+import { useCmsEntries } from "~/hooks/useCmsEntries";
+import type { CmsModel } from "~/types";
 
 const textStyle = css`
     color: var(--mdc-theme-text-secondary-on-background);

@@ -1,8 +1,8 @@
 import React from "react";
 import { set } from "dot-prop-immutable";
-import { type PbEditorPageElementVariableRendererPlugin } from "~/types.js";
-import { RichVariableInput } from "~/editor/plugins/elementSettings/variable/RichVariableInput.js";
-import { useElementVariables } from "~/editor/hooks/useElementVariableValue.js";
+import type { PbEditorPageElementVariableRendererPlugin } from "~/types";
+import { RichVariableInput } from "~/editor/plugins/elementSettings/variable/RichVariableInput";
+import { useElementVariables } from "~/editor/hooks/useElementVariableValue";
 import { CompositionScope } from "@webiny/react-composition";
 
 export default {

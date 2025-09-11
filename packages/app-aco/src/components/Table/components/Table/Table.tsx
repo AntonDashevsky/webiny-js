@@ -1,16 +1,17 @@
 import React, { useEffect, useMemo } from "react";
-import { type DefaultData, type OnSortingChange, type Sorting } from "@webiny/ui/DataTable/index.js";
-import { Column, ColumnsPresenter, columnsRepositoryFactory } from "./Columns/index.js";
+import type { DataTableSorting, OnDataTableSortingChange } from "@webiny/admin-ui";
+import { Column, ColumnsPresenter, columnsRepositoryFactory } from "./Columns";
 import {
     ColumnsVisibilityDecorator,
     ColumnsVisibilityPresenter,
     ColumnsVisibilityUpdater,
     columnsVisibilityRepositoryFactory
-} from "./ColumnVisibility/index.js";
-import { ColumnsVisibilityLocalStorageGateway } from "./gateways/index.js";
-import { TablePresenter } from "./TablePresenter.js";
-import { TableInner } from "./TableInner.js";
-import { useAcoConfig } from "~/config/index.js";
+} from "./ColumnVisibility";
+import { ColumnsVisibilityLocalStorageGateway } from "./gateways";
+import { TablePresenter } from "./TablePresenter";
+import { TableInner } from "./TableInner";
+import { useAcoConfig } from "~/config";
+import type { TableRow } from "~/types";
 
 export interface TableProps<T> {
     data: T[];
@@ -18,16 +19,13 @@ export interface TableProps<T> {
     nameColumnId?: string;
     namespace: string;
     onSelectRow?: (rows: T[] | []) => void;
-    onSortingChange: OnSortingChange;
+    onSortingChange: OnDataTableSortingChange;
     onToggleRow?: (row: T) => void;
-    selected: DefaultData[];
-    sorting: Sorting;
+    selected: TableRow[];
+    sorting: DataTableSorting;
 }
 
-export const Table = <T extends Record<string, any> & DefaultData>({
-    namespace,
-    ...props
-}: TableProps<T>) => {
+export const Table = <T extends TableRow>({ namespace, ...props }: TableProps<T>) => {
     const { table } = useAcoConfig();
 
     const columnsRepo = useMemo(() => {

@@ -1,9 +1,10 @@
 import React from "react";
-import cloneDeep from "lodash/cloneDeep.js";
+import cloneDeep from "lodash/cloneDeep";
 import { plugins } from "@webiny/plugins";
-import { OnCreateActions, type PbEditorElement, type PbEditorPageElementPlugin } from "~/types.js";
-import { PreviewBlock } from "~/admin/components/PreviewBlock.js";
-import Title from "./components/Title.js";
+import type { PbEditorElement, PbEditorPageElementPlugin } from "~/types";
+import { OnCreateActions } from "~/types";
+import { PreviewBlock } from "~/admin/components/PreviewBlock";
+import Title from "./components/Title";
 
 /**
  * TODO @ts-refactor @pavel

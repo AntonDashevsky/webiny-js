@@ -1,16 +1,16 @@
-import {
-    type IFetchLockedEntryLockRecordParams,
-    type IFetchLockRecordParams,
-    type IFetchLockRecordResult,
-    type IIsRecordLockedParams,
-    type IPossiblyRecordLockingRecord,
-    type IRecordLockingError,
-    type IRecordLockingLockRecord,
-    type IRecordLockingRecord,
-    type IUnlockEntryParams,
-    type IUpdateEntryLockParams
-} from "~/types.js";
-import { type IRecordLockingUnlockEntryResult } from "./IRecordLockingUnlockEntry.js";
+import type {
+    IFetchLockedEntryLockRecordParams,
+    IFetchLockRecordParams,
+    IFetchLockRecordResult,
+    IIsRecordLockedParams,
+    IPossiblyRecordLockingRecord,
+    IRecordLockingError,
+    IRecordLockingLockRecord,
+    IRecordLockingRecord,
+    IUnlockEntryParams,
+    IUpdateEntryLockParams
+} from "~/types";
+import type { IRecordLockingUnlockEntryResult } from "./IRecordLockingUnlockEntry";
 
 export interface IRecordLockingUpdateEntryLockResult {
     data: IRecordLockingLockRecord | null;

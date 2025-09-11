@@ -1,4 +1,4 @@
-import { type PbImportExportContext } from "~/graphql/types.js";
+import type { PbImportExportContext } from "~/graphql/types";
 
 export interface InvokeHandlerClientParams<TParams> {
     context: PbImportExportContext;

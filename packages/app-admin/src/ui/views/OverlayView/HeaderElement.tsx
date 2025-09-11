@@ -1,11 +1,12 @@
 import React from "react";
 import { css } from "emotion";
-import { UIElement, type UIElementConfig, type UiElementRenderProps } from "~/ui/UIElement.js";
-import { TopAppBarSecondary, TopAppBarSection } from "@webiny/ui/TopAppBar/index.js";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { ReactComponent as CloseIcon } from "@material-design-icons/svg/outlined/close.svg";
-import { PlaceholderElement } from "~/ui/elements/PlaceholderElement.js";
-import { HeaderTitleElement } from "./HeaderTitleElement.js";
+import type { UIElementConfig, UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
+import { TopAppBarSecondary, TopAppBarSection } from "@webiny/ui/TopAppBar";
+import { IconButton } from "@webiny/ui/Button";
+import { ReactComponent as CloseIcon } from "@webiny/icons/close.svg";
+import { PlaceholderElement } from "~/ui/elements/PlaceholderElement";
+import { HeaderTitleElement } from "./HeaderTitleElement";
 
 interface HeaderElementConfig extends UIElementConfig {
     onClose: (event: React.MouseEvent) => void;
@@ -79,11 +80,7 @@ export class HeaderElement extends UIElement<HeaderElementConfig> {
                 </TopAppBarSection>
                 <TopAppBarSection className={width} alignEnd>
                     {this.getRightSectionElement().render(props)}
-                    <IconButton
-                        ripple={false}
-                        onClick={this.config.onClose}
-                        icon={<CloseIcon style={{ width: 24, height: 24 }} />}
-                    />
+                    <IconButton ripple={false} onClick={this.config.onClose} icon={<CloseIcon />} />
                 </TopAppBarSection>
             </TopAppBarSecondary>
         );

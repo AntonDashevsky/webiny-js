@@ -1,4 +1,4 @@
-import { formatDate } from "./formatDate.js";
+import { formatDate } from "./formatDate";
 
 export const getDate = <T extends string | null = string | null>(
     input?: Date | string | null,

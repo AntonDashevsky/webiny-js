@@ -1,22 +1,23 @@
-import {
-    type CmsContext,
-    type CmsEntry,
-    type CmsModel,
-    type CreateCmsEntryInput,
-    type CreateCmsEntryOptionsInput
-} from "~/types/index.js";
-import { getDate } from "~/utils/date.js";
-import { getIdentity } from "~/utils/identity.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
-import { type Tenant } from "@webiny/api-tenancy/types.js";
-import { type I18NLocale } from "@webiny/api-i18n/types.js";
-import { mapAndCleanUpdatedInputData } from ".//mapAndCleanUpdatedInputData.js";
-import { validateModelEntryDataOrThrow } from "../entryDataValidation.js";
-import { referenceFieldsMapping } from "../referenceFieldsMapping.js";
+import type {
+    CmsContext,
+    CmsEntry,
+    CmsModel,
+    CreateCmsEntryInput,
+    CreateCmsEntryOptionsInput
+} from "~/types";
+import { getDate } from "~/utils/date";
+import { getIdentity } from "~/utils/identity";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import { mapAndCleanUpdatedInputData } from ".//mapAndCleanUpdatedInputData";
+import { validateModelEntryDataOrThrow } from "../entryDataValidation";
+import { referenceFieldsMapping } from "../referenceFieldsMapping";
 import { createIdentifier, parseIdentifier } from "@webiny/utils";
 import WebinyError from "@webiny/error";
-import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses.js";
-import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import { STATUS_DRAFT, STATUS_PUBLISHED, STATUS_UNPUBLISHED } from "./statuses";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import { createState } from "~/crud/contentEntry/entryDataFactories/state.js";
 
 type CreateEntryRevisionFromDataParams = {
     sourceId: string;
@@ -174,6 +175,7 @@ export const createEntryRevisionFromData = async ({
 
         locked,
         status,
+        state: createState(undefined),
         values
     };
 

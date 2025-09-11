@@ -1,14 +1,14 @@
 import React from "react";
-import { renderPlugins } from "@webiny/app/plugins/index.js";
-import {
-    type PbPageDetailsRevisionContentPlugin,
-    type PbPageDetailsRevisionContentPreviewPlugin
-} from "~/types.js";
-import { Tab } from "@webiny/ui/Tabs/index.js";
+import { renderPlugins } from "@webiny/app/plugins";
+import type {
+    PbPageDetailsRevisionContentPlugin,
+    PbPageDetailsRevisionContentPreviewPlugin
+} from "~/types";
+import { Tab } from "@webiny/ui/Tabs";
 import styled from "@emotion/styled";
-import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { PageContentPreview } from "./PageContentPreview.js";
+import { Elevation } from "@webiny/ui/Elevation";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { PageContentPreview } from "./PageContentPreview";
 
 const RenderBlock = styled("div")({
     position: "relative",

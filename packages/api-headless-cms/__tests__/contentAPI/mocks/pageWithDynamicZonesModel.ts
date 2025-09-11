@@ -1,4 +1,5 @@
-import {
+const { version: webinyVersion } = require("@webiny/cli/package.json");
+import type {
     CmsModel as BaseCmsModel,
     CmsModelField as BaseCmsModelField,
     CmsModelFieldSettings as BaseCmsModelFieldSettings
@@ -18,7 +19,7 @@ interface CmsModel extends Omit<BaseCmsModel, "fields"> {
 
 export const pageModel: CmsModel = {
     tenant: "root",
-    webinyVersion: "0.0.0",
+    webinyVersion,
     locale: "en-US",
     name: "Page",
     group: {

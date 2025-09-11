@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useRef } from "react";
-import { createDecorator, type DecoratableComponent, type GenericComponent } from "@webiny/app-admin";
-import {
-    EventActionHandlerProvider,
-    type EventActionHandlerProviderProps,
-    type GetCallableState
-} from "~/editor/contexts/EventActionHandlerProvider.js";
-import { type BlockEditorEventActionCallableState } from "~/blockEditor/types.js";
-import { type BlockAtomType } from "~/blockEditor/state/index.js";
-import { useBlock } from "~/blockEditor/hooks/useBlock.js";
+import type { DecoratableComponent, GenericComponent } from "@webiny/app-admin";
+import { createDecorator } from "@webiny/app-admin";
+import type {
+    EventActionHandlerProviderProps,
+    GetCallableState
+} from "~/editor/contexts/EventActionHandlerProvider";
+import { EventActionHandlerProvider } from "~/editor/contexts/EventActionHandlerProvider";
+import type { BlockEditorEventActionCallableState } from "~/blockEditor/types";
+import type { BlockAtomType } from "~/blockEditor/state";
+import { useBlock } from "~/blockEditor/hooks/useBlock";
 
 type ProviderProps = EventActionHandlerProviderProps<BlockEditorEventActionCallableState>;
 

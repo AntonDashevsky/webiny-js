@@ -5,20 +5,20 @@ import { noopener } from "posthtml-noopener";
  */
 // @ts-expect-error
 import posthtmlPluginLinkPreload from "posthtml-plugin-link-preload";
-import absoluteAssetUrls from "./absoluteAssetUrls.js";
-import injectApolloState from "./injectApolloState.js";
-import injectRenderId from "./injectRenderId.js";
-import injectRenderTs from "./injectRenderTs.js";
-import injectTenantLocale from "./injectTenantLocale.js";
-import injectNotFoundPageFlag from "./injectNotFoundPageFlag.js";
-import getPsTags from "./getPsTags.js";
-import { defaultRenderUrlFunction } from "./defaultRenderUrlFunction.js";
-import { generateAlphaNumericId } from "@webiny/utils/generateId.js";
-import { type RenderResult, type RenderUrlParams, type RenderUrlPostHtmlParams } from "./types.js";
-import { type TagPathLink } from "~/types.js";
-import { preloadJs } from "~/render/preloadJs.js";
-import { preloadCss } from "~/render/preloadCss.js";
-import { preloadFonts } from "~/render/preloadFonts.js";
+import absoluteAssetUrls from "./absoluteAssetUrls";
+import injectApolloState from "./injectApolloState";
+import injectRenderId from "./injectRenderId";
+import injectRenderTs from "./injectRenderTs";
+import injectTenantLocale from "./injectTenantLocale";
+import injectNotFoundPageFlag from "./injectNotFoundPageFlag";
+import getPsTags from "./getPsTags";
+import { defaultRenderUrlFunction } from "./defaultRenderUrlFunction";
+import { generateAlphaNumericId } from "@webiny/utils/generateId";
+import type { RenderResult, RenderUrlParams, RenderUrlPostHtmlParams } from "./types";
+import type { TagPathLink } from "~/types";
+import { preloadJs } from "~/render/preloadJs";
+import { preloadCss } from "~/render/preloadCss";
+import { preloadFonts } from "~/render/preloadFonts";
 
 interface Meta {
     path: string;

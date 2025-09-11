@@ -2,23 +2,18 @@ import React from "react";
 import { css } from "emotion";
 import { useRouter } from "@webiny/react-router";
 import { Query } from "@apollo/react-components";
-import {
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogActions,
-    type DialogOnClose
-} from "@webiny/ui/Dialog/index.js";
+import type { DialogOnClose } from "@webiny/ui/Dialog";
+import { Dialog, DialogTitle, DialogContent, DialogActions } from "@webiny/ui/Dialog";
 import {
     List,
     ListItem,
     ListItemText,
     ListItemTextPrimary,
     ListItemTextSecondary
-} from "@webiny/ui/List/index.js";
-import { ButtonDefault } from "@webiny/ui/Button/index.js";
-import { LIST_MENUS } from "./graphql.js";
-import { type PbMenu } from "~/types.js";
+} from "@webiny/ui/List";
+import { ButtonDefault } from "@webiny/ui/Button";
+import { LIST_MENUS } from "./graphql";
+import type { PbMenu } from "~/types";
 
 const narrowDialog = css({
     ".mdc-dialog__surface": {

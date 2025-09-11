@@ -1,5 +1,5 @@
-import { type NodeAPI } from "posthtml";
-import { type RenderUrlPostHtmlParams } from "~/render/types.js";
+import type { NodeAPI } from "posthtml";
+import type { RenderUrlPostHtmlParams } from "~/render/types";
 
 export default ({ ts }: Pick<RenderUrlPostHtmlParams, "ts">) =>
     async (tree: NodeAPI) => {

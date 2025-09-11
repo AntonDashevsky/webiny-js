@@ -1,14 +1,11 @@
-import {
-    SendMessageBatchCommand,
-    type SendMessageBatchRequestEntry,
-    SQSClient
-} from "@webiny/aws-sdk/client-sqs";
-import lodashChunk from "lodash/chunk.js";
-import {
-    type PrerenderingServiceStorageOperations,
-    type RenderEvent,
-    type RenderPagesEvent
-} from "@webiny/api-prerendering-service/types.js";
+import type { SendMessageBatchRequestEntry } from "@webiny/aws-sdk/client-sqs";
+import { SendMessageBatchCommand, SQSClient } from "@webiny/aws-sdk/client-sqs";
+import lodashChunk from "lodash/chunk";
+import type {
+    PrerenderingServiceStorageOperations,
+    RenderEvent,
+    RenderPagesEvent
+} from "@webiny/api-prerendering-service/types";
 import { createEventBridgeEventHandler } from "@webiny/handler-aws";
 import { generateId } from "@webiny/utils";
 

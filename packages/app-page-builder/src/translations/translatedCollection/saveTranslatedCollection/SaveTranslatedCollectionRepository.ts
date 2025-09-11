@@ -1,9 +1,9 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { type ISaveTranslatedCollectionRepository } from "~/translations/translatedCollection/saveTranslatedCollection/ISaveTranslatedCollectionRepository.js";
-import { type ISaveTranslatedCollectionGateway } from "~/translations/translatedCollection/saveTranslatedCollection/ISaveTranslatedCollectionGateway.js";
-import { type TranslatedCollection } from "~/translations/index.js";
-import { type ListCache } from "~/translations/ListCache.js";
-import { type TranslatedCollectionInputDto } from "~/translations/translatedCollection/saveTranslatedCollection/TranslatedCollectionInputDto.js";
+import type { ISaveTranslatedCollectionRepository } from "~/translations/translatedCollection/saveTranslatedCollection/ISaveTranslatedCollectionRepository";
+import type { ISaveTranslatedCollectionGateway } from "~/translations/translatedCollection/saveTranslatedCollection/ISaveTranslatedCollectionGateway";
+import type { TranslatedCollection } from "~/translations";
+import type { ListCache } from "~/translations/ListCache";
+import type { TranslatedCollectionInputDto } from "~/translations/translatedCollection/saveTranslatedCollection/TranslatedCollectionInputDto";
 
 export class SaveTranslatedCollectionRepository implements ISaveTranslatedCollectionRepository {
     private readonly gateway: ISaveTranslatedCollectionGateway;

@@ -1,4 +1,4 @@
-import { type PbEditorElement } from "@webiny/app-page-builder/types.js";
+import type { PbEditorElement } from "@webiny/app-page-builder/types";
 
 type ElementNode = Omit<PbEditorElement, "elements"> & {
     elements: ElementNode[];

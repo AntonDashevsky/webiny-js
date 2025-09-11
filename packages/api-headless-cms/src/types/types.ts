@@ -1,22 +1,33 @@
-import { type Plugin } from "@webiny/plugins/types.js";
-import { type I18NContext, type I18NLocale } from "@webiny/api-i18n/types.js";
-import { type Context, type GenericRecord } from "@webiny/api/types.js";
-import { type GraphQLFieldResolver, type GraphQLRequestBody, type Resolvers } from "@webiny/handler-graphql/types.js";
-import { type processRequestBody } from "@webiny/handler-graphql";
-import { type SecurityPermission } from "@webiny/api-security/types.js";
-import { type DbContext } from "@webiny/handler-db/types.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import { type CmsModelConverterCallable } from "~/utils/converters/ConverterCollection.js";
-import { type HeadlessCmsExport, type HeadlessCmsImport } from "~/export/types.js";
-import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
-import { type CmsModelToAstConverter } from "~/utils/contentModelAst/CmsModelToAstConverter.js";
-import { type CmsModelFieldToGraphQLPlugin } from "./plugins.js";
-import { type CmsEntryContext } from "./context.js";
-import { type CmsModelField, type CmsModelFieldValidation, type CmsModelUpdateInput } from "./modelField.js";
-import { type CmsModel, type CmsModelCreateFromInput, type CmsModelCreateInput } from "./model.js";
-import { type CmsGroup } from "./modelGroup.js";
-import { type CmsIdentity } from "./identity.js";
-import { type ISingletonModelManager } from "~/modelManager/index.js";
+import type { Plugin } from "@webiny/plugins/types";
+import type { I18NContext, I18NLocale } from "@webiny/api-i18n/types";
+import type { Context, GenericRecord } from "@webiny/api/types";
+import type {
+    GraphQLFieldResolver,
+    GraphQLRequestBody,
+    Resolvers
+} from "@webiny/handler-graphql/types";
+import type { processRequestBody } from "@webiny/handler-graphql";
+import type { SecurityPermission } from "@webiny/api-security/types";
+import type { DbContext } from "@webiny/handler-db/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { CmsModelConverterCallable } from "~/utils/converters/ConverterCollection";
+import type { HeadlessCmsExport, HeadlessCmsImport } from "~/export/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { CmsModelToAstConverter } from "~/utils/contentModelAst/CmsModelToAstConverter";
+import type { CmsModelFieldToGraphQLPlugin } from "./plugins";
+import type { CmsEntryContext } from "./context";
+import type { CmsModelField, CmsModelFieldValidation, CmsModelUpdateInput } from "./modelField";
+import type { CmsModel, CmsModelCreateFromInput, CmsModelCreateInput } from "./model";
+import type { CmsGroup } from "./modelGroup";
+import type { CmsIdentity } from "./identity";
+import type { ISingletonModelManager } from "~/modelManager";
+
+export interface CmsError {
+    message: string;
+    code: string;
+    data: GenericRecord;
+    stack?: string;
+}
 
 export interface CmsError {
     message: string;
@@ -451,6 +462,9 @@ export interface CmsEntryValues {
     [key: string]: any;
 }
 
+export interface ICmsEntryLocation {
+    folderId?: string | null;
+}
 /**
  * A content entry definition for and from the database.
  *
@@ -634,6 +648,11 @@ export interface CmsEntry<T = CmsEntryValues> {
      */
     status: CmsEntryStatus;
     /**
+     * With v6 we have added a status step. We have some default ones, but users can add their own.
+     * Note that the status step does not need to be defined.
+     */
+    state: ICmsEntryState | null;
+    /**
      * A mapped storageId -> value object.
      *
      * @see CmsModelField
@@ -642,9 +661,7 @@ export interface CmsEntry<T = CmsEntryValues> {
     /**
      * Advanced Content Organization
      */
-    location?: {
-        folderId?: string | null;
-    };
+    location?: ICmsEntryLocation;
     /**
      * Settings for the given entry.
      *
@@ -931,6 +948,11 @@ export interface CmsModelContext {
  */
 export type CmsEntryStatus = "published" | "unpublished" | "draft";
 
+export interface ICmsEntryState {
+    name: string | null;
+    comment: string | null;
+}
+
 export interface CmsEntryListWhereRef {
     id?: string;
     id_in?: string[];
@@ -942,6 +964,14 @@ export interface CmsEntryListWhereRef {
     entryId_not_in?: string[];
 }
 
+export interface ICmsEntryStateWhereInput {
+    name?: string;
+    name_not?: string;
+    name_in?: string[];
+    name_not_in?: string[];
+    comment_contains?: string;
+    comment_not_contains?: string;
+}
 /**
  * Entry listing where params.
  *
@@ -970,6 +1000,7 @@ export interface CmsEntryListWhere {
     status_not?: CmsEntryStatus;
     status_in?: CmsEntryStatus[];
     status_not_in?: CmsEntryStatus[];
+    state?: ICmsEntryStateWhereInput;
 
     /**
      * Revision-level meta fields. 👇
@@ -1078,7 +1109,8 @@ export interface CmsEntryListWhere {
         | null
         | CmsEntryListWhere[]
         | CmsEntryListWhere
-        | CmsEntryListWhereRef;
+        | CmsEntryListWhereRef
+        | ICmsEntryStateWhereInput;
 
     /**
      * To allow querying via nested queries, we added the AND / OR properties.
@@ -1409,6 +1441,7 @@ export interface EntryBeforeListTopicParams {
 export type CreateCmsEntryInput<TValues = CmsEntryValues> = TValues & {
     id?: string;
     status?: CmsEntryStatus;
+    state?: ICmsEntryState;
 
     /**
      * Entry-level meta fields. 👇

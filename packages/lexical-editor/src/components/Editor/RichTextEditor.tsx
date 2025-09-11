@@ -1,11 +1,8 @@
 import React, { Fragment, useRef, useState } from "react";
 import { css } from "emotion";
-import { type CSSObject } from "@emotion/react";
-import { type Klass, type LexicalEditor, type LexicalNode } from "lexical";
-import { type EditorState } from "lexical/LexicalEditorState.js";
+import type { CSSObject } from "@emotion/react";
+import type { Klass, LexicalNode } from "lexical";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { $isRootTextContentEmpty } from "@lexical/text";
-import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { ClearEditorPlugin } from "@lexical/react/LexicalClearEditorPlugin";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
@@ -13,26 +10,19 @@ import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { makeDecoratable } from "@webiny/react-composition";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
-import {
-    createTheme,
-    type EditorTheme,
-    type ThemeEmotionMap,
-    toTypographyEmotionMap
-} from "@webiny/lexical-theme";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { createTheme, toTypographyEmotionMap } from "@webiny/lexical-theme";
 import { allNodes } from "@webiny/lexical-nodes";
-import { RichTextEditorProvider } from "~/context/RichTextEditorContext.js";
-import { isValidLexicalData } from "~/utils/isValidLexicalData.js";
-import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin/index.js";
-import { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin.js";
-import { type LexicalValue, type ToolbarActionPlugin } from "~/types.js";
-import { Placeholder } from "~/ui/Placeholder.js";
-import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue.js";
-import { SharedHistoryContext, useSharedHistoryContext } from "~/context/SharedHistoryContext.js";
+import { RichTextEditorProvider } from "~/context/RichTextEditorContext";
+import { BlurEventPlugin } from "~/plugins/BlurEventPlugin/BlurEventPlugin";
+import type { LexicalValue, ToolbarActionPlugin } from "~/types";
+import { Placeholder } from "~/ui/Placeholder";
+import { SharedHistoryContext, useSharedHistoryContext } from "~/context/SharedHistoryContext";
 import {
     LexicalEditorWithConfig,
     useLexicalEditorConfig
-} from "~/components/LexicalEditorConfig/LexicalEditorConfig.js";
-import { normalizeInputValue } from "./normalizeInputValue.js";
+} from "~/components/LexicalEditorConfig/LexicalEditorConfig";
+import { StateHandlingPlugin } from "~/plugins/StateHandlingPlugin";
 
 export interface RichTextEditorProps {
     children?: React.ReactNode | React.ReactNode[];
@@ -55,7 +45,6 @@ export interface RichTextEditorProps {
     toolbar?: React.ReactNode;
     value: LexicalValue | null | undefined;
     width?: number | string;
-    generateInitialValue?: () => LexicalValue;
 }
 
 const BaseRichTextEditor = ({
@@ -72,7 +61,6 @@ const BaseRichTextEditor = ({
     height,
     contentEditableStyles,
     placeholderStyles,
-    generateInitialValue = generateInitialLexicalValue,
     ...props
 }: RichTextEditorProps) => {
     const themeEmotionMap =
@@ -105,9 +93,6 @@ const BaseRichTextEditor = ({
         <Fragment key={plugin.name}>{plugin.element}</Fragment>
     ));
 
-    const value = normalizeInputValue(props.value);
-    const editorValue = isValidLexicalData(value) ? value : generateInitialValue();
-
     const initialConfig = {
         editorState: null,
         namespace: "webiny",
@@ -118,26 +103,6 @@ const BaseRichTextEditor = ({
         nodes: [...allNodes, ...configNodes, ...(nodes || [])],
         theme: { ...editorTheme.current, emotionMap: themeEmotionMap }
     };
-
-    function handleOnChange(editorState: EditorState, editor: LexicalEditor) {
-        editorState.read(() => {
-            if (typeof onChange === "function") {
-                const editorState = editor.getEditorState();
-                const isEditorEmpty = $isRootTextContentEmpty(editor.isComposing(), true);
-
-                const newValue = JSON.stringify(editorState.toJSON());
-
-                // We don't want to call "onChange" if editor text is empty, and original `value` is empty.
-                if (!value && isEditorEmpty) {
-                    return;
-                }
-
-                if (value !== newValue) {
-                    onChange(newValue);
-                }
-            }
-        });
-    }
 
     return (
         /**
@@ -159,11 +124,15 @@ const BaseRichTextEditor = ({
                         /* This className is necessary for targeting of editor container from CSS files. */
                         className={"editor-shell"}
                         ref={scrollRef}
-                        style={{ ...styles, ...sizeStyle, overflow: "auto", position: "relative" }}
+                        style={{
+                            ...styles,
+                            ...sizeStyle,
+                            overflow: "auto",
+                            position: "relative"
+                        }}
                     >
                         {/* State plugins. */}
-                        <OnChangePlugin onChange={handleOnChange} />
-                        <UpdateStatePlugin value={editorValue} />
+                        <StateHandlingPlugin value={props.value} onChange={onChange} />
                         <ClearEditorPlugin />
                         <HistoryPlugin externalHistoryState={historyState} />
                         {/* Event plugins. */}

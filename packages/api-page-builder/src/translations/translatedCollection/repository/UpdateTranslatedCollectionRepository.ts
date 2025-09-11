@@ -1,9 +1,9 @@
-import { type PbContext } from "~/types.js";
-import { GetModel } from "~/translations/GetModel.js";
+import type { PbContext } from "~/types";
+import { GetModel } from "~/translations/GetModel";
 import { WebinyError } from "@webiny/error";
 import { createIdentifier } from "@webiny/utils";
-import { type TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection.js";
-import { TranslatedCollectionMapper } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionMapper.js";
+import type { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
+import { TranslatedCollectionMapper } from "~/translations/translatedCollection/repository/mappers/TranslatedCollectionMapper";
 
 export class UpdateTranslatedCollectionRepository {
     private readonly context: PbContext;

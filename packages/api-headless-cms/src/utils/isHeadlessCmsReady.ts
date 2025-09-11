@@ -1,4 +1,4 @@
-import { type CmsContext } from "~/types/index.js";
+import type { CmsContext } from "~/types";
 
 export const isHeadlessCmsReady = async ({ tenancy, i18n }: CmsContext): Promise<boolean> => {
     /**

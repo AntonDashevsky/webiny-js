@@ -1,12 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import styled from "@emotion/styled";
-import { type IncomingGenericData, useWebsockets } from "@webiny/app-websockets";
+import type { IncomingGenericData } from "@webiny/app-websockets";
+import { useWebsockets } from "@webiny/app-websockets";
 import { useSnackbar } from "@webiny/app-admin";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
-
-const Bold = styled.span`
-    font-weight: bold;
-`;
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
 
 const THREAT_SCAN_ACTIONS = {
     NO_THREAT_FOUND: "fm.threatScan.noThreatFound",
@@ -68,8 +64,8 @@ export const HandleWebsocketMessages = () => {
 
                 showErrorSnackbar(
                     <span>
-                        A threat was detected in file <Bold>{name}</Bold>, and it was automatically
-                        deleted!
+                        A threat was detected in file <strong>{name}</strong>, and it was
+                        automatically deleted!
                     </span>
                 );
             }
@@ -87,7 +83,7 @@ export const HandleWebsocketMessages = () => {
                 showErrorSnackbar(
                     <span>
                         We were unable to scan the file. For security reasons, file
-                        <Bold>{name}</Bold> was automatically deleted!
+                        <strong>{name}</strong> was automatically deleted!
                     </span>
                 );
             }

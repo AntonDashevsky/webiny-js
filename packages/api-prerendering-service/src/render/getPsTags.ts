@@ -1,4 +1,4 @@
-import { type TagPathLink } from "~/types.js";
+import type { TagPathLink } from "~/types";
 
 const parseAttributes = (content: string): TagPathLink => {
     const regex = /data-([a-zA-Z0-9-#]+)="([a-zA-Z0-9-#]+)"/gm;

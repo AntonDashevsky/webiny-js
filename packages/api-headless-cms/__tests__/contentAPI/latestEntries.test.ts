@@ -1,5 +1,5 @@
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { CmsModel, CmsGroup } from "~/types";
+import type { CmsModel, CmsGroup } from "~/types";
 import models from "./mocks/contentModels";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 import { useArticleManageHandler } from "../testHelpers/useArticleManageHandler";

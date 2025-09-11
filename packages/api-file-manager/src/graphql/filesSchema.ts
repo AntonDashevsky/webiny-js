@@ -4,9 +4,10 @@ import {
     ListResponse,
     Response
 } from "@webiny/handler-graphql";
-import { type FileManagerContext, type FilesListOpts } from "~/types.js";
-import { emptyResolver, resolve } from "./utils.js";
-import { createFilesTypeDefs, type CreateFilesTypeDefsParams } from "~/graphql/createFilesTypeDefs.js";
+import type { FileManagerContext, FilesListOpts } from "~/types";
+import { emptyResolver, resolve } from "./utils";
+import type { CreateFilesTypeDefsParams } from "~/graphql/createFilesTypeDefs";
+import { createFilesTypeDefs } from "~/graphql/createFilesTypeDefs";
 import { NotAuthorizedResponse } from "@webiny/api-security";
 
 export const createFilesSchema = (params: CreateFilesTypeDefsParams) => {

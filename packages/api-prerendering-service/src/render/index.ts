@@ -1,15 +1,12 @@
-import renderUrl, { type File } from "./renderUrl.js";
+import type { File } from "./renderUrl";
+import renderUrl from "./renderUrl";
 import { join } from "path";
-import { S3, type PutObjectCommandInput } from "@webiny/aws-sdk/client-s3";
-import {
-    getStorageFolder,
-    getRenderUrl,
-    getIsNotFoundPage,
-    isMultiTenancyEnabled
-} from "~/utils/index.js";
-import { type Context, type HandlerPayload, type RenderHookPlugin } from "./types.js";
-import { type PrerenderingServiceStorageOperations, type Render, type TagPathLink } from "~/types.js";
-import omit from "lodash/omit.js";
+import type { PutObjectCommandInput } from "@webiny/aws-sdk/client-s3";
+import { S3 } from "@webiny/aws-sdk/client-s3";
+import { getStorageFolder, getRenderUrl, getIsNotFoundPage, isMultiTenancyEnabled } from "~/utils";
+import type { Context, HandlerPayload, RenderHookPlugin } from "./types";
+import type { PrerenderingServiceStorageOperations, Render, TagPathLink } from "~/types";
+import omit from "lodash/omit";
 import { EventPlugin } from "@webiny/handler";
 
 const sleep = () => new Promise(resolve => setTimeout(resolve, 1000));

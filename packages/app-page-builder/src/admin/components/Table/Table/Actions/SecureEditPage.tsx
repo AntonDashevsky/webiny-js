@@ -12,7 +12,7 @@ export const SecureEditPage = () => {
 
     const { folderId } = page.location;
     const canEdit = useMemo(() => {
-        return pagesCanUpdate(page.data.createdBy.id) && canManageContent(folderId);
+        return pagesCanUpdate(page.createdBy.id) && canManageContent(folderId);
     }, [canManageContent, folderId]);
 
     if (!canEdit) {

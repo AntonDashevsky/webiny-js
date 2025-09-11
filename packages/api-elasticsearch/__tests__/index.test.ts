@@ -1,5 +1,5 @@
 import { getBaseConfiguration, getJapaneseConfiguration } from "~/indexConfiguration";
-import { ElasticsearchIndexRequestBody } from "~/types";
+import type { ElasticsearchIndexRequestBody } from "~/types";
 import { createElasticsearchClient } from "./helpers";
 import { getElasticsearchIndexPrefix } from "~/indexPrefix";
 

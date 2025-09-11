@@ -1,10 +1,10 @@
 import { loadingRepositoryFactory } from "@webiny/app-utils";
-import { type IDeleteFolderUseCase } from "./IDeleteFolderUseCase.js";
-import { DeleteFolderRepository } from "./DeleteFolderRepository.js";
-import { DeleteFolderUseCase } from "./DeleteFolderUseCase.js";
-import { DeleteFolderUseCaseWithLoading } from "./DeleteFolderUseCaseWithLoading.js";
-import { type IDeleteFolderGateway } from "./IDeleteFolderGateway.js";
-import { folderCacheFactory } from "../cache/index.js";
+import type { IDeleteFolderUseCase } from "./IDeleteFolderUseCase";
+import { DeleteFolderRepository } from "./DeleteFolderRepository";
+import { DeleteFolderUseCase } from "./DeleteFolderUseCase";
+import { DeleteFolderUseCaseWithLoading } from "./DeleteFolderUseCaseWithLoading";
+import type { IDeleteFolderGateway } from "./IDeleteFolderGateway";
+import { folderCacheFactory } from "../cache";
 
 export class DeleteFolder {
     public static getInstance(type: string, gateway: IDeleteFolderGateway): IDeleteFolderUseCase {

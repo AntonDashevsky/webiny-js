@@ -1,24 +1,19 @@
 import React from "react";
-import { Thumbnail } from "./Thumbnail.js";
-import styled from "@emotion/styled";
-
-const PreviewContainer = styled.div`
-    height: calc(100vh - 285px);
-    background: repeating-conic-gradient(#efefef 0% 25%, transparent 0% 50%) 50%/25px 25px;
-    display: flex;
-    width: auto;
-    align-items: center;
-    justify-content: center;
-    > img {
-        max-width: 400px;
-        max-height: calc(100vh - 350px);
-    }
-`;
+import { Thumbnail } from "./Thumbnail";
+import { cn } from "@webiny/admin-ui";
 
 export const Preview = () => {
     return (
-        <PreviewContainer>
-            <Thumbnail />
-        </PreviewContainer>
+        <div className={"wby-h-full wby-w-full"}>
+            <div
+                className={cn([
+                    "wby-flex wby-items-center wby-justify-center",
+                    "wby-w-full wby-aspect-square wby-rounded-lg wby-bg-neutral-dimmed",
+                    "wby-overflow-hidden"
+                ])}
+            >
+                <Thumbnail />
+            </div>
+        </div>
     );
 };

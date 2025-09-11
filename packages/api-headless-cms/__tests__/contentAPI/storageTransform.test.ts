@@ -1,5 +1,5 @@
 import { useProductManageHandler } from "~tests/testHelpers/useProductManageHandler";
-import { Product, ProductCategory } from "~tests/types";
+import type { Product, ProductCategory } from "~tests/types";
 import { useCategoryManageHandler } from "~tests/testHelpers/useCategoryManageHandler";
 import { createInitFactory } from "~tests/filtering/product/init";
 import { createCategoryFactory } from "~tests/filtering/product/category";

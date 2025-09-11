@@ -1,9 +1,9 @@
-import {
-    type File,
-    type FileManagerFilesStorageOperations,
-    type FileManagerFilesStorageOperationsListResponse,
-    type FileManagerFilesStorageOperationsTagsResponse
-} from "@webiny/api-file-manager/types.js";
+import type {
+    File,
+    FileManagerFilesStorageOperations,
+    FileManagerFilesStorageOperationsListResponse,
+    FileManagerFilesStorageOperationsTagsResponse
+} from "@webiny/api-file-manager/types";
 
 /**
  * This class is here to satisfy TS interface, but it will always be overridden by CMS storage operations

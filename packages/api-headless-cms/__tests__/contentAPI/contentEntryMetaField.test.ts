@@ -1,5 +1,5 @@
 import models from "./mocks/contentModels";
-import { CmsEntry, CmsGroup, CmsModel } from "~/types";
+import type { CmsEntry, CmsGroup, CmsModel } from "~/types";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
 import { createMockCmsEntry } from "~tests/helpers/createMockCmsEntry";

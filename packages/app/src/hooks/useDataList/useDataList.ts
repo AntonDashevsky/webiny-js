@@ -1,13 +1,13 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useRouter } from "@webiny/react-router";
-import get from "lodash/get.js";
-import isEqual from "lodash/isEqual.js";
-import { prepareLoadListParams } from "./utils/index.js";
-import { getData, getError, getMeta } from "./functions/index.js";
+import get from "lodash/get";
+import isEqual from "lodash/isEqual";
+import { prepareLoadListParams } from "./utils";
+import { getData, getError, getMeta } from "./functions";
 
-import { type DocumentNode } from "graphql";
-import { type ApolloClient } from "apollo-client";
+import type { DocumentNode } from "graphql";
+import type { ApolloClient } from "apollo-client";
 
 export interface UseDataListParams {
     useRouter?: boolean;
@@ -184,6 +184,9 @@ const useDataList = (params: UseDataListParams) => {
         select(item) {
             const query = new URLSearchParams(location.search);
             query.set("id", item.id);
+            if (!history) {
+                return;
+            }
             history.push({ search: query.toString() });
         },
         isMultiSelected(item) {

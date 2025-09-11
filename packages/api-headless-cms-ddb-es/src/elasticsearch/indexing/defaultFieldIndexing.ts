@@ -1,4 +1,4 @@
-import { type CmsModelFieldToElasticsearchPlugin } from "~/types.js";
+import type { CmsModelFieldToElasticsearchPlugin } from "~/types";
 
 export default (): CmsModelFieldToElasticsearchPlugin => ({
     type: "cms-model-field-to-elastic-search",

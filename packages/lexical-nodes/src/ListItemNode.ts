@@ -1,35 +1,35 @@
-import {
-    $isElementNode,
-    $isRangeSelection,
-    type DOMConversionMap,
-    type DOMConversionOutput,
-    type EditorConfig,
-    type EditorThemeClasses,
-    ElementNode,
-    type LexicalNode,
-    type NodeKey,
-    type ParagraphNode,
-    type RangeSelection,
-    type SerializedElementNode,
-    type Spread
+import type {
+    DOMConversionMap,
+    DOMConversionOutput,
+    EditorConfig,
+    EditorThemeClasses,
+    LexicalNode,
+    NodeKey,
+    ParagraphNode,
+    RangeSelection,
+    SerializedElementNode,
+    Spread
 } from "lexical";
-import { $createListNode, $isListNode, type ListNode } from "~/ListNode.js";
+import { $isElementNode, $isRangeSelection, ElementNode } from "lexical";
+import type { ListNode } from "~/ListNode";
+import { $createListNode, $isListNode } from "~/ListNode";
 import { addClassNamesToElement, removeClassNamesFromElement } from "@lexical/utils";
 import {
     $handleIndent,
     $handleOutdent,
     mergeLists,
     updateChildrenListItemValue
-} from "~/utils/formatList.js";
-import { $createParagraphNode, $isParagraphNode } from "~/ParagraphNode.js";
-import { isNestedListNode } from "~/utils/listNode.js";
+} from "~/utils/formatList";
+import { $createParagraphNode, $isParagraphNode } from "~/ParagraphNode";
+import { isNestedListNode } from "~/utils/listNode";
+
+export const LIST_ITEM_TYPE = "wby-list-item";
 
 export type SerializedWebinyListItemNode = Spread<
     {
         checked: boolean | undefined;
-        type: "webiny-listitem";
+        type: typeof LIST_ITEM_TYPE;
         value: number;
-        version: 1;
     },
     SerializedElementNode
 >;
@@ -42,7 +42,7 @@ export class ListItemNode extends ElementNode {
     __checked?: boolean;
 
     static override getType(): string {
-        return "webiny-listitem";
+        return LIST_ITEM_TYPE;
     }
 
     static override clone(node: ListItemNode): ListItemNode {
@@ -100,9 +100,8 @@ export class ListItemNode extends ElementNode {
         return {
             ...super.exportJSON(),
             checked: this.getChecked(),
-            type: "webiny-listitem",
-            value: this.getValue(),
-            version: 1
+            type: LIST_ITEM_TYPE,
+            value: this.getValue()
         };
     }
 

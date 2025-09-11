@@ -1,12 +1,12 @@
-import {
-    type ApiEndpoint,
-    type CmsFieldTypePlugins,
-    type CmsModel,
-    type CmsModelField,
-    type CmsModelFieldToGraphQLPlugin
-} from "~/types/index.js";
-import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
-import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";
+import type {
+    ApiEndpoint,
+    CmsFieldTypePlugins,
+    CmsModel,
+    CmsModelField,
+    CmsModelFieldToGraphQLPlugin
+} from "~/types";
+import { getBaseFieldType } from "~/utils/getBaseFieldType";
+import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
 
 interface RenderListFilterFieldsParams {
     model: CmsModel;
@@ -66,7 +66,8 @@ export const renderListFilterFields: RenderListFilterFields = (params): string =
             "status: String",
             "status_not: String",
             "status_in: [String!]",
-            "status_not_in: [String!]"
+            "status_not_in: [String!]",
+            "state: CmsEntryStateWhereInput"
         );
     }
 

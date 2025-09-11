@@ -1,14 +1,14 @@
 // Built-in modifiers
-import countModifiers from "./countModifier.js";
-import genderModifier from "./genderModifier.js";
-import ifModifier from "./ifModifier.js";
-import pluralModifier from "./pluralModifier.js";
-import dateModifier from "./dateModifier.js";
-import dateTimeModifier from "./dateTimeModifier.js";
-import timeModifier from "./timeModifier.js";
-import numberModifier from "./numberModifier.js";
-import priceModifier from "./priceModifier.js";
-import { Modifier, ModifierOptions } from "~/types.js";
+import countModifiers from "./countModifier";
+import genderModifier from "./genderModifier";
+import ifModifier from "./ifModifier";
+import pluralModifier from "./pluralModifier";
+import dateModifier from "./dateModifier";
+import dateTimeModifier from "./dateTimeModifier";
+import timeModifier from "./timeModifier";
+import numberModifier from "./numberModifier";
+import priceModifier from "./priceModifier";
+import type { Modifier, ModifierOptions } from "~/types";
 
 export default (options: ModifierOptions): Modifier[] => [
     countModifiers(),

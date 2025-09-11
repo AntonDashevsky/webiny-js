@@ -1,12 +1,13 @@
-import React, { useState, useCallback, type SyntheticEvent, useEffect } from "react";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { TemplateTitle, templateTitleWrapper, TitleInputWrapper, TitleWrapper } from "./Styled.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
-import { useTemplate } from "~/templateEditor/hooks/useTemplate.js";
-import { type PbPageTemplate } from "~/types.js";
+import type { SyntheticEvent } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { Input } from "@webiny/ui/Input";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { TemplateTitle, templateTitleWrapper, TitleInputWrapper, TitleWrapper } from "./Styled";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
+import { useTemplate } from "~/templateEditor/hooks/useTemplate";
+import type { PbPageTemplate } from "~/types";
 
 declare global {
     interface Window {

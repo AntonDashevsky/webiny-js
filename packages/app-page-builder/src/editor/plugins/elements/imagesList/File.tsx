@@ -1,6 +1,7 @@
-import React, { type SyntheticEvent } from "react";
+import type { SyntheticEvent } from "react";
+import React from "react";
 import { css } from "emotion";
-import { Image } from "@webiny/app/components/index.js";
+import { Image } from "@webiny/app/components";
 import { ReactComponent as RemoveIcon } from "../../../../admin/assets/round-close-24px.svg";
 
 const COMPONENT_WIDTH = 176;

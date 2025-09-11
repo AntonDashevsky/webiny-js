@@ -1,10 +1,10 @@
-import { type ITaskResponseResult, type ITaskRunParams } from "@webiny/tasks";
-import { type IMockDataCreatorInput, type IMockDataCreatorOutput } from "./types.js";
-import { type CmsModelManager } from "@webiny/api-headless-cms/types/index.js";
-import { mockData } from "./mockData.js";
-import { createWaitUntilHealthy } from "@webiny/api-elasticsearch/utils/waitUntilHealthy/index.js";
-import { type Context } from "~/types.js";
-import { ElasticsearchCatClusterHealthStatus } from "@webiny/api-elasticsearch/operations/types.js";
+import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
+import type { IMockDataCreatorInput, IMockDataCreatorOutput } from "./types";
+import type { CmsModelManager } from "@webiny/api-headless-cms/types";
+import { mockData } from "./mockData";
+import { createWaitUntilHealthy } from "@webiny/api-elasticsearch/utils/waitUntilHealthy";
+import type { Context } from "~/types";
+import { ElasticsearchCatClusterHealthStatus } from "@webiny/api-elasticsearch/operations/types";
 import { mdbid } from "@webiny/utils";
 
 export class MockDataCreator<
@@ -81,7 +81,7 @@ export class MockDataCreator<
                             });
                         }
                     });
-                } catch (ex) {
+                } catch {
                     return response.continue(
                         {
                             ...input,

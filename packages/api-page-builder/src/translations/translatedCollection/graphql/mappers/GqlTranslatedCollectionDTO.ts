@@ -1,4 +1,4 @@
-import { type Identity } from "~/translations/Identity.js";
+import type { Identity } from "~/translations/Identity";
 
 export interface GqlTranslatedCollectionDTO {
     collectionId: string;

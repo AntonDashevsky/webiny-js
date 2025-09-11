@@ -1,17 +1,16 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase.js";
-import {
-    type PbEditorPageElementPlugin,
-    type PbEditorPageElementAdvancedSettingsPlugin,
-    DisplayMode,
-    type PbEditorElementPluginArgs,
-    OnCreateActions
-} from "~/types.js";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
-import ImagesList from "./ImagesList.js";
-import ImagesListImagesSettings from "./ImagesListImagesSettings.js";
-import ImagesListDesignSettings from "./ImagesListDesignSettings.js";
+import kebabCase from "lodash/kebabCase";
+import type {
+    PbEditorPageElementPlugin,
+    PbEditorPageElementAdvancedSettingsPlugin,
+    PbEditorElementPluginArgs
+} from "~/types";
+import { DisplayMode, OnCreateActions } from "~/types";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
+import ImagesList from "./ImagesList";
+import ImagesListImagesSettings from "./ImagesListImagesSettings";
+import ImagesListDesignSettings from "./ImagesListDesignSettings";
 
 import { ReactComponent as ImageGalleryIcon } from "./icons/round-photo_library-24px.svg";
 

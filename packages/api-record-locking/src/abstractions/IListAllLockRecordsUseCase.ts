@@ -1,7 +1,7 @@
-import {
-    type IRecordLockingListAllLockRecordsParams,
-    type IRecordLockingListAllLockRecordsResponse
-} from "~/types.js";
+import type {
+    IRecordLockingListAllLockRecordsParams,
+    IRecordLockingListAllLockRecordsResponse
+} from "~/types";
 
 export type IListAllLockRecordsUseCaseExecuteParams = IRecordLockingListAllLockRecordsParams;
 

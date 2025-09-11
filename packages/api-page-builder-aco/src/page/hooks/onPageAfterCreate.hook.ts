@@ -1,9 +1,9 @@
 import WebinyError from "@webiny/error";
 
-import { createPageRecordPayload } from "~/utils/createRecordPayload.js";
+import { createPageRecordPayload } from "~/utils/createRecordPayload";
 
-import { type PbAcoContext, type PbPageRecordData } from "~/types.js";
-import { PB_PAGE_TYPE } from "~/contants.js";
+import type { PbAcoContext, PbPageRecordData } from "~/types";
+import { PB_PAGE_TYPE } from "~/contants";
 
 export const onPageAfterCreateHook = (context: PbAcoContext) => {
     const { aco, pageBuilder } = context;

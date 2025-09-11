@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { IconPackProvider as IconPack } from "./IconPackProvider.js";
-import { IconType } from "./IconType.js";
-import { SimpleIconPlugin } from "../plugins/iconsPlugin.js";
-import { EmojiPlugin } from "../plugins/emojisPlugin.js";
-import { CustomIconPlugin } from "../plugins/customPlugin.js";
-import { type Icon } from "../types.js";
+import { IconPackProvider as IconPack } from "./IconPackProvider";
+import { IconType } from "./IconType";
+import { SimpleIconPlugin } from "../plugins/iconsPlugin";
+import { EmojiPlugin } from "../plugins/emojisPlugin";
+import { CustomIconPlugin } from "../plugins/customPlugin";
+import type { Icon } from "../types";
 import { createProvider } from "@webiny/app";
-import { Emojis } from "./Emojis.js";
-import { FontAwesomeIcons } from "./FontAwesomeIcons.js";
+import { Emojis } from "./Emojis";
+import { FontAwesomeIcons } from "./FontAwesomeIcons";
 
 const base = createConfigurableComponent<IconPickerConfig>("IconPicker");
 

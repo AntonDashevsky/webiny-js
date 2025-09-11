@@ -1,15 +1,15 @@
 import { WebinyError } from "@webiny/error";
-import {
-    type IRecordLockingUpdateEntryLock,
-    type IRecordLockingUpdateEntryLockExecuteParams,
-    type IRecordLockingUpdateEntryLockExecuteResult
-} from "~/domain/abstractions/IRecordLockingUpdateEntryLock.js";
-import { type IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient.js";
-import {
-    type IRecordLockingUpdateEntryLockResponse,
-    type IRecordLockingUpdateEntryLockVariables,
-    UPDATE_ENTRY_LOCK
-} from "~/domain/graphql/updateEntryLock.js";
+import type {
+    IRecordLockingUpdateEntryLock,
+    IRecordLockingUpdateEntryLockExecuteParams,
+    IRecordLockingUpdateEntryLockExecuteResult
+} from "~/domain/abstractions/IRecordLockingUpdateEntryLock";
+import type { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient";
+import type {
+    IRecordLockingUpdateEntryLockResponse,
+    IRecordLockingUpdateEntryLockVariables
+} from "~/domain/graphql/updateEntryLock";
+import { UPDATE_ENTRY_LOCK } from "~/domain/graphql/updateEntryLock";
 
 interface Params {
     client: IRecordLockingClient;

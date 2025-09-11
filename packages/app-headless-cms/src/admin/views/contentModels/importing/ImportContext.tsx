@@ -1,24 +1,27 @@
 import React, { useCallback, useState } from "react";
-import { useApolloClient } from "~/admin/hooks/index.js";
+import { useApolloClient } from "~/admin/hooks";
+import type {
+    ImportStructureResponse,
+    ImportStructureVariables,
+    ImportStructureVariablesGroup,
+    ImportStructureVariablesModel,
+    ValidateImportStructureResponse
+} from "~/admin/views/contentModels/importing/graphql";
 import {
     IMPORT_STRUCTURE,
-    type ImportStructureResponse,
-    type ImportStructureVariables,
-    type ImportStructureVariablesGroup,
-    type ImportStructureVariablesModel,
-    VALIDATE_IMPORT_STRUCTURE,
-    type ValidateImportStructureResponse
-} from "~/admin/views/contentModels/importing/graphql.js";
-import { type CmsGroup, type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
-import { ImportAction, type ImportGroupData, type ImportModelData } from "./types.js";
+    VALIDATE_IMPORT_STRUCTURE
+} from "~/admin/views/contentModels/importing/graphql";
+import type { CmsGroup, CmsModel } from "@webiny/app-headless-cms-common/types";
+import type { ImportGroupData, ImportModelData } from "./types";
+import { ImportAction } from "./types";
 import { useSnackbar } from "@webiny/app-admin";
-import { type FetchResult } from "apollo-link";
+import type { FetchResult } from "apollo-link";
 
 const parseFileData = (input: string) => {
     let data: Record<string, any> = {};
     try {
         data = JSON.parse(input);
-    } catch (ex) {
+    } catch {
         throw new Error(`Could not parse the uploaded file. Make sure it's a valid JSON file.`);
     }
     if (!data.groups?.length && !data.models?.length) {

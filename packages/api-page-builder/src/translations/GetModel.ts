@@ -1,4 +1,4 @@
-import { type PbContext } from "~/graphql/types.js";
+import type { PbContext } from "~/graphql/types";
 
 export class GetModel {
     static async byModelId(context: PbContext, modelId: string) {

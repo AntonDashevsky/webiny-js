@@ -1,7 +1,7 @@
 import React from "react";
-import { type PbEditorPageElementVariableRendererPlugin } from "~/types.js";
-import LinkVariableInput from "~/editor/plugins/elementSettings/variable/LinkVariableInput.js";
-import { useElementVariables } from "~/editor/hooks/useElementVariableValue.js";
+import type { PbEditorPageElementVariableRendererPlugin } from "~/types";
+import LinkVariableInput from "~/editor/plugins/elementSettings/variable/LinkVariableInput";
+import { useElementVariables } from "~/editor/hooks/useElementVariableValue";
 
 export default {
     name: "pb-editor-page-element-variable-renderer-soundcloud",

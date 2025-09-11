@@ -1,8 +1,8 @@
 import { ContextPlugin } from "@webiny/api";
-import { ApwContext } from "~/types";
-import { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
-import { WcpContextObject } from "@webiny/api-wcp/types";
-import { WCP_FEATURE_LABEL } from "@webiny/wcp";
+import type { ApwContext } from "~/types";
+import type { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
+import type { WcpContextObject } from "@webiny/api-wcp/types";
+import type { WCP_FEATURE_LABEL } from "@webiny/wcp";
 
 const createCanUseFeature = (wcp?: WcpContextObject) => {
     const defaultCanUseFeature = wcp?.canUseFeature;

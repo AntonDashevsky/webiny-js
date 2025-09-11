@@ -1,6 +1,6 @@
-import { Sort } from "@webiny/api-elasticsearch/types";
+import type { Sort } from "@webiny/api-elasticsearch/types";
 import { CmsEntryElasticsearchSortModifierPlugin } from "~/plugins";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 const model = {} as unknown as CmsModel;
 

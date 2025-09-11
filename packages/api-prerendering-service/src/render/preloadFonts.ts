@@ -1,4 +1,4 @@
-import { type RenderResult } from "~/render/types.js";
+import type { RenderResult } from "~/render/types";
 
 function getFontType(url: string) {
     if (url.endsWith(".woff2")) {

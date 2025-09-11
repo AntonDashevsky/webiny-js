@@ -1,10 +1,10 @@
-export { Okta } from "./Okta.js";
-export type { OktaProps, OktaFactory } from "./Okta.js";
-import { UserInfo } from "./modules/userMenu/userInfo.js";
-import { UserImage } from "./modules/userMenu/userImage.js";
-import { ExitTenant } from "./modules/userMenu/exitTenant.js";
-import { SignOut } from "./modules/userMenu/signOut.js";
-import { NotAuthorizedError } from "./components/index.js";
+export { Okta } from "./Okta";
+export type { OktaProps, OktaFactory } from "./Okta";
+import { UserInfo } from "./modules/userMenu/UserInfo";
+import { UserImage } from "./modules/userMenu/UserImage";
+import { ExitTenant } from "./modules/userMenu/ExitTenant";
+import { SignOut } from "./modules/userMenu/SignOut";
+import { NotAuthorizedError } from "./components";
 
 export const Components = {
     UserInfo,

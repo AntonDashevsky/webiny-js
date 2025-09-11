@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase.js";
-import { type PluginCollection } from "@webiny/plugins/types.js";
-import {
-    type PbEditorPageElementPlugin,
-    type PbEditorPageElementAdvancedSettingsPlugin,
-    DisplayMode,
-    type PbEditorElementPluginArgs,
-    OnCreateActions
-} from "~/types.js";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
+import kebabCase from "lodash/kebabCase";
+import type { PluginCollection } from "@webiny/plugins/types";
+import type {
+    PbEditorPageElementPlugin,
+    PbEditorPageElementAdvancedSettingsPlugin,
+    PbEditorElementPluginArgs
+} from "~/types";
+import { DisplayMode, OnCreateActions } from "~/types";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 import { ReactComponent as PageListIcon } from "./page-list-icon.svg";
-import { PagesList } from "./PagesList.js";
-import PagesListFilterSettings from "./PagesListFilterSettings.js";
-import PagesListDesignSettings from "./PagesListDesignSettings.js";
+import { PagesList } from "./PagesList";
+import PagesListFilterSettings from "./PagesListFilterSettings";
+import PagesListDesignSettings from "./PagesListDesignSettings";
 
 export default (args: PbEditorElementPluginArgs = {}): PluginCollection => {
     const PreviewBox = styled("div")({

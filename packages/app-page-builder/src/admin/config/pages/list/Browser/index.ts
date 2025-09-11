@@ -1,9 +1,13 @@
 import { createFolderFieldDecoratorFactory } from "@webiny/app-aco";
-import { BulkAction, type BulkActionConfig } from "./BulkAction.js";
-import { FolderAction, type FolderActionConfig } from "./FolderAction.js";
-import { PageAction, type PageActionConfig } from "./PageAction.js";
-import { Table, type TableConfig } from "./Table/index.js";
-import { shouldDecorateFolderField } from "./FolderFieldDecorator.js";
+import type { BulkActionConfig } from "./BulkAction";
+import { BulkAction } from "./BulkAction";
+import type { FolderActionConfig } from "./FolderAction";
+import { FolderAction } from "./FolderAction";
+import type { PageActionConfig } from "./PageAction";
+import { PageAction } from "./PageAction";
+import type { TableConfig } from "./Table";
+import { Table } from "./Table";
+import { shouldDecorateFolderField } from "./FolderFieldDecorator";
 
 export interface BrowserConfig {
     bulkActions: BulkActionConfig[];

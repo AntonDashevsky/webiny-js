@@ -1,6 +1,6 @@
 import type { IInvokeCb } from "../types";
 import { createErrorFields, createExportFields } from "./fields";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import { getModel } from "~tests/mocks/model";
 
 export interface IExportContentEntriesVariables {

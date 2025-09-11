@@ -1,27 +1,27 @@
 import invariant from "invariant";
 import { customAlphabet } from "nanoid";
 import { set } from "dot-prop-immutable";
-import { type DragObjectWithTypeWithTarget as BaseDragObjectWithTypeWithTarget } from "./components/Droppable.js";
+import type { DragObjectWithTypeWithTarget as BaseDragObjectWithTypeWithTarget } from "./components/Droppable";
 import { plugins } from "@webiny/plugins";
-import {
-    type PbBlockVariable,
-    type PbEditorBlockPlugin,
-    type PbEditorElement,
-    type PbEditorElementTree,
-    type PbEditorPageElementPlugin,
-    type PbEditorPageElementSettingsPlugin,
-    type PbEditorPageElementStyleSettingsPlugin,
-    type PbElement
-} from "~/types.js";
+import type {
+    PbBlockVariable,
+    PbEditorBlockPlugin,
+    PbEditorElement,
+    PbEditorElementTree,
+    PbEditorPageElementPlugin,
+    PbEditorPageElementSettingsPlugin,
+    PbEditorPageElementStyleSettingsPlugin,
+    PbElement
+} from "~/types";
+import type { UpdateElementActionArgsType } from "~/editor/recoil/actions";
 import {
     CreateElementActionEvent,
     DeleteElementActionEvent,
     UpdateDocumentActionEvent,
-    updateElementAction,
-    type UpdateElementActionArgsType
-} from "~/editor/recoil/actions/index.js";
-import { AfterDropElementActionEvent } from "~/editor/recoil/actions/afterDropElement/index.js";
-import { executeAction } from "~/editor/recoil/eventActions/index.js";
+    updateElementAction
+} from "~/editor/recoil/actions";
+import { AfterDropElementActionEvent } from "~/editor/recoil/actions/afterDropElement";
+import { executeAction } from "~/editor/recoil/eventActions";
 
 const ALPHANUMERIC = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 export const getNanoid = customAlphabet(ALPHANUMERIC, 10);

@@ -1,5 +1,5 @@
-import { type UpdateDocumentActionArgsType } from "./types.js";
-import { BaseEventAction } from "~/editor/recoil/eventActions/index.js";
+import type { UpdateDocumentActionArgsType } from "./types";
+import { BaseEventAction } from "~/editor/recoil/eventActions";
 
 export class UpdateDocumentActionEvent extends BaseEventAction<UpdateDocumentActionArgsType> {
     public getName(): string {

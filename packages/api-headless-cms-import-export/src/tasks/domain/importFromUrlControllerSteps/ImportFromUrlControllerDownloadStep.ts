@@ -1,18 +1,19 @@
-import type { ImportFromUrlControllerStep } from "./abstractions/ImportFromUrlControllerStep.js";
+import type { ImportFromUrlControllerStep } from "./abstractions/ImportFromUrlControllerStep";
 import type {
     IImportFromUrlDownloadInput,
     IImportFromUrlDownloadOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlDownload.js";
-import { IMPORT_FROM_URL_DOWNLOAD_TASK } from "~/tasks/constants.js";
-import { getBackOffSeconds } from "~/tasks/utils/helpers/getBackOffSeconds.js";
-import { CmsImportExportFileType, type Context } from "~/types.js";
+} from "~/tasks/domain/abstractions/ImportFromUrlDownload";
+import { IMPORT_FROM_URL_DOWNLOAD_TASK } from "~/tasks/constants";
+import { getBackOffSeconds } from "~/tasks/utils/helpers/getBackOffSeconds";
+import type { Context } from "~/types";
+import { CmsImportExportFileType } from "~/types";
 import type {
     IImportFromUrlControllerInput,
     IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
-import { IImportFromUrlControllerInputStep } from "~/tasks/domain/abstractions/ImportFromUrlController.js";
+} from "~/tasks/domain/abstractions/ImportFromUrlController";
+import { IImportFromUrlControllerInputStep } from "~/tasks/domain/abstractions/ImportFromUrlController";
 import type { ITask, ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import { getChildTasks } from "./getChildTasks.js";
+import { getChildTasks } from "./getChildTasks";
 
 export class ImportFromUrlControllerDownloadStep<
     C extends Context = Context,

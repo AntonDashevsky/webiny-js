@@ -15,7 +15,6 @@ import { createLocalesData, createTenantsData } from "../common";
 import { StepFunctionService } from "@webiny/tasks/service/StepFunctionServicePlugin";
 import { esCreateIndex } from "~/utils";
 import { ACO_FOLDER_MODEL_ID } from "~tests/migrations/5.43.0/001/constants";
-import { jest } from "@jest/globals";
 
 jest.mock("@webiny/tasks/service/StepFunctionServicePlugin", () => {
     const sendMock = jest.fn().mockResolvedValue({

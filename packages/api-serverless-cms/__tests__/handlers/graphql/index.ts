@@ -1,5 +1,5 @@
 import { createInstallGraphQL } from "./install";
-import { ICreateMutationCb, ICreateQueryCb } from "~tests/handlers/helpers/factory/types";
+import type { ICreateMutationCb, ICreateQueryCb } from "~tests/handlers/helpers/factory/types";
 import { createLoggerGraphQL } from "./logger";
 
 export interface ICreateGraphQlParams {

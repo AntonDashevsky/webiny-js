@@ -1,32 +1,22 @@
 import React from "react";
-import styled from "@emotion/styled";
-import { UIView } from "@webiny/app-admin/ui/UIView.js";
-import { type FormAPI, type GenericFormData } from "@webiny/form";
+import { UIView } from "@webiny/app-admin/ui/UIView";
+import type { FormAPI, GenericFormData } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement.js";
-import {
-    AccordionElement,
-    type AccordionItemElement
-} from "@webiny/app-admin/ui/elements/AccordionElement.js";
-import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement.js";
-import { ReactComponent as SecurityIcon } from "~/assets/icons/security-24px.svg";
-import { ReactComponent as SecurityTeamsIcon } from "~/assets/icons/security-teams-24px.svg";
-import { ReactComponent as SettingsIcon } from "~/assets/icons/settings-24px.svg";
-import AvatarImage from "../../components/AvatarImage.js";
-import { GroupsMultiAutocompleteElement } from "~/ui/elements/GroupsMultiAutocompleteElement.js";
-import { TeamsMultiAutocompleteElement } from "~/ui/elements/TeamsMultiAutocompleteElement.js";
-import { type UseUserForm, useUserForm } from "~/ui/views/Users/hooks/useUserForm.js";
-import { FormView } from "@webiny/app-admin/ui/views/FormView.js";
-import { type FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement.js";
-import { config as appConfig } from "@webiny/app/config.js";
-
-const FormWrapper = styled("div")({
-    margin: "0 100px"
-});
-
-const AvatarWrapper = styled("div")({
-    margin: "24px 100px 32px"
-});
+import { GenericElement } from "@webiny/app-admin/ui/elements/GenericElement";
+import type { AccordionItemElement } from "@webiny/app-admin/ui/elements/AccordionElement";
+import { AccordionElement } from "@webiny/app-admin/ui/elements/AccordionElement";
+import { InputElement } from "@webiny/app-admin/ui/elements/form/InputElement";
+import { ReactComponent as SecurityIcon } from "@webiny/icons/gpp_maybe.svg";
+import { ReactComponent as SecurityTeamsIcon } from "@webiny/icons/admin_panel_settings.svg";
+import { ReactComponent as SettingsIcon } from "@webiny/icons/settings.svg";
+import { AvatarImage } from "../../components/AvatarImage";
+import { GroupsMultiAutocompleteElement } from "~/ui/elements/GroupsMultiAutocompleteElement";
+import { TeamsMultiAutocompleteElement } from "~/ui/elements/TeamsMultiAutocompleteElement";
+import type { UseUserForm } from "~/ui/views/Users/hooks/useUserForm";
+import { useUserForm } from "~/ui/views/Users/hooks/useUserForm";
+import { FormView } from "@webiny/app-admin/ui/views/FormView";
+import type { FormElementRenderProps } from "@webiny/app-admin/ui/elements/form/FormElement";
+import { config as appConfig } from "@webiny/app/config";
 
 interface UsersFormViewParams {
     teams?: boolean;
@@ -90,11 +80,11 @@ export class UsersFormView extends UIView {
             const { Bind } = props.formProps;
 
             return (
-                <AvatarWrapper>
+                <div className={"wby-pt-xl"}>
                     <Bind name="avatar">
                         <AvatarImage round />
                     </Bind>
-                </AvatarWrapper>
+                </div>
             );
         });
 
@@ -207,6 +197,6 @@ export class UsersFormView extends UIView {
             );
         }
 
-        this.wrapWith(({ children }) => <FormWrapper>{children}</FormWrapper>);
+        this.wrapWith(({ children }) => <div>{children}</div>);
     }
 }

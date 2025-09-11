@@ -1,11 +1,11 @@
-import { jest } from "@jest/globals";
-import { RefPresenter } from "./RefPresenter.js";
-import { type EntriesGatewayInterface } from "../adapters/index.js";
-import { type EntryReference, EntryRepository } from "../domain/index.js";
+import { RefPresenter } from "./RefPresenter";
+import type { EntriesGatewayInterface } from "../adapters";
+import type { EntryReference } from "../domain";
+import { EntryRepository } from "../domain";
 
 const mockGateway: EntriesGatewayInterface = {
-    list: jest.fn() as EntriesGatewayInterface["list"],
-    get: jest.fn() as EntriesGatewayInterface["get"]
+    list: jest.fn(),
+    get: jest.fn()
 };
 
 const createMockGateway = ({
@@ -50,10 +50,10 @@ describe("RefPresenter", () => {
     const gateway = createMockGateway({
         list: jest.fn().mockImplementation(() => {
             return Promise.resolve([entry1, entry2, entry3]);
-        }) as EntriesGatewayInterface["list"],
+        }),
         get: jest.fn().mockImplementation(() => {
             return Promise.resolve(entry1);
-        }) as EntriesGatewayInterface["get"]
+        })
     });
 
     let presenter: RefPresenter;

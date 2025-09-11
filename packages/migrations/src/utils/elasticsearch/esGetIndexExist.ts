@@ -1,5 +1,5 @@
-import { Client } from "@elastic/elasticsearch";
-import { esGetIndexName } from "~/utils/index.js";
+import type { Client } from "@elastic/elasticsearch";
+import { esGetIndexName } from "~/utils";
 
 export interface GetIndexExistParams {
     elasticsearchClient: Client;

@@ -1,7 +1,7 @@
 import { LockEntryUseCase } from "~/useCases/LockEntryUseCase/LockEntryUseCase";
 import { WebinyError } from "@webiny/error";
-import { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked";
-import { IRecordLockingModelManager } from "~/types";
+import type { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked";
+import type { IRecordLockingModelManager } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createConvert } from "~tests/mocks/createConvert";
 import { createGetSecurity } from "~tests/mocks/createGetSecurity";

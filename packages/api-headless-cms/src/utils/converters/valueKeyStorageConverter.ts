@@ -1,11 +1,12 @@
-import { type PluginsContainer } from "@webiny/plugins";
-import {
-    type CmsModelConverterCallable,
-    ConverterCollection,
-    type ConverterCollectionConvertParams as BaseConverterCollectionConvertParams
-} from "~/utils/converters/ConverterCollection.js";
-import { type CmsModel, type StorageOperationsCmsModel } from "~/types/index.js";
-import semver, { type SemVer } from "semver";
+import type { PluginsContainer } from "@webiny/plugins";
+import type {
+    CmsModelConverterCallable,
+    ConverterCollectionConvertParams as BaseConverterCollectionConvertParams
+} from "~/utils/converters/ConverterCollection";
+import { ConverterCollection } from "~/utils/converters/ConverterCollection";
+import type { CmsModel, StorageOperationsCmsModel } from "~/types";
+import type { SemVer } from "semver";
+import semver from "semver";
 
 const featureVersion = semver.coerce("5.33.0") as SemVer;
 

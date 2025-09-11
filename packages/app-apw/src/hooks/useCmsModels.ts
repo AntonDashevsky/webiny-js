@@ -1,8 +1,9 @@
-import { LIST_CMS_MODELS, type ListCmsModelsQueryResponse } from "~/graphql/workflow.gql.js";
-import { type CmsModel } from "~/types.js";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
+import type { ListCmsModelsQueryResponse } from "~/graphql/workflow.gql";
+import { LIST_CMS_MODELS } from "~/graphql/workflow.gql";
+import type { CmsModel } from "~/types";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
 import { useState } from "react";
-import { useQueryLocale } from "@webiny/app-headless-cms/admin/hooks/index.js";
+import { useQueryLocale } from "@webiny/app-headless-cms/admin/hooks";
 import dotPropImmutable from "dot-prop-immutable";
 
 interface UseCmsModelsResult {

@@ -1,8 +1,8 @@
 // @ts-nocheck This file is work-in-progress.
 import { Graph } from "graphlib";
-import { Container } from "./Container.js";
-import { Metadata } from "./Metadata.js";
-import { Implementation } from "./types.js";
+import type { Container } from "./Container";
+import { Metadata } from "./Metadata";
+import type { Implementation } from "./types";
 
 export class DependencyGraph {
     private container: Container;

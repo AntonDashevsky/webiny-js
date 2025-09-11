@@ -1,16 +1,16 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase.js";
-import {
-    DisplayMode,
-    type PbEditorElement,
-    type PbEditorPageElementPlugin,
-    type PbEditorPageElementPluginSettings,
-    type PbEditorTextElementPluginsArgs,
-    type PbElement
-} from "~/types.js";
-import List from "./List.js";
-import { createInitialTextValue } from "../utils/textUtils.js";
-import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils.js";
+import kebabCase from "lodash/kebabCase";
+import type {
+    PbEditorElement,
+    PbEditorPageElementPlugin,
+    PbEditorPageElementPluginSettings,
+    PbEditorTextElementPluginsArgs,
+    PbElement
+} from "~/types";
+import { DisplayMode } from "~/types";
+import List from "./List";
+import { createInitialTextValue } from "../utils/textUtils";
+import { createInitialPerDeviceSettingValue } from "../../elementSettings/elementSettingsUtils";
 
 /*
  * @TODO: Remove the list component

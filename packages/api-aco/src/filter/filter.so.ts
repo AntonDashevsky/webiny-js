@@ -1,12 +1,12 @@
-import omit from "lodash/omit.js";
+import omit from "lodash/omit";
 import WebinyError from "@webiny/error";
-import { FILTER_MODEL_ID } from "./filter.model.js";
-import { type CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations.js";
-import { createListSort } from "~/utils/createListSort.js";
-import { createOperationsWrapper } from "~/utils/createOperationsWrapper.js";
-import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues.js";
-import { type AcoFilterStorageOperations, type Filter } from "./filter.types.js";
-import { ENTRY_META_FIELDS } from "@webiny/api-headless-cms/constants.js";
+import { FILTER_MODEL_ID } from "./filter.model";
+import type { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations";
+import { createListSort } from "~/utils/createListSort";
+import { createOperationsWrapper } from "~/utils/createOperationsWrapper";
+import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues";
+import type { AcoFilterStorageOperations, Filter } from "./filter.types";
+import { ENTRY_META_FIELDS } from "@webiny/api-headless-cms/constants";
 
 export const createFilterOperations = (
     params: CreateAcoStorageOperationsParams
@@ -41,7 +41,8 @@ export const createFilterOperations = (
                     ...params,
                     sort: createListSort(sort),
                     where: {
-                        ...({ ...where, createdBy } || {})
+                        ...where,
+                        createdBy
                     }
                 });
 

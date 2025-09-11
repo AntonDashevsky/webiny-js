@@ -1,26 +1,16 @@
 import React, { Fragment } from "react";
+import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
 import { List } from "react-virtualized";
-import groupBy from "lodash/groupBy.js";
+import groupBy from "lodash/groupBy";
 
-import { Tab } from "@webiny/ui/Tabs/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
+import { Text, DelayedOnChange, Input, Tabs, Icon as IconComponent } from "@webiny/admin-ui";
 import { makeDecoratable } from "@webiny/react-composition";
 
-import { IconProvider, IconRenderer } from "./IconRenderer.js";
-import {
-    Row,
-    Cell,
-    CategoryLabel,
-    TabContentWrapper,
-    ListWrapper,
-    NoResultsWrapper,
-    InputsWrapper
-} from "./IconPicker.styles.js";
-import { useIconPicker } from "./IconPickerPresenterProvider.js";
-import { useIconType } from "./config/IconType.js";
-import { type Icon, type IconPickerGridRow, ICON_PICKER_SIZE } from "./types.js";
+import { useIconPicker } from "./IconPickerPresenterProvider";
+import { useIconType } from "./config/IconType";
+import { IconPickerCell, IconPickerRow } from "./components";
+import type { Icon, IconPickerGridRow } from "./types";
+import { ICON_PICKER_SIZE } from "./types";
 
 const COLUMN_COUNT = 8;
 
@@ -94,30 +84,32 @@ const RowRenderer = ({ row, style, cellDecorator, onIconClick }: RenderRowProps)
 
     if (row.type === "category-name") {
         return (
-            <Row style={style}>
-                <CategoryLabel>{row.name}</CategoryLabel>
-            </Row>
+            <IconPickerRow style={style}>
+                <Text
+                    size={"sm"}
+                    className={"wby-uppercase wby-self-end wby-text-neutral-muted wby-mb-sm"}
+                >
+                    {row.name}
+                </Text>
+            </IconPickerRow>
         );
     }
 
     return (
-        <Row style={style}>
+        <IconPickerRow style={style}>
             {row.icons.map((item, itemKey) => (
                 <Fragment key={itemKey}>
                     {cellDecorator(
-                        <Cell
+                        <IconPickerCell
                             key={itemKey}
+                            icon={item}
                             isActive={item.name === value?.name}
-                            onClick={() => onIconClick(item)}
-                        >
-                            <IconProvider icon={item}>
-                                <IconRenderer />
-                            </IconProvider>
-                        </Cell>
+                            onIconClick={() => onIconClick(item)}
+                        />
                     )}
                 </Fragment>
             ))}
-        </Row>
+        </IconPickerRow>
     );
 };
 
@@ -129,6 +121,7 @@ const noopDecorator: CellDecorator = cell => cell;
 
 export interface IconPickerTabProps {
     label: string;
+    value: string;
     onChange: (icon: Icon) => void;
     actions?: React.ReactElement;
     cellDecorator?: CellDecorator;
@@ -136,6 +129,7 @@ export interface IconPickerTabProps {
 
 export const IconPickerTab = ({
     label,
+    value,
     actions,
     onChange,
     cellDecorator = noopDecorator
@@ -146,47 +140,60 @@ export const IconPickerTab = ({
     const size = presenter.vm.size;
 
     return (
-        <Tab label={label}>
-            <TabContentWrapper size={size}>
-                <InputsWrapper>
-                    <DelayedOnChange
-                        value={presenter.vm.filter}
-                        onChange={value => presenter.setFilter(value)}
-                    >
-                        {({ value, onChange }) => (
-                            <Input
-                                value={value}
-                                onChange={onChange}
-                                placeholder={"Search icons..."}
-                            />
-                        )}
-                    </DelayedOnChange>
-                    {actions ? actions : null}
-                </InputsWrapper>
-                <ListWrapper>
-                    {isEmpty ? (
-                        <NoResultsWrapper>
-                            <Typography use="body1">No results found.</Typography>
-                        </NoResultsWrapper>
-                    ) : (
-                        <List
-                            rowRenderer={({ key, ...props }) => (
-                                <RowRenderer
-                                    key={key}
-                                    row={rows[props.index]}
-                                    cellDecorator={cellDecorator}
-                                    onIconClick={onChange}
-                                    {...props}
+        <Tabs.Tab
+            value={value}
+            trigger={label}
+            content={
+                <div>
+                    <div className={"wby-flex wby-items-center wby-justify-center wby-gap-sm"}>
+                        <DelayedOnChange
+                            value={presenter.vm.filter}
+                            onChange={value => presenter.setFilter(value)}
+                        >
+                            {({ value, onChange }) => (
+                                <Input
+                                    value={value}
+                                    onChange={value => onChange(value as unknown as string)}
+                                    placeholder={"Search icons..."}
+                                    variant={"secondary"}
+                                    size={"md"}
+                                    startIcon={
+                                        <IconComponent
+                                            icon={<SearchIcon />}
+                                            label={"Search icons"}
+                                        />
+                                    }
                                 />
                             )}
-                            height={size === ICON_PICKER_SIZE.SMALL ? 250 : 320}
-                            rowCount={rowCount}
-                            rowHeight={40}
-                            width={size === ICON_PICKER_SIZE.SMALL ? 255 : 340}
-                        />
-                    )}
-                </ListWrapper>
-            </TabContentWrapper>
-        </Tab>
+                        </DelayedOnChange>
+                        {actions ? <div>{actions}</div> : null}
+                    </div>
+                    <div className={"wby-relative"}>
+                        {isEmpty ? (
+                            <div className={"wby-pt-md wby-text-neutral-strong"}>
+                                <Text>{"No results found."}</Text>
+                            </div>
+                        ) : (
+                            <List
+                                className={"wby-outline-none"}
+                                rowRenderer={({ key, ...props }) => (
+                                    <RowRenderer
+                                        key={key}
+                                        row={rows[props.index]}
+                                        cellDecorator={cellDecorator}
+                                        onIconClick={onChange}
+                                        {...props}
+                                    />
+                                )}
+                                width={size === ICON_PICKER_SIZE.SMALL ? 232 : 312}
+                                height={size === ICON_PICKER_SIZE.SMALL ? 240 : 350}
+                                rowCount={rowCount}
+                                rowHeight={40}
+                            />
+                        )}
+                    </div>
+                </div>
+            }
+        />
     );
 };

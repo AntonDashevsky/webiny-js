@@ -1,25 +1,25 @@
 import React from "react";
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc.js";
+import utc from "dayjs/plugin/utc";
 
 dayjs.extend(utc);
 
 import { css } from "emotion";
-import * as UiDialog from "@webiny/ui/Dialog/index.js";
-import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { Box, Stack } from "~/components/Layout.js";
-import { Input } from "@webiny/ui/Input/index.js";
+import * as UiDialog from "@webiny/ui/Dialog";
+import { ButtonDefault, ButtonPrimary } from "@webiny/ui/Button";
+import { i18n } from "@webiny/app/i18n";
+import { Box, Stack } from "~/components/Layout";
+import { Input } from "@webiny/ui/Input";
 import styled from "@emotion/styled";
 import { Form } from "@webiny/form";
-import { type BindComponent } from "@webiny/form";
-import { useContentReviewId } from "~/hooks/useContentReviewId.js";
+import type { BindComponent } from "@webiny/form";
+import { useContentReviewId } from "~/hooks/useContentReviewId";
 
 import { validation } from "@webiny/validation";
 
-import { useScheduleActionDialog } from "./useScheduleActionDialog.js";
-import { usePublishContent } from "~/hooks/usePublishContent.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { useScheduleActionDialog } from "./useScheduleActionDialog";
+import { usePublishContent } from "~/hooks/usePublishContent";
+import { CircularProgress } from "@webiny/ui/Progress";
 
 const t = i18n.ns("app-apw/content-review/editor/change-request");
 

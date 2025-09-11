@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { useModelEditor } from "~/admin/hooks/index.js";
+import { Button } from "@webiny/admin-ui";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { i18n } from "@webiny/app/i18n";
+import { useModelEditor } from "~/admin/hooks";
 
 const t = i18n.namespace("app-headless-cms/admin/editor/top-bar/save-button");
 
@@ -25,15 +25,14 @@ const SaveContentModelButton = () => {
     }, [saveContentModel]);
 
     return (
-        <ButtonPrimary
+        <Button
             data-testid="cms.editor.defaultbar.save"
             disabled={loading}
             onClick={() => {
                 onClick();
             }}
-        >
-            {t`Save`}
-        </ButtonPrimary>
+            text={t`Save`}
+        />
     );
 };
 

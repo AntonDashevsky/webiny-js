@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { type ApwChangeRequest } from "~/types.js";
+import type { ApwChangeRequest } from "~/types";
 
 const ERROR_FIELDS = `{
     message

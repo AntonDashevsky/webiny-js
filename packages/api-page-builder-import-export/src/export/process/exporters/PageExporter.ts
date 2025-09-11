@@ -1,8 +1,8 @@
-import get from "lodash/get.js";
-import { type Page } from "@webiny/api-page-builder/types.js";
-import { type File, type FileManagerContext } from "@webiny/api-file-manager/types.js";
-import Zipper from "~/export/zipper.js";
-import { extractFilesFromData } from "~/export/utils.js";
+import get from "lodash/get";
+import type { Page } from "@webiny/api-page-builder/types";
+import type { File, FileManagerContext } from "@webiny/api-file-manager/types";
+import Zipper from "~/export/zipper";
+import { extractFilesFromData } from "~/export/utils";
 
 export interface ExportedPageData {
     /**

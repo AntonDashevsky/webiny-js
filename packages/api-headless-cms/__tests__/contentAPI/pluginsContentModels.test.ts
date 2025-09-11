@@ -1,5 +1,5 @@
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { CmsGroup, CmsModel } from "~/types";
+import type { CmsGroup, CmsModel } from "~/types";
 import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
 
 const contentModelPlugin = new CmsModelPlugin({

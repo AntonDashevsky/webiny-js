@@ -1,8 +1,8 @@
 import React from "react";
-import { type MediumEditorOptions, type PbEditorElement } from "~/types.js";
-import PeList from "./PeList.js";
+import type { MediumEditorOptions, PbEditorElement } from "~/types";
+import PeList from "./PeList";
 
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 
 interface ListProps {
     element: PbEditorElement;

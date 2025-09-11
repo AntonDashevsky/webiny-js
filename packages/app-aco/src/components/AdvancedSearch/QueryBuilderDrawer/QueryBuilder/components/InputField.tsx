@@ -1,8 +1,7 @@
 import React from "react";
-
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { InputFieldProvider } from "~/components/index.js";
-import { type FieldDTOWithElement } from "~/components/AdvancedSearch/domain/index.js";
+import { Text } from "@webiny/admin-ui";
+import { InputFieldProvider } from "~/components";
+import type { FieldDTOWithElement } from "~/components/AdvancedSearch/domain";
 
 interface InputFieldProps {
     field?: FieldDTOWithElement;
@@ -18,9 +17,9 @@ export const InputField = ({ field, name }: InputFieldProps) => {
 
     if (!element) {
         return (
-            <Typography
-                use={"body2"}
-            >{`Cannot render "${field.type}" field: missing field renderer.`}</Typography>
+            <Text
+                size={"sm"}
+            >{`Cannot render "${field.type}" field: missing field renderer.`}</Text>
         );
     }
 

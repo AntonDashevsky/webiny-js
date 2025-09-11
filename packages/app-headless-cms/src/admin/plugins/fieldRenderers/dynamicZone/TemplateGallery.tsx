@@ -1,11 +1,11 @@
 import React from "react";
-import styled from "@emotion/styled";
-import { ReactComponent as CloseIcon } from "@material-design-icons/svg/outlined/highlight_off.svg";
-import { type DecoratableComponent, makeDecoratable, withDecoratorFactory } from "@webiny/app-admin";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { type CmsDynamicZoneTemplate } from "~/types.js";
-import { useModel, useModelField } from "~/admin/hooks/index.js";
-import { TemplateItem } from "./TemplateItem.js";
+import { ReactComponent as CloseIcon } from "@webiny/icons/highlight_off.svg";
+import { IconButton, Tooltip } from "@webiny/admin-ui";
+import type { DecoratableComponent } from "@webiny/app-admin";
+import { makeDecoratable, withDecoratorFactory } from "@webiny/app-admin";
+import type { CmsDynamicZoneTemplate } from "~/types";
+import { useModel, useModelField } from "~/admin/hooks";
+import { TemplateItem } from "./TemplateItem";
 
 export interface TemplateGalleryContainerProps {
     children: React.ReactNode;
@@ -18,19 +18,20 @@ const GalleryContainer = makeDecoratable(
     }
 );
 
-const DefaultGalleryList = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-`;
-
 export interface TemplateGalleryListProps {
     children: React.ReactNode;
 }
 
 const GalleryList = makeDecoratable("TemplateGalleryList", (props: TemplateGalleryListProps) => {
-    return <DefaultGalleryList>{props.children}</DefaultGalleryList>;
+    return (
+        <div
+            className={
+                "wby-p-md wby-rounded-sm wby-bg-neutral-dimmed wby-grid wby-grid-cols-4 wby-gap-md"
+            }
+        >
+            {props.children}
+        </div>
+    );
 });
 
 export interface CloseGalleryProps {
@@ -38,7 +39,21 @@ export interface CloseGalleryProps {
 }
 
 const CloseGallery = makeDecoratable("TemplateGalleryClose", (props: CloseGalleryProps) => {
-    return <IconButton onClick={props.onClose} icon={<CloseIcon />} />;
+    return (
+        <div className={"wby-w-full wby-text-center wby-mt-md"}>
+            <Tooltip
+                content={"Close"}
+                trigger={
+                    <IconButton
+                        onClick={props.onClose}
+                        icon={<CloseIcon />}
+                        size={"lg"}
+                        variant={"ghost"}
+                    />
+                }
+            />
+        </div>
+    );
 });
 
 export interface TemplateGalleryProps {

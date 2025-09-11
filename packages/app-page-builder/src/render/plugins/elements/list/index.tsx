@@ -1,6 +1,6 @@
-import kebabCase from "lodash/kebabCase.js";
-import { type PbRenderElementPluginArgs, type PbRenderElementPlugin } from "~/types.js";
-import { createList } from "@webiny/app-page-builder-elements/renderers/list.js";
+import kebabCase from "lodash/kebabCase";
+import type { PbRenderElementPluginArgs, PbRenderElementPlugin } from "~/types";
+import { createList } from "@webiny/app-page-builder-elements/renderers/list";
 
 export default (args: PbRenderElementPluginArgs = {}): PbRenderElementPlugin => {
     const elementType = kebabCase(args.elementType || "list");

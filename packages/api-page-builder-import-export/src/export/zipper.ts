@@ -1,12 +1,13 @@
 // TODO: Move "archive" in layer
+import type { ArchiverError } from "archiver";
 import vending from "archiver";
-import { type CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
+import type { CompleteMultipartUploadOutput } from "@webiny/aws-sdk/client-s3";
 import { Readable } from "stream";
 import * as path from "path";
-import kebabCase from "lodash/kebabCase.js";
+import kebabCase from "lodash/kebabCase";
 import uniqueId from "uniqid";
-import { s3Stream } from "./s3Stream.js";
-import { type File } from "@webiny/api-file-manager/types.js";
+import { s3Stream } from "./s3Stream";
+import type { File } from "@webiny/api-file-manager/types";
 
 interface FileStreamDetails {
     stream: Readable;
@@ -70,7 +71,7 @@ export default class Zipper {
         // 2. Prepare zip from the file stream.
         const archive = vending.create(this.archiveFormat);
         // Handle archive events.
-        archive.on("error", (error: vending.ArchiverError) => {
+        archive.on("error", (error: ArchiverError) => {
             throw new Error(
                 `${error.name} ${error.code} ${error.message} ${error.path} ${error.stack}`
             );
@@ -126,7 +127,7 @@ export class ZipOfZip {
         // 2. Prepare zip from the file stream.
         const archive = vending.create(this.archiveFormat);
         // Handle archive events.
-        archive.on("error", (error: vending.ArchiverError) => {
+        archive.on("error", (error: ArchiverError) => {
             throw new Error(
                 `${error.name} ${error.code} ${error.message} ${error.path} ${error.stack}`
             );

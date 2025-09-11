@@ -1,30 +1,20 @@
-import {
-    type CmsEntry as BaseCmsEntry,
-    type OnEntryBeforePublishTopicParams,
-    type OnEntryAfterPublishTopicParams,
-    type OnEntryAfterUnpublishTopicParams,
-    type CmsEntryListSort
-} from "@webiny/api-headless-cms/types/index.js";
-import {
-    type Page,
-    type OnPageBeforeCreateTopicParams,
-    type OnPageBeforeCreateFromTopicParams,
-    type OnPageBeforeUpdateTopicParams,
-    type OnPageBeforePublishTopicParams,
-    type PageSettings
-} from "@webiny/api-page-builder/types.js";
-import { type Context } from "@webiny/api/types.js";
-import { type PageBuilderContextObject } from "@webiny/api-page-builder/graphql/types.js";
-import { type SecurityIdentity, type SecurityPermission } from "@webiny/api-security/types.js";
-import { type I18NLocale } from "@webiny/api-i18n/types.js";
-import { type Tenant } from "@webiny/api-tenancy/types.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import { type ApwScheduleActionCrud, type ScheduleActionContext } from "~/scheduler/types.js";
-import type HandlerClient from "@webiny/handler-client/HandlerClient.js";
-import { type PluginsContainer } from "@webiny/plugins";
-import { type WcpContextObject } from "@webiny/api-wcp/types.js";
-import { type MailerContext } from "@webiny/api-mailer/types.js";
-import { type AdminSettingsContext } from "@webiny/api-admin-settings/types.js";
+import type {
+    CmsEntry as BaseCmsEntry,
+    OnEntryBeforePublishTopicParams,
+    OnEntryAfterPublishTopicParams,
+    OnEntryAfterUnpublishTopicParams,
+    CmsEntryListSort
+} from "@webiny/api-headless-cms/types";
+import type { Context } from "@webiny/api/types";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { ApwScheduleActionCrud, ScheduleActionContext } from "~/scheduler/types";
+import type HandlerClient from "@webiny/handler-client/HandlerClient";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { WcpContextObject } from "@webiny/api-wcp/types";
+import type { MailerContext } from "@webiny/api-mailer/types";
 
 export interface ApwCmsEntry extends BaseCmsEntry {
     title: string;
@@ -87,26 +77,6 @@ export enum ApwContentTypes {
     PAGE = "page",
     CMS_ENTRY = "cms_entry"
 }
-
-export interface PageSettingsWithWorkflow extends PageSettings {
-    apw: {
-        workflowId: string;
-        contentReviewId: string | null;
-    };
-}
-
-export interface PageWithWorkflow extends Page {
-    settings: PageSettingsWithWorkflow;
-}
-
-export type ApwOnPageBeforeCreateTopicParams = OnPageBeforeCreateTopicParams<PageWithWorkflow>;
-
-export type ApwOnPageBeforeCreateFromTopicParams =
-    OnPageBeforeCreateFromTopicParams<PageWithWorkflow>;
-
-export type ApwOnPageBeforeUpdateTopicParams = OnPageBeforeUpdateTopicParams<PageWithWorkflow>;
-
-export type ApwOnPageBeforePublishTopicParams = OnPageBeforePublishTopicParams<PageWithWorkflow>;
 
 export enum WorkflowScopeTypes {
     DEFAULT = "default",
@@ -472,7 +442,7 @@ export interface ApwContentReviewCrud
 export type ContentGetter = (
     id: string,
     settings: { modelId?: string }
-) => Promise<PageWithWorkflow | ApwCmsEntry | null>;
+) => Promise<ApwCmsEntry | null>;
 
 export type ContentPublisher = (
     id: string,
@@ -499,9 +469,8 @@ export interface AdvancedPublishingWorkflow {
     scheduleAction: ApwScheduleActionCrud;
 }
 
-export interface ApwContext extends Context, MailerContext, AdminSettingsContext {
+export interface ApwContext extends Context, MailerContext {
     apw: AdvancedPublishingWorkflow;
-    pageBuilder: PageBuilderContextObject;
     wcp: WcpContextObject;
     scheduleAction: ScheduleActionContext["scheduleAction"];
 }

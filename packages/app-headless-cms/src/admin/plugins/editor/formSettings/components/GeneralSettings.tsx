@@ -1,11 +1,11 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Tags } from "@webiny/ui/Tags/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid";
+import { Input } from "@webiny/ui/Input";
+import { Tags } from "@webiny/ui/Tags";
 import { validation } from "@webiny/validation";
-import { type BindComponent } from "@webiny/form";
-import GroupSelect from "./GroupSelect.js";
-import { IconPicker } from "~/admin/components/IconPicker.js";
+import type { BindComponent } from "@webiny/form";
+import GroupSelect from "./GroupSelect";
+import { IconPicker } from "~/admin/components/IconPicker";
 
 interface GeneralSettingsProps {
     Bind: BindComponent;

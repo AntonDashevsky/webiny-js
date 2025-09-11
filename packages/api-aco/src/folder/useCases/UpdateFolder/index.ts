@@ -1,13 +1,13 @@
-import { type Topic } from "@webiny/pubsub/types.js";
+import type { Topic } from "@webiny/pubsub/types";
 import type {
     AcoFolderStorageOperations,
     OnFolderAfterUpdateTopicParams,
     OnFolderBeforeUpdateTopicParams
-} from "~/folder/folder.types.js";
-import { UpdateFolder } from "./UpdateFolder.js";
-import { UpdateFolderWithEvents } from "./UpdateFolderWithEvents.js";
-import { UpdateFolderWithFolderLevelPermissions } from "./UpdateFolderWithFolderLevelPermissions.js";
-import { type FolderLevelPermissions } from "~/flp/index.js";
+} from "~/folder/folder.types";
+import { UpdateFolder } from "./UpdateFolder";
+import { UpdateFolderWithEvents } from "./UpdateFolderWithEvents";
+import { UpdateFolderWithFolderLevelPermissions } from "./UpdateFolderWithFolderLevelPermissions";
+import type { FolderLevelPermissions } from "~/flp";
 
 export interface UpdateFolderUseCasesTopics {
     onFolderBeforeUpdate: Topic<OnFolderBeforeUpdateTopicParams>;

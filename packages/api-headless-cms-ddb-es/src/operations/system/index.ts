@@ -1,13 +1,13 @@
-import {
-    type CmsSystem,
-    type CmsSystemStorageOperations,
-    type CmsSystemStorageOperationsCreateParams,
-    type CmsSystemStorageOperationsGetParams,
-    type CmsSystemStorageOperationsUpdateParams
-} from "@webiny/api-headless-cms/types/index.js";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
+import type {
+    CmsSystem,
+    CmsSystemStorageOperations,
+    CmsSystemStorageOperationsCreateParams,
+    CmsSystemStorageOperationsGetParams,
+    CmsSystemStorageOperationsUpdateParams
+} from "@webiny/api-headless-cms/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import WebinyError from "@webiny/error";
-import { getClean } from "@webiny/db-dynamodb/utils/get.js";
+import { getClean } from "@webiny/db-dynamodb/utils/get";
 import { put } from "@webiny/db-dynamodb";
 
 export interface CreateSystemStorageOperationsParams {

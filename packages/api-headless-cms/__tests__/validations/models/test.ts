@@ -1,4 +1,4 @@
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 export const createTestModel = (model: Partial<CmsModel> = {}): CmsModel => {
     return {

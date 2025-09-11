@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type I18NContext, type I18NSystemStorageOperations } from "~/types.js";
+import type { I18NContext, I18NSystemStorageOperations } from "~/types";
 
 export interface SystemStorageOperationsProviderPluginParams {
     context: I18NContext;

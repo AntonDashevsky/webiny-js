@@ -1,7 +1,7 @@
 import React from "react";
-import { type CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types/index.js";
-import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import type { CmsModelFieldRendererPlugin } from "@webiny/app-headless-cms-common/types";
+import { useModelField } from "~/admin/components/ModelFieldProvider";
+import { Grid, Heading, Text } from "@webiny/admin-ui";
 
 interface RendererOptionsProps {
     plugin: CmsModelFieldRendererPlugin | undefined;
@@ -20,9 +20,14 @@ export const RendererOptions = ({ plugin }: RendererOptionsProps) => {
     }
 
     return (
-        <Grid>
-            <Cell span={12}>Renderer Settings:</Cell>
+        <>
+            <Grid.Column span={12}>
+                <Heading level={5}>Renderer settings</Heading>
+                <Text size={"sm"}>
+                    Configure additional settings for the selected field renderer.
+                </Text>
+            </Grid.Column>
             {settings}
-        </Grid>
+        </>
     );
 };

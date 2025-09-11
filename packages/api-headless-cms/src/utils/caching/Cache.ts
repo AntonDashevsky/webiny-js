@@ -1,4 +1,4 @@
-import { type ICache, type ICacheKey } from "./types.js";
+import type { ICache, ICacheKey } from "./types";
 
 export interface ICacheParams {
     id?: string;

@@ -1,12 +1,11 @@
 import React from "react";
-import get from "lodash/get.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { type CmsModelFieldRendererPlugin, type CmsModelField } from "~/types.js";
+import get from "lodash/get";
+import { i18n } from "@webiny/app/i18n";
+import type { CmsModelFieldRendererPlugin, CmsModelField } from "~/types";
 import { useForm } from "@webiny/form";
-import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor.js";
-import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils.js";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor";
+import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils";
+import { FormComponentDescription, DelayedOnChange } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/rich-text");
 
@@ -43,6 +42,7 @@ const plugin: CmsModelFieldRendererPlugin = {
                         return (
                             <Bind.ValidationContainer>
                                 <Label>{field.label}</Label>
+                                <FormComponentDescription text={field.helpText} />
                                 <DelayedOnChange {...bind}>
                                     {({ value, onChange }) => (
                                         <LexicalCmsEditor
@@ -54,7 +54,6 @@ const plugin: CmsModelFieldRendererPlugin = {
                                         />
                                     )}
                                 </DelayedOnChange>
-                                <FormElementMessage>{field.helpText}</FormElementMessage>
                             </Bind.ValidationContainer>
                         );
                     }}

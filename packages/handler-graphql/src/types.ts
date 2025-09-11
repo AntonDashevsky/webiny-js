@@ -1,13 +1,13 @@
-import {
-    type GraphQLScalarType,
-    type GraphQLFieldResolver as BaseGraphQLFieldResolver,
-    type GraphQLSchema
+import type {
+    GraphQLScalarType,
+    GraphQLFieldResolver as BaseGraphQLFieldResolver,
+    GraphQLSchema
 } from "graphql";
-import { type Plugin } from "@webiny/plugins/types.js";
-import { type Context, type GenericRecord } from "@webiny/api/types.js";
-import { type RouteMethodPath } from "@webiny/handler/types.js";
-import { type ResolversComposition } from "@graphql-tools/resolvers-composition";
-import { type IResolvers, type TypeSource } from "@graphql-tools/utils";
+import type { Plugin } from "@webiny/plugins/types";
+import type { Context, GenericRecord } from "@webiny/api/types";
+import type { RouteMethodPath } from "@webiny/handler/types";
+import type { ResolversComposition } from "@graphql-tools/resolvers-composition";
+import type { IResolvers, TypeSource } from "@graphql-tools/utils";
 
 export interface GraphQLScalarPlugin extends Plugin {
     type: "graphql-scalar";
@@ -58,8 +58,8 @@ export interface GraphQLSchemaPlugin<TContext extends Context = Context> extends
 
 export interface GraphQLRequestBody {
     query: string;
-    variables: Record<string, any>;
-    operationName: string;
+    variables?: Record<string, any> | null;
+    operationName?: string;
 }
 
 export interface GraphQLBeforeQueryPlugin<TContext extends Context = Context> extends Plugin {

@@ -1,6 +1,6 @@
-import { type Client } from "@webiny/api-elasticsearch";
-import { configurations } from "@webiny/api-headless-cms-ddb-es/configurations.js";
-import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import type { Client } from "@webiny/api-elasticsearch";
+import { configurations } from "@webiny/api-headless-cms-ddb-es/configurations";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 export interface IDisableIndexingParams {
     client: Client;

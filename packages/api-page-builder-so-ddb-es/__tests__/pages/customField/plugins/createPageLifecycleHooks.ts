@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { PbContext } from "@webiny/api-page-builder/graphql/types";
+import type { PbContext } from "@webiny/api-page-builder/graphql/types";
 
 /**
  * This part serves as the transfer of customViews input to the page settings.

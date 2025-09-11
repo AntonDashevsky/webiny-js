@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
 import { Plugin } from "@webiny/plugins";
-import { type ElasticsearchBoolQueryConfig } from "~/types.js";
+import type { ElasticsearchBoolQueryConfig } from "~/types";
 
 export interface ModifyQueryParams {
     query: ElasticsearchBoolQueryConfig;

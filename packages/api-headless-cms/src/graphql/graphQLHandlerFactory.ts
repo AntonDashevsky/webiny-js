@@ -1,8 +1,8 @@
-import debugPlugins from "@webiny/handler-graphql/debugPlugins.js";
-import { type CmsContext } from "~/types/index.js";
-import { type Plugin } from "@webiny/plugins/types.js";
+import debugPlugins from "@webiny/handler-graphql/debugPlugins";
+import type { CmsContext } from "~/types";
+import type { Plugin } from "@webiny/plugins/types";
 import { RoutePlugin } from "@webiny/handler";
-import { handleRequest } from "./handleRequest.js";
+import { handleRequest } from "./handleRequest";
 
 export interface GraphQLHandlerFactoryParams {
     debug?: boolean;

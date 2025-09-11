@@ -1,9 +1,9 @@
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { AcoContext } from "~/types.js";
-import { CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import lodashOmit from "lodash/omit.js";
-import { ensureAuthentication } from "~/utils/ensureAuthentication.js";
-import { resolve } from "~/utils/resolve.js";
+import type { AcoContext } from "~/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
+import lodashOmit from "lodash/omit";
+import { ensureAuthentication } from "~/utils/ensureAuthentication";
+import { resolve } from "~/utils/resolve";
 
 const cleanModel = (model: CmsModel): Partial<CmsModel> => {
     return lodashOmit(model, [

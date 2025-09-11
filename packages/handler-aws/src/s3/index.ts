@@ -1,21 +1,22 @@
 import { createHandler as createBaseHandler } from "@webiny/handler";
-import { registerDefaultPlugins } from "~/plugins/index.js";
-import { S3EventHandler, type S3EventHandlerCallableParams } from "~/s3/plugins/S3EventHandler.js";
-import { execute } from "~/execute.js";
-import type { HandlerFactoryParams } from "~/types.js";
+import { registerDefaultPlugins } from "~/plugins";
+import type { S3EventHandlerCallableParams } from "~/s3/plugins/S3EventHandler";
+import { S3EventHandler } from "~/s3/plugins/S3EventHandler";
+import { execute } from "~/execute";
+import type { HandlerFactoryParams } from "~/types";
 /**
  * We need a class, not an interface exported from types.
  */
 // @ts-expect-error
-import Reply from "fastify/lib/reply.js";
+import Reply from "fastify/lib/reply";
 import type {
     APIGatewayProxyResult,
     Context as LambdaContext,
     S3Event
-} from "@webiny/aws-sdk/types/index.js";
-import { createComposedHandler } from "~/utils/composedHandler.js";
+} from "@webiny/aws-sdk/types";
+import { createComposedHandler } from "~/utils/composedHandler";
 
-export * from "./plugins/S3EventHandler.js";
+export * from "./plugins/S3EventHandler";
 
 export interface HandlerCallable {
     (event: S3Event, context: LambdaContext): Promise<APIGatewayProxyResult>;

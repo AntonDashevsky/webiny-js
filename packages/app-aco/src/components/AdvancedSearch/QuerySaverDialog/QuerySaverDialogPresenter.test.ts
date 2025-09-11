@@ -1,11 +1,10 @@
-import {
-    type FilterDTO,
-    type FilterGroupDTO,
-    type FilterGroupFilterDTO,
-    Operation
-} from "~/components/AdvancedSearch/domain/index.js";
-import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter.js";
-import { jest } from "@jest/globals";
+import type {
+    FilterDTO,
+    FilterGroupDTO,
+    FilterGroupFilterDTO
+} from "~/components/AdvancedSearch/domain";
+import { Operation } from "~/components/AdvancedSearch/domain";
+import { QuerySaverDialogPresenter } from "./QuerySaverDialogPresenter";
 
 describe("QuerySaverDialogPresenter", () => {
     const demoFilter: FilterGroupFilterDTO = {
@@ -74,7 +73,7 @@ describe("QuerySaverDialogPresenter", () => {
 
         presenter.onSave(onSuccess, onError);
 
-        expect(onError).toBeCalledTimes(1);
+        expect(onError).toHaveBeenCalledTimes(1);
         expect(Object.keys(presenter.vm.invalidFields).length).toBe(1);
 
         // let's change back `name` value so the validation will pass
@@ -85,7 +84,7 @@ describe("QuerySaverDialogPresenter", () => {
 
         presenter.onSave(onSuccess, onError);
 
-        expect(onSuccess).toBeCalledTimes(1);
+        expect(onSuccess).toHaveBeenCalledTimes(1);
         expect(presenter.vm.invalidFields).toEqual({});
     });
 });

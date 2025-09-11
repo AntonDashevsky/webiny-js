@@ -1,20 +1,20 @@
 import React, { useCallback, useMemo } from "react";
-import get from "lodash/get.js";
-import set from "lodash/set.js";
-import merge from "lodash/merge.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { type PbEditorElement, type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
-import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
+import get from "lodash/get";
+import set from "lodash/set";
+import merge from "lodash/merge";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import { applyFallbackDisplayMode } from "../elementSettingsUtils";
 // Components
-import Accordion from "../components/Accordion.js";
-import ColorPicker from "../components/ColorPicker.js";
-import { ContentWrapper, classes } from "../components/StyledComponents.js";
-import BoxInputs from "../components/BoxInputs.js";
-import SelectField from "../components/SelectField.js";
-import Wrapper from "../components/Wrapper.js";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";
-import { useUpdateHandlers } from "~/editor/hooks/useUpdateHandlers.js";
+import Accordion from "../components/Accordion";
+import ColorPicker from "../components/ColorPicker";
+import { ContentWrapper, classes } from "../components/StyledComponents";
+import BoxInputs from "../components/BoxInputs";
+import SelectField from "../components/SelectField";
+import Wrapper from "../components/Wrapper";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useDisplayMode } from "~/editor/hooks/useDisplayMode";
+import { useUpdateHandlers } from "~/editor/hooks/useUpdateHandlers";
 
 const options = ["none", "solid", "dashed", "dotted"];
 const DATA_NAMESPACE = "data.settings.border";

@@ -1,29 +1,32 @@
 import { getIntrospectionQuery } from "graphql";
 import { createHandler } from "@webiny/handler-aws";
-import { createHandlerCore, CreateHandlerCoreParams } from "./plugins";
+import type { CreateHandlerCoreParams } from "./plugins";
+import { createHandlerCore } from "./plugins";
 import { createGroupPlugin, createModelPlugin } from "./model";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 import { GET_MODEL_QUERY } from "./graphql/contentModel";
-import {
-    CREATE_ENTRY_MUTATION,
+import type {
     CreateEntryInputVariables,
-    GET_ENTRY_QUERY,
     GetEntryInputVariables,
     GetEntryResult,
-    UPDATE_ENTRY_MUTATION,
     UpdateEntryInputVariables,
     CreateEntryResult,
     UpdateEntryResult,
-    UPDATE_ENTRY_LOCATION_MUTATION,
     UpdateEntryLocationVariables,
     UpdateEntryLocationResult,
     ListEntriesInputVariables,
-    ListEntriesResult,
+    ListEntriesResult
+} from "./graphql/contentEntry";
+import {
+    CREATE_ENTRY_MUTATION,
+    GET_ENTRY_QUERY,
+    UPDATE_ENTRY_MUTATION,
+    UPDATE_ENTRY_LOCATION_MUTATION,
     LIST_ENTRIES_QUERY
 } from "./graphql/contentEntry";
 import { createUpdateLocationGraphQl } from "./updateLocationGraphQlPlugin";
-import { LambdaContext } from "@webiny/handler-aws/types";
-import { APIGatewayEvent } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
+import type { APIGatewayEvent } from "@webiny/handler-aws/types";
 
 export type GraphQLHandlerParams = CreateHandlerCoreParams;
 

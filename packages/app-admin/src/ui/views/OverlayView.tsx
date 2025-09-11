@@ -1,12 +1,12 @@
 import React from "react";
-// @ts-expect-error This package organization is a mess, so we just ignore its types.
-import Transition from "react-transition-group/esm/Transition.js";
-import type { TransitionStatus } from "react-transition-group/Transition";
+import { Transition } from "react-transition-group";
 import styled from "@emotion/styled";
-import { UIView, type UIViewProps } from "~/ui/UIView.js";
-import { type UseOverlayView, useOverlayView } from "./OverlayView/useOverlayView.js";
-import { HeaderElement } from "./OverlayView/HeaderElement.js";
-import { ContentElement } from "./OverlayView/ContentElement.js";
+import type { UIViewProps } from "~/ui/UIView";
+import { UIView } from "~/ui/UIView";
+import type { UseOverlayView } from "./OverlayView/useOverlayView";
+import { useOverlayView } from "./OverlayView/useOverlayView";
+import { HeaderElement } from "./OverlayView/HeaderElement";
+import { ContentElement } from "./OverlayView/ContentElement";
 
 // !GOOD FIRST ISSUE!
 // Extract rendering and styling into an OverlayViewRenderer class.
@@ -125,7 +125,7 @@ export class OverlayView extends UIView {
                 onExited={() => this.onExited()}
                 onEntered={() => this.onEntered()}
             >
-                {(state: TransitionStatus) => (
+                {state => (
                     <OverlayLayoutWrapper style={{ ...defaultStyle, ...transitionStyles[state] }}>
                         {super.render(props)}
                     </OverlayLayoutWrapper>

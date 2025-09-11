@@ -1,2 +1,2 @@
-export * from "./CanAccessFolder.js";
-export * from "./ICanAccessFolder.js";
+export * from "./CanAccessFolder";
+export * from "./ICanAccessFolder";

@@ -1,6 +1,7 @@
-import React, { type ComponentProps } from "react";
+import type { ComponentProps } from "react";
+import React from "react";
 import { Link } from "@webiny/react-router";
-import { ImageRenderer } from "@webiny/app-page-builder-elements/renderers/image.js";
+import { ImageRenderer } from "@webiny/app-page-builder-elements/renderers/image";
 
 const LinkComponent: ComponentProps<typeof ImageRenderer>["linkComponent"] = ({
     href,

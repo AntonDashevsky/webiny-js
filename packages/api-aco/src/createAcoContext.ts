@@ -1,20 +1,20 @@
 import WebinyError from "@webiny/error";
 import { ContextPlugin } from "@webiny/api";
-import { type I18NLocale } from "@webiny/api-i18n/types.js";
-import { type Tenant } from "@webiny/api-tenancy/types.js";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
 import { isHeadlessCmsReady } from "@webiny/api-headless-cms";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { createAcoHooks } from "~/createAcoHooks.js";
-import { createAcoStorageOperations } from "~/createAcoStorageOperations.js";
-import { type AcoContext, type CreateAcoParams, type IAcoAppRegisterParams } from "~/types.js";
-import { createFolderCrudMethods } from "~/folder/folder.crud.js";
-import { createSearchRecordCrudMethods } from "~/record/record.crud.js";
-import { AcoApps } from "./apps/index.js";
-import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model.js";
-import { AcoAppRegisterPlugin } from "~/plugins/index.js";
-import { CmsEntriesCrudDecorators } from "~/utils/decorators/CmsEntriesCrudDecorators.js";
-import { createFilterCrudMethods } from "~/filter/filter.crud.js";
-import { createFlpCrudMethods, FolderLevelPermissions } from "~/flp/index.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { createAcoHooks } from "~/createAcoHooks";
+import { createAcoStorageOperations } from "~/createAcoStorageOperations";
+import type { AcoContext, CreateAcoParams, IAcoAppRegisterParams } from "~/types";
+import { createFolderCrudMethods } from "~/folder/folder.crud";
+import { createSearchRecordCrudMethods } from "~/record/record.crud";
+import { AcoApps } from "./apps";
+import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model";
+import { AcoAppRegisterPlugin } from "~/plugins";
+import { CmsEntriesCrudDecorators } from "~/utils/decorators/CmsEntriesCrudDecorators";
+import { createFilterCrudMethods } from "~/filter/filter.crud";
+import { createFlpCrudMethods, FolderLevelPermissions } from "~/flp";
 
 interface CreateAcoContextParams {
     useFolderLevelPermissions?: boolean;
@@ -101,7 +101,7 @@ const setupAcoContext = async (
         filter: createFilterCrudMethods(params),
         flp: flpCrudMethods,
         apps,
-        getApp: (name: string) => apps.get(name),
+        getApp: <C extends AcoContext = AcoContext>(name: string) => apps.get<C>(name),
         listApps: () => apps.list(),
         registerApp: async (params: IAcoAppRegisterParams) => {
             return apps.register({

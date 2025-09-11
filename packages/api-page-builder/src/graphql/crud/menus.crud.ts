@@ -1,30 +1,30 @@
-import prepareMenuItems from "./menus/prepareMenuItems.js";
+import prepareMenuItems from "./menus/prepareMenuItems";
 import WebinyError from "@webiny/error";
-import {
-    type Menu,
-    type MenusCrud,
-    type MenuStorageOperationsGetParams,
-    type MenuStorageOperationsListParams,
-    type OnMenuAfterCreateTopicParams,
-    type OnMenuAfterDeleteTopicParams,
-    type OnMenuAfterUpdateTopicParams,
-    type OnMenuBeforeCreateTopicParams,
-    type OnMenuBeforeDeleteTopicParams,
-    type OnMenuBeforeUpdateTopicParams,
-    type PageBuilderContextObject,
-    type PageBuilderStorageOperations,
-    type PbContext
-} from "~/types.js";
+import type {
+    Menu,
+    MenusCrud,
+    MenuStorageOperationsGetParams,
+    MenuStorageOperationsListParams,
+    OnMenuAfterCreateTopicParams,
+    OnMenuAfterDeleteTopicParams,
+    OnMenuAfterUpdateTopicParams,
+    OnMenuBeforeCreateTopicParams,
+    OnMenuBeforeDeleteTopicParams,
+    OnMenuBeforeUpdateTopicParams,
+    PageBuilderContextObject,
+    PageBuilderStorageOperations,
+    PbContext
+} from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
 import {
     createMenuCreateValidation,
     createMenuUpdateValidation
-} from "~/graphql/crud/menus/validation.js";
+} from "~/graphql/crud/menus/validation";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { type MenusPermissions } from "~/graphql/crud/permissions/MenusPermissions.js";
-import { getIdentity } from "./utils/getIdentity.js";
-import { getDate } from "./utils/getDate.js";
+import type { MenusPermissions } from "~/graphql/crud/permissions/MenusPermissions";
+import { getIdentity } from "./utils/getIdentity";
+import { getDate } from "./utils/getDate";
 
 export interface CreateMenuCrudParams {
     context: PbContext;

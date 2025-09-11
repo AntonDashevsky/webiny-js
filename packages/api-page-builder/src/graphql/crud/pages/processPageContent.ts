@@ -1,4 +1,4 @@
-import { type Page, type PageElementProcessor, type PbPageElement } from "~/types.js";
+import type { Page, PageElementProcessor, PbPageElement } from "~/types";
 
 export async function processPageContent(page: Page, processors: PageElementProcessor[]) {
     const processedContent = structuredClone(page.content) as PbPageElement;

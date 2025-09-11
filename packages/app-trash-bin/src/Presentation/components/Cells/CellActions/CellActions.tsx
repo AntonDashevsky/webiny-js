@@ -10,7 +10,7 @@ export const CellActions = () => {
     const { record: recordConfig } = useAcoConfig();
 
     return (
-        <TrashBinItemProvider item={row}>
+        <TrashBinItemProvider item={row.data}>
             <OptionsMenu
                 actions={recordConfig.actions}
                 data-testid={"table.row.trash.entry.menu-action"}

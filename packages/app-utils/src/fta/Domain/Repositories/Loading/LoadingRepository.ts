@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { type ILoadingRepository } from "./ILoadingRepository.js";
+import type { ILoadingRepository } from "./ILoadingRepository";
 
 export class LoadingRepository implements ILoadingRepository {
     private loadings: Map<string, boolean>;
@@ -13,12 +13,20 @@ export class LoadingRepository implements ILoadingRepository {
         return Object.fromEntries(this.loadings);
     }
 
+    getActiveLoadings(): string[] {
+        return [...this.loadings.entries()].filter(([, value]) => value).map(([key]) => key);
+    }
+
     hasLoading() {
         return [...this.loadings.values()].some(Boolean);
     }
 
     isLoading(action: string) {
         return this.loadings.get(action) ?? false;
+    }
+
+    isEmpty() {
+        return this.loadings.size === 0;
     }
 
     async set(action: string, isLoading = true) {

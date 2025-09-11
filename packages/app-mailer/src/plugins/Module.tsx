@@ -1,22 +1,24 @@
 import React, { lazy, Suspense } from "react";
-import { AddMenu as Menu, AddRoute, Plugins } from "@webiny/app-admin";
-import { SecureRoute } from "@webiny/app-security";
-import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
+import { AdminConfig, Plugins, Layout } from "@webiny/app-admin";
+import { HasPermission } from "@webiny/app-security";
 import Helmet from "react-helmet";
-import { usePermission } from "~/hooks/usePermission.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { usePermission } from "~/hooks/usePermission";
+import { CircularProgress } from "@webiny/ui/Progress";
+
+const { Menu, Route } = AdminConfig;
 
 const Settings = lazy(
     () =>
         import(
             /* webpackChunkName: "MailerModuleSettings" */
-            "~/views/settings/index.js"
+            "~/views/settings"
         )
 );
 
 interface LoaderProps {
     children: React.ReactElement;
 }
+
 const Loader = ({ children, ...props }: LoaderProps) => (
     <Suspense fallback={<CircularProgress />}>{React.cloneElement(children, props)}</Suspense>
 );
@@ -31,31 +33,33 @@ const MailerSettings = () => {
     }
 
     return (
-        <>
-            <Menu name={"settings"}>
-                <Menu name={"settings.mailer"} label={"Mailer"}>
-                    <Menu
-                        name={"settings.mailer.settings"}
-                        label={"Settings"}
-                        path={"/mailer/settings"}
-                    />
-                </Menu>
-            </Menu>
-            <AddRoute
-                exact
-                path={"/mailer/settings"}
-                render={() => (
-                    <SecureRoute permission={"mailer.settings"}>
-                        <AdminLayout>
+        <AdminConfig>
+            <HasPermission name={"mailer.settings"}>
+                <Route
+                    name={"mailer.settings"}
+                    exact
+                    path={"/mailer/settings"}
+                    element={
+                        <Layout>
                             <Helmet title={"Mailer - Settings"} />
                             <Loader>
                                 <Settings />
                             </Loader>
-                        </AdminLayout>
-                    </SecureRoute>
-                )}
-            />
-        </>
+                        </Layout>
+                    }
+                />
+                <Menu
+                    name={"mailer.settings"}
+                    parent={"settings"}
+                    element={<Menu.Group text={"Mailer"} />}
+                />
+                <Menu
+                    name={"mailer.settings.general"}
+                    parent={"settings"}
+                    element={<Menu.Link text={"Settings"} to={"/mailer/settings"} />}
+                />
+            </HasPermission>
+        </AdminConfig>
     );
 };
 

@@ -1,8 +1,7 @@
-// @ts-nocheck
-import { MigrationRunnerResult, MigrationRunReporter } from "~/cli/index.js";
+import type { MigrationRunnerResult, MigrationRunReporter } from "~/cli";
 import center from "center-align";
-import { CliContext } from "@webiny/cli/types.js";
-import { LogReporter } from "~/cli/index.js";
+import type { CliContext } from "@webiny/cli/types";
+import type { LogReporter } from "~/cli";
 
 export class CliMigrationRunReporter implements MigrationRunReporter {
     private context: CliContext;

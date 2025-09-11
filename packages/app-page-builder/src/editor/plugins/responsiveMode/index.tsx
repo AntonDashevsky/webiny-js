@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "emotion";
-import { type PbEditorResponsiveModePlugin, DisplayMode } from "~/types.js";
+import type { PbEditorResponsiveModePlugin } from "~/types";
+import { DisplayMode } from "~/types";
 // Icons
 import { ReactComponent as DesktopIcon } from "./icons/laptop_mac.svg";
 import { ReactComponent as TabletIcon } from "./icons/tablet_mac.svg";

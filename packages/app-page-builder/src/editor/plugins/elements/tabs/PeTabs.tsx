@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
 import { createRenderer, useRenderer, Elements } from "@webiny/app-page-builder-elements";
-import { type Element as ElementType } from "@webiny/app-page-builder-elements/types.js";
-import { useActiveElementId } from "~/editor/hooks/useActiveElementId.js";
-import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
+import type { Element as ElementType } from "@webiny/app-page-builder-elements/types";
+import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
+import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
 import { ClassNames } from "@emotion/react";
 
 const TabsContainer = styled.div`

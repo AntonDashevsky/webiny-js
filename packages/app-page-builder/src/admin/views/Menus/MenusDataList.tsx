@@ -1,11 +1,13 @@
 import React, { useCallback, useMemo, useState } from "react";
-import orderBy from "lodash/orderBy.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import orderBy from "lodash/orderBy";
+import { Button, Grid, Select } from "@webiny/admin-ui";
+import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { i18n } from "@webiny/app/i18n";
 import { useRouter } from "@webiny/react-router";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { LIST_MENUS, DELETE_MENU } from "./graphql.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import { LIST_MENUS, DELETE_MENU } from "./graphql";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
 
 import {
     DataList,
@@ -16,18 +18,14 @@ import {
     ListItemText,
     ListItemMeta,
     ListActions,
-    ListItemTextSecondary
-} from "@webiny/ui/List/index.js";
+    ListItemTextSecondary,
+    ListItemTextPrimary
+} from "@webiny/ui/List";
 
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import { type PbMenu } from "~/types.js";
-import { useMenusPermissions } from "~/hooks/permissions/index.js";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
+import SearchUI from "@webiny/app-admin/components/SearchUI";
+import type { PbMenu } from "~/types";
+import { useMenusPermissions } from "~/hooks/permissions";
 
 const t = i18n.ns("app-page-builder/admin/menus/data-list");
 
@@ -123,22 +121,17 @@ const PageBuilderMenusDataList = ({ canCreate }: PageBuilderMenusDataListProps) 
         () => (
             <DataListModalOverlay>
                 <Grid>
-                    <Cell span={12}>
+                    <Grid.Column span={12}>
                         <Select
                             value={sort}
                             onChange={setSort}
                             label={t`Sort by`}
-                            description={"Sort menus by"}
-                        >
-                            {SORTERS.map(({ label, sort: value }) => {
-                                return (
-                                    <option key={label} value={value}>
-                                        {label}
-                                    </option>
-                                );
-                            })}
-                        </Select>
-                    </Cell>
+                            options={SORTERS.map(({ label, sort: value }) => ({
+                                label,
+                                value
+                            }))}
+                        />
+                    </Grid.Column>
                 </Grid>
             </DataListModalOverlay>
         ),
@@ -157,23 +150,27 @@ const PageBuilderMenusDataList = ({ canCreate }: PageBuilderMenusDataListProps) 
             title={t`Menus`}
             actions={
                 canCreate ? (
-                    <ButtonSecondary
+                    <Button
+                        text={t`New`}
+                        icon={<AddIcon />}
+                        size={"sm"}
+                        className={"wby-ml-xs"}
                         data-testid="data-list-new-record-button"
                         onClick={() => history.push("/page-builder/menus?new=true")}
-                    >
-                        <ButtonIcon icon={<AddIcon />} /> {t`New Menu`}
-                    </ButtonSecondary>
+                    />
                 ) : null
             }
             search={
-                <SearchUI value={filter} onChange={setFilter} inputPlaceholder={t`Search menus`} />
+                <SearchUI
+                    value={filter}
+                    onChange={setFilter}
+                    inputPlaceholder={t`Search menus...`}
+                    dataTestId={"pb.menu.data-list.search-input"}
+                />
             }
             modalOverlay={menusDataListModalOverlay}
             modalOverlayAction={
-                <DataListModalOverlayAction
-                    icon={<FilterIcon />}
-                    data-testid={"default-data-list.filter"}
-                />
+                <DataListModalOverlayAction data-testid={"default-data-list.filter"} />
             }
         >
             {({ data }: MenuDataListResponse) => (
@@ -185,7 +182,7 @@ const PageBuilderMenusDataList = ({ canCreate }: PageBuilderMenusDataListProps) 
                                     history.push(`/page-builder/menus?slug=${item.slug}`)
                                 }
                             >
-                                {item.title}
+                                <ListItemTextPrimary>{item.title}</ListItemTextPrimary>
                                 <ListItemTextSecondary>
                                     {item.description || t`No description provided.`}
                                 </ListItemTextSecondary>

@@ -1,25 +1,25 @@
-import type { CmsContext, CmsEntry, CmsFieldTypePlugins, CmsModel } from "~/types/index.js";
-import { resolveGet } from "./resolvers/manage/resolveGet.js";
-import { resolveList } from "./resolvers/manage/resolveList.js";
-import { resolveListDeleted } from "./resolvers/manage/resolveListDeleted.js";
-import { resolveGetRevisions } from "./resolvers/manage/resolveGetRevisions.js";
-import { resolveGetByIds } from "./resolvers/manage/resolveGetByIds.js";
-import { resolveCreate } from "./resolvers/manage/resolveCreate.js";
-import { resolveUpdate } from "./resolvers/manage/resolveUpdate.js";
-import { resolveValidate } from "./resolvers/manage/resolveValidate.js";
-import { resolveMove } from "./resolvers/manage/resolveMove.js";
-import { resolveDelete } from "./resolvers/manage/resolveDelete.js";
-import { resolveRestoreFromBin } from "./resolvers/manage/resolveRestoreFromBin.js";
-import { resolveDeleteMultiple } from "./resolvers/manage/resolveDeleteMultiple.js";
-import { resolvePublish } from "./resolvers/manage/resolvePublish.js";
-import { resolveRepublish } from "./resolvers/manage/resolveRepublish.js";
-import { resolveUnpublish } from "./resolvers/manage/resolveUnpublish.js";
-import { resolveCreateFrom } from "./resolvers/manage/resolveCreateFrom.js";
-import { normalizeGraphQlInput } from "./resolvers/manage/normalizeGraphQlInput.js";
-import { createFieldResolversFactory } from "./createFieldResolvers.js";
-import { getEntryTitle } from "~/utils/getEntryTitle.js";
-import { getEntryImage } from "~/utils/getEntryImage.js";
-import { entryFieldFromStorageTransform } from "~/utils/entryStorage.js";
+import type { CmsContext, CmsEntry, CmsFieldTypePlugins, CmsModel, ICmsEntryState } from "~/types";
+import { resolveGet } from "./resolvers/manage/resolveGet";
+import { resolveList } from "./resolvers/manage/resolveList";
+import { resolveListDeleted } from "./resolvers/manage/resolveListDeleted";
+import { resolveGetRevisions } from "./resolvers/manage/resolveGetRevisions";
+import { resolveGetByIds } from "./resolvers/manage/resolveGetByIds";
+import { resolveCreate } from "./resolvers/manage/resolveCreate";
+import { resolveUpdate } from "./resolvers/manage/resolveUpdate";
+import { resolveValidate } from "./resolvers/manage/resolveValidate";
+import { resolveMove } from "./resolvers/manage/resolveMove";
+import { resolveDelete } from "./resolvers/manage/resolveDelete";
+import { resolveRestoreFromBin } from "./resolvers/manage/resolveRestoreFromBin";
+import { resolveDeleteMultiple } from "./resolvers/manage/resolveDeleteMultiple";
+import { resolvePublish } from "./resolvers/manage/resolvePublish";
+import { resolveRepublish } from "./resolvers/manage/resolveRepublish";
+import { resolveUnpublish } from "./resolvers/manage/resolveUnpublish";
+import { resolveCreateFrom } from "./resolvers/manage/resolveCreateFrom";
+import { normalizeGraphQlInput } from "./resolvers/manage/normalizeGraphQlInput";
+import { createFieldResolversFactory } from "./createFieldResolvers";
+import { getEntryTitle } from "~/utils/getEntryTitle";
+import { getEntryImage } from "~/utils/getEntryImage";
+import { entryFieldFromStorageTransform } from "~/utils/entryStorage";
 
 interface CreateManageResolversParams {
     models: CmsModel[];
@@ -91,10 +91,10 @@ export const createManageResolvers: CreateManageResolvers = ({
         },
         ...fieldResolvers,
         [`${model.singularApiName}Meta`]: {
-            title(entry: CmsEntry) {
+            title(entry: Pick<CmsEntry, "id" | "values">) {
                 return getEntryTitle(model, entry);
             },
-            description: (entry: CmsEntry, _: any, context: CmsContext) => {
+            description: (entry: Pick<CmsEntry, "values">, _: any, context: CmsContext) => {
                 if (!model.descriptionFieldId) {
                     return "";
                 }
@@ -110,16 +110,23 @@ export const createManageResolvers: CreateManageResolvers = ({
                     value: entry.values[field.fieldId]
                 });
             },
-            image: (entry: CmsEntry) => {
+            image: (entry: Pick<CmsEntry, "values">) => {
                 return getEntryImage(model, entry);
             },
-            status(entry: CmsEntry) {
+            status(entry: Pick<CmsEntry, "status">) {
                 return entry.status;
             },
-            data: (entry: CmsEntry) => {
+            state(entry: Pick<CmsEntry, "state">): ICmsEntryState {
+                return {
+                    comment: null,
+                    name: null,
+                    ...entry.state
+                };
+            },
+            data: (entry: Pick<CmsEntry, "meta">) => {
                 return entry.meta || {};
             },
-            async revisions(entry: CmsEntry, _: any, context: CmsContext) {
+            async revisions(entry: Pick<CmsEntry, "entryId">, _: any, context: CmsContext) {
                 const revisions = await context.cms.getEntryRevisions(model, entry.entryId);
                 return revisions.sort((a, b) => b.version - a.version);
             }

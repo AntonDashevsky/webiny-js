@@ -2,39 +2,38 @@ import React, { useMemo, useState } from "react";
 import { useApolloClient, useMutation } from "@apollo/react-hooks";
 import { plugins } from "@webiny/plugins";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { PageProvider } from "@webiny/app-page-builder-elements/contexts/Page.js";
-import { type Page } from "@webiny/app-page-builder-elements/types.js";
-import get from "lodash/get.js";
-import { Editor as PbEditor } from "~/admin/components/Editor.js";
-import { createElement } from "~/editor/helpers.js";
-import {
-    GET_PAGE,
-    CREATE_PAGE_FROM,
-    type CreatePageFromMutationResponse,
-    type CreatePageFromMutationVariables,
-    type GetPageQueryResponse,
-    type GetPageQueryVariables
-} from "./graphql.js";
-import { EditorLoadingScreen } from "~/admin/components/EditorLoadingScreen.js";
-import {
-    LIST_PAGE_ELEMENTS,
-    type ListPageElementsQueryResponse,
-    type ListPageElementsQueryResponseData
-} from "~/admin/graphql/pages.js";
-import { type ListPageBlocksQueryResponse } from "~/admin/views/PageBlocks/graphql.js";
-import { LIST_BLOCK_CATEGORIES } from "~/admin/views/BlockCategories/graphql.js";
-import createElementPlugin from "~/admin/utils/createElementPlugin.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { PageProvider } from "@webiny/app-page-builder-elements/contexts/Page";
+import type { Page } from "@webiny/app-page-builder-elements/types";
+import get from "lodash/get";
+import { Editor as PbEditor } from "~/admin/components/Editor";
+import { createElement } from "~/editor/helpers";
+import type {
+    CreatePageFromMutationResponse,
+    CreatePageFromMutationVariables,
+    GetPageQueryResponse,
+    GetPageQueryVariables
+} from "./graphql";
+import { GET_PAGE, CREATE_PAGE_FROM } from "./graphql";
+import { EditorLoadingScreen } from "~/admin/components/EditorLoadingScreen";
+import type {
+    ListPageElementsQueryResponse,
+    ListPageElementsQueryResponseData
+} from "~/admin/graphql/pages";
+import { LIST_PAGE_ELEMENTS } from "~/admin/graphql/pages";
+import type { ListPageBlocksQueryResponse } from "~/admin/views/PageBlocks/graphql";
+import { LIST_BLOCK_CATEGORIES } from "~/admin/views/BlockCategories/graphql";
+import createElementPlugin from "~/admin/utils/createElementPlugin";
 import dotProp from "dot-prop-immutable";
-import { type PbErrorResponse, type PbBlockCategory } from "~/types.js";
-import createBlockCategoryPlugin from "~/admin/utils/createBlockCategoryPlugin.js";
-import { type PageWithContent, type RevisionsAtomType } from "~/pageEditor/state/index.js";
-import { createStateInitializer } from "./createStateInitializer.js";
-import elementVariableRendererPlugins from "~/editor/plugins/elementVariables/index.js";
-import { useNavigatePage } from "~/admin/hooks/useNavigatePage.js";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
-import { DefaultEditorConfig } from "~/editor/index.js";
-import { DefaultPageEditorConfig } from "~/pageEditor/config/DefaultPageEditorConfig.js";
+import type { PbErrorResponse, PbBlockCategory } from "~/types";
+import createBlockCategoryPlugin from "~/admin/utils/createBlockCategoryPlugin";
+import type { PageWithContent, RevisionsAtomType } from "~/pageEditor/state";
+import { createStateInitializer } from "./createStateInitializer";
+import elementVariableRendererPlugins from "~/editor/plugins/elementVariables";
+import { useNavigatePage } from "~/admin/hooks/useNavigatePage";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+import { DefaultEditorConfig } from "~/editor";
+import { DefaultPageEditorConfig } from "~/pageEditor/config/DefaultPageEditorConfig";
 
 interface PageDataAndRevisionsState {
     page: PageWithContent | null;

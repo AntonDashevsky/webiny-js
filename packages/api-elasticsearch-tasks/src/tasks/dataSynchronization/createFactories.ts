@@ -1,5 +1,5 @@
-import { type IFactories } from "./types.js";
-import { ElasticsearchToDynamoDbSynchronization } from "./elasticsearch/ElasticsearchToDynamoDbSynchronization.js";
+import type { IFactories } from "./types";
+import { ElasticsearchToDynamoDbSynchronization } from "./elasticsearch/ElasticsearchToDynamoDbSynchronization";
 
 export const createFactories = (): IFactories => {
     return {

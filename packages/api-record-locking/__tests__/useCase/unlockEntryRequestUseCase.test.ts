@@ -1,5 +1,5 @@
 import { UnlockEntryRequestUseCase } from "~/useCases/UnlockRequestUseCase/UnlockEntryRequestUseCase";
-import { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
+import type { IGetLockRecordUseCase } from "~/abstractions/IGetLockRecordUseCase";
 import { getSecurityIdentity } from "~tests/helpers/identity";
 import { WebinyError } from "@webiny/error";
 import { createConvert } from "~tests/mocks/createConvert";

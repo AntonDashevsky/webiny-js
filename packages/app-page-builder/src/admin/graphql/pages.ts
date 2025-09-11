@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { type PbElement, type PbErrorResponse, type PbPageRevision } from "~/types.js";
+import type { PbElement, PbErrorResponse, PbPageRevision } from "~/types";
 
 const error = `
     error {

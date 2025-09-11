@@ -1,21 +1,20 @@
 import React from "react";
 
-import { ReactComponent as Folder } from "@material-design-icons/svg/outlined/folder.svg";
-import { ReactComponent as FolderShared } from "@material-design-icons/svg/outlined/folder_shared.svg";
-import { ReactComponent as File } from "@material-design-icons/svg/outlined/description.svg";
+import { Icon, Link, Text } from "@webiny/admin-ui";
+import { ReactComponent as Folder } from "@webiny/icons/folder.svg";
+import { ReactComponent as FolderShared } from "@webiny/icons/folder_shared.svg";
+import { ReactComponent as File } from "@webiny/icons/description.svg";
 import { useNavigateFolder } from "@webiny/app-aco";
 
-import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
-import { useContentEntriesList } from "~/admin/views/contentEntries/hooks/index.js";
-import { usePermission } from "~/admin/hooks/index.js";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries";
+import { useContentEntriesList } from "~/admin/views/contentEntries/hooks";
+import { usePermission } from "~/admin/hooks";
 
-import { LinkTitle, RowIcon, RowText, RowTitle } from "./Cells.styled.js";
-
-import { type FolderTableItem } from "@webiny/app-aco/types.js";
-import { type EntryTableItem } from "~/types.js";
+import type { FolderItem } from "@webiny/app-aco/types";
+import type { CmsContentEntry } from "~/types";
 
 interface FolderCellNameProps {
-    folder: FolderTableItem;
+    folder: FolderItem;
 }
 
 export const FolderCellName = ({ folder }: FolderCellNameProps) => {
@@ -27,30 +26,43 @@ export const FolderCellName = ({ folder }: FolderCellNameProps) => {
     }
 
     return (
-        <RowTitle onClick={() => navigateToFolder(folder.id)}>
-            <RowIcon>{icon}</RowIcon>
-            <RowText use={"subtitle2"}>{folder.title}</RowText>
-        </RowTitle>
+        <div
+            className={
+                "wby-flex wby-items-center wby-gap-sm wby-truncate wby-cursor-pointer wby-font-semibold hover:wby-underline"
+            }
+            onClick={() => navigateToFolder(folder.id)}
+        >
+            <Icon
+                size={"sm"}
+                color={"neutral-strong"}
+                icon={icon}
+                label={`Folder - ${folder.title}`}
+            />
+            <Text className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>{folder.title}</Text>
+        </div>
     );
 };
 
 interface EntryCellRowTitleProps {
-    entry: EntryTableItem;
+    entry: CmsContentEntry;
 }
 
 const EntryCellRowTitle = ({ entry }: EntryCellRowTitleProps) => {
     return (
-        <RowTitle>
-            <RowIcon>
-                <File />
-            </RowIcon>
-            <RowText use={"subtitle2"}>{entry.meta.title}</RowText>
-        </RowTitle>
+        <div className={"wby-flex wby-items-center wby-gap-sm wby-truncate"}>
+            <Icon
+                size={"sm"}
+                color={"neutral-strong"}
+                icon={<File />}
+                label={`Entry - ${entry.meta.title}`}
+            />
+            <Text className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>{entry.meta.title}</Text>
+        </div>
     );
 };
 
 interface EntryCellNameProps {
-    entry: EntryTableItem;
+    entry: CmsContentEntry;
 }
 
 export const EntryCellName = ({ entry }: EntryCellNameProps) => {
@@ -64,9 +76,9 @@ export const EntryCellName = ({ entry }: EntryCellNameProps) => {
     }
 
     return (
-        <LinkTitle to={entryEditUrl}>
+        <Link to={entryEditUrl} variant={"secondary"} className={"wby-truncate"}>
             <EntryCellRowTitle entry={entry} />
-        </LinkTitle>
+        </Link>
     );
 };
 
@@ -75,8 +87,8 @@ export const CellName = () => {
     const { row } = useTableRow();
 
     if (isFolderRow(row)) {
-        return <FolderCellName folder={row} />;
+        return <FolderCellName folder={row.data} />;
     }
 
-    return <EntryCellName entry={row} />;
+    return <EntryCellName entry={row.data} />;
 };

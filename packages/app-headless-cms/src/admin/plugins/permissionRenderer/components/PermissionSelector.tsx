@@ -1,24 +1,35 @@
-import React, { Fragment } from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
-import { Cell } from "@webiny/ui/Grid/index.js";
-import { type BindComponent } from "@webiny/form";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import {
-    type GetValueCallable,
-    type OnChangeCallable,
-    type PermissionSelectorCmsGroup,
-    type PermissionSelectorCmsModel
-} from "./types.js";
+import React from "react";
+import { i18n } from "@webiny/app/i18n";
+import type { BindComponent } from "@webiny/form";
+import type { PermissionSelectorCmsGroup, PermissionSelectorCmsModel } from "./types";
+import { CheckboxGroup, FormComponentNote } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/plugins/permissionRenderer");
 
 interface RenderItemsProps {
-    onChange: OnChangeCallable;
-    getValue: GetValueCallable;
+    label: string;
     items: PermissionSelectorCmsModel[] | PermissionSelectorCmsGroup[];
     disabled?: boolean;
+    value?: string[];
+    onChange?: (values: string[]) => void;
 }
+
+const DefaultRenderItems = ({ items, label, disabled, onChange, value }: RenderItemsProps) => {
+    return (
+        <CheckboxGroup
+            label={label}
+            value={value}
+            onChange={onChange}
+            items={items.map(item => {
+                return {
+                    value: item.id,
+                    label: item.label,
+                    disabled
+                };
+            })}
+        />
+    );
+};
 
 export interface PermissionSelectorProps {
     Bind: BindComponent;
@@ -29,24 +40,6 @@ export interface PermissionSelectorProps {
     RenderItems?: React.ComponentType<RenderItemsProps>;
     disabled?: boolean;
 }
-
-const DefaultRenderItems = ({ items, getValue, onChange, disabled }: RenderItemsProps) => {
-    return (
-        <React.Fragment>
-            {items.map(({ id, label }) => (
-                <div key={id}>
-                    <Checkbox
-                        key={id}
-                        label={label}
-                        value={getValue(id)}
-                        onChange={onChange(id)}
-                        disabled={disabled}
-                    />
-                </div>
-            ))}
-        </React.Fragment>
-    );
-};
 
 export const PermissionSelector = ({
     Bind,
@@ -62,7 +55,8 @@ export const PermissionSelector = ({
     });
 
     return (
-        <Fragment>
+        <>
+            <FormComponentNote text={description} />
             {locales.map(code => {
                 const items = getItems(code);
 
@@ -78,34 +72,13 @@ export const PermissionSelector = ({
                     );
                 }
                 return (
-                    <Bind key={code} name={`${entity}Props.${selectorKey}.${code}`}>
-                        <CheckboxGroup label={code}>
-                            {({ onChange, getValue }) => {
-                                return (
-                                    <RenderItems
-                                        disabled={disabled}
-                                        items={items}
-                                        onChange={onChange}
-                                        getValue={getValue}
-                                    />
-                                );
-                            }}
-                        </CheckboxGroup>
-                    </Bind>
+                    <div key={code} className={"wby-mt-md"}>
+                        <Bind name={`${entity}Props.${selectorKey}.${code}`}>
+                            <RenderItems label={code} items={items} disabled={disabled} />
+                        </Bind>
+                    </div>
                 );
             })}
-            <FormElementMessage>{description}</FormElementMessage>
-        </Fragment>
+        </>
     );
 };
-
-interface PermissionSelectorWrapperProps {
-    children: React.ReactNode;
-}
-
-export const PermissionSelectorWrapper = ({ children }: PermissionSelectorWrapperProps) => (
-    <Fragment>
-        <Cell span={1} />
-        <Cell span={11}>{children}</Cell>
-    </Fragment>
-);

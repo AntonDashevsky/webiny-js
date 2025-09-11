@@ -1,7 +1,7 @@
-import { Plugin } from "@webiny/plugins/Plugin";
+import type { Plugin } from "@webiny/plugins/Plugin";
 import { createTenancyContext, createTenancyGraphQL } from "@webiny/api-tenancy";
 import { createSecurityContext, createSecurityGraphQL } from "@webiny/api-security";
-import {
+import type {
     SecurityIdentity,
     SecurityPermission,
     SecurityStorageOperations
@@ -9,8 +9,8 @@ import {
 import { ContextPlugin } from "@webiny/api";
 import { BeforeHandlerPlugin } from "@webiny/handler";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { TenancyStorageOperations, Tenant } from "@webiny/api-tenancy/types";
-import { AuditLogsContext } from "~/types";
+import type { TenancyStorageOperations, Tenant } from "@webiny/api-tenancy/types";
+import type { AuditLogsContext } from "~/types";
 
 interface Config {
     setupGraphQL?: boolean;
@@ -54,7 +54,7 @@ export const createTenancyAndSecurity = ({
                     return null;
                 }
 
-                return permissions || [{ name: "*" }];
+                return permissions?.length ? permissions : [{ name: "*" }];
             });
         }),
         new BeforeHandlerPlugin<AuditLogsContext>(context => {

@@ -1,10 +1,10 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog, useRecords } from "@webiny/app-aco";
-import { type EntryTableItem } from "~/types.js";
+import type { CmsContentEntry } from "~/types";
 
 interface UseMoveContentEntryToFolder {
-    record: EntryTableItem;
+    record: CmsContentEntry;
 }
 
 export function useMoveContentEntryToFolder({ record }: UseMoveContentEntryToFolder) {
@@ -27,7 +27,7 @@ export function useMoveContentEntryToFolder({ record }: UseMoveContentEntryToFol
                     }
                 });
                 showSnackbar(
-                    `Entry "${record.title}" was successfully moved to folder "${folder.title}"!`
+                    `Entry "${record.title}" was successfully moved to folder "${folder.label}"!`
                 );
             }
         });

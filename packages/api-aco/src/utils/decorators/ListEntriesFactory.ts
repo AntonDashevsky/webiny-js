@@ -1,13 +1,13 @@
-import { type FolderLevelPermissions } from "~/flp/index.js";
-import {
-    type CmsEntry,
-    type CmsEntryListParams,
-    type CmsEntryMeta,
-    type CmsEntryValues,
-    type CmsModel
-} from "@webiny/api-headless-cms/types/index.js";
-import { hasRootFolderId } from "~/utils/decorators/hasRootFolderId.js";
-import type { FolderPermission } from "~/flp/flp.types.js";
+import type { FolderLevelPermissions } from "~/flp";
+import type {
+    CmsEntry,
+    CmsEntryListParams,
+    CmsEntryMeta,
+    CmsEntryValues
+} from "@webiny/api-headless-cms/types";
+import { type CmsModel } from "@webiny/api-headless-cms/types";
+import { hasRootFolderId } from "~/utils/decorators/hasRootFolderId";
+import type { FolderPermission } from "~/flp/flp.types";
 
 interface ListEntriesFactoryCallbackParams {
     decoratee: <T extends CmsEntryValues = CmsEntryValues>(

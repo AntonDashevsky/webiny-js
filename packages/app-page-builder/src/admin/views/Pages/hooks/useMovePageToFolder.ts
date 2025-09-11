@@ -1,10 +1,10 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog, useRecords } from "@webiny/app-aco";
-import { type PbPageTableItem } from "~/types.js";
+import type { PbPageSearchRecord } from "~/types";
 
 interface UseMovePageToFolderParams {
-    record: PbPageTableItem;
+    record: PbPageSearchRecord;
 }
 
 export function useMovePageToFolder({ record }: UseMovePageToFolderParams) {
@@ -27,7 +27,7 @@ export function useMovePageToFolder({ record }: UseMovePageToFolderParams) {
                     }
                 });
                 showSnackbar(
-                    `Page "${record.title}" was successfully moved to folder "${folder.title}"!`
+                    `Page "${record.title}" was successfully moved to folder "${folder.label}"!`
                 );
             }
         });

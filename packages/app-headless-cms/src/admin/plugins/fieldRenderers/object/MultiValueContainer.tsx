@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
-import { Cell } from "@webiny/ui/Grid/index.js";
+import { Cell } from "@webiny/ui/Grid";
 import { useConfirmationDialog } from "@webiny/app-admin";
-import {
-    type BindComponentRenderProp,
-    type CmsModelFieldRendererProps
-} from "@webiny/app-headless-cms-common/types/index.js";
-import { MultiValueItemContainer } from "~/admin/plugins/fieldRenderers/object/MultiValueItemContainer.js";
-import { Fields } from "~/admin/components/ContentEntryForm/Fields.js";
-import DynamicSection from "~/admin/plugins/fieldRenderers/DynamicSection.js";
+import type {
+    BindComponentRenderProp,
+    CmsModelFieldRendererProps
+} from "@webiny/app-headless-cms-common/types";
+import { MultiValueItemContainer } from "~/admin/plugins/fieldRenderers/object/MultiValueItemContainer";
+import { Fields } from "~/admin/components/ContentEntryForm/Fields";
+import DynamicSection from "~/admin/plugins/fieldRenderers/DynamicSection";
 import {
     dynamicSectionGridStyle,
     fieldsGridStyle,
     fieldsWrapperStyle,
     ItemHighLight,
     ObjectItem
-} from "~/admin/plugins/fieldRenderers/object/StyledComponents.js";
-import { FieldSettings } from "~/admin/plugins/fieldRenderers/object/FieldSettings.js";
-import { useModelField } from "~/admin/components/ModelFieldProvider/index.js";
-import { useModel } from "~/admin/components/ModelProvider/index.js";
+} from "~/admin/plugins/fieldRenderers/object/StyledComponents";
+import { FieldSettings } from "~/admin/plugins/fieldRenderers/object/FieldSettings";
+import { useModelField } from "~/admin/components/ModelFieldProvider";
+import { useModel } from "~/admin/components/ModelProvider";
 
 type GetBind = CmsModelFieldRendererProps["getBind"];
 

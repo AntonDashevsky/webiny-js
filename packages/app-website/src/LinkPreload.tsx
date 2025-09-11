@@ -2,9 +2,10 @@ import React, { useEffect, useMemo } from "react";
 import gql from "graphql-tag";
 import { useApolloClient } from "@apollo/react-hooks";
 import { makeDecoratable } from "@webiny/app";
-import { Link, type To } from "@webiny/react-router";
-import { getPrerenderId, isPrerendering } from "@webiny/app/utils/index.js";
-import { GET_PUBLISHED_PAGE } from "./Page/graphql.js";
+import type { To } from "@webiny/react-router";
+import { Link } from "@webiny/react-router";
+import { getPrerenderId, isPrerendering } from "@webiny/app/utils";
+import { GET_PUBLISHED_PAGE } from "./Page/graphql";
 import { usePageElements } from "@webiny/app-page-builder-elements";
 
 const preloadedPaths: string[] = [];

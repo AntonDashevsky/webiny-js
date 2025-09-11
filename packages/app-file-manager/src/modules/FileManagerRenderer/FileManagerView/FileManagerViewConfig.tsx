@@ -1,8 +1,10 @@
 import React, { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Browser, type BrowserConfig } from "./configComponents/Browser/index.js";
-import { FileDetails, type FileDetailsConfig } from "./configComponents/FileDetails/index.js";
-import { getThumbnailRenderer } from "./getThumbnailRenderer.js";
+import type { BrowserConfig } from "./configComponents/Browser";
+import { Browser } from "./configComponents/Browser";
+import type { FileDetailsConfig } from "./configComponents/FileDetails";
+import { FileDetails } from "./configComponents/FileDetails";
+import { getThumbnailRenderer } from "./getThumbnailRenderer";
 import { CompositionScope } from "@webiny/react-composition";
 
 const base = createConfigurableComponent<FileManagerViewConfigData>("FileManagerView");
@@ -38,6 +40,10 @@ export function useFileManagerViewConfig() {
             getThumbnailRenderer,
             browser: {
                 ...browser,
+                table: {
+                    ...browser.table,
+                    cellThumbnails: [...(browser.table?.cellThumbnails || [])]
+                },
                 grid: {
                     itemActions: [...(browser.grid?.itemActions || [])],
                     itemThumbnails: [...(browser.grid?.itemThumbnails || [])]

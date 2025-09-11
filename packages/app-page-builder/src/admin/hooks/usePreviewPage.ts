@@ -1,8 +1,8 @@
 import { useCallback } from "react";
-import { usePageBuilderSettings } from "~/admin/hooks/usePageBuilderSettings/index.js";
-import { useSiteStatus } from "~/admin/hooks/useSiteStatus/index.js";
-import { useConfigureWebsiteUrlDialog } from "~/admin/hooks/useConfigureWebsiteUrl/index.js";
-import { type PbPageData } from "~/types.js";
+import { usePageBuilderSettings } from "~/admin/hooks/usePageBuilderSettings";
+import { useSiteStatus } from "~/admin/hooks/useSiteStatus";
+import { useConfigureWebsiteUrlDialog } from "~/admin/hooks/useConfigureWebsiteUrl";
+import type { PbPageData } from "~/types";
 
 /**
  * This hook handles the logic of loading website preview URL, verifying that it exists, checking that the preview URL

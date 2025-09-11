@@ -1,5 +1,5 @@
 import { composeResolvers } from "@graphql-tools/resolvers-composition";
-import { type ResolverDecorators, type Resolvers } from "./types.js";
+import type { ResolverDecorators, Resolvers } from "./types";
 
 export class ResolverDecoration {
     private decorators: ResolverDecorators = {};

@@ -1,17 +1,22 @@
 import React, { Fragment } from "react";
-import get from "lodash/get.js";
-import { Icon } from "@webiny/ui/Icon/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { ReactComponent as HandleIcon } from "~/admin/icons/round-drag_indicator-24px.svg";
-import { Center, Vertical, Horizontal } from "../DropZone/index.js";
-import Draggable from "../Draggable.js";
-import EditFieldDialog from "./EditFieldDialog.js";
-import Field from "./Field.js";
-import { rowHandle, fieldHandle, fieldContainer, Row, RowContainer } from "./Styled.js";
-import { useModelFieldEditor } from "./useModelFieldEditor.js";
-import { FieldEditorProvider, type IsVisibleCallable } from "./FieldEditorContext.js";
-import { type CmsModelField, type CmsEditorFieldsLayout, type CmsModelFieldTypePlugin, type DragSource } from "~/types.js";
-import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider/index.js";
+import get from "lodash/get";
+import { i18n } from "@webiny/app/i18n";
+import { ReactComponent as DragIcon } from "@webiny/icons/drag_indicator.svg";
+import { Center, Vertical, Horizontal } from "../DropZone";
+import Draggable from "../Draggable";
+import EditFieldDialog from "./EditFieldDialog";
+import Field from "./Field";
+import { useModelFieldEditor } from "./useModelFieldEditor";
+import type { IsVisibleCallable } from "./FieldEditorContext";
+import { FieldEditorProvider } from "./FieldEditorContext";
+import type {
+    CmsModelField,
+    CmsEditorFieldsLayout,
+    CmsModelFieldTypePlugin,
+    DragSource
+} from "~/types";
+import { ModelFieldProvider } from "~/admin/components/ModelFieldProvider";
+import { cn, Icon } from "@webiny/admin-ui";
 
 const t = i18n.namespace("app-headless-cms/admin/components/editor");
 
@@ -111,9 +116,28 @@ const Editor = () => {
                             isDragging
                         } /* RowContainer start - includes drag handle, drop zones and the Row itself. */
                     ) => (
-                        <RowContainer style={{ opacity: isDragging ? 0.3 : 1 }}>
-                            <div className={rowHandle} ref={drag}>
-                                <Icon icon={<HandleIcon />} />
+                        <div
+                            className={cn([
+                                "wby-flex wby-flex-column",
+                                "wby-relative",
+                                "wby-mb-md last-of-type:wby-mb-none",
+                                "wby-bg-neutral-dimmed",
+                                isDragging ? "wby-opacity-30" : "wby-opacity-100"
+                            ])}
+                        >
+                            <div
+                                className={cn([
+                                    "wby-cursor-grab",
+                                    "wby-absolute wby-left-sm-plus wby-top-sm-plus wby-z-10"
+                                ])}
+                                ref={drag}
+                            >
+                                <Icon
+                                    icon={<DragIcon />}
+                                    label={"Drag to move this row"}
+                                    color={"neutral-light"}
+                                    size={"sm"}
+                                />
                             </div>
                             <Horizontal
                                 isVisible={isHorizontalDropzoneVisible(noConflict())}
@@ -121,7 +145,13 @@ const Editor = () => {
                                 onDrop={item => onFieldDrop(item, { row: index, index: null })}
                             />
                             {/* Row start - includes field drop zones and fields */}
-                            <Row data-testid={"cms.editor.field-row"}>
+                            <div
+                                className={cn([
+                                    "wby-w-full wby-flex wby-justify-between",
+                                    "wby-pl-xl wby-pr-sm wby-py-sm"
+                                ])}
+                                data-testid={"cms.editor.field-row"}
+                            >
                                 {row.map((field, fieldIndex) => (
                                     <ModelFieldProvider field={field} key={field.fieldId}>
                                         <Draggable
@@ -137,7 +167,14 @@ const Editor = () => {
                                             endDrag={onEndDrag}
                                         >
                                             {({ drag }) => (
-                                                <div className={fieldContainer} ref={drag}>
+                                                <div
+                                                    className={cn([
+                                                        "wby-relative",
+                                                        "wby-flex-1 wby-basis-full",
+                                                        "wby-mx-sm"
+                                                    ])}
+                                                    ref={drag}
+                                                >
                                                     <Vertical
                                                         depth={depth}
                                                         onDrop={item =>
@@ -159,7 +196,11 @@ const Editor = () => {
                                                         )}
                                                     />
 
-                                                    <div className={fieldHandle}>
+                                                    <div
+                                                        className={
+                                                            "wby-cursor-grab wby-bg-neutral-base wby-p-md wby-shadow-sm wby-rounded-xs"
+                                                        }
+                                                    >
                                                         <Field
                                                             parent={parent}
                                                             field={field}
@@ -198,7 +239,7 @@ const Editor = () => {
                                         </Draggable>
                                     </ModelFieldProvider>
                                 ))}
-                            </Row>
+                            </div>
                             {/* Row end */}
                             {index === fields.length - 1 ? (
                                 <Horizontal
@@ -213,7 +254,7 @@ const Editor = () => {
                                     }
                                 />
                             ) : null}
-                        </RowContainer>
+                        </div>
                     )}
                 </Draggable>
             ))}

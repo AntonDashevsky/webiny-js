@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import kebabCase from "lodash/kebabCase";
+import { Typography } from "@webiny/ui/Typography";
 import { validation } from "@webiny/validation";
-import { createEmbedPlugin, createEmbedSettingsPlugin } from "../../utils/oembed/index.js";
+import { createEmbedPlugin, createEmbedSettingsPlugin } from "../../utils/oembed";
 import placeholder from "./placeholder.jpg";
 import { ReactComponent as LogoIcon } from "./twitter-brands.svg";
-import Accordion from "../../../elementSettings/components/Accordion.js";
-import InputField from "../../../elementSettings/components/InputField.js";
+import Accordion from "../../../elementSettings/components/Accordion";
+import InputField from "../../../elementSettings/components/InputField";
 import {
     ButtonContainer,
     SimpleButton
-} from "../../../elementSettings/components/StyledComponents.js";
-import { type PbEditorElementPluginArgs } from "~/types.js";
-import { PeTwitter } from "./PeTwitter.js";
+} from "../../../elementSettings/components/StyledComponents";
+import type { PbEditorElementPluginArgs } from "~/types";
+import { PeTwitter } from "./PeTwitter";
 
 declare global {
     interface Window {

@@ -1,5 +1,9 @@
 import { useMemo } from "react";
-import { type CmsContentEntry, type CmsModel, type CmsModelField } from "@webiny/app-headless-cms-common/types/index.js";
+import type {
+    CmsContentEntry,
+    CmsModel,
+    CmsModelField
+} from "@webiny/app-headless-cms-common/types";
 
 /**
  * Used for some fields to convert their values.

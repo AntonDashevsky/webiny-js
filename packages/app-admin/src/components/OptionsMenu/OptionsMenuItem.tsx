@@ -1,7 +1,5 @@
 import React from "react";
-import { Icon } from "@webiny/ui/Icon/index.js";
-import { ListItemGraphic } from "@webiny/ui/List/index.js";
-import { MenuItem } from "@webiny/ui/Menu/index.js";
+import { DropdownMenu } from "@webiny/admin-ui";
 
 export interface OptionsMenuItemProps {
     onAction: () => void;
@@ -9,19 +7,18 @@ export interface OptionsMenuItemProps {
     icon: React.ReactElement;
     label: string;
     ["data-testid"]?: string;
+    className?: string;
 }
 
 export const OptionsMenuItem = (props: OptionsMenuItemProps) => {
     return (
-        <MenuItem
+        <DropdownMenu.Item
             onClick={props.onAction}
             disabled={props.disabled ?? false}
             data-testid={props["data-testid"]}
-        >
-            <ListItemGraphic>
-                <Icon icon={props.icon} />
-            </ListItemGraphic>
-            {props.label}
-        </MenuItem>
+            icon={<DropdownMenu.Item.Icon label={props.label} element={props.icon} />}
+            text={props.label}
+            className={props.className}
+        />
     );
 };

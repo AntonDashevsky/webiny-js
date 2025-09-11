@@ -1,9 +1,9 @@
 import React from "react";
-import { type PbPageData } from "~/types.js";
+import type { PbPageData } from "~/types";
 import { makeDecoratable } from "@webiny/app-admin";
-import { MenuItem } from "@webiny/ui/Menu/index.js";
-import { ListItemGraphic } from "@webiny/ui/List/index.js";
-import { Icon } from "@webiny/ui/Icon/index.js";
+import { MenuItem } from "@webiny/ui/Menu";
+import { ListItemGraphic } from "@webiny/ui/List";
+import { Icon } from "@webiny/ui/Icon";
 import { ReactComponent as AddIcon } from "~/admin/assets/add.svg";
 
 export interface NewRevisionFromCurrentProps {

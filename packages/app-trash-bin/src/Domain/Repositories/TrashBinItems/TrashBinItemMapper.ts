@@ -1,10 +1,9 @@
-import { type ITrashBinItemMapper, type TrashBinItem } from "~/Domain/index.js";
+import type { ITrashBinItemMapper, TrashBinItem } from "~/Domain";
 
 export class TrashBinItemMapper implements ITrashBinItemMapper<TrashBinItem> {
     toDTO(data: TrashBinItem) {
         return {
             id: data.id,
-            $selectable: true,
             title: data.title,
             location: data.location,
             createdBy: data.createdBy,

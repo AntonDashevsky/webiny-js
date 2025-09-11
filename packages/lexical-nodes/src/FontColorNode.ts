@@ -1,14 +1,6 @@
-import {
-    $getSelection,
-    $isRangeSelection,
-    createCommand,
-    type EditorConfig,
-    type LexicalNode,
-    type SerializedTextNode,
-    type Spread,
-    TextNode
-} from "lexical";
-import { type EditorTheme } from "@webiny/lexical-theme";
+import type { EditorConfig, LexicalNode, SerializedTextNode, Spread } from "lexical";
+import { $getSelection, $isRangeSelection, createCommand, TextNode } from "lexical";
+import type { EditorTheme } from "@webiny/lexical-theme";
 
 export class ThemeColorValue {
     // Webiny theme color variable, like color1, color2, etc.
@@ -48,8 +40,7 @@ export type SerializedFontColorNode = Spread<
     {
         themeColor: string;
         color: string;
-        type: "font-color-node";
-        version: 1;
+        type: "wby-font-color";
     },
     SerializedTextNode
 >;
@@ -67,7 +58,7 @@ export class FontColorNode extends TextNode {
     }
 
     static override getType(): string {
-        return "font-color-node";
+        return "wby-font-color";
     }
 
     static override clone(node: FontColorNode): FontColorNode {
@@ -129,8 +120,7 @@ export class FontColorNode extends TextNode {
             ...super.exportJSON(),
             themeColor: this.__color.getName(),
             color: this.__color.getValue(),
-            type: "font-color-node",
-            version: 1
+            type: "wby-font-color"
         };
     }
 

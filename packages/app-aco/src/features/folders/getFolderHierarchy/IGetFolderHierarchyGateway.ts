@@ -1,4 +1,4 @@
-import { type FolderGqlDto } from "./FolderGqlDto.js";
+import type { FolderGqlDto } from "./FolderGqlDto";
 
 export interface GetFolderHierarchyGatewayParams {
     type: string;

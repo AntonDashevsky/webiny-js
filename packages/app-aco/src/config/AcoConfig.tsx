@@ -1,15 +1,19 @@
 import { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { AdvancedSearch, type AdvancedSearchConfig } from "./advanced-search/index.js";
-import { Record, type RecordConfig } from "./record/index.js";
-import { Folder, type FolderConfig } from "./folder/index.js";
-import { Table, type TableConfig } from "~/config/table/index.js";
+import type { AdvancedSearchConfig } from "./advanced-search";
+import { AdvancedSearch } from "./advanced-search";
+import type { RecordConfig } from "./record";
+import { Record } from "./record";
+import type { FolderConfig } from "./folder";
+import { Folder } from "./folder";
+import type { TableConfig } from "~/config/table";
+import { Table } from "~/config/table";
 
-export type { FieldRendererConfig as AdvancedSearchFieldRendererConfig } from "./advanced-search/FieldRenderer.js";
-export type { ActionConfig as RecordActionConfig } from "./record/Action.js";
-export type { ActionConfig as FolderActionConfig } from "./folder/Action.js";
-export type { ColumnConfig as TableColumnConfig } from "./table/Column.js";
-export type { SortingConfig as TableSortingConfig } from "./table/Sorting.js";
+export type { FieldRendererConfig as AdvancedSearchFieldRendererConfig } from "./advanced-search/FieldRenderer";
+export type { ActionConfig as RecordActionConfig } from "./record/Action";
+export type { ActionConfig as FolderActionConfig } from "./folder/Action";
+export type { ColumnConfig as TableColumnConfig } from "./table/Column";
+export type { SortingConfig as TableSortingConfig } from "./table/Sorting";
 
 const base = createConfigurableComponent<AcoConfig>("AcoConfig");
 

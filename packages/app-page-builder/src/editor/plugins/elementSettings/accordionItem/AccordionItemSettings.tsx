@@ -1,14 +1,14 @@
 import React from "react";
 import { css } from "emotion";
-import get from "lodash/get.js";
-import { Switch } from "@webiny/ui/Switch/index.js";
-import useUpdateHandlers from "~/editor/plugins/elementSettings/useUpdateHandlers.js";
-import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper.js";
-import Accordion from "~/editor/plugins/elementSettings/components/Accordion.js";
-import { ContentWrapper } from "~/editor/plugins/elementSettings/components/StyledComponents.js";
-import InputField from "~/editor/plugins/elementSettings/components/InputField.js";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { type PbEditorElement, type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
+import get from "lodash/get";
+import { Switch } from "@webiny/ui/Switch";
+import useUpdateHandlers from "~/editor/plugins/elementSettings/useUpdateHandlers";
+import Wrapper from "~/editor/plugins/elementSettings/components/Wrapper";
+import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
+import { ContentWrapper } from "~/editor/plugins/elementSettings/components/StyledComponents";
+import InputField from "~/editor/plugins/elementSettings/components/InputField";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
 
 const classes = {
     grid: css`

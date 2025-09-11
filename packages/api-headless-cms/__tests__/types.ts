@@ -1,6 +1,6 @@
-import { CmsGroup as BaseCmsGroup, CmsModel as BaseCmsModel } from "~/types";
-import { useCategoryManageHandler } from "./testHelpers/useCategoryManageHandler";
-import { useProductManageHandler } from "./testHelpers/useProductManageHandler";
+import type { CmsGroup as BaseCmsGroup, CmsModel as BaseCmsModel } from "~/types";
+import type { useCategoryManageHandler } from "./testHelpers/useCategoryManageHandler";
+import type { useProductManageHandler } from "./testHelpers/useProductManageHandler";
 
 export type CmsModel = Omit<
     BaseCmsModel,

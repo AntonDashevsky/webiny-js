@@ -1,24 +1,8 @@
-import { UpdateFolder } from "./UpdateFolder.js";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
-import { Folder } from "../Folder.js";
-import { type FolderPermission } from "@webiny/shared-aco/flp/flp.types.js";
-import { ROOT_FOLDER } from "~/constants.js";
-import { jest } from "@jest/globals";
-import type { IUpdateFolderGateway } from "~/features/folders/updateFolder/IUpdateFolderGateway";
-import type { FolderGqlDto } from "~/features/folders/updateFolder/FolderGqlDto";
-
-class UpdateFolderMockGateway implements IUpdateFolderGateway {
-    mockResponse: FolderGqlDto;
-
-    // Had to use `any` as the mock folders passed in the tests below are also partial objects.
-    constructor(mockResponse: any) {
-        this.mockResponse = mockResponse as FolderGqlDto;
-    }
-
-    async execute() {
-        return this.mockResponse;
-    }
-}
+import { UpdateFolder } from "./UpdateFolder";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory";
+import { Folder } from "../Folder";
+import type { FolderPermission } from "@webiny/shared-aco/flp/flp.types";
+import { ROOT_FOLDER } from "~/constants";
 
 describe("UpdateFolder", () => {
     const type = "abc";
@@ -41,14 +25,16 @@ describe("UpdateFolder", () => {
     });
 
     it("should be able to update a folder", async () => {
-        const gateway = new UpdateFolderMockGateway({
-            id: "any-folder-id",
-            title: "Updated Folder",
-            slug: "updated-folder",
-            parentId: "another-id",
-            permissions: [],
-            type
-        });
+        const gateway = {
+            execute: jest.fn().mockResolvedValue({
+                id: "any-folder-id",
+                title: "Updated Folder",
+                slug: "updated-folder",
+                parentId: "another-id",
+                permissions: [],
+                type
+            })
+        };
 
         const updateFolder = UpdateFolder.getInstance(type, gateway);
 
@@ -78,7 +64,9 @@ describe("UpdateFolder", () => {
     });
 
     it("should not update a folder if id is missing", async () => {
-        const gateway = new UpdateFolderMockGateway(null);
+        const gateway = {
+            execute: jest.fn().mockResolvedValue(null)
+        };
 
         const updateFolder = UpdateFolder.getInstance(type, gateway);
 
@@ -148,15 +136,16 @@ describe("UpdateFolder", () => {
         ];
 
         {
-            const gateway = new UpdateFolderMockGateway({
-                id: parentFolder.id,
-                title: parentFolder.title,
-                slug: parentFolder.slug,
-                parentId: parentFolder.parentId,
-                permissions: parentNewPermissions,
-                type
-            });
-
+            const gateway = {
+                execute: jest.fn().mockResolvedValue({
+                    id: parentFolder.id,
+                    title: parentFolder.title,
+                    slug: parentFolder.slug,
+                    parentId: parentFolder.parentId,
+                    permissions: parentNewPermissions,
+                    type
+                })
+            };
             const updateFolder = UpdateFolder.getInstance(type, gateway);
 
             await updateFolder.execute({
@@ -197,15 +186,16 @@ describe("UpdateFolder", () => {
         const child1NewPermissions: FolderPermission[] = [{ level: "owner", target: "admin:123" }];
 
         {
-            const gateway = new UpdateFolderMockGateway({
-                id: childFolder1.id,
-                title: childFolder1.title,
-                slug: childFolder1.slug,
-                parentId: childFolder1.parentId,
-                permissions: child1NewPermissions,
-                type
-            });
-
+            const gateway = {
+                execute: jest.fn().mockResolvedValue({
+                    id: childFolder1.id,
+                    title: childFolder1.title,
+                    slug: childFolder1.slug,
+                    parentId: childFolder1.parentId,
+                    permissions: child1NewPermissions,
+                    type
+                })
+            };
             const updateFolder = UpdateFolder.getInstance(type, gateway);
 
             await updateFolder.execute({
@@ -253,15 +243,16 @@ describe("UpdateFolder", () => {
             // the change should be propagated to childFolder2, but not to childFolder3
             const newPermissions: FolderPermission[] = [];
 
-            const gateway = new UpdateFolderMockGateway({
-                id: childFolder1.id,
-                title: childFolder1.title,
-                slug: childFolder1.slug,
-                parentId: childFolder1.parentId,
-                permissions: newPermissions,
-                type
-            });
-
+            const gateway = {
+                execute: jest.fn().mockResolvedValue({
+                    id: childFolder1.id,
+                    title: childFolder1.title,
+                    slug: childFolder1.slug,
+                    parentId: childFolder1.parentId,
+                    permissions: newPermissions,
+                    type
+                })
+            };
             const updateFolder = UpdateFolder.getInstance(type, gateway);
 
             await updateFolder.execute({
@@ -346,16 +337,17 @@ describe("UpdateFolder", () => {
         const newParentPath: string = `${ROOT_FOLDER}/parent-folder-edit`;
 
         {
-            const gateway = new UpdateFolderMockGateway({
-                id: parentFolder.id,
-                title: parentFolder.title,
-                slug: parentFolder.slug + "-edit",
-                parentId: parentFolder.parentId,
-                permissions: parentFolder.permissions,
-                path: newParentPath,
-                type
-            });
-
+            const gateway = {
+                execute: jest.fn().mockResolvedValue({
+                    id: parentFolder.id,
+                    title: parentFolder.title,
+                    slug: parentFolder.slug + "-edit",
+                    parentId: parentFolder.parentId,
+                    permissions: parentFolder.permissions,
+                    path: newParentPath,
+                    type
+                })
+            };
             const updateFolder = UpdateFolder.getInstance(type, gateway);
 
             await updateFolder.execute({
@@ -383,16 +375,17 @@ describe("UpdateFolder", () => {
         const newChildFolder1Path: string = `${newParentPath}/child-folder-1-edit`;
 
         {
-            const gateway = new UpdateFolderMockGateway({
-                id: childFolder1.id,
-                title: childFolder1.title,
-                slug: childFolder1.slug + "-edit",
-                parentId: childFolder1.parentId,
-                permissions: childFolder1.permissions,
-                path: newChildFolder1Path,
-                type
-            });
-
+            const gateway = {
+                execute: jest.fn().mockResolvedValue({
+                    id: childFolder1.id,
+                    title: childFolder1.title,
+                    slug: childFolder1.slug + "-edit",
+                    parentId: childFolder1.parentId,
+                    permissions: childFolder1.permissions,
+                    path: newChildFolder1Path,
+                    type
+                })
+            };
             const updateFolder = UpdateFolder.getInstance(type, gateway);
 
             await updateFolder.execute({
@@ -416,13 +409,9 @@ describe("UpdateFolder", () => {
     });
 
     it("should handle gateway errors gracefully", async () => {
-        class UpdateFolderErrorMockGateway implements IUpdateFolderGateway {
-            async execute(): Promise<FolderGqlDto> {
-                throw new Error("Gateway error");
-            }
-        }
-
-        const gateway = new UpdateFolderErrorMockGateway();
+        const gateway = {
+            execute: jest.fn().mockRejectedValue(new Error("Gateway error"))
+        };
 
         const updateFolder = UpdateFolder.getInstance(type, gateway);
 

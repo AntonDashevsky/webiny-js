@@ -15,9 +15,9 @@ import {
     ElasticsearchQueryBuilderOperatorEqualPlugin,
     ElasticsearchQueryBuilderOperatorStartsWithPlugin,
     ElasticsearchQueryBuilderOperatorNotStartsWithPlugin
-} from "~/plugins/operator/index.js";
-import { type PluginsContainer } from "@webiny/plugins";
-import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin.js";
+} from "~/plugins/operator";
+import type { PluginsContainer } from "@webiny/plugins";
+import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin";
 
 const operators = [
     new ElasticsearchQueryBuilderOperatorBetweenPlugin(),

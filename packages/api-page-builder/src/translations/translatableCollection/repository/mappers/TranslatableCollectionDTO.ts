@@ -1,4 +1,4 @@
-import { type TranslatableItemDTO } from "./TranslatableItemDTO.js";
+import type { TranslatableItemDTO } from "./TranslatableItemDTO";
 
 export interface TranslatableCollectionDTO {
     collectionId: string;

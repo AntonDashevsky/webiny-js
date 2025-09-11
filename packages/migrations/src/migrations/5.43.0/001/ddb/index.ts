@@ -1,14 +1,14 @@
-import { Table } from "@webiny/db-dynamodb/toolbox.js";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { count } from "@webiny/db-dynamodb";
 import { inject, makeInjectable } from "@webiny/ioc";
-import { DataMigration, DataMigrationContext } from "@webiny/data-migration";
-import { PrimaryDynamoTableSymbol } from "@webiny/data-migration/symbols.js";
-import { StepFunctionService } from "@webiny/tasks/service/StepFunctionServicePlugin.js";
-import { createDdbEntryEntity } from "../entities/createEntryEntity.js";
-import { forEachTenantLocale, batchWriteAll } from "~/utils/index.js";
-import { ACO_FOLDER_MODEL_ID, TASK_MODEL_ID } from "../constants.js";
+import type { DataMigration, DataMigrationContext } from "@webiny/data-migration";
+import { PrimaryDynamoTableSymbol } from "@webiny/data-migration/symbols";
+import { StepFunctionService } from "@webiny/tasks/service/StepFunctionServicePlugin";
+import { createDdbEntryEntity } from "../entities/createEntryEntity";
+import { forEachTenantLocale, batchWriteAll } from "~/utils";
+import { ACO_FOLDER_MODEL_ID, TASK_MODEL_ID } from "../constants";
 import { generateAlphaNumericId, parseIdentifier, executeWithRetry } from "@webiny/utils";
-import type { TaskEntryEventPayload } from "../types.js";
+import type { TaskEntryEventPayload } from "../types";
 
 export class Flp_5_43_0_001 implements DataMigration {
     private readonly table: Table<string, string, string>;

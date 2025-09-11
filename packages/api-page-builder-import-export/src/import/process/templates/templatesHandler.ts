@@ -1,9 +1,10 @@
-import { ImportExportTaskStatus, type PbImportExportContext } from "~/types.js";
-import { importTemplate } from "./importTemplate.js";
-import { invokeHandlerClient } from "~/client.js";
-import { mockSecurity } from "~/mockSecurity.js";
+import type { PbImportExportContext } from "~/types";
+import { ImportExportTaskStatus } from "~/types";
+import { importTemplate } from "./importTemplate";
+import { invokeHandlerClient } from "~/client";
+import { mockSecurity } from "~/mockSecurity";
 import { zeroPad } from "@webiny/utils";
-import { type Configuration, type Payload, type Response } from "~/import/process/index.js";
+import type { Configuration, Payload, Response } from "~/import/process";
 
 export const templatesHandler = async (
     configuration: Configuration,

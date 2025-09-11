@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import { css } from "emotion";
-import { IconButton, ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog/index.js";
-import { ReactComponent as LockIcon } from "@material-design-icons/svg/outlined/lock.svg";
-import { useTemplateMode } from "~/pageEditor/hooks/useTemplateMode.js";
-import { usePage } from "~/pageEditor/hooks/usePage.js";
-import { PageEditorConfig } from "~/pageEditor/editorConfig/PageEditorConfig.js";
-import { useEventActionHandler, useUpdateElement } from "~/editor/index.js";
-import { UnlinkPageFromTemplate } from "~/pageEditor/config/Toolbar/UnlinkPageFromTemplate.js";
+import { IconButton, ButtonPrimary } from "@webiny/ui/Button";
+import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog";
+import { ReactComponent as LockIcon } from "@webiny/icons/lock.svg";
+import { useTemplateMode } from "~/pageEditor/hooks/useTemplateMode";
+import { usePage } from "~/pageEditor/hooks/usePage";
+import { PageEditorConfig } from "~/pageEditor/editorConfig/PageEditorConfig";
+import { useEventActionHandler, useUpdateElement } from "~/editor";
+import { UnlinkPageFromTemplate } from "~/pageEditor/config/Toolbar/UnlinkPageFromTemplate";
 
 const unlinkTemplateDialog = css`
     & .mdc-dialog__surface {

@@ -1,9 +1,9 @@
+import type { CreateFieldInput } from "./fields";
 import {
     createBooleanField,
     createDateField,
     createDateTimeField,
     createField,
-    CreateFieldInput,
     createFileField,
     createLayout,
     createLongTextField,
@@ -14,7 +14,7 @@ import {
     createTextField,
     createTimeField
 } from "./fields";
-import { CmsModelField } from "~/types";
+import type { CmsModelField } from "~/types";
 
 export const createDynamicZoneField = (params: Partial<CreateFieldInput> = {}) => {
     const parentParams = {

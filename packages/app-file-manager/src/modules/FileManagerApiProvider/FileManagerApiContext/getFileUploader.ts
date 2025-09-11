@@ -1,5 +1,5 @@
 import { plugins } from "@webiny/plugins";
-import { type FileUploaderPlugin } from "@webiny/app/types.js";
+import type { FileUploaderPlugin } from "@webiny/app/types";
 
 export const getFileUploader = (): FileUploaderPlugin => {
     const fileStoragePlugin = plugins.byName<FileUploaderPlugin>("file-uploader");

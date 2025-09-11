@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { css } from "emotion";
 import { useNavigate } from "@webiny/react-router";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { ReactComponent as BackIcon } from "@material-design-icons/svg/round/arrow_back.svg";
-import { TopBar } from "~/editor/config/TopBar/TopBar.js";
+import { IconButton } from "@webiny/ui/Button";
+import { ReactComponent as BackIcon } from "@webiny/icons/arrow_back.svg";
+import { TopBar } from "~/editor/config/TopBar/TopBar";
 
 const backStyles = css({
     marginLeft: -10

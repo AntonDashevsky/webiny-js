@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
-import mime from "mime/lite.js";
+import { Text } from "@webiny/admin-ui";
+import { i18n } from "@webiny/app/i18n";
+import mime from "mime/lite";
 
 mime.define({ "image/x-icon": ["ico"] }, true);
 mime.define({ "image/jpg": ["jpg"] }, true);
@@ -44,17 +45,17 @@ const SupportedFileTypes = ({
 
     if (accept.length === 0) {
         return (
-            <span>
+            <Text size={"sm"} as={"div"} className={"wby-text-neutral-strong"}>
                 {t`Showing {currentCountLabel} out of {totalCountLabel} from all file extensions.`({
                     currentCountLabel: String(currentCount),
                     totalCountLabel: getLabel(totalCount)
                 })}
-            </span>
+            </Text>
         );
     }
 
     return (
-        <span>
+        <Text size={"sm"} as={"div"} className={"wby-text-neutral-strong"}>
             {t`Showing {currentCountLabel} out of {totalCountLabel} from the following file extensions: {files}.`(
                 {
                     currentCountLabel: String(currentCount),
@@ -62,7 +63,7 @@ const SupportedFileTypes = ({
                     files: getUniqueFilePlugins(accept).join(", ")
                 }
             )}
-        </span>
+        </Text>
     );
 };
 

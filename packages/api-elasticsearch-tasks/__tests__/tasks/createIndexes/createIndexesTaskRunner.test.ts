@@ -8,10 +8,8 @@ import { createIndexManagerMock } from "~tests/mocks/indexManager";
 import { CreateIndexesTaskRunner } from "~/tasks/createIndexes/CreateIndexesTaskRunner";
 import { createElasticsearchIndexTaskPlugin } from "~/tasks/createIndexes/CreateElasticsearchIndexTaskPlugin";
 import { PluginsContainer } from "@webiny/plugins";
-import {
-    createElasticsearchClient,
-    ElasticsearchClient
-} from "@webiny/project-utils/testing/elasticsearch/createClient";
+import type { ElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
+import { createElasticsearchClient } from "@webiny/project-utils/testing/elasticsearch/createClient";
 
 import { timerFactory } from "@webiny/handler-aws";
 

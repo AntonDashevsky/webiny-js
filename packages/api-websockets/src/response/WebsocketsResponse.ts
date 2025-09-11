@@ -1,10 +1,10 @@
-import {
-    type IWebsocketsResponse,
-    type IWebsocketsResponseErrorParams,
-    type IWebsocketsResponseErrorResult,
-    type IWebsocketsResponseOkParams,
-    type IWebsocketsResponseOkResult
-} from "./abstractions/IWebsocketsResponse.js";
+import type {
+    IWebsocketsResponse,
+    IWebsocketsResponseErrorParams,
+    IWebsocketsResponseErrorResult,
+    IWebsocketsResponseOkParams,
+    IWebsocketsResponseOkResult
+} from "./abstractions/IWebsocketsResponse";
 
 export class WebsocketsResponse implements IWebsocketsResponse {
     public ok(params?: IWebsocketsResponseOkParams): IWebsocketsResponseOkResult {

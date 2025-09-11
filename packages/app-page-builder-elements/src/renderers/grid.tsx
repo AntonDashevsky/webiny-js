@@ -17,7 +17,8 @@ export const GridRenderer = createRenderer(
             flexDirection: "row",
             justifyContent: "flex-start",
             alignItems: "flex-start",
-            width: "100%"
+            width: "100%",
+            padding: 5
         }
     }
 );

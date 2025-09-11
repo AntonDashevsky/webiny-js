@@ -1,29 +1,26 @@
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
+import { useToast } from "@webiny/admin-ui";
 
-import { Field, FieldMapper, type FieldRaw, type FilterDTO, type FilterRepository } from "./domain/index.js";
+import type { FieldDTOWithElement, FilterDTO, FilterRepository } from "./domain";
 
-import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter.js";
+import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter";
 
-import { Button } from "./Button/index.js";
-import { Feedback } from "./Feedback/index.js";
-import { QueryManagerDialog } from "./QueryManagerDialog/index.js";
-import { QueryBuilderDrawer } from "./QueryBuilderDrawer/index.js";
-import { QuerySaverDialog } from "./QuerySaverDialog/index.js";
-import { SelectedFilter } from "./SelectedFilter/index.js";
-
-import { AdvancedSearchContainer } from "./AdvancedSearch.styled.js";
-import { useAcoConfig } from "~/config/index.js";
+import { Button } from "./Button";
+import { QueryManagerDialog } from "./QueryManagerDialog";
+import { QueryBuilderDrawer } from "./QueryBuilderDrawer";
+import { QuerySaverDialog } from "./QuerySaverDialog";
+import { SelectedFilter } from "./SelectedFilter";
 
 export interface AdvancedSearchProps {
-    fields: FieldRaw[];
+    fields: FieldDTOWithElement[];
     repository: FilterRepository;
     onApplyFilter: (data: FilterDTO | null) => void;
 }
 
 export const AdvancedSearch = observer(
     ({ fields, repository, onApplyFilter }: AdvancedSearchProps) => {
-        const { advancedSearch } = useAcoConfig();
+        const { showToast } = useToast();
 
         const presenter = useMemo<AdvancedSearchPresenter>(() => {
             return new AdvancedSearchPresenter(repository);
@@ -59,21 +56,21 @@ export const AdvancedSearch = observer(
             onApplyFilter(filter);
         };
 
-        const fieldsWithRenderer = useMemo(() => {
-            const fieldDTOs = FieldMapper.toDTO(fields.map(field => Field.createFromRaw(field)));
-
-            return fieldDTOs.map(field => {
-                const config = advancedSearch.fieldRenderers.find(
-                    config => config.type === field.type
-                );
-                const element = config?.element ?? null;
-                return { ...field, element };
-            });
-        }, [fields, advancedSearch.fieldRenderers]);
+        useEffect(() => {
+            if (presenter.vm.feedbackVm.isOpen) {
+                showToast({
+                    title: presenter.vm.feedbackVm.message
+                });
+            }
+        }, [presenter.vm.feedbackVm.isOpen, presenter.vm.feedbackVm.message]);
 
         return (
             <>
-                <AdvancedSearchContainer>
+                <div
+                    className={
+                        "wby-flex wby-flex-row-reverse wby-justify-between wby-items-center wby-gap-sm"
+                    }
+                >
                     <Button onClick={() => presenter.openManager()} />
                     {presenter.vm.appliedFilter ? (
                         <SelectedFilter
@@ -82,7 +79,7 @@ export const AdvancedSearch = observer(
                             onDelete={unsetFilter}
                         />
                     ) : null}
-                </AdvancedSearchContainer>
+                </div>
                 <QueryManagerDialog
                     onClose={() => presenter.closeManager()}
                     onCreate={() => presenter.createFilter()}
@@ -96,7 +93,7 @@ export const AdvancedSearch = observer(
                 {presenter.vm.currentFilter ? (
                     <>
                         <QueryBuilderDrawer
-                            fields={fieldsWithRenderer}
+                            fields={fields}
                             onClose={() => presenter.closeBuilder()}
                             onSave={filter => presenter.saveFilter(filter)}
                             onApply={applyFilter}
@@ -112,10 +109,6 @@ export const AdvancedSearch = observer(
                         />
                     </>
                 ) : null}
-                <Feedback
-                    isOpen={presenter.vm.feedbackVm.isOpen}
-                    message={presenter.vm.feedbackVm.message}
-                />
             </>
         );
     }

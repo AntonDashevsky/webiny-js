@@ -1,6 +1,7 @@
 import React from "react";
-import { UIElement, type UIElementConfig } from "../UIElement.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import type { UIElementConfig } from "../UIElement";
+import { UIElement } from "../UIElement";
+import { Typography } from "@webiny/ui/Typography";
 
 export type TypographyT =
     | "headline1"

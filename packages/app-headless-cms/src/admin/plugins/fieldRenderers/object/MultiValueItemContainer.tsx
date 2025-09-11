@@ -1,11 +1,11 @@
 import React from "react";
 import { makeDecoratable } from "@webiny/react-composition";
-import Accordion from "~/admin/plugins/fieldRenderers/Accordion.js";
-import { type GenericRecord } from "@webiny/app/types.js";
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import { ReactComponent as ArrowUp } from "@material-design-icons/svg/outlined/arrow_drop_up.svg";
-import { ReactComponent as ArrowDown } from "@material-design-icons/svg/outlined/arrow_drop_down.svg";
-import { IconButton } from "@webiny/ui/Button/index.js";
+import Accordion from "~/admin/plugins/fieldRenderers/Accordion";
+import type { GenericRecord } from "@webiny/app/types";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete_outline.svg";
+import { ReactComponent as ArrowUp } from "@webiny/icons/arrow_drop_up.svg";
+import { ReactComponent as ArrowDown } from "@webiny/icons/arrow_drop_down.svg";
+import { IconButton } from "@webiny/ui/Button";
 
 export interface MultiValueItemContainerProps {
     value: GenericRecord<string>;

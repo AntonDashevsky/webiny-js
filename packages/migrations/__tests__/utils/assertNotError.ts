@@ -1,4 +1,4 @@
-import { MigrationInvocationErrorResponse } from "@webiny/data-migration";
+import type { MigrationInvocationErrorResponse } from "@webiny/data-migration";
 
 export function assertNotError(
     error: MigrationInvocationErrorResponse["error"] | undefined

@@ -1,18 +1,17 @@
 import { useMemo, useState, useEffect } from "react";
 import dotPropImmutable from "dot-prop-immutable";
-import debounce from "lodash/debounce.js";
-import {
-    LIST_LATEST_CMS_ENTRIES,
-    type ListLatestCmsEntriesQueryResponse,
-    type ListLatestCmsEntriesQueryVariables,
-    SEARCH_CMS_ENTRIES,
-    type SearchCmsEntriesQueryResponse,
-    type SearchCmsEntriesQueryVariables
-} from "~/graphql/workflow.gql.js";
-import { type BindComponentRenderProp } from "@webiny/form";
-import { type CmsEntry, type CmsModel } from "~/types.js";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
-import { useQueryLocale } from "@webiny/app-headless-cms/admin/hooks/index.js";
+import debounce from "lodash/debounce";
+import type {
+    ListLatestCmsEntriesQueryResponse,
+    ListLatestCmsEntriesQueryVariables,
+    SearchCmsEntriesQueryResponse,
+    SearchCmsEntriesQueryVariables
+} from "~/graphql/workflow.gql";
+import { LIST_LATEST_CMS_ENTRIES, SEARCH_CMS_ENTRIES } from "~/graphql/workflow.gql";
+import type { BindComponentRenderProp } from "@webiny/form";
+import type { CmsEntry, CmsModel } from "~/types";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
+import { useQueryLocale } from "@webiny/app-headless-cms/admin/hooks";
 
 export interface CmsEntryOption {
     id: string;

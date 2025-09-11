@@ -1,8 +1,9 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 import { getWebinyVersionHeaders } from "@webiny/utils";
-import { ResponseHeaders } from "~/ResponseHeaders.js";
-import { type DefinedContextRoutes, type HTTPMethods } from "~/types.js";
-import { Action, type IPreHandler } from "~/PreHandler/IPreHandler.js";
+import { ResponseHeaders } from "~/ResponseHeaders";
+import type { DefinedContextRoutes, HTTPMethods } from "~/types";
+import type { IPreHandler } from "~/PreHandler/IPreHandler";
+import { Action } from "~/PreHandler/IPreHandler";
 
 function createDefaultHeaders() {
     return ResponseHeaders.create({

@@ -1,5 +1,5 @@
-import { type PbEditorEventActionPlugin } from "~/types.js";
-import { UpdateElementTreeActionEvent } from "./event.js";
+import type { PbEditorEventActionPlugin } from "~/types";
+import { UpdateElementTreeActionEvent } from "./event";
 
 export default (): PbEditorEventActionPlugin => {
     return {

@@ -1,11 +1,12 @@
-import { type ApiResponse, type Client } from "@elastic/elasticsearch";
-import { type BoolQueryConfig, type PrimitiveValue, type Query as esQuery } from "elastic-ts";
-import { type Context, type GenericRecord } from "@webiny/api/types.js";
+import type { Client } from "@elastic/elasticsearch";
+import { ApiResponse } from "@elastic/elasticsearch";
+import type { BoolQueryConfig, PrimitiveValue, Query as esQuery } from "elastic-ts";
+import type { Context, GenericRecord } from "@webiny/api/types";
 /**
  * Re-export some dep lib types.
  */
 export * from "elastic-ts";
-export type { ApiResponse };
+export { ApiResponse };
 
 export interface ElasticsearchContext extends Context {
     elasticsearch: Client;

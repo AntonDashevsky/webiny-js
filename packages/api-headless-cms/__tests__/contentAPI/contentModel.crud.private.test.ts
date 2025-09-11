@@ -1,8 +1,8 @@
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";
 import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
-import { CmsGroup, CmsGroupCreateInput, CmsModel } from "~/types";
-import { CreateContentModelMutationVariables } from "~tests/testHelpers/graphql/contentModel";
+import type { CmsGroup, CmsGroupCreateInput, CmsModel } from "~/types";
+import type { CreateContentModelMutationVariables } from "~tests/testHelpers/graphql/contentModel";
 
 const privateGroup = new CmsGroupPlugin({
     isPrivate: true,

@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { CmsEntry, CmsGroup, CmsModel } from "~/types";
+import type { CmsEntry, CmsEntryListParams, CmsGroup, CmsModel } from "~/types";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";
 import { useCategoryReadHandler } from "../testHelpers/useCategoryReadHandler";
@@ -852,7 +852,7 @@ describe("MANAGE - Resolvers", () => {
         const { animals, fruits, vegetables, trees } = await createCategories();
         const { listCategories } = useCategoryManageHandler(manageOpts);
 
-        const defaultQueryVars = {
+        const defaultQueryVars: CmsEntryListParams = {
             sort: ["title_ASC"]
         };
 

@@ -1,7 +1,8 @@
-import { type CmsGroup } from "~/types/index.js";
-import { createGroupCreateValidation } from "~/crud/contentModelGroup/validation.js";
+import type { CmsGroup } from "~/types";
+import { createGroupCreateValidation } from "~/crud/contentModelGroup/validation";
 import { createZodError } from "@webiny/utils";
-import { CmsImportAction, type ValidatedCmsGroupResult } from "~/export/types.js";
+import type { ValidatedCmsGroupResult } from "~/export/types";
+import { CmsImportAction } from "~/export/types";
 
 interface Params {
     groups: Pick<CmsGroup, "id" | "slug" | "isPlugin">[];

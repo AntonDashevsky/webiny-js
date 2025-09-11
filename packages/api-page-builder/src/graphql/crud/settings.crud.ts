@@ -1,24 +1,24 @@
-import {
-    type OnSettingsAfterUpdateTopicParams,
-    type OnSettingsBeforeUpdateTopicParams,
-    type PageBuilderContextObject,
-    type PageBuilderStorageOperations,
-    type PageSpecialType,
-    type PbContext,
-    type Settings,
-    type SettingsCrud,
-    type SettingsStorageOperationsCreateParams,
-    type SettingsStorageOperationsGetParams,
-    type SettingsUpdateTopicMetaParams
-} from "~/types.js";
-import mergeWith from "lodash/mergeWith.js";
+import type {
+    OnSettingsAfterUpdateTopicParams,
+    OnSettingsBeforeUpdateTopicParams,
+    PageBuilderContextObject,
+    PageBuilderStorageOperations,
+    PageSpecialType,
+    PbContext,
+    Settings,
+    SettingsCrud,
+    SettingsStorageOperationsCreateParams,
+    SettingsStorageOperationsGetParams,
+    SettingsUpdateTopicMetaParams
+} from "~/types";
+import mergeWith from "lodash/mergeWith";
 import WebinyError from "@webiny/error";
-import lodashGet from "lodash/get.js";
+import lodashGet from "lodash/get";
 import DataLoader from "dataloader";
 import { createTopic } from "@webiny/pubsub";
-import { createSettingsCreateValidation } from "~/graphql/crud/settings/validation.js";
+import { createSettingsCreateValidation } from "~/graphql/crud/settings/validation";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import type { SettingsPermissions } from "./permissions/SettingsPermissions.js";
+import type { SettingsPermissions } from "./permissions/SettingsPermissions";
 
 interface SettingsParams {
     tenant: string;

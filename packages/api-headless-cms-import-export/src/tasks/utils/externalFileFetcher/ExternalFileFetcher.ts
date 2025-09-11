@@ -2,9 +2,9 @@ import type {
     IExternalFileFetcher,
     IExternalFileFetcherFetchResult,
     IExternalFileFetcherHeadResult
-} from "./abstractions/ExternalFileFetcher.js";
+} from "./abstractions/ExternalFileFetcher";
 import { getObjectProperties } from "@webiny/utils";
-import { type WebinyError } from "@webiny/error";
+import type { WebinyError } from "@webiny/error";
 
 export interface IGetChecksumHeaderCallable {
     (headers: Headers): string | undefined | null;

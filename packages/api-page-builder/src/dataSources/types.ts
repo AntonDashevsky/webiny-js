@@ -1,6 +1,6 @@
 import type zod from "zod";
-import { type GenericRecord } from "@webiny/api/types.js";
-import type { DataLoaderRequest } from "./DataLoaderRequest.js";
+import type { GenericRecord } from "@webiny/api/types";
+import type { DataLoaderRequest } from "./DataLoaderRequest";
 
 export type DataLoaderResult = GenericRecord | GenericRecord[] | undefined;
 

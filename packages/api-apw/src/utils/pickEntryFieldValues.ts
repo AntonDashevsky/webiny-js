@@ -1,4 +1,4 @@
-import { type CmsEntry } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsEntry } from "@webiny/api-headless-cms/types";
 
 export const baseFields = [
     // Entry ID is mapped to "id" (we don't use revisions with ACO entities).

@@ -1,8 +1,8 @@
-import isString from "lodash/isString.js";
-import isEmpty from "lodash/isEmpty.js";
-import trim from "lodash/trim.js";
-import ValidationError from "./validationError.js";
-import type { ParsedValidators, ValidateOptions, Validator } from "./types.js";
+import isString from "lodash/isString";
+import isEmpty from "lodash/isEmpty";
+import trim from "lodash/trim";
+import ValidationError from "./validationError";
+import type { ParsedValidators, ValidateOptions, Validator } from "./types";
 
 const entries = (validators: ParsedValidators): Array<[string, Array<string>]> => {
     return Object.entries(validators);

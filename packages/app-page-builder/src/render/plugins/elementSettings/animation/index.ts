@@ -1,5 +1,5 @@
-import get from "lodash/get.js";
-import { type PbRenderElementAttributesPlugin } from "../../../../types.js";
+import get from "lodash/get";
+import type { PbRenderElementAttributesPlugin } from "../../../../types";
 
 export default {
     name: "pb-render-page-element-attributes-animation",

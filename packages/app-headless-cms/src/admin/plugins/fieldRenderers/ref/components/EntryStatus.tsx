@@ -1,10 +1,11 @@
-import { type OptionItem } from "~/admin/plugins/fieldRenderers/ref/components/types.js";
+import type { OptionItem } from "~/admin/plugins/fieldRenderers/ref/components/types";
 import React from "react";
 import {
     getEntryStatus,
     getItemStatusText
-} from "~/admin/plugins/fieldRenderers/ref/components/helpers.js";
-import { Tooltip, type TooltipProps } from "@webiny/ui/Tooltip/index.js";
+} from "~/admin/plugins/fieldRenderers/ref/components/helpers";
+import type { TooltipProps } from "@webiny/ui/Tooltip";
+import { Tooltip } from "@webiny/ui/Tooltip";
 import { ReactComponent as PublishedIcon } from "~/admin/icons/published.svg";
 import { ReactComponent as UnpublishedIcon } from "~/admin/icons/unpublished.svg";
 import { ReactComponent as DraftIcon } from "~/admin/icons/draft.svg";

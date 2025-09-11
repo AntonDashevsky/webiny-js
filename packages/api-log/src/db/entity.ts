@@ -1,5 +1,5 @@
-import { Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { type ITable } from "~/db/types.js";
+import { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { ITable } from "~/db/types";
 
 interface IParams {
     table: ITable;

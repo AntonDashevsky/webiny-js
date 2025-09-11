@@ -1,4 +1,4 @@
-import { type CmsModelField, type CmsModel, type FieldLayoutPosition } from "~/types.js";
+import type { CmsModelField, CmsModel, FieldLayoutPosition } from "~/types";
 
 interface GetFieldPositionParams {
     field: string | CmsModelField;

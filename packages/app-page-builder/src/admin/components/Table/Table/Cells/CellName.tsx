@@ -1,19 +1,19 @@
 import React from "react";
 
 import { useNavigateFolder } from "@webiny/app-aco";
-import { ReactComponent as Folder } from "@material-design-icons/svg/outlined/folder.svg";
-import { ReactComponent as FolderShared } from "@material-design-icons/svg/outlined/folder_shared.svg";
-import { ReactComponent as File } from "@material-design-icons/svg/outlined/description.svg";
+import { ReactComponent as Folder } from "@webiny/icons/folder.svg";
+import { ReactComponent as FolderShared } from "@webiny/icons/folder_shared.svg";
+import { ReactComponent as File } from "@webiny/icons/description.svg";
 
-import { PageListConfig } from "~/admin/config/pages/index.js";
-import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList.js";
-import { RowIcon, RowText, RowTitle } from "./Cells.styled.js";
+import { PageListConfig } from "~/admin/config/pages";
+import { usePagesList } from "~/admin/views/Pages/hooks/usePagesList";
+import { RowIcon, RowText, RowTitle } from "./Cells.styled";
 
-import { type FolderTableItem } from "@webiny/app-aco/types.js";
-import { type PbPageTableItem } from "~/types.js";
+import type { FolderItem } from "@webiny/app-aco/types";
+import type { PbPageTableItem } from "~/types";
 
 interface FolderCellNameProps {
-    folder: FolderTableItem;
+    folder: FolderItem;
 }
 
 export const FolderCellName = ({ folder }: FolderCellNameProps) => {
@@ -54,7 +54,7 @@ export const CellName = () => {
     const { row } = useTableRow();
 
     if (isFolderRow(row)) {
-        return <FolderCellName folder={row} />;
+        return <FolderCellName folder={row.data} />;
     }
 
     return <PageCellName page={row} />;

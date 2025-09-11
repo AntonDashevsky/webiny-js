@@ -1,44 +1,44 @@
 import uniqid from "uniqid";
-import lodashGet from "lodash/get.js";
+import lodashGet from "lodash/get";
 import DataLoader from "dataloader";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
-    type CreatedBy,
-    type OnPageBeforeCreateTopicParams,
-    type Page,
-    type PageBuilderContextObject,
-    type PageBuilderStorageOperations,
-    type PageElementProcessor,
-    type PagesCrud,
-    type PageStorageOperationsGetWhereParams,
-    type PageStorageOperationsListParams,
-    type PageStorageOperationsListTagsParams,
-    type PbContext
-} from "~/types.js";
-import normalizePath from "./pages/normalizePath.js";
+import type {
+    CreatedBy,
+    OnPageBeforeCreateTopicParams,
+    Page,
+    PageBuilderContextObject,
+    PageBuilderStorageOperations,
+    PageElementProcessor,
+    PagesCrud,
+    PageStorageOperationsGetWhereParams,
+    PageStorageOperationsListParams,
+    PageStorageOperationsListTagsParams,
+    PbContext
+} from "~/types";
+import normalizePath from "./pages/normalizePath";
 import {
     createPageCreateValidation,
     createPageSettingsUpdateValidation,
     createPageUpdateValidation
-} from "./pages/validation.js";
-import { processPageContent } from "./pages/processPageContent.js";
+} from "./pages/validation";
+import { processPageContent } from "./pages/processPageContent";
 import WebinyError from "@webiny/error";
-import lodashTrimEnd from "lodash/trimEnd.js";
-import {
-    type FlushParams,
-    type OnPageAfterCreateFromTopicParams,
-    type OnPageAfterCreateTopicParams,
-    type OnPageAfterDeleteTopicParams,
-    type OnPageAfterPublishTopicParams,
-    type OnPageAfterUnpublishTopicParams,
-    type OnPageAfterUpdateTopicParams,
-    type OnPageBeforeCreateFromTopicParams,
-    type OnPageBeforeDeleteTopicParams,
-    type OnPageBeforePublishTopicParams,
-    type OnPageBeforeUnpublishTopicParams,
-    type OnPageBeforeUpdateTopicParams,
-    type RenderParams
-} from "~/graphql/types.js";
+import lodashTrimEnd from "lodash/trimEnd";
+import type {
+    FlushParams,
+    OnPageAfterCreateFromTopicParams,
+    OnPageAfterCreateTopicParams,
+    OnPageAfterDeleteTopicParams,
+    OnPageAfterPublishTopicParams,
+    OnPageAfterUnpublishTopicParams,
+    OnPageAfterUpdateTopicParams,
+    OnPageBeforeCreateFromTopicParams,
+    OnPageBeforeDeleteTopicParams,
+    OnPageBeforePublishTopicParams,
+    OnPageBeforeUnpublishTopicParams,
+    OnPageBeforeUpdateTopicParams,
+    RenderParams
+} from "~/graphql/types";
 import { createTopic } from "@webiny/pubsub";
 import {
     createIdentifier,
@@ -49,11 +49,11 @@ import {
     removeUndefinedValues,
     zeroPad
 } from "@webiny/utils";
-import { createCompression } from "~/graphql/crud/pages/compression.js";
-import { type PagesPermissions } from "./permissions/PagesPermissions.js";
-import { PageContent } from "./pages/PageContent.js";
-import { getDate } from "~/graphql/crud/utils/getDate.js";
-import { getIdentity } from "~/graphql/crud/utils/getIdentity.js";
+import { createCompression } from "~/graphql/crud/pages/compression";
+import type { PagesPermissions } from "./permissions/PagesPermissions";
+import { PageContent } from "./pages/PageContent";
+import { getDate } from "~/graphql/crud/utils/getDate";
+import { getIdentity } from "~/graphql/crud/utils/getIdentity";
 
 const STATUS_DRAFT = "draft";
 const STATUS_PUBLISHED = "published";

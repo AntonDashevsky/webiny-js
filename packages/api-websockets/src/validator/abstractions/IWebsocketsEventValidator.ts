@@ -1,4 +1,8 @@
-import { type IWebsocketsEvent, type IWebsocketsEventData, type IWebsocketsIncomingEvent } from "~/handler/types.js";
+import type {
+    IWebsocketsEvent,
+    IWebsocketsEventData,
+    IWebsocketsIncomingEvent
+} from "~/handler/types";
 
 export type IWebsocketsEventValidatorValidateParams = IWebsocketsIncomingEvent;
 

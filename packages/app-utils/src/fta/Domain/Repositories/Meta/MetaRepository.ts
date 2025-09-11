@@ -1,7 +1,8 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { decodeCursor, encodeCursor } from "@webiny/utils";
-import { type IMetaRepository } from "./IMetaRepository.js";
-import { Meta, type MetaDTO, MetaMapper } from "~/fta/Domain/Models/Meta/index.js";
+import type { IMetaRepository } from "./IMetaRepository";
+import type { MetaDTO } from "~/fta/Domain/Models/Meta";
+import { Meta, MetaMapper } from "~/fta/Domain/Models/Meta";
 
 export class MetaRepository implements IMetaRepository {
     private meta: Meta;
@@ -12,7 +13,9 @@ export class MetaRepository implements IMetaRepository {
     }
 
     async set(meta: MetaDTO) {
-        this.meta = Meta.create(meta);
+        runInAction(() => {
+            this.meta = Meta.create(meta);
+        });
     }
 
     get() {

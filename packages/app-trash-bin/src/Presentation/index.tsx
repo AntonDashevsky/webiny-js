@@ -1,17 +1,17 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { AcoWithConfig } from "@webiny/app-aco";
-import {
-    type ITrashBinDeleteItemGateway,
-    type ITrashBinListGateway,
-    type ITrashBinRestoreItemGateway,
-    type ITrashBinBulkActionsGateway
-} from "~/Gateways/index.js";
-import { type ITrashBinItemMapper, type TrashBinItemDTO } from "~/Domain/index.js";
-import { TrashBinRenderer } from "~/Presentation/TrashBinRenderer/index.js";
+import type {
+    ITrashBinDeleteItemGateway,
+    ITrashBinListGateway,
+    ITrashBinRestoreItemGateway,
+    ITrashBinBulkActionsGateway
+} from "~/Gateways";
+import type { ITrashBinItemMapper, TrashBinItemDTO } from "~/Domain";
+import { TrashBinRenderer } from "~/Presentation/TrashBinRenderer";
 import { CompositionScope } from "@webiny/react-composition";
-import { TrashBinListWithConfig } from "~/Presentation/configs/index.js";
+import { TrashBinListWithConfig } from "~/Presentation/configs";
 
-export * from "~/Presentation/TrashBinConfigs/index.js";
+export * from "~/Presentation/TrashBinConfigs";
 
 export type TrashBinRenderPropParams = {
     showTrashBin: () => void;

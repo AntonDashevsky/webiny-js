@@ -1,12 +1,7 @@
-import { CloudFrontRequestHandler, CloudFrontResponseHandler } from "./types.js";
+import type { CloudFrontRequestHandler, CloudFrontResponseHandler } from "./types";
 
 declare const global: typeof globalThis & {
-    // CloudFront Functions use global handler value, not exports.
-    /**
-     * We will leave the Function for now.
-     */
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    handler: Function;
+    handler: CloudFrontRequestHandler | CloudFrontResponseHandler;
 };
 
 /**

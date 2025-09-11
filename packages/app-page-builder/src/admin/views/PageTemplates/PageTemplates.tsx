@@ -1,16 +1,16 @@
 import React, { useCallback } from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { i18n } from "@webiny/app/i18n";
 import { useRouter } from "@webiny/react-router";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import { useStateWithCallback } from "@webiny/app-admin/hooks/index.js";
-import PageTemplatesDataList from "./PageTemplatesDataList.js";
-import { PageTemplateDetails } from "./PageTemplateDetails.js";
-import { CreatePageTemplateDialog } from "./CreatePageTemplateDialog.js";
-import { type PbPageTemplate } from "~/types.js";
-import { useTemplatesPermissions } from "~/hooks/permissions/index.js";
-import { useCreatePageTemplate, useDeletePageTemplate } from "~/features/index.js";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import { useStateWithCallback } from "@webiny/app-admin/hooks";
+import PageTemplatesDataList from "./PageTemplatesDataList";
+import { PageTemplateDetails } from "./PageTemplateDetails";
+import { CreatePageTemplateDialog } from "./CreatePageTemplateDialog";
+import type { PbPageTemplate } from "~/types";
+import { useTemplatesPermissions } from "~/hooks/permissions";
+import { useCreatePageTemplate, useDeletePageTemplate } from "~/features";
 
 const t = i18n.ns("app-page-builder/admin/views/page-templates");
 

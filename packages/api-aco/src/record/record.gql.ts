@@ -1,8 +1,11 @@
-import { type AcoContext, type IAcoApp } from "~/types.js";
-import { type CmsFieldTypePlugins, type CmsModelFieldToGraphQLPlugin } from "@webiny/api-headless-cms/types/index.js";
+import type { AcoContext, IAcoApp } from "~/types";
+import type {
+    CmsFieldTypePlugins,
+    CmsModelFieldToGraphQLPlugin
+} from "@webiny/api-headless-cms/types";
 import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { createAppSchema } from "./graphql/createAppSchema.js";
-import { createAppResolvers } from "./graphql/createAppResolvers.js";
+import { createAppSchema } from "./graphql/createAppSchema";
+import { createAppResolvers } from "./graphql/createAppResolvers";
 
 interface Params {
     context: AcoContext;

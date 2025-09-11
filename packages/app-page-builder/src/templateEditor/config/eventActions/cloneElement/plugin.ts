@@ -1,6 +1,6 @@
-import { CloneElementActionEvent } from "./event.js";
-import { cloneElementAction } from "./action.js";
-import { type PbEditorEventActionPlugin } from "~/types.js";
+import { CloneElementActionEvent } from "./event";
+import { cloneElementAction } from "./action";
+import type { PbEditorEventActionPlugin } from "~/types";
 
 export const createCloneElementPlugin = (): PbEditorEventActionPlugin => {
     return {

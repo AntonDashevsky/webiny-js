@@ -1,4 +1,4 @@
-import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { insertDynamoDbTestData } from "~tests/utils";
 import { ACO_FOLDER_MODEL_ID } from "~/migrations/5.43.0/001/constants";
 import { createFolderData } from "./data";

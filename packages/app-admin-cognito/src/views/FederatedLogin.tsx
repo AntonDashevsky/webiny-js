@@ -1,11 +1,9 @@
 import React from "react";
 import { Auth } from "@aws-amplify/auth";
-import { type CognitoHostedUIIdentityProvider } from "@aws-amplify/auth/lib-esm/types/Auth.js";
-import {
-    federatedIdentityProviders,
-    type FederatedIdentityProvider
-} from "~/federatedIdentityProviders.js";
-import { FederatedProviders } from "~/components/FederatedProviders.js";
+import type { CognitoHostedUIIdentityProvider } from "@aws-amplify/auth/lib-esm/types/Auth";
+import type { FederatedIdentityProvider } from "~/federatedIdentityProviders";
+import { federatedIdentityProviders } from "~/federatedIdentityProviders";
+import { FederatedProviders } from "~/components/FederatedProviders";
 
 interface FederatedLoginProps {
     providers: FederatedIdentityProvider[];

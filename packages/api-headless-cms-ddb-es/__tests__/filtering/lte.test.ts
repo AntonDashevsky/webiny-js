@@ -1,7 +1,8 @@
-import { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
-import { CreateExecFilteringResponse } from "~/operations/entry/elasticsearch/filtering";
-import { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
-import { createQuery, Query, createPluginsContainer } from "./mocks";
+import type { CmsEntryListWhere } from "@webiny/api-headless-cms/types";
+import type { CreateExecFilteringResponse } from "~/operations/entry/elasticsearch/filtering";
+import type { ElasticsearchBoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import type { Query } from "./mocks";
+import { createQuery, createPluginsContainer } from "./mocks";
 import { createExecFiltering } from "./mocks/filtering";
 
 describe("lesser than or equal filter", () => {

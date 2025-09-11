@@ -1,7 +1,7 @@
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { ContextPlugin } from "@webiny/api";
-import { CmsContext } from "~/types";
-import { Tenant } from "@webiny/api-tenancy/types";
+import type { CmsContext } from "~/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
 
 export interface PermissionsArg {
     name: string;

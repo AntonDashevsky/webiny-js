@@ -41,7 +41,7 @@ import {
     UPDATE_PAGE
 } from "./graphql/pages";
 
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import {
     CREATE_CATEGORY,
     DELETE_CATEGORY,
@@ -82,11 +82,11 @@ import fs from "fs";
 import { until } from "@webiny/project-utils/testing/helpers/until";
 import { createTenancyAndSecurity } from "../tenancySecurity";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { PageBuilderStorageOperations } from "~/types";
-import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { PageBuilderStorageOperations } from "~/types";
+import type { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import { CmsParametersPlugin, createHeadlessCmsContext } from "@webiny/api-headless-cms";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 interface Params {
     permissions?: any;

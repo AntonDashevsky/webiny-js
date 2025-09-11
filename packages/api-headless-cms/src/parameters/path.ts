@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { CmsParametersPlugin } from "~/plugins/CmsParametersPlugin.js";
-import { type ApiEndpoint } from "~/types/index.js";
+import { CmsParametersPlugin } from "~/plugins/CmsParametersPlugin";
+import type { ApiEndpoint } from "~/types";
 
 const allowedEndpoints: ApiEndpoint[] = ["manage", "read", "preview"];
 

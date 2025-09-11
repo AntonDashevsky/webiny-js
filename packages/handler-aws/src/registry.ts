@@ -1,8 +1,8 @@
 /**
  * TODO: refactor this to use a proper DI container
  */
-import { type HandlerEvent, type SourceHandler } from "~/types.js";
-import { type Context as LambdaContext } from "@webiny/aws-sdk/types/index.js";
+import type { HandlerEvent, SourceHandler } from "~/types";
+import type { Context as LambdaContext } from "@webiny/aws-sdk/types";
 
 interface RegisterOptions {
     silent?: boolean;

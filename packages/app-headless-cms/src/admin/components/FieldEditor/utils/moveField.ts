@@ -1,11 +1,11 @@
 import dot from "dot-prop-immutable";
-import {
-    type CmsModelField,
-    type CmsEditorFieldId,
-    type CmsModel as BaseCmsModel,
-    type FieldLayoutPosition
-} from "~/types.js";
-import getFieldPosition from "./getFieldPosition.js";
+import type {
+    CmsModelField,
+    CmsEditorFieldId,
+    CmsModel as BaseCmsModel,
+    FieldLayoutPosition
+} from "~/types";
+import getFieldPosition from "./getFieldPosition";
 
 type CmsModel = Required<Pick<BaseCmsModel, "fields" | "layout">>;
 

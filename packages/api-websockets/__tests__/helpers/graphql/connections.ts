@@ -1,5 +1,5 @@
-import { IWebsocketsConnectionRegistryData } from "~/registry";
-import { IWebsocketsResponseError } from "~/runner";
+import type { IWebsocketsConnectionRegistryData } from "~/registry";
+import type { IWebsocketsResponseError } from "~/runner";
 
 export interface IListConnectionsVariables {
     where?: {

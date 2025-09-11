@@ -1,21 +1,21 @@
-import {type ComponentType, type ReactElement, type ReactNode} from "react";
+import type { ComponentType, ReactElement, ReactNode } from "react";
 import type React from "react";
-import { type DragObjectWithTypeWithTarget } from "./editor/components/Droppable.js";
-import { type BaseEventAction, type EventAction } from "./editor/recoil/eventActions/index.js";
-import { type PbState } from "./editor/recoil/modules/types.js";
-import { type GenericRecord, type Plugin } from "@webiny/app/types.js";
-import { type BindComponent } from "@webiny/form";
-import { type IconName, type IconPrefix } from "@fortawesome/fontawesome-svg-core";
-import { type Icon } from "@webiny/app-admin/components/IconPicker/types.js";
-import { type FormAPI, type FormOnSubmit, type FormSetValue, type GenericFormData } from "@webiny/form/types.js";
-import { type CoreOptions } from "medium-editor";
-import { type MenuTreeItem } from "~/admin/views/Menus/types.js";
-import { type SecurityPermission } from "@webiny/app-security/types.js";
-import { type PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types.js";
-import { type Theme } from "@webiny/app-theme/types.js";
-import { type Renderer } from "@webiny/app-page-builder-elements/types.js";
-import { type FolderTableItem, type RecordTableItem, type SearchRecordItem } from "@webiny/app-aco/table.types.js";
+import type { DragObjectWithTypeWithTarget } from "./editor/components/Droppable";
+import type { BaseEventAction, EventAction } from "./editor/recoil/eventActions";
+import type { PbState } from "./editor/recoil/modules/types";
+import type { GenericRecord, Plugin } from "@webiny/app/types";
+import type { BindComponent } from "@webiny/form";
+import type { Icon } from "@webiny/app-admin/components/IconPicker/types";
+import type { FormAPI, FormOnSubmit, FormSetValue, GenericFormData } from "@webiny/form/types";
+import type { CoreOptions } from "medium-editor";
+import type { MenuTreeItem } from "~/admin/views/Menus/types";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { PagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/types";
+import type { Theme } from "@webiny/app-theme/types";
+import type { Renderer } from "@webiny/app-page-builder-elements/types";
+import type { FolderTableRow, RecordTableRow, SearchRecordItem } from "@webiny/app-aco/table.types";
 import type { SourceType } from "dnd-core";
+import type { IconPickerIconDto } from "@webiny/admin-ui";
 
 export type DragObjectWithType = {
     type: SourceType;
@@ -623,24 +623,9 @@ export interface PbEditorPageQueryFieldsPlugin extends Plugin {
     fields: string;
 }
 
-export type PbIcon = {
-    /**
-     * [ pack, icon ], ex: ["fab", "cog"]
-     */
-    id: [IconPrefix, IconName];
-    /**
-     * Icon name
-     */
-    name: string;
-    /**
-     * SVG element
-     */
-    svg: ReactElement;
-};
-
 export type PbIconsPlugin = Plugin & {
     type: "pb-icons";
-    getIcons(): PbIcon[];
+    getIcons(): IconPickerIconDto[];
 };
 
 export type PbEditorToolbarTopPlugin = Plugin & {
@@ -1075,6 +1060,7 @@ declare global {
     }
 }
 
-export type PbPageTableItem = SearchRecordItem<PbPageDataItem> & RecordTableItem;
+export type PbPageSearchRecord = SearchRecordItem<PbPageDataItem>;
+export type PbPageTableItem = RecordTableRow<PbPageSearchRecord>;
 
-export type TableItem = FolderTableItem | PbPageTableItem;
+export type TableItem = FolderTableRow | PbPageTableItem;

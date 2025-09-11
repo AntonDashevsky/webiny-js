@@ -1,5 +1,5 @@
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Table } from "@webiny/db-dynamodb/toolbox.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { Table } from "@webiny/db-dynamodb/toolbox";
 
 interface CreateTableParams {
     table?: string;

@@ -2,23 +2,21 @@ import type {
     APIGatewayProxyResult,
     Context as LambdaContext,
     DynamoDBStreamEvent
-} from "@webiny/aws-sdk/types/index.js";
-import type { HandlerFactoryParams } from "~/types.js";
+} from "@webiny/aws-sdk/types";
+import type { HandlerFactoryParams } from "~/types";
 import { createHandler as createBaseHandler } from "@webiny/handler";
-import { registerDefaultPlugins } from "~/plugins/index.js";
-import {
-    DynamoDBEventHandler,
-    type DynamoDBEventHandlerCallableParams
-} from "./plugins/DynamoDBEventHandler.js";
+import { registerDefaultPlugins } from "~/plugins";
+import type { DynamoDBEventHandlerCallableParams } from "./plugins/DynamoDBEventHandler";
+import { DynamoDBEventHandler } from "./plugins/DynamoDBEventHandler";
 /**
  * We need a class, not an interface exported from types.
  */
 // @ts-expect-error
-import Reply from "fastify/lib/reply.js";
-import { execute } from "~/execute.js";
-import { createComposedHandler } from "~/utils/composedHandler.js";
+import Reply from "fastify/lib/reply";
+import { execute } from "~/execute";
+import { createComposedHandler } from "~/utils/composedHandler";
 
-export * from "./plugins/DynamoDBEventHandler.js";
+export * from "./plugins/DynamoDBEventHandler";
 
 const url = "/webiny-dynamodb-event";
 

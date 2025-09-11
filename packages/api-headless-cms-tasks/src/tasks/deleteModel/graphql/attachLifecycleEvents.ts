@@ -1,6 +1,6 @@
-import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import { WebinyError } from "@webiny/error";
-import { type HcmsTasksContext } from "~/types.js";
+import type { HcmsTasksContext } from "~/types";
 
 export interface IAttachLifecycleEventsParams {
     context: HcmsTasksContext;

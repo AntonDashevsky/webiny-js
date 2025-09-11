@@ -1,6 +1,6 @@
-import { Context } from "@webiny/api/types.js";
-import { AttributePlugin } from "~/plugins/definitions/AttributePlugin.js";
-import { PluginsContainer } from "@webiny/plugins";
+import type { Context } from "@webiny/api/types";
+import { AttributePlugin } from "~/plugins/definitions/AttributePlugin";
+import type { PluginsContainer } from "@webiny/plugins";
 
 /**
  * Will be removed in favor of directly assigning attributes to a certain entity when creating the storage operations.

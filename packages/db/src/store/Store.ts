@@ -1,4 +1,4 @@
-import {
+import type {
     GetValueResult,
     GetValuesResult,
     IListValuesParams,
@@ -9,9 +9,9 @@ import {
     StorageKey,
     StoreValueResult,
     StoreValuesResult
-} from "./types.js";
-import { GenericRecord } from "@webiny/api/types.js";
-import { DbDriver } from "~/index.js";
+} from "./types";
+import type { GenericRecord } from "@webiny/api/types";
+import type { DbDriver } from "~/index";
 
 export interface IStoreParams<T> {
     driver: DbDriver<T>;

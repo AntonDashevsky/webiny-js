@@ -1,4 +1,4 @@
-import { type PbEditorElement } from "~/types.js";
+import type { PbEditorElement } from "~/types";
 
 export interface CloneElementActionArgsType {
     element: PbEditorElement;

@@ -1,16 +1,18 @@
-import { type DynamoDBDocument, getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
-import { type Client, createElasticsearchClient } from "@webiny/api-elasticsearch";
-import { createTable } from "~/definitions/index.js";
-import type { Context, IManager } from "~/types.js";
-import { createEntry } from "~/definitions/entry.js";
-import type { ITaskResponse } from "@webiny/tasks/response/abstractions/index.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { getDocumentClient } from "@webiny/aws-sdk/client-dynamodb";
+import type { Client } from "@webiny/api-elasticsearch";
+import { createElasticsearchClient } from "@webiny/api-elasticsearch";
+import { createTable } from "~/definitions";
+import type { Context, IManager } from "~/types";
+import { createEntry } from "~/definitions/entry";
+import type { ITaskResponse } from "@webiny/tasks/response/abstractions";
 import type {
     IIsCloseToTimeoutCallable,
     ITaskManagerStore
-} from "@webiny/tasks/runner/abstractions/index.js";
+} from "@webiny/tasks/runner/abstractions";
 import type { BatchReadItem, IEntity } from "@webiny/db-dynamodb";
 import { batchReadAll } from "@webiny/db-dynamodb";
-import type { ITimer } from "@webiny/handler-aws/utils/index.js";
+import type { ITimer } from "@webiny/handler-aws/utils";
 
 export interface ManagerParams<T> {
     context: Context;

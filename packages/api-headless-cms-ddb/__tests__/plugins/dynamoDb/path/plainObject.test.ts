@@ -1,4 +1,4 @@
-import { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
 import { createPlainObjectPathPlugin } from "~/dynamoDb/path/plainObject";
 
 describe("dynamodb path plain object", () => {

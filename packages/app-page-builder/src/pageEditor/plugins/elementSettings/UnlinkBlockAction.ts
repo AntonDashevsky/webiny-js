@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { removeElementVariableIds } from "~/pageEditor/helpers.js";
-import { type PbElement } from "~/types.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { removeElementVariableIds } from "~/pageEditor/helpers";
+import type { PbElement } from "~/types";
 
 interface UnlinkBlockActionPropsType {
     children: React.ReactElement;

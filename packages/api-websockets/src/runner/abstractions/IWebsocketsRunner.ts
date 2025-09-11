@@ -1,5 +1,5 @@
-import { type IWebsocketsIncomingEvent } from "~/handler/types.js";
-import { type GenericRecord } from "@webiny/api/types.js";
+import type { IWebsocketsIncomingEvent } from "~/handler/types";
+import type { GenericRecord } from "@webiny/api/types";
 
 export interface IWebsocketsResponseError {
     message: string;

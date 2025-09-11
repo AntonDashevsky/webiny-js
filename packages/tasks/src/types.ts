@@ -1,29 +1,29 @@
-import {
+import type {
     CmsContext as BaseContext,
     CmsEntryListParams,
     CmsEntryListWhere,
     CmsEntryMeta,
     CmsModel,
     CmsModelField
-} from "@webiny/api-headless-cms/types/index.js";
-import { Topic } from "@webiny/pubsub/types.js";
-import {
+} from "@webiny/api-headless-cms/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type {
     IResponseError,
     ITaskResponse,
     ITaskResponseDoneResultOutput,
     ITaskResponseResult
-} from "~/response/abstractions/index.js";
-import { IIsCloseToTimeoutCallable, ITaskManagerStore } from "./runner/abstractions/index.js";
-import { SecurityPermission } from "@webiny/api-security/types.js";
-import { GenericRecord } from "@webiny/api/types.js";
-import { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin.js";
-import { ITimer } from "@webiny/handler-aws";
+} from "~/response/abstractions";
+import type { IIsCloseToTimeoutCallable, ITaskManagerStore } from "./runner/abstractions";
+import type { SecurityPermission } from "@webiny/api-security/types";
+import type { GenericRecord } from "@webiny/api/types";
+import type { IStepFunctionServiceFetchResult } from "~/service/StepFunctionServicePlugin";
+import type { ITimer } from "@webiny/handler-aws";
 
 import type zod from "zod";
 
-export * from "./handler/types.js";
-export * from "./response/abstractions/index.js";
-export * from "./runner/abstractions/index.js";
+export * from "./handler/types";
+export * from "./response/abstractions";
+export * from "./runner/abstractions";
 
 export type ITaskDataInput = GenericRecord;
 

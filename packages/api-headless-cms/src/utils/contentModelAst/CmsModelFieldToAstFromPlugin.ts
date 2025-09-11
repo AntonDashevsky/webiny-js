@@ -1,9 +1,9 @@
-import {
-    type CmsModelField,
-    type CmsModelFieldAstNode,
-    type CmsModelFieldToGraphQLPlugin,
-    type ICmsModelFieldToAst
-} from "~/types/index.js";
+import type {
+    CmsModelField,
+    CmsModelFieldAstNode,
+    CmsModelFieldToGraphQLPlugin,
+    ICmsModelFieldToAst
+} from "~/types";
 
 export class CmsModelFieldToAstFromPlugin implements ICmsModelFieldToAst {
     private readonly converter: ICmsModelFieldToAst;

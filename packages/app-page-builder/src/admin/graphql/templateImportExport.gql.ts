@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { type PageBuilderImportExportSubTask } from "~/types.js";
+import type { PageBuilderImportExportSubTask } from "~/types";
 
 const ERROR = `
 error {

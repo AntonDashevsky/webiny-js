@@ -1,7 +1,7 @@
 import useGqlHandler from "./useGqlHandler";
 
 import { assignPageLifecycleEvents, tracker } from "./mocks/lifecycleEvents";
-import { PageData } from "./graphql/pages";
+import type { PageData } from "./graphql/pages";
 
 const categorySlug = "category-lifecycle-events";
 

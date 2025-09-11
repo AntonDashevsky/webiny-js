@@ -1,12 +1,11 @@
 import { getIntrospectionQuery } from "graphql";
 import { createHandler } from "@webiny/handler-aws";
 import { PluginsContainer } from "@webiny/plugins/types";
-import { createHandlerCore, CreateHandlerCoreParams } from "./plugins";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { CreateHandlerCoreParams } from "./plugins";
+import { createHandlerCore } from "./plugins";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 import { defaultIdentity } from "./tenancySecurity";
-import {
-    GET_LOCK_RECORD_QUERY,
-    GET_LOCKED_ENTRY_LOCK_RECORD_QUERY,
+import type {
     IGetLockedEntryLockRecordGraphQlResponse,
     IGetLockedEntryLockRecordGraphQlVariables,
     IGetLockRecordGraphQlResponse,
@@ -17,13 +16,17 @@ import {
     IListLockRecordsGraphQlVariables,
     ILockEntryGraphQlResponse,
     ILockEntryGraphQlVariables,
-    IS_ENTRY_LOCKED_QUERY,
     IUnlockEntryGraphQlResponse,
     IUnlockEntryGraphQlVariables,
     IUnlockEntryRequestGraphQlResponse,
     IUnlockEntryRequestGraphQlVariables,
     IUpdateEntryLockGraphQlResponse,
-    IUpdateEntryLockGraphQlVariables,
+    IUpdateEntryLockGraphQlVariables
+} from "./graphql/recordLocking";
+import {
+    GET_LOCK_RECORD_QUERY,
+    GET_LOCKED_ENTRY_LOCK_RECORD_QUERY,
+    IS_ENTRY_LOCKED_QUERY,
     LIST_LOCK_RECORDS_QUERY,
     LOCK_ENTRY_MUTATION,
     UNLOCK_ENTRY_MUTATION,

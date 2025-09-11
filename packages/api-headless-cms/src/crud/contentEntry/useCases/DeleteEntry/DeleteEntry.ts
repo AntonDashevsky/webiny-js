@@ -1,12 +1,12 @@
 import { NotFoundError } from "@webiny/handler-graphql";
 import { parseIdentifier } from "@webiny/utils";
-import {
-    type IDeleteEntry,
-    type IDeleteEntryOperation,
-    type IGetLatestRevisionByEntryId
-} from "../../abstractions/index.js";
-import { type CmsDeleteEntryOptions, type CmsEntry, type CmsModel } from "~/types/index.js";
-import { type TransformEntryDelete } from "./TransformEntryDelete.js";
+import type {
+    IDeleteEntry,
+    IDeleteEntryOperation,
+    IGetLatestRevisionByEntryId
+} from "../../abstractions";
+import type { CmsDeleteEntryOptions, CmsEntry, CmsModel } from "~/types";
+import type { TransformEntryDelete } from "./TransformEntryDelete";
 
 export class DeleteEntry implements IDeleteEntry {
     private getEntry: IGetLatestRevisionByEntryId;

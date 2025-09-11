@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import ReactDOM from "react-dom";
+import { Portal } from "@webiny/admin-ui";
 import { createVoidComponent, makeDecoratable } from "@webiny/react-composition";
 
 export interface FileManagerOnChange<T> {
@@ -77,16 +77,6 @@ export type FileManagerProps = {
     children?: (params: DeprecatedFileManagerRenderPropParams) => React.ReactNode;
 } & MultipleProps;
 
-function getPortalTarget() {
-    let target = window.document.getElementById("file-manager-container");
-    if (!target) {
-        target = document.createElement("div");
-        target.setAttribute("id", "file-manager-container");
-        document.body && document.body.appendChild(target);
-    }
-    return target;
-}
-
 // This jewel was taken from https://davidgomes.com/pick-omit-over-union-types-in-typescript/. Massive thanks, David!
 type DistributiveOmit<T, K extends keyof T> = T extends unknown ? Omit<T, K> : never;
 
@@ -103,37 +93,59 @@ type ShowFileManagerProps =
     | undefined;
 
 export const FileManager = ({ children, render, onChange, ...rest }: FileManagerProps) => {
-    const containerRef = useRef<HTMLElement>(getPortalTarget());
-    const [show, setShow] = useState(rest.show ?? false);
+    const [isFileManagerVisible, setFileManagerVisible] = useState(rest.show);
     const onChangeRef = useRef(onChange);
 
     useEffect(() => {
         onChangeRef.current = onChange;
     }, [onChange]);
 
-    const showFileManager = useCallback((onChange: ShowFileManagerProps) => {
-        if (typeof onChange === "function") {
-            onChangeRef.current = onChange;
+    const handleShowFileManager = useCallback((newOnChange: ShowFileManagerProps) => {
+        if (typeof newOnChange === "function") {
+            onChangeRef.current = newOnChange;
         }
-        setShow(true);
+        setFileManagerVisible(true);
     }, []);
+
+    const handleCloseFileManager = useCallback(() => {
+        setFileManagerVisible(false);
+    }, []);
+
+    const renderFileManager = () => {
+        if (!isFileManagerVisible) {
+            return null;
+        }
+
+        return (
+            <Portal>
+                {/*@ts-expect-error*/}
+                <FileManagerRenderer
+                    onClose={handleCloseFileManager}
+                    onChange={onChangeRef.current}
+                    {...rest}
+                />
+            </Portal>
+        );
+    };
+
+    const renderContent = () => {
+        const renderProps = { showFileManager: handleShowFileManager };
+
+        if (children) {
+            return children(renderProps);
+        }
+
+        if (render) {
+            return render(renderProps);
+        }
+
+        return null;
+    };
 
     return (
         <>
-            {show &&
-                ReactDOM.createPortal(
-                    /**
-                     * TODO @pavel
-                     */
-                    // @ts-expect-error
-                    <FileManagerRenderer
-                        onClose={() => setShow(false)}
-                        onChange={onChangeRef.current}
-                        {...rest}
-                    />,
-                    containerRef.current
-                )}
-            {children ? children({ showFileManager }) : render ? render({ showFileManager }) : null}
+            {renderFileManager()}
+            {renderContent()}
         </>
     );
 };

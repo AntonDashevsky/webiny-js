@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { type ITrashBinItemsRepository } from "~/Domain/Repositories/index.js";
-import { type IBulkActionUseCase } from "./IBulkActionUseCase.js";
-import { type TrashBinBulkActionsParams } from "~/types.js";
+import type { ITrashBinItemsRepository } from "~/Domain/Repositories";
+import type { IBulkActionUseCase } from "./IBulkActionUseCase";
+import type { TrashBinBulkActionsParams } from "~/types";
 
 export class BulkActionUseCase implements IBulkActionUseCase {
     private repository: ITrashBinItemsRepository;

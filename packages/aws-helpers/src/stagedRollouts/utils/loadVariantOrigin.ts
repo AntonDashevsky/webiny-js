@@ -1,8 +1,10 @@
-import { CloudFrontRequestEvent, getHeader, notFoundResponse } from "~/lambdaEdge/index.js";
+import type { CloudFrontRequestEvent } from "~/lambdaEdge";
+import { getHeader, notFoundResponse } from "~/lambdaEdge";
 
-import { variantFixedKey, variantRandomKey } from "../utils/common.js";
-import { GatewayConfig, loadTrafficSplittingConfig } from "../utils/loadTrafficSplittingConfig.js";
-import { logDebug } from "./log.js";
+import { variantFixedKey, variantRandomKey } from "../utils/common";
+import type { GatewayConfig } from "../utils/loadTrafficSplittingConfig";
+import { loadTrafficSplittingConfig } from "../utils/loadTrafficSplittingConfig";
+import { logDebug } from "./log";
 
 export async function loadVariantOrigin(event: CloudFrontRequestEvent) {
     const cf = event.Records[0].cf;

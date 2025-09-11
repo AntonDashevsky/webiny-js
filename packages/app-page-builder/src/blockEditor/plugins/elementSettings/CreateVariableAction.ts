@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { plugins } from "@webiny/plugins";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
-import { useCurrentBlockElement } from "~/editor/hooks/useCurrentBlockElement.js";
-import { type PbBlockEditorCreateVariablePlugin } from "~/types.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+import { useCurrentBlockElement } from "~/editor/hooks/useCurrentBlockElement";
+import type { PbBlockEditorCreateVariablePlugin } from "~/types";
 
 interface CreateVariableActionPropsType {
     children: React.ReactElement;

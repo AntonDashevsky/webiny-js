@@ -1,9 +1,9 @@
-import { type HeadlessCmsStorageOperations, type OnGroupBeforeCreateTopicParams } from "~/types/index.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import { type PluginsContainer } from "@webiny/plugins";
+import type { HeadlessCmsStorageOperations, OnGroupBeforeCreateTopicParams } from "~/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { PluginsContainer } from "@webiny/plugins";
 import WebinyError from "@webiny/error";
-import { toSlug } from "~/utils/toSlug.js";
-import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin.js";
+import { toSlug } from "~/utils/toSlug";
+import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";
 import { generateAlphaNumericId } from "@webiny/utils";
 
 interface AssignBeforeGroupCreateParams {

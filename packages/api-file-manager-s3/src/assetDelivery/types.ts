@@ -1,4 +1,4 @@
-import { type createAssetDelivery as createBaseAssetDelivery } from "@webiny/api-file-manager";
+import type { createAssetDelivery as createBaseAssetDelivery } from "@webiny/api-file-manager";
 
 export type AssetDeliveryParams = Parameters<typeof createBaseAssetDelivery>[0] & {
     imageResizeWidths?: number[];

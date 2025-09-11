@@ -1,7 +1,6 @@
 {
   "name": "@webiny/ioc",
   "version": "0.0.0",
-  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -15,13 +14,16 @@
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "@webiny/build-tools": "0.0.0",
-    "typescript": "5.3.3",
-    "zod": "^3.23.8"
+    "@webiny/project-utils": "0.0.0",
+    "typescript": "5.9.2",
+    "zod": "3.23.8"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   }
 }

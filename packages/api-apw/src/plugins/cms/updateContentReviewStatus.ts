@@ -1,13 +1,13 @@
-import {
-    type AdvancedPublishingWorkflow,
-    ApwContentReviewStatus,
-    type OnCmsEntryAfterPublishTopicParams,
-    type OnCmsEntryAfterUnpublishTopicParams
-} from "~/types.js";
-import { INITIAL_CONTENT_REVIEW_CONTENT_SCHEDULE_META } from "~/crud/utils.js";
-import { type HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
-import { type Security } from "@webiny/api-security/types.js";
-import { isApwDisabledOnModel } from "~/plugins/cms/utils.js";
+import type {
+    AdvancedPublishingWorkflow,
+    OnCmsEntryAfterPublishTopicParams,
+    OnCmsEntryAfterUnpublishTopicParams
+} from "~/types";
+import { ApwContentReviewStatus } from "~/types";
+import { INITIAL_CONTENT_REVIEW_CONTENT_SCHEDULE_META } from "~/crud/utils";
+import type { HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { Security } from "@webiny/api-security/types";
+import { isApwDisabledOnModel } from "~/plugins/cms/utils";
 
 interface UpdateContentReviewStatusParams {
     apw: AdvancedPublishingWorkflow;

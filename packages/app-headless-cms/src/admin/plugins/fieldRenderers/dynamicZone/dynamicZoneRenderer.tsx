@@ -1,19 +1,18 @@
 import React from "react";
-import { css } from "emotion";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
-import {
-    type BindComponent,
-    type BindComponentRenderProp,
-    type CmsModel,
-    type CmsModelField,
-    type CmsModelFieldRendererPlugin,
-    type CmsModelFieldRendererProps
-} from "~/types.js";
-import { SingleValueDynamicZone } from "./SingleValueDynamicZone.js";
-import { MultiValueDynamicZone } from "./MultiValueDynamicZone.js";
-import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings.js";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
+import { css } from "@emotion/css";
+import type {
+    BindComponent,
+    BindComponentRenderProp,
+    CmsModel,
+    CmsModelField,
+    CmsModelFieldRendererPlugin,
+    CmsModelFieldRendererProps
+} from "~/types";
+import { SingleValueDynamicZone } from "./SingleValueDynamicZone";
+import { MultiValueDynamicZone } from "./MultiValueDynamicZone";
+import { AccordionRenderSettings, getAccordionRenderSettings } from "../AccordionRenderSettings";
 import { makeDecoratable } from "@webiny/react-composition";
+import { Accordion, FormComponentErrorMessage } from "@webiny/admin-ui";
 
 const noBottomPadding = css`
     > .webiny-ui-accordion-item__content {
@@ -53,19 +52,17 @@ export const DynamicZoneContainer = makeDecoratable(
         return (
             <>
                 <Accordion>
-                    <AccordionItem
+                    <Accordion.Item
                         title={title}
                         description={description}
                         className={className || defaultClassName}
-                        open={open}
+                        defaultOpen={open}
                         actions={props.actions ?? null}
                     >
                         {children}
-                    </AccordionItem>
+                    </Accordion.Item>
                 </Accordion>
-                {isValid === false && (
-                    <FormElementMessage error={true}>{message}</FormElementMessage>
-                )}
+                {isValid === false && <FormComponentErrorMessage text={message} />}
             </>
         );
     }

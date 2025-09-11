@@ -1,6 +1,7 @@
-import React, { type ReactElement } from "react";
+import type { ReactElement } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import { Typography } from "@webiny/ui/Typography";
 
 const InfoMessageContainer = styled.div`
     padding: 16px;

@@ -1,6 +1,6 @@
 import { TaskEventValidation } from "~/runner/TaskEventValidation";
-import { ITaskEvent } from "~/handler/types";
-import WebinyError from "@webiny/error";
+import type { ITaskEvent } from "~/handler/types";
+import type WebinyError from "@webiny/error";
 
 describe("task event validation", () => {
     it("should pass the validation", async () => {

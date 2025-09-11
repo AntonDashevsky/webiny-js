@@ -1,7 +1,7 @@
-import { type EventActionCallable, type EventActionHandlerActionCallableResponse } from "~/types.js";
-import { type MoveBlockActionArgsType } from "./types.js";
-import { updateElementAction } from "~/editor/recoil/actions/index.js";
-import { updateBlockPosition } from "~/editor/helpers.js";
+import type { EventActionCallable, EventActionHandlerActionCallableResponse } from "~/types";
+import type { MoveBlockActionArgsType } from "./types";
+import { updateElementAction } from "~/editor/recoil/actions";
+import { updateBlockPosition } from "~/editor/helpers";
 
 export const moveBlockAction: EventActionCallable<MoveBlockActionArgsType> = async (
     state,

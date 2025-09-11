@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
 import { useGraphQlHandler } from "./handlers/graphQlHandler";
-import { PathType } from "~tests/handlers/types";
+import type { PathType } from "~tests/handlers/types";
 
 jest.setTimeout(90000);
 
@@ -38,9 +38,11 @@ describe("introspect", () => {
                     __schema: {
                         directives: expect.any(Array),
                         mutationType: {
+                            kind: "OBJECT",
                             name: "Mutation"
                         },
                         queryType: {
+                            kind: "OBJECT",
                             name: "Query"
                         },
                         subscriptionType: null,

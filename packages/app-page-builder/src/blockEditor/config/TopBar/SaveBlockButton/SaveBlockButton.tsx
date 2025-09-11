@@ -1,16 +1,16 @@
 import React, { useCallback, useState } from "react";
 import styled from "@emotion/styled";
 import { useLocation, useNavigate } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { useBlock } from "~/blockEditor/hooks/useBlock.js";
-import { SaveBlockActionEvent } from "~/blockEditor/config/eventActions/saveBlock/event.js";
-import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";
-import { DisplayMode } from "~/types.js";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
-import { type UpdatePageBlockInput } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlockGatewayInterface.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { ButtonIcon, ButtonPrimary } from "@webiny/ui/Button";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { useBlock } from "~/blockEditor/hooks/useBlock";
+import { SaveBlockActionEvent } from "~/blockEditor/config/eventActions/saveBlock/event";
+import { useDisplayMode } from "~/editor/hooks/useDisplayMode";
+import { DisplayMode } from "~/types";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+import type { UpdatePageBlockInput } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlockGatewayInterface";
 
 const SpinnerWrapper = styled.div`
     position: relative;

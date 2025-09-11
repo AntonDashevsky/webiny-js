@@ -1,4 +1,4 @@
-import { type CmsEntryValues, type CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsEntryValues, CmsModelField } from "@webiny/api-headless-cms/types";
 
 const hasOwnProperty = (
     values: CmsEntryValues | null | undefined = {},

@@ -1,8 +1,8 @@
 import type {
     CanAccessFolderContentParams,
     ICanAccessFolderContent
-} from "./ICanAccessFolderContent.js";
-import type { IGetIdentityGateway } from "../../gateways/index.js";
+} from "./ICanAccessFolderContent";
+import type { IGetIdentityGateway } from "../../gateways";
 
 export class CanAccessFolderContent implements ICanAccessFolderContent {
     private getIdentityGateway: IGetIdentityGateway;

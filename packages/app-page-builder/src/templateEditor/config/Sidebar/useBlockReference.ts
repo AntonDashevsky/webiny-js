@@ -1,5 +1,5 @@
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { type PbEditorElement } from "~/types.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import type { PbEditorElement } from "~/types";
 
 export interface BlockReference {
     referencedBlockId: string;

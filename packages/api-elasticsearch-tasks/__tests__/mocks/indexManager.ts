@@ -1,6 +1,6 @@
 import { IndexManager } from "~/settings";
-import { Client } from "@webiny/api-elasticsearch";
-import { IElasticsearchIndexingTaskValuesSettings } from "~/types";
+import type { Client } from "@webiny/api-elasticsearch";
+import type { IElasticsearchIndexingTaskValuesSettings } from "~/types";
 import { createElasticsearchClientMock } from "~tests/mocks/elasticsearch";
 
 interface Params {

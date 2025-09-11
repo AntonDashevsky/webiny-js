@@ -1,6 +1,6 @@
 import { useCategoryManageHandler } from "~tests/testHelpers/useCategoryManageHandler";
 import { setupGroupAndModels } from "~tests/testHelpers/setup";
-import { SecurityIdentity } from "@webiny/api-security/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 
 describe("content entry custom identities", () => {
     const manager = useCategoryManageHandler({

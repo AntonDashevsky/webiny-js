@@ -1,4 +1,5 @@
-import { ENTITIES, type SecurityStorageParams } from "~/types.js";
+import type { SecurityStorageParams } from "~/types";
+import { ENTITIES } from "~/types";
 import type {
     ApiKey,
     Group,
@@ -8,16 +9,16 @@ import type {
     System,
     Team,
     TenantLink
-} from "@webiny/api-security/types.js";
+} from "@webiny/api-security/types";
 import WebinyError from "@webiny/error";
-import { createTable } from "~/definitions/table.js";
+import { createTable } from "~/definitions/table";
 import {
     createApiKeyEntity,
     createGroupEntity,
     createSystemEntity,
     createTeamEntity,
     createTenantLinkEntity
-} from "~/definitions/entities.js";
+} from "~/definitions/entities";
 import type { QueryOneParams } from "@webiny/db-dynamodb";
 import {
     cleanupItem,

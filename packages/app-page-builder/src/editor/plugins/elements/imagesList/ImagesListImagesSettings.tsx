@@ -5,17 +5,17 @@ import { css } from "emotion";
  */
 // @ts-expect-error
 import { sortable } from "react-sortable";
-import { FileManager } from "@webiny/app-admin/components/index.js";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import File from "./File.js";
-import Accordion from "../../elementSettings/components/Accordion.js";
+import { FileManager } from "@webiny/app-admin/components";
+import { Grid, Cell } from "@webiny/ui/Grid";
+import File from "./File";
+import Accordion from "../../elementSettings/components/Accordion";
 import {
     classes,
     SimpleButton,
     ButtonContainer
-} from "../../elementSettings/components/StyledComponents.js";
-import { type BindComponent } from "@webiny/form";
-import { type FileManagerFileItem } from "@webiny/app-admin";
+} from "../../elementSettings/components/StyledComponents";
+import type { BindComponent } from "@webiny/form";
+import type { FileManagerFileItem } from "@webiny/app-admin";
 
 const style = {
     addImagesButton: css({ clear: "both", padding: "20px 10px", textAlign: "center" }),

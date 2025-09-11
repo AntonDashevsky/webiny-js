@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { ReactComponent as Icon } from "@material-symbols/svg-400/outlined/quick_reference_all.svg";
+import { ReactComponent as PermissionsIcon } from "@webiny/icons/manage_search.svg";
 
-import { i18n } from "@webiny/app/i18n/index.js";
+import { i18n } from "@webiny/app/i18n";
 import { plugins } from "@webiny/plugins";
-import { AccordionItem } from "@webiny/ui/Accordion/index.js";
-import { type AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
+import { Accordion } from "@webiny/admin-ui";
+import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
 
-import { AuditLogsPermissions as AuditLogsPermissionsComponent } from "./AuditLogsPermissions.js";
+import { AuditLogsPermissions as AuditLogsPermissionsComponent } from "./AuditLogsPermissions";
 
 const t = i18n.ns("app-audit-logs/plugins/permissionRenderer");
 
@@ -16,14 +16,19 @@ const createPermissions = (): AdminAppPermissionRendererPlugin => {
         name: "admin-app-permissions-renderer-audit-logs",
         render(props) {
             return (
-                <AccordionItem
-                    icon={<Icon />}
+                <Accordion.Item
+                    icon={
+                        <Accordion.Item.Icon
+                            icon={<PermissionsIcon />}
+                            label={"Audit Logs Permissions"}
+                        />
+                    }
                     title={t`Audit Logs`}
                     description={t`Manage Audit Logs app access permissions.`}
                     data-testid={"permission.al"}
                 >
                     <AuditLogsPermissionsComponent {...props} />
-                </AccordionItem>
+                </Accordion.Item>
             );
         }
     };

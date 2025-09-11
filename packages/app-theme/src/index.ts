@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type Theme } from "@webiny/theme/types.js";
+import type { Theme } from "@webiny/theme/types";
 
 export class ThemePlugin extends Plugin {
     public static override readonly type: string = "theme";
@@ -13,5 +13,5 @@ export class ThemePlugin extends Plugin {
 
 export * from "@webiny/theme";
 // theme context
-export { ThemeProvider } from "~/providers/ThemeProvider.js";
-export { useTheme } from "~/hooks/useTheme.js";
+export { ThemeProvider } from "~/providers/ThemeProvider";
+export { useTheme } from "~/hooks/useTheme";

@@ -1,13 +1,12 @@
-import header from "./pageDetails/header/index.js";
-import revisionContent from "./pageDetails/revisionContent/index.js";
-import previewContent from "./pageDetails/previewContent/index.js";
-import pageRevisions from "./pageDetails/pageRevisions/index.js";
-import menuItems from "./menuItems/index.js";
-import globalSearch from "./globalSearch/index.js";
-import routes from "./routes.js";
-import installation from "./installation.js";
-import permissionRenderer from "./permissionRenderer/index.js";
-import icons from "./icons/index.js";
+import header from "./pageDetails/header";
+import revisionContent from "./pageDetails/revisionContent";
+import previewContent from "./pageDetails/previewContent";
+import pageRevisions from "./pageDetails/pageRevisions";
+import menuItems from "./menuItems";
+import routes from "./routes";
+import installation from "./installation";
+import permissionRenderer from "./permissionRenderer";
+import icons from "./icons";
 
 export default () => [
     header,
@@ -15,7 +14,6 @@ export default () => [
     previewContent,
     pageRevisions,
     menuItems,
-    globalSearch,
     routes,
     installation,
     permissionRenderer,

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import { type PbEditorElement, type PbEditorElementTree } from "~/types.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
+import type { PbEditorElement, PbEditorElementTree } from "~/types";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { UpdateElementActionEvent } from "~/editor/recoil/actions";
 
 interface UpdateOptions {
     history: boolean;

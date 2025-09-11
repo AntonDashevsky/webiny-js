@@ -1,11 +1,12 @@
 import React from "react";
-import kebabCase from "lodash/kebabCase.js";
+import kebabCase from "lodash/kebabCase";
 import styled from "@emotion/styled";
-import { createElement } from "~/editor/helpers.js";
-import { ReactComponent as CarouselIcon } from "@material-design-icons/svg/round/view_carousel.svg";
-import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils.js";
-import { type PbEditorPageElementPlugin, type PbEditorElementPluginArgs, DisplayMode } from "~/types.js";
-import Carousel from "./Carousel.js";
+import { createElement } from "~/editor/helpers";
+import { ReactComponent as CarouselIcon } from "@webiny/icons/view_carousel.svg";
+import { createInitialPerDeviceSettingValue } from "~/editor/plugins/elementSettings/elementSettingsUtils";
+import type { PbEditorPageElementPlugin, PbEditorElementPluginArgs } from "~/types";
+import { DisplayMode } from "~/types";
+import Carousel from "./Carousel";
 
 const PreviewBox = styled.div`
     text-align: center;

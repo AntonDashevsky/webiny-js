@@ -1,6 +1,6 @@
 import React from "react";
-import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
-import HrefSettings from "./HrefSettings.js";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import HrefSettings from "./HrefSettings";
 
 export default {
     name: "pb-editor-page-element-style-settings-link",

@@ -1,7 +1,7 @@
 import type {
     FolderLevelPermissionsTarget,
     FolderLevelPermissionsTargetListMeta
-} from "~/folder/folder.types.js";
+} from "~/folder/folder.types";
 
 export interface IListFolderLevelPermissionsTargets {
     execute: () => Promise<[FolderLevelPermissionsTarget[], FolderLevelPermissionsTargetListMeta]>;

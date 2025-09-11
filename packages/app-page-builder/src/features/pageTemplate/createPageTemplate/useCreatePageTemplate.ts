@@ -1,9 +1,9 @@
 import { useCallback, useMemo } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { CreatePageTemplateRepository } from "~/features/pageTemplate/createPageTemplate/CreatePageTemplateRepository.js";
-import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache.js";
-import { type PageTemplateInputDto } from "~/features/pageTemplate/createPageTemplate/PageTemplateInputDto.js";
-import { CreatePageTemplateGqlGateway } from "~/features/pageTemplate/createPageTemplate/CreatePageTemplateGqlGateway.js";
+import { CreatePageTemplateRepository } from "~/features/pageTemplate/createPageTemplate/CreatePageTemplateRepository";
+import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache";
+import type { PageTemplateInputDto } from "~/features/pageTemplate/createPageTemplate/PageTemplateInputDto";
+import { CreatePageTemplateGqlGateway } from "~/features/pageTemplate/createPageTemplate/CreatePageTemplateGqlGateway";
 
 export const useCreatePageTemplate = () => {
     const client = useApolloClient();

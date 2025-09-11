@@ -1,7 +1,7 @@
-import { type PbEditorElement } from "~/types.js";
-import { useCurrentElement } from "~/editor/hooks/useCurrentElement.js";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { elementByIdSelector } from "~/editor/recoil/modules/index.js";
+import type { PbEditorElement } from "~/types";
+import { useCurrentElement } from "~/editor/hooks/useCurrentElement";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { elementByIdSelector } from "~/editor/recoil/modules";
 import { selectorFamily, useRecoilValue } from "recoil";
 
 export interface UseCurrentBlock {
@@ -56,7 +56,7 @@ export function useCurrentBlockElement(): UseCurrentBlock {
     // 1) hook is called from within the editor content component.
     try {
         currentElementContext = useCurrentElement();
-    } catch (e) {
+    } catch {
         // Means we're not in the editor content.
     }
 

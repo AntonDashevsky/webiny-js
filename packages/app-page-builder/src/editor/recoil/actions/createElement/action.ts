@@ -1,5 +1,5 @@
-import { type CreateElementEventActionArgsType } from "./types.js";
-import { type EventActionCallable } from "~/types.js";
+import type { CreateElementEventActionArgsType } from "./types";
+import type { EventActionCallable } from "~/types";
 
 export const createElementAction: EventActionCallable<CreateElementEventActionArgsType> = () => {
     return {

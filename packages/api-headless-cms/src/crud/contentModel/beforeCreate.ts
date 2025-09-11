@@ -1,20 +1,20 @@
 import WebinyError from "@webiny/error";
-import camelCase from "lodash/camelCase.js";
-import {
-    type CmsContext,
-    type CmsModel,
-    type HeadlessCmsStorageOperations,
-    type OnModelBeforeCreateFromTopicParams,
-    type OnModelBeforeCreateTopicParams
-} from "~/types/index.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import { type PluginsContainer } from "@webiny/plugins";
-import { CmsModelPlugin } from "~/plugins/CmsModelPlugin.js";
-import { validateModel } from "./validateModel.js";
-import { validateExistingModelId, validateModelIdAllowed } from "./validate/modelId.js";
-import { validateSingularApiName } from "./validate/singularApiName.js";
-import { validatePluralApiName } from "./validate/pluralApiName.js";
-import { validateEndingAllowed } from "~/crud/contentModel/validate/endingAllowed.js";
+import camelCase from "lodash/camelCase";
+import type {
+    CmsContext,
+    CmsModel,
+    HeadlessCmsStorageOperations,
+    OnModelBeforeCreateFromTopicParams,
+    OnModelBeforeCreateTopicParams
+} from "~/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { PluginsContainer } from "@webiny/plugins";
+import { CmsModelPlugin } from "~/plugins/CmsModelPlugin";
+import { validateModel } from "./validateModel";
+import { validateExistingModelId, validateModelIdAllowed } from "./validate/modelId";
+import { validateSingularApiName } from "./validate/singularApiName";
+import { validatePluralApiName } from "./validate/pluralApiName";
+import { validateEndingAllowed } from "~/crud/contentModel/validate/endingAllowed";
 
 const getModelId = (model: CmsModel): string => {
     const { modelId, name } = model;

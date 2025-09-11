@@ -19,19 +19,12 @@ export const createRichTextStorageTransformPlugin = () => {
 
             try {
                 compressor = plugins.oneByType<CompressorPlugin>(CompressorPlugin.type);
-            } catch (ex) {
+            } catch {
                 return storageValue;
             }
 
             try {
-                const uncompressed = await compressor.getCompressor().decompress(storageValue);
-
-                // We must make sure the rich text value is an object.
-                // It is possible that it is a string if developers call the API with an already stringified value.
-                if (typeof uncompressed === "string") {
-                    return JSON.parse(uncompressed);
-                }
-                return uncompressed;
+                return await compressor.getCompressor().decompress(storageValue);
             } catch {
                 return storageValue;
             }
@@ -41,7 +34,7 @@ export const createRichTextStorageTransformPlugin = () => {
 
             try {
                 compressor = plugins.oneByType<CompressorPlugin>(CompressorPlugin.type);
-            } catch (ex) {
+            } catch {
                 return value;
             }
             try {

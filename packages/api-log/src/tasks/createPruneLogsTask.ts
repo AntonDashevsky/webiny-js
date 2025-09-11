@@ -1,8 +1,8 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { type Context, type IPruneLogsInput, type IPruneLogsOutput } from "~/tasks/pruneLogs/types.js";
-import { LogType } from "~/types.js";
-import { type NonEmptyArray } from "@webiny/api/types.js";
-import { PRUNE_LOGS_TASK } from "./constants.js";
+import type { Context, IPruneLogsInput, IPruneLogsOutput } from "~/tasks/pruneLogs/types";
+import { LogType } from "~/types";
+import type { NonEmptyArray } from "@webiny/api/types";
+import { PRUNE_LOGS_TASK } from "./constants";
 
 export const createPruneLogsTask = () => {
     return createTaskDefinition<Context, IPruneLogsInput, IPruneLogsOutput>({
@@ -14,11 +14,11 @@ export const createPruneLogsTask = () => {
         title: "Prune Logs",
         run: async params => {
             const { PruneLogs } = await import(
-                /* webpackChunkName: "PruneLogs" */ "./pruneLogs/PruneLogs.js"
+                /* webpackChunkName: "PruneLogs" */ "./pruneLogs/PruneLogs"
             );
 
             const { DynamoDbLoggerKeys } = await import(
-                /* webpackChunkName: "DynamoDbLoggerKeys" */ "~/logger/dynamodb/DynamoDbLoggerKeys.js"
+                /* webpackChunkName: "DynamoDbLoggerKeys" */ "~/logger/dynamodb/DynamoDbLoggerKeys"
             );
 
             try {
@@ -59,7 +59,7 @@ export const createPruneLogsTask = () => {
                         }
                         try {
                             return new Date(value).toISOString();
-                        } catch (ex) {
+                        } catch {
                             return undefined;
                         }
                     }),

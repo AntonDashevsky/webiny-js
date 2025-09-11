@@ -1,10 +1,10 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { type HcmsTasksContext } from "~/types.js";
-import { type IDeleteModelTaskInput, type IDeleteModelTaskOutput } from "./types.js";
-import { createDeleteModelRunner } from "./DeleteModelRunner.js";
-import { DELETE_MODEL_TASK } from "./constants.js";
-import { createDeleteModelGraphQl } from "./graphql/index.js";
-import { createDeleteModelCrud } from "./graphql/crud.js";
+import type { HcmsTasksContext } from "~/types";
+import type { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types";
+import { createDeleteModelRunner } from "./DeleteModelRunner";
+import { DELETE_MODEL_TASK } from "./constants";
+import { createDeleteModelGraphQl } from "./graphql";
+import { createDeleteModelCrud } from "./graphql/crud";
 
 const createDefinition = () => {
     return createTaskDefinition<HcmsTasksContext, IDeleteModelTaskInput, IDeleteModelTaskOutput>({

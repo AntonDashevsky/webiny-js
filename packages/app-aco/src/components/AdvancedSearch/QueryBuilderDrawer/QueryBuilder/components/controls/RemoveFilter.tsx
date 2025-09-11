@@ -1,8 +1,6 @@
 import React from "react";
-
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
+import { IconButton, Tooltip } from "@webiny/admin-ui";
 
 interface RemoveFilterProps {
     onClick: () => void;
@@ -11,13 +9,18 @@ interface RemoveFilterProps {
 
 export const RemoveFilter = ({ onClick, disabled }: RemoveFilterProps) => {
     return (
-        <Tooltip content={"Remove filter"} placement={"bottom"}>
-            <IconButton
-                label={"Remove filter"}
-                icon={<DeleteIcon />}
-                onClick={onClick}
-                disabled={disabled}
-            />
-        </Tooltip>
+        <Tooltip
+            content={"Remove filter"}
+            side={"bottom"}
+            trigger={
+                <IconButton
+                    icon={<DeleteIcon />}
+                    onClick={onClick}
+                    variant={"ghost"}
+                    size={"lg"}
+                    disabled={disabled}
+                />
+            }
+        />
     );
 };

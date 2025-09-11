@@ -1,18 +1,18 @@
 import { batchReadAll } from "@webiny/db-dynamodb";
 import { createSynchronizationBuilder } from "@webiny/api-dynamodb-to-elasticsearch";
+import type { IGetElasticsearchEntityTypeParams } from "~/tasks/dataSynchronization/entities";
 import {
     getElasticsearchEntity,
     getElasticsearchEntityType,
-    getTable,
-    type IGetElasticsearchEntityTypeParams
-} from "~/tasks/dataSynchronization/entities/index.js";
-import { type ITimer } from "@webiny/handler-aws";
-import { type Context } from "~/types.js";
-import {
-    type IElasticsearchSynchronize,
-    type IElasticsearchSynchronizeExecuteParams,
-    type IElasticsearchSynchronizeExecuteResponse
-} from "./abstractions/ElasticsearchSynchronize.js";
+    getTable
+} from "~/tasks/dataSynchronization/entities";
+import type { ITimer } from "@webiny/handler-aws";
+import type { Context } from "~/types";
+import type {
+    IElasticsearchSynchronize,
+    IElasticsearchSynchronizeExecuteParams,
+    IElasticsearchSynchronizeExecuteResponse
+} from "./abstractions/ElasticsearchSynchronize";
 
 export interface IElasticsearchSynchronizeParams {
     timer: ITimer;

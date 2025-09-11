@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/react-hooks";
 import dotPropImmutable from "dot-prop-immutable";
-import { LIST_CATEGORIES } from "~/graphql/workflow.gql.js";
-import { type PbCategory } from "~/types.js";
+import { LIST_CATEGORIES } from "~/graphql/workflow.gql";
+import type { PbCategory } from "~/types";
 
 interface UsePbCategoriesResult {
     categories: PbCategory[];

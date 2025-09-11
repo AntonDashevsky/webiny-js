@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type Context } from "~/types.js";
+import type { Context } from "~/types";
 
 export interface ContextPluginCallable<T extends Context = Context> {
     (context: T): void | Promise<void>;
@@ -25,8 +25,17 @@ export class ContextPlugin<T extends Context = Context> extends Plugin {
     }
 }
 
+interface ContextPluginOptions {
+    name?: string;
+}
+
 export const createContextPlugin = <T extends Context = Context>(
-    callable: ContextPluginCallable<T>
+    callable: ContextPluginCallable<T>,
+    options?: ContextPluginOptions
 ): ContextPlugin<T> => {
-    return new ContextPlugin<T>(callable);
+    const plugin = new ContextPlugin<T>(callable);
+    if (options && options.name) {
+        plugin.name = options.name;
+    }
+    return plugin;
 };

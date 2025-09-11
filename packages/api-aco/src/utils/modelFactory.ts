@@ -1,4 +1,5 @@
-import { type CmsModelPlugin, type CmsPrivateModelFull, createCmsModel } from "@webiny/api-headless-cms";
+import type { CmsModelPlugin, CmsPrivateModelFull } from "@webiny/api-headless-cms";
+import { createCmsModel } from "@webiny/api-headless-cms";
 
 interface Params {
     /**

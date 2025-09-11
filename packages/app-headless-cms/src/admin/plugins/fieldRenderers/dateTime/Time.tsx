@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { Input, type InputProps } from "./Input.js";
+import type { InputProps } from "./Input";
+import { Input } from "./Input";
 import {
     getCurrentLocalTime,
     getDefaultFieldValue
-} from "~/admin/plugins/fieldRenderers/dateTime/utils.js";
+} from "~/admin/plugins/fieldRenderers/dateTime/utils";
 
 export const Time = (props: InputProps) => {
     const { field, bind } = props;

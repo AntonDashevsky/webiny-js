@@ -1,7 +1,7 @@
 import React from "react";
 import { plugins } from "@webiny/plugins";
 import { Routes as ReactRouterRoutes } from "@webiny/react-router";
-import { type RoutePlugin } from "~/types.js";
+import type { RoutePlugin } from "~/types";
 
 interface RoutesProps {
     routes: JSX.Element[];

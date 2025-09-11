@@ -1,8 +1,8 @@
 import React from "react";
-import { type ImportModelData } from "../../types.js";
+import type { ImportModelData } from "../../types";
 import styled from "@emotion/styled";
-import { DataListModelItem } from "./DataListModelItem.js";
-import { useImport } from "~/admin/views/contentModels/importing/useImport.js";
+import { DataListModelItem } from "./DataListModelItem";
+import { useImport } from "~/admin/views/contentModels/importing/useImport";
 
 const Container = styled("div")({
     backgroundColor: "var(--mdc-theme-surface)",

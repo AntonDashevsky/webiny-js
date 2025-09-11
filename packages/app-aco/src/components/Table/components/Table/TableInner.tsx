@@ -1,12 +1,20 @@
 import React, { useCallback, useMemo } from "react";
 import { observer } from "mobx-react-lite";
-import { type Columns, DataTable, type DefaultData, type OnSortingChange, type Sorting } from "@webiny/ui/DataTable/index.js";
-import { ColumnMapper, type ColumnsPresenter } from "./Columns/index.js";
-import { type ColumnsVisibilityPresenter, type ColumnsVisibilityUpdater } from "./ColumnVisibility/index.js";
-import { type TablePresenter } from "./TablePresenter.js";
-import { TableRowProvider } from "~/components/index.js";
+import type { OnDataTableSortingChange } from "@webiny/admin-ui";
+import {
+    DataTable,
+    type DataTableColumns,
+    type DataTableDefaultData,
+    type DataTableSorting
+} from "@webiny/admin-ui";
+import type { ColumnsPresenter } from "./Columns";
+import { ColumnMapper } from "./Columns";
+import type { ColumnsVisibilityPresenter, ColumnsVisibilityUpdater } from "./ColumnVisibility";
+import type { TablePresenter } from "./TablePresenter";
+import { TableRowProvider } from "~/components";
+import type { TableRow } from "~/types";
 
-export interface TableInnerProps<T> {
+export interface TableInnerProps<T extends TableRow> {
     columnsPresenter: ColumnsPresenter;
     columnsVisibilityPresenter: ColumnsVisibilityPresenter;
     columnsVisibilityUpdater: ColumnsVisibilityUpdater;
@@ -14,58 +22,57 @@ export interface TableInnerProps<T> {
     loading?: boolean;
     nameColumnId?: string;
     onSelectRow?: (rows: T[] | []) => void;
-    onSortingChange: OnSortingChange;
+    onSortingChange: OnDataTableSortingChange;
     onToggleRow?: (row: T) => void;
-    selected: DefaultData[];
-    sorting: Sorting;
+    selected: DataTableDefaultData[];
+    sorting: DataTableSorting;
     tablePresenter: TablePresenter;
 }
 
-export const TableInner = observer(
-    <T extends Record<string, any> & DefaultData>(props: TableInnerProps<T>) => {
-        const cellRenderer = useCallback(
-            (row: T, cell: string | React.ReactElement): string | number | JSX.Element | null => {
-                if (typeof cell === "string") {
-                    return cell;
-                }
+export const TableInner = observer(<T extends TableRow>(props: TableInnerProps<T>) => {
+    const cellRenderer = useCallback(
+        (row: T, cell: string | React.ReactElement): string | number | JSX.Element | null => {
+            if (typeof cell === "string") {
+                return cell;
+            }
 
-                return <TableRowProvider row={row}>{cell}</TableRowProvider>;
-            },
-            []
-        );
+            return <TableRowProvider row={row}>{cell}</TableRowProvider>;
+        },
+        []
+    );
 
-        const columns = useMemo(() => {
-            return props.columnsPresenter.vm.columns.reduce((result, column) => {
-                const { nameColumnId = "name" } = props;
-                const { name: defaultName } = column;
+    const columns = useMemo(() => {
+        return props.columnsPresenter.vm.columns.reduce((result, column) => {
+            const { nameColumnId = "name" } = props;
+            const { name: defaultName } = column;
 
-                // Determine the column name, using the provided `nameColumnId` if the default is 'name'
-                const name = defaultName === "name" ? nameColumnId : defaultName;
+            // Determine the column name, using the provided `nameColumnId` if the default is 'name'
+            const name = defaultName === "name" ? nameColumnId : defaultName;
 
-                result[name as keyof Columns<T>] = ColumnMapper.toDataTable(column, cellRenderer);
+            result[name as keyof DataTableColumns<T>] = ColumnMapper.toDataTable(
+                column,
+                cellRenderer
+            );
 
-                return result;
-            }, {} as Columns<T>);
-        }, [props.columnsPresenter.vm.columns]);
+            return result;
+        }, {} as DataTableColumns<T>);
+    }, [props.columnsPresenter.vm.columns]);
 
-        return (
-            <DataTable
-                columns={columns}
-                columnVisibility={props.columnsVisibilityPresenter.vm.columnsVisibility}
-                onColumnVisibilityChange={props.columnsVisibilityUpdater.update}
-                data={props.data}
-                initialSorting={props.tablePresenter.vm.initialSorting}
-                isRowSelectable={row => row.original.$selectable ?? false}
-                loadingInitial={props.loading}
-                onSelectRow={props.onSelectRow}
-                onSortingChange={props.onSortingChange}
-                onToggleRow={props.onToggleRow}
-                selectedRows={props.data.filter(row =>
-                    props.selected.find(item => row.id === item.id)
-                )}
-                sorting={props.sorting}
-                stickyRows={1}
-            />
-        );
-    }
-);
+    return (
+        <DataTable
+            columns={columns}
+            columnVisibility={props.columnsVisibilityPresenter.vm.columnsVisibility}
+            onColumnVisibilityChange={props.columnsVisibilityUpdater.update}
+            data={props.data}
+            initialSorting={props.tablePresenter.vm.initialSorting}
+            isRowSelectable={row => row.original.$selectable ?? false}
+            loading={props.loading}
+            onSelectRow={props.onSelectRow}
+            onSortingChange={props.onSortingChange}
+            onToggleRow={props.onToggleRow}
+            selectedRows={props.data.filter(row => props.selected.find(item => row.id === item.id))}
+            sorting={props.sorting}
+            stickyHeader={true}
+        />
+    );
+});

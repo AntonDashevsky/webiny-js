@@ -5,13 +5,14 @@ import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "~/index";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createTenancyAndSecurity } from "./tenancySecurity";
-import { createDummyLocales, createPermissions, PermissionsArg } from "./helpers";
-import { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
-import { ContextPlugin } from "@webiny/api";
+import type { PermissionsArg } from "./helpers";
+import { createDummyLocales, createPermissions } from "./helpers";
+import type { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
+import type { ContextPlugin } from "@webiny/api";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { CmsContext, HeadlessCmsStorageOperations } from "~/types";
+import type { CmsContext, HeadlessCmsStorageOperations } from "~/types";
 
 export interface CreateHandlerCoreParams {
     setupTenancyAndSecurityGraphQL?: boolean;

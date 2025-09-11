@@ -1,23 +1,23 @@
-import { DeleteEntry } from "./DeleteEntry.js";
-import { DeleteEntryOperation } from "./DeleteEntryOperation.js";
-import { DeleteEntryOperationWithEvents } from "./DeleteEntryOperationWithEvents.js";
-import { DeleteEntrySecure } from "./DeleteEntrySecure.js";
-import { MoveEntryToBin } from "./MoveEntryToBin.js";
-import { MoveEntryToBinOperation } from "./MoveEntryToBinOperation.js";
-import { MoveEntryToBinOperationWithEvents } from "./MoveEntryToBinOperationWithEvents.js";
-import { TransformEntryDelete } from "./TransformEntryDelete.js";
-import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import {
-    type CmsContext,
-    type CmsEntryStorageOperations,
-    type OnEntryAfterDeleteTopicParams,
-    type OnEntryBeforeDeleteTopicParams,
-    type OnEntryDeleteErrorTopicParams
-} from "~/types/index.js";
-import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
-import { type IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions/index.js";
+import { DeleteEntry } from "./DeleteEntry";
+import { DeleteEntryOperation } from "./DeleteEntryOperation";
+import { DeleteEntryOperationWithEvents } from "./DeleteEntryOperationWithEvents";
+import { DeleteEntrySecure } from "./DeleteEntrySecure";
+import { MoveEntryToBin } from "./MoveEntryToBin";
+import { MoveEntryToBinOperation } from "./MoveEntryToBinOperation";
+import { MoveEntryToBinOperationWithEvents } from "./MoveEntryToBinOperationWithEvents";
+import { TransformEntryDelete } from "./TransformEntryDelete";
+import { TransformEntryMoveToBin } from "./TransformEntryMoveToBin";
+import type { Topic } from "@webiny/pubsub/types";
+import type {
+    CmsContext,
+    CmsEntryStorageOperations,
+    OnEntryAfterDeleteTopicParams,
+    OnEntryBeforeDeleteTopicParams,
+    OnEntryDeleteErrorTopicParams
+} from "~/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { IGetLatestRevisionByEntryId } from "~/crud/contentEntry/abstractions";
 
 export interface DeleteEntryUseCasesTopics {
     onEntryBeforeDelete: Topic<OnEntryBeforeDeleteTopicParams>;

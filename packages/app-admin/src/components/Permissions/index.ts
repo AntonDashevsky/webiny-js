@@ -1,3 +1,4 @@
-export * from "./StyledComponents.js";
-export { Permissions } from "./Permissions.js";
-export { CannotUseAaclAlert } from "./CannotUseAaclAlert.js";
+export * from "./StyledComponents";
+export { Permissions } from "./Permissions";
+export { CannotUseAaclAlert } from "./CannotUseAaclAlert";
+export * from "./PermissionsGroup";

@@ -1,5 +1,5 @@
-import { ColumnsRepository } from "./ColumnsRepository.js";
-import { type ColumnDTO } from "./Column.js";
+import { ColumnsRepository } from "./ColumnsRepository";
+import type { ColumnDTO } from "./Column";
 
 class ColumnsRepositoryFactory {
     private cache: Map<string, ColumnsRepository> = new Map();

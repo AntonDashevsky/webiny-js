@@ -1,8 +1,9 @@
 import React from "react";
 
-import { OEmbed, type OEmbedProps } from "./components/OEmbed.js";
-import { createRenderer } from "~/createRenderer.js";
-import { useRenderer } from "~/hooks/useRenderer.js";
+import type { OEmbedProps } from "./components/OEmbed";
+import { OEmbed } from "./components/OEmbed";
+import { createRenderer } from "~/createRenderer";
+import { useRenderer } from "~/hooks/useRenderer";
 
 const oembed: Partial<OEmbedProps> = {
     global: "twttr",

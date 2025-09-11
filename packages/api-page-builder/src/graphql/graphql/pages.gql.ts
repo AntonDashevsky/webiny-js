@@ -3,15 +3,15 @@ import {
     Response,
     ErrorResponse,
     NotFoundResponse
-} from "@webiny/handler-graphql/responses.js";
-import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
-import { type Page, type PbContext, type PageContentWithTemplate } from "~/types.js";
+} from "@webiny/handler-graphql/responses";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import type { Page, PbContext, PageContentWithTemplate } from "~/types";
 import WebinyError from "@webiny/error";
-import resolve from "./utils/resolve.js";
-import { createPageSettingsGraphQL } from "./pages/pageSettings/index.js";
-import { fetchEmbed, findProvider } from "./pages/oEmbed/index.js";
-import lodashGet from "lodash/get.js";
-import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions.js";
+import resolve from "./utils/resolve";
+import { createPageSettingsGraphQL } from "./pages/pageSettings";
+import { fetchEmbed, findProvider } from "./pages/oEmbed";
+import lodashGet from "lodash/get";
+import { PagesPermissions } from "~/graphql/crud/permissions/PagesPermissions";
 
 function hasTemplate(content: Page["content"]): content is PageContentWithTemplate {
     return content?.data?.template;

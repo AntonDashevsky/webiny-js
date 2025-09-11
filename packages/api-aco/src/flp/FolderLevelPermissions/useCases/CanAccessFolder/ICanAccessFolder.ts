@@ -1,4 +1,4 @@
-import type { FolderPermission } from "~/flp/flp.types.js";
+import type { FolderPermission } from "~/flp/flp.types";
 
 export interface CanAccessFolderParams {
     permissions?: FolderPermission[];

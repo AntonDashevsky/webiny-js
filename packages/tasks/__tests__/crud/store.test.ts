@@ -1,6 +1,7 @@
 import { useRawHandler } from "~tests/helpers/useRawHandler";
 import { createTaskDefinition } from "~/task";
-import { ITask, TaskDataStatus } from "~/types";
+import type { ITask } from "~/types";
+import { TaskDataStatus } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
 import { createMockIdentity } from "~tests/mocks/identity";

@@ -1,16 +1,20 @@
-import { type PluginsContainer } from "@webiny/plugins";
-import { type CmsEntryListParams, type CmsEntryListWhere, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import { createModelFields } from "./fields.js";
-import { createFullTextSearchFields } from "./fullTextSearchFields.js";
-import { createInitialQuery } from "./initialQuery.js";
-import { applyFullTextSearch } from "./fullTextSearch.js";
-import { createQueryModifierPluginList } from "./plugins/queryModifier.js";
-import { createSortModifierPluginList } from "./plugins/sortModifier.js";
-import { createBodyModifierPluginList } from "./plugins/bodyModifier.js";
-import { createElasticsearchSort } from "./sort.js";
-import { type PrimitiveValue, type SearchBody, type BoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
-import { createExecFiltering } from "./filtering/index.js";
-import { assignMinimumShouldMatchToQuery } from "./assignMinimumShouldMatchToQuery.js";
+import type { PluginsContainer } from "@webiny/plugins";
+import type {
+    CmsEntryListParams,
+    CmsEntryListWhere,
+    CmsModel
+} from "@webiny/api-headless-cms/types";
+import { createModelFields } from "./fields";
+import { createFullTextSearchFields } from "./fullTextSearchFields";
+import { createInitialQuery } from "./initialQuery";
+import { applyFullTextSearch } from "./fullTextSearch";
+import { createQueryModifierPluginList } from "./plugins/queryModifier";
+import { createSortModifierPluginList } from "./plugins/sortModifier";
+import { createBodyModifierPluginList } from "./plugins/bodyModifier";
+import { createElasticsearchSort } from "./sort";
+import type { PrimitiveValue, SearchBody, BoolQueryConfig } from "@webiny/api-elasticsearch/types";
+import { createExecFiltering } from "./filtering";
+import { assignMinimumShouldMatchToQuery } from "./assignMinimumShouldMatchToQuery";
 
 interface Params {
     plugins: PluginsContainer;

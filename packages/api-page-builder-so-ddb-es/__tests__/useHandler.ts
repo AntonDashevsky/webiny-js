@@ -24,7 +24,7 @@ import {
     UNPUBLISH_PAGE
 } from "../../api-page-builder/__tests__/graphql/graphql/pages";
 import { CREATE_CATEGORY } from "../../api-page-builder/__tests__/graphql/graphql/categories";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import { createEventHandler as createDynamoDBToElasticsearchHandler } from "@webiny/api-dynamodb-to-elasticsearch";
 import elasticsearchClientContextPlugin, {
@@ -39,7 +39,7 @@ import { createStorageOperations as createHeadlessCmsStorageOperations } from "@
 import { configurations as cmsConfigurations } from "@webiny/api-headless-cms-ddb-es/configurations";
 import { SEARCH_RECORD_MODEL_ID } from "@webiny/api-aco/record/record.model";
 import { FOLDER_MODEL_ID } from "@webiny/api-aco/folder/folder.model";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 import { createMockApiLogContextPlugin } from "@webiny/project-utils/testing/mockApiLog";
 
 interface Params {

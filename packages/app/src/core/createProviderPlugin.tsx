@@ -1,6 +1,6 @@
 import React from "react";
-import { type GenericComponent, type Decorator } from "@webiny/react-composition";
-import { Provider } from "./Provider.js";
+import type { GenericComponent, Decorator } from "@webiny/react-composition";
+import { Provider } from "./Provider";
 
 /**
  * Creates a component, which, when mounted, will register an app provider.

@@ -1,30 +1,29 @@
 import React, { useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
+import type { Sorting } from "@webiny/app-utils";
 import {
     loadingRepositoryFactory,
     metaRepositoryFactory,
-    type Sorting,
     sortRepositoryFactory
 } from "@webiny/app-utils";
-import { TrashBinProvider } from "../hooks/index.js";
-import { TrashBinOverlay } from "../components/TrashBinOverlay/index.js";
-import { TrashBinPresenter } from "./TrashBinPresenter.js";
+import { TrashBinProvider } from "../hooks";
+import { TrashBinOverlay } from "../components/TrashBinOverlay";
+import { TrashBinPresenter } from "./TrashBinPresenter";
+import type { ITrashBinItemMapper, TrashBinItemDTO } from "~/Domain";
 import {
     selectedItemsRepositoryFactory,
     searchRepositoryFactory,
     SortingRepositoryWithDefaults,
     trashBinItemsRepositoryFactory,
-    TrashBinItemsRepositoryWithLoading,
-    type ITrashBinItemMapper,
-    type TrashBinItemDTO
-} from "~/Domain/index.js";
-import {
-    type ITrashBinBulkActionsGateway,
-    type ITrashBinDeleteItemGateway,
-    type ITrashBinListGateway,
-    type ITrashBinRestoreItemGateway
-} from "~/Gateways/index.js";
-import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers.js";
+    TrashBinItemsRepositoryWithLoading
+} from "~/Domain";
+import type {
+    ITrashBinBulkActionsGateway,
+    ITrashBinDeleteItemGateway,
+    ITrashBinListGateway,
+    ITrashBinRestoreItemGateway
+} from "~/Gateways";
+import { TrashBinControllers } from "~/Presentation/TrashBin/TrashBinControllers";
 
 export interface TrashBinProps {
     listGateway: ITrashBinListGateway<any>;

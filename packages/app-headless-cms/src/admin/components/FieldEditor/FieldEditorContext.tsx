@@ -1,22 +1,22 @@
 import React, { useCallback, useState } from "react";
 import dot from "dot-prop-immutable";
 import useDeepCompareEffect from "use-deep-compare-effect";
-import {
-    type CmsEditorFieldId,
-    type CmsEditorFieldRendererPlugin,
-    type CmsEditorFieldsLayout,
-    type CmsEditorFieldTypePlugin,
-    type CmsModelField,
-    type DragSource,
-    type FieldLayoutPosition
-} from "~/types.js";
+import type {
+    CmsEditorFieldId,
+    CmsEditorFieldRendererPlugin,
+    CmsEditorFieldsLayout,
+    CmsEditorFieldTypePlugin,
+    CmsModelField,
+    DragSource,
+    FieldLayoutPosition
+} from "~/types";
 import { plugins } from "@webiny/plugins";
-import * as utils from "./utils/index.js";
-import { type FieldEditorProps } from "./FieldEditor.js";
-import { type DragSourceMonitor } from "react-dnd";
-import { useModelFieldEditor } from "~/admin/components/FieldEditor/useModelFieldEditor.js";
+import * as utils from "./utils";
+import type { FieldEditorProps } from "./FieldEditor";
+import type { DragSourceMonitor } from "react-dnd";
+import { useModelFieldEditor } from "~/admin/components/FieldEditor/useModelFieldEditor";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
-import { type DragObject } from "../Droppable.js";
+import type { DragObject } from "../Droppable";
 
 interface DropTarget {
     row: number;

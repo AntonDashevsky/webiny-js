@@ -1,4 +1,4 @@
-import { type RenderResult } from "~/render/types.js";
+import type { RenderResult } from "~/render/types";
 
 export const preloadJs = (render: RenderResult): void => {
     const regex = /<script (src="\/static\/js\/)/gm;

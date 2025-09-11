@@ -1,9 +1,6 @@
-import { PartialDeep } from "type-fest";
-import {
-    IWebsocketsIncomingEvent,
-    WebsocketsEventRequestContextEventType,
-    WebsocketsEventRoute
-} from "~/handler/types";
+import type { PartialDeep } from "type-fest";
+import type { IWebsocketsIncomingEvent } from "~/handler/types";
+import { WebsocketsEventRequestContextEventType, WebsocketsEventRoute } from "~/handler/types";
 
 export interface CreateMockEventInput extends PartialDeep<IWebsocketsIncomingEvent> {
     tenant?: string;

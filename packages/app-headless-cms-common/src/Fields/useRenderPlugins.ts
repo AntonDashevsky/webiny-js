@@ -1,6 +1,6 @@
 import { plugins } from "@webiny/plugins";
 import { useMemo } from "react";
-import { type CmsEditorFieldRendererPlugin } from "~/types/index.js";
+import type { CmsEditorFieldRendererPlugin } from "~/types";
 
 export function useRenderPlugins() {
     return useMemo(

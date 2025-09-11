@@ -1,10 +1,10 @@
 import { plugins } from "@webiny/plugins";
-import {
-    type CmsModelField,
-    type CmsModelFieldValidatorConfig,
-    type CmsModelFieldValidatorConfigAdapter as ICmsModelFieldValidatorConfigAdapter,
-    type CmsModelFieldValidatorPlugin
-} from "~/types.js";
+import type {
+    CmsModelField,
+    CmsModelFieldValidatorConfig,
+    CmsModelFieldValidatorConfigAdapter as ICmsModelFieldValidatorConfigAdapter,
+    CmsModelFieldValidatorPlugin
+} from "~/types";
 
 function getValidator(name: string) {
     const allValidators = plugins.byType<CmsModelFieldValidatorPlugin>("cms-model-field-validator");

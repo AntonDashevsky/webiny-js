@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "@webiny/react-router";
 import { useSnackbar } from "@webiny/app-admin";
-import { type PbPageTemplateWithContent } from "~/types.js";
-import { createElement } from "~/editor/helpers.js";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
-import { useListPageTemplates } from "~/features/index.js";
-import { useSavedElements } from "~/templateEditor/prepareEditor/useSavedElements.js";
-import { useBlockCategories } from "~/templateEditor/prepareEditor/useBlockCategories.js";
+import type { PbPageTemplateWithContent } from "~/types";
+import { createElement } from "~/editor/helpers";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+import { useListPageTemplates } from "~/features";
+import { useSavedElements } from "~/templateEditor/prepareEditor/useSavedElements";
+import { useBlockCategories } from "~/templateEditor/prepareEditor/useBlockCategories";
 
 export const usePrepareEditor = (templateId: string) => {
     const { history } = useRouter();

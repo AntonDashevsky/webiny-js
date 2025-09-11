@@ -1,7 +1,8 @@
-import type { SNSEvent } from "@webiny/aws-sdk/types/index.js";
-import { registry } from "~/registry.js";
-import { createHandler, type HandlerParams } from "./index.js";
-import { createSourceHandler } from "~/sourceHandler.js";
+import type { SNSEvent } from "@webiny/aws-sdk/types";
+import { registry } from "~/registry";
+import type { HandlerParams } from "./index";
+import { createHandler } from "./index";
+import { createSourceHandler } from "~/sourceHandler";
 
 const handler = createSourceHandler<SNSEvent, HandlerParams>({
     name: "handler-aws-sns",

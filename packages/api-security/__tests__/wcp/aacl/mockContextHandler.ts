@@ -5,17 +5,17 @@ import { DynamoDbDriver } from "@webiny/db-dynamodb";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
 import { createWcpContext } from "@webiny/api-wcp";
 import { Table } from "@webiny/db-dynamodb/toolbox";
-import { SecurityContext, SecurityStorageOperations } from "~/types";
+import type { SecurityContext, SecurityStorageOperations } from "~/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 import { createTenancyContext } from "@webiny/api-tenancy";
-import { TenancyStorageOperations } from "@webiny/api-tenancy/types";
+import type { TenancyStorageOperations } from "@webiny/api-tenancy/types";
 import { createSecurityContext } from "@webiny/api-security";
 import { triggerAuthentication } from "~tests/wcp/aacl/mocks/triggerAuthentication";
 import { customAuthenticator } from "~tests/wcp/aacl/mocks/customAuthenticator";
 import { customAuthorizer } from "~tests/wcp/aacl/mocks/customAuthorizer";
 import { authenticateUsingHttpHeader } from "@webiny/api-security/plugins/authenticateUsingHttpHeader";
-import { PluginCollection } from "@webiny/plugins/types";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { PluginCollection } from "@webiny/plugins/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 type CreateMockContextHandlerOptions = {
     plugins?: PluginCollection;

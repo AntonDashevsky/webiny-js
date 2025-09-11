@@ -1,26 +1,26 @@
 import React, { useCallback, useContext, useEffect } from "react";
 import dotPropImmutable from "dot-prop-immutable";
-import pick from "lodash/pick.js";
+import pick from "lodash/pick";
 import { useStateIfMounted } from "@webiny/app-admin";
 import { useSecurity } from "@webiny/app-security";
-import {
-    type FolderItem,
-    type GenericSearchData,
-    type ListMeta,
-    type ListSearchRecordsQueryVariables,
-    type ListSearchRecordsSort,
-    type SearchRecordItem
-} from "~/types.js";
-import { useAcoApp, useNavigateFolder } from "~/hooks/index.js";
+import type {
+    FolderItem,
+    GenericSearchData,
+    ListMeta,
+    ListSearchRecordsQueryVariables,
+    ListSearchRecordsSort,
+    SearchRecordItem
+} from "~/types";
+import { useAcoApp, useNavigateFolder } from "~/hooks";
 import {
     useGetDescendantFolders,
     useGetFolderHierarchy,
     useListFoldersByParentIds
-} from "~/features/index.js";
-import { FoldersContext } from "~/contexts/folders.js";
-import { SearchRecordsContext } from "~/contexts/records.js";
-import { sortTableItems, validateOrGetDefaultDbSort } from "~/sorting.js";
-import { ROOT_FOLDER } from "~/constants.js";
+} from "~/features";
+import { FoldersContext } from "~/contexts/folders";
+import { SearchRecordsContext } from "~/contexts/records";
+import { sortTableItems, validateOrGetDefaultDbSort } from "~/sorting";
+import { ROOT_FOLDER } from "~/constants";
 
 export interface AcoListContextData<T> {
     folders: FolderItem[];

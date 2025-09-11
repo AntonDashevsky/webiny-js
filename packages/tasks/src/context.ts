@@ -1,12 +1,12 @@
-import { Plugin } from "@webiny/plugins";
+import type { Plugin } from "@webiny/plugins";
 import { ContextPlugin } from "@webiny/api";
-import { Context } from "~/types.js";
-import { createTaskModel } from "./crud/model.js";
-import { createDefinitionCrud } from "./crud/definition.tasks.js";
-import { createServiceCrud } from "~/crud/service.tasks.js";
-import { createTaskCrud } from "./crud/crud.tasks.js";
-import { createTestingRunTask } from "~/tasks/testingRunTask.js";
-import { createServicePlugins } from "~/service/index.js";
+import type { Context } from "~/types";
+import { createTaskModel } from "./crud/model";
+import { createDefinitionCrud } from "./crud/definition.tasks";
+import { createServiceCrud } from "~/crud/service.tasks";
+import { createTaskCrud } from "./crud/crud.tasks";
+import { createTestingRunTask } from "~/tasks/testingRunTask";
+import { createServicePlugins } from "~/service";
 
 const createTasksCrud = () => {
     const plugin = new ContextPlugin<Context>(async context => {

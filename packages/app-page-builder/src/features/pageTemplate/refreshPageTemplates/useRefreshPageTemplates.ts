@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from "react";
 import type ApolloClient from "apollo-client";
 import { useApolloClient } from "@apollo/react-hooks";
-import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache.js";
-import { ListPageTemplatesGqlGateway } from "~/features/pageTemplate/listPageTemplates/ListPageTemplatesGqlGateway.js";
-import { RefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/RefreshPageTemplatesRepository.js";
-import { type IRefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/IRefreshPageTemplatesRepository.js";
+import { pageTemplateCache } from "~/features/pageTemplate/pageTemplateCache";
+import { ListPageTemplatesGqlGateway } from "~/features/pageTemplate/listPageTemplates/ListPageTemplatesGqlGateway";
+import { RefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/RefreshPageTemplatesRepository";
+import type { IRefreshPageTemplatesRepository } from "~/features/pageTemplate/refreshPageTemplates/IRefreshPageTemplatesRepository";
 
 class RepositoryFactory {
     private cache: Map<ApolloClient<any>, IRefreshPageTemplatesRepository> = new Map();

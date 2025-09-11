@@ -1,4 +1,4 @@
-import { type FileInput } from "@webiny/api-file-manager/types.js";
+import type { FileInput } from "@webiny/api-file-manager/types";
 
 interface UpdateFilesInDataParams {
     data: Record<string, any>;

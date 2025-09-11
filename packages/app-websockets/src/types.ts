@@ -1,13 +1,13 @@
-import {
-    type IGenericData,
-    type IWebsocketsAction,
-    type IWebsocketsManagerCloseEvent,
-    type IWebsocketsManagerErrorEvent,
-    type IWebsocketsManagerMessageEvent,
-    type IWebsocketsSubscription
-} from "~/domain/types.js";
+import type {
+    IGenericData,
+    IWebsocketsAction,
+    IWebsocketsManagerCloseEvent,
+    IWebsocketsManagerErrorEvent,
+    IWebsocketsManagerMessageEvent,
+    IWebsocketsSubscription
+} from "~/domain/types";
 
-export * from "./domain/types.js";
+export * from "./domain/types";
 
 export interface IWebsocketsContextSendCallable {
     <T extends IGenericData = IGenericData>(action: string, data?: T, timeout?: number): void;

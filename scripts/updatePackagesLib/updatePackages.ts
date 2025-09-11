@@ -4,7 +4,8 @@ import { BasicPackages } from "./BasicPackages";
 import { LatestVersionPackages } from "./LatestVersionPackages";
 import { ResolutionPackages } from "./ResolutionPackages";
 import { UpPackages } from "./UpPackages";
-import { IUserInputResponse } from "./getUserInput";
+import type { IUserInputResponse } from "./getUserInput";
+import { crateIsPackageExcluded } from "./crateIsPackageExcluded";
 
 const getAllPackages = (): string[] => {
     const workspaces = allWorkspaces() as string[];
@@ -22,7 +23,7 @@ export interface IUpdatePackagesParams {
 }
 
 export const updatePackages = async (params: IUpdatePackagesParams) => {
-    const { matching, skipResolutions, shouldUpdate } = params.input;
+    const { matching, skipResolutions, shouldUpdate, useCaret } = params.input;
     /**
      * Basic packages container with all packages that match the regex and their versions in the package.json files.
      */
@@ -37,7 +38,8 @@ export const updatePackages = async (params: IUpdatePackagesParams) => {
     const latestVersionPackages = await LatestVersionPackages.create();
 
     const updatable = await latestVersionPackages.getUpdatable({
-        packages: packages.packages
+        packages: packages.packages,
+        isPackageExcluded: crateIsPackageExcluded(params.input.exclude)
     });
     if (updatable.length === 0) {
         console.log("All packages are up-to-date. Exiting...");
@@ -64,7 +66,7 @@ export const updatePackages = async (params: IUpdatePackagesParams) => {
     const updatePackages = await UpPackages.create({
         packages: updatable,
         options: {
-            useCaret: false
+            useCaret
         }
     });
 

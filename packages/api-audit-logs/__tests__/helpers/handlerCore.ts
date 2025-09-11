@@ -5,29 +5,27 @@ import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createTenancyAndSecurity } from "./tenancySecurity";
-import { createDummyLocales, createPermissions, PermissionsArg } from "./helpers";
-import { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
-import { ContextPlugin } from "@webiny/api";
+import type { PermissionsArg } from "./helpers";
+import { createDummyLocales, createPermissions } from "./helpers";
+import type { ApiKey, SecurityIdentity } from "@webiny/api-security/types";
+import type { ContextPlugin } from "@webiny/api";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
-import { Plugin, PluginCollection } from "@webiny/plugins/types";
+import type { Plugin, PluginCollection } from "@webiny/plugins/types";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
-import { AuditLogsContext } from "~/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { AuditLogsContext } from "~/types";
 import { createAco } from "@webiny/api-aco";
 import { createAuditLogs } from "~/index";
 import { createContextPlugin } from "@webiny/handler";
-import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
-import { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
-import { createPageBuilderContext } from "@webiny/api-page-builder";
+import type { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
 import { createFileManagerContext } from "@webiny/api-file-manager";
-import pageBuilderImportExportPlugins from "@webiny/api-page-builder-import-export/graphql";
-import { ImportExportTaskStorageOperations } from "@webiny/api-page-builder-import-export/types";
-import { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
+import type { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
 import createAdminUsersApp from "@webiny/api-admin-users";
 import { createMailerContext } from "@webiny/api-mailer";
 import { NullLicense } from "@webiny/wcp";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
-import { createAcoAuditLogsContext } from "~/app";
+import { createAcoAuditLogsContext } from "~/context/index.js";
+import { createWebsiteBuilder } from "@webiny/api-website-builder/index.js";
 
 export interface CreateHandlerCoreParams {
     setupTenancyAndSecurityGraphQL?: boolean;
@@ -57,10 +55,7 @@ export const createHandlerCore = (params?: CreateHandlerCoreParams) => {
     const documentClient = getDocumentClient();
     const i18nStorage = getStorageOps("i18n");
     const fileManagerStorage = getStorageOps<FileManagerStorageOperations>("fileManager");
-    const pageBuilderStorage = getStorageOps<PageBuilderStorageOperations>("pageBuilder");
     const cmsStorage = getStorageOps<HeadlessCmsStorageOperations>("cms");
-    const pageBuilderImportExport =
-        getStorageOps<ImportExportTaskStorageOperations>("pageBuilderImportExport");
     const adminUsersStorage = getStorageOps<AdminUsersStorageOperations>("adminUsers");
 
     const enableContextPlugin = createContextPlugin<AuditLogsContext>(async context => {
@@ -113,7 +108,7 @@ export const createHandlerCore = (params?: CreateHandlerCoreParams) => {
                             id: apiKey,
                             name: apiKey,
                             tenant: tenant.id,
-                            permissions: identity?.permissions || [],
+                            permissions: createPermissions(permissions),
                             token,
                             createdBy: {
                                 id: "test",
@@ -138,16 +133,11 @@ export const createHandlerCore = (params?: CreateHandlerCoreParams) => {
             }),
             createHeadlessCmsContext({ storageOperations: cmsStorage.storageOperations }),
             createMailerContext(),
-            createPageBuilderContext({
-                storageOperations: pageBuilderStorage.storageOperations
-            }),
-            pageBuilderImportExportPlugins({
-                storageOperations: pageBuilderImportExport.storageOperations
-            }),
             createFileManagerContext({
                 storageOperations: fileManagerStorage.storageOperations
             }),
             createHeadlessCmsGraphQL(),
+            createWebsiteBuilder(),
             createAco({ documentClient }),
             createAuditLogs(),
             createAcoAuditLogsContext(),

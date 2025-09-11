@@ -1,9 +1,9 @@
 import { IndexManager } from "~/settings";
-import {
+import type {
     IDataSynchronizationInput,
     IDataSynchronizationManager
 } from "~/tasks/dataSynchronization/types";
-import { Context } from "~/types";
+import type { Context } from "~/types";
 import { Manager } from "~/tasks/Manager";
 import { Response, TaskResponse } from "@webiny/tasks";
 import { createMockEvent } from "~tests/mocks/event";

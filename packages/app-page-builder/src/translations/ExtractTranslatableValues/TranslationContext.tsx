@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from "react";
-import { type GenericRecord } from "@webiny/app/types.js";
+import type { GenericRecord } from "@webiny/app/types";
 
 export interface TranslatableItem {
     collectionId: string;

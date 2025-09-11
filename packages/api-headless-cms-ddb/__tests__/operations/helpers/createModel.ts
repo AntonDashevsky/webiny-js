@@ -1,4 +1,4 @@
-import { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsGroup, CmsModel } from "@webiny/api-headless-cms/types";
 
 export const createModel = (): CmsModel => {
     const group: Pick<CmsGroup, "id" | "name"> = {
@@ -21,7 +21,7 @@ export const createModel = (): CmsModel => {
             id: group.id,
             name: group.name
         },
-        layout: [["title"], ["options"], ["info"]],
+        layout: [["title"], ["options"], ["info"], ["settings"]],
         fields: [
             {
                 id: "title",
@@ -186,6 +186,14 @@ export const createModel = (): CmsModel => {
                         }
                     ]
                 }
+            },
+            {
+                id: "settings",
+                multipleValues: false,
+                type: "searchable-json",
+                fieldId: "settings",
+                storageId: "searchableJson@settings",
+                label: "Settings"
             }
         ],
         tenant: "root",

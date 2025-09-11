@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { useEditorConfig } from "./EditorConfig.js";
-import { type ElementConfig } from "~/editor/config/Element.js";
+import { useEditorConfig } from "./EditorConfig";
+import type { ElementConfig } from "~/editor/config/Element";
 
 declare global {
     // eslint-disable-next-line

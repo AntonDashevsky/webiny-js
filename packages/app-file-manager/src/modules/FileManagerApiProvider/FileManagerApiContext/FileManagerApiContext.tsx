@@ -1,36 +1,38 @@
 import React, { useCallback, useMemo, useState } from "react";
-import omit from "lodash/omit.js";
+import omit from "lodash/omit";
 import { useApolloClient } from "@apollo/react-hooks";
 import WebinyError from "@webiny/error";
 import { useSecurity } from "@webiny/app-security";
+import type {
+    CreateFileMutationResponse,
+    CreateFileMutationVariables,
+    DeleteFileMutationResponse,
+    DeleteFileMutationVariables,
+    FileInput,
+    GetFileManagerSettingsQueryResponse,
+    ListFileTagsQueryResponse,
+    ListFileTagsQueryVariables,
+    ListFilesListFilesResponse,
+    ListFilesQueryResponse,
+    ListFilesQueryVariables,
+    UpdateFileMutationResponse,
+    UpdateFileMutationVariables,
+    FmError
+} from "../graphql";
 import {
     CREATE_FILE,
-    type CreateFileMutationResponse,
-    type CreateFileMutationVariables,
     DELETE_FILE,
-    type DeleteFileMutationResponse,
-    type DeleteFileMutationVariables,
-    type FileInput,
     GET_FILE,
     GET_FILE_SETTINGS,
-    type GetFileManagerSettingsQueryResponse,
     LIST_FILES,
     LIST_TAGS,
-    type ListFileTagsQueryResponse,
-    type ListFileTagsQueryVariables,
-    type ListFilesListFilesResponse,
-    type ListFilesQueryResponse,
-    type ListFilesQueryVariables,
-    UPDATE_FILE,
-    type UpdateFileMutationResponse,
-    type UpdateFileMutationVariables,
-    type FmError
-} from "../graphql.js";
-import { type FileItem, type FileManagerSecurityPermission } from "@webiny/app-admin/types.js";
-import { getFileUploader } from "./getFileUploader.js";
-import { type Settings } from "~/types.js";
-import { useFileModel } from "~/hooks/useFileModel.js";
-import { getFileGraphQLSelection } from "./getFileGraphQLSelection.js";
+    UPDATE_FILE
+} from "../graphql";
+import type { FileItem, FileManagerSecurityPermission } from "@webiny/app-admin/types";
+import { getFileUploader } from "./getFileUploader";
+import type { Settings } from "~/types";
+import { useFileModel } from "~/hooks/useFileModel";
+import { getFileGraphQLSelection } from "./getFileGraphQLSelection";
 
 export interface ListTagsResponseItem {
     tag: string;

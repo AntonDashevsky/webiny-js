@@ -1,6 +1,6 @@
-import { type TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection.js";
-import { type GqlTranslatedCollectionDTO } from "~/translations/translatedCollection/graphql/mappers/GqlTranslatedCollectionDTO.js";
-import { type TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
+import type { TranslatedCollection } from "~/translations/translatedCollection/domain/TranslatedCollection";
+import type { GqlTranslatedCollectionDTO } from "~/translations/translatedCollection/graphql/mappers/GqlTranslatedCollectionDTO";
+import type { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection";
 
 export class GqlTranslatedCollectionMapper {
     static toDTO(

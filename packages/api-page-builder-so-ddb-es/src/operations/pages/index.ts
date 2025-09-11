@@ -13,32 +13,32 @@ import type {
     PageStorageOperationsPublishParams,
     PageStorageOperationsUnpublishParams,
     PageStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types.js";
-import type { Entity } from "@webiny/db-dynamodb/toolbox.js";
-import omit from "lodash/omit.js";
+} from "@webiny/api-page-builder/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import omit from "lodash/omit";
 import WebinyError from "@webiny/error";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
 import type { Client } from "@elastic/elasticsearch";
 import type {
     ElasticsearchBoolQueryConfig,
     ElasticsearchSearchResponse
-} from "@webiny/api-elasticsearch/types.js";
-import { configurations } from "~/configurations.js";
+} from "@webiny/api-elasticsearch/types";
+import { configurations } from "~/configurations";
 import { createLimit, encodeCursor } from "@webiny/api-elasticsearch";
-import { createElasticsearchQueryBody } from "./elasticsearchQueryBody.js";
-import { SearchLatestPagesPlugin } from "~/plugins/definitions/SearchLatestPagesPlugin.js";
-import { SearchPublishedPagesPlugin } from "~/plugins/definitions/SearchPublishedPagesPlugin.js";
+import { createElasticsearchQueryBody } from "./elasticsearchQueryBody";
+import { SearchLatestPagesPlugin } from "~/plugins/definitions/SearchLatestPagesPlugin";
+import { SearchPublishedPagesPlugin } from "~/plugins/definitions/SearchPublishedPagesPlugin";
+import type { QueryAllParams } from "@webiny/db-dynamodb";
 import {
     createEntityWriteBatch,
     getClean,
     put,
     queryAll,
-    type QueryAllParams,
     queryOne,
     sortItems
 } from "@webiny/db-dynamodb";
-import { type SearchPagesPlugin } from "~/plugins/definitions/SearchPagesPlugin.js";
-import { getESLatestPageData, getESPublishedPageData } from "./helpers.js";
+import type { SearchPagesPlugin } from "~/plugins/definitions/SearchPagesPlugin";
+import { getESLatestPageData, getESPublishedPageData } from "./helpers";
 import type { PluginsContainer } from "@webiny/plugins";
 import {
     createBasicType,
@@ -51,10 +51,10 @@ import {
     createPublishedSortKey,
     createPublishedType,
     createSortKey
-} from "./keys.js";
-import { PageDynamoDbElasticsearchFieldPlugin } from "~/plugins/definitions/PageDynamoDbElasticsearchFieldPlugin.js";
-import { shouldIgnoreEsResponseError } from "~/operations/pages/shouldIgnoreEsResponseError.js";
-import { logIgnoredEsResponseError } from "~/operations/pages/logIgnoredEsResponseError.js";
+} from "./keys";
+import { PageDynamoDbElasticsearchFieldPlugin } from "~/plugins/definitions/PageDynamoDbElasticsearchFieldPlugin";
+import { shouldIgnoreEsResponseError } from "~/operations/pages/shouldIgnoreEsResponseError";
+import { logIgnoredEsResponseError } from "~/operations/pages/logIgnoredEsResponseError";
 
 /**
  * This function removes attributes that were once present in the Page record, which we no longer need.

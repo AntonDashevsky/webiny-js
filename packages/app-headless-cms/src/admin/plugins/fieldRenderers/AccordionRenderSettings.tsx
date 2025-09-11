@@ -1,11 +1,10 @@
 import React from "react";
 import { Bind } from "@webiny/form";
-import { Cell } from "@webiny/ui/Grid/index.js";
-import { Switch } from "@webiny/ui/Switch/index.js";
-import {
-    type CmsModelField,
-    type CmsModelFieldRendererSettingsProps
-} from "@webiny/app-headless-cms-common/types/index.js";
+import { Grid, Switch } from "@webiny/admin-ui";
+import type {
+    CmsModelField,
+    CmsModelFieldRendererSettingsProps
+} from "@webiny/app-headless-cms-common/types";
 
 export interface IAccordionRenderSettings {
     open: boolean;
@@ -25,15 +24,13 @@ export const getAccordionRenderSettings = (field: CmsModelField) => {
 
 export const AccordionRenderSettings = ({ field }: CmsModelFieldRendererSettingsProps) => {
     return (
-        <>
-            <Cell span={12}>
-                <Bind name={"renderer.settings.open"} defaultValue={false}>
-                    <Switch
-                        label={"Expand Accordion"}
-                        description={`Enable if "${field.label}" is to be expanded by default.`}
-                    />
-                </Bind>
-            </Cell>
-        </>
+        <Grid.Column span={12}>
+            <Bind name={"renderer.settings.open"} defaultValue={false}>
+                <Switch
+                    label={"Expand Accordion"}
+                    description={`Enable if "${field.label}" is to be expanded by default.`}
+                />
+            </Bind>
+        </Grid.Column>
     );
 };

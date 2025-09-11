@@ -1,45 +1,32 @@
 import React, { useCallback, useMemo } from "react";
-import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { i18n } from "@webiny/app/i18n";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { ReactComponent as TableIcon } from "@webiny/icons/table_chart.svg";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+} from "@webiny/app-admin/components/SimpleForm";
 import { validation } from "@webiny/validation";
-import {
-    GET_MENU,
-    CREATE_MENU,
-    UPDATE_MENU,
-    LIST_MENUS,
-    type GetMenuQueryResponse,
-    type GetMenuQueryVariables
-} from "./graphql.js";
+import type { GetMenuQueryResponse, GetMenuQueryVariables } from "./graphql";
+import { GET_MENU, CREATE_MENU, UPDATE_MENU, LIST_MENUS } from "./graphql";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import MenuItems from "./MenusForm/MenuItems.js";
-import pick from "lodash/pick.js";
-import get from "lodash/get.js";
-import set from "lodash/set.js";
-import isEmpty from "lodash/isEmpty.js";
-import omit from "lodash/omit.js";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
-import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { useMenusPermissions } from "~/hooks/permissions/index.js";
-import { type PbMenu } from "~/types.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import MenuItems from "./MenusForm/MenuItems";
+import pick from "lodash/pick";
+import get from "lodash/get";
+import set from "lodash/set";
+import isEmpty from "lodash/isEmpty";
+import omit from "lodash/omit";
+import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { useMenusPermissions } from "~/hooks/permissions";
+import type { PbMenu } from "~/types";
+import { Button, Grid, Input, OverlayLoader, Textarea } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-page-builder/admin/menus/form");
-const ButtonWrapper = styled("div")({
-    display: "flex",
-    justifyContent: "space-between"
-});
 
 interface MenusFormProps {
     canCreate: boolean;
@@ -134,17 +121,18 @@ const MenusForm = ({ canCreate }: MenusFormProps) => {
     if (showEmptyView) {
         return (
             <EmptyView
+                icon={<TableIcon />}
                 title={t`Click on the left side list to display menu details {message}`({
                     message: canCreate ? "or create a..." : ""
                 })}
                 action={
                     canCreate ? (
-                        <ButtonDefault
+                        <Button
+                            text={t`New Menu`}
+                            icon={<AddIcon />}
                             data-testid="new-record-button"
                             onClick={() => history.push("/page-builder/menus?new=true")}
-                        >
-                            <ButtonIcon icon={<AddIcon />} /> {t`New Menu`}
-                        </ButtonDefault>
+                        />
                     ) : (
                         <></>
                     )
@@ -156,58 +144,66 @@ const MenusForm = ({ canCreate }: MenusFormProps) => {
     return (
         <Form data={data} onSubmit={onSubmit}>
             {({ data, form, Bind }) => (
-                <SimpleForm data-testid={"pb-menus-form"}>
-                    {loading && <CircularProgress />}
+                <SimpleForm size={"full"} data-testid={"pb-menus-form"}>
+                    {loading && <OverlayLoader />}
                     <SimpleFormHeader title={data.title || t`New menu`} />
                     <SimpleFormContent>
                         <Grid>
-                            <Cell span={6}>
+                            <Grid.Column span={6}>
                                 <Bind name="title" validators={validation.create("required")}>
-                                    <Input label={t`Name`} data-testid="pb.menu.create.name" />
+                                    <Input
+                                        label={t`Name`}
+                                        data-testid="pb.menu.create.name"
+                                        size={"lg"}
+                                    />
                                 </Bind>
-                            </Cell>
-                            <Cell span={6}>
+                            </Grid.Column>
+                            <Grid.Column span={6}>
                                 <Bind name="slug" validators={validation.create("required")}>
                                     <Input
+                                        size={"lg"}
                                         disabled={Boolean(data.createdOn)}
                                         label={t`Slug`}
                                         data-testid="pb.menu.create.slug"
                                     />
                                 </Bind>
-                            </Cell>
-                            <Cell span={12}>
+                            </Grid.Column>
+                            <Grid.Column span={12}>
                                 <Bind name="description">
-                                    <Input
+                                    <Textarea
+                                        size={"lg"}
                                         rows={5}
                                         label={t`Description`}
                                         data-testid="pb.menu.create.description"
                                     />
                                 </Bind>
-                            </Cell>
+                            </Grid.Column>
+                            <Bind name="items">
+                                {props => (
+                                    <MenuItems
+                                        {...props}
+                                        canSave={canWrite(loadedMenu?.createdBy?.id)}
+                                    />
+                                )}
+                            </Bind>
                         </Grid>
-                        <Bind name="items">
-                            {props => (
-                                <MenuItems
-                                    {...props}
-                                    canSave={canWrite(loadedMenu?.createdBy?.id)}
-                                />
-                            )}
-                        </Bind>
                     </SimpleFormContent>
                     <SimpleFormFooter>
-                        <ButtonWrapper>
-                            <ButtonDefault
-                                onClick={() => history.push("/page-builder/menus")}
-                            >{t`Cancel`}</ButtonDefault>
-                            {canWrite(loadedMenu?.createdBy?.id) && (
-                                <ButtonPrimary
-                                    data-testid="pb.menu.save.button"
-                                    onClick={ev => {
-                                        form.submit(ev);
-                                    }}
-                                >{t`Save menu`}</ButtonPrimary>
-                            )}
-                        </ButtonWrapper>
+                        <Button
+                            variant={"secondary"}
+                            text={t`Cancel`}
+                            onClick={() => history.push("/page-builder/menus")}
+                            data-testid="pb.menu.new.form.button.cancel"
+                        />
+                        {canWrite(loadedMenu?.createdBy?.id) && (
+                            <Button
+                                text={t`Save`}
+                                data-testid="pb.menu.save.button"
+                                onClick={ev => {
+                                    form.submit(ev);
+                                }}
+                            />
+                        )}
                     </SimpleFormFooter>
                 </SimpleForm>
             )}

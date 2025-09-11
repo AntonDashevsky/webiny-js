@@ -1,6 +1,6 @@
-import { type CmsModelField } from "~/types/index.js";
-import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
-import { getApplicableFieldById } from "./getApplicableFieldById.js";
+import type { CmsModelField } from "~/types";
+import { getBaseFieldType } from "~/utils/getBaseFieldType";
+import { getApplicableFieldById } from "./getApplicableFieldById";
 
 const isFieldApplicable = (field: CmsModelField) => {
     return Boolean(

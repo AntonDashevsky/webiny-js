@@ -1,7 +1,8 @@
 import { useRawHandler } from "~tests/helpers/useRawHandler";
 import { createMockTaskDefinition, createMockTaskDefinitions } from "~tests/mocks/definition";
 import { createMockIdentity } from "~tests/mocks/identity";
-import { ITaskDataInput, TaskDataStatus } from "~/types";
+import type { ITaskDataInput } from "~/types";
+import { TaskDataStatus } from "~/types";
 
 interface IMockDefinitionInput extends ITaskDataInput {
     file: string;

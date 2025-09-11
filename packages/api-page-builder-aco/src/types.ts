@@ -1,8 +1,8 @@
-import { type AcoContext, type Folder, type IAcoApp } from "@webiny/api-aco/types.js";
-import { type Page, type PbPageElement } from "@webiny/api-page-builder/types.js";
-import { type PbContext } from "@webiny/api-page-builder/graphql/types.js";
-import { type Context as BaseContext } from "@webiny/handler/types.js";
-import { type PB_PAGE_TYPE } from "~/contants.js";
+import type { AcoContext, Folder, IAcoApp } from "@webiny/api-aco/types";
+import type { Page, PbPageElement } from "@webiny/api-page-builder/types";
+import type { PbContext } from "@webiny/api-page-builder/graphql/types";
+import type { Context as BaseContext } from "@webiny/handler/types";
+import type { PB_PAGE_TYPE } from "~/contants";
 
 interface PageSearchProcessorParams {
     page: Page;

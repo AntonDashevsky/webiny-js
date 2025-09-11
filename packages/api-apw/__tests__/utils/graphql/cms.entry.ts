@@ -1,4 +1,4 @@
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import camelCase from "lodash/camelCase";
 import upperFirst from "lodash/upperFirst";
 

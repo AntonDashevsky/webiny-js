@@ -1,16 +1,16 @@
-import {
-    type Condition,
-    type ConditionDTO,
-    type Field,
-    type FieldDTO,
-    type Predefined,
-    type PredefinedDTO,
-    type Type,
-    type FieldType,
-    type Value,
-    type Settings,
-    type SettingsDTO
-} from "./Field.js";
+import type {
+    Condition,
+    ConditionDTO,
+    Field,
+    FieldDTO,
+    Predefined,
+    PredefinedDTO,
+    Type,
+    FieldType,
+    Value,
+    Settings,
+    SettingsDTO
+} from "./Field";
 
 export class FieldMapper {
     static toDTO(configuration: Field[]): FieldDTO[] {

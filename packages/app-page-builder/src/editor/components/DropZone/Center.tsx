@@ -1,7 +1,8 @@
 import React from "react";
-import Droppable, { type DroppableIsVisiblePropType, type DroppableOnDropPropType } from "./../Droppable.js";
+import type { DroppableIsVisiblePropType, DroppableOnDropPropType } from "./../Droppable";
+import Droppable from "./../Droppable";
 import styled from "@emotion/styled";
-import { useActiveElementId } from "~/editor/hooks/useActiveElementId.js";
+import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
 
 interface ContainerProps {
     isOver: boolean;

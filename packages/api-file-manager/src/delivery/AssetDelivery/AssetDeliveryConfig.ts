@@ -1,21 +1,21 @@
 import { Plugin } from "@webiny/plugins";
-import {
-    type AssetRequestResolver,
-    type AssetResolver,
-    type AssetProcessor,
-    type AssetOutputStrategy,
-    type AssetRequest,
-    type Asset,
-    type AssetTransformationStrategy,
-    type ResponseHeadersSetter,
-    SetResponseHeaders
-} from "~/delivery/index.js";
-import { type FileManagerContext } from "~/types.js";
-import { NullRequestResolver } from "~/delivery/AssetDelivery/NullRequestResolver.js";
-import { NullAssetResolver } from "~/delivery/AssetDelivery/NullAssetResolver.js";
-import { NullAssetOutputStrategy } from "./NullAssetOutputStrategy.js";
-import { TransformationAssetProcessor } from "./transformation/TransformationAssetProcessor.js";
-import { PassthroughAssetTransformationStrategy } from "./transformation/PassthroughAssetTransformationStrategy.js";
+import type {
+    AssetRequestResolver,
+    AssetResolver,
+    AssetProcessor,
+    AssetOutputStrategy,
+    AssetRequest,
+    Asset,
+    AssetTransformationStrategy,
+    ResponseHeadersSetter
+} from "~/delivery";
+import { SetResponseHeaders } from "~/delivery";
+import type { FileManagerContext } from "~/types";
+import { NullRequestResolver } from "~/delivery/AssetDelivery/NullRequestResolver";
+import { NullAssetResolver } from "~/delivery/AssetDelivery/NullAssetResolver";
+import { NullAssetOutputStrategy } from "./NullAssetOutputStrategy";
+import { TransformationAssetProcessor } from "./transformation/TransformationAssetProcessor";
+import { PassthroughAssetTransformationStrategy } from "./transformation/PassthroughAssetTransformationStrategy";
 
 type Setter<TParams, TReturn> = (params: TParams) => TReturn;
 

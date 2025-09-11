@@ -1,6 +1,6 @@
 import useHandler from "./useHandler";
 import mocks from "./mocks/jobsRemoval";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
 describe("Jobs Removal Test", () => {
     // eslint-disable-next-line

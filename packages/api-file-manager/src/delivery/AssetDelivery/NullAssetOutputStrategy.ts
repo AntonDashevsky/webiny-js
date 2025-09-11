@@ -1,5 +1,5 @@
-import { type AssetOutputStrategy, type AssetReply } from "~/delivery/index.js";
-import { NullAssetReply } from "./NullAssetReply.js";
+import type { AssetOutputStrategy, AssetReply } from "~/delivery";
+import { NullAssetReply } from "./NullAssetReply";
 
 export class NullAssetOutputStrategy implements AssetOutputStrategy {
     async output(): Promise<AssetReply> {

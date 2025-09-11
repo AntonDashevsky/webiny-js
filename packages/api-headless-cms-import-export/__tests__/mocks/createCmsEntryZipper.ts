@@ -6,7 +6,7 @@ import {
     UploadPartCommand
 } from "@webiny/aws-sdk/client-s3";
 import { createPassThrough } from "~tests/mocks/createPassThrough";
-import { PassThrough } from "stream";
+import type { PassThrough } from "stream";
 import { mockClient } from "aws-sdk-client-mock";
 import { CmsEntryZipper } from "~/tasks/utils/cmsEntryZipper";
 import { Upload } from "~/tasks/utils/upload";

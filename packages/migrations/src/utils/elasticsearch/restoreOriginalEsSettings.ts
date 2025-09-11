@@ -1,6 +1,6 @@
-import { esPutIndexSettings } from "~/utils/index.js";
-import { Logger } from "@webiny/data-migration";
-import { Client } from "@elastic/elasticsearch";
+import { esPutIndexSettings } from "~/utils";
+import type { Logger } from "@webiny/data-migration";
+import type { Client } from "@elastic/elasticsearch";
 
 interface IndexSettings {
     refresh_interval: `${number}s` | "-1";

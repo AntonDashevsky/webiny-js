@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { type IListPageTemplatesGateway } from "~/features/pageTemplate/listPageTemplates/IListPageTemplatesGateway.js";
-import { type IListPageTemplatesRepository } from "~/features/pageTemplate/listPageTemplates/IListPageTemplatesRepository.js";
-import { type PbPageTemplateWithContent } from "~/types.js";
-import { type ListCache } from "~/features/ListCache.js";
+import type { IListPageTemplatesGateway } from "~/features/pageTemplate/listPageTemplates/IListPageTemplatesGateway";
+import type { IListPageTemplatesRepository } from "~/features/pageTemplate/listPageTemplates/IListPageTemplatesRepository";
+import type { PbPageTemplateWithContent } from "~/types";
+import type { ListCache } from "~/features/ListCache";
 
 export class ListPageTemplatesRepository implements IListPageTemplatesRepository {
     private loading: boolean;

@@ -1,9 +1,9 @@
-import {
-    type CmsModelAst,
-    type CmsModelField,
-    type CmsModelFieldAstNode,
-    type CmsModelFieldAstNodeField
-} from "~/types/index.js";
+import type {
+    CmsModelAst,
+    CmsModelField,
+    CmsModelFieldAstNode,
+    CmsModelFieldAstNodeField
+} from "~/types";
 
 const nodeHasChildren = (node: CmsModelFieldAstNode) => {
     return node.children.length > 0;

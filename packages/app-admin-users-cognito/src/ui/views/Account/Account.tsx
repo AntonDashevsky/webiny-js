@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import omit from "lodash/omit.js";
+import omit from "lodash/omit";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { i18n } from "@webiny/app/i18n";
 import { Form } from "@webiny/form";
-import { Input } from "@webiny/ui/Input/index.js";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { SnackbarAction } from "@webiny/ui/Snackbar/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
+import { Input } from "@webiny/ui/Input";
+import { ButtonPrimary } from "@webiny/ui/Button";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { SnackbarAction } from "@webiny/ui/Snackbar";
+import { Cell, Grid } from "@webiny/ui/Grid";
 import { validation } from "@webiny/validation";
-import AvatarImage from "../../components/AvatarImage.js";
-import { GET_CURRENT_USER, UPDATE_CURRENT_USER } from "./graphql.js";
-import { config as appConfig } from "@webiny/app/config.js";
+import { AvatarImage } from "../../components/AvatarImage";
+import { GET_CURRENT_USER, UPDATE_CURRENT_USER } from "./graphql";
+import { config as appConfig } from "@webiny/app/config";
 
 import {
     SimpleForm,
     SimpleFormHeader,
     SimpleFormFooter,
     SimpleFormContent
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+} from "@webiny/app-admin/components/SimpleForm";
 import { useSecurity } from "@webiny/app-security";
-import { View } from "@webiny/app/components/View.js";
+import { View } from "@webiny/app/components/View";
 import { CenteredView, useSnackbar } from "@webiny/app-admin";
-import type { SecurityIdentity } from "@webiny/app-security/types.js";
-import { Alert } from "@webiny/ui/Alert/index.js";
+import type { SecurityIdentity } from "@webiny/app-security/types";
+import { Alert } from "@webiny/ui/Alert";
 
 const t = i18n.ns("app-security-admin-users/account-form");
 

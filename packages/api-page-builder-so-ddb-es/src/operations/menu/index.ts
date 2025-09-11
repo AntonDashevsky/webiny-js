@@ -1,21 +1,22 @@
-import {
-    type Menu,
-    type MenuStorageOperations,
-    type MenuStorageOperationsCreateParams,
-    type MenuStorageOperationsDeleteParams,
-    type MenuStorageOperationsGetParams,
-    type MenuStorageOperationsListParams,
-    type MenuStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types.js";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
+import type {
+    Menu,
+    MenuStorageOperations,
+    MenuStorageOperationsCreateParams,
+    MenuStorageOperationsDeleteParams,
+    MenuStorageOperationsGetParams,
+    MenuStorageOperationsListParams,
+    MenuStorageOperationsUpdateParams
+} from "@webiny/api-page-builder/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import WebinyError from "@webiny/error";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
-import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
-import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
-import { MenuDynamoDbElasticFieldPlugin } from "~/plugins/definitions/MenuDynamoDbElasticFieldPlugin.js";
-import { type PluginsContainer } from "@webiny/plugins";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort";
+import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
+import { MenuDynamoDbElasticFieldPlugin } from "~/plugins/definitions/MenuDynamoDbElasticFieldPlugin";
+import type { PluginsContainer } from "@webiny/plugins";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

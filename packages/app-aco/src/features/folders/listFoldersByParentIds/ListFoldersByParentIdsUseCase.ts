@@ -1,9 +1,9 @@
-import { type IListFoldersByParentIdsRepository } from "./IListFoldersByParentIdsRepository.js";
-import {
-    type IListFoldersByParentIdsUseCase,
-    type ListFoldersByParentIdsUseCaseParams
-} from "./IListFoldersByParentIdsUseCase.js";
-import { ROOT_FOLDER } from "~/constants.js";
+import type { IListFoldersByParentIdsRepository } from "./IListFoldersByParentIdsRepository";
+import type {
+    IListFoldersByParentIdsUseCase,
+    ListFoldersByParentIdsUseCaseParams
+} from "./IListFoldersByParentIdsUseCase";
+import { ROOT_FOLDER } from "~/constants";
 
 export class ListFoldersByParentIdsUseCase implements IListFoldersByParentIdsUseCase {
     private repository: IListFoldersByParentIdsRepository;

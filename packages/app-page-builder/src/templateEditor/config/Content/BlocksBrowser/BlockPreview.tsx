@@ -1,16 +1,16 @@
 import * as React from "react";
-import { ButtonFloating, IconButton } from "@webiny/ui/Button/index.js";
-import { Elevation } from "@webiny/ui/Elevation/index.js";
+import { ButtonFloating, IconButton } from "@webiny/ui/Button";
+import { Elevation } from "@webiny/ui/Elevation";
 import { ReactComponent as AddIcon } from "~/editor/assets/icons/add.svg";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog/index.js";
-import { ReactComponent as EditIcon } from "@material-design-icons/svg/round/edit.svg";
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/round/delete.svg";
-import * as Styled from "./StyledComponents.js";
-import kebabCase from "lodash/kebabCase.js";
-import { type PbEditorBlockPlugin } from "~/types.js";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { Typography } from "@webiny/ui/Typography";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { ConfirmationDialog } from "@webiny/ui/ConfirmationDialog";
+import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
+import * as Styled from "./StyledComponents";
+import kebabCase from "lodash/kebabCase";
+import type { PbEditorBlockPlugin } from "~/types";
 import { useCallback } from "react";
 
 interface BlockPreviewProps {

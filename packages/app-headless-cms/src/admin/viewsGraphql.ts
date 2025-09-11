@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { type CmsErrorResponse, type CmsGroup, type CmsModel } from "~/types.js";
+import type { CmsErrorResponse, CmsGroup, CmsModel } from "~/types";
 
 const ERROR_FIELDS = `
     code

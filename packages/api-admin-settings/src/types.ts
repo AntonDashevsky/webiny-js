@@ -1,12 +1,4 @@
-import { type TenancyContext } from "@webiny/api-tenancy/types.js";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { DbContext } from "@webiny/handler-db/types";
 
-export interface AdminSettings {
-    appUrl: string;
-}
-export type AdminSettingsVariant = "default" | string;
-export interface AdminSettingsService {
-    getSettings: (variant?: AdminSettingsVariant) => Promise<AdminSettings | null>;
-}
-export interface AdminSettingsContext extends TenancyContext {
-    settings: AdminSettingsService;
-}
+export type Context = TenancyContext & DbContext;

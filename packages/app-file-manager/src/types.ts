@@ -1,10 +1,10 @@
 import type * as React from "react";
-import { type Plugin } from "@webiny/plugins/types.js";
-import { type SecurityPermission } from "@webiny/app-security/types.js";
-import { type FileItem } from "@webiny/app-admin/types.js";
-import { type FolderTableItem, type RecordTableItem } from "@webiny/app-aco/types.js";
+import type { Plugin } from "@webiny/plugins/types";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { FileItem } from "@webiny/app-admin/types";
+import type { FolderTableRow, RecordTableRow } from "@webiny/app-aco";
 
-export type { FileInput } from "./modules/FileManagerApiProvider/graphql.js";
+export { FileInput } from "./modules/FileManagerApiProvider/graphql";
 
 export type PermissionRendererPluginRenderFunctionType = (props: {
     value: SecurityPermission;
@@ -37,6 +37,4 @@ export interface FileTag {
     count: number;
 }
 
-export type FileTableItem = FileItem & RecordTableItem;
-
-export type TableItem = FolderTableItem | FileTableItem;
+export type TableItem = FolderTableRow | RecordTableRow<FileItem>;

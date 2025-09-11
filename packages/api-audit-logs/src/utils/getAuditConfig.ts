@@ -1,166 +1,118 @@
 import WebinyError from "@webiny/error";
-import { mdbid } from "@webiny/utils";
-import { type IAcoApp } from "@webiny/api-aco/types.js";
-import { type AuditAction, type AuditLog, type AuditLogsContext } from "~/types.js";
+import type { AuditAction, AuditLogPayload, AuditLogsContext } from "~/types.js";
+import type { IAuditLog } from "~/storage/types.js";
 import type { GenericRecord } from "@webiny/api/types.js";
 
-interface AuditLogPayload extends Omit<AuditLog, "id" | "data"> {
-    data: Record<string, any>;
-}
-
 interface CreateAuditLogParams {
-    app: IAcoApp;
+    context: Pick<AuditLogsContext, "auditLogs">;
     payload: AuditLogPayload;
 }
 
-const createAuditLog = async (params: CreateAuditLogParams) => {
-    const { app, payload } = params;
-
-    const compressor = app.context.compressor;
-
-    const payloadData = JSON.stringify(payload.data);
+const createAuditLog = async (params: CreateAuditLogParams): Promise<IAuditLog> => {
+    const { context, payload } = params;
 
     try {
-        const entry = {
-            id: mdbid(),
-            title: payload.message,
-            content: payload.message,
-            tags: [],
-            type: "AuditLogs",
-            location: { folderId: "root" },
-            data: {
-                ...payload,
-                data: payloadData
-            }
-        };
-        const data = await compressor.compress(entry.data.data);
-        await app.search.create({
-            ...entry,
-            data: {
-                ...entry.data,
-                data: JSON.stringify(data)
-            }
-        });
-        return entry;
+        return await context.auditLogs.createAuditLog(payload);
     } catch (error) {
-        throw WebinyError.from(error, {
-            message: "Error while creating new audit log",
-            code: "CREATE_AUDIT_LOG"
-        });
+        throw WebinyError.from(error);
     }
 };
 
 interface CreateOrMergeAuditLogParams {
-    app: IAcoApp;
+    context: AuditLogsContext;
     payload: AuditLogPayload;
     delay: number;
 }
 
-const createOrMergeAuditLog = async (params: CreateOrMergeAuditLogParams) => {
-    const { app, payload, delay } = params;
-
-    const compressor = app.context.compressor;
-    // Get the latest audit log of this entry.
-    const [records] = await app.search.list({
-        where: {
-            type: "AuditLogs",
-            data: {
-                entityId: payload.entityId,
-                initiator: payload.initiator
-            }
-        },
-        limit: 1
-    });
-    const existingLog = records?.[0];
-
-    if (existingLog) {
-        const existingLogDate = Date.parse(existingLog.savedOn);
-        const newLogDate = payload.timestamp.getTime();
-
-        // Check if the latest audit log is saved within delay range.
-        if (newLogDate - existingLogDate < delay * 1000) {
-            const existingLogData = (await compressor.decompress(
-                existingLog.data
-            )) as unknown as GenericRecord;
-            // Update latest audit log with new "after" payload.
-            const beforePayloadData = JSON.parse(existingLogData?.data.data)?.before;
-            const afterPayloadData = payload.data?.after;
-            const updatedPayloadData = beforePayloadData
-                ? JSON.stringify({ before: beforePayloadData, after: afterPayloadData })
-                : JSON.stringify(payload.data);
-
-            const data = await compressor.compress(updatedPayloadData);
-            try {
-                await app.search.update(existingLog.id, {
-                    data: {
-                        ...payload,
-                        data
-                    }
-                });
-
-                return {
-                    ...existingLog,
-                    data: updatedPayloadData
-                };
-            } catch (error) {
-                throw WebinyError.from(error, {
-                    message: "Error while updating audit log",
-                    code: "UPDATE_AUDIT_LOG"
-                });
-            }
-        }
+const createAuditLogDelayDate = (delay: number | undefined) => {
+    if (!delay) {
+        return undefined;
     }
+    const date = new Date();
+    date.setTime(date.getTime() - delay * 1000);
+    return date;
+};
 
-    return createAuditLog(params);
+const createOrMergeAuditLog = async (params: CreateOrMergeAuditLogParams): Promise<IAuditLog> => {
+    const { context, payload, delay } = params;
+
+    const results = await context.auditLogs.listAuditLogs({
+        app: payload.app,
+        entryId: payload.entityId,
+        limit: 1,
+        createdOn_gte: createAuditLogDelayDate(delay),
+        sort: "DESC"
+    });
+    if (results.error) {
+        throw WebinyError.from(results.error);
+    }
+    const original = results.items?.[0];
+    if (!original) {
+        return createAuditLog(params);
+    }
+    // Update latest audit log with new "after" payload.
+    const beforePayloadData = original.content ? JSON.parse(original.content)?.before : undefined;
+    /**
+     * We can assume that there is a possible "after" in the payload data.
+     */
+    const afterPayloadData = payload.content?.after;
+    const updatedPayloadData = beforePayloadData
+        ? {
+              before: beforePayloadData,
+              after: afterPayloadData
+          }
+        : payload.content;
+
+    try {
+        return await context.auditLogs.updateAuditLog(original, {
+            ...payload,
+            content: updatedPayloadData
+        });
+    } catch (ex) {
+        throw WebinyError.from(ex);
+    }
 };
 
 export const getAuditConfig = (audit: AuditAction) => {
     return async (
         message: string,
-        data: Record<string, any>,
+        content: GenericRecord,
         entityId: string,
         context: AuditLogsContext
-    ) => {
-        const { aco, security } = context;
-
-        if (!aco) {
-            console.log("No ACO defined.");
-            return;
+    ): Promise<IAuditLog | null> => {
+        if (!context.auditLogs) {
+            console.log("No AuditLogs defined.");
+            return null;
         }
 
-        const identity = security.getIdentity();
-
-        const auditLogPayload = {
+        const payload: AuditLogPayload = {
             message,
             app: audit.app.app,
-            entity: audit.entity.type,
             entityId,
+            entity: audit.entity.type,
             action: audit.action.type,
-            data,
-            timestamp: new Date(),
-            initiator: identity?.id
+            content,
+            tags: []
         };
 
-        const app = aco.getApp("AuditLogs");
-        const delay = audit.action.newEntryDelay;
+        const delay = audit.action.newEntryDelay || 0;
 
         // Check if there is delay on audit log creation for this action.
-        if (delay) {
+        if (delay > 0) {
             try {
                 return await createOrMergeAuditLog({
-                    app,
-                    payload: auditLogPayload,
+                    context,
+                    payload,
                     delay
                 });
             } catch {
                 // Don't care at this point!
-            } finally {
-                return JSON.stringify({});
             }
+            return null;
         }
         return await createAuditLog({
-            app,
-            payload: auditLogPayload
+            context,
+            payload
         });
     };
 };

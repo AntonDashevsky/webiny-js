@@ -1,4 +1,4 @@
-import { type FolderPermission } from "~/types.js";
+import type { FolderPermission } from "~/types";
 
 export interface CreateFolderParams {
     title: string;

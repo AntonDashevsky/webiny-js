@@ -1,7 +1,9 @@
 import React from "react";
-import { UIElement, type UIElementConfig } from "~/ui/UIElement.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { UIRenderer, type UIRenderParams } from "~/ui/UIRenderer.js";
+import type { UIElementConfig } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
+import { Typography } from "@webiny/ui/Typography";
+import type { UIRenderParams } from "~/ui/UIRenderer";
+import { UIRenderer } from "~/ui/UIRenderer";
 
 interface HeaderTitleElementConfig extends UIElementConfig {
     title: () => string | null;

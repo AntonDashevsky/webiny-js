@@ -1,5 +1,5 @@
-import { type PbEditorElement } from "~/types.js";
-import { useElementById } from "~/editor/index.js";
+import type { PbEditorElement } from "~/types";
+import { useElementById } from "~/editor";
 
 export const useIsElementChildOfType = (element: PbEditorElement | null, elementType: string) => {
     const [parent] = useElementById(element?.parent || "n/a");

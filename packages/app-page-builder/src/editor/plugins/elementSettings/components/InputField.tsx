@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import omit from "lodash/omit.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import { COLORS } from "./StyledComponents.js";
-import { type Validation } from "@webiny/form";
-import debounce from "lodash/debounce.js";
+import omit from "lodash/omit";
+import { Typography } from "@webiny/ui/Typography";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import { COLORS } from "./StyledComponents";
+import type { Validation } from "@webiny/form";
+import debounce from "lodash/debounce";
 import { useIsMounted } from "@webiny/app-admin";
 
 const inputStyle = css({

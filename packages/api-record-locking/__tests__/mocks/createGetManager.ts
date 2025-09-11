@@ -1,4 +1,4 @@
-import { IRecordLockingModelManager } from "~/types";
+import type { IRecordLockingModelManager } from "~/types";
 
 export const createGetManager = () => {
     return async () => {

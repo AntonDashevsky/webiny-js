@@ -1,21 +1,22 @@
-import {
-    type PageElement,
-    type PageElementStorageOperations,
-    type PageElementStorageOperationsCreateParams,
-    type PageElementStorageOperationsDeleteParams,
-    type PageElementStorageOperationsGetParams,
-    type PageElementStorageOperationsListParams,
-    type PageElementStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types.js";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup.js";
+import type {
+    PageElement,
+    PageElementStorageOperations,
+    PageElementStorageOperationsCreateParams,
+    PageElementStorageOperationsDeleteParams,
+    PageElementStorageOperationsGetParams,
+    PageElementStorageOperationsListParams,
+    PageElementStorageOperationsUpdateParams
+} from "@webiny/api-page-builder/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import { cleanupItem } from "@webiny/db-dynamodb/utils/cleanup";
 import WebinyError from "@webiny/error";
-import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
-import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
-import { PageElementDynamoDbElasticFieldPlugin } from "~/plugins/definitions/PageElementDynamoDbElasticFieldPlugin.js";
-import { type PluginsContainer } from "@webiny/plugins";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort";
+import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
+import { PageElementDynamoDbElasticFieldPlugin } from "~/plugins/definitions/PageElementDynamoDbElasticFieldPlugin";
+import type { PluginsContainer } from "@webiny/plugins";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

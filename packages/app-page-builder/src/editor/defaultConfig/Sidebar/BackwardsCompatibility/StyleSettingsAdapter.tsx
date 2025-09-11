@@ -1,9 +1,9 @@
 import React from "react";
-import camelCase from "lodash/camelCase.js";
+import camelCase from "lodash/camelCase";
 import { plugins } from "@webiny/plugins";
-import { type PbEditorPageElementStyleSettingsPlugin } from "~/types.js";
-import { EditorConfig } from "~/editor/config/index.js";
-import { useElementStyleSettings } from "~/editor/plugins/elementSettings/hooks/useElementStyleSettings.js";
+import type { PbEditorPageElementStyleSettingsPlugin } from "~/types";
+import { EditorConfig } from "~/editor/config";
+import { useElementStyleSettings } from "~/editor/plugins/elementSettings/hooks/useElementStyleSettings";
 
 export const getPropertyName = (pluginName: string) => {
     return camelCase(pluginName.replace("pb-editor-page-element-style-settings-", ""));

@@ -1,16 +1,16 @@
-import {
-    type IBulkActionsController,
-    type IDeleteItemController,
-    type IGetRestoredItemByIdController,
-    type IListItemsController,
-    type IListMoreItemsController,
-    type IRestoreItemController,
-    type ISearchItemsController,
-    type ISelectAllItemsController,
-    type ISelectItemsController,
-    type ISortItemsController,
-    type IUnselectAllItemsController
-} from "~/Presentation/TrashBin/controllers/index.js";
+import type {
+    IBulkActionsController,
+    IDeleteItemController,
+    IGetRestoredItemByIdController,
+    IListItemsController,
+    IListMoreItemsController,
+    IRestoreItemController,
+    ISearchItemsController,
+    ISelectAllItemsController,
+    ISelectItemsController,
+    ISortItemsController,
+    IUnselectAllItemsController
+} from "~/Presentation/TrashBin/controllers";
 
 export interface ITrashBinControllers {
     deleteItem: IDeleteItemController;

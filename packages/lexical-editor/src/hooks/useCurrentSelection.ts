@@ -1,13 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-    $getSelection,
-    $isRangeSelection,
-    $isNodeSelection,
-    type RangeSelection,
-    type NodeSelection
-} from "lexical";
-import { useIsMounted } from "./useIsMounted.js";
-import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
+import type { RangeSelection, NodeSelection } from "lexical";
+import { $getSelection, $isRangeSelection, $isNodeSelection } from "lexical";
+import { useIsMounted } from "./useIsMounted";
+import { useRichTextEditor } from "~/hooks/useRichTextEditor";
 
 export interface CurrentSelection {
     selection: ReturnType<typeof $getSelection>;

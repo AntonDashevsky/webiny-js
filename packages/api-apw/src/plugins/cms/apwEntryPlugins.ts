@@ -1,6 +1,7 @@
-import { type AdvancedPublishingWorkflow, ApwContentTypes } from "~/types.js";
-import { fetchModel, getEntryTitle } from "./utils.js";
-import { type HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
+import type { AdvancedPublishingWorkflow } from "~/types";
+import { ApwContentTypes } from "~/types";
+import { fetchModel, getEntryTitle } from "./utils";
+import type { HeadlessCms } from "@webiny/api-headless-cms/types";
 
 interface ApwEntryPlugins {
     apw: AdvancedPublishingWorkflow;

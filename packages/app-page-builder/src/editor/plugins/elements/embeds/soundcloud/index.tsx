@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import kebabCase from "lodash/kebabCase";
+import { Typography } from "@webiny/ui/Typography";
 import { validation } from "@webiny/validation";
-import { createEmbedPlugin, createEmbedSettingsPlugin } from "../../utils/oembed/index.js";
+import { createEmbedPlugin, createEmbedSettingsPlugin } from "../../utils/oembed";
 import { ReactComponent as LogoIcon } from "./soundcloud-brands.svg";
-import Accordion from "../../../elementSettings/components/Accordion.js";
-import InputField from "../../../elementSettings/components/InputField.js";
+import Accordion from "../../../elementSettings/components/Accordion";
+import InputField from "../../../elementSettings/components/InputField";
 import {
     ButtonContainer,
     SimpleButton
-} from "../../../elementSettings/components/StyledComponents.js";
-import { type PbEditorElementPluginArgs } from "~/types.js";
-import { type EmbedPluginConfigRenderCallable } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin.js";
+} from "../../../elementSettings/components/StyledComponents";
+import type { PbEditorElementPluginArgs } from "~/types";
+import type { EmbedPluginConfigRenderCallable } from "~/editor/plugins/elements/utils/oembed/createEmbedPlugin";
 
-import { PeSoundcloud } from "./PeSoundcloud.js";
+import { PeSoundcloud } from "./PeSoundcloud";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

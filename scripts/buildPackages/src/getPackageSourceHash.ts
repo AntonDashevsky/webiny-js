@@ -1,5 +1,5 @@
 import { hashElement } from "folder-hash";
-import { Package } from "./types";
+import type { Package } from "./types";
 
 export async function getPackageSourceHash(workspacePackage: Package) {
     const { hash } = await hashElement(workspacePackage.packageFolder, {

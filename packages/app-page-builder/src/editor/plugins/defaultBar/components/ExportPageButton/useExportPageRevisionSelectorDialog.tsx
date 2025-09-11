@@ -1,27 +1,14 @@
 import React from "react";
-import { css } from "emotion";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { useDialog } from "@webiny/app-admin/hooks/useDialog.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Radio, RadioGroup } from "@webiny/ui/Radio/index.js";
+import { Alert, Grid, RadioGroup, Text } from "@webiny/admin-ui";
+import { i18n } from "@webiny/app/i18n";
+import { useDialog } from "@webiny/app-admin/hooks/useDialog";
 import { Form } from "@webiny/form";
-import { Alert } from "@webiny/ui/Alert/index.js";
-import { usePageBuilder } from "~/hooks/usePageBuilder.js";
-import { type PbElementDataSettingsFormType } from "~/types.js";
-import { type PbRevisionType } from "~/contexts/PageBuilder/index.js";
+import { usePageBuilder } from "~/hooks/usePageBuilder";
+import type { PbElementDataSettingsFormType } from "~/types";
+import type { PbRevisionType } from "~/contexts/PageBuilder";
 
 const t = i18n.ns("app-page-builder/editor/plugins/defaultBar/exportPageButton");
 
-const confirmationMessageStyles = css`
-    width: 600px;
-`;
-
-const gridStyles = css`
-    &.mdc-layout-grid {
-        padding-top: 0;
-    }
-`;
 interface ExportPageDialogMessageProps {
     selected: string[];
 }
@@ -31,14 +18,14 @@ const ExportPageDialogMessage = ({ selected }: ExportPageDialogMessageProps) => 
     const { revisionType: value, setRevisionType: setValue } = exportPageData;
 
     return (
-        <div className={confirmationMessageStyles}>
-            <Grid className={gridStyles}>
-                <Cell span={12}>
-                    <Typography
-                        use={"subtitle1"}
-                    >{t`Choose which revision of the page(s) you want to export:`}</Typography>
-                </Cell>
-                <Cell span={12}>
+        <>
+            <Grid>
+                <Grid.Column span={12}>
+                    <Text
+                        size={"md"}
+                    >{t`Choose which revision of the page(s) you want to export:`}</Text>
+                </Grid.Column>
+                <Grid.Column span={12}>
                     <Form
                         data={{ revision: value }}
                         onChange={data => {
@@ -53,44 +40,32 @@ const ExportPageDialogMessage = ({ selected }: ExportPageDialogMessageProps) => 
                             <Bind name="revision">
                                 <RadioGroup
                                     label="Revision selection"
-                                    description={
+                                    note={
                                         "Note: If there is no published revision of a page the latest revision will be exported."
                                     }
-                                >
-                                    {({ onChange, getValue }) => (
-                                        <React.Fragment>
-                                            {[
-                                                { id: "published", name: "Published" },
-                                                {
-                                                    id: "latest",
-                                                    name: "Latest"
-                                                }
-                                            ].map(({ id, name }) => (
-                                                <Radio
-                                                    key={id}
-                                                    label={name}
-                                                    value={getValue(id)}
-                                                    onChange={onChange(id)}
-                                                />
-                                            ))}
-                                        </React.Fragment>
-                                    )}
-                                </RadioGroup>
+                                    items={[
+                                        { value: "published", label: "Published" },
+                                        {
+                                            value: "latest",
+                                            label: "Latest"
+                                        }
+                                    ]}
+                                />
                             </Bind>
                         )}
                     </Form>
-                </Cell>
+                </Grid.Column>
+                <>
+                    {selected.length === 0 && (
+                        <Grid.Column span={12}>
+                            <Alert title={t`Note`} type={"info"}>
+                                {t`You're about to export all pages. This operation might take a few minutes to complete.`}
+                            </Alert>
+                        </Grid.Column>
+                    )}
+                </>
             </Grid>
-            {selected.length === 0 && (
-                <Grid className={gridStyles}>
-                    <Cell span={12}>
-                        <Alert title={t`Note:`} type={"info"}>
-                            {t`You're about to export all pages. This operation might take a few minutes to complete.`}
-                        </Alert>
-                    </Cell>
-                </Grid>
-            )}
-        </div>
+        </>
     );
 };
 
@@ -98,19 +73,21 @@ interface UseExportPageRevisionSelectorDialogShowParams {
     onAccept: () => void;
     selected: string[];
 }
+
 interface UseExportPageRevisionSelectorDialog {
     showExportPageRevisionSelectorDialog: (
         params: UseExportPageRevisionSelectorDialogShowParams
     ) => void;
     hideDialog: () => void;
 }
+
 const useExportPageRevisionSelectorDialog = (): UseExportPageRevisionSelectorDialog => {
     const { showDialog, hideDialog } = useDialog();
 
     return {
         showExportPageRevisionSelectorDialog: ({ onAccept, selected }) => {
             showDialog(<ExportPageDialogMessage selected={selected} />, {
-                title: t`Select Page Revision`,
+                title: t`Select page revision`,
                 actions: {
                     cancel: { label: t`Cancel` },
                     accept: {

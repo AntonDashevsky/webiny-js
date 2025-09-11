@@ -1,5 +1,5 @@
 import { WebinyError } from "@webiny/error";
-import type { AcoContext, Folder } from "~/types.js";
+import type { AcoContext, Folder } from "~/types";
 
 export class DeleteFlp {
     private context: AcoContext;

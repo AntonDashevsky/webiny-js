@@ -1,14 +1,14 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import { ErrorResponse, ListResponse } from "@webiny/handler-graphql";
-import {
-    type ApwContentReviewStep,
-    ApwContentReviewStepStatus,
-    type ApwContext,
-    type ApwContentReviewListParams,
-    type ApwContentReviewContent
-} from "~/types.js";
-import resolve from "~/utils/resolve.js";
-import { onByFields, dateTimeFieldsSorters } from "./utils.js";
+import type {
+    ApwContentReviewStep,
+    ApwContext,
+    ApwContentReviewListParams,
+    ApwContentReviewContent
+} from "~/types";
+import { ApwContentReviewStepStatus } from "~/types";
+import resolve from "~/utils/resolve";
+import { onByFields, dateTimeFieldsSorters } from "./utils";
 
 const contentReviewSchema = new GraphQLSchemaPlugin<ApwContext>({
     // Had to remove /* GraphQL */ because prettier would not format the code correctly.

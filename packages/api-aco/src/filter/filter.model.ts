@@ -1,6 +1,6 @@
-import { createModelField } from "~/utils/createModelField.js";
+import { createModelField } from "~/utils/createModelField";
 import { createPrivateModel } from "@webiny/api-headless-cms";
-import { type CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
 
 const name = () =>
     createModelField({

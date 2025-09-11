@@ -1,5 +1,5 @@
 import { ContextPlugin } from "@webiny/api";
-import { PbContext } from "~/graphql/types";
+import type { PbContext } from "~/graphql/types";
 
 export type Markable = "render" | "flush";
 

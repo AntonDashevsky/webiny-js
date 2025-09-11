@@ -1,22 +1,23 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
-import { ReactComponent as EditIcon } from "@material-design-icons/svg/outlined/edit.svg";
+import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
 import {
     FileManagerViewConfig,
     useFileManagerViewConfig
-} from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
-import { useFileModel } from "~/hooks/useFileModel.js";
-import { type BatchDTO } from "~/components/BulkActions/ActionEdit/domain/index.js";
-import { BatchEditorDialog } from "./BatchEditorDialog/index.js";
-import { ActionEditPresenter } from "./ActionEditPresenter.js";
-import { useActionEditWorker } from "~/components/BulkActions/ActionEdit/useActionEditWorker.js";
+} from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+import { useFileModel } from "~/hooks/useFileModel";
+import type { BatchDTO } from "~/components/BulkActions/ActionEdit/domain";
+import { BatchEditorDialog } from "./BatchEditorDialog";
+import { ActionEditPresenter } from "./ActionEditPresenter";
+import { useActionEditWorker } from "~/components/BulkActions/ActionEdit/useActionEditWorker";
+import { Tooltip } from "@webiny/admin-ui";
 
 const { useButtons } = FileManagerViewConfig.Browser.BulkAction;
 
 export const ActionEdit = observer(() => {
     const { fields: allModelFields } = useFileModel();
     const config = useFileManagerViewConfig();
-    const { IconButton } = useButtons();
+    const { ButtonDefault } = useButtons();
 
     const fields = useMemo(() => {
         if (!config.fileDetails.fields.find(field => field.name === "tags")) {
@@ -55,11 +56,18 @@ export const ActionEdit = observer(() => {
 
     return (
         <>
-            <IconButton
-                icon={<EditIcon />}
-                onAction={() => presenter.openEditor()}
-                label={`Edit ${worker.filesLabel}`}
-                tooltipPlacement={"bottom"}
+            <Tooltip
+                side={"bottom"}
+                content={`Edit ${worker.filesLabel}`}
+                trigger={
+                    <ButtonDefault
+                        icon={<EditIcon />}
+                        onAction={() => presenter.openEditor()}
+                        size={"sm"}
+                    >
+                        {"Edit"}
+                    </ButtonDefault>
+                }
             />
             <BatchEditorDialog
                 onClose={() => presenter.closeEditor()}

@@ -2,16 +2,16 @@ import {
     onChangeRequestAfterCreateHook,
     onChangeRequestAfterUpdateHook,
     onChangeRequestAfterDeleteHook
-} from "./changeRequests.js";
-import { onCommentAfterCreateHook } from "./comments.js";
-import { onContentReviewAfterCreateHook } from "./contentReviews.js";
+} from "./changeRequests";
+import { onCommentAfterCreateHook } from "./comments";
+import { onContentReviewAfterCreateHook } from "./contentReviews";
 import {
     onWorkflowAfterCreateHook,
     onWorkflowAfterUpdateHook,
     onWorkflowAfterDeleteHook
-} from "./workflows.js";
+} from "./workflows";
 
-import { type AuditLogsContext } from "~/types.js";
+import type { AuditLogsContext } from "~/types";
 
 export const createApwHooks = (context: AuditLogsContext) => {
     if (!context.apw) {

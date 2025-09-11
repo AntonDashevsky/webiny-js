@@ -1,10 +1,10 @@
-import { type ApwScheduleActionData, type ApwScheduleActionStorageOperations } from "~/scheduler/types.js";
-import { getIsoStringTillMinutes, encodeToken, basePlugins } from "~/scheduler/handlers/utils.js";
-import { getApwSettings } from "~/scheduler/handlers/utils.js";
+import type { ApwScheduleActionData, ApwScheduleActionStorageOperations } from "~/scheduler/types";
+import { getIsoStringTillMinutes, encodeToken, basePlugins } from "~/scheduler/handlers/utils";
+import { getApwSettings } from "~/scheduler/handlers/utils";
 import { ContextPlugin } from "@webiny/api";
-import { PageBuilderGraphQL } from "./plugins/PageBuilderGraphQL.js";
-import { HeadlessCMSGraphQL } from "./plugins/HeadlessCMSGraphQL.js";
-import { ApplicationGraphQL } from "./plugins/ApplicationGraphQL.js";
+import { PageBuilderGraphQL } from "./plugins/PageBuilderGraphQL";
+import { HeadlessCMSGraphQL } from "./plugins/HeadlessCMSGraphQL";
+import { ApplicationGraphQL } from "./plugins/ApplicationGraphQL";
 import { createRawEventHandler } from "@webiny/handler-aws";
 
 export interface HandlerArgs {

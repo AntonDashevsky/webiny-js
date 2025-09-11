@@ -1,5 +1,5 @@
 import type React from "react";
-import { type FieldElement } from "@webiny/app-headless-cms-common";
+import type { FieldElement } from "@webiny/app-headless-cms-common";
 import { useFoldersType } from "@webiny/app-aco";
 
 export type FieldProps = React.ComponentProps<typeof FieldElement>;

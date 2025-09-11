@@ -1,11 +1,8 @@
 import Error from "@webiny/error";
-import {
-    type AdvancedPublishingWorkflow,
-    ApwContentReviewStatus,
-    type OnCmsEntryBeforePublishTopicParams
-} from "~/types.js";
-import { type HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
-import { isApwDisabledOnModel } from "~/plugins/cms/utils.js";
+import type { AdvancedPublishingWorkflow, OnCmsEntryBeforePublishTopicParams } from "~/types";
+import { ApwContentReviewStatus } from "~/types";
+import type { HeadlessCms } from "@webiny/api-headless-cms/types";
+import { isApwDisabledOnModel } from "~/plugins/cms/utils";
 
 interface TriggerContentReviewParams {
     apw: AdvancedPublishingWorkflow;

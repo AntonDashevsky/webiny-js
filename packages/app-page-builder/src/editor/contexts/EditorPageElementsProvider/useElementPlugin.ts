@@ -1,6 +1,6 @@
 import { plugins } from "@webiny/plugins";
-import { type PbEditorPageElementPlugin } from "~/types.js";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import type { PbEditorPageElementPlugin } from "~/types";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 import { useMemo } from "react";
 
 export const useElementPlugin = (element: Element) => {

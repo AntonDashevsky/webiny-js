@@ -1,8 +1,8 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
-import { type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
-import { type IGetFolderModelGateway } from "./IGetFolderModelGateway.js";
-import { type AcoError } from "~/types.js";
+import type { CmsModel } from "@webiny/app-headless-cms-common/types";
+import type { IGetFolderModelGateway } from "./IGetFolderModelGateway";
+import type { AcoError } from "~/types";
 
 export interface GetFolderModelResponse {
     aco: {

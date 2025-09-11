@@ -1,5 +1,5 @@
 import { IndexPageDataPlugin } from "~/index";
-import { CustomFieldsPage } from "~tests/types";
+import type { CustomFieldsPage } from "~tests/types";
 
 /**
  * This plugin will attach customViews to the Page Elasticsearch data.

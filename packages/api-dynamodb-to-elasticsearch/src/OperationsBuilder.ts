@@ -1,7 +1,7 @@
-import { type IOperations, type IOperationsBuilder, type IOperationsBuilderBuildParams } from "./types.js";
-import { Operations, OperationType } from "~/Operations.js";
-import { unmarshall } from "~/marshall.js";
-import { type ICompressor } from "@webiny/utils/compression/Compressor.js";
+import type { IOperations, IOperationsBuilder, IOperationsBuilderBuildParams } from "./types";
+import { Operations, OperationType } from "~/Operations";
+import { unmarshall } from "~/marshall";
+import type { ICompressor } from "@webiny/utils/compression/Compressor";
 
 interface RecordDynamoDbImage {
     data: {

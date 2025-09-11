@@ -1,20 +1,22 @@
 import { getIntrospectionQuery } from "graphql";
 import { createHandler } from "@webiny/handler-aws";
 import { INSTALL_MUTATION, IS_INSTALLED_QUERY } from "./graphql/settings";
+import type { ContentModelGroupsMutationVariables } from "./graphql/contentModelGroup";
 import {
-    ContentModelGroupsMutationVariables,
     CREATE_CONTENT_MODEL_GROUP_MUTATION,
     DELETE_CONTENT_MODEL_GROUP_MUTATION,
     GET_CONTENT_MODEL_GROUP_QUERY,
     LIST_CONTENT_MODEL_GROUP_QUERY,
     UPDATE_CONTENT_MODEL_GROUP_MUTATION
 } from "./graphql/contentModelGroup";
+import type {
+    CreateContentModelFromMutationVariables,
+    CreateContentModelMutationResponse,
+    CreateContentModelMutationVariables
+} from "./graphql/contentModel";
 import {
     CREATE_CONTENT_MODEL_FROM_MUTATION,
     CREATE_CONTENT_MODEL_MUTATION,
-    CreateContentModelFromMutationVariables,
-    CreateContentModelMutationResponse,
-    CreateContentModelMutationVariables,
     DELETE_CONTENT_MODEL_MUTATION,
     GET_CONTENT_MODEL_QUERY,
     LIST_CONTENT_MODELS_QUERY,
@@ -22,6 +24,7 @@ import {
 } from "./graphql/contentModel";
 import { PluginsContainer } from "@webiny/plugins/types";
 
+import type { SearchContentEntriesVariables } from "./graphql/contentEntry";
 import {
     GET_CONTENT_ENTRIES_QUERY,
     GET_CONTENT_ENTRY_QUERY,
@@ -29,23 +32,25 @@ import {
     GET_LATEST_CONTENT_ENTRY_QUERY,
     GET_PUBLISHED_CONTENT_ENTRIES_QUERY,
     GET_PUBLISHED_CONTENT_ENTRY_QUERY,
-    SEARCH_CONTENT_ENTRIES_QUERY,
-    SearchContentEntriesVariables
+    SEARCH_CONTENT_ENTRIES_QUERY
 } from "./graphql/contentEntry";
-import { createHandlerCore, CreateHandlerCoreParams } from "./plugins";
+import type { CreateHandlerCoreParams } from "./plugins";
+import { createHandlerCore } from "./plugins";
 import { acceptIncomingChanges } from "./acceptIncommingChanges";
 import { StorageOperationsCmsModelPlugin } from "~/plugins";
 import { createCmsModelFieldConvertersAttachFactory } from "~/utils/converters/valueKeyStorageConverter";
 import { createOutputBenchmarkLogs } from "~tests/testHelpers/outputBenchmarkLogs";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
-import {
-    CMS_EXPORT_STRUCTURE_QUERY,
-    CMS_IMPORT_STRUCTURE_MUTATION,
-    CMS_VALIDATE_STRUCTURE_MUTATION,
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type {
     CmsExportStructureQueryVariables,
     CmsImportStructureMutationVariables,
     CmsValidateStructureMutationResponse,
     CmsValidateStructureMutationVariables
+} from "~tests/testHelpers/graphql/structure";
+import {
+    CMS_EXPORT_STRUCTURE_QUERY,
+    CMS_IMPORT_STRUCTURE_MUTATION,
+    CMS_VALIDATE_STRUCTURE_MUTATION
 } from "~tests/testHelpers/graphql/structure";
 import { defaultIdentity } from "~tests/testHelpers/tenancySecurity";
 

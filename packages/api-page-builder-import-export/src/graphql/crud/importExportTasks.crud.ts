@@ -2,16 +2,16 @@ import zod from "zod";
 import { createZodError, mdbid } from "@webiny/utils";
 import { ContextPlugin } from "@webiny/api";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
-    type ImportExportPluginsParams,
-    type ImportExportTask,
-    ImportExportTaskStatus,
-    type ImportExportTaskStorageOperationsListSubTaskParams
-} from "~/types.js";
-import { type PbImportExportContext } from "~/graphql/types.js";
+import type {
+    ImportExportPluginsParams,
+    ImportExportTask,
+    ImportExportTaskStorageOperationsListSubTaskParams
+} from "~/types";
+import { ImportExportTaskStatus } from "~/types";
+import type { PbImportExportContext } from "~/graphql/types";
 import WebinyError from "@webiny/error";
-import { type PageElementStorageOperationsListParams } from "@webiny/api-page-builder/types.js";
-import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions.js";
+import type { PageElementStorageOperationsListParams } from "@webiny/api-page-builder/types";
+import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions";
 
 const dataModelStats = zod
     .object({

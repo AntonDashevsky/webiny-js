@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import { Cell, Grid, GridInner } from "@webiny/ui/Grid/index.js";
-import { UILayoutPlugin } from "~/ui/UILayout.js";
-import { type UIElement } from "~/ui/UIElement.js";
+import { Cell, Grid, GridInner } from "@webiny/ui/Grid";
+import { UILayoutPlugin } from "~/ui/UILayout";
+import type { UIElement } from "~/ui/UIElement";
 
 interface ElementIDProps {
     children: React.ReactNode;

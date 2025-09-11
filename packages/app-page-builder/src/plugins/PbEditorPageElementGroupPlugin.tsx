@@ -1,5 +1,5 @@
 import type React from "react";
-import { legacyPluginToReactComponent } from "@webiny/app/utils/index.js";
+import { legacyPluginToReactComponent } from "@webiny/app/utils";
 
 interface PbEditorPageElementGroupPlugin {
     name: string;

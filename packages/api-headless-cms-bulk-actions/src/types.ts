@@ -1,11 +1,11 @@
-import { type CmsContext } from "@webiny/api-headless-cms/types/index.js";
-import { type Context as BaseContext } from "@webiny/handler/types.js";
-import {
-    type Context as TasksContext,
-    type ITaskResponseDoneResultOutput,
-    type ITaskRunParams
-} from "@webiny/tasks/types.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import type { CmsContext } from "@webiny/api-headless-cms/types";
+import type { Context as BaseContext } from "@webiny/handler/types";
+import type {
+    Context as TasksContext,
+    ITaskResponseDoneResultOutput,
+    ITaskRunParams
+} from "@webiny/tasks/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 
 export interface HcmsBulkActionsContext extends BaseContext, CmsContext, TasksContext {}
 

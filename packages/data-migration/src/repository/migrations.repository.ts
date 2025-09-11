@@ -1,9 +1,9 @@
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
-import { queryAll, queryOne } from "@webiny/db-dynamodb/utils/query.js";
-import { MigrationItem, MigrationRepository, MigrationRun } from "~/types.js";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import { queryAll, queryOne } from "@webiny/db-dynamodb/utils/query";
+import type { MigrationItem, MigrationRepository, MigrationRun } from "~/types";
 import { inject, makeInjectable } from "@webiny/ioc";
-import { PrimaryDynamoTableSymbol } from "~/symbols.js";
-import { createStandardEntity } from "./createStandardEntity.js";
+import { PrimaryDynamoTableSymbol } from "~/symbols";
+import { createStandardEntity } from "./createStandardEntity";
 import { deleteItem, get, put } from "@webiny/db-dynamodb";
 
 interface MigrationCheckpoint {

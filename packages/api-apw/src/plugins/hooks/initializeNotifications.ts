@@ -1,7 +1,7 @@
-import { type ApwContext } from "~/types.js";
-import { attachContentReviewAfterCreate } from "./notifications/contentReviewAfterCreate.js";
-import { attachCommentAfterCreate } from "./notifications/commentAfterCreate.js";
-import { attachChangeRequestAfterCreate } from "./notifications/changeRequestAfterCreate.js";
+import type { ApwContext } from "~/types";
+import { attachContentReviewAfterCreate } from "./notifications/contentReviewAfterCreate";
+import { attachCommentAfterCreate } from "./notifications/commentAfterCreate";
+import { attachChangeRequestAfterCreate } from "./notifications/changeRequestAfterCreate";
 
 export const initializeNotifications = (context: ApwContext) => {
     attachContentReviewAfterCreate(context);

@@ -1,4 +1,4 @@
-import { type ElementAttributesModifier } from "@webiny/app-page-builder-elements/types.js";
+import type { ElementAttributesModifier } from "@webiny/app-page-builder-elements/types";
 
 /**
  * This styles modifier adds additional `z-index: 1` CSS rule to all elements
@@ -10,7 +10,7 @@ import { type ElementAttributesModifier } from "@webiny/app-page-builder-element
 export const createAnimationZIndexFix = () => {
     const animation: ElementAttributesModifier = ({ element }) => {
         const animation = element.data.settings?.animation;
-        if (animation && animation.name) {
+        if (animation) {
             return { zIndex: 1 };
         }
         return null;

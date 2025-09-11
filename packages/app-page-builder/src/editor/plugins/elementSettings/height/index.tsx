@@ -1,6 +1,6 @@
 import React from "react";
-import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
-import HeightSettings from "./HeightSettings.js";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import HeightSettings from "./HeightSettings";
 
 export default {
     name: "pb-editor-page-element-style-settings-height",

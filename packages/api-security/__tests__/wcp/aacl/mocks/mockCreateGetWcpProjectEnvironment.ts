@@ -1,4 +1,4 @@
-import { WcpProjectEnvironment } from "@webiny/wcp/types";
+import type { WcpProjectEnvironment } from "@webiny/wcp/types";
 
 export const mockCreateGetWcpProjectEnvironment = () => {
     return (): WcpProjectEnvironment => ({

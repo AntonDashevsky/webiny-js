@@ -6,8 +6,8 @@ import { EventPlugin } from "@webiny/handler";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 import importExportTaskPlugins from "~/graphql/crud/importExportTasks.crud";
 import { createTenancyAndSecurity } from "../tenancySecurity";
-import { PbImportExportContext } from "~/graphql/types";
-import { ImportExportTaskStorageOperations } from "~/types";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { ImportExportTaskStorageOperations } from "~/types";
 
 interface Params {
     plugins?: any;

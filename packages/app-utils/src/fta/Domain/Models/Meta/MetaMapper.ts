@@ -1,4 +1,4 @@
-import { type Meta, type MetaDTO } from "./Meta.js";
+import type { Meta, MetaDTO } from "./Meta";
 
 export class MetaMapper {
     static toDto(data: Meta | MetaDTO): MetaDTO {

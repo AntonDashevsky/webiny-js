@@ -1,5 +1,5 @@
 import type React from "react";
-import { UIView } from "@webiny/app-admin/ui/UIView.js";
+import { UIView } from "@webiny/app-admin/ui/UIView";
 
 interface GenericViewRender {
     /**

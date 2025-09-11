@@ -2,7 +2,7 @@ import { useGraphQLHandler } from "~tests/testHelpers/useGraphQLHandler";
 import { CmsGroupPlugin, CmsModelPlugin, createCmsGroup } from "~/plugins";
 import { createModels, exportedGroupsAndModels } from "./mocks/exportedGroupsAndModels";
 import { CmsImportAction } from "~/export/types";
-import { CmsModel } from "~/types";
+import type { CmsModel } from "~/types";
 
 describe("import cms structure", () => {
     const {

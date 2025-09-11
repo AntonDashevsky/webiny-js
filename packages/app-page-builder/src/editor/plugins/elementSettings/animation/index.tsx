@@ -1,6 +1,6 @@
 import React from "react";
-import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
-import AnimationSettings from "./AnimationSettings.js";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import AnimationSettings from "./AnimationSettings";
 
 export default {
     name: "pb-editor-page-element-style-settings-animation",

@@ -1,8 +1,8 @@
-import { type IGetDescendantFoldersRepository } from "./IGetDescendantFoldersRepository.js";
-import {
-    type GetDescendantFoldersParams,
-    type IGetDescendantFoldersUseCase
-} from "./IGetDescendantFoldersUseCase.js";
+import type { IGetDescendantFoldersRepository } from "./IGetDescendantFoldersRepository";
+import type {
+    GetDescendantFoldersParams,
+    IGetDescendantFoldersUseCase
+} from "./IGetDescendantFoldersUseCase";
 
 export class GetDescendantFoldersUseCase implements IGetDescendantFoldersUseCase {
     private repository: IGetDescendantFoldersRepository;

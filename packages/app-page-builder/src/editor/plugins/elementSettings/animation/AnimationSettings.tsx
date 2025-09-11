@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
 import { css } from "emotion";
-import get from "lodash/get.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { type PbEditorElement, type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
-import useUpdateHandlers from "../useUpdateHandlers.js";
+import get from "lodash/get";
+import { Cell, Grid } from "@webiny/ui/Grid";
+import type { PbEditorElement, PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import useUpdateHandlers from "../useUpdateHandlers";
 // Components
-import DurationInput from "../components/SliderWithInput.js";
-import SelectField from "../components/SelectField.js";
-import { ContentWrapper } from "../components/StyledComponents.js";
-import Accordion from "../components/Accordion.js";
-import Wrapper from "../components/Wrapper.js";
-import InputField from "../components/InputField.js";
+import DurationInput from "../components/SliderWithInput";
+import SelectField from "../components/SelectField";
+import { ContentWrapper } from "../components/StyledComponents";
+import Accordion from "../components/Accordion";
+import Wrapper from "../components/Wrapper";
+import InputField from "../components/InputField";
 // Icon
 import { ReactComponent as TimerIcon } from "./icons/round-av_timer-24px.svg";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
 
 const classes = {
     grid: css({

@@ -1,4 +1,4 @@
-import { ICreateMutationCb, ICreateQueryCb, MutationBody } from "../helpers/factory/types";
+import type { ICreateMutationCb, ICreateQueryCb, MutationBody } from "../helpers/factory/types";
 
 /**
  * Queries

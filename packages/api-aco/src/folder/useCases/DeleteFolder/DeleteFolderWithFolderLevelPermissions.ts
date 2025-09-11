@@ -1,6 +1,6 @@
-import { type FolderLevelPermissions } from "~/flp/index.js";
-import type { IDeleteFolder } from "./IDeleteFolder.js";
-import type { DeleteFolderParams } from "~/folder/folder.types.js";
+import type { FolderLevelPermissions } from "~/flp";
+import type { IDeleteFolder } from "./IDeleteFolder";
+import type { DeleteFolderParams } from "~/folder/folder.types";
 
 export class DeleteFolderWithFolderLevelPermissions implements IDeleteFolder {
     private folderLevelPermissions: FolderLevelPermissions;

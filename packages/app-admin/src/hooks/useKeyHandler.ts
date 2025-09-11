@@ -1,4 +1,5 @@
-import React, { type SyntheticEvent } from "react";
+import type { SyntheticEvent } from "react";
+import React from "react";
 import isHotkey from "is-hotkey";
 import { generateId } from "@webiny/utils";
 

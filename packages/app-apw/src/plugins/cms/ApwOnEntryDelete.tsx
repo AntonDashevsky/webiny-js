@@ -1,16 +1,16 @@
 import React from "react";
 import dotPropImmutable from "dot-prop-immutable";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { i18n } from "@webiny/app/i18n";
 import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import {
-    DELETE_CONTENT_REVIEW_MUTATION,
-    type DeleteApwContentReviewMutationVariables,
-    type DeleteApwContentReviewMutationResponse
-} from "~/graphql/contentReview.gql.js";
-import { ApwContentTypes } from "~/types.js";
-import { IS_REVIEW_REQUIRED_QUERY } from "../graphql.js";
+import type {
+    DeleteApwContentReviewMutationVariables,
+    DeleteApwContentReviewMutationResponse
+} from "~/graphql/contentReview.gql";
+import { DELETE_CONTENT_REVIEW_MUTATION } from "~/graphql/contentReview.gql";
+import { ApwContentTypes } from "~/types";
+import { IS_REVIEW_REQUIRED_QUERY } from "../graphql";
 import { ContentEntryEditorConfig } from "@webiny/app-headless-cms";
-import { type FetchResult } from "apollo-link";
+import type { FetchResult } from "apollo-link";
 import { useApolloClient } from "@apollo/react-hooks";
 
 const t = i18n.ns("app-apw/cms/dialog");

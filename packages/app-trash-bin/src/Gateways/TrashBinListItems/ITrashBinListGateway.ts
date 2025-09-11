@@ -1,4 +1,4 @@
-import { type TrashBinListQueryVariables, type TrashBinMetaResponse } from "~/types.js";
+import type { TrashBinListQueryVariables, TrashBinMetaResponse } from "~/types";
 
 export interface ITrashBinListGateway<TItem> {
     execute: (params: TrashBinListQueryVariables) => Promise<[TItem[], TrashBinMetaResponse]>;

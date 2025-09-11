@@ -4,16 +4,16 @@ import { Provider, Plugins } from "@webiny/app-admin";
 import { WebsiteSettingsConfig } from "@webiny/app-page-builder";
 import { AddTenantFormField, IsRootTenant, IsNotRootTenant } from "@webiny/app-tenant-manager";
 import { useBind } from "@webiny/form";
-import { AutoComplete } from "@webiny/ui/AutoComplete/index.js";
+import { AutoComplete } from "@webiny/ui/AutoComplete";
 import { validation } from "@webiny/validation";
-import { ThemeCheckboxGroup } from "~/components/ThemeCheckboxGroup.js";
-import { ThemeManagerProviderHOC } from "~/components/ThemeManagerProvider.js";
-import { useThemeManager } from "~/hooks/useThemeManager.js";
-import { useTenantThemes } from "~/hooks/useTenantThemes.js";
-import { AddTheme } from "~/components/AddTheme.js";
-import { ThemeLoader } from "~/components/ThemeLoader.js";
-import { useCurrentTheme } from "~/hooks/useCurrentTheme.js";
-import { type ThemeSource } from "~/types.js";
+import { ThemeCheckboxGroup } from "~/components/ThemeCheckboxGroup";
+import { ThemeManagerProviderHOC } from "~/components/ThemeManagerProvider";
+import { useThemeManager } from "~/hooks/useThemeManager";
+import { useTenantThemes } from "~/hooks/useTenantThemes";
+import { AddTheme } from "~/components/AddTheme";
+import { ThemeLoader } from "~/components/ThemeLoader";
+import { useCurrentTheme } from "~/hooks/useCurrentTheme";
+import type { ThemeSource } from "~/types";
 
 const { Group, Element } = WebsiteSettingsConfig;
 

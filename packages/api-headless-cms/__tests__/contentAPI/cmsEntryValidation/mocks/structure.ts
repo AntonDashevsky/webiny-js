@@ -1,5 +1,6 @@
-import { CmsApiModel, createCmsGroup, createCmsModel } from "~/plugins";
-import { CmsModel } from "~/types";
+import type { CmsApiModel } from "~/plugins";
+import { createCmsGroup, createCmsModel } from "~/plugins";
+import type { CmsModel } from "~/types";
 import { createFields, createLayout } from "./fields";
 
 const createModel = (model: Partial<Omit<CmsModel, "group">> & Pick<CmsModel, "group">) => {

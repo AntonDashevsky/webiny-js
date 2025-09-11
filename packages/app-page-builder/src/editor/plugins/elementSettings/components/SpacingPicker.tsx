@@ -1,10 +1,11 @@
 import React, { useMemo, useCallback } from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import { type BindComponentRenderPropValidation, Form, type FormOnSubmit } from "@webiny/form";
-import InputField from "./InputField.js";
-import SelectField from "./SelectField.js";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import type { BindComponentRenderPropValidation, FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
+import InputField from "./InputField";
+import SelectField from "./SelectField";
 
 const defaultWrapperStyle = css({
     width: 60,

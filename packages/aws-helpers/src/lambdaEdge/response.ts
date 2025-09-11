@@ -1,4 +1,4 @@
-import { CloudFrontResultResponse } from "./types.js";
+import type { CloudFrontResultResponse } from "./types";
 
 export function notFoundResponse(message?: string): CloudFrontResultResponse {
     return {

@@ -1,20 +1,14 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import debounce from "lodash/debounce.js";
-import omit from "lodash/omit.js";
+import React, { useCallback, useEffect, useState } from "react";
+import debounce from "lodash/debounce";
 import { useRouter } from "@webiny/react-router";
 import { makeDecoratable } from "@webiny/react-composition";
-import { useContentEntries } from "./useContentEntries.js";
-import { type CmsContentEntry, type EntryTableItem, type TableItem } from "~/types.js";
-import { type OnSortingChange, type Sorting } from "@webiny/ui/DataTable/index.js";
-import {
-    createFoldersData,
-    createRecordsData,
-    createSort,
-    useAcoList,
-    useNavigateFolder
-} from "@webiny/app-aco";
-import { CMS_ENTRY_LIST_LINK, ROOT_FOLDER } from "~/admin/constants.js";
-import { type FolderTableItem, type ListMeta } from "@webiny/app-aco/types.js";
+import { useContentEntries } from "./useContentEntries";
+import type { CmsContentEntry, TableItem } from "~/types";
+import type { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
+import { createSort, useAcoList, useNavigateFolder } from "@webiny/app-aco";
+import { CMS_ENTRY_LIST_LINK, ROOT_FOLDER } from "~/admin/constants";
+import type { ListMeta } from "@webiny/app-aco";
+import type { FolderItem } from "@webiny/app-aco/types";
 
 interface UpdateSearchCallableParams {
     search: string;
@@ -28,8 +22,8 @@ export interface ContentEntriesListProviderContext {
     modelId: string;
     folderId: string;
     navigateTo: (folderId?: string) => void;
-    folders: FolderTableItem[];
-    getEntryEditUrl: (item: EntryTableItem) => string;
+    folders: FolderItem[];
+    getEntryEditUrl: (item: CmsContentEntry) => string;
     hideFilters: () => void;
     isListLoading: boolean;
     isListLoadingMore: boolean;
@@ -38,7 +32,7 @@ export interface ContentEntriesListProviderContext {
     listTitle?: string;
     meta: ListMeta;
     onSelectRow: (rows: TableItem[] | []) => void;
-    records: EntryTableItem[];
+    records: CmsContentEntry[];
     search: string;
     selected: CmsContentEntry[];
     setSearch: (value: string) => void;
@@ -137,15 +131,13 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
     const onSelectRow: ContentEntriesListProviderContext["onSelectRow"] = rows => {
         const items = rows.filter(item => item.$type === "RECORD");
 
-        const cmsContentEntries = items
-            .map(item => omit(item, ["$type", "$selectable"]))
-            .map(item => item as unknown as CmsContentEntry);
+        const cmsContentEntries = items.map(item => item.data as CmsContentEntry);
 
         setSelected(cmsContentEntries);
     };
 
     const getEntryEditUrl = useCallback(
-        (entry: EntryTableItem): string => {
+        (entry: CmsContentEntry): string => {
             const folderPath = currentFolderId
                 ? `&folderId=${encodeURIComponent(currentFolderId)}`
                 : "";
@@ -156,14 +148,6 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
         },
         [baseUrl, currentFolderId]
     );
-
-    const records = useMemo(() => {
-        return createRecordsData(initialRecords);
-    }, [initialRecords]);
-
-    const folders = useMemo(() => {
-        return createFoldersData(initialFolders);
-    }, [initialFolders]);
 
     useEffect(() => {
         if (!sorting?.length) {
@@ -189,7 +173,7 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
         modelId: contentModel.modelId,
         folderId: currentFolderId || ROOT_FOLDER,
         navigateTo,
-        folders,
+        folders: initialFolders,
         getEntryEditUrl,
         isListLoading,
         isListLoadingMore,
@@ -198,7 +182,7 @@ export const ContentEntriesListProvider = ({ children }: ContentEntriesListProvi
         listMoreRecords,
         meta,
         onSelectRow,
-        records,
+        records: initialRecords,
         search,
         selected,
         setSelected,

@@ -1,10 +1,10 @@
 import React from "react";
-import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
+import { TimeAgo } from "@webiny/admin-ui";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
 
 export const CellCreated = () => {
     const { useTableRow } = FileManagerViewConfig.Browser.Table.Column;
     const { row } = useTableRow();
 
-    return <TimeAgo datetime={row.createdOn} />;
+    return <TimeAgo datetime={row.data.createdOn} />;
 };

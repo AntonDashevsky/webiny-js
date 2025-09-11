@@ -1,7 +1,7 @@
-import type { ICreateFolder } from "./ICreateFolder.js";
-import type { CreateFolderParams } from "~/folder/folder.types.js";
+import type { ICreateFolder } from "./ICreateFolder";
+import type { CreateFolderParams } from "~/folder/folder.types";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { type FolderLevelPermissions } from "~/flp/index.js";
+import type { FolderLevelPermissions } from "~/flp";
 
 export class CreateFolderWithFolderLevelPermissions implements ICreateFolder {
     private folderLevelPermissions: FolderLevelPermissions;

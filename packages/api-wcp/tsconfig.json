@@ -4,6 +4,7 @@
   "references": [
     { "path": "../api" },
     { "path": "../error" },
+    { "path": "../feature" },
     { "path": "../handler-graphql" },
     { "path": "../wcp" }
   ],
@@ -18,6 +19,8 @@
       "@webiny/api": ["../api/src"],
       "@webiny/error/*": ["../error/src/*"],
       "@webiny/error": ["../error/src"],
+      "@webiny/feature/*": ["../feature/src/*"],
+      "@webiny/feature": ["../feature/src"],
       "@webiny/handler-graphql/*": ["../handler-graphql/src/*"],
       "@webiny/handler-graphql": ["../handler-graphql/src"],
       "@webiny/wcp/*": ["../wcp/src/*"],

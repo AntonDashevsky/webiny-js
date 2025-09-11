@@ -3,7 +3,7 @@ import {
     PageBuilderAcoModifyCreatePayloadPlugin,
     PageBuilderAcoModifyUpdatePayloadPlugin
 } from "@webiny/api-page-builder-aco";
-import {
+import type {
     CustomFieldsPage,
     CustomFieldsPbCreatePayload,
     CustomFieldsPbUpdatePayload

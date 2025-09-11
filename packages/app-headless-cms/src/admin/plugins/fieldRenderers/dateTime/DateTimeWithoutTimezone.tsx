@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Grid } from "@webiny/admin-ui";
 import {
     getCurrentDate,
     getCurrentLocalTime,
@@ -7,10 +7,10 @@ import {
     getHHmm,
     getHHmmss,
     RemoveFieldButton
-} from "./utils.js";
-import { Input } from "./Input.js";
-import { type CmsModelField } from "~/types.js";
-import { type BindComponentRenderProp } from "@webiny/form";
+} from "./utils";
+import { Input } from "./Input";
+import type { CmsModelField } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
 
 interface State {
     date: string;
@@ -70,7 +70,7 @@ export const DateTimeWithoutTimezone = ({
 
     return (
         <Grid>
-            <Cell span={6}>
+            <Grid.Column span={6}>
                 <Input
                     bind={{
                         ...bind,
@@ -91,8 +91,8 @@ export const DateTimeWithoutTimezone = ({
                     }}
                     type={"date"}
                 />
-            </Cell>
-            <Cell span={cellSize}>
+            </Grid.Column>
+            <Grid.Column span={cellSize}>
                 <Input
                     bind={{
                         ...bind,
@@ -114,7 +114,7 @@ export const DateTimeWithoutTimezone = ({
                     type={"time"}
                     step={60}
                 />
-            </Cell>
+            </Grid.Column>
             <RemoveFieldButton trailingIcon={trailingIcon} />
         </Grid>
     );

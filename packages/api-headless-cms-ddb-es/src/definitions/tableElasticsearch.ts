@@ -1,7 +1,7 @@
-import { type TableModifier } from "~/types.js";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { Table } from "@webiny/db-dynamodb/toolbox.js";
-import { type TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
+import type { TableModifier } from "~/types";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { Table } from "@webiny/db-dynamodb/toolbox";
+import type { TableConstructor } from "@webiny/db-dynamodb/toolbox";
 
 export interface CreateElasticsearchTableParams {
     table?: TableModifier;

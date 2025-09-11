@@ -1,5 +1,5 @@
-import { type PbRenderElementPlugin } from "~/types.js";
-import { createDocument } from "@webiny/app-page-builder-elements/renderers/document.js";
+import type { PbRenderElementPlugin } from "~/types";
+import { createDocument } from "@webiny/app-page-builder-elements/renderers/document";
 
 export default (): PbRenderElementPlugin => {
     return {

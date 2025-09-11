@@ -1,7 +1,7 @@
-import type { GetAncestorsParams, IGetAncestors } from "./IGetAncestors.js";
-import type { Folder } from "~/folder/folder.types.js";
-import type { IListFolders } from "~/folder/useCases/ListFolders/IListFolders.js";
-import { ROOT_FOLDER } from "~/constants.js";
+import type { GetAncestorsParams, IGetAncestors } from "./IGetAncestors";
+import type { Folder } from "~/folder/folder.types";
+import type { IListFolders } from "~/folder/useCases/ListFolders/IListFolders";
+import { ROOT_FOLDER } from "~/constants";
 
 export class GetAncestors implements IGetAncestors {
     private listFoldersUseCase: IListFolders;

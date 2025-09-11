@@ -1,5 +1,5 @@
-import get from "lodash/get.js";
-import { type PbRenderElementStylePlugin } from "../../../../types.js";
+import get from "lodash/get";
+import type { PbRenderElementStylePlugin } from "../../../../types";
 
 export default {
     name: "pb-render-page-element-style-shadow",

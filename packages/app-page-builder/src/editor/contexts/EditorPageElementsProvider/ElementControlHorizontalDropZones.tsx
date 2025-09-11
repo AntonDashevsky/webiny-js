@@ -1,13 +1,14 @@
 import React from "react";
 import { useRenderer } from "@webiny/app-page-builder-elements";
-import { DropElementActionEvent } from "~/editor/recoil/actions/index.js";
-import Droppable, { type DragObjectWithTypeWithTarget } from "~/editor/components/Droppable.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { DropElementActionEvent } from "~/editor/recoil/actions";
+import type { DragObjectWithTypeWithTarget } from "~/editor/components/Droppable";
+import Droppable from "~/editor/components/Droppable";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
-import { uiAtom } from "~/editor/recoil/modules/index.js";
+import { uiAtom } from "~/editor/recoil/modules";
 import { useSnackbar } from "@webiny/app-admin";
-import { getElementTitle } from "~/editor/contexts/EditorPageElementsProvider/getElementTitle.js";
+import { getElementTitle } from "~/editor/contexts/EditorPageElementsProvider/getElementTitle";
 
 interface WrapperDroppableProps {
     below: boolean;

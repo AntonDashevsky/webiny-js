@@ -1,8 +1,8 @@
-import type { EventBridgeEvent } from "@webiny/aws-sdk/types/index.js";
-import { registry } from "~/registry.js";
-import { type HandlerFactoryParams } from "~/types.js";
-import { createSourceHandler } from "~/sourceHandler.js";
-import { createHandler } from "~/eventBridge/index.js";
+import type { EventBridgeEvent } from "@webiny/aws-sdk/types";
+import { registry } from "~/registry";
+import type { HandlerFactoryParams } from "~/types";
+import { createSourceHandler } from "~/sourceHandler";
+import { createHandler } from "~/eventBridge/index";
 
 export interface HandlerParams extends HandlerFactoryParams {
     debug?: boolean;

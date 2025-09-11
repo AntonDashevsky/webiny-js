@@ -2,7 +2,7 @@ import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandle
 import { assignEntryEvents, pubSubTracker } from "./mocks/lifecycleHooks";
 import models from "./mocks/contentModels";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { CmsGroup, CmsModel } from "~/types";
+import type { CmsGroup, CmsModel } from "~/types";
 
 describe("contentEntryHooks", () => {
     let contentModelGroup: CmsGroup;

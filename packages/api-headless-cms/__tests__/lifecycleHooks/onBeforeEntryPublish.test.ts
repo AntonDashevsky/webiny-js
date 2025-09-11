@@ -2,7 +2,7 @@ import { ContextPlugin } from "@webiny/handler";
 import { useHandler } from "~tests/testHelpers/useHandler";
 import { articleModel } from "./mocks/article.model";
 import { CmsModelPlugin } from "~/plugins";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 
 describe("onEntryBeforePublish", () => {
     it("should update values before publishing", async () => {

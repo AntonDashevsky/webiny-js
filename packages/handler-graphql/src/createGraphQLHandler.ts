@@ -1,12 +1,14 @@
 import { boolean } from "boolean";
-import { type GraphQLSchema } from "graphql";
-import { type Context, RoutePlugin } from "@webiny/handler";
+import type { GraphQLSchema } from "graphql";
+import type { Context } from "@webiny/handler";
+import { RoutePlugin } from "@webiny/handler";
 import WebinyError from "@webiny/error";
-import { type Plugin } from "@webiny/plugins/types.js";
-import { type GraphQLRequestBody, type HandlerGraphQLOptions } from "./types.js";
-import { createGraphQLSchema, getSchemaPlugins } from "./createGraphQLSchema.js";
-import debugPlugins from "./debugPlugins.js";
-import { processRequestBody } from "./processRequestBody.js";
+import type { Plugin } from "@webiny/plugins/types";
+import type { GraphQLRequestBody, HandlerGraphQLOptions } from "./types";
+import { createGraphQLSchema, getSchemaPlugins } from "./createGraphQLSchema";
+import debugPlugins from "./debugPlugins";
+import { processRequestBody } from "./processRequestBody";
+import { createRequestBody } from "~/createRequestBody.js";
 
 const DEFAULT_CACHE_MAX_AGE = 30758400; // 1 year
 
@@ -32,21 +34,14 @@ const createCacheKey = (context: Context) => {
         .join("#");
 };
 
-const createRequestBody = (body: unknown): GraphQLRequestBody | GraphQLRequestBody[] => {
-    /**
-     * We are trusting that the body payload is correct.
-     * The `processRequestBody` will fail if it is not.
-     */
-    return typeof body === "string" ? JSON.parse(body) : body;
-};
-
 const formatErrorPayload = (error: Error): string => {
     if (error instanceof WebinyError) {
         return JSON.stringify({
             type: "CoreGraphQLWebinyError",
             message: error.message,
             code: error.code,
-            data: error.data
+            data: error.data,
+            stack: error.stack
         });
     }
 

@@ -1,33 +1,20 @@
 import React from "react";
 import dayjs from "dayjs";
-import { ReactComponent as CalendarIcon } from "@material-design-icons/svg/outlined/today.svg";
-import { Icon } from "@webiny/ui/Icon/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import styled from "@emotion/styled";
-import { useFile } from "~/hooks/useFile.js";
-
-const CreatedOnWrapper = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
-const InlineIcon = styled(Icon)`
-    margin-right: 5px;
-    &.mdc-button__icon {
-        display: inline;
-        fill: var(--mdc-theme-text-secondary-on-background);
-    }
-`;
+import { Icon, Text } from "@webiny/admin-ui";
+import { ReactComponent as CalendarIcon } from "@webiny/icons/today.svg";
+import { useFile } from "~/hooks/useFile";
 
 export const CreatedOn = () => {
     const { file } = useFile();
 
     return (
-        <CreatedOnWrapper>
-            <InlineIcon icon={<CalendarIcon />} />
-            <Typography use={"caption"} tag={"span"}>
+        <div className={"wby-flex wby-items-center wby-gap-xs"}>
+            <div>
+                <Icon icon={<CalendarIcon />} label={"Calendar icon"} color={"neutral-light"} />
+            </div>
+            <Text size={"sm"} as={"div"}>
                 {dayjs(file.createdOn).format("DD MMM YYYY [at] HH:mm")}
-            </Typography>
-        </CreatedOnWrapper>
+            </Text>
+        </div>
     );
 };

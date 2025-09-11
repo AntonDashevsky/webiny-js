@@ -1,10 +1,11 @@
-import React, { useState, useCallback, type SyntheticEvent } from "react";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import type { SyntheticEvent } from "react";
+import React, { useState, useCallback } from "react";
+import { Input } from "@webiny/ui/Input";
+import { Tooltip } from "@webiny/ui/Tooltip";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Box } from "~/components/Layout.js";
+import { Cell, Grid } from "@webiny/ui/Grid";
+import { Box } from "~/components/Layout";
 
 declare global {
     interface Window {

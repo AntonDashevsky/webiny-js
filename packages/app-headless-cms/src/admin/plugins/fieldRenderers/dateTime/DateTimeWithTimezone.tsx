@@ -1,7 +1,7 @@
 import React from "react";
-import { Input } from "./Input.js";
-import { Select } from "./Select.js";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Grid } from "@webiny/admin-ui";
+import { Input } from "./Input";
+import { Select } from "./Select";
 import {
     RemoveFieldButton,
     getDefaultFieldValue,
@@ -11,9 +11,9 @@ import {
     getCurrentTimeZone,
     getHHmmss,
     getHHmm
-} from "./utils.js";
-import { type CmsModelField } from "~/types.js";
-import { type BindComponentRenderProp } from "@webiny/form";
+} from "./utils";
+import type { CmsModelField } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
 import { UTC_TIMEZONES } from "@webiny/utils";
 
 interface State {
@@ -78,7 +78,7 @@ export const DateTimeWithTimezone = ({ bind, trailingIcon, field }: DateTimeWith
 
     return (
         <Grid>
-            <Cell span={4}>
+            <Grid.Column span={4}>
                 <Input
                     bind={{
                         ...bind,
@@ -100,8 +100,8 @@ export const DateTimeWithTimezone = ({ bind, trailingIcon, field }: DateTimeWith
                     }}
                     type={"date"}
                 />
-            </Cell>
-            <Cell span={4}>
+            </Grid.Column>
+            <Grid.Column span={4}>
                 <Input
                     bind={{
                         ...bind,
@@ -125,8 +125,8 @@ export const DateTimeWithTimezone = ({ bind, trailingIcon, field }: DateTimeWith
                     type={"time"}
                     step={60}
                 />
-            </Cell>
-            <Cell span={cellSize}>
+            </Grid.Column>
+            <Grid.Column span={cellSize}>
                 <Select
                     label="Timezone"
                     value={timezone}
@@ -143,7 +143,7 @@ export const DateTimeWithTimezone = ({ bind, trailingIcon, field }: DateTimeWith
                     }}
                     options={UTC_TIMEZONES.map(t => ({ value: t.value, label: t.label }))}
                 />
-            </Cell>
+            </Grid.Column>
             <RemoveFieldButton trailingIcon={trailingIcon} />
         </Grid>
     );

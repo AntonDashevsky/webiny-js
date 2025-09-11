@@ -1,9 +1,10 @@
 import React, { useMemo } from "react";
-import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { usePagesPermissions } from "~/hooks/permissions";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
 
-import { type PublishPageMenuOptionProps, PublishPageMenuOption } from "./PublishPageMenuOption.js";
-import { usePage } from "~/admin/views/Pages/PageDetails.js";
+import type { PublishPageMenuOptionProps } from "./PublishPageMenuOption";
+import { PublishPageMenuOption } from "./PublishPageMenuOption";
+import { usePage } from "~/admin/views/Pages/PageDetails";
 
 export const SecurePublishPageMenuOption = (props: PublishPageMenuOptionProps) => {
     const { page } = usePage();

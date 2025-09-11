@@ -1,15 +1,15 @@
-import { PB_PAGE_TYPE, ROOT_FOLDER } from "~/contants.js";
+import { PB_PAGE_TYPE, ROOT_FOLDER } from "~/contants";
 
-import {
-    type CreateSearchRecordParams,
-    type UpdateSearchRecordParams
-} from "@webiny/api-aco/record/record.types.js";
-import { type Page } from "@webiny/api-page-builder/types.js";
-import { type PbAcoContext, type PbPageRecordData, type PbCreatePayload, type PbUpdatePayload } from "~/types.js";
+import type {
+    CreateSearchRecordParams,
+    UpdateSearchRecordParams
+} from "@webiny/api-aco/record/record.types";
+import type { Page } from "@webiny/api-page-builder/types";
+import type { PbAcoContext, PbPageRecordData, PbCreatePayload, PbUpdatePayload } from "~/types";
 import {
     PageBuilderAcoModifyCreatePayloadPlugin,
     PageBuilderAcoModifyUpdatePayloadPlugin
-} from "~/plugins/index.js";
+} from "~/plugins";
 
 export const createPageRecordPayload = async (
     context: PbAcoContext,

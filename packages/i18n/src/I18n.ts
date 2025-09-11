@@ -8,7 +8,7 @@ import hash from "short-hash";
 import lodashAssign from "lodash/assign.js";
 import lodashGet from "lodash/get.js";
 
-import {
+import type {
     Formats,
     I18NData,
     I18NDataValues,

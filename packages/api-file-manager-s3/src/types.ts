@@ -1,4 +1,4 @@
-import { type PresignedPost } from "@webiny/aws-sdk/client-s3";
+import type { PresignedPost } from "@webiny/aws-sdk/client-s3";
 
 export interface PresignedPostPayloadData {
     name: string;

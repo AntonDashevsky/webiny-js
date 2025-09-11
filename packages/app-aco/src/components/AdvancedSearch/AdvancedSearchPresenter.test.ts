@@ -1,20 +1,14 @@
-import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter.js";
-import {
-    type FilterDTO,
-    type FilterGroupDTO,
-    type FilterGroupFilterDTO,
-    FilterRepository,
-    Operation
-} from "./domain/index.js";
-import { type FiltersGatewayInterface } from "./gateways/index.js";
-import { jest } from "@jest/globals";
+import { AdvancedSearchPresenter } from "./AdvancedSearchPresenter";
+import type { FilterDTO, FilterGroupDTO, FilterGroupFilterDTO } from "./domain";
+import { FilterRepository, Operation } from "./domain";
+import type { FiltersGatewayInterface } from "./gateways";
 
 const mockGateway: FiltersGatewayInterface = {
-    list: jest.fn<FiltersGatewayInterface["list"]>(),
-    get: jest.fn<FiltersGatewayInterface["get"]>(),
-    create: jest.fn<FiltersGatewayInterface["create"]>(),
-    update: jest.fn<FiltersGatewayInterface["update"]>(),
-    delete: jest.fn<FiltersGatewayInterface["delete"]>()
+    list: jest.fn(),
+    get: jest.fn(),
+    create: jest.fn(),
+    update: jest.fn(),
+    delete: jest.fn()
 };
 
 const createMockGateway = ({
@@ -64,19 +58,19 @@ describe("AdvancedSearchPresenter", () => {
     };
 
     const gateway = createMockGateway({
-        list: jest.fn<FiltersGatewayInterface["list"]>().mockImplementation(() => {
+        list: jest.fn().mockImplementation(() => {
             return Promise.resolve([filter1, filter2]);
         }),
-        get: jest.fn<FiltersGatewayInterface["get"]>().mockImplementation(() => {
+        get: jest.fn().mockImplementation(() => {
             return Promise.resolve(filter1);
         }),
-        create: jest.fn<FiltersGatewayInterface["create"]>().mockImplementation(() => {
+        create: jest.fn().mockImplementation(() => {
             return Promise.resolve(filter1);
         }),
-        update: jest.fn<FiltersGatewayInterface["update"]>().mockImplementation(() => {
+        update: jest.fn().mockImplementation(() => {
             return Promise.resolve({ ...filter1, name: "Filter 1 - Edit" });
         }),
-        delete: jest.fn<FiltersGatewayInterface["delete"]>().mockImplementation(() => {
+        delete: jest.fn().mockImplementation(() => {
             return Promise.resolve(true);
         })
     });
@@ -94,7 +88,7 @@ describe("AdvancedSearchPresenter", () => {
         // let's load some filters
         await presenter.load();
 
-        expect(gateway.list).toBeCalledTimes(1);
+        expect(gateway.list).toHaveBeenCalledTimes(1);
 
         expect(presenter.vm).toEqual({
             appliedFilter: null,
@@ -318,7 +312,7 @@ describe("AdvancedSearchPresenter", () => {
 
         await persistPromise;
 
-        expect(gateway.create).toBeCalledTimes(1);
+        expect(gateway.create).toHaveBeenCalledTimes(1);
         expect(gateway.create).toHaveBeenCalledWith({
             id: expect.any(String),
             name: "Draft filter",
@@ -424,7 +418,7 @@ describe("AdvancedSearchPresenter", () => {
 
         await persistPromise;
 
-        expect(gateway.update).toBeCalledTimes(1);
+        expect(gateway.update).toHaveBeenCalledTimes(1);
         expect(gateway.update).toHaveBeenCalledWith({
             id: "filter-1",
             name: "Filter 1",
@@ -503,7 +497,7 @@ describe("AdvancedSearchPresenter", () => {
 
         await persistPromise;
 
-        expect(gateway.update).toBeCalledTimes(1);
+        expect(gateway.update).toHaveBeenCalledTimes(1);
         expect(gateway.update).toHaveBeenCalledWith({
             id: "filter-1",
             name: `${filter1.name} - Edit`,
@@ -599,7 +593,7 @@ describe("AdvancedSearchPresenter", () => {
 
         await persistPromise;
 
-        expect(gateway.create).toBeCalledTimes(1);
+        expect(gateway.create).toHaveBeenCalledTimes(1);
         expect(gateway.create).toHaveBeenCalledWith({
             id: expect.any(String),
             name: `Clone of ${filter1.name}`,
@@ -643,7 +637,7 @@ describe("AdvancedSearchPresenter", () => {
 
         // Let's delete a filter
         await presenter.deleteFilter("filter-1");
-        expect(gateway.delete).toBeCalledTimes(1);
+        expect(gateway.delete).toHaveBeenCalledTimes(1);
         expect(gateway.delete).toHaveBeenCalledWith("filter-1");
         expect(presenter.vm).toMatchObject({
             currentFilter: null,
@@ -668,7 +662,7 @@ describe("AdvancedSearchPresenter", () => {
     it("should be able to handle an empty list - error from the gateway", async () => {
         const message = "Gateway error while listing filters";
         const gateway = createMockGateway({
-            list: jest.fn<FiltersGatewayInterface["list"]>().mockRejectedValue(new Error(message))
+            list: jest.fn().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(gateway, namespace);
@@ -695,9 +689,7 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while creating filter";
         const createGateway = createMockGateway({
             ...gateway,
-            create: jest
-                .fn<FiltersGatewayInterface["create"]>()
-                .mockRejectedValue(new Error(message))
+            create: jest.fn().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(createGateway, namespace);
@@ -740,9 +732,7 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while updating filter";
         const updateGateway = createMockGateway({
             ...gateway,
-            update: jest
-                .fn<FiltersGatewayInterface["update"]>()
-                .mockRejectedValue(new Error(message))
+            update: jest.fn().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(updateGateway, namespace);
@@ -771,9 +761,7 @@ describe("AdvancedSearchPresenter", () => {
         const message = "Gateway error while deleting filter";
         const updateGateway = createMockGateway({
             ...gateway,
-            delete: jest
-                .fn<FiltersGatewayInterface["delete"]>()
-                .mockRejectedValue(new Error(message))
+            delete: jest.fn().mockRejectedValue(new Error(message))
         });
 
         const repository = new FilterRepository(updateGateway, namespace);

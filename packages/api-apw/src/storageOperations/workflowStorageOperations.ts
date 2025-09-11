@@ -1,9 +1,9 @@
-import { type ApwWorkflow, type CreateApwWorkflowParams } from "~/types.js";
-import { type ApwStorageOperations, type ApwWorkflowStorageOperations } from "./types.js";
-import { type CreateApwStorageOperationsParams } from "~/storageOperations/index.js";
-import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues.js";
+import type { ApwWorkflow, CreateApwWorkflowParams } from "~/types";
+import type { ApwStorageOperations, ApwWorkflowStorageOperations } from "./types";
+import type { CreateApwStorageOperationsParams } from "~/storageOperations/index";
+import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues";
 import WebinyError from "@webiny/error";
-import { WORKFLOW_MODEL_ID } from "~/storageOperations/models/workflow.model.js";
+import { WORKFLOW_MODEL_ID } from "~/storageOperations/models/workflow.model";
 
 type ReviewersRefInput = CreateApwWorkflowParams<{ modelId: string; id: string }>;
 

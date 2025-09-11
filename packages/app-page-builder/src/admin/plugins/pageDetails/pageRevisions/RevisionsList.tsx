@@ -1,10 +1,10 @@
 import React from "react";
-import { List } from "@webiny/ui/List/index.js";
-import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { Revision } from "./Revision.js";
-import { type PbPageData, type PbPageRevision } from "~/types.js";
-import { type QueryResult } from "@apollo/react-common";
+import { List } from "@webiny/ui/List";
+import { Elevation } from "@webiny/ui/Elevation";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { Revision } from "./Revision";
+import type { PbPageData, PbPageRevision } from "~/types";
+import type { QueryResult } from "@apollo/react-common";
 import styled from "@emotion/styled";
 import { createGenericContext } from "@webiny/app-admin";
 

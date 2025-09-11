@@ -1,13 +1,13 @@
-import {
-    ApplicationGraphQL,
-    type ApplicationGraphQLBody,
-    type ApwSettings,
-    type ApplicationGraphQLGetUrlParams,
-    type ApwScheduleActionData
-} from "./ApplicationGraphQL.js";
-import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types.js";
+import type {
+    ApplicationGraphQLBody,
+    ApwSettings,
+    ApplicationGraphQLGetUrlParams,
+    ApwScheduleActionData
+} from "./ApplicationGraphQL";
+import { ApplicationGraphQL } from "./ApplicationGraphQL";
+import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types";
 import WebinyError from "@webiny/error";
-import upperFirst from "lodash/upperFirst.js";
+import upperFirst from "lodash/upperFirst";
 
 const META_FIELDS = `
     title

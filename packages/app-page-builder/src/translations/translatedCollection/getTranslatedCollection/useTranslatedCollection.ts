@@ -1,13 +1,13 @@
 import { useState, useMemo, useEffect } from "react";
 import { autorun, toJS } from "mobx";
 import { useApolloClient } from "@apollo/react-hooks";
-import { type TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection.js";
-import { type IGetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionRepository.js";
-import { type IGetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionGateway.js";
-import { GetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/GetTranslatedCollectionGateway.js";
-import { GetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/GetTranslatedCollectionRepository.js";
-import { translatedCollectionCache } from "~/translations/translatedCollection/translatedCollectionCache.js";
-import { type GenericRecord } from "@webiny/app/types.js";
+import type { TranslatedCollection } from "~/translations/translatedCollection/TranslatedCollection";
+import type { IGetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionRepository";
+import type { IGetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/IGetTranslatedCollectionGateway";
+import { GetTranslatedCollectionGateway } from "~/translations/translatedCollection/getTranslatedCollection/GetTranslatedCollectionGateway";
+import { GetTranslatedCollectionRepository } from "~/translations/translatedCollection/getTranslatedCollection/GetTranslatedCollectionRepository";
+import { translatedCollectionCache } from "~/translations/translatedCollection/translatedCollectionCache";
+import type { GenericRecord } from "@webiny/app/types";
 
 export const useTranslatedCollection = <
     TContext extends GenericRecord<string> = GenericRecord<string>

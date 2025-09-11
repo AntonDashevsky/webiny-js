@@ -1,7 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 import { identityA, identityB } from "./mocks";
-import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
-import { jest } from "@jest/globals";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 
 class Mock {
     public slug: string;

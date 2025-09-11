@@ -1,7 +1,8 @@
-import { type UIElement } from "~/ui/UIElement.js";
-import { FormFieldElement, type FormFieldElementConfig } from "./FormFieldElement.js";
-import { FileManagerElementRenderer } from "./FileManagerElement/FileManagerElementRenderer.js";
-import { EmptyStateElement } from "./FileManagerElement/EmptyStateElement.js";
+import type { UIElement } from "~/ui/UIElement";
+import type { FormFieldElementConfig } from "./FormFieldElement";
+import { FormFieldElement } from "./FormFieldElement";
+import { FileManagerElementRenderer } from "./FileManagerElement/FileManagerElementRenderer";
+import { EmptyStateElement } from "./FileManagerElement/EmptyStateElement";
 
 export interface FileManagerElementConfig extends FormFieldElementConfig {
     // Define mime types that will be shown and accepted by FileManager

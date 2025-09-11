@@ -1,4 +1,4 @@
-import { type Entry, type EntryDTO, type EntryReference } from "./Entry.js";
+import type { Entry, EntryDTO, EntryReference } from "./Entry";
 
 export class EntryMapper {
     static toDTO(entry: Entry | EntryDTO): EntryDTO {

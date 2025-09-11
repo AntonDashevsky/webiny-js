@@ -1,17 +1,15 @@
 import React, { Fragment, useCallback, useMemo } from "react";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { Grid, Select } from "@webiny/admin-ui";
+import { i18n } from "@webiny/app/i18n";
 import {
     CannotUseAaclAlert,
     PermissionInfo,
-    gridNoPaddingClass
-} from "@webiny/app-admin/components/Permissions/index.js";
+    gridWithPaddingClass,
+    PermissionsGroup
+} from "@webiny/app-admin/components/Permissions";
 import { Form } from "@webiny/form";
-import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
 import { useSecurity } from "@webiny/app-security";
-import { type AaclPermission } from "@webiny/app-admin";
+import type { AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-file-manager/admin/plugins/permissionRenderer");
 
@@ -145,106 +143,122 @@ export const FileManagerPermissions = ({ value, onChange }: FileManagerPermissio
         <Form data={formData} onChange={onFormChange}>
             {({ data, Bind, setValue }) => (
                 <Fragment>
-                    <Grid className={gridNoPaddingClass}>
-                        <Cell span={12}>
+                    <Grid className={gridWithPaddingClass}>
+                        <Grid.Column span={12}>
                             {data.accessLevel === "custom" && cannotUseAAcl && (
                                 <CannotUseAaclAlert />
                             )}
-                        </Cell>
+                        </Grid.Column>
                     </Grid>
-                    <Grid className={gridNoPaddingClass}>
-                        <Cell span={6}>
+                    <Grid className={gridWithPaddingClass}>
+                        <Grid.Column span={6}>
                             <PermissionInfo title={t`Access Level`} />
-                        </Cell>
-                        <Cell span={6}>
+                        </Grid.Column>
+                        <Grid.Column span={6}>
                             <Bind name={"accessLevel"}>
-                                <Select label={t`Access Level`}>
-                                    <option value={NO_ACCESS}>{t`No access`}</option>
-                                    <option value={FULL_ACCESS}>{t`Full access`}</option>
-                                    <option value={CUSTOM_ACCESS}>{t`Custom access`}</option>
-                                </Select>
+                                <Select
+                                    options={[
+                                        {
+                                            value: NO_ACCESS,
+                                            label: t`No access`
+                                        },
+                                        {
+                                            value: FULL_ACCESS,
+                                            label: t`Full access`
+                                        },
+                                        {
+                                            value: CUSTOM_ACCESS,
+                                            label: t`Custom access`
+                                        }
+                                    ]}
+                                />
                             </Bind>
-                        </Cell>
+                        </Grid.Column>
                     </Grid>
                     {data.accessLevel === "custom" && (
-                        <Fragment>
-                            <Elevation z={1} style={{ marginTop: 10 }}>
+                        <div className={"wby-mt-lg"}>
+                            <PermissionsGroup title={t`Files`}>
                                 <Grid>
-                                    <Cell span={12}>
-                                        <Typography use={"overline"}>{t`Files`}</Typography>
-                                    </Cell>
-                                    <Cell span={12}>
-                                        <Grid style={{ padding: 0, paddingBottom: 24 }}>
-                                            <Cell span={12}>
-                                                <Bind
-                                                    name={"filesAccessScope"}
-                                                    beforeChange={(value, cb) => {
-                                                        if (value === "own") {
-                                                            setValue(`filesRWD`, "rwd");
-                                                        }
-                                                        cb(value);
-                                                    }}
-                                                >
-                                                    <Select
-                                                        label={t`Access Scope`}
-                                                        disabled={cannotUseAAcl}
-                                                    >
-                                                        <option
-                                                            value={NO_ACCESS}
-                                                        >{t`No access`}</option>
-                                                        <option
-                                                            value={FULL_ACCESS}
-                                                        >{t`All files`}</option>
-                                                        <option
-                                                            value={"own"}
-                                                        >{t`Only files created by the user`}</option>
-                                                    </Select>
-                                                </Bind>
-                                            </Cell>
-                                            <Cell span={12}>
-                                                <Bind name={"filesRWD"}>
-                                                    <Select
-                                                        label={t`Primary Actions`}
-                                                        disabled={
-                                                            cannotUseAAcl ||
-                                                            data.filesAccessScope !== "full"
-                                                        }
-                                                    >
-                                                        <option value={"r"}>{t`Read`}</option>
-                                                        <option
-                                                            value={"rw"}
-                                                        >{t`Read, write`}</option>
-                                                        <option
-                                                            value={"rwd"}
-                                                        >{t`Read, write, delete`}</option>
-                                                    </Select>
-                                                </Bind>
-                                            </Cell>
-                                        </Grid>
-                                    </Cell>
+                                    <Grid.Column span={12}>
+                                        <Bind
+                                            name={"filesAccessScope"}
+                                            beforeChange={(value, cb) => {
+                                                if (value === "own") {
+                                                    setValue(`filesRWD`, "rwd");
+                                                }
+                                                cb(value);
+                                            }}
+                                        >
+                                            <Select
+                                                label={t`Access Scope`}
+                                                disabled={cannotUseAAcl}
+                                                options={[
+                                                    {
+                                                        value: NO_ACCESS,
+                                                        label: t`No access`
+                                                    },
+                                                    {
+                                                        value: FULL_ACCESS,
+                                                        label: t`Full access`
+                                                    },
+                                                    {
+                                                        value: "own",
+                                                        label: t`Only files created by the user`
+                                                    }
+                                                ]}
+                                            />
+                                        </Bind>
+                                    </Grid.Column>
+                                    <Grid.Column span={12}>
+                                        <Bind name={"filesRWD"}>
+                                            <Select
+                                                label={t`Primary Actions`}
+                                                disabled={
+                                                    cannotUseAAcl ||
+                                                    data.filesAccessScope !== "full"
+                                                }
+                                                options={[
+                                                    {
+                                                        value: "r",
+                                                        label: t`Read`
+                                                    },
+                                                    {
+                                                        value: "rw",
+                                                        label: t`Read, write`
+                                                    },
+                                                    {
+                                                        value: "rwd",
+                                                        label: t`Read, write, delete`
+                                                    }
+                                                ]}
+                                            />
+                                        </Bind>
+                                    </Grid.Column>
                                 </Grid>
-                            </Elevation>
-                            <Elevation z={1} style={{ marginTop: 10 }}>
+                            </PermissionsGroup>
+                            <PermissionsGroup title={t`Settings`}>
                                 <Grid>
-                                    <Cell span={12}>
-                                        <Typography use={"overline"}>{t`Settings`}</Typography>
-                                    </Cell>
-                                    <Cell span={12}>
+                                    <Grid.Column span={12}>
                                         <Bind name={"settingsAccessScope"}>
                                             <Select
                                                 disabled={cannotUseAAcl}
                                                 label={t`Access Scope`}
-                                            >
-                                                <option value={NO_ACCESS}>{t`No access`}</option>
-                                                <option
-                                                    value={FULL_ACCESS}
-                                                >{t`Full access`}</option>
-                                            </Select>
+                                                options={[
+                                                    {
+                                                        value: NO_ACCESS,
+                                                        label: t`No access`
+                                                    },
+                                                    {
+                                                        value: FULL_ACCESS,
+                                                        label: t`Full access`
+                                                    }
+                                                ]}
+                                            />
                                         </Bind>
-                                    </Cell>
+                                    </Grid.Column>
                                 </Grid>
-                            </Elevation>
-                        </Fragment>
+                            </PermissionsGroup>
+                        </div>
                     )}
                 </Fragment>
             )}

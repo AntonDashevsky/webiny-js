@@ -1,7 +1,7 @@
-import { onFolderAfterCreateFlpHook } from "./onFolderAfterCreateFlp.hook.js";
-import { onFolderAfterDeleteFlpHook } from "./onFolderAfterDeleteFlp.hook.js";
-import { onFolderAfterUpdateFlpHook } from "./onFolderAfterUpdateFlp.hook.js";
-import { type AcoContext } from "~/types.js";
+import { onFolderAfterCreateFlpHook } from "./onFolderAfterCreateFlp.hook";
+import { onFolderAfterDeleteFlpHook } from "./onFolderAfterDeleteFlp.hook";
+import { onFolderAfterUpdateFlpHook } from "./onFolderAfterUpdateFlp.hook";
+import type { AcoContext } from "~/types";
 
 export const createFlpHooks = (context: AcoContext) => {
     onFolderAfterCreateFlpHook(context);

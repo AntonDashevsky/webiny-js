@@ -1,8 +1,8 @@
 import sizeOfObject from "object-sizeof";
 
-import { ITaskEvent } from "~/handler/types.js";
-import { TaskResponseStatus } from "~/types.js";
-import {
+import type { ITaskEvent } from "~/handler/types";
+import { TaskResponseStatus } from "~/types";
+import type {
     IResponse,
     IResponseAbortedResult,
     IResponseContinueParams,
@@ -14,12 +14,12 @@ import {
     IResponseFromParams,
     IResponseResult,
     ITaskResponseDoneResultOutput
-} from "./abstractions/index.js";
-import { ResponseContinueResult } from "~/response/ResponseContinueResult.js";
-import { ResponseDoneResult } from "~/response/ResponseDoneResult.js";
-import { ResponseErrorResult } from "~/response/ResponseErrorResult.js";
-import { ResponseAbortedResult } from "./ResponseAbortedResult.js";
-import { getErrorProperties } from "~/utils/getErrorProperties.js";
+} from "./abstractions";
+import { ResponseContinueResult } from "~/response/ResponseContinueResult";
+import { ResponseDoneResult } from "~/response/ResponseDoneResult";
+import { ResponseErrorResult } from "~/response/ResponseErrorResult";
+import { ResponseAbortedResult } from "./ResponseAbortedResult";
+import { getErrorProperties } from "~/utils/getErrorProperties";
 
 /**
  * Step Functions has a limit of 256KB for the output size.

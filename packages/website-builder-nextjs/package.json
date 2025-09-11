@@ -1,0 +1,49 @@
+{
+  "name": "@webiny/website-builder-nextjs",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webiny/webiny-js.git"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./webpack": "./webpack.js"
+  },
+  "description": "A Next.js integration SDK for Webiny Website Builder.",
+  "contributors": [
+    "Pavel Denisjuk <pavel@webiny.com>",
+    "Sven Al Hamad <sven@webiny.com>",
+    "Adrian Smijulj <adrian@webiny.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@webiny/website-builder-react": "0.0.0",
+    "postcss": "^8.4.38",
+    "postcss-import": "^16.1.1"
+  },
+  "devDependencies": {
+    "@types/postcss-import": "^14.0.3",
+    "@webiny/project-utils": "0.0.0",
+    "next": "^15",
+    "typescript": "5.9.2",
+    "webpack": "^5.97.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
+  },
+  "adio": {
+    "ignore": {
+      "dependencies": [
+        "postcss",
+        "postcss-import",
+        "@webiny/website-builder-react"
+      ]
+    }
+  }
+}

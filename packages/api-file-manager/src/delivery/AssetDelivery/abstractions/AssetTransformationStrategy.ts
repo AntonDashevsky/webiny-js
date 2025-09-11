@@ -1,4 +1,4 @@
-import { type Asset, type AssetRequest } from "~/delivery/index.js";
+import type { Asset, AssetRequest } from "~/delivery";
 
 export interface AssetTransformationStrategy {
     transform(assetRequest: AssetRequest, asset: Asset): Promise<Asset>;

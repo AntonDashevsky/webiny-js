@@ -1,12 +1,14 @@
-import { type FileItem } from "@webiny/app-admin/types.js";
-import { type ListFilesSort } from "~/modules/FileManagerApiProvider/graphql.js";
-import { type Settings } from "~/types.js";
+import type { FileItem } from "@webiny/app-admin/types";
+import type { ListFilesSort } from "~/modules/FileManagerApiProvider/graphql";
+import type { Settings } from "~/types";
 
 export interface State {
     activeTags: string[];
+    displaySubFolders: boolean;
     dragging: boolean;
     filters: Record<string, any> | undefined;
     isSearch: boolean;
+    isUploadProgressIndicatorVisible: boolean;
     limit: number;
     listSort?: ListFilesSort;
     listTable: boolean;
@@ -38,7 +40,9 @@ export const getScopeWhereParams = (scope: string | undefined) => {
 export const initializeState = (): State => {
     return {
         activeTags: [],
+        displaySubFolders: true,
         dragging: false,
+        isUploadProgressIndicatorVisible: true,
         isSearch: false,
         filters: undefined,
         limit: 50,

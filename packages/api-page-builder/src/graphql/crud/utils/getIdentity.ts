@@ -1,4 +1,4 @@
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 
 export const getIdentity = <T extends SecurityIdentity | null>(
     input: SecurityIdentity | null | undefined,

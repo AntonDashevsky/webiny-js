@@ -2,16 +2,15 @@ import React from "react";
 import { App } from "@webiny/app";
 import { ThemeProvider } from "@webiny/app-theme";
 import { WcpProvider } from "@webiny/app-wcp";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { type ApolloClientFactory, createApolloProvider } from "./providers/ApolloProvider.js";
-import { Base } from "./Base.js";
-import { createTelemetryProvider } from "./providers/TelemetryProvider.js";
-import { createUiStateProvider } from "./providers/UiStateProvider.js";
-import { SearchProvider } from "./ui/Search.js";
-import { UserMenuProvider } from "./ui/UserMenu.js";
-import { NavigationProvider } from "./ui/Navigation.js";
-import { createDialogsProvider } from "~/components/Dialogs/DialogsContext.js";
-import { DefaultIcons, IconPickerConfigProvider } from "~/components/IconPicker/config/index.js";
+import type { ApolloClientFactory } from "./providers/ApolloProvider";
+import { createApolloProvider } from "./providers/ApolloProvider";
+import { Base } from "./Base";
+import { createTelemetryProvider } from "./providers/TelemetryProvider";
+import { createUiStateProvider } from "./providers/UiStateProvider";
+import { createAdminUiStateProvider } from "./providers/AdminUiStateProvider";
+import { createUiProviders } from "./providers/UiProviders";
+import { createDialogsProvider } from "~/components/Dialogs/DialogsContext";
+import { DefaultIcons, IconPickerConfigProvider } from "~/components/IconPicker/config";
 
 export interface AdminProps {
     createApolloClient: ApolloClientFactory;
@@ -21,22 +20,23 @@ export interface AdminProps {
 export const Admin = ({ children, createApolloClient }: AdminProps) => {
     const ApolloProvider = createApolloProvider(createApolloClient);
     const TelemetryProvider = createTelemetryProvider();
+    const UIProviders = createUiProviders();
     const UiStateProvider = createUiStateProvider();
+    const AdminUiStateProvider = createAdminUiStateProvider();
     const DialogsProvider = createDialogsProvider();
 
     return (
         <ApolloProvider>
             <ThemeProvider>
-                <WcpProvider loader={<CircularProgress label={"Loading..."} />}>
+                <WcpProvider>
                     <App
                         providers={[
                             TelemetryProvider,
+                            UIProviders,
                             UiStateProvider,
-                            SearchProvider,
-                            UserMenuProvider,
-                            NavigationProvider,
                             DialogsProvider,
-                            IconPickerConfigProvider
+                            IconPickerConfigProvider,
+                            AdminUiStateProvider
                         ]}
                     >
                         <Base />

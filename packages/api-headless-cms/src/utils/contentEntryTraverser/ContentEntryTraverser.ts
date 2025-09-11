@@ -1,11 +1,11 @@
-import {
-    type CmsModelAst,
-    type CmsModelFieldAstNodeField,
-    type CmsModelFieldAstNode,
-    type ContentEntryValueVisitor,
-    type CmsModelFieldAstNodeCollection,
-    type CmsEntryValues
-} from "~/types/index.js";
+import type {
+    CmsModelAst,
+    CmsModelFieldAstNodeField,
+    CmsModelFieldAstNode,
+    ContentEntryValueVisitor,
+    CmsModelFieldAstNodeCollection,
+    CmsEntryValues
+} from "~/types";
 
 type ParentNode = CmsModelAst | CmsModelFieldAstNode | null;
 

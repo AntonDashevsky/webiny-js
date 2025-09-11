@@ -2,17 +2,17 @@ import React, { useCallback } from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import { useRecoilValue } from "recoil";
-import { type PbEditorElement } from "~/types.js";
-import { createElement } from "~/editor/helpers.js";
-import { moveInPlace, useSortableList } from "~/hooks/useSortableList.js";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
+import type { PbEditorElement } from "~/types";
+import { createElement } from "~/editor/helpers";
+import { moveInPlace, useSortableList } from "~/hooks/useSortableList";
+import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
 import { ReactComponent as DeleteIcon } from "~/editor/assets/icons/delete.svg";
-import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
+import { activeElementAtom, elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import Accordion from "~/editor/plugins/elementSettings/components/Accordion.js";
-import { Collapsable } from "~/editor/defaultConfig/Toolbar/Navigator/StyledComponents.js";
+import Accordion from "~/editor/plugins/elementSettings/components/Accordion";
+import { Collapsable } from "~/editor/defaultConfig/Toolbar/Navigator/StyledComponents";
 import { ReactComponent as DragIndicatorIcon } from "~/editor/defaultConfig/Toolbar/Navigator/assets/drag_indicator_24px.svg";
 
 const accordionStyles = css`

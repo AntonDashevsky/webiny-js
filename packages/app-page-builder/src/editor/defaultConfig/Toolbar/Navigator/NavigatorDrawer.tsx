@@ -1,14 +1,14 @@
 import React, { useState, useEffect, createContext } from "react";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { NavigatorTitle } from "./StyledComponents.js";
-import { TreeView } from "./TreeView.js";
+import { Typography } from "@webiny/ui/Typography";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { i18n } from "@webiny/app/i18n";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { NavigatorTitle } from "./StyledComponents";
+import { TreeView } from "./TreeView";
 import { ReactComponent as UnfoldMoreIcon } from "./assets/unfold_more_24px.svg";
 import { ReactComponent as UnfoldLessIcon } from "./assets/unfold_less_24px.svg";
-import { UpdateElementTreeActionEvent } from "~/editor/recoil/actions/index.js";
-import { type PbEditorElementTree } from "~/types.js";
+import { UpdateElementTreeActionEvent } from "~/editor/recoil/actions";
+import type { PbEditorElementTree } from "~/types";
 
 const t = i18n.ns("app-page-builder/editor/plugins/toolbar/navigator");
 
@@ -39,7 +39,7 @@ export const NavigatorDrawer = () => {
         try {
             const elementTree = await eventHandler.getElementTree();
             setElementTree(elementTree);
-        } catch (e) {}
+        } catch {}
     };
 
     useEffect(() => {

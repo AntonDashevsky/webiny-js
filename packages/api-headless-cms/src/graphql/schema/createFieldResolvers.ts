@@ -1,9 +1,15 @@
-import set from "lodash/set.js";
-import { type Resolvers } from "@webiny/handler-graphql/types.js";
+import set from "lodash/set";
+import type { Resolvers } from "@webiny/handler-graphql/types";
 import WebinyError from "@webiny/error";
-import { type ApiEndpoint, type CmsContext, type CmsFieldTypePlugins, type CmsModel, type CmsModelField } from "~/types/index.js";
-import { entryFieldFromStorageTransform } from "~/utils/entryStorage.js";
-import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
+import type {
+    ApiEndpoint,
+    CmsContext,
+    CmsFieldTypePlugins,
+    CmsModel,
+    CmsModelField
+} from "~/types";
+import { entryFieldFromStorageTransform } from "~/utils/entryStorage";
+import { getBaseFieldType } from "~/utils/getBaseFieldType";
 
 interface CreateFieldResolvers {
     graphQLType: string;

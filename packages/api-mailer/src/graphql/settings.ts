@@ -1,5 +1,5 @@
 import { ErrorResponse, GraphQLSchemaPlugin, Response } from "@webiny/handler-graphql";
-import { type MailerContext } from "~/types.js";
+import type { MailerContext } from "~/types";
 
 const emptyResolver = () => ({});
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { createVoidComponent, makeDecoratable } from "@webiny/app-admin";
-import type { EditorProps } from "~/editor/Editor.js";
+import type { EditorProps } from "~/editor/Editor";
 
 export type { EditorProps };
 

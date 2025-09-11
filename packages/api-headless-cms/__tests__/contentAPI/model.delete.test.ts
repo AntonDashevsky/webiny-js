@@ -1,4 +1,4 @@
-import { CmsGroup } from "~/types";
+import type { CmsGroup } from "~/types";
 import models from "./mocks/contentModels";
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { useCategoryManageHandler } from "../testHelpers/useCategoryManageHandler";

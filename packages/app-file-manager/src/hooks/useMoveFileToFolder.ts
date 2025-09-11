@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useSnackbar } from "@webiny/app-admin";
 import { useMoveToFolderDialog } from "@webiny/app-aco";
-import { type FileItem } from "@webiny/app-admin/types.js";
-import { useFileManagerView } from "~/index.js";
+import type { FileItem } from "@webiny/app-admin/types";
+import { useFileManagerView } from "~/index";
 
 export function useMoveFileToFolder(file: FileItem) {
     const { showSnackbar } = useSnackbar();
@@ -19,7 +19,7 @@ export function useMoveFileToFolder(file: FileItem) {
             async onAccept({ folder }) {
                 await moveFileToFolder(file.id, folder.id);
                 showSnackbar(
-                    `File "${file.name}" was successfully moved to folder "${folder.title}"!`
+                    `File "${file.name}" was successfully moved to folder "${folder.label}"!`
                 );
             }
         });

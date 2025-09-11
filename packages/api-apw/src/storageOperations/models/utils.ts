@@ -1,6 +1,6 @@
-import camelCase from "lodash/camelCase.js";
-import { type CmsModelField } from "@webiny/api-headless-cms/types/index.js";
-import { type CreateModelFieldParams } from "~/plugins/utils.js";
+import camelCase from "lodash/camelCase";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
+import type { CreateModelFieldParams } from "~/plugins/utils";
 
 export const createModelField = (params: CreateModelFieldParams): CmsModelField => {
     const { label, fieldId: initialFieldId, type, parent } = params;

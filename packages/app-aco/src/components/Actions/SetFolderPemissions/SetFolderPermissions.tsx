@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { ReactComponent as Security } from "@material-design-icons/svg/outlined/add_moderator.svg";
+import { ReactComponent as Security } from "@webiny/icons/add_moderator.svg";
 
 import { AcoConfig } from "~/config/index.js";
 import { useSetPermissionsDialog } from "~/dialogs/index.js";

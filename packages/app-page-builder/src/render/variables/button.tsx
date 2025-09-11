@@ -1,7 +1,7 @@
 import React from "react";
-import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button.js";
-import { useElementVariables } from "~/hooks/useElementVariables.js";
-import { type PbBlockVariable } from "~/types.js";
+import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button";
+import { useElementVariables } from "~/hooks/useElementVariables";
+import type { PbBlockVariable } from "~/types";
 
 const getVariableValues = (variables: PbBlockVariable<string>[]) => {
     return {

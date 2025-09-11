@@ -1,6 +1,6 @@
-import { type ApolloClient } from "apollo-client";
-import { BlocksRepository } from "./BlocksRepository.js";
-import { BlocksGateway } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlocksGateway.js";
+import type { ApolloClient } from "apollo-client";
+import { BlocksRepository } from "./BlocksRepository";
+import { BlocksGateway } from "~/admin/contexts/AdminPageBuilder/PageBlocks/BlocksGateway";
 
 class BlocksRepositoryFactory {
     private repository: BlocksRepository | undefined = undefined;

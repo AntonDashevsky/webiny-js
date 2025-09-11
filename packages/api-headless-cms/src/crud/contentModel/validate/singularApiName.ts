@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { type CmsModel } from "~/types/index.js";
+import type { CmsModel } from "~/types";
 
 interface Params {
     existingModel: Pick<CmsModel, "singularApiName" | "pluralApiName">;

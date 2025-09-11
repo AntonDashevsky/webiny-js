@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as LayoutIcon } from "@material-design-icons/svg/outlined/view_quilt.svg";
-import { type PbEditorPageElementGroupPlugin } from "~/types.js";
+import { ReactComponent as LayoutIcon } from "@webiny/icons/view_quilt.svg";
+import type { PbEditorPageElementGroupPlugin } from "~/types";
 
 const layoutGroup: PbEditorPageElementGroupPlugin = {
     name: "pb-editor-element-group-layout",

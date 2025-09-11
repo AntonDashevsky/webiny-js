@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { AccordionItem } from "@webiny/ui/Accordion/index.js";
-import { type AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types.js";
-import { ReactComponent as ApwIcon } from "~/assets/icons/account_tree_24dp.svg";
-import { ApwPermissions as ApwPermissionsComponent } from "./ApwPermissions.js";
+import { Accordion } from "@webiny/admin-ui";
+import type { AdminAppPermissionRendererPlugin } from "@webiny/app-admin/types";
+import { ReactComponent as PermissionsIcon } from "@webiny/icons/account_tree.svg";
+import { ApwPermissions as ApwPermissionsComponent } from "./ApwPermissions";
 import { plugins } from "@webiny/plugins";
 
 const createPermissions = (): AdminAppPermissionRendererPlugin => {
@@ -11,14 +11,19 @@ const createPermissions = (): AdminAppPermissionRendererPlugin => {
         name: "admin-app-permissions-renderer-apw",
         render(props) {
             return (
-                <AccordionItem
-                    icon={<ApwIcon />}
+                <Accordion.Item
+                    icon={
+                        <Accordion.Item.Icon
+                            icon={<PermissionsIcon />}
+                            label={"Advanced Publishing Workflow Permissions"}
+                        />
+                    }
                     title={"Advanced Publishing Workflow"}
                     description={"Manage Advanced Publishing Workflow app access permissions."}
                     data-testid={"permission.apw"}
                 >
                     <ApwPermissionsComponent {...props} />
-                </AccordionItem>
+                </Accordion.Item>
             );
         }
     };

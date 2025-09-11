@@ -1,5 +1,5 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
-import { type Context } from "@webiny/api/types.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
+import type { Context } from "@webiny/api/types";
 
 export const applyMultiTenancyPlugins = (context: Context) => {
     context.plugins.register(

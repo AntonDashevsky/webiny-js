@@ -1,10 +1,10 @@
-import { type CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
 import {
     ENTRY_META_FIELDS,
     isDateTimeEntryMetaField,
     isIdentityEntryMetaField
-} from "@webiny/api-headless-cms/constants.js";
-import lodashStartCase from "lodash/startCase.js";
+} from "@webiny/api-headless-cms/constants";
+import lodashStartCase from "lodash/startCase";
 
 type Field = Pick<CmsModelField, "id" | "type" | "storageId" | "fieldId" | "settings" | "label">;
 
@@ -93,6 +93,31 @@ export const createSystemFields = (): Field[] => {
             storageId: "status",
             fieldId: "status",
             label: "Status"
+        },
+        {
+            id: "state",
+            type: "object",
+            storageId: "object@state",
+            fieldId: "state",
+            label: "State",
+            settings: {
+                fields: [
+                    {
+                        id: "name",
+                        fieldId: "name",
+                        label: "Name",
+                        storageId: "text@name",
+                        type: "text"
+                    },
+                    {
+                        id: "comment",
+                        fieldId: "comment",
+                        label: "Comment",
+                        storageId: "text@comment",
+                        type: "long-text"
+                    }
+                ]
+            }
         },
         {
             id: "wbyDeleted",

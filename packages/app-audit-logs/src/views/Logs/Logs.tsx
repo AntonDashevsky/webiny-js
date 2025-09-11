@@ -1,27 +1,25 @@
-import React, { useCallback, useRef, useState, useEffect } from "react";
-import debounce from "lodash/debounce.js";
-
-import { i18n } from "@webiny/app/i18n/index.js";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
-import { Scrollbar } from "@webiny/ui/Scrollbar/index.js";
-import { useSecurity } from "@webiny/app-security";
-
-import { LoadingMore } from "~/views/Logs/LoadingMore/index.js";
-import { LoadMoreButton } from "~/views/Logs/LoadMoreButton/index.js";
-import { Header } from "~/views/Logs/Header/index.js";
-import { Filters } from "~/views/Logs/Filters/index.js";
-import { Table } from "~/views/Logs/Table/index.js";
-import { Preview } from "~/views/Logs/Preview/index.js";
-import { useAuditLogsList } from "~/hooks/index.js";
-import { type Entry } from "~/utils/transformCmsContentEntriesToRecordEntries.js";
-import { MainContainer, Wrapper } from "./styled.js";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import debounce from "lodash/debounce";
+import { i18n } from "@webiny/app/i18n";
+import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { Scrollbar } from "@webiny/ui/Scrollbar";
+import { LoadingMore } from "~/views/Logs/LoadingMore";
+import { LoadMoreButton } from "~/views/Logs/LoadMoreButton";
+import { Header } from "~/views/Logs/Header";
+import { Filters } from "~/views/Logs/Filters";
+import { Table } from "~/views/Logs/Table";
+import { Preview } from "~/views/Logs/Preview";
+import { useAuditLogsList } from "~/hooks";
+import { MainContainer, Wrapper } from "./styled";
+import type { IAuditLog } from "~/types.js";
+import { useSecurity } from "@webiny/app-security/index";
 
 const t = i18n.ns("app-audit-logs/views/logs");
 
 const AuditLogsView = () => {
-    const [selectedAuditLog, setSelectedAuditLog] = useState<Entry | null>(null);
+    const [selectedAuditLog, setSelectedAuditLog] = useState<IAuditLog | null>(null);
     const handleAuditLogSelect = useCallback(
-        (auditLog: Entry) => setSelectedAuditLog(auditLog),
+        (auditLog: IAuditLog) => setSelectedAuditLog(auditLog),
         []
     );
     const closePreviewModal = useCallback(() => setSelectedAuditLog(null), []);
@@ -29,11 +27,10 @@ const AuditLogsView = () => {
     const { innerHeight: windowHeight } = window;
     const [tableHeight, setTableHeight] = useState(0);
     const tableRef = useRef<HTMLDivElement>(null);
-
     const { getPermissions } = useSecurity();
     const hasAccessToUsers = Boolean(getPermissions("adminUsers").length);
 
-    const list = useAuditLogsList(hasAccessToUsers);
+    const list = useAuditLogsList();
 
     useEffect(() => {
         setTableHeight(tableRef?.current?.clientHeight || 0);
@@ -54,18 +51,12 @@ const AuditLogsView = () => {
             <MainContainer>
                 <Header
                     title="Audit Logs"
-                    searchValue={list.search}
-                    onSearchChange={list.setSearch}
                     showingFilters={list.showingFilters}
                     showFilters={list.showFilters}
                     hideFilters={list.hideFilters}
                 />
                 <Wrapper>
-                    <Filters
-                        showingFilters={list.showingFilters}
-                        setFilters={list.setFilters}
-                        hasAccessToUsers={hasAccessToUsers}
-                    />
+                    <Filters showingFilters={list.showingFilters} setWhere={list.setWhere} />
                     {list.records.length === 0 && !list.isListLoading ? (
                         <EmptyView title={t`No results found.`} action={null} />
                     ) : (

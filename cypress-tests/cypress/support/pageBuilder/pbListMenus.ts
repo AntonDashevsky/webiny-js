@@ -1,4 +1,5 @@
-import { createGqlQuery, GqlListResponse } from "../utils";
+import type { GqlListResponse } from "../utils";
+import { createGqlQuery } from "../utils";
 
 const LIST_MENUS_QUERY = /* GraphQL */ `
     query pbListMenus {

@@ -1,13 +1,13 @@
 import React, { lazy, Suspense } from "react";
 import Helmet from "react-helmet";
-import { SecureRoute } from "@webiny/app-security/components/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { SecureRoute } from "@webiny/app-security/components";
+import { CircularProgress } from "@webiny/ui/Progress";
 import { Route } from "@webiny/react-router";
-import { AdminLayout } from "@webiny/app-admin/components/AdminLayout.js";
-import { type RoutePlugin } from "@webiny/app/types.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { ContentEntriesContainer } from "~/admin/views/contentEntries/ContentEntriesContainer.js";
-import { ContentEntries } from "~/admin/views/contentEntries/ContentEntries.js";
+import { AdminLayout } from "@webiny/app-admin/components/AdminLayout";
+import type { RoutePlugin } from "@webiny/app/types";
+import { i18n } from "@webiny/app/i18n";
+import { ContentEntriesContainer } from "~/admin/views/contentEntries/ContentEntriesContainer";
+import { ContentEntries } from "~/admin/views/contentEntries/ContentEntries";
 import { CompositionScope } from "@webiny/react-composition";
 
 const t = i18n.ns("app-headless-cms/admin/routes");
@@ -26,21 +26,21 @@ const ContentModelEditor = lazy(
     () =>
         import(
             /* webpackChunkName: "ViewsContentModelsContentModelEditor" */
-            "../views/contentModels/ContentModelEditor.js"
+            "../views/contentModels/ContentModelEditor"
         )
 );
 const ContentModelsView = lazy(
     () =>
         import(
             /* webpackChunkName: "ViewsContentModelsContentModels" */
-            "../views/contentModels/ContentModels.js"
+            "../views/contentModels/ContentModels"
         )
 );
 const ContentModelGroupsView = lazy(
     () =>
         import(
             /* webpackChunkName: "ViewsContentModelsContentModelGroups" */
-            "../views/contentModelGroups/ContentModelGroups.js"
+            "../views/contentModelGroups/ContentModelGroups"
         )
 );
 

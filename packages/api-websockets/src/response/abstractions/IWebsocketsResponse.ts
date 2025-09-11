@@ -1,4 +1,4 @@
-import { type GenericRecord } from "@webiny/api/types.js";
+import type { GenericRecord } from "@webiny/api/types";
 
 export interface IWebsocketsResponseOkParams {
     message?: string;

@@ -3,9 +3,9 @@ import { setupGroupAndModels } from "../testHelpers/setup";
 import { usePageManageHandler } from "../testHelpers/usePageManageHandler";
 import { usePageReadHandler } from "../testHelpers/usePageReadHandler";
 import { useAuthorManageHandler } from "~tests/testHelpers/useAuthorManageHandler";
-import { CmsModel } from "~tests/types";
+import type { CmsModel } from "~tests/types";
 import { ContextPlugin } from "@webiny/api";
-import { CmsContext, CmsEntry } from "~/types";
+import type { CmsContext, CmsEntry } from "~/types";
 
 const singularPageApiName = pageModel.singularApiName;
 

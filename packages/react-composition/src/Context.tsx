@@ -1,23 +1,17 @@
-import React, {
-    type ComponentType,
-    createContext,
-    useCallback,
-    useContext,
-    useMemo,
-    useState
-} from "react";
-import { useCompositionScope } from "~/CompositionScope.js";
-import {
-    type ComposedFunction,
-    type ComposeWith,
-    type Decoratable,
-    type DecoratableComponent,
-    type DecoratableHook,
-    type Decorator,
-    type Enumerable,
-    type GenericComponent,
-    type GenericHook
-} from "~/types.js";
+import type { ComponentType } from "react";
+import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { useCompositionScope } from "~/CompositionScope";
+import type {
+    ComposedFunction,
+    ComposeWith,
+    Decoratable,
+    DecoratableComponent,
+    DecoratableHook,
+    Decorator,
+    Enumerable,
+    GenericComponent,
+    GenericHook
+} from "~/types";
 
 export function compose<T>(...fns: Decorator<T>[]) {
     return (decoratee: T): T => {
@@ -65,7 +59,8 @@ interface CompositionContext {
     composeComponent(
         component: ComponentType<unknown>,
         hocs: Enumerable<ComposeWith>,
-        scope?: string
+        scope?: string,
+        inherit?: boolean
     ): void;
 }
 
@@ -82,19 +77,27 @@ interface CompositionProviderProps {
 const composeComponents = (
     components: ComponentScopes,
     decorators: Array<[GenericComponent | GenericHook, Decorator<any>[]]>,
-    scope = "*"
+    scope = "*",
+    inherit = false
 ) => {
     const scopeMap: ComposedComponents = components.get(scope) || new Map();
-    for (const [component, hocs] of decorators) {
+    for (const [component, newHocs] of decorators) {
         const recipe = scopeMap.get(component) || { component: null, hocs: [] };
 
-        const newHocs = [...(recipe.hocs || []), ...hocs] as Decorator<
+        const existingHocs = [...(recipe.hocs || [])];
+        if (inherit && scope !== "*") {
+            const globalScope = components.get("*") || new Map();
+            const globalRecipe = globalScope.get(component) || { component: null, hocs: [] };
+            existingHocs.unshift(...globalRecipe.hocs);
+        }
+
+        const finalHocs = [...existingHocs, ...newHocs] as Decorator<
             GenericHook | GenericComponent
         >[];
 
         scopeMap.set(component, {
-            component: compose(...[...newHocs].reverse())(component),
-            hocs: newHocs
+            component: compose(...[...finalHocs].reverse())(component),
+            hocs: finalHocs
         });
 
         components.set(scope, scopeMap);
@@ -117,10 +120,16 @@ export const CompositionProvider = ({ decorators = [], children }: CompositionPr
         (
             component: GenericComponent | GenericHook,
             hocs: HigherOrderComponent<any, any>[],
-            scope: string | undefined = "*"
+            scope: string | undefined = "*",
+            inherit = false
         ) => {
             setComponents(prevComponents => {
-                return composeComponents(new Map(prevComponents), [[component, hocs]], scope);
+                return composeComponents(
+                    new Map(prevComponents),
+                    [[component, hocs]],
+                    scope,
+                    inherit
+                );
             });
 
             // Return a function that will remove the added HOCs.
@@ -185,7 +194,7 @@ export function useComponent<T>(baseFunction: T) {
         return baseFunction;
     }
 
-    return (context.getComponent(baseFunction as any, scope) || baseFunction) as T;
+    return (context.getComponent(baseFunction as any, scope.scope) || baseFunction) as T;
 }
 
 /**

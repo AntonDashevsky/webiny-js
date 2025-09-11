@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
-import { ReactComponent as MoveIcon } from "@material-design-icons/svg/outlined/drive_file_move.svg";
+import { ReactComponent as MoveIcon } from "@webiny/icons/exit_to_app.svg";
 import { useRecords, useMoveToFolderDialog, useNavigateFolder } from "@webiny/app-aco";
 import { useSnackbar } from "@webiny/app-admin";
-import { type FolderItem } from "@webiny/app-aco/types.js";
 import { observer } from "mobx-react-lite";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
-import { ROOT_FOLDER } from "~/admin/constants.js";
-import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions.js";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries";
+import { ROOT_FOLDER } from "~/admin/constants";
+import { getEntriesLabel } from "~/admin/components/ContentEntries/BulkActions/BulkActions";
+import { type NodeDto, Tooltip } from "@webiny/admin-ui";
 
 export const ActionMove = observer(() => {
     const { moveRecord } = useRecords();
@@ -14,7 +14,7 @@ export const ActionMove = observer(() => {
     const { showSnackbar } = useSnackbar();
 
     const { useWorker, useButtons, useDialog } = ContentEntryListConfig.Browser.BulkAction;
-    const { IconButton } = useButtons();
+    const { ButtonDefault } = useButtons();
     const worker = useWorker();
     const { showConfirmationDialog, showResultsDialog } = useDialog();
     const { showDialog: showMoveDialog } = useMoveToFolderDialog();
@@ -22,10 +22,11 @@ export const ActionMove = observer(() => {
     const entriesLabel = getEntriesLabel();
 
     const openWorkerDialog = useCallback(
-        (folder: FolderItem) => {
+        (folder: NodeDto) => {
+            console.log("folder", folder);
             showConfirmationDialog({
                 title: "Move entries",
-                message: `You are about to move ${entriesLabel} to ${folder.title}. Are you sure you want to continue?`,
+                message: `You are about to move ${entriesLabel} to ${folder.label}. Are you sure you want to continue?`,
                 loadingLabel: `Processing ${entriesLabel}`,
                 execute: async () => {
                     if (worker.isSelectedAll) {
@@ -42,7 +43,7 @@ export const ActionMove = observer(() => {
                         });
                         worker.resetItems();
                         showSnackbar(
-                            `All entries will be moved to ${folder.title}. This process will be carried out in the background and may take some time. You can safely navigate away from this page while the process is running.`,
+                            `All entries will be moved to ${folder.label}. This process will be carried out in the background and may take some time. You can safely navigate away from this page while the process is running.`,
                             {
                                 dismissIcon: true,
                                 timeout: -1
@@ -98,11 +99,14 @@ export const ActionMove = observer(() => {
         });
 
     return (
-        <IconButton
-            icon={<MoveIcon />}
-            onAction={openMoveEntriesDialog}
-            label={`Move ${entriesLabel}`}
-            tooltipPlacement={"bottom"}
+        <Tooltip
+            side={"bottom"}
+            content={`Move ${entriesLabel}`}
+            trigger={
+                <ButtonDefault icon={<MoveIcon />} onAction={openMoveEntriesDialog} size={"sm"}>
+                    {"Move"}
+                </ButtonDefault>
+            }
         />
     );
 });

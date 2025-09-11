@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
 import { createRenderer, useRenderer, Elements } from "@webiny/app-page-builder-elements";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
-import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
-import EmptyCell from "~/editor/plugins/elements/cell/EmptyCell.js";
+import type { Element } from "@webiny/app-page-builder-elements/types";
+import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
+import EmptyCell from "~/editor/plugins/elements/cell/EmptyCell";
 
 const arrowIcon =
     'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNOC4xMiA5LjI5IDEyIDEzLjE3bDMuODgtMy44OGEuOTk2Ljk5NiAwIDEgMSAxLjQxIDEuNDFsLTQuNTkgNC41OWEuOTk2Ljk5NiAwIDAgMS0xLjQxIDBMNi43IDEwLjdhLjk5Ni45OTYgMCAwIDEgMC0xLjQxYy4zOS0uMzggMS4wMy0uMzkgMS40MiAweiIvPjwvc3ZnPg==")';

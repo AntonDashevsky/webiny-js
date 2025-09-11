@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { useSecurity } from "@webiny/app-security";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
-import ContentModelGroupsDataList from "./ContentModelGroupsDataList.js";
-import ContentModelGroupsForm from "./ContentModelGroupsForm.js";
-import { type CmsSecurityPermission } from "~/types.js";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
+import ContentModelGroupsDataList from "./ContentModelGroupsDataList";
+import ContentModelGroupsForm from "./ContentModelGroupsForm";
+import type { CmsSecurityPermission } from "~/types";
 
 const ContentModelGroups = () => {
     const { identity, getPermission } = useSecurity();
@@ -27,7 +27,9 @@ const ContentModelGroups = () => {
                 <ContentModelGroupsDataList canCreate={canCreate} />
             </LeftPanel>
             <RightPanel span={8}>
-                <ContentModelGroupsForm canCreate={canCreate} />
+                <div className={"wby-w-full wby-overflow-y-auto wby-h-main-content"}>
+                    <ContentModelGroupsForm canCreate={canCreate} />
+                </div>
             </RightPanel>
         </SplitView>
     );

@@ -1,8 +1,8 @@
 import React from "react";
-import { type PbEditorElement } from "~/types.js";
+import type { PbEditorElement } from "~/types";
 
-import PeTabs from "./PeTabs.js";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import PeTabs from "./PeTabs";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 
 interface TabsProps {
     element: PbEditorElement;

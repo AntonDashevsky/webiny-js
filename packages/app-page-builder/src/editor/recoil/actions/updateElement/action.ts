@@ -1,7 +1,7 @@
-import { type EventActionCallable } from "~/types.js";
-import { flattenElements } from "~/editor/helpers.js";
-import { type UpdateElementActionArgsType } from "./types.js";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/updateDocument/index.js";
+import type { EventActionCallable } from "~/types";
+import { flattenElements } from "~/editor/helpers";
+import type { UpdateElementActionArgsType } from "./types";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/updateDocument";
 
 export const updateElementAction: EventActionCallable<UpdateElementActionArgsType> = (
     _state,

@@ -1,6 +1,6 @@
-import { type ITaskResponseDoneResultOutput, type ITaskRunParams } from "@webiny/tasks";
-import { type PbImportExportContext } from "~/graphql/types.js";
-import { type ImportData } from "~/types.js";
+import type { ITaskResponseDoneResultOutput, ITaskRunParams } from "@webiny/tasks";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { ImportData } from "~/types";
 
 export enum PageImportTask {
     Controller = "pageBuilderImportPagesController",

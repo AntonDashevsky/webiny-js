@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { createConfigurableComponent } from "@webiny/react-properties";
-import { Browser, type BrowserConfig } from "./Browser/index.js";
+import type { BrowserConfig } from "./Browser";
+import { Browser } from "./Browser";
 
 const base = createConfigurableComponent<AuditLogsListConfig>("AuditLogsListConfig");
 

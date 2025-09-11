@@ -1,12 +1,12 @@
-import omit from "lodash/omit.js";
+import omit from "lodash/omit";
 import WebinyError from "@webiny/error";
-import { type CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations.js";
-import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues.js";
-import { type AcoSearchRecordStorageOperations, type SearchRecord } from "./record.types.js";
-import { type CmsModel, type UpdateCmsEntryInput } from "@webiny/api-headless-cms/types/index.js";
-import { attachAcoRecordPrefix } from "~/utils/acoRecordId.js";
-import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model.js";
-import { ENTRY_META_FIELDS, pickEntryMetaFields } from "@webiny/api-headless-cms/constants.js";
+import type { CreateAcoStorageOperationsParams } from "~/createAcoStorageOperations";
+import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues";
+import type { AcoSearchRecordStorageOperations, SearchRecord } from "./record.types";
+import type { CmsModel, UpdateCmsEntryInput } from "@webiny/api-headless-cms/types";
+import { attachAcoRecordPrefix } from "~/utils/acoRecordId";
+import { SEARCH_RECORD_MODEL_ID } from "~/record/record.model";
+import { ENTRY_META_FIELDS, pickEntryMetaFields } from "@webiny/api-headless-cms/constants";
 
 export const createSearchRecordOperations = (
     params: CreateAcoStorageOperationsParams
@@ -83,7 +83,7 @@ export const createSearchRecordOperations = (
             const { createdBy, createdOn, modifiedBy, modifiedOn, savedBy, savedOn } =
                 pickEntryMetaFields(data);
 
-            const entry = await cms.createEntry(model, {
+            const input = {
                 tags,
                 data,
                 ...rest,
@@ -100,7 +100,9 @@ export const createSearchRecordOperations = (
                 revisionSavedBy: savedBy,
                 revisionSavedOn: savedOn,
                 id: attachAcoRecordPrefix(rest.id)
-            });
+            };
+
+            const entry = await cms.createEntry(model, input);
 
             return pickEntryFieldValues<SearchRecord<any>>(entry);
         },

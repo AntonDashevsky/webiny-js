@@ -1,5 +1,5 @@
-import { IRecordLockingLockRecord } from "~/types";
-import { CmsError } from "@webiny/api-headless-cms/types";
+import type { IRecordLockingLockRecord } from "~/types";
+import type { CmsError } from "@webiny/api-headless-cms/types";
 
 export const LOCK_ERROR = /* GraphQL */ `
     error {

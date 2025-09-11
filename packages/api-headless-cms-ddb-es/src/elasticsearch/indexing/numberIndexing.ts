@@ -1,4 +1,4 @@
-import { type CmsModelFieldToElasticsearchPlugin } from "~/types.js";
+import type { CmsModelFieldToElasticsearchPlugin } from "~/types";
 
 const convertToString = (value: number[] | number) => {
     if (Array.isArray(value) === false) {

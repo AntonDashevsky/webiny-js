@@ -1,5 +1,5 @@
-import { type SecurityPermission } from "@webiny/app-security/types.js";
-import { type RichTextEditorProps } from "@webiny/ui/RichTextEditor/index.js";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { RichTextEditorProps } from "@webiny/ui/RichTextEditor";
 
 export interface CreatedBy {
     /**
@@ -28,7 +28,7 @@ export enum ApwContentReviewStepStatus {
 }
 
 export enum ApwWorkflowApplications {
-    PB = "pageBuilder",
+    // PB = "pageBuilder",
     CMS = "cms"
 }
 

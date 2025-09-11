@@ -4,19 +4,16 @@
  *
  * We should try to have some kind of standardized event type implementation at some point.
  */
-import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types/index.js";
-import {
-    createHandler as createBaseHandler,
-    type CreateHandlerParams as BaseCreateHandlerParams
-} from "@webiny/handler";
-import { RawEventHandler } from "~/raw/plugins/RawEventHandler.js";
-import { registerDefaultPlugins } from "~/plugins/index.js";
-import { execute } from "~/execute.js";
-import { createComposedHandler } from "~/utils/composedHandler.js";
-import { type Context, type Request } from "@webiny/handler/types.js";
+import type { APIGatewayProxyResult, Context as LambdaContext } from "@webiny/aws-sdk/types";
+import type { CreateHandlerParams as BaseCreateHandlerParams } from "@webiny/handler";
+import { createHandler as createBaseHandler } from "@webiny/handler";
+import { RawEventHandler } from "~/raw/plugins/RawEventHandler";
+import { registerDefaultPlugins } from "~/plugins";
+import { execute } from "~/execute";
+import { createComposedHandler } from "~/utils/composedHandler";
+import type { Context, Request } from "@webiny/handler/types";
 
-// @ts-expect-error This export has no types.
-import Reply from "fastify/lib/reply.js";
+const Reply = require("fastify/lib/reply");
 
 const url = "/webiny-raw-event";
 
@@ -55,6 +52,16 @@ export const createHandler = <Payload = any, Response = APIGatewayProxyResult>(
          */
         const plugins = app.webiny.plugins
             .byType<RawEventHandler<Payload, any, Response>>(RawEventHandler.type)
+            .filter(plugin => {
+                /**
+                 * Just in case check that the plugin contains canHandle method.
+                 * If it does not, we assume it can handle any payload.
+                 */
+                if (typeof plugin.canHandle !== "function") {
+                    return true;
+                }
+                return plugin.canHandle(payload);
+            })
             .reverse();
         if (plugins.length === 0) {
             throw new Error(`To run @webiny/handler-aws/raw, you must have RawEventHandler set.`);
@@ -91,4 +98,4 @@ export const createHandler = <Payload = any, Response = APIGatewayProxyResult>(
     };
 };
 
-export * from "./plugins/RawEventHandler.js";
+export * from "./plugins/RawEventHandler";

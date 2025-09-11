@@ -120,6 +120,11 @@ export class Worker<T> {
         this._items = items;
     }
 
+    public async resetResults(): Promise<void> {
+        this._items = [];
+        this._report = new Report();
+    }
+
     /**
      * Internal method to process a chunk of items using the provided callback.
      * @private

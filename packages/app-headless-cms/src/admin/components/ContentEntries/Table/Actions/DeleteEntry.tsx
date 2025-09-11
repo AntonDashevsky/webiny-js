@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as Delete } from "@material-design-icons/svg/outlined/delete.svg";
-import { ContentEntryListConfig } from "~/admin/config/contentEntries/index.js";
-import { useContentEntry, useEntry, usePermission } from "~/admin/hooks/index.js";
+import { ReactComponent as Delete } from "@webiny/icons/delete.svg";
+import { ContentEntryListConfig } from "~/admin/config/contentEntries";
+import { useContentEntry, useEntry, usePermission } from "~/admin/hooks";
 
 export const DeleteEntry = () => {
     const { entry } = useEntry();
@@ -23,6 +23,7 @@ export const DeleteEntry = () => {
             label={"Trash"}
             onAction={deleteEntry}
             data-testid={"aco.actions.entry.delete"}
+            className={"!wby-text-destructive-primary [&_svg]:wby-fill-destructive"}
         />
     );
 };

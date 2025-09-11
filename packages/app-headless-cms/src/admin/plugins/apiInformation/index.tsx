@@ -1,9 +1,9 @@
-import { type GraphQLPlaygroundTabPlugin } from "@webiny/app-graphql-playground/types.js";
+import type { GraphQLPlaygroundTabPlugin } from "@webiny/app-graphql-playground/types";
 import raw from "raw.macro";
 const manageQuery = raw("./placeholder.manage.graphql");
 const readQuery = raw("./placeholder.read.graphql");
 const previewQuery = raw("./placeholder.preview.graphql");
-import { config as appConfig } from "@webiny/app/config.js";
+import { config as appConfig } from "@webiny/app/config";
 
 const plugins: GraphQLPlaygroundTabPlugin[] = [
     {

@@ -1,5 +1,5 @@
-import { IRegistry, IRegistryItem, IRegistryRegisterParams } from "./types.js";
-import { GenericRecord } from "@webiny/api/types.js";
+import type { IRegistry, IRegistryItem, IRegistryRegisterParams } from "./types";
+import type { GenericRecord } from "@webiny/api/types";
 
 export class DbRegistry implements IRegistry {
     private readonly items: GenericRecord<string, IRegistryItem> = {};

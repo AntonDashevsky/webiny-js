@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/react-hooks";
-import get from "lodash/get.js";
-import {
-    LIST_PAGE_ELEMENTS,
-    type ListPageElementsQueryResponse,
-    type ListPageElementsQueryResponseData
-} from "~/admin/graphql/pages.js";
-import createElementPlugin from "~/admin/utils/createElementPlugin.js";
+import get from "lodash/get";
+import type {
+    ListPageElementsQueryResponse,
+    ListPageElementsQueryResponseData
+} from "~/admin/graphql/pages";
+import { LIST_PAGE_ELEMENTS } from "~/admin/graphql/pages";
+import createElementPlugin from "~/admin/utils/createElementPlugin";
 
 export const useSavedElements = () => {
     const savedElements = useQuery<ListPageElementsQueryResponse>(LIST_PAGE_ELEMENTS, {

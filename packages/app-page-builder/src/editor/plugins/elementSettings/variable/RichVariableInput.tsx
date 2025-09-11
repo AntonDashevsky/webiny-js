@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import { type CoreOptions } from "medium-editor";
-import { ReactComponent as ExpandIcon } from "@material-design-icons/svg/filled/fullscreen.svg";
+import type { CoreOptions } from "medium-editor";
+import { ReactComponent as ExpandIcon } from "@webiny/icons/fullscreen.svg";
 import { makeDecoratable } from "@webiny/app-admin";
-import { Dialog, DialogActions, DialogContent } from "@webiny/ui/Dialog/index.js";
-import { ButtonPrimary, IconButton } from "@webiny/ui/Button/index.js";
-import ReactMediumEditor from "~/editor/components/MediumEditor/index.js";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { useVariable } from "~/hooks/useVariable.js";
+import { Dialog, DialogActions, DialogContent } from "@webiny/ui/Dialog";
+import { ButtonPrimary, IconButton } from "@webiny/ui/Button";
+import ReactMediumEditor from "~/editor/components/MediumEditor";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useVariable } from "~/hooks/useVariable";
 
 const InputWrapper = styled("div")`
     display: grid;

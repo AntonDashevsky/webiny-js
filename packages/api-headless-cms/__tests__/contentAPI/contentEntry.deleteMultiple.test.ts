@@ -1,6 +1,6 @@
 import { setupContentModelGroup, setupContentModels } from "~tests/testHelpers/setup";
 import { useCategoryManageHandler } from "~tests/testHelpers/useCategoryManageHandler";
-import { CmsEntry } from "~/types";
+import type { CmsEntry } from "~/types";
 import { toSlug } from "~/utils/toSlug";
 import { useCategoryReadHandler } from "~tests/testHelpers/useCategoryReadHandler";
 import { parseIdentifier } from "@webiny/utils";

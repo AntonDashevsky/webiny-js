@@ -1,14 +1,14 @@
 import React from "react";
 import dotPropImmutable from "dot-prop-immutable";
-import isEmpty from "lodash/isEmpty.js";
-import { CmsScopeSettings } from "./CmsScopeSettings.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { ApwWorkflowApplications, ApwWorkflowScopeTypes } from "~/types.js";
-import { Box, Stack } from "~/components/Layout.js";
+import isEmpty from "lodash/isEmpty";
+import { CmsScopeSettings } from "./CmsScopeSettings";
+import { i18n } from "@webiny/app/i18n";
+import { ApwWorkflowApplications, ApwWorkflowScopeTypes } from "~/types";
+import { Box, Stack } from "~/components/Layout";
 import { validation } from "@webiny/validation";
-import { Select } from "@webiny/ui/Select/Select.js";
-import { type HigherOrderComponent } from "@webiny/app-admin";
-import { type WorkflowScopeProps } from "~/views/publishingWorkflows/components/WorkflowScope.js";
+import { Select } from "@webiny/ui/Select/Select";
+import type { HigherOrderComponent } from "@webiny/app-admin";
+import type { WorkflowScopeProps } from "~/views/publishingWorkflows/components/WorkflowScope";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/form/cms");
 

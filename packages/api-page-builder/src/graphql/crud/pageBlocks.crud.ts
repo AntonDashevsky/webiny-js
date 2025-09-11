@@ -1,29 +1,29 @@
 import WebinyError from "@webiny/error";
-import {
-    type OnPageBlockAfterCreateTopicParams,
-    type OnPageBlockAfterDeleteTopicParams,
-    type OnPageBlockAfterUpdateTopicParams,
-    type OnPageBlockBeforeCreateTopicParams,
-    type OnPageBlockBeforeDeleteTopicParams,
-    type OnPageBlockBeforeUpdateTopicParams,
-    type PageBuilderContextObject,
-    type PageBuilderStorageOperations,
-    type PageBlock,
-    type PageBlocksCrud,
-    type PageBlockStorageOperationsListParams,
-    type PbContext,
-    type PageContentElement,
-    type PageBlockVariable
-} from "~/types.js";
+import type {
+    OnPageBlockAfterCreateTopicParams,
+    OnPageBlockAfterDeleteTopicParams,
+    OnPageBlockAfterUpdateTopicParams,
+    OnPageBlockBeforeCreateTopicParams,
+    OnPageBlockBeforeDeleteTopicParams,
+    OnPageBlockBeforeUpdateTopicParams,
+    PageBuilderContextObject,
+    PageBuilderStorageOperations,
+    PageBlock,
+    PageBlocksCrud,
+    PageBlockStorageOperationsListParams,
+    PbContext,
+    PageContentElement,
+    PageBlockVariable
+} from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { createTopic } from "@webiny/pubsub";
 import {
     createPageBlocksCreateValidation,
     createPageBlocksUpdateValidation
-} from "~/graphql/crud/pageBlocks/validation.js";
+} from "~/graphql/crud/pageBlocks/validation";
 import { createZodError, mdbid, removeUndefinedValues } from "@webiny/utils";
-import { type PageBlocksPermissions } from "./permissions/PageBlocksPermissions.js";
-import { PageElementId } from "~/graphql/crud/pages/PageElementId.js";
+import type { PageBlocksPermissions } from "./permissions/PageBlocksPermissions";
+import { PageElementId } from "~/graphql/crud/pages/PageElementId";
 
 export interface CreatePageBlocksCrudParams {
     context: PbContext;

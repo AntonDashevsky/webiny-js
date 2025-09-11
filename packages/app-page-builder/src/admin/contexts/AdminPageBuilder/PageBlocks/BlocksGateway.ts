@@ -1,28 +1,30 @@
-import { type ApolloClient } from "apollo-client";
+import type { ApolloClient } from "apollo-client";
+import type {
+    CreatePageBlockMutationResponse,
+    CreatePageBlockMutationVariables,
+    DeletePageBlockMutationResponse,
+    DeletePageBlockMutationVariables,
+    GetPageBlockQueryResponse,
+    GetPageBlockQueryVariables,
+    ListPageBlocksQueryResponse,
+    ListPageBlocksQueryVariables,
+    UpdatePageBlockMutationResponse,
+    UpdatePageBlockMutationVariables
+} from "~/admin/views/PageBlocks/graphql";
 import {
     CREATE_PAGE_BLOCK,
-    type CreatePageBlockMutationResponse,
-    type CreatePageBlockMutationVariables,
     DELETE_PAGE_BLOCK,
-    type DeletePageBlockMutationResponse,
-    type DeletePageBlockMutationVariables,
     GET_PAGE_BLOCK,
-    type GetPageBlockQueryResponse,
-    type GetPageBlockQueryVariables,
     LIST_PAGE_BLOCKS,
-    type ListPageBlocksQueryResponse,
-    type ListPageBlocksQueryVariables,
-    UPDATE_PAGE_BLOCK,
-    type UpdatePageBlockMutationResponse,
-    type UpdatePageBlockMutationVariables
-} from "~/admin/views/PageBlocks/graphql.js";
-import { type PbPageBlock } from "~/types.js";
-import {
-    type BlockGatewayInterface,
-    type CreatePageBlockInput,
-    type UpdatePageBlockInput
-} from "./BlockGatewayInterface.js";
-import { decompress } from "~/admin/components/useDecompress.js";
+    UPDATE_PAGE_BLOCK
+} from "~/admin/views/PageBlocks/graphql";
+import type { PbPageBlock } from "~/types";
+import type {
+    BlockGatewayInterface,
+    CreatePageBlockInput,
+    UpdatePageBlockInput
+} from "./BlockGatewayInterface";
+import { decompress } from "~/admin/components/useDecompress";
 
 export class BlocksGateway implements BlockGatewayInterface {
     private client: ApolloClient<any>;

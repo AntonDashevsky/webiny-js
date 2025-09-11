@@ -1,6 +1,6 @@
-import { createTable } from "~/db/table.js";
-import { createEntity } from "~/db/entity.js";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { createTable } from "~/db/table";
+import { createEntity } from "~/db/entity";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 
 interface IParams {
     documentClient: DynamoDBDocument;

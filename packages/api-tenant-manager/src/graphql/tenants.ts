@@ -1,9 +1,10 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
 import { mdbid } from "@webiny/utils";
-import { ErrorResponse, Response, ListResponse } from "@webiny/handler-graphql";
+import { ErrorResponse, Response, ListResponse, NotFoundResponse } from "@webiny/handler-graphql";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { type SecurityContext } from "@webiny/api-security/types.js";
-import { type TenancyContext } from "@webiny/api-tenancy/types.js";
+import type { SecurityContext } from "@webiny/api-security/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import { UpdateTenantUseCase } from "@webiny/api-tenancy";
 
 type Context = TenancyContext & SecurityContext;
 
@@ -19,6 +20,16 @@ export default new GraphQLSchemaPlugin<Context>({
         type TenancyListResponse {
             data: [Tenant]
             error: TenancyError
+        }
+
+        input TmFileInput {
+            id: ID!
+            src: String!
+        }
+
+        type TmFile {
+            id: ID!
+            src: String!
         }
 
         input GetTenantWhereInput {
@@ -37,6 +48,7 @@ export default new GraphQLSchemaPlugin<Context>({
             id: ID
             name: String!
             description: String!
+            image: JSON
             tags: [String!]!
             settings: TenantSettingsInput!
         }
@@ -44,6 +56,7 @@ export default new GraphQLSchemaPlugin<Context>({
         input UpdateTenantInput {
             name: String!
             description: String!
+            image: JSON
             tags: [String!]!
             settings: TenantSettingsInput!
         }
@@ -112,34 +125,23 @@ export default new GraphQLSchemaPlugin<Context>({
             updateTenant: async (_, args: any, context) => {
                 try {
                     await checkPermissions(context);
-                    const tenantToUpdate = await context.tenancy.getTenantById(args.id);
-                    const currentTenant = context.tenancy.getCurrentTenant();
-
-                    if (!tenantToUpdate) {
-                        return new ErrorResponse({
-                            message: `Tenant "${args.id}" was not found!`,
-                            code: "TENANT_NOT_FOUND"
-                        });
-                    }
-
-                    const canUpdate = [
-                        // You can update a tenant if it's a child of the current tenant.
-                        currentTenant.id === tenantToUpdate.parent,
-                        // Root tenant can update itself
-                        currentTenant.id === "root" && tenantToUpdate.id === "root"
-                    ];
-
-                    // If not a single `true` is present in the array...
-                    if (!canUpdate.some(Boolean)) {
-                        throw new NotAuthorizedError();
-                    }
-
-                    const updatedTenant = await context.tenancy.updateTenant(args.id, args.data);
-
-                    return new Response(updatedTenant);
                 } catch (e) {
                     return new ErrorResponse(e);
                 }
+
+                const updateTenantUseCase = context.container.resolve(UpdateTenantUseCase);
+
+                const updatedTenant = await updateTenantUseCase.execute(args.id, args.data);
+
+                if (updatedTenant.isOk()) {
+                    return new Response(updatedTenant.value);
+                }
+
+                if (updatedTenant.error.type === "NOT_FOUND") {
+                    return new NotFoundResponse("Tenant was not found!");
+                }
+
+                return new ErrorResponse({ message: "Failed to update tenant!" });
             },
             deleteTenant: async (_, args: any, context) => {
                 try {

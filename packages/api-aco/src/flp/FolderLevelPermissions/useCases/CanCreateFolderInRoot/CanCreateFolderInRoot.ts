@@ -1,4 +1,4 @@
-import type { ICanCreateFolderInRoot } from "./ICanCreateFolderInRoot.js";
+import type { ICanCreateFolderInRoot } from "./ICanCreateFolderInRoot";
 
 export class CanCreateFolderInRoot implements ICanCreateFolderInRoot {
     execute() {

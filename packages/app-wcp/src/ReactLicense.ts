@@ -1,5 +1,6 @@
-import { type DecryptedWcpProjectLicense, type ILicense, type WcpProject } from "@webiny/wcp/types.js";
-import { NullLicense, type WCP_FEATURE_LABEL } from "@webiny/wcp";
+import type { DecryptedWcpProjectLicense, ILicense, WcpProject } from "@webiny/wcp/types";
+import type { WCP_FEATURE_LABEL } from "@webiny/wcp";
+import { NullLicense } from "@webiny/wcp";
 
 export class ReactLicense implements ILicense {
     private readonly license: ILicense;

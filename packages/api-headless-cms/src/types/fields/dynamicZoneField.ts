@@ -1,4 +1,4 @@
-import { type CmsModelField, type CmsModelFieldValidation } from "../modelField.js";
+import type { CmsModelField, CmsModelFieldValidation } from "../modelField";
 
 export interface CmsDynamicZoneTemplate {
     id: string;

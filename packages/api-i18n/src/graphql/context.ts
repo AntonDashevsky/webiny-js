@@ -1,16 +1,16 @@
 import acceptLanguageParser from "accept-language-parser";
-import {
-    type ContextI18NGetLocales,
-    type I18NContext,
-    type I18NContextObject,
-    type I18NLocale,
-    type LocaleKeys
-} from "~/types.js";
+import type {
+    ContextI18NGetLocales,
+    I18NContext,
+    I18NContextObject,
+    I18NLocale,
+    LocaleKeys
+} from "~/types";
 import { ContextPlugin } from "@webiny/api";
 import { NotAuthorizedError } from "@webiny/api-security";
-import { I18NLocaleContextPlugin } from "~/plugins/I18NLocaleContextPlugin.js";
-import { createCrudContext } from "~/graphql/crud/index.js";
-import { hasI18NContentPermission } from "./hasI18NContentPermission.js";
+import { I18NLocaleContextPlugin } from "~/plugins/I18NLocaleContextPlugin";
+import { createCrudContext } from "~/graphql/crud";
+import { hasI18NContentPermission } from "./hasI18NContentPermission";
 
 interface Locales {
     content: string;

@@ -1,10 +1,7 @@
-import {
-    ApplicationGraphQL,
-    type ApplicationGraphQLBody,
-    type ApwScheduleActionData
-} from "./ApplicationGraphQL.js";
-import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types.js";
-import { type ApwSettings } from "~/scheduler/handlers/utils.js";
+import type { ApplicationGraphQLBody, ApwScheduleActionData } from "./ApplicationGraphQL";
+import { ApplicationGraphQL } from "./ApplicationGraphQL";
+import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types";
+import type { ApwSettings } from "~/scheduler/handlers/utils";
 
 const PB_PAGE_DATA_FIELD = /* GraphQL */ `
     {

@@ -1,11 +1,8 @@
-import {
-    type IImportPagesControllerTaskParams,
-    type IImportPagesProcessPagesInput,
-    PageImportTask
-} from "../types.js";
-import { type ITaskResponseResult } from "@webiny/tasks";
-import { extractAndUploadZipFileContents } from "~/import/utils/index.js";
-import lodashChunk from "lodash/chunk.js";
+import type { IImportPagesControllerTaskParams, IImportPagesProcessPagesInput } from "../types";
+import { PageImportTask } from "../types";
+import type { ITaskResponseResult } from "@webiny/tasks";
+import { extractAndUploadZipFileContents } from "~/import/utils";
+import lodashChunk from "lodash/chunk";
 
 const PROCESSING_PAGES_PER_TASK = 5;
 

@@ -1,5 +1,7 @@
-import { Column, type ColumnConfig } from "./Column.js";
-import { Sorting, type SortingConfig } from "./Sorting.js";
+import type { ColumnConfig } from "./Column";
+import { Column } from "./Column";
+import type { SortingConfig } from "./Sorting";
+import { Sorting } from "./Sorting";
 export interface TableConfig {
     columns: ColumnConfig[];
     sorting: SortingConfig[];

@@ -1,5 +1,5 @@
-import { type HcmsBulkActionsContext } from "~/types.js";
-import { type ITask, type ITaskDataInput } from "@webiny/tasks";
+import type { HcmsBulkActionsContext } from "~/types";
+import type { ITask, ITaskDataInput } from "@webiny/tasks";
 
 /**
  * TaskCache class for managing and triggering cached tasks.

@@ -1,78 +1,28 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
-import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
-import { DialogActions, DialogCancel, DialogContent, DialogTitle } from "@webiny/ui/Dialog/index.js";
-import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { type CmsContentEntry, type CmsModel } from "~/types.js";
-import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry.js";
-import { ModelProvider } from "~/admin/components/ModelProvider/index.js";
-import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm.js";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import {
-    GET_CONTENT_MODEL,
-    type GetCmsModelQueryResponse,
-    type GetCmsModelQueryVariables
-} from "~/admin/graphql/contentModels.js";
-import { useCms } from "~/admin/hooks/index.js";
-import { FullWidthDialog } from "./dialog/Dialog.js";
-import { NavigateFolderProvider as AbstractNavigateFolderProvider } from "@webiny/app-aco/contexts/navigateFolder.js";
-import { SearchRecordsProvider } from "@webiny/app-aco/contexts/records.js";
+import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext";
+import { FoldersProvider } from "@webiny/app-aco/contexts/folders";
+import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext";
+import { i18n } from "@webiny/app/i18n";
+import type { CmsContentEntry, CmsModel } from "~/types";
+import { useContentEntry } from "~/admin/views/contentEntries/hooks/useContentEntry";
+import { ModelProvider } from "~/admin/components/ModelProvider";
+import { ContentEntryForm } from "~/admin/components/ContentEntryForm/ContentEntryForm";
+import type {
+    GetCmsModelQueryResponse,
+    GetCmsModelQueryVariables
+} from "~/admin/graphql/contentModels";
+import { GET_CONTENT_MODEL } from "~/admin/graphql/contentModels";
+import { useCms } from "~/admin/hooks";
+import { NavigateFolderProvider as AbstractNavigateFolderProvider } from "@webiny/app-aco/contexts/navigateFolder";
+import { SearchRecordsProvider } from "@webiny/app-aco/contexts/records";
 import { FolderTree, useNavigateFolder } from "@webiny/app-aco";
-import styled from "@emotion/styled";
-import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { usePersistEntry } from "~/admin/hooks/usePersistEntry.js";
-import {
-    AcoAppContext,
-    type AcoAppProviderContext,
-    createAppFromModel
-} from "@webiny/app-aco/contexts/app.js";
-import { DialogsProvider } from "@webiny/app-admin";
+import { SplitView, LeftPanel, RightPanel } from "@webiny/app-admin/components/SplitView";
+import { usePersistEntry } from "~/admin/hooks/usePersistEntry";
+import type { AcoAppProviderContext } from "@webiny/app-aco/contexts/app";
+import { AcoAppContext, createAppFromModel } from "@webiny/app-aco/contexts/app";
+import { Drawer, OverlayLoader } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/ref");
-
-const RenderBlock = styled.div`
-    position: relative;
-    background-color: var(--mdc-theme-background);
-    padding: 25px;
-    overflow: scroll;
-`;
-
-const PaddedLeftPanel = styled(LeftPanel)`
-    padding: 10px 10px 0;
-`;
-
-const ModalRightPanel = styled(RightPanel)`
-    > div {
-        height: auto;
-    }
-
-    webiny-form-container > div {
-        height: auto;
-    }
-`;
-
-const ModalFullWidthDialog = styled(FullWidthDialog)`
-    .webiny-ui-dialog__content {
-        height: 100%;
-        > div {
-            max-height: inherit;
-            height: inherit;
-            .mdc-layout-grid__inner {
-                height: 100%;
-                max-height: inherit;
-                .webiny-split-view__left-panel,
-                .webiny-split-view__right-panel {
-                    height: inherit;
-                    max-height: inherit;
-                    overflow: scroll;
-                }
-            }
-        }
-    }
-`;
 
 interface SaveEntry {
     (): void;
@@ -91,28 +41,28 @@ const EntryForm = ({ onCreate, setSaveEntry }: EntryFormProps) => {
     return (
         <ModelProvider model={contentModel}>
             <SplitView>
-                <PaddedLeftPanel span={3}>
-                    <FolderTree
-                        focusedFolderId={currentFolderId}
-                        onFolderClick={data => navigateToFolder(data.id)}
-                        enableActions={true}
-                        enableCreate={true}
-                    />
-                </PaddedLeftPanel>
-                <ModalRightPanel span={9}>
-                    <RenderBlock>
-                        <Elevation z={2}>
-                            {loading ? <CircularProgress label={"Creating entry..."} /> : null}
-                            <ContentEntryForm
-                                header={false}
-                                entry={{}}
-                                persistEntry={persistEntry}
-                                onAfterCreate={entry => onCreate(entry)}
-                                setSaveEntry={setSaveEntry}
-                            />
-                        </Elevation>
-                    </RenderBlock>
-                </ModalRightPanel>
+                <LeftPanel span={3}>
+                    <div className={"wby-px-sm-extra wby-py-sm"}>
+                        <FolderTree
+                            focusedFolderId={currentFolderId}
+                            onFolderClick={data => navigateToFolder(data.id)}
+                            enableActions={true}
+                            enableCreate={true}
+                        />
+                    </div>
+                </LeftPanel>
+                <RightPanel span={9}>
+                    <div className={"wby-p-md wby-relative"}>
+                        {loading ? <OverlayLoader text={"Creating entry..."} /> : null}
+                        <ContentEntryForm
+                            header={false}
+                            entry={{}}
+                            persistEntry={persistEntry}
+                            onAfterCreate={entry => onCreate(entry)}
+                            setSaveEntry={setSaveEntry}
+                        />
+                    </div>
+                </RightPanel>
             </SplitView>
         </ModelProvider>
     );
@@ -189,19 +139,17 @@ export const NewReferencedEntryDialog = ({
             <FoldersProvider>
                 <SearchRecordsProvider>
                     <NavigateFolderProvider modelId={model.modelId}>
-                        <DialogsProvider>
-                            <ContentEntriesProvider
-                                contentModel={model}
-                                key={model.modelId}
-                                insideDialog={true}
-                            >
-                                <ContentEntryProviderWithCurrentFolderId
-                                    model={model}
-                                    onClose={onClose}
-                                    onCreate={onCreate}
-                                />
-                            </ContentEntriesProvider>
-                        </DialogsProvider>
+                        <ContentEntriesProvider
+                            contentModel={model}
+                            key={model.modelId}
+                            insideDialog={true}
+                        >
+                            <ContentEntryProviderWithCurrentFolderId
+                                model={model}
+                                onClose={onClose}
+                                onCreate={onCreate}
+                            />
+                        </ContentEntriesProvider>
                     </NavigateFolderProvider>
                 </SearchRecordsProvider>
             </FoldersProvider>
@@ -259,21 +207,27 @@ const ContentEntryProviderWithCurrentFolderId = ({
             getContentId={() => null}
             currentFolderId={currentFolderId}
         >
-            <ModalFullWidthDialog open={true} onClose={onClose}>
-                <DialogTitle>{t`New {modelName} Entry`({ modelName: model.name })}</DialogTitle>
-                <DialogContent>
-                    <EntryForm
-                        onCreate={onCreate}
-                        setSaveEntry={cb => (saveEntryRef.current = cb)}
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <DialogCancel>{t`Cancel`}</DialogCancel>
-                    <ButtonPrimary
-                        onClick={() => saveEntryRef.current && saveEntryRef.current()}
-                    >{t`Create Entry`}</ButtonPrimary>
-                </DialogActions>
-            </ModalFullWidthDialog>
+            <Drawer
+                open={true}
+                onClose={onClose}
+                width={1000}
+                modal={true}
+                headerSeparator={true}
+                footerSeparator={true}
+                bodyPadding={false}
+                title={t`New {modelName} Entry`({ modelName: model.name })}
+                actions={
+                    <>
+                        <Drawer.CancelButton />
+                        <Drawer.ConfirmButton
+                            onClick={() => saveEntryRef.current && saveEntryRef.current()}
+                            text={t`Create Entry`}
+                        />
+                    </>
+                }
+            >
+                <EntryForm onCreate={onCreate} setSaveEntry={cb => (saveEntryRef.current = cb)} />
+            </Drawer>
         </ContentEntryProvider>
     );
 };

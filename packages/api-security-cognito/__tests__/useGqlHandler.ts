@@ -1,7 +1,7 @@
 import { createWcpContext, createWcpGraphQL } from "@webiny/api-wcp";
 import { createHandler } from "@webiny/handler-aws";
 import graphqlHandler from "@webiny/handler-graphql";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { authenticateUsingHttpHeader } from "@webiny/api-security/plugins/authenticateUsingHttpHeader";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
 import adminUsersPlugins from "@webiny/api-admin-users";
@@ -23,8 +23,8 @@ import {
 
 import { INSTALL, IS_INSTALLED, INSTALL_SECURITY, INSTALL_TENANCY } from "./graphql/install";
 import { createTenancyAndSecurity } from "./tenancySecurity";
-import { AdminUsersStorageOperations } from "./types";
-import { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
+import type { AdminUsersStorageOperations } from "./types";
+import type { APIGatewayEvent, LambdaContext } from "@webiny/handler-aws/types";
 import cognitoAuthentication from "~/index";
 
 interface UseGqlHandlerParams {

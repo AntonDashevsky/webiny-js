@@ -2,7 +2,7 @@ import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
 import { useFruitManageHandler } from "../testHelpers/useFruitManageHandler";
 import { setupContentModelGroup, setupContentModels } from "../testHelpers/setup";
 import { useFruitReadHandler } from "../testHelpers/useFruitReadHandler";
-import { Fruit } from "./mocks/contentModels";
+import type { Fruit } from "./mocks/contentModels";
 import { createCmsGraphQLSchemaSorterPlugin } from "~/plugins";
 import { jest } from "@jest/globals";
 

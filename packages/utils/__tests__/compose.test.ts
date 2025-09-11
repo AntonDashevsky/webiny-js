@@ -1,4 +1,5 @@
-import { AsyncProcessor, composeAsync, SyncProcessor, composeSync } from "~/compose";
+import type { AsyncProcessor, SyncProcessor } from "~/compose";
+import { composeAsync, composeSync } from "~/compose";
 
 interface ValueFnParams {
     value: number;

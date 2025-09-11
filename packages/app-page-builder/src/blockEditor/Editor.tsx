@@ -1,23 +1,23 @@
 import React, { useMemo, useState } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import get from "lodash/get.js";
+import get from "lodash/get";
 import { useRouter } from "@webiny/react-router";
 import { plugins } from "@webiny/plugins";
-import { Editor as PbEditor } from "~/admin/components/Editor.js";
-import { EditorLoadingScreen } from "~/admin/components/EditorLoadingScreen.js";
-import {
-    LIST_PAGE_ELEMENTS,
-    type ListPageElementsQueryResponse,
-    type ListPageElementsQueryResponseData
-} from "~/admin/graphql/pages.js";
-import createElementPlugin from "~/admin/utils/createElementPlugin.js";
-import { createStateInitializer } from "./createStateInitializer.js";
-import { type BlockWithContent } from "~/blockEditor/state/index.js";
-import { createElement } from "~/editor/helpers.js";
-import { type PbEditorElementTree } from "~/types.js";
-import elementVariablePlugins from "~/blockEditor/plugins/elementVariables/index.js";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
-import { DefaultBlockEditorConfig } from "~/blockEditor/config/DefaultBlockEditorConfig.js";
+import { Editor as PbEditor } from "~/admin/components/Editor";
+import { EditorLoadingScreen } from "~/admin/components/EditorLoadingScreen";
+import type {
+    ListPageElementsQueryResponse,
+    ListPageElementsQueryResponseData
+} from "~/admin/graphql/pages";
+import { LIST_PAGE_ELEMENTS } from "~/admin/graphql/pages";
+import createElementPlugin from "~/admin/utils/createElementPlugin";
+import { createStateInitializer } from "./createStateInitializer";
+import type { BlockWithContent } from "~/blockEditor/state";
+import { createElement } from "~/editor/helpers";
+import type { PbEditorElementTree } from "~/types";
+import elementVariablePlugins from "~/blockEditor/plugins/elementVariables";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+import { DefaultBlockEditorConfig } from "~/blockEditor/config/DefaultBlockEditorConfig";
 
 export const BlockEditor = () => {
     plugins.register(elementVariablePlugins());

@@ -1,8 +1,8 @@
-import get from "lodash/get.js";
+import get from "lodash/get";
 
-import { getLexicalContentText } from "~/utils/getLexicalContentText.js";
+import { getLexicalContentText } from "~/utils/getLexicalContentText";
 
-import { type PbAcoContext } from "~/types.js";
+import type { PbAcoContext } from "~/types";
 
 const supportedTypes = ["paragraph", "heading", "quote", "list"];
 

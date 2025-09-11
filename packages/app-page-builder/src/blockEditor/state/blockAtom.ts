@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { type PbEditorElementTree } from "~/types.js";
+import type { PbEditorElementTree } from "~/types";
 
 export interface BlockWithContent extends BlockAtomType {
     content: PbEditorElementTree;

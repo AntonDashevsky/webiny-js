@@ -1,5 +1,6 @@
-import { Context } from "~/types.js";
-import { ITaskService, TaskServicePlugin } from "~/plugins/index.js";
+import type { Context } from "~/types";
+import type { ITaskService } from "~/plugins";
+import { TaskServicePlugin } from "~/plugins";
 import { WebinyError } from "@webiny/error";
 
 export interface ICreateTransport {

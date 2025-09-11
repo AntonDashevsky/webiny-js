@@ -1,5 +1,5 @@
 import { Plugin } from "@webiny/plugins";
-import { type PbPageLayout } from "~/types.js";
+import type { PbPageLayout } from "~/types";
 
 export class PbPageLayoutPlugin extends Plugin {
     public static override readonly type: string = "pb-page-layout";

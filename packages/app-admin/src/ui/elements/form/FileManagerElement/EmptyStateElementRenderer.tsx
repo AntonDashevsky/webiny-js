@@ -1,13 +1,14 @@
 import React from "react";
-import { type EmptyStateElement } from "./EmptyStateElement.js";
-import { UIRenderer, type UIRenderParams } from "~/ui/UIRenderer.js";
-import * as Ui from "@webiny/ui/ImageUpload/index.js";
-import { Image } from "@webiny/app/components/index.js";
-import { type FileManagerElementRenderProps } from "~/ui/elements/form/FileManagerElement/FileManagerElementRenderer.js";
-import { AddImageIconWrapper, AddImageWrapper, FilePreviewWrapper, RemoveImage } from "./styled.js";
-import { ReactComponent as AddFileIcon } from "@material-design-icons/svg/outlined/attach_file.svg";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { ReactComponent as RemoveImageIcon } from "@material-design-icons/svg/outlined/close.svg";
+import type { EmptyStateElement } from "./EmptyStateElement";
+import type { UIRenderParams } from "~/ui/UIRenderer";
+import { UIRenderer } from "~/ui/UIRenderer";
+import * as Ui from "@webiny/ui/ImageUpload";
+import { Image } from "@webiny/app/components";
+import type { FileManagerElementRenderProps } from "~/ui/elements/form/FileManagerElement/FileManagerElementRenderer";
+import { AddImageIconWrapper, AddImageWrapper, FilePreviewWrapper, RemoveImage } from "./styled";
+import { ReactComponent as AddFileIcon } from "@webiny/icons/attach_file.svg";
+import { ReactComponent as RemoveImageIcon } from "@webiny/icons/close.svg";
+import { Typography } from "@webiny/ui/Typography";
 
 export class EmptyStateElementRenderer extends UIRenderer<
     EmptyStateElement,

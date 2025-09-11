@@ -1,21 +1,20 @@
 import React, { Fragment, useCallback, useMemo } from "react";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid";
+import { Select } from "@webiny/ui/Select";
+import { i18n } from "@webiny/app/i18n";
 import {
     CannotUseAaclAlert,
     PermissionInfo,
-    gridNoPaddingClass
-} from "@webiny/app-admin/components/Permissions/index.js";
+    PermissionsGroup,
+    gridWithPaddingClass
+} from "@webiny/app-admin/components/Permissions";
 import { Form } from "@webiny/form";
-import { Elevation } from "@webiny/ui/Elevation/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox/index.js";
-import CustomSection from "./CustomSection.js";
+import { Checkbox, CheckboxGroup } from "@webiny/ui/Checkbox";
+import CustomSection from "./CustomSection";
 import { useSecurity } from "@webiny/app-security";
-import { type SecurityPermission } from "@webiny/app-security/types.js";
-import { type PageBuilderSecurityPermission } from "~/types.js";
-import { type AaclPermission } from "@webiny/app-admin";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type { PageBuilderSecurityPermission } from "~/types";
+import type { AaclPermission } from "@webiny/app-admin";
 
 const t = i18n.ns("app-page-builder/admin/plugins/permissionRenderer");
 
@@ -197,20 +196,20 @@ export const PageBuilderPermissions = ({ value, onChange }: PageBuilderPermissio
         <Form data={formData} onChange={onFormChange}>
             {({ data, Bind, setValue }) => (
                 <Fragment>
-                    <Grid className={gridNoPaddingClass}>
+                    <Grid className={gridWithPaddingClass}>
                         <Cell span={12}>
                             {data.accessLevel === "custom" && cannotUseAAcl && (
                                 <CannotUseAaclAlert />
                             )}
                         </Cell>
                     </Grid>
-                    <Grid className={gridNoPaddingClass}>
+                    <Grid className={gridWithPaddingClass}>
                         <Cell span={6}>
                             <PermissionInfo title={t`Access Level`} />
                         </Cell>
                         <Cell span={6}>
                             <Bind name={"accessLevel"}>
-                                <Select label={t`Access Level`}>
+                                <Select>
                                     <option value={NO_ACCESS}>{t`No access`}</option>
                                     <option value={FULL_ACCESS}>{t`Full access`}</option>
                                     <option value={CUSTOM_ACCESS}>{t`Custom access`}</option>
@@ -219,7 +218,7 @@ export const PageBuilderPermissions = ({ value, onChange }: PageBuilderPermissio
                         </Cell>
                     </Grid>
                     {data.accessLevel === CUSTOM_ACCESS && (
-                        <Fragment>
+                        <div className={"wby-mt-lg"}>
                             <CustomSection
                                 data={data}
                                 Bind={Bind}
@@ -304,36 +303,24 @@ export const PageBuilderPermissions = ({ value, onChange }: PageBuilderPermissio
                                     </Bind>
                                 </Cell>
                             </CustomSection>
-                            <Elevation z={1} style={{ marginTop: 10 }}>
+                            <PermissionsGroup title={t`Settings`}>
                                 <Grid>
-                                    <Cell span={12}>
-                                        <Typography use={"overline"}>{t`Settings`}</Typography>
+                                    <Cell span={6}>
+                                        <PermissionInfo title={t`Manage settings`} />
                                     </Cell>
-                                    <Cell span={12}>
-                                        <Grid style={{ padding: 0, paddingBottom: 24 }}>
-                                            <Cell span={6}>
-                                                <PermissionInfo title={t`Manage settings`} />
-                                            </Cell>
-                                            <Cell span={6} align={"middle"}>
-                                                <Bind name={"settingsAccessLevel"}>
-                                                    <Select
-                                                        label={t`Access Level`}
-                                                        disabled={cannotUseAAcl}
-                                                    >
-                                                        <option
-                                                            value={NO_ACCESS}
-                                                        >{t`No access`}</option>
-                                                        <option
-                                                            value={FULL_ACCESS}
-                                                        >{t`Full Access`}</option>
-                                                    </Select>
-                                                </Bind>
-                                            </Cell>
-                                        </Grid>
+                                    <Cell span={6} align={"middle"}>
+                                        <Bind name={"settingsAccessLevel"}>
+                                            <Select disabled={cannotUseAAcl}>
+                                                <option value={NO_ACCESS}>{t`No access`}</option>
+                                                <option
+                                                    value={FULL_ACCESS}
+                                                >{t`Full Access`}</option>
+                                            </Select>
+                                        </Bind>
                                     </Cell>
                                 </Grid>
-                            </Elevation>
-                        </Fragment>
+                            </PermissionsGroup>
+                        </div>
                     )}
                 </Fragment>
             )}

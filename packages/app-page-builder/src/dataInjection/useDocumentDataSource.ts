@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
-import { type PbDataSource } from "~/types.js";
-import { useDynamicDocument } from "~/dataInjection/useDynamicDocument.js";
+import type { PbDataSource } from "~/types";
+import { useDynamicDocument } from "~/dataInjection/useDynamicDocument";
 
 export interface DataSourceUpdater {
     (config: PbDataSource["config"]): PbDataSource["config"];

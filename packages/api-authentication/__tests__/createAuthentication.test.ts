@@ -1,5 +1,5 @@
 import { createAuthentication } from "~/createAuthentication";
-import { Authenticator, Identity } from "~/types";
+import type { Authenticator, Identity } from "~/types";
 
 const identity: Identity = {
     id: "1",

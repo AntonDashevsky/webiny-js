@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { type EntryDTO, type EntryReference } from "./Entry.js";
-import { type EntriesGatewayInterface } from "../adapters/index.js";
-import { EntryMapper } from "./EntryMapper.js";
-import { Loading } from "./Loading.js";
+import type { EntryDTO, EntryReference } from "./Entry";
+import type { EntriesGatewayInterface } from "../adapters";
+import { EntryMapper } from "./EntryMapper";
+import { Loading } from "./Loading";
 
 export class EntryRepository {
     public readonly modelIds: string[];
@@ -41,14 +41,16 @@ export class EntryRepository {
         });
     }
 
-    async getEntryById(modelId: string, id: string) {
-        const entryInCache = this.entries.find(entry => entry.id === id);
+    async getEntryById(modelId: string, entryId: string) {
+        const entryInCache = this.entries.find(entry => entry.entryId === entryId);
 
         if (entryInCache) {
             return entryInCache;
         }
 
-        const response = await this.runWithLoading<EntryReference>(this.gateway.get(modelId, id));
+        const response = await this.runWithLoading<EntryReference>(
+            this.gateway.get(modelId, entryId)
+        );
 
         if (!response) {
             return;

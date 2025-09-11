@@ -1,4 +1,4 @@
-import { type GuardDutyEvent, type ThreatDetectionContext } from "./types.js";
+import type { GuardDutyEvent, ThreatDetectionContext } from "./types";
 
 export const processThreatScanResult = async (
     context: ThreatDetectionContext,

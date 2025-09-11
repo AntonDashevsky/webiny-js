@@ -1,6 +1,6 @@
-import { MirrorCellActionEvent } from "./event.js";
-import { mirrorCellAction } from "./action.js";
-import { type PbEditorEventActionPlugin } from "~/types.js";
+import { MirrorCellActionEvent } from "./event";
+import { mirrorCellAction } from "./action";
+import type { PbEditorEventActionPlugin } from "~/types";
 
 export default (): PbEditorEventActionPlugin => {
     return {

@@ -1,10 +1,10 @@
 import { useCallback } from "react";
 import { useConfirmationDialog } from "@webiny/app-admin";
-import { usePublishRevisionHandler } from "~/admin/plugins/pageDetails/pageRevisions/usePublishRevisionHandler.js";
-import { type PbPageTableItem } from "~/types.js";
+import { usePublishRevisionHandler } from "~/admin/plugins/pageDetails/pageRevisions/usePublishRevisionHandler";
+import type { PbPageSearchRecord } from "~/types";
 
 interface UseChangePageStatusParams {
-    page: PbPageTableItem;
+    page: PbPageSearchRecord;
 }
 
 export const useChangePageStatus = ({ page }: UseChangePageStatusParams) => {
@@ -12,12 +12,12 @@ export const useChangePageStatus = ({ page }: UseChangePageStatusParams) => {
 
     const { showConfirmation: showPublishConfirmation } = useConfirmationDialog({
         title: "Publish page",
-        message: `You are about to publish the "${page.data.title}" page. Are you sure you want to continue?`
+        message: `You are about to publish the "${page.title}" page. Are you sure you want to continue?`
     });
 
     const { showConfirmation: showUnpublishConfirmation } = useConfirmationDialog({
         title: "Unpublish page",
-        message: `You are about to unpublish the "${page.data.title}" page. Are you sure you want to continue?`
+        message: `You are about to unpublish the "${page.title}" page. Are you sure you want to continue?`
     });
 
     const openDialogPublishPage = useCallback(

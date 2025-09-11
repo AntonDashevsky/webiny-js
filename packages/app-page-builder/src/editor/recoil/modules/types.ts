@@ -1,5 +1,10 @@
-import { type ActiveElementAtomType, type HighlightElementAtomType, type SidebarAtomType, type UiAtomType } from "./ui/index.js";
-import { type PbEditorElement } from "~/types.js";
+import type {
+    ActiveElementAtomType,
+    HighlightElementAtomType,
+    SidebarAtomType,
+    UiAtomType
+} from "./ui";
+import type { PbEditorElement } from "~/types";
 
 export type PbState<TState = unknown> = {
     activeElement?: ActiveElementAtomType;

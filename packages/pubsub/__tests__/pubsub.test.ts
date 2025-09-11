@@ -1,5 +1,5 @@
 import { createTopic } from "../src";
-import { Event } from "~/types";
+import type { Event } from "~/types";
 
 interface TestEvent extends Event {
     [key: string]: number;

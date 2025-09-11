@@ -1,4 +1,4 @@
-import { type CmsDynamicZoneTemplate, type CmsFieldValueTransformer } from "~/types.js";
+import type { CmsDynamicZoneTemplate, CmsFieldValueTransformer } from "~/types";
 import { prepareFormData } from "@webiny/app-headless-cms-common";
 
 interface TemplateValueFromForm {

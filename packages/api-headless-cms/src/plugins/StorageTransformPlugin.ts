@@ -1,9 +1,9 @@
 /**
  * Storage transforms are used to transform the data before it is saved to the database and after it is read from the database.
  */
-import { Plugin } from "@webiny/plugins/Plugin.js";
-import { type CmsModel, type CmsModelField, type CmsModelFieldType } from "~/types/index.js";
-import { type PluginsContainer } from "@webiny/plugins";
+import { Plugin } from "@webiny/plugins/Plugin";
+import type { CmsModel, CmsModelField, CmsModelFieldType } from "~/types";
+import type { PluginsContainer } from "@webiny/plugins";
 
 export interface ToStorageParams<T, F extends CmsModelField> {
     model: CmsModel;

@@ -1,5 +1,7 @@
-import { type FastifyReply, type FastifyRequest } from "fastify";
-import { Action, type IPreHandler } from "~/PreHandler/IPreHandler.js";
+import type { FastifyReply, FastifyRequest } from "fastify";
+import type { IPreHandler } from "~/PreHandler/IPreHandler";
+import { Action } from "~/PreHandler/IPreHandler";
+import type { Context } from "~/types";
 
 export class PreHandler implements IPreHandler {
     private readonly handlers: IPreHandler[];
@@ -8,9 +10,9 @@ export class PreHandler implements IPreHandler {
         this.handlers = handlers;
     }
 
-    async execute(request: FastifyRequest, reply: FastifyReply): Promise<Action> {
+    async execute(request: FastifyRequest, reply: FastifyReply, context: Context): Promise<Action> {
         for (const handler of this.handlers) {
-            const action = await handler.execute(request, reply);
+            const action = await handler.execute(request, reply, context);
             if (action === Action.DONE) {
                 return Action.DONE;
             }

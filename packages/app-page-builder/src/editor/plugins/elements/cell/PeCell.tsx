@@ -1,13 +1,14 @@
 import React from "react";
 import { createRenderer, useRenderer, Elements } from "@webiny/app-page-builder-elements";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
-import { type SetterOrUpdater, useRecoilValue } from "recoil";
-import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
+import type { Element } from "@webiny/app-page-builder-elements/types";
+import type { SetterOrUpdater } from "recoil";
+import { useRecoilValue } from "recoil";
+import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
 import styled from "@emotion/styled";
-import { useActiveElementId } from "~/editor/hooks/useActiveElementId.js";
-import { useElementById } from "~/editor/hooks/useElementById.js";
-import { type PbEditorElement } from "~/types.js";
-import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton.js";
+import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
+import { useElementById } from "~/editor/hooks/useElementById";
+import type { PbEditorElement } from "~/types";
+import { AddElementButton } from "~/editor/plugins/elements/cell/AddElementButton";
 
 const EmptyCell = styled.div<{ isActive: boolean }>`
     display: flex;

@@ -1,9 +1,10 @@
-import { type CmsContext, type CmsModelFieldValidatorPlugin } from "~/types/index.js";
-import { createCmsGraphQLSchemaPlugin } from "~/plugins/index.js";
-import { GraphQLSchemaPlugin, type IGraphQLSchemaPlugin } from "@webiny/handler-graphql";
-import { type PluginsContainer } from "@webiny/plugins";
+import type { CmsContext, CmsModelFieldValidatorPlugin } from "~/types";
+import { createCmsGraphQLSchemaPlugin } from "~/plugins";
+import type { IGraphQLSchemaPlugin } from "@webiny/handler-graphql";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql";
+import type { PluginsContainer } from "@webiny/plugins";
 import { ContextPlugin } from "@webiny/api";
-import camelCase from "lodash/camelCase.js";
+import camelCase from "lodash/camelCase";
 
 const createSkipValidatorEnum = (plugins: PluginsContainer) => {
     const validators = plugins
@@ -129,6 +130,25 @@ const createSchema = (plugins: PluginsContainer): IGraphQLSchemaPlugin<CmsContex
             type CmsEntryValidationResponse {
                 data: [CmsEntryValidationResponseData!]
                 error: CmsError
+            }
+
+            input CmsEntryStateWhereInput {
+                name: String
+                name_in: [String!]
+                name_not: String
+                name_not_in: [String!]
+                comment_contains: String
+                comment_not_contains: String
+            }
+
+            input CmsEntryStateInput {
+                name: String
+                comment: String
+            }
+
+            type CmsEntryState {
+                name: String
+                comment: String
             }
         `,
         resolvers: {}

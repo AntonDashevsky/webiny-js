@@ -1,20 +1,20 @@
-import { createPageBuilderHooks } from "./pageBuilder/index.js";
-import { createFileManagerHooks } from "./fileManager/index.js";
-import { createHeadlessCmsHooks } from "./headlessCms/index.js";
-import { createSecurityHooks } from "./security/index.js";
-import { createI18NHooks } from "./i18n/index.js";
-import { createMailerHooks } from "./mailer/index.js";
-import { createAcoHooks } from "./aco/index.js";
-import { createApwHooks } from "./apw/index.js";
-import { type AuditLogsContext } from "~/types.js";
+import { createFileManagerHooks } from "./fileManager";
+import { createHeadlessCmsHooks } from "./headlessCms";
+import { createSecurityHooks } from "./security";
+import { createI18NHooks } from "./i18n";
+import { createMailerHooks } from "./mailer";
+import { createAcoHooks } from "./aco";
+import { createApwHooks } from "./apw";
+import type { AuditLogsContext } from "~/types";
+import { createWebsiteBuilderHooks } from "~/subscriptions/websiteBuilder/index.js";
 
 export const createSubscriptionHooks = (context: AuditLogsContext) => {
-    createPageBuilderHooks(context);
     createFileManagerHooks(context);
     createHeadlessCmsHooks(context);
     createSecurityHooks(context);
     createI18NHooks(context);
     createMailerHooks(context);
     createAcoHooks(context);
+    createWebsiteBuilderHooks(context);
     context.wcp.canUseFeature("advancedPublishingWorkflow") && createApwHooks(context);
 };

@@ -1,4 +1,5 @@
-import { GraphQLHandlerParams, useGraphQLHandler } from "./useGraphQLHandler";
+import type { GraphQLHandlerParams } from "./useGraphQLHandler";
+import { useGraphQLHandler } from "./useGraphQLHandler";
 import * as manageGql from "./useTestModelHandler/manageGql";
 import * as readGql from "./useTestModelHandler/readGql";
 

@@ -1,11 +1,11 @@
 import React from "react";
-import { MenuItem } from "@webiny/ui/Menu/index.js";
-import { ListItemGraphic } from "@webiny/ui/List/index.js";
-import { Icon } from "@webiny/ui/Icon/index.js";
+import { MenuItem } from "@webiny/ui/Menu";
+import { ListItemGraphic } from "@webiny/ui/List";
+import { Icon } from "@webiny/ui/Icon";
 import { makeDecoratable } from "@webiny/app-admin";
 import { ReactComponent as PublishIcon } from "~/admin/assets/round-publish-24px.svg";
-import { type PbPageRevision } from "~/types.js";
-import { useRevision } from "../RevisionsList.js";
+import type { PbPageRevision } from "~/types";
+import { useRevision } from "../RevisionsList";
 
 export interface PublishPageMenuOptionProps {
     onClick: (revision: PbPageRevision) => void;

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import classNames from "classnames";
-import { type OutputBlockData as BaseOutputBlockData } from "@editorjs/editorjs";
+import type { OutputBlockData as BaseOutputBlockData } from "@editorjs/editorjs";
 import sanitize from "sanitize-html";
 
 let sanitizeGlobalOptions: sanitize.IOptions | undefined = undefined;

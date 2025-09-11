@@ -1,5 +1,5 @@
 import useGqlHandler from "./useGqlHandler";
-import { PageBlock } from "~/types";
+import type { PageBlock } from "~/types";
 
 import { assignPageBlockLifecycleEvents, tracker } from "./mocks/lifecycleEvents";
 

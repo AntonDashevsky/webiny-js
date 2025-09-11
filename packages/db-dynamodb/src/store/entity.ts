@@ -1,8 +1,8 @@
 /**
  * TODO determine if GSIs are needed
  */
-import { Entity } from "~/toolbox.js";
-import { Table } from "~/utils/index.js";
+import { Entity } from "~/toolbox";
+import type { Table } from "~/utils";
 
 export interface ICreateEntityParams {
     table: Table;

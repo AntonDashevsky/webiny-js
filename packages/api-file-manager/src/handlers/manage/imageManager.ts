@@ -1,8 +1,8 @@
 import { dirname } from "path";
-import { type S3 } from "@webiny/aws-sdk/client-s3";
-import { getObjectParams, getEnvironment } from "~/handlers/utils/index.js";
-import * as newUtils from "./utils.js";
-import * as legacyUtils from "./legacyUtils.js";
+import type { S3 } from "@webiny/aws-sdk/client-s3";
+import { getObjectParams, getEnvironment } from "~/handlers/utils";
+import * as newUtils from "./utils";
+import * as legacyUtils from "./legacyUtils";
 
 const isLegacyKey = (key: string) => {
     return !key.includes("/");

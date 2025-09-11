@@ -1,8 +1,8 @@
 import React from "react";
-import { type PbEditorElement } from "~/types.js";
+import type { PbEditorElement } from "~/types";
 
-import PeAccordion from "./PeAccordion.js";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import PeAccordion from "./PeAccordion";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 
 interface AccordionProps {
     element: PbEditorElement;

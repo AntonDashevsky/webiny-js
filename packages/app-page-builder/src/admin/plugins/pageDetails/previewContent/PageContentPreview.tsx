@@ -1,10 +1,11 @@
-import React, { type CSSProperties } from "react";
+import type { CSSProperties } from "react";
+import React from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import { Zoom } from "./Zoom.js";
-import { type PbPageData } from "~/types.js";
+import { Typography } from "@webiny/ui/Typography";
+import { Select } from "@webiny/ui/Select";
+import { Zoom } from "./Zoom";
+import type { PbPageData } from "~/types";
 import { Content } from "@webiny/app-page-builder-elements";
 import { makeDecoratable } from "@webiny/react-composition";
 

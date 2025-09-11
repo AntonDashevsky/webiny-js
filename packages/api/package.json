@@ -1,7 +1,6 @@
 {
   "name": "@webiny/api",
   "version": "0.0.0",
-  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -14,23 +13,22 @@
   "license": "MIT",
   "dependencies": {
     "@webiny/aws-sdk": "0.0.0",
+    "@webiny/di-container": "0.0.0",
     "@webiny/plugins": "0.0.0",
-    "@webiny/project": "0.0.0",
-    "@webiny/utils": "0.0.0",
-    "case": "^1.6.3",
-    "ts-morph": "^24.0.0",
-    "zod": "^3.23.8"
+    "@webiny/utils": "0.0.0"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "@webiny/build-tools": "0.0.0",
     "@webiny/project-utils": "0.0.0",
     "rimraf": "^6.0.1",
-    "typescript": "5.3.3"
+    "typescript": "5.9.2"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   },
   "gitHead": "8476da73b653c89cc1474d968baf55c1b0ae0e5f"
 }

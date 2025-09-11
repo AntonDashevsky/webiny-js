@@ -1,5 +1,5 @@
-import { BaseEventAction } from "~/editor/recoil/eventActions/index.js";
-import { type SaveTemplateActionArgsType } from "./types.js";
+import { BaseEventAction } from "~/editor/recoil/eventActions";
+import type { SaveTemplateActionArgsType } from "./types";
 
 export class SaveTemplateActionEvent extends BaseEventAction<SaveTemplateActionArgsType> {
     public getName(): string {

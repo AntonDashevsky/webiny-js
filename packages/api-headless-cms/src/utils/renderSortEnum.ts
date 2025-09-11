@@ -1,7 +1,7 @@
-import { type CmsFieldTypePlugins, type CmsModel, type CmsModelField } from "~/types/index.js";
-import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
-import { type CmsGraphQLSchemaSorterPlugin } from "~/plugins/CmsGraphQLSchemaSorterPlugin.js";
-import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants.js";
+import type { CmsFieldTypePlugins, CmsModel, CmsModelField } from "~/types";
+import { getBaseFieldType } from "~/utils/getBaseFieldType";
+import type { CmsGraphQLSchemaSorterPlugin } from "~/plugins/CmsGraphQLSchemaSorterPlugin";
+import { ENTRY_META_FIELDS, isDateTimeEntryMetaField } from "~/constants";
 
 interface RenderSortEnumParams {
     model: CmsModel;

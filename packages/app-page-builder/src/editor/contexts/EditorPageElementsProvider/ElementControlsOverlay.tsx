@@ -1,20 +1,20 @@
 import React, { useCallback, useMemo } from "react";
-import { type Element, type RendererMeta } from "@webiny/app-page-builder-elements/types.js";
+import type { Element, RendererMeta } from "@webiny/app-page-builder-elements/types";
 import styled from "@emotion/styled";
-import { type CSSObject } from "@emotion/react";
-import { useActiveElementId } from "~/editor/hooks/useActiveElementId.js";
+import type { CSSObject } from "@emotion/react";
+import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
 import { useRenderer } from "@webiny/app-page-builder-elements";
 import { plugins } from "@webiny/plugins";
-import { useUI } from "~/editor/hooks/useUI.js";
-import { useElementById } from "~/editor/hooks/useElementById.js";
-import { type PbEditorElement, type PbEditorBlockPlugin } from "~/types.js";
-import { type SetterOrUpdater } from "recoil";
-import Draggable from "~/editor/components/Draggable.js";
-import { disableDraggingMutation, enableDraggingMutation } from "~/editor/recoil/modules/index.js";
-import { ElementControlsOverlayBorders } from "./ElementControlsOverlay/ElementControlsOverlayBorders.js";
-import { type ConnectDragSource } from "react-dnd";
-import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin.js";
-import { getElementTitle } from "~/editor/contexts/EditorPageElementsProvider/getElementTitle.js";
+import { useUI } from "~/editor/hooks/useUI";
+import { useElementById } from "~/editor/hooks/useElementById";
+import type { PbEditorElement, PbEditorBlockPlugin } from "~/types";
+import type { SetterOrUpdater } from "recoil";
+import Draggable from "~/editor/components/Draggable";
+import { disableDraggingMutation, enableDraggingMutation } from "~/editor/recoil/modules";
+import { ElementControlsOverlayBorders } from "./ElementControlsOverlay/ElementControlsOverlayBorders";
+import type { ConnectDragSource } from "react-dnd";
+import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin";
+import { getElementTitle } from "~/editor/contexts/EditorPageElementsProvider/getElementTitle";
 
 declare global {
     // eslint-disable-next-line

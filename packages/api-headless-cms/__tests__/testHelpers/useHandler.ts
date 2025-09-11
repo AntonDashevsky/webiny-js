@@ -1,10 +1,11 @@
-import { createHandlerCore, CreateHandlerCoreParams } from "~tests/testHelpers/plugins";
+import type { CreateHandlerCoreParams } from "~tests/testHelpers/plugins";
+import { createHandlerCore } from "~tests/testHelpers/plugins";
 import { createRawEventHandler, createRawHandler } from "@webiny/handler-aws";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 import { defaultIdentity } from "~tests/testHelpers/tenancySecurity";
-import { LambdaContext } from "@webiny/handler-aws/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
 
-interface CmsHandlerEvent {
+export interface CmsHandlerEvent {
     path: string;
     headers: {
         ["x-tenant"]: string;
@@ -12,8 +13,8 @@ interface CmsHandlerEvent {
     };
 }
 
-type Params = CreateHandlerCoreParams;
-export const useHandler = (params: Params) => {
+export type UseHandlerParams = CreateHandlerCoreParams;
+export const useHandler = (params: UseHandlerParams) => {
     const core = createHandlerCore(params);
 
     const plugins = [...core.plugins].concat([

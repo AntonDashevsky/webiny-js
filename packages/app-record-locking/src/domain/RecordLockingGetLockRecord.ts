@@ -1,14 +1,14 @@
-import {
-    type IRecordLockingGetLockRecord,
-    type IRecordLockingGetLockRecordExecuteParams,
-    type IRecordLockingGetLockRecordExecuteResult
-} from "~/domain/abstractions/IRecordLockingGetLockRecord.js";
-import { type IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient.js";
-import {
-    GET_LOCK_RECORD_QUERY,
-    type IRecordLockingGetLockRecordResponse,
-    type IRecordLockingGetLockRecordVariables
-} from "~/domain/graphql/getLockRecord.js";
+import type {
+    IRecordLockingGetLockRecord,
+    IRecordLockingGetLockRecordExecuteParams,
+    IRecordLockingGetLockRecordExecuteResult
+} from "~/domain/abstractions/IRecordLockingGetLockRecord";
+import type { IRecordLockingClient } from "~/domain/abstractions/IRecordLockingClient";
+import type {
+    IRecordLockingGetLockRecordResponse,
+    IRecordLockingGetLockRecordVariables
+} from "~/domain/graphql/getLockRecord";
+import { GET_LOCK_RECORD_QUERY } from "~/domain/graphql/getLockRecord";
 import { WebinyError } from "@webiny/error";
 
 interface Params {

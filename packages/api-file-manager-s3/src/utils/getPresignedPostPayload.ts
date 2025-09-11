@@ -1,7 +1,8 @@
-import { S3Client, createPresignedPost, type PresignedPostOptions } from "@webiny/aws-sdk/client-s3";
+import type { PresignedPostOptions } from "@webiny/aws-sdk/client-s3";
+import { S3Client, createPresignedPost } from "@webiny/aws-sdk/client-s3";
 import { validation } from "@webiny/validation";
-import { type FileManagerSettings } from "@webiny/api-file-manager/types.js";
-import { type FileData, type PresignedPostPayloadDataResponse } from "~/types.js";
+import type { FileManagerSettings } from "@webiny/api-file-manager/types";
+import type { FileData, PresignedPostPayloadDataResponse } from "~/types";
 
 const S3_BUCKET = process.env.S3_BUCKET;
 const UPLOAD_MAX_FILE_SIZE_DEFAULT = 1099511627776; // 1TB
@@ -10,7 +11,7 @@ const sanitizeFileSizeValue = (value: number, defaultValue: number): number => {
     try {
         validation.validateSync(value, "required,numeric,gte:0");
         return value;
-    } catch (e) {
+    } catch {
         // TODO @ts-refactor No need to log the error?
         return defaultValue;
     }

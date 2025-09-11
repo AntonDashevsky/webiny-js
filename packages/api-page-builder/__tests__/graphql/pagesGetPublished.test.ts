@@ -1,7 +1,6 @@
 import useGqlHandler from "./useGqlHandler";
 
-import { Page } from "~/types";
-import { jest } from "@jest/globals";
+import type { Page } from "~/types";
 
 jest.setTimeout(100000);
 

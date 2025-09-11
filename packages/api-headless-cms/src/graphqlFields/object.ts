@@ -1,13 +1,13 @@
-import upperFirst from "lodash/upperFirst.js";
-import lodashUpperFirst from "lodash/upperFirst.js";
-import {
-    type CmsFieldTypePlugins,
-    type CmsModel,
-    type CmsModelField,
-    type CmsModelFieldToGraphQLPlugin,
-    type CmsModelObjectField
-} from "~/types/index.js";
-import { createTypeFromFields } from "~/utils/createTypeFromFields.js";
+import upperFirst from "lodash/upperFirst";
+import lodashUpperFirst from "lodash/upperFirst";
+import type {
+    CmsFieldTypePlugins,
+    CmsModel,
+    CmsModelField,
+    CmsModelFieldToGraphQLPlugin,
+    CmsModelObjectField
+} from "~/types";
+import { createTypeFromFields } from "~/utils/createTypeFromFields";
 
 interface AttachTypeDefinitionsParams {
     model: Pick<CmsModel, "singularApiName">;

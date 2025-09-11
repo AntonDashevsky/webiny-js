@@ -1,2 +1,2 @@
-export * from "./IGetWcpGateway.js";
-export * from "./GetWcpGatewayFromContext.js";
+export * from "./IGetWcpGateway";
+export * from "./GetWcpGatewayFromContext";

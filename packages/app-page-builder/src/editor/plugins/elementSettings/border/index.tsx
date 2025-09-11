@@ -1,6 +1,6 @@
 import React from "react";
-import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
-import BorderSettings from "./BorderSettings.js";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import BorderSettings from "./BorderSettings";
 
 export default {
     name: "pb-editor-page-element-style-settings-border",

@@ -1,7 +1,7 @@
-import { type IRestoreEntryFromBinOperation } from "~/crud/contentEntry/abstractions/index.js";
+import type { IRestoreEntryFromBinOperation } from "~/crud/contentEntry/abstractions";
 
-import { type RestoreEntryFromBinUseCasesTopics } from "./index.js";
-import { type CmsEntryStorageOperationsRestoreFromBinParams, type CmsModel } from "~/types/index.js";
+import type { RestoreEntryFromBinUseCasesTopics } from "./index";
+import type { CmsEntryStorageOperationsRestoreFromBinParams, CmsModel } from "~/types";
 import WebinyError from "@webiny/error";
 
 export class RestoreEntryFromBinOperationWithEvents implements IRestoreEntryFromBinOperation {

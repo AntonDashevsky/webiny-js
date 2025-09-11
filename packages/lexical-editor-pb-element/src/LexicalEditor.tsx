@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { HeadingEditor, ParagraphEditor } from "@webiny/lexical-editor";
-import { type LexicalValue } from "@webiny/lexical-editor/types.js";
+import type { LexicalValue } from "@webiny/lexical-editor/types";
 import { usePageElements } from "@webiny/app-page-builder-elements";
-import { assignStyles } from "@webiny/app-page-builder-elements/utils/index.js";
-import { type StylesObject } from "@webiny/theme/types.js";
+import { assignStyles } from "@webiny/app-page-builder-elements/utils";
+import type { StylesObject } from "@webiny/theme/types";
 import type { EditorTheme } from "@webiny/lexical-theme";
 
 interface LexicalEditorProps {

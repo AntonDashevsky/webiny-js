@@ -1,6 +1,7 @@
-import { createContextPlugin, type ICreateLoggerContextParams } from "./context.js";
-import { createLifecycle } from "./lifecycle.js";
-import { createPruneLogsTask } from "~/tasks/createPruneLogsTask.js";
+import type { ICreateLoggerContextParams } from "./context";
+import { createContextPlugin } from "./context";
+import { createLifecycle } from "./lifecycle";
+import { createPruneLogsTask } from "~/tasks/createPruneLogsTask";
 
 export const createLogger = (params?: ICreateLoggerContextParams) => {
     return [createLifecycle(), createContextPlugin(params), createPruneLogsTask()];

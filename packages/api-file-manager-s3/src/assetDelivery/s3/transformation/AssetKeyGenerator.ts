@@ -1,6 +1,6 @@
-import { type Asset } from "@webiny/api-file-manager";
-import * as newUtils from "./utils.js";
-import * as legacyUtils from "./legacyUtils.js";
+import type { Asset } from "@webiny/api-file-manager";
+import * as newUtils from "./utils";
+import * as legacyUtils from "./legacyUtils";
 
 export class AssetKeyGenerator {
     private utils: typeof newUtils;

@@ -1,11 +1,11 @@
 import WebinyError from "@webiny/error";
-import {
-    type PrerenderingServiceSaveSettingsParams,
-    type PrerenderingServiceSettingsStorageOperations,
-    type PrerenderingSettings
-} from "@webiny/api-prerendering-service/types.js";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { get } from "@webiny/db-dynamodb/utils/get.js";
+import type {
+    PrerenderingServiceSaveSettingsParams,
+    PrerenderingServiceSettingsStorageOperations,
+    PrerenderingSettings
+} from "@webiny/api-prerendering-service/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import { get } from "@webiny/db-dynamodb/utils/get";
 import { put } from "@webiny/db-dynamodb";
 
 export interface CreateSettingsStorageOperationsParams {

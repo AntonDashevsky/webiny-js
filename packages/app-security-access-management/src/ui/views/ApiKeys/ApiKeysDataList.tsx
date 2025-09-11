@@ -1,6 +1,8 @@
 import React, { useCallback, useMemo, useState } from "react";
-import orderBy from "lodash/orderBy.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import orderBy from "lodash/orderBy";
+import { Button, Grid, Select } from "@webiny/admin-ui";
+import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { i18n } from "@webiny/app/i18n";
 import {
     DataList,
     ScrollList,
@@ -10,22 +12,18 @@ import {
     ListItemMeta,
     ListActions,
     DataListModalOverlayAction,
-    DataListModalOverlay
-} from "@webiny/ui/List/index.js";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
+    DataListModalOverlay,
+    ListItemTextPrimary
+} from "@webiny/ui/List";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
 import { useRouter } from "@webiny/react-router";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import SearchUI from "@webiny/app-admin/components/SearchUI";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import * as GQL from "./graphql.js";
-import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { deserializeSorters } from "../utils.js";
-import { type ApiKey } from "~/types.js";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import * as GQL from "./graphql";
+import { deserializeSorters } from "../utils";
+import type { ApiKey } from "~/types";
 
 const t = i18n.ns("app-security/admin/groups/data-list");
 
@@ -118,17 +116,19 @@ export const ApiKeysDataList = () => {
         () => (
             <DataListModalOverlay>
                 <Grid>
-                    <Cell span={12}>
-                        <Select value={sort} onChange={setSort} label={t`Sort by`}>
-                            {SORTERS.map(({ label, sorter }) => {
-                                return (
-                                    <option key={label} value={sorter}>
-                                        {label}
-                                    </option>
-                                );
+                    <Grid.Column span={12}>
+                        <Select
+                            value={sort}
+                            onChange={setSort}
+                            label={t`Sort by`}
+                            options={SORTERS.map(({ label, sorter: value }) => {
+                                return {
+                                    label,
+                                    value
+                                };
                             })}
-                        </Select>
-                    </Cell>
+                        />
+                    </Grid.Column>
                 </Grid>
             </DataListModalOverlay>
         ),
@@ -140,14 +140,16 @@ export const ApiKeysDataList = () => {
 
     return (
         <DataList
-            title={t`API Keys`}
+            title={t`API keys`}
             actions={
-                <ButtonSecondary
+                <Button
+                    text={t`New`}
+                    icon={<AddIcon />}
+                    size={"sm"}
+                    className={"wby-ml-xs"}
                     data-testid="new-record-button"
                     onClick={() => history.push("/access-management/api-keys?new=true")}
-                >
-                    <ButtonIcon icon={<AddIcon />} /> {t`New API Key`}
-                </ButtonSecondary>
+                />
             }
             data={list}
             loading={listLoading || deleteLoading}
@@ -155,15 +157,12 @@ export const ApiKeysDataList = () => {
                 <SearchUI
                     value={filter}
                     onChange={setFilter}
-                    inputPlaceholder={t`Search API keys`}
+                    inputPlaceholder={t`Search API keys...`}
                 />
             }
             modalOverlay={groupsDataListModalOverlay}
             modalOverlayAction={
-                <DataListModalOverlayAction
-                    icon={<FilterIcon />}
-                    data-testid={"default-data-list.filter"}
-                />
+                <DataListModalOverlayAction data-testid={"default-data-list.filter"} />
             }
         >
             {({ data }: { data: ApiKey[] }) => (
@@ -175,7 +174,7 @@ export const ApiKeysDataList = () => {
                                     history.push(`/access-management/api-keys?id=${item.id}`)
                                 }
                             >
-                                {item.name}
+                                <ListItemTextPrimary>{item.name}</ListItemTextPrimary>
                                 <ListItemTextSecondary>{item.description}</ListItemTextSecondary>
                             </ListItemText>
 

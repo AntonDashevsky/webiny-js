@@ -1,7 +1,7 @@
-import get from "lodash/get.js";
-import kebabCase from "lodash/kebabCase.js";
-import { type PbRenderElementStylePlugin } from "../../../../types.js";
-import { applyPerDeviceStyleWithFallback } from "../../../utils.js";
+import get from "lodash/get";
+import kebabCase from "lodash/kebabCase";
+import type { PbRenderElementStylePlugin } from "../../../../types";
+import { applyPerDeviceStyleWithFallback } from "../../../utils";
 
 const scaling = {
     cover: {

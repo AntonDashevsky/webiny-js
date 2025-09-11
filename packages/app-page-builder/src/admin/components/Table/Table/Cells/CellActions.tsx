@@ -1,9 +1,10 @@
 import React from "react";
 import { FolderProvider, useAcoConfig } from "@webiny/app-aco";
+import type { SearchRecordItem } from "@webiny/app-aco/table.types";
 import { OptionsMenu } from "@webiny/app-admin";
-import { PageListConfig } from "~/admin/config/pages/index.js";
-import { PageProvider } from "~/admin/contexts/Page.js";
-import { type PbPageTableItem } from "~/types.js";
+import { PageListConfig } from "~/admin/config/pages";
+import { PageProvider } from "~/admin/contexts/Page";
+import type { PbPageDataItem } from "~/types";
 
 export const CellActions = () => {
     const { useTableRow, isFolderRow } = PageListConfig.Browser.Table.Column;
@@ -12,12 +13,12 @@ export const CellActions = () => {
 
     if (isFolderRow(row)) {
         // If the user cannot manage folder structure, no need to show the menu.
-        if (!row.canManageStructure) {
+        if (!row.data.canManageStructure) {
             return null;
         }
 
         return (
-            <FolderProvider folder={row}>
+            <FolderProvider folder={row.data}>
                 <OptionsMenu
                     actions={folderConfig.actions}
                     data-testid={"table.row.folder.menu-action"}
@@ -27,7 +28,8 @@ export const CellActions = () => {
     }
 
     return (
-        <PageProvider<PbPageTableItem> page={row}>
+        // `row` is a table row envelope. `row.data` is a Search record envelope. `row.data.data` is page data.
+        <PageProvider<SearchRecordItem<PbPageDataItem>> page={row.data}>
             <OptionsMenu
                 actions={recordConfig.actions}
                 data-testid={"table.row.pb.page.menu-action"}

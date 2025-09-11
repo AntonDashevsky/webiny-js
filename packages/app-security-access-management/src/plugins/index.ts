@@ -1,6 +1,6 @@
-import { type PluginCollection } from "@webiny/plugins/types.js";
-import installation from "./installation.js";
-import permissionRenderer from "./permissionRenderer/index.js";
-import secureRouteError from "~/plugins/secureRouteError.js";
+import type { PluginCollection } from "@webiny/plugins/types";
+import installation from "./installation";
+import permissionRenderer from "./permissionRenderer";
+import secureRouteError from "~/plugins/secureRouteError";
 
 export default (): PluginCollection => [installation, permissionRenderer, secureRouteError];

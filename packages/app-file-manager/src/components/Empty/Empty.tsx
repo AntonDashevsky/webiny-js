@@ -1,10 +1,10 @@
 import React from "react";
-import { type FilesRenderChildren } from "react-butterfiles";
+import type { FilesRenderChildren } from "react-butterfiles";
 
-import { useFileManagerApi } from "~/index.js";
-import { NoPermission } from "~/components/NoPermission/index.js";
-import { NoResults } from "~/components/NoResults/index.js";
-import { DropFilesHere } from "~/components/DropFilesHere/index.js";
+import { useFileManagerApi } from "~/index";
+import { NoPermissions } from "~/components/NoPermissions";
+import { NoResults } from "~/components/NoResults";
+import { FileDropArea } from "~/components/FileDropArea";
 
 interface EmptyViewProps {
     browseFiles: FilesRenderChildren["browseFiles"];
@@ -15,11 +15,21 @@ export const Empty = ({ browseFiles, isSearchResult }: EmptyViewProps) => {
     const { canRead } = useFileManagerApi();
 
     if (!canRead) {
-        return <NoPermission />;
+        return <NoPermissions />;
     }
+
     if (isSearchResult) {
         return <NoResults />;
     }
 
-    return <DropFilesHere empty onClick={() => browseFiles()} />;
+    return (
+        <FileDropArea
+            empty
+            onClick={() => browseFiles()}
+            title={"Drag & Drop files here"}
+            description={
+                "You can also upload files from your computer by clicking the button below"
+            }
+        />
+    );
 };

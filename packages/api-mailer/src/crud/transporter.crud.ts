@@ -1,17 +1,17 @@
-import {
-    type MailerContext,
-    type Transport,
-    type OnTransportAfterSendParams,
-    type OnTransportBeforeSendParams,
-    type OnTransportErrorParams,
-    type TransportSettings,
-    type MailerTransporterContext
-} from "~/types.js";
+import type {
+    MailerContext,
+    Transport,
+    OnTransportAfterSendParams,
+    OnTransportBeforeSendParams,
+    OnTransportErrorParams,
+    TransportSettings,
+    MailerTransporterContext
+} from "~/types";
 import { createTopic } from "@webiny/pubsub";
-import { attachOnTransportBeforeSend } from "~/crud/transport/onTransportBeforeSend.js";
-import { CreateTransportPlugin } from "~/plugins/index.js";
+import { attachOnTransportBeforeSend } from "~/crud/transport/onTransportBeforeSend";
+import { CreateTransportPlugin } from "~/plugins";
 import WebinyError from "@webiny/error";
-import { createValidation } from "./settings/validation.js";
+import { createValidation } from "./settings/validation";
 
 interface BuildMailerParams {
     plugins: CreateTransportPlugin[];

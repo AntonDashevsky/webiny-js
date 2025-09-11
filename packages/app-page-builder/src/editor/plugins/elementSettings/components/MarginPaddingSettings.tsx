@@ -1,28 +1,29 @@
 import React, { useCallback, useMemo } from "react";
-import get from "lodash/get.js";
-import set from "lodash/set.js";
-import startCase from "lodash/startCase.js";
+import get from "lodash/get";
+import set from "lodash/set";
+import startCase from "lodash/startCase";
 import { useRecoilCallback, useRecoilValue } from "recoil";
 import classNames from "classnames";
 import { css } from "emotion";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import { Typography } from "@webiny/ui/Typography";
+import { Tooltip } from "@webiny/ui/Tooltip";
 import { plugins } from "@webiny/plugins";
-import {
-    type PbEditorElement,
-    type PbEditorPageElementSettingsRenderComponentProps,
-    type PbEditorResponsiveModePlugin
-} from "../../../../types.js";
+import type {
+    PbEditorElement,
+    PbEditorPageElementSettingsRenderComponentProps,
+    PbEditorResponsiveModePlugin
+} from "../../../../types";
 import {
     activeElementAtom,
     elementWithChildrenByIdSelector,
     uiAtom
-} from "../../../recoil/modules/index.js";
-import useUpdateHandlers, { type PostModifyElementArgs } from "../useUpdateHandlers.js";
+} from "../../../recoil/modules";
+import type { PostModifyElementArgs } from "../useUpdateHandlers";
+import useUpdateHandlers from "../useUpdateHandlers";
 // Icons
 import { ReactComponent as LinkIcon } from "../../../assets/icons/link.svg";
 // Components
-import SpacingPicker from "./SpacingPicker.js";
+import SpacingPicker from "./SpacingPicker";
 import {
     COLORS,
     SpacingGrid,
@@ -35,9 +36,9 @@ import {
     BottomLeft,
     Bottom,
     BottomRight
-} from "./StyledComponents.js";
-import Accordion from "./Accordion.js";
-import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
+} from "./StyledComponents";
+import Accordion from "./Accordion";
+import { applyFallbackDisplayMode } from "../elementSettingsUtils";
 
 const classes = {
     gridContainerClass: css({

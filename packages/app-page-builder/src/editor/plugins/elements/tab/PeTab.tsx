@@ -1,9 +1,9 @@
 import React from "react";
 import { createRenderer, useRenderer, Elements } from "@webiny/app-page-builder-elements";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 import { useRecoilValue } from "recoil";
-import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules/index.js";
-import EmptyCell from "~/editor/plugins/elements/cell/EmptyCell.js";
+import { elementWithChildrenByIdSelector } from "~/editor/recoil/modules";
+import EmptyCell from "~/editor/plugins/elements/cell/EmptyCell";
 
 const PeTab = createRenderer(() => {
     const { getElement } = useRenderer();

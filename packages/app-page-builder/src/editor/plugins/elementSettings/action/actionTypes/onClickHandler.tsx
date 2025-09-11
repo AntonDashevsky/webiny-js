@@ -2,16 +2,16 @@ import React, { useMemo } from "react";
 import { css } from "emotion";
 import { plugins } from "@webiny/plugins";
 import { useBind } from "@webiny/form";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
-import {
-    type PbButtonElementClickHandlerVariable,
-    type PbPageElementActionTypePlugin,
-    type PbButtonElementClickHandlerPlugin
-} from "~/types.js";
-import SelectField from "../../components/SelectField.js";
-import Wrapper from "../../components/Wrapper.js";
-import InputField from "../../components/InputField.js";
+import { Typography } from "@webiny/ui/Typography";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
+import type {
+    PbButtonElementClickHandlerVariable,
+    PbPageElementActionTypePlugin,
+    PbButtonElementClickHandlerPlugin
+} from "~/types";
+import SelectField from "../../components/SelectField";
+import Wrapper from "../../components/Wrapper";
+import InputField from "../../components/InputField";
 
 const classes = {
     gridClass: css({

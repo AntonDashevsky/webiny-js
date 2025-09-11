@@ -1,30 +1,31 @@
 import type * as React from "react";
-import { type ReactElement, type ReactNode } from "react";
-import { type Plugin } from "@webiny/plugins/types.js";
-import {
-    type BindComponent as BaseBindComponent,
-    type BindComponentProps as BaseBindComponentProps,
-    type BindComponentRenderProp as BaseBindComponentRenderProp,
-    type FormAPI
+import type { ReactElement, ReactNode } from "react";
+import type { Plugin } from "@webiny/plugins/types";
+import type {
+    BindComponent as BaseBindComponent,
+    BindComponentProps as BaseBindComponentProps,
+    BindComponentRenderProp as BaseBindComponentRenderProp,
+    FormAPI
 } from "@webiny/form";
-import { type IconName, type IconPrefix } from "@fortawesome/fontawesome-svg-core";
-import { type SecurityPermission } from "@webiny/app-security/types.js";
-import {
-    type CmsModelFieldValidator,
-    type CmsModelFieldValidatorsFactory,
-    type CmsModelFieldValidatorsGroup
-} from "./validation.js";
-import { type CmsModel, type CmsModelField } from "./model.js";
-import { type CmsIdentity } from "~/types/shared.js";
+import type { IconName, IconPrefix } from "@fortawesome/fontawesome-svg-core";
+import type { SecurityPermission } from "@webiny/app-security/types";
+import type {
+    CmsModelFieldValidator,
+    CmsModelFieldValidatorsFactory,
+    CmsModelFieldValidatorsGroup
+} from "./validation";
+import type { CmsModel, CmsModelField } from "./model";
+import type { CmsIdentity } from "~/types/shared";
 import type { SourceType } from "dnd-core";
+import type { IconPickerIconDto } from "@webiny/admin-ui";
 
 export type DragObjectWithType = {
     type: SourceType;
 };
 
-export * from "./validation.js";
-export * from "./model.js";
-export * from "./shared.js";
+export * from "./validation";
+export * from "./model";
+export * from "./shared";
 
 interface QueryFieldParams {
     model: CmsModel;
@@ -136,6 +137,11 @@ export interface CmsModelFieldTypePlugin extends Plugin {
          * A ReactNode label when multiple values are enabled.
          */
         multipleValuesLabel?: React.ReactNode;
+        /**
+         * Determines if this field type should be hidden from the admin UI.
+         * If set to `true`, the field type will not be visible or selectable in the admin interface.
+         */
+        hideInAdmin?: boolean;
         /**
          * These are default values when the field is first created. This is a representation of the field that is stored in the database.
          *
@@ -472,7 +478,7 @@ export interface CmsIcon {
 
 export interface CmsIconsPlugin extends Plugin {
     type: "cms-icons";
-    getIcons(): CmsIcon[];
+    getIcons(): IconPickerIconDto[];
 }
 
 /**

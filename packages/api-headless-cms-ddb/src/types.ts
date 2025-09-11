@@ -1,14 +1,14 @@
-import { type Plugin } from "@webiny/plugins/types.js";
-import {
-    type CmsEntryStorageOperations as BaseCmsEntryStorageOperations,
-    type CmsModel,
-    type CmsModelField,
-    type HeadlessCmsStorageOperations as BaseHeadlessCmsStorageOperations
-} from "@webiny/api-headless-cms/types/index.js";
-import { type TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
-import { type AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { type Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
+import type { Plugin } from "@webiny/plugins/types";
+import type {
+    CmsEntryStorageOperations as BaseCmsEntryStorageOperations,
+    CmsModel,
+    CmsModelField,
+    HeadlessCmsStorageOperations as BaseHeadlessCmsStorageOperations
+} from "@webiny/api-headless-cms/types";
+import type { TableConstructor } from "@webiny/db-dynamodb/toolbox";
+import type { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
 
 interface CmsFieldFilterValueTransformParams {
     /**

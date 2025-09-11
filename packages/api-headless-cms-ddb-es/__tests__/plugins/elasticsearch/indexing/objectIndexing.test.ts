@@ -2,8 +2,8 @@ import { createGraphQLFields } from "@webiny/api-headless-cms";
 import defaultIndexingPlugin from "~/elasticsearch/indexing/defaultFieldIndexing";
 import objectIndexing from "~/elasticsearch/indexing/objectIndexing";
 import elasticsearchIndexingPlugins from "~/elasticsearch/indexing";
-import { CmsModelField, CmsModelFieldToGraphQLPlugin } from "@webiny/api-headless-cms/types";
-import {
+import type { CmsModelField, CmsModelFieldToGraphQLPlugin } from "@webiny/api-headless-cms/types";
+import type {
     CmsModelFieldToElasticsearchFromParams,
     CmsModelFieldToElasticsearchPlugin,
     CmsModelFieldToElasticsearchToParams

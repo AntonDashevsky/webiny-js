@@ -1,14 +1,14 @@
-import {
-    type CreateTenantLinkParams,
-    type DeleteTenantLinkParams,
-    type GetTenantLinkByIdentityParams,
-    type ListTenantLinksByIdentityParams,
-    type ListTenantLinksByTypeParams,
-    type ListTenantLinksParams,
-    type SecurityConfig,
-    type TenantLink,
-    type UpdateTenantLinkParams
-} from "~/types.js";
+import type {
+    CreateTenantLinkParams,
+    DeleteTenantLinkParams,
+    GetTenantLinkByIdentityParams,
+    ListTenantLinksByIdentityParams,
+    ListTenantLinksByTypeParams,
+    ListTenantLinksParams,
+    SecurityConfig,
+    TenantLink,
+    UpdateTenantLinkParams
+} from "~/types";
 
 export const createTenantLinksMethods = ({ storageOperations }: SecurityConfig) => {
     return {

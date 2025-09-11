@@ -1,7 +1,7 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
 import { createCmsGraphQLSchemaPlugin } from "~/index";
 import { ACO_TEST_MODEL_ID } from "./model";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 
 const createUpdateLocationGraphQlPlugin = () => {
     const plugin = createCmsGraphQLSchemaPlugin<CmsContext>({

@@ -1,5 +1,5 @@
-import { type SecurityPermission, type SecurityIdentity, type CreatedBy } from "~/types.js";
-import NotAuthorizedError from "~/NotAuthorizedError.js";
+import type { SecurityPermission, SecurityIdentity, CreatedBy } from "~/types";
+import NotAuthorizedError from "~/NotAuthorizedError";
 
 const FULL_ACCESS_PERMISSION_NAME = "*";
 

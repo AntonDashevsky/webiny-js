@@ -1,9 +1,10 @@
-import { type CmsContext, type CmsEntry, type CmsModel } from "~/types/index.js";
-import { STATUS_PUBLISHED } from "./statuses.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
-import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation.js";
-import { getIdentity } from "~/utils/identity.js";
-import { getDate } from "~/utils/date.js";
+import type { CmsContext, CmsEntry, CmsEntryValues, CmsModel } from "~/types";
+import { STATUS_PUBLISHED } from "./statuses";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import { validateModelEntryDataOrThrow } from "~/crud/contentEntry/entryDataValidation";
+import { getIdentity } from "~/utils/identity";
+import { getDate } from "~/utils/date";
+import { createState } from "~/crud/contentEntry/entryDataFactories/state.js";
 
 type CreatePublishEntryDataParams = {
     model: CmsModel;
@@ -13,14 +14,14 @@ type CreatePublishEntryDataParams = {
     latestEntry: CmsEntry;
 };
 
-export const createPublishEntryData = async ({
+export const createPublishEntryData = async <T extends CmsEntryValues = CmsEntryValues>({
     model,
     context,
     getIdentity: getSecurityIdentity,
     originalEntry,
     latestEntry
 }: CreatePublishEntryDataParams): Promise<{
-    entry: CmsEntry;
+    entry: CmsEntry<T>;
 }> => {
     await validateModelEntryDataOrThrow({
         context,
@@ -32,9 +33,10 @@ export const createPublishEntryData = async ({
     const currentDateTime = new Date().toISOString();
     const currentIdentity = getSecurityIdentity();
 
-    const entry: CmsEntry = {
+    const entry: CmsEntry<T> = {
         ...originalEntry,
         status: STATUS_PUBLISHED,
+        state: createState(undefined),
         locked: true,
 
         /**
@@ -67,7 +69,7 @@ export const createPublishEntryData = async ({
             currentIdentity
         ),
         revisionLastPublishedBy: getIdentity(currentIdentity)
-    };
+    } as CmsEntry<T>;
 
     return { entry };
 };

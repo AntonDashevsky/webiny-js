@@ -1,37 +1,37 @@
 import WebinyError from "@webiny/error";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
-    type CmsContext,
-    type CmsGroup,
-    type CmsGroupContext,
-    type HeadlessCmsStorageOperations,
-    type OnGroupAfterCreateTopicParams,
-    type OnGroupAfterDeleteTopicParams,
-    type OnGroupAfterUpdateTopicParams,
-    type OnGroupBeforeCreateTopicParams,
-    type OnGroupBeforeDeleteTopicParams,
-    type OnGroupBeforeUpdateTopicParams,
-    type OnGroupCreateErrorTopicParams,
-    type OnGroupDeleteErrorTopicParams,
-    type OnGroupUpdateErrorTopicParams
-} from "~/types/index.js";
-import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin.js";
-import { type Tenant } from "@webiny/api-tenancy/types.js";
-import { type I18NLocale } from "@webiny/api-i18n/types.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import type {
+    CmsContext,
+    CmsGroup,
+    CmsGroupContext,
+    HeadlessCmsStorageOperations,
+    OnGroupAfterCreateTopicParams,
+    OnGroupAfterDeleteTopicParams,
+    OnGroupAfterUpdateTopicParams,
+    OnGroupBeforeCreateTopicParams,
+    OnGroupBeforeDeleteTopicParams,
+    OnGroupBeforeUpdateTopicParams,
+    OnGroupCreateErrorTopicParams,
+    OnGroupDeleteErrorTopicParams,
+    OnGroupUpdateErrorTopicParams
+} from "~/types";
+import { CmsGroupPlugin } from "~/plugins/CmsGroupPlugin";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { createTopic } from "@webiny/pubsub";
-import { assignBeforeGroupUpdate } from "./contentModelGroup/beforeUpdate.js";
-import { assignBeforeGroupCreate } from "./contentModelGroup/beforeCreate.js";
-import { assignBeforeGroupDelete } from "./contentModelGroup/beforeDelete.js";
+import { assignBeforeGroupUpdate } from "./contentModelGroup/beforeUpdate";
+import { assignBeforeGroupCreate } from "./contentModelGroup/beforeCreate";
+import { assignBeforeGroupDelete } from "./contentModelGroup/beforeDelete";
 import {
     createGroupCreateValidation,
     createGroupUpdateValidation
-} from "~/crud/contentModelGroup/validation.js";
+} from "~/crud/contentModelGroup/validation";
 import { createZodError, mdbid } from "@webiny/utils";
-import { filterAsync } from "~/utils/filterAsync.js";
-import { createCacheKey, createMemoryCache } from "~/utils/index.js";
-import { listGroupsFromDatabase } from "~/crud/contentModelGroup/listGroupsFromDatabase.js";
-import { type AccessControl } from "./AccessControl/AccessControl.js";
+import { filterAsync } from "~/utils/filterAsync";
+import { createCacheKey, createMemoryCache } from "~/utils";
+import { listGroupsFromDatabase } from "~/crud/contentModelGroup/listGroupsFromDatabase";
+import type { AccessControl } from "./AccessControl/AccessControl";
 
 export interface CreateModelGroupsCrudParams {
     getTenant: () => Tenant;

@@ -1,27 +1,27 @@
-import {
-    type BlockCategoriesCrud,
-    type BlockCategory,
-    type BlockCategoryStorageOperationsListParams,
-    type BlockCategoryStorageOperationsGetParams,
-    type OnAfterBlockCategoryCreateTopicParams,
-    type OnAfterBlockCategoryDeleteTopicParams,
-    type OnAfterBlockCategoryUpdateTopicParams,
-    type OnBeforeBlockCategoryCreateTopicParams,
-    type OnBeforeBlockCategoryDeleteTopicParams,
-    type OnBeforeBlockCategoryUpdateTopicParams,
-    type PageBuilderContextObject,
-    type PageBuilderStorageOperations,
-    type PbContext
-} from "~/types.js";
+import type {
+    BlockCategoriesCrud,
+    BlockCategory,
+    BlockCategoryStorageOperationsListParams,
+    BlockCategoryStorageOperationsGetParams,
+    OnAfterBlockCategoryCreateTopicParams,
+    OnAfterBlockCategoryDeleteTopicParams,
+    OnAfterBlockCategoryUpdateTopicParams,
+    OnBeforeBlockCategoryCreateTopicParams,
+    OnBeforeBlockCategoryDeleteTopicParams,
+    OnBeforeBlockCategoryUpdateTopicParams,
+    PageBuilderContextObject,
+    PageBuilderStorageOperations,
+    PbContext
+} from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
 import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import {
     createBlockCategoryCreateValidation,
     createBlockCategoryUpdateValidation
-} from "~/graphql/crud/blockCategories/validation.js";
+} from "~/graphql/crud/blockCategories/validation";
 import { createZodError, removeUndefinedValues } from "@webiny/utils";
-import { type BlockCategoriesPermissions } from "~/graphql/crud/permissions/BlockCategoriesPermissions.js";
+import type { BlockCategoriesPermissions } from "~/graphql/crud/permissions/BlockCategoriesPermissions";
 
 export interface CreateBlockCategoriesCrudParams {
     context: PbContext;

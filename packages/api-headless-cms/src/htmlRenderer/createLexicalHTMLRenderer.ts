@@ -1,5 +1,6 @@
 import type { SerializedEditorState } from "@webiny/lexical-converter";
-import { CmsRichTextRendererPlugin, type RichTextContents } from "~/plugins/index.js";
+import type { RichTextContents } from "~/plugins";
+import { CmsRichTextRendererPlugin } from "~/plugins";
 
 const isLexicalContents = (contents: RichTextContents): contents is SerializedEditorState => {
     return contents.hasOwnProperty("root");
@@ -11,7 +12,7 @@ export const createLexicalHTMLRenderer = () => {
             return undefined;
         }
 
-        return import(/* webpackChunkName: "LexicalRenderer" */ "./LexicalRenderer.js").then(
+        return import(/* webpackChunkName: "LexicalRenderer" */ "./LexicalRenderer").then(
             ({ LexicalRenderer }) => {
                 try {
                     const renderer = new LexicalRenderer();

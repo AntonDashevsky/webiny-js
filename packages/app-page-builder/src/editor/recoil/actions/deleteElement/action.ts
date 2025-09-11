@@ -1,6 +1,10 @@
-import { type EventActionCallable, type EventActionHandlerCallableState, type PbEditorElement } from "~/types.js";
-import { type DeleteElementActionArgsType } from "./types.js";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/updateDocument/index.js";
+import type {
+    EventActionCallable,
+    EventActionHandlerCallableState,
+    PbEditorElement
+} from "~/types";
+import type { DeleteElementActionArgsType } from "./types";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/updateDocument";
 
 const removeElementFromParent = (parent: PbEditorElement, id: string): PbEditorElement => {
     return {

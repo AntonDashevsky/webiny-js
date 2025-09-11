@@ -1,4 +1,4 @@
-import { type FolderModelDto } from "./FolderModelDto.js";
+import type { FolderModelDto } from "./FolderModelDto";
 
 export interface IGetFolderModelRepository {
     load: () => Promise<void>;

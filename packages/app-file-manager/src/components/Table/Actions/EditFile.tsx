@@ -1,8 +1,8 @@
 import React from "react";
-import { ReactComponent as Edit } from "@material-design-icons/svg/outlined/edit.svg";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
-import { useFile } from "~/hooks/useFile.js";
+import { ReactComponent as Edit } from "@webiny/icons/edit.svg";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { useFile } from "~/hooks/useFile";
 
 export const EditFile = () => {
     const { file } = useFile();

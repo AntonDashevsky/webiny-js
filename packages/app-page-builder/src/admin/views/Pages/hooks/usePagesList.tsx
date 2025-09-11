@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useRouter } from "@webiny/react-router";
-import debounce from "lodash/debounce.js";
-import omit from "lodash/omit.js";
-import { PAGE_BUILDER_LIST_LINK } from "~/admin/constants/index.js";
+import debounce from "lodash/debounce";
+import { PAGE_BUILDER_LIST_LINK } from "~/admin/constants";
 import { createSort, useAcoList } from "@webiny/app-aco";
-import { type PbPageDataItem, type TableItem } from "~/types.js";
-import { type FolderItem, type ListMeta, type SearchRecordItem } from "@webiny/app-aco/types.js";
-import { type OnSortingChange, type Sorting } from "@webiny/ui/DataTable/index.js";
+import type { PbPageDataItem, TableItem } from "~/types";
+import type { FolderItem, ListMeta, SearchRecordItem } from "@webiny/app-aco/types";
+import type { OnSortingChange, Sorting } from "@webiny/ui/DataTable";
 
 interface UpdateSearchCallableParams {
     search: string;
@@ -109,8 +108,7 @@ export const PagesListProvider = ({ children }: PagesListProviderProps) => {
     const onSelectRow: PagesListProviderContext["onSelectRow"] = rows => {
         const recordEntries = rows.filter(item => item.$type === "RECORD");
         const pageEntries = recordEntries.map(
-            item =>
-                omit(item, ["$type", "$selectable"]) as unknown as SearchRecordItem<PbPageDataItem>
+            item => item.data as SearchRecordItem<PbPageDataItem>
         );
         setSelected(pageEntries);
     };

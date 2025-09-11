@@ -1,20 +1,19 @@
+import type { ElementNode, LexicalEditor, LexicalNode, NodeKey } from "lexical";
 import {
     $getSelection,
     $isElementNode,
     $isLeafNode,
     $isParagraphNode,
     $isRangeSelection,
-    $isRootOrShadowRoot,
-    type ElementNode,
-    type LexicalEditor,
-    type LexicalNode,
-    type NodeKey
+    $isRootOrShadowRoot
 } from "lexical";
-import { $createListNode, $isListNode, type ListNode } from "~/ListNode.js";
+import type { ListNode } from "~/ListNode";
+import { $createListNode, $isListNode } from "~/ListNode";
 import { $getNearestNodeOfType } from "@lexical/utils";
-import { $createListItemNode, $isListItemNode, ListItemNode } from "~/ListItemNode.js";
-import { type ListType } from "@lexical/list";
-import { $createParagraphNode, type ParagraphNode } from "~/ParagraphNode.js";
+import { $createListItemNode, $isListItemNode, ListItemNode } from "~/ListItemNode";
+import type { ListType } from "@lexical/list";
+import type { ParagraphNode } from "~/ParagraphNode";
+import { $createParagraphNode } from "~/ParagraphNode";
 import {
     $getAllListItems,
     $getTopListNode,
@@ -22,7 +21,7 @@ import {
     findNearestListItemNode,
     getUniqueListItemNodes,
     isNestedListNode
-} from "~/utils/listNode.js";
+} from "~/utils/listNode";
 
 const DEFAULT_LIST_START_NUMBER = 1;
 

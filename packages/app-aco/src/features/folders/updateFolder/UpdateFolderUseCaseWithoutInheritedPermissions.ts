@@ -1,4 +1,4 @@
-import { type IUpdateFolderUseCase, type UpdateFolderParams } from "./IUpdateFolderUseCase.js";
+import type { IUpdateFolderUseCase, UpdateFolderParams } from "./IUpdateFolderUseCase";
 
 export class UpdateFolderUseCaseWithoutInheritedPermissions implements IUpdateFolderUseCase {
     private useCase: IUpdateFolderUseCase;

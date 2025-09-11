@@ -5,9 +5,9 @@ import type {
     FileManagerSettings,
     FileManagerSystem,
     SystemCRUD
-} from "~/types.js";
+} from "~/types";
 import WebinyError from "@webiny/error";
-import type { FileManagerConfig } from "~/createFileManager/types.js";
+import type { FileManagerConfig } from "~/createFileManager/types";
 
 export const createSystemCrud = ({
     storageOperations,
@@ -41,7 +41,7 @@ export const createSystemCrud = ({
                         data
                     });
                     return;
-                } catch (ex) {
+                } catch {
                     throw new WebinyError(
                         "Could not update the system data.",
                         "SYSTEM_UPDATE_ERROR",
@@ -61,7 +61,7 @@ export const createSystemCrud = ({
                     data
                 });
                 return;
-            } catch (ex) {
+            } catch {
                 throw new WebinyError("Could not create the system data.", "SYSTEM_CREATE_ERROR", {
                     data
                 });

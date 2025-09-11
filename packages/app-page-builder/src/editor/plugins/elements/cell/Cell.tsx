@@ -1,8 +1,8 @@
 import React from "react";
-import { type PbEditorElement } from "~/types.js";
+import type { PbEditorElement } from "~/types";
 
-import PeCell from "~/editor/plugins/elements/cell/PeCell.js";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
+import PeCell from "~/editor/plugins/elements/cell/PeCell";
+import type { Element } from "@webiny/app-page-builder-elements/types";
 
 interface CellProps {
     element: PbEditorElement;

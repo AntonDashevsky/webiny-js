@@ -1,4 +1,4 @@
-import { Entity } from "~/toolbox.js";
+import type { Entity } from "~/toolbox";
 export interface IDeleteItemKeys {
     PK: string;
     SK: string;

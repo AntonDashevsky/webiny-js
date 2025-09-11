@@ -1,11 +1,7 @@
 import React from "react";
-import {
-    ListItemText as UiListItemText,
-    ListItemTextPrimary,
-    ListItemTextSecondary
-} from "@webiny/ui/List/index.js";
+import { Text } from "@webiny/admin-ui";
 import { useSecurity } from "@webiny/app-security";
-import { type FolderLevelPermissionsTarget } from "~/types.js";
+import type { FolderLevelPermissionsTarget } from "~/types";
 
 interface ListItemTextProps {
     target: FolderLevelPermissionsTarget;
@@ -16,15 +12,15 @@ export const ListItemText = ({ target }: ListItemTextProps) => {
 
     if (target.type === "admin") {
         return (
-            <UiListItemText>
-                <ListItemTextPrimary>
+            <div>
+                <Text as="div">
                     {target.name}&nbsp;
                     {target.id === identity!.id && <em>(you)</em>}
-                </ListItemTextPrimary>
-                <ListItemTextSecondary>
+                </Text>
+                <Text as={"div"} size={"sm"} className={"wby-text-neutral-strong wby-font-normal"}>
                     {target.meta.email || "E-mail not available."}
-                </ListItemTextSecondary>
-            </UiListItemText>
+                </Text>
+            </div>
         );
     }
 

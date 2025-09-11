@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import dotPropImmutable from "dot-prop-immutable";
+import type {
+    DeleteApwContentReviewMutationResponse,
+    DeleteApwContentReviewMutationVariables,
+    PublishContentMutationResponse,
+    PublishContentMutationVariables,
+    UnPublishContentMutationResponse,
+    UnPublishContentMutationVariables
+} from "~/graphql/contentReview.gql";
 import {
     DELETE_SCHEDULED_ACTION_MUTATION,
-    type DeleteApwContentReviewMutationResponse,
-    type DeleteApwContentReviewMutationVariables,
     GET_CONTENT_REVIEW_QUERY,
     PUBLISH_CONTENT_MUTATION,
-    type PublishContentMutationResponse,
-    type PublishContentMutationVariables,
-    UNPUBLISH_CONTENT_MUTATION,
-    type UnPublishContentMutationResponse,
-    type UnPublishContentMutationVariables
-} from "~/graphql/contentReview.gql.js";
-import { useContentReviewId } from "~/hooks/useContentReviewId.js";
+    UNPUBLISH_CONTENT_MUTATION
+} from "~/graphql/contentReview.gql";
+import { useContentReviewId } from "~/hooks/useContentReviewId";
 import { useSnackbar } from "@webiny/app-admin";
 
 interface UsePublishContentResult {

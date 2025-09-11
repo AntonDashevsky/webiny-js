@@ -1,11 +1,13 @@
+import type {
+    ContextParams as BaseContextParams,
+    ContextPluginCallable as BaseContextPluginCallable
+} from "@webiny/api";
 import {
     Context as BaseContext,
-    type ContextParams as BaseContextParams,
     ContextPlugin as BaseContextPlugin,
-    type ContextPluginCallable as BaseContextPluginCallable,
     createContextPlugin as baseCreateContextPlugin
 } from "@webiny/api";
-import { type Context as ContextInterface } from "~/types.js";
+import type { Context as ContextInterface } from "~/types";
 
 export interface ContextParams extends BaseContextParams {
     routes: ContextInterface["routes"];

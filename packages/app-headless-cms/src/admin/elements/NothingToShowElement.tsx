@@ -1,9 +1,10 @@
 import React from "react";
-import { css } from "emotion";
-import { NavigationMenuElement } from "@webiny/app-admin/ui/elements/NavigationMenuElement.js";
-import { type UIElementConfig } from "@webiny/app-admin/ui/UIElement.js";
-import { List, ListItem } from "@webiny/ui/List/index.js";
-import { UIRenderer, type UIRenderParams } from "@webiny/app-admin/ui/UIRenderer.js";
+import { css } from "@emotion/css";
+import { NavigationMenuElement } from "@webiny/app-admin/ui/elements/NavigationMenuElement";
+import type { UIElementConfig } from "@webiny/app-admin/ui/UIElement";
+import { List, ListItem } from "@webiny/ui/List";
+import type { UIRenderParams } from "@webiny/app-admin/ui/UIRenderer";
+import { UIRenderer } from "@webiny/app-admin/ui/UIRenderer";
 
 const linkStyle = css({
     color: "var(--mdc-theme-text-primary-on-background)",

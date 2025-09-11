@@ -1,7 +1,8 @@
-import React, { useEffect, useCallback, type ReactElement } from "react";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
+import type { ReactElement } from "react";
+import React, { useEffect, useCallback } from "react";
+import { IconButton } from "@webiny/ui/Button";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
 
 interface ActionProps {
     disabled?: boolean;

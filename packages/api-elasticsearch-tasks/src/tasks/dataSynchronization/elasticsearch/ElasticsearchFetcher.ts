@@ -1,12 +1,12 @@
-import { type Client } from "@webiny/api-elasticsearch";
-import {
-    type IElasticsearchFetcher,
-    type IElasticsearchFetcherFetchParams,
-    type IElasticsearchFetcherFetchResponse,
-    type IElasticsearchFetcherFetchResponseItem
-} from "./abstractions/ElasticsearchFetcher.js";
-import { type ElasticsearchSearchResponse, type PrimitiveValue } from "@webiny/api-elasticsearch/types.js";
-import { shouldIgnoreEsResponseError } from "./shouldIgnoreEsResponseError.js";
+import type { Client } from "@webiny/api-elasticsearch";
+import type {
+    IElasticsearchFetcher,
+    IElasticsearchFetcherFetchParams,
+    IElasticsearchFetcherFetchResponse,
+    IElasticsearchFetcherFetchResponseItem
+} from "./abstractions/ElasticsearchFetcher";
+import type { ElasticsearchSearchResponse, PrimitiveValue } from "@webiny/api-elasticsearch/types";
+import { shouldIgnoreEsResponseError } from "./shouldIgnoreEsResponseError";
 import { inspect } from "node:util";
 
 export interface IElasticsearchFetcherParams {

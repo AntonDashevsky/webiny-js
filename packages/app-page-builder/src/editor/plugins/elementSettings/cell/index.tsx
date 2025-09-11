@@ -1,6 +1,6 @@
 import React from "react";
-import { type PbEditorPageElementStyleSettingsPlugin } from "../../../../types.js";
-import VerticalAlignSettings from "./VerticalAlignSettings.js";
+import type { PbEditorPageElementStyleSettingsPlugin } from "../../../../types";
+import VerticalAlignSettings from "./VerticalAlignSettings";
 
 export default {
     name: "pb-editor-page-element-style-settings-cell-vertical-align",

@@ -1,5 +1,5 @@
-import { type PbAcoContext } from "~/types.js";
-import { type Page } from "@webiny/api-page-builder/types.js";
+import type { PbAcoContext } from "~/types";
+import type { Page } from "@webiny/api-page-builder/types";
 
 interface PageBuilderCrudDecoratorsParams {
     context: PbAcoContext;

@@ -1,7 +1,6 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { Container } from "./styled.js";
+import { i18n } from "@webiny/app/i18n";
+import { Button } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/components/content-entries/load-more-button");
 
@@ -25,12 +24,8 @@ export const LoadMoreButton = ({
     }
 
     return (
-        <Container>
-            <ButtonPrimary
-                onClick={onClick}
-                disabled={disabled}
-                flat={true}
-            >{t`Load more entries`}</ButtonPrimary>
-        </Container>
+        <div className={"wby-flex wby-text-center wby-mt-md"}>
+            <Button onClick={onClick} disabled={disabled} text={t`Load more entries`} />
+        </div>
     );
 };

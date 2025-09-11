@@ -1,8 +1,9 @@
-import React from "react";
-import { Validator } from "@webiny/validation/types.js";
-import { FormInvalidFields, InvalidFormFields } from "~/FormPresenter.js";
+import type React from "react";
+import type { Validator } from "@webiny/validation/types";
+import type { InvalidFormFields } from "~/FormPresenter";
+import type { FormInvalidFields } from "~/FormPresenter";
 
-export { FormInvalidFields };
+export type { FormInvalidFields };
 
 export interface BindComponentRenderPropValidation {
     isValid: boolean | null;

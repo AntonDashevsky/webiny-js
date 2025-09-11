@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import { css } from "emotion";
 import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { type IconProp } from "@fortawesome/fontawesome-svg-core";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-import { Icon } from "@webiny/ui/Icon/index.js";
-import { ButtonDefault } from "@webiny/ui/Button/index.js";
-import { List, ListItem } from "@webiny/ui/List/index.js";
-import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { Icon } from "@webiny/ui/Icon";
+import { ButtonDefault } from "@webiny/ui/Button";
+import { List, ListItem } from "@webiny/ui/List";
+import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog";
+import { CircularProgress } from "@webiny/ui/Progress";
 import { useModels } from "@webiny/app-headless-cms";
-import { type CmsModel } from "@webiny/app-headless-cms/types.js";
+import type { CmsModel } from "@webiny/app-headless-cms/types";
 
-import { ReactComponent as ArrowRightIcon } from "@material-design-icons/svg/round/keyboard_arrow_right.svg";
-import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";
-import { ReactComponent as ArticleIcon } from "@material-design-icons/svg/outlined/article.svg";
-import { ReactComponent as DatabaseIcon } from "@material-design-icons/svg/outlined/dashboard.svg";
+import { ReactComponent as ArrowRightIcon } from "@webiny/icons/keyboard_arrow_right.svg";
+import { ReactComponent as InfoIcon } from "@webiny/icons/info.svg";
+import { ReactComponent as ArticleIcon } from "@webiny/icons/article.svg";
+import { ReactComponent as DatabaseIcon } from "@webiny/icons/dashboard.svg";
 
 const dialogStyles = css`
     .mdc-dialog__surface {

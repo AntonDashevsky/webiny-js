@@ -1,24 +1,24 @@
-import { Table } from "@webiny/db-dynamodb/toolbox.js";
-import { Client } from "@elastic/elasticsearch";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
+import type { Client } from "@elastic/elasticsearch";
 import { inject, makeInjectable } from "@webiny/ioc";
-import { DataMigration, DataMigrationContext } from "@webiny/data-migration";
+import type { DataMigration, DataMigrationContext } from "@webiny/data-migration";
 import {
     PrimaryDynamoTableSymbol,
     ElasticsearchDynamoTableSymbol,
     ElasticsearchClientSymbol
-} from "@webiny/data-migration/symbols.js";
+} from "@webiny/data-migration/symbols";
 import {
     forEachTenantLocale,
     esGetIndexExist,
     batchWriteAll,
     esGetIndexName,
     getCompressedData
-} from "~/utils/index.js";
-import { createDdbEntryEntity, createDdbEsEntryEntity } from "../entities/createEntryEntity.js";
-import { ACO_FOLDER_MODEL_ID, TASK_MODEL_ID } from "../constants.js";
-import type { TaskEntryEventPayload } from "~/migrations/5.43.0/001/types.js";
+} from "~/utils";
+import { createDdbEntryEntity, createDdbEsEntryEntity } from "../entities/createEntryEntity";
+import { ACO_FOLDER_MODEL_ID, TASK_MODEL_ID } from "../constants";
+import type { TaskEntryEventPayload } from "~/migrations/5.43.0/001/types";
 import { generateAlphaNumericId, parseIdentifier, executeWithRetry } from "@webiny/utils";
-import { StepFunctionService } from "@webiny/tasks/service/StepFunctionServicePlugin.js";
+import { StepFunctionService } from "@webiny/tasks/service/StepFunctionServicePlugin";
 
 export class Flp_5_43_0_001 implements DataMigration {
     private readonly table: Table<string, string, string>;

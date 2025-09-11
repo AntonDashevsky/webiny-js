@@ -1,4 +1,4 @@
-import { Logger } from "@webiny/logger";
+import type { Logger } from "@webiny/logger";
 
 export type { Logger };
 

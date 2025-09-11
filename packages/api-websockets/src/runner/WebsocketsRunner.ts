@@ -1,25 +1,29 @@
 import WebinyError from "@webiny/error";
-import {
-    type IWebsocketsEvent,
-    type IWebsocketsEventData,
-    type IWebsocketsEventRequestContext,
-    type IWebsocketsIncomingEvent,
-    WebsocketsEventRequestContextEventType,
-    type WebsocketsEventRoute
-} from "~/handler/types.js";
-import { type Context } from "~/types.js";
-import { type IWebsocketsEventValidator } from "~/validator/index.js";
-import { type IWebsocketsRunner, type IWebsocketsRunnerResponse } from "./abstractions/IWebsocketsRunner.js";
-import { type IWebsocketsRoutePluginCallableParams, WebsocketsRoutePlugin } from "~/plugins/index.js";
-import { middleware } from "~/utils/middleware.js";
-import { type IWebsocketsConnectionRegistry } from "~/registry/index.js";
-import {
-    type IWebsocketsResponse,
-    type IWebsocketsResponseErrorResult,
-    type IWebsocketsResponseOkResult
-} from "~/response/index.js";
-import { type IWebsocketsTransportSendConnection } from "~/transport/index.js";
-import { type IWebsocketsIdentity } from "~/context/index.js";
+import type {
+    IWebsocketsEvent,
+    IWebsocketsEventData,
+    IWebsocketsEventRequestContext,
+    IWebsocketsIncomingEvent,
+    WebsocketsEventRoute
+} from "~/handler/types";
+import { WebsocketsEventRequestContextEventType } from "~/handler/types";
+import type { Context } from "~/types";
+import type { IWebsocketsEventValidator } from "~/validator";
+import type {
+    IWebsocketsRunner,
+    IWebsocketsRunnerResponse
+} from "./abstractions/IWebsocketsRunner";
+import type { IWebsocketsRoutePluginCallableParams } from "~/plugins";
+import { WebsocketsRoutePlugin } from "~/plugins";
+import { middleware } from "~/utils/middleware";
+import type { IWebsocketsConnectionRegistry } from "~/registry";
+import type {
+    IWebsocketsResponse,
+    IWebsocketsResponseErrorResult,
+    IWebsocketsResponseOkResult
+} from "~/response";
+import type { IWebsocketsTransportSendConnection } from "~/transport";
+import type { IWebsocketsIdentity } from "~/context";
 
 type MiddlewareParams<C extends Context = Context> = Pick<
     IWebsocketsRoutePluginCallableParams<C>,

@@ -1,7 +1,9 @@
 import type { LexicalNode, Spread } from "lexical";
 
-import { $isListNode, type ListNode } from "~/ListNode.js";
-import { $createListItemNode, $isListItemNode, type ListItemNode } from "~/ListItemNode.js";
+import type { ListNode } from "~/ListNode";
+import { $isListNode } from "~/ListNode";
+import type { ListItemNode } from "~/ListItemNode";
+import { $createListItemNode, $isListItemNode } from "~/ListItemNode";
 
 export function $getListDepth(listNode: ListNode): number {
     let depth = 1;

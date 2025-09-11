@@ -1,5 +1,5 @@
 import { useGraphQLHandler } from "../testHelpers/useGraphQLHandler";
-import { CmsGroup } from "~/types";
+import type { CmsGroup } from "~/types";
 import camelCase from "lodash/camelCase";
 import upperFirst from "lodash/upperFirst";
 import pluralize from "pluralize";

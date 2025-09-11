@@ -1,5 +1,5 @@
-import type { IGetIdentityGateway } from "./IGetIdentityGateway.js";
-import type { AcoContext } from "~/types.js";
+import type { IGetIdentityGateway } from "./IGetIdentityGateway";
+import type { AcoContext } from "~/types";
 
 export class GetIdentityGatewayFromContext implements IGetIdentityGateway {
     private context: AcoContext;

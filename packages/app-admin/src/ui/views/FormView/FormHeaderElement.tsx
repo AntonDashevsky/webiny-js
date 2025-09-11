@@ -1,31 +1,9 @@
 import React from "react";
-import { css } from "emotion";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { UIElement, type UIElementConfig } from "~/ui/UIElement.js";
-import { Icon } from "@webiny/ui/Icon/index.js";
-import { type FormElementRenderProps } from "~/ui/elements/form/FormElement.js";
-
-const iconClass = css({
-    marginRight: 15,
-    color: "var(--mdc-theme-text-primary-on-background)"
-});
-
-const headerClass = css({
-    borderBottom: "1px solid var(--mdc-theme-on-background)",
-    color: "var(--mdc-theme-text-primary-on-background)"
-});
-
-const titleClass = css({
-    display: "flex",
-    alignItems: "center"
-});
-
-const actionsClass = css({
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center"
-});
+import type { UIElementConfig } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
+import type { FormElementRenderProps } from "~/ui/elements/form/FormElement";
+import { SimpleFormHeader } from "~/components/SimpleForm";
+import { Icon } from "@webiny/admin-ui";
 
 interface FormHeaderConfig extends UIElementConfig {
     getTitle(props: FormElementRenderProps): string;
@@ -51,17 +29,16 @@ export class FormHeaderElement extends UIElement<FormHeaderConfig> {
         const { icon, getTitle } = this.config;
 
         return (
-            <Grid className={headerClass}>
-                <Cell span={6} className={titleClass}>
-                    <React.Fragment>
-                        {icon && <Icon className={iconClass} icon={icon} />}
-                        <Typography use="headline5">{getTitle(props)}</Typography>
-                    </React.Fragment>
-                </Cell>
-                <Cell span={6} className={actionsClass}>
-                    {super.render(props)}
-                </Cell>
-            </Grid>
+            <SimpleFormHeader
+                title={
+                    <>
+                        {icon && <Icon label={"Icon"} icon={icon} />}
+                        {getTitle(props)}
+                    </>
+                }
+            >
+                {super.render(props)}
+            </SimpleFormHeader>
         );
     }
 }

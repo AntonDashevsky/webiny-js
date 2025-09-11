@@ -1,22 +1,15 @@
 import React from "react";
+import { Grid, Input, Alert, Link, OverlayLoader, Button, Text } from "@webiny/admin-ui";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Form, Bind, useForm } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Alert } from "@webiny/ui/Alert/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator.js";
-import {
-    useSignIn,
-    type UseSignInCallableParams
-} from "@webiny/app-cognito-authenticator/hooks/useSignIn.js";
-import { View } from "~/components/View.js";
-import { FederatedLogin } from "./FederatedLogin.js";
-import { Divider } from "~/components/Divider.js";
-import { alignRight, alignCenter, errorMessage } from "~/components/StyledComponents.js";
-import { type FederatedIdentityProvider } from "~/federatedIdentityProviders.js";
+import { useAuthenticator } from "@webiny/app-cognito-authenticator/hooks/useAuthenticator";
+import type { UseSignInCallableParams } from "@webiny/app-cognito-authenticator/hooks/useSignIn";
+import { useSignIn } from "@webiny/app-cognito-authenticator/hooks/useSignIn";
+import { View } from "~/components/View";
+import { FederatedLogin } from "./FederatedLogin";
+import type { FederatedIdentityProvider } from "~/federatedIdentityProviders";
+import { Divider } from "~/components/Divider";
 
 export interface SignInProps {
     title?: string;
@@ -39,8 +32,8 @@ const DefaultContent = (props: SignInDefaultContentProps) => {
     const { submit } = useForm();
     const { message, changeState } = useAuthenticator();
     const {
-        title = "Sign In",
-        description = undefined,
+        title = "Login",
+        description,
         federatedProviders = [],
         allowSignInWithCredentials = true,
         error = null
@@ -50,28 +43,18 @@ const DefaultContent = (props: SignInDefaultContentProps) => {
         <>
             <View.Title title={title} description={description} />
             {message && !error && (
-                <Grid>
-                    <Cell span={12}>
-                        <Alert title={message.title} type={message.type}>
-                            {message.text}
-                        </Alert>
-                    </Cell>
-                </Grid>
+                <div className={"wby-mb-lg"}>
+                    <Alert title={message.title} type={message.type}>
+                        {message.text}
+                    </Alert>
+                </div>
             )}
 
-            {error && (
-                <Grid>
-                    <Cell span={12} className={errorMessage}>
-                        <Alert title="Authentication error" type={"danger"}>
-                            {error.message}
-                        </Alert>
-                    </Cell>
-                </Grid>
-            )}
+            <View.Error title="Authentication error" description={error?.message} />
 
             {allowSignInWithCredentials ? (
                 <Grid>
-                    <Cell span={12}>
+                    <Grid.Column span={12}>
                         <Bind
                             name="username"
                             validators={validation.create("required,email")}
@@ -79,29 +62,40 @@ const DefaultContent = (props: SignInDefaultContentProps) => {
                                 cb(val.toLowerCase())
                             }
                         >
-                            <Input label={"Your e-mail"} />
+                            <Input label={"Email"} size={"lg"} />
                         </Bind>
-                    </Cell>
-                    <Cell span={12}>
+                    </Grid.Column>
+                    <Grid.Column span={12}>
                         <Bind name="password" validators={validation.create("required")}>
-                            <Input type={"password"} label={"Your password"} autoComplete={"off"} />
+                            <Input
+                                type={"password"}
+                                label={"Password"}
+                                size={"lg"}
+                                autoComplete={"off"}
+                            />
                         </Bind>
-                    </Cell>
-                    <Cell span={12} className={alignRight}>
-                        <ButtonPrimary
-                            data-testid="submit-sign-in-form-button"
-                            onClick={ev => {
-                                submit(ev);
-                            }}
+                    </Grid.Column>
+                    <Grid.Column span={12}>
+                        <div
+                            className={
+                                "wby-flex wby-flex-row-reverse wby-items-center wby-justify-between"
+                            }
                         >
-                            {"Submit"}
-                        </ButtonPrimary>
-                    </Cell>
-                    <Cell span={12} className={alignCenter}>
-                        <a href="#" onClick={() => changeState("forgotPassword")}>
-                            Forgot password?
-                        </a>
-                    </Cell>
+                            <Button
+                                text={"Submit"}
+                                data-testid="submit-sign-in-form-button"
+                                onClick={ev => {
+                                    submit(ev);
+                                }}
+                                size="lg"
+                            />
+                            <Text as={"div"} size={"sm"}>
+                                <Link to="#" onClick={() => changeState("forgotPassword")}>
+                                    Forgot password?
+                                </Link>
+                            </Text>
+                        </div>
+                    </Grid.Column>
                 </Grid>
             ) : null}
             {federatedProviders.length ? (
@@ -128,7 +122,7 @@ export const SignIn = makeDecoratable("SignIn", (props: SignInProps) => {
                 {() => (
                     <>
                         <View.Content>
-                            {loading && <CircularProgress label={"Signing in..."} />}
+                            {loading && <OverlayLoader text={"Signing in..."} />}
                             {content ? content : <DefaultContent {...props} error={error} />}
                         </View.Content>
                         {footer ? <View.Footer>{footer}</View.Footer> : null}

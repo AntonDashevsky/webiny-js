@@ -1,5 +1,5 @@
-import { type AcoBaseFields, type ListMeta, type ListSort } from "~/types.js";
-import { type Topic } from "@webiny/pubsub/types.js";
+import type { AcoBaseFields, ListMeta, ListSort } from "~/types";
+import type { Topic } from "@webiny/pubsub/types";
 
 export enum Operation {
     AND = "AND",

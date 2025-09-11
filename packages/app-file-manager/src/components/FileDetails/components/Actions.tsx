@@ -1,20 +1,14 @@
-import React, { Fragment } from "react";
-import styled from "@emotion/styled";
-import { useFileManagerViewConfig } from "~/index.js";
-
-const ActionsContainer = styled.div`
-    text-align: center;
-    border-bottom: 1px solid var(--mdc-theme-on-background);
-`;
+import React from "react";
+import { useFileManagerViewConfig } from "~/index";
 
 export const Actions = () => {
     const { fileDetails } = useFileManagerViewConfig();
 
     return (
-        <ActionsContainer>
+        <div className={"wby-flex wby-justify-start wby-gap-xs"}>
             {fileDetails.actions.map(action => (
-                <Fragment key={action.name}>{action.element}</Fragment>
+                <React.Fragment key={action.name}>{action.element}</React.Fragment>
             ))}
-        </ActionsContainer>
+        </div>
     );
 };

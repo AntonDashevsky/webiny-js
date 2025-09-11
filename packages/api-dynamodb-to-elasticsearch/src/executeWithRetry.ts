@@ -1,7 +1,8 @@
-import { execute, type IExecuteParams } from "~/execute.js";
-import { NotEnoughRemainingTimeError } from "~/NotEnoughRemainingTimeError.js";
+import type { IExecuteParams } from "~/execute";
+import { execute } from "~/execute";
+import { NotEnoughRemainingTimeError } from "~/NotEnoughRemainingTimeError";
 import pRetry from "p-retry";
-import { getNumberEnvVariable } from "./helpers/getNumberEnvVariable.js";
+import { getNumberEnvVariable } from "./helpers/getNumberEnvVariable";
 
 const minRemainingSecondsToTimeout = 120;
 

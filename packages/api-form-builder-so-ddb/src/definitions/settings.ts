@@ -1,0 +1,41 @@
+import type { Table } from "@webiny/db-dynamodb/toolbox";
+import { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { Attributes } from "~/types";
+
+interface Params {
+    table: Table<string, string, string>;
+    entityName: string;
+    attributes: Attributes;
+}
+
+export const createSettingsEntity = (params: Params): Entity<any> => {
+    const { entityName, attributes, table } = params;
+    return new Entity({
+        name: entityName,
+        table,
+        attributes: {
+            PK: {
+                partitionKey: true
+            },
+            SK: {
+                sortKey: true
+            },
+            TYPE: {
+                type: "string"
+            },
+            reCaptcha: {
+                type: "map"
+            },
+            domain: {
+                type: "string"
+            },
+            tenant: {
+                type: "string"
+            },
+            locale: {
+                type: "string"
+            },
+            ...(attributes || {})
+        }
+    });
+};

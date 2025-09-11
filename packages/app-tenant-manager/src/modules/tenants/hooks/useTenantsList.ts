@@ -1,13 +1,13 @@
 import { useCallback, useState } from "react";
-import orderBy from "lodash/orderBy.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import orderBy from "lodash/orderBy";
+import { i18n } from "@webiny/app/i18n";
 import { useRouter } from "@webiny/react-router";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import { DELETE_TENANT, LIST_TENANTS } from "~/graphql/index.js";
-import { useCurrentTenantId } from "./useCurrentTenantId.js";
-import { type TenantItem } from "~/types.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import { DELETE_TENANT, LIST_TENANTS } from "~/graphql";
+import { useCurrentTenantId } from "./useCurrentTenantId";
+import type { TenantItem } from "~/types";
 
 const t = i18n.ns("app-tenant-manager/tenants/data-list");
 

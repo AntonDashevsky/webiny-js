@@ -1,4 +1,4 @@
-import type { Team } from "@webiny/api-security/types.js";
+import type { Team } from "@webiny/api-security/types";
 
 export interface IListTeamsGateway {
     execute: () => Promise<Team[]>;

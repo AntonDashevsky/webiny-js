@@ -1,21 +1,22 @@
-import { type CmsContext, type CmsEntryStorageOperations, type EntryBeforeListTopicParams } from "~/types/index.js";
-import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
+import type { CmsContext, CmsEntryStorageOperations, EntryBeforeListTopicParams } from "~/types";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
 
-import { type Topic } from "@webiny/pubsub/types.js";
-import { ListEntriesOperationWithSearchableFields } from "./ListEntriesOperationWithSearchableFields.js";
-import { ListEntriesOperation } from "./ListEntriesOperation.js";
-import { ListEntriesOperationWithEvents } from "./ListEntriesOperationWithEvents.js";
-import { ListEntriesOperationWithSort } from "./ListEntriesOperationWithSort.js";
-import { ListEntriesOperationWithStatusCheck } from "./ListEntriesOperationWithStatusCheck.js";
-import { ListEntriesSecure } from "~/crud/contentEntry/useCases/ListEntries/ListEntriesSecure.js";
-import { ListEntriesOperationNotDeleted } from "./ListEntriesOperationNotDeleted.js";
-import { ListEntriesOperationDeleted } from "./ListEntriesOperationDeleted.js";
-import { ListEntriesOperationLatest } from "./ListEntriesOperationLatest.js";
-import { ListEntriesOperationPublished } from "./ListEntriesOperationPublished.js";
-import { ListEntries } from "./ListEntries.js";
-import { GetEntry } from "./GetEntry.js";
-import { GetEntrySecure } from "./GetEntrySecure.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import type { Topic } from "@webiny/pubsub/types";
+import { ListEntriesOperationWithSearchableFields } from "./ListEntriesOperationWithSearchableFields";
+import { ListEntriesOperation } from "./ListEntriesOperation";
+import { ListEntriesOperationWithEvents } from "./ListEntriesOperationWithEvents";
+import { ListEntriesOperationWithSort } from "./ListEntriesOperationWithSort";
+import { ListEntriesOperationWithStatusCheck } from "./ListEntriesOperationWithStatusCheck";
+import { ListEntriesSecure } from "~/crud/contentEntry/useCases/ListEntries/ListEntriesSecure";
+import { ListEntriesOperationNotDeleted } from "./ListEntriesOperationNotDeleted";
+import { ListEntriesOperationDeleted } from "./ListEntriesOperationDeleted";
+import { ListEntriesOperationLatest } from "./ListEntriesOperationLatest";
+import { ListEntriesOperationPublished } from "./ListEntriesOperationPublished";
+import { ListEntries } from "./ListEntries";
+import { GetEntry } from "./GetEntry";
+import { GetEntrySecure } from "./GetEntrySecure";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import type { ITransformEntryCallable } from "~/utils/entryStorage.js";
 
 export interface ListEntriesUseCasesTopics {
     onEntryBeforeList: Topic<EntryBeforeListTopicParams>;
@@ -27,10 +28,11 @@ interface ListEntriesUseCasesParams {
     topics: ListEntriesUseCasesTopics;
     context: CmsContext;
     getIdentity: () => SecurityIdentity;
+    transform: ITransformEntryCallable;
 }
 
 export const listEntriesUseCases = (params: ListEntriesUseCasesParams) => {
-    const listOperation = new ListEntriesOperation(params.operation);
+    const listOperation = new ListEntriesOperation(params.operation, params.transform);
     const listOperationWithEvents = new ListEntriesOperationWithEvents(
         params.topics,
         listOperation

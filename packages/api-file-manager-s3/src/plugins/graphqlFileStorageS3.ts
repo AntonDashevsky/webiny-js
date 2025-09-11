@@ -1,15 +1,15 @@
 import { S3 } from "@webiny/aws-sdk/client-s3";
 import pMap from "p-map";
-import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
-import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
-import { type FileManagerContext } from "@webiny/api-file-manager/types.js";
-import { getPresignedPostPayload } from "~/utils/getPresignedPostPayload.js";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import { ErrorResponse, Response } from "@webiny/handler-graphql/responses";
+import type { FileManagerContext } from "@webiny/api-file-manager/types";
+import { getPresignedPostPayload } from "~/utils/getPresignedPostPayload";
 import WebinyError from "@webiny/error";
-import { checkPermissions } from "~/plugins/checkPermissions.js";
-import { type PresignedPostPayloadData } from "~/types.js";
-import { CreateMultiPartUploadUseCase } from "~/multiPartUpload/CreateMultiPartUploadUseCase.js";
-import { CompleteMultiPartUploadUseCase } from "~/multiPartUpload/CompleteMultiPartUploadUseCase.js";
-import { createFileNormalizerFromContext } from "~/utils/createFileNormalizerFromContext.js";
+import { checkPermissions } from "~/plugins/checkPermissions";
+import type { PresignedPostPayloadData } from "~/types";
+import { CreateMultiPartUploadUseCase } from "~/multiPartUpload/CreateMultiPartUploadUseCase";
+import { CompleteMultiPartUploadUseCase } from "~/multiPartUpload/CompleteMultiPartUploadUseCase";
+import { createFileNormalizerFromContext } from "~/utils/createFileNormalizerFromContext";
 
 const plugin: GraphQLSchemaPlugin<FileManagerContext> = {
     type: "graphql-schema",

@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { DataLoadersHandler } from "./dataLoaders.js";
+import { DataLoadersHandler } from "./dataLoaders";
 import type {
     CmsEntry,
     CmsEntryListWhere,
@@ -7,9 +7,9 @@ import type {
     CmsModel,
     CmsStorageEntry,
     StorageOperationsCmsModel
-} from "@webiny/api-headless-cms/types/index.js";
-import { CONTENT_ENTRY_STATUS } from "@webiny/api-headless-cms/types/index.js";
-import type { Entity } from "@webiny/db-dynamodb/toolbox.js";
+} from "@webiny/api-headless-cms/types";
+import { CONTENT_ENTRY_STATUS } from "@webiny/api-headless-cms/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import {
     createGSIPartitionKey,
     createGSISortKey,
@@ -17,30 +17,29 @@ import {
     createPartitionKey,
     createPublishedSortKey,
     createRevisionSortKey
-} from "~/operations/entry/keys.js";
+} from "~/operations/entry/keys";
+import type { QueryAllParams, QueryOneParams } from "@webiny/db-dynamodb";
 import {
     cleanupItem,
     cleanupItems,
     createEntityWriteBatch,
     queryAll,
-    type QueryAllParams,
-    queryOne,
-    type QueryOneParams
+    queryOne
 } from "@webiny/db-dynamodb";
 import type { PluginsContainer } from "@webiny/plugins";
-import { decodeCursor, encodeCursor } from "@webiny/utils/cursor.js";
-import { zeroPad } from "@webiny/utils/zeroPad.js";
+import { decodeCursor, encodeCursor } from "@webiny/utils/cursor";
+import { zeroPad } from "@webiny/utils/zeroPad";
 import { StorageOperationsCmsModelPlugin, StorageTransformPlugin } from "@webiny/api-headless-cms";
-import type { FilterItemFromStorage } from "./filtering/types.js";
-import { createFields } from "~/operations/entry/filtering/createFields.js";
-import { filter, sort } from "~/operations/entry/filtering/index.js";
-import type { CmsEntryStorageOperations } from "~/types.js";
+import type { FilterItemFromStorage } from "./filtering/types";
+import { createFields } from "~/operations/entry/filtering/createFields";
+import { filter, sort } from "~/operations/entry/filtering";
+import type { CmsEntryStorageOperations } from "~/types";
 import {
     isDeletedEntryMetaField,
     isEntryLevelEntryMetaField,
     isRestoredEntryMetaField,
     pickEntryMetaFields
-} from "@webiny/api-headless-cms/constants.js";
+} from "@webiny/api-headless-cms/constants";
 
 const createType = (): string => {
     return "cms.entry";

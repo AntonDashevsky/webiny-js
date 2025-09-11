@@ -1,4 +1,4 @@
-import { CmsApiModel } from "~/plugins";
+import type { CmsApiModel } from "~/plugins";
 
 const fields = /* GraphQL */ `
     id

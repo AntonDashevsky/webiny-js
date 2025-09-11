@@ -1,12 +1,13 @@
-import React, { useState, useCallback, type SyntheticEvent } from "react";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { BlockTitle, blockTitleWrapper, TitleInputWrapper, TitleWrapper } from "./Styled.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { type BlockAtomType } from "~/blockEditor/state/index.js";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
-import { useBlock } from "~/blockEditor/hooks/useBlock.js";
+import type { SyntheticEvent } from "react";
+import React, { useState, useCallback } from "react";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { Input } from "@webiny/ui/Input";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { BlockTitle, blockTitleWrapper, TitleInputWrapper, TitleWrapper } from "./Styled";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import type { BlockAtomType } from "~/blockEditor/state";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
+import { useBlock } from "~/blockEditor/hooks/useBlock";
 
 declare global {
     interface Window {

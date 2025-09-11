@@ -1,4 +1,4 @@
-import { type BoolQueryConfig } from "@webiny/api-elasticsearch/types.js";
+import type { BoolQueryConfig } from "@webiny/api-elasticsearch/types";
 
 /**
  * This function will assign a minimum_should_match for the query if conditions are met:

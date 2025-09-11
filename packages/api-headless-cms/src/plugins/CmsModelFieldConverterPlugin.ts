@@ -2,8 +2,8 @@
  * Field converters are used to convert the fieldId to storageId and vice versa.
  */
 import { Plugin } from "@webiny/plugins";
-import { type CmsEntryValues, type CmsModelFieldWithParent } from "~/types/index.js";
-import { type ConverterCollection } from "~/utils/converters/ConverterCollection.js";
+import type { CmsEntryValues, CmsModelFieldWithParent } from "~/types";
+import type { ConverterCollection } from "~/utils/converters/ConverterCollection";
 
 export interface ConvertParams<F = CmsModelFieldWithParent> {
     field: F;

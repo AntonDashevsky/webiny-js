@@ -1,9 +1,9 @@
 import React from "react";
-import Text from "../../../components/Text.js";
+import Text from "../../../components/Text";
 import { createRenderer, useRenderer } from "@webiny/app-page-builder-elements";
-import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue.js";
-import { useActiveElementId } from "~/editor/hooks/useActiveElementId.js";
-import { type CoreOptions } from "medium-editor";
+import { useElementVariableValue } from "~/editor/hooks/useElementVariableValue";
+import { useActiveElementId } from "~/editor/hooks/useActiveElementId";
+import type { CoreOptions } from "medium-editor";
 
 const mediumEditorOptions: CoreOptions = {
     toolbar: {

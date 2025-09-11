@@ -1,9 +1,17 @@
 import { ContextPlugin } from "@webiny/api";
-import { createSubscriptionHooks } from "~/subscriptions/index.js";
-import { type AuditLogsContext } from "~/types.js";
-import { createAcoAuditLogsContext } from "~/app/index.js";
+import { createSubscriptionHooks } from "~/subscriptions";
+import type { AuditLogsContext } from "~/types";
+import { createAcoAuditLogsContext } from "~/context/index.js";
+import { createGraphQLSchema } from "~/graphql/schema.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb/index.js";
 
-export const createAuditLogs = () => {
+export interface ICreateAuditLogsParams {
+    deleteLogsAfterDays: number | undefined;
+    tableName?: string;
+    documentClient?: DynamoDBDocument;
+}
+
+export const createAuditLogs = (params?: ICreateAuditLogsParams) => {
     const subscriptionsPlugin = new ContextPlugin<AuditLogsContext>(async context => {
         if (!context.wcp.canUseFeature("auditLogs")) {
             return;
@@ -13,8 +21,15 @@ export const createAuditLogs = () => {
 
     subscriptionsPlugin.name = "auditLogs.context.subscriptions";
 
-    return [subscriptionsPlugin, createAcoAuditLogsContext()];
+    return [
+        subscriptionsPlugin,
+        createGraphQLSchema(),
+        createAcoAuditLogsContext({
+            tableName: params?.tableName,
+            deleteLogsAfterDays: params?.deleteLogsAfterDays,
+            documentClient: params?.documentClient
+        })
+    ];
 };
-
-export * from "~/config.js";
-export * from "~/app/createAppModifier.js";
+export * from "~/config";
+export * from "~/context/lifecycle.js";

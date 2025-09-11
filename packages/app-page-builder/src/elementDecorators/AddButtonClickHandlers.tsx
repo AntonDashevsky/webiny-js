@@ -1,7 +1,7 @@
 import React from "react";
 import { plugins } from "@webiny/plugins";
-import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button.js";
-import { type PbButtonElementClickHandlerPlugin } from "~/types.js";
+import { ButtonRenderer } from "@webiny/app-page-builder-elements/renderers/button";
+import type { PbButtonElementClickHandlerPlugin } from "~/types";
 
 export const AddButtonClickHandlers = ButtonRenderer.createDecorator(Original => {
     return function ButtonWithClickHandlers(props) {

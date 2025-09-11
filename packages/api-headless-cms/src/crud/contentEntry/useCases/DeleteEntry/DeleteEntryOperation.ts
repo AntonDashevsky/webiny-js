@@ -1,9 +1,9 @@
-import { type IDeleteEntryOperation } from "../../abstractions/index.js";
-import {
-    type CmsEntryStorageOperations,
-    type CmsEntryStorageOperationsDeleteParams,
-    type CmsModel
-} from "~/types/index.js";
+import type { IDeleteEntryOperation } from "../../abstractions";
+import type {
+    CmsEntryStorageOperations,
+    CmsEntryStorageOperationsDeleteParams,
+    CmsModel
+} from "~/types";
 
 export class DeleteEntryOperation implements IDeleteEntryOperation {
     private operation: CmsEntryStorageOperations["delete"];

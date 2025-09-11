@@ -1,48 +1,70 @@
 import React from "react";
 
-import { ReactComponent as Folder } from "@material-design-icons/svg/outlined/folder.svg";
-import { ReactComponent as FolderShared } from "@material-design-icons/svg/outlined/folder_shared.svg";
-import { ReactComponent as Image } from "@material-design-icons/svg/outlined/insert_photo.svg";
-import { ReactComponent as File } from "@material-design-icons/svg/outlined/description.svg";
-
-import { RowIcon, RowText, RowTitle } from "./Cells.styled.js";
-import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
-import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
-import { type FileTableItem } from "~/types.js";
-import { type FolderTableItem } from "@webiny/app-aco/types.js";
+import { FolderIcon, FolderSharedIcon } from "@webiny/app-aco";
+import { useFileManagerView } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig";
+import type { FolderItem } from "@webiny/app-aco/types";
+import { cn, Text } from "@webiny/admin-ui";
+import { CellThumbnail } from "./CellThumbnail";
+import { FileProvider } from "~/contexts/FileProvider";
+import type { FileItem } from "@webiny/app-admin/types";
 
 interface DefaultProps {
     onClick: (id: string) => void;
 }
 
 interface FolderCellNameProps extends DefaultProps {
-    folder: FolderTableItem;
+    folder: FolderItem;
 }
 
 export const FolderCellName = ({ folder, onClick }: FolderCellNameProps) => {
-    let icon = <Folder />;
+    let icon = <FolderIcon width={32} height={32} />;
     if (folder.hasNonInheritedPermissions && folder.canManagePermissions) {
-        icon = <FolderShared />;
+        icon = <FolderSharedIcon width={32} height={32} />;
     }
 
     return (
-        <RowTitle onClick={() => onClick(folder.id)}>
-            <RowIcon>{icon}</RowIcon>
-            <RowText use={"subtitle2"}>{folder.title}</RowText>
-        </RowTitle>
+        <div
+            className={cn([
+                "wby-flex wby-items-center wby-gap-md",
+                "wby-truncate wby-cursor-pointer wby-font-semibold",
+                "hover:wby-underline"
+            ])}
+            onClick={() => onClick(folder.id)}
+        >
+            <div className={"wby-size-xl wby-rounded-md wby-overflow-hidden wby-flex-shrink-0"}>
+                {icon}
+            </div>
+            <Text className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>{folder.title}</Text>
+        </div>
     );
 };
 
 interface FileCellNameProps extends DefaultProps {
-    file: FileTableItem;
+    file: FileItem;
 }
 
 export const FileCellName = ({ file, onClick }: FileCellNameProps) => {
     return (
-        <RowTitle onClick={() => onClick(file.id)}>
-            <RowIcon>{file.type && file.type.includes("image") ? <Image /> : <File />}</RowIcon>
-            <RowText use={"subtitle2"}>{file.name}</RowText>
-        </RowTitle>
+        <div
+            className={cn([
+                "wby-flex wby-items-center wby-gap-md",
+                "wby-truncate wby-cursor-pointer",
+                "hover:wby-underline"
+            ])}
+            onClick={() => onClick(file.id)}
+        >
+            <FileProvider file={file}>
+                <div
+                    className={
+                        "wby-size-xl wby-aspect-square wby-rounded-md wby-bg-neutral-muted wby-overflow-hidden wby-flex-shrink-0"
+                    }
+                >
+                    <CellThumbnail />
+                </div>
+            </FileProvider>
+            <Text className={"wby-truncate wby-min-w-0 wby-flex-shrink"}>{file.name}</Text>
+        </div>
     );
 };
 
@@ -52,8 +74,8 @@ export const CellName = () => {
     const { showFileDetails, setFolderId } = useFileManagerView();
 
     if (isFolderRow(row)) {
-        return <FolderCellName folder={row} onClick={setFolderId} />;
+        return <FolderCellName folder={row.data} onClick={setFolderId} />;
     }
 
-    return <FileCellName file={row} onClick={showFileDetails} />;
+    return <FileCellName file={row.data} onClick={showFileDetails} />;
 };

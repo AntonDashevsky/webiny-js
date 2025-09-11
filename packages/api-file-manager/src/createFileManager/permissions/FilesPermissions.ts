@@ -1,4 +1,4 @@
-import { AppPermissions } from "@webiny/api-security/utils/AppPermissions.js";
-import { type FilePermission } from "~/types.js";
+import { AppPermissions } from "@webiny/api-security/utils/AppPermissions";
+import type { FilePermission } from "~/types";
 
 export class FilesPermissions extends AppPermissions<FilePermission> {}

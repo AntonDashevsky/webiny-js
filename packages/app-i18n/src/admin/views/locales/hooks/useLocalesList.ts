@@ -1,14 +1,15 @@
 import { useCallback, useState } from "react";
-import orderBy from "lodash/orderBy.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import orderBy from "lodash/orderBy";
+import { i18n } from "@webiny/app/i18n";
 import { useRouter } from "@webiny/react-router";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import { useI18N } from "~/hooks/useI18N.js";
-import { LIST_LOCALES, DELETE_LOCALE, type ListI18NLocalesResponse } from "./graphql.js";
-import { useCurrentLocale } from "./useCurrentLocale.js";
-import { type I18NLocaleItem } from "~/types.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import { useI18N } from "~/hooks/useI18N";
+import type { ListI18NLocalesResponse } from "./graphql";
+import { LIST_LOCALES, DELETE_LOCALE } from "./graphql";
+import { useCurrentLocale } from "./useCurrentLocale";
+import type { I18NLocaleItem } from "~/types";
 
 const t = i18n.ns("app-i18n/admin/locales/data-list");
 

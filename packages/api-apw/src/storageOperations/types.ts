@@ -1,11 +1,11 @@
-import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import {
-    type ApwReviewerStorageOperations as BaseApwReviewerStorageOperations,
-    type ApwWorkflowStorageOperations as BaseApwWorkflowStorageOperations,
-    type ApwContentReviewStorageOperations as BaseApwContentReviewStorageOperations,
-    type ApwChangeRequestStorageOperations as BaseApwChangeRequestStorageOperations,
-    type ApwCommentStorageOperations as BaseApwCommentStorageOperations
-} from "~/types.js";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
+import type {
+    ApwReviewerStorageOperations as BaseApwReviewerStorageOperations,
+    ApwWorkflowStorageOperations as BaseApwWorkflowStorageOperations,
+    ApwContentReviewStorageOperations as BaseApwContentReviewStorageOperations,
+    ApwChangeRequestStorageOperations as BaseApwChangeRequestStorageOperations,
+    ApwCommentStorageOperations as BaseApwCommentStorageOperations
+} from "~/types";
 
 export interface ApwCommentStorageOperations extends BaseApwCommentStorageOperations {
     /**

@@ -6,12 +6,12 @@ import yauzl from "yauzl";
 import { createWriteStream } from "fs";
 import uniqueId from "uniqid";
 import WebinyError from "@webiny/error";
-import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles.js";
-import { extractZipAndUploadToS3 } from "~/import/utils/extractZipAndUploadToS3.js";
-import { getFileNameWithoutExt } from "~/import/utils/getFileNameWithoutExt.js";
-import { type ImportData } from "~/types.js";
-import { INSTALL_DIR } from "~/import/constants.js";
-import fs from "fs-extra";
+import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
+import { extractZipAndUploadToS3 } from "~/import/utils/extractZipAndUploadToS3";
+import { getFileNameWithoutExt } from "~/import/utils/getFileNameWithoutExt";
+import type { ImportData } from "~/types";
+import { INSTALL_DIR } from "~/import/constants";
+import { ensureDirSync } from "fs-extra";
 
 const streamPipeline = promisify(pipeline);
 
@@ -68,7 +68,7 @@ function extractZipToDisk(exportFileZipPath: string): Promise<string[]> {
         const uniqueFolderNameForExport = getFileNameWithoutExt(exportFileZipPath);
         const EXPORT_FILE_EXTRACTION_PATH = path.join(INSTALL_DIR, uniqueFolderNameForExport);
         // Make sure DIR exists
-        fs.ensureDirSync(EXPORT_FILE_EXTRACTION_PATH);
+        ensureDirSync(EXPORT_FILE_EXTRACTION_PATH);
 
         yauzl.open(exportFileZipPath, { lazyEntries: true }, function (err, zipFile) {
             if (err) {

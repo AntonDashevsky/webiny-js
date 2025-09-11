@@ -1,12 +1,7 @@
 import { createContentModelGroup } from "./contentModelGroup";
-import { CmsModel } from "~/types";
-import {
-    CmsGroupPlugin,
-    CmsModelInput,
-    CmsModelPlugin,
-    createCmsGroupPlugin,
-    createCmsModelPlugin
-} from "~/plugins";
+import type { CmsModel } from "~/types";
+import type { CmsGroupPlugin, CmsModelInput, CmsModelPlugin } from "~/plugins";
+import { createCmsGroupPlugin, createCmsModelPlugin } from "~/plugins";
 
 const contentModelGroup = createContentModelGroup();
 const webinyVersion = "0.0.0";

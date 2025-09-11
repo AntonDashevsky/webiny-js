@@ -1,5 +1,5 @@
-import { type GenericRecord } from "@webiny/api/types.js";
-import { type IWebsocketsConnectionRegistryData } from "~/registry/index.js";
+import type { GenericRecord } from "@webiny/api/types";
+import type { IWebsocketsConnectionRegistryData } from "~/registry";
 
 export interface IWebsocketsTransportSendDataError {
     message: string;

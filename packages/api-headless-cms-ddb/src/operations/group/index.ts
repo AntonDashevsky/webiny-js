@@ -1,20 +1,21 @@
-import {
-    type CmsGroup,
-    type CmsGroupStorageOperations,
-    type CmsGroupStorageOperationsCreateParams,
-    type CmsGroupStorageOperationsDeleteParams,
-    type CmsGroupStorageOperationsGetParams,
-    type CmsGroupStorageOperationsListParams,
-    type CmsGroupStorageOperationsUpdateParams
-} from "@webiny/api-headless-cms/types/index.js";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
+import type {
+    CmsGroup,
+    CmsGroupStorageOperations,
+    CmsGroupStorageOperationsCreateParams,
+    CmsGroupStorageOperationsDeleteParams,
+    CmsGroupStorageOperationsGetParams,
+    CmsGroupStorageOperationsListParams,
+    CmsGroupStorageOperationsUpdateParams
+} from "@webiny/api-headless-cms/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import WebinyError from "@webiny/error";
-import { getClean } from "@webiny/db-dynamodb/utils/get.js";
-import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
-import { type PluginsContainer } from "@webiny/plugins";
-import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin.js";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
+import { getClean } from "@webiny/db-dynamodb/utils/get";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter";
+import type { PluginsContainer } from "@webiny/plugins";
+import { ValueFilterPlugin } from "@webiny/db-dynamodb/plugins/definitions/ValueFilterPlugin";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort";
 import { deleteItem, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

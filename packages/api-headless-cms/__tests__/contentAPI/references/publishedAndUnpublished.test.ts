@@ -3,7 +3,7 @@ import { useArticleManageHandler } from "../../testHelpers/useArticleManageHandl
 import { useArticleReadHandler } from "../../testHelpers/useArticleReadHandler";
 import { useGraphQLHandler } from "../../testHelpers/useGraphQLHandler";
 import { setupContentModelGroup, setupContentModels } from "../../testHelpers/setup";
-import { GenericRecord } from "@webiny/api/types";
+import type { GenericRecord } from "@webiny/api/types";
 import slugify from "slugify";
 
 interface ICreateCategoryItemPrams {

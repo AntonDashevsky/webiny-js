@@ -1,5 +1,5 @@
-import { type DataSourceData } from "./IResolveDataSourceRepository.js";
-import { ListCache } from "~/features/ListCache.js";
+import type { DataSourceData } from "./IResolveDataSourceRepository";
+import { ListCache } from "~/features/ListCache";
 
 export type DataSourceCache = {
     // Data source name.

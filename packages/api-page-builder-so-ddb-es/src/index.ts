@@ -1,54 +1,55 @@
-import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters/index.js";
+import dynamoDbValueFilters from "@webiny/db-dynamodb/plugins/filters";
 import { PluginsContainer } from "@webiny/plugins";
 
 import { ElasticsearchQueryBuilderOperatorPlugin } from "@webiny/api-elasticsearch";
 
-import { ENTITIES, type StorageOperationsFactory } from "~/types.js";
-import { createTable } from "~/definitions/table.js";
-import { createElasticsearchTable } from "~/definitions/tableElasticsearch.js";
+import type { StorageOperationsFactory } from "~/types";
+import { ENTITIES } from "~/types";
+import { createTable } from "~/definitions/table";
+import { createElasticsearchTable } from "~/definitions/tableElasticsearch";
 
-import { elasticsearchIndexPlugins } from "~/elasticsearch/indices/index.js";
-import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex.js";
+import { elasticsearchIndexPlugins } from "~/elasticsearch/indices";
+import { createElasticsearchIndex } from "~/elasticsearch/createElasticsearchIndex";
 
-import { createCategoryEntity } from "~/definitions/categoryEntity.js";
-import { createCategoryDynamoDbFields } from "~/operations/category/fields.js";
-import { createCategoryStorageOperations } from "~/operations/category/index.js";
+import { createCategoryEntity } from "~/definitions/categoryEntity";
+import { createCategoryDynamoDbFields } from "~/operations/category/fields";
+import { createCategoryStorageOperations } from "~/operations/category";
 
-import { createMenuEntity } from "~/definitions/menuEntity.js";
-import { createMenuDynamoDbFields } from "~/operations/menu/fields.js";
-import { createMenuStorageOperations } from "~/operations/menu/index.js";
+import { createMenuEntity } from "~/definitions/menuEntity";
+import { createMenuDynamoDbFields } from "~/operations/menu/fields";
+import { createMenuStorageOperations } from "~/operations/menu";
 
-import { createPageElementEntity } from "~/definitions/pageElementEntity.js";
-import { createPageElementDynamoDbFields } from "~/operations/pageElement/fields.js";
-import { createPageElementStorageOperations } from "~/operations/pageElement/index.js";
+import { createPageElementEntity } from "~/definitions/pageElementEntity";
+import { createPageElementDynamoDbFields } from "~/operations/pageElement/fields";
+import { createPageElementStorageOperations } from "~/operations/pageElement";
 
-import { createSettingsEntity } from "~/definitions/settingsEntity.js";
-import { createSettingsStorageOperations } from "~/operations/settings/index.js";
+import { createSettingsEntity } from "~/definitions/settingsEntity";
+import { createSettingsStorageOperations } from "~/operations/settings";
 
-import { createSystemEntity } from "~/definitions/systemEntity.js";
-import { createSystemStorageOperations } from "~/operations/system/index.js";
+import { createSystemEntity } from "~/definitions/systemEntity";
+import { createSystemStorageOperations } from "~/operations/system";
 
-import { createPageEntity } from "~/definitions/pageEntity.js";
+import { createPageEntity } from "~/definitions/pageEntity";
 import {
     createPagesDynamoDbFields,
     createPagesElasticsearchFields
-} from "~/operations/pages/fields.js";
-import { createPageStorageOperations } from "~/operations/pages/index.js";
-import { createPageElasticsearchEntity } from "~/definitions/pageElasticsearchEntity.js";
+} from "~/operations/pages/fields";
+import { createPageStorageOperations } from "~/operations/pages";
+import { createPageElasticsearchEntity } from "~/definitions/pageElasticsearchEntity";
 
-import { createBlockCategoryEntity } from "~/definitions/blockCategoryEntity.js";
-import { createBlockCategoryDynamoDbFields } from "~/operations/blockCategory/fields.js";
-import { createBlockCategoryStorageOperations } from "~/operations/blockCategory/index.js";
+import { createBlockCategoryEntity } from "~/definitions/blockCategoryEntity";
+import { createBlockCategoryDynamoDbFields } from "~/operations/blockCategory/fields";
+import { createBlockCategoryStorageOperations } from "~/operations/blockCategory";
 
-import { createPageBlockEntity } from "~/definitions/pageBlockEntity.js";
-import { createPageBlockDynamoDbFields } from "~/operations/pageBlock/fields.js";
-import { createPageBlockStorageOperations } from "~/operations/pageBlock/index.js";
+import { createPageBlockEntity } from "~/definitions/pageBlockEntity";
+import { createPageBlockDynamoDbFields } from "~/operations/pageBlock/fields";
+import { createPageBlockStorageOperations } from "~/operations/pageBlock";
 
-import { createPageTemplateEntity } from "~/definitions/pageTemplateEntity.js";
-import { createPageTemplateDynamoDbFields } from "~/operations/pageTemplate/fields.js";
-import { createPageTemplateStorageOperations } from "~/operations/pageTemplate/index.js";
+import { createPageTemplateEntity } from "~/definitions/pageTemplateEntity";
+import { createPageTemplateDynamoDbFields } from "~/operations/pageTemplate/fields";
+import { createPageTemplateStorageOperations } from "~/operations/pageTemplate";
 
-import { type PbContext } from "@webiny/api-page-builder/types.js";
+import type { PbContext } from "@webiny/api-page-builder/types";
 import {
     BlockCategoryDynamoDbElasticFieldPlugin,
     CategoryDynamoDbElasticFieldPlugin,
@@ -65,11 +66,11 @@ import {
     SearchLatestPagesPlugin,
     SearchPagesPlugin,
     SearchPublishedPagesPlugin
-} from "./plugins/index.js";
-import { createIndexTaskPlugin } from "~/tasks/createIndexTaskPlugin.js";
+} from "./plugins";
+import { createIndexTaskPlugin } from "~/tasks/createIndexTaskPlugin";
 import { CompressorPlugin } from "@webiny/api";
 
-export * from "./plugins/index.js";
+export * from "./plugins";
 
 export const createStorageOperations: StorageOperationsFactory = params => {
     const {

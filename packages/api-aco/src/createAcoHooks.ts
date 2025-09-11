@@ -1,9 +1,9 @@
-import { onFolderBeforeDeleteAcoHook } from "~/folder/onFolderBeforeDeleteAco.hook.js";
-import { onFolderBeforeDeleteHcmsHook } from "~/folder/onFolderBeforeDeleteHcms.hook.js";
-import { onFolderBeforeDeleteFmHook } from "~/folder/onFolderBeforeDeleteFm.hook.js";
-import { createFlpHooks } from "~/flp/index.js";
+import { onFolderBeforeDeleteAcoHook } from "~/folder/onFolderBeforeDeleteAco.hook";
+import { onFolderBeforeDeleteHcmsHook } from "~/folder/onFolderBeforeDeleteHcms.hook";
+import { onFolderBeforeDeleteFmHook } from "~/folder/onFolderBeforeDeleteFm.hook";
+import { createFlpHooks } from "~/flp";
 
-import { type AcoContext } from "~/types.js";
+import type { AcoContext } from "~/types";
 
 export const createAcoHooks = (context: AcoContext) => {
     onFolderBeforeDeleteAcoHook(context);

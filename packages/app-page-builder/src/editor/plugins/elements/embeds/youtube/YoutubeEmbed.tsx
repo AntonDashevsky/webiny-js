@@ -1,7 +1,7 @@
 import * as React from "react";
 import { css } from "emotion";
 import { get } from "dot-prop-immutable";
-import { type OEmbedProps } from "~/editor/components/OEmbed.js";
+import type { OEmbedProps } from "~/editor/components/OEmbed";
 
 const outerWrapper = css({
     boxSizing: "border-box"

@@ -1,6 +1,6 @@
-import { type GraphQLSchemaPlugin } from "@webiny/handler-graphql/types.js";
-import { resolve } from "./utils/resolve.js";
-import { type PbImportExportContext } from "../types.js";
+import type { GraphQLSchemaPlugin } from "@webiny/handler-graphql/types";
+import { resolve } from "./utils/resolve";
+import type { PbImportExportContext } from "../types";
 
 const plugin: GraphQLSchemaPlugin<PbImportExportContext> = {
     type: "graphql-schema",

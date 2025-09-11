@@ -1,6 +1,7 @@
-import type { Context as LambdaContext } from "@webiny/aws-sdk/types/index.js";
-import { type Context as BaseContext, type Reply } from "@webiny/handler/types.js";
-import { EventPlugin, type EventPluginCallableParams } from "@webiny/handler";
+import type { Context as LambdaContext } from "@webiny/aws-sdk/types";
+import type { Context as BaseContext, Reply } from "@webiny/handler/types";
+import type { EventPluginCallableParams } from "@webiny/handler";
+import { EventPlugin } from "@webiny/handler";
 
 export interface RawEventHandlerCallableParams<Event, Context extends BaseContext>
     extends EventPluginCallableParams<Event, Context> {
@@ -10,17 +11,47 @@ export interface RawEventHandlerCallable<Event, Context extends BaseContext, Res
     (params: RawEventHandlerCallableParams<Event, Context>): Promise<Response | Reply>;
 }
 
+export interface RawEventHandlerParamsConfig<
+    Event = any,
+    Context extends BaseContext = BaseContext,
+    Response = any
+> {
+    canHandle(event: Event): boolean;
+    handle: RawEventHandlerCallable<Event, Context, Response>;
+}
+
+export type RawEventHandlerParams<
+    Event = any,
+    Context extends BaseContext = BaseContext,
+    Response = any
+> =
+    | RawEventHandlerCallable<Event, Context, Response>
+    | RawEventHandlerParamsConfig<Event, Context, Response>;
+
 export class RawEventHandler<
     Event = any,
     Context extends BaseContext = BaseContext,
     Response = any
 > extends EventPlugin<Event, Context, Response> {
-    public constructor(cb: RawEventHandlerCallable<Event, Context, Response>) {
+    private readonly params: RawEventHandlerParams<Event, Context, Response>;
+
+    public constructor(params: RawEventHandlerParams<Event, Context, Response>) {
+        const cb = typeof params === "function" ? params : params.handle;
         /**
          * Callable is correct, TS is just having problems with the override.
          */
         // @ts-expect-error
         super(cb);
+        this.params = params;
+    }
+    /**
+     *
+     */
+    public canHandle(event: Event): boolean {
+        if (typeof this.params === "function" || !this.params?.canHandle) {
+            return true;
+        }
+        return this.params.canHandle(event);
     }
 }
 
@@ -29,7 +60,7 @@ export const createEventHandler = <
     Context extends BaseContext = BaseContext,
     Response = any
 >(
-    cb: RawEventHandlerCallable<Event, Context, Response>
+    params: RawEventHandlerParams<Event, Context, Response>
 ) => {
-    return new RawEventHandler<Event, Context, Response>(cb);
+    return new RawEventHandler<Event, Context, Response>(params);
 };

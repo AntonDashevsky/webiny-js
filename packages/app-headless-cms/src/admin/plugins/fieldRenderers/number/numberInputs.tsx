@@ -1,12 +1,11 @@
 import React from "react";
-import get from "lodash/get.js";
-import { type CmsModelFieldRendererPlugin } from "~/types.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import DynamicSection from "../DynamicSection.js";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
-import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings.js";
+import get from "lodash/get";
+import type { CmsModelFieldRendererPlugin } from "~/types";
+import { i18n } from "@webiny/app/i18n";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
+import DynamicSection from "../DynamicSection";
+import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";
+import { DelayedOnChange, Icon, Input } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");
 
@@ -40,10 +39,14 @@ const plugin: CmsModelFieldRendererPlugin = {
                                 placeholder={props.field.placeholderText}
                                 data-testid={`fr.input.numbers.${props.field.label}.${index + 1}`}
                                 type="number"
-                                trailingIcon={{
-                                    icon: <DeleteIcon />,
-                                    onClick: () => bind.field.removeValue(index)
-                                }}
+                                endIcon={
+                                    <Icon
+                                        icon={<DeleteIcon />}
+                                        label={"Delete"}
+                                        onClick={() => bind.field.removeValue(index)}
+                                        className={"wby-cursor-pointer"}
+                                    />
+                                }
                             />
                         </DelayedOnChange>
                     )}

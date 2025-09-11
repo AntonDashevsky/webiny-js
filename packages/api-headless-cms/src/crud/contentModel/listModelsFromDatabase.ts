@@ -1,11 +1,11 @@
-import { type CmsModel, type HeadlessCmsStorageOperations } from "~/types/index.js";
+import type { CmsModel, HeadlessCmsStorageOperations } from "~/types";
 import {
     ensurePluralApiName,
     ensureSingularApiName
-} from "~/crud/contentModel/compatibility/modelApiName.js";
-import { type Tenant } from "@webiny/api-tenancy/types.js";
-import { type I18NLocale } from "@webiny/api-i18n/types.js";
-import { ensureTypeTag } from "./ensureTypeTag.js";
+} from "~/crud/contentModel/compatibility/modelApiName";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocale } from "@webiny/api-i18n/types";
+import { ensureTypeTag } from "./ensureTypeTag";
 
 interface Params {
     storageOperations: HeadlessCmsStorageOperations;

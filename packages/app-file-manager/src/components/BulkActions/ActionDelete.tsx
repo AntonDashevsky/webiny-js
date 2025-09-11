@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete.svg";
+import { Tooltip } from "@webiny/admin-ui";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete.svg";
 import { observer } from "mobx-react-lite";
 
 import { FileManagerViewConfig } from "~/modules/FileManagerRenderer/FileManagerView/FileManagerViewConfig.js";
@@ -12,7 +13,7 @@ export const ActionDelete = observer(() => {
     const { canDelete } = useFileManagerApi();
 
     const { useWorker, useButtons, useDialog } = FileManagerViewConfig.Browser.BulkAction;
-    const { IconButton } = useButtons();
+    const { ButtonDefault } = useButtons();
     const worker = useWorker();
     const { showConfirmationDialog, showResultsDialog } = useDialog();
 
@@ -62,11 +63,14 @@ export const ActionDelete = observer(() => {
     }
 
     return (
-        <IconButton
-            icon={<DeleteIcon />}
-            onAction={openDeleteDialog}
-            label={`Delete ${filesLabel}`}
-            tooltipPlacement={"bottom"}
+        <Tooltip
+            side={"bottom"}
+            content={`Delete ${filesLabel}`}
+            trigger={
+                <ButtonDefault icon={<DeleteIcon />} onAction={openDeleteDialog} size={"sm"}>
+                    {`Delete`}
+                </ButtonDefault>
+            }
         />
     );
 });

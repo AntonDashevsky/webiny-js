@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from "react";
 import { makeDecoratable } from "@webiny/react-composition";
-import { type Element } from "~/types.js";
-import { type ElementInputs as TElementInputs, type ElementInputValues } from "~/inputs/ElementInput.js";
+import type { Element } from "~/types";
+import type { ElementInputs as TElementInputs, ElementInputValues } from "~/inputs/ElementInput";
 
 type ElementRendererInputsContext<T extends TElementInputs = TElementInputs> =
     ElementInputValues<T>;

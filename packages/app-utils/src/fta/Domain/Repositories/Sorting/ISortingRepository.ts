@@ -1,6 +1,6 @@
-import { type Sorting } from "~/fta/Domain/Models/index.js";
+import type { Sorting } from "~/fta/Domain/Models";
 
 export interface ISortingRepository {
-    set: (sorts: Sorting[]) => void;
+    set: (sorts: Sorting[]) => Promise<void>;
     get: () => Sorting[];
 }

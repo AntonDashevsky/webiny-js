@@ -1,15 +1,11 @@
 import React, { useEffect, useMemo } from "react";
-import {
-    type ElementFormatType,
-    FORMAT_ELEMENT_COMMAND,
-    INDENT_CONTENT_COMMAND,
-    OUTDENT_CONTENT_COMMAND
-} from "lexical";
+import type { ElementFormatType } from "lexical";
+import { FORMAT_ELEMENT_COMMAND, INDENT_CONTENT_COMMAND, OUTDENT_CONTENT_COMMAND } from "lexical";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
-import { TextAlignmentActionContext } from "~/context/TextAlignmentActionContextProps.js";
-import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection.js";
-import { getSelectedNode } from "~/utils/getSelectedNode.js";
-import { useRichTextEditor } from "~/hooks/index.js";
+import { TextAlignmentActionContext } from "~/context/TextAlignmentActionContextProps";
+import { useDeriveValueFromSelection } from "~/hooks/useCurrentSelection";
+import { getSelectedNode } from "~/utils/getSelectedNode";
+import { useRichTextEditor } from "~/hooks";
 
 /*
  * Base text alignment dropdown composable component.

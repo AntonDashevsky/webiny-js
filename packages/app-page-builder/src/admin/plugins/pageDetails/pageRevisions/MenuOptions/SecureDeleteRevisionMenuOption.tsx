@@ -1,11 +1,9 @@
 import React, { useMemo } from "react";
-import { usePagesPermissions } from "~/hooks/permissions/index.js";
+import { usePagesPermissions } from "~/hooks/permissions";
 import { useGetFolderLevelPermission } from "@webiny/app-aco";
 
-import {
-    DeleteRevisionMenuOption,
-    type DeleteRevisionMenuOptionProps
-} from "./DeleteRevisionMenuOption.js";
+import type { DeleteRevisionMenuOptionProps } from "./DeleteRevisionMenuOption";
+import { DeleteRevisionMenuOption } from "./DeleteRevisionMenuOption";
 
 export const SecureDeleteRevisionMenuOption = (props: DeleteRevisionMenuOptionProps) => {
     const { page } = props;

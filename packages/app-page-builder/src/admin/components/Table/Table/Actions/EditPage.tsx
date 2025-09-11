@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Edit } from "@material-design-icons/svg/outlined/edit.svg";
+import { ReactComponent as Edit } from "@webiny/icons/edit.svg";
 import { makeDecoratable } from "@webiny/app-admin";
 import { PageListConfig } from "~/admin/config/pages/index.js";
 import { usePage } from "~/admin/views/Pages/hooks/usePage.js";
@@ -11,7 +11,7 @@ export const EditPage = makeDecoratable("EditPage", () => {
     const { OptionsMenuItem, OptionsMenuLink } = PageListConfig.Browser.PageAction;
     const { getPageEditorUrl, navigateToPageEditor } = useNavigatePage();
     const { createPageFromMutation, loading } = useCreatePageFrom({
-        page: page.data,
+        page: page,
         onSuccess: data => navigateToPageEditor(data.id)
     });
 
@@ -31,7 +31,7 @@ export const EditPage = makeDecoratable("EditPage", () => {
         <OptionsMenuLink
             icon={<Edit />}
             label={"Edit"}
-            to={getPageEditorUrl(page.data.id)}
+            to={getPageEditorUrl(page.id)}
             data-testid={"aco.actions.pb.page.edit"}
         />
     );

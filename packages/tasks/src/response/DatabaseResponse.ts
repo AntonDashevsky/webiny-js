@@ -1,6 +1,6 @@
-import { TaskDataStatus, TaskResponseStatus } from "~/types.js";
+import { TaskDataStatus, TaskResponseStatus } from "~/types";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
+import type {
     IResponse,
     IResponseAsync,
     IResponseContinueParams,
@@ -10,9 +10,9 @@ import {
     IResponseErrorParams,
     IResponseErrorResult,
     IResponseResult
-} from "./abstractions/index.js";
-import { ITaskManagerStorePrivate } from "~/runner/abstractions/index.js";
-import { getErrorProperties } from "~/utils/getErrorProperties.js";
+} from "./abstractions";
+import type { ITaskManagerStorePrivate } from "~/runner/abstractions";
+import { getErrorProperties } from "~/utils/getErrorProperties";
 
 export class DatabaseResponse implements IResponseAsync {
     public readonly response: IResponse;

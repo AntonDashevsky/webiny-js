@@ -1,25 +1,25 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import classNames from "classnames";
-import orderBy from "lodash/orderBy.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
+import orderBy from "lodash/orderBy";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
 import { plugins } from "@webiny/plugins";
-import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout/index.js";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
-import { ScrollList, ListItem, ListItemGraphic } from "@webiny/ui/List/index.js";
-import { Icon } from "@webiny/ui/Icon/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { type GenericFormData } from "@webiny/form";
+import { OverlayLayout } from "@webiny/app-admin/components/OverlayLayout";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
+import { ScrollList, ListItem, ListItemGraphic } from "@webiny/ui/List";
+import { Icon } from "@webiny/ui/Icon";
+import { Typography } from "@webiny/ui/Typography";
+import type { GenericFormData } from "@webiny/form";
 import { ReactComponent as SearchIcon } from "~/editor/assets/icons/search.svg";
 import {
     SimpleForm,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+} from "@webiny/app-admin/components/SimpleForm";
 
-import { ReactComponent as AllIcon } from "@material-design-icons/svg/round/clear_all.svg";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
-import { BlocksList } from "./BlocksList.js";
-import EditBlockDialog from "./EditBlockDialog.js";
+import { ReactComponent as AllIcon } from "@webiny/icons/clear_all.svg";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
+import { BlocksList } from "./BlocksList";
+import EditBlockDialog from "./EditBlockDialog";
 import {
     IconWrapper,
     listItem,
@@ -27,16 +27,16 @@ import {
     ListItemTitle,
     listStyle,
     TitleContent
-} from "./SearchBlocksStyled.js";
-import * as Styled from "./StyledComponents.js";
-import { type PbEditorBlockCategoryPlugin, type PbEditorBlockPlugin } from "~/types.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { useKeyHandler } from "~/editor/hooks/useKeyHandler.js";
-import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
-import { createBlockElements } from "~/editor/helpers.js";
-import { createBlockReference } from "~/pageEditor/helpers.js";
-import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks.js";
-import { useRootElement } from "~/editor/hooks/useRootElement.js";
+} from "./SearchBlocksStyled";
+import * as Styled from "./StyledComponents";
+import type { PbEditorBlockCategoryPlugin, PbEditorBlockPlugin } from "~/types";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { useKeyHandler } from "~/editor/hooks/useKeyHandler";
+import { UpdateElementActionEvent } from "~/editor/recoil/actions";
+import { createBlockElements } from "~/editor/helpers";
+import { createBlockReference } from "~/pageEditor/helpers";
+import { usePageBlocks } from "~/admin/contexts/AdminPageBuilder/PageBlocks/usePageBlocks";
+import { useRootElement } from "~/editor/hooks/useRootElement";
 
 const allBlockCategory: PbEditorBlockCategoryPlugin = {
     type: "pb-editor-block-category",

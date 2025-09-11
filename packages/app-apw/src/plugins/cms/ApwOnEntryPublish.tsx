@@ -1,18 +1,20 @@
 import React, { useCallback } from "react";
 import dotPropImmutable from "dot-prop-immutable";
 import { useNavigate } from "@webiny/react-router";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { i18n } from "@webiny/app/i18n";
 import { ContentEntryEditorConfig } from "@webiny/app-headless-cms";
 import { useApolloClient } from "@apollo/react-hooks";
-import { type ShowConfirmationOnAccept, useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
-import { type ApwContentReviewContent, ApwContentTypes } from "~/types.js";
-import {
-    CREATE_CONTENT_REVIEW_MUTATION,
-    type CreateApwContentReviewMutationVariables,
-    type CreateContentReviewMutationResponse
-} from "~/graphql/contentReview.gql.js";
-import { IS_REVIEW_REQUIRED_QUERY } from "../graphql.js";
-import { routePaths } from "~/utils.js";
+import type { ShowConfirmationOnAccept } from "@webiny/app-admin";
+import { useConfirmationDialog, useSnackbar } from "@webiny/app-admin";
+import type { ApwContentReviewContent } from "~/types";
+import { ApwContentTypes } from "~/types";
+import type {
+    CreateApwContentReviewMutationVariables,
+    CreateContentReviewMutationResponse
+} from "~/graphql/contentReview.gql";
+import { CREATE_CONTENT_REVIEW_MUTATION } from "~/graphql/contentReview.gql";
+import { IS_REVIEW_REQUIRED_QUERY } from "../graphql";
+import { routePaths } from "~/utils";
 
 const t = i18n.ns("app-apw/cms/dialog");
 

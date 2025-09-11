@@ -1,104 +1,109 @@
-import {
-    type EditorConfig,
-    $applyNodeReplacement,
-    type LexicalNode,
-    type NodeKey,
-    type RangeSelection,
-    type Spread
+import type {
+    EditorConfig,
+    LexicalNode,
+    NodeKey,
+    RangeSelection,
+    Spread,
+    LexicalEditor,
+    DOMExportOutput,
+    DOMConversionMap
 } from "lexical";
+import { $applyNodeReplacement, setNodeIndentFromDOM } from "lexical";
 import { addClassNamesToElement } from "@lexical/utils";
-import {
-    HeadingNode as BaseHeadingNode,
-    type HeadingTagType,
-    type SerializedHeadingNode as BaseSerializedHeadingNode
+import type {
+    HeadingTagType,
+    SerializedHeadingNode as BaseSerializedHeadingNode
 } from "@lexical/rich-text";
-import { type EditorTheme, type ThemeEmotionMap, findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
-import { type ParagraphNode } from "~/ParagraphNode.js";
-import { type TypographyStylesNode, type ThemeStyleValue, type TextNodeThemeStyles } from "~/types.js";
+import { HeadingNode as BaseHeadingNode } from "@lexical/rich-text";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { findTypographyStyleByHtmlTag } from "@webiny/lexical-theme";
+import type { ParagraphNode } from "~/ParagraphNode";
+import type { TypographyStylesNode, ThemeStyleValue } from "~/types";
+import { getStyleId } from "~/utils/getStyleId";
 
 export type SerializeHeadingNode = Spread<
     {
-        styles: ThemeStyleValue[];
-        type: "heading-element";
+        styles?: ThemeStyleValue[];
+        styleId?: string;
+        className?: string;
+        type: "wby-heading";
     },
     BaseSerializedHeadingNode
 >;
 
-export class HeadingNode
-    extends BaseHeadingNode
-    implements TextNodeThemeStyles, TypographyStylesNode
-{
-    __styles: ThemeStyleValue[] = [];
+interface HeadingNodeOptions {
+    className?: string;
+    styleId?: string;
+    key?: NodeKey;
+}
 
-    constructor(tag: HeadingTagType, typographyStyleId?: string, key?: NodeKey) {
+function isGoogleDocsTitle(domNode: HTMLElement) {
+    if (domNode.nodeName.toLowerCase() === "span") {
+        return domNode.style.fontSize === "26pt";
+    }
+    return false;
+}
+function $convertHeadingElement(element: HTMLElement) {
+    const nodeName = element.nodeName.toLowerCase();
+    let node = null;
+    if (
+        nodeName === "h1" ||
+        nodeName === "h2" ||
+        nodeName === "h3" ||
+        nodeName === "h4" ||
+        nodeName === "h5" ||
+        nodeName === "h6"
+    ) {
+        node = $createHeadingNode(nodeName);
+        if (element.style !== null) {
+            setNodeIndentFromDOM(element, node);
+            node.setFormat(element.style.textAlign as any);
+        }
+    }
+    return {
+        node
+    };
+}
+
+export class HeadingNode extends BaseHeadingNode implements TypographyStylesNode {
+    private __styleId: string | undefined;
+    private __className: string | undefined;
+
+    constructor(tag: HeadingTagType, options: HeadingNodeOptions = {}) {
+        const { styleId, key, className } = options;
+
         super(tag, key);
 
-        if (typographyStyleId) {
-            this.__styles.push({ styleId: typographyStyleId, type: "typography" });
-        }
+        this.__styleId = styleId;
+        this.__className = className;
     }
 
-    private setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
-        const typographyStyle = findTypographyStyleByHtmlTag(this.__tag, themeEmotionMap);
-        if (typographyStyle) {
-            this.__styles.push({ styleId: typographyStyle.id, type: "typography" });
-        }
+    getStyleId(): string | undefined {
+        return this.__styleId;
     }
 
-    getTypographyStyleId(): string | undefined {
-        const style = this.__styles.find(x => x.type === "typography");
-        return style?.styleId || undefined;
+    setStyleId(styleId: string | undefined) {
+        this.__styleId = styleId;
     }
 
-    private hasTypographyStyle(): boolean {
-        return !!this.getTypographyStyleId();
+    setClassName(className: string | undefined) {
+        this.__className = className;
     }
 
-    getThemeStyles(): ThemeStyleValue[] {
-        const self = super.getLatest();
-        return self.__styles;
-    }
-
-    setThemeStyles(styles: ThemeStyleValue[]) {
-        const self = super.getWritable();
-        self.__styles = [...styles];
-        return self;
+    getClassName(): string | undefined {
+        return this.__className;
     }
 
     static override getType(): string {
-        return "heading-element";
+        return "wby-heading";
     }
 
     static override clone(node: HeadingNode): HeadingNode {
-        return new HeadingNode(node.getTag(), node.getTypographyStyleId(), node.__key);
-    }
-
-    protected updateElementWithThemeClasses(element: HTMLElement, theme: EditorTheme): HTMLElement {
-        if (!theme?.emotionMap) {
-            return element;
-        }
-
-        if (!this.hasTypographyStyle()) {
-            this.setDefaultTypography(theme.emotionMap);
-        }
-
-        const typoStyleId = this.getTypographyStyleId();
-
-        let themeClasses;
-
-        // Typography css class
-        if (typoStyleId) {
-            const typographyStyle = theme.emotionMap[typoStyleId];
-            if (typographyStyle) {
-                themeClasses = typographyStyle.className;
-            }
-        }
-
-        if (themeClasses) {
-            addClassNamesToElement(element, themeClasses);
-        }
-
-        return element;
+        return new HeadingNode(node.getTag(), {
+            key: node.getKey(),
+            styleId: node.getStyleId(),
+            className: node.getClassName()
+        });
     }
 
     override createDOM(config: EditorConfig): HTMLElement {
@@ -106,21 +111,95 @@ export class HeadingNode
         return this.updateElementWithThemeClasses(element, config.theme as EditorTheme);
     }
 
+    override exportDOM(editor: LexicalEditor): DOMExportOutput {
+        const base = super.exportDOM(editor);
+
+        const element = base.element as HTMLElement;
+        if (element && this.__className) {
+            element.classList.add(this.__className);
+        }
+
+        return { ...base, element };
+    }
+
+    static override importDOM(): DOMConversionMap | null {
+        return {
+            h1: () => ({
+                conversion: $convertHeadingElement,
+                priority: 0
+            }),
+            h2: () => ({
+                conversion: $convertHeadingElement,
+                priority: 0
+            }),
+            h3: () => ({
+                conversion: $convertHeadingElement,
+                priority: 0
+            }),
+            h4: () => ({
+                conversion: $convertHeadingElement,
+                priority: 0
+            }),
+            h5: () => ({
+                conversion: $convertHeadingElement,
+                priority: 0
+            }),
+            h6: () => ({
+                conversion: $convertHeadingElement,
+                priority: 0
+            }),
+            p: node => {
+                // domNode is a <p> since we matched it by nodeName
+                const firstChild = node.firstChild as HTMLElement;
+                if (firstChild !== null && isGoogleDocsTitle(firstChild)) {
+                    return {
+                        conversion: () => ({
+                            node: null
+                        }),
+                        priority: 3
+                    };
+                }
+                return null;
+            },
+            span: node => {
+                if (isGoogleDocsTitle(node)) {
+                    return {
+                        conversion: () => {
+                            return {
+                                node: $createHeadingNode("h1")
+                            };
+                        },
+                        priority: 3
+                    };
+                }
+                return null;
+            }
+        };
+    }
+
     static override importJSON(serializedNode: SerializeHeadingNode): BaseHeadingNode {
         const node = $createHeadingNode(serializedNode.tag);
         node.setFormat(serializedNode.format);
         node.setIndent(serializedNode.indent);
         node.setDirection(serializedNode.direction);
-        node.setThemeStyles(serializedNode.styles);
+
+        const styleId = getStyleId({
+            styleId: serializedNode.styleId,
+            styles: serializedNode.styles
+        });
+
+        node.setStyleId(styleId);
+        node.setClassName(serializedNode.className);
+
         return node;
     }
 
     override exportJSON(): SerializeHeadingNode {
         return {
             ...super.exportJSON(),
-            styles: this.__styles,
-            type: "heading-element",
-            version: 1
+            type: "wby-heading",
+            styleId: this.__styleId,
+            className: this.__className
         };
     }
 
@@ -144,10 +223,34 @@ export class HeadingNode
         this.replace(newElement);
         return true;
     }
+
+    protected updateElementWithThemeClasses(element: HTMLElement, theme: EditorTheme): HTMLElement {
+        if (!theme?.emotionMap) {
+            return element;
+        }
+
+        if (!this.__styleId || !this.__className) {
+            this.setDefaultTypography(theme.emotionMap);
+        }
+
+        if (this.__className) {
+            addClassNamesToElement(element, this.__className);
+        }
+
+        return element;
+    }
+
+    private setDefaultTypography(themeEmotionMap: ThemeEmotionMap) {
+        const typographyStyle = findTypographyStyleByHtmlTag(this.getTag(), themeEmotionMap);
+        if (typographyStyle) {
+            this.__styleId = typographyStyle.id;
+            this.__className = typographyStyle.className;
+        }
+    }
 }
 
-export function $createHeadingNode(tag: HeadingTagType, typographyStyleId?: string): HeadingNode {
-    return $applyNodeReplacement(new HeadingNode(tag, typographyStyleId));
+export function $createHeadingNode(tag: HeadingTagType, styleId?: string): HeadingNode {
+    return $applyNodeReplacement(new HeadingNode(tag, { styleId }));
 }
 
 export function $isHeadingNode(node: LexicalNode | null | undefined): node is HeadingNode {

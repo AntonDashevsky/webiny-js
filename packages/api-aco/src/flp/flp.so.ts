@@ -1,7 +1,7 @@
-import { Entity, Table } from "@webiny/db-dynamodb/toolbox.js";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
 import { deleteItem, getClean, put, queryAllClean } from "@webiny/db-dynamodb";
-import { createEntityWriteBatch } from "@webiny/db-dynamodb/utils/entity/EntityWriteBatch.js";
+import { createEntityWriteBatch } from "@webiny/db-dynamodb/utils/entity/EntityWriteBatch";
 
 import { WebinyError } from "@webiny/error";
 import type {
@@ -13,7 +13,7 @@ import type {
     StorageOperationsListFlpsParams,
     StorageOperationsUpdateFlpParams,
     StorageOperationsBatchUpdateFlpParams
-} from "~/flp/flp.types.js";
+} from "~/flp/flp.types";
 import { executeWithRetry } from "@webiny/utils";
 
 interface StorageOperationsConfig {

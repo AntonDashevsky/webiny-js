@@ -1,6 +1,6 @@
-import { interceptConsole } from "./interceptConsole.js";
-import { type GraphQLAfterQueryPlugin } from "./types.js";
-import { type Context } from "@webiny/api/types.js";
+import { interceptConsole } from "./interceptConsole";
+import type { GraphQLAfterQueryPlugin } from "./types";
+import type { Context } from "@webiny/api/types";
 import { ContextPlugin } from "@webiny/api";
 
 interface Log {

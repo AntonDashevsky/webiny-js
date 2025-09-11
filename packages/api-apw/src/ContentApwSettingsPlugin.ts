@@ -1,5 +1,5 @@
-import { Plugin } from "@webiny/plugins/Plugin.js";
-import { type ApwContentTypes } from "~/types.js";
+import { Plugin } from "@webiny/plugins/Plugin";
+import type { ApwContentTypes } from "~/types";
 
 export abstract class ContentApwSettingsPlugin extends Plugin {
     public static override type = "apw.contentApwSettings";

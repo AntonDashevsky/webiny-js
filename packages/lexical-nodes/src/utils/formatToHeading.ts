@@ -1,7 +1,8 @@
-import { $getSelection, $isRangeSelection, type LexicalEditor } from "lexical";
+import type { LexicalEditor } from "lexical";
+import { $getSelection, $isRangeSelection } from "lexical";
 import { $setBlocksType } from "@lexical/selection";
-import { type HeadingTagType } from "@lexical/rich-text";
-import { $createHeadingNode } from "~/HeadingNode.js";
+import type { HeadingTagType } from "@lexical/rich-text";
+import { $createHeadingNode } from "~/HeadingNode";
 
 /*
  * Will change the selected HTML tag to specified heading or h1-h6.

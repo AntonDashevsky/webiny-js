@@ -1,10 +1,10 @@
 import { createTaskDefinition } from "@webiny/tasks";
-import { type Context, type IElasticsearchTaskConfig } from "~/types.js";
-import {
-    type IDataSynchronizationInput,
-    type IDataSynchronizationManager,
-    type IDataSynchronizationOutput
-} from "~/tasks/dataSynchronization/types.js";
+import type { Context, IElasticsearchTaskConfig } from "~/types";
+import type {
+    IDataSynchronizationInput,
+    IDataSynchronizationManager,
+    IDataSynchronizationOutput
+} from "~/tasks/dataSynchronization/types";
 
 export const DATA_SYNCHRONIZATION_TASK = "dataSynchronization";
 
@@ -19,11 +19,11 @@ export const createDataSynchronization = (params?: IElasticsearchTaskConfig) => 
         async run({ context, response, isCloseToTimeout, isAborted, store, input, timer }) {
             const { Manager } = await import(
                 /* webpackChunkName: "Manager" */
-                "../Manager.js"
+                "../Manager"
             );
 
             const { IndexManager } = await import(
-                /* webpackChunkName: "IndexManager" */ "~/settings/index.js"
+                /* webpackChunkName: "IndexManager" */ "~/settings"
             );
 
             const manager = new Manager<IDataSynchronizationInput>({
@@ -40,11 +40,11 @@ export const createDataSynchronization = (params?: IElasticsearchTaskConfig) => 
             const indexManager = new IndexManager(manager.elasticsearch, {});
 
             const { DataSynchronizationTaskRunner } = await import(
-                /* webpackChunkName: "DataSynchronizationTaskRunner" */ "./DataSynchronizationTaskRunner.js"
+                /* webpackChunkName: "DataSynchronizationTaskRunner" */ "./DataSynchronizationTaskRunner"
             );
 
             const { createFactories } = await import(
-                /* webpackChunkName: "createFactories" */ "./createFactories.js"
+                /* webpackChunkName: "createFactories" */ "./createFactories"
             );
 
             try {

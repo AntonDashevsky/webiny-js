@@ -1,6 +1,6 @@
 import React from "react";
 import { Property, useIdGenerator } from "@webiny/react-properties";
-import { type Icon } from "~/components/IconPicker/types.js";
+import type { Icon } from "~/components/IconPicker/types";
 
 export type IconPackProviderProps = {
     name: string;

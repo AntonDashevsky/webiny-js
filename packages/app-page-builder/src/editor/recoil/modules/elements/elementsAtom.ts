@@ -1,4 +1,4 @@
-import { type PbEditorElement } from "~/types.js";
+import type { PbEditorElement } from "~/types";
 import { atomFamily } from "recoil";
 
 export interface ElementsAtomType extends PbEditorElement {

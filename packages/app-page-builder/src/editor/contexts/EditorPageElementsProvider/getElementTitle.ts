@@ -1,4 +1,4 @@
-import { type PbEditorPageElementPlugin } from "~/types.js";
+import type { PbEditorPageElementPlugin } from "~/types";
 import { plugins } from "@webiny/plugins";
 
 const titlesCache: Record<string, string> = {};

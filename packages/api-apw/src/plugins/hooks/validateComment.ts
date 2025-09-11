@@ -1,6 +1,7 @@
 import WebinyError from "@webiny/error";
-import { type LifeCycleHookCallbackParams } from "~/types.js";
-import { parseIdentifier, type ParseIdentifierResult } from "@webiny/utils";
+import type { LifeCycleHookCallbackParams } from "~/types";
+import type { ParseIdentifierResult } from "@webiny/utils";
+import { parseIdentifier } from "@webiny/utils";
 
 export const validateComment = ({ apw }: Pick<LifeCycleHookCallbackParams, "apw">) => {
     apw.comment.onCommentBeforeCreate.subscribe(async ({ input }) => {
@@ -20,7 +21,7 @@ export const validateComment = ({ apw }: Pick<LifeCycleHookCallbackParams, "apw"
                     }
                 );
             }
-        } catch (ex) {
+        } catch {
             throw new WebinyError(
                 `The"changeRequest" property in input is not properly formatted.`,
                 "MALFORMED_CHANGE_REQUEST_ID",

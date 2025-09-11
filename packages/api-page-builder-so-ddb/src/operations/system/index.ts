@@ -1,12 +1,12 @@
 import WebinyError from "@webiny/error";
-import {
-    type System,
-    type SystemStorageOperations,
-    type SystemStorageOperationsCreateParams,
-    type SystemStorageOperationsGetParams,
-    type SystemStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types.js";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
+import type {
+    System,
+    SystemStorageOperations,
+    SystemStorageOperationsCreateParams,
+    SystemStorageOperationsGetParams,
+    SystemStorageOperationsUpdateParams
+} from "@webiny/api-page-builder/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import { getClean, put } from "@webiny/db-dynamodb";
 
 interface PartitionKeyParams {

@@ -1,6 +1,6 @@
-import lodashChunk from "lodash/chunk.js";
-import { TableDef } from "~/toolbox.js";
-import { BatchWriteItem, BatchWriteResponse, BatchWriteResult } from "./types.js";
+import lodashChunk from "lodash/chunk";
+import type { TableDef } from "~/toolbox";
+import type { BatchWriteItem, BatchWriteResponse, BatchWriteResult } from "./types";
 
 export interface BatchWriteParams {
     table: TableDef | undefined;

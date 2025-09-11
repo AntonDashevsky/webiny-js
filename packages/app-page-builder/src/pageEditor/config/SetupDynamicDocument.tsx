@@ -1,10 +1,10 @@
 import React from "react";
-import { PageEditorConfig } from "~/pageEditor/index.js";
-import { DynamicDocumentProvider } from "~/dataInjection/index.js";
-import { usePage } from "~/pageEditor/index.js";
-import { type PbDataBinding, type PbDataSource } from "~/types.js";
-import { useEventActionHandler } from "~/editor/index.js";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
+import { PageEditorConfig } from "~/pageEditor";
+import { DynamicDocumentProvider } from "~/dataInjection";
+import { usePage } from "~/pageEditor";
+import type { PbDataBinding, PbDataSource } from "~/types";
+import { useEventActionHandler } from "~/editor";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
 
 const { Ui } = PageEditorConfig;
 

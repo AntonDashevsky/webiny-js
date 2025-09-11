@@ -1,12 +1,12 @@
-import {
-    type CmsEntry,
-    type CmsEntryValues,
-    type CmsModelManager,
-    type UpdateCmsEntryInput,
-    type UpdateCmsEntryOptionsInput
-} from "~/types/index.js";
+import type {
+    CmsEntry,
+    CmsEntryValues,
+    CmsModelManager,
+    UpdateCmsEntryInput,
+    UpdateCmsEntryOptionsInput
+} from "~/types";
 import { WebinyError } from "@webiny/error";
-import { CMS_MODEL_SINGLETON_TAG } from "~/constants.js";
+import { CMS_MODEL_SINGLETON_TAG } from "~/constants";
 import { createCacheKey } from "@webiny/utils";
 
 export interface ISingletonModelManager<T extends CmsEntryValues = CmsEntryValues> {

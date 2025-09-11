@@ -4,9 +4,9 @@ import {
     getLastAddedIndexPlugin,
     isSharedElasticsearchIndex
 } from "@webiny/api-elasticsearch";
-import { PageElasticsearchIndexPlugin } from "~/plugins/index.js";
-import { type PbContext } from "~/types.js";
-import { type ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types.js";
+import { PageElasticsearchIndexPlugin } from "~/plugins";
+import type { PbContext } from "~/types";
+import type { ElasticsearchIndexRequestBody } from "@webiny/api-elasticsearch/types";
 
 export interface ConfigurationsElasticsearch {
     index: string;

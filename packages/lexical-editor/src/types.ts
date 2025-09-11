@@ -2,7 +2,7 @@ export type LexicalValue = string;
 
 export type NormalizedInputValue = LexicalValue | null;
 
-export { FontColorPicker } from "~/components/ToolbarActions/FontColorAction.js";
+export { FontColorPicker } from "~/components/ToolbarActions/FontColorAction";
 
 export type ImageActionType = "image-action";
 export type ToolbarActionType = ImageActionType | string;
@@ -12,10 +12,10 @@ export interface ToolbarActionPlugin {
 }
 
 /* Commands payload types */
-export type { ImagePayload } from "~/commands/index.js";
+export { type ImagePayload } from "~/commands";
 
 /* Lexical editor interfaces */
-export type { RichTextEditorProps } from "~/components/Editor/RichTextEditor.js";
+export { type RichTextEditorProps } from "~/components/Editor/RichTextEditor";
 
 // lexical types
 export type { Klass, LexicalNode } from "lexical";

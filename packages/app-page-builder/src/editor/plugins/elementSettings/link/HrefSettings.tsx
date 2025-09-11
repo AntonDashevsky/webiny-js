@@ -1,18 +1,18 @@
 import React from "react";
 import { css } from "emotion";
 import { merge } from "dot-prop-immutable";
-import { Switch } from "@webiny/ui/Switch/index.js";
+import { Switch } from "@webiny/ui/Switch";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { withActiveElement } from "~/editor/components/index.js";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { UpdateElementActionEvent } from "~/editor/recoil/actions/index.js";
-import { type PbEditorPageElementSettingsRenderComponentProps, type PbEditorElement } from "~/types.js";
+import { withActiveElement } from "~/editor/components";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { UpdateElementActionEvent } from "~/editor/recoil/actions";
+import type { PbEditorPageElementSettingsRenderComponentProps, PbEditorElement } from "~/types";
 // Components
-import Accordion from "../components/Accordion.js";
-import Wrapper from "../components/Wrapper.js";
-import InputField from "../components/InputField.js";
+import Accordion from "../components/Accordion";
+import Wrapper from "../components/Wrapper";
+import InputField from "../components/InputField";
 
 const classes = {
     gridClass: css({

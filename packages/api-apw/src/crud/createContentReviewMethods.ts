@@ -1,42 +1,40 @@
 import { createTopic } from "@webiny/pubsub";
 import Error from "@webiny/error";
-import {
-    type AdvancedPublishingWorkflow,
-    type ApwContentReview,
-    type ApwContentReviewCrud,
-    ApwContentReviewStatus,
-    ApwContentReviewStepStatus,
-    type ApwReviewerCrud,
-    type ApwScheduleActionData,
-    ApwWorkflowStepTypes,
-    type CreateApwContentReviewParams,
-    type CreateApwParams,
-    type OnContentReviewAfterCreateTopicParams,
-    type OnContentReviewAfterDeleteTopicParams,
-    type OnContentReviewAfterUpdateTopicParams,
-    type OnContentReviewBeforeCreateTopicParams,
-    type OnContentReviewBeforeDeleteTopicParams,
-    type OnContentReviewBeforeListTopicParams,
-    type OnContentReviewBeforeUpdateTopicParams,
-    type UpdateApwContentReviewParams
-} from "~/types.js";
-import { getNextStepStatus, hasReviewer } from "~/plugins/utils.js";
+import type {
+    AdvancedPublishingWorkflow,
+    ApwContentReview,
+    ApwContentReviewCrud,
+    ApwReviewerCrud,
+    ApwScheduleActionData,
+    CreateApwContentReviewParams,
+    CreateApwParams,
+    OnContentReviewAfterCreateTopicParams,
+    OnContentReviewAfterDeleteTopicParams,
+    OnContentReviewAfterUpdateTopicParams,
+    OnContentReviewBeforeCreateTopicParams,
+    OnContentReviewBeforeDeleteTopicParams,
+    OnContentReviewBeforeListTopicParams,
+    OnContentReviewBeforeUpdateTopicParams,
+    UpdateApwContentReviewParams
+} from "~/types";
+import { ApwContentReviewStatus, ApwContentReviewStepStatus, ApwWorkflowStepTypes } from "~/types";
+import { getNextStepStatus, hasReviewer } from "~/plugins/utils";
 import {
     NoSignOffProvidedError,
     NotAuthorizedError,
     PendingChangeRequestsError,
     StepInActiveError,
     StepMissingError
-} from "~/utils/errors.js";
-import { ApwScheduleActionTypes } from "~/scheduler/types.js";
+} from "~/utils/errors";
+import { ApwScheduleActionTypes } from "~/scheduler/types";
 import {
     checkValidDateTime,
     filterContentReviewsByRequiresMyAttention,
     getPendingRequiredSteps,
     INITIAL_CONTENT_REVIEW_CONTENT_SCHEDULE_META
-} from "./utils.js";
-import { getContentApwSettingsPlugin } from "~/utils/contentApwSettingsPlugin.js";
-import { type PluginsContainer } from "@webiny/plugins";
+} from "./utils";
+import { getContentApwSettingsPlugin } from "~/utils/contentApwSettingsPlugin";
+import type { PluginsContainer } from "@webiny/plugins";
 
 export interface CreateContentReviewMethodsParams extends CreateApwParams {
     getReviewer: ApwReviewerCrud["get"];

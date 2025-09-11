@@ -1,13 +1,13 @@
-import {
-    type ApwReviewerCrud,
-    type CreateApwParams,
-    type OnReviewerAfterCreateTopicParams,
-    type OnReviewerAfterDeleteTopicParams,
-    type OnReviewerAfterUpdateTopicParams,
-    type OnReviewerBeforeCreateTopicParams,
-    type OnReviewerBeforeDeleteTopicParams,
-    type OnReviewerBeforeUpdateTopicParams
-} from "~/types.js";
+import type {
+    ApwReviewerCrud,
+    CreateApwParams,
+    OnReviewerAfterCreateTopicParams,
+    OnReviewerAfterDeleteTopicParams,
+    OnReviewerAfterUpdateTopicParams,
+    OnReviewerBeforeCreateTopicParams,
+    OnReviewerBeforeDeleteTopicParams,
+    OnReviewerBeforeUpdateTopicParams
+} from "~/types";
 import { createTopic } from "@webiny/pubsub";
 
 export function createReviewerMethods({ storageOperations }: CreateApwParams): ApwReviewerCrud {

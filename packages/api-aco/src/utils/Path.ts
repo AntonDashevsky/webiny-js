@@ -1,4 +1,4 @@
-import { ROOT_FOLDER } from "~/constants.js";
+import { ROOT_FOLDER } from "~/constants";
 
 export class Path {
     static create(slug: string, parentPath?: string) {

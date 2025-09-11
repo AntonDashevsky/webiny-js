@@ -1,11 +1,11 @@
 import React from "react";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Cell } from "@webiny/ui/Grid";
 import { validation } from "@webiny/validation";
-import { type CmsModelFieldValidatorPlugin } from "~/types.js";
-import { createInputField } from "./date/createDateInputField.js";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
-import { getAvailableValidators } from "./date/availableValidators.js";
-import { useModelField } from "~/admin/hooks/index.js";
+import type { CmsModelFieldValidatorPlugin } from "~/types";
+import { createInputField } from "./date/createDateInputField";
+import { FormElementMessage } from "@webiny/ui/FormElementMessage";
+import { getAvailableValidators } from "./date/availableValidators";
+import { useModelField } from "~/admin/hooks";
 import { Bind } from "@webiny/form";
 
 function DateLteSettings() {
@@ -13,30 +13,28 @@ function DateLteSettings() {
     const type = field.settings ? field.settings.type : undefined;
     const availableValidators = getAvailableValidators(type).join(",");
     return (
-        <Grid>
-            <Cell span={12}>
-                <Bind name={"settings.type"}>
-                    {bind => {
-                        if (bind.value !== type) {
-                            bind.onChange(type);
-                        }
-                        return <></>;
-                    }}
-                </Bind>
-                <Bind name={"settings.value"} validators={validation.create(availableValidators)}>
-                    {bind => {
-                        return (
-                            <>
-                                {createInputField(field, bind)}
-                                <FormElementMessage>
-                                    This is the latest date/time that will be allowed.
-                                </FormElementMessage>
-                            </>
-                        );
-                    }}
-                </Bind>
-            </Cell>
-        </Grid>
+        <Cell span={12}>
+            <Bind name={"settings.type"}>
+                {bind => {
+                    if (bind.value !== type) {
+                        bind.onChange(type);
+                    }
+                    return <></>;
+                }}
+            </Bind>
+            <Bind name={"settings.value"} validators={validation.create(availableValidators)}>
+                {bind => {
+                    return (
+                        <>
+                            {createInputField(field, bind)}
+                            <FormElementMessage>
+                                This is the latest date/time that will be allowed.
+                            </FormElementMessage>
+                        </>
+                    );
+                }}
+            </Bind>
+        </Cell>
     );
 }
 

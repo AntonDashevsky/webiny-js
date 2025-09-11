@@ -1,7 +1,7 @@
-import {
-    type ElasticsearchQuerySearchValuePlugins,
-    type ModelField
-} from "~/operations/entry/elasticsearch/types.js";
+import type {
+    ElasticsearchQuerySearchValuePlugins,
+    ModelField
+} from "~/operations/entry/elasticsearch/types";
 
 interface FieldPathFactoryParams {
     plugins: ElasticsearchQuerySearchValuePlugins;
@@ -10,17 +10,18 @@ interface FieldPathParams {
     field: ModelField;
     key: string;
     value: any;
+    originalValue: any;
     keyword: boolean;
 }
 
 export const createFieldPathFactory = ({ plugins }: FieldPathFactoryParams) => {
     return (params: FieldPathParams) => {
-        const { field, key, value, keyword } = params;
+        const { field, key, value, keyword, originalValue } = params;
         const plugin = plugins[field.type];
 
         let fieldPath: string | null = null;
         if (plugin) {
-            fieldPath = plugin.createPath({ field: field.field, value, key });
+            fieldPath = plugin.createPath({ field: field.field, value, key, originalValue });
         }
         if (!fieldPath) {
             fieldPath = field.field.storageId;

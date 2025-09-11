@@ -1,5 +1,6 @@
-import { type S3, getSignedUrl, UploadPartCommand } from "@webiny/aws-sdk/client-s3";
-import { type FileData } from "~/types.js";
+import type { S3 } from "@webiny/aws-sdk/client-s3";
+import { getSignedUrl, UploadPartCommand } from "@webiny/aws-sdk/client-s3";
+import type { FileData } from "~/types";
 
 interface CreateMultiPartUploadParams {
     file: FileData;

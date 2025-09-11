@@ -1,11 +1,13 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { Button, Grid, Select } from "@webiny/admin-ui";
+import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { i18n } from "@webiny/app/i18n";
 import { useRouter } from "@webiny/react-router";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { LIST_BLOCK_CATEGORIES, DELETE_BLOCK_CATEGORY } from "./graphql.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import orderBy from "lodash/orderBy.js";
+import { LIST_BLOCK_CATEGORIES, DELETE_BLOCK_CATEGORY } from "./graphql";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import orderBy from "lodash/orderBy";
 
 import {
     DataList,
@@ -17,19 +19,15 @@ import {
     ListItemText,
     ListItemMeta,
     ListActions,
-    ListItemTextSecondary
-} from "@webiny/ui/List/index.js";
+    ListItemTextSecondary,
+    ListItemTextPrimary
+} from "@webiny/ui/List";
 
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
-import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { type PbBlockCategory } from "~/types.js";
-import { Icon } from "~/admin/utils/createBlockCategoryPlugin.js";
-import { useBlockCategoriesPermissions } from "~/hooks/permissions/index.js";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
+import SearchUI from "@webiny/app-admin/components/SearchUI";
+import type { PbBlockCategory } from "~/types";
+import { Icon } from "~/admin/utils/createBlockCategoryPlugin";
+import { useBlockCategoriesPermissions } from "~/hooks/permissions";
 
 const t = i18n.ns("app-page-builder/admin/block-categories/data-list");
 
@@ -125,22 +123,19 @@ const PageBuilderBlockCategoriesDataList = ({
         () => (
             <DataListModalOverlay>
                 <Grid>
-                    <Cell span={12}>
+                    <Grid.Column span={12}>
                         <Select
                             value={sort}
                             onChange={setSort}
                             label={t`Sort by`}
-                            description={"Sort block categories by"}
-                        >
-                            {SORTERS.map(({ label, sort: value }) => {
-                                return (
-                                    <option key={label} value={value}>
-                                        {label}
-                                    </option>
-                                );
+                            options={SORTERS.map(({ label, sort: value }) => {
+                                return {
+                                    label,
+                                    value
+                                };
                             })}
-                        </Select>
-                    </Cell>
+                        />
+                    </Grid.Column>
                 </Grid>
             </DataListModalOverlay>
         ),
@@ -157,27 +152,27 @@ const PageBuilderBlockCategoriesDataList = ({
             data={categoryList}
             actions={
                 canCreate ? (
-                    <ButtonSecondary
+                    <Button
+                        text={t`New`}
+                        icon={<AddIcon />}
+                        size={"sm"}
+                        className={"wby-ml-xs"}
                         data-testid="data-list-new-record-button"
                         onClick={() => history.push("/page-builder/block-categories?new=true")}
-                    >
-                        <ButtonIcon icon={<AddIcon />} /> {t`New Block Category`}
-                    </ButtonSecondary>
+                    />
                 ) : null
             }
             search={
                 <SearchUI
                     value={filter}
                     onChange={setFilter}
-                    inputPlaceholder={t`Search block categories`}
+                    inputPlaceholder={t`Search block categories...`}
+                    dataTestId={"pb.block.category.data-list.search-input"}
                 />
             }
             modalOverlay={blockCategoriesDataListModalOverlay}
             modalOverlayAction={
-                <DataListModalOverlayAction
-                    icon={<FilterIcon />}
-                    data-testid={"default-data-list.filter"}
-                />
+                <DataListModalOverlayAction data-testid={"default-data-list.filter"} />
             }
         >
             {({ data }: { data: PbBlockCategory[] }) => (
@@ -194,7 +189,7 @@ const PageBuilderBlockCategoriesDataList = ({
                                 <Icon category={item} />
                             </ListItemGraphic>
                             <ListItemText>
-                                {item.name}
+                                <ListItemTextPrimary>{item.name}</ListItemTextPrimary>
                                 <ListItemTextSecondary>
                                     {item.description || t`No description provided.`}
                                 </ListItemTextSecondary>

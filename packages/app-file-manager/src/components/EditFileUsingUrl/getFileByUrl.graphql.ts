@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import { type useFileModel } from "~/hooks/useFileModel.js";
-import { getFileGraphQLSelection } from "~/modules/FileManagerApiProvider/FileManagerApiContext/index.js";
+import type { useFileModel } from "~/hooks/useFileModel";
+import { getFileGraphQLSelection } from "~/modules/FileManagerApiProvider/FileManagerApiContext";
 
 export const getFileByUrlQuery = (model: ReturnType<typeof useFileModel>) => {
     return gql`

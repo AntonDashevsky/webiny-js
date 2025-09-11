@@ -1,5 +1,5 @@
-import { Page } from "@webiny/api-page-builder/types";
-import { PbCreatePayload, PbUpdatePayload } from "@webiny/api-page-builder-aco/types";
+import type { Page } from "@webiny/api-page-builder/types";
+import type { PbCreatePayload, PbUpdatePayload } from "@webiny/api-page-builder-aco/types";
 
 export interface CustomFieldsPbCreatePayload extends PbCreatePayload {
     data: PbCreatePayload["data"] & {

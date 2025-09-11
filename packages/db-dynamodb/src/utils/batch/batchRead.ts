@@ -1,7 +1,7 @@
-import lodashChunk from "lodash/chunk.js";
+import lodashChunk from "lodash/chunk";
 import WebinyError from "@webiny/error";
-import { TableDef } from "~/toolbox.js";
-import { GenericRecord } from "@webiny/api/types.js";
+import type { TableDef } from "~/toolbox";
+import type { GenericRecord } from "@webiny/api/types";
 
 export interface BatchReadItem {
     Table?: TableDef;

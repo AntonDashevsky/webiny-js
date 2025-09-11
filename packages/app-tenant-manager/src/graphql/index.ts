@@ -1,11 +1,12 @@
 import gql from "graphql-tag";
-import { type TenantItem } from "~/types.js";
+import type { TenantItem } from "~/types";
 
 const fields = /* GraphQL */ `
     {
         id
         name
         description
+        image
         tags
         parent
     }

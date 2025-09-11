@@ -1,24 +1,25 @@
 import WebinyError from "@webiny/error";
-import {
-    type PageBlock,
-    type PageBlockStorageOperationsCreateParams,
-    type PageBlockStorageOperationsDeleteParams,
-    type PageBlockStorageOperationsGetParams,
-    type PageBlockStorageOperationsListParams,
-    type PageBlockStorageOperationsUpdateParams
-} from "@webiny/api-page-builder/types.js";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
-import { sortItems } from "@webiny/db-dynamodb/utils/sort.js";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
-import { PageBlockDataLoader } from "./dataLoader.js";
-import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
-import { PageBlockDynamoDbFieldPlugin } from "~/plugins/definitions/PageBlockDynamoDbFieldPlugin.js";
-import { type PluginsContainer } from "@webiny/plugins";
-import { createGSIPartitionKey, createGSISortKey, createPartitionKey, createSortKey } from "./keys.js";
-import { type PageBlockStorageOperations } from "~/types.js";
+import type {
+    PageBlock,
+    PageBlockStorageOperationsCreateParams,
+    PageBlockStorageOperationsDeleteParams,
+    PageBlockStorageOperationsGetParams,
+    PageBlockStorageOperationsListParams,
+    PageBlockStorageOperationsUpdateParams
+} from "@webiny/api-page-builder/types";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
+import { sortItems } from "@webiny/db-dynamodb/utils/sort";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter";
+import { PageBlockDataLoader } from "./dataLoader";
+import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
+import { PageBlockDynamoDbFieldPlugin } from "~/plugins/definitions/PageBlockDynamoDbFieldPlugin";
+import type { PluginsContainer } from "@webiny/plugins";
+import { createGSIPartitionKey, createGSISortKey, createPartitionKey, createSortKey } from "./keys";
+import type { PageBlockStorageOperations } from "~/types";
 import { deleteItem, put } from "@webiny/db-dynamodb";
-import { compress, decompress } from "./compression.js";
+import { compress, decompress } from "./compression";
 
 const createType = (): string => {
     return "pb.pageBlock";

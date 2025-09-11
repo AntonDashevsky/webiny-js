@@ -1,11 +1,11 @@
-import React, { type ReactNode } from "react";
-
-import { i18n } from "@webiny/app/i18n/index.js";
-import { Bind, type GenericFormData } from "@webiny/form";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import type { ReactNode } from "react";
+import React from "react";
+import { i18n } from "@webiny/app/i18n";
+import type { GenericFormData } from "@webiny/form";
+import { Bind } from "@webiny/form";
 import { useDialogs } from "@webiny/app-admin";
-import { FolderTree } from "~/components/index.js";
-import { DialogFoldersContainer } from "~/dialogs/styled.js";
+import { FolderTree } from "~/components";
+import { ParentFolderField } from "./ParentFolderField";
 
 const t = i18n.ns("app-aco/dialogs/use-move-to-folder-dialog");
 
@@ -32,8 +32,7 @@ interface MessageProps {
 export const Message = ({ helpText, focusedFolderId }: MessageProps) => {
     return (
         <>
-            <Typography use="body1">{helpText}</Typography>
-            <DialogFoldersContainer>
+            <ParentFolderField label={helpText}>
                 <Bind name={"folder"} defaultValue={{ id: focusedFolderId }}>
                     {({ value, onChange }) => (
                         <FolderTree
@@ -43,7 +42,7 @@ export const Message = ({ helpText, focusedFolderId }: MessageProps) => {
                         />
                     )}
                 </Bind>
-            </DialogFoldersContainer>
+            </ParentFolderField>
         </>
     );
 };

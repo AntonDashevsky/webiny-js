@@ -1,7 +1,7 @@
 import React from "react";
 import { Bind, useForm } from "@webiny/form";
-import { type CmsContentFormRendererPlugin, type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
-import { FieldElement } from "~/admin/components/ContentEntryForm/FieldElement.js";
+import type { CmsContentFormRendererPlugin, CmsModel } from "@webiny/app-headless-cms-common/types";
+import { FieldElement } from "~/admin/components/ContentEntryForm/FieldElement";
 
 interface CustomLayoutProps {
     model: CmsModel;

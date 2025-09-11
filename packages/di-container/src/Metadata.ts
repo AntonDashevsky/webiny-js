@@ -1,5 +1,5 @@
-import { Abstraction } from "./Abstraction.js";
-import { Constructor, Dependency } from "./types.js";
+import type { Abstraction } from "./Abstraction";
+import type { Constructor, Dependency } from "./types";
 
 export const KEYS = {
     ABSTRACTION: "wby:abstraction",

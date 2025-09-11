@@ -1,8 +1,8 @@
 import React from "react";
-import { ReactComponent as RefreshIcon } from "@material-design-icons/svg/round/refresh.svg";
-import { TemplateEditorConfig } from "~/templateEditor/editorConfig/TemplateEditorConfig.js";
-import { useBlockReference } from "./useBlockReference.js";
-import { useRefreshBlock } from "~/editor/hooks/useRefreshBlock.js";
+import { ReactComponent as RefreshIcon } from "@webiny/icons/refresh.svg";
+import { TemplateEditorConfig } from "~/templateEditor/editorConfig/TemplateEditorConfig";
+import { useBlockReference } from "./useBlockReference";
+import { useRefreshBlock } from "~/editor/hooks/useRefreshBlock";
 
 const { ElementAction } = TemplateEditorConfig;
 

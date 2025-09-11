@@ -1,10 +1,10 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import { WebinyError } from "@webiny/error";
-import { type GenericRecord } from "@webiny/app/types.js";
-import { type PageTemplateInputDto } from "~/features/pageTemplate/createPageTemplate/PageTemplateInputDto.js";
-import { type PbPageTemplateWithContent } from "~/types.js";
-import { type ICreatePageTemplateFromPageGateway } from "~/features/pageTemplate/createPageTemplateFromPage/ICreatePageTemplateFromPageGateway.js";
+import type { GenericRecord } from "@webiny/app/types";
+import type { PageTemplateInputDto } from "~/features/pageTemplate/createPageTemplate/PageTemplateInputDto";
+import type { PbPageTemplateWithContent } from "~/types";
+import type { ICreatePageTemplateFromPageGateway } from "~/features/pageTemplate/createPageTemplateFromPage/ICreatePageTemplateFromPageGateway";
 
 const CREATE_TEMPLATE_FROM_PAGE = gql`
     mutation CreateTemplateFromPage($pageId: ID!, $data: PbCreateTemplateFromPageInput) {

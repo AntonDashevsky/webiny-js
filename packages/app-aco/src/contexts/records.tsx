@@ -1,8 +1,9 @@
-import React, { type ReactNode, useMemo } from "react";
-import sortBy from "lodash/sortBy.js";
-import unionBy from "lodash/unionBy.js";
-import lodashMerge from "lodash/merge.js";
-import { apolloFetchingHandler, loadingHandler } from "~/handlers.js";
+import type { ReactNode } from "react";
+import React, { useMemo } from "react";
+import sortBy from "lodash/sortBy";
+import unionBy from "lodash/unionBy";
+import lodashMerge from "lodash/merge";
+import { apolloFetchingHandler, loadingHandler } from "~/handlers";
 import {
     createCreateRecord,
     createDeleteRecord,
@@ -11,37 +12,37 @@ import {
     createListTags,
     createMoveRecord,
     createUpdateRecord
-} from "~/graphql/records.gql.js";
-import {
-    type AcoAppMode,
-    type CreateSearchRecordResponse,
-    type CreateSearchRecordVariables,
-    type DeletableSearchRecordItem,
-    type DeleteSearchRecordResponse,
-    type DeleteSearchRecordVariables,
-    type GetSearchRecordQueryVariables,
-    type GetSearchRecordResponse,
-    type ListMeta,
-    type ListSearchRecordsQueryVariables,
-    type ListSearchRecordsResponse,
-    type ListTagsQueryVariables,
-    type ListTagsResponse,
-    type ListTagsWhereQueryVariables,
-    type Loading,
-    type LoadingActions,
-    type MovableSearchRecordItem,
-    type MoveSearchRecordResponse,
-    type MoveSearchRecordVariables,
-    type SearchRecordItem,
-    type TagItem,
-    type UpdateSearchRecordResponse,
-    type UpdateSearchRecordVariables
-} from "~/types.js";
-import { validateOrGetDefaultDbSort } from "~/sorting.js";
-import { useAcoApp } from "~/hooks/index.js";
+} from "~/graphql/records.gql";
+import type {
+    AcoAppMode,
+    CreateSearchRecordResponse,
+    CreateSearchRecordVariables,
+    DeletableSearchRecordItem,
+    DeleteSearchRecordResponse,
+    DeleteSearchRecordVariables,
+    GetSearchRecordQueryVariables,
+    GetSearchRecordResponse,
+    ListMeta,
+    ListSearchRecordsQueryVariables,
+    ListSearchRecordsResponse,
+    ListTagsQueryVariables,
+    ListTagsResponse,
+    ListTagsWhereQueryVariables,
+    Loading,
+    LoadingActions,
+    MovableSearchRecordItem,
+    MoveSearchRecordResponse,
+    MoveSearchRecordVariables,
+    SearchRecordItem,
+    TagItem,
+    UpdateSearchRecordResponse,
+    UpdateSearchRecordVariables
+} from "~/types";
+import { validateOrGetDefaultDbSort } from "~/sorting";
+import { useAcoApp } from "~/hooks";
 import { parseIdentifier } from "@webiny/utils";
 import { useStateIfMounted } from "@webiny/app-admin";
-import { useAcoConfig } from "~/config/index.js";
+import { useAcoConfig } from "~/config";
 
 interface ListTagsParams {
     where?: ListTagsWhereQueryVariables;

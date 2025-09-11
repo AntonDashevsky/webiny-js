@@ -7,23 +7,18 @@ import {
     SimpleFormContent,
     SimpleFormFooter,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
+} from "@webiny/app-admin/components/SimpleForm";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import {
-    GET_SETTINGS_QUERY,
-    SAVE_SETTINGS_MUTATION,
-    type SaveSettingsMutationResponse,
-    type SaveSettingsMutationVariables,
-    type SettingsQueryResponse
-} from "./graphql.js";
-import { type TransportSettings, type ValidationError } from "~/types.js";
-import { Alert } from "@webiny/ui/Alert/index.js";
-import { type Validator } from "@webiny/validation/types.js";
+import type {
+    SaveSettingsMutationResponse,
+    SaveSettingsMutationVariables,
+    SettingsQueryResponse
+} from "./graphql";
+import { GET_SETTINGS_QUERY, SAVE_SETTINGS_MUTATION } from "./graphql";
+import type { TransportSettings, ValidationError } from "~/types";
+import type { Validator } from "@webiny/validation/types";
 import dotPropImmutable from "dot-prop-immutable";
+import { Alert, Button, Grid, Input, OverlayLoader } from "@webiny/admin-ui";
 
 const displayErrors = (errors?: ValidationError[]) => {
     if (!errors) {
@@ -36,7 +31,12 @@ const displayErrors = (errors?: ValidationError[]) => {
                 if (!field) {
                     return null;
                 }
-                return <Alert key={`${field}`} title={error.message} type="danger" />;
+                return (
+                    <Alert key={`${field}`} title={"Error"} type="danger">
+                        {error.message}
+                        {"ssss"}
+                    </Alert>
+                );
             })}
         </>
     );
@@ -111,17 +111,21 @@ export const Settings = () => {
                         };
                         if (settingsError) {
                             return (
-                                <CenteredView>
+                                <SimpleForm>
                                     <SimpleFormHeader title="Mailer Settings" />
-                                    <Grid style={{ backgroundColor: "#FFFFFF" }}>
-                                        <Cell span={12}>
-                                            <Alert title={settingsError.message} type="danger" />
-                                            {settingsError.data?.description && (
-                                                <p>{settingsError.data.description}</p>
-                                            )}
-                                        </Cell>
-                                    </Grid>
-                                </CenteredView>
+                                    <SimpleFormContent>
+                                        <Grid>
+                                            <Grid.Column span={12}>
+                                                <Alert title={settingsError.message} type="danger">
+                                                    {settingsError.data?.description && (
+                                                        <p>{settingsError.data.description}</p>
+                                                    )}
+                                                </Alert>
+                                            </Grid.Column>
+                                        </Grid>
+                                    </SimpleFormContent>
+                                    <SimpleFormFooter>{""}</SimpleFormFooter>
+                                </SimpleForm>
                             );
                         }
 
@@ -144,13 +148,13 @@ export const Settings = () => {
                                     {({ Bind, form }) => (
                                         <SimpleForm>
                                             {(queryInProgress || mutationInProgress) && (
-                                                <CircularProgress />
+                                                <OverlayLoader />
                                             )}
                                             <SimpleFormHeader title="Mailer Settings" />
                                             <SimpleFormContent>
                                                 {displayErrors(errors)}
                                                 <Grid>
-                                                    <Cell span={12}>
+                                                    <Grid.Column span={12}>
                                                         <Bind
                                                             name={"host"}
                                                             validators={[
@@ -159,15 +163,23 @@ export const Settings = () => {
                                                                 )
                                                             ]}
                                                         >
-                                                            <Input type="text" label="Hostname" />
+                                                            <Input
+                                                                size={"lg"}
+                                                                type="text"
+                                                                label="Hostname"
+                                                            />
                                                         </Bind>
-                                                    </Cell>
-                                                    <Cell span={12}>
+                                                    </Grid.Column>
+                                                    <Grid.Column span={12}>
                                                         <Bind name={"port"}>
-                                                            <Input type="number" label="Port" />
+                                                            <Input
+                                                                size={"lg"}
+                                                                type="number"
+                                                                label="Port"
+                                                            />
                                                         </Bind>
-                                                    </Cell>
-                                                    <Cell span={12}>
+                                                    </Grid.Column>
+                                                    <Grid.Column span={12}>
                                                         <Bind
                                                             name={"user"}
                                                             validators={[
@@ -177,18 +189,20 @@ export const Settings = () => {
                                                             ]}
                                                         >
                                                             <Input
+                                                                size={"lg"}
                                                                 type="text"
                                                                 label="User"
                                                                 autoComplete="new-password"
                                                             />
                                                         </Bind>
-                                                    </Cell>
-                                                    <Cell span={12}>
+                                                    </Grid.Column>
+                                                    <Grid.Column span={12}>
                                                         <Bind
                                                             name={"password"}
                                                             validators={passwordValidators}
                                                         >
                                                             <Input
+                                                                size={"lg"}
                                                                 label="Password"
                                                                 type="password"
                                                                 autoComplete="new-password"
@@ -197,8 +211,8 @@ export const Settings = () => {
                                                                 inputRef={password}
                                                             />
                                                         </Bind>
-                                                    </Cell>
-                                                    <Cell span={12}>
+                                                    </Grid.Column>
+                                                    <Grid.Column span={12}>
                                                         <Bind
                                                             name={"from"}
                                                             validators={[
@@ -207,10 +221,14 @@ export const Settings = () => {
                                                                 )
                                                             ]}
                                                         >
-                                                            <Input type="text" label="Mail from" />
+                                                            <Input
+                                                                size={"lg"}
+                                                                type="text"
+                                                                label="Mail from"
+                                                            />
                                                         </Bind>
-                                                    </Cell>
-                                                    <Cell span={12}>
+                                                    </Grid.Column>
+                                                    <Grid.Column span={12}>
                                                         <Bind
                                                             name={"replyTo"}
                                                             validators={[
@@ -218,21 +236,21 @@ export const Settings = () => {
                                                             ]}
                                                         >
                                                             <Input
+                                                                size={"lg"}
                                                                 type="text"
                                                                 label="Mail reply-to"
                                                             />
                                                         </Bind>
-                                                    </Cell>
+                                                    </Grid.Column>
                                                 </Grid>
                                             </SimpleFormContent>
                                             <SimpleFormFooter>
-                                                <ButtonPrimary
+                                                <Button
+                                                    text={"Save"}
                                                     onClick={ev => {
                                                         form.submit(ev);
                                                     }}
-                                                >
-                                                    Save Settings
-                                                </ButtonPrimary>
+                                                />
                                             </SimpleFormFooter>
                                         </SimpleForm>
                                     )}

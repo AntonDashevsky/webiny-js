@@ -1,51 +1,39 @@
 import React, { useCallback, useMemo } from "react";
-import styled from "@emotion/styled";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { Button, Grid, Input, OverlayLoader, Select } from "@webiny/admin-ui";
+import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { ReactComponent as TableIcon } from "@webiny/icons/table_chart.svg";
+import { i18n } from "@webiny/app/i18n";
 import { Form } from "@webiny/form";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { ButtonDefault, ButtonIcon, ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import {
     SimpleForm,
     SimpleFormFooter,
     SimpleFormContent,
     SimpleFormHeader
-} from "@webiny/app-admin/components/SimpleForm/index.js";
+} from "@webiny/app-admin/components/SimpleForm";
 import { validation } from "@webiny/validation";
-import {
-    GET_CATEGORY,
-    CREATE_CATEGORY,
-    UPDATE_CATEGORY,
-    LIST_CATEGORIES,
-    type GetCategoryQueryResponse,
-    type GetCategoryQueryVariables,
-    type UpdateCategoryMutationResponse,
-    type UpdateCategoryMutationVariables,
-    type CreateCategoryMutationResponse,
-    type CreateCategoryMutationVariables
-} from "./graphql.js";
+import type {
+    GetCategoryQueryResponse,
+    GetCategoryQueryVariables,
+    UpdateCategoryMutationResponse,
+    UpdateCategoryMutationVariables,
+    CreateCategoryMutationResponse,
+    CreateCategoryMutationVariables
+} from "./graphql";
+import { GET_CATEGORY, CREATE_CATEGORY, UPDATE_CATEGORY, LIST_CATEGORIES } from "./graphql";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { categoryUrlValidator } from "./validators.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { categoryUrlValidator } from "./validators";
 import { plugins } from "@webiny/plugins";
-import { type PbCategory, type PbPageLayoutPlugin } from "~/types.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import pick from "lodash/pick.js";
-import get from "lodash/get.js";
-import set from "lodash/set.js";
-import isEmpty from "lodash/isEmpty.js";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
-import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { useCategoriesPermissions } from "~/hooks/permissions/index.js";
+import type { PbCategory, PbPageLayoutPlugin } from "~/types";
+import pick from "lodash/pick";
+import get from "lodash/get";
+import set from "lodash/set";
+import isEmpty from "lodash/isEmpty";
+import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { useCategoriesPermissions } from "~/hooks/permissions";
 
 const t = i18n.ns("app-page-builder/admin/categories/form");
-
-const ButtonWrapper = styled("div")({
-    display: "flex",
-    justifyContent: "space-between"
-});
 
 interface CategoriesFormProps {
     canCreate: boolean;
@@ -167,17 +155,18 @@ const CategoriesForm = ({ canCreate }: CategoriesFormProps) => {
     if (showEmptyView) {
         return (
             <EmptyView
+                icon={<TableIcon />}
                 title={t`Click on the left side list to display category details {message}`({
                     message: canCreate ? "or create a..." : ""
                 })}
                 action={
                     canCreate ? (
-                        <ButtonDefault
+                        <Button
+                            text={t`New Category`}
+                            icon={<AddIcon />}
                             data-testid="new-record-button"
                             onClick={() => history.push("/page-builder/categories?new=true")}
-                        >
-                            <ButtonIcon icon={<AddIcon />} /> {t`New Category`}
-                        </ButtonDefault>
+                        />
                     ) : (
                         <></>
                     )
@@ -190,31 +179,33 @@ const CategoriesForm = ({ canCreate }: CategoriesFormProps) => {
         <Form data={data} onSubmit={onSubmit}>
             {({ data, form, Bind }) => (
                 <SimpleForm>
-                    {loading && <CircularProgress />}
+                    {loading && <OverlayLoader />}
                     <SimpleFormHeader
                         title={data.name || t`New category`}
                         data-testid={"pb-categories-form-title"}
                     />
                     <SimpleFormContent>
                         <Grid>
-                            <Cell span={6}>
+                            <Grid.Column span={6}>
                                 <Bind name="name" validators={validation.create("required")}>
                                     <Input
+                                        size={"lg"}
                                         label={t`Name`}
                                         data-testid="pb.category.new.form.name"
                                     />
                                 </Bind>
-                            </Cell>
-                            <Cell span={6}>
+                            </Grid.Column>
+                            <Grid.Column span={6}>
                                 <Bind name="slug" validators={validation.create("required")}>
                                     <Input
+                                        size={"lg"}
                                         disabled={Boolean(data.createdOn)}
                                         label={t`Slug`}
                                         data-testid="pb.category.new.form.slug"
                                     />
                                 </Bind>
-                            </Cell>
-                            <Cell span={12}>
+                            </Grid.Column>
+                            <Grid.Column span={12}>
                                 <Bind
                                     name="url"
                                     validators={[
@@ -222,10 +213,14 @@ const CategoriesForm = ({ canCreate }: CategoriesFormProps) => {
                                         categoryUrlValidator
                                     ]}
                                 >
-                                    <Input label={t`URL`} data-testid="pb.category.new.form.url" />
+                                    <Input
+                                        size={"lg"}
+                                        label={t`URL`}
+                                        data-testid="pb.category.new.form.url"
+                                    />
                                 </Bind>
-                            </Cell>
-                            <Cell span={6}>
+                            </Grid.Column>
+                            <Grid.Column span={12}>
                                 <Bind
                                     name="layout"
                                     defaultValue={layouts.length ? layouts[0].name : ""}
@@ -233,32 +228,32 @@ const CategoriesForm = ({ canCreate }: CategoriesFormProps) => {
                                     <Select
                                         label={t`Layout`}
                                         data-testid="pb.category.new.form.layout"
-                                    >
-                                        {layouts.map(({ name, title }) => (
-                                            <option key={name} value={name}>
-                                                {title}
-                                            </option>
-                                        ))}
-                                    </Select>
+                                        size={"lg"}
+                                        options={layouts.map(({ name, title }) => ({
+                                            label: title,
+                                            value: name
+                                        }))}
+                                    />
                                 </Bind>
-                            </Cell>
+                            </Grid.Column>
                         </Grid>
                     </SimpleFormContent>
                     <SimpleFormFooter>
-                        <ButtonWrapper>
-                            <ButtonDefault
-                                onClick={() => history.push("/page-builder/categories")}
-                                data-testid="pb.category.new.form.button.cancel"
-                            >{t`Cancel`}</ButtonDefault>
-                            {canWrite(loadedCategory?.createdBy?.id) && (
-                                <ButtonPrimary
-                                    data-testid="pb.category.new.form.button.save"
-                                    onClick={ev => {
-                                        form.submit(ev);
-                                    }}
-                                >{t`Save category`}</ButtonPrimary>
-                            )}
-                        </ButtonWrapper>
+                        <Button
+                            variant={"secondary"}
+                            text={t`Cancel`}
+                            onClick={() => history.push("/page-builder/categories")}
+                            data-testid="pb.category.new.form.button.cancel"
+                        />
+                        {canWrite(loadedCategory?.createdBy?.id) && (
+                            <Button
+                                text={t`Save`}
+                                data-testid="pb.category.new.form.button.save"
+                                onClick={ev => {
+                                    form.submit(ev);
+                                }}
+                            />
+                        )}
                     </SimpleFormFooter>
                 </SimpleForm>
             )}

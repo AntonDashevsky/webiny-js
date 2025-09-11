@@ -1,7 +1,7 @@
-import omit from "lodash/omit.js";
-import { templateAtom } from "~/templateEditor/state/index.js";
-import { type EditorStateInitializerFactory } from "~/editor/Editor.js";
-import { type PbPageTemplate, type PbPageTemplateWithContent } from "~/types.js";
+import omit from "lodash/omit";
+import { templateAtom } from "~/templateEditor/state";
+import type { EditorStateInitializerFactory } from "~/editor/Editor";
+import type { PbPageTemplate, PbPageTemplateWithContent } from "~/types";
 
 export const createStateInitializer = (
     template: PbPageTemplateWithContent

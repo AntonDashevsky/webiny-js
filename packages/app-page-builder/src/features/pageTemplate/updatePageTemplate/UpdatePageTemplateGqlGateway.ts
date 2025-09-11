@@ -1,9 +1,9 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import { WebinyError } from "@webiny/error";
-import { type GenericRecord } from "@webiny/app/types.js";
-import { type PageTemplateDto } from "~/features/pageTemplate/updatePageTemplate/PageTemplateDto.js";
-import { type IUpdatePageTemplateGateway } from "~/features/pageTemplate/updatePageTemplate/IUpdatePageTemplateGateway.js";
+import type { GenericRecord } from "@webiny/app/types";
+import type { PageTemplateDto } from "~/features/pageTemplate/updatePageTemplate/PageTemplateDto";
+import type { IUpdatePageTemplateGateway } from "~/features/pageTemplate/updatePageTemplate/IUpdatePageTemplateGateway";
 
 const UPDATE_PAGE_TEMPLATE = gql`
     mutation UpdatePageTemplate($id: ID!, $data: PbUpdatePageTemplateInput!) {

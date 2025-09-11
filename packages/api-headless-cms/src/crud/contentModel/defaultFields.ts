@@ -1,4 +1,4 @@
-import { type CmsModelCreateInput, type CmsModelFieldInput } from "~/types/index.js";
+import type { CmsModelCreateInput, CmsModelFieldInput } from "~/types";
 import { generateAlphaNumericLowerCaseId } from "@webiny/utils";
 
 const createDefaultFields = (): CmsModelFieldInput[] => {

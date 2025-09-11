@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
 import {
     saveRevisionAction,
     SaveRevisionActionEvent,
     toggleSaveRevisionStateAction,
     ToggleSaveRevisionStateActionEvent
-} from "./saveRevision/index.js";
-import { updatePageAction } from "./updatePageAction.js";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
-import { type PageEditorEventActionCallableState } from "~/pageEditor/types.js";
+} from "./saveRevision";
+import { updatePageAction } from "./updatePageAction";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
+import type { PageEditorEventActionCallableState } from "~/pageEditor/types";
 
 export const EventActionHandlers = () => {
     const eventActionHandler = useEventActionHandler<PageEditorEventActionCallableState>();

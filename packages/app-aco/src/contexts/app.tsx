@@ -1,14 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { type ApolloClient } from "apollo-client";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import type { ApolloClient } from "apollo-client";
 import { DialogsProvider } from "@webiny/app-admin";
-import { type AcoApp, type AcoAppMode, type AcoError, type AcoModel, type AcoModelField } from "~/types.js";
-import { createGetAppQuery, type GetAppResult, type GetAppVariables } from "~/graphql/app.gql.js";
-import { FoldersProvider as FoldersContextProvider } from "./folders.js";
-import { SearchRecordsProvider as SearchRecordsContextProvider } from "./records.js";
-import { DisplayError } from "./DisplayError/index.js";
-import { NavigateFolderWithRouterProvider } from "~/contexts/navigateFolderWithRouter.js";
-import { AcoListProvider } from "~/contexts/acoList.js";
+import type { AcoApp, AcoAppMode, AcoError, AcoModel, AcoModelField } from "~/types";
+import type { GetAppResult, GetAppVariables } from "~/graphql/app.gql";
+import { createGetAppQuery } from "~/graphql/app.gql";
+import { FoldersProvider as FoldersContextProvider } from "./folders";
+import { SearchRecordsProvider as SearchRecordsContextProvider } from "./records";
+import { DisplayError } from "./DisplayError";
+import { Loading } from "./Loading";
+import { NavigateFolderWithRouterProvider } from "~/contexts/navigateFolderWithRouter";
+import { AcoListProvider } from "~/contexts/acoList";
 
 export interface AcoAppProviderContext {
     app: AcoApp;
@@ -228,7 +229,7 @@ export const AcoAppProvider = ({
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (loading) {
-        return <CircularProgress />;
+        return <Loading />;
     } else if (!app) {
         return (
             <DisplayError>

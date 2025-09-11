@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { type EntryDTO, type EntryRepository } from "../domain/index.js";
+import type { EntryDTO, EntryRepository } from "../domain";
 
 interface EntryOption {
     id: string;

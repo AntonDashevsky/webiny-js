@@ -1,5 +1,5 @@
 import type React from "react";
-import { useUi } from "@webiny/app/hooks/useUi.js";
+import { useUi } from "@webiny/app/hooks/useUi";
 
 interface AcceptAction {
     label: string;

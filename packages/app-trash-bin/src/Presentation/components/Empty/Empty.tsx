@@ -1,16 +1,15 @@
 import React from "react";
-import { ReactComponent as SearchIcon } from "@material-design-icons/svg/outlined/search.svg";
-import { ReactComponent as TrashIcon } from "@material-design-icons/svg/outlined/delete_forever.svg";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
-import { EmptyOuter, EmptyWrapper } from "./Empty.styled.js";
-import { useTrashBin } from "~/Presentation/hooks/index.js";
+import { ReactComponent as SearchIcon } from "@webiny/icons/search.svg";
+import { ReactComponent as TrashIcon } from "@webiny/icons/delete_forever.svg";
+import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { useTrashBin } from "~/Presentation/hooks";
 
 export const Empty = () => {
     const { vm } = useTrashBin();
 
     return (
-        <EmptyWrapper>
-            <EmptyOuter>
+        <div className={"wby-flex wby-items-center wby-justify-center wby-w-full wby-h-full"}>
+            <div className={"wby-flex wby-items-center wby-flex-cols"}>
                 {vm.isSearchView ? (
                     <EmptyView icon={<SearchIcon />} title={"No items found."} action={null} />
                 ) : (
@@ -20,7 +19,7 @@ export const Empty = () => {
                         action={null}
                     />
                 )}
-            </EmptyOuter>
-        </EmptyWrapper>
+            </div>
+        </div>
     );
 };

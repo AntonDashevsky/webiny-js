@@ -1,7 +1,7 @@
-import { GetFolderHierarchy } from "./GetFolderHierarchy.js";
-import { GetFolderHierarchyWithFolderLevelPermissions } from "./GetFolderHierarchyWithFolderLevelPermissions.js";
-import type { AcoFolderStorageOperations } from "~/folder/folder.types.js";
-import { type FolderLevelPermissions } from "~/flp/index.js";
+import { GetFolderHierarchy } from "./GetFolderHierarchy";
+import { GetFolderHierarchyWithFolderLevelPermissions } from "./GetFolderHierarchyWithFolderLevelPermissions";
+import type { AcoFolderStorageOperations } from "~/folder/folder.types";
+import type { FolderLevelPermissions } from "~/flp";
 
 interface GetFolderHierarchyUseCasesParams {
     listOperation: AcoFolderStorageOperations["listFolders"];

@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { type DisplayMode } from "~/types.js";
-import { useDisplayMode } from "~/editor/index.js";
+import { IconButton } from "@webiny/ui/Button";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { Typography } from "@webiny/ui/Typography";
+import type { DisplayMode } from "~/types";
+import { useDisplayMode } from "~/editor";
 
 const classes = {
     wrapper: css({

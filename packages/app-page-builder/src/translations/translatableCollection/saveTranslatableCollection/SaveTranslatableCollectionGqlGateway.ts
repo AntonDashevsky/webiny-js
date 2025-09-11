@@ -1,8 +1,8 @@
 import type ApolloClient from "apollo-client";
 import gql from "graphql-tag";
 import { WebinyError } from "@webiny/error";
-import { type ISaveTranslatableCollectionGateway } from "~/translations/translatableCollection/saveTranslatableCollection/ISaveTranslatableCollectionGateway.js";
-import { type TranslatableCollectionInputDto } from "./TranslatableCollectionInputDto.js";
+import type { ISaveTranslatableCollectionGateway } from "~/translations/translatableCollection/saveTranslatableCollection/ISaveTranslatableCollectionGateway";
+import type { TranslatableCollectionInputDto } from "./TranslatableCollectionInputDto";
 
 const MUTATION = gql`
     mutation SaveTranslatableCollection($collectionId: ID!, $items: [TranslatableItemInput!]!) {

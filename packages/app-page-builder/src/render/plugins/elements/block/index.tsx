@@ -1,5 +1,5 @@
-import { type PbRenderElementPlugin } from "~/types.js";
-import { BlockRenderer } from "@webiny/app-page-builder-elements/renderers/block.js";
+import type { PbRenderElementPlugin } from "~/types";
+import { BlockRenderer } from "@webiny/app-page-builder-elements/renderers/block";
 
 export default (): PbRenderElementPlugin => {
     return {

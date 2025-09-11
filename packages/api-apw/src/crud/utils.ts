@@ -1,17 +1,15 @@
 import Error from "@webiny/error";
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc.js";
-import set from "lodash/set.js";
-import {
-    type ApwContentReview,
-    type ApwContentReviewListParams,
-    ApwContentReviewStatus,
-    type ApwContentReviewStep,
-    ApwContentReviewStepStatus,
-    ApwWorkflowStepTypes,
-    type ListMeta
-} from "~/types.js";
-import { type CreateContentReviewMethodsParams } from "./createContentReviewMethods.js";
+import utc from "dayjs/plugin/utc";
+import set from "lodash/set";
+import type {
+    ApwContentReview,
+    ApwContentReviewListParams,
+    ApwContentReviewStep,
+    ListMeta
+} from "~/types";
+import { ApwContentReviewStatus, ApwContentReviewStepStatus, ApwWorkflowStepTypes } from "~/types";
+import type { CreateContentReviewMethodsParams } from "./createContentReviewMethods";
 
 dayjs.extend(utc);
 

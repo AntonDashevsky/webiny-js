@@ -1,4 +1,4 @@
-import { type DataRequest, type DataSourceData } from "./IResolveDataSourceRepository.js";
+import type { DataRequest, DataSourceData } from "./IResolveDataSourceRepository";
 
 export interface IResolveDataSourceGateway {
     execute(request: DataRequest): Promise<DataSourceData>;

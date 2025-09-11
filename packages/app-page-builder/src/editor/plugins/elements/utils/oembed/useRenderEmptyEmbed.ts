@@ -1,7 +1,7 @@
 import type React from "react";
 import { useCallback } from "react";
 import { plugins } from "@webiny/plugins";
-import { type PbEditorElement, type PbEditorPageElementPlugin } from "~/types.js";
+import type { PbEditorElement, PbEditorPageElementPlugin } from "~/types";
 
 interface Callable {
     (): React.ReactElement | null;

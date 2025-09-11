@@ -1,10 +1,10 @@
-import { ListResponse, ListErrorResponse } from "@webiny/handler-graphql/responses.js";
-import {
-    type CmsEntryMeta,
-    type CmsEntryResolverFactory as ResolverFactory,
-    type CmsEntry,
-    type CmsEntryListParams
-} from "~/types/index.js";
+import { ListResponse, ListErrorResponse } from "@webiny/handler-graphql/responses";
+import type {
+    CmsEntryMeta,
+    CmsEntryResolverFactory as ResolverFactory,
+    CmsEntry,
+    CmsEntryListParams
+} from "~/types";
 
 type ResolveList = ResolverFactory<any, CmsEntryListParams>;
 

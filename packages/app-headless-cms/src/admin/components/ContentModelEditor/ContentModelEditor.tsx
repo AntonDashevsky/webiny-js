@@ -1,67 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeDecoratable } from "@webiny/app-admin";
 import { Prompt } from "@webiny/react-router";
-import styled from "@emotion/styled";
-import { css } from "emotion";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView/index.js";
-import { Icon } from "@webiny/ui/Icon/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { Tab, Tabs } from "@webiny/ui/Tabs/index.js";
-import { ReactComponent as FormIcon } from "./icons/round-assignment-24px.svg";
-import { FieldsSidebar } from "./FieldsSidebar.js";
-import { FieldEditor } from "../FieldEditor/index.js";
-import { PreviewTab } from "./PreviewTab.js";
-import Header from "./Header.js";
-import DragPreview from "../DragPreview.js";
-import { useModelEditor } from "./useModelEditor.js";
-import { type CmsEditorFieldsLayout, type CmsModelField } from "~/types.js";
-import { ContentEntryEditorWithConfig } from "~/admin/config/contentEntries/index.js";
-import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext.js";
-import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext.js";
-import { ModelIsBeingDeletedError } from "~/admin/components/ContentModelEditor/ModelIsBeingDeletedError/index.js";
+import { i18n } from "@webiny/app/i18n";
+import { LeftPanel, RightPanel, SplitView } from "@webiny/app-admin/components/SplitView";
+import { Heading, OverlayLoader, Separator, Tabs, Text, TimeAgo } from "@webiny/admin-ui";
+import { ReactComponent as EditIcon } from "@webiny/icons/edit.svg";
+import { ReactComponent as PreviewIcon } from "@webiny/icons/fullscreen.svg";
+import { FieldsSidebar } from "./FieldsSidebar";
+import { FieldEditor } from "../FieldEditor";
+import { PreviewTab } from "./PreviewTab";
+import Header from "./Header";
+import DragPreview from "../DragPreview";
+import { useModelEditor } from "./useModelEditor";
+import type { CmsEditorFieldsLayout, CmsModelField } from "~/types";
+import { ContentEntryEditorWithConfig } from "~/admin/config/contentEntries";
+import { ContentEntryProvider } from "~/admin/views/contentEntries/ContentEntry/ContentEntryContext";
+import { ContentEntriesProvider } from "~/admin/views/contentEntries/ContentEntriesContext";
+import { ModelIsBeingDeletedError } from "~/admin/components/ContentModelEditor/ModelIsBeingDeletedError";
 
 const t = i18n.ns("app-headless-cms/admin/editor");
 
 const prompt = t`There are some unsaved changes! Are you sure you want to navigate away and discard all changes?`;
-
-const ContentContainer = styled("div")({
-    paddingTop: 65
-});
-
-export const EditContainer = styled("div")({
-    padding: 40,
-    position: "relative"
-});
-
-const LeftBarTitle = styled("div")({
-    borderBottom: "1px solid var(--mdc-theme-on-background)",
-    display: "flex",
-    alignItems: "center",
-    padding: 25,
-    color: "var(--mdc-theme-on-surface)"
-});
-
-const titleIcon = css({
-    height: 24,
-    marginRight: 15,
-    color: "var(--mdc-theme-primary)"
-});
-
-const LeftBarFieldList = styled("div")({
-    padding: 40,
-    overflow: "auto",
-    height: "calc(100vh - 250px)"
-});
-
-const formTabs = css({
-    "&.webiny-ui-tabs": {
-        ".webiny-ui-tabs__tab-bar": {
-            backgroundColor: "var(--mdc-theme-surface)"
-        }
-    }
-});
 
 interface OnChangeParams {
     fields: CmsModelField[];
@@ -69,68 +28,118 @@ interface OnChangeParams {
 }
 
 export const ContentModelEditor = makeDecoratable("ContentModelEditor", () => {
-    const { data, setData, isPristine } = useModelEditor();
+    const { data, setData, isPristine, contentModel } = useModelEditor();
 
-    const [activeTabIndex, setActiveTabIndex] = useState(0);
+    // Add a class to <body> to trigger global styles while this component is active
+    useEffect(() => {
+        document.body.classList.add("wby-overflow-hidden");
+
+        return () => {
+            document.body.classList.remove("wby-overflow-hidden");
+        };
+    }, []);
+
+    const [activeTab, setActiveTab] = useState<string>("edit");
 
     const onChange = ({ fields, layout }: OnChangeParams) => {
         setData(data => ({ ...data, fields, layout }));
     };
 
     if (!data) {
-        return <CircularProgress label={"Loading content model..."} />;
+        return <OverlayLoader text={"Loading content model..."} />;
     } else if (data.isBeingDeleted) {
         return <ModelIsBeingDeletedError model={data} />;
     }
 
     return (
-        <div className={"content-model-editor"}>
+        <div className={"content-model-editor wby-flex-1"}>
             <Prompt when={!isPristine} message={prompt} />
             <Header />
-            <ContentContainer>
+            <div className={"wby-w-full wby-overflow-y-auto wby-h-main-content"}>
                 <SplitView>
-                    <LeftPanel span={4}>
-                        <LeftBarTitle>
-                            <Icon className={titleIcon} icon={<FormIcon />} />
-                            <Typography use={"headline6"}>Fields</Typography>
-                        </LeftBarTitle>
-                        <LeftBarFieldList>
+                    <LeftPanel span={4} className={"wby-bg-neutral-light"}>
+                        <div className={"wby-px-lg wby-py-md"}>
+                            <Text
+                                as={"div"}
+                                className={
+                                    "wby-uppercase wby-font-semibold wby-text-neutral-xstrong"
+                                }
+                            >
+                                {"Fields"}
+                            </Text>
+                        </div>
+                        <Separator />
+                        <div
+                            className={
+                                "wby-px-lg wby-py-md wby-h-[calc(100vh-98px)] wby-overflow-y-scroll"
+                            }
+                        >
                             <FieldsSidebar
                                 onFieldDragStart={() => {
-                                    setActiveTabIndex(0);
+                                    setActiveTab("edit");
                                 }}
                             />
-                        </LeftBarFieldList>
+                        </div>
                     </LeftPanel>
-                    <RightPanel span={8}>
-                        <Tabs
-                            value={activeTabIndex}
-                            className={formTabs}
-                            onActivate={e => setActiveTabIndex(e)}
-                        >
-                            <Tab label={"Edit"} data-testid={"cms.editor.tab.edit"}>
-                                <EditContainer>
-                                    <FieldEditor
-                                        fields={data.fields}
-                                        layout={data.layout || []}
-                                        onChange={onChange}
+                    <RightPanel span={8} className={"wby-bg-neutral-base"}>
+                        <div className={"wby-h-full wby-overflow-y-scroll"}>
+                            {contentModel && (
+                                <div className={"wby-px-xl wby-pt-lg wby-pb-md-extra"}>
+                                    <Heading level={4}>{contentModel.name}</Heading>
+                                    <Text size={"sm"} className={"wby-text-neutral-muted"}>
+                                        {`Created by ${contentModel.createdBy.displayName}. Last modified: `}
+                                        <TimeAgo datetime={contentModel.savedOn} />.
+                                    </Text>
+                                </div>
+                            )}
+                            <Tabs
+                                size={"md"}
+                                spacing={"xl"}
+                                separator={true}
+                                value={String(activeTab)}
+                                onValueChange={setActiveTab}
+                                tabs={[
+                                    <Tabs.Tab
+                                        key={"edit"}
+                                        value={"edit"}
+                                        trigger={"Edit"}
+                                        icon={<EditIcon />}
+                                        data-testid={"cms.editor.tab.edit"}
+                                        content={
+                                            <div className={"wby-relative wby-mb-lg"}>
+                                                <FieldEditor
+                                                    fields={data.fields}
+                                                    layout={data.layout || []}
+                                                    onChange={onChange}
+                                                />
+                                            </div>
+                                        }
+                                    />,
+                                    <Tabs.Tab
+                                        key={"preview"}
+                                        value={"preview"}
+                                        trigger={"Preview"}
+                                        icon={<PreviewIcon />}
+                                        data-testid={"cms.editor.tab.preview"}
+                                        content={
+                                            <ContentEntryEditorWithConfig>
+                                                <ContentEntriesProvider contentModel={data}>
+                                                    <ContentEntryProvider readonly={true}>
+                                                        <PreviewTab
+                                                            activeTab={activeTab === "preview"}
+                                                        />
+                                                    </ContentEntryProvider>
+                                                </ContentEntriesProvider>
+                                            </ContentEntryEditorWithConfig>
+                                        }
                                     />
-                                </EditContainer>
-                            </Tab>
-                            <Tab label={"Preview"} data-testid={"cms.editor.tab.preview"}>
-                                <ContentEntryEditorWithConfig>
-                                    <ContentEntriesProvider contentModel={data}>
-                                        <ContentEntryProvider readonly={true}>
-                                            <PreviewTab activeTab={activeTabIndex === 1} />
-                                        </ContentEntryProvider>
-                                    </ContentEntriesProvider>
-                                </ContentEntryEditorWithConfig>
-                            </Tab>
-                        </Tabs>
+                                ]}
+                            />
+                        </div>
                     </RightPanel>
                 </SplitView>
-            </ContentContainer>
-            <DragPreview />
+                <DragPreview />
+            </div>
         </div>
     );
 });

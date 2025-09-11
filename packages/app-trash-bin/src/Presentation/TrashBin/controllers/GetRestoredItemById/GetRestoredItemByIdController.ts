@@ -1,6 +1,6 @@
-import { type IGetRestoredItemUseCase } from "~/UseCases/index.js";
-import { type IGetRestoredItemByIdController } from "./IGetRestoredItemByIdController.js";
-import { TrashBinItemMapper } from "~/Domain/Repositories/TrashBinItems/TrashBinItemMapper.js";
+import type { IGetRestoredItemUseCase } from "~/UseCases";
+import type { IGetRestoredItemByIdController } from "./IGetRestoredItemByIdController";
+import { TrashBinItemMapper } from "~/Domain/Repositories/TrashBinItems/TrashBinItemMapper";
 
 export class GetRestoredItemByIdController implements IGetRestoredItemByIdController {
     private readonly useCaseFactory: () => IGetRestoredItemUseCase;

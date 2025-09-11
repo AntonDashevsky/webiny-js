@@ -1,11 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import {
-    Feedback,
-    Filter,
-    type FilterDTO,
-    FilterMapper,
-    type FilterRepository
-} from "~/components/AdvancedSearch/domain/index.js";
+import type { FilterDTO, FilterRepository } from "~/components/AdvancedSearch/domain";
+import { Feedback, Filter, FilterMapper } from "~/components/AdvancedSearch/domain";
 
 export interface AdvancedSearchPresenterInterface {
     load(): Promise<void>;

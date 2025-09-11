@@ -1,6 +1,7 @@
-import { type WcpContext } from "./types.js";
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/index.js";
-import { ErrorResponse, Response } from "@webiny/handler-graphql/responses.js";
+import type { WcpContext } from "./types";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins";
+import { ErrorResponse, Response } from "@webiny/handler-graphql/responses";
+import { GetProjectUseCase } from "~/features";
 
 const emptyResolver = () => ({});
 
@@ -65,9 +66,16 @@ export const createWcpGraphQL = () => {
                 wcp: emptyResolver
             },
             WcpQuery: {
-                getProject: (_, __, context) => {
+                getProject: async (_, __, context) => {
                     try {
-                        return new Response(context.wcp.getProject());
+                        const getProject = context.container.resolve(GetProjectUseCase);
+                        const projectResult = await getProject.execute();
+
+                        if (projectResult.isFail()) {
+                            throw Error(`Could not get project!`);
+                        }
+
+                        return new Response(projectResult.value);
                     } catch (e) {
                         return new ErrorResponse({
                             code: "COULD_NOT_GET_PROJECT",

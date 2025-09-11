@@ -1,9 +1,9 @@
 import { S3 } from "@webiny/aws-sdk/client-s3";
 import { join } from "path";
 import WebinyError from "@webiny/error";
-import { getStorageFolder, isMultiTenancyEnabled } from "~/utils/index.js";
-import { type FlushHookPlugin, type HandlerArgs } from "./types.js";
-import { type PrerenderingServiceStorageOperations } from "~/types.js";
+import { getStorageFolder, isMultiTenancyEnabled } from "~/utils";
+import type { FlushHookPlugin, HandlerArgs } from "./types";
+import type { PrerenderingServiceStorageOperations } from "~/types";
 import { EventPlugin } from "@webiny/handler";
 
 const s3 = new S3({ region: process.env.AWS_REGION });
@@ -111,7 +111,7 @@ export default (configuration: Params) => {
                             await storageOperations.deleteRender({
                                 render
                             });
-                        } catch (ex) {
+                        } catch {
                             throw new WebinyError(
                                 "Error while deleting render.",
                                 "DELETE_RENDER_ERROR",
@@ -134,7 +134,7 @@ export default (configuration: Params) => {
                                 render,
                                 settings
                             });
-                        } catch (ex) {
+                        } catch {
                             throw new WebinyError(
                                 "Error while running after flush.",
                                 "AFTER_FLUSH_ERROR",

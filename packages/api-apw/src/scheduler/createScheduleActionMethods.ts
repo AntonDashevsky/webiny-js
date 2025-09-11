@@ -1,12 +1,11 @@
 import { createZodError, mdbid } from "@webiny/utils";
-import {
-    ApwContentTypes,
-    type ApwScheduleAction,
-    type ApwScheduleActionCrud,
-    type ApwScheduleActionData,
-    ApwScheduleActionTypes,
-    type CreateScheduleActionParams
-} from "~/scheduler/types.js";
+import type {
+    ApwScheduleAction,
+    ApwScheduleActionCrud,
+    ApwScheduleActionData,
+    CreateScheduleActionParams
+} from "~/scheduler/types";
+import { ApwContentTypes, ApwScheduleActionTypes } from "~/scheduler/types";
 import zod from "zod";
 /*
 const CreateDataModel = withFields((instance: any) => {

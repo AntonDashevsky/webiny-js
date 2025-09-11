@@ -1,12 +1,14 @@
-import { type LoadingRepository, loadingRepositoryFactory } from "@webiny/app-utils";
-import { type IListFoldersByParentIdsGateway } from "./IListFoldersByParentIdsGateway.js";
-import { type IListFoldersByParentIdsUseCase } from "./IListFoldersByParentIdsUseCase.js";
-import { ListFoldersByParentIdsRepository } from "./ListFoldersByParentIdsRepository.js";
-import { ListFoldersByParentIdsRepositoryWithLoadedCache } from "./ListFoldersByParentIdsRepositoryWithLoadedCache.js";
-import { ListFoldersByParentIdsUseCase } from "./ListFoldersByParentIdsUseCase.js";
-import { folderCacheFactory, type ListCache, loadedFolderCacheFactory } from "../cache/index.js";
-import { type Folder } from "../Folder.js";
-import { ListFoldersByParentIdsUseCaseWithLoading } from "~/features/folders/listFoldersByParentIds/ListFoldersByParentIdsUseCaseWithLoading.js";
+import type { LoadingRepository } from "@webiny/app-utils";
+import { loadingRepositoryFactory } from "@webiny/app-utils";
+import type { IListFoldersByParentIdsGateway } from "./IListFoldersByParentIdsGateway";
+import type { IListFoldersByParentIdsUseCase } from "./IListFoldersByParentIdsUseCase";
+import { ListFoldersByParentIdsRepository } from "./ListFoldersByParentIdsRepository";
+import { ListFoldersByParentIdsRepositoryWithLoadedCache } from "./ListFoldersByParentIdsRepositoryWithLoadedCache";
+import { ListFoldersByParentIdsUseCase } from "./ListFoldersByParentIdsUseCase";
+import type { ListCache } from "../cache";
+import { folderCacheFactory, loadedFolderCacheFactory } from "../cache";
+import type { Folder } from "../Folder";
+import { ListFoldersByParentIdsUseCaseWithLoading } from "~/features/folders/listFoldersByParentIds/ListFoldersByParentIdsUseCaseWithLoading";
 
 interface IListFoldersByParentIdsInstance {
     useCase: IListFoldersByParentIdsUseCase;

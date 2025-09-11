@@ -1,19 +1,20 @@
 import React from "react";
 import { useLocation, useNavigate } from "@webiny/react-router";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { Box, Columns, Stack } from "~/components/Layout.js";
-import { Avatar } from "~/views/publishingWorkflows/components/ReviewersList.js";
-import { RichTextEditor } from "@webiny/app-admin/components/RichTextEditor/index.js";
-import { fromNow } from "~/utils.js";
+import { Typography } from "@webiny/ui/Typography";
+import { Box, Columns, Stack } from "~/components/Layout";
+import { Avatar } from "~/views/publishingWorkflows/components/ReviewersList";
+import { RichTextEditor } from "@webiny/app-admin/components/RichTextEditor";
+import { fromNow } from "~/utils";
 import {
     ChangeRequestItem,
     richTextWrapperStyles,
     TypographySecondary,
     TypographyTitle
-} from "../Styled.js";
-import { type ApwChangeRequest, ApwChangeRequestStatus } from "~/types.js";
-import { getTrimmedBody } from "./utils.js";
+} from "../Styled";
+import type { ApwChangeRequest } from "~/types";
+import { ApwChangeRequestStatus } from "~/types";
+import { getTrimmedBody } from "./utils";
 
 const statusToBackgroundColor = {
     [ApwChangeRequestStatus.RESOLVED]: "var(--mdc-theme-secondary)",

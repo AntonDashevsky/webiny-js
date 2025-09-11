@@ -2,17 +2,17 @@ import WebinyError from "@webiny/error";
 import type {
     ILockEntryUseCase,
     ILockEntryUseCaseExecuteParams
-} from "~/abstractions/ILockEntryUseCase.js";
+} from "~/abstractions/ILockEntryUseCase";
 import type {
     IRecordLockingLockRecord,
     IRecordLockingLockRecordValues,
     IRecordLockingModelManager
-} from "~/types.js";
-import type { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked.js";
-import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId.js";
+} from "~/types";
+import type { IIsEntryLockedUseCase } from "~/abstractions/IIsEntryLocked";
+import { createLockRecordDatabaseId } from "~/utils/lockRecordDatabaseId";
 import { NotFoundError } from "@webiny/handler-graphql";
-import type { ConvertEntryToLockRecordCb } from "~/useCases/types.js";
-import type { Security, SecurityIdentity } from "@webiny/api-security/types.js";
+import type { ConvertEntryToLockRecordCb } from "~/useCases/types";
+import type { Security, SecurityIdentity } from "@webiny/api-security/types";
 
 export interface ILockEntryUseCaseParams {
     isEntryLockedUseCase: IIsEntryLockedUseCase;

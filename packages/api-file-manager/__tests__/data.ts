@@ -1,4 +1,4 @@
-import { FileInput } from "~/types";
+import type { FileInput } from "~/types";
 
 export default [
     {

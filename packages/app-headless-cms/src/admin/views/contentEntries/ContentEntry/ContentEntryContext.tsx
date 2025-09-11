@@ -1,22 +1,22 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "@webiny/react-router";
 import { useIsMounted, useSnackbar } from "@webiny/app-admin";
-import { useCms, useQuery } from "~/admin/hooks/index.js";
-import { type ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext.js";
-import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries.js";
-import { type CmsContentEntry, type CmsContentEntryRevision } from "~/types.js";
+import { useCms, useQuery } from "~/admin/hooks";
+import type { ContentEntriesContext } from "~/admin/views/contentEntries/ContentEntriesContext";
+import { useContentEntries } from "~/admin/views/contentEntries/hooks/useContentEntries";
+import type { CmsContentEntry, CmsContentEntryRevision } from "~/types";
 import { parseIdentifier } from "@webiny/utils";
-import {
-    type CmsEntryGetQueryResponse,
-    type CmsEntryGetQueryVariables,
-    createReadQuery
+import type {
+    CmsEntryGetQueryResponse,
+    CmsEntryGetQueryVariables
 } from "@webiny/app-headless-cms-common";
-import { getFetchPolicy } from "~/utils/getFetchPolicy.js";
+import { createReadQuery } from "@webiny/app-headless-cms-common";
+import { getFetchPolicy } from "~/utils/getFetchPolicy";
 import { useRecords } from "@webiny/app-aco";
-import type * as Cms from "~/admin/contexts/Cms/index.js";
-import { useMockRecords } from "./useMockRecords.js";
-import { ROOT_FOLDER } from "~/admin/constants.js";
-import { type OperationError } from "~/admin/contexts/Cms/index.js";
+import type * as Cms from "~/admin/contexts/Cms";
+import { useMockRecords } from "./useMockRecords";
+import { ROOT_FOLDER } from "~/admin/constants";
+import type { OperationError } from "~/admin/contexts/Cms";
 
 interface UpdateListCacheOptions {
     options?: {
@@ -67,9 +67,9 @@ export interface ContentEntryContext extends ContentEntriesContext, ContentEntry
     revisions: CmsContentEntryRevision[];
     refetchContent: () => void;
 
-    setActiveTab(index: number): void;
+    setActiveTab(index: string): void;
 
-    activeTab: number;
+    activeTab: string;
     showEmptyView: boolean;
 }
 
@@ -116,7 +116,7 @@ export const ContentEntryProvider = ({
     currentFolderId
 }: ContentEntryContextProviderProps) => {
     const { isMounted } = useIsMounted();
-    const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState("content");
     const [entry, setEntry] = useState<CmsContentEntry>();
     const [revisions, setRevisions] = useState<CmsContentEntryRevision[]>([]);
     const { contentModel: model, canCreate } = useContentEntries();
@@ -168,7 +168,7 @@ export const ContentEntryProvider = ({
         if (!revisionId && entry) {
             setEntry(undefined);
         }
-        setActiveTab(0);
+        setActiveTab("content");
     }, [revisionId]);
 
     const { READ_CONTENT } = useMemo(() => {

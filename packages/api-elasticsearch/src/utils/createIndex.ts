@@ -1,7 +1,7 @@
-import { type Client } from "@elastic/elasticsearch";
-import { type PluginsContainer } from "@webiny/plugins";
-import { getLastAddedIndexPlugin } from "~/indices.js";
-import { type ElasticsearchIndexPlugin } from "~/plugins/index.js";
+import type { Client } from "@elastic/elasticsearch";
+import type { PluginsContainer } from "@webiny/plugins";
+import { getLastAddedIndexPlugin } from "~/indices";
+import type { ElasticsearchIndexPlugin } from "~/plugins";
 import WebinyError from "@webiny/error";
 
 interface OnExists {
@@ -37,7 +37,7 @@ const indexExists = async (params: ExistsIndexParams): Promise<boolean> => {
             onExists();
         }
         return true;
-    } catch (ex) {
+    } catch {
         console.error(`Could not determine if the index "${index}" exists.`);
     }
     return false;

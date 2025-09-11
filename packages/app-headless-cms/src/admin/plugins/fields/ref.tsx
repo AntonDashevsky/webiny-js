@@ -1,20 +1,17 @@
 import React, { useCallback, useMemo } from "react";
-import {
-    LIST_CONTENT_MODELS,
-    type ListCmsModelsQueryResponse,
-    withoutBeingDeletedModels
-} from "../../viewsGraphql.js";
+import type { ListCmsModelsQueryResponse } from "../../viewsGraphql";
+import { LIST_CONTENT_MODELS, withoutBeingDeletedModels } from "../../viewsGraphql";
 import { validation, ValidationError } from "@webiny/validation";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { MultiAutoComplete } from "@webiny/ui/AutoComplete/index.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { type CmsModel, type CmsModelFieldTypePlugin } from "~/types.js";
-import { ReactComponent as RefIcon } from "./icons/round-link-24px.svg";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { Bind, type BindComponentRenderProp, useForm } from "@webiny/form";
-import { useModel, useQuery } from "~/admin/hooks/index.js";
-import { renderInfo } from "./ref/renderInfo.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import type { CmsModel, CmsModelFieldTypePlugin } from "~/types";
+import { ReactComponent as RefIcon } from "@webiny/icons/link.svg";
+import { i18n } from "@webiny/app/i18n";
+import type { BindComponentRenderProp } from "@webiny/form";
+import { Bind, useForm } from "@webiny/form";
+import { useModel, useQuery } from "~/admin/hooks";
+import { renderInfo } from "./ref/renderInfo";
 import { CMS_MODEL_SINGLETON_TAG } from "@webiny/app-headless-cms-common";
+import { Grid, Label, MultiAutoComplete } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields");
 
@@ -50,7 +47,7 @@ const RefFieldSettings = () => {
                     return !model.tags?.includes(CMS_MODEL_SINGLETON_TAG);
                 })
                 .map(model => {
-                    return { id: model.modelId, name: model.name };
+                    return { value: model.modelId, label: model.name };
                 })
         );
     }, [data]);
@@ -58,37 +55,48 @@ const RefFieldSettings = () => {
     const atLeastOneItem = useCallback(async (value: Pick<CmsModel, "modelId">) => {
         try {
             await validation.validate(value, "required,minLength:1");
-        } catch (err) {
+        } catch {
             throw new ValidationError(`Please select at least 1 item`);
         }
     }, []);
 
     return (
         <Grid>
-            <Cell span={12}>
+            <Grid.Column span={12}>
                 <Bind name={"settings.models"} validators={atLeastOneItem}>
                     {(bind: BindComponentRenderProp<CmsModel[]>) => {
                         // Format value prop for MultiAutoComplete component.
-                        const formattedValueForAutoComplete = options.filter(option =>
-                            bind.value.some(({ modelId }) => option.id === modelId)
-                        );
+                        const formattedValueForAutoComplete = options
+                            .filter(option =>
+                                bind.value.some(({ modelId }) => option.value === modelId)
+                            )
+                            .map(({ value }) => value);
 
                         return (
                             <MultiAutoComplete
                                 {...bind}
-                                value={formattedValueForAutoComplete}
-                                onChange={(values: CmsModel[]) => {
-                                    bind.onChange(values.map(value => ({ modelId: value.id })));
+                                size={"lg"}
+                                values={formattedValueForAutoComplete}
+                                onValuesChange={(values: string[]) => {
+                                    bind.onChange(values.map(value => ({ modelId: value })));
                                 }}
-                                label={loading ? t`Loading models...` : t`Content models`}
-                                description={t`Cannot be changed later`}
+                                label={
+                                    loading ? (
+                                        t`Loading models...`
+                                    ) : (
+                                        <Label
+                                            text={t`Content models`}
+                                            description={"(cannot be changed later)"}
+                                        />
+                                    )
+                                }
                                 options={options}
                                 disabled={isFieldLocked || loading}
                             />
                         );
                     }}
                 </Bind>
-            </Cell>
+            </Grid.Column>
         </Grid>
     );
 };

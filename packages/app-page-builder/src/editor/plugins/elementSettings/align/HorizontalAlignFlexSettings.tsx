@@ -1,23 +1,23 @@
 import React, { useMemo } from "react";
 import { css } from "emotion";
 import classNames from "classnames";
-import get from "lodash/get.js";
-import set from "lodash/set.js";
-import merge from "lodash/merge.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import { type PbEditorPageElementSettingsRenderComponentProps } from "~/types.js";
-import { applyFallbackDisplayMode } from "../elementSettingsUtils.js";
+import get from "lodash/get";
+import set from "lodash/set";
+import merge from "lodash/merge";
+import { Tooltip } from "@webiny/ui/Tooltip";
+import { IconButton } from "@webiny/ui/Button";
+import type { PbEditorPageElementSettingsRenderComponentProps } from "~/types";
+import { applyFallbackDisplayMode } from "../elementSettingsUtils";
 // Components
-import { ContentWrapper } from "../components/StyledComponents.js";
-import Accordion from "../components/Accordion.js";
+import { ContentWrapper } from "../components/StyledComponents";
+import Accordion from "../components/Accordion";
 // Icons
 import { ReactComponent as AlignLeftIcon } from "./icons/align_horizontal_left.svg";
 import { ReactComponent as AlignCenterIcon } from "./icons/align_horizontal_center.svg";
 import { ReactComponent as AlignRightIcon } from "./icons/align_horizontal_right.svg";
-import { useDisplayMode } from "~/editor/hooks/useDisplayMode.js";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
-import { useUpdateElement } from "~/editor/hooks/useUpdateElement.js";
+import { useDisplayMode } from "~/editor/hooks/useDisplayMode";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
+import { useUpdateElement } from "~/editor/hooks/useUpdateElement";
 
 const classes = {
     activeIcon: css({

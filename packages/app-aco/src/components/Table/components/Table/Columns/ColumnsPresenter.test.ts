@@ -1,8 +1,7 @@
-import { ColumnsPresenter } from "./ColumnsPresenter.js";
-import { Column } from "./Column.js";
-import { type ColumnConfig } from "~/config/table/Column.js";
-import { ColumnsRepository } from "./ColumnsRepository.js";
-import { jest } from "@jest/globals";
+import { ColumnsPresenter } from "./ColumnsPresenter";
+import { Column } from "./Column";
+import type { ColumnConfig } from "~/config/table/Column";
+import { ColumnsRepository } from "./ColumnsRepository";
 
 describe("ColumnsPresenter", () => {
     const columnConfigs: ColumnConfig[] = [

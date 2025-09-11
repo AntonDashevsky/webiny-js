@@ -1,10 +1,10 @@
 import React from "react";
-import {
-    FormFieldElement,
-    type FormFieldElementConfig,
-    type FormFieldElementRenderProps
-} from "@webiny/app-admin/ui/elements/form/FormFieldElement.js";
-import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete.js";
+import type {
+    FormFieldElementConfig,
+    FormFieldElementRenderProps
+} from "@webiny/app-admin/ui/elements/form/FormFieldElement";
+import { FormFieldElement } from "@webiny/app-admin/ui/elements/form/FormFieldElement";
+import { TagsMultiAutocomplete } from "~/admin/components/TagsMultiAutocomplete";
 
 export class TagsMultiAutocompleteElement extends FormFieldElement {
     public constructor(id: string, config: FormFieldElementConfig) {

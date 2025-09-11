@@ -1,7 +1,8 @@
-import { Plugin } from "@webiny/plugins/types";
-import { getStorageOps, PluginCollection } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
-import { SecurityIdentity, SecurityStorageOperations } from "@webiny/api-security/types";
+import type { Plugin } from "@webiny/plugins/types";
+import type { PluginCollection } from "@webiny/project-utils/testing/environment";
+import { getStorageOps } from "@webiny/project-utils/testing/environment";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { SecurityIdentity, SecurityStorageOperations } from "@webiny/api-security/types";
 import apiKeyAuthentication from "@webiny/api-security/plugins/apiKeyAuthentication";
 import apiKeyAuthorization from "@webiny/api-security/plugins/apiKeyAuthorization";
 import i18nContext from "@webiny/api-i18n/graphql/context";
@@ -11,13 +12,14 @@ import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { enableBenchmarkOnEnvironmentVariable } from "./enableBenchmarkOnEnvironmentVariable";
 import { createWcpContext, createWcpGraphQL } from "@webiny/api-wcp";
 import { createTenancyAndSecurity } from "./tenancySecurity";
-import { createPermissions, Permission } from "./permissions";
-import { PathType } from "../types";
-import { TenancyStorageOperations, Tenant } from "@webiny/api-tenancy/types";
-import { I18NLocalesStorageOperations } from "@webiny/api-i18n/types";
-import { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
-import { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
-import { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
+import type { Permission } from "./permissions";
+import { createPermissions } from "./permissions";
+import type { PathType } from "../types";
+import type { TenancyStorageOperations, Tenant } from "@webiny/api-tenancy/types";
+import type { I18NLocalesStorageOperations } from "@webiny/api-i18n/types";
+import type { PageBuilderStorageOperations } from "@webiny/api-page-builder/types";
+import type { FileManagerStorageOperations } from "@webiny/api-file-manager/types";
+import type { AdminUsersStorageOperations } from "@webiny/api-admin-users/types";
 import createAdminUsersApp from "@webiny/api-admin-users";
 import i18nPlugins from "@webiny/api-i18n/graphql";
 import {
@@ -27,14 +29,16 @@ import {
 import { createWebsockets } from "@webiny/api-websockets";
 import { createRecordLocking } from "@webiny/api-record-locking";
 
+import { createFormBuilder } from "@webiny/api-form-builder";
+import type { FormBuilderStorageOperations } from "@webiny/api-form-builder/types";
 import { createFileManagerContext, createFileManagerGraphQL } from "@webiny/api-file-manager";
 import { createAco } from "@webiny/api-aco";
 import { createAcoPageBuilderContext } from "@webiny/api-page-builder-aco";
 import { createAuditLogs } from "@webiny/api-audit-logs";
 import { createAcoHcmsContext } from "@webiny/api-headless-cms-aco";
 import { createHcmsTasks } from "@webiny/api-headless-cms-tasks";
-import { createApwGraphQL, createApwPageBuilderContext } from "@webiny/api-apw";
-import { ApwScheduleActionStorageOperations } from "@webiny/api-apw/scheduler/types";
+import { createApwGraphQL, createApwContext } from "@webiny/api-apw";
+import type { ApwScheduleActionStorageOperations } from "@webiny/api-apw/scheduler/types";
 import { createBackgroundTaskContext, createBackgroundTaskGraphQL } from "@webiny/tasks";
 import pageBuilderImportExportPlugins from "@webiny/api-page-builder-import-export/graphql";
 import { createStorageOperations as createPageBuilderImportExportStorageOperations } from "@webiny/api-page-builder-import-export-so-ddb";
@@ -56,6 +60,7 @@ export interface ICreateCoreResult {
     cmsStorage: HeadlessCmsStorageOperations;
     i18nStorage: I18NLocalesStorageOperations;
     pageBuilderStorage: PageBuilderStorageOperations;
+    formBuilderStorage: FormBuilderStorageOperations;
     fileManagerStorage: FileManagerStorageOperations;
     securityStorage: SecurityStorageOperations;
     tenancyStorage: TenancyStorageOperations;
@@ -73,6 +78,7 @@ export const createCore = (params: ICreateCoreParams): ICreateCoreResult => {
     const cmsStorage = getStorageOps<HeadlessCmsStorageOperations>("cms");
     const i18nStorage = getStorageOps<I18NLocalesStorageOperations>("i18n");
     const pageBuilderStorage = getStorageOps<PageBuilderStorageOperations>("pageBuilder");
+    const formBuilderStorage = getStorageOps<FormBuilderStorageOperations>("formBuilder");
     const fileManagerStorage = getStorageOps<FileManagerStorageOperations>("fileManager");
     const securityStorage = getStorageOps<SecurityStorageOperations>("security");
     const tenancyStorage = getStorageOps<TenancyStorageOperations>("tenancy");
@@ -88,6 +94,7 @@ export const createCore = (params: ICreateCoreParams): ICreateCoreResult => {
         cmsStorage: cmsStorage.storageOperations,
         i18nStorage: i18nStorage.storageOperations,
         pageBuilderStorage: pageBuilderStorage.storageOperations,
+        formBuilderStorage: formBuilderStorage.storageOperations,
         fileManagerStorage: fileManagerStorage.storageOperations,
         securityStorage: securityStorage.storageOperations,
         tenancyStorage: tenancyStorage.storageOperations,
@@ -139,12 +146,15 @@ export const createCore = (params: ICreateCoreParams): ICreateCoreResult => {
                 storageOperations: fileManagerStorage.storageOperations
             }),
             createFileManagerGraphQL(),
+            createFormBuilder({
+                storageOperations: formBuilderStorage.storageOperations
+            }),
             pageBuilderImportExportPlugins({
                 storageOperations: createPageBuilderImportExportStorageOperations({
                     documentClient
                 })
             }),
-            createApwPageBuilderContext({
+            createApwContext({
                 storageOperations: apwScheduleStorage.storageOperations
             }),
             createAco({ documentClient }),

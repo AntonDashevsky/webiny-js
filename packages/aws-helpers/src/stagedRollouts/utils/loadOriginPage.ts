@@ -1,9 +1,17 @@
-import { CloudFrontResponse } from "~/lambdaEdge/index.js";
+import type { CloudFrontResponse } from "~/lambdaEdge";
 import { get } from "https";
-import { load, Element } from "cheerio";
-import { parse as parseSrcset, stringify as stringifySrcset, SrcSetDefinition } from "srcset";
-import { isHeaderBlacklisted } from "./headerBlacklist.js";
-import { logDebug } from "./log.js";
+import { load } from "cheerio";
+import type { SrcSetDefinition } from "srcset";
+import { parse as parseSrcset, stringify as stringifySrcset } from "srcset";
+import { isHeaderBlacklisted } from "./headerBlacklist";
+import { logDebug } from "./log";
+
+// TODO cheerio does not have Element type, so we define it here
+interface Element {
+    attribs: {
+        [key: string]: string;
+    };
+}
 
 /**
  * Load HTML from origin and perform transformation of URLs to absolute

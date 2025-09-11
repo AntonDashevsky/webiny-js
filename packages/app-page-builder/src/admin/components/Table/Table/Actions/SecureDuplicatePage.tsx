@@ -14,7 +14,7 @@ export const SecureDuplicatePage = DuplicatePage.createDecorator(Original => {
         const { folderId } = page.location;
 
         const canDuplicate = useMemo(() => {
-            return pagesCanWrite(page.data.createdBy.id) && canManageContent(folderId);
+            return pagesCanWrite(page.createdBy.id) && canManageContent(folderId);
         }, [canManageContent, folderId]);
 
         if (!canDuplicate) {

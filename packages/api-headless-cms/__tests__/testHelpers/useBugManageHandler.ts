@@ -1,5 +1,6 @@
-import { GraphQLHandlerParams, useGraphQLHandler } from "./useGraphQLHandler";
-import { CmsModel } from "~/types";
+import type { GraphQLHandlerParams } from "./useGraphQLHandler";
+import { useGraphQLHandler } from "./useGraphQLHandler";
+import type { CmsModel } from "~/types";
 import { getCmsModel } from "~tests/contentAPI/mocks/contentModels";
 
 const bugFields = `

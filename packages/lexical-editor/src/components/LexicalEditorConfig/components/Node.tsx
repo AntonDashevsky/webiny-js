@@ -1,6 +1,6 @@
 import React from "react";
 import { Property } from "@webiny/react-properties";
-import { type Klass, type LexicalNode } from "lexical";
+import type { Klass, LexicalNode } from "lexical";
 
 export interface NodeConfig {
     name: string;

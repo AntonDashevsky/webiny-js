@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "@emotion/styled";
-import kebabCase from "lodash/kebabCase.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { createEmbedPlugin, createEmbedSettingsPlugin } from "../../utils/oembed/index.js";
+import kebabCase from "lodash/kebabCase";
+import { Typography } from "@webiny/ui/Typography";
+import { createEmbedPlugin, createEmbedSettingsPlugin } from "../../utils/oembed";
 import { validation } from "@webiny/validation";
 import { ReactComponent as LogoIcon } from "./pinterest-brands.svg";
-import Accordion from "../../../elementSettings/components/Accordion.js";
-import Wrapper from "../../../elementSettings/components/Wrapper.js";
-import InputField from "../../../elementSettings/components/InputField.js";
-import SelectField from "../../../elementSettings/components/SelectField.js";
+import Accordion from "../../../elementSettings/components/Accordion";
+import Wrapper from "../../../elementSettings/components/Wrapper";
+import InputField from "../../../elementSettings/components/InputField";
+import SelectField from "../../../elementSettings/components/SelectField";
 import {
     ButtonContainer,
     SimpleButton,
     classes
-} from "../../../elementSettings/components/StyledComponents.js";
-import { type PbEditorElementPluginArgs } from "~/types.js";
+} from "../../../elementSettings/components/StyledComponents";
+import type { PbEditorElementPluginArgs } from "~/types";
 
-import { PePinterest } from "~/editor/plugins/elements/social/pinterest/PePinterest.js";
+import { PePinterest } from "~/editor/plugins/elements/social/pinterest/PePinterest";
 
 const PreviewBox = styled("div")({
     textAlign: "center",

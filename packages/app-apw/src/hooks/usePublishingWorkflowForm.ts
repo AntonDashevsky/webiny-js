@@ -1,33 +1,31 @@
-import { type Dispatch, type SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
-import isEmpty from "lodash/isEmpty.js";
+import type { Dispatch, SetStateAction } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import isEmpty from "lodash/isEmpty";
 import { useNavigate } from "@webiny/react-router";
 import dotPropImmutable from "dot-prop-immutable";
-import pick from "lodash/pick.js";
+import pick from "lodash/pick";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { useCurrentApp } from "./useLocationSearch.js";
+import { useCurrentApp } from "./useLocationSearch";
+import type {
+    CreateWorkflowMutationResponse,
+    CreateWorkflowMutationVariables,
+    GetWorkflowQueryResponse,
+    GetWorkflowQueryVariables,
+    UpdateWorkflowMutationResponse,
+    UpdateWorkflowMutationVariables
+} from "~/graphql/workflow.gql";
 import {
     CREATE_WORKFLOW_MUTATION,
-    type CreateWorkflowMutationResponse,
-    type CreateWorkflowMutationVariables,
     GET_WORKFLOW_QUERY,
-    type GetWorkflowQueryResponse,
-    type GetWorkflowQueryVariables,
     LIST_WORKFLOWS_QUERY,
-    UPDATE_WORKFLOW_MUTATION,
-    type UpdateWorkflowMutationResponse,
-    type UpdateWorkflowMutationVariables
-} from "~/graphql/workflow.gql.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import {
-    type ApwWorkflow,
-    type ApwWorkflowApplications,
-    ApwWorkflowScopeTypes,
-    type ApwWorkflowStep,
-    ApwWorkflowStepTypes
-} from "~/types.js";
+    UPDATE_WORKFLOW_MUTATION
+} from "~/graphql/workflow.gql";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { i18n } from "@webiny/app/i18n";
+import type { ApwWorkflow, ApwWorkflowApplications, ApwWorkflowStep } from "~/types";
+import { ApwWorkflowScopeTypes, ApwWorkflowStepTypes } from "~/types";
 import { generateAlphaNumericId } from "@webiny/utils";
-import { useQuery as useRouterQuery } from "~/hooks/useQuery.js";
+import { useQuery as useRouterQuery } from "~/hooks/useQuery";
 
 const t = i18n.ns("app-apw/admin/publishing-workflows/form");
 

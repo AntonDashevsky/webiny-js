@@ -1,19 +1,19 @@
 import { createTopic } from "@webiny/pubsub";
 import WebinyError from "@webiny/error";
-import { type SecurityIdentity, type SecurityPermission } from "@webiny/api-security/types.js";
+import type { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
 import { NotAuthorizedError } from "@webiny/api-security";
 import { mdbid } from "@webiny/utils";
 import { NotFoundError } from "@webiny/handler-graphql";
-import {
-    type AdminUser,
-    type AdminUsers,
-    type AdminUsersStorageOperations,
-    type CreatedBy,
-    type CreateUserInput,
-    type System
-} from "./types.js";
-import { createUserLoaders } from "./createAdminUsers/users.loaders.js";
-import { attachUserValidation } from "./createAdminUsers/users.validation.js";
+import type {
+    AdminUser,
+    AdminUsers,
+    AdminUsersStorageOperations,
+    CreatedBy,
+    CreateUserInput,
+    System
+} from "./types";
+import { createUserLoaders } from "./createAdminUsers/users.loaders";
+import { attachUserValidation } from "./createAdminUsers/users.validation";
 
 interface AdminUsersConfig {
     getIdentity(): SecurityIdentity;

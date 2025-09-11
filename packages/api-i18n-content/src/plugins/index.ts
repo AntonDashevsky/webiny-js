@@ -1,4 +1,4 @@
-import { type I18NContentContext } from "~/types.js";
+import type { I18NContentContext } from "~/types";
 import { ContextPlugin } from "@webiny/api";
 
 /**

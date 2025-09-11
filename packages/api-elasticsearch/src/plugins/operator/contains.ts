@@ -1,6 +1,6 @@
-import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin.js";
-import { normalizeValueWithAsterisk } from "~/normalize.js";
-import { type ElasticsearchBoolQueryConfig, type ElasticsearchQueryBuilderArgsPlugin } from "~/types.js";
+import { ElasticsearchQueryBuilderOperatorPlugin } from "~/plugins/definition/ElasticsearchQueryBuilderOperatorPlugin";
+import { normalizeValueWithAsterisk } from "~/normalize";
+import type { ElasticsearchBoolQueryConfig, ElasticsearchQueryBuilderArgsPlugin } from "~/types";
 
 export class ElasticsearchQueryBuilderOperatorContainsPlugin extends ElasticsearchQueryBuilderOperatorPlugin {
     public override name = "elasticsearch.queryBuilder.operator.contains.default";

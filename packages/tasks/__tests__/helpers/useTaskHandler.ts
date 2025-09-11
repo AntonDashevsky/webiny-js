@@ -9,10 +9,10 @@ import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { createBackgroundTaskContext } from "~/context";
 import { createRawEventHandler } from "@webiny/handler-aws";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
-import { PluginCollection } from "@webiny/plugins/types";
-import { LambdaContext } from "@webiny/handler-aws/types";
-import { ITaskRawEvent } from "~/handler/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { PluginCollection } from "@webiny/plugins/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
+import type { ITaskRawEvent } from "~/handler/types";
 import { createMockTaskServicePlugin } from "~tests/mocks/taskTriggerTransportPlugin";
 
 export interface UseTaskHandlerParams {

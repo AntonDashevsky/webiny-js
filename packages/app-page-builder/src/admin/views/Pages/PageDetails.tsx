@@ -2,20 +2,20 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { useRouter } from "@webiny/react-router";
 import styled from "@emotion/styled";
-import { renderPlugins } from "@webiny/app/plugins/index.js";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import {
-    GET_PAGE,
-    type GetPageQueryResponse,
-    type GetPageQueryVariables,
-    type PageResponseData
-} from "../../graphql/pages.js";
-import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button/index.js";
-import EmptyView from "@webiny/app-admin/components/EmptyView.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import { renderPlugins } from "@webiny/app/plugins";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import type {
+    GetPageQueryResponse,
+    GetPageQueryVariables,
+    PageResponseData
+} from "../../graphql/pages";
+import { GET_PAGE } from "../../graphql/pages";
+import { ButtonDefault, ButtonIcon } from "@webiny/ui/Button";
+import EmptyView from "@webiny/app-admin/components/EmptyView";
+import { i18n } from "@webiny/app/i18n";
 import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { createUsePageHook, PageProvider } from "~/admin/contexts/Page.js";
-import { type PbPageData } from "~/types.js";
+import { createUsePageHook, PageProvider } from "~/admin/contexts/Page";
+import type { PbPageData } from "~/types";
 
 const t = i18n.ns("app-page-builder/admin/views/pages/page-details");
 

@@ -1,13 +1,13 @@
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import {
-    type FileManagerSettings,
-    type FileManagerSettingsStorageOperations,
-    type FileManagerSettingsStorageOperationsCreateParams,
-    type FileManagerSettingsStorageOperationsUpdateParams,
-    type FileManagerStorageOperationsDeleteSettings,
-    type FileManagerStorageOperationsGetSettingsParams
-} from "@webiny/api-file-manager/types.js";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type {
+    FileManagerSettings,
+    FileManagerSettingsStorageOperations,
+    FileManagerSettingsStorageOperationsCreateParams,
+    FileManagerSettingsStorageOperationsUpdateParams,
+    FileManagerStorageOperationsDeleteSettings,
+    FileManagerStorageOperationsGetSettingsParams
+} from "@webiny/api-file-manager/types";
 import WebinyError from "@webiny/error";
 import { createStandardEntity, createTable, deleteItem, get, put } from "@webiny/db-dynamodb";
 

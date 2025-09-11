@@ -1,11 +1,11 @@
 import { ErrorResponse, Response } from "@webiny/handler-graphql";
-import type { Resolvers } from "@webiny/handler-graphql/types.js";
-import type { PbContext } from "~/graphql/types.js";
-import { SaveTranslatableCollectionUseCase } from "~/translations/translatableCollection/useCases/SaveTranslatableCollectionUseCase.js";
-import type { GqlTranslatableItemDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableItemDTO.js";
-import { GetTranslatableCollectionByIdRepository } from "~/translations/translatableCollection/repository/GetTranslatableCollectionByIdRepository.js";
-import { GqlTranslatableCollectionMapper } from "~/translations/translatableCollection/graphql/GqlTranslatableCollectionMapper.js";
-import { DeleteTranslatableCollectionUseCase } from "~/translations/index.js";
+import type { Resolvers } from "@webiny/handler-graphql/types";
+import type { PbContext } from "~/graphql/types";
+import { SaveTranslatableCollectionUseCase } from "~/translations/translatableCollection/useCases/SaveTranslatableCollectionUseCase";
+import type { GqlTranslatableItemDTO } from "~/translations/translatableCollection/graphql/GqlTranslatableItemDTO";
+import { GetTranslatableCollectionByIdRepository } from "~/translations/translatableCollection/repository/GetTranslatableCollectionByIdRepository";
+import { GqlTranslatableCollectionMapper } from "~/translations/translatableCollection/graphql/GqlTranslatableCollectionMapper";
+import { DeleteTranslatableCollectionUseCase } from "~/translations";
 
 interface UpdateTranslatableCollectionParams {
     collectionId: string;

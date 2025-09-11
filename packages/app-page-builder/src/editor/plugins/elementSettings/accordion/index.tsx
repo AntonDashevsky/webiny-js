@@ -1,6 +1,6 @@
 import React from "react";
-import AccordionItemsList from "./AccordionItemsList.js";
-import { type PbEditorPageElementAdvancedSettingsPlugin } from "~/types.js";
+import AccordionItemsList from "./AccordionItemsList";
+import type { PbEditorPageElementAdvancedSettingsPlugin } from "~/types";
 
 export default {
     name: "pb-editor-page-element-advanced-settings-accordion",

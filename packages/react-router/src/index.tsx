@@ -1,19 +1,21 @@
 import type React from "react";
 import { useContext } from "react";
+import type { BrowserRouterProps } from "react-router-dom";
 import {
     BrowserRouter as RBrowserRouter,
-    type BrowserRouterProps,
     UNSAFE_RouteContext as __RouterContext,
     useLocation,
     useParams,
     useSearchParams
 } from "react-router-dom";
-import { StaticRouter as RStaticRouter, type StaticRouterProps } from "react-router-dom/server.js";
+import type { StaticRouterProps } from "react-router-dom/server";
+import { StaticRouter as RStaticRouter } from "react-router-dom/server";
 /**
  * Webiny enhancements and backwards compatibility with react-router v5.
  */
-import { useHistory, type UseHistory } from "~/useHistory.js";
-import { type RouteProps } from "./Route.js";
+import type { UseHistory } from "~/useHistory";
+import { useHistory } from "~/useHistory";
+import type { RouteProps } from "./Route";
 
 /**
  * Re-export types from react-router-dom.
@@ -47,23 +49,23 @@ export type {
 
 export * from "react-router-dom";
 
-export { Link } from "./Link.js";
-export type { LinkProps } from "./Link.js";
+export { Link } from "./Link";
+export type { LinkProps } from "./Link";
 
-export { Route } from "./Route.js";
-export type { RouteProps } from "./Route.js";
+export { Route } from "./Route";
+export type { RouteProps } from "./Route";
 
-export { Prompt } from "./Prompt.js";
-export type { PromptProps } from "./Prompt.js";
+export { Prompt } from "./Prompt";
+export type { PromptProps } from "./Prompt";
 
-export { Routes } from "./Routes.js";
-export { Routes as Switch } from "./Routes.js";
-export type { RoutesProps } from "./Routes.js";
+export { Routes } from "./Routes";
+export { Routes as Switch } from "./Routes";
+export type { RoutesProps } from "./Routes";
 
-export { useHistory } from "./useHistory.js";
-export type { UseHistory } from "./useHistory.js";
+export { useHistory } from "./useHistory";
+export type { UseHistory } from "./useHistory";
 
-export { usePrompt } from "./usePrompt.js";
+export { usePrompt } from "./usePrompt";
 
 export type UseRouter = RouteProps & {
     history: UseHistory;

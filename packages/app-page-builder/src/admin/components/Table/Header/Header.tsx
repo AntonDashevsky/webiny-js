@@ -1,14 +1,14 @@
 import React from "react";
 import { Search } from "@webiny/app-aco";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
+import { Grid, Cell } from "@webiny/ui/Grid";
 
-import { ButtonsCreate } from "~/admin/components/Table/Header/ButtonsCreate/index.js";
-import { TableActions } from "~/admin/components/Table/Header/TableActions/index.js";
-import { Title } from "~/admin/components/Table/Header/Title/index.js";
+import { ButtonsCreate } from "~/admin/components/Table/Header/ButtonsCreate";
+import { TableActions } from "~/admin/components/Table/Header/TableActions";
+import { Title } from "~/admin/components/Table/Header/Title";
 
-import { Container, Divider, WrapperActions } from "./styled.js";
-import { type PbPageDataItem } from "~/types.js";
-import { type SearchRecordItem } from "@webiny/app-aco/types.js";
+import { Container, Divider, WrapperActions } from "./styled";
+import type { PbPageDataItem } from "~/types";
+import type { SearchRecordItem } from "@webiny/app-aco/types";
 
 export interface HeaderProps {
     title?: string;

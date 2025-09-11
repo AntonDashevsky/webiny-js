@@ -1,22 +1,17 @@
 import React from "react";
 import { plugins } from "@webiny/plugins";
-import {
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogActions,
-    DialogCancel,
-    type DialogOnClose
-} from "@webiny/ui/Dialog/index.js";
+import type { DialogOnClose } from "@webiny/ui/Dialog";
+import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog";
 import { validation } from "@webiny/validation";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Form, type FormOnSubmit } from "@webiny/form";
+import { Input } from "@webiny/ui/Input";
+import { Select } from "@webiny/ui/Select";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { Grid, Cell } from "@webiny/ui/Grid";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import styled from "@emotion/styled";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { type PbEditorBlockCategoryPlugin, type PbEditorBlockPlugin } from "~/types.js";
+import { ButtonPrimary } from "@webiny/ui/Button";
+import type { PbEditorBlockCategoryPlugin, PbEditorBlockPlugin } from "~/types";
 
 const StyledDialog = styled(Dialog)`
     // We need to have this z-index because without it Edit Block Dialog will be rendered below All Blocks Component.

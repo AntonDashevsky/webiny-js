@@ -1,13 +1,13 @@
-import kebabCase from "lodash/kebabCase.js";
-import { type PluginCollection } from "@webiny/plugins/types.js";
-import {
-    type PbRenderElementPluginArgs,
-    type PbRenderElementPlugin,
-    type PbPageElementImagesListComponentPlugin
-} from "~/types.js";
+import kebabCase from "lodash/kebabCase";
+import type { PluginCollection } from "@webiny/plugins/types";
+import type {
+    PbRenderElementPluginArgs,
+    PbRenderElementPlugin,
+    PbPageElementImagesListComponentPlugin
+} from "~/types";
 
-import { createDefaultImagesListComponent } from "@webiny/app-page-builder-elements/renderers/imagesList/imagesComponents/index.js";
-import { createImagesList } from "@webiny/app-page-builder-elements/renderers/imagesList/index.js";
+import { createDefaultImagesListComponent } from "@webiny/app-page-builder-elements/renderers/imagesList/imagesComponents";
+import { createImagesList } from "@webiny/app-page-builder-elements/renderers/imagesList";
 import { plugins } from "@webiny/plugins";
 
 export default (args: PbRenderElementPluginArgs = {}): PluginCollection => {

@@ -1,7 +1,11 @@
 import type { ExecutionResult, GraphQLSchema } from "graphql";
 import { graphql } from "graphql";
-import { type GraphQLAfterQueryPlugin, type GraphQLBeforeQueryPlugin, type GraphQLRequestBody } from "~/types.js";
-import type { Context } from "@webiny/api/types.js";
+import type {
+    GraphQLAfterQueryPlugin,
+    GraphQLBeforeQueryPlugin,
+    GraphQLRequestBody
+} from "~/types";
+import type { Context } from "@webiny/api/types";
 
 const executeGraphQl = async <TData = Record<string, any>, TExtensions = Record<string, any>>(
     body: GraphQLRequestBody,

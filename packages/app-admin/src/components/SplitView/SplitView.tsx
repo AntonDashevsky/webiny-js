@@ -1,51 +1,8 @@
 import * as React from "react";
-import classSet from "classnames";
-import { type CellProps } from "@webiny/ui/Grid/index.js";
-import { css } from "emotion";
-import styled from "@emotion/styled";
-import { getClasses } from "@webiny/ui/Helpers/index.js";
-import {
-    Panel,
-    type PanelProps,
-    PanelGroup,
-    PanelResizeHandle,
-    type PanelGroupProps
-} from "~/components/ResizablePanels/index.js";
-
-const grid = css({
-    "&.mdc-layout-grid": {
-        padding: 0,
-        margin: "-3px auto 0 auto",
-        backgroundColor: "var(--mdc-theme-background)",
-        ">.mdc-layout-grid__inner": {
-            gridGap: 0
-        }
-    }
-});
-
-const RightPanelWrapper = styled("div")({
-    backgroundColor: "var(--mdc-theme-background)",
-    overflow: "auto",
-    height: "calc(100vh - 64px)"
-});
-
-export const leftPanel = css({
-    backgroundColor: "var(--mdc-theme-surface)",
-    ">.webiny-data-list": {
-        display: "flex",
-        flexDirection: "column",
-        height: "calc(100vh - 70px)",
-        ".mdc-deprecated-list": {
-            overflow: "auto"
-        }
-    },
-    ">.mdc-deprecated-list": {
-        display: "flex",
-        flexDirection: "column",
-        maxHeight: "calc(100vh - 64px)",
-        overflow: "auto"
-    }
-});
+import type { ColumnProps } from "@webiny/admin-ui";
+import { cn, Separator } from "@webiny/admin-ui";
+import type { PanelProps, PanelGroupProps } from "~/components/ResizablePanels";
+import { Panel, PanelGroup, PanelResizeHandle } from "~/components/ResizablePanels";
 
 interface SplitViewProps extends Omit<PanelGroupProps, "direction" | "id" | "autoSaveId"> {
     layoutId?: string | null;
@@ -57,7 +14,7 @@ const SplitView = ({ children, className, layoutId, ...props }: SplitViewProps) 
             direction="horizontal"
             id="splitView"
             autoSaveId={layoutId}
-            className={classSet(grid, className, "webiny-split-view")}
+            className={cn("webiny-split-view", className)}
             {...props}
         >
             {children}
@@ -66,11 +23,14 @@ const SplitView = ({ children, className, layoutId, ...props }: SplitViewProps) 
 };
 
 // Get the default size for the panel:
-const getDefaultSize = (span = 6) => {
-    return (span / 12) * 100;
+const getDefaultSize = (span: ColumnProps["span"]) => {
+    const spanValue = typeof span === "number" && span > 0 && span <= 12 ? span : 6;
+    return (spanValue / 12) * 100;
 };
 
-interface SplitViewPanelProps extends Omit<CellProps, "style">, Omit<PanelProps, "id"> {}
+interface SplitViewPanelProps extends Omit<PanelProps, "id"> {
+    span?: ColumnProps["span"];
+}
 
 const LeftPanel = ({ children, className, ...props }: SplitViewPanelProps) => {
     const defaultSize = props.defaultSize ?? getDefaultSize(props.span || 5);
@@ -81,20 +41,19 @@ const LeftPanel = ({ children, className, ...props }: SplitViewPanelProps) => {
                 defaultSize={defaultSize}
                 minSize={10}
                 id="leftPanel"
-                {...getClasses(
-                    props,
-                    classSet(leftPanel, className, "webiny-split-view__left-panel")
-                )}
+                className={cn("webiny-split-view__right-panel", className)}
                 {...props}
             >
                 {children}
             </Panel>
-            <PanelResizeHandle />
+            <PanelResizeHandle>
+                <Separator orientation={"vertical"} />
+            </PanelResizeHandle>
         </>
     );
 };
 
-const RightPanel = ({ children, ...props }: SplitViewPanelProps) => {
+const RightPanel = ({ children, className, ...props }: SplitViewPanelProps) => {
     const defaultSize = props.defaultSize ?? getDefaultSize(props.span || 7);
 
     return (
@@ -102,15 +61,11 @@ const RightPanel = ({ children, ...props }: SplitViewPanelProps) => {
             defaultSize={defaultSize}
             minSize={30}
             id="rightPanel"
-            {...getClasses(props, "webiny-split-view__right-panel")}
+            className={cn("!wby-overflow-scroll webiny-split-view__right-panel", className)}
             {...props}
+            style={{ overflowY: "scroll" }}
         >
-            <RightPanelWrapper
-                className={"webiny-split-view__right-panel-wrapper"}
-                id={"webiny-split-view-right-panel"}
-            >
-                {children}
-            </RightPanelWrapper>
+            {children}
         </Panel>
     );
 };

@@ -1,11 +1,6 @@
-import { jest } from "@jest/globals";
-import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter.js";
-import {
-    type BatchDTO,
-    type FieldDTO,
-    type OperatorDTO,
-    OperatorType
-} from "~/components/BulkActions/ActionEdit/domain/index.js";
+import { BatchEditorDialogPresenter } from "./BatchEditorDialogPresenter";
+import type { BatchDTO, FieldDTO, OperatorDTO } from "~/components/BulkActions/ActionEdit/domain";
+import { OperatorType } from "~/components/BulkActions/ActionEdit/domain";
 
 describe("BatchEditorDialogPresenter", () => {
     const batch: BatchDTO = {
@@ -372,7 +367,7 @@ describe("BatchEditorDialogPresenter", () => {
 
         presenter.onApply(onSuccess, onError);
 
-        expect(onError).toBeCalledTimes(1);
+        expect(onError).toHaveBeenCalledTimes(1);
         expect(Object.keys(presenter.vm.invalidFields).length).toBe(1);
 
         presenter.setBatch({
@@ -395,7 +390,7 @@ describe("BatchEditorDialogPresenter", () => {
 
         presenter.onApply(onSuccess, onError);
 
-        expect(onSuccess).toBeCalledTimes(1);
+        expect(onSuccess).toHaveBeenCalledTimes(1);
         expect(presenter.vm.invalidFields).toEqual({});
     });
 });

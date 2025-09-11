@@ -1,4 +1,4 @@
-import { Graph } from "graphlib";
+import type { Graph } from "graphlib";
 
 export function printGraph(graph: Graph): string {
     const graphLines: string[] = [];

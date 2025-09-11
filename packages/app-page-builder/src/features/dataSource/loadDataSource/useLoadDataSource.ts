@@ -1,17 +1,15 @@
 import { autorun, toJS } from "mobx";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { type GenericRecord } from "@webiny/app/types.js";
+import type { GenericRecord } from "@webiny/app/types";
 import { useApolloClient } from "@apollo/react-hooks";
-import { type PbDataSource } from "~/types.js";
-import { dataSourceCache } from "~/features/dataSource/loadDataSource/dataSourceCache.js";
-import {
-    DataRequest,
-    type IResolveDataSourceRepository
-} from "~/features/dataSource/loadDataSource/IResolveDataSourceRepository.js";
-import { ResolveDataSourceRepository } from "~/features/dataSource/loadDataSource/ResolveDataSourceRepository.js";
-import { ResolveDataSourceGqlGateway } from "~/features/dataSource/loadDataSource/ResolveDataSourceGqlGateway.js";
-import { type Decorator } from "@webiny/react-composition";
-import { ResolveDataSourceMockGateway } from "~/features/dataSource/loadDataSource/ResolveDataSourceMockGateway.js";
+import type { PbDataSource } from "~/types";
+import { dataSourceCache } from "~/features/dataSource/loadDataSource/dataSourceCache";
+import type { IResolveDataSourceRepository } from "~/features/dataSource/loadDataSource/IResolveDataSourceRepository";
+import { DataRequest } from "~/features/dataSource/loadDataSource/IResolveDataSourceRepository";
+import { ResolveDataSourceRepository } from "~/features/dataSource/loadDataSource/ResolveDataSourceRepository";
+import { ResolveDataSourceGqlGateway } from "~/features/dataSource/loadDataSource/ResolveDataSourceGqlGateway";
+import type { Decorator } from "@webiny/react-composition";
+import { ResolveDataSourceMockGateway } from "~/features/dataSource/loadDataSource/ResolveDataSourceMockGateway";
 
 interface DataSourceLoaderVm {
     data: GenericRecord;

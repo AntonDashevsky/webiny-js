@@ -1,19 +1,8 @@
 import React, { useCallback, useMemo } from "react";
-import type { CmsErrorResponse, CmsModel } from "~/types.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { css } from "emotion";
-import { createValidationValue } from "./validationValue.js";
-
-const errorClassName = css({
-    color: "red",
-    width: "100%",
-    fontSize: "10px",
-    display: "block"
-});
-
-const deleteClassName = css({
-    fontWeight: "bold"
-});
+import type { CmsErrorResponse, CmsModel } from "~/types";
+import { Input } from "@webiny/ui/Input";
+import { createValidationValue } from "./validationValue";
+import { Alert } from "@webiny/admin-ui";
 
 export interface IConfirmationProps {
     model: CmsModel;
@@ -40,8 +29,9 @@ export const Confirmation = (props: IConfirmationProps) => {
         <>
             <p>Are you sure you want to delete this content model and all of its entries?</p>
             <p>
-                If yes, please write <span className={deleteClassName}>{placeholder}</span> in the
-                confirmation input:
+                If yes, please write{" "}
+                <span className={"wby-font-semibold wby-text-neutral-primary"}>{placeholder}</span>{" "}
+                in the confirmation input:
             </p>
             <p>
                 <br />
@@ -53,7 +43,11 @@ export const Confirmation = (props: IConfirmationProps) => {
                     placeholder={placeholder}
                     value={confirmation}
                 />
-                {error && <p className={errorClassName}>{error.message}</p>}
+                {error && (
+                    <Alert type={"danger"} className={"wby-mt-sm"}>
+                        {error.message}
+                    </Alert>
+                )}
             </div>
         </>
     );

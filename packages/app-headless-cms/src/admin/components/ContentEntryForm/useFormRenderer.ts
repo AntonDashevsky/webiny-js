@@ -1,5 +1,5 @@
 import { plugins } from "@webiny/plugins";
-import { type CmsContentFormRendererPlugin, type CmsModel } from "@webiny/app-headless-cms-common/types/index.js";
+import type { CmsContentFormRendererPlugin, CmsModel } from "@webiny/app-headless-cms-common/types";
 
 export const useFormRenderer = (model: CmsModel) => {
     return plugins

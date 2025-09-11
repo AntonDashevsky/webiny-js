@@ -1,23 +1,23 @@
-import omit from "lodash/omit.js";
-import { type CmsEntry, type CmsModel, type HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
-import { type Security } from "@webiny/api-security/types.js";
-import {
-    type File,
-    type FileManagerAliasesStorageOperations,
-    type FileManagerFilesStorageOperations,
-    type FileManagerFilesStorageOperationsCreateBatchParams,
-    type FileManagerFilesStorageOperationsCreateParams,
-    type FileManagerFilesStorageOperationsDeleteParams,
-    type FileManagerFilesStorageOperationsGetParams,
-    type FileManagerFilesStorageOperationsListParams,
-    type FileManagerFilesStorageOperationsListResponse,
-    type FileManagerFilesStorageOperationsTagsParams,
-    type FileManagerFilesStorageOperationsTagsResponse,
-    type FileManagerFilesStorageOperationsUpdateParams
-} from "~/types.js";
-import { ListFilesWhereProcessor } from "~/cmsFileStorage/ListFilesWhereProcessor.js";
-import { ListTagsWhereProcessor } from "~/cmsFileStorage/ListTagsWhereProcessor.js";
-import { ROOT_FOLDER } from "~/contants.js";
+import omit from "lodash/omit";
+import type { CmsEntry, CmsModel, HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { Security } from "@webiny/api-security/types";
+import type {
+    File,
+    FileManagerAliasesStorageOperations,
+    FileManagerFilesStorageOperations,
+    FileManagerFilesStorageOperationsCreateBatchParams,
+    FileManagerFilesStorageOperationsCreateParams,
+    FileManagerFilesStorageOperationsDeleteParams,
+    FileManagerFilesStorageOperationsGetParams,
+    FileManagerFilesStorageOperationsListParams,
+    FileManagerFilesStorageOperationsListResponse,
+    FileManagerFilesStorageOperationsTagsParams,
+    FileManagerFilesStorageOperationsTagsResponse,
+    FileManagerFilesStorageOperationsUpdateParams
+} from "~/types";
+import { ListFilesWhereProcessor } from "~/cmsFileStorage/ListFilesWhereProcessor";
+import { ListTagsWhereProcessor } from "~/cmsFileStorage/ListTagsWhereProcessor";
+import { ROOT_FOLDER } from "~/contants";
 
 interface ModelContext {
     tenant: string;

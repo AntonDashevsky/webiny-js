@@ -1,18 +1,13 @@
-import React, { SyntheticEvent, useCallback, useState } from "react";
-import { css } from "emotion";
-import keycode from "keycode";
-import minimatch from "minimatch";
-import { Input, InputProps } from "~/Input/index.js";
-import { Chips, Chip } from "~/Chips/index.js";
-import { FormComponentProps } from "~/types.js";
-import { ReactComponent as BaselineCloseIcon } from "./icons/baseline-close-24px.svg";
-import { FormElementMessage } from "~/FormElementMessage/index.js";
+import type { FocusEventHandler } from "react";
+import React from "react";
+import { Tags as AdminTags } from "@webiny/admin-ui";
+import type { FormComponentProps } from "~/types.js";
 
 interface TagsProps extends FormComponentProps {
     /**
      * Component label.
      */
-    label?: string;
+    label?: React.ReactNode;
 
     /**
      * Are input and chosen tags disabled?
@@ -47,7 +42,7 @@ interface TagsProps extends FormComponentProps {
     /**
      * Callback that gets executed when the input is focused.
      */
-    onFocus?: (ev: Event) => void;
+    onFocus?: FocusEventHandler<HTMLInputElement> | undefined;
 
     /**
      * Automatically focus on the tags input.
@@ -60,118 +55,12 @@ interface TagsProps extends FormComponentProps {
     protectedTags?: string[];
 }
 
-const tagsStyle = css({
-    position: "relative",
-    ".mdc-elevation--z1": {
-        position: "absolute",
-        width: "calc(100% - 2px)",
-        left: 1,
-        top: 56,
-        zIndex: 10,
-        maxHeight: 200,
-        overflowY: "scroll",
-        backgroundColor: "var(--mdc-theme-surface)"
-    },
-    ul: {
-        listStyle: "none",
-        width: "100%",
-        padding: 0,
-        li: {
-            padding: 10
-        }
-    }
-});
-
+/**
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please use the `Tags` component from the `@webiny/admin-ui` package instead.
+ */
 export const Tags = (props: TagsProps) => {
-    const [inputValue, setInputValue] = useState("");
-
-    const {
-        validation,
-        value,
-        disabled,
-        onChange,
-        description,
-        protectedTags = [],
-        ...otherInputProps
-    } = props;
-
-    const isProtected = useCallback(
-        (tag: string) => protectedTags.some(pattern => minimatch(tag, pattern)),
-        [protectedTags]
-    );
-
-    const inputProps: InputProps<string> = {
-        ...otherInputProps,
-        value: inputValue,
-        onChange: inputValue => {
-            setInputValue(inputValue);
-        },
-        onKeyDown: (ev: SyntheticEvent) => {
-            if (!onChange) {
-                return;
-            }
-
-            const newValue = Array.isArray(value) ? [...value] : [];
-
-            /**
-             * We must cast as keycode only works with Event | string type.
-             */
-            switch (keycode(ev as unknown as Event)) {
-                case "enter":
-                    if (inputValue) {
-                        newValue.push(inputValue);
-                        onChange(newValue);
-                        setInputValue("");
-                    }
-                    break;
-                case "backspace":
-                    if (newValue.length && !inputValue) {
-                        newValue.splice(-1, 1);
-                        onChange(newValue);
-                        break;
-                    }
-            }
-        }
-    };
-
-    const { isValid: validationIsValid, message: validationMessage } = validation || {};
-
-    return (
-        <div className={tagsStyle}>
-            <div>
-                <Input {...inputProps} />
-
-                {validationIsValid === false && (
-                    <FormElementMessage error>{validationMessage}</FormElementMessage>
-                )}
-                {validationIsValid !== false && description && (
-                    <FormElementMessage>{description}</FormElementMessage>
-                )}
-
-                {Array.isArray(value) && value.length ? (
-                    <Chips disabled={disabled}>
-                        {value.map((item, index) => {
-                            return (
-                                <Chip
-                                    label={item}
-                                    trailingIcon={isProtected(item) ? null : <BaselineCloseIcon />}
-                                    key={`${item}-${index}`}
-                                    onRemove={() => {
-                                        // On removal, let's update the value and call "onChange" callback.
-                                        if (onChange) {
-                                            const newValue = [...value];
-                                            newValue.splice(index, 1);
-                                            onChange(newValue);
-                                        }
-                                    }}
-                                />
-                            );
-                        })}
-                    </Chips>
-                ) : null}
-            </div>
-        </div>
-    );
+    return <AdminTags {...props} />;
 };
 
 export default Tags;

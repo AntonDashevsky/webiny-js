@@ -7,7 +7,7 @@ import {
     UploadPartCommand
 } from "@webiny/aws-sdk/client-s3";
 import { mockClient } from "aws-sdk-client-mock";
-import { ICmsImportExportValidatedContentEntriesFile } from "~/types";
+import type { ICmsImportExportValidatedContentEntriesFile } from "~/types";
 import { createMockFetch } from "~tests/mocks/fetch";
 import fs from "fs";
 import path from "path";

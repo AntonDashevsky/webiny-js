@@ -1,5 +1,5 @@
-import { type EventActionCallable, type EventActionHandlerCallableArgs } from "~/types.js";
-import { type BlockAtomType } from "~/blockEditor/state/index.js";
+import type { EventActionCallable, EventActionHandlerCallableArgs } from "~/types";
+import type { BlockAtomType } from "~/blockEditor/state";
 
 export interface BlockEditorEventActionCallableState {
     block: BlockAtomType;

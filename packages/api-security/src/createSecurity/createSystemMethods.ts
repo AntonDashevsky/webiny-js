@@ -1,11 +1,11 @@
 import WebinyError from "@webiny/error";
-import {
-    type ErrorEvent,
-    type InstallEvent,
-    type Security,
-    type SecurityConfig,
-    type System as SystemRecord
-} from "../types.js";
+import type {
+    ErrorEvent,
+    InstallEvent,
+    Security,
+    SecurityConfig,
+    System as SystemRecord
+} from "../types";
 import { createTopic } from "@webiny/pubsub";
 
 export const createSystemMethods = ({

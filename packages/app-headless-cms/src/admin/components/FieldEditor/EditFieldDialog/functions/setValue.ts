@@ -1,5 +1,5 @@
 import { set } from "dot-prop-immutable";
-import { type BindComponentRenderProp } from "@webiny/form";
+import type { BindComponentRenderProp } from "@webiny/form";
 
 interface Params {
     value: string[];

@@ -1,8 +1,8 @@
-import { type ITaskResponse, type ITaskResponseResult, type ITaskRunParams } from "@webiny/tasks";
-import { type HcmsTasksContext } from "~/types.js";
-import { type IDeleteModelTaskInput, type IDeleteModelTaskOutput } from "./types.js";
-import { type CmsEntryListWhere, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import { createStoreKey } from "~/tasks/deleteModel/helpers/store.js";
+import type { ITaskResponse, ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
+import type { HcmsTasksContext } from "~/types";
+import type { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types";
+import type { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
+import { createStoreKey } from "~/tasks/deleteModel/helpers/store";
 
 export interface IDeleteModelRunnerParams<
     C extends HcmsTasksContext,
@@ -73,7 +73,7 @@ export class DeleteModelRunner<
                         permanently: true,
                         force: true
                     });
-                } catch (ex) {
+                } catch {
                     console.error("Failed to delete entry.", {
                         model: model.modelId,
                         id: item.id

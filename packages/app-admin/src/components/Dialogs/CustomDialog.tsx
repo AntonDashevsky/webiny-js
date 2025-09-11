@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Form, type FormOnSubmit, type GenericFormData, useForm } from "@webiny/form";
-import { DialogContainer } from "./styled.js";
+import type { FormOnSubmit, GenericFormData } from "@webiny/form";
+import { Form, useForm } from "@webiny/form";
+import { Dialog } from "@webiny/admin-ui";
 
 interface DialogProps {
     onSubmit: (data: GenericFormData) => void;
@@ -16,7 +17,7 @@ export const CustomDialog = ({ open, loading, closeDialog, onSubmit, children }:
     };
 
     return (
-        <DialogContainer open={open} onClose={closeDialog}>
+        <Dialog open={open} onClose={closeDialog}>
             {open ? (
                 <Form onSubmit={handleSubmit}>
                     {() => (
@@ -26,7 +27,7 @@ export const CustomDialog = ({ open, loading, closeDialog, onSubmit, children }:
                     )}
                 </Form>
             ) : null}
-        </DialogContainer>
+        </Dialog>
     );
 };
 

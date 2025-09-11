@@ -1,13 +1,13 @@
 import { useCallback } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import isEmpty from "lodash/isEmpty.js";
-import omit from "lodash/omit.js";
-import get from "lodash/get.js";
-import { i18n } from "@webiny/app/i18n/index.js";
+import isEmpty from "lodash/isEmpty";
+import omit from "lodash/omit";
+import get from "lodash/get";
+import { i18n } from "@webiny/app/i18n";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { CREATE_TENANT, GET_TENANT, UPDATE_TENANT, LIST_TENANTS } from "~/graphql/index.js";
-import { type TenantItem } from "~/types.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { CREATE_TENANT, GET_TENANT, UPDATE_TENANT, LIST_TENANTS } from "~/graphql";
+import type { TenantItem } from "~/types";
 
 const t = i18n.ns("app-tenant-manager/tenants/form");
 

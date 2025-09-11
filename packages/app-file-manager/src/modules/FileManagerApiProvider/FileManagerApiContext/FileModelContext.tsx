@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { type CmsModel } from "@webiny/app-headless-cms/types.js";
+import { OverlayLoader } from "@webiny/admin-ui";
+import type { CmsModel } from "@webiny/app-headless-cms/types";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_FILE_MODEL } from "~/modules/FileManagerApiProvider/graphql.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { GET_FILE_MODEL } from "~/modules/FileManagerApiProvider/graphql";
 
 export const FileModelContext = React.createContext<CmsModel | undefined>(undefined);
 
@@ -16,7 +16,7 @@ export const FileModelProvider = ({ children }: { children: React.ReactNode }) =
     });
 
     if (!model) {
-        return <CircularProgress label={"Preparing File Manager..."} />;
+        return <OverlayLoader text={"Preparing File Manager..."} />;
     }
 
     return <FileModelContext.Provider value={model}>{children}</FileModelContext.Provider>;

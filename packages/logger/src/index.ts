@@ -1,10 +1,10 @@
-import {
+import type {
     DestinationStream,
     LevelWithSilent,
     Logger,
-    LoggerOptions as BaseLoggerOptions,
-    pino
+    LoggerOptions as BaseLoggerOptions
 } from "pino";
+import { pino } from "pino";
 
 export * from "pino";
 

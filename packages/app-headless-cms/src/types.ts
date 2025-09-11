@@ -1,16 +1,16 @@
-import { type CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
-import { type FolderTableItem, type RecordTableItem } from "@webiny/app-aco/table.types.js";
-import { type DragSourceMonitor, type XYCoord } from "react-dnd";
-import { type DragDropManager, type Identifier, type Listener, type Unsubscribe } from "dnd-core";
+import type { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
+import type { FolderTableRow, RecordTableRow } from "@webiny/app-aco";
+import type { DragSourceMonitor, XYCoord } from "react-dnd";
+import type { DragDropManager, Identifier, Listener, Unsubscribe } from "dnd-core";
 
-export * from "@webiny/app-headless-cms-common/types/index.js";
+export * from "@webiny/app-headless-cms-common/types";
 
 /***
  * ###### TABLE ########
  */
-export type EntryTableItem = CmsContentEntry & RecordTableItem;
+export type EntryTableItem = RecordTableRow<CmsContentEntry>;
 
-export type TableItem = FolderTableItem | EntryTableItem;
+export type TableItem = FolderTableRow | EntryTableItem;
 
 export declare class DragSourceMonitorImpl<DragObject = unknown, DropResult = unknown>
     implements DragSourceMonitor<DragObject, DropResult>

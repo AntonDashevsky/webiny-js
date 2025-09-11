@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { type ITrashBinItemsRepository } from "~/Domain/index.js";
-import { type IListItemsUseCase } from "./IListItemsUseCase.js";
-import { type TrashBinListQueryVariables } from "~/types.js";
+import type { ITrashBinItemsRepository } from "~/Domain";
+import type { IListItemsUseCase } from "./IListItemsUseCase";
+import type { TrashBinListQueryVariables } from "~/types";
 
 export class ListItemsUseCase implements IListItemsUseCase {
     private itemsRepository: ITrashBinItemsRepository;

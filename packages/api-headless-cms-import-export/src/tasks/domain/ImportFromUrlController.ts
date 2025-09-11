@@ -1,15 +1,15 @@
 import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
-import {
-    type IImportFromUrlController,
-    type IImportFromUrlControllerInput,
-    IImportFromUrlControllerInputStep,
-    type IImportFromUrlControllerInputStepsStep,
-    type IImportFromUrlControllerOutput
-} from "~/tasks/domain/abstractions/ImportFromUrlController.js";
-import type { Context } from "~/types.js";
-import { ImportFromUrlControllerDownloadStep } from "~/tasks/domain/importFromUrlControllerSteps/ImportFromUrlControllerDownloadStep.js";
-import { ImportFromUrlControllerProcessEntriesStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessEntriesStep.js";
-import { ImportFromUrlControllerProcessAssetsStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessAssetsStep.js";
+import type {
+    IImportFromUrlController,
+    IImportFromUrlControllerInput,
+    IImportFromUrlControllerInputStepsStep,
+    IImportFromUrlControllerOutput
+} from "~/tasks/domain/abstractions/ImportFromUrlController";
+import { IImportFromUrlControllerInputStep } from "~/tasks/domain/abstractions/ImportFromUrlController";
+import type { Context } from "~/types";
+import { ImportFromUrlControllerDownloadStep } from "~/tasks/domain/importFromUrlControllerSteps/ImportFromUrlControllerDownloadStep";
+import { ImportFromUrlControllerProcessEntriesStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessEntriesStep";
+import { ImportFromUrlControllerProcessAssetsStep } from "./importFromUrlControllerSteps/ImportFromUrlControllerProcessAssetsStep";
 
 const getDefaultStepValues = (): IImportFromUrlControllerInputStepsStep => {
     return {
@@ -46,7 +46,7 @@ export class ImportFromUrlController<
 
         try {
             await context.cms.getModel(input.modelId);
-        } catch (ex) {
+        } catch {
             return response.error({
                 message: `Model "${input.modelId}" not found.`,
                 code: "MODEL_NOT_FOUND"

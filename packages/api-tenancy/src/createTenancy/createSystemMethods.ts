@@ -1,5 +1,5 @@
 import WebinyError from "@webiny/error";
-import { type Tenancy, type TenancyStorageOperations } from "~/types.js";
+import type { Tenancy, TenancyStorageOperations } from "~/types";
 
 interface CreateSystemMethodsParams {
     storageOperations: TenancyStorageOperations;
@@ -34,7 +34,7 @@ export function createSystemMethods({ storageOperations }: CreateSystemMethodsPa
                 try {
                     await storageOperations.updateSystemData(data);
                     return;
-                } catch (ex) {
+                } catch {
                     throw new WebinyError(
                         "Could not update the system data.",
                         "SYSTEM_UPDATE_ERROR",
@@ -49,7 +49,7 @@ export function createSystemMethods({ storageOperations }: CreateSystemMethodsPa
             try {
                 await storageOperations.createSystemData(data);
                 return;
-            } catch (ex) {
+            } catch {
                 throw new WebinyError("Could not create the system data.", "SYSTEM_CREATE_ERROR", {
                     data
                 });

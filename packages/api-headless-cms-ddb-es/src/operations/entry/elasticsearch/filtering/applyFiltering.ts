@@ -1,12 +1,12 @@
 import WebinyError from "@webiny/error";
-import { transformValueForSearch } from "~/operations/entry/elasticsearch/transformValueForSearch.js";
-import { hasKeyword } from "~/operations/entry/elasticsearch/keyword.js";
-import {
-    type ElasticsearchQueryBuilderOperatorPlugins,
-    type ElasticsearchQuerySearchValuePlugins
-} from "~/operations/entry/elasticsearch/types.js";
-import { createFieldPathFactory } from "~/operations/entry/elasticsearch/filtering/path.js";
-import { type ApplyFilteringCb } from "~/plugins/CmsEntryFilterPlugin.js";
+import { transformValueForSearch } from "~/operations/entry/elasticsearch/transformValueForSearch";
+import { hasKeyword } from "~/operations/entry/elasticsearch/keyword";
+import type {
+    ElasticsearchQueryBuilderOperatorPlugins,
+    ElasticsearchQuerySearchValuePlugins
+} from "~/operations/entry/elasticsearch/types";
+import { createFieldPathFactory } from "~/operations/entry/elasticsearch/filtering/path";
+import type { ApplyFilteringCb } from "~/plugins/CmsEntryFilterPlugin";
 
 interface CreateParams {
     operatorPlugins: ElasticsearchQueryBuilderOperatorPlugins;
@@ -46,6 +46,7 @@ export const createApplyFiltering = ({
         const { basePath, path } = createFieldPath({
             field,
             value,
+            originalValue: initialValue,
             key,
             keyword
         });

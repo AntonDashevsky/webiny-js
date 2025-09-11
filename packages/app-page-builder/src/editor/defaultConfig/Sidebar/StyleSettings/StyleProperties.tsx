@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import { ElementProperties, ElementProperty } from "~/editor/config/ElementProperty.js";
-import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin.js";
-import { useActiveElement } from "~/editor/index.js";
-import { type Element } from "@webiny/app-page-builder-elements/types.js";
-import { getPropertyName } from "../BackwardsCompatibility/StyleSettingsAdapter.js";
+import { ElementProperties, ElementProperty } from "~/editor/config/ElementProperty";
+import { useElementPlugin } from "~/editor/contexts/EditorPageElementsProvider/useElementPlugin";
+import { useActiveElement } from "~/editor";
+import type { Element } from "@webiny/app-page-builder-elements/types";
+import { getPropertyName } from "../BackwardsCompatibility/StyleSettingsAdapter";
 
 export const StyleProperties = () => {
     const [element] = useActiveElement<Element>();

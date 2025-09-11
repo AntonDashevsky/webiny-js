@@ -1,15 +1,16 @@
 import React from "react";
-import { Skeleton } from "@webiny/ui/Skeleton/index.js";
-import { Name } from "./Title.styled.js";
+import { Skeleton, Heading } from "@webiny/admin-ui";
 
 export interface TitleProps {
     title?: string;
 }
 
 export const Title = ({ title }: TitleProps) => {
-    return (
-        <Name use={"headline6"} tag={"h1"}>
-            {title || <Skeleton theme={"dark"} />}
-        </Name>
+    return title ? (
+        <Heading level={5} className={"wby-text-neutral-primary"}>
+            {title}
+        </Heading>
+    ) : (
+        <Skeleton size={"md"} />
     );
 };

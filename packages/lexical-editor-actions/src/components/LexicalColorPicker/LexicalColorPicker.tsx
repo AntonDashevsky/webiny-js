@@ -1,13 +1,15 @@
-import React, { useCallback, useState, type SyntheticEvent, useEffect, useMemo } from "react";
+import type { SyntheticEvent } from "react";
+import React, { useCallback, useState, useEffect, useMemo } from "react";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements.js";
-import { ChromePicker, type ColorState, type RGBColor } from "react-color";
-import { type OnChangeHandler } from "react-color/lib/components/common/ColorWrap.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
+import type { ColorState, RGBColor } from "react-color";
+import { ChromePicker } from "react-color";
+import type { OnChangeHandler } from "react-color/lib/components/common/ColorWrap";
+import { Tooltip } from "@webiny/ui/Tooltip";
 
 // Icons
 import { ReactComponent as IconPalette } from "./round-color_lens-24px.svg";
+import { useRichTextEditor } from "@webiny/lexical-editor";
 
 const ColorPickerStyle = styled("div")({
     position: "relative",
@@ -26,7 +28,8 @@ const ColorBox = styled("div")({
     borderRadius: "50%",
     margin: 5,
     border: "1px solid var(--mdc-theme-on-background)",
-    padding: 3
+    padding: 3,
+    boxSizing: "content-box"
 });
 
 const Color = styled("button")({
@@ -166,15 +169,15 @@ export const LexicalColorPicker = ({
         setShowPicker(state => !state);
     }, []);
 
-    const pageElements = usePageElements();
+    const { theme } = useRichTextEditor();
 
     const themeColors: Record<string, any> = useMemo(() => {
-        const colors = pageElements.theme?.styles?.colors ?? {};
+        const colors = theme?.styles?.colors ?? {};
 
         return Object.keys(colors).reduce((acc, key) => {
             return { ...acc, [key]: colors[key] };
         }, {});
-    }, [pageElements.theme?.styles?.colors]);
+    }, [theme?.styles?.colors]);
 
     useEffect(() => {
         const isThemeColor = Object.keys(themeColors).some(key => themeColors[key] === value);
@@ -194,7 +197,7 @@ export const LexicalColorPicker = ({
                                 onClick={() => {
                                     // With page elements implementation, we want to store the color key and
                                     // then the actual color will be retrieved from the theme object.
-                                    const colors = pageElements.theme?.styles?.colors;
+                                    const colors = theme?.styles?.colors;
                                     onChangeComplete(colors[key], key);
                                 }}
                             />

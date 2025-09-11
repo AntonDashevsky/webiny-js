@@ -1,4 +1,5 @@
-import { Action, type ActionConfig } from "./Action.js";
+import type { ActionConfig } from "./Action";
+import { Action } from "./Action";
 
 export interface RecordConfig {
     actions: ActionConfig[];

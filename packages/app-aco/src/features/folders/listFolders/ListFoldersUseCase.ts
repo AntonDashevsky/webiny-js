@@ -1,5 +1,5 @@
-import { type IListFoldersUseCase } from "./IListFoldersUseCase.js";
-import { type IListFoldersRepository } from "./IListFoldersRepository.js";
+import type { IListFoldersUseCase } from "./IListFoldersUseCase";
+import type { IListFoldersRepository } from "./IListFoldersRepository";
 
 export class ListFoldersUseCase implements IListFoldersUseCase {
     private repository: IListFoldersRepository;

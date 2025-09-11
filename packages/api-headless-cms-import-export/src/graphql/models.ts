@@ -1,5 +1,5 @@
-import type { Context } from "~/types.js";
-import { type CmsModel } from "@webiny/api-headless-cms/types/index.js";
+import type { Context } from "~/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 
 export const listModels = async (context: Context): Promise<CmsModel[]> => {
     return await context.security.withoutAuthorization(async () => {
@@ -9,7 +9,7 @@ export const listModels = async (context: Context): Promise<CmsModel[]> => {
             return models.filter(model => {
                 return !model.isPrivate;
             });
-        } catch (ex) {
+        } catch {
             return [];
         }
     });

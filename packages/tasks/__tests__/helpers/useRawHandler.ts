@@ -1,16 +1,16 @@
 import { createHeadlessCmsContext, createHeadlessCmsGraphQL } from "@webiny/api-headless-cms";
 import graphQLHandlerPlugins from "@webiny/handler-graphql";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
+import type { HeadlessCmsStorageOperations } from "@webiny/api-headless-cms/types";
 import { createWcpContext } from "@webiny/api-wcp";
 import { createTenancyAndSecurity } from "./tenancySecurity";
 import { createDummyLocales, createIdentity, createPermissions } from "./helpers";
 import { mockLocalesPlugins } from "@webiny/api-i18n/graphql/testing";
 import i18nContext from "@webiny/api-i18n/graphql/context";
 import { createRawEventHandler, createRawHandler } from "@webiny/handler-aws";
-import { LambdaContext } from "@webiny/handler-aws/types";
-import { Context } from "~tests/types";
-import { PluginCollection } from "@webiny/plugins/types";
+import type { LambdaContext } from "@webiny/handler-aws/types";
+import type { Context } from "~tests/types";
+import type { PluginCollection } from "@webiny/plugins/types";
 import { createBackgroundTaskContext } from "~/index";
 import { createMockTaskServicePlugin } from "~tests/mocks/taskTriggerTransportPlugin";
 

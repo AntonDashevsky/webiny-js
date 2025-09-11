@@ -68,7 +68,7 @@ export default {
         devDependencies: true,
         peerDependencies: true
     },
-    ignoreDirs: ["node_modules/", "dist/", "build/"],
+    ignoreDirs: ["node_modules/", "dist/", "build/", "nextjs/"],
     packages: getWorkspaces()
         .filter(pkg => !pkg.includes("system-requirements"))
         .map(pkg => pkg.replace(/\//g, path.sep).replace(process.cwd() + path.sep, ""))

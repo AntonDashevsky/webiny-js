@@ -1,8 +1,8 @@
-import { DbRegistry } from "~/DbRegistry.js";
-import { IStore } from "~/store/types.js";
-import { Store } from "~/store/Store.js";
+import { DbRegistry } from "~/DbRegistry";
+import type { IStore } from "~/store/types";
+import { Store } from "~/store/Store";
 
-export * from "./types.js";
+export * from "./types";
 
 export interface DbDriver<T> extends IStore {
     getClient(): T;

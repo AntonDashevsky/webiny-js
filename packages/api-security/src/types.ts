@@ -1,10 +1,10 @@
-import { type Plugin } from "@webiny/plugins/types.js";
-import { type Context } from "@webiny/handler/types.js";
-import { type Authentication, type Identity } from "@webiny/api-authentication/types.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import { type GetTenant } from "~/createSecurity.js";
-import { type ProjectPackageFeatures } from "@webiny/wcp/types.js";
-import { type TenancyContext } from "@webiny/api-tenancy/types.js";
+import type { Plugin } from "@webiny/plugins/types";
+import type { Context } from "@webiny/handler/types";
+import type { Authentication, Identity } from "@webiny/api-authentication/types";
+import type { Topic } from "@webiny/pubsub/types";
+import type { GetTenant } from "~/createSecurity";
+import type { ProjectPackageFeatures } from "@webiny/wcp/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
 
 // Backwards compatibility - START
 export type SecurityIdentity = Identity;
@@ -69,16 +69,8 @@ export interface GetTeamWhere {
 export type AuthenticationToken = string;
 
 export interface Security<TIdentity = SecurityIdentity> extends Authentication<TIdentity> {
-    /**
-     * @deprecated
-     */
-    onBeforeInstall: Topic<InstallEvent>;
     onSystemBeforeInstall: Topic<InstallEvent>;
     onInstall: Topic<InstallEvent>;
-    /**
-     * @deprecated
-     */
-    onAfterInstall: Topic<InstallEvent>;
     onSystemAfterInstall: Topic<InstallEvent>;
     onCleanup: Topic<ErrorEvent>;
     onBeforeLogin: Topic<LoginEvent<TIdentity>>;
@@ -104,9 +96,6 @@ export interface Security<TIdentity = SecurityIdentity> extends Authentication<T
     addAuthorizer(authorizer: Authorizer): void;
 
     getAuthorizers(): Authorizer[];
-
-    // getPermission: GetPermission;
-    // getPermissions(): Promise<SecurityPermission[]>;
 
     getPermission<TPermission extends SecurityPermission = SecurityPermission>(
         permission: string

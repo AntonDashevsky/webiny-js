@@ -1,8 +1,8 @@
-import { type Client } from "@elastic/elasticsearch";
+import type { Client } from "@elastic/elasticsearch";
 import { createIndex } from "@webiny/api-elasticsearch";
-import { type PluginsContainer } from "@webiny/plugins";
-import { PageElasticsearchIndexPlugin } from "~/plugins/definitions/PageElasticsearchIndexPlugin.js";
-import { configurations } from "~/configurations.js";
+import type { PluginsContainer } from "@webiny/plugins";
+import { PageElasticsearchIndexPlugin } from "~/plugins/definitions/PageElasticsearchIndexPlugin";
+import { configurations } from "~/configurations";
 
 export interface ExecOnBeforeInstallParams {
     elasticsearch: Client;

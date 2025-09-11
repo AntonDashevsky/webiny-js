@@ -1,21 +1,22 @@
-import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks/types.js";
+import type { ITaskResponseResult, ITaskRunParams } from "@webiny/tasks/types";
 import type {
     IImportFromUrlProcessAssets,
     IImportFromUrlProcessAssetsInput,
     IImportFromUrlProcessAssetsOutput
-} from "~/tasks/domain/importFromUrlProcessAssets/abstractions/ImportFromUrlProcessAssets.js";
-import { CmsImportExportFileType, type Context } from "~/types.js";
-import type { IFileFetcher } from "~/tasks/utils/fileFetcher/index.js";
+} from "~/tasks/domain/importFromUrlProcessAssets/abstractions/ImportFromUrlProcessAssets";
+import type { Context } from "~/types";
+import { CmsImportExportFileType } from "~/types";
+import type { IFileFetcher } from "~/tasks/utils/fileFetcher";
 import type {
     ICompressedFileReader,
     IDecompressor,
     IUnzipperFile
-} from "~/tasks/utils/decompressor/index.js";
-import { MANIFEST_JSON } from "~/tasks/constants.js";
-import { getFilePath } from "~/tasks/utils/helpers/getFilePath.js";
+} from "~/tasks/utils/decompressor";
+import { MANIFEST_JSON } from "~/tasks/constants";
+import { getFilePath } from "~/tasks/utils/helpers/getFilePath";
 import { WebinyError } from "@webiny/error";
-import type { ICmsAssetsManifestJson } from "~/tasks/utils/types.js";
-import type { IResolvedAsset } from "~/tasks/utils/entryAssets/index.js";
+import type { ICmsAssetsManifestJson } from "~/tasks/utils/types";
+import type { IResolvedAsset } from "~/tasks/utils/entryAssets";
 
 export interface IImportFromUrlProcessAssetsParams {
     fileFetcher: IFileFetcher;
@@ -65,7 +66,7 @@ export class ImportFromUrlProcessAssets<
             try {
                 const result = await context.fileManager.getFile(id);
                 return !!result;
-            } catch (ex) {
+            } catch {
                 return false;
             }
         };

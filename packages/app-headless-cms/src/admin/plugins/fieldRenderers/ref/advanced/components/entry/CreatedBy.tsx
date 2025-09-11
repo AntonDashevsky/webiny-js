@@ -1,7 +1,7 @@
 import React from "react";
-import { type CmsIdentity } from "~/types.js";
-import { Box } from "./Box.js";
-import { TimeAgo } from "@webiny/ui/TimeAgo/index.js";
+import type { CmsIdentity } from "~/types";
+import { Box } from "./Box";
+import { TimeAgo } from "@webiny/ui/TimeAgo";
 
 interface CreatedByProps {
     createdBy: CmsIdentity;
@@ -10,8 +10,7 @@ interface CreatedByProps {
 export const CreatedBy = ({ createdBy, createdOn }: CreatedByProps) => {
     return (
         <Box icon={null} name={"Created By"}>
-            {createdBy.displayName} <br />
-            <TimeAgo datetime={createdOn} />
+            {createdBy.displayName} <TimeAgo datetime={createdOn} />
         </Box>
     );
 };

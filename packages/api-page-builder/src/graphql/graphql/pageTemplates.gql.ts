@@ -1,8 +1,8 @@
-import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin.js";
+import { GraphQLSchemaPlugin } from "@webiny/handler-graphql/plugins/GraphQLSchemaPlugin";
 
-import resolve from "./utils/resolve.js";
-import { type PageTemplate, type PbContext } from "~/types.js";
-import { type GraphQLFieldResolver } from "@webiny/handler-graphql/types.js";
+import resolve from "./utils/resolve";
+import type { PageTemplate, PbContext } from "~/types";
+import type { GraphQLFieldResolver } from "@webiny/handler-graphql/types";
 
 const defaultResolver = <T>(
     name: keyof PageTemplate,

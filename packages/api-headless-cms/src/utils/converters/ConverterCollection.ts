@@ -1,9 +1,9 @@
 import WebinyError from "@webiny/error";
-import { Converter } from "./Converter.js";
-import { type CmsEntryValues, type CmsModelField, type CmsModelFieldToGraphQLPlugin } from "~/types/index.js";
-import { CmsModelFieldConverterPlugin } from "~/plugins/index.js";
-import { type PluginsContainer } from "@webiny/plugins";
-import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
+import { Converter } from "./Converter";
+import type { CmsEntryValues, CmsModelField, CmsModelFieldToGraphQLPlugin } from "~/types";
+import { CmsModelFieldConverterPlugin } from "~/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
+import { getBaseFieldType } from "~/utils/getBaseFieldType";
 
 export interface CmsModelFieldsWithParent extends CmsModelField {
     parent?: CmsModelField | null;

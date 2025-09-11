@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { type Element, type Renderer } from "~/types.js";
-import { createRenderer } from "~/createRenderer.js";
-import { useRenderer } from "~/hooks/useRenderer.js";
+import type { Element, Renderer } from "~/types";
+import { createRenderer } from "~/createRenderer";
+import { useRenderer } from "~/hooks/useRenderer";
 
 declare global {
     interface Window {

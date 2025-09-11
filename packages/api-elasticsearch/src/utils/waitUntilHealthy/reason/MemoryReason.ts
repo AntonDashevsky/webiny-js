@@ -1,4 +1,4 @@
-import { type IReason } from "~/utils/waitUntilHealthy/reason/IReason.js";
+import type { IReason } from "~/utils/waitUntilHealthy/reason/IReason";
 
 export interface IMemoryReasonParams {
     maximum: number;

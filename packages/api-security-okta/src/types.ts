@@ -1,9 +1,9 @@
-import "@webiny/api-tenancy/types.js";
-import { type SecurityContext } from "@webiny/api-security/types.js";
-import { type TenancyContext } from "@webiny/api-tenancy/types.js";
-import { type I18NContext } from "@webiny/api-i18n/types.js";
+import "@webiny/api-tenancy/types";
+import type { SecurityContext } from "@webiny/api-security/types";
+import type { TenancyContext } from "@webiny/api-tenancy/types";
+import type { I18NContext } from "@webiny/api-i18n/types";
 
-declare module "@webiny/api-tenancy/types.js" {
+declare module "@webiny/api-tenancy/types" {
     interface TenantSettings {
         appClientId: string;
     }

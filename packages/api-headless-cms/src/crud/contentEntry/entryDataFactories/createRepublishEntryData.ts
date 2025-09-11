@@ -1,9 +1,10 @@
-import { type CmsContext, type CmsEntry, type CmsModel } from "~/types/index.js";
-import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping.js";
-import { STATUS_PUBLISHED } from "./statuses.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
-import { getIdentity } from "~/utils/identity.js";
-import { getDate } from "~/utils/date.js";
+import type { CmsContext, CmsEntry, CmsModel } from "~/types";
+import { referenceFieldsMapping } from "~/crud/contentEntry/referenceFieldsMapping";
+import { STATUS_PUBLISHED } from "./statuses";
+import type { SecurityIdentity } from "@webiny/api-security/types";
+import { getIdentity } from "~/utils/identity";
+import { getDate } from "~/utils/date";
+import { createState } from "~/crud/contentEntry/entryDataFactories/state.js";
 
 type CreateRepublishEntryDataParams = {
     model: CmsModel;
@@ -33,6 +34,7 @@ export const createRepublishEntryData = async ({
     const entry: CmsEntry = {
         ...originalEntry,
         status: STATUS_PUBLISHED,
+        state: createState(undefined),
 
         /**
          * Entry-level meta fields. 👇

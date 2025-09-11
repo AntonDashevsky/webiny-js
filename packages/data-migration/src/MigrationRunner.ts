@@ -1,5 +1,5 @@
 import { coerce } from "semver";
-import { Logger } from "@webiny/logger";
+import type { Logger } from "@webiny/logger";
 import { inject, makeInjectable } from "@webiny/ioc";
 import { executeWithRetry, mdbid } from "@webiny/utils";
 import {
@@ -7,9 +7,9 @@ import {
     LoggerSymbol,
     MigrationSymbol,
     ExecutionTimeLimiterSymbol
-} from "./symbols.js";
-import { createPinoLogger, getChildLogger } from "./createPinoLogger.js";
-import {
+} from "./symbols";
+import { createPinoLogger, getChildLogger } from "./createPinoLogger";
+import type {
     MigrationRepository,
     DataMigration,
     DataMigrationContext,
@@ -17,7 +17,7 @@ import {
     MigrationRun,
     MigrationStatus,
     MigrationRunItem
-} from "~/types.js";
+} from "~/types";
 
 export type IsMigrationApplicable = (migration: DataMigration) => boolean;
 

@@ -1,9 +1,35 @@
 import { ValueFilterPlugin } from "../definitions/ValueFilterPlugin.js";
 
-const createValues = (initialValue: string | string[]) => {
-    const values = Array.isArray(initialValue) ? initialValue : [initialValue];
+const createValues = (initialValue: string | string[] | object): string[] => {
+    if (typeof initialValue === "string") {
+        return [initialValue];
+    }
 
-    return values.filter(Boolean);
+    if (Array.isArray(initialValue)) {
+        return initialValue
+            .flat()
+            .map(v => v.toString())
+            .filter(Boolean);
+    }
+
+    const result: string[] = [];
+
+    const traverse = (node: any): void => {
+        if (node == null) {
+            return;
+        }
+        if (typeof node === "string" || typeof node === "number") {
+            result.push(node.toString());
+        } else if (Array.isArray(node)) {
+            node.forEach(traverse);
+        } else if (typeof node === "object") {
+            Object.values(node).forEach(traverse);
+        }
+    };
+
+    traverse(initialValue);
+
+    return result.filter(Boolean);
 };
 
 const createCompareValues = (value: string) => {

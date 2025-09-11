@@ -3,16 +3,17 @@ import classnames from "classnames";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import classNames from "classnames";
-import isEqual from "lodash/isEqual.js";
-import { ChromePicker, type ColorState, type RGBColor } from "react-color";
-import { Menu } from "@webiny/ui/Menu/index.js";
-import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements.js";
+import isEqual from "lodash/isEqual";
+import type { ColorState, RGBColor } from "react-color";
+import { ChromePicker } from "react-color";
+import { Menu } from "@webiny/ui/Menu";
+import { usePageElements } from "@webiny/app-page-builder-elements/hooks/usePageElements";
 
 // Icons
 import { ReactComponent as IconPalette } from "../../assets/icons/round-color_lens-24px.svg";
 import { ReactComponent as ColorizeIcon } from "./colorize.svg";
 import { ReactComponent as NoColorSelectedIcon } from "./unselected.svg";
-import { COLORS } from "../../plugins/elementSettings/components/StyledComponents.js";
+import { COLORS } from "../../plugins/elementSettings/components/StyledComponents";
 
 const ColorPickerStyle = styled("div")({
     display: "flex",

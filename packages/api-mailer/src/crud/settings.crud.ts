@@ -1,27 +1,27 @@
 import WebinyError from "@webiny/error";
-import {
-    type ExtendedTransportSettings,
-    type MailerContext,
-    type MailerContextObject,
-    type MailerSettingsContext,
-    type OnSettingsAfterCreateTopicParams,
-    type OnSettingsAfterGetTopicParams,
-    type OnSettingsAfterUpdateTopicParams,
-    type OnSettingsBeforeCreateTopicParams,
-    type OnSettingsBeforeGetTopicParams,
-    type OnSettingsBeforeUpdateTopicParams,
-    type OnSettingsCreateErrorTopicParams,
-    type OnSettingsGetErrorTopicParams,
-    type OnSettingsUpdateErrorTopicParams,
-    type TransportSettings
-} from "~/types.js";
+import type {
+    ExtendedTransportSettings,
+    MailerContext,
+    MailerContextObject,
+    MailerSettingsContext,
+    OnSettingsAfterCreateTopicParams,
+    OnSettingsAfterGetTopicParams,
+    OnSettingsAfterUpdateTopicParams,
+    OnSettingsBeforeCreateTopicParams,
+    OnSettingsBeforeGetTopicParams,
+    OnSettingsBeforeUpdateTopicParams,
+    OnSettingsCreateErrorTopicParams,
+    OnSettingsGetErrorTopicParams,
+    OnSettingsUpdateErrorTopicParams,
+    TransportSettings
+} from "~/types";
 import { createTopic } from "@webiny/pubsub";
-import { SETTINGS_MODEL_ID } from "./settings/model.js";
-import { transformInputToEntryValues, transformValuesFromEntry } from "~/crud/settings/transform.js";
-import { getSecret } from "~/crud/settings/secret.js";
-import { createValidation, updateValidation } from "~/crud/settings/validation.js";
-import { type CmsEntry, type CmsModel } from "@webiny/api-headless-cms/types/index.js";
-import { attachPasswordObfuscatingHooks } from "~/crud/settings/hooks.js";
+import { SETTINGS_MODEL_ID } from "./settings/model";
+import { transformInputToEntryValues, transformValuesFromEntry } from "~/crud/settings/transform";
+import { getSecret } from "~/crud/settings/secret";
+import { createValidation, updateValidation } from "~/crud/settings/validation";
+import type { CmsEntry, CmsModel } from "@webiny/api-headless-cms/types";
+import { attachPasswordObfuscatingHooks } from "~/crud/settings/hooks";
 import { NotAuthorizedError } from "@webiny/api-security";
 
 const defaultPort = 25;
@@ -56,7 +56,7 @@ export const createSettingsCrud = async (
     let secret: string | null = null;
     try {
         secret = getSecret();
-    } catch (ex) {}
+    } catch {}
 
     const getModel = async (): Promise<CmsModel> => {
         return context.security.withoutAuthorization(async () => {

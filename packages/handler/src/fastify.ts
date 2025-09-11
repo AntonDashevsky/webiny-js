@@ -1,37 +1,43 @@
-import { type PluginCollection, PluginsContainer } from "@webiny/plugins/types.js";
-import fastify, { type FastifyInstance, type FastifyServerOptions as ServerOptions } from "fastify";
-import { middleware, type MiddlewareCallable } from "@webiny/utils";
-import {
-    type ContextRoutes,
-    type DefinedContextRoutes,
-    type HTTPMethods,
-    type Reply,
-    type Request,
-    type RouteMethodOptions
-} from "~/types.js";
-import { Context } from "~/Context.js";
+import type { PluginCollection } from "@webiny/plugins/types";
+import { PluginsContainer } from "@webiny/plugins/types";
+import type { FastifyInstance, FastifyServerOptions as ServerOptions } from "fastify";
+import fastify from "fastify";
+import type { MiddlewareCallable } from "@webiny/utils";
+import { middleware } from "@webiny/utils";
+import type {
+    ContextRoutes,
+    DefinedContextRoutes,
+    HTTPMethods,
+    Reply,
+    Request,
+    RouteMethodOptions
+} from "~/types";
+import { Context } from "~/Context";
 import WebinyError from "@webiny/error";
-import { RoutePlugin } from "./plugins/RoutePlugin.js";
+import { RoutePlugin } from "./plugins/RoutePlugin";
 import { createHandlerClient } from "@webiny/handler-client";
 import fastifyCookie from "@fastify/cookie";
 import fastifyCompress from "@fastify/compress";
 import { ContextPlugin } from "@webiny/api";
-import { BeforeHandlerPlugin } from "./plugins/BeforeHandlerPlugin.js";
-import { HandlerResultPlugin } from "./plugins/HandlerResultPlugin.js";
-import { HandlerErrorPlugin } from "./plugins/HandlerErrorPlugin.js";
-import { ModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin.js";
-import { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin.js";
-import { ResponseHeaders, type StandardHeaders } from "~/ResponseHeaders.js";
-import { ModifyResponseHeadersPlugin } from "~/plugins/ModifyResponseHeadersPlugin.js";
-import { SetDefaultHeaders } from "./PreHandler/SetDefaultHeaders.js";
-import { PreHandler } from "./PreHandler/PreHandler.js";
-import { stringifyError } from "./stringifyError.js";
-import { ProcessHandlerOnRequestPlugins } from "./PreHandler/ProcessHandlerOnRequestPlugins.js";
-import { ProcessContextPlugins } from "./PreHandler/ProcessContextPlugins.js";
-import { IfNotOptionsRequest } from "./PreHandler/IfNotOptionsRequest.js";
-import { ProcessBeforeHandlerPlugins } from "./PreHandler/ProcessBeforeHandlerPlugins.js";
-import { IfOptionsRequest } from "./PreHandler/IfOptionsRequest.js";
-import { SendEarlyOptionsResponse } from "./PreHandler/SendEarlyOptionsResponse.js";
+import { BeforeHandlerPlugin } from "./plugins/BeforeHandlerPlugin";
+import { HandlerResultPlugin } from "./plugins/HandlerResultPlugin";
+import { HandlerErrorPlugin } from "./plugins/HandlerErrorPlugin";
+import { ModifyFastifyPlugin } from "~/plugins/ModifyFastifyPlugin";
+import { HandlerOnRequestPlugin } from "~/plugins/HandlerOnRequestPlugin";
+import type { StandardHeaders } from "~/ResponseHeaders";
+import { ResponseHeaders } from "~/ResponseHeaders";
+import { ModifyResponseHeadersPlugin } from "~/plugins/ModifyResponseHeadersPlugin";
+import { SetDefaultHeaders } from "./PreHandler/SetDefaultHeaders";
+import { PreHandler } from "./PreHandler/PreHandler";
+import { stringifyError } from "./stringifyError";
+import { ProcessHandlerOnRequestPlugins } from "./PreHandler/ProcessHandlerOnRequestPlugins";
+import { ProcessContextPlugins } from "./PreHandler/ProcessContextPlugins";
+import { IfNotOptionsRequest } from "./PreHandler/IfNotOptionsRequest";
+import { ProcessBeforeHandlerPlugins } from "./PreHandler/ProcessBeforeHandlerPlugins";
+import { IfOptionsRequest } from "./PreHandler/IfOptionsRequest";
+import { SendEarlyOptionsResponse } from "./PreHandler/SendEarlyOptionsResponse";
+import { OnRequestTimeoutPlugin } from "~/plugins/OnRequestTimeoutPlugin.js";
+import { OnRequestResponseSendPlugin } from "~/plugins/OnRequestResponseSendPlugin.js";
 
 const modifyResponseHeaders = (app: FastifyInstance, request: Request, reply: Reply) => {
     const modifyHeaders = app.webiny.plugins.byType<ModifyResponseHeadersPlugin>(
@@ -298,7 +304,7 @@ export const createHandler = (params: CreateHandlerParams) => {
             new IfOptionsRequest([new SendEarlyOptionsResponse(modifyHeadersPlugins)])
         ]);
 
-        await preHandler.execute(request, reply);
+        await preHandler.execute(request, reply, app.webiny);
     });
 
     app.addHook("preSerialization", async (_, __, payload) => {
@@ -397,9 +403,15 @@ export const createHandler = (params: CreateHandlerParams) => {
     /**
      * Apply response headers modifier plugins.
      */
-    app.addHook("onSend", async (request, reply, payload) => {
+    app.addHook("onSend", async (request, reply, input) => {
         modifyResponseHeaders(app, request, reply);
-
+        const plugins = app.webiny.plugins.byType<OnRequestResponseSendPlugin>(
+            OnRequestResponseSendPlugin.type
+        );
+        let payload = input;
+        for (const plugin of plugins) {
+            payload = await plugin.exec(request, reply, payload);
+        }
         return payload;
     });
 
@@ -410,7 +422,13 @@ export const createHandler = (params: CreateHandlerParams) => {
         await context.benchmark.output();
     });
 
-    app.addHook("onTimeout", async () => {
+    app.addHook("onTimeout", async (request, reply) => {
+        const plugins = app.webiny.plugins.byType<OnRequestTimeoutPlugin>(
+            OnRequestTimeoutPlugin.type
+        );
+        for (const plugin of plugins) {
+            await plugin.exec(request, reply);
+        }
         await context.benchmark.output();
     });
 

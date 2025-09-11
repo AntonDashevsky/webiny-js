@@ -1,5 +1,8 @@
-import { CmsImportStructureParamsData, HeadlessCmsImportValidateResponse } from "~/export/types";
-import { CmsError } from "~tests/contentAPI/aco/setup/graphql/contentEntry";
+import type {
+    CmsImportStructureParamsData,
+    HeadlessCmsImportValidateResponse
+} from "~/export/types";
+import type { CmsError } from "~tests/contentAPI/aco/setup/graphql/contentEntry";
 
 export interface CmsExportStructureQueryVariables {
     models?: string[];

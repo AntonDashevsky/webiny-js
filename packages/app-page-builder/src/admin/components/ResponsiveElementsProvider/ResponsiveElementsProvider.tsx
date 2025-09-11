@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
-import { type Theme } from "@webiny/app-theme/types.js";
-import { usePageBuilder } from "~/hooks/usePageBuilder.js";
-import { mediaToContainer } from "./mediaToContainer.js";
-import { PageElementsProvider } from "~/contexts/PageBuilder/PageElementsProvider.js";
+import type { Theme } from "@webiny/app-theme/types";
+import { usePageBuilder } from "~/hooks/usePageBuilder";
+import { mediaToContainer } from "./mediaToContainer";
+import { PageElementsProvider } from "~/contexts/PageBuilder/PageElementsProvider";
 import styled from "@emotion/styled";
-import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache.js";
+import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache";
 
 const ResponsiveContainer = styled.div`
     container-type: inline-size;

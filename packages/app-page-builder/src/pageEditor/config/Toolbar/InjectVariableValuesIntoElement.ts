@@ -1,9 +1,9 @@
 import { plugins } from "@webiny/plugins";
-import {
-    type PbBlockVariable,
-    type PbEditorElementTree,
-    type PbEditorPageElementVariableRendererPlugin
-} from "~/types.js";
+import type {
+    PbBlockVariable,
+    PbEditorElementTree,
+    PbEditorPageElementVariableRendererPlugin
+} from "~/types";
 
 export class InjectVariableValuesIntoElement {
     private elementVariablePlugins: PbEditorPageElementVariableRendererPlugin[];

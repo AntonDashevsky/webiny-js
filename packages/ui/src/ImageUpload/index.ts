@@ -1,4 +1,4 @@
-export { SingleImageUpload } from "./SingleImageUpload.js";
-export { MultiImageUpload } from "./MultiImageUpload.js";
-export { default as Image } from "./Image.js";
-export { ImageEditorDialog } from "./ImageEditorDialog.js";
+export { SingleImageUpload } from "./SingleImageUpload";
+export { MultiImageUpload } from "./MultiImageUpload";
+export { Image } from "./Image";
+export { ImageEditorDialog } from "./ImageEditorDialog";

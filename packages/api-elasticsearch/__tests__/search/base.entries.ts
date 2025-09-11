@@ -1,4 +1,4 @@
-import { Adult } from "./types";
+import type { Adult } from "./types";
 export const people: Adult[] = [];
 
 people.push({

@@ -1,18 +1,18 @@
 import { NotAuthorizedError } from "@webiny/api-security";
 import WebinyError from "@webiny/error";
-import {
-    type OnSystemAfterInstallTopicParams,
-    type OnSystemBeforeInstallTopicParams,
-    type CmsContext,
-    type CmsSystem,
-    type CmsSystemContext,
-    type HeadlessCmsStorageOperations,
-    type OnSystemInstallErrorTopicParams
-} from "~/types/index.js";
-import { type Tenant } from "@webiny/api-tenancy/types.js";
-import { type SecurityIdentity } from "@webiny/api-security/types.js";
+import type {
+    OnSystemAfterInstallTopicParams,
+    OnSystemBeforeInstallTopicParams,
+    CmsContext,
+    CmsSystem,
+    CmsSystemContext,
+    HeadlessCmsStorageOperations,
+    OnSystemInstallErrorTopicParams
+} from "~/types";
+import type { Tenant } from "@webiny/api-tenancy/types";
+import type { SecurityIdentity } from "@webiny/api-security/types";
 import { createTopic } from "@webiny/pubsub";
-import { type I18NLocale } from "@webiny/api-i18n/types.js";
+import type { I18NLocale } from "@webiny/api-i18n/types";
 
 const initialContentModelGroup = {
     name: "Ungrouped",
@@ -134,6 +134,16 @@ export const createSystemCrud = (params: CreateSystemCrudParams): CmsSystemConte
                     tenant: getTenant().id,
                     locale: getLocale().code
                 });
+
+                /**
+                 * TODO: Implement this event in a better way, because this is easy to overlook and forget to update
+                 * when new apps are added and have their own installers.
+                 *
+                 * Headless CMS is the last app that has an installer. Once its installation is finished,
+                 * we need to notify the system that tenant is now ready to use, because many external plugins
+                 * insert initial tenant data into various apps, copy data from other tenants, etc.
+                 */
+                await context.tenancy.onTenantAfterInstall.publish({});
             } catch (ex) {
                 await onSystemInstallError.publish({
                     error: ex,

@@ -1,20 +1,20 @@
 import { makeAutoObservable, toJS } from "mobx";
 
-import { type IconRepository } from "./IconRepository.js";
-import { type Icon } from "./types.js";
-import { type IconType } from "./config/index.js";
+import type { IconRepository } from "./IconRepository";
+import type { Icon } from "./types";
+import type { IconType } from "./config";
 
 export interface IconPickerPresenterInterface {
     load(icon: Icon): Promise<void>;
     setIcon(icon: Icon): void;
     addIcon(icon: Icon): void;
     setFilter(value: string): void;
-    setActiveTab(index: number): void;
+    setActiveTab(index: string): void;
     openMenu(): void;
     closeMenu(): void;
     get vm(): {
         isLoading: boolean;
-        activeTab: number;
+        activeTab?: string;
         isMenuOpened: boolean;
         icons: Icon[];
         iconTypes: IconType[];
@@ -28,7 +28,7 @@ export class IconPickerPresenter implements IconPickerPresenterInterface {
     private repository: IconRepository;
     private selectedIcon: Icon | null = null;
     private filter = "";
-    private activeTab = 0;
+    private activeTab: string | undefined = undefined;
     private isMenuOpened = false;
     private size: string | undefined;
 
@@ -77,8 +77,8 @@ export class IconPickerPresenter implements IconPickerPresenterInterface {
         this.resetActiveTab();
     }
 
-    setActiveTab(index: number) {
-        this.activeTab = index;
+    setActiveTab(value?: string) {
+        this.activeTab = value;
     }
 
     setIcon(icon: Icon | null) {
@@ -103,13 +103,21 @@ export class IconPickerPresenter implements IconPickerPresenterInterface {
 
     private getActiveTabByType(type: string) {
         const iconTypes = this.repository.getIconTypes();
-        const index = iconTypes.findIndex(iconsByType => iconsByType.name === type);
+        const iconType = iconTypes.find(iconsByType => iconsByType.name === type);
 
-        return index !== -1 ? index : 0;
+        return iconType?.name || iconTypes[0].name;
+    }
+
+    private getDefaultTab() {
+        return this.repository.getIconTypes()[0].name;
     }
 
     private resetActiveTab() {
-        this.setActiveTab(this.selectedIcon ? this.getActiveTabByType(this.selectedIcon.type) : 0);
+        this.setActiveTab(
+            this.selectedIcon
+                ? this.getActiveTabByType(this.selectedIcon.type)
+                : this.getDefaultTab()
+        );
     }
 
     private detectSelectedIcon(icon: Icon) {

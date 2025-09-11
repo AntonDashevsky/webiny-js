@@ -1,23 +1,16 @@
 import React from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { observer } from "mobx-react-lite";
-import styled from "@emotion/styled";
-
-import { ButtonSecondary } from "@webiny/ui/Button/index.js";
-
-import { FileManager, type FileManagerFileItem } from "~/base/ui/FileManager.js";
-import { IconPickerTab } from "../IconPickerTab.js";
-import { useIcon } from "../index.js";
-import { useIconPicker } from "../IconPickerPresenterProvider.js";
-import { IconPickerConfig } from "../config/index.js";
-import { type ListCustomIconsQueryResponse, LIST_CUSTOM_ICONS } from "./graphql.js";
-import { type Icon } from "../types.js";
-
-const AddButton = styled(ButtonSecondary)`
-    &.mdc-button {
-        height: 40px;
-    }
-`;
+import { Button } from "@webiny/admin-ui";
+import type { FileManagerFileItem } from "~/base/ui/FileManager";
+import { FileManager } from "~/base/ui/FileManager";
+import { IconPickerTab } from "../IconPickerTab";
+import { useIcon } from "..";
+import { useIconPicker } from "../IconPickerPresenterProvider";
+import { IconPickerConfig } from "../config";
+import type { ListCustomIconsQueryResponse } from "./graphql";
+import { LIST_CUSTOM_ICONS } from "./graphql";
+import type { Icon } from "../types";
 
 /**
  * NOTE: Avoid using `@emotion/styled` in icon renderer components across all plugins.
@@ -58,13 +51,13 @@ const IconFilePicker = ({ onUpload, onChange }: IconFilePickerProps) => {
             accept={["image/svg+xml"]}
         >
             {({ showFileManager }) => (
-                <AddButton
+                <Button
+                    variant={"primary"}
+                    text={"Browse"}
                     onClick={() => {
                         showFileManager();
                     }}
-                >
-                    Browse
-                </AddButton>
+                />
             )}
         </FileManager>
     );
@@ -111,6 +104,7 @@ const CustomIconTab = observer(() => {
 
     return (
         <IconPickerTab
+            value={"custom"}
             label={"Custom"}
             onChange={onIconSelect}
             actions={<IconFilePicker onChange={onIconFileSelect} onUpload={onIconFileUpload} />}

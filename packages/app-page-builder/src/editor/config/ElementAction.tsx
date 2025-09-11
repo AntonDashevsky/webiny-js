@@ -1,7 +1,8 @@
 import React from "react";
-import { Element, type ElementProps } from "./Element.js";
-import { Elements } from "./Elements.js";
-import { IconButton } from "./IconButton.js";
+import type { ElementProps } from "./Element";
+import { Element } from "./Element";
+import { Elements } from "./Elements";
+import { IconButton } from "./IconButton";
 import { makeDecoratable } from "@webiny/react-composition";
 
 const getElementId = (value: string) => {

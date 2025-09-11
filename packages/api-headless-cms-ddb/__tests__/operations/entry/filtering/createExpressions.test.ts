@@ -1,6 +1,7 @@
-import { createExpressions, Expression } from "~/operations/entry/filtering/createExpressions";
-import { PluginsContainer } from "@webiny/plugins";
-import { Field } from "~/operations/entry/filtering/types";
+import type { Expression } from "~/operations/entry/filtering/createExpressions";
+import { createExpressions } from "~/operations/entry/filtering/createExpressions";
+import type { PluginsContainer } from "@webiny/plugins";
+import type { Field } from "~/operations/entry/filtering/types";
 import { createPluginsContainer } from "../../helpers/pluginsContainer";
 import { createFields } from "./mocks/fields";
 

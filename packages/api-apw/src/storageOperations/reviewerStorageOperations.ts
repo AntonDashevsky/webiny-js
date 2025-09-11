@@ -1,8 +1,8 @@
-import { type ApwReviewerStorageOperations } from "./types.js";
-import { type CreateApwStorageOperationsParams } from "~/storageOperations/index.js";
-import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues.js";
+import type { ApwReviewerStorageOperations } from "./types";
+import type { CreateApwStorageOperationsParams } from "~/storageOperations";
+import { pickEntryFieldValues } from "~/utils/pickEntryFieldValues";
 import WebinyError from "@webiny/error";
-import { type ApwReviewer } from "~/types.js";
+import type { ApwReviewer } from "~/types";
 
 export const createReviewerStorageOperations = ({
     cms

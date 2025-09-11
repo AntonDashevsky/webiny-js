@@ -1,13 +1,9 @@
 import React from "react";
+import { Button, Grid, Heading, Input } from "@webiny/admin-ui";
 import { Form } from "@webiny/form";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Typography } from "@webiny/ui/Typography/index.js";
-import { useRequireNewPassword } from "@webiny/app-cognito-authenticator/hooks/useRequireNewPassword.js";
-import { View } from "~/components/View.js";
-import { alignRight, Title } from "~/components/StyledComponents.js";
+import { useRequireNewPassword } from "@webiny/app-cognito-authenticator/hooks/useRequireNewPassword";
+import { View } from "~/components/View";
 
 const sentenceCase = (str: string) => {
     const lower = str.toLowerCase();
@@ -31,47 +27,52 @@ export const RequireNewPassword = () => {
             >
                 {({ Bind, submit }) => (
                     <View.Content>
-                        <View.Title title={"Set New Password"} />
+                        <View.Title title={"Set new password"} />
                         <Grid>
-                            <Cell span={12}>
+                            <Grid.Column span={12}>
                                 <Bind name="password" validators={validation.create("required")}>
                                     <Input
                                         type={"password"}
                                         label={"New password"}
-                                        outlined={true}
+                                        size={"lg"}
                                         autoComplete={"off"}
                                     />
                                 </Bind>
-                            </Cell>
-                        </Grid>
-                        {requiredAttributes.length > 0 && (
-                            <Title>
-                                <Typography use="headline6">
-                                    Please enter additional information
-                                </Typography>
-                            </Title>
-                        )}
-                        <Grid>
-                            {requiredAttributes.map(name => (
-                                <Cell key={name} span={12}>
-                                    <Bind name={name} validators={validation.create("required")}>
-                                        <Input label={sentenceCase(name)} outlined={true} />
-                                    </Bind>
-                                </Cell>
-                            ))}
-                        </Grid>
+                            </Grid.Column>
 
-                        <Grid>
-                            <Cell span={12} className={alignRight}>
-                                <ButtonPrimary
+                            <>
+                                {requiredAttributes.length > 0 && (
+                                    <Grid.Column span={12}>
+                                        <Heading level={6} className={"wby-text-center"}>
+                                            Please enter additional information
+                                        </Heading>
+                                    </Grid.Column>
+                                )}
+                            </>
+
+                            <>
+                                {requiredAttributes.map(name => (
+                                    <Grid.Column key={name} span={12}>
+                                        <Bind
+                                            name={name}
+                                            validators={validation.create("required")}
+                                        >
+                                            <Input label={sentenceCase(name)} size={"lg"} />
+                                        </Bind>
+                                    </Grid.Column>
+                                ))}
+                            </>
+
+                            <Grid.Column span={12} className={"wby-text-right"}>
+                                <Button
+                                    text={"Set password"}
                                     data-testid="submit-sign-in-form-button"
                                     onClick={ev => {
                                         submit(ev);
                                     }}
-                                >
-                                    {"Set password"}
-                                </ButtonPrimary>
-                            </Cell>
+                                    size={"lg"}
+                                />
+                            </Grid.Column>
                         </Grid>
                     </View.Content>
                 )}

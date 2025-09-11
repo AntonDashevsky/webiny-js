@@ -1,20 +1,19 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useApolloClient, useModelFieldGraphqlContext } from "~/admin/hooks/index.js";
-import {
-    SEARCH_CONTENT_ENTRIES,
-    GET_CONTENT_ENTRY,
-    type CmsEntryGetQueryResponse,
-    type CmsEntryGetQueryVariables,
-    type CmsEntrySearchQueryResponse,
-    type CmsEntrySearchQueryVariables
-} from "./graphql.js";
-import { type CmsModelField, type CmsModel } from "~/types.js";
-import { type BindComponentRenderProp } from "@webiny/form";
-import { type OptionItem, type OptionItemCollection } from "./types.js";
+import { useApolloClient, useModelFieldGraphqlContext } from "~/admin/hooks";
+import type {
+    CmsEntryGetQueryResponse,
+    CmsEntryGetQueryVariables,
+    CmsEntrySearchQueryResponse,
+    CmsEntrySearchQueryVariables
+} from "./graphql";
+import { SEARCH_CONTENT_ENTRIES, GET_CONTENT_ENTRY } from "./graphql";
+import type { CmsModelField, CmsModel } from "~/types";
+import type { BindComponentRenderProp } from "@webiny/form";
+import type { OptionItem, OptionItemCollection } from "./types";
 import {
     convertReferenceEntriesToOptionCollection,
     convertReferenceEntryToOption
-} from "./helpers.js";
+} from "./helpers";
 import { parseIdentifier } from "@webiny/utils";
 
 interface UseReferenceHookArgs {

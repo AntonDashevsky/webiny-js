@@ -1,14 +1,10 @@
-import {
-    GetObjectCommand,
-    getSignedUrl,
-    HeadObjectCommand,
-    type S3Client
-} from "@webiny/aws-sdk/client-s3";
+import type { S3Client } from "@webiny/aws-sdk/client-s3";
+import { GetObjectCommand, getSignedUrl, HeadObjectCommand } from "@webiny/aws-sdk/client-s3";
 import type {
     IUrlSigner,
     IUrlSignerSignParams,
     IUrlSignerSignResult
-} from "./abstractions/UrlSigner.js";
+} from "./abstractions/UrlSigner";
 
 const DEFAULT_TIMEOUT = 3600; // 1 hour
 

@@ -2,32 +2,32 @@ import WebinyError from "@webiny/error";
 import { createTopic } from "@webiny/pubsub";
 import { NotFoundError } from "@webiny/handler-graphql";
 import { ContextPlugin } from "@webiny/api";
-import {
-    type ExportPagesParams,
-    type OnPagesAfterExportTopicParams,
-    type OnPagesAfterImportTopicParams,
-    type OnPagesBeforeExportTopicParams,
-    type OnPagesBeforeImportTopicParams,
-    type PbExportPagesTaskData,
-    type PbImportExportContext,
-    type PbImportPagesTaskData,
-    type PbImportPagesTaskStats
-} from "~/types.js";
-import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions.js";
-import {
-    type IExportPagesControllerInput,
-    type IExportPagesControllerOutput,
-    type IExportPagesZipPagesInput,
-    type IExportPagesZipPagesOutput,
-    PageExportTask
-} from "~/export/pages/types.js";
-import {
-    type IImportPagesControllerInput,
-    type IImportPagesControllerOutput,
-    type IImportPagesProcessPagesInput,
-    type IImportPagesProcessPagesOutput,
-    PageImportTask
-} from "~/import/pages/types.js";
+import type {
+    ExportPagesParams,
+    OnPagesAfterExportTopicParams,
+    OnPagesAfterImportTopicParams,
+    OnPagesBeforeExportTopicParams,
+    OnPagesBeforeImportTopicParams,
+    PbExportPagesTaskData,
+    PbImportExportContext,
+    PbImportPagesTaskData,
+    PbImportPagesTaskStats
+} from "~/types";
+import { PagesPermissions } from "@webiny/api-page-builder/graphql/crud/permissions/PagesPermissions";
+import type {
+    IExportPagesControllerInput,
+    IExportPagesControllerOutput,
+    IExportPagesZipPagesInput,
+    IExportPagesZipPagesOutput
+} from "~/export/pages/types";
+import { PageExportTask } from "~/export/pages/types";
+import type {
+    IImportPagesControllerInput,
+    IImportPagesControllerOutput,
+    IImportPagesProcessPagesInput,
+    IImportPagesProcessPagesOutput
+} from "~/import/pages/types";
+import { PageImportTask } from "~/import/pages/types";
 
 export default new ContextPlugin<PbImportExportContext>(context => {
     const pagesPermissions = new PagesPermissions({

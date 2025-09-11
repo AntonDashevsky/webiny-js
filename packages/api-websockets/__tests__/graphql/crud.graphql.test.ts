@@ -1,8 +1,9 @@
 import { jest } from "@jest/globals";
 import { useGraphQLHandler } from "~tests/helpers/useGraphQLHandler";
 import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb";
-import { IWebsocketsConnectionRegistryData, WebsocketsConnectionRegistry } from "~/registry";
-import { IWebsocketsIdentity } from "~/context";
+import type { IWebsocketsConnectionRegistryData } from "~/registry";
+import { WebsocketsConnectionRegistry } from "~/registry";
+import type { IWebsocketsIdentity } from "~/context";
 
 jest.mock("@webiny/aws-sdk/client-apigatewaymanagementapi", () => {
     return {

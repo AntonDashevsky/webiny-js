@@ -1,6 +1,6 @@
-import { type AdvancedPublishingWorkflow } from "~/types.js";
-import { type HeadlessCms } from "@webiny/api-headless-cms/types/index.js";
-import { type Security } from "@webiny/api-security/types.js";
+import type { AdvancedPublishingWorkflow } from "~/types";
+import type { HeadlessCms } from "@webiny/api-headless-cms/types";
+import type { Security } from "@webiny/api-security/types";
 
 interface ListWorkflowsParams {
     apw: AdvancedPublishingWorkflow;

@@ -1,6 +1,6 @@
-import { type IRestoreEntryFromBin } from "~/crud/contentEntry/abstractions/index.js";
-import { type AccessControl } from "~/crud/AccessControl/AccessControl.js";
-import { type CmsModel } from "~/types/index.js";
+import type { IRestoreEntryFromBin } from "~/crud/contentEntry/abstractions";
+import type { AccessControl } from "~/crud/AccessControl/AccessControl";
+import type { CmsModel } from "~/types";
 
 export class RestoreEntryFromBinSecure implements IRestoreEntryFromBin {
     private accessControl: AccessControl;

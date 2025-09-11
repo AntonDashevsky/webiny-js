@@ -1,4 +1,4 @@
-import { CmsEntry } from "@webiny/api-headless-cms/types";
+import type { CmsEntry } from "@webiny/api-headless-cms/types";
 
 interface RefValue {
     entryId: string;
@@ -91,7 +91,13 @@ export const createEntry = (index = 0) => {
                         number: index
                     }
                 }
-            ]
+            ],
+            settings: {
+                general: {
+                    title: `Settings title #${index}`,
+                    slug: `page-${index}`
+                }
+            }
         }
     } as unknown as CmsEntry<Values>;
 };

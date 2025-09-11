@@ -1,6 +1,6 @@
-import type { DeleteFolderUseCasesTopics } from "./index.js";
-import type { AcoFolderStorageOperations, DeleteFolderParams } from "~/folder/folder.types.js";
-import type { IDeleteFolder } from "~/folder/useCases/DeleteFolder/IDeleteFolder.js";
+import type { DeleteFolderUseCasesTopics } from "./index";
+import type { AcoFolderStorageOperations, DeleteFolderParams } from "~/folder/folder.types";
+import type { IDeleteFolder } from "~/folder/useCases/DeleteFolder/IDeleteFolder";
 
 export class DeleteFolderWithEvents implements IDeleteFolder {
     private topics: DeleteFolderUseCasesTopics;

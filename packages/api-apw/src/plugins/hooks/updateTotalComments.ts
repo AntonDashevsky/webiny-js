@@ -1,10 +1,10 @@
-import { type LifeCycleHookCallbackParams } from "~/types.js";
+import type { LifeCycleHookCallbackParams } from "~/types";
 import {
     extractContentReviewIdAndStep,
     safelyGetContentReview,
     updateContentReview,
     updateContentReviewStep
-} from "../utils.js";
+} from "../utils";
 
 export const updateTotalCommentsCount = ({ apw }: Pick<LifeCycleHookCallbackParams, "apw">) => {
     apw.comment.onCommentAfterDelete.subscribe(async ({ comment }) => {

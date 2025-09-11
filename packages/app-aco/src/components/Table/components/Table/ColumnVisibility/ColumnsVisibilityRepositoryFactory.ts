@@ -1,5 +1,5 @@
-import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository.js";
-import { type IColumnsVisibilityGateway } from "../gateways/IColumnsVisibilityGateway.js";
+import { ColumnsVisibilityRepository } from "./ColumnsVisibilityRepository";
+import type { IColumnsVisibilityGateway } from "../gateways/IColumnsVisibilityGateway";
 
 class ColumnsVisibilityRepositoryFactory {
     private cache: Map<string, ColumnsVisibilityRepository> = new Map();

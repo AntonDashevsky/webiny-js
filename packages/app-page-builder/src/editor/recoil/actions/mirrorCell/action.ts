@@ -1,6 +1,6 @@
-import { cloneElement, UpdateElementActionEvent } from "../index.js";
-import { type EventActionCallable, type PbEditorElement } from "~/types.js";
-import { type MirrorCellActionArgsType } from "./types.js";
+import { cloneElement, UpdateElementActionEvent } from "..";
+import type { EventActionCallable, PbEditorElement } from "~/types";
+import type { MirrorCellActionArgsType } from "./types";
 
 export const mirrorCellAction: EventActionCallable<MirrorCellActionArgsType> = async (
     state,

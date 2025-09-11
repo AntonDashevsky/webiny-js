@@ -1,6 +1,6 @@
-import { type PbContext } from "~/types.js";
-import type { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection.js";
-import { GetTranslatableCollectionByIdRepository } from "~/translations/translatableCollection/repository/GetTranslatableCollectionByIdRepository.js";
+import type { PbContext } from "~/types";
+import type { TranslatableCollection } from "~/translations/translatableCollection/domain/TranslatableCollection";
+import { GetTranslatableCollectionByIdRepository } from "~/translations/translatableCollection/repository/GetTranslatableCollectionByIdRepository";
 
 export class GetTranslatableCollectionUseCase {
     private readonly context: PbContext;

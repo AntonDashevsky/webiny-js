@@ -1,9 +1,9 @@
 import { plugins } from "@webiny/plugins";
-import { type PbEditorPageElementPlugin, type PbEditorPageElementSettingsPlugin } from "~/types.js";
-import { userElementSettingsPlugins } from "../../../helpers.js";
-import { useActiveElement } from "~/editor/hooks/useActiveElement.js";
+import type { PbEditorPageElementPlugin, PbEditorPageElementSettingsPlugin } from "~/types";
+import { userElementSettingsPlugins } from "../../../helpers";
+import { useActiveElement } from "~/editor/hooks/useActiveElement";
 import { useMemo } from "react";
-import { useDeactivateOnEsc } from "~/editor/plugins/elementSettings/hooks/useDeactivateOnEsc.js";
+import { useDeactivateOnEsc } from "~/editor/plugins/elementSettings/hooks/useDeactivateOnEsc";
 
 interface ElementAction {
     plugin: PbEditorPageElementSettingsPlugin;

@@ -1,15 +1,15 @@
-import {
-    type BlockCategoryStorageOperations as BaseBlockCategoryStorageOperations,
-    type CategoryStorageOperations as BaseCategoryStorageOperations,
-    type PageBlockStorageOperations as BasePageBlockStorageOperations,
-    type PageBuilderStorageOperations as BasePageBuilderStorageOperations,
-    type PageTemplateStorageOperations as BasePageTemplateStorageOperations
-} from "@webiny/api-page-builder/types.js";
-import { type Entity, type Table } from "@webiny/db-dynamodb/toolbox.js";
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { type Plugin } from "@webiny/plugins/types.js";
-import { type TableConstructor } from "@webiny/db-dynamodb/toolbox.js";
-import { type AttributeDefinition } from "@webiny/db-dynamodb/toolbox.js";
+import type {
+    BlockCategoryStorageOperations as BaseBlockCategoryStorageOperations,
+    CategoryStorageOperations as BaseCategoryStorageOperations,
+    PageBlockStorageOperations as BasePageBlockStorageOperations,
+    PageBuilderStorageOperations as BasePageBuilderStorageOperations,
+    PageTemplateStorageOperations as BasePageTemplateStorageOperations
+} from "@webiny/api-page-builder/types";
+import type { Entity, Table } from "@webiny/db-dynamodb/toolbox";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { Plugin } from "@webiny/plugins/types";
+import type { TableConstructor } from "@webiny/db-dynamodb/toolbox";
+import type { AttributeDefinition } from "@webiny/db-dynamodb/toolbox";
 
 export type Attributes = Record<string, AttributeDefinition>;
 

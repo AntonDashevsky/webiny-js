@@ -1,9 +1,9 @@
-import {
-    type CmsModelField,
-    type CmsModelFieldToGraphQLCreateResolver,
-    type CmsModelFieldToGraphQLPlugin
-} from "~/types/index.js";
-import { createGraphQLInputField } from "./helpers.js";
+import type {
+    CmsModelField,
+    CmsModelFieldToGraphQLCreateResolver,
+    CmsModelFieldToGraphQLPlugin
+} from "~/types";
+import { createGraphQLInputField } from "./helpers";
 
 interface CreateListFiltersParams {
     field: CmsModelField;

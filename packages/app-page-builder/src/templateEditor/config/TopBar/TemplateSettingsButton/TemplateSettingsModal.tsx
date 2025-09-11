@@ -1,22 +1,23 @@
 import React, { useCallback } from "react";
 import slugify from "slugify";
 import { css } from "emotion";
-import pick from "lodash/pick.js";
-import { Form, type FormAPI } from "@webiny/form";
+import pick from "lodash/pick";
+import type { FormAPI } from "@webiny/form";
+import { Form } from "@webiny/form";
 import { plugins } from "@webiny/plugins";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import { SimpleFormContent } from "@webiny/app-admin/components/SimpleForm/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button";
+import { Grid, Cell } from "@webiny/ui/Grid";
+import { Select } from "@webiny/ui/Select";
+import { SimpleFormContent } from "@webiny/app-admin/components/SimpleForm";
 import { validation } from "@webiny/validation";
-import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog/index.js";
+import { Dialog, DialogCancel, DialogTitle, DialogActions, DialogContent } from "@webiny/ui/Dialog";
 
-import { useTemplate } from "~/templateEditor/hooks/useTemplate.js";
-import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler.js";
-import { UpdateDocumentActionEvent } from "~/editor/recoil/actions/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { type PbPageLayoutPlugin, type PbPageTemplate } from "~/types.js";
-import { Tags } from "@webiny/ui/Tags/index.js";
+import { useTemplate } from "~/templateEditor/hooks/useTemplate";
+import { useEventActionHandler } from "~/editor/hooks/useEventActionHandler";
+import { UpdateDocumentActionEvent } from "~/editor/recoil/actions";
+import { Input } from "@webiny/ui/Input";
+import type { PbPageLayoutPlugin, PbPageTemplate } from "~/types";
+import { Tags } from "@webiny/ui/Tags";
 
 const narrowDialog = css`
     & .mdc-dialog__surface {

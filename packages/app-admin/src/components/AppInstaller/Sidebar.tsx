@@ -1,16 +1,11 @@
 import React, { Fragment } from "react";
 import classSet from "classnames";
 import styled from "@emotion/styled";
-import { Typography } from "@webiny/ui/Typography/index.js";
+import { Typography } from "@webiny/ui/Typography";
 import signInDivider from "./assets/sign-in-divider.svg";
-import { type Installer } from "./useInstaller.js";
-import { Brand } from "~/base/ui/Brand.js";
-import { Tags } from "~/base/ui/Tags.js";
-
-const Logo = styled("div")({
-    padding: 15,
-    borderBottom: "1px solid var(--mdc-theme-background)"
-});
+import type { Installer } from "./useInstaller";
+import { Tags } from "~/base/ui/Tags";
+import { Logo } from "~/base/ui/Logo";
 
 const List = styled("ul")({
     li: {
@@ -127,9 +122,7 @@ const Sidebar = ({ allInstallers, installer, showLogin }: SidebarProps) => {
 
     return (
         <Tags tags={{ location: "installer" }}>
-            <Logo>
-                <Brand />
-            </Logo>
+            <Logo />
             {installations.length > 0 && (
                 <Installations
                     title={"The following apps will be installed and configured:"}

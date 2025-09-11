@@ -1,16 +1,17 @@
 import React, { useMemo } from "react";
-import { App, type AppProps, type Decorator, type GenericComponent } from "@webiny/app";
+import type { AppProps, Decorator, GenericComponent } from "@webiny/app";
+import { App } from "@webiny/app";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider } from "@webiny/app-theme";
-import { PageBuilderProvider } from "@webiny/app-page-builder/contexts/PageBuilder/index.js";
-import { lexicalRendererDecorators } from "@webiny/app-page-builder/render/lexicalRendererDecorators.js";
-import { PageBuilder } from "@webiny/app-page-builder/render/index.js";
-import { type RouteProps } from "@webiny/react-router";
-import { createApolloClient, createEmotionCache } from "~/utils/index.js";
-import { Page } from "./Page/index.js";
-import { LinkPreload } from "~/LinkPreload.js";
-import { WebsiteLoaderCache } from "~/utils/WebsiteLoaderCache.js";
+import { PageBuilderProvider } from "@webiny/app-page-builder/contexts/PageBuilder";
+import { lexicalRendererDecorators } from "@webiny/app-page-builder/render/lexicalRendererDecorators";
+import { PageBuilder } from "@webiny/app-page-builder/render";
+import type { RouteProps } from "@webiny/react-router";
+import { createApolloClient, createEmotionCache } from "~/utils";
+import { Page } from "./Page";
+import { LinkPreload } from "~/LinkPreload";
+import { WebsiteLoaderCache } from "~/utils/WebsiteLoaderCache";
 
 export interface WebsiteProps extends AppProps {
     apolloClient?: ReturnType<typeof createApolloClient>;

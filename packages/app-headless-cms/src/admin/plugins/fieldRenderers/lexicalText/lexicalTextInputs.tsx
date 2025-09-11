@@ -1,17 +1,14 @@
 import React from "react";
-import get from "lodash/get.js";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { type CmsModelField, type CmsModelFieldRendererPlugin } from "~/types.js";
-import { ReactComponent as DeleteIcon } from "@material-design-icons/svg/outlined/delete_outline.svg";
-import DynamicSection from "../DynamicSection.js";
-import { IconButton } from "@webiny/ui/Button/index.js";
-import styled from "@emotion/styled";
-import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor.js";
-import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils.js";
-import { FormElementMessage } from "@webiny/ui/FormElementMessage/index.js";
+import get from "lodash/get";
+import { i18n } from "@webiny/app/i18n";
+import type { CmsModelField, CmsModelFieldRendererPlugin } from "~/types";
+import { ReactComponent as DeleteIcon } from "@webiny/icons/delete_outline.svg";
+import DynamicSection from "../DynamicSection";
+import { LexicalCmsEditor } from "~/admin/components/LexicalCmsEditor/LexicalCmsEditor";
+import { modelHasLegacyRteField } from "~/admin/plugins/fieldRenderers/richText/utils";
 import { useForm } from "@webiny/form";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
-import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings.js";
+import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";
+import { FormComponentNote, DelayedOnChange, IconButton } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/fields/rich-text");
 
@@ -19,16 +16,6 @@ const getKey = (id: string | undefined, field: CmsModelField, index: number): st
     const formId = id || "new";
     return `${formId}.${field.fieldId}.${index}`;
 };
-
-const EditorWrapper = styled("div")({
-    position: "relative",
-    "> button": {
-        position: "absolute",
-        top: 0,
-        right: 5,
-        zIndex: 10
-    }
-});
 
 const plugin: CmsModelFieldRendererPlugin = {
     type: "cms-editor-field-renderer",
@@ -56,7 +43,7 @@ const plugin: CmsModelFieldRendererPlugin = {
             return (
                 <DynamicSection {...props}>
                     {({ bind, index }) => (
-                        <EditorWrapper>
+                        <div className={"wby-relative"}>
                             <DelayedOnChange {...bind.index}>
                                 {({ value, onChange }) => (
                                     <LexicalCmsEditor
@@ -68,13 +55,17 @@ const plugin: CmsModelFieldRendererPlugin = {
                                 )}
                             </DelayedOnChange>
                             {field.multipleValues ? null : (
-                                <FormElementMessage>{field.helpText}</FormElementMessage>
+                                <FormComponentNote text={field.helpText} />
                             )}
-                            <IconButton
-                                icon={<DeleteIcon />}
-                                onClick={() => bind.field.removeValue(index)}
-                            />
-                        </EditorWrapper>
+                            <div className={"wby-absolute wby-top-sm wby-right-sm wby-z-10"}>
+                                <IconButton
+                                    variant={"ghost"}
+                                    size={"md"}
+                                    icon={<DeleteIcon />}
+                                    onClick={() => bind.field.removeValue(index)}
+                                />
+                            </div>
+                        </div>
                     )}
                 </DynamicSection>
             );

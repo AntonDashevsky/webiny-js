@@ -1,10 +1,7 @@
 import { createPrivateTaskDefinition } from "@webiny/tasks";
-import {
-    type IExportPagesZipPagesInput,
-    type IExportPagesZipPagesOutput,
-    PageExportTask
-} from "~/export/pages/types.js";
-import { type PbImportExportContext } from "~/graphql/types.js";
+import type { IExportPagesZipPagesInput, IExportPagesZipPagesOutput } from "~/export/pages/types";
+import { PageExportTask } from "~/export/pages/types";
+import type { PbImportExportContext } from "~/graphql/types";
 
 export const createExportPagesZipPagesTask = () => {
     return createPrivateTaskDefinition<
@@ -29,7 +26,7 @@ export const createExportPagesZipPagesTask = () => {
             }
 
             const { ExportPagesZipPages } = await import(
-                /* webpackChunkName: "ExportPagesZipPages" */ "~/export/pages/ExportPagesZipPages.js"
+                /* webpackChunkName: "ExportPagesZipPages" */ "~/export/pages/ExportPagesZipPages"
             );
 
             const exportPagesZipPages = new ExportPagesZipPages();

@@ -1,4 +1,4 @@
-import { CmsModelField } from "~/types";
+import type { CmsModelField } from "~/types";
 import ucFirst from "lodash/upperFirst";
 import { createMinLengthValidation, createRequiredValidation } from "./validations";
 

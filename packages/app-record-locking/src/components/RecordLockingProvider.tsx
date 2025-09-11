@@ -1,15 +1,15 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
-import { createRecordLocking } from "~/domain/RecordLocking.js";
-import {
-    type IFetchLockedEntryLockRecordParams,
-    type IFetchLockRecordParams,
-    type IPossiblyRecordLockingRecord,
-    type IRecordLockingContext,
-    type IRecordLockingError,
-    type IUnlockEntryParams,
-    type IUpdateEntryLockParams
-} from "~/types.js";
+import { createRecordLocking } from "~/domain/RecordLocking";
+import type {
+    IFetchLockedEntryLockRecordParams,
+    IFetchLockRecordParams,
+    IPossiblyRecordLockingRecord,
+    IRecordLockingContext,
+    IRecordLockingError,
+    IUnlockEntryParams,
+    IUpdateEntryLockParams
+} from "~/types";
 import { useStateIfMounted } from "@webiny/app-admin";
 
 export interface IRecordLockingProviderProps {
@@ -19,17 +19,27 @@ export interface IRecordLockingProviderProps {
 export const RecordLockingContext = React.createContext({} as unknown as IRecordLockingContext);
 
 const isSameArray = (
-    existingRecords: Pick<IPossiblyRecordLockingRecord, "id" | "savedOn">[],
-    newRecords: Pick<IPossiblyRecordLockingRecord, "id" | "savedOn">[]
+    existingRecords: Pick<IPossiblyRecordLockingRecord["data"], "id" | "savedOn">[],
+    newRecords: Pick<IPossiblyRecordLockingRecord["data"], "id" | "savedOn">[]
 ): boolean => {
     if (existingRecords.length !== newRecords.length) {
         return false;
     }
-    return existingRecords.every(record => {
-        return newRecords.some(
-            newRecord => newRecord.id === record.id && newRecord.savedOn === record.savedOn
-        );
+    return existingRecords.every((record, index) => {
+        const newRecord = newRecords[index];
+        if (!newRecord) {
+            return false;
+        }
+
+        return newRecord.id === record.id && newRecord.savedOn === record.savedOn;
     });
+};
+
+const getData = (records: IPossiblyRecordLockingRecord[]) => {
+    return records.map(record => ({
+        id: record.id,
+        savedOn: record.savedOn
+    }));
 };
 
 export const RecordLockingProvider = (props: IRecordLockingProviderProps) => {
@@ -50,7 +60,7 @@ export const RecordLockingProvider = (props: IRecordLockingProviderProps) => {
 
     const setRecordsIfNeeded = useCallback(
         (newRecords: IPossiblyRecordLockingRecord[]) => {
-            const sameArray = isSameArray(records, newRecords);
+            const sameArray = isSameArray(getData(records), getData(newRecords));
             if (sameArray) {
                 return;
             }

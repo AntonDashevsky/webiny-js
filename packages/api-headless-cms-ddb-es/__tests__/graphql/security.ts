@@ -2,12 +2,12 @@ import apiKeyAuthentication from "@webiny/api-security/plugins/apiKeyAuthenticat
 import apiKeyAuthorization from "@webiny/api-security/plugins/apiKeyAuthorization";
 import { ContextPlugin } from "@webiny/api";
 import { createTenancyContext } from "@webiny/api-tenancy";
-import { TenancyStorageOperations, Tenant } from "@webiny/api-tenancy/types";
+import type { TenancyStorageOperations, Tenant } from "@webiny/api-tenancy/types";
 import { createSecurityContext } from "@webiny/api-security";
-import { SecurityStorageOperations } from "@webiny/api-security/types";
+import type { SecurityStorageOperations } from "@webiny/api-security/types";
 import { BeforeHandlerPlugin } from "@webiny/handler";
 import { getStorageOps } from "@webiny/project-utils/testing/environment";
-import { CmsContext } from "~/types";
+import type { CmsContext } from "~/types";
 
 export const createSecurity = () => {
     const securityStorage = getStorageOps<SecurityStorageOperations>("security");

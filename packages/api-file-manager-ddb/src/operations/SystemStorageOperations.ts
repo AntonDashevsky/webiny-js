@@ -1,12 +1,12 @@
-import { type DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
-import { type Entity } from "@webiny/db-dynamodb/toolbox.js";
-import {
-    type FileManagerSystem,
-    type FileManagerSystemStorageOperations,
-    type FileManagerSystemStorageOperationsCreateParams,
-    type FileManagerSystemStorageOperationsGetParams,
-    type FileManagerSystemStorageOperationsUpdateParams
-} from "@webiny/api-file-manager/types.js";
+import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
+import type {
+    FileManagerSystem,
+    FileManagerSystemStorageOperations,
+    FileManagerSystemStorageOperationsCreateParams,
+    FileManagerSystemStorageOperationsGetParams,
+    FileManagerSystemStorageOperationsUpdateParams
+} from "@webiny/api-file-manager/types";
 import WebinyError from "@webiny/error";
 import { createLegacyEntity, createTable, get, put } from "@webiny/db-dynamodb";
 
@@ -67,7 +67,7 @@ export class SystemStorageOperations implements FileManagerSystemStorageOperatio
                     SK: SORT_KEY
                 }
             });
-        } catch (ex) {
+        } catch {
             throw new WebinyError(
                 "Could not insert new system data into DynamoDB",
                 "CREATE_SYSTEM_ERROR",
@@ -93,7 +93,7 @@ export class SystemStorageOperations implements FileManagerSystemStorageOperatio
                     SK: SORT_KEY
                 }
             });
-        } catch (ex) {
+        } catch {
             throw new WebinyError(
                 "Could not update system data in the DynamoDB.",
                 "UPDATE_SYSTEM_ERROR",

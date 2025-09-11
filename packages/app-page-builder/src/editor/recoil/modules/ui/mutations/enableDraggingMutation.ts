@@ -1,5 +1,5 @@
-import { type UiAtomType } from "../../index.js";
-import { type EventActionHandlerMutationActionCallable } from "~/types.js";
+import type { UiAtomType } from "../..";
+import type { EventActionHandlerMutationActionCallable } from "~/types";
 
 export const enableDraggingMutation: EventActionHandlerMutationActionCallable<
     UiAtomType

@@ -1,10 +1,7 @@
-import { ListFoldersByParentIds } from "./ListFoldersByParentIds.js";
-import { folderCacheFactory } from "../cache/FoldersCacheFactory.js";
-import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory.js";
-import { ROOT_FOLDER } from "~/constants.js";
-import { jest } from "@jest/globals";
-import type { IListFoldersByParentIdsGateway } from "~/features/folders/listFoldersByParentIds/IListFoldersByParentIdsGateway";
-import { FolderGqlDto } from "~/features/folders/listFolders/FolderGqlDto";
+import { ListFoldersByParentIds } from "./ListFoldersByParentIds";
+import { folderCacheFactory } from "../cache/FoldersCacheFactory";
+import { loadedFolderCacheFactory } from "../cache/LoadedFoldersCacheFactory";
+import { ROOT_FOLDER } from "~/constants";
 
 describe("ListFoldersByParentIds", () => {
     const type = "abc";
@@ -18,47 +15,32 @@ describe("ListFoldersByParentIds", () => {
         jest.resetAllMocks();
     });
 
-    class ListFoldersByParentIdsMockGateway implements IListFoldersByParentIdsGateway {
-        mockResponse: FolderGqlDto[];
-
-        // Had to use `any` as the mock folders passed in the tests below are also partial objects.
-        constructor(mockResponse: any) {
-            this.mockResponse = mockResponse as FolderGqlDto[];
-        }
-
-        setMockResponse(mockResponse: any) {
-            this.mockResponse = mockResponse as FolderGqlDto[];
-        }
-
-        async execute() {
-            return this.mockResponse;
-        }
-    }
-
     it("should list folders from `ROOT` level if parentIds is `undefined`", async () => {
-        const gateway = new ListFoldersByParentIdsMockGateway([
-            {
-                id: "folder-1",
-                title: "Folder 1",
-                slug: "folder-1",
-                parentId: null,
-                type
-            },
-            {
-                id: "folder-2",
-                title: "Folder 2",
-                slug: "folder-2",
-                parentId: null,
-                type
-            },
-            {
-                id: "folder-3",
-                title: "Folder 3",
-                slug: "folder-3",
-                parentId: null,
-                type
-            }
-        ]);
+        const gateway = {
+            execute: jest.fn().mockResolvedValue([
+                {
+                    id: "folder-1",
+                    title: "Folder 1",
+                    slug: "folder-1",
+                    parentId: null,
+                    type
+                },
+                {
+                    id: "folder-2",
+                    title: "Folder 2",
+                    slug: "folder-2",
+                    parentId: null,
+                    type
+                },
+                {
+                    id: "folder-3",
+                    title: "Folder 3",
+                    slug: "folder-3",
+                    parentId: null,
+                    type
+                }
+            ])
+        };
 
         const listByParentIdFolders = ListFoldersByParentIds.getInstance(type, gateway);
 
@@ -77,29 +59,60 @@ describe("ListFoldersByParentIds", () => {
     });
 
     it("should list folders from the provided `parentIds`", async () => {
-        const gateway = new ListFoldersByParentIdsMockGateway([
-            {
-                id: "folder-1",
-                title: "Folder 1",
-                slug: "folder-1",
-                parentId: "folder-0",
-                type
-            },
-            {
-                id: "folder-2",
-                title: "Folder 2",
-                slug: "folder-1",
-                parentId: "folder-0",
-                type
-            },
-            {
-                id: "folder-3",
-                title: "Folder 3",
-                slug: "folder-3",
-                parentId: "folder-0",
-                type
-            }
-        ]);
+        const gateway = {
+            execute: jest
+                .fn()
+                .mockImplementationOnce(() =>
+                    Promise.resolve([
+                        {
+                            id: "folder-1",
+                            title: "Folder 1",
+                            slug: "folder-1",
+                            parentId: "folder-0",
+                            type
+                        },
+                        {
+                            id: "folder-2",
+                            title: "Folder 2",
+                            slug: "folder-1",
+                            parentId: "folder-0",
+                            type
+                        },
+                        {
+                            id: "folder-3",
+                            title: "Folder 3",
+                            slug: "folder-3",
+                            parentId: "folder-0",
+                            type
+                        }
+                    ])
+                )
+                .mockImplementationOnce(() =>
+                    Promise.resolve([
+                        {
+                            id: "folder-4",
+                            title: "Folder 4",
+                            slug: "folder-4",
+                            parentId: "folder-1",
+                            type
+                        },
+                        {
+                            id: "folder-5",
+                            title: "Folder 5",
+                            slug: "folder-5",
+                            parentId: "folder-1",
+                            type
+                        },
+                        {
+                            id: "folder-6",
+                            title: "Folder 6",
+                            slug: "folder-6",
+                            parentId: "folder-1",
+                            type
+                        }
+                    ])
+                )
+        };
 
         const listByParentIdFolders = ListFoldersByParentIds.getInstance(type, gateway);
 
@@ -112,68 +125,50 @@ describe("ListFoldersByParentIds", () => {
         expect(foldersCache.hasItems()).toBeTrue();
         expect(foldersCache.count()).toEqual(3);
 
-        // The number of folders in cache should increase, since we are changing the parentIds.
-        gateway.setMockResponse([
-            {
-                id: "folder-4",
-                title: "Folder 4",
-                slug: "folder-4",
-                parentId: "folder-1",
-                type
-            },
-            {
-                id: "folder-5",
-                title: "Folder 5",
-                slug: "folder-5",
-                parentId: "folder-1",
-                type
-            },
-            {
-                id: "folder-6",
-                title: "Folder 6",
-                slug: "folder-6",
-                parentId: "folder-1",
-                type
-            }
-        ]);
-
+        // The number of folders in cache should increase, since we are changing the parentIds
         await listByParentIdFolders.useCase.execute({ parentIds: ["folder-1"] });
         expect(foldersCache.count()).toEqual(6);
     });
 
     it("should list folders from missing `parentIds` stored in cache", async () => {
-        const gateway = new ListFoldersByParentIdsMockGateway([
-            {
-                id: "folder-1",
-                title: "Folder 1",
-                slug: "folder-1",
-                parentId: "folder-0",
-                type
-            },
-            {
-                id: "folder-2",
-                title: "Folder 2",
-                slug: "folder-2",
-                parentId: "folder-1",
-                type
-            }
-        ]);
+        const gateway = {
+            execute: jest
+                .fn()
+                .mockImplementationOnce(() =>
+                    Promise.resolve([
+                        {
+                            id: "folder-1",
+                            title: "Folder 1",
+                            slug: "folder-1",
+                            parentId: "folder-0",
+                            type
+                        },
+                        {
+                            id: "folder-2",
+                            title: "Folder 2",
+                            slug: "folder-2",
+                            parentId: "folder-1",
+                            type
+                        }
+                    ])
+                )
+                .mockImplementationOnce(() =>
+                    Promise.resolve([
+                        {
+                            id: "folder-3",
+                            title: "Folder 3",
+                            slug: "folder-3",
+                            parentId: "folder-2",
+                            type
+                        }
+                    ])
+                )
+        };
 
         const listByParentIdFolders = ListFoldersByParentIds.getInstance(type, gateway);
 
         // Execute the useCase 3 times and check the gateway is invoked only when needed
         await listByParentIdFolders.useCase.execute({ parentIds: ["folder-0", "folder-1"] });
-
-        gateway.setMockResponse([
-            {
-                id: "folder-3",
-                title: "Folder 3",
-                slug: "folder-3",
-                parentId: "folder-2",
-                type
-            }
-        ]);
-
         await listByParentIdFolders.useCase.execute({
             parentIds: ["folder-0", "folder-1", "folder-2"]
         });
@@ -190,14 +185,9 @@ describe("ListFoldersByParentIds", () => {
     });
 
     it("should return empty array if no folders are found", async () => {
-        class ListFoldersByParentIdsEmptyMockGateway implements IListFoldersByParentIdsGateway {
-            async execute() {
-                return [];
-            }
-        }
-
-        const emptyGateway = new ListFoldersByParentIdsEmptyMockGateway();
-
+        const emptyGateway = {
+            execute: jest.fn().mockResolvedValue([])
+        };
         const listByParentIdFolders = ListFoldersByParentIds.getInstance(type, emptyGateway);
 
         expect(foldersCache.hasItems()).toBeFalse();
@@ -212,14 +202,9 @@ describe("ListFoldersByParentIds", () => {
     });
 
     it("should handle gateway errors gracefully", async () => {
-        class ListFoldersByParentIdsErrorMockGateway implements IListFoldersByParentIdsGateway {
-            async execute(): Promise<FolderGqlDto[]> {
-                throw new Error("Gateway error");
-            }
-        }
-
-        const errorGateway = new ListFoldersByParentIdsErrorMockGateway();
-
+        const errorGateway = {
+            execute: jest.fn().mockRejectedValue(new Error("Gateway error"))
+        };
         const listByParentIdFolders = ListFoldersByParentIds.getInstance(type, errorGateway);
 
         expect(foldersCache.hasItems()).toBeFalse();
@@ -231,55 +216,58 @@ describe("ListFoldersByParentIds", () => {
     });
 
     it("should clear cache when type changes", async () => {
-        const gatewayAbc = new ListFoldersByParentIdsMockGateway([
-            {
-                id: "folder-1",
-                title: "Folder 1",
-                slug: "folder-1",
-                parentId: null,
-                type
-            },
-            {
-                id: "folder-2",
-                title: "Folder 2",
-                slug: "folder-1",
-                parentId: null,
-                type
-            },
-            {
-                id: "folder-3",
-                title: "Folder 3",
-                slug: "folder-3",
-                parentId: null,
-                type
-            }
-        ]);
+        const gatewayAbc = {
+            execute: jest.fn().mockResolvedValue([
+                {
+                    id: "folder-1",
+                    title: "Folder 1",
+                    slug: "folder-1",
+                    parentId: null,
+                    type
+                },
+                {
+                    id: "folder-2",
+                    title: "Folder 2",
+                    slug: "folder-1",
+                    parentId: null,
+                    type
+                },
+                {
+                    id: "folder-3",
+                    title: "Folder 3",
+                    slug: "folder-3",
+                    parentId: null,
+                    type
+                }
+            ])
+        };
 
         const newType = "xyz";
-
-        const gatewayXyz = new ListFoldersByParentIdsMockGateway([
-            {
-                id: "folder-1",
-                title: "Folder 1",
-                slug: "folder-1",
-                parentId: null,
-                type: newType
-            },
-            {
-                id: "folder-2",
-                title: "Folder 2",
-                slug: "folder-1",
-                parentId: null,
-                type: newType
-            },
-            {
-                id: "folder-3",
-                title: "Folder 3",
-                slug: "folder-3",
-                parentId: null,
-                type: newType
-            }
-        ]);
+        const gatewayXyz = {
+            execute: jest.fn().mockResolvedValue([
+                {
+                    id: "folder-1",
+                    title: "Folder 1",
+                    slug: "folder-1",
+                    parentId: null,
+                    type: newType
+                },
+                {
+                    id: "folder-2",
+                    title: "Folder 2",
+                    slug: "folder-1",
+                    parentId: null,
+                    type: newType
+                },
+                {
+                    id: "folder-3",
+                    title: "Folder 3",
+                    slug: "folder-3",
+                    parentId: null,
+                    type: newType
+                }
+            ])
+        };
 
         const listFoldersByParentId = ListFoldersByParentIds.getInstance(type, gatewayAbc);
 

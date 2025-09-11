@@ -1,1 +1,1 @@
-export * from "@webiny/shared-aco/constants.js";
+export * from "@webiny/shared-aco/constants";

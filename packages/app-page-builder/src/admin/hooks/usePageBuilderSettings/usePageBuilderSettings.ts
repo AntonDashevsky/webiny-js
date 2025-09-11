@@ -1,9 +1,9 @@
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import get from "lodash/get.js";
-import { useTenancy } from "@webiny/app-tenancy/hooks/useTenancy.js";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
-import { type PbPageData } from "~/types.js";
+import get from "lodash/get";
+import { useTenancy } from "@webiny/app-tenancy/hooks/useTenancy";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
+import type { PbPageData } from "~/types";
 
 const DATA_FIELDS = /* GraphQL */ `
     {

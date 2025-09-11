@@ -1,5 +1,5 @@
-import { type TrashBinItemDTO, type ITrashBinItemMapper } from "@webiny/app-trash-bin";
-import { type CmsContentEntry } from "@webiny/app-headless-cms-common/types/index.js";
+import type { TrashBinItemDTO, ITrashBinItemMapper } from "@webiny/app-trash-bin";
+import type { CmsContentEntry } from "@webiny/app-headless-cms-common/types";
 
 export class TrashBinItemMapper implements ITrashBinItemMapper<CmsContentEntry> {
     toDTO(data: CmsContentEntry): TrashBinItemDTO {

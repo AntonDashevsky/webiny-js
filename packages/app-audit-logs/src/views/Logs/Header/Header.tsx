@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Cell, Grid } from "@webiny/ui/Grid";
 
-import { Search } from "@webiny/app-aco";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-
-import { ButtonFilters } from "~/views/Logs/Header/ButtonFilters/index.js";
-import { Text } from "~/components/Text.js";
+import { ButtonFilters } from "~/views/Logs/Header/ButtonFilters";
+import { Text } from "~/components/Text";
 
 const Container = styled("div")`
     padding: 8px 20px 8px 20px;
@@ -35,21 +33,12 @@ const TitleWrapper = styled("div")`
 
 type HeaderProps = {
     title: string;
-    searchValue: string;
-    onSearchChange: (value: string) => void;
     showingFilters: boolean;
     hideFilters: () => void;
     showFilters: () => void;
 };
 
-export const Header = ({
-    title,
-    searchValue,
-    onSearchChange,
-    showingFilters,
-    hideFilters,
-    showFilters
-}: HeaderProps) => {
+export const Header = ({ title, showingFilters, hideFilters, showFilters }: HeaderProps) => {
     return (
         <Container>
             <Grid align={"right"} style={{ padding: 0 }}>
@@ -60,7 +49,6 @@ export const Header = ({
                 </Cell>
                 <Cell span={8}>
                     <WrapperActions>
-                        <Search value={searchValue} onChange={onSearchChange} />
                         <ButtonFilters
                             showingFilters={showingFilters}
                             hideFilters={hideFilters}

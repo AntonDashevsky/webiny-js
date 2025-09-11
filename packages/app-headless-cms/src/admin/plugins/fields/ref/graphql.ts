@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { type CmsErrorResponse, type CmsModel } from "~/types.js";
+import type { CmsErrorResponse, CmsModel } from "~/types";
 
 export interface ListReferencedModelsQueryResult {
     listContentModels: {

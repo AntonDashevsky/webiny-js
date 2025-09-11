@@ -1,33 +1,37 @@
 import React, { Fragment, useMemo } from "react";
 import { HasPermission } from "@webiny/app-security";
-import { Plugins, AddMenu as Menu, createProviderPlugin } from "@webiny/app-admin";
+import { Plugins, createProviderPlugin } from "@webiny/app-admin";
 import { Global, css } from "@emotion/react";
-import { PageBuilderProvider as ContextProvider } from "./contexts/PageBuilder/index.js";
+import { PageBuilderProvider as ContextProvider } from "./contexts/PageBuilder";
 import { ReactComponent as PagesIcon } from "./admin/assets/table_chart-24px.svg";
-import { WebsiteSettings } from "./modules/WebsiteSettings/WebsiteSettings.js";
-import { AdminPageBuilderContextProvider } from "~/admin/contexts/AdminPageBuilder.js";
-import { DefaultOnPagePublish } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPagePublish.js";
-import { DefaultOnPageUnpublish } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageUnpublish.js";
-import { DefaultOnPageDelete } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageDelete.js";
-import { type EditorProps, EditorRenderer } from "./admin/components/Editor.js";
-import { PagesModule } from "~/admin/views/Pages/PagesModule.js";
-import { AddButtonLinkComponent } from "~/elementDecorators/AddButtonLinkComponent.js";
-import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandlers.js";
-import { InjectElementVariables } from "~/render/variables/InjectElementVariables.js";
-import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph.js";
-import { LexicalHeadingRenderer } from "~/render/plugins/elements/heading/LexicalHeading.js";
-import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache.js";
-import { ConvertIconSettings as EditorConvertIconSettings } from "~/editor/prepareEditorContent/ConvertIconSettings.js";
-import { ConvertIconSettings as RendererConvertIconSettings } from "~/render/plugins/elementSettings/icon/index.js";
-import { AddImageLinkComponent } from "~/elementDecorators/AddImageLinkComponent.js";
-import { PageTemplatesPreview } from "./dataInjection/preview/PageTemplatesPreview.js";
-import { PagesPreview } from "~/dataInjection/preview/PagesPreview.js";
-import { IfDynamicPagesEnabled } from "~/IfDynamicPagesEnabled.js";
+import { WebsiteSettings } from "./modules/WebsiteSettings/WebsiteSettings";
+import { AdminPageBuilderContextProvider } from "~/admin/contexts/AdminPageBuilder";
+import { DefaultOnPagePublish } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPagePublish";
+import { DefaultOnPageUnpublish } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageUnpublish";
+import { DefaultOnPageDelete } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageDelete";
+import type { EditorProps } from "./admin/components/Editor";
+import { EditorRenderer } from "./admin/components/Editor";
+import { PagesModule } from "~/admin/views/Pages/PagesModule";
+import { AddButtonLinkComponent } from "~/elementDecorators/AddButtonLinkComponent";
+import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandlers";
+import { InjectElementVariables } from "~/render/variables/InjectElementVariables";
+import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph";
+import { LexicalHeadingRenderer } from "~/render/plugins/elements/heading/LexicalHeading";
+import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache";
+import { ConvertIconSettings as EditorConvertIconSettings } from "~/editor/prepareEditorContent/ConvertIconSettings";
+import { ConvertIconSettings as RendererConvertIconSettings } from "~/render/plugins/elementSettings/icon";
+import { AddImageLinkComponent } from "~/elementDecorators/AddImageLinkComponent";
+import { PageTemplatesPreview } from "./dataInjection/preview/PageTemplatesPreview";
+import { PagesPreview } from "~/dataInjection/preview/PagesPreview";
+import { IfDynamicPagesEnabled } from "~/IfDynamicPagesEnabled";
+import { AdminConfig } from "@webiny/app-admin";
+
+const { Menu } = AdminConfig;
 
 export type { EditorProps };
 export { EditorRenderer };
-export * from "~/admin/config/pages/index.js";
-export * from "~/admin/views/Pages/hooks/index.js";
+export * from "~/admin/config/pages";
+export * from "~/admin/views/Pages/hooks";
 
 const PageBuilderProviderPlugin = createProviderPlugin(Component => {
     return function PageBuilderProvider({ children }) {
@@ -47,74 +51,85 @@ const PageBuilderProviderPlugin = createProviderPlugin(Component => {
 
 const PageBuilderMenu = () => {
     return (
-        <>
+        <AdminConfig>
             <HasPermission any={["pb.menu", "pb.category", "pb.page", "pb.template", "pb.block"]}>
-                <Menu name="pageBuilder" label={"Page Builder"} icon={<PagesIcon />}>
-                    <Menu name="pageBuilder.pages" label={"Pages"}>
-                        <HasPermission name={"pb.category"}>
-                            <Menu
-                                name="pageBuilder.pages.categories"
-                                label={"Categories"}
-                                path="/page-builder/categories"
-                            />
-                        </HasPermission>
-                        <HasPermission name={"pb.page"}>
-                            <Menu
-                                name="pageBuilder.pages.pages"
-                                label={"Pages"}
-                                path="/page-builder/pages"
-                            />
-                        </HasPermission>
-                        <HasPermission name={"pb.template"}>
-                            <Menu
-                                name="pageBuilder.pages.pageTemplates"
-                                label={"Templates"}
-                                path="/page-builder/page-templates"
-                            />
-                        </HasPermission>
-                        <HasPermission name={"pb.menu"}>
-                            <Menu
-                                name="pageBuilder.pages.menus"
-                                label={"Menus"}
-                                path="/page-builder/menus"
-                            />
-                        </HasPermission>
-                    </Menu>
-                    <Menu name="pageBuilder.blocks" label={"Blocks"}>
-                        <HasPermission name={"pb.block"}>
-                            <Menu
-                                name="pageBuilder.blocks.categories"
-                                label={"Categories"}
-                                path="/page-builder/block-categories"
-                            />
-                            <Menu
-                                name="pageBuilder.blocks.pageBlocks"
-                                label={"Blocks"}
-                                path="/page-builder/page-blocks"
-                            />
-                        </HasPermission>
-                    </Menu>
-                </Menu>
+                <Menu
+                    name="pb"
+                    element={
+                        <Menu.Item
+                            text={"Page Builder"}
+                            icon={<Menu.Link.Icon label={"Page Builder"} element={<PagesIcon />} />}
+                        />
+                    }
+                />
+            </HasPermission>
+
+            <HasPermission any={["pb.menu", "pb.category", "pb.page", "pb.template", "pb.block"]}>
+                <Menu name="pb.pagesLabel" parent="pb" element={<Menu.Group text={"Pages"} />} />
+            </HasPermission>
+            <HasPermission name={"pb.category"}>
+                <Menu
+                    name="pb.categories"
+                    parent={"pb"}
+                    element={<Menu.Link text={"Categories"} to={"/page-builder/categories"} />}
+                />
+            </HasPermission>
+            <HasPermission name={"pb.page"}>
+                <Menu
+                    name="pb.pages"
+                    parent={"pb"}
+                    element={<Menu.Link text={"Pages"} to={"/page-builder/pages"} />}
+                />
+            </HasPermission>
+            <HasPermission name={"pb.template"}>
+                <Menu
+                    name="pb.templates"
+                    parent={"pb"}
+                    element={<Menu.Link text={"Templates"} to={"/page-builder/page-templates"} />}
+                />
+            </HasPermission>
+            <HasPermission name={"pb.menu"}>
+                <Menu
+                    name="pb.menus"
+                    parent={"pb"}
+                    element={<Menu.Link text={"Menus"} to={"/page-builder/menus"} />}
+                />
+            </HasPermission>
+            <HasPermission any={["pb.block"]}>
+                <Menu name="pb.blocksLabel" parent="pb" element={<Menu.Group text={"Blocks"} />} />
+                <Menu
+                    name="pb.blocks.categories"
+                    parent={"pb"}
+                    element={
+                        <Menu.Link text={"Categories"} to={"/page-builder/block-categories"} />
+                    }
+                />
+                <Menu
+                    name="pb.blocks.pageBlocks"
+                    parent={"pb"}
+                    element={<Menu.Link text={"Blocks"} to={"/page-builder/page-blocks"} />}
+                />
             </HasPermission>
             <HasPermission name={"pb.settings"}>
-                <Menu name={"settings"}>
-                    <Menu name={"settings.pageBuilder"} label={"Page Builder"}>
-                        <Menu
-                            name={"settings.pageBuilder.website"}
-                            label={"Website"}
-                            path={"/settings/page-builder/website"}
-                        />
-                    </Menu>
-                </Menu>
+                <Menu
+                    name="pb.settings"
+                    parent="settings"
+                    element={<Menu.Group text={"Page Builder"} />}
+                />
+                <Menu
+                    name="pb.settings.website"
+                    parent={"settings"}
+                    element={<Menu.Link text={"Website"} to={"/settings/page-builder/website"} />}
+                />
             </HasPermission>
-        </>
+        </AdminConfig>
     );
 };
 
 const EditorLoader = React.lazy(() =>
     import(
         /* webpackChunkName: "PageBuilderEditor" */
-        "./editor/Editor.js"
+        "./editor/Editor"
     ).then(m => ({
         default: m.Editor
     }))
@@ -140,8 +155,8 @@ export const PageBuilder = () => {
             <PagesModule />
             <PageBuilderProviderPlugin />
             <EditorRendererPlugin />
+            <PageBuilderMenu />
             <Plugins>
-                <PageBuilderMenu />
                 <WebsiteSettings />
                 <DefaultOnPagePublish />
                 <DefaultOnPageUnpublish />

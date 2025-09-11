@@ -1,4 +1,4 @@
-import { MigrationRunItem } from "@webiny/data-migration";
+import type { MigrationRunItem } from "@webiny/data-migration";
 
 export const groupMigrations = (migrations: MigrationRunItem[]) => {
     return {

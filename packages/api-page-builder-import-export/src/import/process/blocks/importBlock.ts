@@ -1,18 +1,18 @@
 import path from "path";
 import dotProp from "dot-prop-immutable";
 import loadJson from "load-json-file";
-import fs from "fs-extra";
-import { type PbImportExportContext } from "~/graphql/types.js";
-import { type FileUploadsData } from "~/types.js";
-import { type PageBlock } from "@webiny/api-page-builder/types.js";
-import { s3Stream } from "~/export/s3Stream.js";
-import { uploadAssets } from "~/import/utils/uploadAssets.js";
-import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles.js";
-import { deleteS3Folder } from "~/import/utils/deleteS3Folder.js";
-import { updateFilesInData } from "~/import/utils/updateFilesInData.js";
-import { INSTALL_EXTRACT_DIR } from "~/import/constants.js";
-import { type ExportedBlockData } from "~/export/process/exporters/BlockExporter.js";
-import { ElementIdsProcessor } from "~/import/process/blocks/ElementIdsProcessor.js";
+import { ensureDirSync, createWriteStream } from "fs-extra";
+import type { PbImportExportContext } from "~/graphql/types";
+import type { FileUploadsData } from "~/types";
+import type { PageBlock } from "@webiny/api-page-builder/types";
+import { s3Stream } from "~/export/s3Stream";
+import { uploadAssets } from "~/import/utils/uploadAssets";
+import { deleteFile } from "@webiny/api-page-builder/graphql/crud/install/utils/downloadInstallFiles";
+import { deleteS3Folder } from "~/import/utils/deleteS3Folder";
+import { updateFilesInData } from "~/import/utils/updateFilesInData";
+import { INSTALL_EXTRACT_DIR } from "~/import/constants";
+import type { ExportedBlockData } from "~/export/process/exporters/BlockExporter";
+import { ElementIdsProcessor } from "~/import/process/blocks/ElementIdsProcessor";
 
 interface ImportBlockParams {
     key: string;
@@ -30,7 +30,7 @@ export async function importBlock({
 
     // Making Directory for block in which we're going to extract the block data file.
     const BLOCK_EXTRACT_DIR = path.join(INSTALL_EXTRACT_DIR, blockKey);
-    fs.ensureDirSync(BLOCK_EXTRACT_DIR);
+    ensureDirSync(BLOCK_EXTRACT_DIR);
 
     const blockDataFileKey = dotProp.get(fileUploadsData, `data`);
     const BLOCK_DATA_FILE_PATH = path.join(BLOCK_EXTRACT_DIR, path.basename(blockDataFileKey));
@@ -38,9 +38,9 @@ export async function importBlock({
     log(`Downloading Block data file: ${blockDataFileKey} at "${BLOCK_DATA_FILE_PATH}"`);
     // Download and save block data file in disk.
     const readStream = await s3Stream.readStream(blockDataFileKey);
-    const writeStream = fs.createWriteStream(BLOCK_DATA_FILE_PATH);
+    const writeStream = createWriteStream(BLOCK_DATA_FILE_PATH);
 
-    await new Promise((resolve, reject) => {
+    await new Promise<void>((resolve, reject) => {
         readStream.on("error", reject).pipe(writeStream).on("finish", resolve).on("error", reject);
     });
 

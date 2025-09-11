@@ -1,23 +1,17 @@
 import React, { useRef } from "react";
-import { type Klass, type LexicalNode } from "lexical";
+import type { Klass, LexicalNode } from "lexical";
 import { css } from "emotion";
-import { type CSSObject } from "@emotion/react";
+import type { CSSObject } from "@emotion/react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { allNodes } from "@webiny/lexical-nodes";
-import {
-    createTheme,
-    type EditorTheme,
-    type ThemeEmotionMap,
-    toTypographyEmotionMap
-} from "@webiny/lexical-theme";
-import { isValidLexicalData } from "~/utils/isValidLexicalData.js";
-import { generateInitialLexicalValue } from "~/utils/generateInitialLexicalValue.js";
-import { type LexicalValue } from "~/types.js";
-import { UpdateStatePlugin } from "~/plugins/LexicalUpdateStatePlugin/index.js";
-import { RichTextEditorProvider } from "~/context/RichTextEditorContext.js";
+import type { EditorTheme, ThemeEmotionMap } from "@webiny/lexical-theme";
+import { createTheme, toTypographyEmotionMap } from "@webiny/lexical-theme";
+import type { LexicalValue } from "~/types";
+import { RichTextEditorProvider } from "~/context/RichTextEditorContext";
+import { StateHandlingPlugin } from "~/plugins/StateHandlingPlugin";
 
 interface LexicalHtmlRendererProps {
     nodes?: Klass<LexicalNode>[];
@@ -32,10 +26,8 @@ export const LexicalHtmlRenderer = ({ nodes, value, ...props }: LexicalHtmlRende
     const themeEmotionMap =
         props?.themeEmotionMap ?? toTypographyEmotionMap(css, theme, props.themeStylesTransformer);
     const editorTheme = useRef(createTheme(theme));
-    const editorValue = isValidLexicalData(value) ? value : generateInitialLexicalValue();
 
     const initialConfig = {
-        // We update the state via the `<LexicalUpdateStatePlugin/>`.
         editorState: null,
         namespace: "webiny",
         onError: () => {
@@ -59,7 +51,7 @@ export const LexicalHtmlRenderer = ({ nodes, value, ...props }: LexicalHtmlRende
                     ErrorBoundary={LexicalErrorBoundary}
                     placeholder={null}
                 />
-                <UpdateStatePlugin value={editorValue} />
+                <StateHandlingPlugin value={value} />
             </RichTextEditorProvider>
         </LexicalComposer>
     );

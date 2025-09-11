@@ -1,48 +1,9 @@
-import React, { type DragEventHandler } from "react";
+import type { DragEventHandler } from "react";
+import React from "react";
 import { plugins } from "@webiny/plugins";
-import styled from "@emotion/styled";
-import { Icon } from "@webiny/ui/Icon/index.js";
-import Draggable from "../Draggable.js";
-import { type CmsModelFieldTypePlugin } from "~/types.js";
-
-const FieldContainer = styled("div")({
-    padding: "10px 15px",
-    marginBottom: 20,
-    display: "flex",
-    width: "100%",
-    backgroundColor: "var(--mdc-theme-on-background)",
-    borderRadius: 15,
-    boxSizing: "border-box",
-    cursor: "grab",
-    opacity: 1,
-    transition: "opacity 225ms",
-    "&:hover": {
-        opacity: 0.8
-    },
-    "&:last-child": {
-        marginBottom: 0
-    }
-});
-
-const FileInfo = styled("div")({});
-
-const FieldLabel = styled("div")({
-    textTransform: "uppercase",
-    lineHeight: "145%",
-    fontFamily: "var(--mdc-typography-font-family)",
-    color: "var(--mdc-theme-on-surface)"
-});
-
-const FieldDescription = styled("div")({
-    fontSize: 14,
-    fontFamily: "var(--mdc-typography-font-family)",
-    color: "var(--mdc-theme-text-secondary-on-background)"
-});
-
-const FieldHandle = styled("div")({
-    marginRight: 15,
-    color: "var(--mdc-theme-on-surface)"
-});
+import Draggable from "../Draggable";
+import type { CmsModelFieldTypePlugin } from "~/types";
+import { Heading, Icon, Text } from "@webiny/admin-ui";
 
 interface FieldProps {
     onFieldDragStart: DragEventHandler;
@@ -59,19 +20,28 @@ const Field = (props: FieldProps) => {
             {({ drag }) => (
                 <div
                     ref={drag}
-                    style={{ marginBottom: 10 }}
                     data-testid={`cms-editor-fields-field-${type}`}
                     onDragStart={onFieldDragStart}
+                    className={
+                        "wby-bg-neutral-base wby-rounded-sm wby-mb-sm wby-py-sm wby-px-md wby-cursor-grab last-of-type:wby-mb-none hover:wby-opacity-80 wby-transition-opacity"
+                    }
                 >
-                    <FieldContainer>
-                        <FieldHandle>
-                            <Icon icon={icon as React.ReactElement} />
-                        </FieldHandle>
-                        <FileInfo>
-                            <FieldLabel>{label}</FieldLabel>
-                            <FieldDescription>{description}</FieldDescription>
-                        </FileInfo>
-                    </FieldContainer>
+                    <div className={"wby-flex wby-items-center wby-gap-md"}>
+                        <div>
+                            <Icon
+                                icon={icon as React.ReactElement}
+                                label={label}
+                                size={"md"}
+                                color={"neutral-light"}
+                            />
+                        </div>
+                        <div>
+                            <Heading level={6}>{label}</Heading>
+                            <Text size={"sm"} className={"wby-text-neutral-strong"}>
+                                {description}
+                            </Text>
+                        </div>
+                    </div>
                 </div>
             )}
         </Draggable>
@@ -83,10 +53,12 @@ interface FieldsSidebarProps {
 }
 
 export const FieldsSidebar = ({ onFieldDragStart }: FieldsSidebarProps) => {
-    const fieldTypePlugin = plugins.byType<CmsModelFieldTypePlugin>("cms-editor-field-type");
+    const fieldTypePlugin = plugins
+        .byType<CmsModelFieldTypePlugin>("cms-editor-field-type")
+        .filter(p => !p.field.hideInAdmin);
 
     return (
-        <React.Fragment>
+        <>
             {fieldTypePlugin.map(fieldPlugin => (
                 <Field
                     key={fieldPlugin.field.type}
@@ -94,6 +66,6 @@ export const FieldsSidebar = ({ onFieldDragStart }: FieldsSidebarProps) => {
                     onFieldDragStart={onFieldDragStart}
                 />
             ))}
-        </React.Fragment>
+        </>
     );
 };

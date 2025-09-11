@@ -1,5 +1,6 @@
 import { createMockIdentity } from "./identity";
-import { ITask, TaskDataStatus } from "@webiny/tasks/types";
+import type { ITask } from "@webiny/tasks/types";
+import { TaskDataStatus } from "@webiny/tasks/types";
 
 export const createTaskMock = (task?: Partial<ITask>): ITask => {
     return {

@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import get from "lodash/get.js";
-import { type DocumentNode } from "graphql";
-import { GET_THEME } from "~/graphql/GET_THEME.js";
+import get from "lodash/get";
+import type { DocumentNode } from "graphql";
+import { GET_THEME } from "~/graphql/GET_THEME";
 
 // We need to keep track of the queries that have already been executed.
 const cache = new Map<DocumentNode, boolean>();

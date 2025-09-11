@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { type PbPageData } from "~/types.js";
+import { i18n } from "@webiny/app/i18n";
+import type { PbPageData } from "~/types";
 import { useConfirmationDialog, useDialog, useSnackbar } from "@webiny/app-admin";
-import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder.js";
+import { useAdminPageBuilder } from "~/admin/hooks/useAdminPageBuilder";
 import { useRecords } from "@webiny/app-aco";
 import { parseIdentifier } from "@webiny/utils";
 

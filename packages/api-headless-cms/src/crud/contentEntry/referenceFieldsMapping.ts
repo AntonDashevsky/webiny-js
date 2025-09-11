@@ -1,8 +1,8 @@
 import dotProp from "dot-prop";
 import WebinyError from "@webiny/error";
 import { parseIdentifier } from "@webiny/utils";
-import { getBaseFieldType } from "~/utils/getBaseFieldType.js";
-import { type CmsContext, type CmsDynamicZoneTemplate, type CmsModel, type CmsModelField } from "~/types/index.js";
+import { getBaseFieldType } from "~/utils/getBaseFieldType";
+import type { CmsContext, CmsDynamicZoneTemplate, CmsModel, CmsModelField } from "~/types";
 
 interface CmsRefEntry {
     id: string;

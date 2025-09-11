@@ -1,6 +1,7 @@
 import React from "react";
-import { UIElement, type UIElementConfig, type UiElementRenderProps } from "~/ui/UIElement.js";
-import { Accordion, AccordionItem } from "@webiny/ui/Accordion/index.js";
+import type { UIElementConfig, UiElementRenderProps } from "~/ui/UIElement";
+import { UIElement } from "~/ui/UIElement";
+import { Accordion, AccordionItem } from "@webiny/ui/Accordion";
 
 interface GetterWithProps<TProps, T> {
     (props: TProps): T;

@@ -1,8 +1,8 @@
 import WebinyError from "@webiny/error";
-import { type HeadlessCmsImport, type ValidCmsGroupResult, type ValidCmsModelResult } from "~/export/types.js";
-import { type CmsContext } from "~/types/index.js";
-import { importData } from "./imports/importData.js";
-import { validateInput } from "./imports/validateInput.js";
+import type { HeadlessCmsImport, ValidCmsGroupResult, ValidCmsModelResult } from "~/export/types";
+import type { CmsContext } from "~/types";
+import { importData } from "./imports/importData";
+import { validateInput } from "./imports/validateInput";
 
 const fetchGroupsAndModels = async (context: CmsContext) => {
     return await context.security.withoutAuthorization(async () => {

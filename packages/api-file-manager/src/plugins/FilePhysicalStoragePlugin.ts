@@ -1,6 +1,6 @@
 import { Plugin } from "@webiny/plugins";
 import WebinyError from "@webiny/error";
-import { type FileManagerSettings } from "~/types.js";
+import type { FileManagerSettings } from "~/types";
 
 export interface FilePhysicalStoragePluginParams<
     U extends FilePhysicalStoragePluginUploadParams,

@@ -1,5 +1,5 @@
-import { Plugin } from "@webiny/plugins/Plugin.js";
-import { type ICompressor } from "@webiny/utils/compression/Compressor.js";
+import { Plugin } from "@webiny/plugins/Plugin";
+import type { ICompressor } from "@webiny/utils/compression/Compressor";
 
 export interface ICompressorPluginParams {
     getCompressor(): ICompressor;

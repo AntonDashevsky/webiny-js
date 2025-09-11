@@ -1,27 +1,22 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { type LexicalCommand } from "lexical";
+import type { LexicalCommand } from "lexical";
 import { Compose, makeDecoratable } from "@webiny/react-composition";
-import { type TypographyValue } from "@webiny/lexical-theme";
-import { TypographyActionContext } from "~/context/TypographyActionContext.js";
-import {
-    $isHeadingNode,
-    $isListNode,
-    $isParagraphNode,
-    $isQuoteNode,
-    $isTypographyNode,
-    ADD_TYPOGRAPHY_COMMAND,
-    type TypographyNode,
-    type TypographyPayload
-} from "@webiny/lexical-nodes";
-import { useRichTextEditor } from "~/hooks/useRichTextEditor.js";
+import type { TypographyValue } from "@webiny/lexical-theme";
+import type { ActiveTypography } from "~/context/TypographyActionContext";
+import { TypographyActionContext } from "~/context/TypographyActionContext";
+import { $isHeadingNode, $isListNode, $isParagraphNode, $isQuoteNode } from "@webiny/lexical-nodes";
+import { useRichTextEditor } from "~/hooks/useRichTextEditor";
+import type { ListCommandPayload, QuoteCommandPayload, TypographyPayload } from "~/commands";
 import {
     INSERT_ORDERED_LIST_COMMAND,
     INSERT_UNORDERED_LIST_COMMAND,
     INSERT_QUOTE_COMMAND,
-    type ListCommandPayload,
-    type QuoteCommandPayload
-} from "~/commands/index.js";
-import { useCurrentElement } from "~/hooks/useCurrentElement.js";
+    ADD_TYPOGRAPHY_COMMAND
+} from "~/commands";
+import { useCurrentElement } from "~/hooks/useCurrentElement";
+
+// Unfortunately, for some time in v5 we had `quoteblock` in our theme, so let's not break it.
+const quoteTagNames = ["blockquote", "quoteblock"];
 
 /*
  * Base composable action component that is mounted on toolbar action as a placeholder for the custom toolbar action.
@@ -50,23 +45,16 @@ export type TypographyAction = React.ComponentType<unknown> & {
 };
 
 export const TypographyAction: TypographyAction = () => {
-    const [typography, setTypography] = useState<TypographyValue>();
+    const [typography, setTypography] = useState<ActiveTypography>();
     const { editor, themeEmotionMap } = useRichTextEditor();
     const { element } = useCurrentElement();
-    const isTypographySelected = $isTypographyNode(element);
     const isParagraphSelected = $isParagraphNode(element);
     const isHeadingSelected = $isHeadingNode(element);
     const isQuoteSelected = $isQuoteNode(element);
 
-    const setTypographySelect = useCallback(
-        (value: TypographyValue) => {
-            setTypography(value);
-        },
-        [typography]
-    );
-
     const onTypographySelect = useCallback((value: TypographyValue) => {
-        setTypographySelect(value);
+        setTypography(value);
+
         if (value.tag.includes("h") || value.tag.includes("p")) {
             editor.dispatchCommand<LexicalCommand<TypographyPayload>>(ADD_TYPOGRAPHY_COMMAND, {
                 value
@@ -91,7 +79,7 @@ export const TypographyAction: TypographyAction = () => {
             );
         }
 
-        if (value.tag === "quoteblock") {
+        if (quoteTagNames.includes(value.tag)) {
             editor.dispatchCommand<LexicalCommand<QuoteCommandPayload>>(INSERT_QUOTE_COMMAND, {
                 themeStyleId: value.id
             });
@@ -99,54 +87,42 @@ export const TypographyAction: TypographyAction = () => {
     }, []);
 
     useEffect(() => {
-        if (!element) {
-            return;
-        }
-        // header and paragraph elements inserted with typography node
-        if (isTypographySelected) {
-            const el = element as TypographyNode;
-            setTypography(el.getTypographyValue());
+        if (!element || !themeEmotionMap) {
             return;
         }
 
         if (isParagraphSelected || isHeadingSelected || isQuoteSelected) {
-            const styleId = element.getTypographyStyleId();
+            const styleId = element.getStyleId();
             if (!styleId) {
-                return;
-            }
-
-            if (!themeEmotionMap) {
                 return;
             }
 
             const style = themeEmotionMap[styleId];
             if (style) {
                 setTypography({
-                    name: style?.name,
                     id: style.id,
-                    css: style.styles,
-                    tag: style.tag
+                    name: style.name
                 });
             }
             return;
         }
 
         // list and quote element
-        if (themeEmotionMap && ($isListNode(element) || $isQuoteNode(element))) {
-            const themeStyleId = element?.getStyleId() || undefined;
-            if (themeStyleId) {
-                const elementStyle = themeEmotionMap[themeStyleId];
-                if (elementStyle) {
-                    setTypography({
-                        id: elementStyle.id,
-                        css: elementStyle.styles,
-                        name: elementStyle.name,
-                        tag: elementStyle.tag
-                    });
-                }
+        if (themeEmotionMap && $isListNode(element)) {
+            const styleId = element.getStyleId();
+            if (!styleId) {
+                return;
+            }
+
+            const style = themeEmotionMap[styleId];
+            if (style) {
+                setTypography({
+                    id: style.id,
+                    name: style.name
+                });
             }
         }
-    }, [element, isTypographySelected, isQuoteSelected, isParagraphSelected, isHeadingSelected]);
+    }, [element, isQuoteSelected, isParagraphSelected, isHeadingSelected]);
 
     return (
         <TypographyActionContext.Provider

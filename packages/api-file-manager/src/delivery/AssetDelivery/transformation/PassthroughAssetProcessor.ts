@@ -1,4 +1,4 @@
-import { type Asset, type AssetProcessor, type AssetRequest } from "~/delivery/index.js";
+import type { Asset, AssetProcessor, AssetRequest } from "~/delivery";
 
 export class PassthroughAssetProcessor implements AssetProcessor {
     process(assetRequest: AssetRequest, asset: Asset): Promise<Asset> {

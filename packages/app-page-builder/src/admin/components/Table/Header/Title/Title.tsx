@@ -1,8 +1,9 @@
-import React, { type ReactElement } from "react";
+import type { ReactElement } from "react";
+import React from "react";
 
-import { Skeleton } from "@webiny/ui/Skeleton/index.js";
+import { Skeleton } from "@webiny/ui/Skeleton";
 
-import { Name } from "./styled.js";
+import { Name } from "./styled";
 
 export interface TitleProps {
     title?: string;
@@ -11,7 +12,7 @@ export interface TitleProps {
 export const Title = ({ title }: TitleProps): ReactElement => {
     return (
         <Name use={"headline6"} tag={"h1"}>
-            {title !== undefined ? title : <Skeleton theme={"dark"} />}
+            {title || <Skeleton size={"lg"} />}
         </Name>
     );
 };

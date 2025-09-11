@@ -1,57 +1,57 @@
-import { type ContentEntryTraverser } from "~/utils/contentEntryTraverser/ContentEntryTraverser.js";
-import { type Topic } from "@webiny/pubsub/types.js";
-import {
-    type CmsDeleteEntryOptions,
-    type CmsEntry,
-    type CmsEntryGetParams,
-    type CmsEntryListParams,
-    type CmsEntryMeta,
-    type CmsEntryUniqueValue,
-    type CmsEntryValidateResponse,
-    type CmsEntryValues,
-    type CreateCmsEntryInput,
-    type CreateCmsEntryOptionsInput,
-    type CreateFromCmsEntryInput,
-    type CreateRevisionCmsEntryOptionsInput,
-    type DeleteMultipleEntriesParams,
-    type DeleteMultipleEntriesResponse,
-    type EntryBeforeListTopicParams,
-    type GetUniqueFieldValuesParams,
-    type OnEntryAfterCreateTopicParams,
-    type OnEntryAfterDeleteTopicParams,
-    type OnEntryAfterMoveTopicParams,
-    type OnEntryAfterPublishTopicParams,
-    type OnEntryAfterRepublishTopicParams,
-    type OnEntryAfterRestoreFromBinTopicParams,
-    type OnEntryAfterUnpublishTopicParams,
-    type OnEntryAfterUpdateTopicParams,
-    type OnEntryBeforeCreateTopicParams,
-    type OnEntryBeforeDeleteTopicParams,
-    type OnEntryBeforeGetTopicParams,
-    type OnEntryBeforeMoveTopicParams,
-    type OnEntryBeforePublishTopicParams,
-    type OnEntryBeforeRepublishTopicParams,
-    type OnEntryBeforeRestoreFromBinTopicParams,
-    type OnEntryBeforeUnpublishTopicParams,
-    type OnEntryBeforeUpdateTopicParams,
-    type OnEntryCreateErrorTopicParams,
-    type OnEntryCreateRevisionErrorTopicParams,
-    type OnEntryDeleteErrorTopicParams,
-    type OnEntryMoveErrorTopicParams,
-    type OnEntryPublishErrorTopicParams,
-    type OnEntryRepublishErrorTopicParams,
-    type OnEntryRestoreFromBinErrorTopicParams,
-    type OnEntryRevisionAfterCreateTopicParams,
-    type OnEntryRevisionAfterDeleteTopicParams,
-    type OnEntryRevisionBeforeCreateTopicParams,
-    type OnEntryRevisionBeforeDeleteTopicParams,
-    type OnEntryRevisionDeleteErrorTopicParams,
-    type OnEntryUnpublishErrorTopicParams,
-    type OnEntryUpdateErrorTopicParams,
-    type UpdateCmsEntryInput,
-    type UpdateCmsEntryOptionsInput
-} from "./types.js";
-import { type CmsModel } from "./model.js";
+import type { ContentEntryTraverser } from "~/utils/contentEntryTraverser/ContentEntryTraverser";
+import type { Topic } from "@webiny/pubsub/types";
+import type {
+    CmsDeleteEntryOptions,
+    CmsEntry,
+    CmsEntryGetParams,
+    CmsEntryListParams,
+    CmsEntryMeta,
+    CmsEntryUniqueValue,
+    CmsEntryValidateResponse,
+    CmsEntryValues,
+    CreateCmsEntryInput,
+    CreateCmsEntryOptionsInput,
+    CreateFromCmsEntryInput,
+    CreateRevisionCmsEntryOptionsInput,
+    DeleteMultipleEntriesParams,
+    DeleteMultipleEntriesResponse,
+    EntryBeforeListTopicParams,
+    GetUniqueFieldValuesParams,
+    OnEntryAfterCreateTopicParams,
+    OnEntryAfterDeleteTopicParams,
+    OnEntryAfterMoveTopicParams,
+    OnEntryAfterPublishTopicParams,
+    OnEntryAfterRepublishTopicParams,
+    OnEntryAfterRestoreFromBinTopicParams,
+    OnEntryAfterUnpublishTopicParams,
+    OnEntryAfterUpdateTopicParams,
+    OnEntryBeforeCreateTopicParams,
+    OnEntryBeforeDeleteTopicParams,
+    OnEntryBeforeGetTopicParams,
+    OnEntryBeforeMoveTopicParams,
+    OnEntryBeforePublishTopicParams,
+    OnEntryBeforeRepublishTopicParams,
+    OnEntryBeforeRestoreFromBinTopicParams,
+    OnEntryBeforeUnpublishTopicParams,
+    OnEntryBeforeUpdateTopicParams,
+    OnEntryCreateErrorTopicParams,
+    OnEntryCreateRevisionErrorTopicParams,
+    OnEntryDeleteErrorTopicParams,
+    OnEntryMoveErrorTopicParams,
+    OnEntryPublishErrorTopicParams,
+    OnEntryRepublishErrorTopicParams,
+    OnEntryRestoreFromBinErrorTopicParams,
+    OnEntryRevisionAfterCreateTopicParams,
+    OnEntryRevisionAfterDeleteTopicParams,
+    OnEntryRevisionBeforeCreateTopicParams,
+    OnEntryRevisionBeforeDeleteTopicParams,
+    OnEntryRevisionDeleteErrorTopicParams,
+    OnEntryUnpublishErrorTopicParams,
+    OnEntryUpdateErrorTopicParams,
+    UpdateCmsEntryInput,
+    UpdateCmsEntryOptionsInput
+} from "./types";
+import type { CmsModel } from "./model";
 
 /**
  * Cms Entry CRUD methods in the context.
@@ -78,7 +78,7 @@ export interface CmsEntryContext {
     /**
      * Get the entry for a model by a given ID.
      */
-    getEntryById: (model: CmsModel, revision: string) => Promise<CmsEntry>;
+    getEntryById<T = CmsEntryValues>(model: CmsModel, revision: string): Promise<CmsEntry<T>>;
     /**
      * List entries for a model. Internal method used by get, listLatest and listPublished.
      */
@@ -181,11 +181,17 @@ export interface CmsEntryContext {
     /**
      * Publish entry.
      */
-    publishEntry: (model: CmsModel, id: string) => Promise<CmsEntry>;
+    publishEntry: <T extends CmsEntryValues = CmsEntryValues>(
+        model: CmsModel,
+        id: string
+    ) => Promise<CmsEntry<T>>;
     /**
      * Unpublish entry.
      */
-    unpublishEntry: (model: CmsModel, id: string) => Promise<CmsEntry>;
+    unpublishEntry: <T extends CmsEntryValues = CmsEntryValues>(
+        model: CmsModel,
+        id: string
+    ) => Promise<CmsEntry<T>>;
     /**
      * Get all entry revisions.
      */

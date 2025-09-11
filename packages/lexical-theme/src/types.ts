@@ -1,18 +1,11 @@
 import type { CSSObject } from "@emotion/react";
 
-// Supported HTML tags.
-export type ListHtmlTag = "ol" | "ul";
-export type HeadingHtmlTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-export type ParagraphHtmlTag = "p";
-export type QuoteBlockHtmlTag = "quoteblock";
-
-export type TypographyHTMLTag = HeadingHtmlTag | ParagraphHtmlTag | ListHtmlTag | QuoteBlockHtmlTag;
-
 export type TypographyValue = {
-    css: CSSObject;
     id: string;
-    tag: TypographyHTMLTag;
+    tag: string;
     name: string;
+    css?: CSSObject;
+    className?: string;
 };
 
 /*
@@ -21,10 +14,10 @@ export type TypographyValue = {
 export type ThemeEmotionMap = {
     [styleId: string]: {
         id: string;
-        tag: TypographyHTMLTag;
+        tag: string;
         name: string;
-        styles: Record<string, any>;
-        // emotion generated class
+        styles?: Record<string, any>;
+        // emotion generated class or user provided class
         className: string;
     };
 };

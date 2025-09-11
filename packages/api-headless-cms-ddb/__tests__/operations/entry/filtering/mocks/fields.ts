@@ -1,6 +1,6 @@
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsModel } from "@webiny/api-headless-cms/types";
 import { createFields as baseCreateFields } from "~/operations/entry/filtering/createFields";
-import { PluginsContainer } from "@webiny/plugins";
+import type { PluginsContainer } from "@webiny/plugins";
 
 export const createModel = (): CmsModel => {
     return {

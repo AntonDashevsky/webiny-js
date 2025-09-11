@@ -1,6 +1,7 @@
-import { GraphQLInputMapper } from "./GraphQLInputMapper.js";
-import { type BatchDTO, OperatorType } from "~/components/BulkActions/ActionEdit/domain/index.js";
-import { type FileItem } from "@webiny/app-admin/types.js";
+import { GraphQLInputMapper } from "./GraphQLInputMapper";
+import type { BatchDTO } from "~/components/BulkActions/ActionEdit/domain";
+import { OperatorType } from "~/components/BulkActions/ActionEdit/domain";
+import type { FileItem } from "@webiny/app-admin/types";
 
 const fileMock: FileItem = {
     id: "12345678",

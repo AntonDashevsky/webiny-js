@@ -1,7 +1,6 @@
 {
   "name": "@webiny/api-dynamodb-to-elasticsearch",
   "version": "0.0.0",
-  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -22,13 +21,17 @@
     "p-retry": "^4.6.2"
   },
   "devDependencies": {
-    "@webiny/build-tools": "0.0.0",
     "@webiny/plugins": "0.0.0",
-    "typescript": "5.3.3"
+    "@webiny/project-utils": "0.0.0",
+    "typescript": "5.9.2"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
+  },
+  "scripts": {
+    "build": "node ../cli/bin.js run build",
+    "watch": "node ../cli/bin.js run watch"
   },
   "adio": {
     "ignoreDirs": [

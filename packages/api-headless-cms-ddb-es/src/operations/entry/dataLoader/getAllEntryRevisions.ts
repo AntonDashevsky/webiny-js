@@ -1,10 +1,11 @@
 import DataLoader from "dataloader";
-import { type CmsStorageEntry } from "@webiny/api-headless-cms/types/index.js";
-import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
-import { createPartitionKey } from "~/operations/entry/keys.js";
-import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup.js";
-import { type DataLoaderParams } from "./types.js";
-import { createBatchScheduleFn } from "./createBatchScheduleFn.js";
+import type { CmsStorageEntry } from "@webiny/api-headless-cms/types";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
+import { createPartitionKey } from "~/operations/entry/keys";
+import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup";
+import type { DataLoaderParams } from "./types";
+import { createBatchScheduleFn } from "./createBatchScheduleFn";
 
 export const createGetAllEntryRevisions = (params: DataLoaderParams) => {
     const { entity, locale, tenant } = params;

@@ -1,10 +1,10 @@
 import { Plugin } from "@webiny/plugins";
-import { type IWebsocketsEvent, type IWebsocketsEventData, type WebsocketsEventRoute } from "~/handler/types.js";
-import { type Context } from "~/types.js";
-import { type IWebsocketsRunnerResponse } from "~/runner/index.js";
-import { type IWebsocketsConnectionRegistry } from "~/registry/index.js";
-import { type IWebsocketsResponse } from "~/response/abstractions/IWebsocketsResponse.js";
-import { type IWebsocketsIdentity } from "~/context/index.js";
+import type { IWebsocketsEvent, IWebsocketsEventData, WebsocketsEventRoute } from "~/handler/types";
+import type { Context } from "~/types";
+import type { IWebsocketsRunnerResponse } from "~/runner";
+import type { IWebsocketsConnectionRegistry } from "~/registry";
+import type { IWebsocketsResponse } from "~/response/abstractions/IWebsocketsResponse";
+import type { IWebsocketsIdentity } from "~/context";
 
 export interface IWebsocketsRoutePluginCallableParams<
     C extends Context = Context,

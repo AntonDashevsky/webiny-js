@@ -1,7 +1,7 @@
 import { setupContentModelGroup, setupContentModels } from "~tests/testHelpers/setup";
 import { useCategoryManageHandler } from "~tests/testHelpers/useCategoryManageHandler";
 import { useCategoryReadHandler } from "~tests/testHelpers/useCategoryReadHandler";
-import { CmsEntry } from "~/types";
+import type { CmsEntry } from "~/types";
 import { toSlug } from "~/utils/toSlug";
 import { ROOT_FOLDER } from "~/constants";
 import { jest } from "@jest/globals";

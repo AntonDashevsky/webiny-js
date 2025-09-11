@@ -1,5 +1,5 @@
 import { createCmsEntryElasticsearchValuesModifier } from "~/plugins";
-import { CmsEntry, CmsIdentity, CmsModel } from "@webiny/api-headless-cms/types";
+import type { CmsEntry, CmsIdentity, CmsModel } from "@webiny/api-headless-cms/types";
 
 interface MockCmsEntryValues {
     title: string;

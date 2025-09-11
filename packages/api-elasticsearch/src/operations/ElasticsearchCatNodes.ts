@@ -1,7 +1,7 @@
-import { type IElasticsearchCatNodesResponse } from "./types.js";
-import { type Client } from "~/client.js";
+import type { IElasticsearchCatNodesResponse } from "./types";
+import type { Client } from "~/client";
 import { WebinyError } from "@webiny/error";
-import { stripConnectionFromException } from "~/operations/stripConnectionFromException.js";
+import { stripConnectionFromException } from "~/operations/stripConnectionFromException";
 
 export class ElasticsearchCatNodes {
     private readonly client: Client;

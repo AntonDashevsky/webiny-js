@@ -1,5 +1,5 @@
 import { createGenericContext } from "@webiny/app-admin";
-import { type FieldDTO } from "~/components/AdvancedSearch/domain/index.js";
+import type { FieldDTO } from "~/components/AdvancedSearch/domain";
 
 export interface InputFieldContext {
     field: FieldDTO;

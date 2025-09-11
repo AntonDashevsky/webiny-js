@@ -1,4 +1,5 @@
-import { createGqlQuery, GqlResponse } from "../utils";
+import type { GqlResponse } from "../utils";
+import { createGqlQuery } from "../utils";
 
 const UPDATE_PAGE = /* GraphQL */ `
     mutation updatePage($id: ID!, $data: PbUpdatePageInput!) {

@@ -1,11 +1,12 @@
 import { jest } from "@jest/globals";
 import { createRunner } from "@webiny/project-utils/testing/tasks";
 import { useHandler } from "~tests/helpers/useHandler";
-import { CmsImportExportFileType, Context, ICmsImportExportFile } from "~/types";
+import type { Context, ICmsImportExportFile } from "~/types";
+import { CmsImportExportFileType } from "~/types";
 import { createValidateImportFromUrlTask } from "~/tasks";
 import { ResponseDoneResult, ResponseErrorResult } from "@webiny/tasks";
-import { NonEmptyArray } from "@webiny/api/types";
-import { IValidateImportFromUrlInput } from "~/tasks/domain/abstractions/ValidateImportFromUrl";
+import type { NonEmptyArray } from "@webiny/api/types";
+import type { IValidateImportFromUrlInput } from "~/tasks/domain/abstractions/ValidateImportFromUrl";
 import { HeadObjectCommand, S3Client } from "@webiny/aws-sdk/client-s3";
 import { mockClient } from "aws-sdk-client-mock";
 

@@ -1,31 +1,33 @@
 import React from "react";
 import type ApolloClient from "apollo-client";
-import { useI18N } from "@webiny/app-i18n/hooks/useI18N.js";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
-import { config as appConfig } from "@webiny/app/config.js";
-import { type CmsContentEntry, type CmsContentEntryRevision, type CmsErrorResponse, type CmsModel } from "~/types.js";
+import { useI18N } from "@webiny/app-i18n/hooks/useI18N";
+import { CircularProgress } from "@webiny/ui/Progress";
+import { config as appConfig } from "@webiny/app/config";
+import type { CmsContentEntry, CmsContentEntryRevision, CmsErrorResponse, CmsModel } from "~/types";
+import type {
+    CmsEntriesListRevisionsQueryResponse,
+    CmsEntriesListRevisionsQueryVariables,
+    CmsEntryBulkActionMutationResponse,
+    CmsEntryBulkActionMutationVariables,
+    CmsEntryCreateFromMutationResponse,
+    CmsEntryCreateFromMutationVariables,
+    CmsEntryCreateMutationResponse,
+    CmsEntryCreateMutationVariables,
+    CmsEntryDeleteMutationResponse,
+    CmsEntryDeleteMutationVariables,
+    CmsEntryGetQueryResponse,
+    CmsEntryGetQueryVariables,
+    CmsEntryGetSingletonQueryResponse,
+    CmsEntryPublishMutationResponse,
+    CmsEntryPublishMutationVariables,
+    CmsEntryUnpublishMutationResponse,
+    CmsEntryUnpublishMutationVariables,
+    CmsEntryUpdateMutationResponse,
+    CmsEntryUpdateMutationVariables,
+    CmsEntryUpdateSingletonMutationResponse,
+    CmsEntryUpdateSingletonMutationVariables
+} from "@webiny/app-headless-cms-common";
 import {
-    type CmsEntriesListRevisionsQueryResponse,
-    type CmsEntriesListRevisionsQueryVariables,
-    type CmsEntryBulkActionMutationResponse,
-    type CmsEntryBulkActionMutationVariables,
-    type CmsEntryCreateFromMutationResponse,
-    type CmsEntryCreateFromMutationVariables,
-    type CmsEntryCreateMutationResponse,
-    type CmsEntryCreateMutationVariables,
-    type CmsEntryDeleteMutationResponse,
-    type CmsEntryDeleteMutationVariables,
-    type CmsEntryGetQueryResponse,
-    type CmsEntryGetQueryVariables,
-    type CmsEntryGetSingletonQueryResponse,
-    type CmsEntryPublishMutationResponse,
-    type CmsEntryPublishMutationVariables,
-    type CmsEntryUnpublishMutationResponse,
-    type CmsEntryUnpublishMutationVariables,
-    type CmsEntryUpdateMutationResponse,
-    type CmsEntryUpdateMutationVariables,
-    type CmsEntryUpdateSingletonMutationResponse,
-    type CmsEntryUpdateSingletonMutationVariables,
     createBulkActionMutation,
     createCreateFromMutation,
     createCreateMutation,
@@ -38,7 +40,7 @@ import {
     createUpdateMutation,
     createUpdateSingletonMutation
 } from "@webiny/app-headless-cms-common";
-import { getFetchPolicy } from "~/utils/getFetchPolicy.js";
+import { getFetchPolicy } from "~/utils/getFetchPolicy";
 
 export interface EntryError {
     message: string;

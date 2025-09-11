@@ -1,13 +1,14 @@
 import React from "react";
 import { css } from "emotion";
 import { plugins } from "@webiny/plugins";
-import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { Grid, Cell } from "@webiny/ui/Grid/index.js";
-import { Form, type FormOnSubmit } from "@webiny/form";
+import { Dialog, DialogTitle, DialogContent, DialogActions, DialogCancel } from "@webiny/ui/Dialog";
+import { Input } from "@webiny/ui/Input";
+import { Grid, Cell } from "@webiny/ui/Grid";
+import type { FormOnSubmit } from "@webiny/form";
+import { Form } from "@webiny/form";
 import styled from "@emotion/styled";
 import { validation } from "@webiny/validation";
-import { ButtonPrimary } from "@webiny/ui/Button/index.js";
+import { ButtonPrimary } from "@webiny/ui/Button";
 const narrowDialog = css({
     ".mdc-dialog__surface": {
         width: 600,

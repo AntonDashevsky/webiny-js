@@ -1,11 +1,11 @@
 import React from "react";
-import { type PbPageDetailsPlugin } from "~/types.js";
-import Header from "./Header.js";
-import RevisionSelector from "./revisionSelector/RevisionSelector.js";
-import PublishRevision from "./publishRevision/PublishRevision.js";
-import EditRevision from "./editRevision/EditRevision.js";
-import DeletePage from "./deletePage/DeletePage.js";
-import PageOptionsMenu from "./pageOptionsMenu/PageOptionsMenu.js";
+import type { PbPageDetailsPlugin } from "~/types";
+import Header from "./Header";
+import RevisionSelector from "./revisionSelector/RevisionSelector";
+import PublishRevision from "./publishRevision/PublishRevision";
+import EditRevision from "./editRevision/EditRevision";
+import DeletePage from "./deletePage/DeletePage";
+import PageOptionsMenu from "./pageOptionsMenu/PageOptionsMenu";
 
 const plugins: PbPageDetailsPlugin[] = [
     {

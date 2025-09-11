@@ -1,6 +1,6 @@
 import React from "react";
-import { CircularProgress } from "@webiny/ui/Progress/index.js";
+import { OverlayLoader } from "@webiny/admin-ui";
 
 export const LoggingIn = () => {
-    return <CircularProgress label={"Loading identity..."} />;
+    return <OverlayLoader text={"Loading identity..."} />;
 };

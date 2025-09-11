@@ -1,9 +1,9 @@
 import React from "react";
-import { MenuItem } from "@webiny/ui/Menu/index.js";
-import { ListItemGraphic } from "@webiny/ui/List/index.js";
-import { Icon } from "@webiny/ui/Icon/index.js";
+import { MenuItem } from "@webiny/ui/Menu";
+import { ListItemGraphic } from "@webiny/ui/List";
+import { Icon } from "@webiny/ui/Icon";
 import { ReactComponent as EditIcon } from "~/admin/assets/edit.svg";
-import { type PbPageData, type PbPageRevision } from "~/types.js";
+import type { PbPageData, PbPageRevision } from "~/types";
 import { makeDecoratable } from "@webiny/app-admin";
 
 export interface EditRevisionMenuOptionProps {

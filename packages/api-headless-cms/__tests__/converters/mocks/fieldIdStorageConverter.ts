@@ -1,4 +1,4 @@
-import { CmsEntry, CmsModel, CmsModelDynamicZoneField, CmsModelField } from "~/types";
+import type { CmsEntry, CmsModel, CmsModelDynamicZoneField, CmsModelField } from "~/types";
 import lodashCamelCase from "lodash/camelCase";
 
 type BaseCmsModelField =

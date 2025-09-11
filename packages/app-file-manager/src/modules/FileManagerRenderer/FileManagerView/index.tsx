@@ -1,21 +1,15 @@
 import React from "react";
 import { createDecorator } from "@webiny/react-composition";
-import {
-    DialogsProvider,
-    type FileManagerFileItem,
-    type FileManagerOnChange,
-    FileManagerRenderer as BaseFileManagerRenderer
-} from "@webiny/app-admin";
-import { type FileItem } from "@webiny/app-admin/types.js";
-import FileManagerView from "./FileManagerView.js";
-import {
-    FileManagerViewProvider,
-    type FileManagerViewProviderProps
-} from "~/modules/FileManagerRenderer/FileManagerViewProvider/index.js";
-import { FM_ACO_APP } from "~/constants.js";
-import { FileManagerViewWithConfig } from "./FileManagerViewConfig.js";
-import { FoldersProvider } from "@webiny/app-aco/contexts/folders.js";
-import { NavigateFolderProvider } from "./NavigateFolderProvider.js";
+import type { FileManagerFileItem, FileManagerOnChange } from "@webiny/app-admin";
+import { DialogsProvider, FileManagerRenderer as BaseFileManagerRenderer } from "@webiny/app-admin";
+import type { FileItem } from "@webiny/app-admin/types";
+import FileManagerView from "./FileManagerView";
+import type { FileManagerViewProviderProps } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { FileManagerViewProvider } from "~/modules/FileManagerRenderer/FileManagerViewProvider";
+import { FM_ACO_APP } from "~/constants";
+import { FileManagerViewWithConfig } from "./FileManagerViewConfig";
+import { FoldersProvider } from "@webiny/app-aco/contexts/folders";
+import { NavigateFolderProvider } from "./NavigateFolderProvider";
 import { AcoWithConfig } from "@webiny/app-aco";
 import { CompositionScope } from "@webiny/react-composition";
 

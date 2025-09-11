@@ -1,7 +1,7 @@
-import { Folder } from "../Folder.js";
-import { type ListCache } from "../cache/index.js";
-import { type IGetFolderRepository } from "./IGetFolderRepository.js";
-import { type IGetFolderGateway } from "./IGetFolderGateway.js";
+import { Folder } from "../Folder";
+import type { ListCache } from "../cache";
+import type { IGetFolderRepository } from "./IGetFolderRepository";
+import type { IGetFolderGateway } from "./IGetFolderGateway";
 
 export class GetFolderRepository implements IGetFolderRepository {
     private cache: ListCache<Folder>;

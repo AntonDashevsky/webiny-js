@@ -1,28 +1,29 @@
-import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup.js";
+import { cleanupItems } from "@webiny/db-dynamodb/utils/cleanup";
 import WebinyError from "@webiny/error";
-import { queryAll, type QueryAllParams } from "@webiny/db-dynamodb/utils/query.js";
-import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse.js";
-import { createTable } from "~/definitions/table.js";
-import { createScheduleActionsEntity } from "~/definitions/scheduleActionEntity.js";
-import { type CreateStorageOperationsParams, type PartitionKeyOptions } from "~/types.js";
-import {
-    type ApwScheduleAction,
-    type ApwScheduleActionStorageOperations,
-    type ListWhere,
-    type StorageOperationsCreateScheduleActionParams,
-    type StorageOperationsDeleteCurrentTaskParams,
-    type StorageOperationsDeleteScheduleActionParams,
-    type StorageOperationsGetScheduleActionParams,
-    type StorageOperationsListScheduleActionsParams,
-    type StorageOperationsListScheduleActionsResponse,
-    type StorageOperationsUpdateCurrentTaskParams,
-    type StorageOperationsUpdateScheduleActionParams
-} from "@webiny/api-apw/scheduler/types.js";
-import { filterItems } from "@webiny/db-dynamodb/utils/filter.js";
-import { ApwSchedulerScheduleActionDynamoDbFieldPlugin } from "~/plugins/ApwSchedulerScheduleActionDynamoDbFieldPlugin.js";
+import type { QueryAllParams } from "@webiny/db-dynamodb/utils/query";
+import { queryAll } from "@webiny/db-dynamodb/utils/query";
+import { createListResponse } from "@webiny/db-dynamodb/utils/listResponse";
+import { createTable } from "~/definitions/table";
+import { createScheduleActionsEntity } from "~/definitions/scheduleActionEntity";
+import type { CreateStorageOperationsParams, PartitionKeyOptions } from "~/types";
+import type {
+    ApwScheduleAction,
+    ApwScheduleActionStorageOperations,
+    ListWhere,
+    StorageOperationsCreateScheduleActionParams,
+    StorageOperationsDeleteCurrentTaskParams,
+    StorageOperationsDeleteScheduleActionParams,
+    StorageOperationsGetScheduleActionParams,
+    StorageOperationsListScheduleActionsParams,
+    StorageOperationsListScheduleActionsResponse,
+    StorageOperationsUpdateCurrentTaskParams,
+    StorageOperationsUpdateScheduleActionParams
+} from "@webiny/api-apw/scheduler/types";
+import { filterItems } from "@webiny/db-dynamodb/utils/filter";
+import { ApwSchedulerScheduleActionDynamoDbFieldPlugin } from "~/plugins/ApwSchedulerScheduleActionDynamoDbFieldPlugin";
 import { PluginsContainer } from "@webiny/plugins";
-import { createFields } from "~/definitions/fields.js";
-import dynamoDbFilters from "@webiny/db-dynamodb/plugins/filters/index.js";
+import { createFields } from "~/definitions/fields";
+import dynamoDbFilters from "@webiny/db-dynamodb/plugins/filters";
 import { deleteItem, getClean, put } from "@webiny/db-dynamodb";
 
 export const createStorageOperations = (

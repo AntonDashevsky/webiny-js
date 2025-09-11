@@ -1,10 +1,10 @@
-import { type ILoadingRepository } from "@webiny/app-utils";
-import {
-    type IListFoldersByParentIdsUseCase,
-    type ListFoldersByParentIdsUseCaseParams
-} from "./IListFoldersByParentIdsUseCase.js";
-import { type LoadedCache } from "~/features/index.js";
-import { LoadingActionsEnum } from "~/types.js";
+import type { ILoadingRepository } from "@webiny/app-utils";
+import type {
+    IListFoldersByParentIdsUseCase,
+    ListFoldersByParentIdsUseCaseParams
+} from "./IListFoldersByParentIdsUseCase";
+import type { LoadedCache } from "~/features";
+import { LoadingActionsEnum } from "~/types";
 
 export class ListFoldersByParentIdsUseCaseWithLoading implements IListFoldersByParentIdsUseCase {
     private loadingRepository: ILoadingRepository;

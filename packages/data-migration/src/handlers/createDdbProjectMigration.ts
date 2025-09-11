@@ -1,23 +1,25 @@
-import { Table } from "@webiny/db-dynamodb/toolbox.js";
+import type { Table } from "@webiny/db-dynamodb/toolbox";
 import { createRawEventHandler } from "@webiny/handler-aws";
-import { Constructor, createContainer } from "@webiny/ioc";
-import { IsMigrationApplicable, MigrationRunner } from "~/MigrationRunner.js";
+import type { Constructor } from "@webiny/ioc";
+import { createContainer } from "@webiny/ioc";
+import type { IsMigrationApplicable } from "~/MigrationRunner";
+import { MigrationRunner } from "~/MigrationRunner";
 import {
     ExecutionTimeLimiterSymbol,
     MigrationRepositorySymbol,
     MigrationSymbol,
     PrimaryDynamoTableSymbol
-} from "~/symbols.js";
-import { MigrationRepositoryImpl } from "~/repository/migrations.repository.js";
-import { devVersionErrorResponse } from "./devVersionErrorResponse.js";
-import { createPatternMatcher } from "./createPatternMatcher.js";
-import {
+} from "~/symbols";
+import { MigrationRepositoryImpl } from "~/repository/migrations.repository";
+import { devVersionErrorResponse } from "./devVersionErrorResponse";
+import { createPatternMatcher } from "./createPatternMatcher";
+import type {
     DataMigration,
     ExecutionTimeLimiter,
     MigrationEventHandlerResponse,
     MigrationEventPayload,
     MigrationRepository
-} from "~/types.js";
+} from "~/types";
 import { coerce as semverCoerce } from "semver";
 
 interface CreateDdbDataMigrationConfig {

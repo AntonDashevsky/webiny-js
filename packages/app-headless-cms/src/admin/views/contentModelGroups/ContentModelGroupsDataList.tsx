@@ -1,9 +1,10 @@
 import React, { useCallback, useMemo, useState } from "react";
-import get from "lodash/get.js";
-import orderBy from "lodash/orderBy.js";
+import get from "lodash/get";
+import orderBy from "lodash/orderBy";
 import dotProp from "dot-prop-immutable";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { DeleteIcon } from "@webiny/ui/List/DataList/icons/index.js";
+import { i18n } from "@webiny/app/i18n";
+import { ReactComponent as AddIcon } from "@webiny/icons/add.svg";
+import { DeleteIcon } from "@webiny/ui/List/DataList/icons";
 import {
     DataList,
     DataListModalOverlay,
@@ -13,24 +14,20 @@ import {
     ListItem,
     ListItemMeta,
     ListItemText,
+    ListItemTextPrimary,
     ListItemTextSecondary
-} from "@webiny/ui/List/index.js";
+} from "@webiny/ui/List";
 import { useRouter } from "@webiny/react-router";
-import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar.js";
-import { useApolloClient, useQuery } from "../../hooks/index.js";
-import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog.js";
-import * as GQL from "./graphql.js";
-import { type CmsGroupWithModels, type ListCmsGroupsQueryResponse } from "./graphql.js";
-import { ButtonIcon, ButtonSecondary } from "@webiny/ui/Button/index.js";
-import { Cell, Grid } from "@webiny/ui/Grid/index.js";
-import { Select } from "@webiny/ui/Select/index.js";
-import SearchUI from "@webiny/app-admin/components/SearchUI.js";
-import { ReactComponent as AddIcon } from "@webiny/app-admin/assets/icons/add-18px.svg";
-import { ReactComponent as FilterIcon } from "@webiny/app-admin/assets/icons/filter-24px.svg";
-import { deserializeSorters } from "../utils.js";
-import usePermission from "../../hooks/usePermission.js";
-import { Tooltip } from "@webiny/ui/Tooltip/index.js";
-import { type CmsGroup } from "~/types.js";
+import { useSnackbar } from "@webiny/app-admin/hooks/useSnackbar";
+import { useApolloClient, useQuery } from "../../hooks";
+import { useConfirmationDialog } from "@webiny/app-admin/hooks/useConfirmationDialog";
+import * as GQL from "./graphql";
+import type { CmsGroupWithModels, ListCmsGroupsQueryResponse } from "./graphql";
+import SearchUI from "@webiny/app-admin/components/SearchUI";
+import { deserializeSorters } from "../utils";
+import usePermission from "../../hooks/usePermission";
+import type { CmsGroup } from "~/types";
+import { Button, Select, Tooltip } from "@webiny/admin-ui";
 
 const t = i18n.ns("app-headless-cms/admin/content-model-groups/data-list");
 
@@ -150,24 +147,16 @@ const ContentModelGroupsDataList = ({ canCreate }: ContentModelGroupsDataListPro
     const contentModelGroupsDataListModalOverlay = useMemo(
         () => (
             <DataListModalOverlay>
-                <Grid>
-                    <Cell span={12}>
-                        <Select
-                            value={sort}
-                            onChange={setSort}
-                            label={t`Sort by`}
-                            description={"Sort groups by"}
-                        >
-                            {SORTERS.map(({ label, sorters }) => {
-                                return (
-                                    <option key={label} value={sorters}>
-                                        {label}
-                                    </option>
-                                );
-                            })}
-                        </Select>
-                    </Cell>
-                </Grid>
+                <Select
+                    value={sort}
+                    onChange={setSort}
+                    label={t`Sort by`}
+                    description={"Sort groups by"}
+                    options={SORTERS.map(sorter => ({
+                        label: sorter.label,
+                        value: sorter.sorters
+                    }))}
+                />
             </DataListModalOverlay>
         ),
         [sort]
@@ -184,30 +173,29 @@ const ContentModelGroupsDataList = ({ canCreate }: ContentModelGroupsDataListPro
         <DataList
             loading={listQuery.loading}
             data={contentModelGroups}
-            title={t`Content Model Groups`}
+            title={t`Content model groups`}
             actions={
                 canCreate ? (
-                    <ButtonSecondary
-                        data-testid="new-record-button"
+                    <Button
+                        data-testid="new-group-button"
                         onClick={() => history.push("/cms/content-model-groups?new=true")}
-                    >
-                        <ButtonIcon icon={<AddIcon />} /> {t`New Group`}
-                    </ButtonSecondary>
+                        text={t`New`}
+                        icon={<AddIcon />}
+                        size={"sm"}
+                        className={"wby-ml-xs"}
+                    />
                 ) : null
             }
             search={
                 <SearchUI
                     value={filter}
                     onChange={setFilter}
-                    inputPlaceholder={t`Search content model group`}
+                    inputPlaceholder={t`Search content model group...`}
                 />
             }
             modalOverlay={contentModelGroupsDataListModalOverlay}
             modalOverlayAction={
-                <DataListModalOverlayAction
-                    icon={<FilterIcon />}
-                    data-testid={"default-data-list.filter"}
-                />
+                <DataListModalOverlayAction data-testid={"default-data-list.filter"} />
             }
             refresh={onRefreshClick}
         >
@@ -220,7 +208,7 @@ const ContentModelGroupsDataList = ({ canCreate }: ContentModelGroupsDataListPro
                                     history.push(`/cms/content-model-groups?id=${item.id}`)
                                 }
                             >
-                                {item.name}
+                                <ListItemTextPrimary>{item.name}</ListItemTextPrimary>
                                 <ListItemTextSecondary>
                                     {item.contentModels.length
                                         ? t`{contentModels|count:1:content model:default:content models}`(
@@ -239,15 +227,16 @@ const ContentModelGroupsDataList = ({ canCreate }: ContentModelGroupsDataListPro
                                                 content={
                                                     "Content model group is registered via a plugin."
                                                 }
-                                                placement={"bottom"}
-                                            >
-                                                <DeleteIcon
-                                                    disabled
-                                                    data-testid={
-                                                        "cms.contentModelGroup.list-item.delete"
-                                                    }
-                                                />
-                                            </Tooltip>
+                                                side={"bottom"}
+                                                trigger={
+                                                    <DeleteIcon
+                                                        disabled
+                                                        data-testid={
+                                                            "cms.contentModelGroup.list-item.delete"
+                                                        }
+                                                    />
+                                                }
+                                            />
                                         ) : (
                                             <DeleteIcon
                                                 onClick={() => deleteItem(item)}

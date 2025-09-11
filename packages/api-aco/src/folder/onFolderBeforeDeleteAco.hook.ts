@@ -1,6 +1,6 @@
 import WebinyError from "@webiny/error";
-import { type AcoContext, type SearchRecord } from "~/types.js";
-import { ensureFolderIsEmpty } from "~/folder/ensureFolderIsEmpty.js";
+import type { AcoContext, SearchRecord } from "~/types";
+import { ensureFolderIsEmpty } from "~/folder/ensureFolderIsEmpty";
 
 export const onFolderBeforeDeleteAcoHook = (context: AcoContext) => {
     context.aco.folder.onFolderBeforeDelete.subscribe(async ({ folder }) => {

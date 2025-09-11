@@ -1,6 +1,6 @@
-import { type CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins/index.js";
-import { type ElasticsearchQueryBuilderOperatorPlugin } from "@webiny/api-elasticsearch";
-import { type CmsModelField } from "@webiny/api-headless-cms/types/index.js";
+import type { CmsEntryElasticsearchQueryBuilderValueSearchPlugin } from "~/plugins";
+import type { ElasticsearchQueryBuilderOperatorPlugin } from "@webiny/api-elasticsearch";
+import type { CmsModelField } from "@webiny/api-headless-cms/types";
 
 /**
  * ./fields

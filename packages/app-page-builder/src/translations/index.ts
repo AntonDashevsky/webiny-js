@@ -1,12 +1,12 @@
-export * from "./translatableCollection/saveTranslatableCollection/useSaveTranslatableCollection.js";
-export * from "./translatedCollection/TranslatedCollection.js";
-export * from "./translatedCollection/getTranslatedCollection/useTranslatedCollection.js";
-export * from "./translatedCollection/saveTranslatedCollection/useSaveTranslatedCollection.js";
+export * from "./translatableCollection/saveTranslatableCollection/useSaveTranslatableCollection";
+export * from "./translatedCollection/TranslatedCollection";
+export * from "./translatedCollection/getTranslatedCollection/useTranslatedCollection";
+export * from "./translatedCollection/saveTranslatedCollection/useSaveTranslatedCollection";
 
-export * from "./ExtractTranslatableValues/ExtractTranslatableValues.js";
+export * from "./ExtractTranslatableValues/ExtractTranslatableValues";
 export type {
     NewTranslatableItem,
     CreateTranslatableItems
-} from "./ExtractTranslatableValues/ExtractTranslatableValues.js";
-export * from "./ListCache.js";
-export * from "./Loading.js";
+} from "./ExtractTranslatableValues/ExtractTranslatableValues";
+export * from "./ListCache";
+export * from "./Loading";

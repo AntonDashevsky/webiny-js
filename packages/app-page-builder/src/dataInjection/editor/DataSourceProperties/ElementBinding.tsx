@@ -1,10 +1,10 @@
 import React from "react";
-import { EditorConfig } from "~/editor/index.js";
-import { useActiveElement } from "~/editor/index.js";
-import { Input } from "@webiny/ui/Input/index.js";
-import { type PbEditorElement } from "~/types.js";
-import { useInputBinding } from "./useInputBinding.js";
-import { DelayedOnChange } from "@webiny/ui/DelayedOnChange/index.js";
+import { EditorConfig } from "~/editor";
+import { useActiveElement } from "~/editor";
+import { Input } from "@webiny/ui/Input";
+import type { PbEditorElement } from "~/types";
+import { useInputBinding } from "./useInputBinding";
+import { DelayedOnChange } from "@webiny/ui/DelayedOnChange";
 
 const { Ui } = EditorConfig;
 
@@ -56,7 +56,10 @@ const ElementInputUi = ({ inputName, label }: ElementInputUiProps) => {
     return (
         <>
             <DelayedOnChange value={value} onChange={onChange}>
-                {({ value, onChange }) => <Input label={label} value={value} onChange={onChange} />}
+                {({ value, onChange }) => {
+                    // @ts-expect-error TODO
+                    return <Input label={label} value={value} onChange={onChange} />;
+                }}
             </DelayedOnChange>
         </>
     );

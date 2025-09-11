@@ -1,5 +1,5 @@
 import dot from "dot-prop-immutable";
-import { type CmsModelField, type CmsModel } from "~/types.js";
+import type { CmsModelField, CmsModel } from "~/types";
 
 type DeleteFieldParamsData = Pick<CmsModel, "fields" | "layout">;
 interface DeleteFieldParams {

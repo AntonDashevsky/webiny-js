@@ -2,7 +2,7 @@
  * We want to have an abstract type, which does not define specifics of each possible icon (like color or skin tone).
  */
 export type Icon = {
-    // eslint-disable-next-line @typescript-eslint/ban-types
+    // eslint-disable-next-line @typescript-eslint/no-restricted-types
     type: "icon" | "emoji" | "custom" | (string & {});
     name: string;
     value?: string;
@@ -22,5 +22,5 @@ type CategoryNameRow = {
 export type IconPickerGridRow = IconsRow | CategoryNameRow;
 
 export enum ICON_PICKER_SIZE {
-    SMALL = "small"
+    SMALL = "sm"
 }

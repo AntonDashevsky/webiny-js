@@ -1,4 +1,4 @@
-import { type Asset, type AssetReply } from "~/delivery/index.js";
+import type { Asset, AssetReply } from "~/delivery";
 
 export interface AssetOutputStrategy {
     output(asset: Asset): Promise<AssetReply>;

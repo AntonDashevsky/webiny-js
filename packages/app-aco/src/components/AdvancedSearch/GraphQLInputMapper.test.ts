@@ -1,5 +1,6 @@
-import { GraphQLInputMapper } from "./GraphQLInputMapper.js";
-import { Operation, type FilterDTO } from "./domain/index.js";
+import { GraphQLInputMapper } from "./GraphQLInputMapper";
+import type { FilterDTO } from "./domain";
+import { Operation } from "./domain";
 
 describe("GraphQLInputMapper", () => {
     it("should return a GraphQL formatted output based on the received FilterDTO", () => {

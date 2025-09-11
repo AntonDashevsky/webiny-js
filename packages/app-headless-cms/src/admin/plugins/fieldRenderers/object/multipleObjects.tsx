@@ -1,8 +1,8 @@
 import React from "react";
-import { i18n } from "@webiny/app/i18n/index.js";
-import { type CmsModelFieldRendererPlugin, type CmsModelFieldRendererProps } from "~/types.js";
-import { MultiValueContainer } from "./MultiValueContainer.js";
-import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings.js";
+import { i18n } from "@webiny/app/i18n";
+import type { CmsModelFieldRendererPlugin, CmsModelFieldRendererProps } from "~/types";
+import { MultiValueContainer } from "./MultiValueContainer";
+import { MultiValueRendererSettings } from "~/admin/plugins/fieldRenderers/MultiValueRendererSettings";
 
 const t = i18n.ns("app-headless-cms/admin/fields/text");
 

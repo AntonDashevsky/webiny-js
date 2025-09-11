@@ -1,13 +1,13 @@
-import type { Entity as ToolboxEntity } from "~/toolbox.js";
+import type { Entity as ToolboxEntity } from "~/toolbox";
 import type {
     IEntityReadBatchBuilder,
     IEntityReadBatchBuilderGetResponse,
     IEntityReadBatchKey
-} from "./types.js";
+} from "./types";
 import { WebinyError } from "@webiny/error";
-import { Entity } from "./Entity.js";
-import type { EntityOption } from "./getEntity.js";
-import { getEntity } from "./getEntity.js";
+import type { Entity } from "./Entity";
+import type { EntityOption } from "./getEntity";
+import { getEntity } from "./getEntity";
 
 export class EntityReadBatchBuilder implements IEntityReadBatchBuilder {
     private readonly entity: ToolboxEntity;
