@@ -28,10 +28,6 @@ export const getElasticsearchEntity = (params: IGetElasticsearchEntityParams) =>
                 return getByPredicate(createPredicate("cms", ["es"]));
             case EntityType.PAGE_BUILDER:
                 return getByPredicate(createPredicate("pb", ["es"]));
-            case EntityType.FORM_BUILDER:
-                return getByPredicate(createPredicate("fb", ["es"]));
-            case EntityType.FORM_BUILDER_SUBMISSION:
-                return getByPredicate(createPredicate("fb", ["es", "form-submission"]));
         }
     } catch {}
     throw new Error(`Unknown entity type "${type}".`);

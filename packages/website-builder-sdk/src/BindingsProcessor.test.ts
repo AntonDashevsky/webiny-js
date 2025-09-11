@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { BindingsProcessor } from "./BindingsProcessor.js";
 import type { DocumentElementBindings } from "~/types.js";
 

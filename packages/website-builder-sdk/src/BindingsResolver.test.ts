@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { BindingsResolver } from "./BindingsResolver.js";
 import type {
     DocumentElement,

@@ -1,10 +1,10 @@
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import { CreatePage } from "~/features/pages/createPage/CreatePage.js";
 import { pageListCache } from "~/domain/Page/index.js";
-import { jest } from "@jest/globals";
 
 describe("CreatePage", () => {
     const gateway = {
-        execute: jest.fn().mockResolvedValue({
+        execute: vi.fn().mockResolvedValue({
             id: "page-1#0001",
             entryId: "page-1",
             wbyAco_location: {

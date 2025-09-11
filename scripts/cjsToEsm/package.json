@@ -14,5 +14,8 @@
     "read-json-sync": "2.0.1",
     "ts-morph": "^24.0.0",
     "tsx": "^4.16.2"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.6"
   }
 }

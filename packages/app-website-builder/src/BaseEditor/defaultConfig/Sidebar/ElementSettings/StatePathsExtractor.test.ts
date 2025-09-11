@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { StatePathsExtractor } from "./StatePathsExtractor.js";
 
 // This test is skipped because its underlying functionality is currently not being used.

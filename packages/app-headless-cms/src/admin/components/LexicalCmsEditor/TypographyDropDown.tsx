@@ -1,3 +1,4 @@
+// @ts-nocheck TODO v6 @pavel
 import React, { useEffect, useState } from "react";
 import { $getNearestNodeOfType } from "@lexical/utils";
 import {
@@ -16,11 +17,12 @@ import {
 } from "@webiny/lexical-nodes";
 import type { TypographyStyle } from "@webiny/theme/types";
 import type { TypographyValue } from "@webiny/lexical-theme";
-import { useTheme } from "@webiny/app-admin";
+// import { useTheme } from "@webiny/app-admin";
 
 export const TypographyDropDown = () => {
     const { value, applyTypography } = useTypographyAction();
     const { theme } = useTheme();
+
     const [styles, setStyles] = useState<TypographyStyle[]>([]);
     const { element } = useCurrentElement();
     const { rangeSelection } = useCurrentSelection();

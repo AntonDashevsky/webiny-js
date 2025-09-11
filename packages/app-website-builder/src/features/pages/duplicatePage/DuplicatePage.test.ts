@@ -1,11 +1,11 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { DuplicatePage } from "./DuplicatePage.js";
 import { WbPageStatus } from "~/constants.js";
 import { Page, pageListCache } from "~/domain/Page/index.js";
-import { jest } from "@jest/globals";
 
 describe("DuplicatePage", () => {
     const gateway = {
-        execute: jest.fn().mockResolvedValue({
+        execute: vi.fn().mockResolvedValue({
             id: "page-1-duplicated#0001",
             entryId: "page-1-duplicated",
             status: WbPageStatus.Draft,

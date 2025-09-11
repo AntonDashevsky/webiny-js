@@ -1,11 +1,11 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { GetPage } from "~/features/pages/getPage/GetPage.js";
 import { WbPageStatus } from "~/constants.js";
 import { fullPageCache } from "~/domain/Page/index.js";
-import { jest } from "@jest/globals";
 
 describe("GetPage", () => {
     const gateway = {
-        execute: jest.fn().mockResolvedValue({
+        execute: vi.fn().mockResolvedValue({
             id: "page-1#0001",
             entryId: "page-1",
             status: WbPageStatus.Draft,
@@ -29,7 +29,7 @@ describe("GetPage", () => {
 
     beforeEach(() => {
         fullPageCache.clear();
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should be able to get a page", async () => {
@@ -80,7 +80,7 @@ describe("GetPage", () => {
 
     it("should handle gateway errors gracefully", async () => {
         const errorGateway = {
-            execute: jest.fn().mockRejectedValue(new Error("Gateway error"))
+            execute: vi.fn().mockRejectedValue(new Error("Gateway error"))
         };
         const getPage = GetPage.getInstance(errorGateway);
 

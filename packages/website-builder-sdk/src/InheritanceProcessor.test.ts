@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { InheritanceProcessor } from "./InheritanceProcessor.js";
 import type { InputAstNode } from "~/ComponentManifestToAstConverter.js";
 

@@ -1,4 +1,4 @@
-import { getAuditObject } from "~/utils/getAuditObject.js";
+import { getAuditObject } from "~/utils/getAuditObject";
 import { apps as auditLogsApps } from "@webiny/common-audit-logs/index.js";
 
 describe("getAuditObject", () => {

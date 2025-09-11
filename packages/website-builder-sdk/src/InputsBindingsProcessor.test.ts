@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { InputsBindingsProcessor } from "./InputBindingsProcessor.js";
 import type { InputAstNode } from "~/ComponentManifestToAstConverter.js";
 import type { DocumentElementBindings } from "~/types.js";

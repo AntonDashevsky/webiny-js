@@ -1,7 +1,7 @@
-import { getAuditConfig } from "~/utils/getAuditConfig.js";
-import { useHandler } from "./helpers/useHandler.js";
+import { getAuditConfig } from "~/utils/getAuditConfig";
+import { useHandler } from "./helpers/useHandler";
 import { ActionType } from "@webiny/common-audit-logs/index.js";
-import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index.js";
+import { getDocumentClient } from "@webiny/project-utils/testing/dynamodb/index";
 import { attachAuditLogOnCreateEvent } from "~/context/lifecycle.js";
 import { auditAction } from "~tests/mocks/auditAction.js";
 import type { IAuditLog } from "~/storage/types.js";

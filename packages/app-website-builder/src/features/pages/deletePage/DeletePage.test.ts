@@ -1,11 +1,11 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { DeletePage } from "./DeletePage.js";
 import { WbPageStatus } from "~/constants.js";
 import { Page, pageListCache } from "~/domain/Page/index.js";
-import { jest } from "@jest/globals";
 
 describe("DeletePage", () => {
     const gateway = {
-        execute: jest.fn().mockResolvedValue(true)
+        execute: vi.fn().mockResolvedValue(true)
     };
     const pagesCache = pageListCache;
 

@@ -1,13 +1,13 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { UpdatePage } from "./UpdatePage.js";
 import { WbPageStatus } from "~/constants.js";
 import { Page, pageListCache } from "~/domain/Page/index.js";
-import { jest } from "@jest/globals";
 
 describe("UpdatePage", () => {
     const pagesCache = pageListCache;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         pagesCache.clear();
         pagesCache.addItems([
             Page.create({
@@ -35,7 +35,7 @@ describe("UpdatePage", () => {
 
     it("should be able to update a page", async () => {
         const gateway = {
-            execute: jest.fn().mockResolvedValue({
+            execute: vi.fn().mockResolvedValue({
                 id: "page-1#0001",
                 entryId: "page-1",
                 status: WbPageStatus.Draft,
@@ -103,7 +103,7 @@ describe("UpdatePage", () => {
 
     it("should not update a page if id is missing", async () => {
         const gateway = {
-            execute: jest.fn().mockResolvedValue(null)
+            execute: vi.fn().mockResolvedValue(null)
         };
 
         const updatePage = UpdatePage.getInstance(gateway);
@@ -134,7 +134,7 @@ describe("UpdatePage", () => {
 
     it("should handle gateway errors gracefully", async () => {
         const gateway = {
-            execute: jest.fn().mockRejectedValue(new Error("Gateway error"))
+            execute: vi.fn().mockRejectedValue(new Error("Gateway error"))
         };
 
         const updatePage = UpdatePage.getInstance(gateway);

@@ -1,11 +1,11 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { CreatePageRevisionFrom } from "./CreatePageRevisionFrom.js";
 import { WbPageStatus } from "~/constants.js";
 import { Page, pageListCache } from "~/domain/Page/index.js";
-import { jest } from "@jest/globals";
 
 describe("CreatePageRevisionFrom", () => {
     const gateway = {
-        execute: jest.fn().mockResolvedValue({
+        execute: vi.fn().mockResolvedValue({
             id: "page-1#0002",
             entryId: "page-1",
             status: WbPageStatus.Draft,
@@ -31,7 +31,7 @@ describe("CreatePageRevisionFrom", () => {
     const pagesCache = pageListCache;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         pagesCache.clear();
         pagesCache.addItems([
             Page.create({

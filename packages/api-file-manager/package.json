@@ -38,6 +38,7 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
+    "@types/object-hash": "^3.0.6",
     "@webiny/api-i18n": "0.0.0",
     "@webiny/project-utils": "0.0.0",
     "@webiny/utils": "0.0.0",

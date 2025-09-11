@@ -1,5 +1,5 @@
 import type { IAccessPattern } from "../abstractions/AccessPattern.js";
-import type { Entity } from "@webiny/db-dynamodb/toolbox.js";
+import type { Entity } from "@webiny/db-dynamodb/toolbox";
 import { DefaultAccessPattern } from "~/storage/accessPatterns/DefaultAccessPattern.js";
 import { AppAccessPattern } from "~/storage/accessPatterns/AppAccessPattern.js";
 import { AppAndActionAccessPattern } from "~/storage/accessPatterns/AppAndActionAccessPattern.js";

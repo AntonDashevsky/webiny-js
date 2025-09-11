@@ -1,11 +1,11 @@
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { UnpublishPage } from "./UnpublishPage.js";
 import { WbPageStatus } from "~/constants.js";
 import { Page, pageListCache } from "~/domain/Page/index.js";
-import { jest } from "@jest/globals";
 
 describe("UnpublishPage", () => {
     const gateway = {
-        execute: jest.fn().mockResolvedValue({
+        execute: vi.fn().mockResolvedValue({
             id: "page-1#0001",
             entryId: "page-1",
             status: WbPageStatus.Unpublished,
@@ -30,7 +30,7 @@ describe("UnpublishPage", () => {
     const pagesCache = pageListCache;
 
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         pagesCache.clear();
         pagesCache.addItems([
             Page.create({

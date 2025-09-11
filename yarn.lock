@@ -14861,6 +14861,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/archiver@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "@types/archiver@npm:6.0.3"
+  dependencies:
+    "@types/readdir-glob": "npm:*"
+  checksum: 10/c0ab3ca45b02baf2020b5ddb9f61452b5f9600db3a700ea365a46572f81baaaeb3b53ff5391b443df01af1492f470114006721e1850179da513b87cc5e6f441d
+  languageName: node
+  linkType: hard
+
 "@types/aria-query@npm:^5.0.1":
   version: 5.0.1
   resolution: "@types/aria-query@npm:5.0.1"
@@ -15006,6 +15015,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/cli-progress@npm:^3.11.6":
+  version: 3.11.6
+  resolution: "@types/cli-progress@npm:3.11.6"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10/0209929b252e61260cd9212ac220dfff97471cfe345323f35b37a65a83fcfa3117d129fea08824e2bd9841075db74ac04a8cc63d0d474493ef810d30e217bf7e
+  languageName: node
+  linkType: hard
+
 "@types/connect-history-api-fallback@npm:^1.5.4":
   version: 1.5.4
   resolution: "@types/connect-history-api-fallback@npm:1.5.4"
@@ -15087,6 +15105,13 @@ __metadata:
   version: 0.0.9
   resolution: "@types/doctrine@npm:0.0.9"
   checksum: 10/64ef06e6eea2f4f9684d259fedbcb8bf21c954630b96ea2e04875ca42763552b0ba3b01b3dd27ec0f9ea6f8b3b0dba4965d31d5a925cd4c6225fd13a93ae9354
+  languageName: node
+  linkType: hard
+
+"@types/dot-object@npm:^2.1.6":
+  version: 2.1.6
+  resolution: "@types/dot-object@npm:2.1.6"
+  checksum: 10/e1c2965634203458980538d95dd99e6ba85ef403298def51544e7bcfe16298c55ff1d3ada3dec95aa8fffcadba6afdf020206cf47c11a9649ec88322e1457316
   languageName: node
   linkType: hard
 
@@ -15658,6 +15683,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/object-hash@npm:^3.0.6":
+  version: 3.0.6
+  resolution: "@types/object-hash@npm:3.0.6"
+  checksum: 10/2c7979d4e540af817b99c09fb4c2fed1c0b0e14342df474d8dcde4165a82c440b038341fd66fe998d9f86acdd5cccc65ba8092315e39e7c2114f945fa70aaa56
+  languageName: node
+  linkType: hard
+
 "@types/pako@npm:^2.0.3":
   version: 2.0.3
   resolution: "@types/pako@npm:2.0.3"
@@ -15859,6 +15891,15 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10/8cd8bb384931dc6e40e5517443c4d7d369ee1bfdd2200c844dd428190d886e3093b5d40808d007df336377f5d9ac4e7d1546e3e843d02a3bdf1d1477ecb0f4d2
+  languageName: node
+  linkType: hard
+
+"@types/readdir-glob@npm:*":
+  version: 1.1.5
+  resolution: "@types/readdir-glob@npm:1.1.5"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10/58625586589a2cbcf19d7bff5a9b61e961b42e438e5a4f537633785efdcacfad15d3b32df3d27926696b36b43eb86eeb790fce9373fa357ab87720c64f86618b
   languageName: node
   linkType: hard
 
@@ -16949,6 +16990,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny-scripts/cjs-to-esm@workspace:scripts/cjsToEsm"
   dependencies:
+    "@types/cli-progress": "npm:^3.11.6"
     cli-progress: "npm:^3.12.0"
     fast-glob: "npm:^3.2.7"
     find-up: "npm:5.0.0"
@@ -17407,6 +17449,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/api-file-manager@workspace:packages/api-file-manager"
   dependencies:
+    "@types/object-hash": "npm:^3.0.6"
     "@webiny/api": "npm:0.0.0"
     "@webiny/api-headless-cms": "npm:0.0.0"
     "@webiny/api-i18n": "npm:0.0.0"
@@ -17526,6 +17569,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/api-headless-cms-ddb@workspace:packages/api-headless-cms-ddb"
   dependencies:
+    "@types/dot-object": "npm:^2.1.6"
     "@types/jsonpack": "npm:^1.1.6"
     "@webiny/api": "npm:0.0.0"
     "@webiny/api-headless-cms": "npm:0.0.0"
@@ -17538,6 +17582,7 @@ __metadata:
     "@webiny/project-utils": "npm:0.0.0"
     "@webiny/utils": "npm:0.0.0"
     dataloader: "npm:^2.2.2"
+    dot-object: "npm:^2.1.5"
     dot-prop: "npm:^6.0.1"
     jest-dynalite: "npm:^3.6.1"
     lodash: "npm:^4.17.21"
@@ -17578,6 +17623,7 @@ __metadata:
     "@jest/globals": "npm:^29.7.0"
     "@smithy/node-http-handler": "npm:^2.1.6"
     "@types/adm-zip": "npm:^0.5.5"
+    "@types/archiver": "npm:^6.0.3"
     "@types/unzipper": "npm:^0.10.10"
     "@webiny/api": "npm:0.0.0"
     "@webiny/api-admin-users": "npm:0.0.0"
@@ -23866,7 +23912,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^6.2.0, commander@npm:^6.2.1":
+"commander@npm:^6.1.0, commander@npm:^6.2.0, commander@npm:^6.2.1":
   version: 6.2.1
   resolution: "commander@npm:6.2.1"
   checksum: 10/25b88c2efd0380c84f7844b39cf18510da7bfc5013692d68cdc65f764a1c34e6c8a36ea6d72b6620e3710a930cf8fab2695bdec2bf7107a0f4fa30a3ef3b7d0e
@@ -25969,6 +26015,18 @@ __metadata:
     no-case: "npm:^3.0.4"
     tslib: "npm:^2.0.3"
   checksum: 10/a65e3519414856df0228b9f645332f974f2bf5433370f544a681122eab59e66038fc3349b4be1cdc47152779dac71a5864f1ccda2f745e767c46e9c6543b1169
+  languageName: node
+  linkType: hard
+
+"dot-object@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "dot-object@npm:2.1.5"
+  dependencies:
+    commander: "npm:^6.1.0"
+    glob: "npm:^7.1.6"
+  bin:
+    dot-object: bin/dot-object
+  checksum: 10/db2414eff38269b6283ea7641f1455d3fdaa4675fe63a4f3595b736cd63e53f3ce4bddfa89e2c10173be5f7383097867e97ad8a8ae41e5e9bad74368ced089f4
   languageName: node
   linkType: hard
 
